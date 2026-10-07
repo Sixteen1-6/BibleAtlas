@@ -36,4 +36,4 @@ Roughly in order of how much they would add for how much work. Each one builds o
 
 **Installable app.** A web manifest and icons so it can be added to a phone's home screen.
 
-**Deploy.** `make web` produces a static site plus one small Node server for the ESV proxy. That fits a single small service on Fly.io or Render, or the static part on GitHub Pages with the ESV turned off.
+**Deploy with the ESV.** The static site is on GitHub Pages with the ESV turned off. To offer the ESV too, run `make serve` (the site plus the small Node proxy) as a single small service on Fly.io or Render with the API key as a secret.

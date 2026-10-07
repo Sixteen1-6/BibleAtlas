@@ -1,0 +1,74 @@
+name: Deploy to GitHub Pages
+
+# Builds the data, the engine and the site, then publishes web/dist as a
+# static site. GitHub Pages has no server, so the ESV is turned off there
+# (VITE_ESV=off); the map, search, word study and the BSB all work.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup target add wasm32-unknown-unknown
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Cache pinned sources
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: sources-${{ hashFiles('sources.json') }}
+
+      - name: Fetch, build and verify the data
+        run: make data
+
+      - name: Build the WebAssembly engine
+        run: make wasm
+
+      - name: Build the site
+        env:
+          VITE_ESV: 'off'
+        run: |
+          cd web
+          npm ci
+          npm run build -- --base=/${{ github.event.repository.name }}/
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

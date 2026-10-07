@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
+import { ESV_ENABLED } from './data/esv';
 import { Engine } from './engine/client';
 import * as S from './state';
 import { pathFromHash, restoreFromHash, syncHash } from './url';
@@ -134,13 +135,15 @@ export function App() {
           Search a verse, phrase or Hebrew/Greek word <kbd>/</kbd>
         </button>
         <span class="spacer" />
-        <div class="seg" role="group" aria-label="English translation">
-          {(['BSB', 'ESV'] as const).map((t) => (
-            <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)}>
-              {t}
-            </button>
-          ))}
-        </div>
+        {ESV_ENABLED && (
+          <div class="seg" role="group" aria-label="English translation">
+            {(['BSB', 'ESV'] as const).map((t) => (
+              <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)}>
+                {t}
+              </button>
+            ))}
+          </div>
+        )}
         <button
           class="iconbtn"
           onClick={() => (S.pageTheme.value = THEME_NEXT[S.pageTheme.value])}

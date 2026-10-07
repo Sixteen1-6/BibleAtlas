@@ -7,6 +7,9 @@ export interface EsvChapter {
   copyright: string;
 }
 
+/** False in builds without the server (for example GitHub Pages, built with VITE_ESV=off). */
+export const ESV_ENABLED = import.meta.env.VITE_ESV !== 'off';
+
 const MAX_CHAPTERS = 2;
 const cache = new Map<string, Promise<EsvChapter>>();
 

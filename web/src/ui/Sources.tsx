@@ -1,6 +1,7 @@
 // Where every piece of data came from, pinned to commits and checksums.
 
 import type { Atlas } from '../data/atlas';
+import { ESV_ENABLED } from '../data/esv';
 
 const LABELS: Record<string, string> = {
   verses: 'verses',
@@ -64,6 +65,7 @@ export function Sources({ a }: { a: Atlas }) {
           ESV API terms
         </a>{' '}
         require. Search, the map and the word links use the BSB, which is public domain.
+        {!ESV_ENABLED && ' This copy of the site has no server, so the ESV is turned off here. Run it yourself with an ESV API key to read the ESV.'}
       </p>
 
       <h3>How to check it yourself</h3>
