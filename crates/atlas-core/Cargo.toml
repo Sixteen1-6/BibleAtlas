@@ -1,0 +1,8 @@
+[package]
+name = "atlas-core"
+description = "Graph engine for the Bible Atlas: canon, versification, binary container format and graph algorithms. no_std so it runs natively and in WebAssembly."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]

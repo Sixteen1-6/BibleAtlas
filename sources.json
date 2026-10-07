@@ -1,0 +1,80 @@
+{
+  "_comment": "Every dataset the build uses, pinned to an exact git commit. `atlas fetch` checks out only the listed files and records their SHA-256 in data/raw/manifest.lock.json; `atlas build` refuses to run if a file no longer matches its recorded hash. Change a commit here to upgrade a source; the build output records which commits it came from.",
+  "sources": [
+    {
+      "id": "openbible-xref",
+      "title": "OpenBible.info Cross References",
+      "provides": "About 340,000 verse-to-verse cross-references with community vote weights (derived from the Treasury of Scripture Knowledge and user votes).",
+      "license": "CC BY 4.0",
+      "attribution": "Cross references from OpenBible.info, CC BY 4.0",
+      "homepage": "https://www.openbible.info/labs/cross-references/",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "xref": "sources/extras/cross_references.txt" },
+      "note": "openbible.info publishes the file directly; this build reads the unmodified copy mirrored in scrollmapper/bible_databases so the input is pinned by git commit."
+    },
+    {
+      "id": "bsb",
+      "title": "Berean Standard Bible (BSB)",
+      "provides": "English text of all 66 books. Used for search, the word-to-word links, and as the default reading text.",
+      "license": "Public domain (dedicated April 2023)",
+      "attribution": "The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com, and the Berean Bible Translation Committee. This text of God's Word has been dedicated to the public domain.",
+      "homepage": "https://berean.bible/",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "bsb": "formats/json/BSB.json" }
+    },
+    {
+      "id": "tahot",
+      "title": "STEPBible TAHOT (Translators Amalgamated Hebrew OT)",
+      "provides": "Every Hebrew and Aramaic word of the Old Testament (Leningrad Codex), with transliteration, contextual English, Strong's root and grammar.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "tahot1": "Translators Amalgamated OT+NT/TAHOT Gen-Deu - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt",
+        "tahot2": "Translators Amalgamated OT+NT/TAHOT Jos-Est - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt",
+        "tahot3": "Translators Amalgamated OT+NT/TAHOT Job-Sng - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt",
+        "tahot4": "Translators Amalgamated OT+NT/TAHOT Isa-Mal - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt"
+      }
+    },
+    {
+      "id": "tagnt",
+      "title": "STEPBible TAGNT (Translators Amalgamated Greek NT)",
+      "provides": "Every Greek word of the New Testament across the major editions (NA27/28, SBL, Tyndale House, Westcott-Hort, Tregelles, Textus Receptus, Byzantine), with which editions contain each word.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "tagnt1": "Translators Amalgamated OT+NT/TAGNT Mat-Jhn - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt",
+        "tagnt2": "Translators Amalgamated OT+NT/TAGNT Act-Rev - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt"
+      }
+    },
+    {
+      "id": "tbesh",
+      "title": "STEPBible TBESH (Brief Lexicon of Extended Strong's, Hebrew)",
+      "provides": "Definitions for each Hebrew and Aramaic root, abridged from BDB.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": { "tbesh": "Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt" }
+    },
+    {
+      "id": "tbesg",
+      "title": "STEPBible TBESG (Brief Lexicon of Extended Strong's, Greek)",
+      "provides": "Definitions for each Greek root, abridged from Abbott-Smith.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": { "tbesg": "Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt" }
+    }
+  ]
+}

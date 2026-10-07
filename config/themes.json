@@ -1,0 +1,165 @@
+{
+  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. `atlas build` fails if any entry matches nothing, so a typo cannot silently empty a theme.",
+  "themes": [
+    {
+      "id": "lamb",
+      "name": "Lamb",
+      "blurb": "From Abel's flock and the Passover to the Lamb on the throne.",
+      "roots": [
+        { "strong": "H3532", "match": ["lamb"] },
+        { "strong": "H3535", "match": ["lamb"] },
+        { "strong": "H7716", "match": ["lamb", "sheep"] },
+        { "strong": "G0286", "match": ["lamb"] },
+        { "strong": "G0721", "match": ["lamb"] }
+      ]
+    },
+    {
+      "id": "light",
+      "name": "Light",
+      "blurb": "The first words of creation, the lamp of the law, the light of the world.",
+      "roots": [
+        { "strong": "H0216", "match": ["light"] },
+        { "strong": "H3974", "match": ["light", "luminary"] },
+        { "strong": "G5457", "match": ["light"] },
+        { "strong": "G5458", "match": ["light", "luminary"] }
+      ]
+    },
+    {
+      "id": "shepherd",
+      "name": "Shepherd",
+      "blurb": "Shepherding as the picture of leading, feeding and protecting a people.",
+      "roots": [
+        { "strong": "H7462", "match": ["shepherd", "pasture", "tend", "feed", "graze"] },
+        { "strong": "G4166", "match": ["shepherd"] },
+        { "strong": "G4165", "match": ["shepherd", "tend"] },
+        { "strong": "G0750", "match": ["shepherd"] }
+      ]
+    },
+    {
+      "id": "vine",
+      "name": "Vine and vineyard",
+      "blurb": "Israel as a planted vine, the vineyard song, the true vine.",
+      "roots": [
+        { "strong": "H1612", "match": ["vine"] },
+        { "strong": "H3754", "match": ["vineyard"] },
+        { "strong": "G0288", "match": ["vine"] },
+        { "strong": "G0290", "match": ["vineyard"] }
+      ]
+    },
+    {
+      "id": "bread",
+      "name": "Bread",
+      "blurb": "Daily bread, manna, the bread of the presence, the bread of life.",
+      "roots": [
+        { "strong": "H3899", "match": ["bread", "food"] },
+        { "strong": "G0740", "match": ["bread", "loaf"] }
+      ]
+    },
+    {
+      "id": "water",
+      "name": "Water",
+      "blurb": "The deep at creation, water from the rock, living water.",
+      "roots": [
+        { "strong": "H4325", "match": ["water"] },
+        { "strong": "G5204", "match": ["water"] }
+      ]
+    },
+    {
+      "id": "rock",
+      "name": "Rock",
+      "blurb": "God as a rock and refuge, the rock in the wilderness, the house on the rock.",
+      "roots": [
+        { "strong": "H6697", "match": ["rock"] },
+        { "strong": "H5553", "match": ["rock", "crag", "cliff"] },
+        { "strong": "G4073", "match": ["rock"] }
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "Fire",
+      "blurb": "The burning bush, the pillar of fire, refining fire, tongues of fire.",
+      "roots": [
+        { "strong": "H0784", "match": ["fire"] },
+        { "strong": "G4442", "match": ["fire"] }
+      ]
+    },
+    {
+      "id": "blood",
+      "name": "Blood",
+      "blurb": "Life is in the blood: sacrifice, covenant and the cup.",
+      "roots": [
+        { "strong": "H1818", "match": ["blood"] },
+        { "strong": "G0129", "match": ["blood"] }
+      ]
+    },
+    {
+      "id": "covenant",
+      "name": "Covenant",
+      "blurb": "Noah, Abraham, Sinai, David, and the new covenant.",
+      "roots": [
+        { "strong": "H1285", "match": ["covenant"] },
+        { "strong": "G1242", "match": ["covenant"] }
+      ]
+    },
+    {
+      "id": "seed",
+      "name": "Seed and offspring",
+      "blurb": "The promised offspring, from Genesis 3 to Galatians 3.",
+      "roots": [
+        { "strong": "H2233", "match": ["seed", "offspring", "descendant"] },
+        { "strong": "G4690", "match": ["seed", "offspring", "descendant"] }
+      ]
+    },
+    {
+      "id": "bride",
+      "name": "Bride and bridegroom",
+      "blurb": "Marriage as the picture of God and his people.",
+      "roots": [
+        { "strong": "H2860", "match": ["bridegroom", "son-in-law"] },
+        { "strong": "H3618", "match": ["bride", "daughter-in-law"] },
+        { "strong": "G3566", "match": ["bridegroom"] },
+        { "strong": "G3565", "match": ["bride", "daughter-in-law"] }
+      ]
+    },
+    {
+      "id": "temple",
+      "name": "Temple and tabernacle",
+      "blurb": "Where God dwells with people: tent, temple, body, city.",
+      "roots": [
+        { "strong": "H1964", "match": ["temple", "palace"] },
+        { "strong": "H4908", "match": ["tabernacle", "dwelling"] },
+        { "strong": "G3485", "match": ["temple", "sanctuary"] },
+        { "strong": "G2411", "match": ["temple"] },
+        { "strong": "G4633", "match": ["tent", "tabernacle"] }
+      ]
+    },
+    {
+      "id": "tree",
+      "name": "Tree",
+      "blurb": "The tree of life, the cursed tree, the leaves for healing.",
+      "roots": [
+        { "strong": "H6086", "match": ["tree", "wood"] },
+        { "strong": "G1186", "match": ["tree"] },
+        { "strong": "G3586", "match": ["wood", "tree"] }
+      ]
+    },
+    {
+      "id": "way",
+      "name": "The way",
+      "blurb": "Walking in the way, the two ways, the way prepared in the wilderness.",
+      "roots": [
+        { "strong": "H1870", "match": ["way", "road"] },
+        { "strong": "G3598", "match": ["way", "road"] }
+      ]
+    },
+    {
+      "id": "spirit",
+      "name": "Spirit, wind and breath",
+      "blurb": "One word in Hebrew and one in Greek carry all three meanings.",
+      "roots": [
+        { "strong": "H7307", "match": ["spirit", "wind", "breath"] },
+        { "strong": "G4151", "match": ["spirit", "wind", "breath"] }
+      ]
+    }
+  ]
+}

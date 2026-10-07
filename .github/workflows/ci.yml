@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component clippy
+          rustup target add wasm32-unknown-unknown
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Cache pinned sources
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: sources-${{ hashFiles('sources.json') }}
+
+      - name: Lint and unit tests
+        run: |
+          cargo clippy --workspace --release -- -D warnings
+          cargo test --workspace --release
+
+      - name: Fetch, build and verify the data
+        run: make data
+
+      - name: Build the WebAssembly engine
+        run: make wasm
+
+      - name: Type-check and build the site
+        run: |
+          cd web
+          npm ci
+          npm run build

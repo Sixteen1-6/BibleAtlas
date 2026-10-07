@@ -1,0 +1,168 @@
+import { useEffect, useState } from 'preact/hooks';
+import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
+import { Engine } from './engine/client';
+import * as S from './state';
+import { pathFromHash, restoreFromHash, syncHash } from './url';
+import { AtlasMap } from './ui/AtlasMap';
+import { Connections } from './ui/Connections';
+import { Hubs, Paths, Themes } from './ui/Explore';
+import { Palette } from './ui/Palette';
+import { Reader } from './ui/Reader';
+import { Sources } from './ui/Sources';
+import { Wheel } from './ui/Wheel';
+import { WordStudy } from './ui/WordStudy';
+
+const TABS: [S.Tab, string][] = [
+  ['connections', 'Connections'],
+  ['word', 'Word'],
+  ['themes', 'Themes'],
+  ['paths', 'Paths'],
+  ['hubs', 'Most connected'],
+  ['sources', 'Sources'],
+];
+
+export function App() {
+  const [progress, setProgress] = useState('Starting');
+  const [error, setError] = useState<string | null>(null);
+  const a = S.atlas.value;
+
+  useEffect(() => {
+    let stop: (() => void) | undefined;
+    loadAtlas(setProgress)
+      .then(async (atlas) => {
+        S.atlas.value = atlas;
+        const eng = new Engine(`${DATA_BASE}atlas.bin?${atlas.version}`);
+        S.engine.value = eng;
+        // Read everything from the link before the address bar starts syncing.
+        restoreFromHash(atlas);
+        const p = pathFromHash(atlas);
+        stop = syncHash(atlas);
+        const t = S.theme.value;
+        if (t) {
+          const th = atlas.themes.find((x) => x.id === t)!;
+          const set = new Set<number>();
+          for (const r of th.roots) for (const v of versesWithRoot(atlas, r)) set.add(v);
+          S.marks.value = { verses: Uint32Array.from([...set].sort((x, y) => x - y)), label: `theme:${t}` };
+        }
+        if (p) {
+          const res = await eng.path(p[0], p[1], 1);
+          if (res) S.path.value = { ...res, ms: eng.lastMs };
+        }
+        // A link pasted into the same tab only changes the hash; follow it.
+        window.addEventListener('hashchange', async () => {
+          const target = pathFromHash(atlas);
+          restoreFromHash(atlas);
+          if (target) {
+            const res = await eng.path(target[0], target[1], 1);
+            if (res) S.path.value = { ...res, ms: eng.lastMs };
+          }
+        });
+      })
+      .catch((e: Error) => setError(e.message));
+    return () => stop?.();
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const typing = (e.target as HTMLElement)?.closest?.('input, textarea');
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
+        e.preventDefault();
+        S.paletteOpen.value = true;
+      } else if (e.key === 'Escape' && !S.paletteOpen.value) {
+        S.selected.value = null;
+        S.path.value = null;
+        S.marks.value = null;
+        S.groupEdges.value = null;
+        S.theme.value = null;
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  if (error) {
+    return (
+      <div class="loading">
+        <div>
+          <h1 style="font-family:var(--font-read)">The data did not load</h1>
+          <p>{error}</p>
+          <p>If you are running from source, build the data first: make data</p>
+        </div>
+      </div>
+    );
+  }
+  if (!a) {
+    return (
+      <div class="loading">
+        <div>
+          <h1 style="font-family:var(--font-read);font-weight:600">Bible Atlas</h1>
+          <p>{progress}…</p>
+        </div>
+      </div>
+    );
+  }
+
+  const tab = S.tab.value;
+  return (
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          Bible Atlas<small>{a.meta.counts.crossReferences.toLocaleString()} links · Hebrew, Aramaic and Greek</small>
+        </div>
+        <button class="searchbox" onClick={() => (S.paletteOpen.value = true)}>
+          Search a verse, phrase or Hebrew/Greek word <kbd>/</kbd>
+        </button>
+        <span class="spacer" />
+        <div class="seg" role="group" aria-label="English translation">
+          {(['BSB', 'ESV'] as const).map((t) => (
+            <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)}>
+              {t}
+            </button>
+          ))}
+        </div>
+        <div class="seg" role="group" aria-label="Map style">
+          <button aria-pressed={S.mapMode.value === 'arcs'} onClick={() => (S.mapMode.value = 'arcs')}>
+            Arcs
+          </button>
+          <button aria-pressed={S.mapMode.value === 'wheel'} onClick={() => (S.mapMode.value = 'wheel')}>
+            Wheel
+          </button>
+        </div>
+      </header>
+      {S.mapMode.value === 'arcs' ? (
+        <AtlasMap a={a} />
+      ) : (
+        <div class="map">
+          <Wheel a={a} />
+        </div>
+      )}
+      <main class="work" data-pane={S.mobilePane.value}>
+        <nav class="mobtabs" role="tablist">
+          <button role="tab" aria-selected={S.mobilePane.value === 'read'} onClick={() => (S.mobilePane.value = 'read')}>
+            Read
+          </button>
+          <button role="tab" aria-selected={S.mobilePane.value === 'study'} onClick={() => (S.mobilePane.value = 'study')}>
+            Study
+          </button>
+        </nav>
+        <Reader a={a} />
+        <aside class="study">
+          <div class="tabs" role="tablist">
+            {TABS.map(([id, name]) => (
+              <button key={id} role="tab" aria-selected={tab === id} onClick={() => (S.tab.value = id)}>
+                {name}
+              </button>
+            ))}
+          </div>
+          {tab === 'connections' && <Connections a={a} />}
+          {tab === 'word' && <WordStudy a={a} />}
+          {tab === 'themes' && <Themes a={a} />}
+          {tab === 'paths' && <Paths a={a} />}
+          {tab === 'hubs' && <Hubs a={a} />}
+          {tab === 'sources' && <Sources a={a} />}
+        </aside>
+      </main>
+      {S.paletteOpen.value && <Palette a={a} />}
+    </div>
+  );
+}

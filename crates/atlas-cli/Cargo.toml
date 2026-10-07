@@ -1,0 +1,16 @@
+[package]
+name = "atlas-cli"
+description = "Builds the Bible Atlas data from pinned open datasets, verifies it, and answers graph queries from the terminal."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "atlas"
+path = "src/main.rs"
+
+[dependencies]
+atlas-core = { path = "../atlas-core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"

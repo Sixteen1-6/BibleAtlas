@@ -1,0 +1,30 @@
+# Data sources and notices
+
+The repository does not contain Bible text or source data. `atlas fetch` downloads it from the original projects at the commits pinned in `sources.json`, and `atlas build` converts it.
+
+## Licenses
+
+| Data | Source | License |
+| --- | --- | --- |
+| Cross-references and vote counts | OpenBible.info, via the unmodified copy in scrollmapper/bible_databases | CC BY 4.0 |
+| Berean Standard Bible (English) | berean.bible, via scrollmapper/bible_databases | Public domain |
+| Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Hebrew and Greek lexicons (TBESH, TBESG) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
+
+Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)" and "Cross references from OpenBible.info (CC BY 4.0)".
+
+## Changes made to the STEPBible data
+
+STEPBible asks that changes to its data be noted. The build changes the presentation only, never the words or the tags:
+
+- Verses are renumbered onto the BSB versification. Hebrew words follow the English (NRSV) reference given in TAHOT; Greek words use the KJV reference given in brackets where TAGNT supplies one, because the BSB follows KJV numbering at those points (for example 2 Corinthians 13:12 to 14 and 3 John 1:14 to 15).
+- Psalm titles (verse 0 in TAHOT) are attached to verse 1, as English Bibles print them.
+- Morpheme separators (`/` and `\`) are removed from the displayed Hebrew and transliteration.
+- Lexicon definitions are converted from HTML to plain text segments (bold, italic, line breaks and verse links are kept).
+- Words found only in non-base editions are kept and flagged, and are excluded from word counts.
+
+## ESV
+
+The ESV text is never stored in this repository or in the build. The server-side proxy (`server/esv.mjs`) requests one chapter at a time, keeps at most 500 verses in memory, and the page shows Crossway's copyright notice with a link to esv.org, as the ESV API terms require. Use beyond the free terms needs a license from Crossway: https://www.crossway.org/permissions/digital/

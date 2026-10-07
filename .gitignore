@@ -1,0 +1,17 @@
+# Rust
+/target
+
+# Downloaded sources (re-created by `make fetch`, pinned in sources.json)
+/data/raw
+
+# Build outputs (re-created by `make data` and `make wasm`)
+/web/public/data
+/web/src/engine/atlas.wasm
+/web/dist
+
+# Node
+/web/node_modules
+
+# Secrets
+.env
+web/.env
