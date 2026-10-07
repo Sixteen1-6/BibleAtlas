@@ -2,29 +2,34 @@
    quiet, paper-like and built for long reading. */
 
 :root {
-  --sky: #0c1428;
-  --sky-2: #121d3a;
-  --sky-line: rgba(172, 188, 232, 0.16);
-  --sky-ink: #e9e4d6;
-  --sky-muted: #8e99b9;
-  --lamp: #ffe2a0;
+  /* The map: a night sky with a warm lamp for anything selected. */
+  --sky: #070a16;
+  --sky-2: #121833;
+  --sky-glass: rgba(9, 12, 28, 0.74);
+  --sky-glass-strong: rgba(9, 12, 28, 0.92);
+  --sky-line: rgba(160, 172, 235, 0.15);
+  --sky-ink: #f3eee2;
+  --sky-muted: #949cbd;
+  --lamp: #ffd27a;
+  --lamp-glow: rgba(255, 210, 122, 0.55);
 
-  --page: #eef0f5;
-  --surface: #ffffff;
-  --surface-2: #f6f7fa;
-  --ink: #18213a;
-  --muted: #5d6683;
-  --line: #dde1ea;
-  --accent: #8a5a00;
-  --accent-soft: #fff1cf;
-  --link: #2f4fb3;
-  --variant: #b26b00;
-  --focus: #2f6bff;
+  /* Reading surfaces: warm paper by day. */
+  --page: #f4efe4;
+  --surface: #fffcf6;
+  --surface-2: #f8f3ea;
+  --ink: #1c1f30;
+  --muted: #625f72;
+  --line: #e4dccd;
+  --accent: #9a5a06;
+  --accent-soft: #fbe9c6;
+  --link: #3546c4;
+  --variant: #b4560f;
+  --focus: #4f5dff;
 
-  --same-book: #2fae94;
-  --near: #4e73e6;
-  --far: #d8962b;
-  --testaments: #d9547b;
+  --same-book: #13a88b;
+  --near: #4a63e0;
+  --far: #c97f12;
+  --testaments: #d63c7c;
 
   --font-ui: 'Instrument Sans', system-ui, sans-serif;
   --font-read: 'Literata', Georgia, serif;
@@ -39,32 +44,40 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --page: #0b1222;
-    --surface: #111a30;
-    --surface-2: #16203a;
-    --ink: #e8e3d4;
-    --muted: #97a1bf;
-    --line: rgba(170, 185, 225, 0.14);
-    --accent: #f2c46d;
-    --accent-soft: rgba(242, 196, 109, 0.12);
-    --link: #9db4ff;
-    --variant: #f0a940;
-    --focus: #8fb0ff;
+    --page: #080b17;
+    --surface: #0e1324;
+    --surface-2: #141a30;
+    --ink: #ece6d6;
+    --muted: #9aa0bd;
+    --line: rgba(160, 172, 235, 0.13);
+    --accent: #f5c46a;
+    --accent-soft: rgba(245, 196, 106, 0.13);
+    --link: #a3b4ff;
+    --variant: #ffa45c;
+    --focus: #8fa2ff;
+    --same-book: #2ee6c4;
+    --near: #6b84ff;
+    --far: #ffb547;
+    --testaments: #ff5c9d;
     color-scheme: dark;
   }
 }
 :root[data-theme='dark'] {
-  --page: #0b1222;
-  --surface: #111a30;
-  --surface-2: #16203a;
-  --ink: #e8e3d4;
-  --muted: #97a1bf;
-  --line: rgba(170, 185, 225, 0.14);
-  --accent: #f2c46d;
-  --accent-soft: rgba(242, 196, 109, 0.12);
-  --link: #9db4ff;
-  --variant: #f0a940;
-  --focus: #8fb0ff;
+  --page: #080b17;
+  --surface: #0e1324;
+  --surface-2: #141a30;
+  --ink: #ece6d6;
+  --muted: #9aa0bd;
+  --line: rgba(160, 172, 235, 0.13);
+  --accent: #f5c46a;
+  --accent-soft: rgba(245, 196, 106, 0.13);
+  --link: #a3b4ff;
+  --variant: #ffa45c;
+  --focus: #8fa2ff;
+  --same-book: #2ee6c4;
+  --near: #6b84ff;
+  --far: #ffb547;
+  --testaments: #ff5c9d;
   color-scheme: dark;
 }
 
@@ -127,18 +140,23 @@ a {
   align-items: center;
   gap: 12px;
   padding: 8px 16px;
-  background: var(--sky);
+  background: linear-gradient(180deg, #03050c, var(--sky));
   color: var(--sky-ink);
   border-bottom: 1px solid var(--sky-line);
 }
 .brand {
   font-family: var(--font-read);
+  background: linear-gradient(90deg, #ffe3a3, var(--lamp) 45%, #ffb36b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
 .brand small {
+  -webkit-text-fill-color: var(--sky-muted);
   font-family: var(--font-ui);
   font-weight: 400;
   font-size: 12px;
@@ -186,6 +204,8 @@ a {
   flex: 1;
 }
 .iconbtn {
+  display: inline-flex;
+  align-items: center;
   border: 1px solid var(--sky-line);
   background: transparent;
   color: var(--sky-ink);
@@ -198,7 +218,7 @@ a {
 .map {
   position: relative;
   height: clamp(260px, 44vh, 560px);
-  background: var(--sky);
+  background: radial-gradient(ellipse 80% 70% at 50% 85%, #141a3c, var(--sky) 70%);
   color: var(--sky-ink);
   overflow: hidden;
   touch-action: none;
@@ -228,7 +248,7 @@ a {
   top: 8px;
   padding: 5px 10px;
   border-radius: var(--r-md);
-  background: rgba(12, 20, 40, 0.78);
+  background: var(--sky-glass);
   backdrop-filter: blur(6px);
   display: flex;
   flex-wrap: wrap;
@@ -249,6 +269,24 @@ a {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+.legend {
+  flex-wrap: wrap;
+}
+.legend i.wide {
+  width: 120px;
+  height: 4px;
+  margin: 0;
+  border-radius: 2px;
+}
+.legend i.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.seg.mini button {
+  padding: 2px 8px;
+  font-size: 12px;
 }
 .legend i {
   display: inline-block;
@@ -272,7 +310,7 @@ a {
   max-width: 340px;
   padding: 8px 10px;
   border-radius: var(--r-md);
-  background: rgba(12, 20, 40, 0.92);
+  background: var(--sky-glass-strong);
   border: 1px solid var(--sky-line);
   font-size: 12.5px;
   pointer-events: none;
@@ -294,7 +332,7 @@ a {
   top: 8px;
   padding: 5px 10px;
   border-radius: var(--r-md);
-  background: rgba(12, 20, 40, 0.78);
+  background: var(--sky-glass);
   font-size: 12px;
   color: var(--sky-muted);
 }
@@ -328,7 +366,7 @@ a {
   fill: none;
   stroke: var(--lamp);
   stroke-width: 2.2;
-  filter: drop-shadow(0 0 4px rgba(255, 226, 160, 0.8));
+  filter: drop-shadow(0 0 5px var(--lamp-glow));
   stroke-dasharray: var(--len);
   stroke-dashoffset: var(--len);
   animation: draw 0.7s ease-out forwards;

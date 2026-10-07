@@ -11,25 +11,33 @@
 // selecting only rerun passes 2 and 3.
 
 import type { Atlas } from '../data/atlas';
+import { ARC, type ArcColorMode, GENRE, GENRE_IDS, SKY, SPECTRUM, rgb } from '../ui/colors';
 import { BASELINE, HEIGHT, SHAPE, type View } from './layout';
+
+const MODES: Record<ArcColorMode, number> = { spectrum: 0, reach: 1, genre: 2 };
 
 const SEGMENTS = 28;
 
 const ARC_VS = `#version 300 es
 precision highp float;
-layout(location = 0) in vec4 aEdge;   // x0, x1 (normalized), votes, class
+layout(location = 0) in vec4 aEdge;   // x0, x1 (normalized), votes, class + 4 * genre
 uniform vec2 uView;                   // scale, offset
 uniform vec2 uSize;                   // canvas size in pixels
 uniform float uSeg;
 uniform float uMinVotes;
 uniform float uIntensity;
 uniform float uLift;                  // vertical offset in pixels (for thicker focus lines)
+uniform int uMode;                    // 0 spectrum, 1 reach, 2 genre
+uniform vec3 uReach[4];               // same book, near, far, across testaments
+uniform vec3 uSpec[${SPECTRUM.length}];
+uniform vec3 uGenre[${GENRE_IDS.length}];
 out vec4 vColor;
 const float PI = 3.14159265;
-const vec3 SAME_BOOK = vec3(0.27, 0.80, 0.68);
-const vec3 NEAR = vec3(0.45, 0.60, 1.00);
-const vec3 FAR = vec3(0.98, 0.74, 0.36);
-const vec3 TESTAMENTS = vec3(0.90, 0.45, 0.66);
+vec3 spectrum(float x) {
+  float f = clamp(x, 0.0, 1.0) * float(${SPECTRUM.length - 1});
+  int i = int(min(floor(f), float(${SPECTRUM.length - 2})));
+  return mix(uSpec[i], uSpec[i + 1], f - float(i));
+}
 void main() {
   if (aEdge.z < uMinVotes) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); vColor = vec4(0.0); return; }
   float t = float(gl_VertexID) / uSeg;
@@ -43,7 +51,11 @@ void main() {
   float py = base - h * sin(PI * t) - uLift;
   gl_Position = vec4(px / uSize.x * 2.0 - 1.0, 1.0 - py / uSize.y * 2.0, 0.0, 1.0);
   float reach = clamp(log(1.0 + abs(aEdge.y - aEdge.x) * 400.0) / log(401.0), 0.0, 1.0);
-  vec3 c = aEdge.w < 0.5 ? SAME_BOOK : (aEdge.w < 1.5 ? mix(NEAR, FAR, reach) : TESTAMENTS);
+  float cls = mod(aEdge.w, 4.0);
+  vec3 c;
+  if (uMode == 0) c = spectrum(min(aEdge.x, aEdge.y));
+  else if (uMode == 2) c = uGenre[int(floor(aEdge.w / 4.0 + 0.01))];
+  else c = cls < 0.5 ? uReach[0] : (cls < 1.5 ? mix(uReach[1], uReach[2], reach) : uReach[3]);
   float w = clamp(log(max(aEdge.z, 1.0)) / log(150.0), 0.0, 1.0);
   float a = (0.25 + 0.75 * w) * uIntensity;
   vColor = vec4(c * a, a);
@@ -69,7 +81,10 @@ in vec2 vUv;
 uniform sampler2D uTex;
 uniform float uExposure;
 uniform float uDim;
-uniform vec3 uBg;
+uniform vec3 uBg;      // zenith
+uniform vec3 uHorizon;
+uniform vec3 uGlow;
+uniform float uBase;   // baseline height in uv (0 at the bottom)
 out vec4 o;
 void main() {
   // Hue-preserving tone map: compress the brightest channel and scale the
@@ -79,7 +94,10 @@ void main() {
   float peak = max(max(a.r, a.g), a.b);
   vec3 c = peak > 0.0 ? a / peak * (1.0 - exp(-peak)) : vec3(0.0);
   c = mix(c, vec3(1.0), smoothstep(2.5, 9.0, peak) * 0.35);
-  o = vec4(uBg + c * uDim * (vec3(1.0) - uBg), 1.0);
+  float above = clamp((vUv.y - uBase) / (1.0 - uBase), 0.0, 1.0);
+  vec3 sky = mix(uHorizon, uBg, pow(above, 0.7));
+  sky += uGlow * exp(-abs(vUv.y - uBase) * 18.0) * 0.35;
+  o = vec4(sky + c * uDim * (vec3(1.0) - sky), 1.0);
 }`;
 
 function compile(gl: WebGL2RenderingContext, vs: string, fs: string): WebGLProgram {
@@ -96,11 +114,13 @@ function compile(gl: WebGL2RenderingContext, vs: string, fs: string): WebGLProgr
   return p;
 }
 
-/** Per-edge instance data: x0, x1, votes, class (0 same book, 1 same testament, 2 across testaments). */
+/** Per-edge instance data: x0, x1, votes, and class (0 same book, 1 same
+ *  testament, 2 across testaments) plus 4 × the source book's genre index. */
 export function edgeInstances(a: Atlas, xs: Float32Array, edges?: ArrayLike<number>): Float32Array {
   const count = edges ? edges.length : a.xDst.length;
   const out = new Float32Array(count * 4);
   const ntStart = a.books.find((b) => b.testament === 'NT')!.start;
+  const genre = a.books.map((b) => Math.max(0, GENRE_IDS.indexOf(b.genre)));
   for (let i = 0; i < count; i++) {
     const e = edges ? edges[i] : i;
     const s = a.xSrc[e];
@@ -108,7 +128,8 @@ export function edgeInstances(a: Atlas, xs: Float32Array, edges?: ArrayLike<numb
     out[4 * i] = xs[s];
     out[4 * i + 1] = xs[d];
     out[4 * i + 2] = a.xVotes[e];
-    out[4 * i + 3] = a.verseBook[s] === a.verseBook[d] ? 0 : (s < ntStart) === (d < ntStart) ? 1 : 2;
+    const cls = a.verseBook[s] === a.verseBook[d] ? 0 : (s < ntStart) === (d < ntStart) ? 1 : 2;
+    out[4 * i + 3] = cls + 4 * genre[a.verseBook[s]];
   }
   return out;
 }
@@ -116,6 +137,7 @@ export function edgeInstances(a: Atlas, xs: Float32Array, edges?: ArrayLike<numb
 export interface ArcOptions {
   minVotes: number;
   exposure: number;
+  colorMode: ArcColorMode;
   /** Background color in linear 0..1 RGB. */
   background: [number, number, number];
 }
@@ -135,7 +157,7 @@ export class ArcField {
   private dirtyAccum = true;
   private frame = 0;
   view: View = { scale: 1, offset: 0 };
-  opts: ArcOptions = { minVotes: 8, exposure: 1.1, background: [0.047, 0.078, 0.157] };
+  opts: ArcOptions = { minVotes: 8, exposure: 1.15, colorMode: 'spectrum', background: rgb(SKY.top) };
   dim = 1;
   /** Milliseconds spent issuing the last full redraw (CPU side). */
   lastDrawMs = 0;
@@ -187,7 +209,7 @@ export class ArcField {
   }
 
   setOptions(o: Partial<ArcOptions>): void {
-    const accum = o.minVotes !== undefined && o.minVotes !== this.opts.minVotes;
+    const accum = (o.minVotes !== undefined && o.minVotes !== this.opts.minVotes) || (o.colorMode !== undefined && o.colorMode !== this.opts.colorMode);
     this.opts = { ...this.opts, ...o };
     this.request(accum || o.background !== undefined);
   }
@@ -247,6 +269,10 @@ export class ArcField {
     gl.uniform1f(u('uMinVotes'), vao === this.allVao ? this.opts.minVotes : -1e9);
     gl.uniform1f(u('uIntensity'), intensity);
     gl.uniform1f(u('uLift'), lift * dpr);
+    gl.uniform1i(u('uMode'), MODES[this.opts.colorMode]);
+    gl.uniform3fv(u('uReach'), [ARC.sameBook, ARC.near, ARC.far, ARC.testaments].flatMap(rgb));
+    gl.uniform3fv(u('uSpec'), SPECTRUM.flatMap(rgb));
+    gl.uniform3fv(u('uGenre'), GENRE_IDS.map((g) => GENRE[g].color).flatMap(rgb));
     gl.bindVertexArray(vao);
     gl.drawArraysInstanced(gl.LINE_STRIP, 0, SEGMENTS + 1, count);
     gl.bindVertexArray(null);
@@ -281,6 +307,9 @@ export class ArcField {
       gl.uniform1f(gl.getUniformLocation(this.toneProg, 'uExposure'), this.opts.exposure);
       gl.uniform1f(gl.getUniformLocation(this.toneProg, 'uDim'), this.dim);
       gl.uniform3f(gl.getUniformLocation(this.toneProg, 'uBg'), br, bg, bb);
+      gl.uniform3fv(gl.getUniformLocation(this.toneProg, 'uHorizon'), rgb(SKY.horizon));
+      gl.uniform3fv(gl.getUniformLocation(this.toneProg, 'uGlow'), rgb(SKY.glow));
+      gl.uniform1f(gl.getUniformLocation(this.toneProg, 'uBase'), 1 - BASELINE);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.ONE, gl.ONE);
@@ -288,7 +317,8 @@ export class ArcField {
       // No float render targets: draw straight to the screen.
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
       gl.viewport(0, 0, this.canvas.width, this.canvas.height);
-      gl.clearColor(br, bg, bb, 1);
+      const [hr, hg, hb] = rgb(SKY.horizon);
+      gl.clearColor((br + hr) / 2, (bg + hg) / 2, (bb + hb) / 2, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
       this.drawArcs(this.allVao, this.allCount, base * 0.6 * this.dim);
     }

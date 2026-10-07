@@ -8,7 +8,7 @@ import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
 import * as S from '../state';
-import { ARC, GENRE } from './colors';
+import { ARC, type ArcColorMode, GENRE, SPECTRUM_CSS } from './colors';
 
 /** Edges touching a verse (outgoing and incoming), strongest first. */
 export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
@@ -31,6 +31,41 @@ function useSize(ref: { current: HTMLElement | null }): { w: number; h: number }
   return size;
 }
 
+const COLOR_MODES: [ArcColorMode, string][] = [
+  ['spectrum', 'Spectrum'],
+  ['reach', 'Reach'],
+  ['genre', 'Genre'],
+];
+
+function Legend({ a, mode }: { a: Atlas; mode: ArcColorMode }) {
+  if (mode === 'spectrum') {
+    return (
+      <span class="legend">
+        <span>Genesis</span>
+        <i class="wide" style={`background:${SPECTRUM_CSS}`} />
+        <span>Revelation</span>
+      </span>
+    );
+  }
+  if (mode === 'reach') {
+    return (
+      <span class="legend">
+        <span><i style={`background:${ARC.sameBook}`} />same book</span>
+        <span><i style={`background:linear-gradient(90deg, ${ARC.near}, ${ARC.far})`} />near to far</span>
+        <span><i style={`background:${ARC.testaments}`} />Old ↔ New Testament</span>
+      </span>
+    );
+  }
+  const used = Object.keys(GENRE).filter((g) => a.books.some((b) => b.genre === g));
+  return (
+    <span class="legend">
+      {used.map((g) => (
+        <span key={g}><i class="dot" style={`background:${GENRE[g].color}`} />{GENRE[g].label}</span>
+      ))}
+    </span>
+  );
+}
+
 export function AtlasMap({ a }: { a: Atlas }) {
   const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -47,7 +82,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     if (!canvas.current) return;
     try {
       const f = new ArcField(canvas.current, edgeInstances(a, xs));
-      f.setOptions({ minVotes: S.minVotes.value });
+      f.setOptions({ minVotes: S.minVotes.value, colorMode: S.arcColor.value });
       f.resize();
       f.setView(S.view.value);
       field.current = f;
@@ -65,7 +100,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     field.current?.setView(S.view.value);
   });
   useSignalEffect(() => {
-    field.current?.setOptions({ minVotes: S.minVotes.value });
+    field.current?.setOptions({ minVotes: S.minVotes.value, colorMode: S.arcColor.value });
   });
 
   // --- Focus: what is drawn bright --------------------------------------------
@@ -101,7 +136,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     ctx.clearRect(0, 0, c.width, c.height);
     for (let x = 0; x < cols.length; x++) {
       if (!cols[x]) continue;
-      ctx.fillStyle = `rgba(255, 226, 160, ${Math.min(0.9, Math.pow(cols[x], 0.6)).toFixed(3)})`;
+      ctx.fillStyle = `rgba(255, 210, 122, ${Math.min(0.9, Math.pow(cols[x], 0.6)).toFixed(3)})`;
       ctx.fillRect(x, 0, 1, c.height);
     }
   }, [a, xs, view, w]);
@@ -246,7 +281,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
       b.chapters.forEach((n, ci) => {
         const x = sx(v) - verseW / 2;
         if (x > -20 && x < w + 20) {
-          chapters.push(<line key={`t${ci}`} x1={x} x2={x} y1={base + 2} y2={base + (cw > 22 ? 9 : 6)} stroke="rgba(233,228,214,0.35)" />);
+          chapters.push(<line key={`t${ci}`} x1={x} x2={x} y1={base + 2} y2={base + (cw > 22 ? 9 : 6)} stroke="rgba(241,236,223,0.3)" />);
           if (cw > 22 && (cw > 40 || (ci + 1) % 5 === 0 || ci === 0)) {
             chapters.push(
               <text key={`n${ci}`} class="chaplabel" x={x + 3} y={base + 18}>
@@ -297,7 +332,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
       });
     selection = (
       <g>
-        <line x1={x} x2={x} y1={base} y2={base + 40} stroke="rgba(255,226,160,0.45)" stroke-dasharray="2 3" />
+        <line x1={x} x2={x} y1={base} y2={base + 40} stroke="rgba(255,210,122,0.5)" stroke-dasharray="2 3" />
         <circle cx={x} cy={base} r={4} fill={ARC.lamp} />
         <text class="nodelabel" x={Math.min(Math.max(x, 50), w - 50)} y={base + 52} text-anchor="middle" style="fill:var(--lamp)">
           {label(a, selV)}
@@ -372,11 +407,14 @@ export function AtlasMap({ a }: { a: Atlas }) {
           <input type="range" min={1} max={100} value={S.minVotes.value} onInput={(e) => (S.minVotes.value = Number((e.target as HTMLInputElement).value))} aria-label="Minimum community votes for a cross-reference to be drawn" />
           <strong>{S.minVotes.value}</strong>
         </label>
-        <span class="legend">
-          <span><i style={`background:${ARC.sameBook}`} />same book</span>
-          <span><i style={`background:linear-gradient(90deg, ${ARC.near}, ${ARC.far})`} />near to far</span>
-          <span><i style={`background:${ARC.testaments}`} />Old ↔ New Testament</span>
-        </span>
+        <div class="seg mini" role="group" aria-label="Arc colors">
+          {COLOR_MODES.map(([m, name]) => (
+            <button key={m} aria-pressed={S.arcColor.value === m} onClick={() => (S.arcColor.value = m)}>
+              {name}
+            </button>
+          ))}
+        </div>
+        <Legend a={a} mode={S.arcColor.value} />
       </div>
       <div class="zoomhint">
         {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : 'Scroll or pinch to zoom'}

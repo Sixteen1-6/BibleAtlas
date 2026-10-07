@@ -21,6 +21,27 @@ const TABS: [S.Tab, string][] = [
   ['sources', 'Sources'],
 ];
 
+const THEME_NEXT = { system: 'light', light: 'dark', dark: 'system' } as const;
+const THEME_ICON = {
+  system: (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor" />
+    </svg>
+  ),
+  light: (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <circle cx="8" cy="8" r="3.2" fill="currentColor" />
+      <path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  ),
+  dark: (
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z" fill="currentColor" />
+    </svg>
+  ),
+};
+
 export function App() {
   const [progress, setProgress] = useState('Starting');
   const [error, setError] = useState<string | null>(null);
@@ -120,6 +141,14 @@ export function App() {
             </button>
           ))}
         </div>
+        <button
+          class="iconbtn"
+          onClick={() => (S.pageTheme.value = THEME_NEXT[S.pageTheme.value])}
+          title={`Theme: ${S.pageTheme.value}. Click to change.`}
+          aria-label={`Page theme: ${S.pageTheme.value}`}
+        >
+          {THEME_ICON[S.pageTheme.value]}
+        </button>
         <div class="seg" role="group" aria-label="Map style">
           <button aria-pressed={S.mapMode.value === 'arcs'} onClick={() => (S.mapMode.value = 'arcs')}>
             Arcs

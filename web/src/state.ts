@@ -5,6 +5,7 @@ import { computed, signal } from '@preact/signals';
 import type { Atlas } from './data/atlas';
 import type { Engine, PathResult } from './engine/client';
 import type { View } from './gl/layout';
+import type { ArcColorMode } from './ui/colors';
 
 export type Tab = 'connections' | 'word' | 'themes' | 'paths' | 'hubs' | 'sources';
 export type Translation = 'BSB' | 'ESV';
@@ -32,6 +33,28 @@ export const groupEdges = signal<{ edges: Uint32Array; label: string } | null>(n
 export const minVotes = signal(8);
 export const translation = signal<Translation>('BSB');
 export const mapMode = signal<'arcs' | 'wheel'>('arcs');
+
+function stored<T extends string>(key: string, allowed: readonly T[], fallback: T) {
+  let initial = fallback;
+  try {
+    const v = localStorage.getItem(key);
+    if (v && (allowed as readonly string[]).includes(v)) initial = v as T;
+  } catch {
+    // Storage blocked (private window): fall back to the default.
+  }
+  const s = signal<T>(initial);
+  s.subscribe((v) => {
+    try {
+      localStorage.setItem(key, v);
+    } catch {
+      // Ignore: the choice just won't be remembered.
+    }
+  });
+  return s;
+}
+
+/** How the arcs are colored. Remembered per browser. */
+export const arcColor = stored<ArcColorMode>('atlas.arcColor', ['spectrum', 'reach', 'genre'], 'spectrum');
 export const view = signal<View>({ scale: 1, offset: 0 });
 export const interlinear = signal(false);
 export const showOtherEditions = signal(false);
@@ -70,3 +93,10 @@ export function openRoot(root: number, verse?: number, pos?: number): void {
   tab.value = 'word';
   mobilePane.value = 'study';
 }
+
+/** Page theme: follow the system, or force light or dark. Remembered per browser. */
+export const pageTheme = stored<'system' | 'light' | 'dark'>('atlas.theme', ['system', 'light', 'dark'], 'system');
+pageTheme.subscribe((t) => {
+  if (t === 'system') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = t;
+});

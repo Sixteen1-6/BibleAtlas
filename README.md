@@ -2,11 +2,11 @@
 
 Every cross-reference in the Bible on one map, with the original Hebrew, Aramaic and Greek under every verse, and a source for every fact.
 
-![Isaiah 53:5 selected: its links to the New Testament in rose, to the Old Testament in gold](docs/map.png)
+![Isaiah 53:5 selected on the spectrum map, every arc colored by where it starts from Genesis to Revelation](docs/map.png)
 
 ## What it does
 
-- Arc map. All 344,799 OpenBible.info cross-references drawn at once with WebGL2. Overlapping arcs add their light together and are tone-mapped like an HDR photo, so dense regions glow instead of washing out. Color shows reach: same book, near to far, and Old Testament to New Testament.
+- Arc map. All 344,799 OpenBible.info cross-references drawn at once with WebGL2. Overlapping arcs add their light together and are tone-mapped like an HDR photo, so dense regions glow instead of washing out. Three color modes: Spectrum (a rainbow from Genesis to Revelation, by where each arc starts), Reach (same book, near to far, Old Testament to New Testament) and Genre (law, history, prophets, gospels, letters and so on). Light, dark or system theme.
 - Wheel. The 66 books on a circle with ribbons sized by how many references join each pair.
 - Reader. English (BSB, or ESV with your API key) with the original text under each verse, inline or word by word.
 - Word study. Tap any Hebrew, Aramaic or Greek word: root, transliteration, meaning in this verse, grammar in plain English, the lexicon definition, where it appears across the 66 books, and every occurrence.
@@ -127,11 +127,7 @@ A cross-reference means readers judged two passages to be related, and the vote 
 
 ## Ideas for later
 
-- Timeline mode that lays books out by approximate date of writing
-- People and places graph with a map
-- Automatic theme clusters from community detection on the graph
-- Offline mode (service worker)
-- WebGPU renderer
+See [IDEAS.md](IDEAS.md).
 
 ## License
 
