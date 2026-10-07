@@ -143,16 +143,16 @@ impl<'a> Container<'a> {
         Ok(self.raw(name, DType::U8)?.to_vec())
     }
     pub fn u16s(&self, name: &'static str) -> Result<Vec<u16>, ContainerError> {
-        Ok(self.raw(name, DType::U16)?.chunks_exact(2).map(|c| u16::from_le_bytes([c[0], c[1]])).collect())
+        Ok(self.raw(name, DType::U16)?.as_chunks::<2>().0.iter().map(|c| u16::from_le_bytes(*c)).collect())
     }
     pub fn i16s(&self, name: &'static str) -> Result<Vec<i16>, ContainerError> {
-        Ok(self.raw(name, DType::I16)?.chunks_exact(2).map(|c| i16::from_le_bytes([c[0], c[1]])).collect())
+        Ok(self.raw(name, DType::I16)?.as_chunks::<2>().0.iter().map(|c| i16::from_le_bytes(*c)).collect())
     }
     pub fn u32s(&self, name: &'static str) -> Result<Vec<u32>, ContainerError> {
-        Ok(self.raw(name, DType::U32)?.chunks_exact(4).map(|c| u32::from_le_bytes([c[0], c[1], c[2], c[3]])).collect())
+        Ok(self.raw(name, DType::U32)?.as_chunks::<4>().0.iter().map(|c| u32::from_le_bytes(*c)).collect())
     }
     pub fn f32s(&self, name: &'static str) -> Result<Vec<f32>, ContainerError> {
-        Ok(self.raw(name, DType::F32)?.chunks_exact(4).map(|c| f32::from_le_bytes([c[0], c[1], c[2], c[3]])).collect())
+        Ok(self.raw(name, DType::F32)?.as_chunks::<4>().0.iter().map(|c| f32::from_le_bytes(*c)).collect())
     }
 }
 

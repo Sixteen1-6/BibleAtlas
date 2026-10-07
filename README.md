@@ -75,7 +75,7 @@ Every view is a link, so these open straight to the story:
 
 ## Quick start
 
-Needs git, Rust (stable, 1.87 or later) and Node 20.19+ or 22.12+. On Windows, run everything inside WSL.
+Needs git, Rust (stable, 1.88 or later) and Node 20.19+ or 22.12+. On Windows, run everything inside WSL.
 
 ```bash
 rustup target add wasm32-unknown-unknown
