@@ -84,9 +84,9 @@ function Toggle({ open, controls, onToggle, label, openLabel }: { open: boolean;
   );
 }
 
-/** Is there an "Outside the Bible" line? Not for grammar words (see RootWorld.g). */
+/** Is there an "Outside the Bible" line? Not for grammar words, nor for a related word's entry (RootWorld.g, .r). */
 function hasLsj(w: RootWorld): boolean {
-  return !w.g && ((w.l?.length ?? 0) > 0 || !!w.f);
+  return !w.g && !w.r && ((w.l?.length ?? 0) > 0 || !!w.f);
 }
 
 function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; open: boolean; onToggle: () => void }) {

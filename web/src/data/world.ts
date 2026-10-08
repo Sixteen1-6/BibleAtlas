@@ -28,6 +28,11 @@ export interface RootWorld {
    * LSJ's entry is about constructions, so the study shows no LSJ line.
    */
   g?: 1;
+  /**
+   * LSJ has no entry of its own for the word and TFLSJ gives a related
+   * word's (πρεσβύτερος gets πρεσβυτέριον's), so the study shows no LSJ line.
+   */
+  r?: 1;
   u?: UbsLink[];
 }
 
