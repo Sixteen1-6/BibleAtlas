@@ -204,6 +204,17 @@ fn tflsj_rows(paths: &[PathBuf]) -> Result<HashMap<String, (String, String)>, St
     Ok(rows)
 }
 
+/// The dStrong whose TFLSJ row a root without its own falls back to: a
+/// root with a letter after its number ("G4413G", one of the senses TAGNT
+/// tells apart) shares the entry of the number, but TAGNT's five-digit
+/// tags are other words ("G20833" is ὁμείρομαι, not ἑταῖρος G2083).
+fn lsj_base(key: &str) -> &str {
+    match key.get(5..) {
+        Some(rest) if rest.bytes().all(|b| b.is_ascii_alphabetic()) => &key[..5],
+        _ => key,
+    }
+}
+
 /// Articles, conjunctions, particles, prepositions and pronouns. LSJ's
 /// entries for them are about constructions ("with genitive ..."), so their
 /// first dated gloss says little ("and specially", "the following"): the
@@ -2380,7 +2391,7 @@ pub fn build(
         if !key.starts_with('G') {
             continue;
         }
-        let base = key.get(..5).unwrap_or(key);
+        let base = lsj_base(key);
         let Some((class, meaning)) = rows
             .get(*key)
             .or_else(|| rows.get(base))
@@ -2800,16 +2811,16 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .count();
     let with_first = slots.iter().filter(|s| s.get("f").is_some()).count();
     out.push((
-        near(with_lsj, 5_020, 1.0),
-        format!("{with_lsj} Greek roots with an LSJ entry, expected about 5,020"),
+        near(with_lsj, 5_018, 1.0),
+        format!("{with_lsj} Greek roots with an LSJ entry, expected about 5,018"),
     ));
     out.push((
-        near(with_senses, 4_582, 1.0),
-        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,582"),
+        near(with_senses, 4_581, 1.0),
+        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,581"),
     ));
     out.push((
-        near(with_first, 4_724, 1.0),
-        format!("{with_first} Greek roots with a first use, expected about 4,724"),
+        near(with_first, 4_723, 1.0),
+        format!("{with_first} Greek roots with a first use, expected about 4,723"),
     ));
     let slot = |key: &str| {
         d.lemma_index(key)
@@ -2947,16 +2958,17 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     ));
     // Names and words whose TFLSJ entry is another word's keep none of it,
     // nor do those whose entry only points elsewhere, "see at πρότερος B.",
-    // B. read as Bacchylides (misread_b).
+    // B. read as Bacchylides (misread_b), and a five-digit tag gets no
+    // four-digit root's entry (lsj_base).
     for key in [
         "G4549G", "G4613G", "G2797", "G1050G", "G0882", "G4195", "G1210", "G0438", "G0759",
-        "G3327", "G4625", "G4413G", "G5574",
+        "G3327", "G4625", "G4413G", "G5574", "G20833",
     ] {
         let s = slot(key);
-        let none = s["l"].as_array().is_some_and(Vec::is_empty) && s.get("f").is_none();
+        let none = s["l"].as_array().is_none_or(Vec::is_empty) && s.get("f").is_none();
         out.push((
             none,
-            format!("{key}: TFLSJ's entry is not this word's own, but the root has {s}"),
+            format!("{key}: no sense or first use of another word's entry, but the root has {s}"),
         ));
     }
     // Grammar words are flagged, and only roots with an LSJ entry.
@@ -3916,6 +3928,16 @@ mod tests {
             first_sense(&format!("<b> x</b> <b>shine</b> [{poem}]")),
             sense("shine", "Bacchylides")
         );
+    }
+
+    #[test]
+    fn only_a_letter_after_the_number_shares_its_entry() {
+        assert_eq!(lsj_base("G4413G"), "G4413");
+        assert_eq!(lsj_base("G2083"), "G2083");
+        // TAGNT's tags for ὁμείρομαι and ἐπίστασις, not ἑταῖρος and ἐρεύγομαι.
+        assert_eq!(lsj_base("G20833"), "G20833");
+        assert_eq!(lsj_base("G20447"), "G20447");
+        assert_eq!(lsj_base("G12"), "G12");
     }
 
     #[test]
