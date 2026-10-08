@@ -9,6 +9,7 @@
 // An uncertain place shows its proposed sites as dashed rings once it is
 // chosen, or for all of this verse's places with "Show proposed sites".
 
+import '../real-map.css';
 import type { ComponentChildren } from 'preact';
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, chapterName, chapterRange, locate } from '../../../data/atlas';
@@ -17,24 +18,8 @@ import { Facts, Lead, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
 import { MapCanvas } from './MapCanvas';
-import {
-  type BaseFile,
-  type Data,
-  type Mention,
-  type PeopleFile,
-  type PlacesFile,
-  coords,
-  inHundred,
-  info,
-  latOf,
-  lonOf,
-  readingLine,
-  spread,
-  sureLine,
-  tieWords,
-  unsureLabel,
-  whereLine,
-} from './model';
+import type { BaseFile, Data, Mention, PeopleFile, PlacesFile, Site } from './model';
+import { coords, inHundred, info, latOf, lonOf, proposals, readingLine, spread, sureLine, tieWords } from './places';
 import { type Marker, projX, projY } from './view';
 
 /** People shown before "all N people". */
@@ -58,36 +43,75 @@ function chapterPlaces(a: Atlas, data: Data, verse: VerseRef, here: readonly Men
 }
 
 const WATERS = new Set(['body of water', 'river']);
+/** Names that are a common noun first or last take "the" in a sentence: the
+ * Valley of Elah, the City of David, the Holy Place, the Sheep Gate. */
+const THE_FIRST = /^(City|Valley|Vale|Sea|Mount of|Mountains?|Hills?|Hill of|Land|Pool|Tower|Wilderness|Desert|Plains?|Field|Brook|Gate|House|Rock|Spring|Waters?|Fountain|Cave|Tomb|Garden|Island|Gulf|Ascent|Pass|Way|Road|Court|Lake|Holy|Most Holy)\b/;
+const THE_LAST = /\b(Place|Gate|Valley|Pool|Tower|Wall|Sea|River|Brook|Road|Spring|Well|Hall|Porch|Portico|Court|Square|Highway|Ascent|Field|Canal|Mountains|Hills|Wilderness|Desert|Plains?|Lake|Gulf)$/;
 
-/** "the Red Sea", "the Jordan": waters take "the" in a sentence. */
+/** A name as it reads in a sentence: "the Red Sea", "the Valley of Elah", "Bethlehem". */
 function inSentence(name: string, kind: string): string {
-  return WATERS.has(kind) && !/^the /i.test(name) ? `the ${name}` : name;
+  // "Jacob’s Well" and "Beyond the River" take no article.
+  if (/^(the|beyond) /i.test(name) || /['’]s\b/.test(name)) return name;
+  if (THE_FIRST.test(name) || THE_LAST.test(name) || /^(Negev|Arabah|Shephelah|Decapolis)$/.test(name)) return `the ${name}`;
+  // Waters do ("the Jordan"), unless the name is a compound ("Me-jarkon").
+  return WATERS.has(kind) && !name.includes('-') ? `the ${name}` : name;
 }
 
-/** "where Migdol was is uncertain"; for waters, "which waters the Red Sea means here is uncertain". */
-function unsureWords(items: readonly { name: string; kind: string }[]): string {
-  const names = items.map((x) => inSentence(x.name, x.kind));
-  if (items.length > 3) return 'where some of them were is uncertain';
-  if (items.every((x) => WATERS.has(x.kind))) return `which waters ${and(names)} ${items.length === 1 ? 'means' : 'mean'} here is uncertain`;
-  return `where ${and(names)} ${items.length === 1 ? 'was' : 'were'} is uncertain`;
+interface Named {
+  name: string;
+  kind: string;
+}
+
+/** "where Migdol was is uncertain"; for waters, "which waters the Red Sea means
+ * here is uncertain"; for both, "where Rehoboth was is uncertain, and so is
+ * which waters the Euphrates means here". */
+function unsureWords(items: readonly Named[], many: string): string {
+  if (items.length > 3) return `where ${many} were is uncertain`;
+  const lands = items.filter((x) => !WATERS.has(x.kind)).map((x) => inSentence(x.name, x.kind));
+  const waters = items.filter((x) => WATERS.has(x.kind)).map((x) => inSentence(x.name, x.kind));
+  const where = lands.length ? `where ${and(lands)} ${lands.length === 1 ? 'was' : 'were'}` : '';
+  const which = waters.length ? `which waters ${and(waters)} ${waters.length === 1 ? 'means' : 'mean'} here` : '';
+  if (where && which) return `${where} is uncertain, and so is ${which}`;
+  return `${where || which} is uncertain`;
 }
 
 const capital = (t: string) => t.charAt(0).toUpperCase() + t.slice(1);
+const letters = (t: string) => t.toLowerCase().replace(/[^\p{L}]/gu, '');
 
+/** One to three plain sentences on what the map shows for this verse. */
 function lead(places: PlacesFile, here: readonly Mention[]): string {
-  const names = [...new Set(here.map((m) => m.name))];
+  const shown: string[] = [];
+  const unsure: Named[] = [];
+  const unmarked: string[] = [];
+  let marked = 0;
   const seen = new Set<string>();
-  const unsure: { name: string; kind: string }[] = [];
   for (const m of here) {
-    const p = info(places, m.place);
-    if (p?.confident || seen.has(m.name)) continue;
+    if (seen.has(m.name)) continue;
     seen.add(m.name);
-    unsure.push({ name: m.name, kind: p?.kind ?? 'place' });
+    const p = info(places, m.place);
+    const kind = p?.kind ?? 'place';
+    if (p?.confident) {
+      marked++;
+      shown.push(inSentence(m.name, kind));
+    } else if (p && proposals(places, p).length) {
+      unsure.push({ name: m.name, kind });
+      shown.push(inSentence(m.name, kind));
+    } else unmarked.push(inSentence(m.name, kind));
   }
-  const list = names.length <= 4 ? and(names) : `The ${names.length} places this verse names`;
-  if (!unsure.length) return `${list} on a map of the Bible lands.`;
-  if (unsure.length === names.length) return `${capital(unsureWords(unsure))}, so the map marks only the sites that have been proposed.`;
-  return `${list} on a map of the Bible lands. ${capital(unsureWords(unsure))}.`;
+  const notMarked = !unmarked.length
+    ? ''
+    : unmarked.length > 3
+      ? 'Some of the places this verse names are not marked on this map.'
+      : `${capital(and(unmarked))} ${unmarked.length === 1 ? 'is' : 'are'} not marked on this map.`;
+  if (!shown.length) return notMarked;
+  const all = shown.length + unmarked.length;
+  const list = shown.length <= 4 ? capital(and(shown)) : unmarked.length ? `${shown.length} of the ${all} places this verse names` : `The ${shown.length} places this verse names`;
+  const doubt = unsure.length ? capital(unsureWords(unsure, marked ? 'some of them' : 'these places')) : '';
+  if (!marked) {
+    const marks = doubt.includes(', and so is ') ? `${doubt}. The map marks only the sites that have been proposed.` : `${doubt}, so the map marks only the sites that have been proposed.`;
+    return [marks, notMarked].filter(Boolean).join(' ');
+  }
+  return [`${list} on a map of the Bible lands.`, doubt && `${doubt}.`, notMarked].filter(Boolean).join(' ');
 }
 
 const at = (lon: number, lat: number): [number, number] => [projX(lon), projY(lat)];
@@ -108,13 +132,18 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
     if (!places) return out;
     const add = (place: number, label: string, tier: 0 | 1 | 2, showProposed: boolean) => {
       const p = info(places, place);
-      if (!p || !p.best) return;
-      if (p.confident) {
-        out.push({ place, label, x: projX(lonOf(p.best)), y: projY(latOf(p.best)), tier, area: p.area, proposed: false });
+      if (!p) return;
+      if (p.confident && p.best) {
+        // A place the data puts by another ("within 8 km of Jerusalem") is
+        // marked with an open ring at that place's point. One that is here
+        // another name for a place says so: "Babylon (Rome)".
+        const other = /^(?:here )?another name for (?:the )?([^,]+)/.exec(p.line)?.[1];
+        const text = other && !letters(label).includes(letters(other)) ? `${label} (${other})` : label;
+        out.push({ place, label: text, x: projX(lonOf(p.best)), y: projY(latOf(p.best)), tier, area: p.area, proposed: p.rough && !p.area });
         return;
       }
       if (!showProposed) return;
-      p.row[4].slice(0, 4).forEach((s, k) => {
+      proposals(places, p).forEach((s, k) => {
         const text = k === 0 ? `${label}?` : tier === 0 && deep ? s[3] : '';
         out.push({ place, label: text, x: projX(lonOf(s)), y: projY(latOf(s)), tier, area: false, proposed: true });
       });
@@ -138,23 +167,27 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
       if (p?.confident && p.best) pts.push(at(lonOf(p.best), latOf(p.best)));
     }
     if (!pts.length) {
-      for (const m of here) for (const s of info(places, m.place)?.row[4].slice(0, 3) ?? []) pts.push(at(lonOf(s), latOf(s)));
+      for (const m of here) {
+        const p = info(places, m.place);
+        for (const s of p ? proposals(places, p).slice(0, 3) : []) pts.push(at(lonOf(s), latOf(s)));
+      }
     }
     return pts;
   }, [places, here]);
 
   const revealPoints = useMemo(() => {
     const p = sel === null || !places ? null : info(places, sel);
-    if (!p || !p.best) return [];
-    return p.confident ? [at(lonOf(p.best), latOf(p.best))] : p.row[4].slice(0, 4).map((s) => at(lonOf(s), latOf(s)));
+    if (!p) return [];
+    if (p.confident && p.best) return [at(lonOf(p.best), latOf(p.best))];
+    return proposals(places!, p).map((s) => at(lonOf(s), latOf(s)));
   }, [places, sel]);
 
   if (!places || !base) return <p class="xt-lead xt-wait">…</p>;
 
   // The chosen place shows its proposed sites anyway; the switch is for the others.
   const anyUnsure = here.some((m) => {
-    const p = info(places, m.place);
-    return m.place !== sel && !!p && !!p.best && !p.confident;
+    const p = m.place === sel ? null : info(places, m.place);
+    return !!p && proposals(places, p).length > 0;
   });
   const nameOf = (p: number) => here.find((m) => m.place === p)?.name ?? chapter.get(p)?.name ?? data.names[p];
   const mapLabel = `Map of ${and([...new Set(here.map((m) => m.name))].slice(0, 6))}${chapter.size ? ', with the chapter’s other places' : ''}`;
@@ -175,14 +208,16 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
       <div class="x-real-map-under">
         <ul class="x-real-map-chips" aria-label="Places in this verse">
           {here.map((m) => {
-            const unsure = unsureLabel(places, m.place);
+            const p = info(places, m.place);
+            const label = p?.label;
+            const open = !p?.confident || p.rough;
             const on = m.place === sel;
             return (
               <li key={m.place}>
                 <button type="button" class={`x-real-map-chip${on ? ' x-real-map-on' : ''}`} aria-pressed={on} onClick={() => setChosen(m.place)}>
-                  <span class={`x-real-map-mark${unsure && unsure !== 'likely site' ? ' x-real-map-open' : ''}`} aria-hidden="true" />
+                  <span class={`x-real-map-mark${open ? ' x-real-map-open' : ''}`} aria-hidden="true" />
                   {m.name}
-                  {unsure && unsure !== 'likely site' && <span class="x-real-map-vh">, {unsure}</span>}
+                  {label && label !== 'likely site' && <span class="x-real-map-vh">, {label}</span>}
                 </button>
               </li>
             );
@@ -210,7 +245,7 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
         />
       )}
       <SourceNote>
-        Places and their proposed sites from OpenBible.info’s Bible Geocoding Data, CC BY 4.0. The map is drawn from Natural Earth (public domain); its coastlines and rivers are today’s.
+        Places and their proposed sites from OpenBible.info’s Bible Geocoding Data, CC BY 4.0. The map is drawn from Natural Earth (public domain); its coastlines, rivers and borders are today’s.
         {deep && ' People from Theographic Bible Metadata, CC BY-SA 4.0.'}
       </SourceNote>
     </>
@@ -243,17 +278,17 @@ function PlaceCard({ a, data, places, people, place, name, verse, chapterVerse, 
   const [all, setAll] = useState(false);
   const vs = data.versesOf[place] ?? [];
   const inVerse = vs.includes(verse);
-  const unsure = unsureLabel(places, place);
   const p = info(places, place);
+  const rings = p ? proposals(places, p).length : 0;
   const aka = [...new Set([data.names[place], ...(data.aka.get(place) ?? [])])].filter((n) => n !== name);
   const others = spread(vs, 3, verse);
-  const sites = p?.row[4] ?? [];
   return (
     <section class="x-real-map-card" aria-label={name}>
-      <p class="x-real-map-where">
-        <strong>{name}</strong>: {whereLine(places, place, vs.length)}.
-        {unsure && <Unsure title={!p?.best || p.confident ? undefined : `${sites.length} proposed ${sites.length === 1 ? 'site' : 'sites'}`}>{unsure}</Unsure>}
-      </p>
+      {p && (
+        <p class="x-real-map-where">
+          <strong>{name}</strong>: {p.line}.{p.label && <Unsure title={rings ? `${rings} proposed ${rings === 1 ? 'site' : 'sites'} on the map` : undefined}>{p.label}</Unsure>}
+        </p>
+      )}
       {aka.length > 0 && <p class="x-real-map-aka">Also called {and(aka)}.</p>}
       {!inVerse && chapterVerse !== undefined && (
         <p class="x-real-map-also">
@@ -326,9 +361,9 @@ function Deep({ a, places, people, place, name, navigate }: { a: Atlas; places: 
   const [all, setAll] = useState(false);
   const p = info(places, place);
   if (!p) return null;
-  const [id, slug, , , sites, special] = p.row;
+  const [id, slug, , , sites, special, , note] = p.row;
   const rows: [ComponentChildren, ComponentChildren][] = [];
-  const site = (s: (typeof sites)[number]) => (
+  const site = (s: Site) => (
     <>
       {s[3]}
       <span class="x-real-map-num">
@@ -337,10 +372,22 @@ function Deep({ a, places, people, place, name, navigate }: { a: Atlas; places: 
       </span>
     </>
   );
-  if (sites.length === 1) rows.push(['Site', site(sites[0])]);
+  if (p.off) {
+    rows.push([
+      p.off[1] >= places.confident ? 'Most likely site' : 'Strongest proposal',
+      <>
+        {p.off[0]}
+        <span class="x-real-map-num">
+          {' '}
+          {inHundred(p.off[1])} · not on this map
+        </span>
+      </>,
+    ]);
+  }
+  if (sites.length === 1) rows.push([p.off ? 'Other proposed site' : p.rough ? 'Marked at' : p.confident ? 'Site' : 'Proposed site', site(sites[0])]);
   if (sites.length > 1) {
     rows.push([
-      'Proposed sites',
+      p.off ? 'Other proposed sites' : 'Proposed sites',
       <ol class="x-real-map-sites">
         {sites.map((s, k) => (
           <li key={k}>{site(s)}</li>
@@ -348,7 +395,9 @@ function Deep({ a, places, people, place, name, navigate }: { a: Atlas; places: 
       </ol>,
     ]);
   }
-  if (special) rows.push(['Another reading', readingLine(special)]);
+  if (note) rows.push(['Note in the data', note]);
+  // A reading the data is sure of is already the line above.
+  if (special && !(special[2] && special[1] >= 995)) rows.push(['Another reading', readingLine(special)]);
   rows.push([
     'In the data',
     <a href={`https://www.openbible.info/geo/ancient/${id}/${slug}`} target="_blank" rel="noopener noreferrer">

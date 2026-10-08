@@ -34,7 +34,7 @@
       "repo": "https://github.com/openbibleinfo/Bible-Geocoding-Data",
       "commit": "7eb18a5ee62f27b9b93bd6689ea272d76dd23b8f",
       "files": { "ancient": "data/ancient.jsonl", "modern": "data/modern.jsonl" },
-      "note": "Coordinates the dataset credits to OpenStreetMap (ODbL) are left out; where it gives its own position for a site (custom_lonlat), that one is used. A place is listed under a verse only where the BSB text names it."
+      "note": "Coordinates the dataset credits to OpenStreetMap (ODbL) or takes from a Palestine Grid reference (epsg_28191) are left out; where it gives its own position for a site (custom_lonlat), that one is used. A place is listed under a verse only where the BSB text names it."
     },
     {
       "id": "theographic",

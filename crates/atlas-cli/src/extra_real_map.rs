@@ -4,8 +4,9 @@
 //! - Places, the verses that name them, the modern sites proposed for each and
 //!   how confident scholarship is in each site: OpenBible.info Bible Geocoding
 //!   Data (CC BY 4.0). Coordinates the dataset credits to OpenStreetMap (ODbL)
-//!   are left out, and where it gives an independently made position for a
-//!   site (`custom_lonlat`) that one is used.
+//!   or takes from a Palestine Grid reference (`epsg_28191`) are left out, and
+//!   where it gives an independently made position for a site
+//!   (`custom_lonlat`) that one is used.
 //! - People tied to a place (born there, died there, or was there): Theographic
 //!   Bible Metadata (CC BY-SA 4.0), so people.json is shared under CC BY-SA 4.0.
 //! - Coastlines, lakes, rivers, sea names and modern countries: Natural Earth
@@ -53,6 +54,9 @@ const TOLERANCE: f64 = 0.004;
 const MIN_AREA: f64 = 0.0004;
 /// The most proposed sites kept for one place.
 const MAX_SITES: usize = 8;
+/// Proposed sites this close (km) are one spot by two names: a tell and the
+/// village beside it (Ras el Kharruba and Anata, for Anathoth).
+const SAME_SPOT_KM: f64 = 1.0;
 /// The most people kept for one place.
 const MAX_PEOPLE: usize = 60;
 /// Past this distance from Jerusalem (km) the panel names the modern country.
@@ -495,6 +499,11 @@ fn alike(a: char, b: char) -> bool {
 /// apostrophes. Names in capitals ("BABYLON THE GREAT") are found too, and
 /// names of two words or more are matched without regard to case.
 fn find_name(text: &[char], form: &[char]) -> Option<usize> {
+    find_name_where(text, form, |_| true)
+}
+
+/// find_name, taking only a place where `ok(start)` holds.
+fn find_name_where(text: &[char], form: &[char], ok: impl Fn(usize) -> bool) -> Option<usize> {
     if form.is_empty() || form.len() > text.len() {
         return None;
     }
@@ -514,12 +523,12 @@ fn find_name(text: &[char], form: &[char]) -> Option<usize> {
                 continue;
             }
             let after = text.get(start + form.len());
-            let ok = match after {
+            let whole = match after {
                 None => true,
                 Some(c) if mode == 0 => !c.is_lowercase(),
                 Some(c) => !c.is_alphabetic(),
             };
-            if ok {
+            if whole && ok(start) {
                 return Some(start);
             }
         }
@@ -609,12 +618,37 @@ struct Place {
     kind: String,
     /// Proposed modern sites with coordinates, most confident first.
     sites: Vec<Site>,
+    /// The strongest proposed site, with its score, when the map cannot draw
+    /// it: the dataset's only position for it is one this app leaves out
+    /// (credited to OpenStreetMap, or from a Palestine Grid reference).
+    off: Option<(String, i64)>,
+    /// How sure the dataset is of where the strongest site is: its score,
+    /// with those of other sites within SAME_SPOT_KM of it, since they are
+    /// the same spot by another name (Rhodes, and the Acropolis of Rhodes).
+    sure: i64,
     /// The strongest "special" reading (for example "not_a_place"), with its
-    /// score, and whether it is the strongest reading overall.
-    special: Option<(String, i64, bool)>,
+    /// score, whether it is the strongest reading overall, and the dataset's
+    /// words for it ("not a place (person)").
+    special: Option<(String, i64, bool, String)>,
+    /// The strongest identification that is not a special reading.
+    how: Option<How>,
+    /// The dataset's note on the place, with its markup.
+    comment: String,
     /// (OSIS reference, translations that name it there as a place, and
     /// translations that name its people there instead).
     verses: Vec<(String, u64, u64)>,
+}
+
+/// An identification in OpenBible.info's own words, with its markup:
+/// `within 8 km of <ancient id="a15257a">Jerusalem</ancient>`.
+#[derive(Debug, Clone, Default)]
+struct How {
+    html: String,
+    /// The first ancient place it names ("a15257a" for Jerusalem).
+    target: Option<String>,
+    /// Whether it names only ancient places, which a reader of the Bible
+    /// knows, and no modern ones ("Wadi Gharandal").
+    ancient_only: bool,
 }
 
 #[derive(Default)]
@@ -626,7 +660,7 @@ struct Tally {
     moved: usize,
     not_in_bsb: usize,
     not_a_place: usize,
-    osm_sites: usize,
+    withheld_sites: usize,
     no_coordinates: usize,
 }
 
@@ -650,18 +684,22 @@ fn lonlat(s: &str) -> Option<Pt> {
     (p.0.is_finite() && p.1.is_finite() && p.0.abs() <= 180.0 && p.1.abs() <= 90.0).then_some(p)
 }
 
-/// Modern locations: their coordinates, unless those come from OpenStreetMap.
-/// `None` means "no usable coordinates".
+/// Modern locations: their coordinates, unless the dataset credits them to
+/// OpenStreetMap (ODbL) or takes them from a Palestine Grid (EPSG:28191)
+/// reference; this app uses neither. `None` means "no usable coordinates".
 fn moderns(rows: &[Value], t: &mut Tally) -> HashMap<String, Option<Pt>> {
     let mut out = HashMap::new();
     for r in rows {
         let Some(id) = r["id"].as_str() else { continue };
         let custom = r["custom_lonlat"].as_str().and_then(lonlat);
-        let osm = r["coordinates_source"]["type"].as_str() == Some("osm");
-        let at = match (custom, osm) {
+        let withheld = matches!(
+            r["coordinates_source"]["type"].as_str(),
+            Some("osm" | "epsg_28191")
+        );
+        let at = match (custom, withheld) {
             (Some(p), _) => Some(p),
             (None, true) => {
-                t.osm_sites += 1;
+                t.withheld_sites += 1;
                 None
             }
             (None, false) => r["lonlat"].as_str().and_then(lonlat),
@@ -738,28 +776,63 @@ fn places(rows: &[Value], moderns: &HashMap<String, Option<Pt>>, t: &mut Tally) 
             .max_by_key(|i| score_of(i))
             .map(|i| {
                 let name = i["special"].as_str().unwrap_or("").to_string();
-                (name, score_of(i), best.is_some_and(|b| std::ptr::eq(b, i)))
+                let words = i["description"].as_str().unwrap_or("").to_string();
+                (
+                    name,
+                    score_of(i),
+                    best.is_some_and(|b| std::ptr::eq(b, i)),
+                    words,
+                )
+            });
+        let how = ids
+            .iter()
+            .filter(|i| !is_special(i))
+            .max_by_key(|i| score_of(i))
+            .map(|i| {
+                let html = i["description"].as_str().unwrap_or("").to_string();
+                How {
+                    target: ancient_ids(&html).into_iter().next(),
+                    ancient_only: html.contains("<ancient") && !html.contains("<modern"),
+                    html,
+                }
             });
 
         let mut sites = Vec::new();
+        let mut off: Option<(String, i64)> = None;
         if let Some(assoc) = r["modern_associations"].as_object() {
             for (mid, a) in assoc {
                 let score = a["score"].as_i64().unwrap_or(0).min(1000);
                 if score <= 0 {
                     continue;
                 }
+                let name = strip_tags(a["name"].as_str().unwrap_or(""));
                 match moderns.get(mid) {
                     Some(Some(at)) => sites.push(Site {
                         at: *at,
                         score,
-                        name: strip_tags(a["name"].as_str().unwrap_or("")),
+                        name,
                     }),
-                    _ => t.no_coordinates += 1,
+                    _ => {
+                        t.no_coordinates += 1;
+                        if off.as_ref().is_none_or(|o| score > o.1) {
+                            off = Some((name, score));
+                        }
+                    }
                 }
             }
         }
         sites.sort_by(|a, b| b.score.cmp(&a.score).then_with(|| a.name.cmp(&b.name)));
         sites.truncate(MAX_SITES);
+        // Only a site stronger than every one the map can draw matters here.
+        let off = off.filter(|o| sites.first().is_none_or(|s| o.1 > s.score));
+        let sure = sites.first().map_or(0, |b| {
+            sites
+                .iter()
+                .filter(|s| km(b.at, s.at) <= SAME_SPOT_KM)
+                .map(|s| s.score)
+                .sum::<i64>()
+                .min(1000)
+        });
 
         let verses = r["verses"]
             .as_array()
@@ -785,12 +858,75 @@ fn places(rows: &[Value], moderns: &HashMap<String, Option<Pt>>, t: &mut Tally) 
             shares: forms.iter().map(|(_, share)| *share).collect(),
             kind,
             sites,
+            off,
+            sure,
             special,
+            how,
+            comment: r["comment"].as_str().unwrap_or("").to_string(),
             verses,
         });
     }
     t.places = out.len();
     out
+}
+
+/// The ids of the ancient places a piece of the dataset's markup links to,
+/// in order.
+fn ancient_ids(html: &str) -> Vec<String> {
+    html.split("<ancient id=\"")
+        .skip(1)
+        .filter_map(|s| s.split('"').next())
+        .map(str::to_string)
+        .collect()
+}
+
+/// "Bethel 1" -> "Bethel": the dataset's name for a place without the number
+/// that tells places of one name apart.
+fn unnumbered(name: &str) -> &str {
+    match name.rsplit_once(' ') {
+        Some((b, n)) if !n.is_empty() && n.chars().all(|c| c.is_ascii_digit()) => b,
+        _ => name,
+    }
+}
+
+/// The dataset's markup as plain words. Each ancient place it links to is
+/// called by `name_of` (the name the BSB gives it), or else by the dataset's
+/// name without its number; other links become their text.
+fn plain(html: &str, name_of: &dyn Fn(&str) -> Option<String>) -> String {
+    let mut out = String::new();
+    let mut rest = html;
+    while let Some(i) = rest.find('<') {
+        out.push_str(&rest[..i]);
+        rest = &rest[i..];
+        let Some(j) = rest.find('>') else {
+            rest = "";
+            break;
+        };
+        let tag = &rest[1..j];
+        rest = &rest[j + 1..];
+        let name = tag.split_whitespace().next().unwrap_or("");
+        if name.is_empty() || name.starts_with('/') {
+            continue;
+        }
+        let close = format!("</{name}>");
+        let Some(k) = rest.find(&close) else { continue };
+        let inner = strip_tags(&rest[..k]);
+        let id = tag.split("id=\"").nth(1).and_then(|s| s.split('"').next());
+        match (name, id) {
+            ("ancient", Some(id)) => {
+                out.push_str(&name_of(id).unwrap_or_else(|| unnumbered(&inner).to_string()))
+            }
+            _ => out.push_str(&inner),
+        }
+        rest = &rest[k + close.len()..];
+    }
+    out.push_str(rest);
+    let out = out
+        .replace("&amp;", "&")
+        .replace("&quot;", "\"")
+        .replace("&#39;", "’")
+        .replace('\'', "’");
+    out.split_whitespace().collect::<Vec<_>>().join(" ")
 }
 
 /// One place named in one verse: where in the verse, which spelling, how
@@ -920,6 +1056,8 @@ struct Base {
     json: Value,
     /// The Dead Sea's rings, for the Jerusalem line ("about 20 km west of the Dead Sea").
     dead_sea: Vec<Vec<Pt>>,
+    /// Each named river's lines, by the map's name for it ("Euphrates").
+    rivers: HashMap<String, Vec<Vec<Pt>>>,
 }
 
 fn base_map(inputs: &Inputs) -> Result<Base, String> {
@@ -987,6 +1125,7 @@ fn base_map(inputs: &Inputs) -> Result<Base, String> {
     }
 
     let mut river_names: Vec<&str> = Vec::new();
+    let mut courses: HashMap<String, Vec<Vec<Pt>>> = HashMap::new();
     let mut rivers = Vec::new();
     let mut river_labels = Vec::new();
     for f in features(&inputs.path(NE, "rivers"))? {
@@ -1019,6 +1158,9 @@ fn base_map(inputs: &Inputs) -> Result<Base, String> {
                 let mut row = vec![json!(idx)];
                 row.extend(e.into_iter().map(Value::from));
                 rivers.push(Value::Array(row));
+                if let Some(n) = name {
+                    courses.entry(n.to_string()).or_default().push(s.clone());
+                }
                 if idx >= 0 {
                     // A label spot about every 0.6 degrees along the river.
                     let mut run = 0.3;
@@ -1083,8 +1225,16 @@ fn base_map(inputs: &Inputs) -> Result<Base, String> {
         "riverLabels": river_labels,
         "seas": seas,
     });
-    Ok(Base { json, dead_sea })
+    Ok(Base {
+        json,
+        dead_sea,
+        rivers: courses,
+    })
 }
+
+/// Land whose modern country is disputed, where the panel names none:
+/// Crimea (west, south, east, north).
+const DISPUTED: [[f64; 4]; 1] = [[32.4, 44.3, 36.7, 46.3]];
 
 /// Modern countries, for "in modern Turkey".
 struct Countries(Vec<(String, [f64; 4], Vec<Vec<Pt>>)>);
@@ -1123,6 +1273,9 @@ impl Countries {
         let within = |b: &[f64; 4], m: f64| {
             p.0 >= b[0] - m && p.0 <= b[2] + m && p.1 >= b[1] - m && p.1 <= b[3] + m
         };
+        if DISPUTED.iter().any(|b| within(b, 0.0)) {
+            return None;
+        }
         if let Some((n, _, _)) = self
             .0
             .iter()
@@ -1144,6 +1297,655 @@ impl Countries {
             .filter(|&(d, _)| d <= 10.0)
             .min_by(|a, b| a.0.total_cmp(&b.0))
             .map(|(_, n)| n.as_str())
+    }
+
+    /// Whether a point is on any country's land.
+    fn land(&self, q: Pt) -> bool {
+        self.0.iter().any(|(_, b, rings)| {
+            q.0 >= b[0] && q.0 <= b[2] && q.1 >= b[1] && q.1 <= b[3] && inside(rings, q)
+        })
+    }
+
+    /// Whether the way from `p` to `q` stays on land, so a border across the
+    /// sea is not near (Greek islands across the sea from Turkey, Egypt
+    /// across the Gulf of Aqaba from Arabia).
+    fn over_land(&self, p: Pt, q: Pt) -> bool {
+        [1.0 / 3.0, 2.0 / 3.0]
+            .iter()
+            .all(|t| self.land((p.0 + (q.0 - p.0) * t, p.1 + (q.1 - p.1) * t)))
+    }
+
+    /// The other country whose land border passes within `limit` km of a
+    /// point in `own`, measured to the border's lines, not only its corners
+    /// (the simplified border past Carchemish is a long straight line). A
+    /// state too small to place anything by is left out (Vatican City,
+    /// within Rome).
+    fn border_with(&self, p: Pt, own: &str, limit: f64) -> Option<&str> {
+        let deg = limit / 80.0;
+        // The point of the line a-b nearest to p, on a flat map around p.
+        let (kx, ky) = (111.32 * p.1.to_radians().cos(), 110.57);
+        let nearest = |a: Pt, b: Pt| -> Pt {
+            let (ax, ay) = ((a.0 - p.0) * kx, (a.1 - p.1) * ky);
+            let (dx, dy) = ((b.0 - a.0) * kx, (b.1 - a.1) * ky);
+            let l = dx * dx + dy * dy;
+            let t = if l > 0.0 {
+                (-(ax * dx + ay * dy) / l).clamp(0.0, 1.0)
+            } else {
+                0.0
+            };
+            (a.0 + (b.0 - a.0) * t, a.1 + (b.1 - a.1) * t)
+        };
+        self.0
+            .iter()
+            .filter(|(n, b, _)| {
+                n != own
+                    && (b[2] - b[0]) + (b[3] - b[1]) > SMALL_STATE_DEG
+                    && p.0 >= b[0] - deg
+                    && p.0 <= b[2] + deg
+                    && p.1 >= b[1] - deg
+                    && p.1 <= b[3] + deg
+            })
+            .flat_map(|(n, _, rings)| {
+                rings
+                    .iter()
+                    .flat_map(|r| r.windows(2))
+                    .map(move |w| (n.as_str(), nearest(w[0], w[1])))
+            })
+            .map(|(n, q)| (n, q, km(p, q)))
+            .filter(|&(_, q, d)| d <= limit && self.over_land(p, q))
+            .min_by(|a, b| a.2.total_cmp(&b.2))
+            .map(|(n, _, _)| n)
+    }
+}
+
+/// "Turkey, Syria and Iraq"
+fn and_list(items: &[&str]) -> String {
+    match items {
+        [] => String::new(),
+        [one] => one.to_string(),
+        [rest @ .., last] => format!("{} and {last}", rest.join(", ")),
+    }
+}
+
+/// The countries each named river runs through on the map, north to south,
+/// leaving out any with less than a tenth of its length there (the Tigris
+/// only skirts Syria): "Turkey, Syria and Iraq" for the Euphrates.
+fn river_courses(
+    rivers: &HashMap<String, Vec<Vec<Pt>>>,
+    countries: &Countries,
+) -> HashMap<String, String> {
+    let mut out = HashMap::new();
+    for (river, parts) in rivers {
+        // (country, km of the river in it, km × latitude)
+        let mut by: Vec<(&str, f64, f64)> = Vec::new();
+        for w in parts.iter().flat_map(|p| p.windows(2)) {
+            let mid = ((w[0].0 + w[1].0) / 2.0, (w[0].1 + w[1].1) / 2.0);
+            let Some(c) = countries.at(mid) else { continue };
+            let len = km(w[0], w[1]);
+            match by.iter_mut().find(|x| x.0 == c) {
+                Some(x) => {
+                    x.1 += len;
+                    x.2 += len * mid.1;
+                }
+                None => by.push((c, len, len * mid.1)),
+            }
+        }
+        let total: f64 = by.iter().map(|x| x.1).sum();
+        by.retain(|x| x.1 >= total / 10.0);
+        by.sort_by(|a, b| (b.2 / b.1).total_cmp(&(a.2 / a.1)));
+        let names: Vec<&str> = by.iter().map(|x| x.0).collect();
+        if !names.is_empty() {
+            out.insert(river.clone(), and_list(&names));
+        }
+    }
+    out
+}
+
+// ------------------------------------------------------------------ where, in plain words
+
+/// Kinds drawn as an area (a name across the map) rather than a dot.
+const AREAS: [&str; 9] = [
+    "region",
+    "river",
+    "body of water",
+    "mountain range",
+    "natural area",
+    "people group",
+    "wadi",
+    "mountain ridge",
+    "forest",
+];
+
+/// Kinds built by people, which can stand "in Jerusalem".
+const BUILT: [&str; 8] = [
+    "gate",
+    "structure",
+    "pool",
+    "room",
+    "altar",
+    "hall",
+    "district in settlement",
+    "fortification",
+];
+
+/// Places whose kind in the dataset does not fit the BSB's name for them, or
+/// fits only one proposed site: Ezion-geber was a port town (1 Kings 9:26),
+/// whatever its site, En-gedi a town (Joshua 15:62) as well as an oasis, and
+/// Perez-uzzah "that place" where Uzzah died (2 Samuel 6:8) and the Tower of
+/// Eder a landmark Jacob camped beyond (Genesis 35:21), not towns.
+const KIND_BY_NAME: [(&str, &str); 7] = [
+    ("Kidron Valley", "valley"),
+    ("Valley of Acacias", "valley"),
+    ("Most Holy Place", "room"),
+    ("Ezion-geber", "settlement"),
+    ("En-gedi", "settlement"),
+    ("Perez-uzzah", "place"),
+    ("Tower of Eder", "place"),
+];
+
+/// Places whose kind is set by their OpenBible.info id: the Etam of Judges
+/// 15:8 is "the rock of Etam", as the dataset's own note says.
+const KIND_BY_ID: [(&str, &str); 1] = [("ae05348", "rock")];
+
+/// Great cities of their day that the Bible names too seldom to be called
+/// "a city" by count alone.
+const GREAT_CITIES: [&str; 14] = [
+    "Rome",
+    "Nineveh",
+    "Susa",
+    "Memphis",
+    "Thebes",
+    "Alexandria",
+    "Antioch",
+    "Athens",
+    "Corinth",
+    "Ephesus",
+    "Sidon",
+    "Ur",
+    "Caesarea",
+    "Thessalonica",
+];
+
+/// Within this many km of another country's land border, a far region is not
+/// said to be "in what is now" one country (Macedonia was in Greece as well).
+const BORDER_KM: f64 = 50.0;
+
+/// A far site this close to another country's land border is said to be near
+/// that border, not "in what is now" either country: the mound of Carchemish
+/// lies on the border of Turkey and Syria, and the simplified borders are
+/// only good to a few km.
+const NEAR_BORDER_KM: f64 = 5.0;
+
+/// A state whose width and height add up to less than this many degrees is
+/// too small to place anything by (Vatican City, within Rome).
+const SMALL_STATE_DEG: f64 = 0.2;
+
+/// Regions that took in Jerusalem although the dataset's one point for them
+/// lies far from it: Canaan's is in Galilee, but Jerusalem was a Canaanite
+/// city (Ezekiel 16:3), so Canaan is not "north of Jerusalem".
+const AROUND_JERUSALEM: [&str; 1] = ["Canaan"];
+
+/// "a town", "a river": the kind of place, for a reader.
+fn kind_words(kind: &str, name: &str, mentions: usize) -> &'static str {
+    match kind {
+        "settlement" if mentions >= 50 || GREAT_CITIES.contains(&name) => "a city",
+        "settlement" => "a town",
+        "structure" if name.contains("Tower") => "a tower",
+        "structure" if name.contains("Wall") => "a wall",
+        "structure" if name.contains("House") || name.contains("Palace") => "a building",
+        "structure" | "fortification" => "a structure",
+        "region" => "a region",
+        "river" => "a river",
+        "mountain range" => "a range of mountains",
+        "body of water" => "a body of water",
+        "mountain" => "a mountain",
+        "hill" => "a hill",
+        "campsite" => "a camping place",
+        "valley" => "a valley",
+        "gate" => "a gate",
+        "natural area" => "an area",
+        "island" => "an island",
+        "spring" => "a spring",
+        "road" => "a road",
+        "altar" => "an altar",
+        "pool" => "a pool",
+        "well" => "a well",
+        "wadi" => "a stream bed",
+        "tree" => "a tree",
+        "garden" => "a garden",
+        "district in settlement" => "a part of a city",
+        "field" => "a field",
+        "room" => "a room",
+        "stone heap" => "a heap of stones",
+        "cliff" => "a cliff",
+        "rock" => "a rock",
+        "mountain pass" => "a pass",
+        "canal" => "a canal",
+        "promontory" => "a headland",
+        "forest" => "a forest",
+        "hall" => "a hall",
+        "mountain ridge" => "a ridge",
+        "people group" => "the land of a people",
+        _ => "a place",
+    }
+}
+
+/// Which way `b` lies from `a`: "south", "northeast".
+fn direction(a: Pt, b: Pt) -> &'static str {
+    const DIRS: [&str; 8] = [
+        "north",
+        "northeast",
+        "east",
+        "southeast",
+        "south",
+        "southwest",
+        "west",
+        "northwest",
+    ];
+    DIRS[(bearing(a, b) / 45.0).round() as usize % 8]
+}
+
+/// The compass bearing from a to b, in degrees clockwise from north.
+fn bearing(a: Pt, b: Pt) -> f64 {
+    let (la, lb, dl) = (a.1.to_radians(), b.1.to_radians(), (b.0 - a.0).to_radians());
+    let y = dl.sin() * lb.cos();
+    let x = la.cos() * lb.sin() - la.sin() * lb.cos() * dl.cos();
+    (y.atan2(x).to_degrees() + 360.0) % 360.0
+}
+
+/// "about 9 km", "about 1,250 km": rounded the way people say distances.
+fn about_km(d: f64) -> String {
+    let step = match d {
+        d if d < 12.0 => 1.0,
+        d if d < 60.0 => 5.0,
+        d if d < 250.0 => 10.0,
+        d if d < 1000.0 => 50.0,
+        _ => 100.0,
+    };
+    let n = ((d / step).round() * step).max(1.0) as u64;
+    let s = if n >= 1000 {
+        format!("{},{:03}", n / 1000, n % 1000)
+    } else {
+        n.to_string()
+    };
+    format!("about {s} km")
+}
+
+/// What the where-line needs to know about the map.
+struct Geo<'a> {
+    jerusalem: Pt,
+    dead_sea: Pt,
+    countries: &'a Countries,
+    /// The countries each named river runs through (river_courses).
+    courses: &'a HashMap<String, String>,
+}
+
+/// Where a point lies, after the kind of place: "about 8 km south of
+/// Jerusalem", "in what is now Turkey", "that included Jerusalem".
+fn place_phrase(g: &Geo, at: Pt, kind: &str, name: &str) -> String {
+    let area = AREAS.contains(&kind);
+    if area && AROUND_JERUSALEM.contains(&name) {
+        return "that included Jerusalem".to_string();
+    }
+    let d = km(g.jerusalem, at);
+    let dir = direction(g.jerusalem, at);
+    let way = || {
+        if area {
+            format!("{dir} of Jerusalem")
+        } else {
+            format!("{} {dir} of Jerusalem", about_km(d))
+        }
+    };
+    if d > FAR_KM {
+        if kind == "body of water" {
+            return way();
+        }
+        let Some(c) = g.countries.at(at) else {
+            return way();
+        };
+        if letters(c) == letters(name) {
+            // Not "Egypt: a region in what is now Egypt".
+            return way();
+        }
+        if kind == "river" {
+            let c = g.courses.get(name).map_or(c, String::as_str);
+            return format!("running through what is now {c}");
+        }
+        if area && g.countries.border_with(at, c, BORDER_KM).is_some() {
+            return way();
+        }
+        if !area {
+            if let Some(o) = g.countries.border_with(at, c, NEAR_BORDER_KM) {
+                let (a, b) = if c < o { (c, o) } else { (o, c) };
+                return format!("near what is now the border of {a} and {b}");
+            }
+        }
+        return format!("in what is now {c}");
+    }
+    if d < 1.0 && kind == "hill" {
+        // Mount Zion and the Ophel stood within the city's walls; the Mount
+        // of Olives, across the Kidron, is over a kilometre away.
+        return "in Jerusalem".to_string();
+    }
+    if d < 0.5 {
+        if name == "Jerusalem" && kind == "settlement" {
+            return format!(
+                "{} {} of the Dead Sea",
+                about_km(km(g.dead_sea, at)),
+                direction(g.dead_sea, at)
+            );
+        }
+        return if area {
+            "that included Jerusalem".to_string()
+        } else if BUILT.contains(&kind) || kind == "settlement" {
+            "in Jerusalem".to_string()
+        } else {
+            "at Jerusalem".to_string()
+        };
+    }
+    if d < 2.0 {
+        return if BUILT.contains(&kind) {
+            "in Jerusalem".to_string()
+        } else {
+            format!("just {dir} of Jerusalem")
+        };
+    }
+    way()
+}
+
+/// The panel's one line about a place, after its name: "a town about 8 km
+/// south of Jerusalem", "another name for Jerusalem", "a hill within 8 km of
+/// Jerusalem". It never says more than the dataset does: an uncertain place
+/// gets no distance from a single proposed site, and a place the dataset
+/// relates to another one is put in its words.
+struct WhereIn<'a> {
+    p: &'a Place,
+    name: &'a str,
+    kind: &'a str,
+    mentions: usize,
+    /// The dataset's identification as plain words, if it relates this place
+    /// to a biblical one ("within 8 km of Jerusalem").
+    relation: Option<String>,
+    /// Whether that relation's place is Jerusalem.
+    to_jerusalem: bool,
+    /// Whether another place the BSB names has the same name.
+    shared_name: bool,
+}
+
+fn where_line(g: &Geo, w: &WhereIn) -> String {
+    let what = kind_words(w.kind, w.name, w.mentions);
+    if let Some((k, _, true, _)) = &w.p.special {
+        match k.as_str() {
+            "multiple_locations" => return format!("{what} that stood in more than one place"),
+            "nonspecific_place" => return format!("{what} that may not be a single real place"),
+            "not_a_place" | "not_a_proper_name" => {
+                return "perhaps not the name of a place here".to_string()
+            }
+            // "unknown_place": the label says the location is unknown.
+            _ => return what.to_string(),
+        }
+    }
+    if let Some((site, score)) = &w.p.off {
+        // The map cannot draw the strongest site; name it if it is likely,
+        // unless its name is only the place's own ("Ulai canal", but not
+        // "Tel Azekah").
+        return if *score >= CONFIDENT && !letters(site).starts_with(&letters(w.name)) {
+            format!("{what} at the site called {site}")
+        } else {
+            what.to_string()
+        };
+    }
+    let Some(best) = w.p.sites.first() else {
+        // Placed only within another place that has no single site of its
+        // own ("in the Holy Place" of the tabernacle).
+        return match &w.relation {
+            Some(rel) if rel.starts_with("in ") => format!("{what} {rel}"),
+            _ => what.to_string(),
+        };
+    };
+    if w.p.sure < CONFIDENT {
+        // The dataset's best guess, hedged, when it is that this is another
+        // name for a place the BSB names ("Gob: a town, perhaps another name
+        // for Gezer"). Not when the BSB's name is not the dataset's: the BSB's
+        // "Euphrates" in Genesis 36:37 translates "the River".
+        let alias = w
+            .relation
+            .as_deref()
+            .and_then(|r| r.strip_prefix("another name for "));
+        if let Some(t) = alias {
+            let bare = t.strip_prefix("the ").unwrap_or(t);
+            if letters(bare) != letters(w.name) && letters(&w.p.base) == letters(w.name) {
+                return format!("{what}, perhaps another name for {}", with_the(t));
+            }
+        }
+        return uncertain_line(g, w, what);
+    }
+    // After a relation, where its place lies ("in the Valley of Hinnom, just
+    // southwest of Jerusalem"); a point there is a town's, not a gate's.
+    let then = |target: &str| -> String {
+        let kind = if AREAS.contains(&w.kind) {
+            w.kind
+        } else {
+            "settlement"
+        };
+        let at = place_phrase(g, best.at, kind, "");
+        match at.strip_prefix("in what is now ") {
+            Some(c) if letters(c) == letters(target) => String::new(),
+            _ => format!(", {at}"),
+        }
+    };
+    if let Some(rel) = &w.relation {
+        let here = if w.shared_name { "here " } else { "" };
+        if let Some(target) = rel.strip_prefix("another name for ") {
+            let bare = target.strip_prefix("the ").unwrap_or(target);
+            if letters(bare) != letters(w.name) {
+                let target = with_the(target);
+                return if w.to_jerusalem {
+                    format!("{here}another name for {target}")
+                } else {
+                    format!("{here}another name for {target}{}", then(bare))
+                };
+            }
+        } else if w.kind == "district in settlement" && rel.starts_with("in ") {
+            return format!("a part of {}", &rel[3..]);
+        } else if rel.starts_with("within ") || w.to_jerusalem {
+            return format!("{what} {rel}");
+        } else {
+            return format!("{what} {rel}{}", then(""));
+        }
+    }
+    let at = place_phrase(g, best.at, w.kind, w.name);
+    if at == "in Jerusalem" && w.kind == "settlement" {
+        return "a part of Jerusalem".to_string();
+    }
+    format!("{what} {at}")
+}
+
+/// The small label after the line ("location uncertain"), or "" when the
+/// site is well established. `symbolic`: a strong reading of the place as a
+/// symbol; `within_multi`: placed only within a place that stood in more
+/// than one place (the tabernacle's Most Holy Place).
+fn label(p: &Place, symbolic: bool, within_multi: bool) -> &'static str {
+    if let Some((k, _, true, _)) = &p.special {
+        return match k.as_str() {
+            "multiple_locations" => "more than one place",
+            "nonspecific_place" => "may be symbolic",
+            "unknown_place" => "location unknown",
+            _ => "may not be a place",
+        };
+    }
+    if symbolic {
+        return "may be symbolic";
+    }
+    if let Some((_, score)) = &p.off {
+        return if *score >= CONFIDENT {
+            "not on this map"
+        } else {
+            "location uncertain"
+        };
+    }
+    match p.sites.first() {
+        None if within_multi => "more than one place",
+        None => "location unknown",
+        Some(_) if p.sure < CONFIDENT => "location uncertain",
+        Some(_) if p.sure < 800 => "likely site",
+        Some(_) => "",
+    }
+}
+
+/// "the Wilderness of Zin", "the City of David", but "Mount Hermon": a place
+/// named by a common noun takes "the" in a sentence.
+fn with_the(name: &str) -> String {
+    const NOUNS: [&str; 14] = [
+        "Wilderness ",
+        "Desert ",
+        "Valley ",
+        "Sea ",
+        "River ",
+        "Brook ",
+        "Plain ",
+        "Hill ",
+        "Field ",
+        "Pool ",
+        "Gate ",
+        "Tower ",
+        "House ",
+        "City ",
+    ];
+    if NOUNS.iter().any(|n| name.starts_with(n)) {
+        format!("the {name}")
+    } else {
+        name.to_string()
+    }
+}
+
+/// For a place whose location is uncertain: where the proposed sites lie, if
+/// they agree on the area ("whose proposed sites lie about 5 km northeast of
+/// Jerusalem", "whose proposed sites lie in what is now Egypt and Israel"),
+/// or only on a direction ("whose proposed sites lie west of Jerusalem").
+fn uncertain_line(g: &Geo, w: &WhereIn, what: &str) -> String {
+    let sites = &w.p.sites;
+    if sites.len() < 2 {
+        return what.to_string();
+    }
+    let far = sites.iter().all(|s| km(g.jerusalem, s.at) > FAR_KM);
+    if far {
+        let mut cs: Vec<&str> = Vec::new();
+        for s in sites {
+            match g.countries.at(s.at) {
+                Some(c) if !cs.contains(&c) => cs.push(c),
+                Some(_) => {}
+                None => return what.to_string(),
+            }
+        }
+        if cs.len() > 2 || (cs.len() == 1 && letters(cs[0]) == letters(w.name)) {
+            return what.to_string();
+        }
+        return format!(
+            "{what} whose proposed sites lie in what is now {}",
+            cs.join(" and ")
+        );
+    }
+    let n = sites.len() as f64;
+    let mid = (
+        sites.iter().map(|s| s.at.0).sum::<f64>() / n,
+        sites.iter().map(|s| s.at.1).sum::<f64>() / n,
+    );
+    let spread = sites.iter().map(|s| km(mid, s.at)).fold(0.0, f64::max);
+    let d = km(g.jerusalem, mid);
+    if spread > 12.0 || d > FAR_KM {
+        return what.to_string();
+    }
+    let from = |s: &Site| km(g.jerusalem, s.at);
+    if sites.iter().all(|s| from(s) <= 5.0) {
+        return format!("{what} whose proposed sites lie near Jerusalem");
+    }
+    // Not "about 11 km north" for one site 21 km north and another 9 km west.
+    let toward = bearing(g.jerusalem, mid);
+    let off = |s: &Site| {
+        let a = (bearing(g.jerusalem, s.at) - toward).abs();
+        a.min(360.0 - a)
+    };
+    if sites.iter().any(|s| from(s) > 2.0 && off(s) > 45.0) {
+        return what.to_string();
+    }
+    let dir = direction(g.jerusalem, mid);
+    if spread > d / 3.0 {
+        // Sites at quite different distances (Emmaus: 7, 12 and 24 km west)
+        // share only a direction.
+        return format!("{what} whose proposed sites lie {dir} of Jerusalem");
+    }
+    format!(
+        "{what} whose proposed sites lie {} {dir} of Jerusalem",
+        about_km(d)
+    )
+}
+
+/// The dataset's identification, as the where-line puts it after the kind of
+/// place, if it is one the line can use: "another name for Jerusalem",
+/// "within 8 km of Jerusalem", "in the Valley of Hinnom", "around Gordion"
+/// (for "about 200 km around Gordion").
+fn relation_words(how: &str) -> Option<String> {
+    if let Some(rest) = how.strip_prefix("region around ") {
+        return Some(format!("around {rest}"));
+    }
+    if let Some(rest) = how.strip_prefix("about ") {
+        return rest
+            .split_once(" around ")
+            .map(|(_, x)| format!("around {x}"));
+    }
+    [
+        "another name for ",
+        "within ",
+        "in ",
+        "on ",
+        "along ",
+        "between ",
+    ]
+    .iter()
+    .any(|p| how.starts_with(p))
+    .then(|| how.to_string())
+}
+
+/// The dataset's note on a place, as plain words for Deep ("In Benjamin"),
+/// leaving out notes about its own sources: quotations from dictionaries,
+/// Wikipedia and Wikidata, and the compiler's own working notes ("I tagged…").
+fn note_words(html: &str, own: &str, name_of: &dyn Fn(&str) -> Option<String>) -> String {
+    let own_work = html.split(|c: char| !c.is_alphanumeric()).any(|w| w == "I");
+    // "Approximately equivalent to Cush", said of Cush.
+    let itself = ancient_ids(html)
+        .iter()
+        .any(|id| name_of(id).is_some_and(|n| letters(&n) == letters(own)));
+    if html.trim().is_empty()
+        || own_work
+        || itself
+        || [
+            "<source",
+            "Wikipedia",
+            "Wikidata",
+            "wikipedia",
+            "wikidata",
+            "http",
+            "www.",
+            ".net",
+            ".com",
+            ".org",
+            "this point",
+            "these remains",
+            "this wadi",
+            "photo",
+            "image",
+        ]
+        .iter()
+        .any(|x| html.contains(x))
+    {
+        return String::new();
+    }
+    let s = plain(html, name_of);
+    let mut c = s.chars();
+    match c.next() {
+        Some(f) => f.to_uppercase().chain(c).collect(),
+        None => String::new(),
     }
 }
 
@@ -1197,62 +1999,344 @@ fn capitalized(words: &[char]) -> Vec<String> {
     out
 }
 
+/// Words in a Theographic title that are not a name the text calls anyone by.
+const NUMERALS: [&str; 4] = ["I", "II", "III", "IV"];
+
+/// Ties that Theographic records but the text itself rules out, left out:
+/// (Theographic place, person or "" for everyone, ties: 1 born, 2 died, why).
+const NOT_TIES: [(&str, &str, u8, &str); 7] = [
+    (
+        "eden_354",
+        "",
+        3,
+        "Adam and Eve were made, not born, and the first births and death came after they left the garden (Genesis 3:23–4:8)",
+    ),
+    (
+        "jerusalem_636",
+        "naamah_2119",
+        1,
+        "1 Kings 14:21, the verse naming her and Jerusalem, says she was an Ammonite",
+    ),
+    (
+        "jerusalem_636",
+        "maachah_1841",
+        1,
+        "2 Chronicles 13:2: she was from Gibeah",
+    ),
+    (
+        "jerusalem_636",
+        "ahaziah_121",
+        2,
+        "2 Kings 9:27: he fled to Megiddo and died there",
+    ),
+    (
+        "jerusalem_636",
+        "amaziah_214",
+        2,
+        "2 Kings 14:19: he was killed at Lachish",
+    ),
+    (
+        "egypt_362",
+        "joseph_1710",
+        1,
+        "Genesis 30:22–25: he was born before Jacob left Paddan-aram",
+    ),
+    (
+        "damascus_322",
+        "barnabas_1722",
+        4,
+        "Acts 9:27, the verse naming him and Damascus, has him in Jerusalem telling what Saul did there",
+    ),
+];
+
+/// Verses that tell of a death in words the rule in telling() cannot read
+/// (Theographic person, verse, whose death it is): never shown for that
+/// person's death.
+const NOT_VERSES: [(&str, &str, &str); 1] = [("herod_1506", "Acts.12.19", "the guards'")];
+
+/// Verses either side of one Theographic lists a person in that count as
+/// the same passage.
+const PASSAGE: u32 = 3;
+
 /// A Theographic person as a BSB reader meets them.
 struct Person {
     /// Theographic's title in the BSB's spelling: "Simon Peter", "Oholiab"
-    /// (not the KJV's "Aholiab"), "Mary (Mother of Jesus)".
+    /// (not the KJV's "Aholiab"), "Timothy" (not "Timotheus"), "Mary (Mother
+    /// of Jesus)".
     name: String,
-    /// Every verse Theographic lists for them.
+    /// The verses of the passages Theographic lists them in: each verse it
+    /// lists, and up to PASSAGE verses either side in the same chapter. Its
+    /// lists leave verses out (Paul in Acts 16:1, Barnabas in Acts 13:4).
     listed: HashSet<u32>,
-    /// The names the BSB may call them by, each with whether no other
-    /// Theographic person goes by it: the title's names ("Simon", "Peter")
-    /// and the personal names Theographic says they are also called ("Saul"
-    /// for Paul, never theirs alone).
+    /// The names the BSB calls them by, each with whether it is from their
+    /// title ("Paul") rather than another name they go by ("Saul").
     forms: Vec<(Vec<char>, bool)>,
-    /// Their names, lower case, as the text spells them ("simon", "peter").
+    /// Their title's names, lower case, as the text spells them ("simon", "peter").
     words: Vec<String>,
 }
 
 impl Person {
-    /// Whether verse `v` names them: Theographic lists them there, or the BSB
-    /// names them there by a name that is theirs alone, or by a shared name
-    /// ("John", "Saul") within two verses of one Theographic lists for them.
-    fn named_in(&self, v: u32, vz: &Versification, text: &[Vec<char>]) -> bool {
-        if self.listed.contains(&v) {
-            return true;
+    /// Where verse `v` names them, if it does: Theographic lists them in its
+    /// passage and the BSB calls them there by one of their names (so the
+    /// "Mark" of "Mark out one road", Ezekiel 21:20, is not John Mark). Gives
+    /// whether that is their title's name, and where in the verse it is (the
+    /// title first, then the earliest). A name inside a place's name ("David"
+    /// in "the City of David") does not count: `places` are the spans of the
+    /// places the verse names.
+    fn named_at(
+        &self,
+        v: u32,
+        text: &[Vec<char>],
+        places: &[(usize, usize)],
+    ) -> Option<(bool, usize)> {
+        if !self.listed.contains(&v) {
+            return None;
         }
-        let Some(t) = text.get(v as usize) else {
-            return false;
-        };
-        let near = || {
-            (v.saturating_sub(2)..=v + 2)
-                .any(|w| self.listed.contains(&w) && same_chapter(vz, v, w))
-        };
+        let t = text.get(v as usize)?;
+        let free = |pos: usize| !places.iter().any(|&(s, len)| pos >= s && pos < s + len);
         self.forms
             .iter()
-            .any(|(f, alone)| find_name(t, f).is_some() && (*alone || near()))
+            .filter_map(|(f, own)| find_name_where(t, f, free).map(|pos| (*own, pos)))
+            .max_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(&a.1)))
     }
 }
 
-/// How many Theographic people go by each first name, in lower-case letters.
-fn first_names(pe: &Table) -> HashMap<String, usize> {
-    let mut out: HashMap<String, usize> = HashMap::new();
-    for r in &pe.rows {
-        let k = letters(pe.get(r, "name"));
-        if !k.is_empty() {
-            *out.entry(k).or_default() += 1;
+/// Words Theographic lists among the names a person is "also called" that
+/// are titles, not names (most of them for Jesus).
+const TITLES: [&str; 18] = [
+    "Lord", "God", "Son", "Lamb", "Saviour", "Savior", "Holy", "Word", "Light", "Prince", "Master",
+    "Branch", "Judge", "King", "Christ", "Messiah", "Immanuel", "Emmanuel",
+];
+
+/// Whether a verse speaks of going somewhere only as a plan, a hope or a
+/// vision ("Paul resolved... After I have been there, I must see Rome").
+fn planned(t: &[char]) -> bool {
+    const PLAN: [&str; 9] = [
+        "resolved",
+        "decided",
+        "past",
+        "vision",
+        "telling",
+        "must",
+        "planned",
+        "intending",
+        "hoping",
+    ];
+    words_of(t)
+        .iter()
+        .any(|w| PLAN.contains(&w.text.to_lowercase().as_str()))
+}
+
+/// A word in a verse: where it starts, its letters, the sentence it is in,
+/// and the word before it.
+struct Word {
+    start: usize,
+    text: String,
+    sentence: usize,
+    after: String,
+}
+
+/// The words of a verse, each with the sentence it is in (a sentence ends at
+/// ".", "?" or "!"). Hyphens stay inside a name ("Baal-hanan"); a possessive
+/// ending is dropped ("Zedekiah’s" -> "Zedekiah").
+fn words_of(t: &[char]) -> Vec<Word> {
+    let mut out: Vec<Word> = Vec::new();
+    let (mut i, mut sentence) = (0, 0);
+    while i < t.len() {
+        if !t[i].is_alphabetic() {
+            if matches!(t[i], '.' | '?' | '!') {
+                sentence += 1;
+            }
+            i += 1;
+            continue;
         }
+        let start = i;
+        while i < t.len()
+            && (t[i].is_alphabetic()
+                || (matches!(t[i], '-' | '\'' | '\u{2019}')
+                    && t.get(i + 1).is_some_and(|c| c.is_alphabetic())))
+        {
+            i += 1;
+        }
+        let mut text: String = t[start..i].iter().collect();
+        for end in ["\u{2019}s", "'s"] {
+            if let Some(x) = text.strip_suffix(end) {
+                text = x.to_string();
+            }
+        }
+        let after = out
+            .last()
+            .filter(|w| w.sentence == sentence)
+            .map_or(String::new(), |w| w.text.to_lowercase());
+        out.push(Word {
+            start,
+            text,
+            sentence,
+            after,
+        });
     }
     out
 }
 
-fn person(
-    pe: &Table,
-    r: &[String],
-    vz: &Versification,
-    text: &[Vec<char>],
-    census: &HashMap<String, usize>,
-) -> Person {
+/// Capitalized words that open a sentence without being a name.
+const NOT_NAMES: [&str; 20] = [
+    "Then", "And", "So", "But", "Now", "When", "After", "There", "The", "This", "These", "In",
+    "On", "At", "From", "To", "For", "If", "Because", "As",
+];
+
+/// Pronouns, which the BSB capitalizes for God and for Jesus ("He must be
+/// killed"): never a name, and never between a name and its verb.
+const PRONOUNS: [&str; 22] = [
+    "I", "He", "His", "Him", "Himself", "Me", "My", "Mine", "You", "Your", "Yours", "She", "Her",
+    "They", "Them", "Their", "We", "Us", "Our", "It", "Its", "Who",
+];
+
+/// Whether a verse tells of this person's birth (ties 1) or death (ties 2),
+/// not someone else's in the same verse. In one sentence the word for it
+/// must come after the person's name with no other name between ("Terah
+/// lived 205 years, and he died in Haran"; "And Josiah was buried"; but not
+/// "Joseph had buried his father"), or a word for killing or burying must
+/// come just before the name ("killed their brother Asahel"), or, for a
+/// birth, the name must follow ("born to him in Jerusalem: Shammua, Shobab,
+/// Nathan, Solomon"). A name after "of", "to" or "by" is someone's parent
+/// ("born to Joseph in Egypt"), and a name inside a place's name (`places`)
+/// is the place's.
+fn telling(t: &[char], ties: u8, forms: &[(Vec<char>, bool)], places: &[(usize, usize)]) -> bool {
+    const BIRTH: [&str; 5] = ["born", "bore", "birth", "firstborn", "conceived"];
+    const DEATH: [&str; 16] = [
+        "died",
+        "die",
+        "dies",
+        "dying",
+        "death",
+        "dead",
+        "buried",
+        "killed",
+        "kill",
+        "slain",
+        "slew",
+        "executed",
+        "crucified",
+        "perish",
+        "fallen",
+        "breathed",
+    ];
+    const ACTS: [&str; 7] = [
+        "killed",
+        "kill",
+        "slew",
+        "executed",
+        "crucified",
+        "buried",
+        "struck",
+    ];
+    let ws = words_of(t);
+    let in_place = |w: &Word| {
+        places
+            .iter()
+            .any(|&(s, len)| w.start >= s && w.start < s + len)
+    };
+    let first = |k: usize| k == 0 || ws[k - 1].sentence != ws[k].sentence;
+    let is_name = |k: usize| {
+        let w = &ws[k];
+        w.text.starts_with(char::is_uppercase)
+            && !in_place(w)
+            && !PRONOUNS.contains(&w.text.as_str())
+            && !(first(k) && NOT_NAMES.contains(&w.text.as_str()))
+    };
+    let mine = |k: usize| {
+        let l = letters(&ws[k].text);
+        is_name(k)
+            && !["of", "to", "by"].contains(&ws[k].after.as_str())
+            && forms.iter().any(|(f, _)| {
+                letters(&f.iter().collect::<String>())
+                    .split(' ')
+                    .any(|x| x == l)
+                    || letters(&f.iter().collect::<String>()) == l
+            })
+    };
+    for (k, w) in ws.iter().enumerate() {
+        let lw = w.text.to_lowercase();
+        let birth = ties & 1 != 0 && BIRTH.contains(&lw.as_str());
+        let death = ties & 2 != 0
+            && DEATH.contains(&lw.as_str())
+            && (lw != "breathed" || ws.get(k + 2).is_some_and(|x| x.text == "last"));
+        if !birth && !death {
+            continue;
+        }
+        let same = |j: &usize| ws[*j].sentence == w.sentence;
+        // The nearest name before it in the sentence, unless it is a deed
+        // done to someone else ("Joseph had buried his father").
+        let passive = (k.saturating_sub(2)..k)
+            .any(|j| ["was", "were", "be", "been", "is", "are"].contains(&ws[j].text.as_str()));
+        if (!ACTS.contains(&lw.as_str()) || passive)
+            && (0..k)
+                .rev()
+                .take_while(same)
+                .find(|&j| is_name(j))
+                .is_some_and(mine)
+        {
+            return true;
+        }
+        // "killed their brother Asahel"
+        if death
+            && ACTS.contains(&lw.as_str())
+            && (k + 1..ws.len()).take_while(same).take(3).any(mine)
+        {
+            return true;
+        }
+        if birth && (k + 1..ws.len()).take_while(same).any(mine) {
+            return true;
+        }
+    }
+    false
+}
+
+/// Whether another name stands between a person's name at `a` and a place's
+/// at `b` in a verse, so that the verse may tell of someone else there ("Paul
+/// and his companions came to Perga in Pamphylia, where John left them to
+/// return to Jerusalem"). Places' names (`places`), pronouns, the person's
+/// own names (`forms`) and a companion's after "and" ("Paul and Barnabas
+/// remained at Antioch") do not count.
+fn name_between(
+    t: &[char],
+    a: usize,
+    b: usize,
+    forms: &[(Vec<char>, bool)],
+    places: &[(usize, usize)],
+) -> bool {
+    let (lo, hi) = (a.min(b), a.max(b));
+    // "Simon Peter" counts as "simon", "peter" and "simonpeter".
+    let own: HashSet<String> = forms
+        .iter()
+        .flat_map(|(f, _)| {
+            let f: String = f.iter().collect();
+            let mut v: Vec<String> = f.split(' ').map(letters).collect();
+            v.push(letters(&f));
+            v
+        })
+        .collect();
+    let ws = words_of(t);
+    let mut theirs = vec![false; ws.len()];
+    for k in 0..ws.len() {
+        theirs[k] = own.contains(&letters(&ws[k].text))
+            || (k >= 2 && ws[k].after == "and" && theirs[k - 2]);
+    }
+    ws.iter().enumerate().any(|(k, w)| {
+        let first = k == 0 || ws[k - 1].sentence != w.sentence;
+        w.start > lo
+            && w.start < hi
+            && w.text.starts_with(char::is_uppercase)
+            && !PRONOUNS.contains(&w.text.as_str())
+            && !(first && NOT_NAMES.contains(&w.text.as_str()))
+            && !places
+                .iter()
+                .any(|&(s, len)| w.start >= s && w.start < s + len)
+            && !theirs[k]
+    })
+}
+
+fn person(pe: &Table, r: &[String], vz: &Versification, text: &[Vec<char>]) -> Person {
     let title = pe.get(r, "displayTitle");
     let title = if title.is_empty() {
         pe.get(r, "name")
@@ -1265,21 +2349,39 @@ fn person(
     };
     let listed: HashSet<u32> = list(pe.get(r, "verses"))
         .filter_map(|o| osis_verse(o, vz))
+        .flat_map(|v| {
+            (v.saturating_sub(PASSAGE)..=v + PASSAGE).filter(move |&w| same_chapter(vz, v, w))
+        })
         .collect();
     let verses: Vec<u32> = list(pe.get(r, "verses"))
         .filter_map(|o| osis_verse(o, vz))
         .take(400)
         .collect();
-    let names_in = |w: &str| -> bool {
+    let in_verses = |w: &str| -> usize {
         let f: Vec<char> = w.chars().collect();
-        verses.iter().any(|&v| {
-            text.get(v as usize)
-                .is_some_and(|t| find_name(t, &f).is_some())
-        })
+        verses
+            .iter()
+            .filter(|&&v| {
+                text.get(v as usize)
+                    .is_some_and(|t| find_name(t, &f).is_some())
+            })
+            .count()
     };
+    // The other personal names Theographic says they go by ("Saul" for Paul,
+    // "Timothy" for Timotheus), not titles ("Lord", "Prince") or God's names.
+    let others: Vec<&str> = list(pe.get(r, "alsoCalled"))
+        .filter(|a| {
+            a.starts_with(char::is_uppercase)
+                && a.chars().any(char::is_lowercase)
+                && !a.contains(' ')
+                && !TITLES.contains(a)
+                && !NOT_PEOPLE.contains(a)
+        })
+        .collect();
     // Each capitalized word of the title, in the BSB's spelling where the
-    // BSB spells it differently: the closest name in the person's verses
-    // within two letters ("Aholiab" -> "Oholiab", "Achsah" -> "Acsah").
+    // BSB spells it differently: another of their names that the BSB uses
+    // in their verses ("Timotheus" -> "Timothy"), or else the closest name in
+    // their verses within two letters ("Aholiab" -> "Oholiab", "Achsah" -> "Acsah").
     let mut counts: HashMap<String, usize> = HashMap::new();
     for &v in &verses {
         let mut seen = HashSet::new();
@@ -1290,46 +2392,47 @@ fn person(
         }
     }
     let mut parts: Vec<String> = Vec::new();
+    let mut prev = "";
     for w in outside.split(' ').filter(|w| !w.is_empty()) {
-        if !w.starts_with(char::is_uppercase) {
+        // "the Evangelist", "the Apostle": a title's epithet, not a name to respell.
+        let epithet = prev == "the";
+        prev = w;
+        if !w.starts_with(char::is_uppercase) || NUMERALS.contains(&w) || epithet {
             parts.push(w.to_string());
             continue;
         }
         let mut word = w.to_string();
-        if !names_in(w) {
+        if in_verses(w) == 0 {
+            let other = others
+                .iter()
+                .map(|a| (in_verses(a), *a))
+                .filter(|(n, _)| *n > 0)
+                .max_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(a.1)));
             let wl: Vec<char> = letters(w).chars().collect();
             let limit = (wl.len() / 3).min(2);
-            let best = counts
+            let close = counts
                 .iter()
                 .map(|(c, n)| (edits(&letters(c).chars().collect::<Vec<_>>(), &wl), *n, c))
                 .filter(|(d, _, _)| *d <= limit)
                 .min_by(|a, b| a.0.cmp(&b.0).then(b.1.cmp(&a.1)).then(a.2.cmp(b.2)));
-            if let Some((_, _, c)) = best {
+            if let Some((_, a)) = other {
+                word = a.to_string();
+            } else if let Some((_, _, c)) = close {
                 word = c.clone();
             }
         }
         parts.push(word);
     }
-    let words: Vec<String> = parts
+    let named: Vec<&String> = parts
         .iter()
-        .filter(|w| w.starts_with(char::is_uppercase))
-        .map(|w| letters(w))
+        .filter(|w| w.starts_with(char::is_uppercase) && !NUMERALS.contains(&w.as_str()))
         .collect();
-    let mut forms: Vec<(Vec<char>, bool)> = parts
-        .iter()
-        .filter(|w| w.starts_with(char::is_uppercase))
-        .map(|w| {
-            let alone = census.get(&letters(w)).copied().unwrap_or(0) <= 1;
-            (w.chars().collect(), alone)
-        })
-        .collect();
-    for a in list(pe.get(r, "alsoCalled")) {
-        let personal = a.starts_with(char::is_uppercase)
-            && a.chars().any(char::is_lowercase)
-            && !a.contains(' ')
-            && census.contains_key(&letters(a));
+    let words: Vec<String> = named.iter().map(|w| letters(w)).collect();
+    let mut forms: Vec<(Vec<char>, bool)> =
+        named.iter().map(|w| (w.chars().collect(), true)).collect();
+    for a in others {
         let f: Vec<char> = a.chars().collect();
-        if personal && !forms.iter().any(|(g, _)| *g == f) {
+        if !forms.iter().any(|(g, _)| *g == f) {
             forms.push((f, false));
         }
     }
@@ -1350,17 +2453,26 @@ struct PeopleTally {
     shared: usize,
     tied: usize,
     unconfirmed: usize,
+    /// Born and died ties left out because the text rules them out (NOT_TIES).
+    ruled_out: usize,
+    /// People whose name is told apart by a parent ("Michael (son of Jehoshaphat)").
+    told_apart: usize,
 }
 
 /// People Theographic ties to each place: born there (1), died there (2) or
-/// was there (4), each with the first verse that names both the place and
-/// the person (-1 if none; see Person::named_in). Theographic's "was there"
-/// comes from whole events (everyone on Paul's first journey "was" at
-/// Seleucia), so it is kept only where such a verse exists, and only for
-/// names that are not also place names ("Canaan", "Asshur").
+/// was there (4), each with a verse that names both the place and the person
+/// (-1 if none). A verse names a person when Theographic lists them in its
+/// passage and the BSB calls them there by one of their names (see
+/// Person::named_at).
+/// Theographic's "was there" comes from whole events (everyone on Paul's first
+/// journey "was" at Seleucia), so it is kept only where such a verse exists,
+/// and only for names that are not also place names ("Canaan", "Asshur"). A
+/// birth or death keeps its verse only if the verse speaks of a birth or a
+/// death, so that "died here" never points to a verse about something else.
 fn people(
     inputs: &Inputs,
-    kept: &[(&Place, Vec<u32>)],
+    kept: &[(&Place, Vec<(u32, usize)>)],
+    spans: &HashMap<u32, Vec<(usize, usize)>>,
     names: &[String],
     vz: &Versification,
     text: &[Vec<char>],
@@ -1386,6 +2498,9 @@ fn people(
             "name",
             "displayTitle",
             "alsoCalled",
+            "gender",
+            "father",
+            "mother",
             "birthPlace",
             "deathPlace",
             "verseCount",
@@ -1454,8 +2569,19 @@ fn people(
                 .map(|f| letters(&f.iter().collect::<String>()))
         })
         .collect();
+    // How many Theographic people share each title, to tell them apart.
+    let mut titles: HashMap<String, usize> = HashMap::new();
+    for r in &pe.rows {
+        let t = pe.get(r, "displayTitle");
+        *titles
+            .entry(letters(if t.is_empty() { pe.get(r, "name") } else { t }))
+            .or_default() += 1;
+    }
 
-    let census = first_names(&pe);
+    let not_verses: HashSet<(&str, u32)> = NOT_VERSES
+        .iter()
+        .filter_map(|(who, osis, _)| Some((*who, osis_verse(osis, vz)?)))
+        .collect();
     let mut cache: HashMap<&str, Person> = HashMap::new();
     let mut t = PeopleTally::default();
     let mut out_names: Vec<String> = Vec::new();
@@ -1468,7 +2594,7 @@ fn people(
         .iter()
         .zip(names)
         .map(|((p, vs), name)| {
-            let vset: HashSet<u32> = vs.iter().copied().collect();
+            let vset: HashSet<u32> = vs.iter().map(|&(v, _)| v).collect();
             let own: HashSet<String> = [letters(&p.base), letters(name)].into_iter().collect();
             let any: HashSet<String> = p
                 .forms
@@ -1520,13 +2646,50 @@ fn people(
             if NOT_PEOPLE.contains(&pe.get(r, "name")) {
                 continue;
             }
-            let pr = cache
-                .entry(who)
-                .or_insert_with(|| person(&pe, r, vz, text, &census));
-            let evidence = vs.iter().copied().find(|&v| pr.named_in(v, vz, text));
             let mut bits = bits;
-            if bits & 4 != 0
-                && (evidence.is_none() || pr.words.iter().any(|w| place_words.contains(w)))
+            for (at, person, ties, _why) in NOT_TIES {
+                if at == lookup_of[ti] && (person.is_empty() || person == who) && bits & ties != 0 {
+                    bits &= !ties;
+                    t.ruled_out += 1;
+                }
+            }
+            let pr = cache.entry(who).or_insert_with(|| person(&pe, r, vz, text));
+            // The verse to show: one that tells of the birth or death when
+            // that is the tie, then by the person's own name ("Paul", not
+            // "Saul"), then one naming both in one sentence, then one with no
+            // other name between them ("where John left them to return to
+            // Jerusalem" is John's), then one that is not about a plan or a
+            // vision ("Paul resolved... I must see Rome"), then the first
+            // (often the arrival: "Paul left Athens and went to Corinth").
+            let best = vs
+                .iter()
+                .filter_map(|&(v, at)| {
+                    let (own, pos) =
+                        pr.named_at(v, text, spans.get(&v).map_or(&[][..], Vec::as_slice))?;
+                    let t = &text[v as usize];
+                    let together = !t[pos.min(at)..pos.max(at).min(t.len())]
+                        .iter()
+                        .any(|c| matches!(c, '.' | '?' | '!'));
+                    let places = spans.get(&v).map_or(&[][..], Vec::as_slice);
+                    let tells = bits & 3 != 0
+                        && telling(&text[v as usize], bits & 3, &pr.forms, places)
+                        && !not_verses.contains(&(who, v));
+                    let clear = !name_between(t, pos, at, &pr.forms, places);
+                    Some((
+                        (
+                            tells,
+                            own,
+                            together,
+                            clear,
+                            !planned(t),
+                            std::cmp::Reverse(v),
+                        ),
+                        v,
+                    ))
+                })
+                .max_by(|a, b| a.0.cmp(&b.0))
+                .map(|(key, v)| (key.0, v));
+            if bits & 4 != 0 && (best.is_none() || pr.words.iter().any(|w| place_words.contains(w)))
             {
                 bits &= !4;
                 t.unconfirmed += 1;
@@ -1534,13 +2697,35 @@ fn people(
             if bits == 0 {
                 continue;
             }
+            let verse = match best {
+                Some((tells, v)) if tells || bits & 4 != 0 => i64::from(v),
+                _ => -1,
+            };
+            let mut name = pr.name.clone();
+            let title = pe.get(r, "displayTitle");
+            let title = if title.is_empty() {
+                pe.get(r, "name")
+            } else {
+                title
+            };
+            if !name.contains('(') && titles.get(&letters(title)).copied().unwrap_or(0) > 1 {
+                let female = pe.get(r, "gender") == "Female";
+                let parent = [pe.get(r, "father"), pe.get(r, "mother")]
+                    .into_iter()
+                    .filter(|p| !p.is_empty() && !p.starts_with("god_"))
+                    .find_map(|p| row_of.get(p).copied());
+                if let Some(pr2) = parent {
+                    let pname = person(&pe, pr2, vz, text).name;
+                    let pname = pname.split(" (").next().unwrap_or(&pname).to_string();
+                    name = format!(
+                        "{name} ({} of {pname})",
+                        if female { "daughter" } else { "son" }
+                    );
+                    t.told_apart += 1;
+                }
+            }
             let weight = pe.get(r, "verseCount").parse::<i64>().unwrap_or(0);
-            rows.push((
-                weight,
-                pr.name.clone(),
-                bits,
-                evidence.map_or(-1, i64::from),
-            ));
+            rows.push((weight, name, bits, verse));
         }
         rows.sort_by(|a, b| b.0.cmp(&a.0).then_with(|| a.1.cmp(&b.1)));
         // Two people with the same name at one place read as one line.
@@ -1626,7 +2811,7 @@ pub fn build(
         if ms.is_empty() {
             continue;
         }
-        if let Some((kind, score, true)) = &p.special {
+        if let Some((kind, score, true, _)) = &p.special {
             if (kind == "not_a_place" || kind == "not_a_proper_name") && *score >= CONFIDENT {
                 t.not_a_place += ms.len();
                 continue;
@@ -1703,36 +2888,81 @@ pub fn build(
         .copied()
         .min_by(|a, b| km(*a, jerusalem).total_cmp(&km(*b, jerusalem)))
         .ok_or("real-map: Natural Earth has no Dead Sea")?;
+    let courses = river_courses(&base.rivers, &countries);
+    let geo = Geo {
+        jerusalem,
+        dead_sea,
+        countries: &countries,
+        courses: &courses,
+    };
+    // Places that stood in more than one place (the tabernacle's Holy Place).
+    let multi: HashSet<&str> = all
+        .iter()
+        .filter(|p| matches!(&p.special, Some((k, _, true, _)) if k == "multiple_locations"))
+        .map(|p| p.id.as_str())
+        .collect();
+    // The name the BSB gives each place it names, for the dataset's words
+    // about places ("in the Holy Place 2" -> "in the Holy Place").
+    let name_by_id: HashMap<&str, &str> = kept
+        .iter()
+        .zip(&names)
+        .map(|((p, _), n)| (p.id.as_str(), n.as_str()))
+        .collect();
+    let name_of = |id: &str| name_by_id.get(id).map(|n| n.to_string());
+    let jerusalem_id = kept
+        .iter()
+        .filter(|(p, _)| p.base == "Jerusalem")
+        .max_by_key(|(_, ms)| ms.len())
+        .map(|(p, _)| p.id.clone())
+        .unwrap_or_default();
+    let mut name_count: HashMap<&str, usize> = HashMap::new();
+    for n in &names {
+        *name_count.entry(n.as_str()).or_default() += 1;
+    }
     let mut kinds: Vec<String> = Vec::new();
-    let mut country_names: Vec<String> = Vec::new();
     let mut place_rows = Vec::with_capacity(kept.len());
-    let (mut confident, mut far) = (0usize, 0usize);
-    for (p, _) in &kept {
-        let kind = match kinds.iter().position(|k| *k == p.kind) {
+    let (mut confident, mut far, mut related, mut noted) = (0usize, 0usize, 0usize, 0usize);
+    let mut off_map = 0usize;
+    for ((p, ms), name) in kept.iter().zip(&names) {
+        let kind_name = KIND_BY_NAME
+            .iter()
+            .find(|(n, _)| n == name)
+            .or_else(|| KIND_BY_ID.iter().find(|(id, _)| *id == p.id))
+            .map_or(p.kind.as_str(), |(_, k)| *k);
+        let kind = match kinds.iter().position(|k| k == kind_name) {
             Some(i) => i,
             None => {
-                kinds.push(p.kind.clone());
+                kinds.push(kind_name.to_string());
                 kinds.len() - 1
             }
         };
         let best = p.sites.first();
-        confident += best.is_some_and(|s| s.score >= CONFIDENT) as usize;
-        let country = match best
-            .filter(|s| km(s.at, jerusalem) > FAR_KM)
-            .and_then(|s| countries.at(s.at))
-        {
-            Some(c) => {
-                far += 1;
-                match country_names.iter().position(|x| x == c) {
-                    Some(i) => i as i64,
-                    None => {
-                        country_names.push(c.to_string());
-                        country_names.len() as i64 - 1
-                    }
-                }
-            }
-            None => -1,
+        confident += (best.is_some() && p.off.is_none() && p.sure >= CONFIDENT) as usize;
+        far += best.is_some_and(|s| km(s.at, jerusalem) > FAR_KM) as usize;
+        // The identification in the dataset's words, when it places this
+        // one by another ("within 8 km of Jerusalem") rather than naming a
+        // site ("Tel Avdon").
+        let how = p.how.clone().unwrap_or_default();
+        let direct = how.html.trim().starts_with('<') && how.html.matches('<').count() == 2;
+        let how_words = if direct || how.html.is_empty() {
+            String::new()
+        } else {
+            plain(&how.html, &name_of)
         };
+        let relation = (how.ancient_only && !how_words.is_empty())
+            .then(|| relation_words(&how_words))
+            .flatten();
+        related += relation.is_some() as usize;
+        let w = WhereIn {
+            p,
+            name,
+            kind: kind_name,
+            mentions: ms.len(),
+            to_jerusalem: how.target.as_deref() == Some(jerusalem_id.as_str()),
+            relation,
+            shared_name: name_count.get(name.as_str()).copied().unwrap_or(0) > 1,
+        };
+        let line = where_line(&geo, &w);
         let sites: Vec<Value> = p
             .sites
             .iter()
@@ -1746,26 +2976,62 @@ pub fn build(
             })
             .collect();
         let special = match &p.special {
-            Some((k, s, _)) if *s >= 100 => json!([k, s]),
+            Some((k, s, best, words)) if *s >= 100 || *best => {
+                json!([k, s, u8::from(*best), plain(words, &name_of)])
+            }
             _ => json!(0),
         };
-        place_rows.push(json!([p.id, p.slug, kind, country, sites, special]));
+        let symbolic = matches!(&p.special, Some((k, s, _, words))
+            if *s >= 100 && (k == "nonspecific_place" || ["symbolic", "poetic", "cipher"].iter().any(|x| words.contains(x))));
+        // Placed by another place's point ("in Jerusalem", "within 8 km of
+        // Bethlehem"), so the map marks only roughly where it was.
+        let rough = !direct
+            && !how.html.is_empty()
+            && !how.html.starts_with("another name for")
+            && best.is_some();
+        let note = note_words(&p.comment, name, &name_of);
+        noted += !note.is_empty() as usize;
+        let within_multi = how.target.as_deref().is_some_and(|t| multi.contains(t));
+        let label = label(p, symbolic, within_multi);
+        let off = match &p.off {
+            Some((site, score)) => {
+                off_map += 1;
+                json!([site, score])
+            }
+            None => json!(0),
+        };
+        let flags = u8::from(rough) | (u8::from(symbolic) << 1);
+        // "another name for Bethlehem", said of a Bethlehem, tells a reader
+        // nothing (the dataset joins two entries of one name).
+        let self_alias = how_words
+            .strip_prefix("another name for ")
+            .is_some_and(|t| letters(t.trim_start_matches("the ")) == letters(name));
+        let shown_how = if self_alias { "" } else { how_words.as_str() };
+        place_rows.push(json!([
+            p.id, p.slug, kind, line, sites, special, shown_how, note, flags, label, off, p.sure
+        ]));
     }
     let places_doc = json!({
-        "format": 1,
+        "format": 2,
         "jerusalem": [round(jerusalem.0, 4), round(jerusalem.1, 4)],
-        "deadSea": [round(dead_sea.0, 4), round(dead_sea.1, 4)],
         "confident": CONFIDENT,
         "kinds": kinds,
-        "countries": country_names,
         "places": place_rows,
     });
 
-    let verse_lists: Vec<(&Place, Vec<u32>)> = kept
+    let verse_lists: Vec<(&Place, Vec<(u32, usize)>)> = kept
         .iter()
-        .map(|(p, ms)| (*p, ms.iter().map(|m| m.verse).collect()))
+        .map(|(p, ms)| (*p, ms.iter().map(|m| (m.verse, m.pos)).collect()))
         .collect();
-    let (people_doc, pt) = people(inputs, &verse_lists, &names, vz, &text)?;
+    // Where each verse names its places, so that a person's name inside a
+    // place's name ("the City of David") is not taken for the person.
+    let mut spans: HashMap<u32, Vec<(usize, usize)>> = HashMap::new();
+    for (_, ms) in &kept {
+        for m in ms {
+            spans.entry(m.verse).or_default().push((m.pos, m.len));
+        }
+    }
+    let (people_doc, pt) = people(inputs, &verse_lists, &spans, &names, vz, &text)?;
 
     eprintln!(
         "real-map: {} places in the geocoding data, {} named in the BSB in {} verses ({} mentions); {} have a confident site, {} far from Jerusalem",
@@ -1781,8 +3047,12 @@ pub fn build(
         t.unmapped, t.not_named, t.not_in_bsb, t.not_a_place, overlapped, t.moved, alts.len()
     );
     eprintln!(
-        "real-map: left out {} sites credited to OpenStreetMap and {} without coordinates; {} places joined to Theographic ({} more left without people because another place shares more verses with theirs), {} with people tied to them; {} \"was there\" ties left out as unconfirmed",
-        t.osm_sites, t.no_coordinates, pt.joined, pt.shared, pt.tied, pt.unconfirmed
+        "real-map: {} places placed in the dataset's words by another place, {} with a note; left out {} sites credited to OpenStreetMap or placed by a Palestine Grid reference ({} links to them), so {} places have their strongest site off the map",
+        related, noted, t.withheld_sites, t.no_coordinates, off_map
+    );
+    eprintln!(
+        "real-map: {} places joined to Theographic ({} more left without people because another place shares more verses with theirs), {} with people tied to them; {} \"was there\" ties left out as unconfirmed, {} births and deaths the text rules out, {} names told apart by a parent",
+        pt.joined, pt.shared, pt.tied, pt.unconfirmed, pt.ruled_out, pt.told_apart
     );
 
     let bytes = |v: &Value| serde_json::to_vec(v).map_err(|e| e.to_string());
@@ -1986,14 +3256,131 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         });
     out.push((in_range, "every site has real coordinates".to_string()));
     let lystra = place_in("Acts 14:6", "Lystra")?;
-    let far = lystra
-        .and_then(|p| rows.get(p))
-        .and_then(|r| r[3].as_i64())
-        .and_then(|c| places["countries"].get(c as usize))
-        .and_then(Value::as_str);
+
+    // The line about each place, and its label.
+    const LABELS: [&str; 8] = [
+        "",
+        "likely site",
+        "location uncertain",
+        "location unknown",
+        "not on this map",
+        "more than one place",
+        "may be symbolic",
+        "may not be a place",
+    ];
+    let text_at = |p: Option<usize>, i: usize| -> String {
+        p.and_then(|p| rows.get(p))
+            .and_then(|r| r.get(i))
+            .and_then(Value::as_str)
+            .unwrap_or("")
+            .to_string()
+    };
+    let rows_ok = rows.iter().all(|r| {
+        let line = r.get(3).and_then(Value::as_str).unwrap_or("");
+        r.as_array().is_some_and(|a| a.len() == 12)
+            && !line.is_empty()
+            && !line.contains("probably")
+            && r.get(9)
+                .and_then(Value::as_str)
+                .is_some_and(|l| LABELS.contains(&l))
+    });
     out.push((
-        far == Some("Turkey"),
-        format!("Lystra is in modern Turkey: {far:?}"),
+        rows_ok,
+        "every place has a line and a known label, and no line guesses (\"probably\")".to_string(),
+    ));
+    let line_is =
+        |r: &str, name: &str, want: &str, label: &str| -> Result<(bool, String), String> {
+            let p = place_in(r, name)?;
+            let (line, got) = (text_at(p, 3), text_at(p, 9));
+            Ok((
+                line == want && got == label,
+                format!("{r}: \"{name}: {want}\" [{label}]; got \"{line}\" [{got}]"),
+            ))
+        };
+    out.push(line_is(
+        "Ruth 1:1",
+        "Bethlehem",
+        "a town about 8 km south of Jerusalem",
+        "",
+    )?);
+    out.push(line_is(
+        "Matt 2:1",
+        "Judea",
+        "a region that included Jerusalem",
+        "",
+    )?);
+    out.push(line_is("Ps 2:6", "Zion", "another name for Jerusalem", "")?);
+    out.push(line_is(
+        "Acts 14:6",
+        "Lystra",
+        "a town in what is now Turkey",
+        "",
+    )?);
+    out.push(line_is("Neh 3:26", "Ophel", "a hill in Jerusalem", "")?);
+    out.push(line_is(
+        "Jer 31:39",
+        "Goah",
+        "a hill within 8 km of Jerusalem",
+        "",
+    )?);
+    out.push(line_is(
+        "Rev 18:2",
+        "Babylon",
+        "here another name for Rome, in what is now Italy",
+        "may be symbolic",
+    )?);
+    out.push(line_is(
+        "Jer 46:2",
+        "Euphrates",
+        "a river running through what is now Turkey, Syria and Iraq",
+        "",
+    )?);
+    out.push(line_is("Gen 2:8", "Eden", "a garden", "location unknown")?);
+    out.push(line_is(
+        "1 Sam 17:1",
+        "Azekah",
+        "a town at the site called Tel Azekah",
+        "not on this map",
+    )?);
+    out.push(line_is(
+        "Exod 26:33",
+        "Most Holy Place",
+        "a room in the Holy Place",
+        "more than one place",
+    )?);
+    out.push(line_is(
+        "Acts 21:1",
+        "Rhodes",
+        "an island in what is now Greece",
+        "",
+    )?);
+    out.push(line_is(
+        "Luke 24:13",
+        "Emmaus",
+        "a town whose proposed sites lie west of Jerusalem",
+        "location uncertain",
+    )?);
+    out.push(line_is(
+        "Gen 11:31",
+        "Canaan",
+        "a region that included Jerusalem",
+        "",
+    )?);
+    out.push(line_is(
+        "Jer 46:2",
+        "Carchemish",
+        "a town near what is now the border of Syria and Turkey",
+        "",
+    )?);
+    let bethphage = text_at(place_in("Matt 21:1", "Bethphage")?, 3);
+    out.push((
+        bethphage.starts_with("a town just east of Jerusalem"),
+        format!("Matthew 21:1: Bethphage is just east of Jerusalem: {bethphage:?}"),
+    ));
+    let macedonia = text_at(place_in("Acts 16:9", "Macedonia")?, 3);
+    out.push((
+        !macedonia.is_empty() && !macedonia.contains("North Macedonia"),
+        format!("Acts 16:9: Macedonia is not put in one modern country: {macedonia:?}"),
     ));
 
     // The base map.
@@ -2094,8 +3481,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         tied(seleucia, "Barnabas", 4)
             && !tied(seleucia, "Elymas", 4)
             && !tied(seleucia, "Sergius", 4)
-            && tied(paphos, "Elymas", 4),
-        "Barnabas was at Seleucia (Acts 13:4); Elymas was at Paphos (Acts 13:6), not Seleucia"
+            && tied(paphos, "Paul", 4),
+        "Barnabas was at Seleucia (Acts 13:4), and Paul at Paphos (Acts 13:13); Elymas and Sergius, whom no verse names with Seleucia, were not"
             .to_string(),
     ));
     // A place Theographic puts elsewhere lends this one no people.
@@ -2109,6 +3496,47 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             && !tied(rev, "Zedekiah", 2),
         "the Bethlehem of Judges 12:8 and the Babylon of Revelation 18:2 borrow no people"
             .to_string(),
+    ));
+    // Names as the BSB spells them, and no title's epithet respelled.
+    let lystra_people: Vec<&str> = lystra
+        .and_then(|p| people["places"].get(p))
+        .and_then(Value::as_array)
+        .map(|l| {
+            l.iter()
+                .filter_map(|x| x[0].as_u64().and_then(|i| pnames.get(i as usize).copied()))
+                .collect()
+        })
+        .unwrap_or_default();
+    out.push((
+        lystra_people.contains(&"Timothy")
+            && !pnames.iter().any(|n| n.contains("Timotheus") || n.contains("Boanerges")),
+        format!("people are named as the BSB names them (Timothy, not Timotheus; John the Apostle): {lystra_people:?}"),
+    ));
+    // Births and deaths the text rules out are left out.
+    let egypt = place_in("Gen 50:26", "Egypt")?;
+    out.push((
+        tied(egypt, "Joseph (son of Jacob)", 2) && !tied(egypt, "Joseph (son of Jacob)", 1),
+        "Joseph died in Egypt but was not born there (Genesis 30:22–25)".to_string(),
+    ));
+    // The verse shown for a death tells of that person's death.
+    let shown_for = |p: Option<usize>, who: &str| -> Option<i64> {
+        p.and_then(|p| people["places"].get(p))
+            .and_then(Value::as_array)?
+            .iter()
+            .find(|x| {
+                x[0].as_u64()
+                    .and_then(|i| pnames.get(i as usize))
+                    .is_some_and(|n| *n == who)
+            })
+            .and_then(|x| x[2].as_i64())
+    };
+    let jerusalem_p = place_in("Matt 2:1", "Jerusalem")?;
+    let acts_21_13 = i64::from(d.resolve("Acts 21:13")?.0);
+    let matt_16_21 = i64::from(d.resolve("Matt 16:21")?.0);
+    let jesus = shown_for(jerusalem_p, "Jesus Christ");
+    out.push((
+        jesus == Some(matt_16_21) && jesus != Some(acts_21_13),
+        format!("Jesus died in Jerusalem: Matthew 16:21, not Acts 21:13 (Paul's words about his own death): {jesus:?}"),
     ));
     // Every verse shown with a person names the place.
     let mut verses_of: HashMap<usize, HashSet<i64>> = HashMap::new();
@@ -2185,6 +3613,26 @@ mod tests {
     }
 
     #[test]
+    fn positions_from_openstreetmap_or_the_palestine_grid_are_left_out() {
+        let rows: Vec<Value> = [
+            r#"{"id":"m1","lonlat":"35.2,31.7","coordinates_source":{"type":"wikidata"}}"#,
+            r#"{"id":"m2","lonlat":"35.2,31.7","coordinates_source":{"type":"osm"}}"#,
+            r#"{"id":"m3","lonlat":"35.2,31.7","coordinates_source":{"type":"epsg_28191"}}"#,
+            r#"{"id":"m4","lonlat":"35.2,31.7","custom_lonlat":"35.3,31.8","coordinates_source":{"type":"osm"}}"#,
+        ]
+        .iter()
+        .map(|r| serde_json::from_str(r).unwrap())
+        .collect();
+        let mut t = Tally::default();
+        let m = moderns(&rows, &mut t);
+        assert_eq!(m["m1"], Some((35.2, 31.7)));
+        assert_eq!(m["m2"], None);
+        assert_eq!(m["m3"], None);
+        assert_eq!(m["m4"], Some((35.3, 31.8)));
+        assert_eq!(t.withheld_sites, 2);
+    }
+
+    #[test]
     fn csv_reads_quotes_and_newlines() {
         let rows = csv("\u{feff}a,b,c\n1,\"two, \"\"2\"\"\nlines\",3\r\n");
         assert_eq!(
@@ -2258,7 +3706,11 @@ mod tests {
             shares: vec![0.5, 0.5],
             kind: "region".into(),
             sites: Vec::new(),
+            off: None,
+            sure: 0,
             special: None,
+            how: None,
+            comment: String::new(),
             verses: Vec::new(),
         };
         let at = |verse: u32, text: &str| {
@@ -2281,6 +3733,337 @@ mod tests {
         assert!(!people_word("Laish", "Dan") && !people_word("Canaan", "Canaan"));
         assert!(people_word("Arameans", "Syria") && !people_word("Jordan", "Jordan River"));
         assert_eq!(loose("Beth\u{2011}horon’s"), "beth horon's");
+    }
+
+    #[test]
+    fn markup_becomes_plain_words() {
+        let name_of = |id: &str| (id == "a1").then(|| "Jerusalem".to_string());
+        assert_eq!(
+            plain(
+                "within 8 km of <ancient id=\"a1\">Jerusalem 1</ancient>",
+                &name_of
+            ),
+            "within 8 km of Jerusalem"
+        );
+        assert_eq!(
+            plain("in the <ancient id=\"a9\">Holy Place 1</ancient> &amp; <modern id=\"m\">Tel X</modern>", &name_of),
+            "in the Holy Place & Tel X"
+        );
+        assert_eq!(
+            relation_words("region around Gordion").as_deref(),
+            Some("around Gordion")
+        );
+        assert_eq!(
+            relation_words("about 200 km around Gordion").as_deref(),
+            Some("around Gordion")
+        );
+        assert_eq!(
+            relation_words("another name for Jerusalem").as_deref(),
+            Some("another name for Jerusalem")
+        );
+        assert_eq!(relation_words("Tel Avdon"), None);
+        assert_eq!(with_the("Wilderness of Zin"), "the Wilderness of Zin");
+        assert_eq!(with_the("Mount Hermon"), "Mount Hermon");
+        assert_eq!(
+            and_list(&["Turkey", "Syria", "Iraq"]),
+            "Turkey, Syria and Iraq"
+        );
+        assert_eq!(and_list(&["Egypt"]), "Egypt");
+    }
+
+    #[test]
+    fn notes_leave_out_working_notes_and_sources() {
+        let name_of = |id: &str| (id == "c1").then(|| "Cush".to_string());
+        assert_eq!(
+            note_words(
+                "in <ancient id=\"b\">Benjamin 1</ancient>",
+                "Gibeah",
+                &name_of
+            ),
+            "In Benjamin"
+        );
+        assert_eq!(note_words("I tagged these verses", "Gibeah", &name_of), "");
+        assert_eq!(
+            note_words(
+                "see <source id=\"s\">a dictionary</source>",
+                "Gibeah",
+                &name_of
+            ),
+            ""
+        );
+        assert_eq!(note_words("see Bibleorigins.net", "Shur", &name_of), "");
+        assert_eq!(
+            note_words(
+                "approximately equivalent to <ancient id=\"c1\">Ethiopia</ancient>",
+                "Cush",
+                &name_of
+            ),
+            ""
+        );
+    }
+
+    #[test]
+    fn a_site_on_a_modern_border_is_said_to_be_near_it() {
+        let sq = |n: &str, b: [f64; 4]| {
+            let ring = vec![
+                (b[0], b[1]),
+                (b[2], b[1]),
+                (b[2], b[3]),
+                (b[0], b[3]),
+                (b[0], b[1]),
+            ];
+            (n.to_string(), b, vec![ring])
+        };
+        let c = Countries(vec![
+            // One long straight border, with no corner near Carchemish.
+            sq("Turkey", [36.0, 36.83, 40.0, 38.0]),
+            sq("Syria", [36.0, 35.0, 40.0, 36.83]),
+            sq("Vatican City", [37.0, 35.5, 37.01, 35.51]),
+            // An island about 3 km off Turkey's coast.
+            sq("Greece", [26.0, 37.5, 26.9, 38.5]),
+            sq("Turkey", [26.94, 37.0, 30.0, 39.0]),
+        ]);
+        let near = |p: Pt, own: &str| c.border_with(p, own, NEAR_BORDER_KM);
+        assert_eq!(near((38.015, 36.8297), "Syria"), Some("Turkey"));
+        assert_eq!(near((38.015, 36.65), "Syria"), None);
+        assert_eq!(near((37.02, 35.505), "Syria"), None, "a tiny state");
+        assert_eq!(near((26.89, 38.0), "Greece"), None, "across the sea");
+        let courses = HashMap::new();
+        let g = Geo {
+            jerusalem: (35.2345, 31.7767),
+            dead_sea: (35.5, 31.5),
+            countries: &c,
+            courses: &courses,
+        };
+        assert_eq!(
+            place_phrase(&g, (38.015, 36.8297), "settlement", "Carchemish"),
+            "near what is now the border of Syria and Turkey"
+        );
+        assert_eq!(
+            place_phrase(&g, (38.015, 36.5), "settlement", "Arpad"),
+            "in what is now Syria"
+        );
+        // A region near a border is placed from Jerusalem instead.
+        assert_eq!(
+            place_phrase(&g, (38.015, 36.8297), "region", "Aram"),
+            "northeast of Jerusalem"
+        );
+    }
+
+    #[test]
+    fn uncertain_sites_are_placed_only_as_far_as_they_agree() {
+        let at = |sites: &[Pt]| -> String {
+            let p = Place {
+                id: "a".into(),
+                slug: "a".into(),
+                base: "A".into(),
+                forms: vec![chars("A")],
+                shares: vec![1.0],
+                kind: "settlement".into(),
+                sites: sites
+                    .iter()
+                    .map(|&at| Site {
+                        at,
+                        score: 300,
+                        name: "Tel A".into(),
+                    })
+                    .collect(),
+                off: None,
+                sure: 300,
+                special: None,
+                how: None,
+                comment: String::new(),
+                verses: Vec::new(),
+            };
+            let (countries, courses) = (Countries(Vec::new()), HashMap::new());
+            let g = Geo {
+                jerusalem: (35.2345, 31.7767),
+                dead_sea: (35.5, 31.5),
+                countries: &countries,
+                courses: &courses,
+            };
+            let w = WhereIn {
+                p: &p,
+                name: "A",
+                kind: "settlement",
+                mentions: 1,
+                relation: None,
+                to_jerusalem: false,
+                shared_name: false,
+            };
+            uncertain_line(&g, &w, "a town")
+        };
+        // Emmaus: about 7, 12 and 24 km away, all to the west.
+        assert_eq!(
+            at(&[(35.164, 31.793), (34.989, 31.839), (35.137, 31.840)]),
+            "a town whose proposed sites lie west of Jerusalem"
+        );
+        // One site 21 km north, the other 9 km west.
+        assert_eq!(at(&[(35.2345, 31.9666), (35.139, 31.7767)]), "a town");
+        assert_eq!(
+            at(&[(35.25, 31.79), (35.26, 31.80)]),
+            "a town whose proposed sites lie near Jerusalem"
+        );
+        // Ai: et-Tell and Khirbet el-Maqatir, about a kilometre apart.
+        assert_eq!(
+            at(&[(35.2617, 31.9164), (35.2525, 31.9197)]),
+            "a town whose proposed sites lie about 15 km north of Jerusalem"
+        );
+    }
+
+    #[test]
+    fn a_verse_about_someone_else_there_is_shown_last() {
+        let paul = vec![(chars("Paul"), true)];
+        let at = |t: &str, place: &str| -> bool {
+            let t = chars(t);
+            let s: String = t.iter().collect();
+            let a = s.find("Paul").unwrap();
+            let b = s.find(place).unwrap();
+            let (a, b) = (s[..a].chars().count(), s[..b].chars().count());
+            name_between(&t, a, b, &paul, &[(b, place.chars().count())])
+        };
+        assert!(at(
+            "After setting sail from Paphos, Paul and his companions came to Perga in Pamphylia, where John left them to return to Jerusalem.",
+            "Jerusalem"
+        ));
+        assert!(!at(
+            "But Paul and Barnabas remained at Antioch, along with many others.",
+            "Antioch"
+        ));
+        assert!(!at(
+            "So when Paul went up to Jerusalem, He was glad.",
+            "Jerusalem"
+        ));
+    }
+
+    #[test]
+    fn distances_are_said_plainly() {
+        assert_eq!(about_km(8.4), "about 8 km");
+        assert_eq!(about_km(57.0), "about 55 km");
+        assert_eq!(about_km(1249.0), "about 1,200 km");
+        assert_eq!(about_km(0.2), "about 1 km");
+        assert_eq!(direction((35.2, 31.7), (35.2, 31.0)), "south");
+        assert_eq!(direction((35.2, 31.7), (36.0, 32.5)), "northeast");
+    }
+
+    #[test]
+    fn a_verse_tells_whose_birth_or_death() {
+        let f = |names: &[&str]| -> Vec<(Vec<char>, bool)> {
+            names.iter().map(|n| (chars(n), true)).collect()
+        };
+        let tells = |t: &str, ties: u8, who: &[&str]| telling(&chars(t), ties, &f(who), &[]);
+        assert!(tells(
+            "Terah lived 205 years, and he died in Haran.",
+            2,
+            &["Terah"]
+        ));
+        assert!(tells(
+            "And Josiah was buried in the tombs of his fathers.",
+            2,
+            &["Josiah"]
+        ));
+        assert!(!tells(
+            "After Joseph had buried his father, he returned to Egypt.",
+            2,
+            &["Joseph"]
+        ));
+        assert!(tells(
+            "because he had killed their brother Asahel in the battle at Gibeon.",
+            2,
+            &["Asahel"]
+        ));
+        assert!(!tells(
+            "Then Paul answered, “Why are you weeping? I am ready to die in Jerusalem for the name of the Lord Jesus.”",
+            2,
+            &["Jesus"]
+        ));
+        assert!(tells(
+            "These are the names of the children born to him in Jerusalem: Shammua, Shobab, Nathan, Solomon,",
+            1,
+            &["Solomon"]
+        ));
+        assert!(!tells(
+            "the two sons who had been born to Joseph in Egypt",
+            1,
+            &["Joseph"]
+        ));
+        assert!(planned(&chars(
+            "Paul resolved in the Spirit to go to Jerusalem"
+        )));
+        assert!(!planned(&chars(
+            "After this, Paul left Athens and went to Corinth."
+        )));
+        // A name inside a place's name is the place's.
+        let t = chars("buried in the City of David");
+        assert_eq!(
+            find_name_where(&t, &chars("David"), |p| !(14..27).contains(&p)),
+            None
+        );
+        assert_eq!(find_name(&t, &chars("David")), Some(22));
+    }
+
+    #[test]
+    fn labels_say_how_sure() {
+        let place = |sites: Vec<Site>,
+                     sure: i64,
+                     off: Option<(String, i64)>,
+                     special: Option<(String, i64, bool, String)>| Place {
+            id: "a".into(),
+            slug: "a".into(),
+            base: "A".into(),
+            forms: vec![chars("A")],
+            shares: vec![1.0],
+            kind: "settlement".into(),
+            sites,
+            off,
+            sure,
+            special,
+            how: None,
+            comment: String::new(),
+            verses: Vec::new(),
+        };
+        let site = |score| Site {
+            at: (35.0, 31.0),
+            score,
+            name: "Tel A".into(),
+        };
+        assert_eq!(
+            label(&place(vec![site(900)], 900, None, None), false, false),
+            ""
+        );
+        assert_eq!(
+            label(&place(vec![site(450)], 650, None, None), false, false),
+            "likely site"
+        );
+        assert_eq!(
+            label(&place(vec![site(300)], 300, None, None), false, false),
+            "location uncertain"
+        );
+        assert_eq!(
+            label(
+                &place(Vec::new(), 0, Some(("Tel Azekah".into(), 772)), None),
+                false,
+                false
+            ),
+            "not on this map"
+        );
+        assert_eq!(
+            label(&place(Vec::new(), 0, None, None), false, true),
+            "more than one place"
+        );
+        assert_eq!(
+            label(&place(Vec::new(), 0, None, None), false, false),
+            "location unknown"
+        );
+        let multi = Some(("multiple_locations".to_string(), 1000, true, String::new()));
+        assert_eq!(
+            label(&place(vec![site(900)], 900, None, multi), false, false),
+            "more than one place"
+        );
+        assert_eq!(
+            label(&place(vec![site(900)], 900, None, None), true, false),
+            "may be symbolic"
+        );
     }
 
     #[test]
