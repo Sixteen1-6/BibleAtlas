@@ -249,21 +249,33 @@ fn grammar_word(class: &str) -> bool {
 const CONSTRUCTION_WORDS: [&str; 1] = ["G3956"];
 
 /// Misprints in TFLSJ's glosses, set right whole word by whole word:
-/// u for v ("fauour"), letters lost ("mght-season") or words run together
-/// ("falldue").
-const MISPRINTS: [(&str, &str); 12] = [
+/// u for v ("fauour"), letters misread ("offsprmg", "uphft") or lost
+/// ("mght-season", "mquire", "di embarkation"), words run together
+/// ("falldue"), and LSJ's "per cent." read as "per century".
+const MISPRINTS: [(&str, &str); 23] = [
     ("fauour", "favour"),
     ("approue", "approve"),
     ("auoid", "avoid"),
+    ("aduantage", "advantage"),
+    ("conuenient", "convenient"),
+    ("seruice", "service"),
     ("bseeming", "beseeming"),
     ("dought", "dough"),
     ("mght", "night"),
+    ("mquire", "inquire"),
+    ("di embarkation", "disembarkation"),
+    ("offsprmg", "offspring"),
+    ("uphft", "uplift"),
+    ("ciothe", "clothe"),
+    ("fitled", "fitted"),
+    ("festivily", "festivity"),
     ("falldue", "fall due"),
     ("morethan", "more than"),
     ("raisefrom", "raise from"),
     ("aptto", "apt to"),
     ("civilrights", "civil rights"),
     ("lion or loins", "loin or loins"),
+    ("per century", "per cent"),
 ];
 
 /// A gloss with the misprints set right.
@@ -3057,6 +3069,20 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         odd.is_empty(),
         format!("senses that are fragments of an example or Latin: {odd:?}"),
     ));
+    // Misprints are set right wherever the gloss stands.
+    for (key, gloss) in [
+        ("G0986", "offspring"),
+        ("G4005", "tax of two per cent"),
+        ("G6005", "clothe"),
+        ("G1545", "disembarkation"),
+    ] {
+        let l = &slot(key)["l"];
+        out.push((
+            l.as_array()
+                .is_some_and(|l| l.iter().any(|x| x[0] == gloss)),
+            format!("{key}: expected a sense {gloss:?} among {l}"),
+        ));
+    }
     // Grammar words are flagged, and only roots with an LSJ entry.
     let unflagged: Vec<&str> = ["G2532", "G3588", "G1722", "G3956"]
         .into_iter()
@@ -4101,9 +4127,13 @@ mod tests {
                 "loin or loins, lower part of the back",
             ),
             ("falldue", "fall due"),
+            ("shoot, bud, offsprmg", "shoot, bud, offspring"),
+            ("tax of two per century", "tax of two per cent"),
+            ("out of, di embarkation", "out of, disembarkation"),
             ("lion", "lion"),
             ("fauours", "fauours"),
             ("fall due", "fall due"),
+            ("per centurys", "per centurys"),
         ] {
             assert_eq!(fix_misprints(bad), good);
         }
