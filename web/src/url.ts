@@ -5,6 +5,7 @@ import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
 import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
+import { extraFromHash, extraToHash } from './ui/extras/open';
 
 function osis(a: Atlas, v: number): string {
   const l = locate(a, v);
@@ -52,6 +53,7 @@ export function restoreFromHash(a: Atlas): void {
     S.tab.value = tab;
     deepen(TAB_DEPTH[tab]);
   }
+  extraFromHash(h);
 }
 
 export function pathFromHash(a: Atlas): [number, number] | null {
@@ -80,6 +82,7 @@ export function syncHash(a: Atlas): () => void {
     const p = S.path.value;
     if (p) h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);
     h.set('tab', S.tab.value);
+    extraToHash(h);
     const next = `#${h.toString()}`;
     if (location.hash !== next) history.replaceState(null, '', next);
   });
