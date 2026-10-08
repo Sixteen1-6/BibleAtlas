@@ -17,6 +17,7 @@ mod lexhtml;
 mod loaded;
 mod parse;
 mod query;
+mod extra_real_map;
 mod sources;
 mod verify;
 
