@@ -11,6 +11,7 @@
 //! Options: --raw <dir> (default data/raw), --out <dir> (default web/public/data)
 
 mod build;
+mod eras;
 mod english;
 mod fetch;
 mod lexhtml;

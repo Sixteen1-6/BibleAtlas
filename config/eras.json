@@ -1,0 +1,582 @@
+{
+  "_comment": "Hand-entered table. Every quote must appear word for word in the named Tyndale Open Bible Dictionary article; every label must appear word for word in its quote; every year comes from a label or a chart row. atlas build fails otherwise.",
+  "charts": [
+    { "id": "ot", "name": "SignificantOldTestamentEventsAndDates", "era": "BC", "cells": ["event", "point", "basis", "date"] },
+    { "id": "nt", "name": "SignificantNewTestamentEventsAndDates", "era": "AD", "cells": ["date", "event"] }
+  ],
+  "eras": [
+    { "id": "prepatriarchal", "name": "Prepatriarchal Period", "article": "ChronologyoftheBibleOldTestament", "heading": "Prepatriarchal Period",
+      "to": { "event": "Abraham born" },
+      "quote": "Archaeology provides no evidence that may be used to date either the Creation or any other account preserved in Genesis 1–11." },
+
+    { "id": "patriarchal", "name": "Patriarchal Age", "article": "IsraelHistoryof", "heading": "Patriarchal Age",
+      "from": { "event": "Abraham born" }, "to": { "event": "Descent into Egypt" },
+      "quote": "This period is known as the patriarchal age in Hebrew history. The patriarchs were Abraham, Isaac, and Jacob.",
+      "views": [
+        { "who": "an early-date view", "label": "from 2086 to 1871 BC", "article": "ChronologyoftheBibleOldTestament", "heading": "From Abraham to Moses",
+          "quote": "Opinions range from an early-date view that estimates that the patriarchal age extended from 2086 to 1871 BC, to a late-date view placing Abraham at around 1400 BC." },
+        { "who": "a late-date view", "label": "around 1400 BC", "article": "ChronologyoftheBibleOldTestament", "heading": "From Abraham to Moses",
+          "quote": "Opinions range from an early-date view that estimates that the patriarchal age extended from 2086 to 1871 BC, to a late-date view placing Abraham at around 1400 BC." },
+        { "who": "a large group of scholars", "label": "roughly between 1800 and 1600 BC", "article": "ChronologyoftheBibleOldTestament", "heading": "From Abraham to Moses",
+          "quote": "By placing Abraham roughly between 1800 and 1600 BC, they provide enough latitude for a merging of all the available evidence, biblical and nonbiblical, into a workable chronological scheme." } ] },
+
+    { "id": "sojourn", "name": "Sojourn in Egypt", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
+      "from": { "event": "Descent into Egypt" }, "to": { "event": "Exodus from Egypt" },
+      "quote": "The Hebrews settled in Goshen, in the eastern delta region, under the protecting care of Joseph, who held a position at the Egyptian court roughly equivalent to that of prime minister.",
+      "views": [
+        { "label": "about 1870 BC", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
+          "quote": "If Jacob and his sons entered Egypt about 1870 BC, it was the period of the Middle Kingdom." },
+        { "who": "Some who hold to a different chronology", "label": "after 1750 BC", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
+          "quote": "Some who hold to a different chronology believe the Hebrews were welcomed into Egypt during the days of Hyksos domination (after 1750 BC)." } ] },
+
+    { "id": "exodus", "name": "The Exodus", "article": "IsraelHistoryof", "heading": "The Exodus",
+      "from": { "event": "Exodus from Egypt" }, "to": { "event": "Exodus from Egypt" },
+      "quote": "The date they left Egypt is a matter of continuing debate.",
+      "views": [
+        { "who": "The “Early Date” View", "label": "about 1440", "era": "BC", "prefers": true, "article": "ExodusBookof", "heading": "Date",
+          "quote": "Thus, the exodus would have occurred about 1440, and the conquest would have begun around 1400.",
+          "prefersQuote": "On the basis of such biblical references to the date of the exodus, the early date appears preferable." },
+        { "who": "The “Late Date” View", "label": "1290", "era": "BC", "article": "ExodusBookof", "heading": "Date",
+          "quote": "The exodus would thus have occurred in 1290, and the conquest of Canaan would have begun in 1250." } ] },
+
+    { "id": "wilderness", "name": "Wilderness Wanderings", "article": "IsraelHistoryof", "heading": "Wilderness Wanderings",
+      "from": { "event": "Exodus from Egypt" },
+      "to": { "label": "1406 BC", "article": "IsraelHistoryof", "heading": "The Exodus",
+        "quote": "Traditionally a date of about 1446 BC is given for the exodus (cf. 1 Kgs 6:1, which places the exodus 480 years before construction of the temple started in 966 BC) and 1406 BC for the Conquest under Joshua, and there do not seem to be any compelling arguments for rejecting that position." },
+      "quote": "The wilderness wanderings were an important interlude in the history of Israel. During those years, significant and basic institutions came into existence at God’s command.",
+      "views": [
+        { "label": "about 1440 BC and the conquest about 1400 BC", "article": "WildernessWanderings",
+          "quote": "The building of the temple began about 960 BC, which would mean the exodus must have taken place about 1440 BC and the conquest about 1400 BC." },
+        { "who": "contemporary scholars", "label": "1290–1250 BC", "article": "WildernessWanderings",
+          "quote": "However, contemporary scholars generally date the exodus and conquest more than a century later (1290–1250 BC) on the grounds that this agrees with archaeological discoveries. But as yet, convincing proof for either position is lacking." } ] },
+
+    { "id": "conquest", "name": "The Conquest", "article": "IsraelHistoryof", "heading": "The Conquest",
+      "from": { "label": "1406 BC", "article": "IsraelHistoryof", "heading": "The Exodus",
+        "quote": "Traditionally a date of about 1446 BC is given for the exodus (cf. 1 Kgs 6:1, which places the exodus 480 years before construction of the temple started in 966 BC) and 1406 BC for the Conquest under Joshua, and there do not seem to be any compelling arguments for rejecting that position." },
+      "quote": "The narrative of conquest that appears in the book of Joshua is not a detailed battle account. It describes a thrust into the middle of Palestine around Jericho and Ai, a southerly drive to defeat the Amorite league, and a northern campaign against Hazor and other towns.",
+      "views": [
+        { "who": "The “Early Date” View", "label": "around 1400", "era": "BC", "article": "ExodusBookof", "heading": "Date",
+          "quote": "Thus, the exodus would have occurred about 1440, and the conquest would have begun around 1400." },
+        { "who": "The “Late Date” View", "label": "1250", "era": "BC", "article": "ExodusBookof", "heading": "Date",
+          "quote": "The exodus would thus have occurred in 1290, and the conquest of Canaan would have begun in 1250." } ] },
+
+    { "id": "judges", "name": "The Judges", "article": "IsraelHistoryof", "heading": "The Judges",
+      "to": { "label": "1050 BC", "article": "IsraelHistoryof", "heading": "The Judges",
+        "quote": "Allowing 410 years for the period of the judges, about 30 for the Conquest to the judges, and 40 for the wilderness wanderings, means 480 years from 1050 BC, the date for Saul’s kingship, and would give a date of about 1530 for the exodus." },
+      "quote": "Joshua died some 30 years after he had led the Hebrews into Canaan, and he was followed by a series of divinely appointed leaders who ruled sometimes over the whole of Israel as a loose confederacy and sometimes over one or more tribes.",
+      "views": [
+        { "who": "Those who take an early date for the exodus", "label": "around 1370–1360 BC", "article": "JudgesBookof", "heading": "Date",
+          "quote": "Those who take an early date for the exodus put the beginning around 1370–1360 BC, whereas others propose a date close to the end of the 13th century BC." },
+        { "who": "others", "label": "close to the end of the 13th century BC", "article": "JudgesBookof", "heading": "Date",
+          "quote": "Those who take an early date for the exodus put the beginning around 1370–1360 BC, whereas others propose a date close to the end of the 13th century BC." } ] },
+
+    { "id": "united-monarchy", "name": "The United Monarchy", "article": "IsraelHistoryof", "heading": "The United Monarchy",
+      "from": { "label": "1050 BC", "article": "IsraelHistoryof", "heading": "The Judges",
+        "quote": "Allowing 410 years for the period of the judges, about 30 for the Conquest to the judges, and 40 for the wilderness wanderings, means 480 years from 1050 BC, the date for Saul’s kingship, and would give a date of about 1530 for the exodus." },
+      "to": { "event": "Division of Kingdom" },
+      "quote": "The first stage of Hebrew monarchy is commonly called the united monarchy because all Israel was ruled by a single king." },
+
+    { "id": "divided-kingdom", "name": "The Divided Kingdom", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "from": { "event": "Division of Kingdom" }, "to": { "event": "Fall of Samaria" },
+      "quote": "The northern kingdom lasted from the division in 930 BC until its conquest by Assyria in 722." },
+
+    { "id": "judah-after", "name": "Judah after the Fall of Israel", "article": "ChronologyoftheBibleOldTestament", "heading": "Judah after the Fall of Israel",
+      "from": { "event": "Fall of Samaria" }, "to": { "event": "Fall of Jerusalem" },
+      "quote": "Following the fall of Samaria in 722 BC, OT chronology is concerned only with the southern kingdom of Judah until its destruction some 135 years later." },
+
+    { "id": "beyond-586", "name": "Beyond 586 BC", "article": "ChronologyoftheBibleOldTestament", "heading": "Beyond 586 BC",
+      "from": { "event": "Fall of Jerusalem" },
+      "quote": "Following the tragedy of 586 BC, several further developments are given chronological notice in the OT." },
+
+    { "id": "restoration", "name": "The Restoration", "article": "IsraelHistoryof", "heading": "The Restoration",
+      "from": { "event": "Return decreed" },
+      "quote": "Cyrus’s decree to the Jews appears in Ezra 1 and dates probably to 538 BC. A total of almost 50,000 went back to Judah as a result of this edict (Ezr 2:64-65)." },
+
+    { "id": "intertestamental", "name": "The Intertestamental Period", "article": "IsraelHistoryof", "heading": "The Intertestamental Period",
+      "from": { "label": "332 BC", "article": "IsraelHistoryof", "heading": "The Intertestamental Period",
+        "quote": "When the people of Jerusalem threw open their gates in 332 BC and capitulated without a fight, Alexander treated them well." },
+      "to": { "label": "63 BC", "article": "IsraelHistoryof", "heading": "The Intertestamental Period",
+        "quote": "Their appeals to Pompey, who was campaigning in the eastern Mediterranean area, were responsible for Roman interference in the region and conquest of Palestine in 63 BC." },
+      "quote": "Alexander the Great conquered the Persian Empire with lightning speed." },
+
+    { "id": "roman", "name": "The Roman Period", "article": "IsraelHistoryof", "heading": "The Roman Period",
+      "from": { "label": "63–40 BC", "article": "IsraelHistoryof", "heading": "The Roman Period",
+        "quote": "After the Romans took over Palestine, Hyrcanus II was confirmed as high priest and was also appointed as ethnarch or political ruler (63–40 BC)." },
+      "quote": "After the Romans took over Palestine, Hyrcanus II was confirmed as high priest and was also appointed as ethnarch or political ruler (63–40 BC)." },
+
+    { "id": "jesus-life", "name": "Chronology of Jesus’ Life", "article": "ChronologyoftheBibleNewTestament", "heading": "Chronology of Jesus’ Life",
+      "from": { "event": "Christ’s birth" }, "to": { "event": "Christ is crucified, resurrected, and enthroned" },
+      "quote": "Thus Jesus was probably crucified in 29 or 30, his public ministry lasted two or three years, and he was 35 or 36 years old when he died." },
+
+    { "id": "ad30-50", "name": "Events from AD 30 to 50", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 30 to 50",
+      "from": { "event": "Pentecost" }, "to": { "event": "Jerusalem Council" },
+      "quote": "The next key event after the ascension of Jesus into heaven was Pentecost (Acts 2:1)." },
+
+    { "id": "ad50-70", "name": "Events from AD 50 to 70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "from": { "event": "Paul’s second missionary journey" }, "to": { "event": "Jerusalem falls" },
+      "quote": "Thus when war broke out between the Jews and the Romans in 66, the Christians for the most part escaped its fury. That war ended in 70 with the destruction of Jerusalem and the temple (cf. Mk 13:2; Lk 21:24)." }
+  ],
+
+  "ranges": [
+    { "book": "Gen", "from": 1, "to": 11, "era": "prepatriarchal", "article": "ChronologyoftheBibleOldTestament", "heading": "Prepatriarchal Period",
+      "quote": "In the first 11 chapters of Genesis are found accounts of the Creation (chs 1–2), the fall (ch 3), Cain and Abel (ch 4), the Flood (chs 6–9), and the Tower of Babel (ch 11)." },
+    { "book": "Gen", "from": 12, "to": 50, "era": "patriarchal", "article": "PatriarchsPeriodofthe",
+      "quote": "However, the word in the narrower sense usually refers to Abraham, Isaac, and Jacob (chs 12–36), with the addition of Joseph (chs 37–50)." },
+
+    { "book": "Exod", "from": 1, "to": 6, "era": "sojourn", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
+      "quote": "The Egyptians continued to oppress the Hebrew people severely until they cried urgently to God for deliverance. In response, God confronted Moses in the famous burning bush experience and called on him to return to Egypt and lead the people back into the land of Canaan (Ex 3–4)." },
+    { "book": "Exod", "from": 7, "to": 12, "era": "exodus", "article": "IsraelHistoryof", "heading": "The Exodus",
+      "quote": "But finally, after suffering a series of ten plagues, lasting perhaps a year, the Egyptians were persuaded to let the Hebrews go (Ex 7–12)." },
+    { "book": "Exod", "from": 13, "to": 15, "era": "exodus", "article": "Exodusthe", "heading": "Route of the Exodus",
+      "quote": "Then the Lord worked one of the greatest miracles of history. He first prevented the Egyptians from encountering the Hebrews that night by means of a pillar of cloud (Ex 14:19-20)." },
+    { "book": "Exod", "from": 16, "to": 40, "era": "wilderness", "article": "WildernessWanderings",
+      "quote": "Within the 40-year period of wanderings, there are full details of the first year and a half spent in the desert, from the exodus to the return of the spies (Ex 12–Nm 14), and of the final year or so that involved the conquest of Transjordan (Nm 20–Dt 34)." },
+    { "book": "Lev", "from": 1, "to": 27, "era": "wilderness", "article": "IsraelHistoryof", "heading": "Wilderness Wanderings",
+      "quote": "Subsequently, God revealed the legal and priestly order (Lv 1:1–27:34)." },
+    { "book": "Num", "from": 1, "to": 14, "era": "wilderness", "article": "WildernessWanderings",
+      "quote": "Within the 40-year period of wanderings, there are full details of the first year and a half spent in the desert, from the exodus to the return of the spies (Ex 12–Nm 14), and of the final year or so that involved the conquest of Transjordan (Nm 20–Dt 34)." },
+    { "book": "Num", "from": 15, "to": 21, "era": "wilderness", "article": "NumbersBookof", "heading": "Content",
+      "quote": "Numbers 15:1–21:20 relates the account of the 38 years of wilderness wandering." },
+    { "book": "Num", "from": 22, "to": 36, "era": "wilderness", "article": "WildernessWanderings",
+      "quote": "Within the 40-year period of wanderings, there are full details of the first year and a half spent in the desert, from the exodus to the return of the spies (Ex 12–Nm 14), and of the final year or so that involved the conquest of Transjordan (Nm 20–Dt 34)." },
+    { "book": "Deut", "from": 1, "to": 34, "era": "wilderness", "article": "WildernessWanderings",
+      "quote": "Within the 40-year period of wanderings, there are full details of the first year and a half spent in the desert, from the exodus to the return of the spies (Ex 12–Nm 14), and of the final year or so that involved the conquest of Transjordan (Nm 20–Dt 34)." },
+
+    { "book": "Josh", "from": 1, "to": 12, "era": "conquest", "article": "ConquestandAllotmentoftheLand", "heading": "Joshua’s Campaigns",
+      "quote": "Although the biblical record allows for later acquisitions in some areas (e.g., Megiddo and Beth-shan), there is no valid reason for rejecting the description of the major Conquest given in Joshua 1–12." },
+    { "book": "Josh", "from": 13, "to": 24, "era": "conquest", "article": "IsraelHistoryof", "heading": "The Conquest",
+      "quote": "When the war was over, major strongholds (e.g., Jerusalem) still remained in enemy hands, but the land west of the Jordan was allocated to the nine and a half Hebrew tribes." },
+
+    { "book": "Judg", "from": 1, "to": 21, "era": "judges", "article": "IsraelHistoryof", "heading": "The Judges",
+      "quote": "The book of Judges pictures a series of recurring cycles: apostasy from God, punishment in the form of oppression by neighboring tribes, cries to God for relief, release from bondage under the leadership of a judge, and a period of rest from oppression." },
+    { "book": "Ruth", "from": 1, "to": 4, "era": "judges", "article": "RuthBookof", "heading": "Author and Date",
+      "quote": "The time of the narrative is indicated by the opening statement: “In the days when the judges ruled. . . .”" },
+    { "book": "1Sam", "from": 1, "to": 7, "era": "judges", "article": "SamuelPerson", "heading": "Character",
+      "quote": "He was the last of the judges (1 Sm 7:6, 15-17) and the first of the prophets (1 Sm 3:20; Acts 3:24; 13:20)." },
+
+    { "book": "1Sam", "from": 8, "to": 31, "era": "united-monarchy", "article": "IsraelHistoryof", "heading": "The United Monarchy",
+      "quote": "God granted the Hebrews’ wish but warned them of the disadvantages of monarchy (1 Sm 8:9-21)." },
+    { "book": "2Sam", "from": 1, "to": 24, "era": "united-monarchy", "article": "IsraelHistoryof", "heading": "The United Monarchy",
+      "quote": "This period lasted for 120 years—encompassing the 40-year reigns of Saul (Acts 13:21), David (2 Sm 5:5), and Solomon (1 Kgs 11:42)." },
+    { "book": "1Kgs", "from": 1, "to": 11, "era": "united-monarchy", "article": "KingsBooksofFirstandSecond", "heading": "Content",
+      "quote": "The books of Kings fall into three parts: (1) the reign of Solomon (1 Kgs 1–11); (2) the history of the divided kingdom (1 Kgs 12–2 Kgs 17); (3) the history of the surviving kingdom in Judah (2 Kgs 18–25)." },
+    { "book": "1Chr", "from": 10, "to": 29, "era": "united-monarchy", "article": "ChroniclesBooksofFirstandSecond", "heading": "Content",
+      "quote": "Chronicles can be briefly outlined as follows: 1 Chronicles—genealogies (1–9); the reign of David (10–29); 2 Chronicles—the reign of Solomon (1–9); the kings of Judah (10:1–36:21); epilogue on the exile and return (36:22-23)." },
+    { "book": "2Chr", "from": 1, "to": 9, "era": "united-monarchy", "article": "ChroniclesBooksofFirstandSecond", "heading": "Content",
+      "quote": "Chronicles can be briefly outlined as follows: 1 Chronicles—genealogies (1–9); the reign of David (10–29); 2 Chronicles—the reign of Solomon (1–9); the kings of Judah (10:1–36:21); epilogue on the exile and return (36:22-23)." },
+
+    { "book": "1Kgs", "from": 12, "to": 22, "era": "divided-kingdom", "article": "KingsBooksofFirstandSecond", "heading": "Content",
+      "quote": "The books of Kings fall into three parts: (1) the reign of Solomon (1 Kgs 1–11); (2) the history of the divided kingdom (1 Kgs 12–2 Kgs 17); (3) the history of the surviving kingdom in Judah (2 Kgs 18–25)." },
+    { "book": "2Kgs", "from": 1, "to": 17, "era": "divided-kingdom", "article": "KingsBooksofFirstandSecond", "heading": "Content",
+      "quote": "The books of Kings fall into three parts: (1) the reign of Solomon (1 Kgs 1–11); (2) the history of the divided kingdom (1 Kgs 12–2 Kgs 17); (3) the history of the surviving kingdom in Judah (2 Kgs 18–25)." },
+    { "book": "2Chr", "from": 10, "to": 28, "era": "divided-kingdom", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "When Rehoboam refused to give relief, all the northern tribes broke away and formed the northern kingdom, Israel, under the leadership of Jeroboam." },
+    { "book": "Hos", "from": 1, "to": 14, "era": "divided-kingdom", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "Prophets who were active during the history of the northern kingdom include the nonwriting prophets Elijah and Elisha and the writing prophets Jonah, Amos, and Hosea." },
+    { "book": "Amos", "from": 1, "to": 9, "era": "divided-kingdom", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "Prophets who were active during the history of the northern kingdom include the nonwriting prophets Elijah and Elisha and the writing prophets Jonah, Amos, and Hosea." },
+    { "book": "Jonah", "from": 1, "to": 4, "era": "divided-kingdom", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "Prophets who were active during the history of the northern kingdom include the nonwriting prophets Elijah and Elisha and the writing prophets Jonah, Amos, and Hosea." },
+
+    { "book": "2Kgs", "from": 18, "to": 25, "era": "judah-after", "article": "KingsBooksofFirstandSecond", "heading": "Content",
+      "quote": "The books of Kings fall into three parts: (1) the reign of Solomon (1 Kgs 1–11); (2) the history of the divided kingdom (1 Kgs 12–2 Kgs 17); (3) the history of the surviving kingdom in Judah (2 Kgs 18–25)." },
+    { "book": "2Chr", "from": 29, "to": 36, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "The next king of Judah, Hezekiah (715–686 BC), was greatly sobered by the fall of Israel because of her sins, and he determined to launch a reform in his realm." },
+    { "book": "Isa", "from": 36, "to": 39, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "At first Sennacherib was too preoccupied to attend to Judah, but finally in 701 he invaded. Despite tremendous initial success, he was stopped by a divinely sent plague (Is 36–39)." },
+    { "book": "Jer", "from": 1, "to": 38, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "It is certain that Jeremiah and Zephaniah ministered during Josiah’s reign, as did Nahum and Habakkuk (in all probability)." },
+    { "book": "Jer", "from": 45, "to": 51, "era": "judah-after", "article": "JeremiahBookof", "heading": "Date",
+      "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." },
+    { "book": "Ezek", "from": 1, "to": 24, "era": "judah-after", "article": "EzekielBookof", "heading": "Content",
+      "quote": "Chapters 1–24 cover the pre-586 ministry of Ezekiel, whereas chapters 33–48 represent his post-586 ministry." },
+    { "book": "Dan", "from": 1, "to": 1, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "In 605 Nebuchadnezzar of Babylon defeated Neco, invaded Judah, and took tribute and hostages from Jehoiakim, including Daniel and his friends (Dn 1:1)." },
+    { "book": "Nah", "from": 1, "to": 3, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "It is certain that Jeremiah and Zephaniah ministered during Josiah’s reign, as did Nahum and Habakkuk (in all probability)." },
+    { "book": "Hab", "from": 1, "to": 3, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "It is certain that Jeremiah and Zephaniah ministered during Josiah’s reign, as did Nahum and Habakkuk (in all probability)." },
+    { "book": "Zeph", "from": 1, "to": 3, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
+      "quote": "It is certain that Jeremiah and Zephaniah ministered during Josiah’s reign, as did Nahum and Habakkuk (in all probability)." },
+
+    { "book": "Jer", "from": 39, "to": 43, "era": "beyond-586", "article": "JeremiahBookof", "heading": "Outline and Content",
+      "quote": "Jeremiah 39:1–43:7 records history from the fall of Jerusalem in 586 BC to the flight into Egypt, including the liberation of Jeremiah (ch 39), appointment and assassination of Gedaliah (chs 40–41), a warning from God against going to Egypt (ch 42), and the obdurate disobedience of the people (43:1-7)." },
+    { "book": "Jer", "from": 44, "to": 44, "era": "beyond-586", "article": "JeremiahBookof", "heading": "Outline and Content",
+      "quote": "The latest writings of Jeremiah are found in chapter 44." },
+    { "book": "Jer", "from": 52, "to": 52, "era": "beyond-586", "article": "ChronologyoftheBibleOldTestament", "heading": "Beyond 586 BC",
+      "quote": "Following the tragedy of 586 BC, several further developments are given chronological notice in the OT. Jeremiah 52:30 records a third deportation of Jews to Babylonia in the 23d year of King Nebuchadnezzar (582 or 581 BC)." },
+    { "book": "Lam", "from": 1, "to": 5, "era": "beyond-586", "article": "LamentationsBookof", "heading": "Background",
+      "quote": "After many months of siege by the Babylonian armies, Jerusalem fell, and the final deportation of the people of Judah took place." },
+    { "book": "Ezek", "from": 33, "to": 48, "era": "beyond-586", "article": "EzekielBookof", "heading": "Content",
+      "quote": "Chapters 1–24 cover the pre-586 ministry of Ezekiel, whereas chapters 33–48 represent his post-586 ministry." },
+    { "book": "Dan", "from": 5, "to": 6, "era": "beyond-586", "article": "DanielBookof", "heading": "Content: Stories about Daniel (1–6)",
+      "quote": "The scene shifts to the reign of a later king in Babylon, Belshazzar. The son of Nabonidus, he was probably co-regent with Nabonidus (555?–539 BC), with special authority in the region of Babylon." },
+    { "book": "Dan", "from": 7, "to": 12, "era": "beyond-586", "article": "DanielBookof", "heading": "Content: Daniel’s Visions (7–12)",
+      "quote": "With the beginning of chapter 7 the chronological sequence of the book of Daniel changes; Daniel’s first vision goes back to the first year of Belshazzar (7:1), but subsequent visions take place as late as the reign of Cyrus, the Persian king (10:1)." },
+
+    { "book": "Ezra", "from": 1, "to": 4, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Ezr 1:1–4:6, 24" },
+    { "book": "Ezra", "from": 5, "to": 6, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Ezr 5:1–6:22; Hg; Zec" },
+    { "book": "Ezra", "from": 7, "to": 10, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Ezr 7–10" },
+    { "book": "Neh", "from": 1, "to": 13, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Neh 1:1–13:3" },
+    { "book": "Hag", "from": 1, "to": 2, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Ezr 5:1–6:22; Hg; Zec" },
+    { "book": "Zech", "from": 1, "to": 8, "era": "restoration", "chart": "BooksOfPostexilicTimes", "row": "Ezr 5:1–6:22; Hg; Zec" },
+    { "book": "Esth", "from": 1, "to": 10, "era": "restoration", "article": "IsraelHistoryof", "heading": "The Restoration",
+      "quote": "Fortunately, Xerxes (Ahasuerus in the book of Esther), in his third year (483 BC; Est 1:3), went searching for a new queen and chose Esther, who managed to preserve her people." },
+    { "book": "Mal", "from": 1, "to": 4, "era": "restoration", "article": "IsraelHistoryof", "heading": "The Restoration",
+      "quote": "Malachi probably wrote his prophecy to the Jews in Jerusalem during the latter part of Artaxerxes’ reign." },
+
+    { "book": "Matt", "from": 1, "to": 28, "era": "jesus-life", "article": "SynopticGospels",
+      "quote": "The similarities among these three Gospels include their use of a common outline: introduction; ministry of John the Baptist and the baptism and temptation of Jesus; Jesus’ greater Galilean ministry; his journey and ministry through Samaria, Perea, and rural Judea; and the Passion week, death, and resurrection of Jesus in Jerusalem." },
+    { "book": "Mark", "from": 1, "to": 16, "era": "jesus-life", "article": "SynopticGospels",
+      "quote": "The similarities among these three Gospels include their use of a common outline: introduction; ministry of John the Baptist and the baptism and temptation of Jesus; Jesus’ greater Galilean ministry; his journey and ministry through Samaria, Perea, and rural Judea; and the Passion week, death, and resurrection of Jesus in Jerusalem." },
+    { "book": "Luke", "from": 1, "to": 24, "era": "jesus-life", "article": "SynopticGospels",
+      "quote": "The similarities among these three Gospels include their use of a common outline: introduction; ministry of John the Baptist and the baptism and temptation of Jesus; Jesus’ greater Galilean ministry; his journey and ministry through Samaria, Perea, and rural Judea; and the Passion week, death, and resurrection of Jesus in Jerusalem." },
+    { "book": "John", "from": 1, "to": 21, "era": "jesus-life", "article": "ChronologyoftheBibleNewTestament", "heading": "Chronology of Jesus’ Life",
+      "quote": "To find out how long Jesus’ public ministry lasted and thus the year in which he died, one can turn to time references in John’s Gospel. John referred to at least three Passovers (2:13; 6:4; 13:1) and possibly four (5:1)." },
+
+    { "book": "Acts", "from": 1, "to": 15, "era": "ad30-50", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 30 to 50",
+      "quote": "After that, events of the early chapters of Acts are hard to date because no precise statements are made about the amount of time between various events." },
+    { "book": "Jas", "from": 1, "to": 5, "era": "ad30-50", "article": "JamesLetterof", "heading": "Date, Origin, and Destination",
+      "quote": "Thus, James should be dated AD 45–49." },
+
+    { "book": "Acts", "from": 16, "to": 18, "era": "ad50-70", "article": "ActsoftheApostlesBookofthe", "heading": "Background and Content",
+      "quote": "The deliberation of the Jerusalem Council about differences between Jewish and gentile Christians (ch 15) can be dated in the year AD 48. It was followed by Paul’s second missionary journey, which led him through the already evangelized territory of his native Cilicia, Galatia, and through Troas on the Aegean coast to Macedonia and down into Achaia, the Greek Peninsula (15:40–18:22)." },
+    { "book": "Acts", "from": 19, "to": 21, "era": "ad50-70", "article": "ActsoftheApostlesBookofthe", "heading": "Background and Content",
+      "quote": "Paul’s third missionary tour began with a three-year ministry in Ephesus (19:1–20:1), continued with a visit to churches established on the previous journey (20:2-12), and came to a climax with his arrest in Jerusalem (Acts 21). It took place in the mid-50s (AD 53–57)." },
+    { "book": "Acts", "from": 22, "to": 28, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "quote": "Acts 24:27 describes an event that helps us date events in the rest of the book, namely, Porcius Festus’s replacement of Felix as the governor of Judea. A careful analysis of the evidence given by Eusebius, a fourth-century historian, leads to the probable conclusion that Felix was replaced in the summer of 59." },
+    { "book": "Rom", "from": 1, "to": 16, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "quote": "Allowing some time for him to travel through Macedonia and visit the Thessalonians and Bereans, those three months were probably the winter months of 56–57 (Acts 20:3; cf. 1 Cor 16:6). No doubt they were spent in the main church of Greece, Corinth, and were used in part for the writing of the Letter to the Romans." },
+    { "book": "1Cor", "from": 1, "to": 16, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "quote": "With enough time allowed for the travels before and after, that stay at Ephesus probably lasted from 52 or 53 to the summer of 55 or 56 (cf. 1 Cor 16:8). During his long stay in Ephesus, Paul wrote his First Letter to the Corinthians." },
+    { "book": "2Cor", "from": 1, "to": 13, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "quote": "Then, on his way to Corinth in 56, he wrote 2 Corinthians from Macedonia." },
+    { "book": "Eph", "from": 1, "to": 6, "era": "ad50-70", "article": "EphesiansLettertothe", "heading": "Date and Origin",
+      "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." },
+    { "book": "Phil", "from": 1, "to": 4, "era": "ad50-70", "article": "PhilippiansLettertothe", "heading": "Date and Origin",
+      "quote": "The most likely possibility is Rome, in which case the date would be around AD 62." },
+    { "book": "Col", "from": 1, "to": 4, "era": "ad50-70", "article": "ColossiansLettertothe", "heading": "Date, Origin, and Destination",
+      "quote": "But the general consensus is that all the Prison Epistles were written in Rome, thus leading to AD 60–62 as the date of Colossians." },
+    { "book": "Phlm", "from": 1, "to": 1, "era": "ad50-70", "article": "EphesiansLettertothe", "heading": "Date and Origin",
+      "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." },
+    { "book": "2Tim", "from": 1, "to": 4, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+      "quote": "Written from Rome shortly before Paul’s martyrdom in 64, 2 Timothy was probably his last letter (2 Tm 2:9; 4:6)." },
+    { "book": "1Pet", "from": 1, "to": 5, "era": "ad50-70", "article": "PeterFirstLetterof", "heading": "Destination, Origin, Date",
+      "quote": "The date of 1 Peter is probably AD 64 or 65" },
+    { "book": "2Pet", "from": 1, "to": 3, "era": "ad50-70", "article": "PeterSecondLetterof", "heading": "Date, Origin, Destination",
+      "quote": "If that is so, this work was probably written in Rome before AD 70 (before his last teaching was forgotten) and after AD 60 (the earliest date when Peter might have known Paul’s letters)." }
+  ],
+
+  "books": {
+    "Gen": { "article": "GenesisBookof", "written": [
+      { "label": "15th century BC", "heading": "Date",
+        "quote": "The date of the book is also a matter of debate. Even among those who accept Mosaic authorship there is debate as to when Moses lived. Based on the biblical data, Moses should have lived in the 15th century BC (cf. Jgs 11:26; 1 Kgs 6:1)" },
+      { "who": "many scholars", "label": "13th-century", "era": "BC", "heading": "Date",
+        "quote": "many scholars incline toward a 13th-century date." },
+      { "who": "the liberal view", "label": "from the ninth to the fifth centuries BC", "heading": "Date",
+        "quote": "the liberal view of the date of Genesis would be from the ninth to the fifth centuries BC, with the final editing coming around the fifth century or perhaps even later." } ] },
+    "Exod": { "article": "ExodusBookof", "written": [
+      { "who": "the traditional view", "label": "in the time of Moses", "heading": "Date",
+        "quote": "If one accepts the traditional view that Moses wrote Exodus, then the book is to be dated in the time of Moses." } ] },
+    "Lev": { "article": "LeviticusBookof", "written": [
+      { "label": "one year later than the exodus", "heading": "Date",
+        "quote": "Dates at the end of the 15th century BC or early in the 13th century are put forward by different scholars. Whichever view is adopted, the origin of Leviticus must be one year later than the exodus." } ] },
+    "Num": { "article": "NumbersBookof", "written": [
+      { "label": "15th-century BC", "heading": "Author",
+        "quote": "Although discrepancies in the Pentateuch were widely and openly acknowledged, nevertheless Moses, the 15th-century BC lawgiver, was affirmed as the primary author of the Pentateuchal literature." } ] },
+    "Deut": { "article": "DeuteronomyBookof", "written": [
+      { "who": "Those who consider Moses the author", "label": "14th or 13th century BC", "heading": "Date and Authorship",
+        "quote": "Those who consider Moses the author date the book in the 14th or 13th century BC." },
+      { "who": "Others", "label": "seventh century BC", "heading": "Date and Authorship",
+        "quote": "Others believe that it was composed by an unknown author in the seventh century BC, when Josiah was king in the southern kingdom of Judah." } ] },
+    "Josh": { "article": "JoshuaBookof", "written": [
+      { "who": "a conservative analysis of Joshua", "label": "between 1375 BC and 1045 BC", "heading": "Author and Date",
+        "quote": "According to a conservative analysis of Joshua, the book was written between 1375 BC and 1045 BC (premonarchic)." },
+      { "who": "critical scholars", "label": "seventh-century BC", "heading": "Author and Date",
+        "quote": "But critical scholars have raised issues that they considered could best be resolved by positing a seventh-century BC or even an exilic date." } ] },
+    "Judg": { "article": "JudgesBookof", "written": [
+      { "label": "in the period of the early monarchy", "heading": "Author",
+        "quote": "The book reflects a final editing of the material in the period of the early monarchy." } ] },
+    "Ruth": { "article": "RuthBookof", "written": [
+      { "label": "sometime after the beginning of David’s reign", "heading": "Author and Date",
+        "quote": "The book must have been written sometime after the beginning of David’s reign." } ] },
+    "1Sam": { "article": "SamuelBooksofFirstandSecond", "written": [
+      { "label": "after 930 BC", "heading": "Author and Date",
+        "quote": "Thus, 1 and 2 Samuel was published in its final form sometime after 930 BC." } ] },
+    "2Sam": { "article": "SamuelBooksofFirstandSecond", "written": [
+      { "label": "after 930 BC", "heading": "Author and Date",
+        "quote": "Thus, 1 and 2 Samuel was published in its final form sometime after 930 BC." } ] },
+    "1Kgs": { "article": "KingsBooksofFirstandSecond", "written": [
+      { "label": "between 561 and 539 BC", "heading": "Authorship and Date",
+        "quote": "The author’s selection of his data to answer the burning theological questions of the exilic community also suggests a date between 561 and 539 BC." } ] },
+    "2Kgs": { "article": "KingsBooksofFirstandSecond", "written": [
+      { "label": "between 561 and 539 BC", "heading": "Authorship and Date",
+        "quote": "The author’s selection of his data to answer the burning theological questions of the exilic community also suggests a date between 561 and 539 BC." } ] },
+    "1Chr": { "article": "ChroniclesBooksofFirstandSecond", "written": [
+      { "label": "Around 400 BC", "heading": "Date",
+        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." } ] },
+    "2Chr": { "article": "ChroniclesBooksofFirstandSecond", "written": [
+      { "label": "Around 400 BC", "heading": "Date",
+        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." } ] },
+    "Ezra": { "article": "EzraBookof", "written": [
+      { "who": "The traditional position", "label": "458 BC", "heading": "Date",
+        "quote": "Traditionally, the Artaxerxes in Ezra 7:1 has been identified with Artaxerxes I Longimanus. Ezra’s arrival in Jerusalem would thus have been in 458 BC (see nlt mg for 7:8)." },
+      { "who": "One alternative", "label": "404–359 BC", "heading": "Date",
+        "quote": "One alternative is to place Nehemiah during the reign of Artaxerxes I (464–424 BC) and Ezra at a later date, in the reign of Artaxerxes II Mnemon (404–359 BC)." } ] },
+    "Neh": { "article": "NehemiahBookof", "written": [
+      { "label": "fifth century BC", "article": "Judaism", "heading": "The Period of the Second Temple (515 BC–AD 70)",
+        "quote": "The Chronicler ends his work by referring to the decree of Cyrus (538 BC), and both Ezra-Nehemiah and Esther appear to have been written in the fifth century BC." } ] },
+    "Esth": { "article": "EstherBookof", "written": [
+      { "label": "shortly after 465 BC", "heading": "Date, Origin, and Purpose",
+        "quote": "Immediate impressions favor a date for the book of Esther shortly after 465 BC, if Ahasuerus is identified with Xerxes, who died that year." },
+      { "who": "Many contemporary scholars", "label": "a later date", "heading": "Date, Origin, and Purpose",
+        "quote": "Many contemporary scholars, however, favor a later date." },
+      { "who": "Some", "label": "the period of the Maccabees", "heading": "Date, Origin, and Purpose",
+        "quote": "Some also suggest the period of the Maccabees as the time of the book’s writing." } ] },
+    "Job": { "article": "JobBookof", "written": [
+      { "who": "Most modern scholars", "label": "around the fifth century BC", "heading": "Date",
+        "quote": "Most modern scholars place the book in the postexilic period, around the fifth century BC." },
+      { "who": "some", "label": "toward the end of the exile", "heading": "Date",
+        "quote": "However, some place it toward the end of the exile." },
+      { "who": "Others", "label": "the Solomonic era", "heading": "Date",
+        "quote": "Others put it in the Solomonic era, while still others place it in the period of the patriarchs." },
+      { "who": "still others", "label": "the period of the patriarchs", "heading": "Date",
+        "quote": "Others put it in the Solomonic era, while still others place it in the period of the patriarchs." } ] },
+    "Ps": { "article": "PsalmsBookof", "stages": true, "written": [
+      { "label": "in the period of the monarchy", "heading": "Date",
+        "quote": "Thus, most of the psalms formed the hymnbook of Israel in the period of the monarchy." },
+      { "label": "later", "heading": "Date",
+        "quote": "Other psalms were written later. For example, Psalm 137 is clearly exilic, and Psalms 107:2-3 and 126:1 allude to the return from captivity." } ] },
+    "Prov": { "article": "ProverbsBookof", "stages": true, "written": [
+      { "label": "c. 970–930 BC", "heading": "Date",
+        "quote": "The larger part of the book may, with confidence, be ascribed to Solomon (ruled c. 970–930 BC)." },
+      { "label": "the early seventh century BC", "heading": "Date",
+        "quote": "Probably the final, sophisticated acrostic poem was the last section to be included, but there is nothing in the book that demands a date later than the early seventh century BC." } ] },
+    "Eccl": { "article": "EcclesiastesBookof", "written": [
+      { "who": "The majority of scholars who hold to the Solomonic authorship", "label": "c. 940 BC", "heading": "Date",
+        "quote": "The majority of scholars who hold to the Solomonic authorship of Ecclesiastes date the book in Solomon’s final years as king (c. 940 BC)." },
+      { "who": "Those who deny Solomonic authorship", "label": "in the postexilic period", "heading": "Date",
+        "quote": "Those who deny Solomonic authorship disagree among themselves as to when the book was written, but most date it in the postexilic period." },
+      { "who": "A number of conservative scholars", "label": "fifth-century BC", "heading": "Date",
+        "quote": "A number of conservative scholars, such as Franz Delitzsch and E. J. Young, have assigned a fifth-century BC date to the book." },
+      { "who": "Many others", "label": "third-century BC", "heading": "Date",
+        "quote": "Many others consider it a third-century BC document." } ] },
+    "Song": { "article": "SongofSolomon", "written": [
+      { "label": "the latter half of the tenth century BC", "heading": "Date",
+        "quote": "If Solomon was the author, it was written during the latter half of the tenth century BC." },
+      { "label": "before 586 BC", "heading": "Date",
+        "quote": "But the contents indicate that the song must have been written and completed at some point during the Hebrew monarchy (before 586 BC)." } ] },
+    "Isa": { "article": "IsaiahBookof", "stages": true, "written": [
+      { "label": "about 700 BC", "heading": "Date",
+        "quote": "Since many of the events recorded in chapters 1–39 took place during the ministry of Isaiah, most of these chapters were probably written by about 700 BC or shortly thereafter." },
+      { "label": "during Isaiah’s retirement years", "heading": "Date",
+        "quote": "This means that some of the earlier chapters, along with 40–66, were probably written later, during Isaiah’s retirement years." },
+      { "who": "many scholars", "label": "much later than Isaiah in connection with the Babylonian exile", "heading": "Author",
+        "quote": "Chapters 40–66 contain many powerful passages that underscore the grandeur of the book. It is ironic, then, that many scholars attribute these chapters to a “second” or “third” Isaiah, unknown authors who wrote much later than Isaiah in connection with the Babylonian exile." } ] },
+    "Jer": { "article": "JeremiahBookof", "written": [
+      { "label": "c. 627–586 BC", "heading": "Date",
+        "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." } ] },
+    "Lam": { "article": "LamentationsBookof", "written": [
+      { "label": "shortly after the fall of Jerusalem (586 BC)", "heading": "Date",
+        "quote": "If the book of Lamentations was written by Jeremiah, the time of writing would be shortly after the fall of Jerusalem (586 BC)." },
+      { "label": "too late for it to have been authored by Jeremiah", "heading": "Author",
+        "quote": "Since Jeremiah is in the second division, it is argued that Lamentations was written too late for it to have been authored by Jeremiah." } ] },
+    "Ezek": { "article": "EzekielBookof", "written": [
+      { "label": "from 592 BC", "article": "EzekielPerson",
+        "quote": "Ezekiel’s ministry seems to have extended from 592 BC to at least the 27th year of the exile (29:17)." } ] },
+    "Dan": { "article": "DanielBookof", "written": [
+      { "who": "The conservative interpretation", "label": "sixth century BC", "heading": "Date",
+        "quote": "The conservative interpretation has usually been that the book was written in the sixth century BC." },
+      { "who": "An alternative position", "label": "about 165 BC", "heading": "Date",
+        "quote": "An alternative position is that the book was written about 165 BC." } ] },
+    "Hos": { "article": "HoseaBookof", "written": [
+      { "label": "very near to the time of Israel’s fall (722 BC)", "heading": "Date",
+        "quote": "These factors confirm that the compilation of Hosea’s messages may have taken place very near to the time of Israel’s fall (722 BC)." } ] },
+    "Joel": { "article": "JoelBookof", "written": [
+      { "label": "c. 400 BC", "heading": "Date",
+        "quote": "Many different views of the date of Joel have been taken by those who have studied this book carefully; thus it is difficult to be dogmatic. The book may be dated to a time after the return to Jerusalem of the Jewish exiles who had been in Babylon—more precisely, to a time after Nehemiah’s work of rebuilding the walls of Jerusalem (c. 400 BC)." },
+      { "who": "Some of those who favor a preexilic date for the book", "label": "the ninth century", "era": "BC", "heading": "Date",
+        "quote": "Some of those who favor a preexilic date for the book place it in the ninth century, in the early period of the reign of Joash when the king was too young to actually function as ruler of the land." },
+      { "who": "Others", "label": "shortly before the death of Josiah in 609 BC", "heading": "Date",
+        "quote": "Others place it sometime shortly before the death of Josiah in 609 BC because of the reference to the enemy coming from the north (as in Jeremiah) and because of the appeal to the people (like Jeremiah’s appeal) to return to the Lord with all their hearts (2:12)." } ] },
+    "Amos": { "article": "AmosBookof", "written": [
+      { "label": "about 760 BC", "heading": "Date, Origin, and Destination",
+        "quote": "When all the evidence is taken into consideration, it seems reasonable to date the beginning of Amos’s prophecies at Bethel to about 760 BC, or approximately the middle of the period during which both Uzziah and Jeroboam II were on their thrones." } ] },
+    "Obad": { "article": "ObadiahBookof", "written": [
+      { "label": "shortly before the fall of Jerusalem", "heading": "Background",
+        "quote": "He probably had his vision concerning Edom (v 1) shortly before the fall of Jerusalem and the devastation of Judah by Nebuchadnezzar in 586 BC." },
+      { "label": "postexilic", "article": "JoelBookof", "heading": "Date",
+        "quote": "The postexilic Obadiah stands between the eighth-century BC prophets Amos and Micah, and in fact in the Greek OT Joel was placed in a different position from its place in the Hebrew Bible." } ] },
+    "Jonah": { "article": "JonahBookof", "written": [
+      { "label": "793–753 BC", "heading": "Date",
+        "quote": "If Jonah was the son of Amittai cited in 2 Kings 14:25, the prophecy would have to be dated in the reign of Jeroboam II of Israel (793–753 BC)." },
+      { "who": "Those who understand the book to have been written by an author other than Jonah", "label": "from the period following the fall of Nineveh to well into the postexilic period", "heading": "Date",
+        "quote": "Those who understand the book to have been written by an author other than Jonah place the writing at various times, from the period following the fall of Nineveh to well into the postexilic period." } ] },
+    "Mic": { "article": "MicahBookof", "written": [
+      { "label": "the last part of the eighth century BC", "heading": "Date",
+        "quote": "Some striking parallel passages between Micah and Isaiah (Mi 4:1-4; Is 2:2-4) and between Micah and Amos (Mi 6:10-11; Am 8:5-6) make it probable that Micah’s ministry was in the last part of the eighth century BC." } ] },
+    "Nah": { "article": "NahumBookof", "written": [
+      { "label": "the middle of the seventh century", "era": "BC", "prefers": true, "heading": "Date",
+        "quote": "Since the influence of Assyria in the western provinces began to decline in the latter half of the seventh century, it is best to place the writing of the book in the middle of the seventh century, subsequent to the destruction of Thebes but before the erosion of Assyrian power in Syro-Palestine.",
+        "prefersQuote": "it is best to place the writing of the book in the middle of the seventh century" },
+      { "who": "Some scholars", "label": "very close to the fall of Nineveh", "heading": "Date",
+        "quote": "Some scholars prefer a date very close to the fall of Nineveh, perhaps during the time when Assyria was being invaded." },
+      { "who": "Scholars who deny the validity of biblical prophecy", "label": "subsequent to the fall of Nineveh", "heading": "Date",
+        "quote": "Scholars who deny the validity of biblical prophecy generally date the book in the period subsequent to the fall of Nineveh." } ] },
+    "Hab": { "article": "HabakkukBookof", "written": [
+      { "label": "between 612 and 605 BC", "prefers": true, "heading": "Date",
+        "quote": "Because it is also possible that he was referring to the world at large, it seems best to date Habakkuk’s ministry as starting between 612 and 605 BC, and continuing during the reign of Jehoiakim (609–598 BC).",
+        "prefersQuote": "it seems best to date Habakkuk’s ministry as starting between 612 and 605 BC" },
+      { "who": "many scholars", "label": "within the reign of Josiah (640–609 BC)", "heading": "Date",
+        "quote": "Because the Chaldeans came to power about 625 BC, many scholars think that the prophecy of Habakkuk was written shortly before that time. The book would have been written, then, within the reign of Josiah (640–609 BC)." } ] },
+    "Zeph": { "article": "ZephaniahBookof", "written": [
+      { "label": "around 630 BC", "heading": "Date, Origin, and Destination",
+        "quote": "Zephaniah probably prophesied around 630 BC." } ] },
+    "Hag": { "article": "HaggaiBookof", "written": [
+      { "label": "520 BC", "heading": "Author and Date",
+        "quote": "Haggai was among the Jewish colonists at Jerusalem in the year 520 BC when his prophetic words were recorded (Ezr 5:1-2; 6:14)." } ] },
+    "Zech": { "article": "ZechariahBookof", "written": [
+      { "label": "from 520 to 518 BC", "heading": "Background",
+        "quote": "The first eight chapters of Zechariah are set against the social, political, and religious situations in Jerusalem from 520 to 518 BC." },
+      { "undated": true, "heading": "Date",
+        "quote": "Any attempt to assign specific dates to Zechariah 9–14 would be speculation." } ] },
+    "Mal": { "article": "MalachiBookof", "written": [
+      { "label": "just after 433 BC", "heading": "Date",
+        "quote": "The reference to “the governor” in Malachi 1:8 implies that someone other than Nehemiah was in office, so it may be best to place Malachi just after 433 BC, the year Nehemiah had returned to Persia." } ] },
+
+    "Matt": { "article": "MatthewGospelof", "written": [
+      { "who": "Irenaeus", "label": "in the 60s", "era": "AD", "heading": "Date and Provenance",
+        "quote": "Irenaeus indicated that Matthew wrote this Gospel while Peter and Paul were in Rome. This would make the time of writing in the 60s." },
+      { "who": "most scholars", "label": "before the destruction of Jerusalem (AD 70)", "heading": "Date and Provenance",
+        "quote": "Whether it preceded or followed Mark, most scholars are certain that it was written before the destruction of Jerusalem (AD 70) because the temple is spoken of as still standing (Mt 24:15)." } ] },
+    "Mark": { "article": "MarkGospelof", "written": [
+      { "label": "between AD 60 and 68",
+        "quote": "Second book of the NT, probably written by John Mark of Jerusalem sometime between AD 60 and 68." },
+      { "who": "An impressive majority of scholars", "label": "in the 60s", "era": "AD", "heading": "Author, Date, Provenance",
+        "quote": "An impressive majority of scholars date Mark in the 60s, with conservatives usually preferring the early years of the decade." },
+      { "who": "A small minority of scholars", "label": "shortly after AD 70", "heading": "Author, Date, Provenance",
+        "quote": "A small minority of scholars date Mark shortly after AD 70." },
+      { "who": "Another minority", "label": "in the 40s or 50s", "era": "AD", "heading": "Author, Date, Provenance",
+        "quote": "Another minority suggest a date in the 40s or 50s on the basis of a papyrus fragment discovered in Qumran called 7Q5." } ] },
+    "Luke": { "article": "LukeGospelof", "written": [
+      { "label": "on or before AD 64", "heading": "Date, Origin, and Destination",
+        "quote": "In all probability the third Gospel was composed in Rome while Paul awaited trial, on or before AD 64." },
+      { "who": "Some", "label": "after AD 70", "heading": "Date, Origin, and Destination",
+        "quote": "Some argue for a date after AD 70, but this robs Luke 21:20 of its predictive value." },
+      { "who": "Others", "label": "prior to the death of Paul (AD 64)", "heading": "Date, Origin, and Destination",
+        "quote": "Others suggest a date prior to the death of Paul (AD 64)." } ] },
+    "John": { "article": "JohnGospelof", "written": [
+      { "label": "before AD 70", "prefers": true, "heading": "Date, Origin, and Destination",
+        "quote": "None of this enables us to date this Gospel with precision. But the weight of evidence points to an early date (before AD 70).",
+        "prefersQuote": "But the weight of evidence points to an early date (before AD 70)." },
+      { "who": "conservatives and liberals alike", "label": "the last decade of the first century or early in the second", "era": "AD", "heading": "Date, Origin, and Destination",
+        "quote": "It has been usual for conservatives and liberals alike to date this writing in the last decade of the first century or early in the second." },
+      { "who": "Some liberal scholars", "label": "well into the second century", "era": "AD", "heading": "Date, Origin, and Destination",
+        "quote": "Some liberal scholars have put it well into the second century, but this is not common, and it is remarkable that there has been such a considerable measure of agreement." } ] },
+    "Acts": { "article": "ActsoftheApostlesBookofthe", "written": [
+      { "who": "Some scholars", "label": "the last quarter of the first century", "era": "AD", "heading": "Date, Origin, Destination",
+        "quote": "Some scholars date it in the last quarter of the first century." },
+      { "who": "Other scholars", "label": "around AD 70", "heading": "Date, Origin, Destination",
+        "quote": "Other scholars date Acts around AD 70 or shortly thereafter." },
+      { "who": "a number of scholars", "label": "early 60s", "era": "AD", "heading": "Date, Origin, Destination",
+        "quote": "A still earlier date, closer to Paul’s Roman imprisonment (early 60s), has been advocated by a number of scholars." } ] },
+    "Rom": { "article": "RomansLettertothe", "written": [
+      { "label": "around AD 57–58", "heading": "Date, Origin, and Destination",
+        "quote": "Paul’s visit to Jerusalem is usually dated around AD 57–58. As such, the Epistle to the Romans was written around the same time." } ] },
+    "1Cor": { "article": "CorinthiansFirstLettertothe", "written": [
+      { "label": "AD 55", "heading": "Date and Origin",
+        "quote": "Sometime in AD 55, after hearing reports from Chloe’s household (1 Cor 1:11), who were probably members of Chloe’s house church, he dictated a second letter to Corinth, our 1 Corinthians." } ] },
+    "2Cor": { "article": "CorinthiansSecondLettertothe", "written": [
+      { "label": "56", "era": "AD", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+        "quote": "Then, on his way to Corinth in 56, he wrote 2 Corinthians from Macedonia." } ] },
+    "Gal": { "article": "GalatiansLettertothe", "written": [
+      { "who": "the North Galatian Theory", "label": "c. AD 56", "heading": "Destination and Date",
+        "quote": "Under the North Galatian Theory, it is claimed that the letter was written after the events mentioned in Acts 18:23—that is, during the course of the third missionary journey (c. AD 56), possibly while Paul was at Ephesus or soon after." },
+      { "label": "pre–AD 50", "heading": "Destination and Date",
+        "quote": "According to this view, Paul’s Letter to the Galatians may be the earliest of his letters (pre–AD 50)." } ] },
+    "Eph": { "article": "EphesiansLettertothe", "written": [
+      { "who": "most scholars", "label": "between AD 59 and 63", "heading": "Date and Origin",
+        "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." } ] },
+    "Phil": { "article": "PhilippiansLettertothe", "written": [
+      { "label": "around AD 62", "prefers": true, "heading": "Date and Origin",
+        "quote": "The most likely possibility is Rome, in which case the date would be around AD 62.",
+        "prefersQuote": "The traditional location (Rome) seems the most satisfactory, especially when one reflects that Paul was imprisoned there for at least two years (Acts 28:30), and that it took about three weeks to travel from Rome to Philippi." },
+      { "who": "some", "label": "c. AD 55", "heading": "Date and Origin",
+        "quote": "So the alternatives of Ephesus (c. AD 55) and Caesarea (c. AD 58) have been proposed." },
+      { "who": "some", "label": "c. AD 58", "heading": "Date and Origin",
+        "quote": "So the alternatives of Ephesus (c. AD 55) and Caesarea (c. AD 58) have been proposed." } ] },
+    "Col": { "article": "ColossiansLettertothe", "written": [
+      { "who": "the general consensus", "label": "AD 60–62", "heading": "Date, Origin, and Destination",
+        "quote": "But the general consensus is that all the Prison Epistles were written in Rome, thus leading to AD 60–62 as the date of Colossians." },
+      { "who": "an increasing number of scholars", "label": "between AD 52 and 55", "heading": "Date, Origin, and Destination",
+        "quote": "Consequently, an increasing number of scholars name that city as the probable place where Paul wrote the prison letters. If that is correct, Paul wrote Colossians sometime between AD 52 and 55." } ] },
+    "1Thess": { "article": "ThessaloniansFirstLettertothe", "written": [
+      { "label": "early in the year 50", "era": "AD", "heading": "Date, Origin, and Destination",
+        "quote": "Since his work in Corinth can be approximately dated, this epistle was probably written early in the year 50, in all likelihood about a year after the first preaching of the gospel in Thessalonica." } ] },
+    "2Thess": { "article": "ThessaloniansSecondLettertothe", "written": [
+      { "label": "a short time after writing 1 Thessalonians", "relative": true, "why": "The 1 names the letter 1 Thessalonians; it is not a date.", "heading": "Date, Origin, and Destination",
+        "quote": "This indicates that probably a short time after writing 1 Thessalonians, Paul heard of further problems being faced by the Christians in Thessalonica, and in his concern for them, he wrote this second letter." },
+      { "who": "others", "label": "much later than 1 Thessalonians", "relative": true, "why": "The 1 names the letter 1 Thessalonians; it is not a date.", "heading": "Date, Origin, and Destination",
+        "quote": "It was written much later than 1 Thessalonians. This is improbable because both Silas and Timothy were still with Paul." },
+      { "who": "others", "label": "earlier than 1 Thessalonians", "relative": true, "why": "The 1 names the letter 1 Thessalonians; it is not a date.", "heading": "Date, Origin, and Destination",
+        "quote": "It was written earlier than 1 Thessalonians. In 2:15, however, there is a reference to a letter written previously to Thessalonica, and the early church from the second century certainly called this 2 Thessalonians." } ] },
+    "1Tim": { "article": "TimothyFirstLetterto", "written": [
+      { "who": "Many conservative scholars", "label": "from 62 to 64", "era": "AD", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+        "quote": "If so, and if Eusebius was right, then Paul may have spent the two years from 62 to 64 freely ministering back in the eastern provinces. Many conservative scholars date Paul’s First Letter to Timothy and his Letter to Titus from that period." },
+      { "who": "Those who do not accept Pauline authorship", "label": "in the generation that followed Paul’s death", "article": "TitusLetterto", "heading": "Date",
+        "quote": "Those who do not accept Pauline authorship of Titus, date this letter, like 1 and 2 Timothy, in the generation that followed Paul’s death." } ] },
+    "2Tim": { "article": "TimothySecondLetterto", "written": [
+      { "label": "between AD 64 and 67", "heading": "Place and Date of Writing",
+        "quote": "The letter was written between AD 64 and 67, with some preference being given to the earlier date." },
+      { "who": "Those who do not accept Pauline authorship", "label": "in the generation that followed Paul’s death", "article": "TitusLetterto", "heading": "Date",
+        "quote": "Those who do not accept Pauline authorship of Titus, date this letter, like 1 and 2 Timothy, in the generation that followed Paul’s death." } ] },
+    "Titus": { "article": "TitusLetterto", "written": [
+      { "who": "Many conservative scholars", "label": "from 62 to 64", "era": "AD", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
+        "quote": "If so, and if Eusebius was right, then Paul may have spent the two years from 62 to 64 freely ministering back in the eastern provinces. Many conservative scholars date Paul’s First Letter to Timothy and his Letter to Titus from that period." },
+      { "who": "Those who do not accept Pauline authorship", "label": "in the generation that followed Paul’s death", "heading": "Date",
+        "quote": "Those who do not accept Pauline authorship of Titus, date this letter, like 1 and 2 Timothy, in the generation that followed Paul’s death." } ] },
+    "Phlm": { "article": "PhilemonLetterto", "written": [
+      { "who": "most scholars", "label": "between AD 59 and 63", "article": "EphesiansLettertothe", "heading": "Date and Origin",
+        "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." },
+      { "undated": true, "heading": "Origin",
+        "quote": "It is difficult to ascertain the location of Paul’s imprisonment at the time of writing." } ] },
+    "Heb": { "article": "HebrewsLettertothe", "written": [
+      { "undated": true, "heading": "Date",
+        "quote": "Lacking firm information as to the author and recipients of the letter, no certainty exists as to the date of the writing." },
+      { "label": "prior to AD 70", "heading": "Date",
+        "quote": "Hence, it may be supposed with some degree of certainty that the letter was written prior to AD 70." },
+      { "label": "AD 67–70", "heading": "Date",
+        "quote": "If it was written after Paul’s death, that would put it after AD 67, the traditional date of his execution. Thus, Hebrews may have been written in the period AD 67–70." } ] },
+    "Jas": { "article": "JamesLetterof", "written": [
+      { "label": "AD 45–49", "heading": "Date, Origin, and Destination",
+        "quote": "Thus, James should be dated AD 45–49." } ] },
+    "1Pet": { "article": "PeterFirstLetterof", "written": [
+      { "label": "AD 64 or 65", "heading": "Destination, Origin, Date",
+        "quote": "The date of 1 Peter is probably AD 64 or 65" } ] },
+    "2Pet": { "article": "PeterSecondLetterof", "written": [
+      { "label": "before AD 70 (before his last teaching was forgotten) and after AD 60", "heading": "Date, Origin, Destination",
+        "quote": "Tradition tells us that Peter was martyred about AD 64 in Rome. If that is so, this work was probably written in Rome before AD 70 (before his last teaching was forgotten) and after AD 60 (the earliest date when Peter might have known Paul’s letters)." } ] },
+    "1John": { "article": "JohnLettersof", "written": [
+      { "label": "near the end of the first century", "era": "AD", "heading": "The First Letter of John",
+        "quote": "The date for the composition of 1 John is usually placed near the end of the first century. This date is confirmed by the nature of the heresy condemned and by the references to it in Polycarp and Irenaeus. Greater precision in fixing the date is not possible with the evidence available." } ] },
+    "2John": { "article": "JohnLettersof", "written": [
+      { "undated": true, "heading": "The Second Letter of John",
+        "quote": "Information concerning date of writing is inadequate to make any decision. The similarity to 1 John suggests a similar era." } ] },
+    "3John": { "article": "JohnLettersof", "written": [
+      { "undated": true, "heading": "The Third Letter of John",
+        "quote": "Again, we have insufficient information to establish date or additional setting." } ] },
+    "Jude": { "article": "JudeLetterof", "written": [
+      { "label": "between AD 60 and 100", "heading": "Date, Origin, and Destination",
+        "quote": "Since the content of the faith is clearly fixed (Jude 1:3) and the recipients have personally heard the apostles (who may have died already, v 17), the date is probably between AD 60 and 100." } ] },
+    "Rev": { "article": "RevelationBookof", "written": [
+      { "label": "shortly after the reign of Nero (AD 54–68)", "heading": "Date, Origin, Destination",
+        "quote": "Only two dates for Revelation have received serious support. An early date, shortly after the reign of Nero (AD 54–68), is allegedly supported by references in the book to the persecution of Christians, to the Nero redivivus myth (a revived Nero would be the reincarnation of the evil genius of the whole Roman Empire), to the imperial cult (ch 13), and to the temple (ch 11), which was destroyed in AD 70." },
+      { "who": "Irenaeus", "label": "at the close of Domitian’s reign” (AD 81–96)", "heading": "Date, Origin, Destination",
+        "quote": "The alternate date rests primarily on the early witness of Irenaeus, who stated that the apostle John “saw the revelation . . . at the close of Domitian’s reign” (AD 81–96)." } ] }
+  },
+
+  "corrections": [
+    { "chart": "ot", "event": "Abraham born", "basis": { "from": "Gn 26:5", "to": "Gen 21:5" },
+      "why": "Abraham was 100 years old when Isaac was born (Gen 21:5); Gen 26:5 does not give his age." }
+  ]
+}

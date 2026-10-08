@@ -343,6 +343,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     }
 
     let empty_verses = words.iter().filter(|w| w.is_empty()).count();
+    for (rel, bytes) in crate::eras::build(root, &inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     for (s, chunk) in lemmas.chunks(LEX_SHARD).enumerate() {
         let rows: Vec<Value> = chunk
             .iter()
