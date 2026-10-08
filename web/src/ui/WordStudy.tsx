@@ -2,6 +2,7 @@
 // manuscript evidence, and every place it occurs.
 
 import { useEffect, useMemo, useState } from 'preact/hooks';
+import { WordSky } from './WordSky';
 import { type Atlas, LANG_NAME, label, versesWithRoot } from '../data/atlas';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
@@ -163,6 +164,7 @@ export function WordStudy({ a }: { a: Atlas }) {
 
       <h3>Definition</h3>
       {lex === undefined ? <p class="muted">Loading…</p> : lex ? <Definition entry={lex} /> : <p class="muted">No lexicon entry for this root.</p>}
+      <WordSky a={a} root={r} verse={st.verse} pos={st.pos} />
 
       <h3>Every occurrence ({verses.length.toLocaleString()} verses)</h3>
       {Array.from(verses.subarray(0, limit), (v) => (
