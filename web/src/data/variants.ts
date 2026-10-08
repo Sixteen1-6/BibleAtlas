@@ -69,8 +69,15 @@ export function describeVariant(kind: string, greek: boolean, editions?: string,
     const absent = ['N', 'K', 'O'].filter((c) => !outside.toUpperCase().includes(c) && !inside.toUpperCase().includes(c));
     const varies = [...new Set(inside.toUpperCase())].filter((c) => GREEK_FAMILY[c]);
     const witnesses = (editions ?? '').split('+').map((e) => e.trim()).filter(Boolean).map((e) => GREEK_EDITIONS[e] ?? e);
+    // Nestle-Aland prints some words that STEPBible does not class as
+    // Ancient, such as Mark 16:9-20 and John 7:53-8:11 (in double brackets).
+    const printedByNA = (editions ?? '').split('+').some((e) => /^NA2[78]\b/.test(e.trim()));
     let summary: string;
-    if (!present.includes('N')) summary = `This word is not in ${GREEK_FAMILY.N}. It comes from ${present.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
+    if (!present.includes('N') && printedByNA)
+      summary = present.includes('K')
+        ? 'Nestle-Aland prints this word, but STEPBible classes it as found in Traditional but not Ancient manuscripts.'
+        : 'Nestle-Aland prints this word, but STEPBible classes it as found in neither Ancient nor Traditional manuscripts.';
+    else if (!present.includes('N')) summary = `This word is not in ${GREEK_FAMILY.N}. It comes from ${present.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
     else if (absent.length) summary = `This word is missing from ${absent.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
     else if (varies.length) summary = `${varies.map((c) => GREEK_FAMILY[c]).join(' and ')} ${significant ? 'has a different word here' : 'spells or orders this word differently'}.`;
     else summary = 'The editions agree on this word.';
