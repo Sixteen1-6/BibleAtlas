@@ -64,6 +64,14 @@ function Pair({ a, b }: { a: Atlas; b: Bridge }) {
   );
 }
 
+/** A word chip opens its word study in the same panel, so show that study
+ *  from the top rather than where the path was scrolled to. This listens in
+ *  the capture phase because RootChip stops its click from bubbling. */
+function onChipClick(e: MouseEvent) {
+  const panel = (e.currentTarget as Element).closest('.study');
+  if (panel && (e.target as Element).closest('.chip')) requestAnimationFrame(() => panel.scrollTo({ top: 0 }));
+}
+
 /**
  * Word bridges between two linked verses, one in each testament. Renders
  * nothing when both are in the same testament or no bridge is known. Pass
@@ -88,7 +96,7 @@ export function WhyLinked({ a, from, to, fromRow, toRow }: { a: Atlas; from: num
   const id = `br-${from}-${to}`;
   const toggle = open ? 'Less' : rest.length ? `${rest.length} more ${rest.length === 1 ? 'bridge' : 'bridges'}` : 'How we know';
   return (
-    <div class="br" onClick={(e) => e.stopPropagation()}>
+    <div class="br" onClickCapture={onChipClick} onClick={(e) => e.stopPropagation()}>
       <Pair a={a} b={first} />
       <p class="br-says">
         The Greek Old Testament (the Septuagint) uses <Greek a={a} root={first.greek} /> for <Hebrew a={a} root={first.hebrew} />.{' '}
