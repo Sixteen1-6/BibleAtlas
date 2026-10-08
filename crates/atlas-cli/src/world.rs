@@ -292,11 +292,29 @@ fn once_each(gloss: &str) -> String {
 
 /// Names whose LSJ entry is another word spelled the same: γάϊος "on land"
 /// (Gaius), κίς "weevil" (Kish), πόντιος "of the sea" (Pontius), σαῦλος, of
-/// a "loose, wanton" gait (Saul), ταρσός "crate" (Tarsus); or the name in a
-/// proverb (Simon, "a confederate in evil") or a history of the region
-/// (Lydia). Their glosses would mislead, so none are kept.
-const NOT_THE_NAME: [&str; 8] = [
-    "G1050", "G2797", "G3070", "G4194", "G4549", "G4569", "G4613", "G5019",
+/// a "loose, wanton" gait (Saul), ταρσός "crate" (Tarsus), Ἀχαία, a name of
+/// Demeter (Achaia), Λίνος the mythical minstrel (Linus), ἡλιάς "of the sun"
+/// (Elijah); the word a name sounds like, πόντος "open sea" (Pontus), κέδρος
+/// "cedar-tree" (Kidron), ἰταλός "bull" (Italy); or the name in a proverb
+/// (Simon, "a confederate in evil") or a history of the region (Lydia).
+/// Their glosses would mislead, so none are kept.
+const NOT_THE_NAME: [&str; 14] = [
+    "G0882", "G1050", "G2243", "G2482", "G2748", "G2797", "G3044", "G3070", "G4194", "G4195",
+    "G4549", "G4569", "G4613", "G5019",
+];
+
+/// Words whose TFLSJ entry is another word's: a homograph, as δέω "bind"
+/// gets δέω "lack", ἄνθος "flower" a bird, ἄρωμα "spice" "arable land",
+/// ἄθεος "without God" "without vision", σύνειμι "come together" "be with"
+/// and χράω "lend" "fall upon"; a neighbour, as μεταβαίνω gets μεταβάλλω,
+/// μερισμός μεριστέον and σκάνδαλον the σκανδαλιστής "acrobat"; or a gloss
+/// of Hesychius on another word ("βῆμα· πρόβατα"), for βῆμα, δόλος, ἔρις,
+/// λάθρα and ἄλευρον. Their glosses would mislead, so none are kept.
+const NOT_THE_WORD: [&str; 35] = [
+    "G0112", "G0220", "G0224", "G0270", "G0370", "G0371", "G0438", "G0552", "G0563", "G0664",
+    "G0677", "G0759", "G0806", "G0968", "G1210", "G1231", "G1388", "G1390", "G1841", "G2044",
+    "G2054", "G2977", "G3075", "G3108", "G3311", "G3327", "G3691", "G4326", "G4371", "G4625",
+    "G4712", "G4896", "G5114", "G5530", "G5531",
 ];
 
 /// The sense markers `<LevelN><b>__I.2</b></LevelN>`, as (start, end, mark).
@@ -944,12 +962,24 @@ struct Dated<'a> {
     title: &'a str,
 }
 
-/// A reference with no date of its own (a bare "Refs").
+/// A reference with no date of its own (a bare "Refs"), or no citation at
+/// all (see `misread_b`).
 fn undated(l: &Link) -> bool {
-    l.label
-        .replace("Refs", "")
-        .trim_matches(is_space)
-        .is_empty()
+    misread_b(l.title)
+        || l.label
+            .replace("Refs", "")
+            .trim_matches(is_space)
+            .is_empty()
+}
+
+/// TFLSJ's reading of a lone "B." as Bacchylides, whom LSJ cites as "B.":
+/// LSJ's section letter ("see below B.", "see at πρότερος B.") or an
+/// editor's initial ("Zos.Alch.p.205 B.") becomes a link to "5th c.BC:
+/// Bacchylides Lyricus" with no passage. Every such link in TFLSJ is one of
+/// these (a real citation of Bacchylides names the poem), so πρῶτος would
+/// otherwise be first cited from him.
+fn misread_b(title: &str) -> bool {
+    title.trim_matches(is_space) == "5th c.BC: Bacchylides Lyricus"
 }
 
 /// A reference's own date, from its label ("Refs 5th c.BC+"); none for one
@@ -1455,9 +1485,13 @@ fn cited<'a>(title: &'a str, label: &str) -> Option<Item<'a>> {
 
 /// A reference's date from its label ("Refs 5th c.BC+"), as (a year in that
 /// century for ordering, the century, the writer); none for one that cites
-/// the Bible alone ("LXX", "NT"). The label's is TFLSJ's date for the
-/// citation it dates, set right for "4th-5th c.BC" (see `Item::slip`).
+/// the Bible alone ("LXX", "NT") or nothing (`misread_b`). The label's is
+/// TFLSJ's date for the citation it dates, set right for "4th-5th c.BC" (see
+/// `Item::slip`).
 fn label_century(title: &str, label: &str) -> Option<(i32, String, Option<String>)> {
+    if misread_b(title) {
+        return None;
+    }
     let (digits, era) = label_date(label)?;
     let item = cited(title, label);
     let digits = item.as_ref().map_or(digits.as_str(), Item::shown);
@@ -2341,7 +2375,7 @@ pub fn build(
     // --- Outside the Bible: LSJ senses for every Greek root ---------------
     let rows = tflsj_rows(&inputs.paths("tflsj"))?;
     let (mut with_lsj, mut with_senses, mut with_first) = (0, 0, 0);
-    let (mut grammar, mut related, mut names) = (0, 0, 0);
+    let (mut grammar, mut related, mut names, mut others) = (0, 0, 0, 0);
     for (r, (key, _)) in lemmas.iter().enumerate() {
         if !key.starts_with('G') {
             continue;
@@ -2355,14 +2389,16 @@ pub fn build(
             continue;
         };
         let Some(mut e) = lsj(meaning) else { continue };
-        if NOT_THE_NAME.contains(&base) {
+        let name = NOT_THE_NAME.contains(&base);
+        if name || NOT_THE_WORD.contains(&base) {
             e = Lsj {
                 senses: Vec::new(),
                 first: None,
                 papyri: false,
                 inscriptions: false,
             };
-            names += 1;
+            names += usize::from(name);
+            others += usize::from(!name);
         }
         with_lsj += 1;
         with_senses += usize::from(!e.senses.is_empty());
@@ -2611,7 +2647,7 @@ pub fn build(
     }
     let total: usize = files.iter().map(|f| f.1.len()).sum();
     eprintln!(
-        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use; {grammar} grammar words, {related} words given a related word's entry and {names} names not shown); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
+        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use; {grammar} grammar words, {related} words given a related word's entry, and {names} names and {others} words given another word's entry not shown); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
         linked.len(),
         files.len(),
         total.div_ceil(1024)
@@ -2768,12 +2804,12 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         format!("{with_lsj} Greek roots with an LSJ entry, expected about 5,020"),
     ));
     out.push((
-        near(with_senses, 4_637, 1.0),
-        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,637"),
+        near(with_senses, 4_582, 1.0),
+        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,582"),
     ));
     out.push((
-        near(with_first, 4_790, 1.0),
-        format!("{with_first} Greek roots with a first use, expected about 4,790"),
+        near(with_first, 4_724, 1.0),
+        format!("{with_first} Greek roots with a first use, expected about 4,724"),
     ));
     let slot = |key: &str| {
         d.lemma_index(key)
@@ -2909,13 +2945,18 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             slot("G2571")["l"]
         ),
     ));
-    // Names whose LSJ entry is another word keep none of it.
-    for key in ["G4549G", "G4613G", "G2797", "G1050G"] {
+    // Names and words whose TFLSJ entry is another word's keep none of it,
+    // nor do those whose entry only points elsewhere, "see at πρότερος B.",
+    // B. read as Bacchylides (misread_b).
+    for key in [
+        "G4549G", "G4613G", "G2797", "G1050G", "G0882", "G4195", "G1210", "G0438", "G0759",
+        "G3327", "G4625", "G4413G", "G5574",
+    ] {
         let s = slot(key);
         let none = s["l"].as_array().is_some_and(Vec::is_empty) && s.get("f").is_none();
         out.push((
             none,
-            format!("{key}: LSJ's entry is another word, but the root has {s}"),
+            format!("{key}: TFLSJ's entry is not this word's own, but the root has {s}"),
         ));
     }
     // Grammar words are flagged, and only roots with an LSJ entry.
@@ -3852,6 +3893,38 @@ mod tests {
             assert!(!gloss_ok(g), "{g}");
         }
         assert!(gloss_ok("the hand"));
+    }
+
+    #[test]
+    fn a_lone_b_is_not_bacchylides() {
+        let b = lsj_link("Refs 5th c.BC+", " 5th c.BC: Bacchylides Lyricus ");
+        let e = lsj(&format!(
+            "<b> πρῶτος</b>, η, ον, <br /> see at {{πρότερος}} [{b}]"
+        ))
+        .unwrap();
+        assert!(e.senses.is_empty() && e.first.is_none());
+        // It is passed over as a bare "Refs" is; a real citation names the poem.
+        let hdt = lsj_link("Refs 5th c.BC+", " 5th c.BC: Herodotus Historicus 1.1");
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> <b>reagent</b>, Zos.Alch.p.205 [{b}]; [{hdt}]"
+            )),
+            sense("reagent", "Herodotus")
+        );
+        let poem = lsj_link("Refs 5th c.BC+", " 5th c.BC: Bacchylides Lyricus 5.12");
+        assert_eq!(
+            first_sense(&format!("<b> x</b> <b>shine</b> [{poem}]")),
+            sense("shine", "Bacchylides")
+        );
+    }
+
+    #[test]
+    fn lists_of_other_entries_are_sorted_and_apart() {
+        for list in [&NOT_THE_NAME[..], &NOT_THE_WORD[..]] {
+            assert!(list.windows(2).all(|w| w[0] < w[1]), "{list:?}");
+            assert!(list.iter().all(|k| k.len() == 5 && k.starts_with('G')));
+        }
+        assert!(NOT_THE_NAME.iter().all(|k| !NOT_THE_WORD.contains(k)));
     }
 
     #[test]
