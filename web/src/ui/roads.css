@@ -105,6 +105,12 @@
 .panel .roads-notice {
   margin: 12px 0 0;
 }
+/* The hidden live region is absolutely placed. Without a placed box around
+   it, it would sit outside the Study panel's scroll box and make the whole
+   page scroll on short screens. */
+.roads-live {
+  position: relative;
+}
 .roads-detail {
   color: var(--muted);
   font-size: 12px;

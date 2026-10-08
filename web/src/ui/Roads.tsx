@@ -458,10 +458,13 @@ function Announcer() {
   const s = said.value;
   // Words left from before a visit to another tab are not news on return.
   useEffect(() => () => void (said.value = { text: '', n: said.peek().n + 1 }), []);
+  // The wrapper holds the hidden region inside the panel's scroll box (see roads.css).
   return (
-    <p class="sr-only" role="status">
-      <span key={s.n}>{s.text}</span>
-    </p>
+    <div class="roads-live">
+      <p class="sr-only" role="status">
+        <span key={s.n}>{s.text}</span>
+      </p>
+    </div>
   );
 }
 
