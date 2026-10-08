@@ -76,6 +76,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(l_verse.iter().all(|&v| v < n), "every root posting points at a real verse");
     let rank = c.f32s("v_rank").map_err(|e| format!("{e:?}"))?;
     r.check(rank.len() == n as usize && rank.iter().all(|x| x.is_finite() && *x >= 0.0 && *x <= 1.0), "PageRank in [0, 1]");
+    for (ok, what) in crate::extra_quotes::verify(&d)? { r.check(ok, what); }
 
     // 3. Every posting lands on a word that really has that root.
     let mut bad = 0;

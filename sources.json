@@ -14,6 +14,30 @@
       "note": "openbible.info publishes the file directly; this build reads the unmodified copy mirrored in scrollmapper/bible_databases so the input is pinned by git commit."
     },
     {
+      "id": "bsb-usfm",
+      "title": "Berean Standard Bible (BSB), USFM edition with footnotes",
+      "provides": "The BSB's own footnotes. In the New Testament they name the Old Testament verse behind each quotation, sometimes adding \"see also LXX\" for the Septuagint; in the Old Testament they list where a verse is cited in the New. The Quotations notes are read from them.",
+      "license": "Public domain (dedicated April 2023)",
+      "attribution": "The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com, and the Berean Bible Translation Committee. This text of God's Word has been dedicated to the public domain.",
+      "homepage": "https://berean.bible/",
+      "repo": "https://github.com/usfm-bible/examples.bsb",
+      "commit": "48a9feb71f0a66f9b8f418b11ae25b7ad2e49a0d",
+      "files": {
+        "Gen": "01GENBSB.usfm", "Exod": "02EXOBSB.usfm", "Lev": "03LEVBSB.usfm", "Num": "04NUMBSB.usfm", "Deut": "05DEUBSB.usfm", "Josh": "06JOSBSB.usfm",
+        "Judg": "07JDGBSB.usfm", "Ruth": "08RUTBSB.usfm", "1Sam": "091SABSB.usfm", "2Sam": "102SABSB.usfm", "1Kgs": "111KIBSB.usfm", "2Kgs": "122KIBSB.usfm",
+        "1Chr": "131CHBSB.usfm", "2Chr": "142CHBSB.usfm", "Ezra": "15EZRBSB.usfm", "Neh": "16NEHBSB.usfm", "Esth": "17ESTBSB.usfm", "Job": "18JOBBSB.usfm",
+        "Ps": "19PSABSB.usfm", "Prov": "20PROBSB.usfm", "Eccl": "21ECCBSB.usfm", "Song": "22SNGBSB.usfm", "Isa": "23ISABSB.usfm", "Jer": "24JERBSB.usfm",
+        "Lam": "25LAMBSB.usfm", "Ezek": "26EZKBSB.usfm", "Dan": "27DANBSB.usfm", "Hos": "28HOSBSB.usfm", "Joel": "29JOLBSB.usfm", "Amos": "30AMOBSB.usfm",
+        "Obad": "31OBABSB.usfm", "Jonah": "32JONBSB.usfm", "Mic": "33MICBSB.usfm", "Nah": "34NAMBSB.usfm", "Hab": "35HABBSB.usfm", "Zeph": "36ZEPBSB.usfm",
+        "Hag": "37HAGBSB.usfm", "Zech": "38ZECBSB.usfm", "Mal": "39MALBSB.usfm", "Matt": "41MATBSB.usfm", "Mark": "42MRKBSB.usfm", "Luke": "43LUKBSB.usfm",
+        "John": "44JHNBSB.usfm", "Acts": "45ACTBSB.usfm", "Rom": "46ROMBSB.usfm", "1Cor": "471COBSB.usfm", "2Cor": "482COBSB.usfm", "Gal": "49GALBSB.usfm",
+        "Eph": "50EPHBSB.usfm", "Phil": "51PHPBSB.usfm", "Col": "52COLBSB.usfm", "1Thess": "531THBSB.usfm", "2Thess": "542THBSB.usfm", "1Tim": "551TIBSB.usfm",
+        "2Tim": "562TIBSB.usfm", "Titus": "57TITBSB.usfm", "Phlm": "58PHMBSB.usfm", "Heb": "59HEBBSB.usfm", "Jas": "60JASBSB.usfm", "1Pet": "611PEBSB.usfm",
+        "2Pet": "622PEBSB.usfm", "1John": "631JNBSB.usfm", "2John": "642JNBSB.usfm", "3John": "653JNBSB.usfm", "Jude": "66JUDBSB.usfm", "Rev": "67REVBSB.usfm"
+      },
+      "note": "A USFM copy of the BSB published by the usfm-bible project as an example of USFM markup: per its README, a fork of the text as of 26 August 2024 with the licensing unchanged. Only its footnotes are used; the English the app shows comes from the BSB entry listed separately."
+    },
+    {
       "id": "bsb",
       "title": "Berean Standard Bible (BSB)",
       "provides": "English text of all 66 books. Used for search, the word-to-word links, and as the default reading text.",

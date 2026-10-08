@@ -1,0 +1,96 @@
+/* Quotations: the extra's own pieces. Built only from the app's colour
+   variables, so the paper (light) and dark themes both follow. */
+
+/* Words both passages share: a soft wash, the way the app marks a hit. */
+.x-quotes-mark {
+  padding: 0 1px;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: inherit;
+  box-shadow: inset 0 -1px 0 var(--accent-soft);
+}
+/* The words around a quotation (its introduction, the rest of the verse). */
+.x-quotes-around {
+  color: var(--muted);
+}
+.xt-body .x-quotes-hint {
+  margin: 0 0 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.x-quotes-hint .x-quotes-mark {
+  color: var(--ink);
+}
+.xt-body .x-quotes-sub {
+  margin: 12px 0 4px;
+  font: 600 12.5px var(--font-ui);
+  color: var(--ink);
+}
+/* A verse named in a sentence, which takes the reader there. */
+.x-quotes-go {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.x-quotes-go:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Deep: each Greek word beside the Hebrew word it stands for. */
+.x-quotes-pairs {
+  margin: 4px 0 10px;
+  border-collapse: collapse;
+}
+.x-quotes-pairs td {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: baseline;
+}
+.x-quotes-pairs tr:last-child td {
+  border-bottom: 0;
+}
+.x-quotes-pairs td.x-quotes-eq {
+  padding: 3px 12px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.x-quotes-pw {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 6px;
+}
+.x-quotes-word {
+  padding: 0 2px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+}
+button.x-quotes-word {
+  cursor: pointer;
+}
+button.x-quotes-word:hover {
+  background: var(--accent-soft);
+}
+.x-quotes-word.gr {
+  font-family: var(--font-greek);
+  font-size: 16px;
+}
+.x-quotes-word.he {
+  font-family: var(--font-hebrew);
+  font-size: 19px;
+  line-height: 1.3;
+}
+.x-quotes-gloss {
+  font-size: 12.5px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
