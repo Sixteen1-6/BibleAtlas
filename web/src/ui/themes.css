@@ -1,0 +1,369 @@
+/* Theme journeys: theme cards with small skies, the chosen theme's sky and
+   its gold thread. Every class starts with tj-. Colours come from the page
+   tokens in styles.css, so light and dark both work; the skies themselves are
+   always night, like the map. */
+
+.tj-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tj-all {
+  flex-shrink: 0;
+  border: 0;
+  background: none;
+  padding: 2px 0;
+  color: var(--link);
+  font-size: 13px;
+}
+.tj-all:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------ cards */
+
+.tj-grid {
+  grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.card.tj-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.card.tj-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 3px 12px rgba(8, 11, 23, 0.1);
+}
+.card.tj-card[aria-pressed='true'] {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+  background: var(--accent-soft);
+}
+.tj-sky {
+  display: block;
+  width: 100%;
+  /* The sky before it is painted: the same night, without the links. */
+  background: linear-gradient(180deg, #04060e, #0e1430 86%, #161a3a 88%, #0e1430);
+}
+.tj-cardtext {
+  display: grid;
+  gap: 2px;
+  padding: 8px 11px 10px;
+}
+.tj-card b {
+  font: 600 15px/1.25 var(--font-read);
+}
+.tj-blurb {
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Chosen theme: the cards fold into one row that scrolls sideways. */
+.tj-strip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin: 0 -18px;
+  padding: 2px 18px 8px;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 18px;
+  scrollbar-width: thin;
+}
+.tj-strip .card.tj-card {
+  flex: 0 0 116px;
+  scroll-snap-align: start;
+}
+.tj-strip .tj-cardtext {
+  padding: 5px 9px 7px;
+}
+.tj-strip .tj-card b {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ------------------------------------------------------------ hero */
+
+.tj-hero {
+  position: relative;
+  height: 150px;
+  margin: 8px 0 10px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: linear-gradient(180deg, #04060e, #0e1430 72%, #161a3a 74%, #0e1430);
+  box-shadow: inset 0 0 0 1px rgba(160, 172, 235, 0.14);
+}
+.tj-hero canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: manipulation;
+}
+.tj-intro {
+  font: 15px/1.5 var(--font-read);
+}
+.panel .tj-intro {
+  margin: 0 0 2px;
+}
+.tj-intro b {
+  font-weight: 600;
+  margin-right: 3px;
+}
+
+/* ------------------------------------------------------------ the thread */
+
+.panel h3.tj-h {
+  margin: 10px 0 4px;
+}
+.tj-h span {
+  font-weight: 400;
+}
+.tj-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tj-li {
+  position: relative;
+  padding-left: 34px;
+}
+/* The thread itself: a gold line from each number to the next. */
+.tj-li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 17px;
+  bottom: -17px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+.tj-li:last-child::before {
+  display: none;
+}
+.tj-steps.is-key .tj-li::before {
+  background: none;
+  border-left: 2px dotted var(--line);
+  opacity: 1;
+}
+.tj-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 0 10px;
+  width: 100%;
+  padding: 6px 8px 7px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: none;
+  color: inherit;
+  text-align: left;
+}
+.tj-step:hover {
+  background: var(--surface-2);
+}
+.tj-li.is-on .tj-step {
+  background: var(--accent-soft);
+}
+.tj-n {
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font: 600 11px/1 var(--font-ui);
+  font-variant-numeric: tabular-nums;
+  z-index: 1;
+}
+.tj-li.is-on .tj-n {
+  background: var(--accent);
+  color: var(--surface);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.tj-steps.is-key .tj-n {
+  border-color: var(--muted);
+  color: var(--muted);
+}
+.tj-ref {
+  font-weight: 600;
+}
+/* Which part of the Bible: the book group's colour, as on the map. */
+.tj-ref::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--tj-g);
+  vertical-align: 1px;
+}
+.tj-votes {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+/* One line to recognise the verse; the whole of it opens on a tap. */
+.tj-step .snip {
+  grid-column: 1 / -1;
+  font: 14px/1.5 var(--font-read);
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tj-li.is-on .tj-step .snip {
+  display: none;
+}
+.tj-detail {
+  padding: 2px 8px 6px;
+}
+.tj-full {
+  font: 15.5px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.panel .tj-full {
+  margin: 0 0 2px;
+}
+.tj-detail .orig {
+  line-height: 1.9;
+}
+.tj-detail .orig.he {
+  font-size: 20px;
+}
+.tj-detail .orig.gr {
+  font-size: 17px;
+}
+.tj-link {
+  border: 0;
+  background: none;
+  padding: 2px 0;
+  color: var(--link);
+  font-size: 13px;
+}
+.tj-link:hover {
+  text-decoration: underline;
+}
+
+/* Stays in reach while the steps scroll past. */
+.tj-back {
+  position: sticky;
+  bottom: 12px;
+  z-index: 3;
+  display: block;
+  width: fit-content;
+  margin: 10px auto 0;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--surface);
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(8, 11, 23, 0.28);
+}
+
+.tj-seg {
+  display: inline-flex;
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.tj-seg button {
+  border: 0;
+  background: none;
+  padding: 6px 13px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.tj-seg button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--surface);
+  font-weight: 600;
+}
+.tj-relight {
+  margin-top: 12px;
+}
+.tj-why {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.panel .tj-why {
+  margin: 12px 0 0;
+}
+
+/* ------------------------------------------------------------ deeper */
+
+.tj-roots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+.tj-root {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.tj-rootn {
+  font-size: 11.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.tj-more {
+  margin-top: 10px;
+}
+
+/* Phones: the map above already shows the thread full size, so the sky here
+   is shorter and the steps start sooner. */
+@media (max-width: 900px) {
+  .tj-hero {
+    height: 100px;
+    margin: 6px 0 8px;
+  }
+  .tj-intro {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .panel h3.tj-h {
+    margin: 8px 0 2px;
+  }
+  .tj-step {
+    padding: 5px 8px 6px;
+  }
+}
+@media (max-width: 560px) {
+  .tj-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card.tj-card {
+    transition: none;
+  }
+}
