@@ -12,6 +12,7 @@
 
 mod align;
 mod build;
+mod eras;
 mod english;
 mod extra_quotes;
 mod fetch;

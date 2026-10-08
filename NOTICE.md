@@ -35,3 +35,13 @@ STEPBible asks that changes to its data be noted. The build changes the presenta
 ## ESV
 
 The ESV text is never stored in this repository or in the build. The server-side proxy (`server/esv.mjs`) requests one chapter at a time, keeps at most 500 verses in memory, and the page shows Crossway's copyright notice with a link to esv.org, as the ESV API terms require. Use beyond the free terms needs a license from Crossway: https://www.crossway.org/permissions/digital/
+
+## Tyndale Open Bible Dictionary (eras and dates)
+
+| Data | Source | License |
+| --- | --- | --- |
+| Eras, event dates and book dates (eras.json) | Tyndale Open Bible Dictionary, Tyndale House Publishers, via the unmodified tyndale-source-files/ in mvh-solutions/aquiferized-tbd-english | CC BY-SA 4.0 |
+
+Attribution: "Adapted from Tyndale Open Bible Dictionary. The original work by Tyndale House Publishers is available for free at http://www.tyndaleopenresources.com." Copyright (C) 2023 by Tyndale House Publishers.
+
+Changes: short quotations are taken word for word from the dictionary's articles; date labels are cut from those quotations; years are read from the labels and from the charts "Significant Old Testament Events and Dates" and "Significant New Testament Events and Dates"; the chart's reference for Abraham's birth is corrected from Gn 26:5 to Gen 21:5; chapters are assigned to the dictionary's eras by hand in config/eras.json, each assignment backed by a quotation or by a row of the chart "Books of Postexilic Times". eras.json is a derivative of the dictionary and is shared under CC BY-SA 4.0; the rest of this project keeps its own license.

@@ -138,6 +138,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(dan[1].as_array().unwrap().iter().all(|w| w[5].as_u64().unwrap_or(0) & 1 == 1), "Daniel 2:5 is Aramaic");
     let dan1 = d.verse(d.resolve("Dan 1:1")?.0)?;
     r.check(dan1[1].as_array().unwrap().iter().all(|w| w[5].as_u64().unwrap_or(0) & 1 == 0), "Daniel 1:1 is Hebrew");
+    for (ok, what) in crate::eras::verify(&d)? { r.check(ok, what); }
     for (b, bk) in BOOKS.iter().enumerate() {
         let first = d.verse(d.vz.book_start(b as u8))?;
         let any = first[1].as_array().map(|a| !a.is_empty()).unwrap_or(false);

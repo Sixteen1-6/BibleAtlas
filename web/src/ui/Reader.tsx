@@ -2,6 +2,7 @@
 // each verse. Every original word opens its word study.
 
 import { Fragment } from 'preact';
+import { ChapterWhen } from './ChapterWhen';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
@@ -231,6 +232,7 @@ export function Reader({ a }: { a: Atlas }) {
           );
         })}
       </div>
+      <ChapterWhen a={a} book={book} chapter={chapter} ready={!!text} />
       {text && (
         <p class="copyright">
           {tr === 'ESV' && esvReady?.data ? (
