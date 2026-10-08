@@ -25,6 +25,17 @@ STEPBible asks that changes to its data be noted. The build changes the presenta
 - Lexicon definitions are converted from HTML to plain text segments (bold, italic, line breaks and verse links are kept).
 - Words found only in non-base editions are kept and flagged, and are excluded from word counts.
 
+## Greek usage outside the Bible (LSJ) and things of the biblical world (UBS handbooks)
+
+| Data | Source | License |
+| --- | --- | --- |
+| Greek senses, writers and centuries (world/*.json) | Liddell-Scott-Jones, Perseus Digital Library (Tufts University), formatted and dated by STEPBible TFLSJ (Tyndale House) | CC BY-SA 4.0 (LSJ text); CC BY 4.0 (STEPBible formatting and dates) |
+| Articles on animals, plants and human-made things (world/ubs*.json) | United Bible Societies Fauna, Flora and Realia handbooks, via ubsicap/ubs-open-license | CC BY-SA 4.0 |
+
+Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)"; "Full LSJ - Liddell-Scott-Jones - from Perseus, with additional features and corrections by Tyndale House", with dates added to authors by Tyndale House. "Animals in the Bible © United Bible Societies, 2025. Adapted from: All Creatures Great and Small: Living Things in the Bible, by Edward R. Hope © 2005 United Bible Societies." "Plants and Trees in the Bible © United Bible Societies, 2025. Adapted from: Each According to its Kind: Plants and Trees in the Bible, by Robert Koops © 2012 United Bible Societies." "Human-made Things in the Bible © United Bible Societies, 2025. Adapted from: The Works of Their Hands: Man-made Things in the Bible, by Ray Pritz © 2009 United Bible Societies."
+
+Changes: from TFLSJ, only up to five short glosses per root are kept, with the century and writer of the earliest citation for each and whether papyri or inscriptions are cited; Latin writer names are given in English. From the UBS handbooks, only the description, usage, discussion, symbolism and "other" sections are kept, inline markup is reduced to bold, italic and verse links, images are not used, and each article is linked to Hebrew and Greek roots through its own verse references. These derived files are shared under CC BY-SA 4.0.
+
 ## ESV
 
 The ESV text is never stored in this repository or in the build. The server-side proxy (`server/esv.mjs`) requests one chapter at a time, keeps at most 500 verses in memory, and the page shows Crossway's copyright notice with a link to esv.org, as the ESV API terms require. Use beyond the free terms needs a license from Crossway: https://www.crossway.org/permissions/digital/
