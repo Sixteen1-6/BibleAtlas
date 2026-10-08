@@ -79,7 +79,7 @@ pub const BOOKS: [Book; 66] = [
     book!("Job", "Job", "Job", Old, Wisdom, ["job", "jb"]),
     book!("Ps", "Psa", "Psalms", Old, Wisdom, ["ps", "psa", "psalm", "pss", "psm"]),
     book!("Prov", "Pro", "Proverbs", Old, Wisdom, ["prov", "pro", "pr", "prv"]),
-    book!("Eccl", "Ecc", "Ecclesiastes", Old, Wisdom, ["eccl", "ecc", "ec", "qoh"]),
+    book!("Eccl", "Ecc", "Ecclesiastes", Old, Wisdom, ["eccl", "ecc", "ec", "qoh", "qoheleth"]),
     book!("Song", "Sng", "Song of Solomon", Old, Wisdom, ["song", "sng", "sos", "songofsongs", "canticles"]),
     book!("Isa", "Isa", "Isaiah", Old, MajorProphets, ["isa", "is"]),
     book!("Jer", "Jer", "Jeremiah", Old, MajorProphets, ["jer", "je", "jr"]),

@@ -61,6 +61,8 @@ pub fn run(out: &Path) -> Result<(), String> {
     // 2. Structure.
     let n = d.vz.verse_count();
     r.check(n == 31_102, format!("verse count is {n}, expected 31,102 (BSB)"));
+    let plain = fs::read_to_string(out.join("bsb.txt")).map_err(|e| format!("bsb.txt: {e}"))?;
+    r.check(plain.lines().count() == n as usize, "search text has one line per verse");
     r.check(d.vz.chapter_count() == 1_189, format!("chapter count is {}, expected 1,189", d.vz.chapter_count()));
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));

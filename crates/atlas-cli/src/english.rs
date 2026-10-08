@@ -45,6 +45,17 @@ pub fn build(texts: &[String]) -> EnglishIndex {
     EnglishIndex { words, off, verses }
 }
 
+/// The BSB as plain text, one verse per line in verse-index order, for the
+/// browser's phrase search and result previews. The BSB is public domain.
+pub fn plain_text(texts: &[String]) -> String {
+    let mut out = String::with_capacity(texts.iter().map(|t| t.len() + 1).sum());
+    for t in texts {
+        out.extend(t.chars().map(|c| if c == '\n' || c == '\r' { ' ' } else { c }));
+        out.push('\n');
+    }
+    out
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -56,5 +67,6 @@ mod tests {
         let idx = build(&["the light".into(), "Light and the dark".into()]);
         let i = idx.words.iter().position(|w| w == "light").unwrap();
         assert_eq!(&idx.verses[idx.off[i] as usize..idx.off[i + 1] as usize], &[0, 1]);
+        assert_eq!(plain_text(&["a\nb".into(), "c".into()]), "a b\nc\n");
     }
 }

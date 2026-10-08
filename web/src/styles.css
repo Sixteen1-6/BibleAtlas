@@ -1107,3 +1107,12 @@ p .godeeper {
     font-size: 22px;
   }
 }
+
+/* Search results: matched words */
+.palette li mark {
+  background: var(--accent-soft);
+  color: inherit;
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--accent-soft);
+  font-weight: 600;
+}
