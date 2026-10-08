@@ -497,7 +497,7 @@ fn sense_bolds<'a>(
     skip: usize,
 ) -> Vec<(usize, usize, &'a str, bool)> {
     let mut out = Vec::with_capacity(all.len());
-    let (mut prev_end, mut prev_contrast) = (0, false);
+    let (mut prev_end, mut prev_contrast, mut prev_compared) = (0, false, false);
     for (i, &b) in all.iter().enumerate() {
         let between = &block[prev_end..b.0];
         let joined = {
@@ -517,18 +517,21 @@ fn sense_bolds<'a>(
         // Bishoprics</b>"); after "written" comes a spelling ("<b>huihus</b>").
         let cited = after.starts_with(|c: char| c.is_ascii_digit()) || titled(between, b.2);
         let spelt = ends_with_phrase(between, &["written", "spelt", "spelled"]);
+        let compared = compared(between, b.2, prev_compared);
         if i >= skip
             && !contrast
             && !quoted
             && !cited
             && !spelt
-            && !compared(between, b.2)
+            && !compared
+            && !latin(between, b.2, after)
             && !points_elsewhere(after)
         {
             out.push((b.0, b.1, b.2, continues_phrase(between)));
         }
         prev_end = b.1;
         prev_contrast = contrast;
+        prev_compared = compared;
     }
     out
 }
@@ -623,12 +626,14 @@ fn titled(between: &str, inner: &str) -> bool {
 }
 
 /// Is a bold span a word of another language, compared in an etymology
-/// ("cf. Latin <i>fero,</i> OE <b>beran</b>")? The clause before it, from
-/// the last ";", ":", "—" or bracket, compares and names a language. A span
+/// ("cf. Latin <i>fero,</i> OE <b>beran</b>")? The clause before it, back to
+/// the bracket it sits in or the last ";", ":" or "—" outside brackets,
+/// compares and names a language, or the span before was such a word and
+/// the clause goes on ("Tocharian (A) <b>se,</b> (B) <b>soyä</b>"). A span
 /// that goes on past LSJ's ":—" ("cf. Latin <i>lac</i> for <b>glact):—
 /// milk</b>") has its gloss after it.
-fn compared(between: &str, inner: &str) -> bool {
-    const LANGUAGES: [&str; 12] = [
+fn compared(between: &str, inner: &str, prev: bool) -> bool {
+    const LANGUAGES: [&str; 14] = [
         "Latin",
         "Sanskrit",
         "Gothic",
@@ -641,13 +646,34 @@ fn compared(between: &str, inner: &str) -> bool {
         "Irish",
         "Slavonic",
         "Hittite",
+        "Tocharian",
+        "Albanian",
     ];
     if inner.contains(":—") {
         return false;
     }
     let t = collapse(&decode_entities(&strip_tags(between)));
-    let clause = t.rsplit([';', ':', '—', '(', ')']).next().unwrap_or("");
-    let words: Vec<&str> = clause
+    let mut depth = 0usize;
+    let mut start = None;
+    for (i, c) in t.char_indices().rev() {
+        match c {
+            ')' => depth += 1,
+            '(' if depth > 0 => depth -= 1,
+            '(' => {
+                start = Some(i + 1);
+                break;
+            }
+            ';' | ':' | '—' if depth == 0 => {
+                start = Some(i + c.len_utf8());
+                break;
+            }
+            _ => {}
+        }
+    }
+    if prev && start.is_none() {
+        return true;
+    }
+    let words: Vec<&str> = t[start.unwrap_or(0)..]
         .split(|c: char| is_space(c) || c == ',')
         .filter(|w| !w.is_empty())
         .collect();
@@ -655,6 +681,28 @@ fn compared(between: &str, inner: &str) -> bool {
         .iter()
         .any(|w| matches!(*w, "cf." | "Cf." | "compare" | "Compare" | "cognate"))
         && words.iter().any(|w| LANGUAGES.contains(w))
+}
+
+/// Is a bold span Latin? LSJ names which verb a compound is made from in
+/// Latin ("(εἰμί <b>sum</b>)", "(εἶμι <b>ibo</b>)"), and gives Latin
+/// equivalents after "Latin" ("= Latin [ref] <b>filius</b>").
+fn latin(between: &str, inner: &str, after: &str) -> bool {
+    let word = clean_gloss(inner);
+    if matches!(word.as_str(), "sum" | "ibo") && after.trim_start().starts_with(')') {
+        return true;
+    }
+    // The words before the span, references left out.
+    let mut text = String::new();
+    let mut rest = between;
+    while let Some(i) = rest.find(LINK_HEAD) {
+        text.push_str(&rest[..i]);
+        rest = rest[i..].find("</a>").map_or("", |j| &rest[i + j + 4..]);
+    }
+    text.push_str(rest);
+    let t = collapse(&decode_entities(&strip_tags(&text)));
+    t.split(|c: char| is_space(c) || c == '[' || c == ']')
+        .rfind(|w| !w.is_empty())
+        .is_some_and(|w| w == "Latin")
 }
 
 /// Does the text after a bold span say the sense is given elsewhere?
@@ -897,7 +945,10 @@ fn gloss_ok(g: &str) -> bool {
     {
         return false;
     }
-    if g.chars().any(|c| is_greek(c) || "āēīōūăĕĭŏŭʼʽ".contains(c)) {
+    // Greek, or the marks of a transcribed or reconstructed word ("ĝhoryo-").
+    if g.chars()
+        .any(|c| is_greek(c) || "āēīōūăĕĭŏŭʼʽĝǵḱśṣṛṇḥ".contains(c))
+    {
         return false;
     }
     if g.starts_with('\'') || g.starts_with("NT") || g.starts_with("LXX") || g.starts_with('=') {
@@ -1133,10 +1184,11 @@ fn writer_name(name: &str) -> Option<String> {
     if matches!(first, "Ilias" | "Odyssea" | "Homerus") {
         return Some("Homer".into());
     }
-    if words
-        .get(1)
-        .is_some_and(|w| !w.starts_with(char::is_uppercase))
-    {
+    // A second word counts only if capitalised, and not when it is the
+    // Bible book a translator is cited for ("Symmachus LXX.Eze.10.13").
+    if words.get(1).is_some_and(|w| {
+        !w.starts_with(char::is_uppercase) || w.starts_with("LXX") || w.starts_with("NT.")
+    }) {
         words.truncate(1);
     }
     let two = words[..words.len().min(2)].join(" ");
@@ -2031,7 +2083,7 @@ pub fn build(
     // --- Outside the Bible: LSJ senses for every Greek root ---------------
     let rows = tflsj_rows(&inputs.paths("tflsj"))?;
     let (mut with_lsj, mut with_senses, mut with_first) = (0, 0, 0);
-    let (mut grammar, mut names) = (0, 0);
+    let (mut grammar, mut related, mut names) = (0, 0, 0);
     for (r, (key, _)) in lemmas.iter().enumerate() {
         if !key.starts_with('G') {
             continue;
@@ -2084,6 +2136,12 @@ pub fn build(
         if grammar_word(class) || CONSTRUCTION_WORDS.contains(&base) {
             o.insert("g".into(), json!(1));
             grammar += 1;
+        }
+        // LSJ has no entry of its own for the word, and TFLSJ gives a related
+        // one's: πρεσβύτερος gets πρεσβυτέριον, μόνον gets μονόω.
+        if meaning.trim_start().starts_with("Related to") {
+            o.insert("r".into(), json!(1));
+            related += 1;
         }
     }
 
@@ -2295,7 +2353,7 @@ pub fn build(
     }
     let total: usize = files.iter().map(|f| f.1.len()).sum();
     eprintln!(
-        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use; {grammar} grammar words and {names} names not shown); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
+        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use; {grammar} grammar words, {related} words given a related word's entry and {names} names not shown); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
         linked.len(),
         files.len(),
         total.div_ceil(1024)
@@ -2528,8 +2586,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             ),
         ));
     }
-    // Beyond lsj5's rules: alternatives read together, examples and
-    // contrasts left out, misprints and repeats set right.
+    // Beyond lsj5's rules: alternatives read together, examples, contrasts,
+    // cognates and Latin left out, misprints and repeats set right.
     for (key, gloss, who) in [
         ("G1391", "expectation", "Homer"),
         ("G0225", "truth", "Homer"),
@@ -2546,6 +2604,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("G1939", "desire of or for", "Antiphon"),
         ("G1520", "one", "Homer"),
         ("G5342", "bear or carry", "Homer"),
+        ("G3918", "present", "Homer"),
     ] {
         let first = &slot(key)["l"][0];
         out.push((
@@ -2578,6 +2637,21 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     out.push((
         stray == 0,
         format!("{stray} roots are flagged as grammar words but have no LSJ entry"),
+    ));
+    // So are the words TFLSJ gives a related word's entry.
+    let unrelated: Vec<&str> = ["G4245G", "G3440", "G1966"]
+        .into_iter()
+        .filter(|k| slot(k)["r"] != 1)
+        .collect();
+    let stray = slots
+        .iter()
+        .filter(|s| s.get("r").is_some() && s.get("l").is_none())
+        .count();
+    out.push((
+        unrelated.is_empty() && slot("G1577").get("r").is_none() && stray == 0,
+        format!(
+            "related-entry words not flagged: {unrelated:?}; G1577 must not be one; {stray} flagged without an LSJ entry"
+        ),
     ));
     let odd: Vec<String> = slots
         .iter()
@@ -2867,6 +2941,15 @@ mod tests {
             Some("Bacchylides".into())
         );
         assert_eq!(writer_name("Solon cited "), Some("Solon".into()));
+        // The Bible book a translator is cited for is not part of the name.
+        assert_eq!(
+            writer_name("Symmachus LXX.Eze.10.13, “Hippiatrica” 79"),
+            Some("Symmachus".into())
+        );
+        assert_eq!(
+            writer_name("Theodotion LXX), LXX.Judg.6.29"),
+            Some("Theodotion".into())
+        );
         assert_eq!(
             writer_name("Lucillius Epigrammaticus) ἀπίναι"),
             Some("Lucillius".into())
@@ -3268,6 +3351,29 @@ mod tests {
             )),
             sense("teacher, master", "Sophocles")
         );
+        // A list of cognates goes on until its clause ends.
+        let e = lsj(&format!(
+            "<b> υἱός</b>, <b>son,</b> [{homer}] (cf. Sanskrit <i>sūte</i>, Tocharian (A) \
+             <b>sexx,</b> (B) <b>soyä</b> 'son' [{soph}]); <b>child</b> [{late}]"
+        ))
+        .unwrap();
+        let glosses: Vec<&str> = e.senses.iter().map(|s| s.gloss.as_str()).collect();
+        assert_eq!(glosses, ["son", "child"]);
+        // Latin: the verb a compound is made from, and an equivalent.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> ἄπειμι</b>, (εἰμί <b>sum</b>), <i>imperfect</i> ἀπῆν [{late}]; \
+                 <b>to be away</b> [{soph}]"
+            )),
+            sense("to be away", "Sophocles")
+        );
+        let e = lsj(&format!(
+            "<b> x</b>, <b>son,</b> [{homer}]; = Latin [{late}] <b>filius,</b> [{soph}]"
+        ))
+        .unwrap();
+        assert_eq!(e.senses.len(), 1);
+        assert!(!gloss_ok("ĝhoryo"));
+        assert!(gloss_ok("front, façade"));
     }
 
     #[test]
