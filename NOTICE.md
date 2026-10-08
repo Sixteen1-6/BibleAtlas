@@ -11,9 +11,12 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Hebrew and Greek lexicons (TBESH, TBESG) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Word alignments to the BSB, with the WLC (Macula) and Berean Greek NT texts they are keyed to | Clear Bible / Biblica, github.com/Clear-Bible/Alignments | CC BY 4.0 (alignments); WLC and BSB public domain |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
 
-Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)" and "Cross references from OpenBible.info (CC BY 4.0)".
+Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)", "Cross references from OpenBible.info (CC BY 4.0)" and "Word alignments from Clear Bible / Biblica, github.com/Clear-Bible/Alignments (CC BY 4.0)".
+
+The alignments are used to link words, not shown as text: each aligned Hebrew or Greek word is matched to the TAHOT or TAGNT word in the same verse (by consonants or Strong's number), each English word to the same word of the BSB verse, and links that do not match on both ends are left out.
 
 ## Changes made to the STEPBible data
 

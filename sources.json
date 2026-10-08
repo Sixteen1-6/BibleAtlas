@@ -75,6 +75,24 @@
       "repo": "https://github.com/STEPBible/STEPBible-Data",
       "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
       "files": { "tbesg": "Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt" }
+    },
+    {
+      "id": "clear-align",
+      "title": "Clear Bible BSB word alignments",
+      "provides": "Hand-made links from each Hebrew, Aramaic and Greek word to the BSB English words that translate it (Hebrew from the WLC as tokenized by Macula, Greek from the Berean Greek New Testament). Used to color matching words in word-by-word mode.",
+      "license": "CC BY 4.0 (alignments); the WLC and the BSB are public domain",
+      "attribution": "Word alignments from Clear Bible / Biblica, github.com/Clear-Bible/Alignments (CC BY 4.0)",
+      "homepage": "https://github.com/Clear-Bible/Alignments",
+      "repo": "https://github.com/Clear-Bible/Alignments",
+      "commit": "c99bd0ae6946775f932517656308ca19fc706921",
+      "files": {
+        "hebrew_links": "data/eng/alignments/BSB/WLCM-BSB-manual.json",
+        "hebrew_source": "data/sources/WLCM.tsv",
+        "greek_links": "data/eng/alignments/BSB/BGNT-BSB-manual.json",
+        "greek_source": "data/sources/BGNT.tsv",
+        "english_ot": "data/eng/targets/BSB/ot_BSB.tsv",
+        "english_nt": "data/eng/targets/BSB/nt_BSB.tsv"
+      }
     }
   ]
 }

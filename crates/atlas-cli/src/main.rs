@@ -10,6 +10,7 @@
 //!
 //! Options: --raw <dir> (default data/raw), --out <dir> (default web/public/data)
 
+mod align;
 mod build;
 mod english;
 mod fetch;
