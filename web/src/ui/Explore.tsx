@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'preact/hooks';
 import { RoadCards, RoadsStatus, useRoads } from './Roads';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
+import { WhyLinked } from './WhyLinked';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
 import { themeVerses } from '../data/thread';
@@ -118,6 +119,7 @@ function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?:
           </span>
         )}
       </div>
+      {prev !== undefined && !sameLang && <WhyLinked a={a} from={prev} to={v} fromRow={prevRow} toRow={row} />}
     </li>
   );
 }
