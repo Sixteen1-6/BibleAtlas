@@ -1,6 +1,7 @@
 // Themes, connection paths and the most-connected verses.
 
 import { useMemo, useState } from 'preact/hooks';
+import { RoadCards, RoadsStatus, useRoads } from './Roads';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
@@ -75,12 +76,13 @@ export function Themes({ a }: { a: Atlas }) {
 
 // ------------------------------------------------------------ paths
 
-const EXAMPLES: [string, string][] = [
-  ['Genesis 3:15', 'Revelation 12:9'],
-  ['Genesis 22:8', 'John 1:29'],
-  ['Isaiah 7:14', 'Matthew 1:23'],
-  ['Exodus 12:13', '1 Corinthians 5:7'],
-  ['Psalm 110:1', 'Hebrews 1:13'],
+/** [from, to, a short caption for the pair] */
+const EXAMPLES: [string, string, string][] = [
+  ['Genesis 3:15', 'Revelation 12:9', 'The serpent crushed'],
+  ['Genesis 22:8', 'John 1:29', 'The lamb God provides'],
+  ['Isaiah 7:14', 'Matthew 1:23', 'God with us'],
+  ['Exodus 12:13', '1 Corinthians 5:7', 'The Passover lamb'],
+  ['Psalm 110:1', 'Hebrews 1:13', 'At God’s right hand'],
 ];
 
 function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?: number }) {
@@ -108,80 +110,73 @@ function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?:
 }
 
 export function Paths({ a }: { a: Atlas }) {
-  const [from, setFrom] = useState('Genesis 3:15');
-  const [to, setTo] = useState('Revelation 12:9');
-  const [minVotes, setMinVotes] = useState(5);
-  const [msg, setMsg] = useState<string | null>(null);
-  const p = S.path.value;
-
-  const run = async (f = from, t = to) => {
-    const eng = S.engine.value;
-    if (!eng) return;
-    setMsg(null);
-    const [ra, rb] = await Promise.all([eng.parseRef(f), eng.parseRef(t)]);
-    if (!ra || !rb) {
-      setMsg(`Could not read ${!ra ? `“${f}”` : `“${t}”`}. Try a form like “John 3:16”.`);
-      return;
-    }
-    const res = await eng.path(ra[0], rb[0], minVotes);
-    if (!res) {
-      S.path.value = null;
-      setMsg(`No chain of links with at least ${minVotes} votes joins these verses. Lower the threshold and try again.`);
-      return;
-    }
-    S.theme.value = null;
-    S.marks.value = null;
-    S.groupEdges.value = null;
-    S.selected.value = null;
-    S.path.value = { ...res, ms: eng.lastMs };
-  };
+  const r = useRoads(a);
+  const p = r.roads && r.chosen >= 0 ? r.roads[r.chosen] : null;
+  // The slider's value while it is being dragged; it is used once let go.
+  const [drag, setDrag] = useState<number | null>(null);
+  const votes = drag ?? r.minVotes;
 
   return (
     <div class="panel">
       <h2>Connection paths</h2>
-      <p class="muted">Finds the chain of cross-references between any two verses, preferring short chains of strongly voted links.</p>
+      <p class="muted">Find the roads of cross-references between two verses.</p>
       <form
+        class="roads-form"
         onSubmit={(e) => {
           e.preventDefault();
-          run();
+          r.run();
         }}
       >
         <label class="field">
           <span>From</span>
-          <input value={from} onInput={(e) => setFrom((e.target as HTMLInputElement).value)} />
+          <input value={r.from} onInput={(e) => r.setFrom((e.target as HTMLInputElement).value)} />
         </label>
         <label class="field">
           <span>To</span>
-          <input value={to} onInput={(e) => setTo((e.target as HTMLInputElement).value)} />
+          <input value={r.to} onInput={(e) => r.setTo((e.target as HTMLInputElement).value)} />
         </label>
-        <label class="field">
-          <span>Use links with at least {minVotes} votes</span>
-          <input type="range" min={1} max={60} value={minVotes} onInput={(e) => setMinVotes(Number((e.target as HTMLInputElement).value))} />
-        </label>
-        <button class="btn" type="submit">
-          Find path
-        </button>
+        <div class="roads-go">
+          <button class="btn roads-find" type="submit">
+            Find path
+          </button>
+          <details class="roads-opts">
+            <summary>
+              Use links with at least {votes} {votes === 1 ? 'vote' : 'votes'}
+            </summary>
+            <input
+              type="range"
+              min={1}
+              max={60}
+              value={votes}
+              aria-label="Fewest votes a link needs to be used"
+              onInput={(e) => setDrag(Number((e.target as HTMLInputElement).value))}
+              onChange={(e) => {
+                r.setMinVotes(Number((e.target as HTMLInputElement).value));
+                setDrag(null);
+                if (r.roads) r.run();
+              }}
+            />
+            <p>
+              Votes come from OpenBible.info readers. Roads prefer strong links: each step counts 1, plus up to 3 more when its link has few votes. A lower number finds more roads; a higher one keeps
+              to the best-attested links.
+            </p>
+          </details>
+        </div>
       </form>
-      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
-        {EXAMPLES.map(([f, t]) => (
-          <button
-            key={f + t}
-            class="chip"
-            onClick={() => {
-              setFrom(f);
-              setTo(t);
-              run(f, t);
-            }}
-          >
-            {f} → {t}
+      <div class="roads-try">
+        <span>Try</span>
+        {EXAMPLES.map(([f, t, caption]) => (
+          <button key={f + t} type="button" class="chip" title={`${f} → ${t}`} aria-label={`${caption}: ${f} to ${t}`} onClick={() => r.run(f, t)}>
+            {caption}
           </button>
         ))}
       </div>
-      {msg && <p class="notice" style="margin-top:12px">{msg}</p>}
+      <RoadsStatus onRetry={r.retryAll} />
+      <RoadCards a={a} />
       {p && (
         <>
           <h3>
-            {p.verses.length - 1} {p.verses.length === 2 ? 'step' : 'steps'} · found in {p.ms.toFixed(1)} ms by the Rust engine
+            Road {r.chosen + 1} · {p.verses.length - 1} {p.verses.length === 2 ? 'step' : 'steps'}
           </h3>
           <ol class="steps">
             {p.verses.map((v, i) => (
@@ -190,7 +185,10 @@ export function Paths({ a }: { a: Atlas }) {
           </ol>
         </>
       )}
-      <Provenance>Paths run Dijkstra’s algorithm over the OpenBible.info links in WebAssembly (crates/atlas-core). Each step costs 1, plus up to 3 more for weakly voted links.</Provenance>
+      <Provenance>
+        Roads: Dijkstra’s algorithm over the OpenBible.info links, in WebAssembly (crates/atlas-core){r.took ? `, found in ${r.took.toFixed(1)} ms` : ''}. Each road after the first avoids the inner
+        verses of the roads before it.
+      </Provenance>
     </div>
   );
 }
