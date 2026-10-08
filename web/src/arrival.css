@@ -1,0 +1,115 @@
+/* Arrival: the app's loading and error screens, the hand-off from the boot sky
+   in index.html and the update notice. Colors come from the
+   --arr-* tokens defined in index.html (paper by day, the night sky otherwise).
+   Selectors start at #app or #boot so they win over styles.css's .loading. */
+
+/* ------------------------------------------------------------ loading screen */
+
+/* App's own loading and error screens share the boot sky's layout exactly, so
+   the swap from #boot is invisible. While #boot is still there they are
+   transparent and the sky behind keeps shimmering. */
+#app > .loading {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 0 16px 14vh;
+  background: var(--arr-sky, var(--sky));
+  color: var(--arr-ink, var(--sky-ink));
+  text-align: center;
+}
+#boot ~ #app > .loading {
+  background: none;
+}
+#app > .loading h1 {
+  margin: 0 0 6px;
+  font: 600 clamp(30px, 4.4vw, 44px) / 1.15 var(--font-read);
+  letter-spacing: 0.01em;
+  color: var(--arr-ink, var(--sky-ink));
+  background: var(--arr-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#app > .loading p {
+  margin: 0;
+  min-height: 1.45em;
+  font: 14px / 1.45 var(--font-ui);
+  color: var(--arr-muted, var(--sky-muted));
+}
+#app > .loading p + p {
+  margin-top: 8px;
+}
+/* One title at a time: the app's own, once its loading screen is up. */
+#boot:has(~ #app > .loading) .arr-title {
+  visibility: hidden;
+}
+
+/* The hand-off: the sky comes to the front and fades, revealing the map. */
+#boot.arr-leave {
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+
+/* ------------------------------------------------------------ update notice */
+
+.arr-toast {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  margin: 0 auto;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid var(--sky-line);
+  border-radius: 999px;
+  background: var(--sky-glass-strong);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.32);
+  color: var(--sky-ink);
+  font: 13.5px / 1.3 var(--font-ui);
+  animation: arr-rise 220ms ease-out;
+}
+.arr-toast .arr-msg {
+  margin-right: 6px;
+}
+.arr-toast button {
+  border: 0;
+  background: none;
+  color: inherit;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.arr-toast .arr-go {
+  padding: 6px 14px;
+  background: var(--lamp);
+  color: #1b1606;
+  font-weight: 600;
+}
+.arr-toast .arr-x {
+  padding: 4px 10px;
+  color: var(--sky-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+.arr-toast .arr-x:hover {
+  color: var(--sky-ink);
+}
+@keyframes arr-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arr-toast {
+    animation: none;
+  }
+}

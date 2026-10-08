@@ -1,3 +1,5 @@
+// First: the boot sky hand-off, offline support and update notices.
+import './arrival';
 import { render } from 'preact';
 import '@fontsource/instrument-sans/latin-400.css';
 import '@fontsource/instrument-sans/latin-600.css';
