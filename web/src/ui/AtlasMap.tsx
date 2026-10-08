@@ -10,11 +10,12 @@ import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, v
 import * as S from '../state';
 import { ARC, type ArcColorMode, GENRE, SPECTRUM_CSS } from './colors';
 
-/** Edges touching a verse (outgoing and incoming), strongest first. */
+/** Edges touching a verse (outgoing and incoming), strongest first. Links readers
+ * voted down (zero or fewer votes) are left out, as they are in Connections. */
 export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
   const list: number[] = [];
-  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) list.push(e);
-  for (let i = a.xInOff[v]; i < a.xInOff[v + 1]; i++) list.push(a.xInEdge[i]);
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xVotes[e] > 0) list.push(e);
+  for (let i = a.xInOff[v]; i < a.xInOff[v + 1]; i++) if (a.xVotes[a.xInEdge[i]] > 0) list.push(a.xInEdge[i]);
   list.sort((x, y) => a.xVotes[y] - a.xVotes[x]);
   return Uint32Array.from(list.slice(0, limit));
 }
@@ -30,6 +31,16 @@ function useSize(ref: { current: HTMLElement | null }): { w: number; h: number }
   }, []);
   return size;
 }
+
+/** How many links to draw, in plain words: the minimum vote count behind each. */
+const LEVELS: [string, number, string][] = [
+  ['Strongest', 30, 'Only links that 30 or more readers agreed on'],
+  ['More', 8, 'Links that 8 or more readers agreed on'],
+  ['All', 1, 'Every link with at least one vote'],
+];
+
+/** Touch screens pinch; mice scroll. */
+const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
 
 const COLOR_MODES: [ArcColorMode, string][] = [
   ['spectrum', 'Spectrum'],
@@ -75,7 +86,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const { w, h } = useSize(wrap);
   const xs = useMemo(() => verseX(a), [a]);
   const view = S.view.value;
-  const [tip, setTip] = useState<{ v: number; x: number; y: number; text?: string } | null>(null);
+  const [tip, setTip] = useState<{ v: number; x: number; y: number; text?: string; from?: number; votes?: number } | null>(null);
 
   // --- WebGL setup -------------------------------------------------------
   useEffect(() => {
@@ -162,6 +173,29 @@ export function AtlasMap({ a }: { a: Atlas }) {
   };
 
   const localX = (e: PointerEvent | WheelEvent) => e.clientX - wrap.current!.getBoundingClientRect().left;
+  const localY = (e: PointerEvent) => e.clientY - wrap.current!.getBoundingClientRect().top;
+
+  /** The selected verse's arc nearest a point in the sky, if one passes within reach. */
+  const arcAt = (x: number, y: number): { v: number; e: number } | null => {
+    const sel = S.selected.value;
+    if (sel === null || S.path.value || y > h * BASELINE - 12) return null;
+    const x0 = toScreen(xs[sel], S.view.value, w);
+    const base = h * BASELINE;
+    let best: { v: number; e: number } | null = null;
+    let bestD = TOUCH ? 22 : 10;
+    for (const e of verseEdges(a, sel)) {
+      const u = a.xSrc[e] === sel ? a.xDst[e] : a.xSrc[e];
+      const x1 = toScreen(xs[u], S.view.value, w);
+      if (x < Math.min(x0, x1) || x > Math.max(x0, x1) || x1 === x0) continue;
+      const t = (x - x0) / (x1 - x0);
+      const d = Math.abs(y - (base - arcHeight(x0, x1, h, w) * Math.sin(Math.PI * t)));
+      if (d < bestD) {
+        bestD = d;
+        best = { v: u, e };
+      }
+    }
+    return best;
+  };
 
   const onPointerDown = (e: PointerEvent) => {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
@@ -196,6 +230,20 @@ export function AtlasMap({ a }: { a: Atlas }) {
       }
     }
     if (e.pointerType === 'touch') return;
+    // With a verse selected, the sky shows its arcs: name the one under the pointer.
+    if (S.selected.value !== null && !S.path.value && localY(e) < h * BASELINE - 12) {
+      const hit = arcAt(x, localY(e));
+      S.hovered.value = null;
+      const y = localY(e);
+      if (!hit) {
+        setTip(null);
+        return;
+      }
+      const sel = S.selected.value;
+      setTip((t) => (t && t.v === hit.v && t.from === sel ? { ...t, x, y } : { v: hit.v, x, y, from: sel, votes: a.xVotes[hit.e] }));
+      getVerse(a, hit.v).then((row) => setTip((t) => (t && t.v === hit.v ? { ...t, text: row[0] } : t)));
+      return;
+    }
     const v = verseAt(xs, x, S.view.value, w);
     if (S.hovered.value !== v) {
       S.hovered.value = v;
@@ -218,9 +266,12 @@ export function AtlasMap({ a }: { a: Atlas }) {
     d.pointers.delete(e.pointerId);
     if (d.pointers.size === 0) {
       if (!d.moved) {
-        const v = verseAt(xs, localX(e), S.view.value, w);
+        // A tap on one of the selected verse's arcs follows it to the other end.
+        const hit = arcAt(localX(e), localY(e));
+        const v = hit ? hit.v : verseAt(xs, localX(e), S.view.value, w);
         S.selectVerse(v);
         S.mobilePane.value = 'study';
+        setTip(null);
       }
       drag.current = null;
     }
@@ -305,6 +356,37 @@ export function AtlasMap({ a }: { a: Atlas }) {
       </g>
     );
   });
+
+  // Where book names no longer fit, name the run of books instead (Law, Gospels...).
+  const groupLabels: preact.JSX.Element[] = [];
+  {
+    let i = 0;
+    while (i < a.books.length) {
+      const g = a.books[i].genre;
+      let j = i;
+      const named = (k: number) => {
+        const end = k + 1 < a.books.length ? a.books[k + 1].start - 1 : a.n - 1;
+        return sx(end) - sx(a.books[k].start) + verseW > 26;
+      };
+      if (named(i)) {
+        i++;
+        continue;
+      }
+      while (j + 1 < a.books.length && a.books[j + 1].genre === g && !named(j + 1)) j++;
+      const end = j + 1 < a.books.length ? a.books[j + 1].start - 1 : a.n - 1;
+      const x0 = Math.max(sx(a.books[i].start) - verseW / 2, 0);
+      const x1 = Math.min(sx(end) + verseW / 2, w);
+      const text = GENRE[g].label;
+      if (x1 - x0 > text.length * 6.6 + 6) {
+        groupLabels.push(
+          <text key={`g${i}`} class="grouplabel" x={(x0 + x1) / 2} y={base + 22} text-anchor="middle">
+            {text}
+          </text>,
+        );
+      }
+      i = j + 1;
+    }
+  }
 
   // Selected verse and its strongest neighbors.
   const selV = S.selected.value;
@@ -391,10 +473,12 @@ export function AtlasMap({ a }: { a: Atlas }) {
       <canvas class="arcs" ref={canvas} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp} onPointerLeave={onLeave} onDblClick={() => setView({ scale: 1, offset: 0 })} />
       <svg class="overlay" width={w} height={h} aria-hidden="true">
         {bookBands}
+        {groupLabels}
         {marksLayer}
         {selection}
         {pathLayer}
         {hoverLine}
+        {tip?.from !== undefined && <path class="hoverarc" d={arcPath(sx(tip.from), sx(tip.v), h, w)} />}
       </svg>
       <canvas class="strip" ref={strip} style={`top:${h - 10}px`} aria-hidden="true" />
       <div class="hud">
@@ -402,11 +486,16 @@ export function AtlasMap({ a }: { a: Atlas }) {
           <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} cross-references
           {group ? ` · ${group.label}` : ''}
         </span>
-        <label class="votes">
-          <span>Min. votes</span>
-          <input type="range" min={1} max={100} value={S.minVotes.value} onInput={(e) => (S.minVotes.value = Number((e.target as HTMLInputElement).value))} aria-label="Minimum community votes for a cross-reference to be drawn" />
-          <strong>{S.minVotes.value}</strong>
-        </label>
+        <div class="votes">
+          <span>Show</span>
+          <div class="seg mini" role="group" aria-label="How many links to draw">
+            {LEVELS.map(([name, n, why]) => (
+              <button key={name} aria-pressed={S.minVotes.value === n} title={why} onClick={() => (S.minVotes.value = n)}>
+                {name}
+              </button>
+            ))}
+          </div>
+        </div>
         <div class="seg mini" role="group" aria-label="Arc colors">
           {COLOR_MODES.map(([m, name]) => (
             <button key={m} aria-pressed={S.arcColor.value === m} onClick={() => (S.arcColor.value = m)}>
@@ -417,14 +506,25 @@ export function AtlasMap({ a }: { a: Atlas }) {
         <Legend a={a} mode={S.arcColor.value} />
       </div>
       <div class="zoomhint">
-        {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : 'Scroll or pinch to zoom'}
+        {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : TOUCH ? 'Pinch to zoom' : 'Scroll to zoom'}
         {view.scale > 1.01 && <button onClick={() => setView({ scale: 1, offset: 0 })}>Reset</button>}
+        {S.anythingLit.value && (
+          <button class="clear" onClick={() => S.clearAll()} title="Clear the selection (Esc)">
+            Clear
+          </button>
+        )}
       </div>
       {tip && (
         <div class="tip" style={`left:${Math.min(tip.x + 14, w - 350)}px;top:${Math.min(tip.y + 14, h - 110)}px`}>
-          <b>
-            {label(a, tip.v)} · {(a.xOff[tip.v + 1] - a.xOff[tip.v] + a.xInOff[tip.v + 1] - a.xInOff[tip.v]).toLocaleString()} links
-          </b>
+          {tip.from !== undefined ? (
+            <b>
+              {label(a, tip.from)} and {label(a, tip.v)} · {tip.votes} {tip.votes === 1 ? 'vote links' : 'votes link'} them. Click to open.
+            </b>
+          ) : (
+            <b>
+              {label(a, tip.v)} · {(a.xOff[tip.v + 1] - a.xOff[tip.v] + a.xInOff[tip.v + 1] - a.xInOff[tip.v]).toLocaleString()} links
+            </b>
+          )}
           {tip.text && <p>{tip.text.length > 160 ? tip.text.slice(0, 157) + '…' : tip.text}</p>}
         </div>
       )}

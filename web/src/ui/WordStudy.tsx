@@ -74,7 +74,7 @@ export function WordStudy({ a }: { a: Atlas }) {
   const greek = lang === 'G';
   const count = L.count[r];
   const books = new Set(Array.from(verses, (v) => a.verseBook[v])).size;
-  const word = row && st.pos !== undefined ? row[1][st.pos] : null;
+  const word = row && st.pos !== undefined && row[1][st.pos]?.[3] === r ? row[1][st.pos] : null;
   const variant = word && word[5] & FLAG.variant && word[6] ? describeVariant(word[6].k, greek, word[6].e, !!(word[5] & FLAG.significant)) : null;
   const lex = entry?.root === r ? entry.e : undefined;
 

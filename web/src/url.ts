@@ -1,4 +1,5 @@
-// Every view is a link: #v=John.3.16&w=G0026&t=lamb&p=Gen.3.15~Rev.12.9&tab=word
+// Every view is a link: #v=John.3.16&w=G0026&wv=John.3.16&wp=4&t=lamb&p=Gen.3.15~Rev.12.9&tab=word
+// (wv and wp: the verse and word position a word study was opened from).
 
 import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
@@ -33,7 +34,13 @@ export function restoreFromHash(a: Atlas): void {
   const w = h.get('w');
   if (w) {
     const root = a.lemmas.key.indexOf(w);
-    if (root >= 0) S.study.value = { root };
+    if (root >= 0) {
+      const wv = h.get('wv');
+      const verse = wv ? fromOsis(a, wv) ?? undefined : undefined;
+      const wp = Number(h.get('wp'));
+      const pos = verse !== undefined && Number.isInteger(wp) && wp >= 0 && h.has('wp') ? wp : undefined;
+      S.study.value = { root, verse, pos };
+    }
   }
   const t = h.get('t');
   if (t && a.themes.some((x) => x.id === t)) S.theme.value = t;
@@ -56,7 +63,13 @@ export function syncHash(a: Atlas): () => void {
     if (sel !== null) h.set('v', osis(a, sel));
     else h.set('r', `${a.books[S.reading.value.book].osis}.${S.reading.value.chapter}`);
     const st = S.study.value;
-    if (st) h.set('w', a.lemmas.key[st.root]);
+    if (st) {
+      h.set('w', a.lemmas.key[st.root]);
+      if (st.verse !== undefined) {
+        h.set('wv', osis(a, st.verse));
+        if (st.pos !== undefined) h.set('wp', String(st.pos));
+      }
+    }
     if (S.theme.value) h.set('t', S.theme.value);
     const p = S.path.value;
     if (p) h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);

@@ -14,13 +14,16 @@ import { Wheel } from './ui/Wheel';
 import { WordStudy } from './ui/WordStudy';
 
 const TABS: [S.Tab, string][] = [
-  ['connections', 'Connections'],
+  ['connections', 'Links'],
   ['word', 'Word'],
   ['themes', 'Themes'],
   ['paths', 'Paths'],
-  ['hubs', 'Most connected'],
+  ['hubs', 'Top verses'],
   ['sources', 'Sources'],
 ];
+
+/** Where a first visit opens: a link the Bible makes itself (1 Peter 2:24 quotes it). */
+const FIRST_VERSE = 'Isaiah 53:5';
 
 const THEME_NEXT = { system: 'light', light: 'dark', dark: 'system' } as const;
 const THEME_ICON = {
@@ -56,7 +59,15 @@ export function App() {
         const eng = new Engine(`${DATA_BASE}atlas.bin?${atlas.version}`);
         S.engine.value = eng;
         // Read everything from the link before the address bar starts syncing.
+        const linked = location.hash.length > 1;
         restoreFromHash(atlas);
+        if (!linked && S.welcome.value === 'show') {
+          const r = await eng.parseRef(FIRST_VERSE);
+          if (r) {
+            S.holdReaderScroll.value = true;
+            S.selectVerse(r[0]);
+          }
+        }
         const p = pathFromHash(atlas);
         stop = syncHash(atlas);
         const t = S.theme.value;
@@ -91,11 +102,7 @@ export function App() {
         e.preventDefault();
         S.paletteOpen.value = true;
       } else if (e.key === 'Escape' && !S.paletteOpen.value) {
-        S.selected.value = null;
-        S.path.value = null;
-        S.marks.value = null;
-        S.groupEdges.value = null;
-        S.theme.value = null;
+        S.clearAll();
       }
     };
     window.addEventListener('keydown', onKey);

@@ -4,10 +4,11 @@
 import { Fragment } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
-import { type Atlas, chapterRange } from '../data/atlas';
+import { type Atlas, chapterName, chapterRange } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import * as S from '../state';
+import { Welcome } from './Welcome';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
   let c = 'w';
@@ -20,10 +21,12 @@ function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
 
 export function Reader({ a }: { a: Atlas }) {
   const { book, chapter } = S.reading.value;
-  const [text, setText] = useState<BookText | null>(null);
+  const [loaded, setLoaded] = useState<BookText | null>(null);
   const [esv, setEsv] = useState<{ key: string; data?: EsvChapter; error?: string } | null>(null);
   const root = useRef<HTMLDivElement>(null);
   const b = a.books[book];
+  // Until the new book arrives, show nothing rather than the last book's text.
+  const text = loaded?.book === b.osis ? loaded : null;
   const [start] = chapterRange(a, book, chapter);
   const isHebrew = b.testament === 'OT';
   const tr = S.translation.value;
@@ -33,8 +36,7 @@ export function Reader({ a }: { a: Atlas }) {
 
   useEffect(() => {
     let live = true;
-    setText(null);
-    loadBook(a, book).then((t) => live && setText(t));
+    loadBook(a, book).then((t) => live && setLoaded(t));
     return () => {
       live = false;
     };
@@ -53,12 +55,41 @@ export function Reader({ a }: { a: Atlas }) {
     };
   }, [tr, book, chapter]);
 
-  // Keep the selected verse in view.
+  // Keep the selected verse in view. The Hebrew and Greek fonts load after the
+  // text and reflow it, so center again as the layout settles, until the
+  // reader scrolls on their own.
   const sel = useComputed(() => S.selected.value);
   useEffect(() => {
     const v = sel.value;
-    if (v === null || !text) return;
-    root.current?.querySelector(`[data-v="${v}"]`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    const box = root.current;
+    if (v === null || !text || !box) return;
+    if (S.holdReaderScroll.peek()) {
+      S.holdReaderScroll.value = false;
+      return;
+    }
+    let user = false;
+    const stop = () => (user = true);
+    const center = () => {
+      const el = box.querySelector<HTMLElement>(`[data-v="${v}"]`);
+      if (user || !el) return;
+      const r = el.getBoundingClientRect();
+      const b = box.getBoundingClientRect();
+      if (r.top >= b.top && r.bottom <= b.bottom) return;
+      box.scrollTop += r.top - b.top - Math.max(16, (b.height - r.height) / 2);
+    };
+    center();
+    document.fonts?.ready.then(center);
+    const ro = new ResizeObserver(center);
+    const list = box.querySelector('.verses');
+    if (list) ro.observe(list);
+    const done = window.setTimeout(() => ro.disconnect(), 4000);
+    const events = ['wheel', 'touchstart', 'pointerdown', 'keydown'] as const;
+    for (const ev of events) box.addEventListener(ev, stop, { passive: true });
+    return () => {
+      ro.disconnect();
+      window.clearTimeout(done);
+      for (const ev of events) box.removeEventListener(ev, stop);
+    };
   }, [sel.value, text, chapter]);
 
   const go = (delta: number) => {
@@ -82,9 +113,10 @@ export function Reader({ a }: { a: Atlas }) {
 
   return (
     <div class="reader" ref={root}>
+      <Welcome />
       <div class="readhead">
         <h1>
-          {b.name} {chapter}
+          {chapterName(b)} {chapter}
         </h1>
         <span class="muted">{isHebrew ? 'Hebrew' : 'Greek'} with {tr}</span>
         <div class="nav">
@@ -103,6 +135,7 @@ export function Reader({ a }: { a: Atlas }) {
         <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
           Words from other editions
         </button>
+        <span class="hint">Tap a Hebrew or Greek word to study it.</span>
       </div>
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
@@ -121,7 +154,19 @@ export function Reader({ a }: { a: Atlas }) {
                   {i + 1}
                 </button>
                 {english || <span class="muted">{tr === 'ESV' && esvReady?.data ? 'The ESV does not include this verse in its main text.' : ''}</span>}
-                {xc > 0 && <span class="xc">{xc} links</span>}
+                {xc > 0 && (
+                  <button
+                    class="xc"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      S.selectVerse(v);
+                      S.mobilePane.value = 'study';
+                    }}
+                    aria-label={`Show the ${xc} links for verse ${i + 1}`}
+                  >
+                    {xc} links ›
+                  </button>
+                )}
               </div>
               {inter ? (
                 <div class={`inter ${lang}`}>
