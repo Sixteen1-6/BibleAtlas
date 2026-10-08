@@ -7,6 +7,15 @@ import { type Atlas, DATA_BASE } from './atlas';
 
 export type Strength = 'widely agreed' | 'commonly held' | 'some interpreters';
 
+/** The four groups passages are listed in, in Bible order. */
+export const SECTIONS = {
+  'law-history': 'Law and history',
+  'prophets-poetry': 'Prophets and poetry',
+  jesus: 'Jesus',
+  'letters-revelation': 'Letters and Revelation',
+} as const;
+export type Section = keyof typeof SECTIONS;
+
 export interface LayerRef {
   /** First and last verse index. */
   s: number;
@@ -19,6 +28,7 @@ export interface Layer {
   kind: string;
   strength: Strength;
   text: string;
+  /** Where the note comes from, and detail it had no room for (shown at Deep). */
   evidence?: string;
   refs: LayerRef[];
   /** [verse, word position, root index] for each Hebrew or Greek word the layer rests on. */
@@ -27,6 +37,7 @@ export interface Layer {
 
 export interface Passage {
   id: string;
+  section: Section;
   v: number;
   end: number;
   saying: string;

@@ -12,7 +12,10 @@
 //! 6. "ESV" appears nowhere,
 //! 7. a "widely agreed" layer shows its evidence, and every passage has a
 //!    layer besides the plain meaning that is not "some interpreters",
-//! 8. every passage names its source; one nobody reviewed is a draft.
+//! 8. every passage names its source and its section; one nobody reviewed is
+//!    a draft,
+//! 9. a layer's text stays short enough to read at a glance; detail and
+//!    sources go in its evidence, which the app shows one level deeper.
 //!
 //! Drafts are checked like the rest but published only when
 //! `ATLAS_LAYER_DRAFTS=1` is set.
@@ -35,12 +38,16 @@ pub const DRAFTS_ENV: &str = "ATLAS_LAYER_DRAFTS";
 pub const KINDS: [&str; 9] =
     ["plain meaning", "quotation", "allusion", "wordplay", "name meaning", "pattern", "irony", "fulfillment", "setting"];
 pub const STRENGTHS: [&str; 3] = ["widely agreed", "commonly held", "some interpreters"];
+pub const SECTIONS: [&str; 4] = ["law-history", "prophets-poetry", "jesus", "letters-revelation"];
 const PLAIN: &str = "plain meaning";
 const WIDELY: &str = "widely agreed";
 const SOME: &str = "some interpreters";
 
 /// Quoted spans shorter than this are glosses ("my delight"), not quotations.
 const QUOTE_MIN_WORDS: usize = 4;
+/// Longest layer text and evidence, in characters.
+const TEXT_MAX: usize = 300;
+const EVIDENCE_MAX: usize = 400;
 
 #[derive(Deserialize)]
 struct LayerFile {
@@ -51,6 +58,7 @@ struct LayerFile {
 #[serde(deny_unknown_fields)]
 struct PassageSpec {
     id: String,
+    section: String,
     #[serde(rename = "ref")]
     reference: String,
     saying: String,
@@ -175,6 +183,9 @@ impl Check<'_, '_> {
         if p.source.trim().is_empty() {
             self.fail(&at, "source is empty");
         }
+        if !SECTIONS.contains(&p.section.as_str()) {
+            self.fail(&at, format_args!("section {:?} is not one of: {}", p.section, SECTIONS.join(", ")));
+        }
         if p.reviewed_by.iter().any(|n| n.trim().is_empty()) {
             self.fail(&at, "reviewed_by has an empty name");
         }
@@ -197,7 +208,7 @@ impl Check<'_, '_> {
         let (v, end) = range?;
         let layers: Vec<Value> = layers.into_iter().collect::<Option<_>>()?;
         Some(json!({
-            "id": p.id, "v": v, "end": end, "saying": p.saying, "source": p.source,
+            "id": p.id, "section": p.section, "v": v, "end": end, "saying": p.saying, "source": p.source,
             "reviewed_by": p.reviewed_by, "draft": p.reviewed_by.is_empty(), "layers": layers,
         }))
     }
@@ -211,8 +222,14 @@ impl Check<'_, '_> {
             self.fail(&at, format_args!("strength {:?} is not one of: {}", l.strength, STRENGTHS.join(", ")));
         }
         self.esv(&at, "text", &l.text);
+        if let Some(n) = too_long(&l.text, TEXT_MAX) {
+            self.fail(&at, format_args!("text is {n} characters; keep it to {TEXT_MAX} and move detail to evidence"));
+        }
         if let Some(e) = &l.evidence {
             self.esv(&at, "evidence", e);
+            if let Some(n) = too_long(e, EVIDENCE_MAX) {
+                self.fail(&at, format_args!("evidence is {n} characters; keep it to {EVIDENCE_MAX}"));
+            }
         }
         for r in &l.refs {
             self.esv(&at, "refs", r);
@@ -311,13 +328,14 @@ impl Check<'_, '_> {
 
 /// Lowercase letters and digits with single spaces between words. Everything
 /// else is dropped, quotation marks and apostrophes of every style included,
-/// so "God’s" and "God's" both become "gods".
+/// so "God’s" and "God's" both become "gods". Em and en dashes separate words
+/// ("down—that" is two), as the BSB uses them between clauses.
 fn normalize(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
     for c in s.chars() {
         if c.is_alphanumeric() {
             out.extend(c.to_lowercase());
-        } else if c.is_whitespace() && !out.is_empty() && !out.ends_with(' ') {
+        } else if (c.is_whitespace() || c == '\u{2014}' || c == '\u{2013}') && !out.is_empty() && !out.ends_with(' ') {
             out.push(' ');
         }
     }
@@ -331,6 +349,11 @@ fn normalize(s: &str) -> String {
 /// normalized; empty parts are dropped.
 fn parts(s: &str) -> Vec<String> {
     s.replace("...", "…").split('…').map(normalize).filter(|p| !p.is_empty()).collect()
+}
+
+/// The length of `s` in characters, when it is over `max`.
+fn too_long(s: &str, max: usize) -> Option<usize> {
+    Some(s.chars().count()).filter(|&n| n > max)
 }
 
 fn word_count(quote: &str) -> usize {
@@ -419,6 +442,7 @@ mod tests {
         assert_eq!(normalize("  First, his name means “king of righteousness.”  "), "first his name means king of righteousness");
         assert_eq!(normalize("God’s \"Light\"\tdon't kinsman-redeemer 1:2"), "gods light dont kinsmanredeemer 12");
         assert_eq!(normalize("“ — ”"), "");
+        assert_eq!(normalize("was thrown down—that ancient serpent"), "was thrown down that ancient serpent");
     }
 
     #[test]
@@ -454,6 +478,14 @@ mod tests {
         assert!(!lemma_matches("H0127", "H0120"));
         assert!(!lemma_matches("H012", "H0120"));
         assert!(!lemma_matches("H0120", "H0120G"));
+    }
+
+    #[test]
+    fn counts_characters_not_bytes() {
+        assert_eq!(too_long("abc", 3), None);
+        assert_eq!(too_long("abcd", 3), Some(4));
+        assert_eq!(too_long("“ab”", 4), None);
+        assert_eq!(too_long("ra’ah", 4), Some(5));
     }
 
     #[test]

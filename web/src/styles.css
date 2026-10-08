@@ -1327,3 +1327,14 @@ p .godeeper {
   flex-wrap: wrap;
   gap: 6px;
 }
+.layersection {
+  border-top: 1px solid var(--line);
+}
+.layersection summary {
+  cursor: pointer;
+  padding: 8px 0;
+  font: 500 14px var(--font-ui);
+}
+.layersection .startrow {
+  padding-bottom: 10px;
+}
