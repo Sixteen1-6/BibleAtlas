@@ -159,9 +159,23 @@ export function formatYears(from: number, to: number): string {
   return `${-from} BC – AD ${to}`;
 }
 
-/** A view's label as shown: a bare BC year or century gets its era. */
+/**
+ * A view's label as shown. A bare year or century gets its era the way the
+ * dictionary writes it elsewhere ("about 1440 BC", "AD 56", "from AD 62 to
+ * 64"), and a quotation mark the cut left without its partner is dropped
+ * (Revelation: `at the close of Domitian’s reign” (AD 81–96)`).
+ */
 export function shownLabel(v: DatedView): string {
-  return v.era === 'BC' ? `${v.label} BC` : v.label ?? '';
+  let label = v.label ?? '';
+  const open = label.split('“').length - 1;
+  const close = label.split('”').length - 1;
+  if (close > open) label = label.replace('”', '');
+  else if (open > close) label = label.replace('“', '');
+  if (v.era === 'BC') return `${label} BC`;
+  const year = v.from ?? v.to;
+  // Decades ("in the 60s") and ordinals ("first century") are left as they are.
+  if (year !== undefined && year > 0 && !/\b(AD|BC)\b/.test(label)) label = label.replace(/\b(\d{1,4})\b/, 'AD $1');
+  return label;
 }
 
 /** Longest "A or B" the line joins before it shows only the first view. */
