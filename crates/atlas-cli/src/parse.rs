@@ -43,6 +43,15 @@ pub struct Word {
     /// upper/lower-case convention), not just spelling or word order.
     pub significant: bool,
     pub note: Option<WordNote>,
+    /// What the word alignment matches on: Hebrew consonants, or the Greek
+    /// Strong's number.
+    pub key: String,
+    /// Hebrew and Aramaic only: the verse in the Hebrew Bible's own numbering,
+    /// which the alignment data uses.
+    pub src_verse: Option<(u8, u16, u16)>,
+    /// The word's parts (prefixes, stem, suffixes) as (surface, gloss), when
+    /// the source splits it into more than one.
+    pub pieces: Vec<(String, String)>,
 }
 
 #[derive(Default, Debug)]
@@ -246,6 +255,37 @@ fn significant(kind: &str, greek: bool) -> bool {
     }
 }
 
+/// The Hebrew-numbered reference of a TAHOT field: "Mal.4.1(3.19)#01=L" ->
+/// "Mal.3.19", "Gen.1.1#01=L" -> "Gen.1.1".
+fn hebrew_ref(field: &str) -> Option<String> {
+    let r = field.split('#').next()?;
+    let Some((head, alt)) = r.split_once('(') else { return Some(r.to_string()) };
+    let alt = alt.split(')').next()?;
+    let mut it = head.split('.');
+    let (book, chapter) = (it.next()?, it.next()?);
+    Some(if alt.contains('.') { format!("{book}.{alt}") } else { format!("{book}.{chapter}.{alt}") })
+}
+
+/// Hebrew consonants only (drops vowel points, accents and the punctuation
+/// TAHOT writes after a backslash).
+pub fn consonants(s: &str) -> String {
+    s.split('/')
+        .map(|seg| seg.split('\\').next().unwrap_or(""))
+        .flat_map(str::chars)
+        .filter(|c| ('\u{05D0}'..='\u{05EA}').contains(c))
+        .collect()
+}
+
+/// "וְ/יִנְהֹ֥ם" with "and/ it may growl" -> [("וְ", "and"), ("יִנְהֹ֥ם", "it may growl")].
+fn pieces(surface: &str, gloss: &str) -> Vec<(String, String)> {
+    let s: Vec<&str> = surface.split('/').collect();
+    let g: Vec<&str> = gloss.split('/').collect();
+    if s.len() < 2 || s.len() != g.len() {
+        return Vec::new();
+    }
+    s.iter().zip(g).map(|(s, g)| (s.replace('\\', ""), g.trim().to_string())).collect()
+}
+
 fn clean_join(s: &str) -> String {
     s.replace(['/', '\\'], "")
 }
@@ -310,6 +350,9 @@ pub fn tahot(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 variant,
                 significant: significant(kind, false),
                 note,
+                key: consonants(cols[1]),
+                src_verse: hebrew_ref(first).and_then(|r| dotted(&r, canon::by_step)),
+                pieces: pieces(cols[1].trim(), cols[3].trim()),
             });
         }
     }
@@ -371,6 +414,9 @@ pub fn tagnt(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 variant,
                 significant: significant(kind, true),
                 note,
+                key: strong.get(..5).unwrap_or(strong).to_string(),
+                src_verse: None,
+                pieces: Vec::new(),
             });
         }
     }
@@ -426,6 +472,13 @@ mod tests {
         assert_eq!(braced("H9003/{H7225G}"), Some("H7225G"));
         assert_eq!(kjv_alternative("3Jn.1.15[1.14]#01=NKO").as_deref(), Some("3Jn.1.14"));
         assert_eq!(clean_join("כִּֽי\\־"), "כִּֽי־");
+        assert_eq!(hebrew_ref("Mal.4.1(3.19)#01=L").as_deref(), Some("Mal.3.19"));
+        assert_eq!(hebrew_ref("Psa.3.1(3.2)#01=L").as_deref(), Some("Psa.3.2"));
+        assert_eq!(hebrew_ref("Gen.1.1#01=L").as_deref(), Some("Gen.1.1"));
+        assert_eq!(consonants("בַּ/עֲרִיפֶֽי/הָ\\׃\\ \\פ"), "בעריפיה");
+        let p = pieces("כְּ/נַהֲמַת\\־", "like/ [the] growling of");
+        assert_eq!(p, [("כְּ".to_string(), "like".to_string()), ("נַהֲמַת־".to_string(), "[the] growling of".to_string())]);
+        assert!(pieces("יָ֑ם", "[the] sea").is_empty());
         assert!(is_strong("G0976") && is_strong("H7225G") && !is_strong("H90"));
     }
 

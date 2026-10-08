@@ -1,5 +1,6 @@
 // Per-book text shards, loaded on first use and kept in memory.
 
+import type { VerseAlign } from './align';
 import { type Atlas, DATA_BASE, locate } from './atlas';
 
 /** [surface, transliteration, contextual English, root index (-1 if none), grammar code, flags, note?] */
@@ -12,8 +13,8 @@ export interface WordNote {
   /** Manuscript / reading notes. */
   v?: string;
 }
-/** [BSB English, original-language words] */
-export type VerseRow = [string, WordRow[]];
+/** [BSB English, original-language words, which English words came from which original word] */
+export type VerseRow = [string, WordRow[], VerseAlign?];
 export interface BookText {
   book: string;
   chapters: VerseRow[][];

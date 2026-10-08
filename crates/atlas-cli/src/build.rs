@@ -11,6 +11,7 @@
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
 //! - `lex/<n>.json`: lexicon definitions, 500 roots per shard, as safe segments
 
+use crate::align;
 use crate::english;
 use crate::lexhtml;
 use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
@@ -133,6 +134,27 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             eprintln!("  unmapped {label} examples: {}", t.unmapped_examples.join(" | "));
         }
     }
+
+    // --- Word alignment (original word -> BSB English words) -----------------
+    let mut at = align::AlignTally::default();
+    let (eng_ot, eng_nt) = (inputs.path("clear-align", "english_ot"), inputs.path("clear-align", "english_nt"));
+    let aligned = align::build(
+        &align::Inputs {
+            hebrew_links: &inputs.path("clear-align", "hebrew_links"),
+            hebrew_source: &inputs.path("clear-align", "hebrew_source"),
+            greek_links: &inputs.path("clear-align", "greek_links"),
+            greek_source: &inputs.path("clear-align", "greek_source"),
+            english: &[eng_ot.as_path(), eng_nt.as_path()],
+        },
+        &vz,
+        &bsb.text,
+        &words,
+        &mut at,
+    )?;
+    eprintln!(
+        "word alignment: {} of {} links kept, {} verses; {} of {} source words and {} of {} English words without a partner",
+        at.kept, at.records, at.verses, at.source_unmatched, at.source_total, at.english_unmatched, at.english_total
+    );
 
     // --- Lexicons ---------------------------------------------------------
     let mut lex: HashMap<String, LexEntry> = HashMap::new();
@@ -335,7 +357,10 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
                         word_json(w, li)
                     })
                     .collect();
-                verses.push(json!([bsb.text[idx], ws]));
+                match &aligned[idx] {
+                    Some(a) => verses.push(json!([bsb.text[idx], ws, a.to_json(&words[idx])])),
+                    None => verses.push(json!([bsb.text[idx], ws])),
+                }
             }
             chapters.push(Value::Array(verses));
         }
@@ -408,6 +433,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             "englishWords": eng.words.len(), "versesWithoutOriginalWords": empty_verses,
         },
         "unmapped": { "crossReferences": xt.unmapped, "hebrewWords": ht.unmapped, "greekWords": gt.unmapped },
+        "alignment": { "links": at.kept, "verses": at.verses, "sourceWordsUnmatched": at.source_unmatched, "englishWordsWithoutPartner": at.english_unmatched },
         "pagerank": { "damping": PAGERANK_DAMPING, "iterations": PAGERANK_ITERATIONS },
         "lexShard": LEX_SHARD,
         "flags": { "aramaic": FLAG_ARAMAIC, "otherEditionsOnly": FLAG_OTHER_EDITIONS, "variant": FLAG_VARIANT, "significant": FLAG_SIGNIFICANT },

@@ -9,6 +9,7 @@ import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { PairedEnglish, PairedWords, PairsNote, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
@@ -138,6 +139,11 @@ export function Reader({ a }: { a: Atlas }) {
           <button class="btn" aria-pressed={inter} onClick={() => (S.interlinear.value = !inter)}>
             Word by word
           </button>
+          {inter && (
+            <button class="btn" aria-pressed={pairsOn.value} onClick={() => (pairsOn.value = !pairsOn.value)} title="Color each original word and the English words it became">
+              Color pairs
+            </button>
+          )}
           {atLeast('deep') && (
             <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
               Words from other editions
@@ -146,6 +152,7 @@ export function Reader({ a }: { a: Atlas }) {
           <span class="hint">{S.TAP} a Hebrew or Greek word to study it.</span>
         </div>
       )}
+      {orig && inter && pairsOn.value && <PairsNote hebrew={isHebrew} />}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
       <div class="verses">
@@ -156,13 +163,15 @@ export function Reader({ a }: { a: Atlas }) {
           const xc = linkCount(a, v);
           const lang = isHebrew ? 'he' : 'gr';
           const indexOf = (w: WordRow) => row[1].indexOf(w);
+          // Pairs follow the BSB, so they are off while the ESV is shown.
+          const al = orig && inter && pairsOn.value && !(tr === 'ESV' && esvReady?.data) ? row[2] : undefined;
           return (
             <div class={`verse${sel.value === v ? ' sel' : ''}`} key={v} data-v={v}>
               <div class="en" onClick={() => S.selectVerse(v)}>
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {english || <span class="muted">{tr === 'ESV' && esvReady?.data ? 'The ESV does not include this verse in its main text.' : ''}</span>}
+                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{tr === 'ESV' && esvReady?.data ? 'The ESV does not include this verse in its main text.' : ''}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -177,7 +186,9 @@ export function Reader({ a }: { a: Atlas }) {
                   </button>
                 )}
               </div>
-              {!orig ? null : inter ? (
+              {!orig ? null : al ? (
+                <PairedWords v={v} row={row} al={al} hebrew={isHebrew} other={other} studyRoot={studyRoot} />
+              ) : inter ? (
                 <div class={`inter ${lang}`}>
                   {words.map((w) => (
                     <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, false)}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>

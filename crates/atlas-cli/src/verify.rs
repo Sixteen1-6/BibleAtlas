@@ -122,6 +122,19 @@ pub fn run(out: &Path) -> Result<(), String> {
     let (src, _) = d.resolve("Gen 1:1")?;
     r.check(d.graph.out(src).len() >= 10, "Genesis 1:1 has at least 10 cross-references");
 
+    // Word alignment: the English word and the original word it translates
+    // share a group: John 3:16 "loved" (4th English word) is ἠγάπησεν (3rd
+    // Greek word); Isaiah 5:30 "sea" (14th) is יָם (6th Hebrew word).
+    let group = |verse: &serde_json::Value, word: usize| -> Option<i64> {
+        let w = &verse[2]["w"][word];
+        w.as_i64().or_else(|| w[0][2].as_i64())
+    };
+    r.check(jn[2]["e"][3].as_i64().is_some_and(|g| g >= 0) && jn[2]["e"][3].as_i64() == group(&jn, 2), "John 3:16 \"loved\" is aligned to ἠγάπησεν");
+    let isa = d.verse(d.resolve("Isa 5:30")?.0)?;
+    r.check(isa[2]["e"][13].as_i64().is_some_and(|g| g >= 0) && isa[2]["e"][13].as_i64() == group(&isa, 5), "Isaiah 5:30 \"sea\" is aligned to יָם");
+    let aligned = (0..n).filter(|&v| d.verse(v).map(|x| x[2].is_object()).unwrap_or(false)).count();
+    r.check(aligned > 30_000, format!("only {aligned} verses have a word alignment"));
+
     // 5. The path engine finds a route between distant books.
     let adj = Adjacency::from_graph(&d.graph);
     let (a, _) = d.resolve("Gen 3:15")?;
