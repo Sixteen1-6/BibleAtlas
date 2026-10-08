@@ -3,6 +3,7 @@
 
 import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
+import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
 
 function osis(a: Atlas, v: number): string {
@@ -40,12 +41,17 @@ export function restoreFromHash(a: Atlas): void {
       const wp = Number(h.get('wp'));
       const pos = verse !== undefined && Number.isInteger(wp) && wp >= 0 && h.has('wp') ? wp : undefined;
       S.study.value = { root, verse, pos };
+      deepen('study');
     }
   }
   const t = h.get('t');
   if (t && a.themes.some((x) => x.id === t)) S.theme.value = t;
   const tab = h.get('tab') as S.Tab | null;
-  if (tab && ['connections', 'word', 'themes', 'paths', 'hubs', 'sources'].includes(tab)) S.tab.value = tab;
+  if (tab && tab in TAB_DEPTH) {
+    // A shared link opens as deep as the view it points at.
+    S.tab.value = tab;
+    deepen(TAB_DEPTH[tab]);
+  }
 }
 
 export function pathFromHash(a: Atlas): [number, number] | null {

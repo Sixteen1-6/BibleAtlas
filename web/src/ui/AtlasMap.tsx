@@ -7,6 +7,7 @@ import { type Atlas, label, linkCount, shortName } from '../data/atlas';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
+import { atLeast } from '../depth';
 import * as S from '../state';
 import { ARC, type ArcColorMode, GENRE, SPECTRUM_CSS } from './colors';
 
@@ -521,30 +522,37 @@ export function AtlasMap({ a }: { a: Atlas }) {
         {tip?.from !== undefined && tip.from === selV && !p && <path class="hoverarc" d={arcPath(sx(tip.from), sx(tip.v), h, w)} />}
       </svg>
       <canvas class="strip" ref={strip} style={`top:${h - 10}px`} aria-hidden="true" />
-      <div class="hud">
-        <span>
-          <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} links shown
-          {group ? ` · ${group.label}` : ''}
-        </span>
-        <div class="votes">
-          <span>Show</span>
-          <div class="seg mini" role="group" aria-label="How many links to draw">
-            {LEVELS.map(([name, n, why]) => (
-              <button key={name} aria-pressed={S.minVotes.value === n} title={why} onClick={() => (S.minVotes.value = n)}>
-                {name}
-              </button>
-            ))}
+      {/* Simple shows only the sky; Study adds how many links to draw; Deep adds how to color them. */}
+      {atLeast('study') && (
+        <div class="hud">
+          <span>
+            <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} links shown
+            {group ? ` · ${group.label}` : ''}
+          </span>
+          <div class="votes">
+            <span>Show</span>
+            <div class="seg mini" role="group" aria-label="How many links to draw">
+              {LEVELS.map(([name, n, why]) => (
+                <button key={name} aria-pressed={S.minVotes.value === n} title={why} onClick={() => (S.minVotes.value = n)}>
+                  {name}
+                </button>
+              ))}
+            </div>
           </div>
+          {atLeast('deep') && (
+            <>
+              <div class="seg mini colors" role="group" aria-label="Arc colors">
+                {COLOR_MODES.map(([m, name]) => (
+                  <button key={m} aria-pressed={S.arcColor.value === m} onClick={() => (S.arcColor.value = m)}>
+                    {name}
+                  </button>
+                ))}
+              </div>
+              <Legend a={a} mode={S.arcColor.value} />
+            </>
+          )}
         </div>
-        <div class="seg mini colors" role="group" aria-label="Arc colors">
-          {COLOR_MODES.map(([m, name]) => (
-            <button key={m} aria-pressed={S.arcColor.value === m} onClick={() => (S.arcColor.value = m)}>
-              {name}
-            </button>
-          ))}
-        </div>
-        <Legend a={a} mode={S.arcColor.value} />
-      </div>
+      )}
       <div class="zoomhint">
         {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : S.TOUCH ? 'Pinch to zoom' : 'Scroll to zoom'}
         {view.scale > 1.01 && <button onClick={() => setView({ scale: 1, offset: 0 })}>Reset</button>}

@@ -7,8 +7,10 @@ import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
+import { atLeast } from '../depth';
 import * as S from '../state';
 import { Distribution, Provenance, useVerseRow } from './common';
+import { GoDeeper } from './Depth';
 
 function Definition({ entry }: { entry: LexEntry }) {
   return (
@@ -63,7 +65,7 @@ export function WordStudy({ a }: { a: Atlas }) {
     return (
       <div class="panel">
         <h2>Word study</h2>
-        <p class="empty">Tap any Hebrew or Greek word in the text. You will see what it means, how it is used in that verse, whether manuscripts differ, and every other place it appears.</p>
+        <p class="empty">{S.TAP} any Hebrew or Greek word in the text. You will see what it means, how it is used in that verse, whether manuscripts differ, and every other place it appears.</p>
       </div>
     );
   }
@@ -137,7 +139,12 @@ export function WordStudy({ a }: { a: Atlas }) {
             <dt>Grammar</dt>
             <dd>{describeMorph(word[4], word[5] & FLAG.aramaic ? 'A' : greek ? 'G' : 'H')}</dd>
           </dl>
-          {variant && (
+          {variant && !atLeast('deep') && (
+            <p class="muted">
+              {variant.significant ? 'Manuscripts differ here.' : 'Manuscripts differ slightly here.'} <GoDeeper to="deep">See how</GoDeeper>
+            </p>
+          )}
+          {variant && atLeast('deep') && (
             <div class="variantbox">
               <b>{variant.significant ? 'Manuscripts differ here' : 'Minor manuscript difference'}</b>
               <p>{variant.summary}</p>

@@ -20,8 +20,8 @@ export function Welcome() {
   return (
     <section class="welcome" aria-label="Getting started">
       <p class="lead">
-        Each arc joins two passages that Bible readers have linked. {S.TAP} any verse, on the map or in the text, to see what it connects to and the Hebrew or
-        Greek behind it.
+        Each arc joins two passages that Bible readers have linked. {S.TAP} any verse, on the map or in the text, to see what it connects to. When you want
+        more, switch from Simple to Study or Deep at the top.
       </p>
       <div class="starters">
         {STARTERS.map((s) => (

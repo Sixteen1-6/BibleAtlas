@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'preact/hooks';
 import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
 import { ESV_ENABLED } from './data/esv';
+import { TAB_DEPTH, atLeast } from './depth';
 import { Engine } from './engine/client';
 import * as S from './state';
 import { fromOsis, pathFromHash, restoreFromHash, syncHash } from './url';
 import { AtlasMap } from './ui/AtlasMap';
 import { Connections } from './ui/Connections';
+import { DepthControl } from './ui/Depth';
 import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
 import { Reader } from './ui/Reader';
@@ -131,7 +133,8 @@ export function App() {
     );
   }
 
-  const tab = S.tab.value;
+  const tab = atLeast(TAB_DEPTH[S.tab.value]) ? S.tab.value : 'connections';
+  const wheel = S.mapMode.value === 'wheel' && atLeast('study');
   return (
     <div class="app">
       <header class="topbar">
@@ -139,9 +142,10 @@ export function App() {
           Bible Atlas<small>{a.meta.counts.crossReferences.toLocaleString()} links · Hebrew, Aramaic and Greek</small>
         </div>
         <button class="searchbox" onClick={() => (S.paletteOpen.value = true)}>
-          Search a verse, phrase or Hebrew/Greek word <kbd>/</kbd>
+          <span class="ph">Search a verse, phrase or Hebrew/Greek word</span> <kbd>/</kbd>
         </button>
         <span class="spacer" />
+        <DepthControl />
         {ESV_ENABLED && (
           <div class="seg" role="group" aria-label="English translation">
             {(['BSB', 'ESV'] as const).map((t) => (
@@ -159,16 +163,18 @@ export function App() {
         >
           {THEME_ICON[S.pageTheme.value]}
         </button>
-        <div class="seg" role="group" aria-label="Map style">
-          <button aria-pressed={S.mapMode.value === 'arcs'} onClick={() => (S.mapMode.value = 'arcs')}>
-            Arcs
-          </button>
-          <button aria-pressed={S.mapMode.value === 'wheel'} onClick={() => (S.mapMode.value = 'wheel')}>
-            Wheel
-          </button>
-        </div>
+        {atLeast('study') && (
+          <div class="seg mapstyle" role="group" aria-label="Map style">
+            <button aria-pressed={!wheel} onClick={() => (S.mapMode.value = 'arcs')}>
+              Arcs
+            </button>
+            <button aria-pressed={wheel} onClick={() => (S.mapMode.value = 'wheel')}>
+              Wheel
+            </button>
+          </div>
+        )}
       </header>
-      {S.mapMode.value === 'arcs' ? (
+      {!wheel ? (
         <AtlasMap a={a} />
       ) : (
         <div class="map">
@@ -181,13 +187,13 @@ export function App() {
             Read
           </button>
           <button role="tab" aria-selected={S.mobilePane.value === 'study'} onClick={() => (S.mobilePane.value = 'study')}>
-            Study
+            Explore
           </button>
         </nav>
         <Reader a={a} />
         <aside class="study">
           <div class="tabs" role="tablist">
-            {TABS.map(([id, name]) => (
+            {TABS.filter(([id]) => atLeast(TAB_DEPTH[id])).map(([id, name]) => (
               <button key={id} role="tab" aria-selected={tab === id} onClick={() => (S.tab.value = id)}>
                 {name}
               </button>

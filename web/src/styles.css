@@ -165,6 +165,7 @@ a {
 }
 .searchbox {
   flex: 1;
+  min-width: 0;
   max-width: 520px;
   display: flex;
   align-items: center;
@@ -175,6 +176,12 @@ a {
   background: var(--sky-2);
   color: var(--sky-muted);
   text-align: left;
+}
+.searchbox .ph {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .searchbox kbd {
   margin-left: auto;
@@ -202,6 +209,26 @@ a {
 }
 .topbar .spacer {
   flex: 1;
+}
+.depthseg button {
+  padding: 6px 12px;
+}
+.godeeper {
+  display: block;
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: 14px var(--font-ui);
+  text-align: left;
+}
+p .godeeper {
+  display: inline;
+  margin: 0 0 0 4px;
+}
+.godeeper:hover {
+  text-decoration: underline;
 }
 .iconbtn {
   display: inline-flex;
@@ -1028,10 +1055,14 @@ a {
   .brand small {
     display: none;
   }
+  /* Search starts a second row; at Study and Deep the map switch shares it. */
   .searchbox {
     order: 3;
-    flex-basis: 100%;
+    flex: 1 1 200px;
     max-width: none;
+  }
+  .topbar .mapstyle {
+    order: 4;
   }
   .searchbox kbd {
     display: none;

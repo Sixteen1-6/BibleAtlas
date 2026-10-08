@@ -7,6 +7,7 @@ import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
+import { atLeast } from '../depth';
 import * as S from '../state';
 import { Welcome } from './Welcome';
 
@@ -31,7 +32,10 @@ export function Reader({ a }: { a: Atlas }) {
   const isHebrew = b.testament === 'OT';
   const tr = S.translation.value;
   const studyRoot = S.study.value?.root ?? -1;
-  const other = S.showOtherEditions.value;
+  // Simple shows the English alone; Study adds the original words; Deep adds
+  // words found only in other editions.
+  const orig = atLeast('study');
+  const other = S.showOtherEditions.value && atLeast('deep');
   const inter = S.interlinear.value;
 
   useEffect(() => {
@@ -119,7 +123,7 @@ export function Reader({ a }: { a: Atlas }) {
         <h1>
           {chapterName(b)} {chapter}
         </h1>
-        <span class="muted">{isHebrew ? 'Hebrew' : 'Greek'} with {tr}</span>
+        <span class="muted">{orig ? `${isHebrew ? 'Hebrew' : 'Greek'} with ${tr}` : tr === 'ESV' ? 'English Standard Version' : 'Berean Standard Bible'}</span>
         <div class="nav">
           <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter">
             ‹ Prev
@@ -129,15 +133,19 @@ export function Reader({ a }: { a: Atlas }) {
           </button>
         </div>
       </div>
-      <div class="toggles">
-        <button class="btn" aria-pressed={inter} onClick={() => (S.interlinear.value = !inter)}>
-          Word by word
-        </button>
-        <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
-          Words from other editions
-        </button>
-        <span class="hint">{S.TAP} a Hebrew or Greek word to study it.</span>
-      </div>
+      {orig && (
+        <div class="toggles">
+          <button class="btn" aria-pressed={inter} onClick={() => (S.interlinear.value = !inter)}>
+            Word by word
+          </button>
+          {atLeast('deep') && (
+            <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
+              Words from other editions
+            </button>
+          )}
+          <span class="hint">{S.TAP} a Hebrew or Greek word to study it.</span>
+        </div>
+      )}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
       <div class="verses">
@@ -169,7 +177,7 @@ export function Reader({ a }: { a: Atlas }) {
                   </button>
                 )}
               </div>
-              {inter ? (
+              {!orig ? null : inter ? (
                 <div class={`inter ${lang}`}>
                   {words.map((w) => (
                     <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, false)}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>

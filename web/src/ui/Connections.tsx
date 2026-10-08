@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
+import { atLeast } from '../depth';
 import * as S from '../state';
+import { GoDeeper } from './Depth';
 import { OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
 import { openStarter } from './Welcome';
 
@@ -39,14 +41,15 @@ function centralWords(rank: number, n: number): string {
 function LinkRow({ a, from, link, max }: { a: Atlas; from: number; link: Link; max: number }) {
   const src = useVerseRow(a, from);
   const dst = useVerseRow(a, link.v);
+  const study = atLeast('study');
   const sameLang = (a.books[a.verseBook[from]].testament === 'OT') === (a.books[a.verseBook[link.v]].testament === 'OT');
-  const shared = src && dst && sameLang ? sharedRoots(a, src, dst) : [];
+  const shared = study && src && dst && sameLang ? sharedRoots(a, src, dst) : [];
   return (
     <div class="refrow" onClick={() => S.selectVerse(link.v)}>
       <span class="ref">{rangeLabel(a, link.v, link.span)}</span>
       <span class="vt" title={`${link.votes} community votes on OpenBible.info`}>
         <span class="bar" style={`width:${Math.max(3, (40 * Math.max(0, link.votes)) / max)}px`} />
-        {link.votes}
+        {study && link.votes}
       </span>
       <Snippet a={a} v={link.v} />
       {shared.length > 0 && (
@@ -100,9 +103,13 @@ export function Connections({ a }: { a: Atlas }) {
     );
   }
 
+  const study = atLeast('study');
+  const deep = atLeast('deep');
   const linked = every.length - weak;
   const max = Math.max(1, list[0]?.votes ?? 1);
-  const shown = all ? list : list.slice(0, 40);
+  // Simple opens on a verse's few strongest links; the rest are one tap away.
+  const shown = all ? list : list.slice(0, study ? 40 : 5);
+  const hebrew = a.books[a.verseBook[v]].testament === 'OT';
 
   const explore = async () => {
     const r = await S.engine.value?.near(v, 2, 10, 80);
@@ -116,19 +123,25 @@ export function Connections({ a }: { a: Atlas }) {
     <div class="panel">
       <h2>{label(a, v)}</h2>
       {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">…</p>}
-      {row && <OrigLine a={a} v={v} row={row} />}
+      {row && study && <OrigLine a={a} v={v} row={row} />}
       <p class="muted linkfacts">
-        Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'} ·{' '}
-        <span title={`#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} verses by PageRank: verses that well-linked passages point to rank higher`}>{centralWords(hubRank, a.n)}</span>
+        Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'}
+        {study && (
+          <>
+            {' · '}
+            <span title={`#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} verses by PageRank: verses that well-linked passages point to rank higher`}>{centralWords(hubRank, a.n)}</span>
+            {deep && ` (#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} by PageRank)`}
+          </>
+        )}
       </p>
-      <button class="btn" onClick={explore}>
-        Map its neighborhood, 2 steps out
-      </button>
-      {near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
-      <h3>
-        Linked passages ({list.length.toLocaleString()}), strongest first
-      </h3>
-      <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>
+      {study && (
+        <button class="btn" onClick={explore}>
+          Map its neighborhood, 2 steps out
+        </button>
+      )}
+      {study && near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
+      <h3>{study ? `Linked passages (${list.length.toLocaleString()}), strongest first` : 'Strongest links'}</h3>
+      {study && <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>}
       {shown.map((l) => (
         <LinkRow key={l.v} a={a} from={v} link={l} max={max} />
       ))}
@@ -137,11 +150,13 @@ export function Connections({ a }: { a: Atlas }) {
           Show all {list.length}
         </button>
       )}
-      {weak > 0 && !disputed && (all || list.length <= shown.length) && (
+      {deep && weak > 0 && !disputed && (all || list.length <= shown.length) && (
         <button class="btn more" onClick={() => setDisputedFor(v)}>
           Show {weak} weak or disputed {weak === 1 ? 'link' : 'links'} (zero or fewer net votes)
         </button>
       )}
+      <GoDeeper to="study" toTop>See the {hebrew ? 'Hebrew' : 'Greek'} behind this verse</GoDeeper>
+      {study && <GoDeeper to="deep" toTop>Go deep: weak links, the numbers behind them and the sources</GoDeeper>}
       <Provenance>Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared only within one language, so Old-to-New Testament links show none.</Provenance>
     </div>
   );

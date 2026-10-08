@@ -6,6 +6,7 @@ import type { Atlas } from './data/atlas';
 import type { Engine, PathResult } from './engine/client';
 import type { View } from './gl/layout';
 import type { ArcColorMode } from './ui/colors';
+import { deepen } from './depth';
 
 export type Tab = 'connections' | 'word' | 'themes' | 'paths' | 'hubs' | 'sources';
 export type Translation = 'BSB' | 'ESV';
@@ -111,6 +112,8 @@ export function clearAll(): void {
 export const anythingLit = computed(() => selected.value !== null || path.value !== null || marks.value !== null || groupEdges.value !== null);
 
 export function openRoot(root: number, verse?: number, pos?: number): void {
+  // Word studies live at Study; asking for one is asking to go that deep.
+  deepen('study');
   study.value = { root, verse, pos };
   tab.value = 'word';
   mobilePane.value = 'study';
