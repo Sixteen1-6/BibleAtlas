@@ -73,6 +73,20 @@ export function Shell({ title, at, onDismiss, children }: { title: string; at: s
   const dismiss = useRef(onDismiss);
   dismiss.current = onDismiss;
 
+  // On phones the sheet is modal: the page behind it cannot be focused or read.
+  // This comes before the focus effect so that, on close, the page is no
+  // longer inert when focus goes back to the note that opened the panel.
+  useLayoutEffect(() => {
+    if (!phone) return;
+    const app = document.getElementById('app');
+    if (!app) return;
+    const was = app.inert;
+    app.inert = true;
+    return () => {
+      app.inert = was;
+    };
+  }, [phone]);
+
   // Focus the heading on open (and when the layout switches), and hand focus
   // back to the note that opened the panel on close.
   useLayoutEffect(() => {
@@ -96,18 +110,6 @@ export function Shell({ title, at, onDismiss, children }: { title: string; at: s
     window.addEventListener('keydown', onKey, true);
     return () => window.removeEventListener('keydown', onKey, true);
   }, []);
-
-  // On phones the sheet is modal: the page behind it cannot be focused or read.
-  useEffect(() => {
-    if (!phone) return;
-    const app = document.getElementById('app');
-    if (!app) return;
-    const was = app.inert;
-    app.inert = true;
-    return () => {
-      app.inert = was;
-    };
-  }, [phone]);
 
   // Swipe the sheet down by its top edge to close it.
   const drag = useRef<{ id: number; y0: number; dy: number } | null>(null);

@@ -1,7 +1,7 @@
 {
   "_comment": [
     "Parallel passages: each set holds passages that tell the same event or teaching, or give the same song, list, law or prophecy. A reader on any verse of one passage is shown the others.",
-    "The sets start from the parallel references in the section headings of the Berean Standard Bible (public domain; the bsb-headings source in sources.json), kept to clear parallels. Where a heading names a whole section, the range is narrowed by hand to the verses that run parallel.",
+    "The sets start from the parallel references in the section headings of the Berean Standard Bible (public domain; the bsb-usfm source in sources.json), kept to clear parallels. Where a heading names a whole section, the range is narrowed by hand to the verses that run parallel.",
     "A few sets are not in the headings and were added by hand: Psalm 106 with 1 Chronicles 16, Jude with 2 Peter 2, the closest passages of Ephesians and Colossians, the retold visions in Acts, and verses of Jeremiah 52, Isaiah 38 and Exodus 34. atlas build reads the headings and records which passages they list.",
     "sets: [kind, passage, passage, ...], each passage a BSB range written with the book's OSIS id. kind is account (the Gospels, and Acts or a letter retelling them), event (the books of history), song, list (names), law, prophecy or letter.",
     "leftOut: links the headings make that are deliberately not kept, with the reason. atlas build fails if a set joins two passages listed here.",

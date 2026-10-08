@@ -5,7 +5,7 @@
 //! The sets are curated in `config/parallels.json`, starting from the parallel
 //! references in the section headings of the Berean Standard Bible (public
 //! domain) and kept to clear parallels. The build checks every reference
-//! against the BSB, reads the headings (source `bsb-headings`) for each
+//! against the BSB, reads the headings (source `bsb-usfm`) for each
 //! passage's heading and to record which passages they list, measures how many
 //! Hebrew, Greek and English words each pair of passages shares, drops a
 //! passage that shares almost nothing with the rest of its set, and lines
@@ -35,7 +35,7 @@ use std::fs;
 use std::path::Path;
 
 const CONFIG: &str = "config/parallels.json";
-const SOURCE: &str = "bsb-headings";
+const SOURCE: &str = "bsb-usfm";
 const OUT: &str = "extras/parallels.json";
 const DIR: &str = "extras/parallels";
 

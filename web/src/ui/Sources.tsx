@@ -20,7 +20,7 @@ export function Sources({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>Sources and checks</h2>
-      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists.</p>
+      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json) and the layers of meaning notes (config/layers.json).</p>
       <div class="stats">
         {Object.entries(LABELS).map(([k, l]) => (
           <div key={k}>

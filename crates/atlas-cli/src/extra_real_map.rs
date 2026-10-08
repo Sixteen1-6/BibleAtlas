@@ -4,7 +4,8 @@
 //! - Places, the verses that name them, the modern sites proposed for each and
 //!   how confident scholarship is in each site: OpenBible.info Bible Geocoding
 //!   Data (CC BY 4.0). Coordinates the dataset credits to OpenStreetMap (ODbL)
-//!   or takes from a Palestine Grid reference (`epsg_28191`) are left out, and
+//!   or Google Maps or Google Earth, or takes from a Palestine Grid reference
+//!   (`epsg_28191`), are left out, and
 //!   where it gives an independently made position for a site
 //!   (`custom_lonlat`) that one is used.
 //! - People tied to a place (born there, died there, or was there): Theographic
@@ -620,7 +621,8 @@ struct Place {
     sites: Vec<Site>,
     /// The strongest proposed site, with its score, when the map cannot draw
     /// it: the dataset's only position for it is one this app leaves out
-    /// (credited to OpenStreetMap, or from a Palestine Grid reference).
+    /// (credited to OpenStreetMap, Google Maps or Google Earth, or from a
+    /// Palestine Grid reference).
     off: Option<(String, i64)>,
     /// How sure the dataset is of where the strongest site is: its score,
     /// with those of other sites within SAME_SPOT_KM of it, since they are
@@ -685,8 +687,9 @@ fn lonlat(s: &str) -> Option<Pt> {
 }
 
 /// Modern locations: their coordinates, unless the dataset credits them to
-/// OpenStreetMap (ODbL) or takes them from a Palestine Grid (EPSG:28191)
-/// reference; this app uses neither. `None` means "no usable coordinates".
+/// OpenStreetMap (ODbL), to Google Maps or the Google Earth community (whose
+/// terms make the positions doubtful under CC BY), or takes them from a
+/// Palestine Grid (EPSG:28191) reference; this app uses none of these. `None` means "no usable coordinates".
 fn moderns(rows: &[Value], t: &mut Tally) -> HashMap<String, Option<Pt>> {
     let mut out = HashMap::new();
     for r in rows {
@@ -694,7 +697,7 @@ fn moderns(rows: &[Value], t: &mut Tally) -> HashMap<String, Option<Pt>> {
         let custom = r["custom_lonlat"].as_str().and_then(lonlat);
         let withheld = matches!(
             r["coordinates_source"]["type"].as_str(),
-            Some("osm" | "epsg_28191")
+            Some("osm" | "epsg_28191" | "google_maps" | "google_earth_community")
         );
         let at = match (custom, withheld) {
             (Some(p), _) => Some(p),
@@ -3047,7 +3050,7 @@ pub fn build(
         t.unmapped, t.not_named, t.not_in_bsb, t.not_a_place, overlapped, t.moved, alts.len()
     );
     eprintln!(
-        "real-map: {} places placed in the dataset's words by another place, {} with a note; left out {} sites credited to OpenStreetMap or placed by a Palestine Grid reference ({} links to them), so {} places have their strongest site off the map",
+        "real-map: {} places placed in the dataset's words by another place, {} with a note; left out {} sites credited to OpenStreetMap or Google, or placed by a Palestine Grid reference ({} links to them), so {} places have their strongest site off the map",
         related, noted, t.withheld_sites, t.no_coordinates, off_map
     );
     eprintln!(
@@ -3613,12 +3616,14 @@ mod tests {
     }
 
     #[test]
-    fn positions_from_openstreetmap_or_the_palestine_grid_are_left_out() {
+    fn positions_from_openstreetmap_google_or_the_palestine_grid_are_left_out() {
         let rows: Vec<Value> = [
             r#"{"id":"m1","lonlat":"35.2,31.7","coordinates_source":{"type":"wikidata"}}"#,
             r#"{"id":"m2","lonlat":"35.2,31.7","coordinates_source":{"type":"osm"}}"#,
             r#"{"id":"m3","lonlat":"35.2,31.7","coordinates_source":{"type":"epsg_28191"}}"#,
             r#"{"id":"m4","lonlat":"35.2,31.7","custom_lonlat":"35.3,31.8","coordinates_source":{"type":"osm"}}"#,
+            r#"{"id":"m5","lonlat":"35.2,31.7","coordinates_source":{"type":"google_maps"}}"#,
+            r#"{"id":"m6","lonlat":"35.2,31.7","coordinates_source":{"type":"google_earth_community"}}"#,
         ]
         .iter()
         .map(|r| serde_json::from_str(r).unwrap())
@@ -3629,7 +3634,9 @@ mod tests {
         assert_eq!(m["m2"], None);
         assert_eq!(m["m3"], None);
         assert_eq!(m["m4"], Some((35.3, 31.8)));
-        assert_eq!(t.withheld_sites, 2);
+        assert_eq!(m["m5"], None);
+        assert_eq!(m["m6"], None);
+        assert_eq!(t.withheld_sites, 4);
     }
 
     #[test]
