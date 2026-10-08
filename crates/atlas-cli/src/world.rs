@@ -955,11 +955,10 @@ fn undated(l: &Link) -> bool {
 /// A reference's own date, from its label ("Refs 5th c.BC+"); none for one
 /// that cites the Bible alone ("LXX", "NT").
 fn own_date<'a>(l: &Link<'a>) -> Option<Dated<'a>> {
-    let (digits, era) = label_date(l.label)?;
-    let (_, century) = century(&digits, era)?;
+    let (_, century, writer) = label_century(l.title, l.label)?;
     Some(Dated {
         century,
-        writer: writer(l.title, l.label),
+        writer,
         title: l.title,
     })
 }
@@ -1005,7 +1004,7 @@ fn same_as_before<'a>(s: &'a str, l: &Link<'a>) -> Option<Dated<'a>> {
     if another_work {
         return None;
     }
-    let (_, century) = century(item.digits, item.era)?;
+    let (_, century) = century(item.shown(), item.era)?;
     Some(Dated {
         century,
         writer: writer_name(item.name),
@@ -1188,6 +1187,20 @@ struct Item<'a> {
     digits: &'a str,
     era: &'a str,
     name: &'a str,
+    /// Dated "4th-5th c.BC", TFLSJ's slip for writers of the 6th and 5th
+    /// centuries BC (Aeschylus, Simonides, Parmenides, Pythagoras).
+    slip: bool,
+}
+
+impl<'a> Item<'a> {
+    /// The century to show: TFLSJ's, but the 5th BC for "4th-5th c.BC".
+    fn shown(&self) -> &'a str {
+        if self.slip {
+            "5"
+        } else {
+            self.digits
+        }
+    }
 }
 
 /// Characters a writer's name can contain (it stops at a reference).
@@ -1202,9 +1215,11 @@ fn item_at(s: &str, i: usize) -> Option<Item<'_>> {
     }
     let digits = &s[i..i + n];
     let mut r = strip_ordinal(&s[i + n..])?;
+    let mut to = None;
     if let Some(range) = r.strip_prefix('-') {
         let m = range.bytes().take_while(u8::is_ascii_digit).count();
         if let Some(after) = strip_ordinal(&range[m..]).filter(|_| m > 0) {
+            to = Some(&range[..m]);
             r = after;
         }
     }
@@ -1238,6 +1253,7 @@ fn item_at(s: &str, i: usize) -> Option<Item<'_>> {
         digits,
         era,
         name: &r[start..start + len],
+        slip: era == "BC" && digits == "4" && to == Some("5"),
     })
 }
 
@@ -1417,17 +1433,30 @@ fn numeral(w: &str) -> bool {
             .all(|c| matches!(c, 'I' | 'V' | 'X' | 'L' | 'C' | '.' | '-'))
 }
 
-/// The writer of the first citation in `title` whose date is the label's.
-fn writer(title: &str, label: &str) -> Option<String> {
+/// The first citation in `title` whose date is the label's: the one the
+/// label dates.
+fn cited<'a>(title: &'a str, label: &str) -> Option<Item<'a>> {
     let (digits, era) = label_date(label)?;
     let mut from = 0;
     while let Some(item) = next_item(title, from) {
         if item.digits == digits && item.era == era {
-            return writer_name(item.name);
+            return Some(item);
         }
         from = item.end;
     }
     None
+}
+
+/// A reference's date from its label ("Refs 5th c.BC+"), as (a year in that
+/// century for ordering, the century, the writer); none for one that cites
+/// the Bible alone ("LXX", "NT"). The label's is TFLSJ's date for the
+/// citation it dates, set right for "4th-5th c.BC" (see `Item::slip`).
+fn label_century(title: &str, label: &str) -> Option<(i32, String, Option<String>)> {
+    let (digits, era) = label_date(label)?;
+    let item = cited(title, label);
+    let digits = item.as_ref().map_or(digits.as_str(), Item::shown);
+    let (year, century) = century(digits, era)?;
+    Some((year, century, item.and_then(|i| writer_name(i.name))))
 }
 
 fn is_word(c: char) -> bool {
@@ -1586,9 +1615,9 @@ fn lsj(meaning: &str) -> Option<Lsj> {
     let links = links_all(meaning);
     let mut first: Option<(i32, String, Option<String>)> = None;
     for l in &links {
-        if let Some((year, c)) = label_date(l.label).and_then(|(d, era)| century(&d, era)) {
+        if let Some((year, c, w)) = label_century(l.title, l.label) {
             if first.as_ref().is_none_or(|f| year < f.0) {
-                first = Some((year, c, writer(l.title, l.label)));
+                first = Some((year, c, w));
             }
         }
     }
@@ -3212,6 +3241,32 @@ mod tests {
         assert_eq!(writer(title, "Refs 2nd c.AD+"), None);
         // A date followed only by a reference gives no name.
         assert_eq!(writer(" 2nd c.BC: 1.2", "Refs 2nd c.BC+"), None);
+        // TFLSJ dates Aeschylus "4th-5th c.BC", and labels his citations
+        // 4th century BC: he is of the 5th. Plato's "5th-6th" keeps its 5th.
+        let century_of = |title: &str, label: &str| {
+            label_century(title, label).map(|(_, c, w)| (c, w.unwrap_or_default()))
+        };
+        assert_eq!(
+            century_of(
+                " 4th-5th c.BC: Aeschylus Tragicus “Agamemnon” 1",
+                "Refs 4th c.BC+"
+            ),
+            Some(("5th century BC".to_string(), "Aeschylus".to_string()))
+        );
+        assert_eq!(
+            century_of(
+                " 5th-6th c.BC: Plato Philosophus “Respublica” 1",
+                "Refs 5th c.BC+"
+            ),
+            Some(("5th century BC".to_string(), "Plato".to_string()))
+        );
+        assert_eq!(
+            century_of(
+                " 4th-3rd c.BC: Theophrastus Philosophus 1",
+                "Refs 4th c.BC+"
+            ),
+            Some(("4th century BC".to_string(), "Theophrastus".to_string()))
+        );
     }
 
     #[test]
@@ -3428,6 +3483,11 @@ mod tests {
                 .first()
                 .map(|s| (s.gloss.clone(), s.writer.clone().unwrap_or_default()))
         })
+    }
+
+    /// The writer of the citation a label dates.
+    fn writer(title: &str, label: &str) -> Option<String> {
+        cited(title, label).and_then(|i| writer_name(i.name))
     }
 
     fn lsj_link(label: &str, title: &str) -> String {
