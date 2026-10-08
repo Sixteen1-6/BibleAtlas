@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
+import { WhyLinked } from './WhyLinked';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
 
@@ -103,6 +104,7 @@ function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?:
           </span>
         )}
       </div>
+      {prev !== undefined && !sameLang && <WhyLinked a={a} from={prev} to={v} fromRow={prevRow} toRow={row} />}
     </li>
   );
 }
