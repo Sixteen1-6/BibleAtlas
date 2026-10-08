@@ -93,6 +93,8 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
   const senses = w.l ?? [];
   const top = senses[0];
   const f = w.f;
+  // The earliest example LSJ cites, unless it is the summary line's own.
+  const earliest = f && top && !(f[0] === top[1] && f[1] === top[2]) ? f : undefined;
   const summary = top ? (
     <>
       “{top[0]}” — {cited(top[2], top[1])}
@@ -110,9 +112,11 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
         <b class="ww-in">Outside the Bible:</b> {summary}
       </Line>
       <div class="ww-more" id={id} hidden={!open}>
+        {/* Nothing the summary line already says is said again: a lone sense
+            is not listed, nor an earliest example the line already gives. */}
         {open && (
           <>
-            {senses.length > 0 && (
+            {senses.length > 1 && (
               <ul class="ww-senses">
                 {senses.map(([gloss, century, writer, flags], i) => (
                   <li key={i}>
@@ -123,7 +127,7 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
                 ))}
               </ul>
             )}
-            {f && <p>Earliest example LSJ cites: {cited(f[1], f[0])}.</p>}
+            {earliest && <p>Earliest example LSJ cites: {cited(earliest[1], earliest[0])}.</p>}
             {w.p && <p>LSJ also cites everyday papyri (letters, contracts, receipts).</p>}
             {w.i && <p>LSJ also cites inscriptions.</p>}
             <Provenance>
