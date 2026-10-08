@@ -328,6 +328,31 @@ const NOT_THE_WORD: [&str; 35] = [
     "G4712", "G4896", "G5114", "G5530", "G5531",
 ];
 
+/// Verbs, nouns and adjectives ("G:V", "G:N-F", "G:A"), by the first class
+/// TFLSJ gives; not names ("N:N-M-P").
+fn content_word(class: &str) -> bool {
+    let first = class.split('/').next().unwrap_or("").trim_matches(is_space);
+    let base = first.strip_prefix("G:").unwrap_or("");
+    matches!(base.split('-').next(), Some("N" | "V" | "A"))
+}
+
+/// Words that never make a verb's, noun's or adjective's gloss on their own.
+const FRAGMENT_WORDS: [&str; 22] = [
+    "of", "from", "out", "off", "over", "in", "into", "on", "upon", "by", "to", "with", "for",
+    "up", "down", "at", "that", "is", "was", "he", "she", "it",
+];
+
+/// Is a gloss only such words ("off from", "that", "was by")? For a verb,
+/// noun or adjective it is the bold part of a translated example, "he kept
+/// the Trojans <b>off from</b> the ships".
+fn fragment(g: &str) -> bool {
+    let mut words = g
+        .split(|c: char| !c.is_ascii_alphabetic())
+        .filter(|w| !w.is_empty())
+        .peekable();
+    words.peek().is_some() && words.all(|w| FRAGMENT_WORDS.contains(&w.to_lowercase().as_str()))
+}
+
 /// The sense markers `<LevelN><b>__I.2</b></LevelN>`, as (start, end, mark).
 fn sense_marks(s: &str) -> Vec<(usize, usize, &str)> {
     let mut out = Vec::new();
@@ -790,7 +815,9 @@ fn points_elsewhere(after: &str) -> bool {
 }
 
 /// The glosses of a block as (start of the first bold, end of the last,
-/// cleaned gloss). Bold spans are read together where LSJ splits one gloss:
+/// cleaned gloss, whether it is a gloss at all: see `gloss_ok` and
+/// `runs_into_greek`). Bold spans are read together where LSJ splits one
+/// gloss:
 /// - alternatives joined by a bare "or", `<b>send off</b> or <b>away
 ///   from</b> [ref]`, become "send off or away from" (the second alone is
 ///   often only the end of a phrase);
@@ -811,7 +838,10 @@ fn points_elsewhere(after: &str) -> bool {
 /// such a span may be all LSJ gives ("ἕνα καὶ δύο one or <b>two</b>"), so it
 /// stays. Other bolds stay as they are, so each still ends the gloss before
 /// it.
-fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize, usize, String)> {
+fn gloss_groups(
+    block: &str,
+    bold: &[(usize, usize, &str, bool)],
+) -> Vec<(usize, usize, String, bool)> {
     struct Group {
         start: usize,
         end: usize,
@@ -826,8 +856,15 @@ fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize,
     let mut out: Vec<Group> = Vec::with_capacity(bold.len());
     let mut fresh_seen = false;
     for (i, &(start, end, inner, continues)) in bold.iter().enumerate() {
-        let gloss = clean_gloss(inner);
+        let mut gloss = clean_gloss(inner);
         let after = bold.get(i + 1).map_or(&block[end..], |n| &block[end..n.0]);
+        // Only the last of a list runs on into the Greek ("<b>bring forth,
+        // give birth to</b> Διόνυσον"): the rest stands.
+        if gloss_ok(&gloss) && runs_into_greek(inner, &gloss, after) {
+            if let Some((head, _)) = gloss.rsplit_once(", ") {
+                gloss = head.to_string();
+            }
+        }
         let ok = gloss_ok(&gloss) && !runs_into_greek(inner, &gloss, after);
         if let Some(last) = out.last_mut().filter(|l| l.ok) {
             let gap_markup = &block[last.end..start];
@@ -890,7 +927,9 @@ fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize,
             phrase: false,
         });
     }
-    out.into_iter().map(|g| (g.start, g.end, g.gloss)).collect()
+    out.into_iter()
+        .map(|g| (g.start, g.end, g.gloss, g.ok))
+        .collect()
 }
 
 /// Does a gloss narrow the one before it, after one of LSJ's words for how
@@ -1120,6 +1159,26 @@ const STOP: [&str; 17] = [
     "and", "but", "for", "one", "any", "in trust",
 ];
 
+/// Latin that LSJ gives where English will not do ("quae menstrua non
+/// habet", "perinde ac si", "nihil", "equester ordo"): words no English
+/// gloss has.
+const LATIN: [&str; 14] = [
+    "aliquid",
+    "equester",
+    "equites",
+    "faciundis",
+    "integrum",
+    "neque",
+    "nihil",
+    "perinde",
+    "potest",
+    "praeterquam",
+    "quae",
+    "quantulus",
+    "quin",
+    "quod",
+];
+
 /// Is this bold span an English gloss (not Greek, a grammar note or a stray word)?
 fn gloss_ok(g: &str) -> bool {
     if g.chars().count() < 3 {
@@ -1130,6 +1189,11 @@ fn gloss_ok(g: &str) -> bool {
         return false;
     }
     if STOP.contains(&g.to_lowercase().as_str()) {
+        return false;
+    }
+    if g.split(|c: char| !c.is_ascii_alphabetic())
+        .any(|w| LATIN.contains(&w.to_lowercase().as_str()))
+    {
         return false;
     }
     if g.chars()
@@ -1604,8 +1668,9 @@ struct Lsj {
 
 /// Read one LSJ entry: up to two senses from its opening and one from each
 /// later sense block, each the first English gloss followed by a dated
-/// reference to a writer outside the Bible.
-fn lsj(meaning: &str) -> Option<Lsj> {
+/// reference to a writer outside the Bible. For a verb, noun or adjective
+/// (`content`), a fragment of an example is no gloss (see `fragment`).
+fn lsj(meaning: &str, content: bool) -> Option<Lsj> {
     if meaning.contains("LSJ has no entry") || meaning.contains("Not in LSJ") {
         return None;
     }
@@ -1625,9 +1690,9 @@ fn lsj(meaning: &str) -> Option<Lsj> {
         let glosses = gloss_groups(block, &bold);
         let want = if k == 0 { 2 } else { 1 };
         let mut took = 0;
-        for (j, (_, end, gloss)) in glosses.iter().enumerate() {
+        for (j, (_, end, gloss, ok)) in glosses.iter().enumerate() {
             let (end, gloss) = (at + *end, gloss.as_str());
-            if !gloss_ok(gloss) {
+            if !ok || !gloss_ok(gloss) || (content && fragment(gloss)) {
                 continue;
             }
             let stop = at + glosses.get(j + 1).map_or(block.len(), |b| b.0);
@@ -2399,7 +2464,9 @@ pub fn build(
         else {
             continue;
         };
-        let Some(mut e) = lsj(meaning) else { continue };
+        let Some(mut e) = lsj(meaning, content_word(class)) else {
+            continue;
+        };
         let name = NOT_THE_NAME.contains(&base);
         if name || NOT_THE_WORD.contains(&base) {
             e = Lsj {
@@ -2815,8 +2882,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         format!("{with_lsj} Greek roots with an LSJ entry, expected about 5,018"),
     ));
     out.push((
-        near(with_senses, 4_581, 1.0),
-        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,581"),
+        near(with_senses, 4_580, 1.0),
+        format!("{with_senses} Greek roots with an LSJ sense, expected about 4,580"),
     ));
     out.push((
         near(with_first, 4_723, 1.0),
@@ -2971,6 +3038,25 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             format!("{key}: no sense or first use of another word's entry, but the root has {s}"),
         ));
     }
+    // A verb's, noun's or adjective's sense is never a fragment of an
+    // example ("he kept the Trojans off from the ships") or Latin.
+    let odd: Vec<String> = ["G1950", "G0292", "G2338", "G3992", "G0169", "G1228"]
+        .iter()
+        .flat_map(|k| {
+            slot(k)["l"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .filter_map(|x| x[0].as_str())
+                .filter(|g| fragment(g) || !gloss_ok(g))
+                .map(|g| format!("{k} {g:?}"))
+                .collect::<Vec<_>>()
+        })
+        .collect();
+    out.push((
+        odd.is_empty(),
+        format!("senses that are fragments of an example or Latin: {odd:?}"),
+    ));
     // Grammar words are flagged, and only roots with an LSJ entry.
     let unflagged: Vec<&str> = ["G2532", "G3588", "G1722", "G3956"]
         .into_iter()
@@ -3223,6 +3309,11 @@ mod tests {
 
     fn link(title: &str, label: &str) -> String {
         format!("[{LINK}{title}\">{label}</a>]")
+    }
+
+    /// An entry read as that of a word that is not a verb, noun or adjective.
+    fn lsj(meaning: &str) -> Option<Lsj> {
+        super::lsj(meaning, false)
     }
 
     #[test]
@@ -3892,6 +3983,20 @@ mod tests {
             )),
             sense("fine linen", "Herodotus")
         );
+        // Such a gloss is none even with a reference after it, and when only
+        // the last of a list runs on so, the rest stands.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> βιβλίον</b>, τό, <b>strip of</b> βύβλος, [{hdt}]: hence, <b>paper</b> [{hdt}]"
+            )),
+            sense("paper", "Herodotus")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> <b>bring forth, give birth to</b> ἄντειλας Διόνυσον[{hdt}]"
+            )),
+            sense("bring forth", "Herodotus")
+        );
         assert!(runs_into_greek("made of", "made of", " βύσσος"));
         assert!(!runs_into_greek("make war", "make war", " πρός τινα"));
         assert!(!runs_into_greek("made of,", "made of", " βύσσος"));
@@ -3928,6 +4033,40 @@ mod tests {
             first_sense(&format!("<b> x</b> <b>shine</b> [{poem}]")),
             sense("shine", "Bacchylides")
         );
+    }
+
+    #[test]
+    fn a_verbs_gloss_is_never_only_little_words() {
+        let il = lsj_link(
+            "Refs 8th c.BC+",
+            " 8th c.BC: Ilias Homerus Epicus “Illiad” 13.153",
+        );
+        let m = format!(
+            "<b> ἀμύνω</b> <Level3><b>__2</b></Level3> Τρῶας ἄμυνε νεῶν <b>he kept</b> \
+             the Trojans <b>off from</b> the ships, [{il}] <b>defend</b> the ships, [{il}]"
+        );
+        let glosses = |content| -> Vec<String> {
+            super::lsj(&m, content)
+                .unwrap()
+                .senses
+                .into_iter()
+                .map(|s| s.gloss)
+                .collect()
+        };
+        assert_eq!(glosses(true), ["defend"]);
+        assert_eq!(glosses(false), ["off from"]);
+        for g in ["off from", "that", "was by", "out of", "she"] {
+            assert!(fragment(g), "{g}");
+        }
+        for g in ["defend", "to be by", "over and above", "send for", ""] {
+            assert!(!fragment(g), "{g}");
+        }
+        for c in ["G:V", "G:N-F", "G:A", "G:A / G:ADV"] {
+            assert!(content_word(c), "{c}");
+        }
+        for c in ["G:ADV", "G:PREP", "N:N-M-P", "G:INJ", ""] {
+            assert!(!content_word(c), "{c}");
+        }
     }
 
     #[test]
@@ -3979,7 +4118,13 @@ mod tests {
 
     #[test]
     fn glosses_are_english() {
-        for g in ["yoke", "earnest-money, caution-money", "the yoke"] {
+        for g in [
+            "yoke",
+            "earnest-money, caution-money",
+            "the yoke",
+            "inquire for",
+            "quote",
+        ] {
             assert!(gloss_ok(g), "{g}");
         }
         for g in [
@@ -3992,6 +4137,10 @@ mod tests {
             "x = y",
             "[yoke]",
             "'yoke",
+            "quae menstrua non habet",
+            "perinde ac si",
+            "nihil",
+            "equester ordo",
         ] {
             assert!(!gloss_ok(g), "{g}");
         }
