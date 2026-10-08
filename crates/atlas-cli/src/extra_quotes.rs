@@ -70,7 +70,8 @@ const BY_LXX: u8 = 2;
 const BY_RUN: u8 = 3;
 /// or is word for word,
 const BY_WORDS: u8 = 4;
-/// or shares at least three key words, most of its own.
+/// or shares most of its key words, at least three of them, or every one of
+/// two or more with three words in a row ("By His stripes you are healed").
 const BY_KEYS: u8 = 5;
 /// An echo: the footnote says "See",
 const ECHO_SEE: u8 = 6;
@@ -994,6 +995,12 @@ fn measure(nt: &[(u32, Tok)], ot: &[(u32, Tok)]) -> Measure {
     }
 }
 
+/// Every key word shared, two or more of them, and three words in a row: a
+/// short quotation reworded only in its small words.
+fn every_key(m: &Measure) -> bool {
+    m.keys >= 2 && m.shared.len() == m.keys && m.run >= 3
+}
+
 /// 0: word for word (only where the quoted words are known); 1: close, at
 /// least three in five key words shared; 2: loose.
 fn closeness(m: &Measure, quoted: bool) -> u8 {
@@ -1695,7 +1702,7 @@ impl Ctx<'_> {
             Some(BY_RUN)
         } else if closeness(&joint, true) == 0 {
             Some(BY_WORDS)
-        } else if joint.shared.len() >= 3 && closeness(&joint, true) == 1 {
+        } else if closeness(&joint, true) == 1 && (joint.shared.len() >= 3 || every_key(&joint)) {
             Some(BY_KEYS)
         } else {
             None
@@ -1986,7 +1993,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("Acts 2:28", "Ps 16:11", 0),
         ("Matt 2:15", "Hos 11:1", 0),
         ("Rom 13:9", "Exod 20:13", 0),
-        ("1 Pet 2:24", "Isa 53:5", 1),
+        ("1 Pet 2:24", "Isa 53:5", 0),
+        ("John 19:36", "Exod 12:46", 1),
     ] {
         let i = find(nt, ot)?;
         let what = if want == 0 { "quotes" } else { "echoes" };
@@ -2396,6 +2404,16 @@ mod tests {
         // Woven into a sentence of one's own: two key words, both shared.
         let m = measure(&side(0, "By His stripes you are healed."), &side(1, "But He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed."));
         assert_eq!((closeness(&m, true), m.shared.len()), (1, 2));
+        // And a quotation, though short and not introduced: every key word.
+        assert!(every_key(&m));
+        let m = measure(
+            &side(0, "Why did You make me like this?"),
+            &side(
+                1,
+                "Shall what is formed say to him who formed it, “He did not make me”?",
+            ),
+        );
+        assert!(!every_key(&m));
         let m = measure(
             &side(0, "Do not muzzle an ox while it is treading out the grain."),
             &side(1, "God with us"),

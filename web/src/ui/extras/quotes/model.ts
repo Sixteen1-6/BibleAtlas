@@ -56,7 +56,7 @@ export const WHY: Record<number, string> = {
   2: 'A quotation: in quotation marks, and the footnote points to the Septuagint, whose wording the English cannot be checked against.',
   3: 'A quotation: in quotation marks, with five or more words in a row the same.',
   4: 'A quotation: in quotation marks and word for word.',
-  5: 'A quotation: in quotation marks, with most of its key words the same.',
+  5: 'A quotation: in quotation marks, with most or all of its key words the same.',
   6: 'An echo: the footnote says “See”.',
   7: 'An echo: the words at the footnote are not in quotation marks.',
   8: 'An echo: not introduced as a quotation, and too few words are the same.',
@@ -131,8 +131,8 @@ function distinct(rs: Range[], skip: Range[] = []): Range[] {
   return out;
 }
 
-/** Passages that follow on from each other in one book, as one: Isaiah 53:4
- * and Isaiah 53:5 read "Isaiah 53:4–5". Keeps the order given. */
+/** Passages that follow on from each other in one book, as one: Exodus 20:13
+ * and Exodus 20:14 read "Exodus 20:13–14". Keeps the order given. */
 export function joined(a: Atlas, rs: Range[]): Range[] {
   const out: Range[] = [];
   for (const r of rs) {
@@ -183,7 +183,7 @@ function echoCount(n: number): string {
 /**
  * The line: "Quoting Isaiah 40:3", "Quoted in Matthew 3:3, Mark 1:3 and 2 more",
  * and at Study "Quoting Deuteronomy 25:4, echoing Leviticus 19:13 and 1 more",
- * "Echoing Isaiah 53:4–5".
+ * "Echoing Psalm 110:1 and Daniel 7:13".
  * Tries the fullest wording first and takes the first that fits one short line.
  */
 function line(a: Atlas, nt: boolean, q: Range[], e: Range[]): NoteLine | null {

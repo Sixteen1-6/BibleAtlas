@@ -3,8 +3,8 @@
 // The line, under a verse it applies to:
 //   New Testament  "Quoting Isaiah 40:3"
 //   Old Testament  "Quoted in Matthew 3:3, Mark 1:3 and 2 more"
-// At Study and Deep the echoes join in: "Echoing Isaiah 53:4–5". Nothing shows
-// under any other verse.
+// At Study and Deep the echoes join in: "Echoing Psalm 110:1 and Daniel 7:13".
+// Nothing shows under any other verse.
 //
 // The panel: the passages side by side in the BSB with the words they share
 // marked, how closely each is quoted and how it is introduced; at Deep the
