@@ -1,5 +1,5 @@
 {
-  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. `atlas build` fails if any entry matches nothing, so a typo cannot silently empty a theme.",
+  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover or Christ). `exclude` lists sub-entries to leave out although their gloss matches (seed: semen). `atlas build` fails if any entry matches nothing, or if an exclude names a sub-entry the entry would not include, so a typo cannot silently empty a theme. Shared links name themes by `id`, so ids never change.",
   "themes": [
     {
       "id": "lamb",
@@ -106,17 +106,17 @@
       "name": "Seed and offspring",
       "blurb": "The promised offspring, from Genesis 3 to Galatians 3.",
       "roots": [
-        { "strong": "H2233", "match": ["seed", "offspring", "descendant"] },
+        { "strong": "H2233", "match": ["seed", "offspring", "descendant"], "exclude": ["H2233I"] },
         { "strong": "G4690", "match": ["seed", "offspring", "descendant"] }
       ]
     },
     {
       "id": "bride",
       "name": "Bride and bridegroom",
-      "blurb": "Marriage as the picture of God and his people.",
+      "blurb": "Marriage as the picture of God and his people. The Hebrew word for bridegroom, חָתָן, also means son-in-law.",
       "roots": [
         { "strong": "H2860", "match": ["bridegroom", "son-in-law"] },
-        { "strong": "H3618", "match": ["bride", "daughter-in-law"] },
+        { "strong": "H3618", "match": ["bride", "daughter-in-law"], "exclude": ["H3618H"] },
         { "strong": "G3566", "match": ["bridegroom"] },
         { "strong": "G3565", "match": ["bride", "daughter-in-law"] }
       ]
@@ -126,7 +126,7 @@
       "name": "Temple and tabernacle",
       "blurb": "Where God dwells with people: tent, temple, body, city.",
       "roots": [
-        { "strong": "H1964", "match": ["temple", "palace"] },
+        { "strong": "H1964", "match": ["temple", "palace"], "exclude": ["H1964H"] },
         { "strong": "H4908", "match": ["tabernacle", "dwelling"] },
         { "strong": "G3485", "match": ["temple", "sanctuary"] },
         { "strong": "G2411", "match": ["temple"] },
@@ -138,7 +138,7 @@
       "name": "Tree",
       "blurb": "The tree of life, the cursed tree, the leaves for healing.",
       "roots": [
-        { "strong": "H6086", "match": ["tree", "wood"] },
+        { "strong": "H6086", "match": ["tree", "wood"], "exclude": ["H6086K"] },
         { "strong": "G1186", "match": ["tree"] },
         { "strong": "G3586", "match": ["wood", "tree"] }
       ]
@@ -157,8 +157,83 @@
       "name": "Spirit, wind and breath",
       "blurb": "One word in Hebrew and one in Greek carry all three meanings.",
       "roots": [
-        { "strong": "H7307", "match": ["spirit", "wind", "breath"] },
+        { "strong": "H7307", "match": ["spirit", "wind", "breath"], "exclude": ["H7307I"] },
         { "strong": "G4151", "match": ["spirit", "wind", "breath"] }
+      ]
+    },
+    {
+      "id": "passover",
+      "name": "Passover",
+      "blurb": "From the night of the LORD’s Passover in Egypt to Christ, our Passover lamb.",
+      "roots": [
+        { "strong": "H6453", "match": ["passover"], "capitalized": true },
+        { "strong": "G3957", "match": ["passover"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "redeemer",
+      "name": "Redeemer",
+      "blurb": "From the kinsman-redeemer of Ruth to a ransom for many.",
+      "roots": [
+        { "strong": "H1350", "match": ["redeem", "redemption"] },
+        { "strong": "H1353", "match": ["redemption"] },
+        { "strong": "G3084", "match": ["ransom"] },
+        { "strong": "G3083", "match": ["ransom"] },
+        { "strong": "G0629", "match": ["redemption"] }
+      ]
+    },
+    {
+      "id": "atonement",
+      "name": "Atonement and the mercy seat",
+      "blurb": "From the mercy seat to the atoning sacrifice for our sins.",
+      "roots": [
+        { "strong": "H3727", "match": ["mercy seat"] },
+        { "strong": "H3722A", "match": ["atone"] },
+        { "strong": "G2435", "match": ["propitiation"] },
+        { "strong": "G2434", "match": ["propitiation"] }
+      ]
+    },
+    {
+      "id": "anointed",
+      "name": "The Anointed One",
+      "blurb": "Anointed priests and kings, and the Messiah, which is translated as Christ.",
+      "roots": [
+        { "strong": "H4899", "match": ["anointed"] },
+        { "strong": "G5547", "match": ["christ"], "capitalized": true },
+        { "strong": "G3323", "match": ["messiah"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "sabbath",
+      "name": "Sabbath rest",
+      "blurb": "The seventh day of rest, and a Sabbath rest for the people of God.",
+      "roots": [
+        { "strong": "H7676", "match": ["sabbath"], "capitalized": true },
+        { "strong": "H4496H", "match": ["resting"] },
+        { "strong": "G4521", "match": ["sabbath"], "capitalized": true },
+        { "strong": "G2663", "match": ["rest"] },
+        { "strong": "G4520", "match": ["sabbath"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "kingdom",
+      "name": "The kingdom",
+      "blurb": "The kingdoms of the earth, and a kingdom that will never be destroyed.",
+      "roots": [
+        { "strong": "H4438", "match": ["royalty", "kingdom"] },
+        { "strong": "H4467", "match": ["kingdom"] },
+        { "strong": "H4410", "match": ["kingship"] },
+        { "strong": "H4437", "match": ["kingdom"] },
+        { "strong": "G0932", "match": ["kingdom"] }
+      ]
+    },
+    {
+      "id": "firstborn",
+      "name": "Firstborn",
+      "blurb": "Israel, the LORD’s firstborn son, and the firstborn over all creation.",
+      "roots": [
+        { "strong": "H1060", "match": ["firstborn"] },
+        { "strong": "G4416", "match": ["firstborn"] }
       ]
     }
   ]

@@ -49,6 +49,13 @@ struct ThemeRoot {
     strong: String,
     #[serde(rename = "match")]
     matches: Vec<String>,
+    /// Sub-entries left out although their gloss matches ("H2233I", seed: semen).
+    #[serde(default)]
+    exclude: Vec<String>,
+    /// Keep glosses that start with a capital letter ("Passover", "Christ"),
+    /// which are otherwise skipped as names.
+    #[serde(default)]
+    capitalized: bool,
 }
 
 struct Lemma {
@@ -243,13 +250,19 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
                 .filter(|(_, l)| {
                     // Skip names and places that merely contain the word
                     // ("House of Shepherds", "Water (Gate)"): their glosses
-                    // start with a capital letter.
+                    // start with a capital letter, unless the root's own
+                    // gloss is capitalized ("Passover", "Christ").
                     let proper = l.gloss.chars().find(|c| c.is_alphabetic()).is_some_and(char::is_uppercase);
                     let g = l.gloss.to_lowercase();
-                    !proper && r.matches.iter().any(|m| g.contains(m.as_str()))
+                    (!proper || r.capitalized) && r.matches.iter().any(|m| g.contains(m.as_str()))
                 })
                 .map(|(i, _)| i as u32)
                 .collect();
+            // An exclude that would not match anyway is a typo: fail loudly.
+            if let Some(x) = r.exclude.iter().find(|x| !found.iter().any(|&i| lemmas[i as usize].key == **x)) {
+                return Err(format!("theme {}: exclude {x} is not a root that {} {:?} includes", t.id, r.strong, r.matches));
+            }
+            let found: Vec<u32> = found.into_iter().filter(|&i| !r.exclude.contains(&lemmas[i as usize].key)).collect();
             if found.is_empty() {
                 let near: Vec<String> = lemmas.iter().filter(|l| l.key.starts_with(&r.strong)).map(|l| format!("{}={:?}", l.key, l.gloss)).collect();
                 return Err(format!("theme {}: {} matched no root with gloss {:?} (candidates: {})", t.id, r.strong, r.matches, near.join(", ")));
