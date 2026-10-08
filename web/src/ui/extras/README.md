@@ -363,7 +363,7 @@ Check, at 390×844 and at 1440×900, in light and in dark:
 
 Before you commit:
 
-- `git status` shows only your files and the five insertions, and nothing under `web/public/data/` or `data/`;
+- `git status` shows only your files and your insertions, and nothing under `web/public/data/` or `data/`;
 - you have added no new npm or Rust dependencies;
 - your report lists your insertions exactly: the file, the line, and the text.
 
