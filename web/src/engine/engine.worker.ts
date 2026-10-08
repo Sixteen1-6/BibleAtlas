@@ -12,14 +12,16 @@ interface Exports {
   atlas_out_len(): number;
   atlas_load(ptr: number, len: number): number;
   atlas_path(a: number, b: number, minVotes: number): number;
+  atlas_paths(a: number, b: number, minVotes: number, k: number): number;
   atlas_near(seed: number, hops: number, minVotes: number, limit: number): number;
   atlas_links_within(mask: number, len: number, minVotes: number): number;
   atlas_parse_ref(ptr: number, len: number): number;
 }
 
 export type Request =
-  | { id: number; op: 'init'; binUrl: string }
+  | { id: number; op: 'init'; binUrl: string; bin?: ArrayBuffer }
   | { id: number; op: 'path'; from: number; to: number; minVotes: number }
+  | { id: number; op: 'paths'; from: number; to: number; minVotes: number; k: number }
   | { id: number; op: 'near'; seed: number; hops: number; minVotes: number; limit: number }
   | { id: number; op: 'linksWithin'; mask: Uint8Array; minVotes: number }
   | { id: number; op: 'parseRef'; text: string };
@@ -48,14 +50,27 @@ function output(): Uint32Array {
 
 const ERRORS: Record<number, string> = { [-1]: 'engine not loaded', [-2]: 'atlas.bin is invalid', [-3]: 'not found', [-4]: 'could not read that' };
 
+/** Fetch a file, failing with its name and status instead of reading an error page.
+ *  (The return type is inferred: `Response` below is this module's message type.) */
+async function get(url: string, name: string) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${name}: HTTP ${r.status}`);
+  return r;
+}
+
+const load = (bin: ArrayBuffer) => withBytes(new Uint8Array(bin), (p, l) => x!.atlas_load(p, l));
+
 async function handle(req: Request): Promise<unknown> {
   if (req.op === 'init') {
+    // The page usually posts its own copy of atlas.bin, so it is downloaded once.
     const [mod, bin] = await Promise.all([
-      WebAssembly.instantiateStreaming(fetch(wasmUrl), {}),
-      fetch(req.binUrl).then((r) => r.arrayBuffer()),
+      WebAssembly.instantiateStreaming(get(wasmUrl, 'atlas.wasm'), {}),
+      req.bin ?? get(req.binUrl, 'atlas.bin').then((r) => r.arrayBuffer()),
     ]);
     x = mod.instance.exports as unknown as Exports;
-    const n = withBytes(new Uint8Array(bin), (p, l) => x!.atlas_load(p, l));
+    let n = load(bin);
+    // A posted copy the engine cannot read: fall back to the file itself.
+    if (n === -2 && req.bin) n = load(await (await get(req.binUrl, 'atlas.bin')).arrayBuffer());
     if (n < 0) throw new Error(ERRORS[n]);
     return n;
   }
@@ -67,6 +82,19 @@ async function handle(req: Request): Promise<unknown> {
       if (k < 0) throw new Error(ERRORS[k]);
       const out = output();
       return { verses: Array.from(out.subarray(0, k)), edges: Array.from(out.subarray(k)) };
+    }
+    case 'paths': {
+      // [count, then per road: n, n verses, n - 1 edges]
+      const k = x.atlas_paths(req.from, req.to, req.minVotes, req.k);
+      if (k < 0) throw new Error(ERRORS[k]);
+      const out = output();
+      const roads: { verses: number[]; edges: number[] }[] = [];
+      for (let r = 0, at = 1; r < k; r++) {
+        const n = out[at];
+        roads.push({ verses: Array.from(out.subarray(at + 1, at + 1 + n)), edges: Array.from(out.subarray(at + 1 + n, at + 2 * n)) });
+        at += 2 * n;
+      }
+      return roads;
     }
     case 'near': {
       const k = x.atlas_near(req.seed, req.hops, req.minVotes, req.limit);
