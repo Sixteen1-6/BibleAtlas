@@ -7,6 +7,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Data | Source | License |
 | --- | --- | --- |
 | Cross-references and vote counts | OpenBible.info, via the unmodified copy in scrollmapper/bible_databases | CC BY 4.0 |
+| Where the New Testament quotes the Old (the BSB's footnotes) | berean.bible, via the USFM edition in usfm-bible/examples.bsb | Public domain |
 | Berean Standard Bible (English) | berean.bible, via scrollmapper/bible_databases | Public domain |
 | Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |

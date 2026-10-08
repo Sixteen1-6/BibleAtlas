@@ -277,6 +277,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     }
     fs::create_dir_all(out).map_err(|e| e.to_string())?;
     let mut files: BTreeMap<String, Value> = BTreeMap::new();
+    for (rel, bytes) in crate::extra_quotes::build(&inputs, &vz, &bsb.text, &words)? { write(out, &rel, &bytes, &mut files)?; }
 
     let mut c = ContainerWriter::new();
     c.u32s("vz_bchap", &vz.book_chapter_start);
