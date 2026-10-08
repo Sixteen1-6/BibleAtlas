@@ -59,6 +59,23 @@ fn is_space(c: char) -> bool {
     c.is_whitespace() || ('\u{1c}'..='\u{1f}').contains(&c)
 }
 
+/// A handbook cross-reference without its section number: "1.5.3 Cloth
+/// manufacture" -> "Cloth manufacture". The numbers belong to the printed
+/// handbook and mean nothing to a reader of the app, so only the name stays.
+fn without_key(s: &str) -> &str {
+    let t = s.trim_start_matches(is_space);
+    let end = t
+        .find(|c: char| !(c.is_ascii_digit() || c == '.'))
+        .unwrap_or(t.len());
+    let (key, rest) = t.split_at(end);
+    let name = rest.trim_start_matches(is_space);
+    if !key.starts_with(|c: char| c.is_ascii_digit()) || name.len() == rest.len() || name.is_empty()
+    {
+        return s;
+    }
+    name
+}
+
 /// Remove every `<...>` tag (`re.sub(r'<[^>]+>', '', s)`).
 fn strip_tags(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
@@ -1270,14 +1287,14 @@ impl Refs<'_> {
                     rest = rest.get(end + 4..).unwrap_or("");
                 }
                 ("l", false) if !tag.ends_with('/') => {
-                    // "1.5.3 Cloth manufacture<REALIA:1.5.3>" -> "1.5.3 Cloth manufacture"
+                    // "1.5.3 Cloth manufacture<REALIA:1.5.3>" -> "Cloth manufacture"
                     let end = rest.find("</l>").unwrap_or(rest.len());
                     let inner = decode_entities(&strip_tags(&rest[..end]));
                     let shown = match inner.rfind('<') {
                         Some(i) if inner.trim_end().ends_with('>') => &inner[..i],
                         _ => &inner,
                     };
-                    raw.push((shown.to_string(), style, -1));
+                    raw.push((without_key(shown).to_string(), style, -1));
                     rest = rest.get(end + 4..).unwrap_or("");
                 }
                 _ => {} // a, u, sup, Image and anything else: the tag goes, its text stays
@@ -2460,15 +2477,24 @@ mod tests {
             ("Genesis 1:1".into(), 0, gen(1, 1)),
             ("; ".into(), 0, -1),
             ("Genesis 1:2".into(), 0, gen(1, 2)),
-            (
-                "; GNT) see 1.5.3 Cloth manufacture, 1 Animals and ".into(),
-                0,
-                -1,
-            ),
+            ("; GNT) see Cloth manufacture, Animals and ".into(), 0, -1),
             ("‘ol".into(), 2, -1),
             (" & ‘alah.16".into(), 0, -1),
         ];
         assert_eq!(p, want);
+    }
+
+    #[test]
+    fn cross_references_keep_only_their_names() {
+        assert_eq!(without_key("1.5.3 Cloth manufacture"), "Cloth manufacture");
+        assert_eq!(without_key(" 6.2.1.1  Fringe, tassel"), "Fringe, tassel");
+        assert_eq!(without_key("1 Animals"), "Animals");
+        assert_eq!(without_key("Animals"), "Animals");
+        // Nothing but a number, or no space after it: left as it is.
+        assert_eq!(without_key("1.5.3"), "1.5.3");
+        assert_eq!(without_key("1.5.3 "), "1.5.3 ");
+        assert_eq!(without_key("2nd Temple"), "2nd Temple");
+        assert_eq!(without_key(".5 Name"), ".5 Name");
     }
 
     #[test]
