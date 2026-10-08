@@ -23,6 +23,7 @@ mod query;
 mod extra_real_map;
 mod sources;
 mod verify;
+mod extra_parallels;
 
 use std::path::PathBuf;
 

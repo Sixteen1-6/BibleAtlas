@@ -377,6 +377,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         let doc = json!({ "book": book.osis, "chapters": chapters });
         write(out, &format!("text/{}.json", book.osis), serde_json::to_string(&doc).unwrap().as_bytes(), &mut files)?;
     }
+    for (rel, bytes) in crate::extra_parallels::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index)? { write(out, &rel, &bytes, &mut files)?; }
 
     let empty_verses = words.iter().filter(|w| w.is_empty()).count();
     for (s, chunk) in lemmas.chunks(LEX_SHARD).enumerate() {
