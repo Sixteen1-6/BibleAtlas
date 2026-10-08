@@ -310,7 +310,7 @@ fn encode(pts: &[Pt]) -> Vec<i64> {
 fn decode(v: &[Value]) -> Vec<Pt> {
     let mut out = Vec::with_capacity(v.len() / 2);
     let (mut x, mut y) = (0i64, 0i64);
-    for (i, pair) in v.chunks_exact(2).enumerate() {
+    for (i, pair) in v.as_chunks::<2>().0.iter().enumerate() {
         let (dx, dy) = (pair[0].as_i64().unwrap_or(0), pair[1].as_i64().unwrap_or(0));
         (x, y) = if i == 0 { (dx, dy) } else { (x + dx, y + dy) };
         out.push((x as f64 / Q, y as f64 / Q));
