@@ -1398,6 +1398,12 @@ fn writer_name(name: &str) -> Option<String> {
     if matches!(first, "Ilias" | "Odyssea" | "Homerus") {
         return Some("Homer".into());
     }
+    // TFLSJ reads LSJ's "Poll." (Pollux, "Onomasticon" 1.229) as Pollianus
+    // the epigrammatist, whose own few poems it cites in brackets after the
+    // Anthology ("“AP” 11.128 (2nd c.AD(?): Pollianus Epigrammaticus)").
+    if first == "Pollianus" && !raw.last().is_some_and(|w| w.contains(')')) {
+        return Some("Pollux".into());
+    }
     // A second word counts only if capitalised, and not when it is the
     // Bible book a translator is cited for ("Symmachus LXX.Eze.10.13"), a
     // place or work cut short ("Magnes Comicus Mae.") or a book number
@@ -3232,6 +3238,9 @@ mod tests {
                 "Eustathius Episcopus Thessalonicensis).",
                 "Eustathius Thessalonicensis",
             ),
+            // LSJ's "Poll." is Pollux; Pollianus only after an epigram.
+            ("Pollianus Epigrammaticus ", "Pollux"),
+            ("Pollianus Epigrammaticus). ", "Pollianus"),
         ] {
             assert_eq!(writer_name(name).as_deref(), Some(want), "{name}");
         }
