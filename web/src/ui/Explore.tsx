@@ -119,7 +119,7 @@ export function Paths({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>Connection paths</h2>
-      <p class="muted">Find the roads of cross-references between two verses.</p>
+      <p class="muted">Up to three roads of cross-references between two verses.</p>
       <form
         class="roads-form"
         onSubmit={(e) => {
@@ -137,7 +137,7 @@ export function Paths({ a }: { a: Atlas }) {
         </label>
         <div class="roads-go">
           <button class="btn roads-find" type="submit">
-            Find path
+            Find roads
           </button>
           <details class="roads-opts">
             <summary>
@@ -158,7 +158,7 @@ export function Paths({ a }: { a: Atlas }) {
             />
             <p>
               Votes come from OpenBible.info readers. Roads prefer strong links: each step counts 1, plus up to 3 more when its link has few votes. A lower number finds more roads; a higher one keeps
-              to the best-attested links.
+              to the most-voted links. The search is Dijkstra’s algorithm, run in WebAssembly by the app’s Rust engine (crates/atlas-core).
             </p>
           </details>
         </div>
@@ -172,7 +172,7 @@ export function Paths({ a }: { a: Atlas }) {
         ))}
       </div>
       <RoadsStatus onRetry={r.retryAll} />
-      <RoadCards a={a} />
+      <RoadCards a={a} onRetry={r.retryAll} />
       {p && (
         <>
           <h3>
@@ -186,8 +186,8 @@ export function Paths({ a }: { a: Atlas }) {
         </>
       )}
       <Provenance>
-        Roads: Dijkstra’s algorithm over the OpenBible.info links, in WebAssembly (crates/atlas-core){r.took ? `, found in ${r.took.toFixed(1)} ms` : ''}. Each road after the first avoids the inner
-        verses of the roads before it.
+        Roads found by the app’s own engine in OpenBible.info’s reader-voted cross-references{r.took ? `, in ${r.took.toFixed(1)} ms` : ''}. Each road after the first avoids every verse the
+        earlier roads pass through.
       </Provenance>
     </div>
   );

@@ -25,29 +25,72 @@ const from = signal('Genesis 3:15');
 const to = signal('Revelation 12:9');
 const minVotes = signal(5);
 const roads = signal<Road[] | null>(null);
+/** The fewest votes a link needed when the roads shown were found. Null while
+ *  they only stand in for a search that has not answered (a shared link's road). */
+const foundAt = signal<number | null>(null);
 /** Index of the chosen road, or -1 while none is lit (after Esc, say). */
 const chosen = signal(-1);
 const status = signal<Status>(null);
-/** How long the engine took to find the roads, in ms. */
+/** How long the engine took to find the roads, in ms (0 while none are shown). */
 const took = signal(0);
+/** What screen readers hear when a search ends. `n` changes every time, so the same words are read again. */
+const said = signal({ text: '', n: 0 });
 /** Only the latest query may change anything. */
 let ticket = 0;
+
+const votesWord = (n: number) => `${n} ${n === 1 ? 'vote' : 'votes'}`;
 
 function engineFailed(e: unknown): Status {
   return {
     kind: 'error',
-    text: 'The path engine isn’t working, so roads can’t be found right now. Reloading the page usually fixes this.',
+    text: 'The path engine isn’t working, so roads can’t be found right now. Try reloading the page.',
     detail: e instanceof Error ? e.message : String(e),
   };
 }
 
-/** Light a road list on the map (road `pick` of it, or nothing). */
-function show(list: Road[] | null, pick: number): void {
+function say(text: string): void {
+  said.value = { text, n: said.peek().n + 1 };
+}
+
+/** "Three roads from Genesis 3:15 to Revelation 12:9", or without the count
+ *  while the search has not answered (`at` is null). */
+function headline(a: Atlas, list: Road[], at: number | null): string {
+  const ends = list[0].verses;
+  const span = `from ${label(a, ends[0])} to ${label(a, ends[ends.length - 1])}`;
+  if (at === null) return `Roads ${span}`;
+  const n = list.length;
+  return `${COUNT_WORDS[n] ?? n} ${n === 1 ? 'road' : 'roads'} ${span}`;
+}
+
+/** Light a road list on the map (road `pick` of it, or nothing). `at` is the
+ *  vote threshold the list was found with. */
+function show(list: Road[] | null, pick: number, at: number | null = null): void {
   batch(() => {
     roads.value = list;
+    foundAt.value = list ? at : null;
     chosen.value = list && pick >= 0 ? pick : -1;
     S.path.value = list && pick >= 0 ? list[pick] : null;
+    if (!list) took.value = 0;
   });
+}
+
+/** Say something in place of the roads: roads shown before, and their light
+ *  on the map, go, so nothing on screen belongs to an older question. */
+function note(text: string, retry = false): void {
+  batch(() => {
+    show(null, -1);
+    status.value = { kind: 'note', text, retry };
+  });
+  say(text);
+}
+
+/** A road is the whole picture on the map: a theme's ticks, a word's links
+ *  or a verse picked from the steps would muddle it. */
+function clearOthers(): void {
+  S.theme.value = null;
+  S.marks.value = null;
+  S.groupEdges.value = null;
+  S.selected.value = null;
 }
 
 async function run(a: Atlas, f: string, t: string, mv: number): Promise<void> {
@@ -58,40 +101,30 @@ async function run(a: Atlas, f: string, t: string, mv: number): Promise<void> {
   try {
     const [ra, rb] = await Promise.all([eng.parseRef(f), eng.parseRef(t)]);
     if (my !== ticket) return;
-    if (!ra || !rb) {
-      status.value = { kind: 'note', text: `Could not read ${!ra ? `“${f}”` : `“${t}”`}. Try a form like “John 3:16”.` };
-      return;
-    }
-    if (ra[0] === rb[0]) {
-      status.value = { kind: 'note', text: `“${f}” and “${t}” are the same verse. Pick two different verses.` };
-      return;
-    }
+    if (!ra || !rb) return note(`Could not read ${!ra ? `“${f}”` : `“${t}”`}. Try a form like “John 3:16”.`);
+    if (ra[0] === rb[0]) return note(`“${f}” and “${t}” are the same verse. Pick two different verses.`);
     const found = await eng.paths(ra[0], rb[0], mv, MAX_ROADS);
     if (my !== ticket) return;
     if (!found.length) {
-      show(null, -1);
-      status.value = {
-        kind: 'note',
-        text: mv > 1 ? `No chain of links with at least ${mv} votes joins ${label(a, ra[0])} and ${label(a, rb[0])}.` : `No chain of cross-references joins ${label(a, ra[0])} and ${label(a, rb[0])}.`,
-        retry: mv > 1,
-      };
-      return;
+      const ends = `${label(a, ra[0])} and ${label(a, rb[0])}`;
+      return note(mv > 1 ? `No chain of links with at least ${votesWord(mv)} joins ${ends}.` : `No chain of cross-references joins ${ends}.`, mv > 1);
     }
     const ms = eng.lastMs;
+    const list = found.map((r) => ({ ...r, ms }));
     batch(() => {
-      S.theme.value = null;
-      S.marks.value = null;
-      S.groupEdges.value = null;
-      S.selected.value = null;
+      clearOthers();
       took.value = ms;
       status.value = null;
-      show(
-        found.map((r) => ({ ...r, ms })),
-        0,
-      );
+      show(list, 0, mv);
     });
+    say(`${headline(a, list, mv)}.`);
   } catch (e) {
-    if (my === ticket) status.value = engineFailed(e);
+    if (my === ticket) {
+      batch(() => {
+        show(null, -1);
+        status.value = engineFailed(e);
+      });
+    }
   }
 }
 
@@ -106,12 +139,20 @@ function adopt(a: Atlas, p: Road): void {
     from.value = label(a, first);
     to.value = label(a, last);
     minVotes.value = 1;
-    // The restored path is road 1 while the others are found.
-    roads.value = [p];
-    chosen.value = 0;
-    status.value = eng && first !== last ? { kind: 'busy' } : null;
   });
-  if (!eng || first === last) return;
+  if (first === last) {
+    note(`This link starts and ends at ${label(a, first)}. Pick two different verses.`);
+    return;
+  }
+  batch(() => {
+    // The restored path stands in as road 1 until every road is found.
+    roads.value = [p];
+    foundAt.value = null;
+    chosen.value = 0;
+    took.value = 0;
+    status.value = eng ? { kind: 'busy' } : null;
+  });
+  if (!eng) return;
   eng.paths(first, last, 1, MAX_ROADS).then(
     (found) => {
       if (my !== ticket) return;
@@ -121,12 +162,13 @@ function adopt(a: Atlas, p: Road): void {
       // object, so the map does not draw it again.
       if (list.length && list[0].verses.join() === p.verses.join() && list[0].edges.join() === p.edges.join()) list[0] = p;
       batch(() => {
-        took.value = ms;
         status.value = null;
         if (!list.length) return;
+        took.value = ms;
         const lit = S.path.peek();
-        show(list, lit === p ? 0 : list.indexOf(lit as Road));
+        show(list, lit === p ? 0 : list.indexOf(lit as Road), 1);
       });
+      if (list.length) say(`${headline(a, list, 1)}.`);
     },
     (e) => {
       if (my === ticket) status.value = engineFailed(e);
@@ -181,6 +223,7 @@ function choose(i: number): void {
   const list = roads.peek();
   if (!list?.[i]) return;
   batch(() => {
+    clearOthers();
     chosen.value = i;
     S.path.value = list[i];
   });
@@ -279,7 +322,18 @@ function viaVerse(a: Atlas, road: Road): number | null {
 
 /** Keep a phrase on one line. */
 const tie = (s: string) => s.replace(/ /g, '\u00a0');
-const votesWord = (n: number) => `${n} ${n === 1 ? 'vote' : 'votes'}`;
+
+/** "via 1 Thessalonians 1:10", which may wrap before the book or before
+ *  "1:10" but never inside either, so "1:10" cannot read as "1:1". */
+function ViaLabel({ text }: { text: string }) {
+  const cut = text.lastIndexOf(' ');
+  if (cut < 0) return <>via {text}</>;
+  return (
+    <>
+      via {tie(text.slice(0, cut))} <span class="roads-cv">{text.slice(cut + 1)}</span>
+    </>
+  );
+}
 
 function RoadCard({ a, road, i, checked, tabbable }: { a: Atlas; road: Road; i: number; checked: boolean; tabbable: boolean }) {
   const via = viaVerse(a, road);
@@ -298,12 +352,14 @@ function RoadCard({ a, road, i, checked, tabbable }: { a: Atlas; road: Road; i: 
       tabIndex={tabbable ? 0 : -1}
       aria-label={`Road ${i + 1}: ${name}, ${stepWord}${strength ? `, ${strength}` : ''}`}
       onClick={() => choose(i)}
-      onPointerEnter={(e) => e.pointerType === 'mouse' && preview(i)}
+      // A move, not an enter: cards that appear under a resting mouse (after
+      // "Try with every link", say) must not light a road nobody pointed at.
+      onPointerMove={(e) => e.pointerType === 'mouse' && preview(i)}
       onPointerLeave={(e) => e.pointerType === 'mouse' && preview(null)}
     >
       <NightStrip a={a} road={road} color={GOLD[i % GOLD.length]} />
       <span class="roads-text">
-        <b class="roads-via">{via === null ? name : <>via {tie(label(a, via))}</>}</b>
+        <b class="roads-via">{via === null ? name : <ViaLabel text={label(a, via)} />}</b>
         <span class="roads-meta">
           {tie(stepWord)}
           {steps === 1 && ` · ${tie(strength)}`}
@@ -314,10 +370,49 @@ function RoadCard({ a, road, i, checked, tabbable }: { a: Atlas; road: Road; i: 
   );
 }
 
+/** What the roads found do and do not show. Every claim holds for the
+ *  threshold the roads were found with (`at`), and only for it: each road
+ *  after the first is the cheapest that avoids the earlier roads' inner
+ *  verses, so when fewer than three come back, every other road meets one of
+ *  them along the way (or, for a lone direct link, none exists at all). */
+function RoadsNote({ list, at, onRetry }: { list: Road[]; at: number; onRetry: () => void }) {
+  const n = list.length;
+  const links = at > 1 ? ` with links of at least ${votesWord(at)}` : '';
+  let fewer = '';
+  if (n < MAX_ROADS) {
+    if (n === 1 && list[0].verses.length <= 2) fewer = at > 1 ? `No other chain of links with at least ${votesWord(at)} joins them.` : 'No other chain of cross-references joins them.';
+    else fewer = `Every other road${links} meets ${n === 1 ? 'this one' : 'one of these'} along the way.`;
+  }
+  return (
+    <>
+      {n > 1 && (
+        <p class="roads-note">
+          {n === 2 ? 'The two roads share no verse except the two ends.' : 'Each road shares no verse with the others except the two ends.'} Pick one to light it on the map.
+        </p>
+      )}
+      {fewer && (
+        <p class="roads-note">
+          {fewer}
+          {at > 1 && (
+            <>
+              {' '}
+              <button type="button" class="roads-retry" onClick={onRetry}>
+                Try with every link
+              </button>
+            </>
+          )}
+        </p>
+      )}
+    </>
+  );
+}
+
 /** The road cards: a radio group that lights the chosen road on the map. */
-export function RoadCards({ a }: { a: Atlas }) {
+export function RoadCards({ a, onRetry }: { a: Atlas; onRetry: () => void }) {
   const list = roads.value;
   const sel = chosen.value;
+  // While a search runs, the cards shown may not be its answer: no count, no claims.
+  const at = status.value?.kind === 'busy' ? null : foundAt.value;
   const box = useRef<HTMLDivElement>(null);
   const group = useRef<HTMLDivElement>(null);
   // Bring fresh roads into view: below the form, they can start out of sight.
@@ -327,7 +422,6 @@ export function RoadCards({ a }: { a: Atlas }) {
     box.current?.scrollIntoView({ block: 'nearest', behavior: still ? 'auto' : 'smooth' });
   }, [list]);
   if (!list?.length) return null;
-  const ends = list[0].verses;
   const focusAt = sel >= 0 ? sel : 0;
 
   const onKey = (e: KeyboardEvent) => {
@@ -346,46 +440,64 @@ export function RoadCards({ a }: { a: Atlas }) {
   return (
     <div class="roads" ref={box}>
       <h3 class="roads-head" id="roads-head">
-        {COUNT_WORDS[list.length] ?? list.length} {list.length === 1 ? 'road' : 'roads'} from {label(a, ends[0])} to {label(a, ends[ends.length - 1])}
+        {headline(a, list, at)}
       </h3>
       <div class="roads-cards" role="radiogroup" aria-labelledby="roads-head" ref={group} onKeyDown={onKey} style={`--n:${list.length}`}>
         {list.map((r, i) => (
           <RoadCard key={i} a={a} road={r} i={i} checked={i === sel} tabbable={i === focusAt} />
         ))}
       </div>
-      <p class="roads-note">
-        {list.length > 1 ? 'Each road shares no verse with the others except the two ends. Pick one to light it on the map.' : 'No other road joins them without sharing a verse.'}
-      </p>
+      {at !== null && <RoadsNote list={list} at={at} onRetry={onRetry} />}
     </div>
+  );
+}
+
+/** Screen readers hear how each search ended: the roads' heading, or the note
+ *  shown instead. The region is always there, so the change is announced. */
+function Announcer() {
+  const s = said.value;
+  // Words left from before a visit to another tab are not news on return.
+  useEffect(() => () => void (said.value = { text: '', n: said.peek().n + 1 }), []);
+  return (
+    <p class="sr-only" role="status">
+      <span key={s.n}>{s.text}</span>
+    </p>
   );
 }
 
 /** "Finding roads…", or what went wrong, in plain words. */
 export function RoadsStatus({ onRetry }: { onRetry: () => void }) {
   const s = status.value;
-  if (!s) return null;
-  if (s.kind === 'busy') {
-    return (
+  let shown = null;
+  if (s?.kind === 'busy') {
+    shown = (
       <p class="roads-busy" role="status">
         Finding roads…
       </p>
     );
-  }
-  if (s.kind === 'error') {
-    return (
+  } else if (s?.kind === 'error') {
+    shown = (
       <p class="notice roads-notice" role="alert">
         {s.text} <span class="roads-detail">({s.detail})</span>
       </p>
     );
+  } else if (s) {
+    // Read out through the Announcer, so not a live region itself.
+    shown = (
+      <p class="notice roads-notice">
+        {s.text}{' '}
+        {s.retry && (
+          <button type="button" class="roads-retry" onClick={onRetry}>
+            Try with every link
+          </button>
+        )}
+      </p>
+    );
   }
   return (
-    <p class="notice roads-notice" role="status">
-      {s.text}{' '}
-      {s.retry && (
-        <button type="button" class="roads-retry" onClick={onRetry}>
-          Try with every link
-        </button>
-      )}
-    </p>
+    <>
+      <Announcer />
+      {shown}
+    </>
   );
 }
