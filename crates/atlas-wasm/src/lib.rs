@@ -131,6 +131,32 @@ pub extern "C" fn atlas_path(a: u32, b: u32, min_votes: i32) -> i32 {
     }
 }
 
+/// Most roads `atlas_paths` returns, however many are asked for.
+pub const MAX_ROADS: u32 = 8;
+
+/// Up to `k` roads from verse `a` to verse `b`: chains of links that share no
+/// verse except their two ends, cheapest first (see `Adjacency::roads`).
+/// Output: `[count, then per road: n, its n verses, its n - 1 edges]`.
+/// Returns the number of roads (0 when no chain joins the two verses).
+#[no_mangle]
+pub extern "C" fn atlas_paths(a: u32, b: u32, min_votes: i32, k: u32) -> i32 {
+    let Some(s) = state() else { return ERR_NOT_LOADED };
+    let o = out();
+    o.clear();
+    let n = s.adj.verse_count();
+    if a >= n || b >= n {
+        return ERR_BAD_INPUT;
+    }
+    let roads = s.adj.roads(a, b, min_votes.clamp(i16::MIN as i32, i16::MAX as i32) as i16, k.min(MAX_ROADS) as usize);
+    o.push(roads.len() as u32);
+    for p in &roads {
+        o.push(p.verses.len() as u32);
+        o.extend_from_slice(&p.verses);
+        o.extend_from_slice(&p.edges);
+    }
+    roads.len() as i32
+}
+
 /// Neighborhood of `seed`. Output: `[verse, hop]` pairs, then one edge per
 /// discovered verse (the first verse, the seed, has no edge). Returns the
 /// number of verses.
@@ -226,6 +252,45 @@ mod tests {
             assert_eq!(atlas_near(0, 2, 1, 10), 3);
             let mask = alloc::vec![1u8; n as usize];
             assert_eq!(atlas_links_within(mask.as_ptr(), mask.len(), 1), 2);
+
+            // Many roads, in the same test because the engine state is global.
+            // Verses 0 and 70 are joined through 4 (strong) and through 9 (weak).
+            let g = XrefGraph::build(n, alloc::vec![
+                RawEdge { src: 0, dst: 4, span: 1, votes: 50 },
+                RawEdge { src: 4, dst: 70, span: 1, votes: 20 },
+                RawEdge { src: 0, dst: 9, span: 1, votes: 5 },
+                RawEdge { src: 9, dst: 70, span: 1, votes: 5 },
+            ]);
+            let mut w = ContainerWriter::new();
+            w.u32s("vz_bchap", &vz.book_chapter_start);
+            w.u32s("vz_chap", &vz.chapter_start);
+            w.u32s("x_off", &g.off);
+            w.u32s("x_dst", &g.dst);
+            w.u16s("x_span", &g.span);
+            w.i16s("x_votes", &g.votes);
+            let bin = w.finish();
+            let p = atlas_alloc(bin.len());
+            core::ptr::copy_nonoverlapping(bin.as_ptr(), p, bin.len());
+            assert_eq!(atlas_load(p, bin.len()), n as i32);
+            atlas_free(p, bin.len());
+
+            let res = || core::slice::from_raw_parts(atlas_out_ptr(), atlas_out_len()).to_vec();
+            // Edges are numbered by source, strongest first: 0->4, 0->9, 4->70, 9->70.
+            assert_eq!(atlas_paths(0, 70, 1, 3), 2);
+            assert_eq!(res(), [2, 3, 0, 4, 70, 0, 2, 3, 0, 9, 70, 1, 3]);
+            // Road 1 is the single path.
+            assert_eq!(atlas_path(0, 70, 1), 3);
+            assert_eq!(res(), [0, 4, 70, 0, 2]);
+            // A threshold above the weak road's votes leaves one road.
+            assert_eq!(atlas_paths(0, 70, 10, 3), 1);
+            assert_eq!(res(), [1, 3, 0, 4, 70, 0, 2]);
+            assert_eq!(atlas_paths(0, 70, 1, 1), 1);
+            // A verse is its own road; unlinked verses have none.
+            assert_eq!(atlas_paths(5, 5, 1, 3), 1);
+            assert_eq!(res(), [1, 1, 5]);
+            assert_eq!(atlas_paths(0, 2, 1, 3), 0);
+            assert_eq!(res(), [0]);
+            assert_eq!(atlas_paths(0, n, 1, 3), ERR_BAD_INPUT);
         }
     }
 }
