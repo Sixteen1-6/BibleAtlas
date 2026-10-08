@@ -23,6 +23,11 @@ export interface RootWorld {
   /** LSJ also cites papyri / inscriptions somewhere in the entry. */
   p?: 1;
   i?: 1;
+  /**
+   * A grammar word (article, conjunction, particle, preposition, pronoun):
+   * LSJ's entry is about constructions, so the study shows no LSJ line.
+   */
+  g?: 1;
   u?: UbsLink[];
 }
 
