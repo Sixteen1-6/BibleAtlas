@@ -4,68 +4,81 @@ import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
+import { themeVerses } from '../data/thread';
+import { MiniSky } from './ThemeSky';
+import { Few, PreviewRow, ThemeJourney, lightTheme } from './ThemeThread';
 
 // ------------------------------------------------------------ themes
 
 export function Themes({ a }: { a: Atlas }) {
   const active = S.theme.value;
   const t = a.themes.find((x) => x.id === active) ?? null;
-  const verses = useMemo(() => {
-    if (!t) return new Uint32Array();
-    const set = new Set<number>();
-    for (const r of t.roots) for (const v of versesWithRoot(a, r)) set.add(v);
-    return Uint32Array.from([...set].sort((x, y) => x - y));
-  }, [a, t]);
+  const verses = useMemo(() => (t ? themeVerses(a, t) : new Uint32Array()), [a, t]);
   const top = useMemo(() => Array.from(verses).sort((x, y) => a.rank[y] - a.rank[x]).slice(0, 30), [a, verses]);
 
-  const pick = async (id: string | null) => {
-    S.theme.value = id;
-    S.path.value = null;
-    if (!id) {
-      S.marks.value = null;
-      S.groupEdges.value = null;
+  const pick = (id: string | null) => {
+    if (id) {
+      lightTheme(a, id, 'thread');
       return;
     }
-    const th = a.themes.find((x) => x.id === id)!;
-    const set = new Set<number>();
-    for (const r of th.roots) for (const v of versesWithRoot(a, r)) set.add(v);
-    const vs = Uint32Array.from([...set].sort((x, y) => x - y));
-    S.marks.value = { verses: vs, label: `theme:${id}` };
-    S.selected.value = null;
-    const edges = await S.engine.value?.linksWithin(a.n, vs, 2);
-    if (edges && S.theme.value === id) S.groupEdges.value = { edges, label: `${th.name}: ${edges.length.toLocaleString()} links between ${vs.length.toLocaleString()} verses` };
+    S.theme.value = null;
+    S.path.value = null;
+    S.marks.value = null;
+    S.groupEdges.value = null;
   };
+  // Once a theme is chosen the cards fold into a strip, the chosen one first.
+  const cards = t ? [t, ...a.themes.filter((x) => x !== t)] : a.themes;
 
   return (
     <div class="panel">
-      <h2>Themes and images</h2>
-      <p class="muted">Each theme follows specific Hebrew and Greek words, not a hand-picked list, so every lit verse can be checked in the original text.</p>
-      <div class="cards">
-        {a.themes.map((th) => (
-          <button key={th.id} class="card" aria-pressed={active === th.id} onClick={() => pick(active === th.id ? null : th.id)}>
-            <b>{th.name}</b>
-            <p>{th.blurb}</p>
+      <div class="tj-head">
+        <h2>Themes and images</h2>
+        {t && (
+          <button class="tj-all" onClick={() => pick(null)}>
+            All themes
+          </button>
+        )}
+      </div>
+      {t ? (
+        <ThemeJourney key={t.id} a={a} theme={t} />
+      ) : (
+        <p class="muted">Each theme follows specific Hebrew and Greek words, not a hand-picked list, so every lit verse can be checked in the original text.</p>
+      )}
+      {t && <h3>Themes</h3>}
+      <div class={t ? 'tj-strip' : 'cards tj-grid'} role="group" aria-label="Themes">
+        {cards.map((th) => (
+          <button key={th.id} class="card tj-card" aria-pressed={active === th.id} onClick={() => pick(active === th.id ? null : th.id)}>
+            <MiniSky a={a} theme={th} height={t ? 30 : 44} />
+            <span class="tj-cardtext">
+              <b>{th.name}</b>
+              {!t && <span class="tj-blurb">{th.blurb}</span>}
+            </span>
           </button>
         ))}
       </div>
       {t && (
         <>
           <h3>Words traced</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <div class="tj-roots">
             {t.roots.map((r) => (
-              <RootChip key={r} a={a} root={r} />
+              <span key={r} class="tj-root">
+                <RootChip a={a} root={r} />
+                <span class="tj-rootn">{versesWithRoot(a, r).length.toLocaleString()} verses</span>
+              </span>
             ))}
           </div>
           <h3>{verses.length.toLocaleString()} verses</h3>
           <Distribution a={a} verses={verses} />
           <h3>Most connected of them</h3>
-          {top.map((v) => (
-            <div key={v} class="refrow" onClick={() => S.selectVerse(v)}>
-              <span class="ref">{label(a, v)}</span>
-              <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
-              <Snippet a={a} v={v} />
-            </div>
-          ))}
+          <Few key={t.id} items={top} first={5}>
+            {(v) => (
+              <PreviewRow key={v} v={v} class="refrow" onClick={() => S.selectVerse(v)}>
+                <span class="ref">{label(a, v)}</span>
+                <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
+                <Snippet a={a} v={v} />
+              </PreviewRow>
+            )}
+          </Few>
         </>
       )}
       <Provenance>Theme definitions: config/themes.json in the repository, resolved against STEPBible Strong’s numbers at build time.</Provenance>
@@ -207,15 +220,17 @@ export function Hubs({ a }: { a: Atlas }) {
     <div class="panel">
       <h2>Most connected verses</h2>
       <p class="muted">Ranked by PageRank over the cross-reference graph: a verse ranks high when strongly linked verses point to it, the same idea search engines use for pages.</p>
-      {top.map((v, i) => (
-        <div key={v} class="refrow" onClick={() => S.selectVerse(v)}>
-          <span class="ref">
-            {i + 1}. {label(a, v)}
-          </span>
-          <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
-          <Snippet a={a} v={v} max={140} />
-        </div>
-      ))}
+      <Few items={top} first={10}>
+        {(v, i) => (
+          <PreviewRow key={v} v={v} class="refrow" onClick={() => S.selectVerse(v)}>
+            <span class="ref">
+              {i + 1}. {label(a, v)}
+            </span>
+            <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
+            <Snippet a={a} v={v} max={140} />
+          </PreviewRow>
+        )}
+      </Few>
       <Provenance>
         PageRank (damping {a.meta.pagerank.damping}, {a.meta.pagerank.iterations} iterations) computed at build time in Rust over positively voted links, weighted by votes.
       </Provenance>
