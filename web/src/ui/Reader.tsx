@@ -4,7 +4,7 @@
 import { Fragment } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
-import { type Atlas, chapterName, chapterRange } from '../data/atlas';
+import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import * as S from '../state';
@@ -63,8 +63,8 @@ export function Reader({ a }: { a: Atlas }) {
     const v = sel.value;
     const box = root.current;
     if (v === null || !text || !box) return;
-    if (S.holdReaderScroll.peek()) {
-      S.holdReaderScroll.value = false;
+    if (S.holdReaderScroll.peek() === v) {
+      S.holdReaderScroll.value = null;
       return;
     }
     let user = false;
@@ -86,6 +86,7 @@ export function Reader({ a }: { a: Atlas }) {
     const events = ['wheel', 'touchstart', 'pointerdown', 'keydown'] as const;
     for (const ev of events) box.addEventListener(ev, stop, { passive: true });
     return () => {
+      user = true;
       ro.disconnect();
       window.clearTimeout(done);
       for (const ev of events) box.removeEventListener(ev, stop);
@@ -135,7 +136,7 @@ export function Reader({ a }: { a: Atlas }) {
         <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
           Words from other editions
         </button>
-        <span class="hint">Tap a Hebrew or Greek word to study it.</span>
+        <span class="hint">{S.TAP} a Hebrew or Greek word to study it.</span>
       </div>
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
@@ -144,7 +145,7 @@ export function Reader({ a }: { a: Atlas }) {
           const v = start + i;
           const english = tr === 'ESV' && esvReady?.data ? esvReady.data.verses[String(i + 1)] ?? '' : row[0];
           const words = other ? row[1] : row[1].filter((w) => !(w[5] & FLAG.otherEditions));
-          const xc = a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v];
+          const xc = linkCount(a, v);
           const lang = isHebrew ? 'he' : 'gr';
           const indexOf = (w: WordRow) => row[1].indexOf(w);
           return (
@@ -164,7 +165,7 @@ export function Reader({ a }: { a: Atlas }) {
                     }}
                     aria-label={`Show the ${xc} links for verse ${i + 1}`}
                   >
-                    {xc} links ›
+                    {xc} {xc === 1 ? 'link' : 'links'} ›
                   </button>
                 )}
               </div>

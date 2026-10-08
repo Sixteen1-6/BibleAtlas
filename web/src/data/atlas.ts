@@ -237,6 +237,18 @@ export function chapterName(b: BookMeta): string {
   return b.osis === 'Ps' ? 'Psalm' : b.name;
 }
 
+/** How many passages a verse is linked to: a two-way link counts once, and links
+ * readers voted down (zero or fewer net votes) are left out. */
+export function linkCount(a: Atlas, v: number): number {
+  const seen = new Set<number>();
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xVotes[e] > 0) seen.add(a.xDst[e]);
+  for (let i = a.xInOff[v]; i < a.xInOff[v + 1]; i++) {
+    const e = a.xInEdge[i];
+    if (a.xVotes[e] > 0) seen.add(a.xSrc[e]);
+  }
+  return seen.size;
+}
+
 export function label(a: Atlas, v: number, short = false): string {
   const l = locate(a, v);
   const b = a.books[l.book];

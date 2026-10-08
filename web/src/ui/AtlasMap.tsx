@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useSignalEffect } from '@preact/signals';
-import { type Atlas, label, shortName } from '../data/atlas';
+import { type Atlas, label, linkCount, shortName } from '../data/atlas';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
@@ -32,15 +32,12 @@ function useSize(ref: { current: HTMLElement | null }): { w: number; h: number }
   return size;
 }
 
-/** How many links to draw, in plain words: the minimum vote count behind each. */
+/** How many links to draw, in plain words: the minimum net votes behind each. */
 const LEVELS: [string, number, string][] = [
-  ['Strongest', 30, 'Only links that 30 or more readers agreed on'],
-  ['More', 8, 'Links that 8 or more readers agreed on'],
-  ['All', 1, 'Every link with at least one vote'],
+  ['Strongest', 30, 'Only links with 30 or more net votes'],
+  ['More', 8, 'Links with 8 or more net votes'],
+  ['All', 1, 'Every link with at least one net vote'],
 ];
-
-/** Touch screens pinch; mice scroll. */
-const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
 
 const COLOR_MODES: [ArcColorMode, string][] = [
   ['spectrum', 'Spectrum'],
@@ -175,20 +172,25 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const localX = (e: PointerEvent | WheelEvent) => e.clientX - wrap.current!.getBoundingClientRect().left;
   const localY = (e: PointerEvent) => e.clientY - wrap.current!.getBoundingClientRect().top;
 
-  /** The selected verse's arc nearest a point in the sky, if one passes within reach. */
-  const arcAt = (x: number, y: number): { v: number; e: number } | null => {
+  /** The selected verse's arc nearest a point in the sky, if one passes within reach.
+   * Near the baseline every arc crowds into its two ends, so a point there only
+   * counts if the arc has risen clear of the baseline at that x. */
+  const arcAt = (x: number, y: number, touch: boolean): { v: number; e: number } | null => {
     const sel = S.selected.value;
-    if (sel === null || S.path.value || y > h * BASELINE - 12) return null;
-    const x0 = toScreen(xs[sel], S.view.value, w);
+    const reach = touch ? 22 : 10;
     const base = h * BASELINE;
+    if (sel === null || S.path.value || y > base - reach - 2) return null;
+    const x0 = toScreen(xs[sel], S.view.value, w);
     let best: { v: number; e: number } | null = null;
-    let bestD = TOUCH ? 22 : 10;
+    let bestD = reach;
     for (const e of verseEdges(a, sel)) {
       const u = a.xSrc[e] === sel ? a.xDst[e] : a.xSrc[e];
       const x1 = toScreen(xs[u], S.view.value, w);
       if (x < Math.min(x0, x1) || x > Math.max(x0, x1) || x1 === x0) continue;
       const t = (x - x0) / (x1 - x0);
-      const d = Math.abs(y - (base - arcHeight(x0, x1, h, w) * Math.sin(Math.PI * t)));
+      const rise = arcHeight(x0, x1, h, w) * Math.sin(Math.PI * t);
+      if (rise < 2 * reach) continue;
+      const d = Math.abs(y - (base - rise));
       if (d < bestD) {
         bestD = d;
         best = { v: u, e };
@@ -209,6 +211,8 @@ export function AtlasMap({ a }: { a: Atlas }) {
   };
 
   const hoverTimer = useRef(0);
+  /** The far end of the arc under the pointer, so its text is fetched once. */
+  const hoverArc = useRef<number | null>(null);
   const onPointerMove = (e: PointerEvent) => {
     const x = localX(e);
     const d = drag.current;
@@ -232,18 +236,29 @@ export function AtlasMap({ a }: { a: Atlas }) {
     if (e.pointerType === 'touch') return;
     // With a verse selected, the sky shows its arcs: name the one under the pointer.
     if (S.selected.value !== null && !S.path.value && localY(e) < h * BASELINE - 12) {
-      const hit = arcAt(x, localY(e));
+      const hit = arcAt(x, localY(e), false);
       S.hovered.value = null;
       const y = localY(e);
       if (!hit) {
+        hoverArc.current = null;
+        window.clearTimeout(hoverTimer.current);
         setTip(null);
         return;
       }
       const sel = S.selected.value;
-      setTip((t) => (t && t.v === hit.v && t.from === sel ? { ...t, x, y } : { v: hit.v, x, y, from: sel, votes: a.xVotes[hit.e] }));
-      getVerse(a, hit.v).then((row) => setTip((t) => (t && t.v === hit.v ? { ...t, text: row[0] } : t)));
+      if (hoverArc.current === hit.v) {
+        setTip((t) => (t ? { ...t, x, y } : t));
+        return;
+      }
+      hoverArc.current = hit.v;
+      setTip({ v: hit.v, x, y, from: sel, votes: a.xVotes[hit.e] });
+      window.clearTimeout(hoverTimer.current);
+      const show = () => getVerse(a, hit.v).then((row) => setTip((t) => (t && t.v === hit.v && t.from === sel ? { ...t, text: row[0] } : t)));
+      if (isBookLoaded(a.verseBook[hit.v])) show();
+      else hoverTimer.current = window.setTimeout(show, 300);
       return;
     }
+    hoverArc.current = null;
     const v = verseAt(xs, x, S.view.value, w);
     if (S.hovered.value !== v) {
       S.hovered.value = v;
@@ -267,7 +282,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     if (d.pointers.size === 0) {
       if (!d.moved) {
         // A tap on one of the selected verse's arcs follows it to the other end.
-        const hit = arcAt(localX(e), localY(e));
+        const hit = arcAt(localX(e), localY(e), e.pointerType === 'touch');
         const v = hit ? hit.v : verseAt(xs, localX(e), S.view.value, w);
         S.selectVerse(v);
         S.mobilePane.value = 'study';
@@ -278,6 +293,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
   };
 
   const onLeave = () => {
+    hoverArc.current = null;
     S.hovered.value = null;
     setTip(null);
     window.clearTimeout(hoverTimer.current);
@@ -358,33 +374,57 @@ export function AtlasMap({ a }: { a: Atlas }) {
   });
 
   // Where book names no longer fit, name the run of books instead (Law, Gospels...).
+  // A run too narrow for its name tries a shorter one, joined with the next run
+  // when they share it (Daniel and the twelve minor prophets become "Prophets").
   const groupLabels: preact.JSX.Element[] = [];
   {
-    let i = 0;
-    while (i < a.books.length) {
+    const bookEnd = (k: number) => (k + 1 < a.books.length ? a.books[k + 1].start - 1 : a.n - 1);
+    const named = (k: number) => sx(bookEnd(k)) - sx(a.books[k].start) + verseW > 26;
+    const runs: { i: number; j: number; g: string }[] = [];
+    for (let i = 0; i < a.books.length; i++) {
+      if (named(i)) continue;
       const g = a.books[i].genre;
       let j = i;
-      const named = (k: number) => {
-        const end = k + 1 < a.books.length ? a.books[k + 1].start - 1 : a.n - 1;
-        return sx(end) - sx(a.books[k].start) + verseW > 26;
-      };
-      if (named(i)) {
-        i++;
-        continue;
-      }
       while (j + 1 < a.books.length && a.books[j + 1].genre === g && !named(j + 1)) j++;
-      const end = j + 1 < a.books.length ? a.books[j + 1].start - 1 : a.n - 1;
-      const x0 = Math.max(sx(a.books[i].start) - verseW / 2, 0);
-      const x1 = Math.min(sx(end) + verseW / 2, w);
-      const text = GENRE[g].label;
-      if (x1 - x0 > text.length * 6.6 + 6) {
-        groupLabels.push(
-          <text key={`g${i}`} class="grouplabel" x={(x0 + x1) / 2} y={base + 22} text-anchor="middle">
-            {text}
-          </text>,
-        );
+      runs.push({ i, j, g });
+      i = j;
+    }
+    const span = (i: number, j: number) => [Math.max(sx(a.books[i].start) - verseW / 2, 0), Math.min(sx(bookEnd(j)) + verseW / 2, w)];
+    // Where a named book's label sits, as drawn in bookBands, so group labels keep clear of it.
+    const labelEdges = (k: number) => {
+      const [x0, x1] = [sx(a.books[k].start) - verseW / 2, sx(bookEnd(k)) + verseW / 2];
+      const name = x1 - x0 > 90 ? a.books[k].name : shortName(a.books[k]);
+      const cx = Math.min(Math.max((Math.max(x0, 0) + Math.min(x1, w)) / 2, 14), w - 14);
+      return [cx - name.length * 3.2, cx + name.length * 3.2];
+    };
+    let lastRight = 0;
+    let last: { j: number; short?: string } | null = null;
+    for (let k = 0; k < runs.length; k++) {
+      const { i, g } = runs[k];
+      let j = runs[k].j;
+      let [x0, x1] = span(i, j);
+      let text = GENRE[g].label;
+      const short = GENRE[g].short;
+      const width = (t: string) => t.length * 7;
+      if (width(text) > x1 - x0 + 12 && short) {
+        text = short;
+        while (k + 1 < runs.length && runs[k + 1].i === j + 1 && GENRE[runs[k + 1].g].short === short) j = runs[++k].j;
+        [x0, x1] = span(i, j);
+        // "Paul's letters" right before it already says "letters".
+        if (last && last.short === short && last.j + 1 === i) continue;
       }
-      i = j + 1;
+      const tw = width(text);
+      const lo = Math.max(lastRight, i > 0 && named(i - 1) ? labelEdges(i - 1)[1] : 0) + 8;
+      const hi = Math.min(w, j + 1 < a.books.length && named(j + 1) ? labelEdges(j + 1)[0] : w) - 8;
+      const cx = Math.min(Math.max((x0 + x1) / 2, lo + tw / 2), hi - tw / 2);
+      if (x1 <= x0 || tw > x1 - x0 + 12 || cx - tw / 2 < lo - 0.5 || cx < x0 || cx > x1) continue;
+      last = { j, short };
+      lastRight = cx + tw / 2;
+      groupLabels.push(
+        <text key={`g${i}`} class="grouplabel" x={cx} y={base + 22} text-anchor="middle">
+          {text}
+        </text>,
+      );
     }
   }
 
@@ -406,7 +446,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
         return (
           <g key={u}>
             <circle cx={ux} cy={base} r={2.5} fill={ARC.lamp} />
-            <text class="nodelabel" x={ux} y={base - 8} text-anchor="middle" style="font-weight:500;font-size:10.5px">
+            <text class="nodelabel" x={Math.min(Math.max(ux, 32), w - 32)} y={base - 8} text-anchor="middle" style="font-weight:500;font-size:10.5px">
               {label(a, u, true)}
             </text>
           </g>
@@ -478,12 +518,12 @@ export function AtlasMap({ a }: { a: Atlas }) {
         {selection}
         {pathLayer}
         {hoverLine}
-        {tip?.from !== undefined && <path class="hoverarc" d={arcPath(sx(tip.from), sx(tip.v), h, w)} />}
+        {tip?.from !== undefined && tip.from === selV && !p && <path class="hoverarc" d={arcPath(sx(tip.from), sx(tip.v), h, w)} />}
       </svg>
       <canvas class="strip" ref={strip} style={`top:${h - 10}px`} aria-hidden="true" />
       <div class="hud">
         <span>
-          <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} cross-references
+          <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} links shown
           {group ? ` · ${group.label}` : ''}
         </span>
         <div class="votes">
@@ -496,7 +536,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
             ))}
           </div>
         </div>
-        <div class="seg mini" role="group" aria-label="Arc colors">
+        <div class="seg mini colors" role="group" aria-label="Arc colors">
           {COLOR_MODES.map(([m, name]) => (
             <button key={m} aria-pressed={S.arcColor.value === m} onClick={() => (S.arcColor.value = m)}>
               {name}
@@ -506,7 +546,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
         <Legend a={a} mode={S.arcColor.value} />
       </div>
       <div class="zoomhint">
-        {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : TOUCH ? 'Pinch to zoom' : 'Scroll to zoom'}
+        {view.scale > 1.01 ? `${view.scale.toFixed(view.scale < 10 ? 1 : 0)}×` : S.TOUCH ? 'Pinch to zoom' : 'Scroll to zoom'}
         {view.scale > 1.01 && <button onClick={() => setView({ scale: 1, offset: 0 })}>Reset</button>}
         {S.anythingLit.value && (
           <button class="clear" onClick={() => S.clearAll()} title="Clear the selection (Esc)">
@@ -514,15 +554,15 @@ export function AtlasMap({ a }: { a: Atlas }) {
           </button>
         )}
       </div>
-      {tip && (
+      {tip && (tip.from === undefined || (tip.from === selV && !p)) && (
         <div class="tip" style={`left:${Math.min(tip.x + 14, w - 350)}px;top:${Math.min(tip.y + 14, h - 110)}px`}>
           {tip.from !== undefined ? (
             <b>
-              {label(a, tip.from)} and {label(a, tip.v)} · {tip.votes} {tip.votes === 1 ? 'vote links' : 'votes link'} them. Click to open.
+              {label(a, tip.from)} ↔ {label(a, tip.v)} · {tip.votes} {tip.votes === 1 ? 'vote' : 'votes'}. Click to go there.
             </b>
           ) : (
             <b>
-              {label(a, tip.v)} · {(a.xOff[tip.v + 1] - a.xOff[tip.v] + a.xInOff[tip.v + 1] - a.xInOff[tip.v]).toLocaleString()} links
+              {label(a, tip.v)} · {linkCount(a, tip.v).toLocaleString()} links
             </b>
           )}
           {tip.text && <p>{tip.text.length > 160 ? tip.text.slice(0, 157) + '…' : tip.text}</p>}

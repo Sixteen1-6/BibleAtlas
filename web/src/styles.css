@@ -539,6 +539,10 @@ a {
   margin-top: 10px;
   font-size: 13px;
 }
+.linkfacts {
+  font-size: 13px;
+  margin: 8px 0 10px;
+}
 .votesnote {
   font-size: 12.5px;
   color: var(--muted);
@@ -1035,7 +1039,8 @@ a {
   .map {
     height: 38vh;
   }
-  .map .hud .legend {
+  .map .hud .legend,
+  .map .hud .colors {
     display: none;
   }
   .work {

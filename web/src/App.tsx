@@ -3,7 +3,7 @@ import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
 import { ESV_ENABLED } from './data/esv';
 import { Engine } from './engine/client';
 import * as S from './state';
-import { pathFromHash, restoreFromHash, syncHash } from './url';
+import { fromOsis, pathFromHash, restoreFromHash, syncHash } from './url';
 import { AtlasMap } from './ui/AtlasMap';
 import { Connections } from './ui/Connections';
 import { Hubs, Paths, Themes } from './ui/Explore';
@@ -23,7 +23,7 @@ const TABS: [S.Tab, string][] = [
 ];
 
 /** Where a first visit opens: a link the Bible makes itself (1 Peter 2:24 quotes it). */
-const FIRST_VERSE = 'Isaiah 53:5';
+const FIRST_VERSE = 'Isa.53.5';
 
 const THEME_NEXT = { system: 'light', light: 'dark', dark: 'system' } as const;
 const THEME_ICON = {
@@ -62,10 +62,10 @@ export function App() {
         const linked = location.hash.length > 1;
         restoreFromHash(atlas);
         if (!linked && S.welcome.value === 'show') {
-          const r = await eng.parseRef(FIRST_VERSE);
-          if (r) {
-            S.holdReaderScroll.value = true;
-            S.selectVerse(r[0]);
+          const first = fromOsis(atlas, FIRST_VERSE);
+          if (first !== null) {
+            S.holdReaderScroll.value = first;
+            S.selectVerse(first);
           }
         }
         const p = pathFromHash(atlas);

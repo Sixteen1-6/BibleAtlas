@@ -1,6 +1,6 @@
 // Everything a selected verse connects to, and why.
 
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
 import * as S from '../state';
 import { OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
@@ -62,13 +62,12 @@ function LinkRow({ a, from, link, max }: { a: Atlas; from: number; link: Link; m
 
 export function Connections({ a }: { a: Atlas }) {
   const v = S.selected.value;
-  const [all, setAll] = useState(false);
-  const [disputed, setDisputed] = useState(false);
+  // Both reset on their own when another verse is selected.
+  const [allFor, setAllFor] = useState<number | null>(null);
+  const [disputedFor, setDisputedFor] = useState<number | null>(null);
+  const all = allFor === v;
+  const disputed = disputedFor === v;
   const [near, setNear] = useState<{ v: number; verses: number[] } | null>(null);
-  useEffect(() => {
-    setAll(false);
-    setDisputed(false);
-  }, [v]);
   const row = useVerseRow(a, v);
   const every = useMemo(() => (v === null ? [] : links(a, v)), [a, v]);
   // Links that readers voted down (zero or fewer votes) stay hidden until asked for.
@@ -85,7 +84,7 @@ export function Connections({ a }: { a: Atlas }) {
     return (
       <div class="panel">
         <h2>Connections</h2>
-        <p class="empty">Tap a verse on the map or in the text to see every passage it is linked to, how strongly, and which Hebrew or Greek words they share.</p>
+        <p class="empty">{S.TAP} a verse on the map or in the text to see every passage it is linked to, how strongly, and which Hebrew or Greek words they share.</p>
         <div style="display:flex;flex-wrap:wrap;gap:6px">
           {STARTERS.map((s) => (
             <button
@@ -101,8 +100,7 @@ export function Connections({ a }: { a: Atlas }) {
     );
   }
 
-  const out = a.xOff[v + 1] - a.xOff[v];
-  const inc = a.xInOff[v + 1] - a.xInOff[v];
+  const linked = every.length - weak;
   const max = Math.max(1, list[0]?.votes ?? 1);
   const shown = all ? list : list.slice(0, 40);
 
@@ -119,33 +117,29 @@ export function Connections({ a }: { a: Atlas }) {
       <h2>{label(a, v)}</h2>
       {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">…</p>}
       {row && <OrigLine a={a} v={v} row={row} />}
-      <dl class="facts">
-        <dt>Links from here</dt>
-        <dd>{out.toLocaleString()} passages</dd>
-        <dt>Links to here</dt>
-        <dd>{inc.toLocaleString()} passages</dd>
-        <dt>How central</dt>
-        <dd title={`#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} verses by PageRank: verses that well-linked passages point to rank higher`}>{centralWords(hubRank, a.n)}</dd>
-      </dl>
+      <p class="muted linkfacts">
+        Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'} ·{' '}
+        <span title={`#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} verses by PageRank: verses that well-linked passages point to rank higher`}>{centralWords(hubRank, a.n)}</span>
+      </p>
       <button class="btn" onClick={explore}>
         Map its neighborhood, 2 steps out
       </button>
-      {near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. Tap Clear on the map, or another verse, to move on.</p>}
+      {near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
       <h3>
         Linked passages ({list.length.toLocaleString()}), strongest first
       </h3>
-      <p class="muted votesnote">The number is how many OpenBible.info readers voted that the two passages are related.</p>
+      <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>
       {shown.map((l) => (
         <LinkRow key={l.v} a={a} from={v} link={l} max={max} />
       ))}
       {list.length > shown.length && (
-        <button class="btn more" onClick={() => setAll(true)}>
+        <button class="btn more" onClick={() => setAllFor(v)}>
           Show all {list.length}
         </button>
       )}
       {weak > 0 && !disputed && (all || list.length <= shown.length) && (
-        <button class="btn more" onClick={() => setDisputed(true)}>
-          Show {weak} weak or disputed {weak === 1 ? 'link' : 'links'} (zero or fewer votes)
+        <button class="btn more" onClick={() => setDisputedFor(v)}>
+          Show {weak} weak or disputed {weak === 1 ? 'link' : 'links'} (zero or fewer net votes)
         </button>
       )}
       <Provenance>Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared only within one language, so Old-to-New Testament links show none.</Provenance>

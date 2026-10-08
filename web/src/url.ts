@@ -10,7 +10,7 @@ function osis(a: Atlas, v: number): string {
   return `${a.books[l.book].osis}.${l.chapter}.${l.verse}`;
 }
 
-function fromOsis(a: Atlas, s: string): number | null {
+export function fromOsis(a: Atlas, s: string): number | null {
   const [b, c, v] = s.split('.');
   const book = a.books.findIndex((x) => x.osis === b);
   const ch = Number(c);

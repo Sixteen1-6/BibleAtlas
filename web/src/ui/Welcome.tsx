@@ -3,9 +3,9 @@
 import * as S from '../state';
 
 const STARTERS: { title: string; ref: string; why: string }[] = [
-  { title: 'By His stripes', ref: 'Isaiah 53:5', why: 'Written centuries before 1 Peter 2:24, which quotes it.' },
+  { title: 'By His stripes', ref: 'Isaiah 53:5', why: 'Quoted centuries later in 1 Peter 2:24: “By His stripes you are healed.”' },
   { title: 'Lifted up', ref: 'John 3:14', why: 'Jesus points back to the bronze snake Moses lifted up.' },
-  { title: 'A father, a son and a lamb', ref: 'Genesis 22:8', why: '“God Himself will provide the lamb.”' },
+  { title: 'A father, a son and a lamb', ref: 'Genesis 22:8', why: '“God Himself will provide the lamb…” John 1:36: “Look, the Lamb of God!”' },
 ];
 
 export async function openStarter(ref: string): Promise<void> {
@@ -20,8 +20,8 @@ export function Welcome() {
   return (
     <section class="welcome" aria-label="Getting started">
       <p class="lead">
-        Each arc joins two passages that Bible readers have linked. Tap any verse, on the map or in the text, to see what it connects to and the Hebrew or Greek
-        behind it.
+        Each arc joins two passages that Bible readers have linked. {S.TAP} any verse, on the map or in the text, to see what it connects to and the Hebrew or
+        Greek behind it.
       </p>
       <div class="starters">
         {STARTERS.map((s) => (

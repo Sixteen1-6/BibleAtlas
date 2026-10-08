@@ -61,9 +61,14 @@ export const welcome = stored<'show' | 'hidden'>('atlas.welcome', ['show', 'hidd
 export const interlinear = signal(false);
 export const showOtherEditions = signal(false);
 export const paletteOpen = signal(false);
-/** Set when a selection should not scroll the reader (the first-visit default). */
-export const holdReaderScroll = signal(false);
+/** A verse whose selection should not scroll the reader (the first-visit default). */
+export const holdReaderScroll = signal<number | null>(null);
 export const mobilePane = signal<'read' | 'study'>('read');
+
+/** Touch screens tap and pinch; mice click and scroll. */
+export const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+/** "Tap" or "Click", for instructions. */
+export const TAP = TOUCH ? 'Tap' : 'Click';
 
 /** How many cross-references pass the current vote filter. */
 export const visibleEdges = computed(() => {
@@ -80,6 +85,7 @@ export const visibleEdges = computed(() => {
 
 export function selectVerse(v: number | null, opts: { scroll?: boolean; openTab?: boolean } = {}): void {
   const a = atlas.value;
+  if (holdReaderScroll.peek() !== v) holdReaderScroll.value = null;
   selected.value = v;
   path.value = null;
   if (v !== null && a) {
