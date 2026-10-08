@@ -2,23 +2,31 @@
 // verses), with ribbons sized by how many cross-references join each pair.
 //
 // It answers one question: what do these two books say to each other? Tap a
-// ribbon for the verse pairs that join two books, or a book for its key verses
-// and closest partners. The selected verse's book glows, and its own links are
-// drawn as gold chords.
+// ribbon for the verse pairs that join two books, or a book for its most
+// connected verses and closest partners. The selected verse's book glows, and
+// its own links are drawn as gold chords.
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { type Atlas, label, shortName } from '../data/atlas';
 import * as S from '../state';
 import { ARC, GENRE, GENRE_IDS } from './colors';
-import { BookCard, PairCard, TAP, bookEnd, bookFacts, pairTotal } from './WheelCards';
+import { BookCard, CROSS, PairCard, TAP, TOP_PAIRS, bookEnd, bookFacts, pairTotal } from './WheelCards';
 import './wheel.css';
 
 const GAP = 0.006;
-const TOP_PAIRS = 420;
 /** The selected verse's strongest links drawn as chords, as on the arc map. */
 const MAX_CHORDS = 60;
-/** At or below this width the card docks under the wheel instead of beside it. */
-const PHONE = 700;
+/**
+ * At or below this width the card is a sheet under the wheel instead of a card beside it.
+ * It matches styles.css @media (max-width: 900px), where the app stacks the reader and study.
+ */
+const PHONE = 900;
+/** A phone sheet needs this much room under the map; with less (a phone on its side) it covers the map. */
+const SHEET_MIN = 200;
+/** Room the key needs in the wheel's left corners. */
+const KEY_W = 190;
+/** A narrow map at least this much wider than tall puts its caption beside the wheel, not above it. */
+const SIDE_CAPTION = 220;
 /** Book-label font size, in px. */
 const FONT = 10;
 /** Labels sit this far out from the ribbons' rim. */
@@ -120,6 +128,30 @@ function chord(c: number, r: number, p: number, q: number): string {
   return `M${at(p)} Q${(c + Math.cos(m) * r * k).toFixed(1)},${(c + Math.sin(m) * r * k).toFixed(1)} ${at(q)}`;
 }
 
+/**
+ * The book whose stretch of rim an angle falls in: inside a book's arc, that book; in the gap
+ * between books, the one whose middle is nearest, which favors the small books beside a gap.
+ * Lets a tap near a small book, not only exactly on it, find it.
+ */
+function bookAtAngle(geo: Geo, ang: number): number {
+  let t = ang;
+  while (t < -Math.PI / 2) t += TAU;
+  while (t >= (3 * Math.PI) / 2) t -= TAU;
+  const inside = geo.books.findIndex((g) => t >= g.a0 && t <= g.a1);
+  if (inside >= 0) return inside;
+  const off = (d: number) => Math.min(Math.abs(d), TAU - Math.abs(d));
+  let best = 0;
+  let bestD = Infinity;
+  geo.books.forEach((g, i) => {
+    const d = off(t - (g.a0 + g.a1) / 2);
+    if (d < bestD) {
+      bestD = d;
+      best = i;
+    }
+  });
+  return best;
+}
+
 /** A verse's strongest positively voted links (both directions, one per verse), as AtlasMap picks them. */
 function verseLinks(a: Atlas, v: number, limit = MAX_CHORDS): { u: number; votes: number }[] {
   const list: { u: number; votes: number }[] = [];
@@ -204,10 +236,16 @@ function placeLabels(books: Seg[], order: number[], forced: Set<number>, gap: nu
 interface Box {
   W: number;
   H: number;
+  /** The map's top and bottom on screen, and the screen's height: where a phone sheet docks. */
+  top: number;
   bottom: number;
+  vh: number;
 }
 interface Frame {
+  /** The app's stacked layout (narrow screens): the card is a sheet over the reader and the key folds into a pill. */
   phone: boolean;
+  /** The caption runs centered across the top. Otherwise it sits in the top-left corner, beside the wheel. */
+  capTop: boolean;
   /** SVG square: side, top-left corner, and the slide that makes room for a card. */
   s: number;
   x: number;
@@ -216,46 +254,72 @@ interface Frame {
   /** Ribbon radius. */
   r: number;
   capH: number;
+  /** The caption's width when it sits in the corner. */
+  capW: number;
   cardW: number;
+  /** A card is open and the wheel has slid into the corners the caption and key use: they step aside until it closes. */
+  crowd: boolean;
   /** Where labels may run, in root coordinates. */
   free: { x0: number; x1: number; y0: number; y1: number };
 }
 
-function frame({ W, H }: Box, card: boolean): Frame {
+/** Room around the ribbons for labels: 15% of the wheel, 40 to 60 px, but never more than a tiny wheel can spare. */
+const marginFor = (s: number) => Math.min(60, Math.max(40, 0.15 * s), s / 2 - 16);
+
+/**
+ * The wheel's layout in a map of W x H. `labelMax` is the widest book name, so the caption and
+ * key can keep clear of the farthest a label can reach.
+ */
+function frame({ W, H }: Box, card: boolean, labelMax: number): Frame {
   const phone = W <= PHONE;
+  /** The leftmost any label can reach, for a wheel centered at cx with ribbon radius r. */
+  const labelsLeft = (cx: number, r: number) => cx - (r + LABEL_OUT + labelMax + 2);
   if (phone) {
-    const capH = 36;
-    const s = Math.max(180, Math.min(W - 8, H - capH - 2));
-    const margin = Math.min(60, Math.max(40, 0.15 * s));
-    return { phone, s, x: (W - s) / 2, y: capH + Math.max(0, (H - capH - s) / 2), dx: 0, r: s / 2 - margin, capH, cardW: W, free: { x0: 2, x1: W - 2, y0: capH, y1: H - 2 } };
+    // A phone on its side has a wide, short map: the wheel takes the full height and the caption sits beside it.
+    const capTop = W - H < 2 * SIDE_CAPTION;
+    const capH = capTop ? 36 : 0;
+    const s = Math.max(64, Math.min(W - 8, H - capH - (capTop ? 2 : 4)));
+    const x = (W - s) / 2;
+    const y = capTop ? capH + Math.max(0, (H - capH - s) / 2) : (H - s) / 2;
+    const r = s / 2 - marginFor(s);
+    const capW = Math.max(120, Math.min(360, labelsLeft(W / 2, r) - 24));
+    return { phone, capTop, s, x, y, dx: 0, r, capH, capW, cardW: W, crowd: false, free: { x0: 2, x1: W - 2, y0: capH + 2, y1: H - 2 } };
   }
   const s = Math.max(200, Math.min(W, H));
-  const margin = Math.min(60, Math.max(40, 0.15 * s));
-  const r = s / 2 - margin;
+  const r = s / 2 - marginFor(s);
   const x = (W - s) / 2;
   const cardW = Math.round(Math.min(460, Math.max(300, (W - s) / 2 - 24)));
   let dx = 0;
   let x1 = W - 4;
+  let crowd = false;
   if (card) {
     // Slide the wheel left only as far as its right-hand labels need room beside the card.
     const left = W - 16 - cardW;
     dx = Math.max(Math.min(0, left - 12 - (x + s / 2 + r + LABEL_OUT + 64)), 4 - x);
     x1 = left - 8;
+    // On narrower screens that slide reaches the corners where the caption and key sit (tablets, small windows).
+    crowd = labelsLeft(x + dx + s / 2, r) < 16 + KEY_W + 12;
   }
-  return { phone, s, x, y: (H - s) / 2, dx, r, capH: 0, cardW, free: { x0: 4, x1, y0: 4, y1: H - 4 } };
+  const capW = Math.max(170, Math.min(420, labelsLeft(x + dx + s / 2, r) - 28));
+  return { phone, capTop: false, s, x, y: (H - s) / 2, dx, r, capH: 0, capW, cardW, crowd, free: { x0: 4, x1, y0: 4, y1: H - 4 } };
 }
 
-/** Distance from the wheel's center along angle `ang` to the edge of the free area. */
-function reach(f: Frame, ang: number): number {
+/**
+ * How far a label may run from the wheel's center along angle `ang` and stay in the free area.
+ * A label is a box along that line, so its corners stand out sideways by up to half its height.
+ */
+function reach(f: Frame, ang: number, half = FONT * 0.65): number {
   const cx = f.x + f.dx + f.s / 2;
   const cy = f.y + f.s / 2;
   const c = Math.cos(ang);
   const s = Math.sin(ang);
+  const ex = half * Math.abs(s);
+  const ey = half * Math.abs(c);
   let t = Infinity;
-  if (c > 1e-6) t = Math.min(t, (f.free.x1 - cx) / c);
-  if (c < -1e-6) t = Math.min(t, (f.free.x0 - cx) / c);
-  if (s > 1e-6) t = Math.min(t, (f.free.y1 - cy) / s);
-  if (s < -1e-6) t = Math.min(t, (f.free.y0 - cy) / s);
+  if (c > 1e-6) t = Math.min(t, (f.free.x1 - ex - cx) / c);
+  if (c < -1e-6) t = Math.min(t, (f.free.x0 + ex - cx) / c);
+  if (s > 1e-6) t = Math.min(t, (f.free.y1 - ey - cy) / s);
+  if (s < -1e-6) t = Math.min(t, (f.free.y0 + ey - cy) / s);
   return t;
 }
 
@@ -313,6 +377,13 @@ export function Wheel({ a }: { a: Atlas }) {
   const touchOpened = useRef(0);
   /** The highlight came from keyboard focus, so losing focus clears it. */
   const focusLit = useRef(false);
+  /** The last press began on empty sky: only then may its click close the card (a text drag out of the card must not). */
+  const downOnSky = useRef(false);
+  /** A book card's "previous" or "next" button was used: keep focus on it in the next card. */
+  const stepFocus = useRef<'prev' | 'next' | null>(null);
+  /** A finger (or pointer) dragging the phone sheet down by its header. */
+  const drag = useRef<{ id: number; y0: number; dy: number } | null>(null);
+  const svgEl = useRef<SVGSVGElement>(null);
   const sel = S.selected.value;
 
   useLayoutEffect(() => {
@@ -320,7 +391,10 @@ export function Wheel({ a }: { a: Atlas }) {
     if (!el) return;
     const measure = () => {
       const rc = el.getBoundingClientRect();
-      setBox((b) => (b && b.W === rc.width && b.H === rc.height && b.bottom === rc.bottom ? b : { W: rc.width, H: rc.height, bottom: rc.bottom }));
+      const vh = window.innerHeight;
+      setBox((b) =>
+        b && b.W === rc.width && b.H === rc.height && b.top === rc.top && b.bottom === rc.bottom && b.vh === vh ? b : { W: rc.width, H: rc.height, top: rc.top, bottom: rc.bottom, vh },
+      );
     };
     measure();
     const ro = new ResizeObserver(measure);
@@ -377,13 +451,18 @@ export function Wheel({ a }: { a: Atlas }) {
   useLayoutEffect(() => {
     if (!card) return;
     const active = document.activeElement;
-    if (focusCard.current || !active || active === document.body) root.current?.querySelector<HTMLElement>(`#${CARD_TITLE}`)?.focus();
+    const step = stepFocus.current;
+    stepFocus.current = null;
+    const stepBtn = step ? root.current?.querySelector<HTMLElement>(`.wh-step-${step}`) : null;
+    if (stepBtn && (!active || active === document.body)) stepBtn.focus();
+    else if (focusCard.current || !active || active === document.body) root.current?.querySelector<HTMLElement>(`#${CARD_TITLE}`)?.focus();
     focusCard.current = false;
   }, [card]);
 
   const geo = useMemo(() => geometry(a), [a]);
   const B = a.books.length;
-  const f = box ? frame(box, card !== null) : null;
+  const labelMax = useMemo(() => Math.max(...a.books.map((b) => textWidth(b.name))), [a, fontsV]);
+  const f = box ? frame(box, card !== null, labelMax) : null;
 
   const openCard = (next: Card, from: Element | null, viaKeyboard: boolean) => {
     opener.current = viaKeyboard ? from : null;
@@ -448,7 +527,7 @@ export function Wheel({ a }: { a: Atlas }) {
       }),
     [geo, s, r],
   );
-  const colors = useMemo(() => geo.top.map((p) => (p.i < ntStart !== p.j < ntStart ? ARC.testaments : GENRE[a.books[p.i].genre].color)), [geo, a, ntStart]);
+  const colors = useMemo(() => geo.top.map((p) => (p.i < ntStart !== p.j < ntStart ? CROSS : GENRE[a.books[p.i].genre].color)), [geo, a, ntStart]);
 
   const ribbons = useMemo(
     () =>
@@ -492,7 +571,7 @@ export function Wheel({ a }: { a: Atlas }) {
         const p = (geo.books[t.i].a0 + geo.books[t.i].a1) / 2;
         const q = (geo.books[t.j].a0 + geo.books[t.j].a1) / 2;
         const [lo, hi] = t.i < t.j ? [t.i, t.j] : [t.j, t.i];
-        const color = (lo < ntStart) !== (hi < ntStart) ? ARC.testaments : GENRE[a.books[lo].genre].color;
+        const color = (lo < ntStart) !== (hi < ntStart) ? CROSS : GENRE[a.books[lo].genre].color;
         return (
           <path
             key={`${t.i}-${t.j}`}
@@ -604,7 +683,7 @@ export function Wheel({ a }: { a: Atlas }) {
             data-i={i}
             role="button"
             tabindex={i === (focusBook ?? selBook ?? 0) ? 0 : -1}
-            aria-label={`${book.name}: key verses and the books it talks with`}
+            aria-label={`${book.name}: its most connected verses and the books it talks with`}
           >
             <path class="wh-bhit" d={`M${pt(g.a0, r + 1)} A${r + 1},${r + 1} 0 0 1 ${pt(g.a1, r + 1)} L${pt(g.a1, r + 13)} A${r + 13},${r + 13} 0 0 0 ${pt(g.a0, r + 13)}Z`} />
             <path
@@ -631,6 +710,8 @@ export function Wheel({ a }: { a: Atlas }) {
   }
 
   // --- interaction -----------------------------------------------------------
+  // Pointer handling lives on the root, so a tap just outside the SVG's square (where long
+  // labels run) still finds its book. Events from the card and the key are theirs alone.
   const ribbonOf = (t: EventTarget | null): { el: Element; k: number } | null => {
     const el = (t as Element | null)?.closest?.('[data-k]');
     return el ? { el, k: Number(el.getAttribute('data-k')) } : null;
@@ -639,15 +720,50 @@ export function Wheel({ a }: { a: Atlas }) {
     const el = (t as Element | null)?.closest?.('[data-i]');
     return el ? { el, i: Number(el.getAttribute('data-i')) } : null;
   };
+  const inPanel = (t: EventTarget | null) => !!(t as Element | null)?.closest?.('.wh-card, .wh-legend');
+  const isSky = (t: EventTarget | null) => t === root.current || t === svgEl.current;
+  /** A point over the rim (the ring of book arcs and labels) but on no element: the book whose stretch of rim it is. */
+  const rimBook = (x: number, y: number): number | null => {
+    const el = svgEl.current;
+    if (!el || !f) return null;
+    const rc = el.getBoundingClientRect();
+    const px = x - (rc.left + rc.width / 2);
+    const py = y - (rc.top + rc.height / 2);
+    const d = Math.hypot(px, py);
+    if (d < f.r - 6 || d > f.r + LABEL_OUT + 60) return null;
+    return bookAtAngle(geo, Math.atan2(py, px));
+  };
+  type Hit = { kind: 'thread'; i: number; j: number } | { kind: 'rib'; k: number; el: Element } | { kind: 'book'; i: number; el: Element | null } | null;
+  const hitAt = (t: EventTarget | null, x: number, y: number): Hit => {
+    if (!t || inPanel(t)) return null;
+    const th = (t as Element).closest?.('[data-pair]');
+    if (th) {
+      const [i, j] = th.getAttribute('data-pair')!.split('-').map(Number);
+      return { kind: 'thread', i, j };
+    }
+    const rb = ribbonOf(t);
+    if (rb) return { kind: 'rib', ...rb };
+    const bk = bookOf(t);
+    if (bk) return { kind: 'book', ...bk };
+    const i = rimBook(x, y);
+    return i === null ? null : { kind: 'book', i, el: null };
+  };
+  const openHit = (h: NonNullable<Hit>, viaKeyboard: boolean) => {
+    if (h.kind === 'thread') openCard({ kind: 'pair', i: h.i, j: h.j }, null, false);
+    else if (h.kind === 'rib') openPair(h.k, h.el, viaKeyboard);
+    else openBook(h.i, h.el, viaKeyboard);
+  };
 
-  const onPointerOver = (e: PointerEvent) => {
-    const rb = ribbonOf(e.target);
-    if (rb) return setHot((h) => (h?.kind === 'rib' && h.k === rb.k ? h : { kind: 'rib', k: rb.k }));
-    const bk = bookOf(e.target);
-    if (bk) return setHot((h) => (h?.kind === 'book' && h.i === bk.i ? h : { kind: 'book', i: bk.i }));
+  // Pointing lights what is under the pointer; along the rim that includes small books
+  // with no label, whose name then appears. A finger can scrub the rim to find one.
+  const pointAt = (e: PointerEvent) => {
+    const h = hitAt(e.target, e.clientX, e.clientY);
+    if (h?.kind === 'rib') return setHot((o) => (o?.kind === 'rib' && o.k === h.k ? o : { kind: 'rib', k: h.k }));
+    if (h?.kind === 'book') return setHot((o) => (o?.kind === 'book' && o.i === h.i ? o : { kind: 'book', i: h.i }));
     setHot(null);
   };
   const onPointerDown = (e: PointerEvent) => {
+    downOnSky.current = isSky(e.target) && hitAt(e.target, e.clientX, e.clientY) === null;
     // A finger can scrub across the wheel: let other ribbons see it pass.
     if (e.pointerType === 'touch') {
       const el = e.target as Element;
@@ -656,28 +772,22 @@ export function Wheel({ a }: { a: Atlas }) {
   };
   const onPointerUp = (e: PointerEvent) => {
     if (e.pointerType !== 'touch') return;
-    const under = document.elementFromPoint(e.clientX, e.clientY);
-    const rb = ribbonOf(under);
-    const bk = rb ? null : bookOf(under);
-    if (rb) openPair(rb.k);
-    else if (bk) openBook(bk.i);
-    if (rb || bk) touchOpened.current = performance.now();
+    const h = hitAt(document.elementFromPoint(e.clientX, e.clientY), e.clientX, e.clientY);
+    if (h) {
+      openHit(h, false);
+      touchOpened.current = performance.now();
+    }
     setHot(null);
   };
   const onClick = (e: MouseEvent) => {
+    if (inPanel(e.target)) return;
     // A tap was already handled when the finger lifted; its click can land on a neighbor.
     if (performance.now() - touchOpened.current < 500) return;
-    const th = (e.target as Element | null)?.closest?.('[data-pair]');
-    if (th) {
-      const [i, j] = th.getAttribute('data-pair')!.split('-').map(Number);
-      return openCard({ kind: 'pair', i, j }, null, false);
-    }
-    const rb = ribbonOf(e.target);
-    if (rb) return openPair(rb.k, rb.el, e.detail === 0);
-    const bk = bookOf(e.target);
-    if (bk) return openBook(bk.i, bk.el, e.detail === 0);
-    // A tap on empty sky closes the card.
-    if (card && e.target === e.currentTarget) closeCard();
+    const h = hitAt(e.target, e.clientX, e.clientY);
+    if (h) return openHit(h, e.detail === 0);
+    // A tap on empty sky closes the card, but only when the press began there too:
+    // selecting a verse's text and letting go just past the card must not close it.
+    if (card && isSky(e.target) && downOnSky.current) closeCard();
   };
 
   const onKeyDown = (e: KeyboardEvent) => {
@@ -725,10 +835,43 @@ export function Wheel({ a }: { a: Atlas }) {
     if (f?.phone) closeCard();
   };
 
+  // The phone sheet can be pulled down by its header (or its grabber) to close it, by finger or pen.
+  // A mouse drag there selects text instead; the mouse has the close button and Esc.
+  const reduceMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const onSheetDown = (e: PointerEvent) => {
+    const t = e.target as Element;
+    if (e.pointerType === 'mouse' || e.button > 0 || !(t === e.currentTarget || (t.closest('.wh-head') && !t.closest('button, a')))) return;
+    drag.current = { id: e.pointerId, y0: e.clientY, dy: 0 };
+    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+  };
+  const onSheetMove = (e: PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    d.dy = Math.max(0, e.clientY - d.y0);
+    const el = e.currentTarget as HTMLElement;
+    el.style.transition = 'none';
+    el.style.transform = d.dy ? `translateY(${d.dy.toFixed(0)}px)` : '';
+  };
+  const onSheetUp = (e: PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    drag.current = null;
+    const el = e.currentTarget as HTMLElement;
+    if (e.type === 'pointerup' && d.dy > 60) {
+      if (reduceMotion()) return closeCard();
+      el.style.transition = 'transform 0.16s ease-in';
+      el.style.transform = 'translateY(100%)';
+      setTimeout(closeCard, 160);
+      return;
+    }
+    el.style.transition = reduceMotion() ? '' : 'transform 0.18s ease';
+    el.style.transform = '';
+  };
+
   // --- caption ---------------------------------------------------------------
   let caption: preact.ComponentChildren = (
     <>
-      <span>{TAP} a ribbon to see the verses that join two books.</span> <span>{TAP} a book for its key verses.</span>
+      <span>{TAP} a ribbon to see the verses that join two books.</span> <span>{TAP} a book for its most connected verses.</span>
     </>
   );
   if (hot?.kind === 'rib') {
@@ -750,21 +893,29 @@ export function Wheel({ a }: { a: Atlas }) {
     );
   }
 
+  // A phone sheet docks under the map; when too little room is left there (a phone on its side) it covers the map.
+  const sheetTop = box ? Math.round(box.vh - box.bottom >= SHEET_MIN ? box.bottom : box.top) : 0;
   const dim = focusing ? ' wh-dim' : chordFrom !== null && chords.length ? ' wh-soft' : '';
+  const layout = f ? `${f.phone ? ' wh-phone' : ''}${f.capTop ? ' wh-captop' : ''}${f.crowd ? ' wh-crowd' : ''}` : '';
   return (
     <div
-      class={`wh-root${f?.phone ? ' wh-phone' : ''}${entering ? ' wh-enter' : ''}${dim}`}
+      class={`wh-root${layout}${entering ? ' wh-enter' : ''}${dim}`}
       ref={root}
-      style={box ? `--wh-top:${Math.round(box.bottom)}px` : undefined}
+      style={box ? `--wh-top:${sheetTop}px` : undefined}
       // Focus listeners live here, not on the <svg>: Chromium puts an SVG with focus listeners in the tab order.
       onFocusIn={onFocusIn}
       onFocusOut={onFocusOut}
-      onClick={(e) => {
-        if (card && e.target === e.currentTarget && performance.now() - touchOpened.current >= 500) closeCard();
-      }}
+      onPointerOver={pointAt}
+      onPointerMove={pointAt}
+      onPointerLeave={() => setHot(null)}
+      onPointerCancel={() => setHot(null)}
+      onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
+      onClick={onClick}
     >
       {f && (
         <svg
+          ref={svgEl}
           class="wh-svg"
           width={s}
           height={s}
@@ -773,12 +924,6 @@ export function Wheel({ a }: { a: Atlas }) {
           role="group"
           aria-label="Wheel of the 66 books. Ribbons join books that cite each other, sized by how many links they share."
           aria-describedby="wh-hint"
-          onPointerOver={onPointerOver}
-          onPointerLeave={() => setHot(null)}
-          onPointerCancel={() => setHot(null)}
-          onPointerDown={onPointerDown}
-          onPointerUp={onPointerUp}
-          onClick={onClick}
           onKeyDown={onKeyDown}
         >
           <g class="wh-ribs">{ribbons}</g>
@@ -794,14 +939,44 @@ export function Wheel({ a }: { a: Atlas }) {
       <p id="wh-hint" class="sr-only">
         Arrow keys move between ribbons, strongest first, or between books. Enter opens a card; Escape closes it.
       </p>
-      <p class="wh-caption" style={f && !f.phone ? `max-width:${Math.max(170, Math.min(420, f.x + f.dx - 28)).toFixed(0)}px` : undefined}>
+      <p class="wh-caption" style={f && !f.capTop ? `max-width:${f.capW.toFixed(0)}px` : undefined}>
         {caption}
       </p>
-      {f && <Legend a={a} phone={f.phone} chordFrom={chordFrom} chordCount={chords.length} maxWidth={f.phone ? undefined : Math.max(170, Math.min(420, f.x + f.dx - 28))} />}
+      {f && <Legend a={a} phone={f.phone} chordFrom={chordFrom} chordCount={chords.length} maxWidth={f.phone ? undefined : f.capW} />}
       {f && card && (
-        <aside class="wh-card" role="region" aria-labelledby={CARD_TITLE} style={f.phone ? undefined : `width:${f.cardW}px`}>
+        <aside
+          class="wh-card"
+          role="region"
+          aria-labelledby={CARD_TITLE}
+          style={f.phone ? undefined : `width:${f.cardW}px`}
+          // On a phone the sources live in the Study pane, under this sheet: go there. The tab is set
+          // here too, because closing the card unmounts the button before its own click handler runs.
+          onClickCapture={(e) => {
+            if (f.phone && (e.target as Element).closest?.('.provenance button')) {
+              S.mobilePane.value = 'study';
+              S.tab.value = 'sources';
+              closeCard();
+            }
+          }}
+          onPointerDown={f.phone ? onSheetDown : undefined}
+          onPointerMove={f.phone ? onSheetMove : undefined}
+          onPointerUp={f.phone ? onSheetUp : undefined}
+          onPointerCancel={f.phone ? onSheetUp : undefined}
+        >
           {card.kind === 'pair' ? (
-            <PairCard key={`p${card.i}-${card.j}`} a={a} i={card.i} j={card.j} titleId={CARD_TITLE} selected={sel} onPick={pick} onPreview={setPreview} onClose={closeCard} onBook={(i) => openBook(i, null, false)} />
+            <PairCard
+              key={`p${card.i}-${card.j}`}
+              a={a}
+              i={card.i}
+              j={card.j}
+              hasRibbon={geo.index.has(Math.min(card.i, card.j) * B + Math.max(card.i, card.j))}
+              titleId={CARD_TITLE}
+              selected={sel}
+              onPick={pick}
+              onPreview={setPreview}
+              onClose={closeCard}
+              onBook={(i) => openBook(i, null, false)}
+            />
           ) : (
             <BookCard
               key={`b${card.i}`}
@@ -812,6 +987,10 @@ export function Wheel({ a }: { a: Atlas }) {
               onPick={pick}
               onPreview={setPreview}
               onClose={closeCard}
+              onStep={(d) => {
+                stepFocus.current = d < 0 ? 'prev' : 'next';
+                openBook((card.i + d + B) % B, null, false);
+              }}
               onPair={(j) => openCard({ kind: 'pair', i: Math.min(card.i, j), j: Math.max(card.i, j) }, null, false)}
               onRead={() => {
                 S.reading.value = { book: card.i, chapter: 1 };
@@ -838,7 +1017,7 @@ function Legend({ a, phone, chordFrom, chordCount, maxWidth }: { a: Atlas; phone
         Links within a Testament
       </li>
       <li>
-        <i class="wh-sw" style={`background:${ARC.testaments}`} />
+        <i class="wh-sw" style={`background:${CROSS}`} />
         Links between the Testaments
       </li>
       {chordFrom !== null && chordCount > 0 && (
