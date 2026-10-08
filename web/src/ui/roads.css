@@ -1,0 +1,263 @@
+/* Many roads (ui/Roads.tsx and the Paths panel): up to three chains of
+   cross-references between two verses, each a gold road on its own small
+   night sky. Every class starts with roads-. Colors come from the tokens in
+   styles.css, so light and dark follow the page theme; the strips stay a
+   night sky, like the map. */
+
+/* ------------------------------------------------------------ the form */
+
+.roads-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 10px;
+  margin-top: 12px;
+}
+.roads-form .field {
+  min-width: 0;
+}
+.roads-form .field input {
+  width: 100%;
+  min-width: 0;
+}
+.roads-go {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+.roads-go .roads-find {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+  font-weight: 600;
+  padding: 6px 16px;
+}
+.roads-go .roads-find:hover {
+  filter: brightness(1.07);
+}
+.roads-opts {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.roads-opts summary {
+  cursor: pointer;
+  padding: 4px 0;
+}
+.roads-opts summary:hover {
+  color: var(--ink);
+}
+.roads-opts[open] {
+  flex-basis: 100%;
+}
+.roads-opts input[type='range'] {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  margin: 6px 0 4px;
+  accent-color: var(--accent);
+}
+.roads-go .roads-opts p {
+  margin: 0;
+  max-width: 34em;
+  line-height: 1.45;
+}
+
+.roads-try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.roads-try > span {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-right: 2px;
+}
+.roads-try .chip {
+  padding: 4px 11px;
+  font-size: 12.5px;
+  color: var(--ink);
+  transition:
+    border-color 0.15s,
+    background-color 0.15s;
+}
+.roads-try .chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ------------------------------------------------------------ status */
+
+.panel .roads-busy {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  /* Most queries take a few milliseconds: say nothing unless one is slow. */
+  animation: roads-fade 0.2s 0.25s both;
+}
+@keyframes roads-fade {
+  from {
+    opacity: 0;
+  }
+}
+.panel .roads-notice {
+  margin: 12px 0 0;
+}
+.roads-detail {
+  color: var(--muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.roads-retry {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--link);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------ the cards */
+
+.roads {
+  container-type: inline-size;
+  /* Room for the sticky tab bar when the roads are scrolled into view. */
+  scroll-margin: 56px 0 12px;
+}
+.panel .roads-head {
+  margin: 18px 0 8px;
+}
+/* One road per row, its sky beside its words; the skies share one scale, so
+   the roads can be compared at a glance. Wide panels put them side by side. */
+.roads-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+.roads-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 5px 10px 5px 5px;
+  text-align: left;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    box-shadow 0.15s;
+}
+.roads-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+}
+.roads-card[aria-checked='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.roads-sky {
+  display: block;
+  flex: 0 0 46%;
+  max-width: 200px;
+  height: 46px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(160, 172, 235, 0.12);
+}
+.roads-sky svg {
+  display: block;
+  transition: opacity 0.2s;
+}
+.roads-card[aria-checked='false'] .roads-sky svg {
+  opacity: 0.72;
+}
+.roads-card:hover .roads-sky svg {
+  opacity: 1;
+}
+.roads-base {
+  fill: none;
+  stroke: rgba(160, 172, 235, 0.22);
+  stroke-width: 1;
+}
+.roads-ticks {
+  fill: none;
+  stroke: rgba(241, 236, 223, 0.2);
+  stroke-width: 1;
+}
+.roads-divide {
+  fill: none;
+  stroke: rgba(241, 236, 223, 0.45);
+  stroke-width: 1;
+}
+.roads-glow,
+.roads-arc {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: var(--len);
+  stroke-dashoffset: var(--len);
+  animation: roads-draw 0.8s ease-out var(--delay, 0s) forwards;
+}
+.roads-glow {
+  stroke-width: 4;
+  opacity: 0.28;
+}
+.roads-arc {
+  stroke-width: 1.5;
+}
+@keyframes roads-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .roads-glow,
+  .roads-arc {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+.roads-text {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+.roads-via {
+  font: 600 14px/1.3 var(--font-read);
+  overflow-wrap: anywhere;
+}
+.roads-meta {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.roads .roads-note {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* Wide panels (a tablet, say): the roads side by side, each sky above its words. */
+@container (min-width: 560px) {
+  .roads-cards {
+    grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr));
+    gap: 8px;
+  }
+  .roads-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+    padding: 5px 5px 8px;
+  }
+  .roads-sky {
+    flex: none;
+    max-width: none;
+  }
+  .roads-text {
+    padding: 0 4px;
+  }
+}
