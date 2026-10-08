@@ -295,8 +295,8 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
       const toks = tokens(texts[v] ?? '');
       // Longest stretch of the verse that reads like the query: consecutive
       // verse words matching query words in order. Skipping a query word
-      // ("eye for an eye" vs "eye for eye") or swapping one ("looks at the
-      // heart" vs "looks on the heart") costs half a word.
+      // ("eye for an eye" vs "eye for eye") or swapping one ("walk in the
+      // light" vs "walk into the light") costs half a word.
       let run = 0;
       for (let i = 0; i < toks.length; i++) {
         for (let q = 0; q < pos.length; q++) {
@@ -311,7 +311,7 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
               qi += 2;
               got += 0.5;
             } else if (qi + 2 < pos.length && j + 1 < toks.length && pos[qi + 2].has(toks[j + 1])) {
-              // A different word in the same place ("looks on the heart").
+              // A different word in the same place ("into" for "in").
               qi += 2;
               j += 1;
               got += 1.5;
