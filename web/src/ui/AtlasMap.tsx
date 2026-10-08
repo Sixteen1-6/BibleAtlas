@@ -4,6 +4,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useSignalEffect } from '@preact/signals';
 import { type Atlas, label, linkCount, shortName } from '../data/atlas';
+import { passageAt, passages } from '../data/layers';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
@@ -453,8 +454,21 @@ export function AtlasMap({ a }: { a: Atlas }) {
           </g>
         );
       });
+    // Links a layer of meaning makes that no cross-reference covers: drawn dashed.
+    // (Not while the map is hidden, as on a phone showing the text: it has no size to draw in.)
+    const passage = w > 0 ? passageAt(passages.value, selV) : null;
+    const unseen = new Map<number, number>();
+    for (const l of passage?.layers ?? []) {
+      for (const r of l.refs) if (!r.arc && (r.s < passage!.v || r.s > passage!.end)) unseen.set(r.s, sx(r.s));
+    }
     selection = (
       <g>
+        {[...unseen].map(([u, ux]) => (
+          <g key={`l${u}`}>
+            <path class="layerarc" d={arcPath(x, ux, h, w)} />
+            <circle cx={ux} cy={base} r={2.5} fill={ARC.lamp} />
+          </g>
+        ))}
         <line x1={x} x2={x} y1={base} y2={base + 40} stroke="rgba(255,210,122,0.5)" stroke-dasharray="2 3" />
         <circle cx={x} cy={base} r={4} fill={ARC.lamp} />
         <text class="nodelabel" x={Math.min(Math.max(x, 50), w - 50)} y={base + 52} text-anchor="middle" style="fill:var(--lamp)">

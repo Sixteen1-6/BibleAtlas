@@ -1,0 +1,844 @@
+{
+  "_comment": [
+    "Layers of meaning: short notes on one passage, from the plain meaning outward.",
+    "kind: plain meaning, quotation, allusion, wordplay, name meaning, pattern, irony, fulfillment or setting.",
+    "strength: widely agreed (the Bible itself, a BSB footnote, or words the build can check), commonly held (an openly licensed source in the repo), or some interpreters.",
+    "refs: passages the layer rests on. words: Strong's keys the build looks for in those verses, so readers can tap them.",
+    "evidence: where a claim comes from (a lexicon, a manuscript), shown at the Deep level, so the note itself stays plain.",
+    "Any quotation of four or more words must match the BSB in one of the layer's refs or the passage itself.",
+    "reviewed_by: the people who checked the entry. Entries nobody has reviewed are drafts and stay out of the published data; ATLAS_LAYER_DRAFTS=1 make data includes them for a local preview.",
+    "atlas build checks every rule and stops at the first error."
+  ],
+  "passages": [
+    {
+      "id": "isaiah-53-5",
+      "ref": "Isaiah 53:5",
+      "saying": "He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 52:13", "Isaiah 53:4-6"],
+          "text": "Isaiah describes the LORD's servant suffering for wrongs that are not His own. Watch the pronouns: the wounds are His, the transgressions are ours, and the peace and the healing come to us."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 53:5", "1 Peter 2:24", "1 Peter 2:18-20"],
+          "words": [
+            { "ref": "Isaiah 53:5", "strong": "H2250" },
+            { "ref": "1 Peter 2:24", "strong": "G3468" }
+          ],
+          "evidence": "TBESH defines chabburah as a bruise or welt; the Greek word is molops (TBESG)",
+          "text": "Peter quotes this line to household servants who suffered unjustly: \"By His stripes you are healed.\" Isaiah's \"we\" becomes \"you.\" Isaiah's Hebrew word for stripes means a welt or bruise. Peter uses the Greek word the Greek Old Testament uses here, and it appears nowhere else in the New Testament."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 53:4", "Matthew 8:16-17", "1 Peter 2:24"],
+          "text": "Matthew quotes the verse just before this one when Jesus heals the sick: \"He took on our infirmities and carried our diseases.\" Peter applies the chapter to our sins; Matthew shows its healing reaching the body too."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Isaiah 53:5", "Isaiah 53:10", "Isaiah 53:4"],
+          "words": [
+            { "ref": "Isaiah 53:5", "strong": "H1792" },
+            { "ref": "Isaiah 53:10", "strong": "H1792" }
+          ],
+          "text": "\"Crushed\" is the Hebrew daka, and it returns five verses later: \"it was the LORD’s will to crush Him.\" Onlookers thought God was striking Him (53:4). The chapter answers that He was crushed for our iniquities, and that even this served God's purpose."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Romans 4:25", "Isaiah 53:6", "Isaiah 53:12"],
+          "words": [
+            { "ref": "Romans 4:25", "strong": "G3860" }
+          ],
+          "text": "Paul's \"He was delivered over to death for our trespasses\" is widely heard as an echo of this chapter, where the LORD lays on the servant \"the iniquity of us all\" and He \"bore the sin of many.\" The Greek Old Testament there uses Paul's verb for handing over (paradidomi)."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Acts 8:32-35", "Isaiah 53:7-8", "Isaiah 49:3"],
+          "text": "Who is the servant? An Ethiopian official reading this chapter asked, \"who is the prophet talking about, himself or someone else?\" Isaiah sometimes calls Israel itself God's servant (49:3). Philip \"began with this very Scripture and told him the good news about Jesus.\""
+        }
+      ]
+    },
+    {
+      "id": "genesis-2-7",
+      "ref": "Genesis 2:7",
+      "saying": "the LORD God formed man from the dust of the ground and breathed the breath of life into his nostrils",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Genesis 2:7"],
+          "text": "God shapes the first human from the soil and gives him life with His own breath. Human life is both earthy and God-given."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Genesis 2:7", "Genesis 3:19", "Genesis 2:5"],
+          "words": [
+            { "ref": "Genesis 2:7", "strong": "H0120" },
+            { "ref": "Genesis 2:7", "strong": "H0127" },
+            { "ref": "Genesis 2:5", "strong": "H0120" },
+            { "ref": "Genesis 2:5", "strong": "H0127" },
+            { "ref": "Genesis 3:19", "strong": "H0127" }
+          ],
+          "text": "In Hebrew the man is adam and the ground is adamah: the earthling is named after the earth he came from. The pun runs through the story: there was no adam to work the adamah (2:5), and after the fall he will return to the adamah he was taken from (3:19)."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Genesis 2:7", "1 Corinthians 15:45"],
+          "text": "Paul quotes this verse, \"The first man Adam became a living being,\" and sets beside it \"the last Adam,\" Christ, who does not only receive life but gives it."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Genesis 2:7", "Romans 5:14", "1 Corinthians 15:22"],
+          "words": [
+            { "ref": "Romans 5:14", "strong": "G5179" }
+          ],
+          "text": "Paul calls Adam \"a pattern of the One to come\" (the Greek word is typos, a type). As one man brought death to all, one man brings life to all."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Genesis 2:7", "John 20:22"],
+          "words": [
+            { "ref": "John 20:22", "strong": "G1720" }
+          ],
+          "evidence": "Abbott-Smith's lexicon (in TBESG) cites Genesis 2:7 for this verb in the Greek Old Testament",
+          "text": "After rising, Jesus \"breathed on\" His disciples and said, \"Receive the Holy Spirit.\" The verb appears nowhere else in the New Testament, and it is the verb the Greek Old Testament uses in Genesis 2:7. A new creation begins with a new breath."
+        }
+      ]
+    },
+    {
+      "id": "genesis-22-8",
+      "ref": "Genesis 22:8",
+      "saying": "God Himself will provide the lamb for the burnt offering, my son.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Genesis 22:2", "Genesis 22:12-13"],
+          "text": "God tests Abraham by asking for Isaac, then stops his hand and provides a ram to offer in Isaac's place."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Genesis 22:8", "Genesis 22:14"],
+          "words": [
+            { "ref": "Genesis 22:8", "strong": "H7200" },
+            { "ref": "Genesis 22:14", "strong": "H7200" }
+          ],
+          "text": "\"Provide\" is the Hebrew verb ra'ah, \"to see.\" Abraham names the place \"The LORD Will Provide\" (literally \"will see\"), and the saying grows: \"On the mountain of the LORD it will be provided,\" or more literally, it will be seen. God sees the need and meets it."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Genesis 22:2", "2 Chronicles 3:1"],
+          "words": [
+            { "ref": "Genesis 22:2", "strong": "H4179" },
+            { "ref": "2 Chronicles 3:1", "strong": "H4179" },
+            { "ref": "2 Chronicles 3:1", "strong": "H7200" }
+          ],
+          "text": "Moriah is named in only one other verse: Solomon builds the temple \"on Mount Moriah, where the LORD had appeared\" (the same verb, ra'ah). Most readers take it as the same place, so the mountain of the substitute ram becomes the place of Israel's sacrifices."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Genesis 22:12", "Hebrews 11:17-19"],
+          "words": [
+            { "ref": "Hebrews 11:19", "strong": "G3850" }
+          ],
+          "text": "Hebrews says Abraham reasoned that God could raise the dead, and that \"in a sense\" (literally \"in a parable\") he received Isaac back from death."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Genesis 22:12", "Romans 8:32", "Genesis 22:2", "Mark 1:11"],
+          "words": [
+            { "ref": "Genesis 22:2", "strong": "H3173" },
+            { "ref": "Mark 1:11", "strong": "G0027" }
+          ],
+          "evidence": "Abbott-Smith's lexicon (in TBESG) notes that the Greek Old Testament often renders yachid with this word",
+          "text": "\"You have not withheld your only son\" returns in Paul's \"He who did not spare His own Son\" (Romans 8:32). The Greek Old Testament calls Isaac Abraham's \"beloved\" son, a word it often uses for yachid, \"only,\" and many hear Isaac in the Father's \"You are My beloved Son\" (Mark 1:11)."
+        },
+        {
+          "kind": "pattern",
+          "strength": "some interpreters",
+          "refs": ["Genesis 22:6", "John 19:17", "Genesis 22:8", "John 1:29"],
+          "text": "Isaac carries the wood up the hill as Jesus carries His cross, and \"God Himself will provide the lamb\" is answered by \"Look, the Lamb of God.\" These are old Christian readings; the New Testament does not draw them itself."
+        }
+      ]
+    },
+    {
+      "id": "exodus-12-13",
+      "ref": "Exodus 12:13",
+      "saying": "when I see the blood, I will pass over you",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Exodus 12:7", "Exodus 12:13"],
+          "text": "On the night of the last plague each household kills a lamb and puts its blood on the doorframe, and the LORD passes over the marked houses."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Exodus 12:11", "Exodus 12:13", "Exodus 12:27"],
+          "words": [
+            { "ref": "Exodus 12:11", "strong": "H6453" },
+            { "ref": "Exodus 12:13", "strong": "H6452" },
+            { "ref": "Exodus 12:27", "strong": "H6453" },
+            { "ref": "Exodus 12:27", "strong": "H6452" }
+          ],
+          "text": "The feast is named for the act: pesach (Passover) comes from pasach, \"to pass over.\" The text explains the name itself: \"It is the Passover sacrifice to the LORD, who passed over the houses.\""
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "widely agreed",
+          "refs": ["Exodus 12:5", "1 Corinthians 5:7", "1 Peter 1:19"],
+          "text": "Paul writes, \"Christ, our Passover lamb, has been sacrificed,\" and Peter calls Him \"a lamb without blemish or spot,\" like the unblemished lamb the law required."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Exodus 12:46", "John 19:36", "Numbers 9:12", "Psalms 34:20"],
+          "text": "When the soldiers do not break Jesus' legs, John says Scripture was fulfilled: \"Not one of His bones will be broken.\" The words fit the Passover rule and also Psalm 34:20; scholars discuss which John means, and many think both."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Exodus 12:6", "John 19:14", "Exodus 12:22", "John 19:29"],
+          "text": "In John, Jesus is sentenced on \"the day of Preparation for the Passover,\" when the lambs were slaughtered, and at the cross a sponge is lifted to Him on hyssop, the plant used to put the blood on the doorframes."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Exodus 12:3", "John 1:29", "Isaiah 53:7", "Revelation 5:6"],
+          "text": "The lamb runs from Egypt to the end of the Bible: \"Look, the Lamb of God\" and the Lamb at the center of the throne \"who appeared to have been slain.\" These draw on the Passover lamb and on Isaiah's servant \"led like a lamb to the slaughter.\""
+        }
+      ]
+    },
+    {
+      "id": "ruth-3-9",
+      "ref": "Ruth 3:9",
+      "saying": "Spread the corner of your garment over me, for you are a kinsman-redeemer.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Ruth 3:9", "Ruth 4:13", "Ruth 4:17"],
+          "text": "Ruth, a widow from Moab, asks Boaz to marry her and act as her family's kinsman-redeemer. He does, and their son Obed becomes King David's grandfather."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Ruth 3:9", "Ruth 2:12"],
+          "words": [
+            { "ref": "Ruth 2:12", "strong": "H3671" },
+            { "ref": "Ruth 3:9", "strong": "H3671" }
+          ],
+          "text": "Boaz had prayed that Ruth be rewarded by the LORD, \"under whose wings you have taken refuge.\" Now she asks him to spread his \"wing\" over her: kanaph means both wing and the corner of a garment. She asks Boaz to become the answer to his own prayer."
+        },
+        {
+          "kind": "name meaning",
+          "strength": "widely agreed",
+          "refs": ["Ruth 1:20-21", "Ruth 4:14-15"],
+          "words": [
+            { "ref": "Ruth 1:20", "strong": "H5281" },
+            { "ref": "Ruth 1:20", "strong": "H4755" },
+            { "ref": "Ruth 1:20", "strong": "H4843" }
+          ],
+          "evidence": "Name meanings from TBESH",
+          "text": "Naomi means \"my delight\" and Mara \"bitterness.\" Back in Bethlehem she tells the women, \"Call me Mara, because the Almighty has dealt quite bitterly with me.\" The book ends with the LORD giving her a redeemer who \"will renew your life.\""
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Ruth 3:9", "Ruth 4:5", "Leviticus 25:25", "Deuteronomy 25:5-6", "Ruth 4:10"],
+          "words": [
+            { "ref": "Ruth 3:9", "strong": "H1350" }
+          ],
+          "text": "A kinsman-redeemer (go'el) was the near relative who bought back family land, and a related law had a man marry his dead brother's widow so that \"his name will not be blotted out.\" Boaz does both at once, though exactly how these laws applied is debated."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Ruth 3:9", "Ezekiel 16:8", "Isaiah 54:5", "Isaiah 41:14"],
+          "words": [
+            { "ref": "Ezekiel 16:8", "strong": "H3671" },
+            { "ref": "Isaiah 54:5", "strong": "H1350" },
+            { "ref": "Isaiah 41:14", "strong": "H1350" }
+          ],
+          "text": "The prophets use the same words for God. He is Israel's Redeemer (go'el), and in Ezekiel He says, \"I spread My cloak over you,\" with the word kanaph, and \"you became Mine.\" Ruth's request speaks the language of God's covenant love."
+        },
+        {
+          "kind": "pattern",
+          "strength": "some interpreters",
+          "refs": ["Ruth 3:9", "Galatians 4:4-5", "Ruth 4:21", "Matthew 1:5"],
+          "text": "Matthew names Boaz and Ruth in Jesus' family line. Many Christians see Boaz, the relative who willingly pays to redeem, as a picture of Christ, \"born of a woman, born under the law, to redeem those under the law\"; the New Testament does not draw the Boaz link itself."
+        }
+      ]
+    },
+    {
+      "id": "isaiah-5-7",
+      "ref": "Isaiah 5:7",
+      "saying": "He looked for justice, but saw bloodshed; for righteousness, but heard a cry of distress.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 5:1-2", "Isaiah 5:7"],
+          "text": "Isaiah sings about a vineyard its owner tended with every care, which still grew only sour grapes. Then he names it: the vineyard is Israel, and the fruit God wanted was justice."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 5:7"],
+          "words": [
+            { "ref": "Isaiah 5:7", "strong": "H4941" },
+            { "ref": "Isaiah 5:7", "strong": "H4939" },
+            { "ref": "Isaiah 5:7", "strong": "H6666" },
+            { "ref": "Isaiah 5:7", "strong": "H6818" }
+          ],
+          "text": "The punchline is two pairs of sound-alike words: God looked for mishpat (justice) and found mispach (bloodshed), for tsedaqah (righteousness) and heard tse'aqah (a cry). Mispach occurs nowhere else in the Hebrew Bible, so its exact sense is not certain."
+        },
+        {
+          "kind": "allusion",
+          "strength": "some interpreters",
+          "refs": ["Isaiah 5:7", "Exodus 3:7", "Genesis 18:21", "Isaiah 1:10"],
+          "words": [
+            { "ref": "Exodus 3:7", "strong": "H6818" },
+            { "ref": "Genesis 18:21", "strong": "H6818" }
+          ],
+          "text": "Tse'aqah is the cry God heard from the slaves in Egypt and the outcry against Sodom, and Isaiah has already called Jerusalem's rulers \"rulers of Sodom.\" God's own people now cause the cry He once rescued them from."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 5:7", "Psalms 80:8", "Psalms 80:14-15"],
+          "text": "Israel as God's vine is a running picture: \"You uprooted a vine from Egypt; You drove out the nations and transplanted it.\""
+        },
+        {
+          "kind": "allusion",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 5:2", "Mark 12:1", "Isaiah 5:5", "Mark 12:6", "Mark 12:12"],
+          "text": "Jesus retells this song as the parable of the tenants, with Isaiah's details: a planted vineyard, a wall, a wine vat, a watchtower. This time the owner sends his beloved son, and the leaders know the story is about them."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "commonly held",
+          "refs": ["Isaiah 5:4", "John 15:1", "John 15:5"],
+          "text": "Jesus says, \"I am the true vine.\" Where the vineyard of Isaiah 5 gave sour fruit, the true vine bears fruit, and those who remain in Him \"bear much fruit.\""
+        }
+      ]
+    },
+    {
+      "id": "psalm-22-1",
+      "ref": "Psalms 22:1",
+      "saying": "My God, my God, why have You forsaken me?",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:1", "Psalms 22:24", "Psalms 22:27"],
+          "text": "David cries out to a God who seems silent while enemies surround him, then turns to praise: God has listened, and the nations will worship."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:1", "Mark 15:34", "Matthew 27:46"],
+          "text": "On the cross Jesus cries the psalm's first line in Aramaic: \"Eloi, Eloi, lema sabachthani?\""
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Mark 15:34", "Mark 15:35"],
+          "text": "Some bystanders take \"Eloi\" (my God) as a call for Elijah. The cry they misunderstood was the opening line of a psalm."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:18", "John 19:24", "Psalms 22:7-8", "Matthew 27:39", "Matthew 27:43"],
+          "text": "The psalm's details return at the cross: mockers shake their heads and say God should deliver Him, and soldiers divide His garments and cast lots, which John says fulfilled Scripture."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Psalms 22:22", "Hebrews 2:12", "Psalms 22:27"],
+          "text": "The psalm does not end in despair. Its second half praises God among \"my brothers,\" words Hebrews puts in Jesus' mouth, and it ends with all nations turning to the LORD. Many readers think quoting the first line called the whole psalm to mind."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "some interpreters",
+          "refs": ["Psalms 22:16", "John 20:25"],
+          "words": [
+            { "ref": "Psalms 22:16", "strong": "H0738" }
+          ],
+          "evidence": "STEPBible's TAHOT gives the Leningrad Codex reading ka'ari and notes the Judean Desert reading ka'aru",
+          "text": "The BSB reads \"they have pierced my hands and feet.\" The traditional Hebrew text has ka'ari, \"like a lion,\" while a manuscript found in the Judean Desert reads ka'aru, \"they dug.\" Christians link the verse to the nail wounds, but the wording is a real textual question."
+        }
+      ]
+    },
+    {
+      "id": "jonah-3-4",
+      "ref": "Jonah 3:4",
+      "saying": "Forty more days and Nineveh will be overturned!",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Jonah 1:3", "Jonah 3:4", "Jonah 3:10", "Jonah 4:1"],
+          "text": "Jonah runs from God's call, is swallowed by a great fish, and finally preaches in Nineveh. The city repents and God spares it, to Jonah's anger."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "commonly held",
+          "refs": ["Jonah 3:4", "Genesis 19:25", "Jonah 3:10"],
+          "words": [
+            { "ref": "Jonah 3:4", "strong": "H2015" },
+            { "ref": "Genesis 19:25", "strong": "H2015" }
+          ],
+          "evidence": "TBESH lists both senses of haphak",
+          "text": "\"Overturned\" is haphak, the verb used when God overthrew Sodom (BSB \"destroyed\"). But it can also mean to be turned or changed. Nineveh was overturned, just not as Jonah expected: it turned around."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Jonah 1:3", "Jonah 1:5", "Jonah 2:6"],
+          "words": [
+            { "ref": "Jonah 1:3", "strong": "H3381" },
+            { "ref": "Jonah 1:5", "strong": "H3381" },
+            { "ref": "Jonah 2:6", "strong": "H3381" }
+          ],
+          "text": "The story moves step by step downward: Jonah goes down to Joppa, down into the ship, down into its hold, and down to the roots of the mountains, the same verb (yarad) each time, until God raises his life from the pit."
+        },
+        {
+          "kind": "name meaning",
+          "strength": "some interpreters",
+          "refs": ["Jonah 1:1", "Hosea 7:11"],
+          "words": [
+            { "ref": "Jonah 1:1", "strong": "H3124" },
+            { "ref": "Hosea 7:11", "strong": "H3123" }
+          ],
+          "evidence": "Name meaning from TBESH",
+          "text": "Jonah means \"dove.\" Hosea calls the northern kingdom \"a silly, senseless dove,\" and some readers see the runaway prophet as a picture of Israel itself."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "widely agreed",
+          "refs": ["Jonah 1:17", "Matthew 12:39-41", "Jonah 3:5"],
+          "text": "Jesus names \"the sign of the prophet Jonah\": as Jonah was three days and three nights in the fish, so the Son of Man will be in the heart of the earth. Nineveh repented, \"and now One greater than Jonah is here.\""
+        },
+        {
+          "kind": "pattern",
+          "strength": "some interpreters",
+          "refs": ["Jonah 1:3", "Acts 9:43", "Acts 10:5", "Matthew 16:17", "John 1:42"],
+          "words": [
+            { "ref": "Jonah 1:3", "strong": "H3305" },
+            { "ref": "Matthew 16:17", "strong": "G0920" }
+          ],
+          "text": "Jonah sailed from Joppa to avoid preaching to Nineveh. Centuries later Peter, whom Jesus called \"Simon son of Jonah\" (John's Gospel has \"son of John\"), is staying in Joppa when God sends him to the Gentile Cornelius."
+        }
+      ]
+    },
+    {
+      "id": "john-2-19",
+      "ref": "John 2:19",
+      "saying": "Destroy this temple, and in three days I will raise it up again.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["John 2:18-20"],
+          "text": "Asked for a sign in the temple courts, Jesus answers with a riddle. His hearers take Him to mean the temple building, which had taken 46 years to build."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["John 2:19", "John 2:21", "John 2:22"],
+          "words": [
+            { "ref": "John 2:19", "strong": "G1453" },
+            { "ref": "John 2:22", "strong": "G1453" },
+            { "ref": "John 2:21", "strong": "G3485" }
+          ],
+          "evidence": "Abbott-Smith's lexicon (in TBESG) cites this passage for both senses of egeiro",
+          "text": "John explains: \"Jesus was speaking about the temple of His body.\" The verb egeiro means both to raise a building and to raise the dead. The disciples understood only after the resurrection."
+        },
+        {
+          "kind": "irony",
+          "strength": "commonly held",
+          "refs": ["John 2:19", "Mark 14:58", "Mark 15:29", "Matthew 26:61"],
+          "text": "The misunderstood saying returns as a charge at His trial and a taunt at the cross: \"You who are going to destroy the temple and rebuild it in three days.\" The mockers are watching the first half come true."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["John 1:14", "Exodus 25:8-9", "Exodus 40:34"],
+          "words": [
+            { "ref": "John 1:14", "strong": "G4637" },
+            { "ref": "Exodus 25:8", "strong": "H7931" },
+            { "ref": "Exodus 25:9", "strong": "H4908" }
+          ],
+          "evidence": "Abbott-Smith's lexicon (in TBESG): in the Greek Old Testament this verb chiefly stands for shakan",
+          "text": "John has said the Word \"made His dwelling among us.\" The verb comes from the word for a tent, and in the Greek Old Testament it chiefly stands for shakan, the root of mishkan, the tabernacle where God's glory dwelt. Jesus' body is where God lives among His people."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["John 2:21", "1 Corinthians 6:19", "Revelation 21:22"],
+          "text": "The temple thread keeps widening: believers' bodies become \"a temple of the Holy Spirit,\" and the new Jerusalem has no temple, \"because the Lord God Almighty and the Lamb are its temple.\""
+        }
+      ]
+    },
+    {
+      "id": "john-3-14",
+      "ref": "John 3:14",
+      "saying": "Just as Moses lifted up the snake in the wilderness, so the Son of Man must be lifted up,",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["John 3:14-15"],
+          "text": "Jesus tells Nicodemus that, like the bronze snake Moses raised in the wilderness, He must be lifted up, so that everyone who believes in Him may have eternal life."
+        },
+        {
+          "kind": "setting",
+          "strength": "widely agreed",
+          "refs": ["John 3:14", "Numbers 21:8-9", "Numbers 21:5-6"],
+          "text": "In Numbers the people speak against God, venomous snakes bite them, and God tells Moses to make a snake and set it on a pole. Moses makes it of bronze, and whoever is bitten and looks at it lives."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "commonly held",
+          "refs": ["Numbers 21:9"],
+          "words": [
+            { "ref": "Numbers 21:9", "strong": "H5175" },
+            { "ref": "Numbers 21:9", "strong": "H5178" }
+          ],
+          "text": "In Hebrew, snake is nachash and bronze is nechoshet, so the \"bronze snake\" is a nechash nechoshet: the two words sound almost alike."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["John 3:14", "John 12:32-33", "Acts 2:33", "John 8:28"],
+          "words": [
+            { "ref": "John 3:14", "strong": "G5312" },
+            { "ref": "John 12:32", "strong": "G5312" },
+            { "ref": "Acts 2:33", "strong": "G5312" }
+          ],
+          "text": "\"Lifted up\" (hypsoo) means raised up and also exalted. When Jesus says it again, John adds that it showed \"the kind of death He was going to die,\" and Acts uses the same verb for His exaltation to God's right hand. The cross is His lifting up."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["John 3:14", "Isaiah 52:13", "John 12:32"],
+          "text": "Isaiah's suffering servant \"will be raised and lifted up and highly exalted,\" just before the description of His suffering. The Greek Old Testament uses the same verb there, and many scholars think John's \"lifted up\" draws on this verse."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Numbers 21:9", "2 Kings 18:4"],
+          "words": [
+            { "ref": "2 Kings 18:4", "strong": "H5180" }
+          ],
+          "evidence": "Meaning of nechoshet from TBESH",
+          "text": "Centuries later Israel was burning incense to that same bronze snake, now called Nehushtan, a name built on nechoshet, \"bronze,\" and King Hezekiah smashed it. The sign had become an idol; the healing never lay in the bronze."
+        }
+      ]
+    },
+    {
+      "id": "john-6-35",
+      "ref": "John 6:35",
+      "saying": "I am the bread of life. Whoever comes to Me will never hunger",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["John 6:35", "John 6:22"],
+          "text": "The day after feeding five thousand, Jesus tells the crowd that He Himself is the bread that satisfies: whoever comes to Him will never hunger."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["John 6:31-33", "Exodus 16:4", "Psalms 78:24", "John 6:49-51"],
+          "text": "The crowd asks for a sign like the manna and quotes Scripture: \"He gave them bread from heaven to eat,\" words close to Exodus 16:4 and Psalm 78:24. Jesus answers that the true bread from heaven comes from His Father, and unlike the manna, whoever eats it will not die."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Exodus 16:15", "Exodus 16:31"],
+          "words": [
+            { "ref": "Exodus 16:15", "strong": "H4478" },
+            { "ref": "Exodus 16:31", "strong": "H4478" }
+          ],
+          "text": "Manna is named after a question. When Israel first saw it they asked one another, \"What is it?\" (man hu), and they called it man. Moses answered, \"It is the bread that the LORD has given you to eat.\""
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["John 6:35", "Deuteronomy 8:3", "Matthew 4:4", "John 1:14"],
+          "text": "Moses said the manna taught Israel that \"man does not live on bread alone, but on every word that comes from the mouth of the LORD.\" Jesus quotes this in the wilderness, and in John the Word made flesh is Himself the bread."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["John 6:51", "Luke 22:19", "John 6:4"],
+          "text": "John notes that Passover was near. The bread Jesus will give \"for the life of the world\" is His flesh, which many readers connect with the Last Supper: \"This is My body, given for you.\""
+        },
+        {
+          "kind": "name meaning",
+          "strength": "some interpreters",
+          "refs": ["John 6:35", "Micah 5:2", "Matthew 2:6", "Luke 2:7"],
+          "words": [
+            { "ref": "Micah 5:2", "strong": "H1035" }
+          ],
+          "evidence": "Name meaning from TBESH",
+          "text": "Jesus was born in Bethlehem, whose name means \"house of bread,\" and was laid in a manger, a feeding trough. Christians have long noticed the Bread of Life coming from the House of Bread; the Gospels do not point it out."
+        }
+      ]
+    },
+    {
+      "id": "mark-12-10",
+      "ref": "Mark 12:10",
+      "saying": "The stone the builders rejected has become the cornerstone.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Mark 12:6-8", "Mark 12:10-12"],
+          "text": "Jesus ends His parable of the tenants, who kill the owner's beloved son, by quoting Psalm 118. The leaders understand that He told the parable against them."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Mark 12:10-11", "Psalms 118:22-23"],
+          "words": [
+            { "ref": "Psalms 118:22", "strong": "H0068" }
+          ],
+          "text": "In the psalm the rejected stone becomes the head of the corner: \"This is from the LORD, and it is marvelous in our eyes.\" The rejection is not the end; God reverses it."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Mark 12:10", "Psalms 118:26", "Mark 11:9"],
+          "text": "Days earlier the crowds greeted Jesus with the same psalm: \"Blessed is He who comes in the name of the Lord!\" The week opens with one verse of Psalm 118 and turns on another."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "some interpreters",
+          "refs": ["Mark 12:6", "Psalms 118:22"],
+          "text": "In Hebrew \"son\" is ben and \"stone\" is even (eben). Some scholars suggest the parable's rejected son and the psalm's rejected stone are tied by this sound."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Luke 20:18", "Isaiah 8:14-15", "Daniel 2:34-35", "Daniel 2:44-45"],
+          "text": "In Luke, Jesus adds that whoever falls on this stone will be broken and whoever it falls on will be crushed, drawing on Isaiah's \"stone of stumbling\" and Daniel's stone, cut without hands, that crushes the kingdoms and fills the earth."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Psalms 118:22", "Acts 4:11", "1 Peter 2:4-7", "Isaiah 28:16", "Ephesians 2:20"],
+          "text": "The apostles keep building with this stone: Peter quotes it to the rulers and elders in Jerusalem, calls believers \"living stones,\" and joins it to Isaiah's precious cornerstone, and Paul names Christ the cornerstone."
+        }
+      ]
+    },
+    {
+      "id": "hebrews-7-2",
+      "ref": "Hebrews 7:2",
+      "saying": "First, his name means “king of righteousness.” Then also, “king of Salem” means “king of peace.”",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Hebrews 7:15-17", "Hebrews 7:23-25"],
+          "text": "Hebrews argues that Jesus is a priest of a different and permanent kind, not from Levi's family but \"in the order of Melchizedek,\" who \"always lives to intercede.\""
+        },
+        {
+          "kind": "setting",
+          "strength": "widely agreed",
+          "refs": ["Hebrews 7:1", "Genesis 14:18-20", "Psalms 110:4"],
+          "words": [
+            { "ref": "Genesis 14:18", "strong": "H4442" },
+            { "ref": "Psalms 110:4", "strong": "H4442" }
+          ],
+          "text": "Genesis gives Melchizedek three verses: king of Salem and \"priest of God Most High,\" he brings out bread and wine, blesses Abram, and receives a tenth from him. The only other Old Testament verse to name him is Psalm 110:4."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Psalms 110:4", "Hebrews 7:17", "Hebrews 5:6"],
+          "text": "Later, in Psalm 110, God swears to David's Lord: \"You are a priest forever in the order of Melchizedek.\" Hebrews builds its argument on this oath."
+        },
+        {
+          "kind": "name meaning",
+          "strength": "widely agreed",
+          "refs": ["Hebrews 7:2", "Genesis 14:18", "Psalms 76:2"],
+          "words": [
+            { "ref": "Genesis 14:18", "strong": "H4442" },
+            { "ref": "Genesis 14:18", "strong": "H8004" },
+            { "ref": "Psalms 76:2", "strong": "H8004" }
+          ],
+          "evidence": "Name meanings, and the note on Jewish commentators, from TBESH",
+          "text": "Hebrews reads the names. Melchizedek joins melek (king) and tsedeq (righteousness), and Salem means peace. The Old Testament names Salem only once more, in Psalm 76:2, in parallel with Zion, and most Jewish commentators identify it with Jerusalem."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Psalms 110:1", "Mark 12:35-37", "Psalms 110:4"],
+          "text": "Jesus Himself raised Psalm 110 in the temple: David calls the Messiah \"my Lord.\" The psalm that seats the Messiah at God's right hand also makes Him a priest forever."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Genesis 14:18", "Hebrews 7:3", "Hebrews 7:24"],
+          "text": "Genesis records no father, mother, birth or death for Melchizedek, and Hebrews makes the silence part of the picture: \"like the Son of God, he remains a priest for all time.\""
+        },
+        {
+          "kind": "allusion",
+          "strength": "some interpreters",
+          "refs": ["Genesis 14:18", "Matthew 26:26-28"],
+          "text": "Many Christian writers link Melchizedek's bread and wine to the bread and cup of the Last Supper. Hebrews does not mention it."
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-10-4",
+      "ref": "1 Corinthians 10:4",
+      "saying": "they drank from the spiritual rock that accompanied them, and that rock was Christ.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["1 Corinthians 10:1-5"],
+          "text": "Paul warns the Corinthians not to presume on their privileges: Israel was rescued, fed and given water in the wilderness, and still most of them fell."
+        },
+        {
+          "kind": "setting",
+          "strength": "widely agreed",
+          "refs": ["1 Corinthians 10:4", "Exodus 17:6", "Numbers 20:8-12"],
+          "text": "Twice God gave water from a rock. At Horeb Moses was told to strike it; years later he was told to speak to it, struck it twice instead, and was barred from the land."
+        },
+        {
+          "kind": "name meaning",
+          "strength": "widely agreed",
+          "refs": ["Exodus 17:7", "Psalms 95:8", "Hebrews 3:8"],
+          "words": [
+            { "ref": "Exodus 17:7", "strong": "H4532" },
+            { "ref": "Exodus 17:7", "strong": "H4809" }
+          ],
+          "text": "Moses named the place Massah (testing) and Meribah (quarreling) because the people asked, \"Is the LORD among us or not?\" Psalm 95 keeps the names as a warning, and Hebrews, quoting the psalm in Greek, gives their meanings: \"in the rebellion, in the day of testing.\""
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["1 Corinthians 10:4", "Deuteronomy 32:4", "Deuteronomy 32:15", "1 Corinthians 10:20", "Deuteronomy 32:17", "1 Corinthians 10:22", "Deuteronomy 32:21"],
+          "words": [
+            { "ref": "Deuteronomy 32:4", "strong": "H6697" }
+          ],
+          "text": "In the Song of Moses, Rock is a name for God: \"He is the Rock, His work is perfect.\" Paul echoes that song twice in this chapter (sacrifices to demons, provoking God to jealousy), so \"that rock was Christ\" puts Christ in the place of Israel's God."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["1 Corinthians 10:6", "1 Corinthians 10:11"],
+          "words": [
+            { "ref": "1 Corinthians 10:6", "strong": "G5179" },
+            { "ref": "1 Corinthians 10:11", "strong": "G9992" }
+          ],
+          "text": "Paul names his way of reading: these things happened \"as examples\" and \"were written down as warnings for us.\" The Greek words are typoi and typikos, where the word \"type\" comes from."
+        },
+        {
+          "kind": "allusion",
+          "strength": "some interpreters",
+          "refs": ["Exodus 17:6", "John 7:37-38", "John 19:34"],
+          "text": "Jesus calls out, \"If anyone is thirsty, let him come to Me and drink.\" Some readers also connect the struck rock with Christ pierced on the cross, when \"blood and water flowed out\" from His side."
+        }
+      ]
+    },
+    {
+      "id": "revelation-22-2",
+      "ref": "Revelation 22:2",
+      "saying": "On either side of the river stood a tree of life",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Revelation 22:1-2"],
+          "text": "John's last vision shows a river of life flowing from God's throne through the new Jerusalem, with the tree of life on both banks and its leaves \"for the healing of the nations.\""
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Revelation 22:2", "Genesis 2:9-10", "Genesis 3:22-24", "Revelation 22:14", "Revelation 2:7"],
+          "text": "The Bible ends where it began. Eden had a river and the tree of life; after the fall the way to that tree was guarded. Now it stands open: \"Blessed are those who wash their robes, so that they may have the right to the tree of life.\""
+        },
+        {
+          "kind": "allusion",
+          "strength": "widely agreed",
+          "refs": ["Revelation 22:1-2", "Ezekiel 47:1", "Ezekiel 47:12"],
+          "text": "The picture also comes from Ezekiel's vision of water flowing from the temple, with fruit trees on both banks that bear every month and leaves for healing."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Revelation 22:3", "Genesis 3:17", "Zechariah 14:11"],
+          "words": [
+            { "ref": "Genesis 3:17", "strong": "H0779" },
+            { "ref": "Zechariah 14:11", "strong": "H2764" }
+          ],
+          "text": "\"No longer will there be any curse\" answers the curse on the ground in Genesis 3 and echoes Zechariah's promise that Jerusalem would never again be under the ban (cherem, which BSB renders \"utter destruction\")."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Revelation 22:4", "Exodus 33:20", "Genesis 3:8", "Matthew 5:8"],
+          "text": "\"They will see His face.\" Adam and Eve hid from God's presence, and Moses was told no one can see God's face and live. Jesus promised that the pure in heart will see God. At the end, what was lost and forbidden is given."
+        },
+        {
+          "kind": "allusion",
+          "strength": "widely agreed",
+          "refs": ["Revelation 22:5", "Isaiah 60:19"],
+          "text": "\"The Lord God will shine on them\" takes up Isaiah's promise: \"the LORD will be your everlasting light.\""
+        }
+      ]
+    }
+  ]
+}

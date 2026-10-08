@@ -8,11 +8,14 @@
 //! - `lemmas.json`: one row per Hebrew/Aramaic/Greek root (column-oriented)
 //! - `words.json`: sorted English vocabulary for search
 //! - `themes.json`: themes resolved to root indices
+//! - `layers.json`: layers of meaning from `config/layers.json`, checked against
+//!   the BSB, the roots and the cross-references (drafts only with ATLAS_LAYER_DRAFTS=1)
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
 //! - `lex/<n>.json`: lexicon definitions, 500 roots per shard, as safe segments
 
 use crate::align;
 use crate::english;
+use crate::layers;
 use crate::lexhtml;
 use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
 use crate::sources::{sha256_bytes, Inputs};
@@ -290,6 +293,10 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         themes_json.push(json!({ "id": t.id, "name": t.name, "blurb": t.blurb, "roots": idxs }));
     }
 
+    // --- Layers of meaning -------------------------------------------------------------
+    let layer_sources = layers::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index, graph: &graph };
+    let layers_json = layers::build(root, &layer_sources)?;
+
     // --- Write outputs -------------------------------------------------------------
     for sub in ["text", "lex"] {
         let d = out.join(sub);
@@ -332,6 +339,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
+    write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {

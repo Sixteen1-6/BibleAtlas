@@ -14,6 +14,7 @@ mod align;
 mod build;
 mod english;
 mod fetch;
+mod layers;
 mod lexhtml;
 mod loaded;
 mod parse;
