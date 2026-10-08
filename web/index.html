@@ -15,8 +15,232 @@
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1428'/%3E%3Cpath d='M5 24 Q16 2 27 24' fill='none' stroke='%23ffe2a0' stroke-width='2'/%3E%3Cpath d='M9 24 Q14 14 19 24' fill='none' stroke='%2345cdad' stroke-width='2'/%3E%3C/svg%3E" />
+    <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-180.png" />
+    <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
+    <script>
+      // Before the first paint: use the page theme the app saved, so the sky
+      // below matches it. If the app has not started after 15 seconds, or its
+      // script fails to load, say so under the title.
+      (function () {
+        try {
+          var t = localStorage.getItem('atlas.theme');
+          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+        function stalled() {
+          var note = document.getElementById('boot-note');
+          var app = document.getElementById('app');
+          if (note && app && !app.firstElementChild) note.hidden = false;
+        }
+        setTimeout(stalled, 15000);
+        addEventListener('error', function (e) {
+          if (e.target && e.target.tagName === 'SCRIPT') stalled();
+        }, true);
+      })();
+    </script>
+    <style>
+      /* The boot sky: what a visitor sees before the app's script has run.
+         Paper by day, the night sky otherwise, following the same rules as
+         styles.css. src/arrival.css styles the app's own loading screen to
+         match, and fades this out once the atlas has loaded. */
+      :root {
+        --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(232, 180, 76, 0.2), rgba(232, 180, 76, 0) 72%),
+          linear-gradient(180deg, #fbf8f2 0%, #f7f2e8 50%, #f1eadc 80%, #f4efe4 100%);
+        --arr-ink: #1c1f30;
+        --arr-muted: #625f72;
+        --arr-title: linear-gradient(90deg, #6e4108, #9a5a06 45%, #b4560f);
+        --arr-k: 0.62;
+        --arr-band: 0.5;
+        --arr-gold: #c08a2a;
+        --arr-spark: #9a5a06;
+        --arr-teal: #13a88b;
+        --arr-red: #d4505f;
+        --arr-orange: #d7782f;
+        --arr-yellow: #b8901c;
+        --arr-green: #4e9b45;
+        --arr-blue: #4169d8;
+        --arr-violet: #7656d6;
+        --arr-pink: #b04fc6;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(42, 35, 80, 0.9), rgba(42, 35, 80, 0) 72%),
+            linear-gradient(180deg, #04060e 0%, #060914 38%, #0b1028 70%, #0e1430 80%, #080c1d 100%);
+          --arr-ink: #f3eee2;
+          --arr-muted: #949cbd;
+          --arr-title: linear-gradient(90deg, #ffe3a3, #ffd27a 45%, #ffb36b);
+          --arr-k: 1;
+          --arr-band: 0.8;
+          --arr-gold: #ffd27a;
+          --arr-spark: #fff1c9;
+          --arr-teal: #2fd6c5;
+          --arr-red: #ff5f6d;
+          --arr-orange: #ff9a4a;
+          --arr-yellow: #ffd34e;
+          --arr-green: #8be36f;
+          --arr-blue: #4b9bff;
+          --arr-violet: #8c6dff;
+          --arr-pink: #e86bff;
+        }
+      }
+      :root[data-theme='dark'] {
+        --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(42, 35, 80, 0.9), rgba(42, 35, 80, 0) 72%),
+          linear-gradient(180deg, #04060e 0%, #060914 38%, #0b1028 70%, #0e1430 80%, #080c1d 100%);
+        --arr-ink: #f3eee2;
+        --arr-muted: #949cbd;
+        --arr-title: linear-gradient(90deg, #ffe3a3, #ffd27a 45%, #ffb36b);
+        --arr-k: 1;
+        --arr-band: 0.8;
+        --arr-gold: #ffd27a;
+        --arr-spark: #fff1c9;
+        --arr-teal: #2fd6c5;
+        --arr-red: #ff5f6d;
+        --arr-orange: #ff9a4a;
+        --arr-yellow: #ffd34e;
+        --arr-green: #8be36f;
+        --arr-blue: #4b9bff;
+        --arr-violet: #8c6dff;
+        --arr-pink: #e86bff;
+      }
+      #boot {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+        background: var(--arr-sky);
+      }
+      #boot ~ #app {
+        position: relative;
+      }
+      .arr-sky {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .arr-arcs {
+        opacity: var(--arr-k);
+      }
+      .arr-sky .gold { stroke: var(--arr-gold); }
+      .arr-sky .teal { stroke: var(--arr-teal); }
+      .arr-sky .red { stroke: var(--arr-red); }
+      .arr-sky .orange { stroke: var(--arr-orange); }
+      .arr-sky .yellow { stroke: var(--arr-yellow); }
+      .arr-sky .green { stroke: var(--arr-green); }
+      .arr-sky .blue { stroke: var(--arr-blue); }
+      .arr-sky .violet { stroke: var(--arr-violet); }
+      .arr-sky .pink { stroke: var(--arr-pink); }
+      .arr-sky .spark { stroke: var(--arr-spark); stroke-dasharray: 5 205; stroke-dashoffset: 5; }
+      .arr-books {
+        opacity: var(--arr-band);
+      }
+      .arr-mark,
+      .arr-overlay {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 0 16px 14vh;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .arr-overlay {
+        pointer-events: none;
+      }
+      .arr-overlay[hidden] {
+        display: none;
+      }
+      .arr-overlay a {
+        pointer-events: auto;
+        color: inherit;
+      }
+      .arr-title {
+        margin: 0 0 6px;
+        font: 600 clamp(30px, 4.4vw, 44px) / 1.15 'Literata', Georgia, serif;
+        letter-spacing: 0.01em;
+        color: var(--arr-ink);
+        background: var(--arr-title);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .arr-line,
+      .arr-overlay p {
+        margin: 0;
+        min-height: 1.45em;
+        font: 14px / 1.45 'Instrument Sans', system-ui, sans-serif;
+        color: var(--arr-muted);
+      }
+      .arr-ghost {
+        visibility: hidden;
+      }
+      /* A slow shimmer: the arcs breathe and a spark of light runs along the
+         great arc, Genesis to Revelation. Still for reduced motion. */
+      @media (prefers-reduced-motion: no-preference) {
+        .arr-sky .b1 { animation: arr-breathe 5.4s ease-in-out -1.2s infinite alternate; }
+        .arr-sky .b2 { animation: arr-breathe 6.9s ease-in-out -3.1s infinite alternate; }
+        .arr-sky .b3 { animation: arr-breathe 8.2s ease-in-out -5s infinite alternate; }
+        .arr-sky .spark { animation: arr-run 7s cubic-bezier(0.45, 0, 0.55, 1) 0.6s infinite; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .arr-sky .spark { display: none; }
+      }
+      @keyframes arr-breathe {
+        from { opacity: 1; }
+        to { opacity: 0.4; }
+      }
+      @keyframes arr-run {
+        0% { stroke-dashoffset: 5; }
+        55%, 100% { stroke-dashoffset: -100; }
+      }
+    </style>
   </head>
   <body>
+    <div id="boot" aria-hidden="true">
+      <svg class="arr-sky" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice" focusable="false">
+        <defs>
+          <linearGradient id="arr-books-fill" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0" stop-color="#5b8def" /><stop offset="0.1784" stop-color="#5b8def" />
+            <stop offset="0.1796" stop-color="#2fbfa5" /><stop offset="0.4009" stop-color="#2fbfa5" />
+            <stop offset="0.4021" stop-color="#e8b44c" /><stop offset="0.5488" stop-color="#e8b44c" />
+            <stop offset="0.55" stop-color="#f06b8e" /><stop offset="0.6865" stop-color="#f06b8e" />
+            <stop offset="0.6876" stop-color="#a77bf0" /><stop offset="0.7319" stop-color="#a77bf0" />
+            <stop offset="0.733" stop-color="#ffcf5c" /><stop offset="0.8487" stop-color="#ffcf5c" />
+            <stop offset="0.8499" stop-color="#4cc6f0" /><stop offset="0.8798" stop-color="#4cc6f0" />
+            <stop offset="0.881" stop-color="#5fd38d" /><stop offset="0.9556" stop-color="#5fd38d" />
+            <stop offset="0.9567" stop-color="#e5925a" /><stop offset="0.9868" stop-color="#e5925a" />
+            <stop offset="0.988" stop-color="#ff6b5a" /><stop offset="1" stop-color="#ff6b5a" />
+          </linearGradient>
+        </defs>
+        <g class="arr-arcs" fill="none" stroke-width="1.6" stroke-linecap="round">
+          <path class="orange b3" stroke-opacity="0.22" d="M240 800Q710 -305 1180 800" />
+          <path class="blue b2" stroke-opacity="0.2" d="M560 800Q930 -157 1300 800" />
+          <path class="red b1" stroke-opacity="0.34" d="M90 800Q305 109 520 800" />
+          <path class="yellow b2" stroke-opacity="0.3" d="M380 800Q540 221 700 800" />
+          <path class="green b3" stroke-opacity="0.3" d="M610 800Q810 138 1010 800" />
+          <path class="teal b1" stroke-opacity="0.38" d="M700 800Q800 363 900 800" />
+          <path class="blue b1" stroke-opacity="0.32" d="M820 800Q1040 99 1260 800" />
+          <path class="violet b2" stroke-opacity="0.34" d="M1040 800Q1270 81 1500 800" />
+          <path class="pink b3" stroke-opacity="0.32" d="M1180 800Q1270 390 1360 800" />
+          <path class="teal" stroke-opacity="0.5" stroke-width="2" d="M470 800Q725 35 980 800" />
+          <path class="gold" stroke-opacity="0.14" stroke-width="9" d="M170 800Q800 -517 1430 800" />
+          <path class="gold" stroke-opacity="0.62" stroke-width="2.4" d="M170 800Q800 -517 1430 800" />
+          <path class="spark" stroke-opacity="0.28" stroke-width="8" pathLength="100" d="M170 800Q800 -517 1430 800" />
+          <path class="spark" stroke-opacity="0.95" stroke-width="2.6" pathLength="100" d="M170 800Q800 -517 1430 800" />
+        </g>
+        <rect class="arr-books" x="0" y="800" width="1600" height="3" fill="url(#arr-books-fill)" />
+      </svg>
+      <div class="arr-mark">
+        <div><div class="arr-title">Bible Atlas</div><div class="arr-line"></div></div>
+      </div>
+    </div>
+    <div id="boot-note" class="arr-overlay" role="status" hidden>
+      <div><div class="arr-title arr-ghost" aria-hidden="true">Bible Atlas</div><p>Still on its way. Check your connection, then <a href="">reload</a>.</p></div>
+    </div>
+    <noscript>
+      <div class="arr-overlay"><div><div class="arr-title arr-ghost" aria-hidden="true">Bible Atlas</div><p>Bible Atlas needs JavaScript to draw its map. Please turn it on and reload.</p></div></div>
+    </noscript>
     <div id="app"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

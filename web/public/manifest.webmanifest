@@ -1,0 +1,35 @@
+{
+  "id": "./",
+  "name": "Bible Atlas",
+  "short_name": "Bible Atlas",
+  "description": "Every cross-reference in the Bible on one map, with the original Hebrew, Aramaic and Greek under every verse.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#04060e",
+  "theme_color": "#0c1428",
+  "categories": ["books", "education", "reference"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Themes",
+      "short_name": "Themes",
+      "description": "Words traced through the whole Bible",
+      "url": "./#tab=themes",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Paths",
+      "short_name": "Paths",
+      "description": "The chain of links between two verses",
+      "url": "./#tab=paths",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}
