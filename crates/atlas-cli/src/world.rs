@@ -36,8 +36,9 @@ pub const ROOT_SHARD: usize = 500;
 /// Handbook entries per `world/ubs/<n>.json` shard. (100 would put the
 /// Fauna and Flora articles over the 200 KB budget.)
 pub const ARTICLE_SHARD: usize = 40;
-/// The most LSJ senses kept for one root.
+/// The most LSJ senses kept for one root, and the longest gloss.
 const MAX_SENSES: usize = 5;
+const GLOSS_CHARS: usize = 90;
 /// The longest lead, in characters.
 const LEAD_CHARS: usize = 240;
 /// A section heading longer than this is a sentence, not a heading.
@@ -165,8 +166,9 @@ fn plain(s: &str) -> String {
 // ---------------------------------------------------------------- LSJ (TFLSJ)
 
 /// One TFLSJ row, `G1577 <tab> G1577 =... <tab> ... <tab> meaning`, as
-/// (dStrong, meaning). The meaning is the eighth field and everything after it.
-fn tflsj_row(line: &str) -> Option<(&str, &str)> {
+/// (dStrong, word class, meaning). The class is the sixth field ("G:N-F"),
+/// the meaning the eighth field and everything after it.
+fn tflsj_row(line: &str) -> Option<(&str, &str, &str)> {
     let mut f = line.splitn(8, '\t');
     let id = f.next()?;
     if id.len() != 5 || !id.starts_with('G') || !id[1..].bytes().all(|b| b.is_ascii_digit()) {
@@ -180,26 +182,122 @@ fn tflsj_row(line: &str) -> Option<(&str, &str)> {
     if f.next()?.contains(is_space) {
         return None;
     }
-    for _ in 0..4 {
-        f.next()?;
-    }
-    Some((&head[..cut], f.next()?))
+    f.next()?;
+    f.next()?;
+    let class = f.next()?;
+    f.next()?;
+    Some((&head[..cut], class, f.next()?))
 }
 
-/// dStrong -> meaning, keeping the first row seen for each.
-fn tflsj_rows(paths: &[PathBuf]) -> Result<HashMap<String, String>, String> {
+/// dStrong -> (word class, meaning), keeping the first row seen for each.
+fn tflsj_rows(paths: &[PathBuf]) -> Result<HashMap<String, (String, String)>, String> {
     let mut rows = HashMap::new();
     for p in paths {
         let text = fs::read_to_string(p).map_err(|e| format!("reading {}: {e}", p.display()))?;
         for line in text.trim_start_matches('\u{feff}').lines() {
-            if let Some((key, meaning)) = tflsj_row(line) {
+            if let Some((key, class, meaning)) = tflsj_row(line) {
                 rows.entry(key.to_string())
-                    .or_insert_with(|| meaning.to_string());
+                    .or_insert_with(|| (class.to_string(), meaning.to_string()));
             }
         }
     }
     Ok(rows)
 }
+
+/// Articles, conjunctions, particles, prepositions and pronouns. LSJ's
+/// entries for them are about constructions ("with genitive ..."), so their
+/// first dated gloss says little ("and specially", "the following"): the
+/// word study shows no "Outside the Bible" line for them. The class is the
+/// first one TFLSJ gives, "G:PREP / G:A" counting as a preposition.
+fn grammar_word(class: &str) -> bool {
+    let first = class.split('/').next().unwrap_or("").trim_matches(is_space);
+    let base = first.strip_prefix("G:").unwrap_or(first);
+    let base = base.split('-').next().unwrap_or(base);
+    matches!(
+        base,
+        "T" | "CONJ"
+            | "COND"
+            | "PRT"
+            | "PREP"
+            | "P"
+            | "R"
+            | "D"
+            | "I"
+            | "X"
+            | "Q"
+            | "K"
+            | "F"
+            | "C"
+            | "S"
+    )
+}
+
+/// πᾶς "all" is an adjective, but its entry, too, is about constructions
+/// ("with the Article", "with superlative"), and "all" alone is a STOP word,
+/// so its first dated gloss is "nothing but, only".
+const CONSTRUCTION_WORDS: [&str; 1] = ["G3956"];
+
+/// Misprints in TFLSJ's glosses, set right whole word by whole word:
+/// u for v ("fauour"), letters lost ("mght-season") or words run together
+/// ("falldue").
+const MISPRINTS: [(&str, &str); 12] = [
+    ("fauour", "favour"),
+    ("approue", "approve"),
+    ("auoid", "avoid"),
+    ("bseeming", "beseeming"),
+    ("dought", "dough"),
+    ("mght", "night"),
+    ("falldue", "fall due"),
+    ("morethan", "more than"),
+    ("raisefrom", "raise from"),
+    ("aptto", "apt to"),
+    ("civilrights", "civil rights"),
+    ("lion or loins", "loin or loins"),
+];
+
+/// A gloss with the misprints set right.
+fn fix_misprints(gloss: &str) -> String {
+    let mut g = gloss.to_string();
+    for (bad, good) in MISPRINTS {
+        let mut from = 0;
+        while let Some(i) = g[from..].find(bad) {
+            let at = from + i;
+            let end = at + bad.len();
+            let before = g[..at].chars().next_back();
+            let after = g[end..].chars().next();
+            if before.is_none_or(|c| !c.is_alphanumeric())
+                && after.is_none_or(|c| !c.is_alphanumeric())
+            {
+                g.replace_range(at..end, good);
+                from = at + good.len();
+            } else {
+                from = end;
+            }
+        }
+    }
+    g
+}
+
+/// A gloss with each comma-separated part once: "<b>one, one</b> alone"
+/// gives "one".
+fn once_each(gloss: &str) -> String {
+    let mut parts: Vec<&str> = Vec::new();
+    for p in gloss.split(", ") {
+        if !parts.iter().any(|q| q.eq_ignore_ascii_case(p)) {
+            parts.push(p);
+        }
+    }
+    parts.join(", ")
+}
+
+/// Names whose LSJ entry is another word spelled the same: γάϊος "on land"
+/// (Gaius), κίς "weevil" (Kish), πόντιος "of the sea" (Pontius), σαῦλος, of
+/// a "loose, wanton" gait (Saul), ταρσός "crate" (Tarsus); or the name in a
+/// proverb (Simon, "a confederate in evil") or a history of the region
+/// (Lydia). Their glosses would mislead, so none are kept.
+const NOT_THE_NAME: [&str; 8] = [
+    "G1050", "G2797", "G3070", "G4194", "G4549", "G4569", "G4613", "G5019",
+];
 
 /// The sense markers `<LevelN><b>__I.2</b></LevelN>`, as (start, end, mark).
 fn sense_marks(s: &str) -> Vec<(usize, usize, &str)> {
@@ -282,21 +380,24 @@ fn link_at(s: &str, at: usize) -> Option<Link<'_>> {
     })
 }
 
-/// The first link that starts at or after `pos` and ends by `endpos`.
+/// The first link that starts at or after `pos` and ends by `endpos`,
+/// leaving out references to where the word is absent ("not in [...]").
 fn link_in(s: &str, pos: usize, endpos: usize) -> Option<Link<'_>> {
     let s = &s[..endpos];
     let mut from = pos;
     while let Some(i) = s[from..].find(LINK_HEAD) {
         let at = from + i;
-        if let Some(l) = link_at(s, at) {
-            return Some(l);
+        match link_at(s, at) {
+            Some(l) if !absent_at(s, at) => return Some(l),
+            Some(l) => from = l.end,
+            None => from = at + 1,
         }
-        from = at + 1;
     }
     None
 }
 
-/// Every link, left to right.
+/// Every link, left to right, leaving out references to where the word is
+/// absent.
 fn links_all(s: &str) -> Vec<Link<'_>> {
     let mut out = Vec::new();
     let mut from = 0;
@@ -305,7 +406,9 @@ fn links_all(s: &str) -> Vec<Link<'_>> {
         match link_at(s, at) {
             Some(l) => {
                 from = l.end;
-                out.push(l);
+                if !absent_at(s, at) {
+                    out.push(l);
+                }
             }
             None => from = at + 1,
         }
@@ -313,12 +416,463 @@ fn links_all(s: &str) -> Vec<Link<'_>> {
     out
 }
 
-/// A gloss: tags dropped, entities decoded, whitespace collapsed, and
-/// trimmed of ` ,;:.—-`.
-fn clean_gloss(s: &str) -> String {
-    collapse(&decode_entities(&strip_tags(s)))
-        .trim_matches([' ', ',', ';', ':', '.', '—', '-'])
+/// A Greek letter (Greek and Coptic, or Greek Extended).
+fn is_greek(c: char) -> bool {
+    ('\u{370}'..='\u{3ff}').contains(&c) || ('\u{1f00}'..='\u{1fff}').contains(&c)
+}
+
+/// Phrases after which a bold span names what the word is set against
+/// ("woman, opposed to <b>man</b>"), not a sense of the word. TFLSJ spells
+/// out LSJ's "opp.", but both are listed.
+const CONTRAST: [&str; 8] = [
+    "opposed to",
+    "opp.",
+    "in opposition to",
+    "in contrast to",
+    "in contrast with",
+    "contrasted with",
+    "distinguished from",
+    "as distinct from",
+];
+
+/// Phrases after which a reference shows where the word is *not* found
+/// ("not in [Homer]"): such a reference dates nothing.
+const ABSENT: [&str; 8] = [
+    "not in",
+    "never in",
+    "not found in",
+    "nowhere in",
+    "never used by",
+    "never occurs in",
+    "not occur in",
+    "does not occur in",
+];
+
+/// The plain text of some markup, lowercased, with trailing spaces and `[`.
+fn plain_tail(markup: &str) -> String {
+    let t = collapse(&decode_entities(&strip_tags(markup))).to_lowercase();
+    t.trim_end_matches(|c: char| is_space(c) || c == '[')
         .to_string()
+}
+
+/// Does the markup end with one of these phrases, as whole words? A word
+/// doubled by a typo at the very end ("opposed to to") counts once.
+fn ends_with_phrase(markup: &str, phrases: &[&str]) -> bool {
+    let mut t = plain_tail(markup);
+    if let Some((head, last)) = t.rsplit_once(' ') {
+        if head.ends_with(last) && head[..head.len() - last.len()].ends_with(' ') {
+            t.truncate(head.len());
+        }
+    }
+    phrases.iter().any(|p| {
+        t.strip_suffix(p).is_some_and(|before| {
+            before
+                .chars()
+                .next_back()
+                .is_none_or(|c| !c.is_alphanumeric())
+        })
+    })
+}
+
+/// Is the link starting at `at` a reference to where the word is absent?
+fn absent_at(s: &str, at: usize) -> bool {
+    let mut from = at.saturating_sub(60);
+    while !s.is_char_boundary(from) {
+        from -= 1;
+    }
+    ends_with_phrase(&s[from..at], &ABSENT)
+}
+
+/// The bold spans of a block that can be glosses: the first `skip` (the
+/// headword) go, and so does every span that names a contrast, together with
+/// any spans joined to it by "or", "and" or a comma ("opposed to <b>lie</b>
+/// or <b>mere appearance</b>"), every quoted phrase, every piece of a
+/// citation, and every span that only points to a sense given elsewhere
+/// ("in sense <b>check</b>, see below"). Dropping them also means the gloss
+/// before them keeps the reference that follows. Each span comes with
+/// whether it goes on from the words just before it (see `continues_phrase`).
+fn sense_bolds<'a>(
+    block: &str,
+    all: &[(usize, usize, &'a str)],
+    skip: usize,
+) -> Vec<(usize, usize, &'a str, bool)> {
+    let mut out = Vec::with_capacity(all.len());
+    let (mut prev_end, mut prev_contrast) = (0, false);
+    for (i, &b) in all.iter().enumerate() {
+        let between = &block[prev_end..b.0];
+        let joined = {
+            let t = collapse(&decode_entities(&strip_tags(between)));
+            matches!(
+                t.trim_matches(|c: char| is_space(c) || c == ','),
+                "" | "or" | "and" | "nor"
+            )
+        };
+        let contrast =
+            i >= skip && (ends_with_phrase(between, &CONTRAST) || (prev_contrast && joined));
+        // A quoted phrase (`<b>in vino veritas</b>') renders an example, not the word.
+        let quoted = plain_tail(between).ends_with('`');
+        let after = all.get(i + 1).map_or(&block[b.1..], |n| &block[b.1..n.0]);
+        // A bold run into a number ("<b>lon</b>947") is part of a citation,
+        // and so is a title after its author ("Ramsay <b>Cities and
+        // Bishoprics</b>"); after "written" comes a spelling ("<b>huihus</b>").
+        let cited = after.starts_with(|c: char| c.is_ascii_digit()) || titled(between, b.2);
+        let spelt = ends_with_phrase(between, &["written", "spelt", "spelled"]);
+        if i >= skip
+            && !contrast
+            && !quoted
+            && !cited
+            && !spelt
+            && !compared(between, b.2)
+            && !points_elsewhere(after)
+        {
+            out.push((b.0, b.1, b.2, continues_phrase(between)));
+        }
+        prev_end = b.1;
+        prev_contrast = contrast;
+    }
+    out
+}
+
+/// Words that label a gloss rather than begin a phrase it ends: "generally
+/// <b>basket</b>", "adverb <b>now</b>", "passive <b>to be loved</b>".
+const LABELS: [&str; 40] = [
+    "also",
+    "mostly",
+    "generally",
+    "properly",
+    "usually",
+    "commonly",
+    "especially",
+    "frequently",
+    "chiefly",
+    "often",
+    "simply",
+    "absolutely",
+    "metaphorically",
+    "later",
+    "rarely",
+    "hence",
+    "adverb",
+    "adjective",
+    "substantive",
+    "active",
+    "passive",
+    "middle",
+    "present",
+    "imperfect",
+    "future",
+    "aorist",
+    "perfect",
+    "pluperfect",
+    "infinitive",
+    "participle",
+    "singular",
+    "plural",
+    "masculine",
+    "feminine",
+    "neuter",
+    "comparative",
+    "superlative",
+    "genitive",
+    "dative",
+    "accusative",
+];
+
+/// Does a bold span go on from the words just before it? LSJ also sets in
+/// bold the key words of its translations of examples ("οὐδ᾽ ἀπὸ δόξης not
+/// otherwise than <b>one expects</b>", "κατὰ κόσμον in <b>order, duly</b>",
+/// "οὐ κατὰ κ. <b>shamefully</b>"): such a span follows Greek, or an English
+/// word, with no punctuation between. A gloss follows punctuation (":—"), a
+/// reference, an italic label ("<i>plural</i>"), a label word or the start
+/// of its block.
+fn continues_phrase(between: &str) -> bool {
+    let raw = between.trim_end_matches(|c: char| is_space(c) || c == '[' || c == ']');
+    if raw.is_empty() || raw.ends_with("</a>") || raw.ends_with("</i>") {
+        return false;
+    }
+    let t = collapse(&decode_entities(&strip_tags(raw)));
+    let Some(last) = t.split(is_space).rfind(|w| !w.is_empty()) else {
+        return false;
+    };
+    let Some(end) = last.chars().next_back() else {
+        return false;
+    };
+    // A Greek word, the headword cut short ("κ.") or a number ("about 6
+    // <b>feet</b>") just before.
+    if is_greek(end) || (end == '.' && last.chars().any(is_greek)) || end.is_ascii_digit() {
+        return true;
+    }
+    end.is_ascii_alphabetic() && !LABELS.contains(&last.to_lowercase().as_str())
+}
+
+/// Is a bold span a title cited after its author's name ("Hilgard <b>Excerpta
+/// e libris Herodiani</b>")? Glosses begin in lower case.
+fn titled(between: &str, inner: &str) -> bool {
+    let starts_upper = collapse(&decode_entities(&strip_tags(inner)))
+        .trim_start_matches(is_space)
+        .starts_with(|c: char| c.is_ascii_uppercase());
+    let t = collapse(&decode_entities(&strip_tags(between)));
+    let author = t.split(is_space).rfind(|w| !w.is_empty()).is_some_and(|w| {
+        let mut c = w.chars();
+        c.next().is_some_and(|f| f.is_ascii_uppercase())
+            && c.as_str().len() > 1
+            && c.all(|x| x.is_ascii_lowercase())
+            && !LABELS.contains(&w.to_lowercase().as_str())
+    });
+    starts_upper && author
+}
+
+/// Is a bold span a word of another language, compared in an etymology
+/// ("cf. Latin <i>fero,</i> OE <b>beran</b>")? The clause before it, from
+/// the last ";", ":", "—" or bracket, compares and names a language. A span
+/// that goes on past LSJ's ":—" ("cf. Latin <i>lac</i> for <b>glact):—
+/// milk</b>") has its gloss after it.
+fn compared(between: &str, inner: &str) -> bool {
+    const LANGUAGES: [&str; 12] = [
+        "Latin",
+        "Sanskrit",
+        "Gothic",
+        "Lithuanian",
+        "English",
+        "German",
+        "Norse",
+        "Armenian",
+        "Avestan",
+        "Irish",
+        "Slavonic",
+        "Hittite",
+    ];
+    if inner.contains(":—") {
+        return false;
+    }
+    let t = collapse(&decode_entities(&strip_tags(between)));
+    let clause = t.rsplit([';', ':', '—', '(', ')']).next().unwrap_or("");
+    let words: Vec<&str> = clause
+        .split(|c: char| is_space(c) || c == ',')
+        .filter(|w| !w.is_empty())
+        .collect();
+    words
+        .iter()
+        .any(|w| matches!(*w, "cf." | "Cf." | "compare" | "Compare" | "cognate"))
+        && words.iter().any(|w| LANGUAGES.contains(w))
+}
+
+/// Does the text after a bold span say the sense is given elsewhere?
+fn points_elsewhere(after: &str) -> bool {
+    let t = collapse(&decode_entities(&strip_tags(after)));
+    let t = t.trim_start_matches(|c: char| is_space(c) || c == ',');
+    t.starts_with("see below") || t.starts_with("see infr")
+}
+
+/// The glosses of a block as (start of the first bold, end of the last,
+/// cleaned gloss). Bold spans are read together where LSJ splits one gloss:
+/// - alternatives joined by a bare "or", `<b>send off</b> or <b>away
+///   from</b> [ref]`, become "send off or away from" (the second alone is
+///   often only the end of a phrase);
+/// - a gloss whose phrase goes on after a word or two, `<b>make</b> one
+///   <b>swear</b>`, becomes "make one swear".
+///
+/// A span too short to stand alone ("on", "from") still ends a pair of
+/// alternatives (`<b>put round</b> or <b>on,</b>`), unless the gloss before
+/// it is such a phrase or a list that already ends in a short word
+/// (`<b>kin, relationship, with</b> or <b>to</b> another`).
+///
+/// Once a gloss has started afresh, a later span that goes on from Greek or
+/// from a longer run of words renders an example, so it is dropped, and the
+/// gloss keeps the reference after the example ("<b>expectation,</b> οὐδ᾽
+/// ἀπὸ δόξης not otherwise than <b>one expects,</b> [Homer]"). Before that,
+/// such a span may be all LSJ gives ("ἕνα καὶ δύο one or <b>two</b>"), so it
+/// stays. Other bolds stay as they are, so each still ends the gloss before
+/// it.
+fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize, usize, String)> {
+    struct Group {
+        start: usize,
+        end: usize,
+        /// The markup from the first span's text to the last's.
+        raw: String,
+        gloss: String,
+        ok: bool,
+        fresh: bool,
+        /// Read together across words of LSJ's own ("make one swear").
+        phrase: bool,
+    }
+    let mut out: Vec<Group> = Vec::with_capacity(bold.len());
+    let mut fresh_seen = false;
+    for (i, &(start, end, inner, continues)) in bold.iter().enumerate() {
+        let gloss = clean_gloss(inner);
+        let after = bold.get(i + 1).map_or(&block[end..], |n| &block[end..n.0]);
+        let ok = gloss_ok(&gloss) && !runs_into_greek(inner, &gloss, after);
+        if let Some(last) = out.last_mut().filter(|l| l.ok) {
+            let gap_markup = &block[last.end..start];
+            let plain = collapse(&decode_entities(&strip_tags(gap_markup)));
+            let gap = plain.trim_matches(|c: char| is_space(c) || c == ',');
+            let ends_short = last.gloss.rsplit(", ").next().is_some_and(|p| !gloss_ok(p));
+            // The joined gloss, and whether it is a phrase.
+            let joined = if !ok {
+                (gap == "or" && !last.phrase && !ends_short)
+                    .then(|| (format!("{} or {gloss}", last.gloss), false))
+                    .filter(|(j, _)| gloss_ok(j) && !runs_into_greek(inner, j, after))
+            } else if gap.is_empty() && !gap_markup.contains(LINK_HEAD) {
+                // Two spans side by side are one ("<b>to be born after,
+                // come</b> <b>into being after</b>").
+                Some((
+                    clean_gloss(&format!("{}{gap_markup}{inner}", last.raw)),
+                    last.phrase,
+                ))
+            } else if gap == "or" {
+                Some(if gloss == last.gloss {
+                    (gloss.clone(), last.phrase)
+                } else {
+                    (format!("{} or {gloss}", last.gloss), last.phrase)
+                })
+            } else if last.fresh && continues && !gap_markup.contains(LINK_HEAD) && few_words(gap) {
+                Some((
+                    clean_gloss(&format!("{}{gap_markup}{inner}", last.raw)),
+                    true,
+                ))
+            } else {
+                None
+            };
+            if let Some((joined, phrase)) = joined.filter(|(j, _)| j.chars().count() <= GLOSS_CHARS)
+            {
+                last.raw = format!("{}{gap_markup}{inner}", last.raw);
+                last.gloss = joined;
+                last.end = end;
+                last.phrase = phrase;
+                continue;
+            }
+        }
+        if continues && fresh_seen {
+            let gap = out.last().map_or("", |l| &block[l.end..start]);
+            if renders_example(gap) {
+                continue;
+            }
+        }
+        let fresh = ok && !continues;
+        fresh_seen |= fresh;
+        out.push(Group {
+            start,
+            end,
+            raw: inner.to_string(),
+            gloss,
+            ok,
+            fresh,
+            phrase: false,
+        });
+    }
+    out.into_iter().map(|g| (g.start, g.end, g.gloss)).collect()
+}
+
+/// Is the text before a span that goes on from it an example? It is when
+/// Greek comes after the last reference in it ("οὐρίῳ δρόμῳ with prosperous
+/// <b>course</b>"), or when, with no reference, more than a couple of words
+/// lead up to the span. After a reference and a few English words
+/// ("[Plato] productive <b>labour</b>") a new gloss begins.
+fn renders_example(gap: &str) -> bool {
+    let tail = gap.rfind("</a>").map_or(gap, |i| &gap[i..]);
+    let plain = collapse(&decode_entities(&strip_tags(tail)));
+    if plain.chars().any(is_greek) {
+        return true;
+    }
+    !gap.contains(LINK_HEAD) && !few_words(plain.trim_matches(|c: char| is_space(c) || c == ','))
+}
+
+/// Does a gloss stop short of its object, which LSJ gives in Greek ("<b>made
+/// of</b> βύσσος")?
+fn runs_into_greek(inner: &str, gloss: &str, after: &str) -> bool {
+    const OPEN: [&str; 12] = [
+        "of", "to", "in", "for", "with", "from", "by", "at", "on", "upon", "into", "as",
+    ];
+    let last = gloss.rsplit(' ').next().unwrap_or(gloss).to_lowercase();
+    let open = strip_tags(inner)
+        .trim_end_matches(is_space)
+        .ends_with(|c: char| c.is_alphabetic());
+    open && OPEN.contains(&last.as_str())
+        && collapse(&decode_entities(&strip_tags(after)))
+            .trim_start_matches(is_space)
+            .starts_with(is_greek)
+}
+
+/// One or two plain words ("one", "a thing"), the most that can sit inside
+/// a gloss LSJ splits.
+fn few_words(gap: &str) -> bool {
+    let words: Vec<&str> = gap.split(is_space).filter(|w| !w.is_empty()).collect();
+    (1..=2).contains(&words.len())
+        && words
+            .iter()
+            .all(|w| w.chars().all(|c| c.is_ascii_alphabetic() || c == '\''))
+}
+
+/// Is there a reference to where the word is absent in `[from, to)`?
+fn absent_in(s: &str, from: usize, to: usize) -> bool {
+    let s = &s[..to];
+    let mut at = from;
+    while let Some(i) = s[at..].find(LINK_HEAD) {
+        if absent_at(s, at + i) {
+            return true;
+        }
+        at += i + 1;
+    }
+    false
+}
+
+/// The reference that dates a gloss: the first in `[from, to)`, passing over
+/// LSJ's undated ones (a bare "Refs") to the next. When that one cites the
+/// Bible alone ("LXX", "NT"), the sense is a biblical one and gets no date.
+fn gloss_date(s: &str, from: usize, to: usize) -> Option<(Link<'_>, String)> {
+    let mut at = from;
+    while let Some(l) = link_in(s, at, to) {
+        if l.label
+            .replace("Refs", "")
+            .trim_matches(is_space)
+            .is_empty()
+        {
+            at = l.end;
+            continue;
+        }
+        return label_date(l.label)
+            .and_then(|(d, era)| century(&d, era))
+            .map(|(_, c)| (l, c));
+    }
+    None
+}
+
+/// The first reference in `[from, to)` with a date outside the Bible, other
+/// than one to where the word is absent, with its century.
+fn first_dated(s: &str, from: usize, to: usize) -> Option<(Link<'_>, String)> {
+    let mut at = from;
+    while let Some(l) = link_in(s, at, to) {
+        at = l.end;
+        if let Some((_, c)) = label_date(l.label).and_then(|(d, era)| century(&d, era)) {
+            return Some((l, c));
+        }
+    }
+    None
+}
+
+/// A gloss: tags dropped, entities decoded, whitespace collapsed, and
+/// trimmed of ` ,;:.—-`. A bold span that runs on from the etymology
+/// ("glact):—milk") keeps only what follows its last ":—", and one that runs
+/// on into a reference ("a keeping of days of rest, Ep. Hebrew") stops
+/// before it.
+fn clean_gloss(s: &str) -> String {
+    let t = collapse(&decode_entities(&strip_tags(s)));
+    let t = t.rsplit_once(":—").map_or(t.as_str(), |(_, after)| after);
+    let t = t.trim_matches([' ', ',', ';', ':', '.', '—', '-']);
+    let parts: Vec<&str> = t.split(", ").collect();
+    let t = match parts.iter().position(|p| has_abbreviation(p)) {
+        Some(k) if k > 0 => parts[..k].join(", "),
+        _ => t.to_string(),
+    };
+    t.trim_matches([' ', ',', ';', ':', '.', '—', '-'])
+        .to_string()
+}
+
+/// A lone "." inside the text, as in "Ep." or "NT.Luke". LSJ's ".." in a
+/// construction ("either.. or") is not one.
+fn has_abbreviation(t: &str) -> bool {
+    let c: Vec<char> = t.trim_end_matches('.').chars().collect();
+    (0..c.len()).any(|i| c[i] == '.' && c.get(i + 1) != Some(&'.') && (i == 0 || c[i - 1] != '.'))
 }
 
 const STOP: [&str; 17] = [
@@ -343,12 +897,25 @@ fn gloss_ok(g: &str) -> bool {
     {
         return false;
     }
-    let greek =
-        |c: char| ('\u{370}'..='\u{3ff}').contains(&c) || ('\u{1f00}'..='\u{1fff}').contains(&c);
-    if g.chars().any(|c| greek(c) || "āēīōūăĕĭŏŭʼʽ".contains(c)) {
+    if g.chars().any(|c| is_greek(c) || "āēīōūăĕĭŏŭʼʽ".contains(c)) {
         return false;
     }
-    !(g.starts_with('\'') || g.starts_with("NT") || g.starts_with("LXX") || g.starts_with('='))
+    if g.starts_with('\'') || g.starts_with("NT") || g.starts_with("LXX") || g.starts_with('=') {
+        return false;
+    }
+    // Fragments of the markup around a gloss: an unmatched bracket ("l), Alc",
+    // "foreign) tongue") or an abbreviation ("Exc. ex libris", "NT.Luke").
+    // ".." is LSJ's own way of writing a construction ("either.. or").
+    if g.matches('(').count() != g.matches(')').count() || has_abbreviation(g) {
+        return false;
+    }
+    // A span that runs on into Greek ("<b>belonging to the</b> ἀγορά",
+    // "<b>for having forsaken his</b> wife").
+    let last = g.rsplit(' ').next().unwrap_or(g).to_lowercase();
+    !matches!(
+        last.as_str(),
+        "the" | "a" | "an" | "his" | "her" | "its" | "their" | "one's"
+    )
 }
 
 /// The gloss's words, for spotting a gloss that only repeats an earlier one.
@@ -698,32 +1265,38 @@ fn lsj(meaning: &str) -> Option<Lsj> {
     let mut senses = Vec::new();
     let mut seen: Vec<BTreeSet<String>> = Vec::new();
     for (k, block) in blocks.iter().enumerate() {
-        let mut bold = bolds(block);
-        if k == 0 && !bold.is_empty() {
-            bold.remove(0); // the headword
-        }
+        let all = bolds(block);
+        let bold = sense_bolds(block, &all, usize::from(k == 0)); // block 0 opens with the headword
+        let glosses = gloss_groups(block, &bold);
         let want = if k == 0 { 2 } else { 1 };
         let mut took = 0;
-        for (j, &(_, end, inner)) in bold.iter().enumerate() {
-            let gloss = clean_gloss(inner);
-            if !gloss_ok(&gloss) {
+        for (j, (_, end, gloss)) in glosses.iter().enumerate() {
+            let (end, gloss) = (*end, gloss.as_str());
+            if !gloss_ok(gloss) {
                 continue;
             }
-            let stop = bold.get(j + 1).map_or(block.len(), |b| b.0);
-            let Some(link) = link_in(block, end, stop) else {
+            let stop = glosses.get(j + 1).map_or(block.len(), |b| b.0);
+            let dated = if absent_in(block, end, stop) {
+                // LSJ says where this sense is *not* found ("not in [Homer]");
+                // its first dated reference after the gloss, in the same
+                // sense, says where it is.
+                first_dated(block, end, block.len())
+            } else {
+                gloss_date(block, end, stop)
+            };
+            let Some((link, century)) = dated else {
                 continue;
             };
-            let Some((_, century)) = label_date(link.label).and_then(|(d, era)| century(&d, era))
-            else {
-                continue;
-            };
-            let words = word_set(&gloss);
+            let words = word_set(gloss);
             if seen.iter().any(|s| words.is_subset(s)) {
                 continue;
             }
             seen.push(words);
             senses.push(Sense {
-                gloss: gloss.chars().take(90).collect(),
+                gloss: once_each(&fix_misprints(gloss))
+                    .chars()
+                    .take(GLOSS_CHARS)
+                    .collect(),
                 century,
                 writer: writer(link.title, link.label),
                 papyri: papyri(link.title),
@@ -1458,19 +2031,29 @@ pub fn build(
     // --- Outside the Bible: LSJ senses for every Greek root ---------------
     let rows = tflsj_rows(&inputs.paths("tflsj"))?;
     let (mut with_lsj, mut with_senses, mut with_first) = (0, 0, 0);
+    let (mut grammar, mut names) = (0, 0);
     for (r, (key, _)) in lemmas.iter().enumerate() {
         if !key.starts_with('G') {
             continue;
         }
         let base = key.get(..5).unwrap_or(key);
-        let Some(meaning) = rows
+        let Some((class, meaning)) = rows
             .get(*key)
             .or_else(|| rows.get(base))
             .or_else(|| rows.get(&format!("{base}G")))
         else {
             continue;
         };
-        let Some(e) = lsj(meaning) else { continue };
+        let Some(mut e) = lsj(meaning) else { continue };
+        if NOT_THE_NAME.contains(&base) {
+            e = Lsj {
+                senses: Vec::new(),
+                first: None,
+                papyri: false,
+                inscriptions: false,
+            };
+            names += 1;
+        }
         with_lsj += 1;
         with_senses += usize::from(!e.senses.is_empty());
         with_first += usize::from(e.first.is_some());
@@ -1497,6 +2080,10 @@ pub fn build(
         }
         if e.inscriptions {
             o.insert("i".into(), json!(1));
+        }
+        if grammar_word(class) || CONSTRUCTION_WORDS.contains(&base) {
+            o.insert("g".into(), json!(1));
+            grammar += 1;
         }
     }
 
@@ -1678,7 +2265,7 @@ pub fn build(
             "title": spec.title,
             "license": spec.license,
             "attribution": spec.attribution,
-            "changes": "Only the description, usage, discussion, symbolism and \"other\" sections are kept; translation advice, reference lists and images are not used. Inline markup is reduced to bold, italic and verse links. Each article is linked to the Hebrew and Greek roots whose verses it cites, and its lead is the opening of its first kept paragraph, cut at a sentence end.",
+            "changes": "Only the description, usage, discussion, symbolism and \"other\" sections are kept; translation advice, reference lists and images are not used. Inline markup is reduced to bold, italic and verse links, and cross-references name the section they point to without its number. Each article is linked to the Hebrew and Greek roots whose verses it cites, and its lead is the opening of its first kept paragraph, cut at a sentence end.",
         },
         "entries": index_rows,
     });
@@ -1708,7 +2295,7 @@ pub fn build(
     }
     let total: usize = files.iter().map(|f| f.1.len()).sum();
     eprintln!(
-        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
+        "World: {with_lsj} Greek roots with LSJ ({with_senses} with senses, {with_first} with a first use; {grammar} grammar words and {names} names not shown); {} UBS entries linked to {roots_linked} roots (general {general}, verse-only {verse_only}); {} files, {} KB",
         linked.len(),
         files.len(),
         total.div_ceil(1024)
@@ -1941,6 +2528,57 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             ),
         ));
     }
+    // Beyond lsj5's rules: alternatives read together, examples and
+    // contrasts left out, misprints and repeats set right.
+    for (key, gloss, who) in [
+        ("G1391", "expectation", "Homer"),
+        ("G0225", "truth", "Homer"),
+        ("G1135G", "woman", "Homer"),
+        ("G0649", "send off or away from", "Sophocles"),
+        (
+            "G5547",
+            "to be rubbed on, used as ointment or salve",
+            "Euripides",
+        ),
+        ("G3568", "now", "Homer"),
+        ("G5485", "outward grace or favour, beauty", "Homer"),
+        ("G4074G", "stone", "Homer"),
+        ("G1939", "desire of or for", "Antiphon"),
+        ("G1520", "one", "Homer"),
+        ("G5342", "bear or carry", "Homer"),
+    ] {
+        let first = &slot(key)["l"][0];
+        out.push((
+            first[0] == gloss && first[2] == who,
+            format!("{key}: first LSJ sense is {first}, expected {gloss:?} from {who}"),
+        ));
+    }
+    // Names whose LSJ entry is another word keep none of it.
+    for key in ["G4549G", "G4613G", "G2797", "G1050G"] {
+        let s = slot(key);
+        let none = s["l"].as_array().is_some_and(Vec::is_empty) && s.get("f").is_none();
+        out.push((
+            none,
+            format!("{key}: LSJ's entry is another word, but the root has {s}"),
+        ));
+    }
+    // Grammar words are flagged, and only roots with an LSJ entry.
+    let unflagged: Vec<&str> = ["G2532", "G3588", "G1722", "G3956"]
+        .into_iter()
+        .filter(|k| slot(k)["g"] != 1)
+        .collect();
+    out.push((
+        unflagged.is_empty() && slot("G1577").get("g").is_none(),
+        format!("grammar words not flagged: {unflagged:?}; G1577 must not be one"),
+    ));
+    let stray = slots
+        .iter()
+        .filter(|s| s.get("g").is_some() && s.get("l").is_none())
+        .count();
+    out.push((
+        stray == 0,
+        format!("{stray} roots are flagged as grammar words but have no LSJ entry"),
+    ));
     let odd: Vec<String> = slots
         .iter()
         .flat_map(|s| {
@@ -2166,7 +2804,10 @@ mod tests {
     #[test]
     fn tflsj_rows_need_every_field() {
         let good = "G2218\tG2218 =\tG2218\tζυγός\tzugos\tG:N-M\tyoke/scales\t<b> ζῠγόν</b>\tmore";
-        assert_eq!(tflsj_row(good), Some(("G2218", "<b> ζῠγόν</b>\tmore")));
+        assert_eq!(
+            tflsj_row(good),
+            Some(("G2218", "G:N-M", "<b> ζῠγόν</b>\tmore"))
+        );
         // A combination entry has a space in its third field, so lsj5 skipped it.
         assert_eq!(tflsj_row("G0534\tG0534 = a Combination of\tG0737 (G0575+G0737)\tἀπαρτί\taparti\tG:ADV\thenceforth\tx"), None);
         assert_eq!(tflsj_row("G218\tG218 =\tx\tx\tx\tx\tx\tx"), None);
@@ -2310,6 +2951,393 @@ mod tests {
         );
         assert!(e.papyri && e.inscriptions);
         assert!(lsj("<b>x</b> LSJ has no entry").is_none());
+    }
+
+    #[test]
+    fn contrasts_and_absences_are_not_senses() {
+        let link = |label: &str, title: &str| {
+            format!("<a href=\"javascript:void(0)\" title=\"{title}\">{label}</a>")
+        };
+        let homer = link("Refs 8th c.BC+", " 8th c.BC: Ilias Homerus Epicus 1.1");
+        let hdt = link("Refs 5th c.BC+", " 5th c.BC: Herodotus Historicus 1.1");
+        let glosses = |e: &Lsj| {
+            e.senses
+                .iter()
+                .map(|s| (s.gloss.clone(), s.writer.clone().unwrap_or_default()))
+                .collect::<Vec<_>>()
+        };
+        let pair = |g: &str, w: &str| (g.to_string(), w.to_string());
+        // "woman, opposed to man [Homer]": the reference belongs to "woman".
+        let e = lsj(&format!(
+            "<b> γυνή</b>, ἡ:—<b>woman,</b> opposed to <b>man,</b>[{homer}] <b>wife</b> [{hdt}]"
+        ))
+        .unwrap();
+        assert_eq!(
+            glosses(&e),
+            [pair("woman", "Homer"), pair("wife", "Herodotus")]
+        );
+        // What "truth" is set against never becomes a sense, even when dated.
+        let e = lsj(&format!(
+            "<b> ἀλήθεια</b> <Level2><b>__I</b></Level2> <b>truth</b>, opposed to <b>lie</b> or \
+             <b>mere appearance</b>: <Level3><b>__I.1</b></Level3> in [{homer}] only opposed to \
+             <b>a lie</b>, [{homer}] to tell whole <b>truth</b> about the lad, [{homer}]"
+        ))
+        .unwrap();
+        assert_eq!(glosses(&e), [pair("truth", "Homer")]);
+        // A gloss after a contrast, but not joined to it, still counts.
+        let e = lsj(&format!(
+            "<b> x</b> <b>slave,</b> opposed to <b>freeman</b>; <b>bondman</b> [{hdt}]"
+        ))
+        .unwrap();
+        assert_eq!(glosses(&e), [pair("bondman", "Herodotus")]);
+        // "not in [Homer]" dates nothing, not even the earliest example.
+        let e = lsj(&format!(
+            "<b> δοῦλος</b> <b>bondman, slave,</b> not in [{homer}], but in [{hdt}]"
+        ))
+        .unwrap();
+        assert_eq!(glosses(&e), [pair("bondman, slave", "Herodotus")]);
+        assert_eq!(
+            e.first.as_ref().map(|f| f.0.as_str()),
+            Some("5th century BC")
+        );
+        // With only "not in [Homer]" before the next gloss, the first dated
+        // reference later in the sense dates it; a quoted phrase is no gloss.
+        let e = lsj(&format!(
+            "<b> ἀληθής</b> <Level3><b>__I.2</b></Level3> <b>truthful, honest</b> (not in [{homer}]; \
+             οἶνος ἀ. `<b>in vino veritas</b>', [{undated}] [{hdt}]",
+            undated = link("Refs", " Theognis 1.1"),
+        ))
+        .unwrap();
+        assert_eq!(glosses(&e), [pair("truthful, honest", "Herodotus")]);
+        let e = lsj(&format!(
+            "<b> βελτίων</b> <b>better</b> (not in [{homer}] <b>it is fitting</b>, [{hdt}]"
+        ))
+        .unwrap();
+        assert_eq!(
+            glosses(&e),
+            [
+                pair("better", "Herodotus"),
+                pair("it is fitting", "Herodotus")
+            ]
+        );
+        assert!(ends_with_phrase("x, never used by [", &ABSENT));
+        assert!(ends_with_phrase("man as opposed to to ", &CONTRAST));
+        assert!(!ends_with_phrase("man as opposed toto ", &CONTRAST));
+        assert!(!ends_with_phrase("x, not only [", &ABSENT));
+        assert!(!ends_with_phrase("x, cannot in [", &ABSENT));
+    }
+
+    #[test]
+    fn grammar_words_and_fragments() {
+        for c in [
+            "G:T",
+            "G:CONJ",
+            "G:PRT-N",
+            "G:PREP / G:A",
+            "G:P",
+            "G:R",
+            "G:X",
+            "G:COND",
+        ] {
+            assert!(grammar_word(c), "{c}");
+        }
+        for c in [
+            "G:N-M",
+            "G:V",
+            "G:A",
+            "G:ADV",
+            "G:INJ",
+            "N:N-L",
+            "G:A / G:ADV",
+            "G:Α",
+            "",
+        ] {
+            assert!(!grammar_word(c), "{c}");
+        }
+        assert_eq!(clean_gloss("glact):—milk"), "milk");
+        assert_eq!(
+            clean_gloss("a keeping of days of rest, Ep. Hebrew"),
+            "a keeping of days of rest"
+        );
+        assert_eq!(clean_gloss("either.. or"), "either.. or");
+        assert!(!gloss_ok(&clean_gloss("cup. bowl")));
+        assert_eq!(
+            clean_gloss("shear.):—cut short, shear, clip"),
+            "cut short, shear, clip"
+        );
+        for g in [
+            "l), Alc",
+            "foreign) tongue",
+            "especially (since",
+            "Exc. ex libris Herodiani",
+            "with the whole multitude, NT.Luke",
+        ] {
+            assert!(!gloss_ok(g), "{g}");
+        }
+        for g in [
+            "either.. or",
+            "how possibly..?",
+            "oblong shield (shaped like a door)",
+            "milk",
+        ] {
+            assert!(gloss_ok(g), "{g}");
+        }
+    }
+
+    /// The first sense of an entry, as (gloss, writer).
+    fn first_sense(meaning: &str) -> Option<(String, String)> {
+        lsj(meaning).and_then(|e| {
+            e.senses
+                .first()
+                .map(|s| (s.gloss.clone(), s.writer.clone().unwrap_or_default()))
+        })
+    }
+
+    fn lsj_link(label: &str, title: &str) -> String {
+        format!("<a href=\"javascript:void(0)\" title=\"{title}\">{label}</a>")
+    }
+
+    fn sense(gloss: &str, writer: &str) -> Option<(String, String)> {
+        Some((gloss.to_string(), writer.to_string()))
+    }
+
+    #[test]
+    fn alternatives_and_split_glosses_read_as_one() {
+        let homer = lsj_link("Refs 8th c.BC+", " 8th c.BC: Ilias Homerus Epicus 1.1");
+        let soph = lsj_link("Refs 5th c.BC+", " 5th c.BC: Sophocles Tragicus “Ajax” 1");
+        // Alternatives: the second alone is only the end of a phrase.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> ἀποστέλλω</b>, <b>send off</b> or <b>away from</b>, [{soph}]"
+            )),
+            sense("send off or away from", "Sophocles")
+        );
+        assert_eq!(
+            first_sense(&format!("<b> x</b>, <b>free</b> or <b>free</b> [{homer}]")),
+            sense("free", "Homer")
+        );
+        // A gloss split around a word or two, or by the markup.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> ὁρκίζω</b>, <b>make</b> one <b>swear</b> [{homer}]"
+            )),
+            sense("make one swear", "Homer")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b>, of Time, <b>to be born after, come</b> <b>into being after</b> [{homer}]"
+            )),
+            sense("to be born after, come into being after", "Homer")
+        );
+        // Never past the longest gloss.
+        let long = "a".repeat(50);
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b>, <b>{long} b</b> or <b>{long} c</b> [{homer}]"
+            )),
+            sense(&format!("{long} c"), "Homer")
+        );
+        // A short word still ends a pair of alternatives...
+        assert_eq!(
+            first_sense(&format!(
+                "<b> ἀμφιέννυμι</b> <b>put round</b> or <b>on,</b> ἀμφὶ δὲ καλὰ [{homer}]"
+            )),
+            sense("put round or on", "Homer")
+        );
+        // ...but not after a phrase, or a list that ends in one already.
+        for meaning in [
+            format!(
+                "<b> ὑπέχω</b>, <b>put</b> a mare <b>under</b> or <b>to</b> a horse, [{homer}]"
+            ),
+            format!("<b> x</b>, <b>kin, relationship, with</b> or <b>to</b> another, [{homer}]"),
+            format!("<b> x</b>, <b>made of</b> or <b>from</b> βύσσος [{homer}]"),
+        ] {
+            assert_eq!(first_sense(&meaning), None, "{meaning}");
+        }
+    }
+
+    #[test]
+    fn examples_are_not_glosses() {
+        let homer = lsj_link("Refs 8th c.BC+", " 8th c.BC: Ilias Homerus Epicus 1.1");
+        let soph = lsj_link("Refs 5th c.BC+", " 5th c.BC: Sophocles Tragicus “Ajax” 1");
+        let undated = lsj_link("Refs", " Theognis 1.1");
+        // The span in the translation of an example is no new sense: the
+        // gloss before it keeps the reference after the example.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> δόξα</b>, ἡ, (δοκέω) <b>expectation,</b> οὐδ᾽ ἀπὸ δόξης not otherwise than \
+                 <b>one expects,</b> [{homer}]"
+            )),
+            sense("expectation", "Homer")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> νῦν</b>, adverb <b>now,</b> both of the <b>present moment,</b> and of the \
+                 <b>present time</b> generally, οἳ ν. βροτοί εἰσιν mortals <b>of our day,</b> [{homer}]"
+            )),
+            sense("now", "Homer")
+        );
+        // Before any gloss, such a span may be all there is.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> δύο</b>, ἕνα καὶ δύο one or <b>two</b>, a few, [{homer}]"
+            )),
+            sense("two", "Homer")
+        );
+        // After a reference, a few English words begin a new gloss.
+        let e = lsj(&format!(
+            "<b> ἐργασία</b>, <b>work, business,</b> [{undated}] opposed to ἀργία, [{soph}] \
+             productive <b>labour,</b> [{homer}]"
+        ))
+        .unwrap();
+        let glosses: Vec<&str> = e.senses.iter().map(|s| s.gloss.as_str()).collect();
+        assert_eq!(glosses, ["work, business", "labour"]);
+        for (gap, example) in [
+            (" οὐδ᾽ ἀπὸ δόξης not otherwise than ", true),
+            (", τὸ ἔλαιον τὸ χ. ", true),
+            (" about 6 ", true),
+            (" (δοκέω, δέκομαι) ", false),
+            (", compare Λύκη):— ", false),
+            (" <i>plural</i> ", false),
+            (" generally ", false),
+            (" adverb ", false),
+            (" [<a href=\"x\">Refs</a>] ", false),
+            ("", false),
+        ] {
+            assert_eq!(continues_phrase(gap), example, "{gap:?}");
+        }
+    }
+
+    #[test]
+    fn citations_titles_and_spellings_are_not_glosses() {
+        let homer = lsj_link("Refs 8th c.BC+", " 8th c.BC: Ilias Homerus Epicus 1.1");
+        let soph = lsj_link("Refs 5th c.BC+", " 5th c.BC: Sophocles Tragicus “Ajax” 1");
+        // "in sense check, see below" points elsewhere; "lon947" is a citation.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> ἔχω</b>, (especially in sense <b>check</b>, see below [{soph}]; σχέο \
+                 [{homer}]<b>lon</b>947; Trans., <b>have, hold</b> [{homer}]"
+            )),
+            sense("have, hold", "Homer")
+        );
+        // A spelling, and a title after its author's name.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> υἱός</b>, υἱύς (written <b>huihus</b>) [{soph}]:— <b>son,</b> [{homer}]"
+            )),
+            sense("son", "Homer")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> νοέω</b>, νενόηθι Hilgard <b>Excerpta e libris Herodiani</b> [{soph}]:— \
+                 <b>perceive by the eyes, observe</b> [{homer}]"
+            )),
+            sense("perceive by the eyes, observe", "Homer")
+        );
+        assert!(titled(" Ramsay ", "Cities and Bishoprics"));
+        assert!(!titled(" Roman ", "governor"));
+        assert!(!titled("; ", "Persis, Persia"));
+        assert!(!titled(" generally ", "Zeus"));
+    }
+
+    #[test]
+    fn cognates_are_not_glosses() {
+        let homer = lsj_link("Refs 8th c.BC+", " 8th c.BC: Ilias Homerus Epicus 1.1");
+        let soph = lsj_link("Refs 5th c.BC+", " 5th c.BC: Sophocles Tragicus “Ajax” 1");
+        let late = lsj_link("Refs 5th c.AD+", " 5th c.AD: Hesychius Lexicographus 1");
+        // A word of another language in the etymology...
+        assert_eq!(
+            first_sense(&format!(
+                "<b> φέρω</b>, cf. Latin <i>fero,</i> O[{soph}] <b>beran,</b> Sanskrit \
+                 <i>bhárati</i> [{late}]; <b>bear</b> or <b>carry</b> a load, [{homer}]"
+            )),
+            sense("bear or carry", "Homer")
+        );
+        // ...but not the gloss after LSJ's ":—", nor a span after a
+        // comparison with another Greek word.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> γάλα</b>, cf. Latin <i>lac</i> for <b>glact):—milk</b>, ἀμελγόμενοι [{homer}]"
+            )),
+            sense("milk", "Homer")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> (but feminine, [{soph}], compare ξυμφορὴ γίνεται δ. [{soph}], \
+                 <b>teacher, master,</b> μαντείης [{soph}]"
+            )),
+            sense("teacher, master", "Sophocles")
+        );
+    }
+
+    #[test]
+    fn dating_passes_over_undated_references() {
+        let soph = lsj_link("Refs 5th c.BC+", " 5th c.BC: Sophocles Tragicus “Ajax” 1");
+        let undated = lsj_link("Refs", " Theognis 1.1");
+        let lxx = lsj_link("LXX", " LXX Ge.1.1");
+        assert_eq!(
+            first_sense(&format!(
+                "<b> δρόμος</b>, <b>course, race,</b> of horses, [{undated}], [{soph}]"
+            )),
+            sense("course, race", "Sophocles")
+        );
+        // A first reference to the Bible alone makes the sense a biblical one.
+        assert_eq!(
+            first_sense(&format!("<b> x</b>, <b>feel pity</b> [{lxx}] [{soph}]")),
+            None
+        );
+    }
+
+    #[test]
+    fn glosses_that_stop_short() {
+        let hdt = lsj_link("Refs 5th c.BC+", " 5th c.BC: Herodotus Historicus 1.1");
+        assert_eq!(
+            first_sense(&format!(
+                "<b> βύσσινος</b>, η, ον, <b>made of</b> βύσσος, σινδὼν β. <b>fine linen</b> [{hdt}]"
+            )),
+            sense("fine linen", "Herodotus")
+        );
+        assert!(runs_into_greek("made of", "made of", " βύσσος"));
+        assert!(!runs_into_greek("make war", "make war", " πρός τινα"));
+        assert!(!runs_into_greek("made of,", "made of", " βύσσος"));
+        assert!(!runs_into_greek("made of", "made of", " linen"));
+        for g in [
+            "the",
+            "belonging to the",
+            "the character of an",
+            "for having forsaken his",
+        ] {
+            assert!(!gloss_ok(g), "{g}");
+        }
+        assert!(gloss_ok("the hand"));
+    }
+
+    #[test]
+    fn misprints_and_repeats_are_set_right() {
+        for (bad, good) in [
+            (
+                "outward grace or fauour, beauty",
+                "outward grace or favour, beauty",
+            ),
+            ("mght-season", "night-season"),
+            (
+                "lion or loins, lower part of the back",
+                "loin or loins, lower part of the back",
+            ),
+            ("falldue", "fall due"),
+            ("lion", "lion"),
+            ("fauours", "fauours"),
+            ("fall due", "fall due"),
+        ] {
+            assert_eq!(fix_misprints(bad), good);
+        }
+        for (gloss, once) in [
+            ("one, one", "one"),
+            ("so, thus, So", "so, thus"),
+            ("one, one alone", "one, one alone"),
+        ] {
+            assert_eq!(once_each(gloss), once);
+        }
     }
 
     #[test]
