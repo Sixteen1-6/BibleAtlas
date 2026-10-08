@@ -84,17 +84,19 @@ pub fn run(out: &Path, args: &[String]) -> Result<(), String> {
             let t = Instant::now();
             let roads = adj.roads(a, b, min_votes, k);
             let searched = t.elapsed();
+            let votes = |n: i64| if n == 1 { "1 vote".to_string() } else { format!("{n} votes") };
             if roads.is_empty() {
-                println!("no connection found between {} and {} with links of at least {min_votes} votes", d.label(a), d.label(b));
+                println!("no connection found between {} and {} with links of at least {}", d.label(a), d.label(b), votes(min_votes.into()));
                 return Ok(());
             }
             let rank = d.container().f32s("v_rank").map_err(|e| format!("{e:?}"))?;
             println!(
-                "{} {} from {} to {}, sharing no verse but the two ends (links of at least {min_votes} votes; adjacency {:.1} ms, search {:.2} ms)",
+                "{} {} from {} to {}, sharing no verse but the two ends (links of at least {}; adjacency {:.1} ms, search {:.2} ms)",
                 roads.len(),
                 if roads.len() == 1 { "road" } else { "roads" },
                 d.label(a),
                 d.label(b),
+                votes(min_votes.into()),
                 built.as_secs_f64() * 1e3,
                 searched.as_secs_f64() * 1e3
             );
@@ -111,7 +113,7 @@ pub fn run(out: &Path, args: &[String]) -> Result<(), String> {
                 println!();
                 print!("road {}: {via}, cost {}, {steps} {}", i + 1, p.cost, if steps == 1 { "step" } else { "steps" });
                 match weakest {
-                    Some(w) => println!(", weakest link {w} votes"),
+                    Some(w) => println!(", weakest link {}", votes(w.into())),
                     None => println!(),
                 }
                 for (j, v) in p.verses.iter().enumerate() {
