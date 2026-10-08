@@ -1,74 +1,19 @@
 {
   "_comment": [
     "Layers of meaning: short notes on one passage, from the plain meaning outward.",
+    "section: law-history, prophets-poetry, jesus or letters-revelation, the group a passage is listed in.",
     "kind: plain meaning, quotation, allusion, wordplay, name meaning, pattern, irony, fulfillment or setting.",
     "strength: widely agreed (the Bible itself, a BSB footnote, or words the build can check), commonly held (an openly licensed source in the repo), or some interpreters.",
     "refs: passages the layer rests on. words: Strong's keys the build looks for in those verses, so readers can tap them.",
-    "evidence: where a claim comes from (a lexicon, a manuscript), shown at the Deep level, so the note itself stays plain.",
+    "evidence: where a claim comes from (a lexicon, a manuscript, a commentary) and detail the note has no room for, shown at the Deep level. Keep text to 300 characters and evidence to 400.",
     "Any quotation of four or more words must match the BSB in one of the layer's refs or the passage itself.",
     "reviewed_by: the people who checked the entry. Entries nobody has reviewed are drafts and stay out of the published data; ATLAS_LAYER_DRAFTS=1 make data includes them for a local preview.",
     "atlas build checks every rule and stops at the first error."
   ],
   "passages": [
     {
-      "id": "isaiah-53-5",
-      "ref": "Isaiah 53:5",
-      "saying": "He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed.",
-      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
-      "reviewed_by": [],
-      "layers": [
-        {
-          "kind": "plain meaning",
-          "strength": "widely agreed",
-          "refs": ["Isaiah 52:13", "Isaiah 53:4-6"],
-          "text": "Isaiah describes the LORD's servant suffering for wrongs that are not His own. Watch the pronouns: the wounds are His, the transgressions are ours, and the peace and the healing come to us."
-        },
-        {
-          "kind": "quotation",
-          "strength": "widely agreed",
-          "refs": ["Isaiah 53:5", "1 Peter 2:24", "1 Peter 2:18-20"],
-          "words": [
-            { "ref": "Isaiah 53:5", "strong": "H2250" },
-            { "ref": "1 Peter 2:24", "strong": "G3468" }
-          ],
-          "evidence": "TBESH defines chabburah as a bruise or welt; the Greek word is molops (TBESG)",
-          "text": "Peter quotes this line to household servants who suffered unjustly: \"By His stripes you are healed.\" Isaiah's \"we\" becomes \"you.\" Isaiah's Hebrew word for stripes means a welt or bruise. Peter uses the Greek word the Greek Old Testament uses here, and it appears nowhere else in the New Testament."
-        },
-        {
-          "kind": "fulfillment",
-          "strength": "widely agreed",
-          "refs": ["Isaiah 53:4", "Matthew 8:16-17", "1 Peter 2:24"],
-          "text": "Matthew quotes the verse just before this one when Jesus heals the sick: \"He took on our infirmities and carried our diseases.\" Peter applies the chapter to our sins; Matthew shows its healing reaching the body too."
-        },
-        {
-          "kind": "pattern",
-          "strength": "commonly held",
-          "refs": ["Isaiah 53:5", "Isaiah 53:10", "Isaiah 53:4"],
-          "words": [
-            { "ref": "Isaiah 53:5", "strong": "H1792" },
-            { "ref": "Isaiah 53:10", "strong": "H1792" }
-          ],
-          "text": "\"Crushed\" is the Hebrew daka, and it returns five verses later: \"it was the LORD’s will to crush Him.\" Onlookers thought God was striking Him (53:4). The chapter answers that He was crushed for our iniquities, and that even this served God's purpose."
-        },
-        {
-          "kind": "allusion",
-          "strength": "commonly held",
-          "refs": ["Romans 4:25", "Isaiah 53:6", "Isaiah 53:12"],
-          "words": [
-            { "ref": "Romans 4:25", "strong": "G3860" }
-          ],
-          "text": "Paul's \"He was delivered over to death for our trespasses\" is widely heard as an echo of this chapter, where the LORD lays on the servant \"the iniquity of us all\" and He \"bore the sin of many.\" The Greek Old Testament there uses Paul's verb for handing over (paradidomi)."
-        },
-        {
-          "kind": "quotation",
-          "strength": "widely agreed",
-          "refs": ["Acts 8:32-35", "Isaiah 53:7-8", "Isaiah 49:3"],
-          "text": "Who is the servant? An Ethiopian official reading this chapter asked, \"who is the prophet talking about, himself or someone else?\" Isaiah sometimes calls Israel itself God's servant (49:3). Philip \"began with this very Scripture and told him the good news about Jesus.\""
-        }
-      ]
-    },
-    {
       "id": "genesis-2-7",
+      "section": "law-history",
       "ref": "Genesis 2:7",
       "saying": "the LORD God formed man from the dust of the ground and breathed the breath of life into his nostrils",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -122,6 +67,7 @@
     },
     {
       "id": "genesis-22-8",
+      "section": "law-history",
       "ref": "Genesis 22:8",
       "saying": "God Himself will provide the lamb for the burnt offering, my son.",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -184,6 +130,7 @@
     },
     {
       "id": "exodus-12-13",
+      "section": "law-history",
       "ref": "Exodus 12:13",
       "saying": "when I see the blood, I will pass over you",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -235,6 +182,7 @@
     },
     {
       "id": "ruth-3-9",
+      "section": "law-history",
       "ref": "Ruth 3:9",
       "saying": "Spread the corner of your garment over me, for you are a kinsman-redeemer.",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -297,7 +245,58 @@
       ]
     },
     {
+      "id": "psalm-22-1",
+      "section": "prophets-poetry",
+      "ref": "Psalms 22:1",
+      "saying": "My God, my God, why have You forsaken me?",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:1", "Psalms 22:24", "Psalms 22:27"],
+          "text": "David cries out to a God who seems silent while enemies surround him, then turns to praise: God has listened, and the nations will worship."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:1", "Mark 15:34", "Matthew 27:46"],
+          "text": "On the cross Jesus cries the psalm's first line in Aramaic: \"Eloi, Eloi, lema sabachthani?\""
+        },
+        {
+          "kind": "wordplay",
+          "strength": "widely agreed",
+          "refs": ["Mark 15:34", "Mark 15:35"],
+          "text": "Some bystanders take \"Eloi\" (my God) as a call for Elijah. The cry they misunderstood was the opening line of a psalm."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "widely agreed",
+          "refs": ["Psalms 22:18", "John 19:24", "Psalms 22:7-8", "Matthew 27:39", "Matthew 27:43"],
+          "text": "The psalm's details return at the cross: mockers shake their heads and say God should deliver Him, and soldiers divide His garments and cast lots, which John says fulfilled Scripture."
+        },
+        {
+          "kind": "pattern",
+          "strength": "commonly held",
+          "refs": ["Psalms 22:22", "Hebrews 2:12", "Psalms 22:27"],
+          "text": "The psalm does not end in despair. Its second half praises God among \"my brothers,\" words Hebrews puts in Jesus' mouth, and it ends with all nations turning to the LORD. Many readers think quoting the first line called the whole psalm to mind."
+        },
+        {
+          "kind": "fulfillment",
+          "strength": "some interpreters",
+          "refs": ["Psalms 22:16", "John 20:25"],
+          "words": [
+            { "ref": "Psalms 22:16", "strong": "H0738" }
+          ],
+          "evidence": "STEPBible's TAHOT gives the Leningrad Codex reading ka'ari and notes the Judean Desert reading ka'aru",
+          "text": "The BSB reads \"they have pierced my hands and feet.\" The traditional Hebrew text has ka'ari, \"like a lion,\" while a manuscript found in the Judean Desert reads ka'aru, \"they dug.\" Christians link the verse to the nail wounds, but the wording is a real textual question."
+        }
+      ]
+    },
+    {
       "id": "isaiah-5-7",
+      "section": "prophets-poetry",
       "ref": "Isaiah 5:7",
       "saying": "He looked for justice, but saw bloodshed; for righteousness, but heard a cry of distress.",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -352,56 +351,82 @@
       ]
     },
     {
-      "id": "psalm-22-1",
-      "ref": "Psalms 22:1",
-      "saying": "My God, my God, why have You forsaken me?",
-      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "id": "isaiah-53-5",
+      "section": "prophets-poetry",
+      "ref": "Isaiah 53:5",
+      "saying": "He was pierced for our transgressions, He was crushed for our iniquities; the punishment that brought us peace was upon Him, and by His stripes we are healed.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, OpenBible.info cross-references, the Targum of Isaiah, and commentaries on Bible Hub.",
       "reviewed_by": [],
       "layers": [
         {
           "kind": "plain meaning",
           "strength": "widely agreed",
-          "refs": ["Psalms 22:1", "Psalms 22:24", "Psalms 22:27"],
-          "text": "David cries out to a God who seems silent while enemies surround him, then turns to praise: God has listened, and the nations will worship."
+          "refs": ["Isaiah 52:13", "Isaiah 53:4-6"],
+          "text": "Isaiah describes the LORD's servant suffering for wrongs that are not His own. Watch the pronouns: the wounds are His, the transgressions are ours, and the peace and the healing come to us."
         },
         {
           "kind": "quotation",
           "strength": "widely agreed",
-          "refs": ["Psalms 22:1", "Mark 15:34", "Matthew 27:46"],
-          "text": "On the cross Jesus cries the psalm's first line in Aramaic: \"Eloi, Eloi, lema sabachthani?\""
+          "refs": ["Isaiah 53:5", "1 Peter 2:24", "1 Peter 2:18-20"],
+          "words": [
+            { "ref": "Isaiah 53:5", "strong": "H2250" },
+            { "ref": "1 Peter 2:24", "strong": "G3468" }
+          ],
+          "evidence": "Peter's word is molops, a bruise or wound left by a blow (TBESG, from Abbott-Smith). It is the word the Greek Old Testament uses here, and it appears nowhere else in the New Testament. Isaiah's chabburah is a bruise or welt (TBESH). The link to the readers' beatings follows the Cambridge Bible, Pulpit and Ellicott on 1 Peter 2:24",
+          "text": "Peter quotes this line to household servants who could be beaten even for doing good: \"By His stripes you are healed.\" Isaiah's \"we\" becomes \"you,\" and Peter's word for stripes means a welt, a mark many of his readers knew on their own backs."
         },
         {
-          "kind": "wordplay",
+          "kind": "quotation",
           "strength": "widely agreed",
-          "refs": ["Mark 15:34", "Mark 15:35"],
-          "text": "Some bystanders take \"Eloi\" (my God) as a call for Elijah. The cry they misunderstood was the opening line of a psalm."
-        },
-        {
-          "kind": "fulfillment",
-          "strength": "widely agreed",
-          "refs": ["Psalms 22:18", "John 19:24", "Psalms 22:7-8", "Matthew 27:39", "Matthew 27:43"],
-          "text": "The psalm's details return at the cross: mockers shake their heads and say God should deliver Him, and soldiers divide His garments and cast lots, which John says fulfilled Scripture."
+          "refs": ["Isaiah 53:4", "Matthew 8:17", "1 Peter 2:24"],
+          "words": [
+            { "ref": "Isaiah 53:4", "strong": "H2483" },
+            { "ref": "Isaiah 53:4", "strong": "H4341" },
+            { "ref": "Matthew 8:17", "strong": "G0769" },
+            { "ref": "1 Peter 2:24", "strong": "G0266" }
+          ],
+          "evidence": "Isaiah 53:4 has choli, sickness, and makob, pain (TBESH); the Greek Old Testament renders the first as sins. Matthew 8:17 follows the Hebrew. See the Expositor's Greek Testament, Barnes and Poole on Matthew 8:17",
+          "text": "The New Testament reads this song two ways at once. Matthew quotes 53:4 of Jesus' healings, where the Hebrew speaks of sickness. The Greek Old Testament made it sins, and Peter writes, \"He Himself bore our sins.\" The Servant carries both."
         },
         {
           "kind": "pattern",
           "strength": "commonly held",
-          "refs": ["Psalms 22:22", "Hebrews 2:12", "Psalms 22:27"],
-          "text": "The psalm does not end in despair. Its second half praises God among \"my brothers,\" words Hebrews puts in Jesus' mouth, and it ends with all nations turning to the LORD. Many readers think quoting the first line called the whole psalm to mind."
+          "refs": ["Isaiah 53:5", "Isaiah 53:10", "Isaiah 53:4"],
+          "words": [
+            { "ref": "Isaiah 53:5", "strong": "H1792" },
+            { "ref": "Isaiah 53:10", "strong": "H1792" }
+          ],
+          "text": "\"Crushed\" is the Hebrew daka, and it returns five verses later: \"it was the LORD’s will to crush Him.\" Onlookers thought God was striking Him (53:4). The chapter answers that He was crushed for our iniquities, and that even this served God's purpose."
         },
         {
-          "kind": "fulfillment",
-          "strength": "some interpreters",
-          "refs": ["Psalms 22:16", "John 20:25"],
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Luke 22:37", "Isaiah 53:12", "Luke 23:33"],
+          "evidence": "Cambridge Bible, Pulpit, Ellicott and Gill on Luke 22:37",
+          "text": "On His last night Jesus applies the chapter to Himself: \"this Scripture must be fulfilled in Me,\" He says, and quotes 53:12, \"He was numbered with the transgressors.\" The next day He was crucified between two criminals."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Acts 8:32-35", "Isaiah 53:7-8", "Isaiah 49:3"],
+          "evidence": "Rashi and Ibn Ezra read the Servant as Israel. See Gill, Barnes and Ellicott on Acts 8:34",
+          "text": "An Ethiopian official asked, \"who is the prophet talking about, himself or someone else?\" Isaiah calls Israel God's servant (49:3), and medieval Jewish commentators read the song that way. Yet this Servant is \"stricken for the transgression of My people.\" Philip answered with Jesus."
+        },
+        {
+          "kind": "setting",
+          "strength": "widely agreed",
+          "refs": ["Isaiah 52:13", "Isaiah 53:5"],
           "words": [
-            { "ref": "Psalms 22:16", "strong": "H0738" }
+            { "ref": "Isaiah 53:5", "strong": "H2490" }
           ],
-          "evidence": "STEPBible's TAHOT gives the Leningrad Codex reading ka'ari and notes the Judean Desert reading ka'aru",
-          "text": "The BSB reads \"they have pierced my hands and feet.\" The traditional Hebrew text has ka'ari, \"like a lion,\" while a manuscript found in the Judean Desert reads ka'aru, \"they dug.\" Christians link the verse to the nail wounds, but the wording is a real textual question."
+          "evidence": "Targum Jonathan on Isaiah 52:13 and 53:5 (English translation of 1871, on Sefaria). TBESH lists both senses of chalal, to pierce and to profane",
+          "text": "An early Jewish paraphrase in Aramaic, the Targum, names the Servant of 52:13 as the Messiah. In 53:5 it reads the word for \"pierced\" as \"profaned\" and applies it to the sanctuary. The Hebrew letters allow both senses."
         }
       ]
     },
     {
       "id": "jonah-3-4",
+      "section": "prophets-poetry",
       "ref": "Jonah 3:4",
       "saying": "Forty more days and Nineveh will be overturned!",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -465,7 +490,57 @@
       ]
     },
     {
+      "id": "mark-12-10",
+      "section": "jesus",
+      "ref": "Mark 12:10",
+      "saying": "The stone the builders rejected has become the cornerstone.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Mark 12:6-8", "Mark 12:10-12"],
+          "text": "Jesus ends His parable of the tenants, who kill the owner's beloved son, by quoting Psalm 118. The leaders understand that He told the parable against them."
+        },
+        {
+          "kind": "quotation",
+          "strength": "widely agreed",
+          "refs": ["Mark 12:10-11", "Psalms 118:22-23"],
+          "words": [
+            { "ref": "Psalms 118:22", "strong": "H0068" }
+          ],
+          "text": "In the psalm the rejected stone becomes the head of the corner: \"This is from the LORD, and it is marvelous in our eyes.\" The rejection is not the end; God reverses it."
+        },
+        {
+          "kind": "setting",
+          "strength": "commonly held",
+          "refs": ["Mark 12:10", "Psalms 118:26", "Mark 11:9"],
+          "text": "Days earlier the crowds greeted Jesus with the same psalm: \"Blessed is He who comes in the name of the Lord!\" The week opens with one verse of Psalm 118 and turns on another."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "some interpreters",
+          "refs": ["Mark 12:6", "Psalms 118:22"],
+          "text": "In Hebrew \"son\" is ben and \"stone\" is even (eben). Some scholars suggest the parable's rejected son and the psalm's rejected stone are tied by this sound."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Luke 20:18", "Isaiah 8:14-15", "Daniel 2:34-35", "Daniel 2:44-45"],
+          "text": "In Luke, Jesus adds that whoever falls on this stone will be broken and whoever it falls on will be crushed, drawing on Isaiah's \"stone of stumbling\" and Daniel's stone, cut without hands, that crushes the kingdoms and fills the earth."
+        },
+        {
+          "kind": "pattern",
+          "strength": "widely agreed",
+          "refs": ["Psalms 118:22", "Acts 4:11", "1 Peter 2:4-7", "Isaiah 28:16", "Ephesians 2:20"],
+          "text": "The apostles keep building with this stone: Peter quotes it to the rulers and elders in Jerusalem, calls believers \"living stones,\" and joins it to Isaiah's precious cornerstone, and Paul names Christ the cornerstone."
+        }
+      ]
+    },
+    {
       "id": "john-2-19",
+      "section": "jesus",
       "ref": "John 2:19",
       "saying": "Destroy this temple, and in three days I will raise it up again.",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -517,6 +592,7 @@
     },
     {
       "id": "john-3-14",
+      "section": "jesus",
       "ref": "John 3:14",
       "saying": "Just as Moses lifted up the snake in the wilderness, so the Son of Man must be lifted up,",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -575,6 +651,7 @@
     },
     {
       "id": "john-6-35",
+      "section": "jesus",
       "ref": "John 6:35",
       "saying": "I am the bread of life. Whoever comes to Me will never hunger",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -627,55 +704,65 @@
       ]
     },
     {
-      "id": "mark-12-10",
-      "ref": "Mark 12:10",
-      "saying": "The stone the builders rejected has become the cornerstone.",
+      "id": "1-corinthians-10-4",
+      "section": "letters-revelation",
+      "ref": "1 Corinthians 10:4",
+      "saying": "they drank from the spiritual rock that accompanied them, and that rock was Christ.",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
       "reviewed_by": [],
       "layers": [
         {
           "kind": "plain meaning",
           "strength": "widely agreed",
-          "refs": ["Mark 12:6-8", "Mark 12:10-12"],
-          "text": "Jesus ends His parable of the tenants, who kill the owner's beloved son, by quoting Psalm 118. The leaders understand that He told the parable against them."
-        },
-        {
-          "kind": "quotation",
-          "strength": "widely agreed",
-          "refs": ["Mark 12:10-11", "Psalms 118:22-23"],
-          "words": [
-            { "ref": "Psalms 118:22", "strong": "H0068" }
-          ],
-          "text": "In the psalm the rejected stone becomes the head of the corner: \"This is from the LORD, and it is marvelous in our eyes.\" The rejection is not the end; God reverses it."
+          "refs": ["1 Corinthians 10:1-5"],
+          "text": "Paul warns the Corinthians not to presume on their privileges: Israel was rescued, fed and given water in the wilderness, and still most of them fell."
         },
         {
           "kind": "setting",
-          "strength": "commonly held",
-          "refs": ["Mark 12:10", "Psalms 118:26", "Mark 11:9"],
-          "text": "Days earlier the crowds greeted Jesus with the same psalm: \"Blessed is He who comes in the name of the Lord!\" The week opens with one verse of Psalm 118 and turns on another."
+          "strength": "widely agreed",
+          "refs": ["1 Corinthians 10:4", "Exodus 17:6", "Numbers 20:8-12"],
+          "text": "Twice God gave water from a rock. At Horeb Moses was told to strike it; years later he was told to speak to it, struck it twice instead, and was barred from the land."
         },
         {
-          "kind": "wordplay",
-          "strength": "some interpreters",
-          "refs": ["Mark 12:6", "Psalms 118:22"],
-          "text": "In Hebrew \"son\" is ben and \"stone\" is even (eben). Some scholars suggest the parable's rejected son and the psalm's rejected stone are tied by this sound."
+          "kind": "name meaning",
+          "strength": "widely agreed",
+          "refs": ["Exodus 17:7", "Psalms 95:8", "Hebrews 3:8"],
+          "words": [
+            { "ref": "Exodus 17:7", "strong": "H4532" },
+            { "ref": "Exodus 17:7", "strong": "H4809" }
+          ],
+          "text": "Moses named the place Massah (testing) and Meribah (quarreling) because the people asked, \"Is the LORD among us or not?\" Psalm 95 keeps the names as a warning, and Hebrews, quoting the psalm in Greek, gives their meanings: \"in the rebellion, in the day of testing.\""
         },
         {
-          "kind": "allusion",
+          "kind": "pattern",
           "strength": "commonly held",
-          "refs": ["Luke 20:18", "Isaiah 8:14-15", "Daniel 2:34-35", "Daniel 2:44-45"],
-          "text": "In Luke, Jesus adds that whoever falls on this stone will be broken and whoever it falls on will be crushed, drawing on Isaiah's \"stone of stumbling\" and Daniel's stone, cut without hands, that crushes the kingdoms and fills the earth."
+          "refs": ["1 Corinthians 10:4", "Deuteronomy 32:4", "Deuteronomy 32:15", "1 Corinthians 10:20", "Deuteronomy 32:17", "1 Corinthians 10:22", "Deuteronomy 32:21"],
+          "words": [
+            { "ref": "Deuteronomy 32:4", "strong": "H6697" }
+          ],
+          "text": "In the Song of Moses, Rock is a name for God: \"He is the Rock, His work is perfect.\" Paul echoes that song twice in this chapter (sacrifices to demons, provoking God to jealousy), so \"that rock was Christ\" puts Christ in the place of Israel's God."
         },
         {
           "kind": "pattern",
           "strength": "widely agreed",
-          "refs": ["Psalms 118:22", "Acts 4:11", "1 Peter 2:4-7", "Isaiah 28:16", "Ephesians 2:20"],
-          "text": "The apostles keep building with this stone: Peter quotes it to the rulers and elders in Jerusalem, calls believers \"living stones,\" and joins it to Isaiah's precious cornerstone, and Paul names Christ the cornerstone."
+          "refs": ["1 Corinthians 10:6", "1 Corinthians 10:11"],
+          "words": [
+            { "ref": "1 Corinthians 10:6", "strong": "G5179" },
+            { "ref": "1 Corinthians 10:11", "strong": "G9992" }
+          ],
+          "text": "Paul names his way of reading: these things happened \"as examples\" and \"were written down as warnings for us.\" The Greek words are typoi and typikos, where the word \"type\" comes from."
+        },
+        {
+          "kind": "allusion",
+          "strength": "some interpreters",
+          "refs": ["Exodus 17:6", "John 7:37-38", "John 19:34"],
+          "text": "Jesus calls out, \"If anyone is thirsty, let him come to Me and drink.\" Some readers also connect the struck rock with Christ pierced on the cross, when \"blood and water flowed out\" from His side."
         }
       ]
     },
     {
       "id": "hebrews-7-2",
+      "section": "letters-revelation",
       "ref": "Hebrews 7:2",
       "saying": "First, his name means “king of righteousness.” Then also, “king of Salem” means “king of peace.”",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
@@ -736,63 +823,8 @@
       ]
     },
     {
-      "id": "1-corinthians-10-4",
-      "ref": "1 Corinthians 10:4",
-      "saying": "they drank from the spiritual rock that accompanied them, and that rock was Christ.",
-      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",
-      "reviewed_by": [],
-      "layers": [
-        {
-          "kind": "plain meaning",
-          "strength": "widely agreed",
-          "refs": ["1 Corinthians 10:1-5"],
-          "text": "Paul warns the Corinthians not to presume on their privileges: Israel was rescued, fed and given water in the wilderness, and still most of them fell."
-        },
-        {
-          "kind": "setting",
-          "strength": "widely agreed",
-          "refs": ["1 Corinthians 10:4", "Exodus 17:6", "Numbers 20:8-12"],
-          "text": "Twice God gave water from a rock. At Horeb Moses was told to strike it; years later he was told to speak to it, struck it twice instead, and was barred from the land."
-        },
-        {
-          "kind": "name meaning",
-          "strength": "widely agreed",
-          "refs": ["Exodus 17:7", "Psalms 95:8", "Hebrews 3:8"],
-          "words": [
-            { "ref": "Exodus 17:7", "strong": "H4532" },
-            { "ref": "Exodus 17:7", "strong": "H4809" }
-          ],
-          "text": "Moses named the place Massah (testing) and Meribah (quarreling) because the people asked, \"Is the LORD among us or not?\" Psalm 95 keeps the names as a warning, and Hebrews, quoting the psalm in Greek, gives their meanings: \"in the rebellion, in the day of testing.\""
-        },
-        {
-          "kind": "pattern",
-          "strength": "commonly held",
-          "refs": ["1 Corinthians 10:4", "Deuteronomy 32:4", "Deuteronomy 32:15", "1 Corinthians 10:20", "Deuteronomy 32:17", "1 Corinthians 10:22", "Deuteronomy 32:21"],
-          "words": [
-            { "ref": "Deuteronomy 32:4", "strong": "H6697" }
-          ],
-          "text": "In the Song of Moses, Rock is a name for God: \"He is the Rock, His work is perfect.\" Paul echoes that song twice in this chapter (sacrifices to demons, provoking God to jealousy), so \"that rock was Christ\" puts Christ in the place of Israel's God."
-        },
-        {
-          "kind": "pattern",
-          "strength": "widely agreed",
-          "refs": ["1 Corinthians 10:6", "1 Corinthians 10:11"],
-          "words": [
-            { "ref": "1 Corinthians 10:6", "strong": "G5179" },
-            { "ref": "1 Corinthians 10:11", "strong": "G9992" }
-          ],
-          "text": "Paul names his way of reading: these things happened \"as examples\" and \"were written down as warnings for us.\" The Greek words are typoi and typikos, where the word \"type\" comes from."
-        },
-        {
-          "kind": "allusion",
-          "strength": "some interpreters",
-          "refs": ["Exodus 17:6", "John 7:37-38", "John 19:34"],
-          "text": "Jesus calls out, \"If anyone is thirsty, let him come to Me and drink.\" Some readers also connect the struck rock with Christ pierced on the cross, when \"blood and water flowed out\" from His side."
-        }
-      ]
-    },
-    {
       "id": "revelation-22-2",
+      "section": "letters-revelation",
       "ref": "Revelation 22:2",
       "saying": "On either side of the river stood a tree of life",
       "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT, TAGNT, TBESH and TBESG, and OpenBible.info cross-references.",

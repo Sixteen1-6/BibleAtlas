@@ -5,7 +5,7 @@
 
 import { useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
-import { type Layer, type LayerRef, type Passage, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
+import { type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
 import { atLeast } from '../depth';
 import * as S from '../state';
 
@@ -98,7 +98,7 @@ function LayerItem({ a, p, l }: { a: Atlas; p: Passage; l: Layer }) {
       )}
       {deep && (
         <p class="layerdeep">
-          {l.evidence && <>Evidence: {l.evidence}. </>}
+          {l.evidence && <>Behind this note: {smart(l.evidence.replace(/\.\s*$/, ''))}. </>}
           <a href={issueLink(a, p, l)} target="_blank" rel="noopener">
             Suggest a correction
           </a>
@@ -161,20 +161,30 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   );
 }
 
-/** Every layered passage, for the Links panel before anything is selected. */
+/** Every layered passage, for the Links panel before anything is selected: one closed group per section. */
 export function LayeredPassages({ a }: { a: Atlas }) {
   const list = passages.value;
   if (!list.length) return null;
+  const groups = (Object.keys(SECTIONS) as Section[])
+    .map((s) => [s, list.filter((p) => p.section === s).sort((x, y) => x.v - y.v)] as const)
+    .filter(([, ps]) => ps.length > 0);
   return (
     <>
       <h3>Passages with layers of meaning</h3>
-      <div class="startrow">
-        {list.map((p) => (
-          <button key={p.id} class="btn" onClick={() => (S.selectVerse(p.v), (S.mobilePane.value = 'study'))}>
-            {label(a, p.v)}
-          </button>
-        ))}
-      </div>
+      {groups.map(([s, ps]) => (
+        <details key={s} class="layersection">
+          <summary>
+            {SECTIONS[s]} <span class="muted">({ps.length})</span>
+          </summary>
+          <div class="startrow">
+            {ps.map((p) => (
+              <button key={p.id} class="btn" onClick={() => (S.selectVerse(p.v), (S.mobilePane.value = 'study'))}>
+                {label(a, p.v)}
+              </button>
+            ))}
+          </div>
+        </details>
+      ))}
     </>
   );
 }
