@@ -432,7 +432,10 @@ function Deep({ a, places, people, place, name, navigate }: { a: Atlas; places: 
               {all ? 'fewer' : `all ${tied.length} people`}
             </button>
           )}
-          <p class="x-real-map-fine">Who was born, died or was at each place, from Theographic Bible Metadata by Robert Rouse (CC BY-SA 4.0). Each verse shown names both the person and the place.</p>
+          <p class="x-real-map-fine">
+            Who was born, died or was at each place, from Theographic Bible Metadata by Robert Rouse (CC BY-SA 4.0). Each verse shown names both the person and the place.
+            {shown.some(([, , v]) => !(v >= 0 && v < a.n)) && ' Where no verse is shown, the tie is Theographic’s own.'}
+          </p>
         </>
       )}
     </>
