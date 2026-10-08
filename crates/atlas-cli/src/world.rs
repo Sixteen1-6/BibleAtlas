@@ -436,8 +436,9 @@ const CONTRAST: [&str; 8] = [
 ];
 
 /// Phrases after which a reference shows where the word is *not* found
-/// ("not in [Homer]"): such a reference dates nothing.
-const ABSENT: [&str; 8] = [
+/// ("not in [Homer]"), or names a reading LSJ rejects ("<b>mist, haze</b>,
+/// not (as [Aristarchus]) <b>lower air</b>"): such a reference dates nothing.
+const ABSENT: [&str; 9] = [
     "not in",
     "never in",
     "not found in",
@@ -446,6 +447,7 @@ const ABSENT: [&str; 8] = [
     "never occurs in",
     "not occur in",
     "does not occur in",
+    "not (as",
 ];
 
 /// The plain text of some markup, lowercased, with trailing spaces and `[`.
@@ -484,7 +486,8 @@ fn absent_at(s: &str, at: usize) -> bool {
 }
 
 /// The bold spans of a block that can be glosses: the first `skip` (the
-/// headword) go, and so does every span that names a contrast, together with
+/// headword) go, and so does every span that names a contrast or a reading
+/// LSJ rejects ("not (as [Aristarchus]) <b>lower air</b>"), together with
 /// any spans joined to it by "or", "and" or a comma ("opposed to <b>lie</b>
 /// or <b>mere appearance</b>"), every quoted phrase, every piece of a
 /// citation, and every span that only points to a sense given elsewhere
@@ -507,8 +510,10 @@ fn sense_bolds<'a>(
                 "" | "or" | "and" | "nor"
             )
         };
-        let contrast =
-            i >= skip && (ends_with_phrase(between, &CONTRAST) || (prev_contrast && joined));
+        let contrast = i >= skip
+            && (ends_with_phrase(between, &CONTRAST)
+                || rejected(between)
+                || (prev_contrast && joined));
         // A quoted phrase (`<b>in vino veritas</b>') renders an example, not the word.
         let quoted = plain_tail(between).ends_with('`');
         let after = all.get(i + 1).map_or(&block[b.1..], |n| &block[b.1..n.0]);
@@ -685,24 +690,65 @@ fn compared(between: &str, inner: &str, prev: bool) -> bool {
 
 /// Is a bold span Latin? LSJ names which verb a compound is made from in
 /// Latin ("(εἰμί <b>sum</b>)", "(εἶμι <b>ibo</b>)"), and gives Latin
-/// equivalents after "Latin" ("= Latin [ref] <b>filius</b>").
+/// equivalents after "Latin" ("= Latin [ref] <b>filius</b>") or after a bare
+/// "=" ("at Rome, = <b>pontifex</b>"), where only words that read as Latin
+/// count: what follows "=" is often English ("= <b>yolk</b>").
 fn latin(between: &str, inner: &str, after: &str) -> bool {
     let word = clean_gloss(inner);
     if matches!(word.as_str(), "sum" | "ibo") && after.trim_start().starts_with(')') {
         return true;
     }
-    // The words before the span, references left out.
+    let before = without_links(between);
+    if before.trim_end_matches(is_space).ends_with('=') && latin_words(&word) {
+        return true;
+    }
+    before
+        .split(|c: char| is_space(c) || c == '[' || c == ']')
+        .rfind(|w| !w.is_empty())
+        .is_some_and(|w| w == "Latin")
+}
+
+/// Does every word end as Latin words do ("Comitia Centuriata, Curiata",
+/// "a militiis", "praejudicium")? English glosses after "=" never do.
+fn latin_words(g: &str) -> bool {
+    const ENDINGS: [&str; 10] = [
+        "us", "um", "ae", "is", "io", "ator", "ifex", "ata", "ana", "ia",
+    ];
+    let mut words = g
+        .split(|c: char| !c.is_ascii_alphabetic())
+        .filter(|w| !w.is_empty())
+        .peekable();
+    words.peek().is_some()
+        && words.all(|w| {
+            matches!(w, "a" | "in" | "et" | "ad" | "de") || ENDINGS.iter().any(|e| w.ends_with(e))
+        })
+}
+
+/// The plain text of some markup with its references left out.
+fn without_links(markup: &str) -> String {
     let mut text = String::new();
-    let mut rest = between;
+    let mut rest = markup;
     while let Some(i) = rest.find(LINK_HEAD) {
         text.push_str(&rest[..i]);
         rest = rest[i..].find("</a>").map_or("", |j| &rest[i + j + 4..]);
     }
     text.push_str(rest);
-    let t = collapse(&decode_entities(&strip_tags(&text)));
-    t.split(|c: char| is_space(c) || c == '[' || c == ']')
-        .rfind(|w| !w.is_empty())
-        .is_some_and(|w| w == "Latin")
+    collapse(&decode_entities(&strip_tags(&text)))
+}
+
+/// Does a bold span name a reading LSJ rejects, as the words before it say
+/// ("<b>mist, haze</b>, not (as [Aristarchus]) <b>lower air</b>")? TFLSJ
+/// keeps the closing bracket inside the reference.
+fn rejected(between: &str) -> bool {
+    let t = without_links(between);
+    t.trim_end_matches(|c: char| is_space(c) || matches!(c, '[' | ']' | ')'))
+        .strip_suffix("not (as")
+        .is_some_and(|before| {
+            before
+                .chars()
+                .next_back()
+                .is_none_or(|c| !c.is_alphanumeric())
+        })
 }
 
 /// Does the text after a bold span say the sense is given elsewhere?
@@ -1137,6 +1183,23 @@ fn english(name: &str) -> Option<&str> {
         "Dionysius Halicarnassensis" => "Dionysius of Halicarnassus",
         "Dio Cassius" => "Cassius Dio",
         "Antipho" => "Antiphon",
+        "Plinius" => "Pliny",
+        "Aesopus" => "Aesop",
+        "Ptolemaeus" => "Ptolemy",
+        "Arrianus" => "Arrian",
+        "Aelianus" => "Aelian",
+        "Appianus" => "Appian",
+        "Julianus" => "Julian",
+        "Herodianus" => "Herodian",
+        "Justinianus" => "Justinian",
+        "Quintilianus" => "Quintilian",
+        "Euclides" => "Euclid",
+        "Philemo" => "Philemon",
+        "Porphyrius" => "Porphyry",
+        "Philodemus Gadarensis" => "Philodemus",
+        "Dio Chrysostomus" => "Dio Chrysostom",
+        "Marcus Antoninus" => "Marcus Aurelius",
+        "Socratis Socraticorum" => "Socratic Letters",
         "Plato" | "Aeschylus" | "Thucydides" | "Herodotus" | "Xenophon" | "Demosthenes"
         | "Polybius" | "Josephus" | "Theophrastus" | "Hippocrates" | "Isocrates" | "Theocritus"
         | "Sappho" | "Strabo" | "Epictetus" | "Menander" | "Euripides" | "Sophocles"
@@ -1145,8 +1208,10 @@ fn english(name: &str) -> Option<&str> {
     })
 }
 
-/// Latin genre words that follow a writer's name in TFLSJ ("Homerus Epicus").
-const GENRE: [&str; 35] = [
+/// Words that follow a writer's name in TFLSJ to say what he wrote, not who
+/// he was ("Homerus Epicus", "Plinius Rerum Naturalium Scriptor", "Alcaeus
+/// Lyricus Comedy texts").
+const GENRE: [&str; 58] = [
     "Epicus",
     "Historicus",
     "Philosophus",
@@ -1182,6 +1247,29 @@ const GENRE: [&str; 35] = [
     "Tacticus",
     "Periegeta",
     "Lexicographus",
+    "Stoicus",
+    "Cynicus",
+    "Epicureus",
+    "Platonicus",
+    "Mimographus",
+    "Eroticus",
+    "Astronomicus",
+    "Astrologus",
+    "Epistolographus",
+    "Atticista",
+    "Onirocriticus",
+    "Musicus",
+    "Physiognomonicus",
+    "Parodus",
+    "Mythographus",
+    "Paroemiographus",
+    "Botanicus",
+    "Latinus",
+    "Fabularum",
+    "Facetiarum",
+    "Rerum",
+    "Naturalium",
+    "Comedy",
 ];
 
 /// "Ilias Homerus Epicus " -> "Homer"; "Meleager Epigrammaticus)" -> "Meleager".
@@ -1199,26 +1287,52 @@ fn writer_name(name: &str) -> Option<String> {
             break;
         }
     }
-    let mut words: Vec<&str> = raw
+    // Each word trimmed, with whether it is cut short ("Mae.").
+    let mut words: Vec<(&str, bool)> = raw
         .iter()
-        .map(|w| w.trim_matches(['(', ')', '[', ']', ':', ';', ',', '.']))
-        .filter(|w| !w.is_empty() && !GENRE.contains(w))
+        .map(|w| {
+            let t = w.trim_matches(['(', ')', '[', ']', ':', ';', ',', '.']);
+            (t, abbreviated(w))
+        })
+        .filter(|(w, _)| !w.is_empty() && !GENRE.contains(w))
         .collect();
-    let first = *words.first()?;
+    let first = words.first()?.0;
     if matches!(first, "Ilias" | "Odyssea" | "Homerus") {
         return Some("Homer".into());
     }
     // A second word counts only if capitalised, and not when it is the
-    // Bible book a translator is cited for ("Symmachus LXX.Eze.10.13").
-    if words.get(1).is_some_and(|w| {
-        !w.starts_with(char::is_uppercase) || w.starts_with("LXX") || w.starts_with("NT.")
+    // Bible book a translator is cited for ("Symmachus LXX.Eze.10.13"), a
+    // place or work cut short ("Magnes Comicus Mae.") or a book number
+    // ("Bacchylides Lyricus IV.").
+    if words.get(1).is_some_and(|&(w, short)| {
+        !w.starts_with(char::is_uppercase)
+            || w.starts_with("LXX")
+            || w.starts_with("NT.")
+            || short
+            || numeral(w)
     }) {
         words.truncate(1);
     }
-    let two = words[..words.len().min(2)].join(" ");
+    let two: Vec<&str> = words.iter().take(2).map(|(w, _)| *w).collect();
+    let two = two.join(" ");
     let two = two.trim_matches([' ', '.']);
     let out = english(two).or_else(|| english(first)).unwrap_or(two);
     (!out.is_empty()).then(|| out.to_string())
+}
+
+/// Is a word of a name cut short, as LSJ shortens a place or a work ("Mae.",
+/// "Trall.", "IV).")? A full name that ends a sentence ("Thessalonicensis).")
+/// is longer.
+fn abbreviated(raw: &str) -> bool {
+    let w = raw.trim_matches(['(', ')', '[', ']', ':', ';', ',']);
+    w.ends_with('.') && w.trim_end_matches('.').chars().count() <= 8
+}
+
+/// A book or fragment number after a name ("I", "IV", "VI-VIII", "C").
+fn numeral(w: &str) -> bool {
+    w.chars().count() == 1
+        || w.chars()
+            .all(|c| matches!(c, 'I' | 'V' | 'X' | 'L' | 'C' | '.' | '-'))
 }
 
 /// The writer of the first citation in `title` whose date is the label's.
@@ -2611,7 +2725,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ));
     }
     // Beyond lsj5's rules: alternatives read together, examples, contrasts,
-    // cognates and Latin left out, misprints and repeats set right.
+    // rejected readings, cognates and Latin left out, misprints and repeats
+    // set right.
     for (key, gloss, who) in [
         ("G1391", "expectation", "Homer"),
         ("G0225", "truth", "Homer"),
@@ -2629,6 +2744,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("G1520", "one", "Homer"),
         ("G5342", "bear or carry", "Homer"),
         ("G3918", "present", "Homer"),
+        ("G0109", "mist, haze", "Homer"),
     ] {
         let first = &slot(key)["l"][0];
         out.push((
@@ -2986,6 +3102,25 @@ mod tests {
             writer_name("Dionysius Halicarnassensis "),
             Some("Dionysius of Halicarnassus".into())
         );
+        // Words for what a writer wrote, places or works cut short and book
+        // numbers are not part of the name; a full name ending a sentence is.
+        for (name, want) in [
+            ("Plinius Rerum Naturalium Scriptor ", "Pliny"),
+            ("Babrius Fabularum Scriptor ", "Babrius"),
+            ("Alcaeus Lyricus Comedy texts", "Alcaeus"),
+            ("Chrysippus Stoicus ", "Chrysippus"),
+            ("Magnes Comicus Mae.)", "Magnes"),
+            ("Bacchylides Lyricus IV.", "Bacchylides"),
+            ("Clytus Historicus I", "Clytus"),
+            ("Socratis et Socraticorum Epistulae ", "Socratic Letters"),
+            ("Cratinus Junior Comicus ", "Cratinus Junior"),
+            (
+                "Eustathius Episcopus Thessalonicensis).",
+                "Eustathius Thessalonicensis",
+            ),
+        ] {
+            assert_eq!(writer_name(name).as_deref(), Some(want), "{name}");
+        }
         let title = " “hymnus” 217, 5th-6th c.BC: Plato Philosophus “Timaeus” 63b, 8th c.BC: Ilias Homerus Epicus “Illiad” 5.799";
         assert_eq!(writer(title, "Refs 8th c.BC+"), Some("Homer".into()));
         assert_eq!(writer(title, "Refs 5th c.BC+"), Some("Plato".into()));
@@ -3127,6 +3262,16 @@ mod tests {
                 pair("it is fitting", "Herodotus")
             ]
         );
+        // "not (as [Aristarchus]) lower air": a reading LSJ rejects and the
+        // one who held it are neither a sense nor its date.
+        let e = lsj(&format!(
+            "<b> ἀήρ</b> always <b>mist, haze</b>, not (as [{aristarchus}] <b>lower air</b> \
+             (opposed to αἰθήρ); δι᾽ ἠέρος [{homer}]",
+            aristarchus = link("Refs 3rd c.BC+", " 3rd-2nd c.BC: Aristarchus Grammaticus)"),
+        ))
+        .unwrap();
+        assert_eq!(glosses(&e), [pair("mist, haze", "Homer")]);
+        assert!(!rejected("x, cannot (as ["));
         assert!(ends_with_phrase("x, never used by [", &ABSENT));
         assert!(ends_with_phrase("man as opposed to to ", &CONTRAST));
         assert!(!ends_with_phrase("man as opposed toto ", &CONTRAST));
@@ -3411,6 +3556,16 @@ mod tests {
         ))
         .unwrap();
         assert_eq!(e.senses.len(), 1);
+        // After a bare "=", Latin goes and English stays.
+        let e = lsj(&format!(
+            "<b> ἐκκλησία</b>, <b>assembly,</b> [{homer}]: at Rome, = <b>Comitia Centuriata, \
+             Curiata,</b> [{soph}] <Level2><b>__II</b></Level2> = <b>yolk</b> [{late}]"
+        ))
+        .unwrap();
+        let glosses: Vec<&str> = e.senses.iter().map(|s| s.gloss.as_str()).collect();
+        assert_eq!(glosses, ["assembly", "yolk"]);
+        assert!(latin_words("a militiis") && latin_words("praejudicium"));
+        assert!(!latin_words("by right of inheritance") && !latin_words("here"));
         assert!(!gloss_ok("ĝhoryo"));
         assert!(gloss_ok("front, façade"));
     }
