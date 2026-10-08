@@ -64,6 +64,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(d.vz.chapter_count() == 1_189, format!("chapter count is {}, expected 1,189", d.vz.chapter_count()));
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
+    for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;
     let l_verse = c.u32s("l_verse").map_err(|e| format!("{e:?}"))?;

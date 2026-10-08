@@ -298,6 +298,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "atlas.bin", &bin, &mut files)?;
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
+    for (rel, bytes) in crate::world::build(out, &inputs, &vz, &lemmas.iter().map(|l| (l.key.as_str(), l.word.as_str())).collect::<Vec<_>>(), &l_off, &l_verse)? { write(out, &rel, &bytes, &mut files)?; }
     let lemmas_json = json!({
         "key": lemmas.iter().map(|l| &l.key).collect::<Vec<_>>(),
         "word": lemmas.iter().map(|l| &l.word).collect::<Vec<_>>(),

@@ -18,6 +18,7 @@ mod loaded;
 mod parse;
 mod query;
 mod sources;
+mod world;
 mod verify;
 
 use std::path::PathBuf;
