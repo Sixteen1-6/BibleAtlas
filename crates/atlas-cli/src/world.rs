@@ -718,7 +718,9 @@ fn points_elsewhere(after: &str) -> bool {
 ///   from</b> [ref]`, become "send off or away from" (the second alone is
 ///   often only the end of a phrase);
 /// - a gloss whose phrase goes on after a word or two, `<b>make</b> one
-///   <b>swear</b>`, becomes "make one swear".
+///   <b>swear</b>`, becomes "make one swear";
+/// - a gloss that narrows the one before, `<b>slay</b>, properly <b>by
+///   cutting the throat</b>`, becomes "slay, properly by cutting the throat".
 ///
 /// A span too short to stand alone ("on", "from") still ends a pair of
 /// alternatives (`<b>put round</b> or <b>on,</b>`), unless the gloss before
@@ -778,6 +780,9 @@ fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize,
                     clean_gloss(&format!("{}{gap_markup}{inner}", last.raw)),
                     true,
                 ))
+            } else if !gap_markup.contains(LINK_HEAD) && narrows(gap, &gloss) {
+                // "<b>slay</b>, properly <b>by cutting the throat</b>".
+                Some((format!("{}, {gap} {gloss}", last.gloss), last.phrase))
             } else {
                 None
             };
@@ -809,6 +814,25 @@ fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<(usize,
         });
     }
     out.into_iter().map(|g| (g.start, g.end, g.gloss)).collect()
+}
+
+/// Does a gloss narrow the one before it, after one of LSJ's words for how
+/// often a sense applies ("<b>assembly</b>, especially <b>of the
+/// People</b>")?
+fn narrows(gap: &str, gloss: &str) -> bool {
+    const HOW: [&str; 9] = [
+        "especially",
+        "mostly",
+        "chiefly",
+        "properly",
+        "usually",
+        "commonly",
+        "generally",
+        "frequently",
+        "often",
+    ];
+    const BY: [&str; 9] = ["of", "by", "with", "in", "for", "on", "at", "from", "to"];
+    HOW.contains(&gap) && gloss.split(' ').next().is_some_and(|w| BY.contains(&w))
 }
 
 /// Is the text before a span that goes on from it an example? It is when
@@ -3220,6 +3244,21 @@ mod tests {
             )),
             sense(&format!("{long} c"), "Homer")
         );
+        // A gloss that narrows the one before joins it, spaced as English.
+        assert_eq!(
+            first_sense(&format!(
+                "<b> σφάζω</b>, <b>slay, slaughter,</b> properly <b>by cutting the throat,</b> [{homer}]"
+            )),
+            sense("slay, slaughter, properly by cutting the throat", "Homer")
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> θέατρον</b>, <b>place for seeing,</b> especially<b>for dramatic representation,</b> [{homer}]"
+            )),
+            sense("place for seeing, especially for dramatic representation", "Homer")
+        );
+        assert!(!narrows("passive", "to be loved"));
+        assert!(!narrows("especially", "sheep"));
         // A short word still ends a pair of alternatives...
         assert_eq!(
             first_sense(&format!(
