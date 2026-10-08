@@ -20,8 +20,9 @@
 //   sweeps from the Old Testament into the New. A hovered verse fades in.
 // - The sky dims and brightens behind a focus.
 // One requestAnimationFrame loop (motion.ts) drives it all and stops when
-// nothing moves. Pass 1 only reruns when the view, the size or the vote
-// filter changes; hovering, selecting and animating only rerun passes 2 and 3.
+// nothing moves. Pass 1 only reruns when the view, the size, the vote filter
+// or the color mode changes; hovering, selecting and animating only rerun
+// passes 2 and 3.
 //
 // Sturdiness: a field whose canvas has left the page is freed when the next
 // one is made (AtlasMap makes one per mount), and a lost context is rebuilt
@@ -577,7 +578,7 @@ export class ArcField {
   opts: ArcOptions = { minVotes: 8, exposure: 1.15, colorMode: 'spectrum', background: rgb(SKY.top) };
   /** The dim the sky is easing toward (1: none). */
   dim = 1;
-  /** Milliseconds spent issuing the last full redraw (CPU side). */
+  /** Milliseconds the last frame took to issue (CPU side). */
   lastDrawMs = 0;
 
   private gl: WebGL2RenderingContext;
@@ -662,7 +663,10 @@ export class ArcField {
       // The same arcs, sent again because another signal changed: keep their
       // animation. Clicking the verse that hovering already lit sends one
       // pulse out along its links instead of growing them again.
-      if (picked && sel !== null && sel === S.hovered.peek() && cur.anchor !== null && cur.start !== null && this.animated()) cur.pulseAt = t;
+      if (picked && sel !== null && sel === S.hovered.peek() && cur.anchor !== null && cur.start !== null && this.animated()) {
+        cur.pulseAt = t;
+        this.played.set('verse', key);
+      }
       this.request(false);
       return;
     }
@@ -676,7 +680,6 @@ export class ArcField {
     L.key = key;
     L.kind = kind;
     L.entrance = kind !== 'hover' && this.played.get(kind) !== key;
-    if (kind !== 'hover') this.played.set(kind, key);
     L.anchor = p.anchor;
     L.lo = p.lo;
     L.hi = p.hi;
@@ -687,8 +690,8 @@ export class ArcField {
     // On the first visit PR #1 selects a verse as the page opens: its links
     // grow when the opening reveal reaches it.
     const wait = L.entrance && kind === 'verse' && L.anchor !== null && !this.revealPassed(L.anchor);
-    L.start = wait ? null : t;
-    if (L.start !== null && L.entrance && kind === 'verse') L.pulseAt = t + VERSE_PULSE_AT;
+    L.start = null;
+    if (!wait) this.begin(L, t);
     this.upload(L);
     this.cur = L;
     this.mark('focus', wait ? `${kind} waiting` : kind);
@@ -764,6 +767,8 @@ export class ArcField {
   private tick = (t: number): boolean => {
     if (this.disposed || this.lost) return false;
     if (this.canvas.isConnected) this.attached = true;
+    // A canvas that has left the page needs no more frames.
+    else if (this.attached) return false;
     const settled = !this.animated();
     if (settled) this.stopMotion(t);
     this.render(t, settled);
@@ -792,14 +797,13 @@ export class ArcField {
     const gl = this.gl;
     if (!this.accumProg || !this.focusProg || !this.toneProg) return;
     const t0 = performance.now();
-    let full = false;
     gl.viewport(0, 0, this.canvas.width, this.canvas.height);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE);
     if (this.hdr && this.fbo && this.tex) {
       gl.bindFramebuffer(gl.FRAMEBUFFER, this.fbo);
       if (this.reveal) this.advanceReveal(t);
-      else if (this.dirtyAccum) full = this.accumulate();
+      else if (this.dirtyAccum) this.accumulate();
       gl.bindFramebuffer(gl.FRAMEBUFFER, null);
       this.startWaiting(t);
       gl.disable(gl.BLEND);
@@ -817,13 +821,12 @@ export class ArcField {
       this.drawRange(0, this.prefixEnd());
       gl.bindVertexArray(null);
       this.mark('drawn', String(this.prefixEnd()));
-      full = true;
     }
     // Premultiplied "over" blending keeps each focused arc's true color.
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     if (this.prev && !settled) this.drawFocus(this.prev, this.look(this.prev, t, false));
     if (this.cur) this.drawFocus(this.cur, this.look(this.cur, t, settled));
-    if (full) this.lastDrawMs = performance.now() - t0;
+    this.lastDrawMs = performance.now() - t0;
   }
 
   /** Whether anything still moves after the frame drawn at time t. */
@@ -861,11 +864,11 @@ export class ArcField {
     return `${this.canvas.width}x${this.canvas.height} ${v.scale} ${v.offset} ${this.opts.minVotes} ${this.opts.colorMode} ${this.targetId}`;
   }
 
-  /** Redraw the whole sky into the HDR target. Returns false when it already holds this picture. */
-  private accumulate(): boolean {
+  /** Redraw the whole sky into the HDR target, unless it already holds this picture. */
+  private accumulate(): void {
     this.dirtyAccum = false;
     const key = this.inputs();
-    if (key === this.accumKey) return false;
+    if (key === this.accumKey) return;
     const gl = this.gl;
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -876,7 +879,6 @@ export class ArcField {
     gl.bindVertexArray(null);
     this.accumKey = key;
     this.mark('drawn', String(end));
-    return true;
   }
 
   /** One frame of the opening reveal: add each bucket's next slice of the canon. */
@@ -941,14 +943,24 @@ export class ArcField {
     if (this.reveal && this.reveal.start !== null) this.finishReveal();
   }
 
-  /** Start a verse that waited for the reveal once the reveal reaches it, and its dim with it. */
+  /** Start a set's entrance (a verse's pulse follows its grow). */
+  private begin(L: Layer, t: number): void {
+    L.start = t;
+    if (L.entrance) {
+      if (L.kind === 'verse') L.pulseAt = t + VERSE_PULSE_AT;
+      this.played.set(L.kind, L.key);
+    }
+  }
+
+  /** Start a verse that waited for the reveal once the reveal reaches it. The
+   *  dim waits with it, and eases in as soon as nothing waits any more. */
   private startWaiting(t: number): void {
     const c = this.cur;
-    if (!c || c.start !== null || (c.anchor !== null && !this.revealPassed(c.anchor))) return;
-    c.start = t;
-    if (c.kind === 'verse' && c.entrance) c.pulseAt = t + VERSE_PULSE_AT;
-    if (this.dimFx && this.dimFx.start === null) this.dimFx.start = t;
-    this.mark('focus', c.kind);
+    if (c && c.start === null && (c.anchor === null || this.revealPassed(c.anchor))) {
+      this.begin(c, t);
+      this.mark('focus', c.kind);
+    }
+    if (this.dimFx && this.dimFx.start === null && !(this.cur && this.cur.start === null)) this.dimFx.start = t;
   }
 
   /** Re-point the instance attribute at `first` (WebGL2 has no base instance) and draw `count` arcs. */
