@@ -10,6 +10,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Berean Standard Bible (English) | berean.bible, via scrollmapper/bible_databases | Public domain |
 | Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Section headings and the parallel passages they name (Berean Standard Bible) | berean.bible, via usfm-bible/examples.bsb | Public domain |
 | Hebrew and Greek lexicons (TBESH, TBESG) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
 

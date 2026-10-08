@@ -19,6 +19,7 @@ mod parse;
 mod query;
 mod sources;
 mod verify;
+mod extra_parallels;
 
 use std::path::PathBuf;
 
