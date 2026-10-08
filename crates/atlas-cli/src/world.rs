@@ -2872,6 +2872,43 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             format!("{key}: first LSJ sense is {first}, expected {gloss:?} from {who}"),
         ));
     }
+    // TFLSJ's "4th-5th c.BC" is the 5th century BC (Item::slip), and its
+    // "Pollianus" for LSJ's "Poll." is Pollux.
+    let aeschylus: Vec<&str> = slots
+        .iter()
+        .flat_map(|s| {
+            s["l"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .filter(|x| x[2] == "Aeschylus")
+                .filter_map(|x| x[1].as_str())
+                .chain(
+                    s["f"]
+                        .as_array()
+                        .filter(|f| f[1] == "Aeschylus")
+                        .and_then(|f| f[0].as_str()),
+                )
+        })
+        .collect();
+    let early = aeschylus.iter().filter(|&&c| c != "5th century BC").count();
+    out.push((
+        !aeschylus.is_empty() && early == 0,
+        format!(
+            "{early} of {} citations of Aeschylus are not dated the 5th century BC",
+            aeschylus.len()
+        ),
+    ));
+    let pollux = slot("G2571")["l"]
+        .as_array()
+        .is_some_and(|l| l.iter().any(|x| x[0] == "eyelid" && x[2] == "Pollux"));
+    out.push((
+        pollux,
+        format!(
+            "G2571: \"eyelid\" should be cited from Pollux (LSJ's \"Poll.\"): {}",
+            slot("G2571")["l"]
+        ),
+    ));
     // Names whose LSJ entry is another word keep none of it.
     for key in ["G4549G", "G4613G", "G2797", "G1050G"] {
         let s = slot(key);
