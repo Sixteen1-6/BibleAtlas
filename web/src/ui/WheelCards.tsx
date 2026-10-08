@@ -6,14 +6,11 @@
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, locate, rangeLabel } from '../data/atlas';
 import { ARC, GENRE } from './colors';
+import { TAP } from '../state';
 import { Provenance, Snippet } from './common';
 
 /** Rows a card shows before "Show more". */
 const FIRST_ROWS = 3;
-
-const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
-/** "Tap" on touch screens, "Click" with a mouse, for instructions. */
-export const TAP = TOUCH ? 'Tap' : 'Click';
 
 // ------------------------------------------------------------------ data
 

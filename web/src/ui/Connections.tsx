@@ -8,6 +8,7 @@ import { GoDeeper } from './Depth';
 import { LayeredPassages, LayersCard } from './Layers';
 import { OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
 import { openStarter } from './Welcome';
+import { WhyLinked } from './WhyLinked';
 
 const STARTERS = ['Isaiah 53:5', 'John 3:14', 'Genesis 22:8', 'Psalm 22:1', 'John 3:16', 'Micah 5:2'];
 
@@ -39,7 +40,8 @@ function centralWords(rank: number, n: number): string {
   return pct <= 50 ? `Among the top ${pct}% most central verses` : 'Less central than most verses';
 }
 
-function LinkRow({ a, from, link, max }: { a: Atlas; from: number; link: Link; max: number }) {
+/** `bridge`: look for a Septuagint word bridge (kept to the first few rows, to keep the list calm). */
+function LinkRow({ a, from, link, max, bridge }: { a: Atlas; from: number; link: Link; max: number; bridge: boolean }) {
   const src = useVerseRow(a, from);
   const dst = useVerseRow(a, link.v);
   const study = atLeast('study');
@@ -60,6 +62,7 @@ function LinkRow({ a, from, link, max }: { a: Atlas; from: number; link: Link; m
           ))}
         </span>
       )}
+      {study && bridge && !sameLang && src && dst && <WhyLinked a={a} from={from} to={link.v} fromRow={src} toRow={dst} />}
     </div>
   );
 }
@@ -145,8 +148,8 @@ export function Connections({ a }: { a: Atlas }) {
       {study && near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
       <h3>{study ? `Linked passages (${list.length.toLocaleString()}), strongest first` : 'Strongest links'}</h3>
       {study && <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>}
-      {shown.map((l) => (
-        <LinkRow key={l.v} a={a} from={v} link={l} max={max} />
+      {shown.map((l, i) => (
+        <LinkRow key={l.v} a={a} from={v} link={l} max={max} bridge={i < 5} />
       ))}
       {list.length > shown.length && (
         <button class="btn more" onClick={() => setAllFor(v)}>
@@ -160,7 +163,7 @@ export function Connections({ a }: { a: Atlas }) {
       )}
       <GoDeeper to="study" toTop>See the {hebrew ? 'Hebrew' : 'Greek'} behind this verse</GoDeeper>
       {study && <GoDeeper to="deep" toTop>Go deep: weak links, the numbers behind them and the sources</GoDeeper>}
-      <Provenance>Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared only within one language, so Old-to-New Testament links show none.</Provenance>
+      <Provenance>Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared within one language; for the strongest Old-to-New Testament links, a word bridge shows where the Septuagint (the Greek Old Testament) uses the New Testament verse’s Greek word for a Hebrew word of the Old.</Provenance>
     </div>
   );
 }

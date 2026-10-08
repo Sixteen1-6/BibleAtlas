@@ -1,11 +1,13 @@
-// Every view is a link: #v=John.3.16&w=G0026&wv=John.3.16&wp=4&t=lamb&p=Gen.3.15~Rev.12.9&tab=word
-// (wv and wp: the verse and word position a word study was opened from).
+// Every view is a link: #v=John.3.16&w=G0026&wv=John.3.16&wp=4&t=lamb&p=Gen.3.15~Rev.12.9&road=2&tab=word
+// (wv and wp: the verse and word position a word study was opened from; road:
+// which of the roads between the two ends of p is lit, when it is not the first).
 
 import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
 import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
 import { extraFromHash, extraToHash } from './ui/extras/open';
+import { chosenRoad, pickLinkedRoad } from './ui/Roads';
 
 function osis(a: Atlas, v: number): string {
   const l = locate(a, v);
@@ -53,6 +55,7 @@ export function restoreFromHash(a: Atlas): void {
     S.tab.value = tab;
     deepen(TAB_DEPTH[tab]);
   }
+  if (h.has('p')) pickLinkedRoad(Number(h.get('road')));
   extraFromHash(h);
 }
 
@@ -80,7 +83,11 @@ export function syncHash(a: Atlas): () => void {
     }
     if (S.theme.value) h.set('t', S.theme.value);
     const p = S.path.value;
-    if (p) h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);
+    if (p) {
+      h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);
+      const road = chosenRoad();
+      if (road > 0) h.set('road', String(road + 1));
+    }
     h.set('tab', S.tab.value);
     extraToHash(h);
     const next = `#${h.toString()}`;

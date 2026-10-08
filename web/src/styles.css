@@ -782,7 +782,8 @@ p .godeeper {
   font: 14px/1.5 var(--font-read);
   color: var(--muted);
 }
-.refrow .why {
+.refrow .why,
+.refrow > .br {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;

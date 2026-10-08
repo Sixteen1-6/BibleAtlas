@@ -32,6 +32,18 @@ const status = signal<Status>(null);
 const took = signal(0);
 /** Only the latest query may change anything. */
 let ticket = 0;
+/** The road a shared link asked for (road=2 is index 1), used once by adopt(). */
+let linkedPick = 0;
+
+/** From the link: light road `n` (1 to 3) once the restored path's roads are found. */
+export function pickLinkedRoad(n: number): void {
+  linkedPick = Number.isInteger(n) && n >= 1 && n <= MAX_ROADS ? n - 1 : 0;
+}
+
+/** Index of the lit road (-1 for none), for the link. */
+export function chosenRoad(): number {
+  return chosen.value;
+}
 
 function engineFailed(e: unknown): Status {
   return {
@@ -102,6 +114,8 @@ function adopt(a: Atlas, p: Road): void {
   const first = p.verses[0];
   const last = p.verses[p.verses.length - 1];
   const my = ++ticket;
+  const want = linkedPick;
+  linkedPick = 0;
   batch(() => {
     from.value = label(a, first);
     to.value = label(a, last);
@@ -125,7 +139,7 @@ function adopt(a: Atlas, p: Road): void {
         status.value = null;
         if (!list.length) return;
         const lit = S.path.peek();
-        show(list, lit === p ? 0 : list.indexOf(lit as Road));
+        show(list, lit === p ? (want < list.length ? want : 0) : list.indexOf(lit as Road));
       });
     },
     (e) => {

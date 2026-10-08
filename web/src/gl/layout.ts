@@ -55,6 +55,8 @@ export function verseAt(xs: Float32Array, screenX: number, view: View, width: nu
  *  Height grows with span relative to half the map width, so arcs nest
  *  inside each other instead of flattening at the top. */
 export function arcHeight(x0: number, x1: number, height: number, width: number): number {
+  // Before the map is measured its width is 0: draw nothing rather than NaN.
+  if (!(width > 0)) return 0;
   const hmax = height * BASELINE * HEIGHT;
   const r = Math.abs(x1 - x0) / 2;
   return hmax * Math.pow(Math.min(1, r / (width / 2)), SHAPE);

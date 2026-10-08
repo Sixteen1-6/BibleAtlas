@@ -10,7 +10,7 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/ho
 import { type Atlas, label, shortName } from '../data/atlas';
 import * as S from '../state';
 import { ARC, GENRE, GENRE_IDS } from './colors';
-import { BookCard, PairCard, TAP, bookEnd, bookFacts, pairTotal } from './WheelCards';
+import { BookCard, PairCard, bookEnd, bookFacts, pairTotal } from './WheelCards';
 import './wheel.css';
 
 const GAP = 0.006;
@@ -728,7 +728,7 @@ export function Wheel({ a }: { a: Atlas }) {
   // --- caption ---------------------------------------------------------------
   let caption: preact.ComponentChildren = (
     <>
-      <span>{TAP} a ribbon to see the verses that join two books.</span> <span>{TAP} a book for its key verses.</span>
+      <span>{S.TAP} a ribbon to see the verses that join two books.</span> <span>{S.TAP} a book for its key verses.</span>
     </>
   );
   if (hot?.kind === 'rib') {
@@ -738,7 +738,7 @@ export function Wheel({ a }: { a: Atlas }) {
         <b>
           {a.books[p.i].name} and {a.books[p.j].name}
         </b>
-        : {fmt(p.n)} links. {TAP} to see the verses that join them.
+        : {fmt(p.n)} links. {S.TAP} to see the verses that join them.
       </>
     );
   } else if (hot?.kind === 'book') {

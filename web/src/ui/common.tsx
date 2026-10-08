@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, LANG_NAME, chapterName } from '../data/atlas';
 import { FLAG, type VerseRow, getVerse, rootsOf } from '../data/text';
+import { deepen } from '../depth';
 import * as S from '../state';
 import { GENRE } from './colors';
 
@@ -102,7 +103,15 @@ export function Provenance({ children }: { children: preact.ComponentChildren })
   return (
     <p class="provenance">
       {children}{' '}
-      <button onClick={() => (S.tab.value = 'sources')}>All sources and checksums</button>
+      <button
+        onClick={() => {
+          // The Sources tab is Deep material; asking for it goes that deep.
+          deepen('deep');
+          S.tab.value = 'sources';
+        }}
+      >
+        All sources and checksums
+      </button>
     </p>
   );
 }

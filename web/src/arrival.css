@@ -51,6 +51,12 @@
   pointer-events: none;
   transition: opacity 400ms ease;
 }
+/* One entrance: the map draws its own sky in from Genesis, so the boot sky's
+   decorative arcs step aside first and only its colour and title fade. */
+#boot.arr-leave .arr-arcs {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
 
 /* ------------------------------------------------------------ update notice */
 

@@ -14,6 +14,7 @@ import { useEffect, useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
 import { type Echo, MAXDF, rankEchoes } from '../data/echoes';
 import { FLAG, type WordRow } from '../data/text';
+import { atLeast } from '../depth';
 import { BASELINE, arcHeight, toScreen, verseX } from '../gl/layout';
 import * as S from '../state';
 import { ARC, SKY } from './colors';
@@ -95,7 +96,9 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   }, [mode]);
 
   const canDraw = mode === 'arcs' && hasMap;
-  const on = canDraw && drawFor === key && !!found;
+  // Drawing echoes on the map is Deep; Study shows the list.
+  const deep = atLeast('deep');
+  const on = deep && canDraw && drawFor === key && !!found;
   useEchoSky(a, on && found ? found.sky : null, hot);
 
   if (!found || verse === undefined) return null;
@@ -126,9 +129,11 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
             Show {next - limit} more
           </button>
         )}
-        <button class="btn more ws-draw" aria-pressed={on} disabled={!canDraw} onClick={() => setDrawFor(on ? null : key)}>
-          {!canDraw ? 'Switch the map to Arcs to draw echoes' : on ? 'Hide echoes on the map' : 'Draw these echoes on the map'}
-        </button>
+        {deep && (
+          <button class="btn more ws-draw" aria-pressed={on} disabled={!canDraw} onClick={() => setDrawFor(on ? null : key)}>
+            {!canDraw ? 'Switch the map to Arcs to draw echoes' : on ? 'Hide echoes on the map' : 'Draw these echoes on the map'}
+          </button>
+        )}
       </div>
       <details class="ws-how">
         <summary>How are echoes found?</summary>

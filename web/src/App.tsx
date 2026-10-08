@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks';
-import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
+import { type Atlas, DATA_BASE, loadAtlas } from './data/atlas';
 import { loadLayers } from './data/layers';
 import { ESV_ENABLED } from './data/esv';
 import { TAB_DEPTH, atLeast } from './depth';
@@ -13,6 +13,7 @@ import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
 import { Reader } from './ui/Reader';
 import { Sources } from './ui/Sources';
+import { lightTheme } from './ui/ThemeThread';
 import { Wheel } from './ui/Wheel';
 import { WordStudy } from './ui/WordStudy';
 
@@ -49,6 +50,24 @@ const THEME_ICON = {
   ),
 };
 
+/** After restoreFromHash: light a linked theme's thread, find a linked path,
+ *  and on a phone open the Explore pane when the link points at a study view. */
+async function followLink(atlas: Atlas, eng: Engine, p: [number, number] | null, linked: boolean): Promise<void> {
+  const h = new URLSearchParams(location.hash.slice(1));
+  const t = S.theme.value;
+  if (t) await lightTheme(atlas, t, 'thread', { keepSelection: true });
+  if (p) {
+    try {
+      const res = await eng.path(p[0], p[1], 1);
+      if (res) S.path.value = { ...res, ms: eng.lastMs };
+    } catch (e) {
+      // The map and reader still work; Paths shows its own notice.
+      console.warn('Could not restore the linked path', e);
+    }
+  }
+  if (linked && (h.has('t') || h.has('p') || h.has('w'))) S.mobilePane.value = 'study';
+}
+
 export function App() {
   const [progress, setProgress] = useState('Starting');
   const [error, setError] = useState<string | null>(null);
@@ -74,30 +93,24 @@ export function App() {
         }
         const p = pathFromHash(atlas);
         stop = syncHash(atlas);
-        const t = S.theme.value;
-        if (t) {
-          const th = atlas.themes.find((x) => x.id === t)!;
-          const set = new Set<number>();
-          for (const r of th.roots) for (const v of versesWithRoot(atlas, r)) set.add(v);
-          S.marks.value = { verses: Uint32Array.from([...set].sort((x, y) => x - y)), label: `theme:${t}` };
-        }
-        if (p) {
-          const res = await eng.path(p[0], p[1], 1);
-          if (res) S.path.value = { ...res, ms: eng.lastMs };
-        }
+        await followLink(atlas, eng, p, linked);
         // A link pasted into the same tab only changes the hash; follow it.
-        window.addEventListener('hashchange', async () => {
+        window.addEventListener('hashchange', () => {
           const target = pathFromHash(atlas);
           restoreFromHash(atlas);
-          if (target) {
-            const res = await eng.path(target[0], target[1], 1);
-            if (res) S.path.value = { ...res, ms: eng.lastMs };
-          }
+          void followLink(atlas, eng, target, true);
         });
       })
       .catch((e: Error) => setError(e.message));
     return () => stop?.();
   }, []);
+
+  // A new tab starts at its top, wherever the last one was scrolled to.
+  const tabNow = S.tab.value;
+  useEffect(() => {
+    const study = document.querySelector('.study');
+    if (study) study.scrollTop = 0;
+  }, [tabNow]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
