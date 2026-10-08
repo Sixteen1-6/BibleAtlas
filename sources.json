@@ -49,6 +49,48 @@
       "files": { "bsb": "formats/json/BSB.json" }
     },
     {
+      "id": "openbible-geo",
+      "title": "OpenBible.info Bible Geocoding Data",
+      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",
+      "license": "CC BY 4.0",
+      "attribution": "Bible Geocoding Data from OpenBible.info, CC BY 4.0",
+      "homepage": "https://www.openbible.info/geo/",
+      "repo": "https://github.com/openbibleinfo/Bible-Geocoding-Data",
+      "commit": "7eb18a5ee62f27b9b93bd6689ea272d76dd23b8f",
+      "files": { "ancient": "data/ancient.jsonl", "modern": "data/modern.jsonl" },
+      "note": "Coordinates the dataset credits to OpenStreetMap (ODbL) or takes from a Palestine Grid reference (epsg_28191) are left out; where it gives its own position for a site (custom_lonlat), that one is used. A place is listed under a verse only where the BSB text names it."
+    },
+    {
+      "id": "theographic",
+      "title": "Theographic Bible Metadata",
+      "provides": "People tied to each place: who was born there, who died there and who was there. Shown in the Places map at Deep.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
+      "homepage": "https://github.com/robertrouse/theographic-bible-metadata",
+      "repo": "https://github.com/robertrouse/theographic-bible-metadata",
+      "commit": "cfb1c485d4da6fb63a69cb3b7f5b0752792f46bc",
+      "files": { "people": "CSV/People.csv", "places": "CSV/Places.csv" },
+      "note": "The file built from it, extras/real-map/people.json, is shared under the same license, CC BY-SA 4.0."
+    },
+    {
+      "id": "natural-earth",
+      "title": "Natural Earth",
+      "provides": "Coastlines, lakes, rivers, sea names and modern borders, cut to the Bible lands and simplified for the Places map.",
+      "license": "Public domain",
+      "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.",
+      "homepage": "https://www.naturalearthdata.com/",
+      "repo": "https://github.com/nvkelso/natural-earth-vector",
+      "commit": "ca96624a56bd078437bca8184e78163e5039ad19",
+      "files": {
+        "land": "geojson/ne_10m_land.geojson",
+        "lakes": "geojson/ne_10m_lakes.geojson",
+        "rivers": "geojson/ne_10m_rivers_lake_centerlines.geojson",
+        "seas": "geojson/ne_10m_geography_marine_polys.geojson",
+        "countries": "geojson/ne_50m_admin_0_countries.geojson"
+      },
+      "note": "The coastlines and rivers are today's; the borders are used only to name the modern country of places far from Jerusalem."
+    },
+    {
       "id": "tahot",
       "title": "STEPBible TAHOT (Translators Amalgamated Hebrew OT)",
       "provides": "Every Hebrew and Aramaic word of the Old Testament (Leningrad Codex), with transliteration, contextual English, Strong's root and grammar.",

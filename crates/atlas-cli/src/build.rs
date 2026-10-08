@@ -326,6 +326,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     c.u32s("e_verse", &eng.verses);
     let bin = c.finish();
     write(out, "atlas.bin", &bin, &mut files)?;
+    for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
     let lemmas_json = json!({

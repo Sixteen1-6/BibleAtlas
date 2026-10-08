@@ -10,6 +10,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Where the New Testament quotes the Old (the BSB's footnotes) | berean.bible, via the USFM edition in usfm-bible/examples.bsb | Public domain |
 | Berean Standard Bible (English) | berean.bible, via scrollmapper/bible_databases | Public domain |
 | Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Places named in each verse, their proposed sites and how confident each is; people tied to each place; the coastlines, lakes, rivers, sea names and borders of the Places map | OpenBible.info Bible Geocoding Data, via openbibleinfo/Bible-Geocoding-Data; Theographic Bible Metadata by Robert Rouse, via robertrouse/theographic-bible-metadata; Natural Earth, via nvkelso/natural-earth-vector | CC BY 4.0; CC BY-SA 4.0 (extras/real-map/people.json is shared under the same license); public domain |
 | Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Hebrew and Greek lexicons (TBESH, TBESG) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Word alignments to the BSB, with the WLC (Macula) and Berean Greek NT texts they are keyed to | Clear Bible / Biblica, github.com/Clear-Bible/Alignments | CC BY 4.0 (alignments); WLC and BSB public domain |

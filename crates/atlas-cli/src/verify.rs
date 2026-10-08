@@ -109,6 +109,7 @@ pub fn run(out: &Path) -> Result<(), String> {
         let any = first[1].as_array().map(|a| !a.is_empty()).unwrap_or(false);
         r.check(any, format!("{} 1:1 has original-language words", bk.name));
     }
+    for (ok, what) in crate::extra_real_map::verify(&d)? { r.check(ok, what); }
     // Split points where NRSV and KJV numbering differ: the Greek must sit
     // under the English verse that translates it.
     let grace = d.lemma_index("G5485").ok_or("no root G5485 (grace)")?;
