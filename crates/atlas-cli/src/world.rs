@@ -1096,7 +1096,8 @@ fn same_as_before<'a>(s: &'a str, l: &Link<'a>) -> Option<Dated<'a>> {
     if another_work {
         return None;
     }
-    let (_, century) = century(item.shown(), item.era)?;
+    let (digits, era) = item.shown();
+    let (_, century) = century(digits, era)?;
     Some(Dated {
         century,
         writer: writer_name(item.name),
@@ -1301,23 +1302,38 @@ fn century(digits: &str, era: &str) -> Option<(i32, String)> {
 /// One dated citation inside a link title: `5th-4th c.BC: Plato Philosophus`.
 struct Item<'a> {
     end: usize,
+    /// TFLSJ's date, the one a link's label repeats ("Refs 5th c.BC+").
     digits: &'a str,
     era: &'a str,
     name: &'a str,
-    /// Dated "4th-5th c.BC", TFLSJ's slip for writers of the 6th and 5th
-    /// centuries BC (Aeschylus, Simonides, Parmenides, Pythagoras).
-    slip: bool,
+    /// The date to show where TFLSJ's is a slip (see `slip`).
+    fixed: Option<(&'static str, &'static str)>,
 }
 
-impl<'a> Item<'a> {
-    /// The century to show: TFLSJ's, but the 5th BC for "4th-5th c.BC".
-    fn shown(&self) -> &'a str {
-        if self.slip {
-            "5"
-        } else {
-            self.digits
-        }
+impl Item<'_> {
+    /// The century to show, as (digits, era).
+    fn shown(&self) -> (&str, &str) {
+        self.fixed.unwrap_or((self.digits, self.era))
     }
+}
+
+/// TFLSJ's slips in dating a writer, set right:
+/// - "4th-5th c.BC", which it gives writers of the 6th and 5th centuries BC
+///   (Aeschylus, Simonides, Parmenides, Pythagoras), is the 5th;
+/// - Heraclitus the philosopher, whom LSJ cites by fragment ("Heraclitus 31",
+///   "Heraclitus cited in Plato"), gets the 1st century AD of Heraclitus the
+///   allegorist ("1st c.AD(?): Heraclitus “Allegoriae”"); he is dated as
+///   TFLSJ dates "Heraclitus Philosophus", "4th-5th c.BC", so the 5th.
+fn slip(digits: &str, to: Option<&str>, era: &str, name: &str, rest: &str) -> bool {
+    let fragment = rest.starts_with(|c: char| c.is_ascii_digit())
+        || rest.starts_with("(?) ")
+        || rest.starts_with("[same place]");
+    (era == "BC" && digits == "4" && to == Some("5"))
+        || (era == "AD"
+            && digits == "1"
+            && to.is_none()
+            && fragment
+            && writer_name(name).as_deref() == Some("Heraclitus"))
 }
 
 /// Characters a writer's name can contain (it stops at a reference).
@@ -1365,12 +1381,14 @@ fn item_at(s: &str, i: usize) -> Option<Item<'_>> {
         let last = r[..ws].chars().next_back()?.len_utf8();
         (ws - last, last)
     };
+    let name = &r[start..start + len];
+    let end = base + start + len;
     Some(Item {
-        end: base + start + len,
+        end,
         digits,
         era,
-        name: &r[start..start + len],
-        slip: era == "BC" && digits == "4" && to == Some("5"),
+        name,
+        fixed: slip(digits, to, era, name, &s[end..]).then_some(("5", "BC")),
     })
 }
 
@@ -1556,34 +1574,50 @@ fn numeral(w: &str) -> bool {
             .all(|c| matches!(c, 'I' | 'V' | 'X' | 'L' | 'C' | '.' | '-'))
 }
 
-/// The first citation in `title` whose date is the label's: the one the
-/// label dates.
+/// The citation in `title` that the label dates: the first whose date is
+/// the label's (TFLSJ's earliest), unless one TFLSJ misdates (`slip`) is,
+/// once set right, as early and comes first, or earlier: "1st c.AD(?):
+/// Heraclitus 117, 5th c.BC: Euripides" is Heraclitus.
 fn cited<'a>(title: &'a str, label: &str) -> Option<Item<'a>> {
     let (digits, era) = label_date(label)?;
+    let (labelled_year, _) = century(&digits, era)?;
+    let mut best: Option<(i32, Item<'a>)> = None;
     let mut from = 0;
     while let Some(item) = next_item(title, from) {
-        if item.digits == digits && item.era == era {
-            return Some(item);
-        }
         from = item.end;
+        let (d, e) = item.shown();
+        let Some((year, _)) = century(d, e) else {
+            continue;
+        };
+        let labelled = item.digits == digits && item.era == era;
+        if !labelled && (item.fixed.is_none() || year > labelled_year) {
+            continue;
+        }
+        if best.as_ref().is_none_or(|(y, _)| year < *y) {
+            best = Some((year, item));
+        }
     }
-    None
+    best.map(|(_, item)| item)
 }
 
 /// A reference's date from its label ("Refs 5th c.BC+"), as (a year in that
 /// century for ordering, the century, the writer); none for one that cites
 /// the Bible alone ("LXX", "NT") or nothing (`misread_b`). The label's is
-/// TFLSJ's date for the citation it dates, set right for "4th-5th c.BC" (see
-/// `Item::slip`).
+/// TFLSJ's date for the citation it dates, set right where TFLSJ slips (see
+/// `slip`).
 fn label_century(title: &str, label: &str) -> Option<(i32, String, Option<String>)> {
     if misread_b(title) {
         return None;
     }
     let (digits, era) = label_date(label)?;
     let item = cited(title, label);
-    let digits = item.as_ref().map_or(digits.as_str(), Item::shown);
+    let (digits, era) = item.as_ref().map_or((digits.as_str(), era), Item::shown);
     let (year, century) = century(digits, era)?;
-    Some((year, century, item.and_then(|i| writer_name(i.name))))
+    Some((
+        year,
+        century,
+        item.as_ref().and_then(|i| writer_name(i.name)),
+    ))
 }
 
 fn is_word(c: char) -> bool {
@@ -2981,7 +3015,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         (
             "G5547",
             "to be rubbed on, used as ointment or salve",
-            "Euripides",
+            "Aeschylus",
         ),
         ("G3568", "now", "Homer"),
         ("G5485", "outward grace or favour, beauty", "Homer"),
@@ -2998,7 +3032,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             format!("{key}: first LSJ sense is {first}, expected {gloss:?} from {who}"),
         ));
     }
-    // TFLSJ's "4th-5th c.BC" is the 5th century BC (Item::slip), and its
+    // TFLSJ's "4th-5th c.BC" is the 5th century BC (slip), and its
     // "Pollianus" for LSJ's "Poll." is Pollux.
     let aeschylus: Vec<&str> = slots
         .iter()
@@ -3025,6 +3059,23 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             aeschylus.len()
         ),
     ));
+    // Heraclitus' fragments are the philosopher's (slip), and a writer so set
+    // right is named where LSJ cites him first (cited).
+    for (key, gloss, who) in [
+        ("G3056", "measure, tale", "Heraclitus"),
+        ("G5562", "to be in motion or flux", "Heraclitus"),
+        ("G1320", "teacher, master", "Aeschylus"),
+    ] {
+        let l = &slot(key)["l"];
+        let found = l.as_array().is_some_and(|l| {
+            l.iter()
+                .any(|x| x[0] == gloss && x[1] == "5th century BC" && x[2] == who)
+        });
+        out.push((
+            found,
+            format!("{key}: \"{gloss}\" should be cited from {who}, 5th century BC: {l}"),
+        ));
+    }
     let pollux = slot("G2571")["l"]
         .as_array()
         .is_some_and(|l| l.iter().any(|x| x[0] == "eyelid" && x[2] == "Pollux"));
@@ -3483,6 +3534,67 @@ mod tests {
             ),
             Some(("4th century BC".to_string(), "Theophrastus".to_string()))
         );
+        // Set right, Aeschylus is as early as the 5th-century writer the
+        // label dates, and LSJ cites him first; but not earlier than the 6th.
+        let five = |w: &str| Some(("5th century BC".to_string(), w.to_string()));
+        assert_eq!(
+            century_of(
+                " 4th-5th c.BC: Aeschylus Tragicus “Persae” 255, 5th c.BC: Herodotus Historicus 1.58",
+                "Refs 5th c.BC+"
+            ),
+            five("Aeschylus")
+        );
+        assert_eq!(
+            century_of(
+                " 5th c.BC: Herodotus Historicus 1.58, 4th-5th c.BC: Aeschylus Tragicus “Persae” 255",
+                "Refs 5th c.BC+"
+            ),
+            five("Herodotus")
+        );
+        assert_eq!(
+            century_of(
+                " Inscriptiones Graecae 12.436 (6th c.BC), 5th c.BC: Herodotus Historicus 4.14, \
+                 4th-5th c.BC: Aeschylus Tragicus “Choephori” 760 ",
+                "Refs 6th c.BC+"
+            ),
+            Some(("6th century BC".to_string(), String::new()))
+        );
+        // Heraclitus' fragments are the philosopher's, not the allegorist's.
+        assert_eq!(
+            century_of(" 1st c.AD(?): Heraclitus 45 ", "Refs 1st c.AD+"),
+            five("Heraclitus")
+        );
+        assert_eq!(
+            century_of(
+                " 1st c.AD(?): Heraclitus 117, 5th c.BC: Euripides Tragicus “Cyclops” 167",
+                "Refs 5th c.BC+"
+            ),
+            five("Heraclitus")
+        );
+        assert_eq!(
+            century_of(
+                " 1st c.AD(?): Heraclitus 131, compare 1st c.BC: Philodemus Gadarensis “D.” 3.6",
+                "NT+1st c.BC+"
+            ),
+            five("Heraclitus")
+        );
+        assert_eq!(
+            century_of(
+                " 1st c.AD(?): Heraclitus cited in 5th-6th c.BC: Plato Philosophus “Cratylus” 402a",
+                "Refs 5th c.BC+"
+            ),
+            five("Heraclitus")
+        );
+        for title in [
+            " 1st c.AD(?): Heraclitus “Allegoriae Quaestiones Homericae” 1",
+            " 1st c.AD(?): Heraclitus “Incred.” 11 ",
+        ] {
+            assert_eq!(
+                century_of(title, "Refs 1st c.AD+"),
+                Some(("1st century AD".to_string(), "Heraclitus".to_string())),
+                "{title}"
+            );
+        }
     }
 
     #[test]
