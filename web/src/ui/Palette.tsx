@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { type Atlas, LANG_NAME, label } from '../data/atlas';
-import { searchEnglish, searchRoots } from '../data/search';
+import { loadPlainText, plainText } from '../data/plain';
+import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
 import { getVerse } from '../data/text';
 import * as S from '../state';
 
@@ -11,9 +12,14 @@ type Item =
   | { kind: 'root'; root: number }
   | { kind: 'verse'; v: number };
 
-function VerseText({ a, v, q }: { a: Atlas; v: number; q: string }) {
-  const [t, setT] = useState('');
+function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> }) {
+  const [t, setT] = useState(() => plainText()?.[v] ?? '');
   useEffect(() => {
+    const known = plainText()?.[v];
+    if (known) {
+      setT(known);
+      return;
+    }
     let live = true;
     getVerse(a, v).then((r) => live && setT(r[0]));
     return () => {
@@ -21,23 +27,38 @@ function VerseText({ a, v, q }: { a: Atlas; v: number; q: string }) {
     };
   }, [v]);
   if (!t) return <span class="s">…</span>;
-  const words = q.toLowerCase().split(/\s+/).filter((w) => w.length > 1);
-  const parts = t.split(new RegExp(`(${words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') || '$^'})`, 'i'));
   return (
     <span class="s">
-      {parts.map((p, i) => (i % 2 ? <mark key={i}>{p}</mark> : p))}
+      {wordPieces(t).map((p, i) => (p.word && words.has(p.word) ? <mark key={i}>{p.text}</mark> : p.text))}
     </span>
   );
+}
+
+function footNote(q: string, res: SearchResult | null, ref: boolean): string {
+  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a Strong’s number, or a transliteration like “agape” or “ruach”.';
+  if (!res) return ref ? 'Press Enter to open it.' : '';
+  const notes: string[] = [];
+  if (res.guesses.length) notes.push(`Read ${res.guesses.map(([w, as]) => `“${w}” as “${as.join('” or “')}”`).join(', ')}.`);
+  if (res.unknown.length) notes.push(`No BSB verse uses “${res.unknown.join('”, “')}”.`);
+  if (res.verses.length) {
+    if (res.total) notes.unshift(`${res.total.toLocaleString()} ${res.total === 1 ? 'verse holds' : 'verses hold'} all these words (BSB). Closest wording first.`);
+    else notes.unshift('No verse holds every word, so these are the closest matches (BSB).');
+  }
+  return notes.join(' ');
 }
 
 export function Palette({ a }: { a: Atlas }) {
   const [q, setQ] = useState('');
   const [items, setItems] = useState<Item[]>([]);
-  const [total, setTotal] = useState(0);
+  const [res, setRes] = useState<SearchResult | null>(null);
+  const [texts, setTexts] = useState<string[] | null>(plainText);
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => input.current?.focus(), []);
+  useEffect(() => {
+    if (!texts) loadPlainText(a).then(setTexts, () => {});
+  }, []);
 
   useEffect(() => {
     let live = true;
@@ -46,23 +67,24 @@ export function Palette({ a }: { a: Atlas }) {
       const query = q.trim();
       if (!query) {
         setItems([]);
-        setTotal(0);
+        setRes(null);
         return;
       }
       const range = /\d/.test(query) || query.length >= 3 ? await S.engine.value?.parseRef(query) : null;
       if (!live) return;
       if (range) out.push({ kind: 'ref', range });
       for (const r of searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
-      const res = searchEnglish(a, query, 30);
-      for (const v of res.verses) out.push({ kind: 'verse', v });
+      // "Mathew 5:3" is a reference, not words to look for.
+      const found = range && /\d/.test(query) ? null : searchEnglish(a, q, 30, texts);
+      for (const v of found?.verses ?? []) out.push({ kind: 'verse', v });
       setItems(out);
-      setTotal(res.total);
+      setRes(found);
       setActive(0);
     })();
     return () => {
       live = false;
     };
-  }, [q]);
+  }, [q, texts]);
 
   const choose = (it: Item) => {
     S.paletteOpen.value = false;
@@ -86,7 +108,7 @@ export function Palette({ a }: { a: Atlas }) {
   return (
     <div class="scrim" onClick={(e) => e.target === e.currentTarget && (S.paletteOpen.value = false)}>
       <div class="palette" role="dialog" aria-label="Search">
-        <input ref={input} value={q} placeholder="John 3:16 · shepherd · agape · H7225" onInput={(e) => setQ((e.target as HTMLInputElement).value)} onKeyDown={onKey} aria-label="Search for a verse, an English phrase, or a Hebrew or Greek word" />
+        <input ref={input} value={q} placeholder="John 3:16 · the lord is my shepherd · agape · H7225" onInput={(e) => setQ((e.target as HTMLInputElement).value)} onKeyDown={onKey} aria-label="Search for a verse, an English phrase, or a Hebrew or Greek word" />
         <ul role="listbox">
           {items.map((it, i) => (
             <li key={i} role="option" aria-selected={i === active} onMouseEnter={() => setActive(i)} onClick={() => choose(it)}>
@@ -105,13 +127,13 @@ export function Palette({ a }: { a: Atlas }) {
               {it.kind === 'verse' && (
                 <>
                   <b>{label(a, it.v)}</b>
-                  <VerseText a={a} v={it.v} q={q} />
+                  <VerseText a={a} v={it.v} words={res?.words ?? new Set()} />
                 </>
               )}
             </li>
           ))}
         </ul>
-        <div class="foot">{q.trim() ? `${total.toLocaleString()} verses contain these words (BSB). Most connected first.` : 'Type a reference, an English phrase, a Strong’s number, or a transliteration like “agape” or “ruach”.'}</div>
+        <div class="foot">{footNote(q, res, items[0]?.kind === 'ref')}</div>
       </div>
     </div>
   );

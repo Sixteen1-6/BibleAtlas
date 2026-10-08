@@ -22,6 +22,13 @@ fn squash(s: &str) -> String {
 
 /// Resolve a typed book name to its index.
 pub fn parse_book(input: &str) -> Option<u8> {
+    let (key, _) = book_key(input)?;
+    exact_book(&key)
+}
+
+/// Lowercase, fold "II"/"Second"/"2nd" into a leading digit, squash spaces
+/// and punctuation. Returns the key and the length of its name part.
+fn book_key(input: &str) -> Option<(String, usize)> {
     let lower: String = input.trim().chars().flat_map(|c| c.to_lowercase()).collect();
     let mut rest = lower.as_str();
     let mut prefix = "";
@@ -40,8 +47,13 @@ pub fn parse_book(input: &str) -> Option<u8> {
     if key.is_empty() {
         return None;
     }
+    let name_len = key.len() - prefix.len();
+    Some((key, name_len))
+}
+
+fn exact_book(key: &str) -> Option<u8> {
     for (i, b) in BOOKS.iter().enumerate() {
-        if b.aliases.iter().any(|a| *a == key) || squash(b.name) == key || squash(b.osis) == key {
+        if b.aliases.contains(&key) || squash(b.name) == key || squash(b.osis) == key {
             return Some(i as u8);
         }
     }
@@ -49,7 +61,7 @@ pub fn parse_book(input: &str) -> Option<u8> {
     if key.len() >= 3 {
         let mut hit = None;
         for (i, b) in BOOKS.iter().enumerate() {
-            if squash(b.name).starts_with(key.as_str()) {
+            if squash(b.name).starts_with(key) {
                 if hit.is_some() {
                     return None;
                 }
@@ -59,6 +71,63 @@ pub fn parse_book(input: &str) -> Option<u8> {
         return hit;
     }
     None
+}
+
+/// Edit distance with adjacent transpositions ("Jonh" -> "John").
+fn distance(a: &[u8], b: &[u8]) -> usize {
+    let w = b.len() + 1;
+    let mut d = alloc::vec![0usize; (a.len() + 1) * w];
+    for i in 0..=a.len() {
+        d[i * w] = i;
+    }
+    for (j, cell) in d.iter_mut().take(w).enumerate() {
+        *cell = j;
+    }
+    for i in 1..=a.len() {
+        for j in 1..=b.len() {
+            let cost = usize::from(a[i - 1] != b[j - 1]);
+            let mut v = (d[(i - 1) * w + j] + 1).min(d[i * w + j - 1] + 1).min(d[(i - 1) * w + j - 1] + cost);
+            if i > 1 && j > 1 && a[i - 1] == b[j - 2] && a[i - 2] == b[j - 1] {
+                v = v.min(d[(i - 2) * w + j - 2] + 1);
+            }
+            d[i * w + j] = v;
+        }
+    }
+    d[a.len() * w + b.len()]
+}
+
+/// A misspelled book name ("Mathew", "Phillipians", "Revelations", "Isiah"):
+/// the one book whose full name is closest, if it is close enough and no
+/// other book is equally close. Only used when chapter numbers follow, so
+/// an English word like "truth" never turns into "Ruth".
+fn fuzzy_book(input: &str) -> Option<u8> {
+    let (key, name_len) = book_key(input)?;
+    if name_len < 4 || !key.is_ascii() {
+        return None;
+    }
+    let limit = if name_len >= 7 { 2 } else { 1 };
+    // Rank by distance, then by how close the lengths are, so a swapped pair
+    // ("Jonh" -> John) beats a dropped letter (Jonah).
+    let mut best: ((usize, usize), Option<u8>, bool) = ((usize::MAX, 0), None, false);
+    for (i, b) in BOOKS.iter().enumerate() {
+        let name = squash(b.name);
+        // Also compare against the name's prefix of the same length, so a
+        // shortened misspelling ("Phillip 4") still finds Philippians.
+        let mut d = distance(key.as_bytes(), name.as_bytes());
+        if name.len() > key.len() {
+            d = d.min(distance(key.as_bytes(), &name.as_bytes()[..key.len()]));
+        }
+        let score = (d, name.len().abs_diff(key.len()));
+        if score < best.0 {
+            best = (score, Some(i as u8), false);
+        } else if score == best.0 {
+            best.2 = true;
+        }
+    }
+    match best {
+        ((d, _), Some(b), false) if d > 0 && d <= limit => Some(b),
+        _ => None,
+    }
 }
 
 fn split_numbers(s: &str) -> Option<[u16; 4]> {
@@ -94,11 +163,56 @@ fn split_numbers(s: &str) -> Option<[u16; 4]> {
     Some([ch, v, ech, ev])
 }
 
+/// Fold the words people put between numbers into punctuation:
+/// "John 3 v 16", "John ch. 3 verse 16", "John 3v16" -> "John 3:16"; and drop
+/// a comma list after the first verse: "John 3:16, 18" -> "John 3:16".
+fn normalize_numbers(input: &str) -> String {
+    let mut s: String = input.trim().chars().flat_map(|c| c.to_lowercase()).collect();
+    if let Some(i) = s.find([',', ';']) {
+        // Only cut when a number came before the comma; book names have none.
+        if s[..i].chars().any(|c| c.is_ascii_digit()) {
+            s.truncate(i);
+        }
+    }
+    let mut out = String::with_capacity(s.len());
+    let words: alloc::vec::Vec<&str> = s.split_whitespace().collect();
+    for (k, w) in words.iter().enumerate() {
+        let after_number = k > 0 && words[k - 1].ends_with(|c: char| c.is_ascii_digit());
+        let bare = w.trim_end_matches('.');
+        // "John ch 3", but not "1 Ch 3" (1 Chronicles).
+        if matches!(bare, "ch" | "chap" | "chapter") && k > 0 && words[k - 1].chars().any(|c| c.is_alphabetic()) {
+            out.push(' ');
+            continue;
+        }
+        if matches!(bare, "v" | "vs" | "vv" | "ver" | "verse" | "verses") && after_number {
+            out.push(':');
+            continue;
+        }
+        // "3v16" / "3vs16"
+        let mut t = String::from(*w);
+        for pat in ["vs", "v"] {
+            if let Some(i) = t.find(pat) {
+                let (a, b) = (&t[..i], &t[i + pat.len()..]);
+                if !a.is_empty() && a.ends_with(|c: char| c.is_ascii_digit()) && b.starts_with(|c: char| c.is_ascii_digit()) {
+                    t = alloc::format!("{a}:{b}");
+                    break;
+                }
+            }
+        }
+        if !out.is_empty() && !out.ends_with(':') {
+            out.push(' ');
+        }
+        out.push_str(&t);
+    }
+    out
+}
+
 /// Parse a full reference. Returns `None` if the book is unknown or the
 /// numbers are malformed. Does not check that the chapter/verse exist; use
 /// [`crate::Versification`] for that.
 pub fn parse(input: &str) -> Option<RefQuery> {
-    let s = input.trim();
+    let s = normalize_numbers(input);
+    let s = s.trim();
     // The book name ends where the chapter number starts: a digit that comes
     // after at least one letter.
     let mut seen_letter = false;
@@ -112,8 +226,9 @@ pub fn parse(input: &str) -> Option<RefQuery> {
         }
     }
     let book_part = s[..split].trim_end_matches(|c: char| c == '.' || c.is_whitespace());
-    let book = parse_book(book_part)?;
-    if split == s.len() {
+    let has_numbers = split < s.len();
+    let book = parse_book(book_part).or_else(|| if has_numbers { fuzzy_book(book_part) } else { None })?;
+    if !has_numbers {
         return Some(RefQuery { book, chapter: 0, verse: 0, end_chapter: 0, end_verse: 0 });
     }
     let [chapter, verse, end_chapter, end_verse] = split_numbers(&s[split..])?;
@@ -187,6 +302,43 @@ mod tests {
         assert_eq!(p("Gen 1-3"), (0, 1, 0, 3, 0));
         assert_eq!(p("Jude"), (64, 0, 0, 0, 0));
         assert_eq!(p("revel 1"), (65, 1, 0, 1, 0));
+    }
+
+    #[test]
+    fn how_people_actually_type() {
+        // Misspelled book names, when numbers follow.
+        assert_eq!(p("Revelations 21:4"), (65, 21, 4, 21, 4));
+        assert_eq!(p("Mathew 5:3"), (39, 5, 3, 5, 3));
+        assert_eq!(p("Phillipians 4:13"), (49, 4, 13, 4, 13));
+        assert_eq!(p("Isiah 53:5"), (22, 53, 5, 53, 5));
+        assert_eq!(p("Jermiah 29:11"), (23, 29, 11, 29, 11));
+        assert_eq!(p("Genisis 1:1"), (0, 1, 1, 1, 1));
+        assert_eq!(p("Gensis 1:1"), (0, 1, 1, 1, 1));
+        assert_eq!(p("Duet 6:4"), (4, 6, 4, 6, 4));
+        assert_eq!(p("Habbakuk 2:4"), (34, 2, 4, 2, 4));
+        assert_eq!(p("Jonh 3:16"), (42, 3, 16, 3, 16));
+        assert_eq!(p("1 Jonh 4:8"), (61, 4, 8, 4, 8));
+        assert_eq!(p("Eclesiastes 3:1"), (20, 3, 1, 3, 1));
+        assert_eq!(p("Qoheleth 1:2"), (20, 1, 2, 1, 2));
+        // Words and commas between the numbers.
+        assert_eq!(p("John 3 v 16"), (42, 3, 16, 3, 16));
+        assert_eq!(p("John 3v16"), (42, 3, 16, 3, 16));
+        assert_eq!(p("John ch 3 verse 16"), (42, 3, 16, 3, 16));
+        assert_eq!(p("John chapter 3"), (42, 3, 0, 3, 0));
+        assert_eq!(p("John 3:16, 18"), (42, 3, 16, 3, 16));
+        assert_eq!(p("Romans 8:28; 12:2"), (44, 8, 28, 8, 28));
+        assert_eq!(p("1 Ch 3:4"), (12, 3, 4, 3, 4));
+        assert_eq!(p("Rev. 3 vv. 20"), (65, 3, 20, 3, 20));
+    }
+
+    #[test]
+    fn english_words_stay_english() {
+        // No numbers: no guessing, so a search for "truth" or "mathew" is a word search.
+        assert!(parse("truth").is_none());
+        assert!(parse("love").is_none());
+        assert!(parse("Mathew").is_none());
+        assert!(parse("Corinthians 13").is_none()); // 1 or 2?
+        assert!(parse("love 3").is_none());
     }
 
     #[test]

@@ -308,6 +308,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     });
     write(out, "lemmas.json", serde_json::to_string(&lemmas_json).unwrap().as_bytes(), &mut files)?;
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
+    write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
