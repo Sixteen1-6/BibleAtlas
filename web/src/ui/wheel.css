@@ -1,0 +1,645 @@
+/* The Wheel of books (Wheel.tsx, WheelCards.tsx). Every class starts with wh-.
+   The wheel sits in the night-sky map, so it uses the sky colors in either page
+   theme. Its card docks beside the wheel on wide screens and under it on phones,
+   where it follows the page theme like the panels it covers. */
+
+.wh-root {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--sky-ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ------------------------------------------------------------ the wheel */
+
+.wh-svg {
+  position: absolute;
+  overflow: visible;
+  touch-action: none;
+  transition: transform 0.38s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.wh-ribs {
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.wh-rib,
+.wh-hl {
+  mix-blend-mode: screen;
+}
+.wh-dim .wh-ribs {
+  opacity: 0.2;
+}
+.wh-dim .wh-chords {
+  opacity: 0.35;
+}
+.wh-chords {
+  transition: opacity 0.2s ease;
+}
+.wh-soft .wh-ribs {
+  opacity: 0.5;
+}
+.wh-hls,
+.wh-chords,
+.wh-selmark,
+.wh-pairchord {
+  pointer-events: none;
+}
+.wh-hls {
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.22));
+}
+.wh-hl {
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+
+/* Threads stand in for partners too small to have a ribbon. */
+.wh-threads {
+  pointer-events: none;
+}
+.wh-thread {
+  fill: none;
+  stroke-linecap: round;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2));
+}
+.wh-threads.wh-live .wh-thread {
+  pointer-events: stroke;
+  cursor: pointer;
+}
+.wh-threads.wh-live .wh-thread:hover {
+  opacity: 1;
+  stroke-width: 3.4;
+}
+
+/* Wide, invisible copies of the ribbons take the taps; strongest on top. */
+.wh-hit {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  pointer-events: all;
+  cursor: pointer;
+  outline: none;
+}
+.wh-hit:focus-visible {
+  stroke: var(--sky-ink);
+  stroke-width: 1.4;
+}
+
+.wh-book {
+  cursor: pointer;
+  outline: none;
+}
+.wh-bhit {
+  fill: transparent;
+  pointer-events: all;
+}
+.wh-arc {
+  transition: opacity 0.2s ease;
+}
+.wh-off .wh-arc {
+  opacity: 0.35;
+}
+.wh-book:focus-visible .wh-arc {
+  stroke: var(--sky-ink);
+  stroke-width: 1.4;
+}
+/* The selected verse's book. */
+.wh-arc.wh-glow {
+  opacity: 1;
+  stroke: var(--lamp);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 5px var(--lamp-glow));
+}
+.wh-label {
+  font: 400 10px var(--font-ui);
+  fill: var(--sky-muted);
+}
+.wh-label.wh-on {
+  fill: var(--sky-ink);
+}
+.wh-label.wh-sel {
+  fill: var(--lamp);
+}
+
+/* The selected verse's links, drawn from it outward. */
+.wh-chord {
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: wh-draw 0.7s cubic-bezier(0.3, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+.wh-end {
+  opacity: 0.9;
+}
+.wh-halo {
+  fill: var(--lamp-glow);
+  opacity: 0.5;
+}
+.wh-pairchord path {
+  fill: none;
+  stroke: #fff2d2;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 4px var(--lamp-glow));
+}
+.wh-pairchord circle {
+  fill: #fff2d2;
+}
+
+@keyframes wh-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+/* The entrance: ribbons grow out of the middle, largest first. Once a session. */
+.wh-enter .wh-rib {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: wh-grow 0.34s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+.wh-enter .wh-books {
+  animation: wh-fade 0.32s ease-out both;
+}
+@keyframes wh-grow {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes wh-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ------------------------------------------------------------ caption and key */
+
+.wh-caption {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+  margin: 0;
+  max-width: 420px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--sky-muted);
+  pointer-events: none;
+}
+.wh-caption b {
+  color: var(--sky-ink);
+  font-weight: 600;
+}
+.wh-phone .wh-caption {
+  left: 12px;
+  right: 12px;
+  top: 5px;
+  max-width: none;
+  font-size: 11.5px;
+  line-height: 1.35;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.wh-phone .wh-caption > span {
+  display: block;
+}
+
+.wh-legend {
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  font-size: 11.5px;
+  color: var(--sky-muted);
+}
+.wh-keys-list,
+.wh-groups {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wh-keys-list {
+  display: grid;
+  gap: 4px;
+}
+.wh-keys-list li,
+.wh-groups li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wh-sw {
+  display: inline-block;
+  flex: none;
+  width: 18px;
+  height: 6px;
+  border-radius: 3px;
+}
+.wh-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.wh-groupsbtn {
+  margin-top: 6px;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--sky-muted);
+  font-size: 11.5px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wh-groupsbtn:hover {
+  color: var(--sky-ink);
+}
+.wh-groups {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 3px 14px;
+  margin-top: 6px;
+}
+.wh-groups li {
+  gap: 6px;
+}
+
+.wh-legend-phone {
+  left: 8px;
+  bottom: 6px;
+}
+.wh-keybtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--sky-line);
+  background: var(--sky-glass);
+  color: var(--sky-ink);
+  font-size: 11.5px;
+}
+.wh-pop {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 6px);
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--sky-line);
+  background: var(--sky-glass-strong);
+  backdrop-filter: blur(8px);
+}
+.wh-h4 {
+  margin: 10px 0 0;
+  font: 600 10.5px var(--font-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------ the card */
+
+.wh-card {
+  --wh-bg: var(--sky-glass-strong);
+  --wh-ink: var(--sky-ink);
+  --wh-muted: var(--sky-muted);
+  --wh-line: var(--sky-line);
+  --wh-accent: var(--lamp);
+  --wh-hover: rgba(255, 255, 255, 0.06);
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--wh-line);
+  border-radius: 12px;
+  background: var(--wh-bg);
+  color: var(--wh-ink);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  user-select: text;
+  animation: wh-card-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes wh-card-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+}
+/* Phones: a sheet docked under the wheel, over the reader. */
+.wh-phone .wh-card {
+  --wh-bg: var(--surface);
+  --wh-ink: var(--ink);
+  --wh-muted: var(--muted);
+  --wh-line: var(--line);
+  --wh-accent: var(--accent);
+  --wh-hover: var(--surface-2);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--wh-top, 45vh);
+  bottom: 0;
+  z-index: 15;
+  border-width: 1px 0 0;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.28);
+  backdrop-filter: none;
+  animation-name: wh-sheet-in;
+}
+.wh-phone .wh-card::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  width: 36px;
+  height: 4px;
+  margin-left: -18px;
+  border-radius: 2px;
+  background: var(--wh-line);
+}
+@keyframes wh-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+.wh-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 12px 10px 16px;
+  border-bottom: 1px solid var(--wh-line);
+}
+.wh-phone .wh-head {
+  padding-top: 18px;
+}
+.wh-titles {
+  flex: 1;
+  min-width: 0;
+}
+.wh-head h2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 8px;
+  margin: 0;
+  font: 600 18px/1.3 var(--font-read);
+  outline: none;
+}
+.wh-sub {
+  margin: 3px 0 0;
+  font-size: 12.5px;
+  color: var(--wh-muted);
+}
+.wh-sub b {
+  font-weight: 600;
+  color: var(--wh-ink);
+}
+.wh-x {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--wh-line);
+  background: transparent;
+  color: var(--wh-muted);
+}
+.wh-x:hover {
+  color: var(--wh-ink);
+  background: var(--wh-hover);
+}
+.wh-bookbtn,
+.wh-booktitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.wh-bookbtn {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed transparent;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+.wh-bookbtn:hover {
+  border-bottom-color: currentColor;
+}
+.wh-amp {
+  color: var(--wh-muted);
+  font: 400 16px var(--font-ui);
+}
+
+.wh-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  padding: 10px 14px 16px;
+}
+.wh-lead {
+  margin: 0 2px 8px;
+  font-size: 12.5px;
+  color: var(--wh-muted);
+}
+
+/* A verse pair: the two verses face each other across a bridge as strong as the link. */
+.wh-pairs,
+.wh-keys {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.wh-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr);
+  align-items: stretch;
+  padding: 4px 0;
+  border-top: 1px solid var(--wh-line);
+}
+.wh-pair:first-child {
+  border-top: 0;
+}
+.wh-verse {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+.wh-verse:hover {
+  background: var(--wh-hover);
+}
+.wh-verse.wh-cur {
+  border-color: var(--wh-accent);
+}
+.wh-ref {
+  font: 600 12px var(--font-ui);
+  letter-spacing: 0.01em;
+  color: var(--wh-accent);
+}
+.wh-verse .snip {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font: 13.5px/1.45 var(--font-read);
+  color: var(--wh-ink);
+  opacity: 0.88;
+}
+.wh-bridge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--wh-muted);
+}
+.wh-bridge i {
+  width: 24px;
+  border-radius: 2px;
+  background: var(--wh-accent);
+}
+.wh-bridge b {
+  font-weight: 600;
+  color: var(--wh-ink);
+}
+
+.wh-more {
+  display: block;
+  width: 100%;
+  margin: 6px 0 2px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px dashed var(--wh-line);
+  background: none;
+  color: var(--wh-accent);
+  font-size: 12.5px;
+}
+.wh-more:hover {
+  background: var(--wh-hover);
+}
+
+.wh-h3 {
+  margin: 16px 2px 6px;
+  font: 600 11px var(--font-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--wh-muted);
+}
+.wh-h3:first-child {
+  margin-top: 4px;
+}
+.wh-partners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.wh-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--wh-line);
+  background: none;
+  color: var(--wh-ink);
+  font-size: 12.5px;
+}
+.wh-partner:hover {
+  border-color: var(--wh-accent);
+  background: var(--wh-hover);
+}
+.wh-n {
+  color: var(--wh-muted);
+  font-variant-numeric: tabular-nums;
+}
+.wh-reach {
+  margin: 10px 2px 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--wh-muted);
+}
+.wh-reach b {
+  font-weight: 600;
+  color: var(--wh-ink);
+}
+.wh-read {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 8px;
+  border: 1px solid var(--wh-accent);
+  background: transparent;
+  color: var(--wh-accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.wh-read:hover {
+  background: var(--wh-hover);
+}
+
+.wh-how {
+  margin: 16px 2px 0;
+  font-size: 12.5px;
+  color: var(--wh-muted);
+}
+.wh-how summary {
+  cursor: pointer;
+}
+.wh-how p {
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+.wh-card .provenance {
+  margin: 12px 2px 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--wh-line);
+  font-size: 11.5px;
+  color: var(--wh-muted);
+}
+.wh-card .provenance button {
+  color: var(--wh-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wh-enter .wh-rib,
+  .wh-enter .wh-books,
+  .wh-chord,
+  .wh-card {
+    animation: none;
+  }
+  .wh-svg,
+  .wh-ribs,
+  .wh-arc {
+    transition: none;
+  }
+}
