@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
+import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
@@ -148,6 +149,7 @@ export function Reader({ a }: { a: Atlas }) {
       )}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
+      <ChapterExtras a={a} book={book} chapter={chapter} />
       <div class="verses">
         {rows.map((row, i) => {
           const v = start + i;
@@ -198,6 +200,7 @@ export function Reader({ a }: { a: Atlas }) {
                   ))}
                 </div>
               )}
+              {sel.value === v && <VerseExtras a={a} verse={v} />}
             </div>
           );
         })}
