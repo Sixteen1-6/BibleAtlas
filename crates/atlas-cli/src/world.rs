@@ -1323,17 +1323,27 @@ impl Item<'_> {
 /// - Heraclitus the philosopher, whom LSJ cites by fragment ("Heraclitus 31",
 ///   "Heraclitus cited in Plato"), gets the 1st century AD of Heraclitus the
 ///   allegorist ("1st c.AD(?): Heraclitus “Allegoriae”"); he is dated as
-///   TFLSJ dates "Heraclitus Philosophus", "4th-5th c.BC", so the 5th.
+///   TFLSJ dates "Heraclitus Philosophus", "4th-5th c.BC", so the 5th;
+/// - Democritus of Abdera, the philosopher born about 460 BC, is "3rd c.AD:
+///   Democritus Epigrammaticus" throughout ("Democritus Epigrammaticus 76",
+///   "cited in Aristotle"): the 5th, but for the alchemical writings under
+///   his name ("Democritus Epigrammaticus Alch.").
 fn slip(digits: &str, to: Option<&str>, era: &str, name: &str, rest: &str) -> bool {
     let fragment = rest.starts_with(|c: char| c.is_ascii_digit())
         || rest.starts_with("(?) ")
         || rest.starts_with("[same place]");
+    let writer = writer_name(name);
     (era == "BC" && digits == "4" && to == Some("5"))
         || (era == "AD"
             && digits == "1"
             && to.is_none()
             && fragment
-            && writer_name(name).as_deref() == Some("Heraclitus"))
+            && writer.as_deref() == Some("Heraclitus"))
+        || (era == "AD"
+            && digits == "3"
+            && to.is_none()
+            && !name.contains("Alch")
+            && writer.as_deref() == Some("Democritus"))
 }
 
 /// Characters a writer's name can contain (it stops at a reference).
@@ -3020,7 +3030,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("G3568", "now", "Homer"),
         ("G5485", "outward grace or favour, beauty", "Homer"),
         ("G4074G", "stone", "Homer"),
-        ("G1939", "desire of or for", "Antiphon"),
+        ("G1939", "desire of or for", "Democritus"),
         ("G1520", "one", "Homer"),
         ("G5342", "bear or carry", "Homer"),
         ("G3918", "present", "Homer"),
@@ -3059,11 +3069,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             aeschylus.len()
         ),
     ));
-    // Heraclitus' fragments are the philosopher's (slip), and a writer so set
-    // right is named where LSJ cites him first (cited).
+    // Heraclitus' and Democritus' fragments are the philosophers' (slip), and
+    // a writer so set right is named where LSJ cites him first (cited).
     for (key, gloss, who) in [
         ("G3056", "measure, tale", "Heraclitus"),
         ("G5562", "to be in motion or flux", "Heraclitus"),
+        ("G0144", "the senses", "Democritus"),
+        ("G4976", "atom", "Democritus"),
         ("G1320", "teacher, master", "Aeschylus"),
     ] {
         let l = &slot(key)["l"];
@@ -3595,6 +3607,25 @@ mod tests {
                 "{title}"
             );
         }
+        // So are Democritus', but not the alchemy under his name.
+        assert_eq!(
+            century_of(" 3rd c.AD: Democritus Epigrammaticus 76", "Refs 3rd c.AD+"),
+            five("Democritus")
+        );
+        assert_eq!(
+            century_of(
+                " 3rd c.AD: Democritus Epigrammaticus cited in 4th c.BC: Aristoteles Philosophus “Fragmenta” 208",
+                "Refs 4th c.BC+"
+            ),
+            five("Democritus")
+        );
+        assert_eq!(
+            century_of(
+                " 3rd c.AD: Democritus Epigrammaticus Alch. p.56",
+                "Refs 3rd c.AD+"
+            ),
+            Some(("3rd century AD".to_string(), "Democritus".to_string()))
+        );
     }
 
     #[test]
