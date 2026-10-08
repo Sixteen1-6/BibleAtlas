@@ -74,7 +74,7 @@ export function KindNote({ a, s }: { a: Atlas; s: PSet }) {
         );
       }
       if (has('John')) say('John tells fewer of the same events than the others, and in his own way.');
-      if (has('Acts')) say('The writer of Luke’s Gospel tells this again at the start of Acts (Acts 1:1–2).');
+      if (has('Acts')) say('Acts is written, like Luke’s Gospel, to Theophilus (Luke 1:3). It begins where the writer’s “first book” ended, on the day Jesus was taken up, and tells it again (Acts 1:1–11).');
       if (has('1Cor')) say('Paul passes on the words of Jesus at the Last Supper as he had received them (1 Corinthians 11:23).');
       if (has('2Pet')) say('Peter recalls being with Jesus on the holy mountain (2 Peter 1:16–18).');
       break;

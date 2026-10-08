@@ -93,8 +93,10 @@ function useWide(box: { current: HTMLElement | null }): boolean {
   return wide;
 }
 
-/** Bring the marked row into view in the panel body when it starts low down
- * or out of view, leaving room above it for the sticky names and some context. */
+/** Bring the marked row into view in the panel body when it starts out of
+ * view, leaving room above it for the sticky names and some context. A row
+ * whose top is already in view stays put, so the panel opens on its plain
+ * sentence and the way deeper. */
 function useShowHere(box: { current: HTMLElement | null }, on: boolean, deps: unknown[]): void {
   useLayoutEffect(() => {
     const root = on ? box.current : null;
@@ -105,7 +107,7 @@ function useShowHere(box: { current: HTMLElement | null }, on: boolean, deps: un
     const t = target.getBoundingClientRect();
     const b = body.getBoundingClientRect();
     const sticky = root.querySelector<HTMLElement>('.x-parallels-float, .x-parallels-cols thead')?.getBoundingClientRect().height ?? 0;
-    if (t.top >= b.top + sticky && t.top <= b.top + 0.6 * b.height) return;
+    if (t.top >= b.top + sticky && t.top <= b.bottom - 48) return;
     body.scrollTop += t.top - b.top - Math.max(sticky + 12, 0.3 * b.height);
   }, deps);
 }
@@ -222,9 +224,11 @@ export interface CompareProps {
   navigate: (v: VerseRef) => void;
   /** Bring the reader's verse into view (the first set of a panel only). */
   scroll: boolean;
+  /** The way deeper, shown above the texts so it is in view when the panel opens. */
+  deeper?: ComponentChildren;
 }
 
-export function Compare({ a, s, d, texts, verse, navigate, scroll }: CompareProps) {
+export function Compare({ a, s, d, texts, verse, navigate, scroll, deeper }: CompareProps) {
   const home = passageAt(s, verse);
   const others = s.passages.map((_, i) => i).filter((i) => i !== home);
   const [cur, setCur] = useState(others[0]);
@@ -366,8 +370,9 @@ export function Compare({ a, s, d, texts, verse, navigate, scroll }: CompareProp
   }
   return (
     <div ref={box} class="x-parallels-compare">
-      {body}
       {hint && <p class="x-parallels-hint">{hint}</p>}
+      {deeper}
+      {body}
     </div>
   );
 }

@@ -951,6 +951,41 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         "parallels keep the call by the lake (Mark 1) apart from the meeting by the Jordan (John 1)"
             .to_string(),
     ));
+    // Two parts of one account are never shown as parallels of each other.
+    for (a, b, what) in [
+        (
+            "Mark 11:13",
+            "Mark 11:21",
+            "the fig tree cursed and found withered (Mark 11)",
+        ),
+        (
+            "John 18:17",
+            "John 18:25",
+            "Peter's first and later denials (John 18)",
+        ),
+        (
+            "Isa 38:1",
+            "Isa 38:21",
+            "Hezekiah's illness and the figs (Isaiah 38)",
+        ),
+        (
+            "Ps 106:1",
+            "Ps 106:47",
+            "the opening and closing lines of Psalm 106",
+        ),
+        (
+            "2 Chr 14:2",
+            "2 Chr 15:16",
+            "Asa's reign and his reforms (2 Chronicles 14 and 15)",
+        ),
+    ] {
+        let (x, _) = d.resolve(a)?;
+        let (y, _) = d.resolve(b)?;
+        out.push((
+            !together(x, y),
+            format!("parallels keep the parts of one account apart: {what}"),
+        ));
+    }
     // The panel can say why a passage some link with a set is not in it.
     let (temple, _) = d.resolve("Mark 11:15")?;
     let (john, _) = d.resolve("John 2:13")?;
@@ -999,6 +1034,16 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             "Isa 2:4",
             "Mic 4:3",
             "swords into ploughshares (Isaiah 2:4, Micah 4:3)",
+        ),
+        (
+            "Mark 9:1",
+            "Luke 9:27",
+            "some standing here will not taste death (Mark 9:1, Luke 9:27)",
+        ),
+        (
+            "2 Kgs 20:7",
+            "Isa 38:21",
+            "the poultice of figs (2 Kings 20:7, Isaiah 38:21)",
         ),
     ] {
         let (x, _) = d.resolve(a)?;

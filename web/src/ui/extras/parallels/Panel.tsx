@@ -121,17 +121,13 @@ function InBook({ a, data, file, book, current, navigate }: { a: Atlas; data: Da
   );
 }
 
-function SetView({ a, s, d, verse, navigate, first }: { a: Atlas; s: PSet; d: SetDetail | null | undefined; verse: VerseRef; navigate: (v: VerseRef) => void; first: boolean }) {
+function SetView({ a, s, d, verse, navigate, first, says, deeper }: { a: Atlas; s: PSet; d: SetDetail | null | undefined; verse: VerseRef; navigate: (v: VerseRef) => void; first: boolean; says: string | null; deeper?: ComponentChildren }) {
   const texts = useTexts(a, s);
-  const study = levelAtLeast('study');
   const deep = levelAtLeast('deep');
-  const lang = a.books[a.verseBook[verse]].testament === 'OT' ? 'Hebrew' : 'Greek';
   return (
     <div class="x-parallels-set">
-      <Lead>{lead(a, s)}</Lead>
-      <Compare a={a} s={s} d={d} texts={texts} verse={verse} navigate={navigate} scroll={first} />
-      {!study && <GoDeeper to="study">Underline the words they share</GoDeeper>}
-      {study && !deep && <GoDeeper to="deep">See the {lang} words they share</GoDeeper>}
+      {says && <Lead>{says}</Lead>}
+      <Compare a={a} s={s} d={d} texts={texts} verse={verse} navigate={navigate} scroll={first} deeper={deeper} />
       {deep && <Deeper a={a} s={s} d={d} texts={texts} verse={verse} navigate={navigate} />}
     </div>
   );
@@ -139,21 +135,33 @@ function SetView({ a, s, d, verse, navigate, first }: { a: Atlas; s: PSet; d: Se
 
 export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const ids = data.at.get(verse) ?? [];
-  const sets = ids.flatMap((id) => data.sets.get(id) ?? []);
+  // A verse in more than one set: the closest parallel first, the one whose
+  // passage around this verse is shortest.
+  const span = (s: PSet) => {
+    const p = s.passages[passageAt(s, verse)];
+    return p ? p.to - p.from : 0;
+  };
+  const sets = ids.flatMap((id) => data.sets.get(id) ?? []).sort((x, y) => span(x) - span(y));
   const book = a.verseBook[verse];
   const file = useJson<BookFile>(a, `extras/parallels/${a.books[book].osis}.json`);
+  const study = levelAtLeast('study');
   const deep = levelAtLeast('deep');
+  const lang = a.books[book].testament === 'OT' ? 'Hebrew' : 'Greek';
   const detail = (s: PSet) => (file === undefined ? undefined : (file?.sets[String(s.id)] ?? null));
+  // A verse in two sets: the second says its sentence only if it differs.
+  const says = sets.map((s) => lead(a, s));
+  // One way deeper, near the top, where it is in view when the panel opens.
+  const deeper = !study ? <GoDeeper to="study">Underline the words they share</GoDeeper> : !deep ? <GoDeeper to="deep">See the {lang} words they share</GoDeeper> : null;
   return (
     <>
       {sets.map((s, k) => (
-        <SetView key={`${s.id}.${verse}`} a={a} s={s} d={detail(s)} verse={verse} navigate={navigate} first={k === 0} />
+        <SetView key={`${s.id}.${verse}`} a={a} s={s} d={detail(s)} verse={verse} navigate={navigate} first={k === 0} says={k > 0 && says[k] === says[k - 1] ? null : says[k]} deeper={k === 0 ? deeper : undefined} />
       ))}
       {deep && (
         <>
           <h3>How these were found</h3>
           <p>
-            The section headings of the Berean Standard Bible name the passages that tell the same thing. These sets keep the clear ones, checked against the text, with a few added by hand. Each pair is lined up verse by verse by the Hebrew or Greek and the English words its verses share, rare words counting for more. A verse on its own has no close partner in the other passage. “Words in common” counts how many of the shorter passage’s words the other also uses; in the Hebrew and Greek, rare words count for more.
+            The section headings of the Berean Standard Bible name the passages that tell the same thing. These sets keep the clear ones, checked against the text, with a few added by hand. A computer lines each pair up verse by verse, by the Hebrew or Greek and the English words their verses share, rare words counting for more, so now and then a row may be off by a verse. A verse on its own has no close partner in the other passage. “Words in common” counts how many of the shorter passage’s words the other also uses; in the Hebrew and Greek, rare words count for more.
           </p>
           {file && <InBook a={a} data={data} file={file} book={book} current={new Set(ids)} navigate={navigate} />}
         </>
