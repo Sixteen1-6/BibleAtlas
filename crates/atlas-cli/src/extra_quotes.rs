@@ -15,10 +15,13 @@
 //!
 //! Each note records which rule decided (`r`), so the panel can say why.
 //!
-//! It also measures how close the English wording is, marks the words the two
-//! passages share, and pairs each Greek word with the Hebrew word it stands
-//! for, using the Septuagint notes ("[in LXX chiefly for קוֹל]") of
-//! Abbott-Smith's lexicon as given in STEPBible's TBESG (CC BY 4.0).
+//! It also measures how close the English wording is (where a footnote names
+//! several passages quoted together, each one against the clauses that come
+//! from it), marks the words the two passages share, and pairs Greek words
+//! with Hebrew words they often stand for in the Septuagint, using the notes
+//! ("[in LXX chiefly for קוֹל]") of Abbott-Smith's lexicon as given in
+//! STEPBible's TBESG, with the Hebrew dictionary forms of its TBESH (both CC
+//! BY 4.0).
 //!
 //! Outputs, under web/public/data:
 //! - `extras/quotes.json`: `{"format":1,"links":[[ntFrom,ntTo,otFrom,otTo,kind]]}`,
@@ -54,6 +57,9 @@ const MARKS: u8 = 8;
 const SEE: u8 = 16;
 /// The footnote names more than one passage, quoted together.
 const JOINED: u8 = 32;
+/// Compared with only the part of the quoted words that comes from this
+/// passage, one of several the footnote names.
+const PART: u8 = 64;
 
 // Why a link is a quotation or an echo, a note's `r`. A quotation is
 /// introduced as one ("it is written"),
@@ -486,6 +492,42 @@ fn find_span(book: &[UVerse], k: usize, off: usize) -> Option<Span> {
     None
 }
 
+/// A list of short quotations under one footnote, as in Romans 13:9: “Do not
+/// commit adultery,” “Do not murder,” “Do not steal,” “Do not covet,”. The
+/// closed quotations right before the footnote's own in its verse, with only
+/// spaces or commas between them and no footnote of their own, belong to it
+/// when they share a word with a passage it names (`named`); a crowd's
+/// “Blessed is the coming kingdom of our father David!” before “Hosanna in
+/// the highest!” does not.
+fn with_list(book: &[UVerse], mut s: Span, named: impl Fn(&[char]) -> bool) -> Span {
+    if !s.closed {
+        return s;
+    }
+    let (k, uv) = (s.start.0, &book[s.start.0]);
+    let t = &uv.text;
+    loop {
+        let mut i = s.start.1;
+        while i > 0 && matches!(t[i - 1], ' ' | ',' | ';') {
+            i -= 1;
+        }
+        if i == 0 || opening_of(t[i - 1]).is_none() || apostrophe(t, i - 1) {
+            return s;
+        }
+        let Some(p) = find_span(book, k, i).filter(|p| p.closed && p.start.0 == k) else {
+            return s;
+        };
+        if uv
+            .notes
+            .iter()
+            .any(|&(at, _)| p.start.1 < at && at <= s.start.1)
+            || !named(&t[p.start.1 + 1..p.end.1])
+        {
+            return s;
+        }
+        s.start = p.start;
+    }
+}
+
 /// The words before a quotation that may introduce it: those of its own
 /// verse, and the verse before when its own has hardly any.
 fn region(book: &[UVerse], s: Span) -> Vec<char> {
@@ -622,13 +664,9 @@ fn find_formula(region: &[char], patterns: &[&str]) -> Option<String> {
     while from > sentence && !matches!(region[from - 1], '“' | '‘' | '”' | '’' | '(') {
         from -= 1;
     }
-    let whole = trimmed(&region[from..]);
+    let whole = trimmed(&elided(&region[from..]));
     if whole.chars().count() <= MAX_FORMULA {
         return Some(whole);
-    }
-    let short = trimmed(&elided(&region[from..]));
-    if short.chars().count() <= MAX_FORMULA {
-        return Some(short);
     }
     let clause = (from..at)
         .rev()
@@ -972,6 +1010,68 @@ fn closeness(m: &Measure, quoted: bool) -> u8 {
     } else {
         2
     }
+}
+
+/// The quoted words cut into clauses at commas, semicolons, colons, dashes,
+/// sentence ends and verse ends, as ranges of `words`.
+fn clauses(chars: &[Vec<char>], words: &[(u32, Tok)]) -> Vec<Range<usize>> {
+    let mut out = Vec::new();
+    let mut start = 0;
+    for i in 1..words.len() {
+        let ((v, a), (w, b)) = (&words[i - 1], &words[i]);
+        let cut = v != w
+            || chars[*v as usize][a.end..b.at]
+                .iter()
+                .any(|c| matches!(c, ',' | ';' | ':' | '.' | '?' | '!' | '—'));
+        if cut {
+            out.push(start..i);
+            start = i;
+        }
+    }
+    if start < words.len() {
+        out.push(start..words.len());
+    }
+    out
+}
+
+/// The part of the quoted words that comes from passage `which` of several a
+/// footnote names (`named`, their key words): from its first to its last
+/// clause that shares at least one key word with it and none fewer than with
+/// any other. With it, whether a clause left out shares a key word with it all
+/// the same. None when that is every clause, or none.
+fn part_from(
+    nt: &[(u32, Tok)],
+    clauses: &[Range<usize>],
+    named: &[HashSet<String>],
+    which: usize,
+) -> Option<(Range<usize>, bool)> {
+    // Each clause: whether it comes from the passage, and whether it shares a word.
+    let from: Vec<(bool, bool)> = clauses
+        .iter()
+        .map(|c| {
+            let ka: HashSet<String> = nt[c.clone()]
+                .iter()
+                .filter_map(|(_, t)| key(&t.word))
+                .collect();
+            let shared: Vec<usize> = named.iter().map(|o| ka.intersection(o).count()).collect();
+            let best = shared.iter().copied().max().unwrap_or(0);
+            (best > 0 && shared[which] == best, shared[which] > 0)
+        })
+        .collect();
+    let first = from.iter().position(|x| x.0)?;
+    let last = from.iter().rposition(|x| x.0)?;
+    if first == 0 && last + 1 == clauses.len() {
+        return None;
+    }
+    let rest = from
+        .iter()
+        .enumerate()
+        .any(|(i, x)| (i < first || i > last) && x.1);
+    Some((clauses[first].start..clauses[last].end, rest))
+}
+
+fn keys_in(words: &[(u32, Tok)]) -> HashSet<String> {
+    words.iter().filter_map(|(_, t)| key(&t.word)).collect()
 }
 
 /// A char place as the web counts it (UTF-16 code units).
@@ -1533,7 +1633,18 @@ impl Ctx<'_> {
         }
         t.footnotes += 1;
         let saw: Vec<bool> = targets.iter().map(|x| x.0 == Kind::See).collect();
-        let (span, formula) = match find_span(book, k, off) {
+        let named: HashSet<String> = targets
+            .iter()
+            .flat_map(|x| keys_in(&self.words_in(&self.whole(x.1))))
+            .collect();
+        let named_here = |w: &[char]| {
+            tokens(w)
+                .iter()
+                .filter_map(|t| key(&t.word))
+                .any(|k| named.contains(&k))
+        };
+        let (span, formula) = match find_span(book, k, off).map(|s| with_list(book, s, named_here))
+        {
             Some(s) if targets.iter().any(|x| x.0 == Kind::Quote) => {
                 (Some(s), introduction(book, s, true))
             }
@@ -1604,9 +1715,19 @@ impl Ctx<'_> {
             let (pt, qt) = (&self.chars[p.verse as usize], &self.chars[q.verse as usize]);
             [p.verse, utf16_at(pt, p.from), q.verse, utf16_at(qt, q.to)]
         });
+        // Several passages quoted together: the clauses each one supplies.
+        let split = if quoting.len() > 1 {
+            clauses(&self.chars, &nt_words)
+        } else {
+            Vec::new()
+        };
+        let quoted_keys: Vec<HashSet<String>> = quoting
+            .iter()
+            .map(|&q| keys_in(&self.words_in(&self.whole(q))))
+            .collect();
         for ((kind, ot), saw) in targets.into_iter().zip(saw) {
             let ot_words = self.words_in(&self.whole(ot));
-            let m = measure(&nt_words, &ot_words);
+            let whole = measure(&nt_words, &ot_words);
             let ot_note = (ot.0..=ot.1)
                 .flat_map(|o| cited.get(&o).into_iter().flatten())
                 .find(|c| c.0 <= nt.1 && nt.0 <= c.1)
@@ -1619,7 +1740,30 @@ impl Ctx<'_> {
                 f |= BOTH;
             }
             // A "see" made a quotation by its introduction must share a word.
-            let quote = kind == Kind::Quote && is_quote && !(saw && m.shared.is_empty());
+            let quote = kind == Kind::Quote && is_quote && !(saw && whole.shared.is_empty());
+            // Each passage is compared with the part that comes from it, where
+            // that part is quoted more closely than the whole: Matthew 19:19
+            // ends with Leviticus 19:18 word for word.
+            let mut close = closeness(&whole, span.is_some());
+            let part = quoting
+                .iter()
+                .position(|&q| q == ot)
+                .filter(|_| kind == Kind::Quote)
+                .and_then(|w| part_from(&nt_words, &split, &quoted_keys, w))
+                .map(|(r, rest)| {
+                    let m = measure(&nt_words[r.clone()], &ot_words);
+                    let c = closeness(&m, span.is_some()).max(u8::from(rest));
+                    (r, m, c)
+                })
+                .filter(|p| p.2 < close);
+            let (words, m) = match part {
+                Some((r, m, c)) => {
+                    f |= PART;
+                    close = c;
+                    (&nt_words[r], m)
+                }
+                None => (&nt_words[..], whole),
+            };
             let why = match by {
                 Some(by) if quote => by,
                 _ if kind == Kind::See => ECHO_SEE,
@@ -1631,7 +1775,7 @@ impl Ctx<'_> {
                 nt,
                 ot,
                 quote,
-                close: closeness(&m, span.is_some()),
+                close,
                 flags: f,
                 why,
                 formula: formula.clone().filter(|_| kind == Kind::Quote),
@@ -1639,7 +1783,7 @@ impl Ctx<'_> {
                 ot_note,
                 counts: [m.run, m.shared.len(), m.keys],
                 span: span_out,
-                marks: self.marks(&nt_words, &ot_words, &m.shared),
+                marks: self.marks(words, &ot_words, &m.shared),
                 pairs: self.pairs(&parts, ot),
             });
         }
@@ -1838,6 +1982,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("Acts 2:25", "Ps 16:8", 0),
         ("Acts 2:28", "Ps 16:11", 0),
         ("Matt 2:15", "Hos 11:1", 0),
+        ("Rom 13:9", "Exod 20:13", 0),
         ("1 Pet 2:24", "Isa 53:5", 1),
     ] {
         let i = find(nt, ot)?;
@@ -1872,6 +2017,11 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     out.push((
         note(find("Matt 3:3", "Isa 40:3")?)["f"].is_string(),
         "Matthew 3:3 has its introduction".into(),
+    ));
+    let lev = note(find("Matt 19:19", "Lev 19:18")?);
+    out.push((
+        lev["c"].as_u64() == Some(1) && lev["x"].as_u64().unwrap_or(0) as u8 & PART != 0,
+        "Matthew 19:19 quotes Leviticus 19:18 closely, in the words that come from it".into(),
     ));
     let both = links
         .iter()
@@ -2107,6 +2257,46 @@ mod tests {
     }
 
     #[test]
+    fn lists_of_quotations() {
+        let named_in = |ot: &str| {
+            let keys = keys_of(ot);
+            move |w: &[char]| keys_of(&text(w)).iter().any(|k| keys.contains(k))
+        };
+        let ten = named_in("You shall not murder. You shall not commit adultery. You shall not steal. You shall not bear false witness against your neighbor. You shall not covet your neighbor’s house.");
+        let mut book = verses(&["The commandments “Do not commit adultery,” “Do not murder,” “Do not steal,” “Do not covet,” and any other commandments, are summed up in this one decree: “Love your neighbor as yourself.”"]);
+        let t = text(&book[0].text);
+        let covet = t.find(" and any").map(|i| t[..i].chars().count()).unwrap();
+        book[0].notes = vec![
+            (covet, "Exodus 20:13–17".into()),
+            (book[0].text.len(), "Leviticus 19:18".into()),
+        ];
+        let first = with_list(&book, find_span(&book, 0, covet).unwrap(), &ten);
+        assert_eq!(
+            quoted(&book, first),
+            "Do not commit adultery,” “Do not murder,” “Do not steal,” “Do not covet,"
+        );
+        // Words between end the list.
+        let end = book[0].text.len();
+        let last = find_span(&book, 0, end).unwrap();
+        assert_eq!(with_list(&book, last, &ten), last);
+        // So do a footnote of its own, and words of no passage the footnote names.
+        let ps118 = named_in("Blessed is he who comes in the name of the LORD. From the house of the LORD we bless you.");
+        let mut book =
+            verses(&["shouting: “Hosanna!” “Blessed is He who comes in the name of the Lord!”"]);
+        let end = book[0].text.len();
+        let s = find_span(&book, 0, end).unwrap();
+        assert_eq!(with_list(&book, s, &ps118), s);
+        assert_eq!(
+            quoted(&book, with_list(&book, s, |_: &[char]| true)),
+            "Hosanna!” “Blessed is He who comes in the name of the Lord!"
+        );
+        let hosanna = text(&book[0].text).find("” “").unwrap();
+        let hosanna = text(&book[0].text)[..hosanna].chars().count() + 1;
+        book[0].notes = vec![(hosanna, "Psalm 118:25".into())];
+        assert_eq!(with_list(&book, s, |_: &[char]| true), s);
+    }
+
+    #[test]
     fn introductions() {
         let f = |t: &str| {
             let r: Vec<char> = t.chars().collect();
@@ -2125,7 +2315,8 @@ mod tests {
             f("For to which of the angels did God ever say, ").as_deref(),
             Some("For to which of the angels did God ever say")
         );
-        assert_eq!(f("“Have you not read that from the beginning the Creator ‘made them male and female,’ and said, ").as_deref(), Some("Have you not read that from the beginning the Creator ‘made them male and female,’ and said"));
+        // An earlier quotation inside the introduction is shortened.
+        assert_eq!(f("“Have you not read that from the beginning the Creator ‘made them male and female,’ and said, ").as_deref(), Some("Have you not read that from the beginning the Creator ‘…’ and said"));
         assert_eq!(
             f("You are My Son; today I have become Your Father”? Or again, ").as_deref(),
             Some("Or again")
@@ -2207,6 +2398,55 @@ mod tests {
             &side(1, "God with us"),
         );
         assert_eq!(closeness(&m, true), 2);
+    }
+
+    #[test]
+    fn several_passages_quoted_together() {
+        let words = |t: &str, nt: &[(u32, Tok)], r: Range<usize>| -> String {
+            let cs: Vec<char> = t.chars().collect();
+            text(&cs[nt[r.start].1.at..nt[r.end - 1].1.end])
+        };
+        // Matthew 19:18–19 ends with Leviticus 19:18 word for word; "bear"
+        // ("bear false witness", "bear a grudge") keeps it at close.
+        let mt = "Do not murder, do not commit adultery, do not steal, do not bear false witness, honor your father and mother, and love your neighbor as yourself.";
+        let ex = "Honor your father and your mother. You shall not murder. You shall not commit adultery. You shall not steal. You shall not bear false witness against your neighbor.";
+        let lev = "Do not seek revenge or bear a grudge against any of your people, but love your neighbor as yourself. I am the LORD.";
+        let chars: Vec<Vec<char>> = vec![mt.chars().collect()];
+        let nt = side(0, mt);
+        let cs = clauses(&chars, &nt);
+        assert_eq!(cs.len(), 6);
+        let named = [keys_of(ex), keys_of(lev)];
+        let (r, rest) = part_from(&nt, &cs, &named, 1).unwrap();
+        assert_eq!(
+            words(mt, &nt, r.clone()),
+            "and love your neighbor as yourself"
+        );
+        assert!(rest);
+        let m = measure(&nt[r], &side(1, lev));
+        assert_eq!((m.run, closeness(&m, true)), (5, 0));
+        assert_eq!(closeness(&measure(&nt, &side(1, lev)), true), 2);
+        let (r, _) = part_from(&nt, &cs, &named, 0).unwrap();
+        assert_eq!(
+            words(mt, &nt, r),
+            "Do not murder, do not commit adultery, do not steal, do not bear false witness, honor your father and mother"
+        );
+        // One passage alone gives every clause: the whole is compared.
+        assert!(part_from(&nt, &cs, &named[..1], 0).is_none());
+        // Romans 11:8: Deuteronomy 29:4 gives all but the first clause.
+        let rom = "God gave them a spirit of stupor, eyes that could not see, and ears that could not hear, to this very day.";
+        let deut = "Yet to this day the LORD has not given you a mind to understand, eyes to see, or ears to hear.";
+        let isa = "For the LORD has poured out on you a spirit of deep sleep. He has shut your eyes, O prophets; He has covered your heads, O seers.";
+        let chars: Vec<Vec<char>> = vec![rom.chars().collect()];
+        let nt = side(0, rom);
+        let cs = clauses(&chars, &nt);
+        let (r, rest) = part_from(&nt, &cs, &[keys_of(deut), keys_of(isa)], 0).unwrap();
+        assert_eq!(
+            words(rom, &nt, r.clone()),
+            "eyes that could not see, and ears that could not hear, to this very day"
+        );
+        assert!(!rest);
+        assert_eq!(closeness(&measure(&nt[r], &side(1, deut)), true), 1);
+        assert_eq!(closeness(&measure(&nt, &side(1, deut)), true), 2);
     }
 
     #[test]

@@ -48,7 +48,7 @@ export interface LinkNote {
   w?: [number, number, number, number][];
 }
 
-export const FLAG = { lxx: 1, dss: 2, both: 4, marks: 8, see: 16, joined: 32 } as const;
+export const FLAG = { lxx: 1, dss: 2, both: 4, marks: 8, see: 16, joined: 32, part: 64 } as const;
 
 /** Why a link is a quotation or an echo, in plain words (notes.json `r`). */
 export const WHY: Record<number, string> = {
@@ -133,7 +133,7 @@ function distinct(rs: Range[], skip: Range[] = []): Range[] {
 
 /** Passages that follow on from each other in one book, as one: Isaiah 53:4
  * and Isaiah 53:5 read "Isaiah 53:4–5". Keeps the order given. */
-function joined(a: Atlas, rs: Range[]): Range[] {
+export function joined(a: Atlas, rs: Range[]): Range[] {
   const out: Range[] = [];
   for (const r of rs) {
     const last = out[out.length - 1];

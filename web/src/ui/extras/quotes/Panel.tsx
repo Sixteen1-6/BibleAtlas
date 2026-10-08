@@ -11,7 +11,7 @@ import { useJson } from '../data';
 import { Facts, Lead, SideBySide, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
-import { type Data, FLAG, type Link, type LinkNote, type NotesFile, type Range, WHY, isNt, linksAt, otherSide } from './model';
+import { type Data, FLAG, type Link, type LinkNote, type NotesFile, type Range, WHY, isNt, joined, linksAt, otherSide } from './model';
 import { PairWord, QPassage, type Spans, addRows, addSpan, useRows } from './Text';
 
 const CLOSENESS = ['Quoted word for word', 'Quoted closely', 'Quoted loosely'];
@@ -42,13 +42,15 @@ function sides(ls: Link[], ntSide: boolean): Range[] {
 
 /** The plain sentence at the top. It names the New Testament passage whole
  * ("Acts 2:25–28 quotes Psalm 16:8–11"), and the Old Testament verse tapped
- * ("Isaiah 40:3 is quoted in …", even where Luke quotes 40:3–5). */
-function lead(a: Atlas, here: Range, verse: VerseRef, ntSide: boolean, quotes: Range[], echoes: Range[]): string {
+ * ("Isaiah 40:3 is quoted in …", even where Luke quotes 40:3–5). Passages
+ * that follow on from each other read as one, as on the line. */
+function lead(a: Atlas, here: Range, verse: VerseRef, ntSide: boolean, quoting: Range[], echoing: Range[]): string {
   const me = ntSide ? name(a, here) : refName(a, verse);
+  const [quotes, echoes] = [joined(a, quoting), joined(a, echoing)];
   const named = (rs: Range[], many: string) => (rs.length > 4 ? many : and(rs.map((r) => name(a, r))));
   if (ntSide) {
     const q = named(quotes, `${quotes.length} passages of the Old Testament`);
-    const e = named(echoes, `${echoes.length} others`);
+    const e = named(echoes, quotes.length ? `${echoes.length} other passages` : `${echoes.length} passages of the Old Testament`);
     if (quotes.length && echoes.length) return `${me} quotes ${q} and echoes ${e}.`;
     return quotes.length ? `${me} quotes ${q}.` : `${me} echoes ${e}.`;
   }
@@ -212,6 +214,7 @@ function Evidence({ a, l, n }: { a: Atlas; l: Link; n: LinkNote }) {
     ]);
   }
   if (n.x & FLAG.dss) rows.push(['Dead Sea Scrolls', 'The footnote points to them too (“DSS”): Hebrew scrolls copied in the centuries around the time of Jesus, among the oldest copies of the Old Testament known.']);
+  if (n.x & FLAG.part) rows.push(['Compared with', 'Only the words that come from this passage, since the footnote names several.']);
   rows.push(['Words in common', sharedWords(n.k)]);
   rows.push(['Sorted as', WHY[n.r] ?? (l.echo ? 'An echo.' : 'A quotation.')]);
   return <Facts rows={rows} />;
@@ -292,7 +295,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           <mark class="x-quotes-mark">Marked</mark> words are in both passages.
         </p>
       )}
-      {echoes.length > 0 && <p class="x-quotes-hint">An echo recalls older words without quoting them.</p>}
+      {echoes.length > 0 && <p class="x-quotes-hint">An echo: a footnote links the two passages, but the words are not clearly quoted.</p>}
 
       {deep && notes && (
         <>
@@ -301,7 +304,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
               <h3>
                 Word by word <Unsure title="Paired by a program, not by hand">matched by computer</Unsure>
               </h3>
-              <p class="x-quotes-hint">Each Greek word beside the Hebrew word that the Septuagint usually translates with it, as Abbott-Smith’s lexicon notes.</p>
+              <p class="x-quotes-hint">Each Greek word beside one of the Hebrew words it mostly translates in the Septuagint, as Abbott-Smith’s lexicon notes.</p>
               {withPairs.map((l) => (
                 <div key={l.i}>
                   {withPairs.length > 1 && <p class="x-quotes-sub">{pairName(l)}</p>}
@@ -328,16 +331,16 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
             ) : null,
           )}
           <p class="x-quotes-hint">
-            The BSB’s footnotes name the passage behind each quotation, and the Old Testament’s footnotes list where a verse is cited. Words in quotation marks count as quotations here when they
-            are introduced as Scripture, repeat most of the older words, or follow the Septuagint as the footnote says; the other passages the footnotes point to count as echoes. Wording is
-            compared in the BSB’s English, so a quotation of the Septuagint can look loose.
+            The BSB’s footnotes name the passage behind each quotation, and the Old Testament’s footnotes list where a verse is cited. Here, words in quotation marks count as a quotation
+            when they are introduced as one (“it is written”, “God said”), share five words in a row or most of their key words with the older passage, or have a footnote that points to the
+            Septuagint. The other passages the footnotes point to count as echoes. Wording is compared in the BSB’s English, so a quotation of the Septuagint can look loose.
           </p>
         </>
       )}
       {!deep && <GoDeeper to="deep">See the Hebrew and Greek</GoDeeper>}
       <SourceNote>
         {deep
-          ? 'Quotations from the footnotes of the Berean Standard Bible (public domain). Word pairs from STEPBible’s TBESG lexicon, based on Abbott-Smith (CC BY 4.0).'
+          ? 'Quotations from the footnotes of the Berean Standard Bible (public domain). Word pairs from STEPBible’s Greek and Hebrew lexicons, TBESG (from Abbott-Smith) and TBESH (CC BY 4.0).'
           : 'Quotations from the footnotes of the Berean Standard Bible (public domain).'}
       </SourceNote>
     </>
