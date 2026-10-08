@@ -5,6 +5,7 @@ import { type Atlas, label, rangeLabel } from '../data/atlas';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { GoDeeper } from './Depth';
+import { LayeredPassages, LayersCard } from './Layers';
 import { OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
 import { openStarter } from './Welcome';
 
@@ -99,6 +100,7 @@ export function Connections({ a }: { a: Atlas }) {
             </button>
           ))}
         </div>
+        <LayeredPassages a={a} />
       </div>
     );
   }
@@ -124,6 +126,7 @@ export function Connections({ a }: { a: Atlas }) {
       <h2>{label(a, v)}</h2>
       {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">…</p>}
       {row && study && <OrigLine a={a} v={v} row={row} />}
+      <LayersCard a={a} v={v} />
       <p class="muted linkfacts">
         Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'}
         {study && (

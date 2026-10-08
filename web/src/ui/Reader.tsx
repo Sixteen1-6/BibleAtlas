@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
+import { passages } from '../data/layers';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
@@ -114,6 +115,7 @@ export function Reader({ a }: { a: Atlas }) {
   };
 
   const rows = text?.chapters[chapter - 1] ?? [];
+  const layered = new Set(passages.value.map((p) => p.v));
   const esvReady = tr === 'ESV' && esv?.key === `${book}:${chapter}` ? esv : null;
 
   return (
@@ -174,6 +176,19 @@ export function Reader({ a }: { a: Atlas }) {
                     aria-label={`Show the ${xc} links for verse ${i + 1}`}
                   >
                     {xc} {xc === 1 ? 'link' : 'links'} ›
+                  </button>
+                )}
+                {layered.has(v) && (
+                  <button
+                    class="xc layersmark"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      S.selectVerse(v);
+                      S.mobilePane.value = 'study';
+                    }}
+                    title="This verse has layers of meaning"
+                  >
+                    Layers ›
                   </button>
                 )}
               </div>

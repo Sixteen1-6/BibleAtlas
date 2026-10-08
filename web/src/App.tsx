@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { DATA_BASE, loadAtlas, versesWithRoot } from './data/atlas';
+import { loadLayers } from './data/layers';
 import { ESV_ENABLED } from './data/esv';
 import { TAB_DEPTH, atLeast } from './depth';
 import { Engine } from './engine/client';
@@ -58,6 +59,7 @@ export function App() {
     loadAtlas(setProgress)
       .then(async (atlas) => {
         S.atlas.value = atlas;
+        void loadLayers(atlas);
         const eng = new Engine(`${DATA_BASE}atlas.bin?${atlas.version}`);
         S.engine.value = eng;
         // Read everything from the link before the address bar starts syncing.
