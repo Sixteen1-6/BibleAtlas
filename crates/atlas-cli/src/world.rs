@@ -352,6 +352,7 @@ const LINK_HEAD: &str = "<a href=\"javascript:void(0)\" title=\"";
 /// A TFLSJ reference link: its title lists the citations, its label is the
 /// summary date such as `Refs 5th c.BC+`.
 struct Link<'a> {
+    start: usize,
     end: usize,
     title: &'a str,
     label: &'a str,
@@ -374,6 +375,7 @@ fn link_at(s: &str, at: usize) -> Option<Link<'_>> {
         end += 1;
     }
     Some(Link {
+        start: at,
         end,
         title: &s[t0..q],
         label: &s[l0..lt],
@@ -934,36 +936,116 @@ fn absent_in(s: &str, from: usize, to: usize) -> bool {
     false
 }
 
+/// When a sense is first found: the century, the writer, and the citations
+/// that say so (for papyri and inscriptions).
+struct Dated<'a> {
+    century: String,
+    writer: Option<String>,
+    title: &'a str,
+}
+
+/// A reference with no date of its own (a bare "Refs").
+fn undated(l: &Link) -> bool {
+    l.label
+        .replace("Refs", "")
+        .trim_matches(is_space)
+        .is_empty()
+}
+
+/// A reference's own date, from its label ("Refs 5th c.BC+"); none for one
+/// that cites the Bible alone ("LXX", "NT").
+fn own_date<'a>(l: &Link<'a>) -> Option<Dated<'a>> {
+    let (digits, era) = label_date(l.label)?;
+    let (_, century) = century(&digits, era)?;
+    Some(Dated {
+        century,
+        writer: writer(l.title, l.label),
+        title: l.title,
+    })
+}
+
+/// LSJ's "Id." and "ib.", which TFLSJ leaves undated ("[prev. author] “Aj.”
+/// 1318"): the date and writer of the citation just before, the last one in
+/// the reference before. None when that citation has no date, or when
+/// another work follows it there ("...; “IG” 1.2"), so that "the same" could
+/// mean either.
+fn same_as_before<'a>(s: &'a str, l: &Link<'a>) -> Option<Dated<'a>> {
+    const SAME: [&str; 4] = [
+        "[prev. author]",
+        "[prev\\. author]",
+        "[prev. work]",
+        "[prev. passage]",
+    ];
+    let t = l.title.trim_start_matches(is_space);
+    if !SAME.iter().any(|p| t.starts_with(p)) {
+        return None;
+    }
+    let at = s[..l.start].rfind(LINK_HEAD)?;
+    let prev = link_at(s, at)?;
+    if absent_at(s, at) {
+        return None;
+    }
+    if undated(&prev) {
+        return same_as_before(s, &prev).map(|d| Dated {
+            title: l.title,
+            ..d
+        });
+    }
+    let mut last = None;
+    let mut from = 0;
+    while let Some(item) = next_item(prev.title, from) {
+        from = item.end;
+        last = Some(item);
+    }
+    let item = last?;
+    let another_work = prev.title[item.end..]
+        .split(';')
+        .skip(1)
+        .any(|part| part.trim_start_matches(is_space).starts_with('“'));
+    if another_work {
+        return None;
+    }
+    let (_, century) = century(item.digits, item.era)?;
+    Some(Dated {
+        century,
+        writer: writer_name(item.name),
+        title: l.title,
+    })
+}
+
 /// The reference that dates a gloss: the first in `[from, to)`, passing over
 /// LSJ's undated ones (a bare "Refs") to the next. When that one cites the
 /// Bible alone ("LXX", "NT"), the sense is a biblical one and gets no date.
-fn gloss_date(s: &str, from: usize, to: usize) -> Option<(Link<'_>, String)> {
+///
+/// An "Id." or "ib." before it is the earliest citation of the sense, so its
+/// date and writer, those of the citation it repeats, are the ones given.
+/// It never dates a gloss on its own: a gloss with no dated reference before
+/// the next one is mostly a translated example ("οὐκ ἀ. it is blamable").
+fn gloss_date(s: &str, from: usize, to: usize) -> Option<Dated<'_>> {
     let mut at = from;
+    let mut same = None;
     while let Some(l) = link_in(s, at, to) {
-        if l.label
-            .replace("Refs", "")
-            .trim_matches(is_space)
-            .is_empty()
-        {
-            at = l.end;
-            continue;
+        if !undated(&l) {
+            return own_date(&l).map(|own| same.unwrap_or(own));
         }
-        return label_date(l.label)
-            .and_then(|(d, era)| century(&d, era))
-            .map(|(_, c)| (l, c));
+        same = same.or_else(|| same_as_before(s, &l));
+        at = l.end;
     }
     None
 }
 
 /// The first reference in `[from, to)` with a date outside the Bible, other
-/// than one to where the word is absent, with its century.
-fn first_dated(s: &str, from: usize, to: usize) -> Option<(Link<'_>, String)> {
+/// than one to where the word is absent; as in `gloss_date`, an "Id." before
+/// it gives the date and writer.
+fn first_dated(s: &str, from: usize, to: usize) -> Option<Dated<'_>> {
     let mut at = from;
+    let mut same = None;
     while let Some(l) = link_in(s, at, to) {
         at = l.end;
-        if let Some((_, c)) = label_date(l.label).and_then(|(d, era)| century(&d, era)) {
-            return Some((l, c));
+        if let Some(own) = own_date(&l) {
+            return Some(same.unwrap_or(own));
         }
+        same = same.or_else(|| same_as_before(s, &l));
     }
     None
 }
@@ -1448,33 +1530,36 @@ fn lsj(meaning: &str) -> Option<Lsj> {
         return None;
     }
     let marks = sense_marks(meaning);
-    let mut blocks = vec![&meaning[..marks.first().map_or(meaning.len(), |m| m.0)]];
+    // Each block as [start, end) in the entry, so that a reference can look
+    // back past the block it is in ("Id." may follow a citation before it).
+    let mut blocks = vec![(0, marks.first().map_or(meaning.len(), |m| m.0))];
     for (i, m) in marks.iter().enumerate() {
-        blocks.push(&meaning[m.1..marks.get(i + 1).map_or(meaning.len(), |n| n.0)]);
+        blocks.push((m.1, marks.get(i + 1).map_or(meaning.len(), |n| n.0)));
     }
     let mut senses = Vec::new();
     let mut seen: Vec<BTreeSet<String>> = Vec::new();
-    for (k, block) in blocks.iter().enumerate() {
+    for (k, &(at, to)) in blocks.iter().enumerate() {
+        let block = &meaning[at..to];
         let all = bolds(block);
         let bold = sense_bolds(block, &all, usize::from(k == 0)); // block 0 opens with the headword
         let glosses = gloss_groups(block, &bold);
         let want = if k == 0 { 2 } else { 1 };
         let mut took = 0;
         for (j, (_, end, gloss)) in glosses.iter().enumerate() {
-            let (end, gloss) = (*end, gloss.as_str());
+            let (end, gloss) = (at + *end, gloss.as_str());
             if !gloss_ok(gloss) {
                 continue;
             }
-            let stop = glosses.get(j + 1).map_or(block.len(), |b| b.0);
-            let dated = if absent_in(block, end, stop) {
+            let stop = at + glosses.get(j + 1).map_or(block.len(), |b| b.0);
+            let dated = if absent_in(meaning, end, stop) {
                 // LSJ says where this sense is *not* found ("not in [Homer]");
                 // its first dated reference after the gloss, in the same
                 // sense, says where it is.
-                first_dated(block, end, block.len())
+                first_dated(meaning, end, to)
             } else {
-                gloss_date(block, end, stop)
+                gloss_date(meaning, end, stop)
             };
-            let Some((link, century)) = dated else {
+            let Some(dated) = dated else {
                 continue;
             };
             let words = word_set(gloss);
@@ -1487,10 +1572,10 @@ fn lsj(meaning: &str) -> Option<Lsj> {
                     .chars()
                     .take(GLOSS_CHARS)
                     .collect(),
-                century,
-                writer: writer(link.title, link.label),
-                papyri: papyri(link.title),
-                inscriptions: inscriptions(link.title),
+                century: dated.century,
+                writer: dated.writer,
+                papyri: papyri(dated.title),
+                inscriptions: inscriptions(dated.title),
             });
             took += 1;
             if took == want {
@@ -3585,6 +3670,57 @@ mod tests {
         assert_eq!(
             first_sense(&format!("<b> x</b>, <b>feel pity</b> [{lxx}] [{soph}]")),
             None
+        );
+        // LSJ's "Id." takes the writer and date of the citation before it,
+        // the last in the reference before, even in an earlier sense block...
+        let plato = lsj_link(
+            "Refs 5th c.BC+",
+            " 5th c.BC: Herodotus Historicus 1.1, 5th-6th c.BC: Plato Philosophus “Leges” 889c: ",
+        );
+        let id = lsj_link("Refs", " [prev. author] “Cra.” 424d");
+        let late = lsj_link("Refs 1st c.BC+", " 1st c.BC: Meleager Epigrammaticus 1");
+        let e = lsj(&format!(
+            "<b> x</b> -εκεράσθην [{plato}] <Level2><b>__II</b></Level2> \
+             <b>mix, blend with</b>, [{id}]; [{late}]"
+        ))
+        .unwrap();
+        assert_eq!(
+            (e.senses[0].writer.as_deref(), e.senses[0].century.as_str()),
+            (Some("Plato"), "5th century BC")
+        );
+        // ...and of the one before that when it is "Id." too...
+        let id_work = lsj_link("Refs", "[prev. work] 425a");
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> [{plato}] [{id}]:—<b>mix</b>, [{id_work}]; [{late}]"
+            )),
+            sense("mix", "Plato")
+        );
+        // ...but not when that citation has no date, or another work
+        // follows it, so that "the same" could mean either.
+        let ig = lsj_link("Refs", " “IG” 22.1627.398 ");
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> [{plato}] [{ig}]:—<b>build</b>, [{id_work}]; [{soph}]"
+            )),
+            sense("build", "Sophocles")
+        );
+        // "Id." never dates a gloss on its own.
+        let e = lsj(&format!(
+            "<b> x</b> [{plato}] <b>mix</b>, [{id}] <b>blend</b> [{late}]"
+        ))
+        .unwrap();
+        let glosses: Vec<&str> = e.senses.iter().map(|s| s.gloss.as_str()).collect();
+        assert_eq!(glosses, ["blend"]);
+        let mixed = lsj_link(
+            "Refs 5th c.BC+",
+            " 5th c.BC: Herodotus Historicus 1.2; “IG” 1.3",
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> x</b> [{mixed}]:—<b>build</b>, [{id}]; [{late}]"
+            )),
+            sense("build", "Meleager")
         );
     }
 
