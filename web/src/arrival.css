@@ -1,5 +1,5 @@
 /* Arrival: the app's loading and error screens, the hand-off from the boot sky
-   in index.html and the update notice. Colors come from the
+   in index.html, the update notice and the error screen. Colors come from the
    --arr-* tokens defined in index.html (paper by day, the night sky otherwise).
    Selectors start at #app or #boot so they win over styles.css's .loading. */
 
@@ -112,4 +112,134 @@
   .arr-toast {
     animation: none;
   }
+}
+
+/* ------------------------------------------------------------ error screen */
+
+.arr-fallback {
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 32px 16px 12vh;
+  overflow: hidden;
+  background: var(--arr-sky, var(--sky));
+  color: var(--arr-ink, var(--sky-ink));
+  text-align: center;
+}
+.arr-fallback > .arr-backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.arr-card {
+  position: relative;
+  width: min(460px, 100%);
+}
+.arr-card .arr-kicker {
+  margin: 0 0 10px;
+  font: 600 15px / 1.2 var(--font-read);
+  letter-spacing: 0.02em;
+  color: var(--arr-muted, var(--sky-muted));
+}
+.arr-card h1 {
+  margin: 0 0 10px;
+  font: 600 clamp(26px, 4vw, 34px) / 1.2 var(--font-read);
+  color: var(--arr-ink, var(--sky-ink));
+  background: var(--arr-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.arr-card .arr-say {
+  margin: 0 0 20px;
+  font: 16px / 1.55 var(--font-read);
+}
+.arr-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.arr-btn {
+  min-width: 180px;
+  padding: 10px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--lamp);
+  color: #1b1606;
+  font: 600 15px / 1.2 var(--font-ui);
+  box-shadow: 0 6px 20px rgba(255, 210, 122, 0.25);
+}
+.arr-linkbtn {
+  padding: 6px 10px;
+  border: 0;
+  background: none;
+  color: var(--arr-muted, var(--sky-muted));
+  font-size: 13.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.arr-linkbtn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.arr-more {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--arr-muted, var(--sky-muted));
+}
+.arr-more summary {
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.arr-more summary::-webkit-details-marker {
+  display: none;
+}
+.arr-more summary::after {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-left: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+}
+.arr-more[open] summary::after {
+  transform: translateY(0) rotate(225deg);
+}
+.arr-more summary:hover {
+  color: var(--arr-ink, var(--sky-ink));
+}
+.arr-more .arr-err {
+  margin: 12px 0 0;
+  font: 12.5px / 1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: var(--arr-ink, var(--sky-ink));
+  overflow-wrap: anywhere;
+}
+.arr-more dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  margin: 12px 0;
+  text-align: left;
+}
+.arr-more dt {
+  font-weight: 600;
+}
+.arr-more dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.arr-more a {
+  color: inherit;
+  font-weight: 600;
+}
+.arr-more .arr-fine {
+  margin: 6px 0 0;
+  font-size: 12px;
 }
