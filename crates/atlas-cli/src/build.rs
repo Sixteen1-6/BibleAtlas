@@ -369,6 +369,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
     }
+    write(out, "lxx.json", crate::lxx::emit(lemmas.iter().map(|l| (l.key.as_str(), l.word.as_str(), l.gloss.as_str(), l.lang)), &lex).as_bytes(), &mut files)?;
 
     // Build id: hash of every output's hash, so identical inputs give an identical id.
     let digest: String = files.values().map(|f| f["sha256"].as_str().unwrap().to_string()).collect();

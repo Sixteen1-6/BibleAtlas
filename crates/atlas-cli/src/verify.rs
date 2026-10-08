@@ -161,6 +161,53 @@ pub fn run(out: &Path) -> Result<(), String> {
     let path = adj.shortest_path(a, b, 1);
     r.check(path.as_ref().is_some_and(|p| p.verses.len() <= 6), format!("Gen 3:15 to Rev 12:9 path: {:?}", path.map(|p| p.verses.len())));
 
+    // 6. Septuagint word bridges (lxx.json): a well-formed table, the pairs
+    // Abbott-Smith's notes are known to give, and how many links between
+    // the testaments they explain under the app's rule (base-text words,
+    // both roots used fewer than 1,500 times).
+    let lxx: serde_json::Value = serde_json::from_str(&fs::read_to_string(out.join("lxx.json")).map_err(|e| format!("lxx.json: {e}"))?).map_err(|e| format!("lxx.json: {e}"))?;
+    let column = |k: &str| -> Vec<u32> { lxx[k].as_array().into_iter().flatten().filter_map(|x| x.as_u64()).map(|x| x as u32).collect() };
+    let (greek, offsets, hebrew) = (column("greek"), column("offsets"), column("hebrew"));
+    let langs: Vec<char> = d.lemmas["lang"].as_str().unwrap_or("").chars().collect();
+    r.check(
+        offsets.len() == greek.len() + 1 && offsets.first() == Some(&0) && offsets.last() == Some(&(hebrew.len() as u32)) && offsets.windows(2).all(|w| w[0] < w[1]) && greek.windows(2).all(|w| w[0] < w[1]),
+        "lxx.json is a sorted table with one row per Greek root",
+    );
+    r.check(greek.iter().all(|&g| langs.get(g as usize) == Some(&'G')) && hebrew.iter().all(|&h| matches!(langs.get(h as usize), Some('H' | 'A'))), "lxx.json pairs Greek roots with Hebrew or Aramaic roots");
+    let mut pairs = std::collections::HashSet::new();
+    for (i, &g) in greek.iter().enumerate() {
+        for &h in hebrew.get(offsets[i] as usize..offsets.get(i + 1).copied().unwrap_or(0) as usize).unwrap_or(&[]) {
+            pairs.insert((g, h));
+        }
+    }
+    for (g, h) in [("G3468", "H2250"), ("G3933", "H5959"), ("G3933", "H1330"), ("G2435", "H3727"), ("G5547", "H4899")] {
+        let found = d.lemma_index(g).zip(d.lemma_index(h)).is_some_and(|(g, h)| pairs.contains(&(g as u32, h as u32)));
+        r.check(found, format!("Septuagint bridge {g} to {h}"));
+    }
+    r.check(greek.len() >= 2_000, format!("{} Greek roots have a Septuagint bridge, expected 2,000 or more", greek.len()));
+    let ot: Vec<bool> = (0..n).map(|v| d.vz.locate(v).is_some_and(|(b, _, _)| BOOKS[b as usize].testament == atlas_core::canon::Testament::Old)).collect();
+    let roots: Vec<Vec<u32>> = (0..n)
+        .map(|v| {
+            let row = d.verse(v).unwrap_or_default();
+            let base_text = row[1].as_array().into_iter().flatten().filter(|w| w[5].as_u64().unwrap_or(0) & u64::from(crate::build::FLAG_OTHER_EDITIONS) == 0);
+            base_text.filter_map(|w| w[3].as_u64()).map(|x| x as u32).filter(|&x| counts[x as usize] < 1_500).collect()
+        })
+        .collect();
+    let (mut across, mut bridged) = (0usize, 0usize);
+    for s in 0..n {
+        for e in d.graph.out(s) {
+            let t = d.graph.dst[e];
+            if d.graph.votes[e] < 8 || ot[s as usize] == ot[t as usize] {
+                continue;
+            }
+            let (o, nt) = if ot[s as usize] { (s, t) } else { (t, s) };
+            across += 1;
+            bridged += roots[nt as usize].iter().any(|&g| roots[o as usize].iter().any(|&h| pairs.contains(&(g, h)))) as usize;
+        }
+    }
+    r.check(bridged * 10 >= across * 3, format!("{bridged} of {across} links between the testaments with 8+ votes have a word bridge, expected 30% or more"));
+    eprintln!("Septuagint bridges: {} Greek roots; {bridged} of {across} links between the testaments with 8+ votes ({:.1}%)", greek.len(), 100.0 * bridged as f64 / across.max(1) as f64);
+
     eprintln!("{} checks passed", r.passed);
     if r.failed.is_empty() {
         Ok(())

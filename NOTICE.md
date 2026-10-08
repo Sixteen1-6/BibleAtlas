@@ -24,6 +24,7 @@ STEPBible asks that changes to its data be noted. The build changes the presenta
 - Morpheme separators (`/` and `\`) are removed from the displayed Hebrew and transliteration.
 - Lexicon definitions are converted from HTML to plain text segments (bold, italic, line breaks and verse links are kept).
 - Words found only in non-base editions are kept and flagged, and are excluded from word counts.
+- Abbott-Smith's notes on Septuagint usage in TBESG are read into a table of Greek and Hebrew root pairs (lxx.json, root numbers only); Hebrew words in those notes are matched to TBESH entries by their letters, and unclear matches are left out.
 
 ## ESV
 

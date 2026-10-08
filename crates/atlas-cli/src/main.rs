@@ -15,6 +15,7 @@ mod english;
 mod fetch;
 mod lexhtml;
 mod loaded;
+mod lxx;
 mod parse;
 mod query;
 mod sources;
