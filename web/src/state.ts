@@ -6,6 +6,7 @@ import type { Atlas } from './data/atlas';
 import type { Engine, PathResult } from './engine/client';
 import type { View } from './gl/layout';
 import type { ArcColorMode } from './ui/colors';
+import { deepen } from './depth';
 
 export type Tab = 'connections' | 'word' | 'themes' | 'paths' | 'hubs' | 'sources';
 export type Translation = 'BSB' | 'ESV';
@@ -56,10 +57,19 @@ function stored<T extends string>(key: string, allowed: readonly T[], fallback: 
 /** How the arcs are colored. Remembered per browser. */
 export const arcColor = stored<ArcColorMode>('atlas.arcColor', ['spectrum', 'reach', 'genre'], 'spectrum');
 export const view = signal<View>({ scale: 1, offset: 0 });
+/** The first-visit card above the reader. Hidden for good once dismissed. */
+export const welcome = stored<'show' | 'hidden'>('atlas.welcome', ['show', 'hidden'], 'show');
 export const interlinear = signal(false);
 export const showOtherEditions = signal(false);
 export const paletteOpen = signal(false);
+/** A verse whose selection should not scroll the reader (the first-visit default). */
+export const holdReaderScroll = signal<number | null>(null);
 export const mobilePane = signal<'read' | 'study'>('read');
+
+/** Touch screens tap and pinch; mice click and scroll. */
+export const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
+/** "Tap" or "Click", for instructions. */
+export const TAP = TOUCH ? 'Tap' : 'Click';
 
 /** How many cross-references pass the current vote filter. */
 export const visibleEdges = computed(() => {
@@ -76,6 +86,7 @@ export const visibleEdges = computed(() => {
 
 export function selectVerse(v: number | null, opts: { scroll?: boolean; openTab?: boolean } = {}): void {
   const a = atlas.value;
+  if (holdReaderScroll.peek() !== v) holdReaderScroll.value = null;
   selected.value = v;
   path.value = null;
   if (v !== null && a) {
@@ -88,7 +99,21 @@ export function selectVerse(v: number | null, opts: { scroll?: boolean; openTab?
   }
 }
 
+/** Back to the plain map: no selection, path, theme or highlighted words. */
+export function clearAll(): void {
+  selected.value = null;
+  path.value = null;
+  marks.value = null;
+  groupEdges.value = null;
+  theme.value = null;
+}
+
+/** True while anything is highlighted on the map, so there is something to clear. */
+export const anythingLit = computed(() => selected.value !== null || path.value !== null || marks.value !== null || groupEdges.value !== null);
+
 export function openRoot(root: number, verse?: number, pos?: number): void {
+  // Word studies live at Study; asking for one is asking to go that deep.
+  deepen('study');
   study.value = { root, verse, pos };
   tab.value = 'word';
   mobilePane.value = 'study';

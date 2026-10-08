@@ -15,16 +15,17 @@ export const ARC = {
 /** Spectrum mode: hue follows where an arc starts in the canon, Genesis to Revelation. */
 export const SPECTRUM = ['#ff5f6d', '#ff9a4a', '#ffd34e', '#8be36f', '#2fd6c5', '#4b9bff', '#8c6dff', '#e86bff'];
 
-export const GENRE: Record<string, { color: string; label: string }> = {
+/** Book groups. `short` names a group under the map where its full label does not fit. */
+export const GENRE: Record<string, { color: string; label: string; short?: string }> = {
   law: { color: '#5b8def', label: 'Law' },
   history: { color: '#2fbfa5', label: 'History' },
-  wisdom: { color: '#e8b44c', label: 'Wisdom and poetry' },
-  'major-prophets': { color: '#f06b8e', label: 'Major prophets' },
-  'minor-prophets': { color: '#a77bf0', label: 'Minor prophets' },
+  wisdom: { color: '#e8b44c', label: 'Wisdom and poetry', short: 'Poetry' },
+  'major-prophets': { color: '#f06b8e', label: 'Major prophets', short: 'Prophets' },
+  'minor-prophets': { color: '#a77bf0', label: 'Minor prophets', short: 'Prophets' },
   gospels: { color: '#ffcf5c', label: 'Gospels' },
   acts: { color: '#4cc6f0', label: 'Acts' },
-  pauline: { color: '#5fd38d', label: 'Paul’s letters' },
-  general: { color: '#e5925a', label: 'General letters' },
+  pauline: { color: '#5fd38d', label: 'Paul’s letters', short: 'Letters' },
+  general: { color: '#e5925a', label: 'General letters', short: 'Letters' },
   apocalyptic: { color: '#ff6b5a', label: 'Revelation' },
 };
 

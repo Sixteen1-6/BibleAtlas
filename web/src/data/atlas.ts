@@ -232,10 +232,27 @@ export function chapterRange(a: Atlas, book: number, chapter: number): [number, 
   return [a.chapterStart[c], a.chapterStart[c + 1]];
 }
 
+/** A book's name before a chapter number: "Psalm 23", not "Psalms 23". */
+export function chapterName(b: BookMeta): string {
+  return b.osis === 'Ps' ? 'Psalm' : b.name;
+}
+
+/** How many passages a verse is linked to: a two-way link counts once, and links
+ * readers voted down (zero or fewer net votes) are left out. */
+export function linkCount(a: Atlas, v: number): number {
+  const seen = new Set<number>();
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xVotes[e] > 0) seen.add(a.xDst[e]);
+  for (let i = a.xInOff[v]; i < a.xInOff[v + 1]; i++) {
+    const e = a.xInEdge[i];
+    if (a.xVotes[e] > 0) seen.add(a.xSrc[e]);
+  }
+  return seen.size;
+}
+
 export function label(a: Atlas, v: number, short = false): string {
   const l = locate(a, v);
   const b = a.books[l.book];
-  return `${short ? shortName(b) : b.name} ${l.chapter}:${l.verse}`;
+  return `${short ? shortName(b) : chapterName(b)} ${l.chapter}:${l.verse}`;
 }
 
 export function rangeLabel(a: Atlas, v: number, span: number): string {
@@ -244,8 +261,8 @@ export function rangeLabel(a: Atlas, v: number, span: number): string {
   const e = locate(a, v + span - 1);
   const b = a.books[s.book];
   if (s.book !== e.book) return `${label(a, v)} – ${label(a, v + span - 1)}`;
-  if (s.chapter !== e.chapter) return `${b.name} ${s.chapter}:${s.verse}–${e.chapter}:${e.verse}`;
-  return `${b.name} ${s.chapter}:${s.verse}–${e.verse}`;
+  if (s.chapter !== e.chapter) return `${chapterName(b)} ${s.chapter}:${s.verse}–${e.chapter}:${e.verse}`;
+  return `${chapterName(b)} ${s.chapter}:${s.verse}–${e.verse}`;
 }
 
 export function shortName(b: BookMeta): string {

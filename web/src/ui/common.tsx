@@ -1,7 +1,7 @@
 // Small shared pieces for the study panels.
 
 import { useEffect, useState } from 'preact/hooks';
-import { type Atlas, LANG_NAME } from '../data/atlas';
+import { type Atlas, LANG_NAME, chapterName } from '../data/atlas';
 import { FLAG, type VerseRow, getVerse, rootsOf } from '../data/text';
 import * as S from '../state';
 import { GENRE } from './colors';
@@ -91,7 +91,7 @@ export function Distribution({ a, verses, height = 64 }: { a: Atlas; verses: Arr
       </svg>
       <figcaption class="muted" style="font-size:12px;display:flex;justify-content:space-between">
         <span>Genesis</span>
-        <span>{top.map(([c, i]) => `${a.books[i].name} ${c}`).join(' · ')}</span>
+        <span>{top.map(([c, i]) => `${chapterName(a.books[i])} ${c}`).join(' · ')}</span>
         <span>Revelation</span>
       </figcaption>
     </figure>
