@@ -997,12 +997,15 @@ fn measure(nt: &[(u32, Tok)], ot: &[(u32, Tok)]) -> Measure {
 /// 0: word for word (only where the quoted words are known); 1: close, at
 /// least three in five key words shared; 2: loose.
 fn closeness(m: &Measure, quoted: bool) -> u8 {
-    // All the words in one run, or all but one in a longer quotation.
-    let word_for_word = if m.words >= 4 {
-        m.run + 1 >= m.words
-    } else {
-        m.words >= 2 && m.run == m.words
-    };
+    // Every key word shared, and all the words in one run, or all but one in
+    // a longer quotation: "Love the Lord your God … with all your mind" is
+    // close to "… with all your strength", not word for word.
+    let word_for_word = m.shared.len() == m.keys
+        && if m.words >= 4 {
+            m.run + 1 >= m.words
+        } else {
+            m.words >= 2 && m.run == m.words
+        };
     if quoted && word_for_word {
         0
     } else if m.keys > 0 && m.shared.len() * 5 >= m.keys * 3 {
@@ -2396,6 +2399,20 @@ mod tests {
         let m = measure(
             &side(0, "Do not muzzle an ox while it is treading out the grain."),
             &side(1, "God with us"),
+        );
+        assert_eq!(closeness(&m, true), 2);
+        // All but one word in a row, but that one a key word: close.
+        let m = measure(
+            &side(0, "He took on our infirmities and carried our diseases."),
+            &side(1, "Surely He took on our infirmities and carried our sorrows; yet we considered Him stricken by God, struck down and afflicted."),
+        );
+        assert_eq!((m.run, closeness(&m, true)), (8, 1));
+        let m = measure(
+            &side(0, "Hosanna in the highest!"),
+            &side(
+                1,
+                "Hallelujah! Praise the LORD from the heavens; praise Him in the highest places.",
+            ),
         );
         assert_eq!(closeness(&m, true), 2);
     }

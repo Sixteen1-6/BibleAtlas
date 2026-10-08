@@ -304,7 +304,10 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
               <h3>
                 Word by word <Unsure title="Paired by a program, not by hand">matched by computer</Unsure>
               </h3>
-              <p class="x-quotes-hint">Each Greek word beside one of the Hebrew words it mostly translates in the Septuagint, as Abbott-Smith’s lexicon notes.</p>
+              <p class="x-quotes-hint">
+                Each Greek word is set beside a Hebrew word it often translates in the Septuagint, the Greek Old Testament, as Abbott-Smith’s lexicon notes. A program made these pairs,
+                so some may be wrong.
+              </p>
               {withPairs.map((l) => (
                 <div key={l.i}>
                   {withPairs.length > 1 && <p class="x-quotes-sub">{pairName(l)}</p>}
