@@ -19,6 +19,9 @@ import { type Atlas, type Theme, versesWithRoot } from './atlas';
 
 /** Fewest votes a link needs to join the thread. */
 export const THREAD_VOTES = 3;
+/** Fewest votes for a link in a theme's full set ("All N links"), as the
+ *  Themes panel has always shown it. */
+export const ALL_VOTES = 2;
 /** Most verses in a thread. */
 export const THREAD_MAX = 10;
 /** Fewest verses in a thread. */
@@ -46,13 +49,14 @@ interface Cache {
   verses: Map<string, Uint32Array>;
   links: Map<string, Uint32Array>;
   threads: Map<string, Thread>;
+  counts: Map<string, number>;
   pct?: Float64Array;
 }
 const caches = new WeakMap<Atlas, Cache>();
 function cacheOf(a: Atlas): Cache {
   let c = caches.get(a);
   if (!c) {
-    c = { verses: new Map(), links: new Map(), threads: new Map() };
+    c = { verses: new Map(), links: new Map(), threads: new Map(), counts: new Map() };
     caches.set(a, c);
   }
   return c;
@@ -116,13 +120,37 @@ export function themeLinksOf(a: Atlas, theme: Theme, minVotes = THREAD_VOTES): U
 function rankPercentile(a: Atlas): Float64Array {
   const c = cacheOf(a);
   if (!c.pct) {
-    const order = Array.from({ length: a.n }, (_, i) => i).sort((x, y) => a.rank[x] - a.rank[y] || x - y);
+    const order = rankOrder(a);
     const pct = new Float64Array(a.n);
     const d = Math.max(1, a.n - 1);
     for (let i = 0; i < order.length; i++) pct[order[i]] = i / d;
     c.pct = pct;
   }
   return c.pct;
+}
+
+/** Every verse, by PageRank from least to most central, ties in canon order
+ *  (a stable sort by rank, as in the prototype). */
+function rankOrder(a: Atlas): ArrayLike<number> {
+  const n = a.n;
+  // Fast path, about three times quicker than a comparator sort: the bits of
+  // a float32 that is positive (or +0) sort like its value, so the bits and
+  // the verse packed into one float64 (exact below 2^53) sort natively into
+  // the same order. It needs at most 65,536 verses.
+  if (n <= 65536 && a.rank instanceof Float32Array && a.rank.length >= n) {
+    const bits = new Uint32Array(a.rank.buffer, a.rank.byteOffset, n);
+    const keys = new Float64Array(n);
+    let v = 0;
+    // Below 0x7f800000: +0, or positive and finite (no NaN, infinity or sign bit).
+    for (; v < n && bits[v] < 0x7f800000; v++) keys[v] = bits[v] * 65536 + v;
+    if (v === n) {
+      keys.sort();
+      const order = new Uint32Array(n);
+      for (let i = 0; i < n; i++) order[i] = keys[i] % 65536;
+      return order;
+    }
+  }
+  return Array.from({ length: n }, (_, i) => i).sort((x, y) => a.rank[x] - a.rank[y] || x - y);
 }
 
 /** Verses ordered by PageRank, most central first (ties: canon order). */
@@ -239,6 +267,26 @@ export function themeThread(a: Atlas, theme: Theme): Thread {
   }
   c.threads.set(theme.id, out);
   return out;
+}
+
+/** How many cross-reference rows with ALL_VOTES or more votes join two of
+ *  the theme's verses: the "All N links" the map shows. Cached. */
+export function themeLinkCount(a: Atlas, theme: Theme): number {
+  const c = cacheOf(a);
+  let count = c.counts.get(theme.id);
+  if (count === undefined) {
+    count = linksWithinRows(a, themeVerses(a, theme), ALL_VOTES).length;
+    c.counts.set(theme.id, count);
+  }
+  return count;
+}
+
+/** Works out ahead of time, for an idle moment, everything that choosing
+ *  this theme needs, so the tap itself only has to draw. */
+export function warmTheme(a: Atlas, theme: Theme): void {
+  themeThread(a, theme);
+  themeLinkCount(a, theme);
+  themeLinksOf(a, theme, ALL_VOTES);
 }
 
 /** Cross-references with both ends among `verses` and at least `minVotes`
