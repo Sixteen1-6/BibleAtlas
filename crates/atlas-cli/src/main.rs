@@ -21,6 +21,7 @@ mod extra_quotes;
 mod extra_real_map;
 mod fetch;
 mod layers;
+mod extra_notes;
 mod lexhtml;
 mod loaded;
 mod lxx;
