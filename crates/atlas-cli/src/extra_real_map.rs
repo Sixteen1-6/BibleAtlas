@@ -2799,8 +2799,9 @@ fn people(
 // ------------------------------------------------------------------ shapes
 
 /// Each tribe's land as Joshua lists its towns, the passage given as OSIS
-/// verse ranges. Manasseh has land on both sides of the Jordan. Joshua
-/// 19:47, where Dan takes Leshem far to the north, is left out of Dan's.
+/// verse ranges. Manasseh has land on both sides of the Jordan. The towns of
+/// Joshua 19:47, where Dan takes Leshem far to the north, are left out of
+/// Dan's land, though the verse still belongs to Dan's passage.
 const TRIBES: [(&str, &[(&str, &str)]); 13] = [
     ("Reuben", &[("Josh.13.15", "Josh.13.23")]),
     ("Gad", &[("Josh.13.24", "Josh.13.28")]),
@@ -3034,9 +3035,6 @@ const EVENT_TITLES: [(&str, &str); 9] = [
 /// before Abraham, though Judges 10:3 sets it after Tola's.
 const NOT_EVENTS: [(&str, &str); 1] = [("Judgeship of Jair", "dated before Abraham")];
 
-/// The most events kept for one place.
-const MAX_EVENTS: usize = 40;
-
 /// What events() found, for the build's report.
 #[derive(Default)]
 struct EventTally {
@@ -3116,7 +3114,7 @@ fn events(
     for (i, (_, title, year, verse, places)) in rows.into_iter().enumerate() {
         list_out.push(json!([title, year, verse]));
         for k in places {
-            if per_place[k].len() < MAX_EVENTS && !per_place[k].contains(&i) {
+            if !per_place[k].contains(&i) {
                 per_place[k].push(i);
             }
         }

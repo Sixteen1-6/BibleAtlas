@@ -200,7 +200,9 @@ fn source_text(path: &Path, hebrew: bool) -> Result<SourceText, String> {
 ///
 /// MACULA tokenizes the WLC as the alignment source does, so its words are
 /// matched to TAHOT's the same way: by consonants, in the Hebrew Bible's own
-/// verse numbering. A word that does not match gets nothing.
+/// verse numbering. As `pair` does, an equal run of unmatched words between
+/// two matches is paired in order (which keeps a ketiv with its qere); a word
+/// left unpaired gets nothing.
 pub fn septuagint_words(macula: &Path, words: &[Vec<Word>]) -> Result<HashMap<(u32, u32), Vec<u32>>, String> {
     let text = read(macula)?;
     let mut lines = text.lines();

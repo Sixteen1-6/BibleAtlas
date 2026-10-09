@@ -49,6 +49,14 @@ fn lfs_content(repo: &str, commit: &str, path: &Path, rel: &str) -> Result<(), S
     let Some(slug) = repo.strip_prefix("https://github.com/") else {
         return Err(format!("{rel} is stored with Git LFS, which is only fetched from github.com"));
     };
+    // A verified copy is kept by its hash, so that fetching again (which
+    // checks the pointer out again) copies it back instead of downloading it.
+    let dir = path.ancestors().find(|d| d.join(".git").is_dir()).ok_or_else(|| format!("{rel}: not in a checkout"))?;
+    let cache = dir.join(".git").join("lfs-cache").join(&oid);
+    if sha256_file(&cache).is_ok_and(|(sha, bytes)| sha == oid && bytes == size) {
+        fs::copy(&cache, path).map_err(|e| e.to_string())?;
+        return Ok(());
+    }
     let url = format!("https://media.githubusercontent.com/media/{}/{commit}/{rel}", slug.trim_end_matches(".git"));
     eprintln!("  downloading {rel} from Git LFS ({} MB)", size / 1_000_000);
     let tmp = path.with_extension("lfs-part");
@@ -59,12 +67,18 @@ fn lfs_content(repo: &str, commit: &str, path: &Path, rel: &str) -> Result<(), S
         .output()
         .map_err(|e| format!("could not run curl ({e}); is curl installed?"))?;
     if !out.status.success() {
+        let _ = fs::remove_file(&tmp);
         return Err(format!("downloading {url} failed:\n{}", String::from_utf8_lossy(&out.stderr).trim()));
     }
     let (sha, bytes) = sha256_file(&tmp)?;
     if sha != oid || bytes != size {
         let _ = fs::remove_file(&tmp);
         return Err(format!("{url} does not match its LFS pointer (sha256 {sha}, {bytes} bytes; expected {oid}, {size})"));
+    }
+    if let Some(d) = cache.parent() {
+        if fs::create_dir_all(d).is_ok() {
+            let _ = fs::copy(&tmp, &cache);
+        }
     }
     fs::rename(&tmp, path).map_err(|e| e.to_string())
 }

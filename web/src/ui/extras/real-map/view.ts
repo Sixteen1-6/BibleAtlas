@@ -638,7 +638,7 @@ export class MapView {
     for (const d of labelOrder) {
       const { m, x, y, r } = d;
       if (!m.label) {
-        hits.push({ place: m.place, x, y, rect: null, tier: m.tier });
+        if (m.place >= 0) hits.push({ place: m.place, x, y, rect: null, tier: m.tier });
         continue;
       }
       const text = m.area ? m.label.toUpperCase() : m.label;
@@ -672,7 +672,8 @@ export class MapView {
       }
       if (spot) taken.push(spot);
       d.label = spot;
-      hits.push({ place: m.place, x, y, rect: spot, tier: m.tier });
+      // A name with no place (a tribe's) takes no taps: they go to the places under it.
+      if (m.place >= 0) hits.push({ place: m.place, x, y, rect: spot, tier: m.tier });
     }
 
     // Water names where there is room.
