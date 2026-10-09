@@ -245,6 +245,32 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(bridged * 10 >= across * 3, format!("{bridged} of {across} links between the testaments with 8+ votes have a word bridge, expected 30% or more"));
     eprintln!("Septuagint bridges: {} Greek roots, {} pairs; {bridged} of {across} links between the testaments with 8+ votes ({:.1}%)", greek.len(), hebrew.len(), 100.0 * bridged as f64 / across.max(1) as f64);
 
+    // 7. Manuscript notes: the app says Nestle-Aland prints a word in double
+    // brackets when STEPBible does not class it as Ancient (no N outside the
+    // brackets of its type) and lists the 27th edition. Those words must all
+    // be in Mark 16:8-20 (with the shorter ending) or John 7:53-8:11.
+    let passages = [(d.resolve("Mark 16:8")?.0, d.resolve("Mark 16:20")?.0), (d.resolve("John 7:53")?.0, d.resolve("John 8:11")?.0)];
+    let (mut double_bracketed, mut elsewhere) = (0usize, Vec::new());
+    for v in d.resolve("Matt 1:1")?.0..n {
+        for w in d.verse(v)?[1].as_array().into_iter().flatten() {
+            let (Some(kind), Some(editions)) = (w[6]["k"].as_str(), w[6]["e"].as_str()) else { continue };
+            let mut depth = 0i32;
+            let ancient = kind.chars().any(|c| {
+                depth += i32::from(c == '(') - i32::from(c == ')');
+                depth == 0 && c.eq_ignore_ascii_case(&'N')
+            });
+            if ancient || !editions.split('+').any(|e| e.trim() == "NA27") {
+                continue;
+            }
+            if passages.iter().any(|&(a, b)| (a..=b).contains(&v)) {
+                double_bracketed += 1;
+            } else {
+                elsewhere.push(d.label(v));
+            }
+        }
+    }
+    r.check(double_bracketed >= 300 && elsewhere.is_empty(), format!("{double_bracketed} words Nestle-Aland prints in double brackets; outside Mark 16:8-20 and John 7:53-8:11: {elsewhere:?}"));
+
     eprintln!("{} checks passed", r.passed);
     if r.failed.is_empty() {
         Ok(())
