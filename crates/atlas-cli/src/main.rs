@@ -23,6 +23,7 @@ mod fetch;
 mod layers;
 mod extra_notes;
 mod lexhtml;
+mod extra_wordplay;
 mod loaded;
 mod lxx;
 mod parse;
