@@ -36,7 +36,22 @@ export function Themes({ a }: { a: Atlas }) {
       <div class="tj-head">
         <h2>Themes and images</h2>
         {t && (
-          <button class="tj-all" onClick={() => pick(null)}>
+          <button
+            class="tj-all"
+            onClick={(e) => {
+              const id = t.id;
+              let keys = false;
+              try {
+                keys = (e.currentTarget as HTMLElement).matches(':focus-visible');
+              } catch {
+                // Older browsers: treat it as a click.
+              }
+              pick(null);
+              // This button goes away: its focus moves to the theme's card in
+              // the grid, scrolled into view when it came from the keyboard.
+              requestAnimationFrame(() => document.querySelector<HTMLElement>(`.tj-grid .tj-card[data-theme="${CSS.escape(id)}"]`)?.focus({ preventScroll: !keys }));
+            }}
+          >
             All themes
           </button>
         )}
@@ -46,10 +61,10 @@ export function Themes({ a }: { a: Atlas }) {
       ) : (
         <p class="muted">Each theme follows specific Hebrew and Greek words, not a hand-picked list, so every lit verse can be checked in the original text.</p>
       )}
-      {t && <h3>Themes</h3>}
+      {t && <h3>More themes</h3>}
       <div class={t ? 'tj-strip' : 'cards tj-grid'} role="group" aria-label="Themes">
         {cards.map((th) => (
-          <button key={th.id} class="card tj-card" aria-pressed={active === th.id} onClick={() => pick(active === th.id ? null : th.id)}>
+          <button key={th.id} class="card tj-card" data-theme={th.id} aria-pressed={active === th.id} onClick={() => pick(active === th.id ? null : th.id)}>
             <MiniSky a={a} theme={th} height={t ? 30 : 44} />
             <span class="tj-cardtext">
               <b>{th.name}</b>
