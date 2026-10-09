@@ -12,7 +12,7 @@
     "Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover, Christ or Jerusalem).",
     "`exclude` lists sub-entries deliberately left out although their gloss matches (seed: semen, sea: west). The app shows them as 'Left out', and the links rule never offers the theme on a verse that contains one of them.",
     "`skip_with`: Strong's numbers (with or without a sub-entry letter) that take a verse out of the theme when they occur in it. Seven and Forty use it for hundred and thousand, where the number is part of a count (Ezra 2:3 '2,172'), not a picture.",
-    "atlas build fails if a root matches nothing, if an exclude names a sub-entry the root would not include, or if a group, featured id, level, skip_with key or key verse is wrong, so a typo cannot silently empty or change a theme. `atlas themes-review --group <id>` prints each theme's words, leave-outs, size and sample verses for review."
+    "atlas build fails if a root matches nothing, if an exclude names a sub-entry the root would not include, or if a group, featured id, level, skip_with key or key verse is wrong, or a verse named in parentheses in a blurb (Ruth 3:9) is not one the theme lights, so a typo cannot silently empty or change a theme. `atlas themes-review --group <id>` prints each theme's words, leave-outs, size and sample verses for review."
   ],
   "groups": [
     { "id": "nature", "name": "Pictures from nature" },
@@ -546,9 +546,9 @@
     },
     {
       "id": "wings",
-      "name": "Wings",
+      "name": "Wings and eagles",
       "group": "living",
-      "blurb": "Carried on eagles’ wings, refuge under his wings, healing in its wings. The Hebrew word for wing is also the corner of a garment (Ruth 3:9).",
+      "blurb": "Carried on eagles’ wings, refuge under his wings, healing in its wings. The Hebrew word for wing is also the corner of a garment (Ruth 3:9). The words for eagle also mean vulture (Matthew 24:28).",
       "key_verses": ["Exodus 19:4", "Psalm 91:4", "Malachi 4:2"],
       "roots": [
         { "strong": "H3671", "match": ["wing"] },
@@ -850,7 +850,7 @@
       "id": "ark",
       "name": "The ark",
       "group": "things",
-      "blurb": "Noah’s ark and the ark of the covenant: two Hebrew words, one Greek word for both.",
+      "blurb": "Noah’s ark and the ark of the covenant: two Hebrew words, one Greek word for both. The same Hebrew words also name a coffin (Genesis 50:26), a money chest (2 Kings 12:9) and baby Moses’ basket (Exodus 2:3).",
       "key_verses": ["Genesis 6:14", "Exodus 25:10", "Hebrews 11:7"],
       "roots": [
         { "strong": "H0727", "match": ["ark"] },
@@ -942,7 +942,7 @@
       "id": "gold",
       "name": "Silver and gold",
       "group": "things",
-      "blurb": "Gold of the tabernacle, refined like silver, thirty pieces of silver, a street of pure gold.",
+      "blurb": "Gold of the tabernacle, refined like silver, thirty pieces of silver, a street of pure gold. The words for silver are also the everyday words for money (Genesis 47:14).",
       "key_verses": ["Exodus 25:11", "Matthew 26:15", "Revelation 21:21"],
       "roots": [
         { "strong": "H2091", "match": ["gold"] },
@@ -1031,7 +1031,7 @@
       "id": "grace",
       "name": "Grace and favor",
       "group": "promises",
-      "blurb": "Noah found favor, the LORD be gracious to you, by grace you have been saved.",
+      "blurb": "Noah found favor, the LORD be gracious to you, by grace you have been saved. The Greek word for grace also means thanks (Colossians 3:16), and the Hebrew is also used for pleading for favor (Genesis 42:21).",
       "key_verses": ["Genesis 6:8", "Numbers 6:25", "Ephesians 2:8"],
       "roots": [
         { "strong": "H2580", "match": ["favor"] },
@@ -1057,7 +1057,7 @@
       "id": "salvation",
       "name": "Salvation",
       "group": "promises",
-      "blurb": "The LORD is my light and my salvation; you are to give him the name Jesus, because he will save his people.",
+      "blurb": "The LORD is my light and my salvation; you are to give him the name Jesus, because he will save his people. The Greek word to save also means to heal or make well (Luke 17:19).",
       "key_verses": ["Psalm 27:1", "Exodus 15:2", "Matthew 1:21"],
       "roots": [
         { "strong": "H3467", "match": ["save"] },
@@ -1077,7 +1077,7 @@
       "blurb": "Shalom: the LORD give you peace, the Prince of Peace, peace I leave with you.",
       "key_verses": ["Numbers 6:26", "Isaiah 9:6", "John 14:27"],
       "roots": [
-        { "strong": "H7965", "match": ["peace"] },
+        { "strong": "H7965", "match": ["peace"], "exclude": ["H7965J", "H7965K", "H7965L"] },
         { "strong": "H8001", "match": ["peace"] },
         { "strong": "G1515", "match": ["peace"] },
         { "strong": "G1514", "match": ["peace"] },
@@ -1105,7 +1105,7 @@
       "id": "joy",
       "name": "Joy",
       "group": "promises",
-      "blurb": "You will fill me with joy in your presence, good news of great joy, rejoice in the Lord always.",
+      "blurb": "You will fill me with joy in your presence, good news of great joy, rejoice in the Lord always. The Greek word to rejoice is also the everyday greeting (Luke 1:28).",
       "key_verses": ["Psalm 16:11", "Luke 2:10", "Philippians 4:4"],
       "roots": [
         { "strong": "H8055", "match": ["rejoice"] },
@@ -1166,7 +1166,7 @@
       "roots": [
         { "strong": "H6944G", "match": ["holiness"] },
         { "strong": "H6918", "match": ["holy"] },
-        { "strong": "H6942", "match": ["consecrat"] },
+        { "strong": "H6942", "match": ["consecrat"], "exclude": ["H6942I", "H6942J"] },
         { "strong": "G0040", "match": ["holy"] },
         { "strong": "G0037", "match": ["sanctify"] },
         { "strong": "G0038", "match": ["holiness"] }
@@ -1192,7 +1192,7 @@
       "id": "justice",
       "name": "Justice and judgment",
       "group": "promises",
-      "blurb": "Will not the Judge of all the earth do what is right? Let justice roll on like a river.",
+      "blurb": "Will not the Judge of all the earth do what is right? Let justice roll on like a river. The Hebrew for justice is also the word for ordinances, as in statutes and ordinances (Deuteronomy 4:1).",
       "key_verses": ["Genesis 18:25", "Amos 5:24"],
       "roots": [
         { "strong": "H4941", "match": ["justice"], "exclude": ["H4941I", "H4941J"] },
@@ -1234,7 +1234,7 @@
       "id": "blessing",
       "name": "Blessing",
       "group": "promises",
-      "blurb": "All nations blessed in Abraham, the LORD bless you and keep you, blessed are the poor in spirit.",
+      "blurb": "All nations blessed in Abraham, the LORD bless you and keep you, blessed are the poor in spirit. The Hebrew word is also used for greeting, and in a few verses it stands for cursing God (Job 2:9).",
       "key_verses": ["Genesis 12:3", "Numbers 6:24", "Matthew 5:3"],
       "roots": [
         { "strong": "H1288", "match": ["bless"] },
@@ -1294,15 +1294,14 @@
       "roots": [
         { "strong": "H2319", "match": ["new"] },
         { "strong": "H2318", "match": ["renew"] },
-        { "strong": "G2537", "match": ["new"] },
-        { "strong": "G3501", "match": ["new"] }
+        { "strong": "G2537", "match": ["new"] }
       ]
     },
     {
       "id": "wisdom",
       "name": "Wisdom",
       "group": "promises",
-      "blurb": "The fear of the LORD is the beginning of wisdom; Christ the wisdom of God.",
+      "blurb": "The fear of the LORD is the beginning of wisdom; Christ the wisdom of God. The Hebrew words also mean skill in a craft, as in the tabernacle craftsmen (Exodus 31:6).",
       "key_verses": ["Proverbs 9:10", "1 Corinthians 1:24"],
       "roots": [
         { "strong": "H2451", "match": ["wisdom"] },
@@ -1443,7 +1442,7 @@
       "id": "stranger",
       "name": "Strangers and foreigners",
       "group": "people",
-      "blurb": "You were foreigners in Egypt; Ruth the foreigner; no longer strangers and foreigners.",
+      "blurb": "You were foreigners in Egypt; Ruth the foreigner; no longer strangers and foreigners. In Proverbs the same word names the adulteress (Proverbs 6:24).",
       "key_verses": ["Exodus 22:21", "Ruth 2:10", "Ephesians 2:19"],
       "roots": [
         { "strong": "H1616", "match": ["sojourner"] },
@@ -1521,7 +1520,7 @@
       "id": "neighbor",
       "name": "Neighbors and friends",
       "group": "people",
-      "blurb": "Love your neighbor as yourself; who is my neighbor? You are my friends.",
+      "blurb": "Love your neighbor as yourself; who is my neighbor? You are my friends. In Hebrew, each to his neighbor is also the ordinary way to say one another (Genesis 11:3).",
       "key_verses": ["Leviticus 19:18", "Luke 10:29", "John 15:14"],
       "roots": [
         { "strong": "H7453", "match": ["neighbor"] },
@@ -1547,7 +1546,7 @@
       "id": "remnant",
       "name": "Remnant",
       "group": "people",
-      "blurb": "A remnant will return; a remnant chosen by grace.",
+      "blurb": "A remnant will return; a remnant chosen by grace. One Hebrew word for remnant also means simply the rest, as in the rest of the acts of Solomon (2 Chronicles 9:29).",
       "key_verses": ["Isaiah 10:21", "Romans 11:5"],
       "roots": [
         { "strong": "H7605", "match": ["remnant"] },
@@ -1585,7 +1584,7 @@
       "id": "remember",
       "name": "Remember",
       "group": "acts",
-      "blurb": "God remembered Noah, remember the Sabbath, Jesus, remember me when you come into your kingdom.",
+      "blurb": "God remembered Noah, remember the Sabbath, Jesus, remember me when you come into your kingdom. The same verb gives the king’s recorder (2 Samuel 8:16) and is used for invoking or mentioning a name (Exodus 23:13).",
       "key_verses": ["Genesis 8:1", "Exodus 20:8", "Luke 23:42"],
       "roots": [
         { "strong": "H2142", "match": ["remember"] },
@@ -1677,7 +1676,7 @@
       "id": "repent",
       "name": "Turning back",
       "group": "worship",
-      "blurb": "Repent and live; let the wicked return to the LORD; repent, for the kingdom of heaven is near.",
+      "blurb": "Repent and live; let the wicked return to the LORD; repent, for the kingdom of heaven is near. The same word is used when God says he will not revoke his judgment (Amos 1:3).",
       "key_verses": ["Ezekiel 18:32", "Isaiah 55:7", "Matthew 4:17"],
       "roots": [
         { "strong": "H7725O", "match": ["repent"] },
@@ -1689,7 +1688,7 @@
       "id": "prayer",
       "name": "Prayer",
       "group": "worship",
-      "blurb": "Hannah’s prayer, Solomon’s prayer, a house of prayer, teach us to pray.",
+      "blurb": "Hannah’s prayer, Solomon’s prayer, a house of prayer, teach us to pray. One Greek word for pray is also the everyday ‘I beg you’ (Acts 21:39).",
       "key_verses": ["1 Samuel 2:1", "Isaiah 56:7", "Luke 11:1"],
       "roots": [
         { "strong": "H6419", "match": ["pray"] },
@@ -1704,7 +1703,7 @@
       "id": "praise",
       "name": "Praise and thanks",
       "group": "worship",
-      "blurb": "Give thanks to the LORD for he is good; praise the LORD; give thanks in every circumstance.",
+      "blurb": "Give thanks to the LORD for he is good; praise the LORD; give thanks in every circumstance. The Hebrew word for giving thanks is also the word for confessing sin (Leviticus 16:21, Psalm 32:5).",
       "key_verses": ["Psalm 136:1", "Psalm 150:1", "1 Thessalonians 5:18"],
       "roots": [
         { "strong": "H1984B", "match": ["praise"] },
@@ -1760,7 +1759,7 @@
       "id": "obey",
       "name": "Listening and obeying",
       "group": "worship",
-      "blurb": "The Hebrew for obey is to hear: obedience is better than sacrifice; he learned obedience from what he suffered.",
+      "blurb": "The Hebrew for obey is to hear, and to keep: obedience is better than sacrifice; he learned obedience from what he suffered.",
       "key_verses": ["Genesis 22:18", "1 Samuel 15:22", "Hebrews 5:8"],
       "roots": [
         { "strong": "H8085H", "match": ["obey"] },
@@ -1772,7 +1771,7 @@
     {
       "id": "weeping",
       "name": "Tears and mourning",
-      "group": "worship",
+      "group": "struggle",
       "blurb": "Those who sow in tears, Jesus wept, he will wipe away every tear.",
       "key_verses": ["Psalm 126:5", "John 11:35", "Revelation 21:4"],
       "roots": [
@@ -1906,7 +1905,7 @@
       "id": "sin",
       "name": "Sin",
       "group": "struggle",
-      "blurb": "Sin crouching at the door, transgressions and iniquities, the Lamb who takes away the sin of the world.",
+      "blurb": "Sin crouching at the door, transgressions and iniquities, the Lamb who takes away the sin of the world. The Hebrew verb also means to miss the mark (Judges 20:16) and, in another form, to purify (Numbers 19:12).",
       "key_verses": ["Genesis 4:7", "Isaiah 53:5", "John 1:29"],
       "roots": [
         { "strong": "H2398", "match": ["sin"] },
@@ -1936,9 +1935,9 @@
     },
     {
       "id": "grave",
-      "name": "The grave",
+      "name": "The grave and hell",
       "group": "struggle",
-      "blurb": "Sheol in Hebrew, Hades and Gehenna in Greek: you will not abandon my soul to Sheol.",
+      "blurb": "Sheol in Hebrew and Hades in Greek are the place of the dead: you will not abandon my soul to Sheol. Gehenna, translated hell, is the place of judgment (Matthew 10:28).",
       "key_verses": ["Psalm 16:10", "Acts 2:27", "Matthew 10:28"],
       "roots": [
         { "strong": "H7585", "match": ["sheol"] },
@@ -1966,7 +1965,7 @@
       "id": "pride",
       "name": "Pride and humility",
       "group": "struggle",
-      "blurb": "Pride goes before destruction; he humbled himself; God opposes the proud.",
+      "blurb": "Pride goes before destruction; he humbled himself; God opposes the proud. The Hebrew words for pride also mean majesty, even God’s (Isaiah 2:10), and the thickets of the Jordan (Jeremiah 12:5); the word for humbling oneself also means subduing an enemy (Judges 3:30).",
       "key_verses": ["Proverbs 16:18", "Philippians 2:8", "James 4:6"],
       "roots": [
         { "strong": "H1347", "match": ["pride"] },
@@ -1984,7 +1983,7 @@
       "id": "satan",
       "name": "Satan",
       "group": "struggle",
-      "blurb": "The Hebrew satan means adversary: human enemies, the angel who stood in Balaam’s way, the accuser in Job; then the tempter and the devil defeated.",
+      "blurb": "The Hebrew satan means adversary: human enemies, the angel who stood in Balaam’s way, the accuser in Job; then the tempter and the devil defeated. The Greek word for devil also means slanderer (1 Timothy 3:11).",
       "key_verses": ["Job 1:6", "Matthew 4:10", "Revelation 20:2"],
       "roots": [
         { "strong": "H7854", "match": ["satan"], "capitalized": true },
@@ -1996,7 +1995,7 @@
       "id": "unfaithful",
       "name": "Unfaithfulness",
       "group": "struggle",
-      "blurb": "Unfaithfulness in marriage as the prophets’ picture of turning from God, in Hosea, Ezekiel and Revelation.",
+      "blurb": "Adultery, prostitution and breaking faith with God, as in Achan’s sin (Joshua 7:1); the prophets make unfaithfulness in marriage their picture of turning from God, in Hosea, Ezekiel and Revelation.",
       "key_verses": ["Hosea 1:2", "Ezekiel 16:15", "Revelation 17:2"],
       "roots": [
         { "strong": "H5003", "match": ["adultery"] },
@@ -2055,7 +2054,7 @@
       "id": "heaven",
       "name": "Heaven",
       "group": "times",
-      "blurb": "The heavens and the earth, the heavens declare the glory of God, our Father in heaven, a new heaven.",
+      "blurb": "The heavens and the earth, the heavens declare the glory of God, our Father in heaven, a new heaven. The same words mean the sky, as in the birds of the air (Genesis 1:26).",
       "key_verses": ["Genesis 1:1", "Psalm 19:1", "Matthew 6:9"],
       "roots": [
         { "strong": "H8064", "match": ["heaven"] },
@@ -2145,9 +2144,9 @@
       "name": "Seven",
       "group": "times",
       "level": "study",
-      "blurb": "The seventh day, seven times, seventy weeks, seven lampstands and seven seals. A seven inside a larger count (2,172) is left out.",
+      "blurb": "The seventh day, seven times, seventy weeks, seven lampstands and seven seals. A seven inside a count of hundreds or thousands (2,172) is left out; smaller compounds such as seventeen are kept.",
       "key_verses": ["Genesis 2:2", "Daniel 9:24", "Revelation 5:1"],
-      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G5507", "G3461"],
+      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G1250", "G5507", "G5505", "G3461"],
       "roots": [
         { "strong": "H7651", "match": ["seven"] },
         { "strong": "H7637", "match": ["seventh"] },
@@ -2164,9 +2163,9 @@
       "name": "Forty",
       "group": "times",
       "level": "study",
-      "blurb": "Forty days of rain, forty years in the wilderness, forty days of fasting and testing. A forty inside a larger count (46,500) is left out.",
+      "blurb": "Forty days of rain, forty years in the wilderness, forty days of fasting and testing. A forty inside a count of hundreds or thousands (46,500) is left out; smaller compounds such as forty-two are kept.",
       "key_verses": ["Genesis 7:4", "Numbers 14:33", "Matthew 4:2"],
-      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G5507", "G3461"],
+      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G1250", "G5507", "G5505", "G3461"],
       "roots": [
         { "strong": "H0705", "match": ["forty"] },
         { "strong": "G5062", "match": ["forty"] }

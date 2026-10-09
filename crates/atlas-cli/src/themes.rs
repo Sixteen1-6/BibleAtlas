@@ -211,6 +211,23 @@ fn single_verse(r: &str, vz: &Versification) -> Option<u32> {
     (a == b).then_some(a)
 }
 
+/// The verse references a blurb names in parentheses, such as "(Ruth 3:9)" or
+/// "(Leviticus 16:21, Psalm 32:5)". A parenthesis without a chapter:verse,
+/// such as "(2,172)", names none.
+fn blurb_refs(blurb: &str) -> Vec<&str> {
+    let mut out = Vec::new();
+    let mut rest = blurb;
+    while let Some(i) = rest.find('(') {
+        let Some(len) = rest[i..].find(')') else { break };
+        let inner = &rest[i + 1..i + len];
+        if inner.as_bytes().windows(3).any(|w| w[0].is_ascii_digit() && w[1] == b':' && w[2].is_ascii_digit()) {
+            out.extend(inner.split([',', ';']).map(str::trim));
+        }
+        rest = &rest[i + len + 1..];
+    }
+    out
+}
+
 pub fn build(root: &Path, s: &Sources) -> Result<Built, String> {
     let path = root.join(CONFIG);
     let file: ThemeFile = serde_json::from_str(&fs::read_to_string(&path).map_err(|e| format!("reading {CONFIG}: {e}"))?)
@@ -317,6 +334,13 @@ pub fn build(root: &Path, s: &Sources) -> Result<Built, String> {
                 return Err(format!("theme {}: key verse {r} is listed twice", t.id));
             }
             key.push(v);
+        }
+        // A verse the blurb points to is one the theme lights, like a key verse.
+        for r in blurb_refs(&t.blurb) {
+            let v = single_verse(r, s.vz).ok_or_else(|| format!("theme {}: the blurb names {r:?}, which is not a single verse", t.id))?;
+            if set.binary_search(&v).is_err() {
+                return Err(format!("theme {}: the blurb names {r}, which does not contain one of the theme's words", t.id));
+            }
         }
 
         let tokens: u32 = idxs.iter().map(|&i| s.counts[i as usize]).sum();
@@ -670,9 +694,12 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("life", &["Gen 5:12"]),
         ("raised", &["Num 7:1"]),
         ("gather", &["Luke 12:18"]),
-        ("seven", &["Ezra 2:3", "Num 7:19", "Num 31:37", "Ezra 2:65"]),
+        ("seven", &["Ezra 2:3", "Num 7:19", "Num 31:37", "Ezra 2:65", "Rev 11:13", "Acts 27:37"]),
         ("forty", &["Num 1:21"]),
         ("word", &["Gen 18:14"]),
+        ("new", &["1 Tim 5:1"]),
+        ("peace", &["Ps 41:9", "1 Sam 10:4"]),
+        ("holy", &["Jer 6:4", "Mic 3:5"]),
     ] {
         for &verse in verses {
             let v = d.resolve(verse)?.0;
@@ -715,6 +742,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     for (t, set) in themes.iter().zip(&sets) {
         let ok = (KEY_MIN..=KEY_MAX).contains(&t.key_verses.len()) && t.key_verses.iter().all(|v| set.binary_search(v).is_ok());
         r.push((ok, format!("theme {} lights its {} key verses", t.id, t.key_verses.len())));
+        for at in blurb_refs(&t.blurb) {
+            let ok = single_verse(at, &d.vz).is_some_and(|v| set.binary_search(&v).is_ok());
+            r.push((ok, format!("theme {} lights {at}, which its blurb names", t.id)));
+        }
     }
 
     // Per verse, the themes its own words carry.
@@ -856,6 +887,13 @@ mod tests {
         let got: Vec<(usize, Vec<u32>)> = links.through(0).into_iter().map(|t| (t.theme, t.via.iter().map(|x| x.0).collect())).collect();
         assert_eq!(got, vec![(0, vec![1, 2]), (1, vec![3])]);
         assert!(links.through(4).is_empty());
+    }
+
+    #[test]
+    fn finds_blurb_refs() {
+        assert_eq!(blurb_refs("The corner of a garment (Ruth 3:9)."), ["Ruth 3:9"]);
+        assert_eq!(blurb_refs("Confessing sin (Leviticus 16:21, Psalm 32:5); a count (2,172)."), ["Leviticus 16:21", "Psalm 32:5"]);
+        assert!(blurb_refs("(the Greek word also means week) and (46,500)").is_empty());
     }
 
     #[test]
