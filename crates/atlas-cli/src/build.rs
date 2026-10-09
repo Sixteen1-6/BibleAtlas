@@ -15,6 +15,8 @@
 //!   the BSB, the roots and the cross-references (drafts only with ATLAS_LAYER_DRAFTS=1)
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
 //! - `lex/<n>.json`: lexicon definitions, 500 roots per shard, as safe segments
+//! - `shelf.json`, `dict/<id>/*.json`: the Sources shelf and the two Bible
+//!   dictionaries the app shows in full (see `shelf.rs`)
 
 use crate::align;
 use crate::english;
@@ -250,7 +252,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let layers_json = layers::build(root, &layer_sources)?;
 
     // --- Write outputs -------------------------------------------------------------
-    for sub in ["text", "lex"] {
+    for sub in ["text", "lex", "dict"] {
         let d = out.join(sub);
         if d.exists() {
             fs::remove_dir_all(&d).map_err(|e| format!("clearing {}: {e}", d.display()))?;
@@ -300,6 +302,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
+    for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     for (rel, bytes) in crate::ask::build(root, &inputs, &vz, &bsb.text, &degree)? { write(out, &rel, &bytes, &mut files)?; }
 
@@ -342,6 +345,9 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
 
     let empty_verses = words.iter().filter(|w| w.is_empty()).count();
     for (rel, bytes) in crate::eras::build(root, &inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
+    let dictionaries = crate::shelf::dictionaries(root, &inputs, &vz)?;
+    for (rel, bytes) in crate::shelf::build(root, &inputs, &vz, &dictionaries)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_dictionary::build(&dictionaries, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (s, chunk) in lemmas.chunks(LEX_SHARD).enumerate() {
         let rows: Vec<Value> = chunk
             .iter()

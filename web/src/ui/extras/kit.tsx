@@ -6,7 +6,6 @@ import type { ComponentChildren } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, label, locate, rangeLabel, verseIndex } from '../../data/atlas';
 import { type VerseRow, getVerse } from '../../data/text';
-import { deepen } from '../../depth';
 import * as S from '../../state';
 import { OrigLine } from '../common';
 import { levelAtLeast } from './level';
@@ -151,7 +150,7 @@ export function SourceNote({ children }: { children: ComponentChildren }) {
   return (
     <p class="xt-source">
       {children}{' '}
-      <button type="button" onClick={showSources}>
+      <button type="button" onClick={() => showSources()}>
         All sources
       </button>
     </p>
@@ -165,10 +164,10 @@ export function openWord(root: number, verse?: VerseRef, pos?: number): void {
   S.openRoot(root, verse, pos);
 }
 
-/** Open the Sources screen (it lives at Deep), closing the panel. */
-export function showSources(): void {
+/** Open the Sources shelf at the reader's level, closing the panel: on a
+ * work's card when `work` (its config/shelf.json id) is given, or reading a
+ * dictionary entry when `term` is given too. */
+export function showSources(work?: string, term?: string): void {
   closeExtra('quiet');
-  deepen('deep');
-  S.tab.value = 'sources';
-  S.mobilePane.value = 'study';
+  S.openSources(work, term);
 }

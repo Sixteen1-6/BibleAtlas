@@ -72,8 +72,8 @@ const KINDS = new Set(['wordplay', 'name meaning']);
 const LINE_WORDS = 3;
 /** Glosses that start with a capital but name God, not a person or place. */
 const GOD = /^(the )?(lord|god)\b|^yhwh|^most high|^almighty/i;
-/** A gloss that is a name: "Jacob", "No Mercy". */
-const NAME = /^[A-Z][a-z]+(?: [A-Z][a-z]+)*$/;
+/** A gloss that is a name: "Jacob", "No Mercy", "Beth-le-aphrah". */
+const NAME = /^[A-Z][a-z]+(?:(?: [A-Z]|-[A-Za-z])[a-z]*)*$/;
 
 export function chapterKey(c: ChapterRef): string {
   return `${c.book}.${c.chapter}`;
@@ -94,17 +94,21 @@ export function say(a: Atlas, root: number): string {
     // The divine name as the verse rows give it, not the Masoretic reading.
     t = t.replace(/ye\.ho\.v[ai]h/g, 'Yahweh');
     // A Hebrew syllable starts with a consonant, so a later syllable that
-    // starts with a vowel began with aleph or ayin: mark it. A last "ach"
-    // is the vowel slipped in before a final het (no.ach), not a letter.
-    t = t
-      .split(/([ -])/)
-      .map((w) =>
-        w
-          .split('.')
-          .map((syl, i, all) => (i > 0 && /^[aeiou]/.test(syl) && !(i === all.length - 1 && syl === 'ach') ? `’${syl}` : syl))
-          .join(''),
-      )
-      .join('');
+    // starts with a vowel began with aleph or ayin: mark it, if the word has
+    // one after its first letter (the dictionary splits Mareshah, which has
+    // none, as "mar.e.shah"). A last "ach" is the vowel slipped in before a
+    // final het (no.ach), not a letter.
+    if (/[אע]/.test((L.word[root] ?? '').slice(1))) {
+      t = t
+        .split(/([ -])/)
+        .map((w) =>
+          w
+            .split('.')
+            .map((syl, i, all) => (i > 0 && /^[aeiou]/.test(syl) && !(i === all.length - 1 && syl === 'ach') ? `’${syl}` : syl))
+            .join(''),
+        )
+        .join('');
+    }
   }
   t = t.replace(/\./g, '');
   return nameOf(a, root) ? t.charAt(0).toUpperCase() + t.slice(1) : t;
@@ -194,8 +198,9 @@ export async function load(a: Atlas): Promise<Data> {
   }
   const lines = new Map<VerseRef, NoteLine>();
   for (const [v, ps] of plays) {
-    // The play with the most of its words in this verse leads.
-    ps.sort((x, y) => fit(a, y, v) - fit(a, x, v));
+    // The play with the most of its words in this verse leads; then a play
+    // from this verse's own passage.
+    ps.sort((x, y) => fit(a, y, v) - fit(a, x, v) || Number(y.passage.v === v) - Number(x.passage.v === v));
     const first = lineFor(a, ps[0], v);
     lines.set(v, ps.length > 1 ? `${first}, and ${ps.length - 1} more` : first);
   }

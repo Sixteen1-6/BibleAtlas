@@ -288,7 +288,7 @@ export function PairCard({ a, i, j, hasRibbon, titleId, onBook, ...c }: Common &
               : `Only the ${TOP_PAIRS} strongest book pairs get a ribbon; this pair is drawn as a thin thread while its card is open.`}
           </p>
         </details>
-        <Provenance>Links and votes: OpenBible.info cross-references (CC BY 4.0).</Provenance>
+        <Provenance work="openbible-xref">Links and votes: OpenBible.info cross-references (CC BY 4.0).</Provenance>
       </div>
     </>
   );
@@ -384,7 +384,7 @@ export function BookCard({
             most with” and the share above count the links between two books in both directions.
           </p>
         </details>
-        <Provenance>Links: OpenBible.info cross-references (CC BY 4.0).</Provenance>
+        <Provenance work="openbible-xref">Links: OpenBible.info cross-references (CC BY 4.0).</Provenance>
       </div>
     </>
   );

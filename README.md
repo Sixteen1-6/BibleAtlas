@@ -113,13 +113,16 @@ Every push to `main` builds the data, the engine and the site and publishes it t
 sources.json (pinned commits)
       |  atlas fetch: sparse git checkout, SHA-256 recorded in data/raw/manifest.lock.json
       v
-data/raw/  OpenBible.info cross-references, BSB, STEPBible TAHOT, TAGNT, TBESH, TBESG, Clear Bible BSB alignments
+data/raw/  OpenBible.info cross-references, BSB, STEPBible TAHOT, TAGNT, TBESH, TBESG, Clear Bible BSB alignments,
+           Easton's and Smith's Bible Dictionaries (CCEL's editions, kept in NEUU's Bible Dictionary Dataset), and the other sources in sources.json
       |  atlas build (Rust, about 2.5 s): verifies hashes, parses, maps everything to one verse numbering
       v
 web/public/data/
       atlas.bin        binary container: graph, PageRank, word index, search index (8.4 MB)
       text/<Book>.json per-book English and original words, loaded on demand
       lex/<n>.json     lexicon definitions, loaded on demand
+      shelf.json       the Sources shelf: every work the app uses or cites, its license, where to read or find it
+      dict/<id>/       Easton's and Smith's Bible Dictionaries, one file per letter, loaded on demand
       meta.json        counts, sources, commits, checksums of every file
       |  atlas verify: 192 checks
       v

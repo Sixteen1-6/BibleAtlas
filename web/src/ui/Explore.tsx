@@ -376,7 +376,7 @@ export function Paths({ a }: { a: Atlas }) {
           </ol>
         </>
       )}
-      <Provenance>
+      <Provenance work="openbible-xref">
         Roads found by the app’s own engine in OpenBible.info’s reader-voted cross-references{r.took ? `, in ${r.took.toFixed(1)} ms` : ''}. Each road after the first avoids every verse the
         earlier roads pass through.
       </Provenance>

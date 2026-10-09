@@ -67,6 +67,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     for (ok, what) in crate::extra_notes::verify(&d)? { r.check(ok, what); }
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
+    for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;
@@ -131,6 +132,8 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(empty == 0, format!("{empty} verses have no original-language words"));
     for (ok, what) in crate::extra_parallels::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_aramaic::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::shelf::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_dictionary::verify(&d)? { r.check(ok, what); }
     let elohim = d.lemma_index("H0430G").ok_or("no root H0430G (Elohim)")?;
     r.check(counts[elohim] > 2_000, format!("אֱלֹהִים occurs {} times", counts[elohim]));
     let (src, _) = d.resolve("Gen 1:1")?;

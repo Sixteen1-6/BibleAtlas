@@ -166,7 +166,7 @@ export function Connections({ a }: { a: Atlas }) {
       )}
       <GoDeeper to="study" toTop>See the {hebrew ? 'Hebrew' : 'Greek'} behind this verse</GoDeeper>
       {study && <GoDeeper to="deep" toTop>Go deep: weak links, the numbers behind them and the sources</GoDeeper>}
-      <Provenance>Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared within one language; for the strongest Old-to-New Testament links, a word bridge shows where the Septuagint (the Greek Old Testament) uses the New Testament verse’s Greek word for a Hebrew word of the Old.</Provenance>
+      <Provenance work="openbible-xref">Links and vote counts: OpenBible.info cross-references (CC BY 4.0). Shared words: STEPBible tagged Hebrew and Greek. Words are compared within one language; for the strongest Old-to-New Testament links, a word bridge shows where the Septuagint (the Greek Old Testament) uses the New Testament verse’s Greek word for a Hebrew word of the Old.</Provenance>
     </div>
   );
 }
