@@ -14,6 +14,7 @@
     {"id": "languages", "name": "Hebrew, Aramaic and Greek"},
     {"id": "links", "name": "Links between verses"},
     {"id": "dictionaries", "name": "Bible dictionaries and handbooks"},
+    {"id": "notes", "name": "Study notes"},
     {"id": "word-books", "name": "Hebrew and Greek word books"},
     {"id": "places", "name": "Places and maps"},
     {"id": "ancient", "name": "Other ancient writings"},
@@ -34,6 +35,33 @@
       "read": {"app": "bible"},
       "citation": "The Holy Bible, Berean Standard Bible (BSB), produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com and the Berean Bible Translation Committee (2016; dedicated to the public domain 30 April 2023), https://berean.bible/. Text via scrollmapper/bible_databases; footnotes and section headings via the USFM edition in usfm-bible/examples.bsb.",
       "cites": ["Berean Standard Bible footnote"]
+    },
+    {
+      "id": "kjv",
+      "group": "bible",
+      "plain": "English Bible, 1611 (1769 wording)",
+      "title": "King James Version (KJV)",
+      "by": "Translators appointed under King James I; the 1769 Oxford text edited by Benjamin Blayney",
+      "when": "1611; this wording 1769",
+      "what": "The best-known older English Bible. The app never shows it: search uses its wording so a verse remembered in King James words is still found.",
+      "license": "public-domain",
+      "licenseNote": "Public domain in most of the world; in the United Kingdom the Crown's rights in the KJV are managed by Cambridge University Press.",
+      "datasets": ["kjv"],
+      "find": {"url": "https://github.com/scrollmapper/bible_databases/tree/e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c", "label": "the data files (GitHub)"},
+      "citation": "The Holy Bible, King James Version (1611), Oxford standard text of 1769 (ed. Benjamin Blayney). Text via scrollmapper/bible_databases (public domain)."
+    },
+    {
+      "id": "asv",
+      "group": "bible",
+      "plain": "English Bible, 1901",
+      "title": "American Standard Version (ASV)",
+      "by": "The American committee of the English Revised Version",
+      "when": "1901",
+      "what": "An American revision of the King James Bible. The app never shows it: search uses its wording so a verse remembered in words close to the ASV is still found.",
+      "license": "public-domain",
+      "datasets": ["asv"],
+      "find": {"url": "https://github.com/scrollmapper/bible_databases/tree/e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c", "label": "the data files (GitHub)"},
+      "citation": "The Holy Bible, American Standard Version (New York: Thomas Nelson & Sons, 1901). Text via scrollmapper/bible_databases (public domain)."
     },
     {
       "id": "tahot",
@@ -92,6 +120,20 @@
       "citation": "Clear Bible / Biblica, Alignments: BSB manual alignments WLCM-BSB and BGNT-BSB, github.com/Clear-Bible/Alignments (CC BY 4.0). This copy: May 2026."
     },
     {
+      "id": "macula-hebrew",
+      "group": "languages",
+      "plain": "Hebrew words with their Greek match",
+      "title": "MACULA Hebrew Linguistic Datasets",
+      "by": "Clear Bible (Biblica)",
+      "when": "kept up to date",
+      "what": "Word-by-word data on the Hebrew Old Testament. The app uses one part: for each Hebrew word, the Greek word the Septuagint (the ancient Greek Old Testament) uses there.",
+      "license": "cc-by-4.0",
+      "licenseNote": "The data is CC BY 4.0 (Biblica); the Hebrew text it annotates, the Westminster Leningrad Codex, is public domain.",
+      "datasets": ["macula-hebrew"],
+      "find": {"url": "https://github.com/Clear-Bible/macula-hebrew/tree/47db250bd55d0d8577f2a94fba114ef16c35b23c", "label": "the data files (GitHub)"},
+      "citation": "MACULA Hebrew Linguistic Datasets, (C) Biblica, Inc., CC BY 4.0, github.com/Clear-Bible/macula-hebrew."
+    },
+    {
       "id": "openbible-xref",
       "group": "links",
       "plain": "Cross-reference list, 2024",
@@ -131,6 +173,34 @@
       "datasets": ["smith"],
       "read": {"app": "dictionary"},
       "citation": "William Smith, Smith's Bible Dictionary, the Christian Classics Ethereal Library's edition, dated 1884: the American edition revised and edited by F. N. and M. A. Peloubet (Philadelphia: Porter & Coates, 1884). First published as A Dictionary of the Bible (London: John Murray, 1860–1863). Text from the Christian Classics Ethereal Library's transcription, via CCEL Paragraphs by Jon Craton (CC BY-SA 4.0) and the Bible Dictionary Dataset, Copyright (c) 2026 NEUU, github.com/neuu-org/bible-dictionary-dataset (CC BY 4.0)."
+    },
+    {
+      "id": "naves",
+      "group": "dictionaries",
+      "plain": "Bible topic index, 1896",
+      "title": "Nave's Topical Bible",
+      "by": "Orville James Nave",
+      "when": "1896",
+      "what": "More than 20,000 subjects, each with the verses that speak of it. Ask the Bible uses it only as an index to gather verses; none of Nave's own words are shown.",
+      "license": "public-domain",
+      "licenseNote": "The table edition the app reads is CC BY 4.0 (Brady Stephenson, BibleData); Nave's book itself is public domain.",
+      "datasets": ["naves"],
+      "read": {"url": "https://ccel.org/ccel/nave/bible/bible", "label": "Christian Classics Ethereal Library"},
+      "citation": "Orville J. Nave, Nave's Topical Bible (Lincoln, Nebraska: Topical Bible Publishing Co., 1896–1897). Table edition: Brady Stephenson, BibleData, github.com/BradyStephenson/bible-data (CC BY 4.0)."
+    },
+    {
+      "id": "aquifer-osn",
+      "group": "notes",
+      "plain": "Study notes by Bible scholars, 2023",
+      "title": "Aquifer Open Study Notes",
+      "by": "Bible scholars at Tyndale House Publishers; plain-English adaptation by Mission Mutual",
+      "when": "2023; this adaptation 2026",
+      "what": "Short notes on almost every passage of the Bible, explaining people, places, words and background. They show one tap away from a verse, as these scholars' notes.",
+      "license": "cc-by-sa-4.0",
+      "licenseNote": "Aquifer Open Study Notes (C) 2026 Mission Mutual, an adaptation of Tyndale Open Study Notes (C) 2023 Tyndale House Publishers, both CC BY-SA 4.0.",
+      "datasets": ["aquifer-osn"],
+      "find": {"url": "https://github.com/BibleAquifer/AquiferOpenStudyNotes/tree/bbb3f86016cd20913f410a95af63d9f7ff9a71d6", "label": "the data files (GitHub)"},
+      "citation": "Aquifer Open Study Notes, (C) 2026 Mission Mutual, CC BY-SA 4.0, github.com/BibleAquifer/AquiferOpenStudyNotes; adapted from Tyndale Open Study Notes, (C) 2023 Tyndale House Publishers, CC BY-SA 4.0, https://tyndaleopenresources.com."
     },
     {
       "id": "tyndale-tbd",
@@ -235,10 +305,10 @@
       "title": "OpenBible.info Bible Geocoding Data",
       "by": "OpenBible.info",
       "when": "2021 (first made in 2007)",
-      "what": "Every place the Bible names that can be located, the modern sites proposed for it and how sure each one is, with the sources behind them.",
+      "what": "Every place the Bible names that can be located, the modern sites proposed for it and how sure each one is, with the sources behind them, and the shapes of regions such as Galilee and Edom.",
       "license": "cc-by-4.0",
       "licenseNote": "Coordinates the dataset takes from OpenStreetMap or Google are left out of the app.",
-      "datasets": ["openbible-geo"],
+      "datasets": ["openbible-geo", "openbible-shapes"],
       "read": {"url": "https://www.openbible.info/geo/", "label": "OpenBible.info"},
       "citation": "OpenBible.info, Bible Geocoding Data (2021), https://www.openbible.info/geo/, github.com/openbibleinfo/Bible-Geocoding-Data (CC BY 4.0)."
     },
