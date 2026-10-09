@@ -3,9 +3,11 @@
 // Simple: one plain sentence, the word as readers say it with its meaning,
 //   who says it, a plain note, the verse in the BSB, and a short answer to
 //   "why is the rest in Greek?" (or "why Aramaic here?" in the Old Testament).
-// Study: the word in Hebrew square letters, labelled by its language, beside
-//   the Greek letters the New Testament writer used; in the Old Testament, the
-//   verse in the original with its Hebrew and Aramaic marked.
+// Study: the word in Hebrew square letters, labelled by its language (and
+//   marked where the form is only a suggestion), beside the Greek letters of
+//   the Greek text (marked where the English follows other manuscripts); in
+//   the Old Testament, the verse in the original with its Hebrew and Aramaic
+//   marked.
 // Deep: the scholarly detail, how sure it is, the word studies of its roots,
 //   and the sources.
 
@@ -61,39 +63,67 @@ function what(e: Entry): string {
   return { saying: 'a saying', prayer: 'a prayer', word: 'a word', name: 'a name', place: 'a place name', title: 'a title' }[e.kind];
 }
 
+/** The kind of thing kept, without an article: "words", "name", "place name". */
+function nounOf(e: Entry): string {
+  if (e.kind === 'name') return 'name';
+  if (e.kind === 'place') return 'place name';
+  if (e.kind === 'title') return 'title';
+  return many(e) ? 'words' : 'word';
+}
+
+/** "said by" for a saying, prayer or word; "used by" for a name, place or title. */
+function verbOf(e: Entry): string {
+  return e.kind === 'name' || e.kind === 'place' || e.kind === 'title' ? 'used by' : 'said by';
+}
+
+/** Who says or uses it at this verse. */
+function speakerAt(e: Entry, verse: VerseRef): string {
+  return e.speaker[Math.max(0, e.verses.indexOf(verse))] ?? e.speaker[0] ?? '';
+}
+
 function entryLead(a: Atlas, verse: VerseRef, es: Entry[]): string {
   const kept = es.length > 1 ? `${NUMBER[es.length] ?? es.length} ${es.every((e) => e.jesus) ? 'of Jesus’ words' : 'words'}` : what(es[0]);
   return `The New Testament was written in Greek, but here ${writerOf(a, verse)} keeps the sound of ${kept}.`;
 }
 
-/** The short answer to the reader's question, in plain words. */
+/** The short answer to the reader's question, in plain words: why the Greek,
+ * and so why the app shows these words in Greek letters. */
 function why(a: Atlas, verse: VerseRef, es: Entry[]): { title: string; body: string } {
-  const lang: Language = es.every((e) => e.language === es[0].language) ? es[0].language : 'Aramaic or Hebrew';
   const osis = osisOf(a, verse);
   const writer = writerOf(a, verse);
   const gospel = GOSPELS.has(osis);
   const written = gospel ? `${cap(writer)}’s Gospel was written in Greek` : LETTERS_OF_PAUL.has(osis) ? 'Paul wrote this letter in Greek' : `${a.books[a.verseBook[verse]].name} was written in Greek`;
-  const world = 'the shared language of the wider Roman world';
+  const world = 'the shared language of the eastern Roman world';
+  const several = es.length > 1;
+  const noun = several ? `${NUMBER[es.length] ?? es.length} words` : nounOf(es[0]);
+  const plural = several || noun === 'words';
+  // The owner's question, answered outright.
+  const letters = `So the Greek text, and the Greek in this app, spell ${plural ? 'them' : 'it'} in Greek letters.`;
+  const lang: Language | null = es.every((e) => e.language === es[0].language) ? es[0].language : null;
   if (lang === 'Hebrew') {
-    const noun = es.length > 1 ? 'Hebrew words' : `a Hebrew ${es[0].kind === 'place' ? 'place name' : es[0].kind}`;
     return {
       title: 'Why Hebrew here?',
-      body: `${written}, ${world}. Hebrew is the language of most of the Old Testament, and here ${writer} kept the sound of ${noun}.`,
+      body: `${written}, ${world}. Hebrew is the language of most of the Old Testament, and here ${writer} kept the sound of ${plural ? `Hebrew ${noun}` : `a Hebrew ${noun}`}. ${letters}`,
     };
   }
-  const jesus = es.some((e) => e.jesus);
-  const opener = jesus
+  // "Jesus most likely taught in Aramaic" fits his words in the Gospels, not
+  // the risen Jesus' voice in Acts, nor a name or a place others use.
+  const teaching = gospel && es.some((e) => e.jesus);
+  const opener = teaching
     ? 'Jesus most likely taught in Aramaic, the language most people in Galilee spoke every day.'
     : 'In Jesus’ time many Jews in Galilee and Judea spoke Aramaic every day, alongside Hebrew and Greek.';
-  const record = gospel && jesus ? `${written}, ${world}, and the oldest record we have of his words is in Greek.` : `${written}, ${world}.`;
-  const sure = es.every((e) => e.certainty === 'widely agreed');
-  const kept =
-    lang === 'Aramaic'
-      ? sure
-        ? `Here ${writer} kept the sound of the Aramaic.`
-        : `Here ${writer} kept the sound of the word, which most read as Aramaic.`
-      : `Here ${writer} kept the sound of the original word, Aramaic or Hebrew: the two languages are close.`;
-  return { title: 'Why is the rest in Greek?', body: `${opener} ${record} ${kept}` };
+  const record = teaching ? `${written}, ${world}, and the oldest record we have of his words is in Greek.` : `${written}, ${world}.`;
+  let kept: string;
+  if (lang === null) {
+    // Matthew 5:22: Raca (Aramaic) and Gehenna (Aramaic or Hebrew), each named.
+    const each = es.map((e) => `${e.word} ${e.language === 'Aramaic or Hebrew' ? 'could be Aramaic or Hebrew' : `is ${e.language}`}`);
+    kept = `Here ${writer} kept the sound of ${noun}: ${each.join(', and ')}.`;
+  } else if (lang === 'Aramaic') {
+    kept = es.every((e) => e.certainty === 'widely agreed') ? `Here ${writer} kept the sound of the Aramaic ${noun}.` : `Here ${writer} kept the sound of the ${noun}, which most read as Aramaic.`;
+  } else {
+    kept = `Here ${writer} kept the sound of the original ${noun}, Aramaic or Hebrew: the two languages are close.`;
+  }
+  return { title: 'Why is the rest in Greek?', body: `${opener} ${record} ${kept} ${letters}` };
 }
 
 /** Text with verse names as links that take the reader there. */
@@ -142,17 +172,23 @@ function hebrewLang(l: Language): string {
 function Word({ a, e, verse, navigate }: { a: Atlas; e: Entry; verse: VerseRef; navigate: Go }) {
   const i = Math.max(0, e.verses.indexOf(verse));
   const bsb = e.bsb[i];
-  const translated = bsb.toLowerCase() !== e.word.toLowerCase();
+  // A translation ("hell") or a respelling ("Saul, Saul"): say what the English has.
+  const differs = bsb.toLowerCase() !== e.word.toLowerCase();
   return (
     <section class="x-aramaic-word" aria-label={e.word}>
       <p class="x-aramaic-say">
         {e.word}
-        {e.certainty === 'scholars differ' && <Unsure>scholars differ</Unsure>}
+        {e.certainty === 'scholars differ' && (
+          <>
+            {' '}
+            <Unsure>scholars differ</Unsure>
+          </>
+        )}
       </p>
       <p class="x-aramaic-means">{e.meaningFrom === 'verse' ? `“${e.meaning}”` : `Meaning: ${e.meaning}`}</p>
-      {translated && <p class="x-aramaic-meta">The BSB translates it “{bsb}”.</p>}
+      {differs && <p class="x-aramaic-meta">The English here has “{bsb}”.</p>}
       <p class="x-aramaic-meta">
-        {e.language} · said by {e.speaker}
+        {e.language} · {verbOf(e)} {speakerAt(e, verse)}
       </p>
       <p class="x-aramaic-note">
         <RichText a={a} text={e.note} navigate={navigate} />
@@ -161,24 +197,56 @@ function Word({ a, e, verse, navigate }: { a: Atlas; e: Entry; verse: VerseRef; 
   );
 }
 
-/** Study: the word in square letters beside the Greek letters the writer used. */
-function Scripts({ a, e, verse }: { a: Atlas; e: Entry; verse: VerseRef }) {
+/** Study: the word in square letters beside the Greek letters of the Greek
+ * text, each marked where it is uncertain. */
+function Scripts({ e, verse }: { e: Entry; verse: VerseRef }) {
   const i = Math.max(0, e.verses.indexOf(verse));
+  // null: the Greek shown is the main Greek text. Otherwise the English
+  // follows other manuscripts (Bethesda), and the main text reads `main`.
+  const main = e.mainReading[i] ?? null;
   return (
-    <div class="x-aramaic-scripts">
-      <figure class="x-aramaic-script">
-        <figcaption>{e.language}</figcaption>
-        <p class="he x-aramaic-sq" lang={hebrewLang(e.language)}>
-          {e.aramaic}
+    <>
+      <div class="x-aramaic-scripts">
+        <figure class="x-aramaic-script">
+          <figcaption>
+            {e.lettersCaption || e.language}
+            {!e.lettersCaption && e.certainty === 'scholars differ' && (
+              <>
+                {' '}
+                <Unsure>a suggested form</Unsure>
+              </>
+            )}
+          </figcaption>
+          <p class="he x-aramaic-sq" lang={hebrewLang(e.language)}>
+            {e.aramaic}
+          </p>
+        </figure>
+        <figure class="x-aramaic-script">
+          <figcaption>
+            {main === null ? (
+              'In the Greek text'
+            ) : (
+              <>
+                The spelling the English follows <Unsure>manuscripts differ</Unsure>
+              </>
+            )}
+          </figcaption>
+          <p class="gr x-aramaic-gk" lang="grc">
+            {e.greek[i]}
+          </p>
+        </figure>
+      </div>
+      {e.lettersNote && <p class="x-aramaic-hint">{e.lettersNote}</p>}
+      {main && (
+        <p class="x-aramaic-hint">
+          The main Greek text, shown under the verse, reads{' '}
+          <span class="gr" lang="grc">
+            {main}
+          </span>
+          .
         </p>
-      </figure>
-      <figure class="x-aramaic-script">
-        <figcaption>How {writerOf(a, verse)} wrote it in Greek letters</figcaption>
-        <p class="gr x-aramaic-gk" lang="grc">
-          {e.greek[i]}
-        </p>
-      </figure>
-    </div>
+      )}
+    </>
   );
 }
 
@@ -215,13 +283,9 @@ function EntryDeep({ a, data, deep, e, verse, row, navigate }: { a: Atlas; data:
       )}
       <Facts
         rows={[
-          [
-            'Language',
-            <>
-              {e.language}, <Sure c={e.certainty} />
-            </>,
-          ],
-          ['Said by', e.speaker],
+          ['Language', e.language],
+          ['How sure', <Sure c={e.certainty} />],
+          [cap(verbOf(e)), speakerAt(e, verse)],
           ['Kept in', <Joined>{places}</Joined>],
         ]}
       />
@@ -280,17 +344,20 @@ function EntriesPanel({ a, data, verse, entries, navigate }: { a: Atlas; data: D
   const rows = usePassage(a, verse);
   const w = why(a, verse, entries);
   const langs = new Set(entries.map((e) => e.language));
-  const original = langs.size === 1 ? `the ${entries[0].language}` : 'the original words';
+  const one = langs.size === 1 ? entries[0].language : null;
+  const original = one && one !== 'Aramaic or Hebrew' ? `the ${one}` : 'the original words';
   return (
     <>
       <Lead>{entryLead(a, verse, entries)}</Lead>
       {entries.map((e) => (
         <div key={e.id} class="x-aramaic-entry">
           <Word a={a} e={e} verse={verse} navigate={navigate} />
-          {study && <Scripts a={a} e={e} verse={verse} />}
+          {study && <Scripts e={e} verse={verse} />}
         </div>
       ))}
-      {study && <p class="x-aramaic-hint">The Greek letters are what the New Testament has. The square letters show how scholars write the word in its own language.</p>}
+      {study && (
+        <p class="x-aramaic-hint">The Greek letters are what the New Testament has. The square letters are how scholars write the word in its own language, marked where that is only a suggestion.</p>
+      )}
       <Passage a={a} from={verse} navigate={navigate} />
       <h3>{w.title}</h3>
       <p>{w.body}</p>
@@ -300,7 +367,7 @@ function EntriesPanel({ a, data, verse, entries, navigate }: { a: Atlas; data: D
         (file === undefined ? <p class="xt-wait">…</p> : file && entries.map((e) => <EntryDeep key={e.id} a={a} data={data} deep={file} e={e} verse={verse} row={rows?.[0]} navigate={navigate} />))}
       <SourceNote>
         {deep
-          ? 'Words checked against the Berean Standard Bible (public domain) and STEPBible’s TAGNT, TAHOT, TBESG and TBESH (CC BY 4.0); the scholarly works are cited above.'
+          ? 'Words checked against the Berean Standard Bible (public domain) and STEPBible’s Greek text, TAGNT (CC BY 4.0); their languages rest on STEPBible’s lexicon TBESG (CC BY 4.0) and the scholarly works cited above.'
           : 'From the Berean Standard Bible (public domain) and STEPBible’s Greek and Hebrew texts (CC BY 4.0).'}
       </SourceNote>
     </>
@@ -368,10 +435,7 @@ function SectionPanel({ a, s, verse, navigate }: { a: Atlas; s: Section; verse: 
       )}
       <Passage a={a} from={verse} navigate={navigate} />
       <h3>Why Aramaic?</h3>
-      <p>
-        Most of the Old Testament was written in Hebrew. A few parts were written in Aramaic, a language close to Hebrew that became the shared language of the Babylonian and Persian empires. The app
-        shows these parts in the original Aramaic.
-      </p>
+      <p>Aramaic is a language close to Hebrew and written in the same letters. It became the shared language of the Babylonian and Persian empires.</p>
       <GoDeeper to="study">See the Aramaic words</GoDeeper>
       {study && <GoDeeper to="deep">See the scholarly detail and sources</GoDeeper>}
       {deep &&
@@ -398,7 +462,7 @@ function SectionPanel({ a, s, verse, navigate }: { a: Atlas; s: Section; verse: 
                   'How it was checked',
                   s.tahot
                     ? 'The build checks that STEPBible’s TAHOT tags every word here Aramaic, and the verses on either side Hebrew.'
-                    : 'TAHOT tags these words Hebrew; the lexicon (TBESH) and the BSB’s own footnote say they are Aramaic.',
+                    : 'TAHOT tags these words Hebrew. The build checks that the lexicon (TBESH) and the BSB’s own footnote call them Aramaic, and that their roots occur nowhere else.',
                 ],
               ]}
             />

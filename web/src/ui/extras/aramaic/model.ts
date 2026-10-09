@@ -23,8 +23,8 @@ export interface Entry {
   meaning: string;
   /** "verse" when the verse itself gives the meaning. */
   meaningFrom: 'verse' | 'gloss';
-  /** Who says it in the verse: "Jesus", "the writer (Mark)". */
-  speaker: string;
+  /** For each verse, who says or uses it there: "Jesus", "the writer (Mark)". */
+  speaker: string[];
   /** Jesus himself says it there. */
   jesus: boolean;
   kind: Kind;
@@ -33,10 +33,17 @@ export interface Entry {
   note: Rich;
   /** The word in Hebrew square letters (Aramaic or Hebrew, as `language` says). */
   aramaic: string;
+  /** The caption over the letters where the language alone would mislead, or "". */
+  lettersCaption: string;
+  /** How sure the letters are, in a plain sentence for Study, or "". */
+  lettersNote: string;
   /** For each verse, the BSB's words for it ("Talitha koum", or a translation: "hell"). */
   bsb: string[];
   /** For each verse, the word as TAGNT prints it in Greek letters. */
   greek: string[];
+  /** For each verse: null where that Greek is TAGNT's main text; otherwise
+   * the main text's word there ("Βηθζαθά" at John 5:2), or "" if it has none. */
+  mainReading: (string | null)[];
   /** Its roots (indices into lemmas). */
   roots: number[];
 }

@@ -118,6 +118,7 @@ export function Reader({ a }: { a: Atlas }) {
   };
 
   const rows = text?.chapters[chapter - 1] ?? [];
+  const aramaicRows = isHebrew ? rows.filter((r) => r[1].some((w) => w[5] & FLAG.aramaic)).length : 0; // Daniel 2–7, Ezra 4–7, Jeremiah 10
   const layered = new Set(passages.value.map((p) => p.v));
   const esvReady = tr === 'ESV' && esv?.key === `${book}:${chapter}` ? esv : null;
 
@@ -128,7 +129,7 @@ export function Reader({ a }: { a: Atlas }) {
         <h1>
           {chapterName(b)} {chapter}
         </h1>
-        <span class="muted">{orig ? `${isHebrew ? 'Hebrew' : 'Greek'} with ${tr}` : tr === 'ESV' ? 'English Standard Version' : 'Berean Standard Bible'}</span>
+        <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${tr}` : tr === 'ESV' ? 'English Standard Version' : 'Berean Standard Bible'}</span>
         <div class="nav">
           <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter">
             ‹ Prev

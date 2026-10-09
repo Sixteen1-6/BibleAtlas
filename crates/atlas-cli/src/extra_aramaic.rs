@@ -25,7 +25,8 @@
 
 use crate::build::FLAG_ARAMAIC;
 use crate::loaded::Loaded;
-use crate::parse::{Lang, Word};
+use crate::parse::{Lang, LexEntry, Word};
+use crate::sources::Inputs;
 use atlas_core::canon::{Testament, BOOKS};
 use atlas_core::{refs, Versification};
 use serde::{Deserialize, Serialize};
@@ -65,7 +66,7 @@ struct Entry {
     bsb: BTreeMap<String, String>,
     meaning: String,
     meaning_from: MeaningFrom,
-    speaker: String,
+    speaker: Speaker,
     jesus: bool,
     kind: Kind,
     language: Language,
@@ -73,6 +74,14 @@ struct Entry {
     strongs: Vec<String>,
     aramaic: String,
     aramaic_note: String,
+    /// The caption over the square letters, where the language alone would
+    /// mislead (Barnabas: only "bar" is shown; Bethesda: a related name).
+    #[serde(default)]
+    letters_caption: String,
+    /// A plain sentence under the letters at Study saying how sure they are.
+    /// Required when the certainty is "scholars differ".
+    #[serde(default)]
+    letters_note: String,
     line: String,
     note: String,
     deep: String,
@@ -108,6 +117,24 @@ struct LoanRoot {
     language: Language,
     why: String,
     certainty: Certainty,
+}
+
+/// Who says or uses the word: one for every ref, or one per ref ("Andrew"
+/// at John 1:41, "the Samaritan woman" at John 4:25).
+#[derive(Deserialize)]
+#[serde(untagged)]
+enum Speaker {
+    All(String),
+    ByRef(BTreeMap<String, String>),
+}
+
+impl Speaker {
+    fn at(&self, r: &str) -> Option<&str> {
+        match self {
+            Speaker::All(s) => Some(s),
+            Speaker::ByRef(m) => m.get(r).map(String::as_str),
+        }
+    }
 }
 
 #[derive(Deserialize, Serialize, Clone, Copy, PartialEq, Eq)]
@@ -299,30 +326,24 @@ fn bare(s: &str) -> &str {
     s.trim_matches(|c: char| !c.is_alphabetic())
 }
 
+/// Where a `greek` value is among a verse's TAGNT words.
+#[derive(Debug, PartialEq)]
+enum Found {
+    /// In the main text (the Nestle-Aland family).
+    Main,
+    /// Only in other editions, or as another reading TAGNT prints for a word,
+    /// with the main text's word there when TAGNT gives one ("Βηθζαθά" at
+    /// John 5:2), otherwise "".
+    Elsewhere(String),
+}
+
 /// Whether `greek` is one of the verse's TAGNT words, or several in a row, as
-/// TAGNT prints them (compared byte for byte). Words of other editions count,
-/// and so do the other readings TAGNT prints for a word ("Βηθεσδά (t=Bēthesda)
-/// … in: Tyn+SBL+Treg+TR+Byz"), since the BSB sometimes follows them
-/// (Bethesda, John 5:2).
-fn in_tagnt(greek: &str, ws: &[Word]) -> bool {
-    let reading = format!("{greek} (");
-    let in_readings = ws
-        .iter()
-        .filter_map(|w| w.note.as_ref()?.variants.as_deref())
-        .any(|t| {
-            t.match_indices(&reading)
-                .any(|(i, _)| !t[..i].chars().next_back().is_some_and(char::is_alphabetic))
-        });
-    if in_readings {
-        return true;
-    }
-    let main: Vec<&str> = ws
-        .iter()
-        .filter(|w| w.main)
-        .map(|w| bare(&w.surface))
-        .collect();
-    let all: Vec<&str> = ws.iter().map(|w| bare(&w.surface)).collect();
-    [main, all].iter().any(|run| {
+/// TAGNT prints them (compared byte for byte), and where. Words of other
+/// editions count, and so do the other readings TAGNT prints for a word
+/// ("Βηθεσδά (t=Bēthesda) … in: Tyn+SBL+Treg+TR+Byz"), since the BSB
+/// sometimes follows them (Bethesda, John 5:2); the panel then says so.
+fn in_tagnt(greek: &str, ws: &[Word]) -> Option<Found> {
+    let in_run = |run: &[&str]| {
         (0..run.len()).any(|i| {
             let mut joined = String::new();
             for w in &run[i..] {
@@ -339,7 +360,31 @@ fn in_tagnt(greek: &str, ws: &[Word]) -> bool {
             }
             false
         })
-    })
+    };
+    let main: Vec<&str> = ws
+        .iter()
+        .filter(|w| w.main)
+        .map(|w| bare(&w.surface))
+        .collect();
+    if in_run(&main) {
+        return Some(Found::Main);
+    }
+    let reading = format!("{greek} (");
+    let read_in = ws.iter().find(|w| {
+        w.note
+            .as_ref()
+            .and_then(|n| n.variants.as_deref())
+            .is_some_and(|t| {
+                t.match_indices(&reading)
+                    .any(|(i, _)| !t[..i].chars().next_back().is_some_and(char::is_alphabetic))
+            })
+    });
+    if let Some(w) = read_in {
+        let there = if w.main { bare(&w.surface) } else { "" };
+        return Some(Found::Elsewhere(there.to_string()));
+    }
+    let all: Vec<&str> = ws.iter().map(|w| bare(&w.surface)).collect();
+    in_run(&all).then(|| Found::Elsewhere(String::new()))
 }
 
 /// For each base-text word of a verse, whether TAHOT tags it Aramaic.
@@ -411,11 +456,66 @@ fn check_tahot(
     Ok(())
 }
 
+/// What the checks read from the rest of the build.
+struct Ctx<'a> {
+    inputs: &'a Inputs,
+    vz: &'a Versification,
+    /// The BSB, by verse.
+    text: &'a [String],
+    words: &'a [Vec<Word>],
+    lemma_index: &'a HashMap<&'a str, u32>,
+    /// TBESH and TBESG, by root.
+    lex: &'a HashMap<String, LexEntry>,
+}
+
+/// The text of the BSB's footnotes on one verse, from its USFM edition.
+fn footnotes(c: &Ctx, v: u32) -> Result<String, String> {
+    let (b, ch, vv) = c.vz.locate(v).ok_or("verse outside the BSB")?;
+    let path = c.inputs.path("bsb-usfm", BOOKS[b as usize].osis);
+    let usfm = fs::read_to_string(&path).map_err(|e| format!("reading {}: {e}", path.display()))?;
+    Ok(footnote_text(&usfm, u32::from(ch), u32::from(vv)))
+}
+
+/// The footnotes of chapter `ch`, verse `vv` in a USFM book
+/// (`\v 47 … \f + \fr 31:47 \ft The Aramaic \fqa Jegar-Sahadutha …\f*`), as
+/// their words without the markers.
+fn footnote_text(usfm: &str, ch: u32, vv: u32) -> String {
+    let starts = |s: &str, n: u32| {
+        s.strip_prefix(&n.to_string())
+            .is_some_and(|rest| rest.starts_with(char::is_whitespace))
+    };
+    let verse = usfm
+        .split("\\c ")
+        .find(|c| starts(c, ch))
+        .and_then(|c| c.split("\\v ").find(|x| starts(x, vv)))
+        .unwrap_or("");
+    let mut out = String::new();
+    for note in verse.split("\\f ").skip(1) {
+        let body = note.split("\\f*").next().unwrap_or("");
+        // "+ \fr 31:47 \ft The Aramaic \fqa Jegar-Sahadutha …": skip the
+        // caller and the reference, keep the words of every other part.
+        for part in body.split('\\').skip(1) {
+            let (marker, words) = part.split_once(' ').unwrap_or((part, ""));
+            if marker != "fr" && !words.trim().is_empty() {
+                if !out.is_empty() {
+                    out.push(' ');
+                }
+                out.push_str(words.trim());
+            }
+        }
+    }
+    out
+}
+
 /// Checks a section that rests on the lexicon and the BSB footnote: one
 /// verse, the word numbers it gives exist, startsMidVerse and endsMidVerse
 /// agree with them, and TAHOT does not tag them Aramaic (if it did, the basis
-/// would be "tahot").
-fn check_words(s: &Section, from: u32, to: u32, words: &[Vec<Word>]) -> Result<(), String> {
+/// would be "tahot"). Their roots then count as Aramaic in every word study,
+/// so they must also be the right words: each root occurs in this verse and
+/// nowhere else in the Bible, TBESH has an entry for each and calls one of
+/// them Aramaic, and the BSB's footnote on the verse says Aramaic.
+fn check_words(s: &Section, from: u32, to: u32, c: &Ctx) -> Result<(), String> {
+    let words = c.words;
     let ws = &words[from as usize];
     let fail = |why: &str| Err(format!("{CONFIG}: section {}: {why}", s.id));
     if from != to || s.words.is_empty() {
@@ -444,15 +544,51 @@ fn check_words(s: &Section, from: u32, to: u32, words: &[Vec<Word>]) -> Result<(
     {
         return fail("TAHOT already tags these words Aramaic (use basis \"tahot\"), or they are not in the base text");
     }
+    // The right words: roots of their own, found nowhere else...
+    let mut roots: Vec<&str> = Vec::new();
+    for &k in &s.words {
+        match ws[k - 1].lemma.as_deref() {
+            Some(r) if c.lemma_index.contains_key(r) => roots.push(r),
+            _ => return fail(&format!("word {k} has no root in the lemma table")),
+        }
+    }
+    for (v, vw) in words.iter().enumerate() {
+        if v as u32 == from {
+            continue;
+        }
+        if let Some(r) = vw
+            .iter()
+            .filter_map(|w| w.lemma.as_deref())
+            .find(|r| roots.contains(r))
+        {
+            return fail(&format!(
+                "root {r} also occurs in {}, so these are not the verse's own Aramaic words (check words)",
+                verse_name(v as u32, c.vz)
+            ));
+        }
+    }
+    // ...that the lexicon and the footnote call Aramaic.
+    let entries: Vec<&LexEntry> = roots.iter().filter_map(|r| c.lex.get(*r)).collect();
+    if entries.len() != roots.len()
+        || entries.iter().any(|e| e.source != "tbesh")
+        || !entries.iter().any(|e| e.definition.contains("Aramaic"))
+    {
+        return fail(&format!(
+            "TBESH must have an entry for each of {roots:?} and call one of them Aramaic"
+        ));
+    }
+    if !footnotes(c, from)?.contains("Aramaic") {
+        return fail(&format!(
+            "the BSB's footnote on {} does not say Aramaic",
+            s.from
+        ));
+    }
     Ok(())
 }
 
 /// A section's first and last verse, checked against the data.
-fn section_range(
-    s: &Section,
-    vz: &Versification,
-    words: &[Vec<Word>],
-) -> Result<(u32, u32), String> {
+fn section_range(s: &Section, c: &Ctx) -> Result<(u32, u32), String> {
+    let (vz, words) = (c.vz, c.words);
     let (from, to) = (verse_of(&s.from, vz)?, verse_of(&s.to, vz)?);
     let book = |v: u32| vz.locate(v).map(|(b, _, _)| b);
     if from > to
@@ -472,7 +608,7 @@ fn section_range(
             ))
         }
         Basis::Tahot => check_tahot(s, from, to, vz, words)?,
-        Basis::LexiconAndFootnote => check_words(s, from, to, words)?,
+        Basis::LexiconAndFootnote => check_words(s, from, to, c)?,
     }
     Ok((from, to))
 }
@@ -492,7 +628,7 @@ fn section_roots<'a>(
     };
     picked
         .into_iter()
-        .filter_map(move |k| ws.get(k - 1)?.lemma.as_deref())
+        .filter_map(move |k| ws.get(k.checked_sub(1)?)?.lemma.as_deref())
 }
 
 /// "Two", for "Two words in verse 47".
@@ -567,11 +703,20 @@ fn chapter_lines(
                 one(format!("verse {}", num(lo))),
                 json!(", this chapter is in Aramaic, not Hebrew"),
             ])
-        } else {
+        } else if !lo_mid && !hi_mid {
             parts(vec![
                 span(format!("Verses {}–{}", num(lo), num(hi))),
                 json!(" of this chapter are in Aramaic, not Hebrew"),
             ])
+        } else {
+            // A switch inside a verse at either end of a span within the chapter.
+            let (a, b) = (num(lo), num(hi));
+            let text = match (lo_mid, hi_mid) {
+                (true, true) => format!("From mid-verse {a} to mid-verse {b}"),
+                (true, false) => format!("From the middle of verse {a} to verse {b}"),
+                _ => format!("From verse {a} to the middle of verse {b}"),
+            };
+            parts(vec![span(text), json!(", the text is in Aramaic")])
         };
         out.push((book, ch, line));
     }
@@ -621,16 +766,20 @@ fn shared_line(es: &[(&Entry, &str)]) -> String {
     format!("{} {whose} kept in the Greek: {list}", count_word(es.len()))
 }
 
-/// Checks one entry against the BSB, TAGNT and the lemma table, and returns
-/// its verses in the order of its refs.
+/// One entry, checked: its verses in the order of its refs, and for each
+/// verse whether its `greek` is TAGNT's main text.
+struct CheckedEntry {
+    verses: Vec<u32>,
+    found: Vec<Found>,
+}
+
+/// Checks one entry against the BSB, TAGNT, the lemma table and its loan
+/// roots.
 fn check_entry(
     e: &Entry,
-    vz: &Versification,
-    text: &[String],
-    words: &[Vec<Word>],
-    lemma_index: &HashMap<&str, u32>,
-    loans: &HashSet<&str>,
-) -> Result<Vec<u32>, String> {
+    c: &Ctx,
+    loans: &HashMap<&str, &LoanRoot>,
+) -> Result<CheckedEntry, String> {
     let at = |what: &str| format!("{CONFIG}: {} {what}", e.id);
     let field = |what: &str| format!("{} {what}", e.id);
     fits(&field("line"), &e.line, MAX_LINE)?;
@@ -641,8 +790,14 @@ fn check_entry(
     }
     fits(&field("word"), &e.word, 40)?;
     fits(&field("meaning"), &e.meaning, 100)?;
-    fits(&field("speaker"), &e.speaker, 80)?;
     fits(&field("aramaic"), &e.aramaic, 60)?;
+    if !e.letters_caption.is_empty() {
+        fits(&field("lettersCaption"), &e.letters_caption, 60)?;
+    }
+    // A tentative form in square letters says so at Study, where it shows.
+    if e.certainty == Certainty::ScholarsDiffer || !e.letters_note.is_empty() {
+        fits(&field("lettersNote"), &e.letters_note, MAX_NOTE)?;
+    }
     if e.sources.is_empty() || e.refs.is_empty() || e.strongs.is_empty() {
         return Err(at("needs refs, strongs and sources"));
     }
@@ -650,24 +805,31 @@ fn check_entry(
         fits(&field("source"), s, 400)?;
     }
     let refs: BTreeMap<&String, ()> = e.refs.iter().map(|r| (r, ())).collect();
+    let speakers_ok = match &e.speaker {
+        Speaker::All(_) => true,
+        Speaker::ByRef(m) => m.keys().eq(refs.keys().copied()),
+    };
     if refs.len() != e.refs.len()
         || !e.bsb.keys().eq(refs.keys().copied())
         || !e.greek.keys().eq(refs.keys().copied())
+        || !speakers_ok
     {
         return Err(at(
-            "must give bsb and greek for each of its refs, once each",
+            "must give bsb and greek (and speaker, if per ref) for each of its refs, once each",
         ));
     }
     let mut verses = Vec::new();
+    let mut found = Vec::new();
     for r in &e.refs {
-        let v = verse_of(r, vz)?;
-        if vz
+        fits(&field("speaker"), e.speaker.at(r).unwrap_or(""), 80)?;
+        let v = verse_of(r, c.vz)?;
+        if c.vz
             .locate(v)
             .is_none_or(|(b, _, _)| BOOKS[b as usize].testament != Testament::New)
         {
             return Err(at(&format!("{r} is not in the New Testament")));
         }
-        let english = &text[v as usize];
+        let english = &c.text[v as usize];
         if !english.contains(e.bsb[r].as_str()) {
             return Err(at(&format!(
                 "bsb {:?} is not in the BSB at {r}: {english:?}",
@@ -680,30 +842,47 @@ fn check_entry(
                 e.meaning
             )));
         }
-        let ws = &words[v as usize];
-        if !in_tagnt(&e.greek[r], ws) {
+        let ws = &c.words[v as usize];
+        let Some(f) = in_tagnt(&e.greek[r], ws) else {
             let printed: Vec<&str> = ws.iter().map(|w| w.surface.as_str()).collect();
             return Err(at(&format!(
                 "greek {:?} is not among TAGNT's words at {r}: {}",
                 e.greek[r],
                 printed.join(" ")
             )));
-        }
+        };
         for k in &e.strongs {
             if !ws.iter().any(|w| w.lemma.as_deref() == Some(k.as_str())) {
                 return Err(at(&format!("{k} is on no word of {r}")));
             }
         }
         verses.push(v);
+        found.push(f);
     }
+    let mut langs = Vec::new();
     for k in &e.strongs {
-        if !lemma_index.contains_key(k.as_str()) || !loans.contains(k.as_str()) {
-            return Err(at(&format!(
-                "{k} must be in the lemma table and in loanRoots"
-            )));
+        match loans.get(k.as_str()) {
+            Some(l) if c.lemma_index.contains_key(k.as_str()) => langs.push(l.language),
+            _ => {
+                return Err(at(&format!(
+                    "{k} must be in the lemma table and in loanRoots"
+                )))
+            }
         }
     }
-    Ok(verses)
+    // The panel names the entry's language and the word study its roots':
+    // they must agree ("Aramaic or Hebrew" when the roots differ).
+    let roots_say = if langs.iter().all(|&l| l == langs[0]) {
+        langs[0]
+    } else {
+        Language::AramaicOrHebrew
+    };
+    if e.language != roots_say {
+        return Err(at(
+            "language must be its loan roots' language (\"Aramaic or Hebrew\" if they differ)",
+        ));
+    }
+    Ok(CheckedEntry { verses, found })
 }
 
 /// Reads and checks the config: every entry and section against the data,
@@ -711,19 +890,14 @@ fn check_entry(
 /// tags lies in a section.
 struct Checked {
     cfg: Config,
-    /// Each entry's verses, in the order of its refs.
-    entry_verses: Vec<Vec<u32>>,
+    /// Each entry, checked.
+    entries: Vec<CheckedEntry>,
     /// Each section's first and last verse.
     ranges: Vec<(u32, u32)>,
 }
 
-fn check(
-    root: &Path,
-    vz: &Versification,
-    text: &[String],
-    words: &[Vec<Word>],
-    lemma_index: &HashMap<&str, u32>,
-) -> Result<Checked, String> {
+fn check(root: &Path, c: &Ctx) -> Result<Checked, String> {
+    let (vz, words, lemma_index) = (c.vz, c.words, c.lemma_index);
     let cfg = read_config(root)?;
     let mut ids = HashSet::new();
     for id in cfg
@@ -743,13 +917,13 @@ fn check(
             ));
         }
     }
-    let mut loans = HashSet::new();
+    let mut loans: HashMap<&str, &LoanRoot> = HashMap::new();
     for l in &cfg.loan_roots {
         fits(&format!("loan root {} why", l.strongs), &l.why, MAX_DEEP)?;
         fits(&format!("loan root {} word", l.strongs), &l.word, 40)?;
         if !l.strongs.starts_with('G')
             || !lemma_index.contains_key(l.strongs.as_str())
-            || !loans.insert(l.strongs.as_str())
+            || loans.insert(l.strongs.as_str(), l).is_some()
         {
             return Err(format!(
                 "{CONFIG}: loan root {} must be a Greek root in the lemma table, listed once",
@@ -757,9 +931,9 @@ fn check(
             ));
         }
     }
-    let mut entry_verses = Vec::new();
+    let mut entries = Vec::new();
     for e in &cfg.words {
-        entry_verses.push(check_entry(e, vz, text, words, lemma_index, &loans)?);
+        entries.push(check_entry(e, c, &loans)?);
     }
     let mut ranges = Vec::new();
     for s in &cfg.sections {
@@ -769,7 +943,7 @@ fn check(
         if s.sources.is_empty() {
             return Err(format!("{CONFIG}: section {} has no sources", s.id));
         }
-        ranges.push(section_range(s, vz, words)?);
+        ranges.push(section_range(s, c)?);
     }
     let mut sorted = ranges.clone();
     sorted.sort_unstable();
@@ -797,7 +971,7 @@ fn check(
     }
     Ok(Checked {
         cfg,
-        entry_verses,
+        entries,
         ranges,
     })
 }
@@ -805,21 +979,32 @@ fn check(
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(
     root: &Path,
+    inputs: &Inputs,
     vz: &Versification,
     text: &[String],
     words: &[Vec<Word>],
     lemma_index: &HashMap<&str, u32>,
+    lex: &HashMap<String, LexEntry>,
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
+    let c = Ctx {
+        inputs,
+        vz,
+        text,
+        words,
+        lemma_index,
+        lex,
+    };
     let Checked {
         cfg,
-        entry_verses,
+        entries: checked,
         ranges,
-    } = check(root, vz, text, words, lemma_index)?;
+    } = check(root, &c)?;
+    let entry_verses: Vec<&Vec<u32>> = checked.iter().map(|e| &e.verses).collect();
 
     // Lines under verses: the entries at each verse...
     let mut at: BTreeMap<u32, Vec<usize>> = BTreeMap::new();
     for (i, vs) in entry_verses.iter().enumerate() {
-        for &v in vs {
+        for &v in vs.iter() {
             at.entry(v).or_default().push(i);
         }
     }
@@ -858,13 +1043,23 @@ pub fn build(
         if from == to {
             put(from, linked(&s.line, vz)?)?;
         } else {
+            // "From here" only where the switch is at the start of the verse
+            // (Daniel 2:4 begins in Hebrew).
             put(
                 from,
-                json!(["From here to ", { "verse": to }, ", the text is in Aramaic, not Hebrew"]),
+                if s.starts_mid_verse {
+                    json!(["From the middle of this verse to ", { "verse": to }, ", the text is in Aramaic"])
+                } else {
+                    json!(["From here to ", { "verse": to }, ", the text is in Aramaic, not Hebrew"])
+                },
             )?;
             put(
                 to,
-                json!(["The Aramaic that began at ", { "verse": from }, " ends with this verse"]),
+                if s.ends_mid_verse {
+                    json!(["The Aramaic that began at ", { "verse": from }, " ends partway through this verse"])
+                } else {
+                    json!(["The Aramaic that began at ", { "verse": from }, " ends with this verse"])
+                },
             )?;
         }
     }
@@ -887,23 +1082,36 @@ pub fn build(
     let entries: Vec<Value> = cfg
         .words
         .iter()
-        .zip(&entry_verses)
-        .map(|(e, vs)| {
+        .zip(&checked)
+        .map(|(e, ce)| {
+            // For each verse: null where the Greek shown is TAGNT's main
+            // text, otherwise the main text's word there ("" if none).
+            let main_reading: Vec<Value> = ce
+                .found
+                .iter()
+                .map(|f| match f {
+                    Found::Main => Value::Null,
+                    Found::Elsewhere(w) => json!(w),
+                })
+                .collect();
             Ok(json!({
                 "id": e.id,
-                "verses": vs,
+                "verses": ce.verses,
                 "word": e.word,
                 "meaning": e.meaning,
                 "meaningFrom": e.meaning_from,
-                "speaker": e.speaker,
+                "speaker": e.refs.iter().map(|r| e.speaker.at(r).unwrap_or("")).collect::<Vec<_>>(),
                 "jesus": e.jesus,
                 "kind": e.kind,
                 "language": e.language,
                 "certainty": e.certainty,
                 "note": linked(&e.note, vz)?,
                 "aramaic": e.aramaic,
+                "lettersCaption": e.letters_caption,
+                "lettersNote": e.letters_note,
                 "bsb": e.refs.iter().map(|r| &e.bsb[r]).collect::<Vec<_>>(),
                 "greek": e.refs.iter().map(|r| &e.greek[r]).collect::<Vec<_>>(),
+                "mainReading": main_reading,
                 "roots": e.strongs.iter().map(|k| index(k)).collect::<Vec<_>>(),
             }))
         })
@@ -993,13 +1201,27 @@ pub fn build(
 /// in Greek letters (ταλιθα), or in Hebrew letters where TAHOT tags it Hebrew
 /// (Genesis 31:47). "GA", "GH" or "GAH": a Greek word taken from that
 /// language, which no entry of words uses (ἀμήν, σάββατον, Σατανᾶς).
+///
+/// It runs before [`build`], so it checks the config first: lemmas.json is
+/// never written from a config the build would refuse.
 pub fn origins(
     root: &Path,
+    inputs: &Inputs,
     vz: &Versification,
+    text: &[String],
     words: &[Vec<Word>],
     lemma_index: &HashMap<&str, u32>,
+    lex: &HashMap<String, LexEntry>,
 ) -> Result<Value, String> {
-    let cfg = read_config(root)?;
+    let c = Ctx {
+        inputs,
+        vz,
+        text,
+        words,
+        lemma_index,
+        lex,
+    };
+    let Checked { cfg, ranges, .. } = check(root, &c)?;
     let kept: HashSet<&str> = cfg
         .words
         .iter()
@@ -1020,8 +1242,7 @@ pub fn origins(
         };
         out.insert(i.to_string(), json!(code));
     }
-    for s in &cfg.sections {
-        let from = verse_of(&s.from, vz)?;
+    for (s, &(from, _)) in cfg.sections.iter().zip(&ranges) {
         for k in section_roots(s, from, words) {
             let i = lemma_index.get(k).ok_or_else(|| {
                 format!(
@@ -1127,6 +1348,29 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         })
     });
 
+    // Only Genesis 31:47's two words relabel a Hebrew root: any other would
+    // change the word study of a common Hebrew word across the Bible.
+    let mut h_roots: Vec<String> = d.lemmas["origin"]
+        .as_object()
+        .map(|o| {
+            o.keys()
+                .filter_map(|i| d.lemmas["key"][i.parse::<usize>().ok()?].as_str())
+                .filter(|k| k.starts_with('H'))
+                .map(str::to_string)
+                .collect()
+        })
+        .unwrap_or_default();
+    h_roots.sort();
+    // Daniel 2:4 switches to Aramaic halfway through, and its line says so.
+    let dan24 = d.resolve("Dan 2:4")?.0;
+    let dan24_line = verses
+        .iter()
+        .find(|x| num(&x["v"]) == Some(dan24))
+        .and_then(|x| x["line"][0].as_str())
+        .unwrap_or("");
+    // Bethesda (John 5:2) is not TAGNT's main text, Βηθζαθά; Talitha koum is.
+    let main_reading = |id: &str| entry(id).map(|e| e["mainReading"][0].clone());
+
     // Mark 5:41 has talitha's root in its Greek, and Daniel 3:1 is Aramaic.
     let mark541 = d.verse(d.resolve("Mark 5:41")?.0)?;
     let talitha = d.lemma_index("G5008").ok_or("no root G5008 (talitha)")?;
@@ -1147,5 +1391,27 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         (!all.is_empty() && all.iter().all(|&v| v < n) && chapters_ok, "aramaic: every verse and chapter in extras/aramaic.json is in the BSB".to_string()),
         (deep_ok, "aramaic: every entry has its Deep text".to_string()),
         (origin("G5008").as_deref() == Some("A") && origin("G0281").as_deref() == Some("GH") && origin("H3026A").as_deref() == Some("A") && origin("G3056").is_none(), "aramaic: the word study names ταλιθα Aramaic, ἀμήν Greek from Hebrew, Jegar Aramaic and λόγος Greek".to_string()),
+        (h_roots == ["H3026A", "H3026B"], format!("aramaic: the only Hebrew roots relabelled Aramaic are Genesis 31:47's H3026A and H3026B, not {h_roots:?}")),
+        (dan24_line.starts_with("From the middle of this verse"), format!("aramaic: Daniel 2:4's line says the switch is mid-verse: {dan24_line:?}")),
+        (main_reading("bethesda") == Some(json!("Βηθζαθ\u{1f71}")) && main_reading("talitha-koum") == Some(Value::Null), "aramaic: Bethesda is marked as not TAGNT's main text (Βηθζαθά); Talitha koum is the main text".to_string()),
     ])
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reads_a_verse_footnote() {
+        let usfm = "\\c 31\n\\v 4 Jacob sent\n\\v 46 and he said\n\\v 47 Laban called it Jegar-sahadutha, and Jacob called it Galeed.\\f + \\fr 31:47 \\ft The Aramaic \\fqa Jegar-Sahadutha \\ft and the Hebrew \\fq Galeed \\ft both mean \\fqa heap of witnesses\\ft .\\f*\n\\v 48 Then Laban\n\\c 32\n\\v 47 x\\f + \\ft Other\\f*\n";
+        let note = footnote_text(usfm, 31, 47);
+        assert!(
+            note.starts_with("The Aramaic Jegar-Sahadutha and the Hebrew Galeed"),
+            "{note}"
+        );
+        assert!(!note.contains("Other"));
+        assert_eq!(footnote_text(usfm, 31, 4), "");
+        assert_eq!(footnote_text(usfm, 31, 46), "");
+        assert_eq!(footnote_text(usfm, 30, 47), "");
+    }
 }

@@ -5,8 +5,9 @@
 
 import '../peshitta.css';
 // The Syriac letters, scoped to this panel: only .x-peshitta-syc uses the font,
-// and it loads with this panel's code.
-import '@fontsource/noto-sans-syriac/syriac-400.css';
+// and it loads with this panel's code. Noto Sans Syriac (SIL OFL), copied into
+// ./fonts with its license, so the extra adds no npm dependency.
+import './fonts/syriac.css';
 import type { ComponentChildren } from 'preact';
 import { locate } from '../../../data/atlas';
 import { useJson } from '../data';
@@ -57,6 +58,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       ),
     ],
     ['Printed edition', 'The New Testament in Syriac, British and Foreign Bible Society, 1905'],
+    ['Verse divisions', 'The Syriac sometimes divides verses a few words differently from the BSB, so part of a verse can sit in the verse before or after.'],
     ['Digital text', 'Transcribed by George A. Kiraz; TEI XML edition by James E. Walters (Digital Syriac Corpus)'],
   ];
   if (file) {
@@ -82,12 +84,13 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           : 'This is the verse in Syriac, a dialect of Aramaic, from the Peshitta: a translation made from the Greek around AD 350–450, centuries after Jesus. It shows how early Aramaic-speaking Christians read the verse; it is not a record of Jesus’ own words.'}
       </Lead>
       <SideBySide>
-        {file !== null && (file === undefined || syc) && (
+        {(file == null || syc) && (
           <section class="xt-passage x-peshitta-card" aria-label="The verse in Syriac">
             <p class="x-peshitta-head">
               {later ? 'Syriac, a later version' : 'Syriac Peshitta'}
             </p>
-            {file === undefined ? (
+            {file == null ? (
+              // Loading, or the load failed: a quiet placeholder, never an error.
               <p class="xt-ptext xt-wait">…</p>
             ) : (
               <>
@@ -96,7 +99,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
                 </p>
                 {rom && (
                   <p class="x-peshitta-rom">
-                    <span lang="syc-Latn">{rom}</span>
+                    <span lang="syc-Latn">{rom}</span>{' '}
                     <Unsure title="Read letter by letter from the vowel points: a rough guide to the letters, not to how Jesus spoke">approximate</Unsure>
                   </p>
                 )}
