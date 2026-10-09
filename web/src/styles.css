@@ -1395,6 +1395,11 @@ p .godeeper {
   width: 14px;
   border-top: 1.5px dashed currentColor;
 }
+.layerref .qmark {
+  margin-right: -3px;
+  font: 600 16px/0 var(--font-read);
+  color: var(--accent);
+}
 .badge.draft {
   margin-left: 8px;
   padding: 1px 6px;
