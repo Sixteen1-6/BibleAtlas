@@ -4,15 +4,17 @@
 import { type Atlas, DATA_BASE } from './atlas';
 
 /** How a relative is related to the word studied. */
-export type Relation = 'p' | 'c' | 's' | 'n';
+export type Relation = 'p' | 'c' | 's' | 'a' | 'n';
 
 export interface Forms {
   /** [spelling, grammar code, count], most used first. */
   f: [string, string, number][];
-  /** Which form each of the root's postings is (index into f), when it has more than one. */
+  /** Which form each of the root's postings is (index into f, -1 for none),
+   *  when it has more than one or some use has none. */
   o?: number[];
-  /** Related roots: [root, relation], closest first. */
-  r?: [number, Relation][];
+  /** Related roots: [root, relation, the root heading its dictionary word],
+   *  closest first. Senses of one word share a head and show as one row. */
+  r?: [number, Relation, number][];
 }
 
 const shards = new Map<number, Promise<(Forms | null)[]>>();
@@ -31,13 +33,31 @@ export async function getForms(a: Atlas, root: number): Promise<Forms | null> {
   return (await p)[root % a.meta.lexShard] ?? null;
 }
 
-/** The distinct verses where one form of a root is used. */
-export function versesWithForm(a: Atlas, root: number, forms: Forms, form: number): Uint32Array {
+/** Which form (index into f) the root's use at word `pos` of `verse` is:
+ *  -1 when that use has no form or the root isn't used there. */
+export function formAt(a: Atlas, root: number, forms: Forms, verse: number, pos: number): number {
+  const s = a.lOff[root];
+  const e = a.lOff[root + 1];
+  let lo = s;
+  let hi = e;
+  while (lo < hi) {
+    const m = (lo + hi) >>> 1;
+    if (a.lVerse[m] < verse) lo = m + 1;
+    else hi = m;
+  }
+  for (let i = lo; i < e && a.lVerse[i] === verse; i++) {
+    if (a.lPos[i] === pos) return forms.o ? forms.o[i - s] : 0;
+  }
+  return -1;
+}
+
+/** The distinct verses where any of these forms of a root is used. */
+export function versesWithForm(a: Atlas, root: number, forms: Forms, which: Set<number>): Uint32Array {
   const s = a.lOff[root];
   const e = a.lOff[root + 1];
   const out: number[] = [];
   for (let i = s; i < e; i++) {
-    if ((forms.o ? forms.o[i - s] : 0) !== form) continue;
+    if (!which.has(forms.o ? forms.o[i - s] : 0)) continue;
     const v = a.lVerse[i];
     if (out[out.length - 1] !== v) out.push(v);
   }
@@ -51,10 +71,19 @@ export function versesWithRoots(a: Atlas, roots: number[]): Uint32Array {
   return Uint32Array.from(seen).sort();
 }
 
-/** A relative's tie to the studied word, in plain words. */
-export const RELATION: Record<Relation, string> = {
-  p: 'the word it comes from',
-  c: 'comes from it',
-  s: 'shares its root',
-  n: 'same word, another sense',
-};
+/** A relative's tie to the studied word, in plain words. `lang` is the
+ *  relative's language letter (G, H or A). */
+export function relation(rel: Relation, lang: string): string {
+  switch (rel) {
+    case 'p':
+      return 'the word it comes from';
+    case 'c':
+      return 'comes from it';
+    case 's':
+      return 'shares its root';
+    case 'a':
+      return lang === 'A' ? 'the same word in Aramaic' : 'the same word in Hebrew';
+    case 'n':
+      return 'same word, another sense';
+  }
+}

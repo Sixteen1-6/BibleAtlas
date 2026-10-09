@@ -52,11 +52,25 @@ pub struct Word {
     /// The word's parts (prefixes, stem, suffixes) as (surface, gloss), when
     /// the source splits it into more than one.
     pub pieces: Vec<(String, String)>,
-    /// The root's own part of the word and its grammar code, to group a
-    /// root's occurrences by form: for Hebrew and Aramaic the stem without
-    /// prefixes, suffixes or accents (grammar "H" + its segment, as "HVqw3ms"),
-    /// for Greek the whole word without punctuation.
-    pub form: (String, String),
+    /// The root's own form of the word, to group a root's uses by form.
+    pub form: Form,
+}
+
+/// One use of a root, as its forms list groups it.
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct Form {
+    /// The root's own part of the word: for Hebrew and Aramaic without
+    /// prefixes, endings or accents; for Greek the word without punctuation.
+    pub plain: String,
+    /// The root's part with the pronoun ending (or Aramaic article) that
+    /// follows it, as עַמּוֹ for עַמּ: what is shown when the root never
+    /// appears without one in that form.
+    pub full: String,
+    /// A pronoun ending or the Aramaic article follows the root's part.
+    pub ending: bool,
+    /// Grammar of the root's part ("HVqw3ms", "N-NSF"). Empty when the
+    /// source's parts do not line up, so the use is left out of every form.
+    pub code: String,
 }
 
 #[derive(Default, Debug)]
@@ -311,24 +325,95 @@ fn acute(s: &str) -> String {
         .collect()
 }
 
-/// The root's own segment of a Hebrew or Aramaic word: "וַ/יִּשְׁבֹּת֙" with
-/// dStrongs "H9001/{H7673A}" and grammar "Hc/Vqw3ms" gives ("יִּשְׁבֹּת", "HVqw3ms").
-/// Accents (cantillation) and punctuation are dropped, vowels kept.
-fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> (String, String) {
+/// The root's own form of a Hebrew or Aramaic word. "וַ/יִּשְׁבֹּת֙" with
+/// dStrongs "H9001/{H7673A}" and grammar "Hc/Vqw3ms" gives "יִשְׁבֹּת" and
+/// "HVqw3ms"; "עַמִּ֛/י" (HNcmsc/Sp1bs) gives "עַמּ" and, with its ending, "עַמִּי".
+/// Accents and punctuation are dropped, vowels kept, and the first letter's
+/// dagesh is written as the word has it on its own (a prefix doubles the
+/// letter after it and softens ב ג ד כ פ ת).
+fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
     let lang = grammar.get(..1).unwrap_or("H");
     let parts: Vec<&str> = strongs.split('/').collect();
-    let at = parts.iter().position(|p| p.contains('{')).unwrap_or(0);
-    let seg = |s: &str, n: usize| -> Option<String> {
-        let segs: Vec<&str> = s.split('/').collect();
-        (segs.len() == n).then(|| segs[at].split('\\').next().unwrap_or("").to_string())
+    let segs: Vec<&str> = surface.split('/').collect();
+    let codes: Vec<&str> = grammar.get(1..).unwrap_or("").split('/').collect();
+    let Some(at) = parts.iter().position(|p| p.contains('{')) else { return Form::default() };
+    if segs.len() != parts.len() || codes.len() != parts.len() {
+        return Form::default();
+    }
+    let letters = |s: &str| -> String { s.chars().filter(|&c| matches!(c, '\u{05B0}'..='\u{05BC}' | '\u{05C1}' | '\u{05C2}' | '\u{05C7}' | '\u{05D0}'..='\u{05EA}')).collect() };
+    let morpheme = parts[at].trim_start_matches('{').starts_with("H9");
+    let tidy = |s: String| if morpheme { s } else { first_letter_dagesh(&s) };
+    let plain = letters(segs[at].split('\\').next().unwrap_or(""));
+    // A suffix (or a punctuation mark the source left on the root) is not the root's part.
+    let code = codes[at];
+    if code.starts_with('S') || !plain.chars().any(|c| matches!(c, '\u{05B0}'..='\u{05BC}' | '\u{05C1}' | '\u{05C2}' | '\u{05C7}')) {
+        return Form::default();
+    }
+    // The ending runs to the next word break: a part with no letters, or a
+    // backslash, after which the source puts punctuation.
+    let mut full = plain.clone();
+    let mut ending = false;
+    if !segs[at].contains('\\') {
+        for k in at + 1..segs.len() {
+            let piece = segs[k].split('\\').next().unwrap_or("");
+            let l = letters(piece);
+            if !l.chars().any(|c| matches!(c, '\u{05D0}'..='\u{05EA}')) {
+                break;
+            }
+            full.push_str(&l);
+            ending |= codes[k].starts_with('S') || codes[k] == "Ta";
+            if segs[k].contains('\\') {
+                break;
+            }
+        }
+    }
+    // Codes that do not change the spelling are folded together: a name's
+    // kind (person, place), a title written like any noun, and "Rd", which
+    // the source uses on a preposition with an ending (never with the article).
+    let code = if code.starts_with("Np") {
+        "Np".to_string()
+    } else if let Some(rest) = code.strip_prefix("Nt") {
+        format!("Nc{rest}")
+    } else if code == "Rd" {
+        "R".to_string()
+    } else {
+        code.to_string()
     };
-    let text = seg(surface, parts.len()).unwrap_or_else(|| clean_join(surface));
-    let text: String = text
-        .chars()
-        .filter(|&c| matches!(c, '\u{05B0}'..='\u{05BC}' | '\u{05C1}' | '\u{05C2}' | '\u{05C7}' | '\u{05D0}'..='\u{05EA}'))
-        .collect();
-    let code = grammar.get(1..).and_then(|g| seg(g, parts.len())).unwrap_or_else(|| grammar.get(1..).unwrap_or("").to_string());
-    (text, format!("{lang}{code}"))
+    Form { plain: tidy(plain), full: tidy(full), ending, code: format!("{lang}{code}") }
+}
+
+/// The dagesh on a Hebrew word's first letter as it stands on its own: ב ג ד
+/// כ פ ת always take one, other letters lose the one a prefix put there
+/// (וַיֹּאמֶר, הַמֶּלֶךְ), except a shureq (וּ).
+fn first_letter_dagesh(s: &str) -> String {
+    let cs: Vec<char> = s.chars().collect();
+    let Some(first) = cs.iter().position(|c| matches!(c, '\u{05D0}'..='\u{05EA}')) else { return s.to_string() };
+    let next = cs[first + 1..].iter().position(|c| matches!(c, '\u{05D0}'..='\u{05EA}')).map_or(cs.len(), |i| first + 1 + i);
+    let letter = cs[first];
+    let marks = &cs[first + 1..next];
+    let has = marks.contains(&'\u{05BC}');
+    let mut out: Vec<char> = cs[..=first].to_vec();
+    if "בגדכפת".contains(letter) {
+        out.push('\u{05BC}');
+        out.extend(marks.iter().filter(|&&c| c != '\u{05BC}'));
+    } else if has && !(letter == 'ו' && marks.len() == 1) {
+        out.extend(marks.iter().filter(|&&c| c != '\u{05BC}'));
+    } else {
+        out.extend(marks);
+    }
+    out.extend(&cs[next..]);
+    out.into_iter().collect()
+}
+
+/// A Greek grammar code without the tags that do not change the spelling:
+/// title (θεός for God), negative, question, letter.
+fn greek_code(morph: &str) -> &str {
+    for tag in ["-T", "-N", "-I", "-LI"] {
+        if let Some(c) = morph.strip_suffix(tag) {
+            return c;
+        }
+    }
+    morph
 }
 
 fn clean_join(s: &str) -> String {
@@ -463,8 +548,19 @@ pub fn tagnt(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 key: strong.get(..5).unwrap_or(strong).to_string(),
                 src_verse: None,
                 pieces: Vec::new(),
-                // "-T" marks a title (θεός for God), not another form.
-                form: (acute(surface.trim_matches(|c: char| !c.is_alphabetic())), morph.trim().trim_end_matches("-T").to_string()),
+                form: {
+                    // A capital that only starts a sentence (Μακάριοι) is not part
+                    // of the word; names, places and titles keep theirs.
+                    let m = morph.trim();
+                    let lower = cols[4].split('=').next().and_then(|f| f.trim().chars().next()).is_some_and(char::is_lowercase)
+                        && !["-L", "-P", "-T"].iter().any(|t| m.ends_with(t));
+                    let mut sp = acute(surface.trim_matches(|c: char| !c.is_alphabetic()));
+                    if lower {
+                        let mut cs = sp.chars();
+                        sp = cs.next().map(|f| f.to_lowercase().chain(cs).collect()).unwrap_or_default();
+                    }
+                    Form { full: sp.clone(), plain: sp, ending: false, code: greek_code(m).to_string() }
+                },
             });
         }
     }
@@ -481,6 +577,13 @@ pub struct LexEntry {
     pub gloss: String,
     pub definition: String,
     pub source: &'static str,
+    /// The lexicon's own entry (column 0, as "H1121a"): senses split from one
+    /// Strong's number share it, homonyms (חֶסֶד kindness, חֶסֶד shame) do not.
+    pub estrong: String,
+    /// How this sense relates to `target` ("a Meaning of", "in Aramaic of",
+    /// "a Form of"...), empty for a word's own entry.
+    pub relation: String,
+    pub target: String,
 }
 
 pub fn lexicon(path: &Path, source: &'static str, out: &mut HashMap<String, LexEntry>) -> Result<usize, String> {
@@ -503,6 +606,9 @@ pub fn lexicon(path: &Path, source: &'static str, out: &mut HashMap<String, LexE
             gloss: cols[6].trim().to_string(),
             definition: cols[7].trim().to_string(),
             source,
+            estrong: cols[0].trim().to_string(),
+            relation: cols[1].split_once('=').map_or("", |x| x.1).trim().to_string(),
+            target: cols[2].split_whitespace().next().unwrap_or("").to_string(),
         });
     }
     Ok(n)
@@ -528,6 +634,23 @@ mod tests {
         assert_eq!(p, [("כְּ".to_string(), "like".to_string()), ("נַהֲמַת־".to_string(), "[the] growling of".to_string())]);
         assert!(pieces("יָ֑ם", "[the] sea").is_empty());
         assert!(is_strong("G0976") && is_strong("H7225G") && !is_strong("H90"));
+        let f = hebrew_form("וַ/יִּשְׁבֹּת֙", "H9001/{H7673A}", "Hc/Vqw3ms");
+        assert_eq!((f.plain.as_str(), f.full.as_str(), f.ending, f.code.as_str()), ("יִשְׁבֹּת", "יִשְׁבֹּת", false, "HVqw3ms"));
+        let f = hebrew_form("הַ/מֶּ֫לֶךְ", "H9009/{H4428G}", "HTd/Ncmsa");
+        assert_eq!((f.plain.as_str(), f.code.as_str()), ("מֶלֶךְ", "HNcmsa"));
+        let f = hebrew_form("עַמִּ֛/י", "{H5971A}/H9030", "HNcmsc/Sp1bs");
+        assert_eq!((f.plain.as_str(), f.full.as_str(), f.ending), ("עַמִּ", "עַמִּי", true));
+        let f = hebrew_form("מַלְכָּ/א֙", "{H4430}/H9010", "ANcbsd/Ta");
+        assert_eq!((f.full.as_str(), f.ending, f.code.as_str()), ("מַלְכָּא", true, "ANcbsd"));
+        let f = hebrew_form("וּ/בְ/פָנָי/ו", "H9002/H9003/{H6440G}/H9023", "HC/R/Ncbpc/Sp3ms");
+        assert_eq!(f.plain, "\u{05E4}\u{05BC}\u{05B8}\u{05E0}\u{05B8}\u{05D9}");
+        let f = hebrew_form("מִמֶּ֑/נּוּ", "{H4480A}/H9033", "HRd/Sp3ms");
+        assert_eq!(f.code, "HR");
+        let f = hebrew_form("כְּ/כֹ֖ל/ /אֲשֶׁ֥ר", "H9004/{H3605}//H0834A", "HR/Ncmsc//Tr");
+        assert_eq!(f.full, "\u{05DB}\u{05BC}\u{05B9}\u{05DC}");
+        assert!(hebrew_form("ל֣/וֹ", "H9005/{H8104H}", "HR/Sp3ms").code.is_empty());
+        assert_eq!(greek_code("A-ASM-N"), "A-ASM");
+        assert_eq!(greek_code("N-NSM-T"), "N-NSM");
     }
 
     #[test]

@@ -418,10 +418,35 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let mut derivations = family::Derivations::default();
     let ng = family::derivations(&inputs.path("strongs", "greek"), 'G', &mut derivations)?;
     let nh = family::derivations(&inputs.path("strongs", "hebrew"), 'H', &mut derivations)?;
-    let family_roots: Vec<family::Root> = lemmas.iter().map(|l| family::Root { key: &l.key, count: l.count, name: l.lex.as_ref().is_some_and(|e| e.morph.starts_with("N:")) }).collect();
-    let forms = family::build(&family_roots, &words, &lemma_index, &l_off, &derivations);
+    let family_roots: Vec<family::Root> = lemmas
+        .iter()
+        .map(|l| {
+            let e = l.lex.as_ref();
+            // A sense with no entry of its own borrows its number's first entry:
+            // the same dictionary word, but not that entry's links.
+            let own = lex.contains_key(&l.key);
+            let s = |f: fn(&LexEntry) -> &str| e.map_or("", f);
+            family::Root {
+                key: &l.key,
+                count: l.count,
+                name: s(|e| &e.morph).starts_with("N:"),
+                word: s(|e| &e.word),
+                morph: s(|e| &e.morph),
+                gloss: s(|e| &e.gloss),
+                estrong: s(|e| &e.estrong),
+                relation: if own { s(|e| &e.relation) } else { "" },
+                target: if own { s(|e| &e.target) } else { "" },
+            }
+        })
+        .collect();
+    let forms = family::build(&family_roots, &words, &l_off, &l_verse, &l_pos, &derivations);
     let related = forms.iter().filter(|f| f.get("r").is_some()).count();
-    eprintln!("word families: {} derivations from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives", derivations.parent.len() + derivations.same.len());
+    eprintln!(
+        "word families: {} derivations ({} prefix compounds, {} shared roots) from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives",
+        derivations.parent.len(),
+        derivations.head.len(),
+        derivations.same.len()
+    );
     for (s, chunk) in forms.chunks(LEX_SHARD).enumerate() {
         write(out, &format!("forms/{s}.json"), serde_json::to_string(chunk).unwrap().as_bytes(), &mut files)?;
     }
