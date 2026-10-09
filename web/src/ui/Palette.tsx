@@ -6,6 +6,7 @@ import { loadPlainText, plainText } from '../data/plain';
 import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
 import { getVerse } from '../data/text';
 import * as S from '../state';
+import { NOT_LOADED } from './common';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
@@ -14,19 +15,32 @@ type Item =
 
 function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> }) {
   const [t, setT] = useState(() => plainText()?.[v] ?? '');
+  const [failed, setFailed] = useState(false);
+  const [tries, setTries] = useState(0);
   useEffect(() => {
     const known = plainText()?.[v];
+    setFailed(false);
     if (known) {
       setT(known);
       return;
     }
+    setT('');
     let live = true;
-    getVerse(a, v).then((r) => live && setT(r[0]));
+    const retry = () => setTries((n) => n + 1);
+    getVerse(a, v).then(
+      (r) => live && setT(r[0]),
+      () => {
+        if (!live) return;
+        setFailed(true);
+        addEventListener('online', retry, { once: true });
+      },
+    );
     return () => {
       live = false;
+      removeEventListener('online', retry);
     };
-  }, [v]);
-  if (!t) return <span class="s">…</span>;
+  }, [v, tries]);
+  if (!t) return <span class="s">{failed ? NOT_LOADED : '…'}</span>;
   return (
     <span class="s">
       {wordPieces(t).map((p, i) => (p.word && words.has(p.word) ? <mark key={i}>{p.text}</mark> : p.text))}

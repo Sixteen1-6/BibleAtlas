@@ -7,22 +7,42 @@ import { deepen } from '../depth';
 import * as S from '../state';
 import { GENRE } from './colors';
 
-export function useVerseRow(a: Atlas, v: number | null | undefined): VerseRow | null {
-  const [row, setRow] = useState<{ v: number; row: VerseRow } | null>(null);
+/** A verse's text, loaded on first use. `failed` when it could not be fetched
+ * (offline, say); it is tried again when the connection comes back. */
+export function useVerseLoad(a: Atlas, v: number | null | undefined): { row: VerseRow | null; failed: boolean } {
+  const [got, setGot] = useState<{ v: number; row: VerseRow | null } | null>(null);
+  const [tries, setTries] = useState(0);
   useEffect(() => {
     if (v === null || v === undefined) return;
     let live = true;
-    getVerse(a, v).then((r) => live && setRow({ v, row: r }));
+    const retry = () => setTries((n) => n + 1);
+    getVerse(a, v).then(
+      (r) => live && setGot({ v, row: r }),
+      () => {
+        if (!live) return;
+        setGot({ v, row: null });
+        addEventListener('online', retry, { once: true });
+      },
+    );
     return () => {
       live = false;
+      removeEventListener('online', retry);
     };
-  }, [a, v]);
-  return row && row.v === v ? row.row : null;
+  }, [a, v, tries]);
+  if (!got || got.v !== v) return { row: null, failed: false };
+  return { row: got.row, failed: got.row === null };
 }
 
+export function useVerseRow(a: Atlas, v: number | null | undefined): VerseRow | null {
+  return useVerseLoad(a, v).row;
+}
+
+/** Shown in place of a verse's words when they could not be loaded. */
+export const NOT_LOADED = 'Couldn’t load this verse. Check your connection.';
+
 export function Snippet({ a, v, max = 180 }: { a: Atlas; v: number; max?: number }) {
-  const row = useVerseRow(a, v);
-  if (!row) return <span class="snip">…</span>;
+  const { row, failed } = useVerseLoad(a, v);
+  if (!row) return <span class="snip">{failed ? NOT_LOADED : '…'}</span>;
   const t = row[0];
   return <span class="snip">{t.length > max ? t.slice(0, max - 1) + '…' : t}</span>;
 }

@@ -25,7 +25,13 @@ createServer((req, res) => {
     res.statusCode = 403;
     return res.end();
   }
-  if (!existsSync(file) || statSync(file).isDirectory()) file = join(root, 'index.html');
+  if (existsSync(file) && statSync(file).isDirectory()) file = join(file, 'index.html');
+  // Like GitHub Pages: an address with no file gets 404.html, which opens a
+  // typed verse (/John.3.16) in the atlas and shows a friendly page otherwise.
+  if (!existsSync(file)) {
+    file = join(root, '404.html');
+    res.statusCode = 404;
+  }
   const ext = extname(file);
   res.setHeader('Content-Type', TYPES[ext] || 'application/octet-stream');
   // Hashed assets and versioned data never change; the page itself is revalidated.
