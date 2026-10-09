@@ -17,38 +17,12 @@
 
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import { readerHere } from './first-move';
 import { levelAtLeast } from './level';
 import { type Data, hits, load, nameFrom } from './notes/model';
 import { type PanelProps, defineExtra } from './types';
 
 type PanelType = ComponentType<PanelProps<Data>>;
-
-/** The address the reader arrived at, read before the app rewrites it. */
-const ARRIVED = typeof location === 'undefined' ? '' : location.hash;
-/** The reader's own first move. The app writes the address with replaceState
- * and pushState, which fire no hashchange, so a hashchange is the reader's. */
-const FIRST_TOUCH = ['pointerdown', 'touchstart', 'keydown', 'wheel', 'click', 'hashchange', 'popstate'] as const;
-let touched: Promise<void> | null = null;
-
-/** On a plain first visit the app selects a verse by itself, and the index
- * waits for the reader's first tap, key, scroll or change of address, so that
- * visit downloads nothing new. A link to a verse or to this panel loads it at once. */
-function readerHere(): Promise<void> {
-  if (!touched) {
-    const h = new URLSearchParams(ARRIVED.slice(1));
-    touched =
-      h.has('v') || h.get('x')?.split('.')[0] === 'notes' || typeof addEventListener !== 'function'
-        ? Promise.resolve()
-        : new Promise<void>((resolve) => {
-            const go = () => {
-              for (const t of FIRST_TOUCH) removeEventListener(t, go, true);
-              resolve();
-            };
-            for (const t of FIRST_TOUCH) addEventListener(t, go, { capture: true, passive: true });
-          });
-  }
-  return touched;
-}
 
 let panel: Promise<PanelType> | null = null;
 
@@ -82,7 +56,7 @@ export default defineExtra<Data>({
   order: 50,
   title: 'Study notes',
   async load(a) {
-    await readerHere();
+    await readerHere('notes');
     return load(a);
   },
   note(verse, d) {
