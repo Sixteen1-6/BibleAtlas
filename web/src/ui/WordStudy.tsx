@@ -45,22 +45,22 @@ function WordWorld(props: ComponentProps<WordWorldType>) {
 
 // The studied word's family, underlined in the reader wherever a word study
 // is open (a shared link opens one without this panel).
+let kinOf = -1;
 effect(() => {
   const st = S.study.value;
   const a = S.atlas.value;
-  if (!st || !a) {
-    S.studyKin.value = null;
-    return;
-  }
-  const root = st.root;
+  const root = st && a ? st.root : -1;
+  // Another verse of the same word keeps its underlines.
+  if (root === kinOf) return;
+  kinOf = root;
   // The last word's family stays underlined until this one's arrives otherwise.
   S.studyKin.value = null;
+  if (!a || root < 0) return;
   getForms(a, root).then(
     (f) => {
-      if (S.study.peek()?.root !== root) return;
-      S.studyKin.value = f?.r?.length ? new Set(f.r.map((x) => x[0])) : null;
+      if (kinOf === root) S.studyKin.value = f?.r?.length ? new Set(f.r.map((x) => x[0])) : null;
     },
-    () => {},
+    () => kinOf === root && (kinOf = -1),
   );
 });
 
@@ -437,7 +437,7 @@ export function WordStudy({ a }: { a: Atlas }) {
           Show more
         </button>
       )}
-      <Provenance>
+      <Provenance work={greek ? 'tbesg' : 'tbesh'}>
         {fm?.r && "Word family: from the derivations in Strong's dictionaries (1890, public domain; JSON by Open Scriptures, CC BY-SA) and the senses, spellings and Aramaic twins in STEPBible's TBESH and TBESG (CC BY 4.0). "}
         Definition: STEPBible {lex?.s === 'tbesg' ? 'TBESG, abridged from Abbott-Smith' : 'TBESH, abridged from Brown-Driver-Briggs'} (CC BY 4.0). Words and grammar: STEPBible {greek ? 'TAGNT' : 'TAHOT'}. Counts are computed from the base text ({greek ? 'Nestle-Aland family' : 'Leningrad Codex'}).
       </Provenance>

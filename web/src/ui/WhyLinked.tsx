@@ -123,7 +123,7 @@ export function WhyLinked({ a, from, to, fromRow, toRow }: { a: Atlas; from: num
             word for Abbott-Smith’s entry and the verses it cites.
           </p>
           <div class="br-prov">
-            <Provenance>Word bridges: Abbott-Smith’s notes on Septuagint usage, in STEPBible’s TBESG (CC BY 4.0).</Provenance>
+            <Provenance work="tbesg">Word bridges: Abbott-Smith’s notes on Septuagint usage, in STEPBible’s TBESG (CC BY 4.0).</Provenance>
           </div>
         </div>
       )}

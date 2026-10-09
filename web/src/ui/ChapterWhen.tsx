@@ -108,7 +108,7 @@ function More({ id, a, data, book, chapter, placed, dates }: { id: string; a: At
       <Evidence a={a} placed={placed} written={written} />
       {/* On a phone the sources list lives in the study pane: show it there. */}
       <div onClick={(e) => (e.target as HTMLElement).closest('.provenance button') && (S.mobilePane.value = 'study')}>
-        <Provenance>Adapted from the Tyndale Open Bible Dictionary (Tyndale House Publishers, CC BY-SA 4.0). Quotations are word for word; the choice of era for each chapter is this app's.</Provenance>
+        <Provenance work="tyndale-tbd">Adapted from the Tyndale Open Bible Dictionary (Tyndale House Publishers, CC BY-SA 4.0). Quotations are word for word; the choice of era for each chapter is this app's.</Provenance>
       </div>
     </div>
   );

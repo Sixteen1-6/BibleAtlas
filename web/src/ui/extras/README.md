@@ -58,6 +58,7 @@ export default defineExtra<Data>({
   Panel, //                  the panel behind the line
   // chapterNote(chapter, data) { ... },  optional: a line under the chapter heading
   // ChapterPanel,                        optional: its panel
+  // tall: true,                          optional: on wider screens the panel reaches up over the map of links
 });
 ```
 
@@ -153,7 +154,7 @@ export default defineExtra<Data>({
 3. At Deep only (`levelAtLeast('deep')`), show the data: `<h3>` headings, `<Facts rows={[[label, value], ...]} />`, how each link was made and how sure it is.
 4. End with `<SourceNote>`, which names your source and its license in plain words: "Quotations from …, CC BY 4.0." It adds an "All sources" link.
 5. Label anything uncertain, plainly, with `<Unsure>` next to what it qualifies: `<Unsure>location uncertain</Unsure>`, `<Unsure>traditional site</Unsure>`, `<Unsure>scholars differ</Unsure>`. Never present a guess as fact. STEPBible TIPNR descriptions are AI-written: never present them as scholarship, and if you use them at all, say what they are.
-6. Move the reader only with `navigate(verse)`, open a word study only with `openWord(root, verse, pos)`, and open the Sources screen only with `showSources()`. Each one closes the panel the right way.
+6. Move the reader only with `navigate(verse)`, open a word study only with `openWord(root, verse, pos)`, and open the Sources shelf only with `showSources()`: `showSources(work)` opens it on a work's card (its `config/shelf.json` id), and `showSources(dictionary, slug)` at a dictionary entry. The shelf opens at the reader's level, never forcing Deep. Each one closes the panel the right way.
 7. Add no Escape or other key handlers, history entries, URL parameters, focus traps or portals. The frame does all of that. Never use `<GoDeeper toTop>`. A plain `<GoDeeper to="deep">See the Hebrew and Greek</GoDeeper>` (from `'../Depth'`) is fine.
 8. Load nothing from other sites at run time. Everything comes from `web/public/data/` through `loadJson` or `useJson`.
 9. Use only the app's colour variables (`--ink`, `--muted`, `--line`, `--page`, `--surface`, `--surface-2`, `--accent`, `--accent-soft`, `--link`, `--focus`), so both themes work. If you need a colour of your own, such as water on a map, define it as `--x-<id>-<name>` three times: on `:root`, inside `@media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { ... } }`, and on `:root[data-theme='dark']`.
@@ -172,7 +173,7 @@ export default defineExtra<Data>({
 ### Choose and pin the source
 
 1. Use only openly licensed sources: public domain, CC BY 4.0 or CC BY-SA 4.0. Confirm the license on the source's own page or repository, not a mirror's, and say in your report where you confirmed it. No NC or ND licenses. Never any ESV text.
-2. The source must be in a git repository, pinned to an exact commit. Add it to `sources.json` (see "The shared files") with the same fields as the others: `id`, `title`, `provides`, `license`, `attribution`, `homepage`, `repo`, `commit` (the full 40-character SHA), `files` (a logical name for each path in the repository) and, optionally, `note`. The Sources screen then lists it with its license and checksums. You do not edit that screen.
+2. The source must be in a git repository, pinned to an exact commit. Add it to `sources.json` (see "The shared files") with the same fields as the others: `id`, `title`, `provides`, `license`, `attribution`, `homepage`, `repo`, `commit` (the full 40-character SHA), `files` (a logical name for each path in the repository) and, optionally, `note`. Then give it a card on the Sources shelf: add a work to `config/shelf.json` (its `_comment` says how) whose `datasets` lists your source's id; at Deep the card shows the license, commit and checksums from `sources.json`. Without a work, the build makes a plain card from `sources.json` and warns. If your panel names books or articles in its source strings, add a work for each one too, with `cites` set to part of the string, so the shelf can say where it is cited and the panel can link to its card; the build warns about any string that matches no work, or more than one. You do not edit the shelf's screen.
 3. `atlas fetch` checks out only the listed files at that commit and records their SHA-256 in `data/raw/manifest.lock.json`. `atlas build` refuses to run if a file no longer matches. Never commit downloaded data.
 4. Treat downloaded data as untrusted. Parse it defensively, check every reference, count what you drop, and never run anything from it.
 5. Credit the source in `NOTICE.md`, with one table row (see "The shared files").
@@ -316,7 +317,7 @@ Insert one object per source, with 4 spaces before the braces and 6 before each 
 | real-map | 11 | the row for "Hebrew and Aramaic Old Testament (TAHOT)" |
 | parallels | 12 | the row for "Greek New Testament (TAGNT)" |
 
-Insert one row: `| <what the data is> | <who made it>, via <repository> | <license> |`. Put the exact attribution in the `attribution` field in `sources.json`, which the Sources screen shows. Do not edit the "Attribution:" line (line 16), because PR #3 changes it.
+Insert one row: `| <what the data is> | <who made it>, via <repository> | <license> |`. Put the exact attribution in the `attribution` field in `sources.json`, which the Sources shelf shows at Deep. Do not edit the "Attribution:" line (line 16), because PR #3 changes it.
 
 ## 4. Build and check
 
@@ -379,7 +380,7 @@ Before you commit:
   - components: `<Lead>`, `<SideBySide>`, `<Passage a from to? navigate note?>`, `<SourceNote>`, `<Unsure title?>` and `<Facts rows>`;
   - names and links: `refName(a, verse, to?)` ("Mark 2:1–12"), `verseHash(a, verse)` ("#v=Mark.2.1"), `verseOf(a, osis)`;
   - text: `usePassage(a, from, to?)` gives the verse rows, or `null` while they load;
-  - actions: `openWord(root, verse?, pos?)` and `showSources()`.
+  - actions: `openWord(root, verse?, pos?)` and `showSources(work?, term?)` (the Sources shelf, on a work's card or at a dictionary entry).
 - `level.ts`: `levelAtLeast(level)`, `Level` and `LEVELS`.
 
 ### From the app (use, never edit)

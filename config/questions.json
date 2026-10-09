@@ -1,0 +1,1536 @@
+{
+  "_comment": "Ask the Bible: questions answered in the Bible's own words. The owner's rule for this box: the framework for interpreting the Bible is the Bible, with no other logic and no scholars' frameworks. So an answer is a `chain` of Scripture and nothing else: 3 to 8 parts, each whole verses (`ref`, at most 3 verses) or `words`, a span of their BSB text copied word for word (at least 3 words). There are no words of ours between the parts, and each part is used only where its own context supports it. `topics` names Nave's Topical Bible subjects (an index only; none of its wording is shown) whose verses form the wider set lit on the map; `only` and `skip` keep or drop labels by prefix, and a top-level label covers its indented lines. `also` lists other ways people ask, for search. `group` is one of the groups in crates/atlas-cli/src/ask.rs. A chain with an empty `reviewed_by` is a draft: its question and verses are published, the chain only with ATLAS_ASK_DRAFTS=1. Only the owner approves. Links name questions by `id`, so ids never change.",
+  "questions": [
+    {
+      "id": "is-god-real",
+      "group": "God",
+      "question": "How can I know God is real?",
+      "also": ["does god exist", "is god real", "proof of god", "evidence for god", "how do i know there is a god", "atheism", "doubting that god exists", "is there a god"],
+      "topics": [
+        {"subject": "ATHEISM"},
+        {"subject": "GOD", "only": ["CREATOR", "INVISIBLE"], "skip": ["CREATOR OF MAN"]}
+      ],
+      "chain": [
+        {"ref": "Ps 19:1", "words": "The heavens declare the glory of God; the skies proclaim the work of His hands."},
+        {"ref": "Rom 1:20"},
+        {"ref": "Acts 14:17", "words": "Yet He has not left Himself without testimony to His goodness: He gives you rain from heaven and fruitful seasons, filling your hearts with food and gladness."},
+        {"ref": "John 1:18"},
+        {"ref": "John 14:9", "words": "Anyone who has seen Me has seen the Father."},
+        {"ref": "Acts 17:27"},
+        {"ref": "Heb 11:6"},
+        {"ref": "Ps 34:8"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-does-god-allow-suffering",
+      "group": "God",
+      "question": "Why does God allow suffering?",
+      "also": ["suffering", "why is there evil", "problem of evil", "why does god let bad things happen", "pain and suffering", "why is there pain in the world", "why does god allow evil", "if god is good why is there suffering"],
+      "topics": [
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["MISCELLANY OF MINOR SUB-TOPICS", "DESIGN OF", "BENEFITS OF", "FROM SATAN"], "skip": ["BENEFITS OF, ILLUSTRATED"]}
+      ],
+      "chain": [
+        {"ref": "Rom 5:12", "words": "sin entered the world through one man, and death through sin, so also death was passed on to all men, because all sinned."},
+        {"ref": "Rom 8:20-21"},
+        {"ref": "Lam 3:32-33"},
+        {"ref": "Job 42:3", "words": "Surely I spoke of things I did not understand, things too wonderful for me to know."},
+        {"ref": "Gen 50:20"},
+        {"ref": "Rom 8:28"},
+        {"ref": "Rom 5:3-4", "words": "we also rejoice in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope."},
+        {"ref": "Rev 21:4"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-god-like",
+      "group": "God",
+      "question": "What is God like?",
+      "also": ["who is god", "god's character", "attributes of god", "is god good", "is god loving", "nature of god", "what kind of god", "what is god"],
+      "topics": [
+        {"subject": "GOD", "only": ["LOVE OF", "HOLINESS OF", "GOODNESS OF", "LONGSUFFERING OF", "A SPIRIT", "TRUTH", "RIGHTEOUSNESS OF"], "skip": ["LOVE OF, EXEMPLIFIED", "LONGSUFFERING OF, ABUSED"]}
+      ],
+      "chain": [
+        {"ref": "1 John 4:8-9", "words": "God is love. This is how God’s love was revealed among us: God sent His one and only Son into the world, so that we might live through Him."},
+        {"ref": "1 John 1:5", "words": "God is light, and in Him there is no darkness at all."},
+        {"ref": "John 4:24"},
+        {"ref": "Exod 34:6-7", "words": "The LORD, the LORD God, is compassionate and gracious, slow to anger, abounding in loving devotion and faithfulness, maintaining loving devotion to a thousand generations, forgiving iniquity, transgression, and sin. Yet He will by no means leave the guilty unpunished"},
+        {"ref": "Isa 6:3", "words": "Holy, holy, holy is the LORD of Hosts; all the earth is full of His glory."},
+        {"ref": "Deut 32:4"},
+        {"ref": "Ps 90:2"},
+        {"ref": "John 14:9", "words": "Anyone who has seen Me has seen the Father."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "father-son-spirit",
+      "group": "God",
+      "question": "Who are the Father, the Son and the Holy Spirit?",
+      "also": ["trinity", "father son and holy spirit", "three in one", "is god three persons", "triune god", "one god", "holy trinity", "godhead"],
+      "topics": [
+        {"subject": "TRINITY"},
+        {"subject": "GOD", "only": ["UNITY OF"]}
+      ],
+      "chain": [
+        {"ref": "Deut 6:4"},
+        {"ref": "1 Cor 8:6", "words": "for us there is but one God, the Father, from whom all things came and for whom we exist. And there is but one Lord, Jesus Christ, through whom all things came and through whom we exist."},
+        {"ref": "Matt 28:19", "words": "baptizing them in the name of the Father, and of the Son, and of the Holy Spirit"},
+        {"ref": "Matt 3:16-17"},
+        {"ref": "John 1:1"},
+        {"ref": "John 14:26"},
+        {"ref": "Acts 5:3", "words": "Ananias, how is it that Satan has filled your heart to lie to the Holy Spirit"},
+        {"ref": "Acts 5:4", "words": "You have not lied to men, but to God!"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "does-god-love-me",
+      "group": "God",
+      "question": "Does God love me?",
+      "also": ["god's love", "does god care about me", "how much does god love me", "am i loved", "love of god", "does god love everyone", "god's love for me", "does god love sinners"],
+      "topics": [
+        {"subject": "GOD", "only": ["LOVE OF"], "skip": ["LOVE OF, EXEMPLIFIED"]},
+        {"subject": "JESUS, THE CHRIST", "only": ["LOVE OF"]}
+      ],
+      "chain": [
+        {"ref": "John 3:16"},
+        {"ref": "Rom 5:8"},
+        {"ref": "Gal 2:20", "words": "The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me."},
+        {"ref": "Ps 103:13"},
+        {"ref": "Luke 12:7"},
+        {"ref": "1 John 3:1", "words": "Behold what manner of love the Father has given to us, that we should be called children of God. And that is what we are!"},
+        {"ref": "Rom 8:38-39"},
+        {"ref": "1 John 4:19"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "who-is-the-holy-spirit",
+      "group": "God",
+      "question": "Who is the Holy Spirit?",
+      "also": ["holy spirit", "holy ghost", "what is the holy spirit", "spirit of god", "the comforter", "the advocate", "is the holy spirit god", "what does the holy spirit do"],
+      "topics": [
+        {"subject": "HOLY SPIRIT", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "John 14:26"},
+        {"ref": "John 15:26"},
+        {"ref": "Matt 28:19", "words": "baptizing them in the name of the Father, and of the Son, and of the Holy Spirit"},
+        {"ref": "Gen 1:2", "words": "And the Spirit of God was hovering over the surface of the waters."},
+        {"ref": "Ps 139:7"},
+        {"ref": "Joel 2:28", "words": "I will pour out My Spirit on all people."},
+        {"ref": "Rom 8:16"},
+        {"ref": "Eph 4:30"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-god-in-control",
+      "group": "God",
+      "question": "Is God in control of everything?",
+      "also": ["sovereignty of god", "is god in control", "god's plan", "does everything happen for a reason", "providence", "does god control everything", "free will and god's will"],
+      "topics": [
+        {"subject": "GOD", "only": ["SOVEREIGN", "PROVIDENCE OF, OVERRULING"]},
+        {"subject": "CHOICE", "only": ["THE SINNER'S"]}
+      ],
+      "chain": [
+        {"ref": "Ps 103:19"},
+        {"ref": "Eph 1:11", "words": "the plan of Him who works out everything by the counsel of His will"},
+        {"ref": "Matt 10:29-30"},
+        {"ref": "Prov 16:9"},
+        {"ref": "Deut 30:19", "words": "I have set before you life and death, blessing and cursing. Therefore choose life, so that you and your descendants may live"},
+        {"ref": "Gen 50:20"},
+        {"ref": "Acts 2:23"},
+        {"ref": "Rom 8:28"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "how-did-the-world-begin",
+      "group": "God",
+      "question": "How did the world begin?",
+      "also": ["creation", "how was the world made", "who made the world", "beginning of the world", "origin of the universe", "did god create the world", "in the beginning", "creation story"],
+      "topics": [
+        {"subject": "CREATION"},
+        {"subject": "GOD", "only": ["CREATOR"], "skip": ["CREATOR OF MAN"]},
+        {"subject": "JESUS, THE CHRIST", "only": ["CREATOR"]},
+        {"subject": "HEAVEN", "only": ["PHYSICAL HEAVENS, CREATION OF"]}
+      ],
+      "chain": [
+        {"ref": "Gen 1:1"},
+        {"ref": "Heb 11:3"},
+        {"ref": "Ps 33:9"},
+        {"ref": "John 1:1-3"},
+        {"ref": "Col 1:16", "words": "All things were created through Him and for Him."},
+        {"ref": "Gen 1:27"},
+        {"ref": "Gen 1:31", "words": "And God looked upon all that He had made, and indeed, it was very good."},
+        {"ref": "Rev 4:11", "words": "for You created all things; by Your will they exist and came to be."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "who-is-jesus",
+      "group": "Jesus",
+      "question": "Who is Jesus?",
+      "also": ["jesus", "who was jesus", "is jesus the son of god", "jesus christ", "who is christ", "the messiah", "is jesus god"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO THE DIVINITY", "OTHER SCRIPTURES RELATING TO HIS MESSIAHSHIP", "MISSION OF"]}
+      ],
+      "chain": [
+        {"ref": "Matt 16:15-16"},
+        {"ref": "John 1:1"},
+        {"ref": "John 1:14", "words": "The Word became flesh and made His dwelling among us."},
+        {"ref": "Isa 9:6"},
+        {"ref": "Matt 1:21", "words": "you are to give Him the name Jesus, because He will save His people from their sins."},
+        {"ref": "Mark 10:45", "words": "For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many."},
+        {"ref": "Rev 1:18", "words": "I was dead, and behold, now I am alive forever and ever!"},
+        {"ref": "John 14:6", "words": "I am the way and the truth and the life. No one comes to the Father except through Me."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "did-jesus-rise",
+      "group": "Jesus",
+      "question": "Did Jesus really rise from the dead?",
+      "also": ["resurrection", "did jesus rise from the dead", "empty tomb", "is the resurrection true", "easter", "is jesus alive", "he is risen"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["Arises from the dead", "Is seen by Peter", "Appears to", "Appears in the midst", "Foretells his own death and resurrection"]},
+        {"subject": "RESURRECTION", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Matt 28:6"},
+        {"ref": "1 Cor 15:3-5", "words": "that Christ died for our sins according to the Scriptures, that He was buried, that He was raised on the third day according to the Scriptures, and that He appeared to Cephas and then to the Twelve."},
+        {"ref": "1 Cor 15:6", "words": "After that, He appeared to more than five hundred brothers at once, most of whom are still living"},
+        {"ref": "Luke 24:39", "words": "Look at My hands and My feet. It is I Myself. Touch Me and see—for a spirit does not have flesh and bones, as you see I have."},
+        {"ref": "Acts 1:3", "words": "He presented Himself to them with many convincing proofs that He was alive. He appeared to them over a span of forty days"},
+        {"ref": "Ps 16:10"},
+        {"ref": "Acts 2:31-32"},
+        {"ref": "1 Cor 15:20"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-jesus-god",
+      "group": "Jesus",
+      "question": "Is Jesus God?",
+      "also": ["is jesus divine", "deity of jesus", "did jesus claim to be god", "jesus is god", "is jesus the son of god", "is jesus lord", "deity of christ", "divinity of jesus"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["DIVINITY OF", "UNCLASSIFIED SCRIPTURES RELATING TO THE DIVINITY"]}
+      ],
+      "chain": [
+        {"ref": "John 1:1"},
+        {"ref": "John 1:14", "words": "The Word became flesh and made His dwelling among us."},
+        {"ref": "Isa 9:6"},
+        {"ref": "John 8:58"},
+        {"ref": "Exod 3:14"},
+        {"ref": "John 10:30"},
+        {"ref": "John 20:28-29"},
+        {"ref": "Col 2:9"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-jesus-coming-back",
+      "group": "Jesus",
+      "question": "Is Jesus coming back?",
+      "also": ["second coming", "return of christ", "will jesus come again", "when will jesus return", "jesus return", "coming of the lord", "jesus coming again", "second advent"],
+      "topics": [
+        {"subject": "JUDGMENT", "only": ["THE GENERAL"]},
+        {"subject": "WAITING", "only": ["For the coming of Christ"]},
+        {"subject": "DEATH", "only": ["Promised to saints at the second coming"]},
+        {"subject": "ANGEL (a spirit)", "only": ["Will be with Christ at his second coming"]},
+        {"subject": "POWER", "only": ["Will be specially manifested at his second coming"]}
+      ],
+      "chain": [
+        {"ref": "Acts 1:11", "words": "This same Jesus, who has been taken from you into heaven, will come back in the same way you have seen Him go into heaven."},
+        {"ref": "John 14:3"},
+        {"ref": "Dan 7:13", "words": "I saw One like the Son of Man coming with the clouds of heaven."},
+        {"ref": "Matt 24:30", "words": "They will see the Son of Man coming on the clouds of heaven, with power and great glory."},
+        {"ref": "Heb 9:28", "words": "He will appear a second time, not to bear sin, but to bring salvation to those who eagerly await Him."},
+        {"ref": "Matt 24:36"},
+        {"ref": "Matt 24:44"},
+        {"ref": "Rev 22:20"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-did-jesus-come",
+      "group": "Jesus",
+      "question": "Why did Jesus come?",
+      "also": ["why did jesus come to earth", "purpose of jesus", "mission of jesus", "why was jesus born", "why did god send jesus", "what did jesus come to do", "why jesus came"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["MISSION OF", "DESIGN OF HIS DEATH"]}
+      ],
+      "chain": [
+        {"ref": "Luke 19:10"},
+        {"ref": "1 Tim 1:15", "words": "Christ Jesus came into the world to save sinners"},
+        {"ref": "Mark 10:45"},
+        {"ref": "Isa 53:5"},
+        {"ref": "Luke 4:18-19"},
+        {"ref": "John 10:10", "words": "I have come that they may have life, and have it in all its fullness."},
+        {"ref": "1 John 3:8", "words": "This is why the Son of God was revealed, to destroy the works of the devil."},
+        {"ref": "John 3:17"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-jesus-the-only-way",
+      "group": "Jesus",
+      "question": "Is Jesus the only way to God?",
+      "also": ["only way to heaven", "jesus the only way", "other religions", "are all religions the same", "no one comes to the father", "the way the truth and the life", "only way to be saved"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO"], "skip": ["UNCLASSIFIED SCRIPTURES RELATING TO THE DIVINITY"]},
+        {"subject": "SALVATION", "only": ["CONDITIONS OF"]}
+      ],
+      "chain": [
+        {"ref": "John 14:6", "words": "I am the way and the truth and the life. No one comes to the Father except through Me."},
+        {"ref": "Acts 4:12"},
+        {"ref": "1 Tim 2:3-5", "words": "God our Savior, who wants everyone to be saved and to come to the knowledge of the truth. For there is one God, and there is one mediator between God and men, the man Christ Jesus,"},
+        {"ref": "Isa 45:22"},
+        {"ref": "1 John 5:12"},
+        {"ref": "Acts 10:34-35", "words": "God does not show favoritism, but welcomes those from every nation who fear Him and do what is right."},
+        {"ref": "Acts 10:43"},
+        {"ref": "John 6:68", "words": "Lord, to whom would we go? You have the words of eternal life."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-did-jesus-die",
+      "group": "Jesus",
+      "question": "Why did Jesus die?",
+      "also": ["the cross", "crucifixion", "why was jesus crucified", "atonement", "jesus died for our sins", "what did jesus' death do", "why the cross", "why did jesus have to die"],
+      "topics": [
+        {"subject": "JESUS, THE CHRIST", "only": ["DESIGN OF HIS DEATH", "DEATH OF, VOLUNTARY"]},
+        {"subject": "ATONEMENT", "only": ["MADE BY JESUS", "UNCLASSIFIED"], "skip": ["Typified"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 15:3", "words": "Christ died for our sins according to the Scriptures"},
+        {"ref": "Isa 53:5-6"},
+        {"ref": "Rom 5:8"},
+        {"ref": "1 Pet 3:18", "words": "For Christ also suffered for sins once for all, the righteous for the unrighteous, to bring you to God."},
+        {"ref": "Mark 10:45", "words": "For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many."},
+        {"ref": "2 Cor 5:21"},
+        {"ref": "John 10:18", "words": "No one takes it from Me, but I lay it down of My own accord."},
+        {"ref": "John 3:16"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-sin",
+      "group": "Saved",
+      "question": "What is sin?",
+      "also": ["sin", "definition of sin", "what counts as sin", "sinning", "what does sin mean", "am i a sinner", "what is a sin"],
+      "topics": [
+        {"subject": "SIN", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO, DEFINING", "SEPARATES FROM GOD"]}
+      ],
+      "chain": [
+        {"ref": "1 John 3:4"},
+        {"ref": "1 John 5:17", "words": "All unrighteousness is sin"},
+        {"ref": "Jas 4:17"},
+        {"ref": "Rom 14:23"},
+        {"ref": "Mark 7:21-23"},
+        {"ref": "Isa 53:6", "words": "We all like sheep have gone astray, each one has turned to his own way"},
+        {"ref": "Isa 59:2"},
+        {"ref": "Rom 6:23"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "do-good-works-save",
+      "group": "Saved",
+      "question": "Do good works save us?",
+      "also": ["good works", "saved by works", "faith and works", "can i earn salvation", "faith alone", "is being a good person enough", "saved by grace", "grace and works"],
+      "topics": [
+        {"subject": "WORKS", "only": ["INSUFFICIENCY OF, FOR SALVATION", "In the judgment, will be an evidence of faith"]},
+        {"subject": "JUSTIFICATION", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Eph 2:8-9"},
+        {"ref": "Titus 3:5", "words": "He saved us, not by the righteous deeds we had done, but according to His mercy"},
+        {"ref": "Isa 64:6", "words": "Each of us has become like something unclean, and all our righteous acts are like filthy rags"},
+        {"ref": "Gen 15:6"},
+        {"ref": "Rom 3:28"},
+        {"ref": "Eph 2:10"},
+        {"ref": "Jas 2:17"},
+        {"ref": "Jas 2:24"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "will-god-forgive-me",
+      "group": "Saved",
+      "question": "Will God forgive anything I have done?",
+      "also": ["forgiveness", "can god forgive me", "unforgivable sin", "too sinful for god", "does god forgive all sins", "guilt", "forgiven", "can i be forgiven"],
+      "topics": [
+        {"subject": "SIN", "only": ["FORGIVENESS OF", "The unpardonable"]}
+      ],
+      "chain": [
+        {"ref": "1 John 1:9"},
+        {"ref": "Isa 1:18", "words": "Though your sins are like scarlet, they will be as white as snow"},
+        {"ref": "Mark 3:28-30"},
+        {"ref": "Isa 55:7"},
+        {"ref": "Ps 103:12"},
+        {"ref": "1 Tim 1:15-16", "words": "Christ Jesus came into the world to save sinners, of whom I am the worst. But for this very reason I was shown mercy, so that in me, the worst of sinners, Christ Jesus might display His perfect patience as an example to those who would believe in Him for eternal life."},
+        {"ref": "1 Cor 6:11", "words": "But you were washed, you were sanctified, you were justified, in the name of the Lord Jesus Christ and by the Spirit of our God."},
+        {"ref": "Acts 3:19", "words": "Repent, then, and turn back, so that your sins may be wiped away"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-the-gospel",
+      "group": "Saved",
+      "question": "What is the gospel?",
+      "also": ["gospel", "good news", "the gospel message", "what is the good news", "gospel of jesus", "gospel meaning", "good news of jesus"],
+      "topics": [
+        {"subject": "GOSPEL", "only": ["Called", "UNCLASSIFIED"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 15:1", "words": "I want to remind you of the gospel I preached to you"},
+        {"ref": "1 Cor 15:3-4", "words": "that Christ died for our sins according to the Scriptures, that He was buried, that He was raised on the third day according to the Scriptures"},
+        {"ref": "Isa 53:5"},
+        {"ref": "Rom 5:8"},
+        {"ref": "Rom 1:16", "words": "I am not ashamed of the gospel, because it is the power of God for salvation to everyone who believes"},
+        {"ref": "John 3:16"},
+        {"ref": "Eph 2:8-9"},
+        {"ref": "Mark 1:15"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-repentance",
+      "group": "Saved",
+      "question": "What does it mean to repent?",
+      "also": ["repent", "repentance", "how to repent", "turning from sin", "turn back to god", "what is repentance", "repenting", "meaning of repentance"],
+      "topics": [
+        {"subject": "REPENTANCE", "only": ["The burden of the preaching", "Exhortation to", "Condition of God", "UNCLASSIFIED"]}
+      ],
+      "chain": [
+        {"ref": "Acts 3:19"},
+        {"ref": "Isa 55:7"},
+        {"ref": "Ezek 18:30-31", "words": "Repent and turn from all your transgressions, so that your iniquity will not become your downfall. Cast away from yourselves all the transgressions you have committed, and fashion for yourselves a new heart and a new spirit."},
+        {"ref": "Joel 2:13", "words": "So rend your hearts and not your garments, and return to the LORD your God. For He is gracious and compassionate, slow to anger, abounding in loving devotion."},
+        {"ref": "Prov 28:13"},
+        {"ref": "2 Cor 7:10"},
+        {"ref": "Acts 26:20", "words": "that they should repent and turn to God, performing deeds worthy of their repentance."},
+        {"ref": "Luke 15:7"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-be-baptized",
+      "group": "Saved",
+      "question": "Why be baptized?",
+      "also": ["baptism", "baptized", "should i be baptized", "what is baptism", "does baptism save", "water baptism", "why get baptized", "is baptism necessary"],
+      "topics": [
+        {"subject": "BAPTISM", "only": ["CHRISTIAN"]}
+      ],
+      "chain": [
+        {"ref": "Matt 28:19", "words": "go and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the Holy Spirit"},
+        {"ref": "Mark 16:16"},
+        {"ref": "Acts 2:38", "words": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of your sins, and you will receive the gift of the Holy Spirit."},
+        {"ref": "Rom 6:4"},
+        {"ref": "Gal 3:26-27"},
+        {"ref": "1 Pet 3:21", "words": "this water symbolizes the baptism that now saves you also—not the removal of dirt from the body, but the pledge of a clear conscience toward God—through the resurrection of Jesus Christ"},
+        {"ref": "Acts 22:16"},
+        {"ref": "Acts 10:47"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-grace",
+      "group": "Saved",
+      "question": "What is grace?",
+      "also": ["grace", "grace of god", "saved by grace", "amazing grace", "undeserved favor", "what does grace mean", "god's grace", "meaning of grace"],
+      "topics": [
+        {"subject": "GRACE OF GOD", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Eph 2:8-9"},
+        {"ref": "Rom 3:23-24"},
+        {"ref": "Rom 11:6"},
+        {"ref": "Exod 34:6", "words": "The LORD, the LORD God, is compassionate and gracious, slow to anger, abounding in loving devotion and faithfulness"},
+        {"ref": "John 1:16-17"},
+        {"ref": "2 Cor 8:9"},
+        {"ref": "Titus 2:11-12"},
+        {"ref": "2 Cor 12:9", "words": "But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.”"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "born-again",
+      "group": "Saved",
+      "question": "What does “born again” mean?",
+      "also": ["born again", "new birth", "being born again", "born of the spirit", "new creation", "you must be born again", "new heart", "regeneration"],
+      "topics": [
+        {"subject": "REGENERATION", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "John 3:3"},
+        {"ref": "John 3:5-6", "words": "no one can enter the kingdom of God unless he is born of water and the Spirit. Flesh is born of flesh, but spirit is born of the Spirit."},
+        {"ref": "Ezek 36:26-27", "words": "I will give you a new heart and put a new spirit within you; I will remove your heart of stone and give you a heart of flesh. And I will put My Spirit within you"},
+        {"ref": "John 1:12-13"},
+        {"ref": "Titus 3:5"},
+        {"ref": "1 Pet 1:23"},
+        {"ref": "2 Cor 5:17"},
+        {"ref": "1 John 5:1", "words": "Everyone who believes that Jesus is the Christ has been born of God"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "how-can-i-be-saved",
+      "group": "Saved",
+      "question": "How can I be saved?",
+      "also": ["salvation", "how to be saved", "what must i do to be saved", "how do i get to heaven", "becoming a christian", "eternal life", "how to be right with god"],
+      "topics": [
+        {"subject": "SALVATION", "only": ["CONDITIONS OF", "PLAN OF"]},
+        {"subject": "FAITH", "only": ["IN CHRIST"], "skip": ["IN CHRIST, EXEMPLIFIED"]}
+      ],
+      "chain": [
+        {"ref": "Acts 16:30-31"},
+        {"ref": "Acts 2:38", "words": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of your sins, and you will receive the gift of the Holy Spirit."},
+        {"ref": "Rom 10:9"},
+        {"ref": "Rom 10:13", "words": "Everyone who calls on the name of the Lord will be saved."},
+        {"ref": "Isa 45:22"},
+        {"ref": "Eph 2:8-9"},
+        {"ref": "Titus 3:5"},
+        {"ref": "Acts 4:12", "words": "Salvation exists in no one else, for there is no other name under heaven given to men by which we must be saved."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-faith",
+      "group": "Saved",
+      "question": "What is faith?",
+      "also": ["faith", "believing", "what does it mean to believe", "trusting god", "how do i have faith", "meaning of faith", "faith and works"],
+      "topics": [
+        {"subject": "FAITH", "only": ["General scriptures concerning", "IN CHRIST"], "skip": ["IN CHRIST, EXEMPLIFIED"]}
+      ],
+      "chain": [
+        {"ref": "Heb 11:1"},
+        {"ref": "Heb 11:6"},
+        {"ref": "Gen 15:6"},
+        {"ref": "Rom 4:20-21", "words": "he did not waver through disbelief in the promise of God, but was strengthened in his faith and gave glory to God, being fully persuaded that God was able to do what He had promised."},
+        {"ref": "Prov 3:5-6"},
+        {"ref": "Gal 2:20", "words": "The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me."},
+        {"ref": "Rom 10:17"},
+        {"ref": "Jas 2:17"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "can-i-lose-salvation",
+      "group": "Saved",
+      "question": "Can I lose my salvation?",
+      "also": ["once saved always saved", "losing salvation", "eternal security", "falling away", "can a christian lose salvation", "assurance of salvation", "backsliding", "can you lose your salvation"],
+      "topics": [
+        {"subject": "PERSEVERANCE", "only": ["General scriptures concerning"]},
+        {"subject": "APOSTASY", "only": ["Described", "Cautions against", "Guilt and punishment of", "UNCLASSIFIED"]},
+        {"subject": "ASSURANCE", "only": ["Eternal life", "The unalienable love", "Continuance in grace", "Saints give diligence", "Strive to maintain"]}
+      ],
+      "chain": [
+        {"ref": "John 10:27-28"},
+        {"ref": "Heb 3:14"},
+        {"ref": "Phil 1:6"},
+        {"ref": "Col 1:22-23", "words": "But now He has reconciled you by Christ’s physical body through death to present you holy, unblemished, and blameless in His presence— if indeed you continue in your faith, established and firm, not moved from the hope of the gospel you heard"},
+        {"ref": "Rom 8:39"},
+        {"ref": "Heb 10:26", "words": "If we deliberately go on sinning after we have received the knowledge of the truth, no further sacrifice for sins remains"},
+        {"ref": "1 John 2:19"},
+        {"ref": "2 Pet 1:10", "words": "strive to make your calling and election sure. For if you practice these things you will never stumble"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "how-do-i-know-gods-will",
+      "group": "Living",
+      "question": "How do I know what God wants me to do?",
+      "also": ["gods will", "will of god", "guidance", "what does god want from me", "gods plan for my life", "making decisions", "finding my purpose"],
+      "topics": [
+        {"subject": "WILL", "only": ["OF GOD, THE SUPREME RULE OF DUTY"]},
+        {"subject": "GOD", "only": ["GUIDE"]}
+      ],
+      "chain": [
+        {"ref": "Rom 12:2"},
+        {"ref": "Mic 6:8"},
+        {"ref": "John 6:29", "words": "The work of God is this: to believe in the One He has sent."},
+        {"ref": "1 Thess 4:3", "words": "For it is God’s will that you should be holy: You must abstain from sexual immorality"},
+        {"ref": "1 Thess 5:16-18"},
+        {"ref": "Ps 119:105"},
+        {"ref": "Jas 1:5"},
+        {"ref": "Prov 3:5-6"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-fear",
+      "group": "Living",
+      "question": "How do I stop being afraid?",
+      "also": ["fear", "afraid", "anxiety", "worry", "scared", "how to overcome fear", "do not be afraid"],
+      "topics": [
+        {"subject": "COURAGE", "only": ["SCRIPTURES RELATING TO"]},
+        {"subject": "COWARDICE", "only": ["General scriptures concerning"]},
+        {"subject": "CARE", "only": ["REMEDY FOR"]},
+        {"subject": "READINGS, SELECT", "only": ["CONFIDENCE IN GOD", "GOD, OUR REFUGE"]}
+      ],
+      "chain": [
+        {"ref": "Ps 56:3"},
+        {"ref": "Ps 23:4", "words": "Even though I walk through the valley of the shadow of death, I will fear no evil, for You are with me"},
+        {"ref": "Heb 13:5-6", "words": "for God has said: “Never will I leave you, never will I forsake you.” So we say with confidence: “The Lord is my helper; I will not be afraid. What can man do to me?”"},
+        {"ref": "Phil 4:6-7"},
+        {"ref": "1 Pet 5:7"},
+        {"ref": "Matt 10:30-31"},
+        {"ref": "2 Tim 1:7"},
+        {"ref": "John 14:27"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-giving",
+      "group": "Living",
+      "question": "How much should I give?",
+      "also": ["giving", "tithe", "tithing", "how much to give to church", "generosity", "offering", "ten percent", "how much should i tithe"],
+      "topics": [
+        {"subject": "GIVING"},
+        {"subject": "LIBERALITY", "only": ["General scriptures concerning"]},
+        {"subject": "TITHES", "only": ["Paid by Abraham", "Jacob vows", "Mosaic laws", "Customary in later times", "Withheld"]}
+      ],
+      "chain": [
+        {"ref": "2 Cor 9:7"},
+        {"ref": "Deut 16:17"},
+        {"ref": "2 Cor 8:12"},
+        {"ref": "1 Cor 16:2"},
+        {"ref": "Gen 14:20", "words": "Then Abram gave Melchizedek a tenth of everything."},
+        {"ref": "Mal 3:10", "words": "Bring the full tithe into the storehouse, so that there may be food in My house."},
+        {"ref": "Matt 23:23"},
+        {"ref": "Luke 21:3-4"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-lying",
+      "group": "Living",
+      "question": "Is it ever right to lie?",
+      "also": ["lying", "lies", "honesty", "white lies", "telling the truth", "deception", "is lying a sin", "is it ok to lie"],
+      "topics": [
+        {"subject": "FALSEHOOD", "only": ["General scriptures concerning", "Rahab, in denying"]}
+      ],
+      "chain": [
+        {"ref": "Lev 19:11", "words": "You must not lie or deceive one another."},
+        {"ref": "Prov 12:22"},
+        {"ref": "Num 23:19", "words": "God is not a man, that He should lie"},
+        {"ref": "Eph 4:25"},
+        {"ref": "John 8:44", "words": "When he lies, he speaks his native language, because he is a liar and the father of lies."},
+        {"ref": "Exod 1:19-21"},
+        {"ref": "Josh 2:4-5", "words": "But the woman had taken the two men and hidden them. So she said, “Yes, the men did come to me, but I did not know where they had come from. At dusk, when the gate was about to close, the men went out, and I do not know which way they went."},
+        {"ref": "Jas 2:25"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-jealousy",
+      "group": "Living",
+      "question": "What does the Bible say about jealousy and envy?",
+      "also": ["jealousy", "envy", "jealous", "envious", "coveting", "comparing myself to others", "is jealousy a sin"],
+      "topics": [
+        {"subject": "ENVY", "only": ["General scriptures concerning"]},
+        {"subject": "JEALOUSY", "only": ["General scriptures concerning", "Attributed to God", "FIGURATIVE"]}
+      ],
+      "chain": [
+        {"ref": "Prov 14:30"},
+        {"ref": "Jas 3:16"},
+        {"ref": "Exod 20:17"},
+        {"ref": "Ps 37:1", "words": "Do not fret over those who do evil; do not envy those who do wrong."},
+        {"ref": "1 Cor 13:4", "words": "Love is patient, love is kind. It does not envy"},
+        {"ref": "Exod 34:14"},
+        {"ref": "2 Cor 11:2"},
+        {"ref": "Phil 4:11", "words": "I have learned to be content regardless of my circumstances."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-it-wrong-to-be-angry",
+      "group": "Living",
+      "question": "Is it wrong to be angry?",
+      "also": ["anger", "angry", "losing my temper", "rage", "is anger a sin", "how to control anger", "righteous anger"],
+      "topics": [
+        {"subject": "ANGER", "only": ["General scriptures concerning"]},
+        {"subject": "MEEKNESS", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Eph 4:26-27"},
+        {"ref": "Ps 4:4", "words": "Be angry, yet do not sin; on your bed, search your heart and be still."},
+        {"ref": "Mark 3:5", "words": "Jesus looked around at them with anger and sorrow at their hardness of heart."},
+        {"ref": "Matt 5:22", "words": "But I tell you that anyone who is angry with his brother will be subject to judgment."},
+        {"ref": "Jas 1:19-20", "words": "Everyone should be quick to listen, slow to speak, and slow to anger, for man’s anger does not bring about the righteousness that God desires."},
+        {"ref": "Prov 15:1"},
+        {"ref": "Prov 16:32"},
+        {"ref": "Eph 4:31-32"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "love-your-neighbor",
+      "group": "Living",
+      "question": "Who is my neighbor, and how do I love them?",
+      "also": ["love your neighbor", "who is my neighbor", "good samaritan", "love others", "love one another", "loving people", "loving my neighbor"],
+      "topics": [
+        {"subject": "NEIGHBOR", "only": ["General scriptures concerning"]},
+        {"subject": "LOVE", "only": ["OF MAN FOR MAN"]}
+      ],
+      "chain": [
+        {"ref": "Lev 19:18"},
+        {"ref": "Luke 10:29"},
+        {"ref": "Luke 10:33-34", "words": "But when a Samaritan on a journey came upon him, he looked at him and had compassion. He went to him and bandaged his wounds, pouring on oil and wine. Then he put him on his own animal, brought him to an inn, and took care of him."},
+        {"ref": "Luke 10:36-37"},
+        {"ref": "Lev 19:34", "words": "You must treat the foreigner living among you as native-born and love him as yourself"},
+        {"ref": "Matt 5:44"},
+        {"ref": "Rom 13:10"},
+        {"ref": "1 John 3:18"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-work",
+      "group": "Living",
+      "question": "What does the Bible say about work?",
+      "also": ["work", "job", "laziness", "hard work", "working for the lord", "my job", "labor", "career"],
+      "topics": [
+        {"subject": "INDUSTRY", "skip": ["Jeroboam"]},
+        {"subject": "LABOR", "only": ["General scriptures concerning"]},
+        {"subject": "IDLENESS", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Gen 2:15"},
+        {"ref": "Gen 3:19", "words": "By the sweat of your brow you will eat your bread"},
+        {"ref": "Col 3:23", "words": "Whatever you do, work at it with your whole being, for the Lord and not for men"},
+        {"ref": "Prov 14:23"},
+        {"ref": "2 Thess 3:10", "words": "If anyone is unwilling to work, he shall not eat."},
+        {"ref": "Eph 4:28"},
+        {"ref": "Eccl 3:13", "words": "every man should eat and drink and find satisfaction in all his labor—this is the gift of God."},
+        {"ref": "Ps 127:2"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-alcohol",
+      "group": "Living",
+      "question": "Is it wrong to drink alcohol?",
+      "also": ["alcohol", "drinking", "wine", "drunkenness", "is drinking a sin", "can christians drink", "beer", "is it a sin to drink"],
+      "topics": [
+        {"subject": "WINE", "only": ["UNCLASSIFIED", "ADMONITIONS AGAINST", "Made by Jesus", "Recommended by Paul", "Medicinal use"]},
+        {"subject": "DRUNKENNESS", "only": ["General scriptures concerning"]},
+        {"subject": "ABSTINENCE, TOTAL", "only": ["FROM INTOXICATING"]}
+      ],
+      "chain": [
+        {"ref": "Eph 5:18"},
+        {"ref": "Prov 20:1"},
+        {"ref": "Prov 23:30-32"},
+        {"ref": "Gal 5:21", "words": "drunkenness, orgies, and the like. I warn you, as I did before, that those who practice such things will not inherit the kingdom of God."},
+        {"ref": "Ps 104:14-15"},
+        {"ref": "John 2:9", "words": "the master of the banquet tasted the water that had been turned into wine"},
+        {"ref": "1 Tim 5:23"},
+        {"ref": "Rom 14:21"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-the-poor",
+      "group": "Living",
+      "question": "How should I treat the poor?",
+      "also": ["poor", "poverty", "helping the poor", "giving to the poor", "the needy", "charity", "homeless", "caring for the poor"],
+      "topics": [
+        {"subject": "POOR", "only": ["DUTY TO", "UNCLASSIFIED", "OPPRESSIONS OF"]}
+      ],
+      "chain": [
+        {"ref": "Deut 15:11"},
+        {"ref": "Prov 14:31"},
+        {"ref": "Prov 19:17"},
+        {"ref": "Isa 58:7"},
+        {"ref": "Jas 2:5-6", "words": "Has not God chosen the poor of this world to be rich in faith and to inherit the kingdom He promised those who love Him? But you have dishonored the poor."},
+        {"ref": "Luke 14:13-14"},
+        {"ref": "1 John 3:17"},
+        {"ref": "Matt 25:40", "words": "whatever you did for one of the least of these brothers of Mine, you did for Me."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "how-should-i-pray",
+      "group": "Living",
+      "question": "How should I pray?",
+      "also": ["prayer", "how to pray", "the lord's prayer", "teach me to pray", "what to say when praying", "praying", "how to talk to god", "what should i pray"],
+      "topics": [
+        {"subject": "PRAYER", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO", "Without ceasing", "Private, enjoined", "Vain repetitions", "Profuse", "The Lord' s Prayer", "Submission in"]}
+      ],
+      "chain": [
+        {"ref": "Luke 11:2-4"},
+        {"ref": "Matt 6:6-8"},
+        {"ref": "Phil 4:6"},
+        {"ref": "Ps 62:8", "words": "Trust in Him at all times, O people; pour out your hearts before Him. God is our refuge."},
+        {"ref": "Jas 1:6", "words": "he must ask in faith, without doubting"},
+        {"ref": "1 John 5:14", "words": "If we ask anything according to His will, He hears us."},
+        {"ref": "Rom 8:26"},
+        {"ref": "1 Thess 5:17"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "how-do-i-forgive",
+      "group": "Living",
+      "question": "How do I forgive someone who hurt me?",
+      "also": ["forgiveness", "forgiving others", "how to forgive", "i can't forgive", "bitterness", "holding a grudge", "forgive and forget", "how many times should i forgive"],
+      "topics": [
+        {"subject": "FORGIVENESS", "only": ["OF ENEMIES", "Joseph forgives", "Jesus forgives his enemies"]},
+        {"subject": "REVENGE", "only": ["Forbidden", "Jesus an example"]}
+      ],
+      "chain": [
+        {"ref": "Col 3:13"},
+        {"ref": "Eph 4:31"},
+        {"ref": "Matt 18:21-22"},
+        {"ref": "Luke 17:3-4"},
+        {"ref": "Mark 11:25", "words": "when you stand to pray, if you hold anything against another, forgive it, so that your Father in heaven will forgive your trespasses as well."},
+        {"ref": "Rom 12:19"},
+        {"ref": "Gen 50:19-20", "words": "Do not be afraid. Am I in the place of God? As for you, what you intended against me for evil, God intended for good"},
+        {"ref": "Luke 23:34", "words": "Father, forgive them, for they do not know what they are doing."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "love-your-enemies",
+      "group": "Living",
+      "question": "How should I treat my enemies?",
+      "also": ["enemies", "love your enemies", "turn the other cheek", "revenge", "people who hate me", "pray for those who persecute you", "getting even"],
+      "topics": [
+        {"subject": "ENEMY", "only": ["General scriptures concerning", "Instances of forgiveness of", "Jesus, of his persecutors", "Stephen, of his murderers"]},
+        {"subject": "GOOD FOR EVIL"},
+        {"subject": "REVENGE", "only": ["Forbidden", "Jesus an example", "Rebuked by Jesus", "Inconsistent"]}
+      ],
+      "chain": [
+        {"ref": "Matt 5:44-45", "words": "love your enemies and pray for those who persecute you, that you may be sons of your Father in heaven. He causes His sun to rise on the evil and the good, and sends rain on the righteous and the unrighteous."},
+        {"ref": "Luke 6:27-29", "words": "do good to those who hate you, bless those who curse you, pray for those who mistreat you. If someone strikes you on one cheek, turn to him the other also."},
+        {"ref": "1 Pet 3:9", "words": "Do not repay evil with evil or insult with insult, but with blessing"},
+        {"ref": "Rom 12:19"},
+        {"ref": "Prov 25:21-22"},
+        {"ref": "Rom 12:21"},
+        {"ref": "Acts 7:60", "words": "Lord, do not hold this sin against them."},
+        {"ref": "Rom 5:10", "words": "when we were enemies of God, we were reconciled to Him through the death of His Son"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-pride",
+      "group": "Living",
+      "question": "What does the Bible say about pride and humility?",
+      "also": ["pride", "humility", "being humble", "arrogance", "is pride a sin", "boasting", "how to be humble", "pride comes before a fall"],
+      "topics": [
+        {"subject": "PRIDE", "only": ["General scriptures concerning"]},
+        {"subject": "HUMILITY", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Prov 16:18"},
+        {"ref": "1 Pet 5:5-6", "words": "clothe yourselves with humility toward one another, because, “God opposes the proud, but gives grace to the humble.” Humble yourselves, therefore, under God’s mighty hand, so that in due time He may exalt you."},
+        {"ref": "Luke 18:14", "words": "For everyone who exalts himself will be humbled, but the one who humbles himself will be exalted."},
+        {"ref": "Mic 6:8"},
+        {"ref": "Phil 2:3"},
+        {"ref": "Phil 2:5-7"},
+        {"ref": "Phil 2:8"},
+        {"ref": "Jer 9:23-24", "words": "Let not the wise man boast in his wisdom, nor the strong man in his strength, nor the wealthy man in his riches. But let him who boasts boast in this, that he understands and knows Me"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-temptation",
+      "group": "Living",
+      "question": "How do I resist temptation?",
+      "also": ["temptation", "tempted", "resisting temptation", "how to stop sinning", "struggling with sin", "lust", "being tempted", "lead us not into temptation"],
+      "topics": [
+        {"subject": "TEMPTATION", "only": ["General scriptures concerning", "RESISTANCE TO", "Prayer against being led into"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 10:13"},
+        {"ref": "Jas 4:7"},
+        {"ref": "Matt 26:41"},
+        {"ref": "Matt 4:3-4"},
+        {"ref": "Ps 119:11"},
+        {"ref": "2 Tim 2:22"},
+        {"ref": "Gal 5:16"},
+        {"ref": "Heb 2:18"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-justice",
+      "group": "Living",
+      "question": "Does God care about justice?",
+      "also": ["justice", "injustice", "oppression", "is god fair", "god of justice", "why do the wicked get away with it", "the oppressed", "social justice"],
+      "topics": [
+        {"subject": "JUSTICE", "only": ["General scriptures concerning"]},
+        {"subject": "GOD", "only": ["JUDGE, AND HIS JUSTICE"]}
+      ],
+      "chain": [
+        {"ref": "Isa 61:8", "words": "For I, the LORD, love justice; I hate robbery and iniquity"},
+        {"ref": "Ps 89:14", "words": "Righteousness and justice are the foundation of Your throne"},
+        {"ref": "Deut 10:17-18"},
+        {"ref": "Isa 1:17"},
+        {"ref": "Matt 23:23", "words": "But you have disregarded the weightier matters of the law: justice, mercy, and faithfulness."},
+        {"ref": "Eccl 3:16-17"},
+        {"ref": "Luke 18:7-8", "words": "Will not God bring about justice for His elect who cry out to Him day and night? Will He continue to defer their help? I tell you, He will promptly carry out justice on their behalf."},
+        {"ref": "Acts 17:31", "words": "He has set a day when He will judge the world with justice by the Man He has appointed."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "does-god-answer-prayer",
+      "group": "Living",
+      "question": "Does God answer prayer?",
+      "also": ["answered prayer", "unanswered prayer", "why doesn't god answer my prayers", "does prayer work", "does god hear me", "god is silent", "does god listen to prayer"],
+      "topics": [
+        {"subject": "PRAYER", "only": ["ANSWER TO, PROMISE", "ANSWERED", "Answer to, delayed", "Of JOB", "Of the Israelites, when attacked", "Moses asked to be permitted", "The Israelites lusted", "Paul asked that"], "skip": ["Abraham, for a son", "Abraham' s servant", "Jacob, for deliverance", "Moses, concerning the complaint", "From Pharaoh", "Ammon", "For God' s favor", "Solomon, asking for wisdom", "Jehoshaphat, for victory", "Centurion", "Cain", "Ezekiel, to have the baking"]}
+      ],
+      "chain": [
+        {"ref": "Matt 7:7"},
+        {"ref": "Matt 7:11", "words": "how much more will your Father in heaven give good things to those who ask Him!"},
+        {"ref": "1 John 5:14-15"},
+        {"ref": "Ps 34:17"},
+        {"ref": "Ps 66:18"},
+        {"ref": "Jas 4:2-3", "words": "You do not have, because you do not ask. And when you do ask, you do not receive, because you ask with wrong motives, that you may squander it on your pleasures."},
+        {"ref": "Matt 26:39"},
+        {"ref": "2 Cor 12:8-9", "words": "Three times I pleaded with the Lord to take it away from me. But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.”"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-worry",
+      "group": "Living",
+      "question": "What do I do with worry and anxiety?",
+      "also": ["worry", "anxiety", "anxious", "stress", "how to stop worrying", "worried about the future", "overwhelmed"],
+      "topics": [
+        {"subject": "CARE", "only": ["WORLDLY", "REMEDY FOR"]},
+        {"subject": "TROUBLE", "only": ["BORROWING"]}
+      ],
+      "chain": [
+        {"ref": "Phil 4:6-7"},
+        {"ref": "1 Pet 5:7"},
+        {"ref": "Ps 55:22"},
+        {"ref": "Ps 94:19"},
+        {"ref": "Matt 6:25", "words": "do not worry about your life, what you will eat or drink; or about your body, what you will wear."},
+        {"ref": "Matt 6:32-33", "words": "your heavenly Father knows that you need them. But seek first the kingdom of God and His righteousness, and all these things will be added unto you."},
+        {"ref": "Matt 6:34"},
+        {"ref": "Isa 26:3"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-money",
+      "group": "Living",
+      "question": "What does the Bible say about money?",
+      "also": ["money", "wealth", "debt", "greed", "being rich", "love of money", "contentment", "finances"],
+      "topics": [
+        {"subject": "RICHES", "only": ["General scriptures concerning"]},
+        {"subject": "COVETOUSNESS", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "1 Tim 6:10", "words": "For the love of money is the root of all kinds of evil."},
+        {"ref": "Matt 6:24"},
+        {"ref": "Heb 13:5"},
+        {"ref": "Prov 22:7"},
+        {"ref": "Prov 30:8", "words": "Give me neither poverty nor riches; feed me with the bread that is my portion."},
+        {"ref": "Matt 6:20-21"},
+        {"ref": "1 Tim 6:17-18", "words": "Instruct those who are rich in the present age not to be conceited and not to put their hope in the uncertainty of wealth, but in God, who richly provides all things for us to enjoy. Instruct them to do good, to be rich in good works, and to be generous and ready to share"},
+        {"ref": "Prov 3:9", "words": "Honor the LORD with your wealth and with the firstfruits of all your harvest"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-words",
+      "group": "Living",
+      "question": "How should I use my words?",
+      "also": ["speech", "the tongue", "gossip", "cursing", "taming the tongue", "what i say", "hurtful words", "bad language"],
+      "topics": [
+        {"subject": "SPEAKING", "only": ["EVIL", "FOLLY IN", "WISDOM IN"]},
+        {"subject": "TONGUE", "only": ["Loquacious", "Restrained by wisdom", "Hasty"]},
+        {"subject": "CONVERSATION"},
+        {"subject": "TALEBEARER", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Eph 4:29"},
+        {"ref": "Prov 18:21"},
+        {"ref": "Prov 11:13"},
+        {"ref": "Jas 3:9-10"},
+        {"ref": "Luke 6:45", "words": "For out of the overflow of the heart, the mouth speaks."},
+        {"ref": "Matt 12:36-37", "words": "But I tell you that men will give an account on the day of judgment for every careless word they have spoken. For by your words you will be acquitted, and by your words you will be condemned."},
+        {"ref": "Col 4:6"},
+        {"ref": "Ps 19:14"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-doubt",
+      "group": "Living",
+      "question": "Is it wrong to doubt?",
+      "also": ["doubt", "doubting god", "doubts about faith", "struggling to believe", "unbelief", "questioning god", "is doubt a sin"],
+      "topics": [
+        {"subject": "DOUBTING", "only": ["General scriptures concerning", "EXEMPLIFIED"]},
+        {"subject": "UNBELIEF", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Matt 14:31"},
+        {"ref": "Mark 9:24"},
+        {"ref": "Jas 1:6"},
+        {"ref": "Ps 77:8-9", "words": "Is His loving devotion gone forever? Has His promise failed for all time? Has God forgotten to be gracious?"},
+        {"ref": "Ps 77:11"},
+        {"ref": "Matt 28:17"},
+        {"ref": "John 20:27-28"},
+        {"ref": "Jude 1:22", "words": "have mercy on those who doubt"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-government",
+      "group": "Living",
+      "question": "How should I relate to rulers and government?",
+      "also": ["government", "authorities", "obeying the law", "paying taxes", "politics", "submitting to rulers", "civil disobedience", "should i obey the government"],
+      "topics": [
+        {"subject": "CITIZENS", "only": ["DUTIES OF"]},
+        {"subject": "GOVERNMENT", "only": ["DUTY OF CITIZENS TO", "UNCLASSIFIED SCRIPTURES RELATING TO GOD IN"]}
+      ],
+      "chain": [
+        {"ref": "Rom 13:1"},
+        {"ref": "1 Pet 2:17"},
+        {"ref": "Matt 22:21", "words": "Give to Caesar what is Caesar’s, and to God what is God’s."},
+        {"ref": "Rom 13:7"},
+        {"ref": "1 Tim 2:1-2"},
+        {"ref": "Dan 2:21", "words": "He removes kings and establishes them."},
+        {"ref": "Exod 1:17"},
+        {"ref": "Acts 5:29", "words": "We must obey God rather than men."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-do-good-people-suffer",
+      "group": "Hard times",
+      "question": "Why do good people suffer?",
+      "also": ["why do bad things happen to good people", "suffering of the righteous", "life is unfair", "why me", "trials", "job", "why does god let good people suffer"],
+      "topics": [
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["OF SAINTS"]},
+        {"subject": "GOD", "only": ["PROVIDENCE OF, MYSTERIOUS AND MISINTERPRETED"]},
+        {"subject": "SUFFERING", "only": ["FOR CHRIST"]}
+      ],
+      "chain": [
+        {"ref": "Ps 34:19"},
+        {"ref": "Eccl 7:15"},
+        {"ref": "John 9:3", "words": "Neither this man nor his parents sinned, but this happened so that the works of God would be displayed in him."},
+        {"ref": "Jas 5:11", "words": "You have heard of Job’s perseverance and have seen the outcome from the Lord. The Lord is full of compassion and mercy."},
+        {"ref": "John 16:33", "words": "In the world you will have tribulation. But take courage; I have overcome the world!"},
+        {"ref": "1 Pet 4:12-13"},
+        {"ref": "Heb 12:10", "words": "God disciplines us for our good, so that we may share in His holiness."},
+        {"ref": "1 Pet 5:10"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-sickness",
+      "group": "Hard times",
+      "question": "Does God heal?",
+      "also": ["healing", "sickness", "illness", "divine healing", "pray for healing", "why am i not healed", "disease", "does god still heal"],
+      "topics": [
+        {"subject": "DISEASE", "only": ["Healing of, from God", "In answer to prayer", "Of Hezekiah", "Of David", "Miraculous healing of", "Physicians employed for", "Remedies used"]},
+        {"subject": "JESUS, THE CHRIST", "only": ["Heals diseases in Galilee", "Heals multitudes", "Heals demoniacs", "Heals in Galilee", "Heals sick in Galilee", "Healing of the diseased people", "Healing of the lame"]}
+      ],
+      "chain": [
+        {"ref": "Jas 5:14-15"},
+        {"ref": "Ps 103:2-3"},
+        {"ref": "Matt 8:16-17", "words": "He drove out the spirits with a word and healed all the sick. This was to fulfill what was spoken through the prophet Isaiah: “He took on our infirmities and carried our diseases.”"},
+        {"ref": "Phil 2:27", "words": "He was sick indeed, nearly unto death. But God had mercy on him"},
+        {"ref": "2 Cor 12:7-9", "words": "So to keep me from becoming conceited, I was given a thorn in my flesh, a messenger of Satan, to torment me. Three times I pleaded with the Lord to take it away from me. But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.”"},
+        {"ref": "2 Tim 4:20", "words": "Trophimus I left sick in Miletus."},
+        {"ref": "1 Tim 5:23"},
+        {"ref": "Rev 21:4", "words": "there will be no more death or mourning or crying or pain, for the former things have passed away."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "comfort-in-grief",
+      "group": "Hard times",
+      "question": "Where do I find comfort when someone dies?",
+      "also": ["grief", "grieving", "death of a loved one", "mourning", "loss", "comfort", "bereavement", "losing a loved one"],
+      "topics": [
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["CONSOLATION IN"]},
+        {"subject": "BEREAVEMENT", "only": ["RESIGNATION IN"]},
+        {"subject": "SORROW", "only": ["No sorrow in heaven", "Sorrow and sighing", "Of Mary and Martha"]},
+        {"subject": "DEATH", "only": ["Called SLEEP"]}
+      ],
+      "chain": [
+        {"ref": "Ps 34:18"},
+        {"ref": "Matt 5:4"},
+        {"ref": "2 Cor 1:3-4", "words": "the Father of compassion and the God of all comfort, who comforts us in all our troubles"},
+        {"ref": "John 11:35"},
+        {"ref": "John 11:25", "words": "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."},
+        {"ref": "1 Thess 4:13-14"},
+        {"ref": "Isa 25:8", "words": "He will swallow up death forever. The Lord GOD will wipe away the tears from every face"},
+        {"ref": "Rev 21:4"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-loneliness",
+      "group": "Hard times",
+      "question": "Does God see me when I feel alone?",
+      "also": ["loneliness", "lonely", "feeling alone", "no one cares about me", "abandoned", "isolated", "does god see me", "forsaken"],
+      "topics": [
+        {"subject": "GOD", "only": ["PRESENCE OF", "KNOWLEDGE OF"]},
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["FORSAKEN BY FRIENDS IN"]}
+      ],
+      "chain": [
+        {"ref": "Gen 16:13"},
+        {"ref": "Ps 25:16"},
+        {"ref": "Ps 139:9-10"},
+        {"ref": "Ps 27:10"},
+        {"ref": "John 16:32", "words": "you will leave Me all alone. Yet I am not alone, because the Father is with Me."},
+        {"ref": "2 Tim 4:16-17", "words": "no one stood with me, but everyone deserted me. May it not be charged against them. But the Lord stood by me and strengthened me"},
+        {"ref": "Ps 68:6", "words": "God settles the lonely in families"},
+        {"ref": "Heb 13:5", "words": "God has said: “Never will I leave you, never will I forsake you.”"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-despair",
+      "group": "Hard times",
+      "question": "What do I do when I feel hopeless?",
+      "also": ["hopeless", "hopelessness", "despair", "depression", "feeling down", "giving up", "no hope", "discouraged"],
+      "topics": [
+        {"subject": "DESPONDENCY", "only": ["General scriptures concerning", "COMFORT IN"]},
+        {"subject": "HOPE", "only": ["General scriptures concerning"]},
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["DESPONDENCY IN"]}
+      ],
+      "chain": [
+        {"ref": "Ps 42:11"},
+        {"ref": "Ps 34:18"},
+        {"ref": "Lam 3:21-23"},
+        {"ref": "Ps 40:1-2", "words": "I waited patiently for the LORD; He inclined to me and heard my cry. He lifted me up from the pit of despair, out of the miry clay; He set my feet upon a rock, and made my footsteps firm."},
+        {"ref": "2 Cor 1:8-9", "words": "We were under a burden far beyond our ability to endure, so that we despaired even of life. Indeed, we felt we were under the sentence of death, in order that we would not trust in ourselves, but in God, who raises the dead."},
+        {"ref": "Matt 11:28"},
+        {"ref": "Rom 15:13"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-singleness",
+      "group": "Family",
+      "question": "Is it good to stay single?",
+      "also": ["singleness", "single", "staying single", "being unmarried", "celibacy", "should i get married", "gift of singleness", "is it ok to be single"],
+      "topics": [
+        {"subject": "CELIBACY"},
+        {"subject": "MARRIAGE", "only": ["Celibacy deplored", "Advised", "Not binding after death"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 7:7-8"},
+        {"ref": "1 Cor 7:32-34", "words": "The unmarried man is concerned about the work of the Lord, how he can please the Lord. But the married man is concerned about the affairs of this world, how he can please his wife, and his interests are divided."},
+        {"ref": "Matt 19:12", "words": "and still others live like eunuchs for the sake of the kingdom of heaven. The one who can accept this should accept it."},
+        {"ref": "Isa 56:4-5", "words": "To the eunuchs who keep My Sabbaths, who choose what pleases Me and hold fast to My covenant— I will give them, in My house and within My walls, a memorial and a name better than that of sons and daughters."},
+        {"ref": "Gen 2:18"},
+        {"ref": "1 Cor 7:9", "words": "But if they cannot control themselves, let them marry. For it is better to marry than to burn with passion."},
+        {"ref": "1 Cor 7:26"},
+        {"ref": "1 Cor 7:28", "words": "But if you do marry, you have not sinned."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-marriage",
+      "group": "Family",
+      "question": "What is marriage?",
+      "also": ["marriage", "husband and wife", "getting married", "one flesh", "god's design for marriage", "wedding", "biblical marriage", "purpose of marriage"],
+      "topics": [
+        {"subject": "MARRIAGE", "only": ["UNCLASSIFIED"]},
+        {"subject": "HUSBAND", "only": ["General scriptures concerning"]},
+        {"subject": "WIFE", "only": ["UNCLASSIFIED", "HELP", "Relation of"]}
+      ],
+      "chain": [
+        {"ref": "Gen 2:24"},
+        {"ref": "Matt 19:4", "words": "from the beginning the Creator ‘made them male and female,’"},
+        {"ref": "Matt 19:6"},
+        {"ref": "Eph 5:32-33"},
+        {"ref": "Gen 2:18", "words": "It is not good for the man to be alone. I will make for him a suitable helper."},
+        {"ref": "Mal 2:14", "words": "she is your companion and your wife by covenant"},
+        {"ref": "Heb 13:4"},
+        {"ref": "Prov 18:22"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "parents-and-children",
+      "group": "Family",
+      "question": "How should parents and children treat each other?",
+      "also": ["parenting", "honor your father and mother", "obey your parents", "raising children", "fathers", "mothers", "family", "raising kids"],
+      "topics": [
+        {"subject": "CHILDREN", "only": ["COMMANDMENTS TO", "INSTRUCTION OF", "CORRECTION OF", "GOOD"], "skip": ["Character of, illustrates", "Illustrative of a teachable"]},
+        {"subject": "PARENTS", "only": ["UNCLASSIFIED"]}
+      ],
+      "chain": [
+        {"ref": "Eph 6:1"},
+        {"ref": "Exod 20:12"},
+        {"ref": "Prov 23:22"},
+        {"ref": "Ps 127:3"},
+        {"ref": "Eph 6:4"},
+        {"ref": "Col 3:21"},
+        {"ref": "Deut 6:6-7"},
+        {"ref": "Prov 22:6"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-divorce",
+      "group": "Family",
+      "question": "What does the Bible say about divorce?",
+      "also": ["divorce", "remarriage", "is divorce a sin", "getting divorced", "divorce and remarriage", "can christians divorce", "leaving my spouse", "grounds for divorce"],
+      "topics": [
+        {"subject": "DIVORCE", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Gen 2:24"},
+        {"ref": "Matt 19:6"},
+        {"ref": "Mal 2:16", "words": "“For I hate divorce,” says the LORD, the God of Israel. “He who divorces his wife covers his garment with violence,” says the LORD of Hosts."},
+        {"ref": "Matt 19:8"},
+        {"ref": "Matt 19:9"},
+        {"ref": "Mark 10:11-12", "words": "Whoever divorces his wife and marries another woman commits adultery against her. And if a woman divorces her husband and marries another man, she commits adultery."},
+        {"ref": "1 Cor 7:10-11", "words": "A wife must not separate from her husband. But if she does, she must remain unmarried or else be reconciled to her husband. And a husband must not divorce his wife."},
+        {"ref": "1 Cor 7:15"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-friendship",
+      "group": "Family",
+      "question": "What makes a good friend?",
+      "also": ["friends", "friendship", "true friend", "choosing friends", "best friend", "bad company", "loyal friend", "how to be a good friend"],
+      "topics": [
+        {"subject": "FRIENDSHIP", "only": ["General scriptures concerning", "David and Jonathan", "Ruth and Naomi", "Paul, Timothy"]},
+        {"subject": "FRIENDS", "only": ["Jesus calls his disciples"]}
+      ],
+      "chain": [
+        {"ref": "Prov 17:17"},
+        {"ref": "Prov 18:24"},
+        {"ref": "John 15:12-13", "words": "love one another as I have loved you. Greater love has no one than this, that he lay down his life for his friends."},
+        {"ref": "Prov 27:6"},
+        {"ref": "Prov 27:17"},
+        {"ref": "Eccl 4:9-10"},
+        {"ref": "1 Sam 23:16", "words": "Saul’s son Jonathan came to David in Horesh and strengthened his hand in God"},
+        {"ref": "Prov 13:20"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-sex",
+      "group": "Family",
+      "question": "What does the Bible say about sex?",
+      "also": ["sex", "sexual immorality", "sex before marriage", "purity", "lust", "sexuality", "intimacy in marriage", "fornication"],
+      "topics": [
+        {"subject": "CHASTITY", "only": ["General scriptures concerning"]},
+        {"subject": "ADULTERY", "only": ["General scriptures concerning", "FORBIDDEN"]},
+        {"subject": "LASCIVIOUSNESS", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Gen 2:24-25"},
+        {"ref": "Prov 5:18-19"},
+        {"ref": "1 Cor 7:3"},
+        {"ref": "Heb 13:4"},
+        {"ref": "1 Thess 4:3-4", "words": "For it is God’s will that you should be holy: You must abstain from sexual immorality; each of you must know how to control his own body in holiness and honor"},
+        {"ref": "Matt 5:28"},
+        {"ref": "1 Cor 6:18", "words": "Flee from sexual immorality."},
+        {"ref": "1 Cor 6:11", "words": "But you were washed, you were sanctified, you were justified, in the name of the Lord Jesus Christ and by the Spirit of our God."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-heaven-like",
+      "group": "Death and the future",
+      "question": "What is heaven like?",
+      "also": ["heaven", "what happens in heaven", "new heaven and new earth", "paradise", "will we see god", "afterlife", "eternal life"],
+      "topics": [
+        {"subject": "HEAVEN", "only": ["THE FUTURE DWELLING PLACE", "UNCLASSIFIED", "NEW HEAVENS"]}
+      ],
+      "chain": [
+        {"ref": "Rev 21:3-4"},
+        {"ref": "Isa 25:8", "words": "He will swallow up death forever. The Lord GOD will wipe away the tears from every face"},
+        {"ref": "Rev 22:3-4"},
+        {"ref": "John 14:2"},
+        {"ref": "Phil 1:23", "words": "I desire to depart and be with Christ, which is far better indeed."},
+        {"ref": "Ps 16:11", "words": "You will fill me with joy in Your presence, with eternal pleasures at Your right hand."},
+        {"ref": "1 John 3:2", "words": "We know that when Christ appears, we will be like Him, for we will see Him as He is."},
+        {"ref": "2 Pet 3:13"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "when-will-the-world-end",
+      "group": "Death and the future",
+      "question": "When will the world end?",
+      "also": ["end of the world", "end times", "when is jesus coming back", "last days", "second coming", "the end", "rapture", "when will jesus return"],
+      "topics": [
+        {"subject": "HEAVEN", "only": ["PHYSICAL HEAVENS, DESTRUCTION OF", "NEW HEAVENS"]},
+        {"subject": "DAY", "only": ["Called THE DAY OF THE LORD"]},
+        {"subject": "WAITING", "only": ["For the coming of Christ"]},
+        {"subject": "JESUS, THE CHRIST", "only": ["Foretells the destruction of the temple"]}
+      ],
+      "chain": [
+        {"ref": "Matt 24:35-36"},
+        {"ref": "Acts 1:7", "words": "It is not for you to know times or seasons that the Father has fixed by His own authority."},
+        {"ref": "1 Thess 5:2", "words": "the Day of the Lord will come like a thief in the night."},
+        {"ref": "Matt 24:14"},
+        {"ref": "2 Pet 3:8-9"},
+        {"ref": "1 Pet 4:7"},
+        {"ref": "Rev 22:20"},
+        {"ref": "Matt 24:44"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-hell",
+      "group": "Death and the future",
+      "question": "What does the Bible say about hell?",
+      "also": ["hell", "is hell real", "lake of fire", "eternal punishment", "who goes to hell", "eternal fire", "what is hell"],
+      "topics": [
+        {"subject": "HELL", "only": ["THE FUTURE HOME", "In the R. V. the Greek word"]},
+        {"subject": "PUNISHMENT", "only": ["ETERNAL"]},
+        {"subject": "SECOND DEATH", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Matt 25:41", "words": "Depart from Me, you who are cursed, into the eternal fire prepared for the devil and his angels."},
+        {"ref": "Matt 25:46"},
+        {"ref": "Mark 9:47-48", "words": "It is better for you to enter the kingdom of God with one eye than to have two eyes and be thrown into hell, where ‘their worm never dies, and the fire is never quenched.’"},
+        {"ref": "Isa 66:24", "words": "they will see the corpses of the men who have rebelled against Me; for their worm will never die, their fire will never be quenched, and they will be a horror to all mankind."},
+        {"ref": "Matt 10:28"},
+        {"ref": "2 Thess 1:8-9", "words": "inflicting vengeance on those who do not know God and do not obey the gospel of our Lord Jesus. They will suffer the penalty of eternal destruction, separated from the presence of the Lord and the glory of His might"},
+        {"ref": "Rev 20:14-15", "words": "This is the second death—the lake of fire. And if anyone was found whose name was not written in the Book of Life, he was thrown into the lake of fire."},
+        {"ref": "2 Pet 3:9", "words": "not wanting anyone to perish but everyone to come to repentance"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "will-the-dead-rise",
+      "group": "Death and the future",
+      "question": "Will the dead rise again?",
+      "also": ["resurrection", "resurrection of the dead", "raised from the dead", "bodily resurrection", "will we have bodies", "rising from the dead", "the last day"],
+      "topics": [
+        {"subject": "RESURRECTION", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "John 5:28-29"},
+        {"ref": "Dan 12:2"},
+        {"ref": "Isa 26:19", "words": "Your dead will live; their bodies will rise."},
+        {"ref": "Job 19:25-26"},
+        {"ref": "Matt 22:31-32", "words": "concerning the resurrection of the dead, have you not read what God said to you: ‘I am the God of Abraham, the God of Isaac, and the God of Jacob’? He is not the God of the dead, but of the living."},
+        {"ref": "1 Cor 15:20"},
+        {"ref": "John 11:25", "words": "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."},
+        {"ref": "1 Cor 15:42-43", "words": "So will it be with the resurrection of the dead: What is sown is perishable; it is raised imperishable. It is sown in dishonor; it is raised in glory. It is sown in weakness; it is raised in power."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-happens-when-we-die",
+      "group": "Death and the future",
+      "question": "What happens when we die?",
+      "also": ["death", "life after death", "afterlife", "where do we go when we die", "dying", "the soul after death", "is there life after death"],
+      "topics": [
+        {"subject": "DEATH", "only": ["OF THE RIGHTEOUS", "Called SLEEP"]},
+        {"subject": "HADES", "only": ["2. The realm"]},
+        {"subject": "IMMORTALITY", "only": ["General scriptures concerning"]}
+      ],
+      "chain": [
+        {"ref": "Heb 9:27", "words": "man is appointed to die once, and after that to face judgment"},
+        {"ref": "Eccl 12:7", "words": "the dust returns to the ground from which it came and the spirit returns to God who gave it."},
+        {"ref": "Luke 23:43"},
+        {"ref": "2 Cor 5:8"},
+        {"ref": "Phil 1:23", "words": "I desire to depart and be with Christ, which is far better indeed."},
+        {"ref": "1 Thess 4:14"},
+        {"ref": "Dan 12:2"},
+        {"ref": "John 11:25", "words": "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "judgment-day",
+      "group": "Death and the future",
+      "question": "Will God judge everyone?",
+      "also": ["judgment day", "final judgment", "day of judgment", "will god judge me", "judgment seat of christ", "last judgment", "standing before god"],
+      "topics": [
+        {"subject": "JUDGMENT"}
+      ],
+      "chain": [
+        {"ref": "Eccl 12:14"},
+        {"ref": "2 Cor 5:10"},
+        {"ref": "Acts 17:31", "words": "For He has set a day when He will judge the world with justice by the Man He has appointed. He has given proof of this to everyone by raising Him from the dead."},
+        {"ref": "Rev 20:12"},
+        {"ref": "Rom 14:12"},
+        {"ref": "Gen 18:25", "words": "Will not the Judge of all the earth do what is right?"},
+        {"ref": "John 5:24"},
+        {"ref": "Rom 8:1"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-meet-together",
+      "group": "Church and Bible",
+      "question": "Why meet together with other believers?",
+      "also": ["church", "going to church", "fellowship", "do i need church", "christian community", "gathering together", "can i follow jesus without church"],
+      "topics": [
+        {"subject": "FELLOWSHIP", "only": ["General scriptures concerning", "OF THE RIGHTEOUS"]},
+        {"subject": "COMMUNION", "only": ["OF SAINTS"]},
+        {"subject": "CHURCH", "only": ["Worship of, to be attended", "Harmonious fellowship of", "Unity of", "Is edified by the word"]}
+      ],
+      "chain": [
+        {"ref": "Heb 10:24-25"},
+        {"ref": "Matt 18:20"},
+        {"ref": "Acts 2:42"},
+        {"ref": "Ps 133:1", "words": "Behold, how good and pleasant it is when brothers live together in harmony!"},
+        {"ref": "Eccl 4:10", "words": "if one falls down, his companion can lift him up; but pity the one who falls without another to help him up!"},
+        {"ref": "Rom 12:5"},
+        {"ref": "Col 3:16"},
+        {"ref": "Heb 3:13"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "who-is-satan",
+      "group": "Church and Bible",
+      "question": "Who is Satan?",
+      "also": ["satan", "the devil", "lucifer", "who is the devil", "is satan real", "the evil one", "demons"],
+      "topics": [
+        {"subject": "SATAN", "skip": ["Evil spirit", "Lying spirit", "Kingdom of, to be destroyed", "Called Abaddon", "The angel of the bottomless pit", "Apollyon", "Gates of hell", "Unclean spirit"]}
+      ],
+      "chain": [
+        {"ref": "Rev 12:9"},
+        {"ref": "Gen 3:1"},
+        {"ref": "John 8:44", "words": "He was a murderer from the beginning, refusing to uphold the truth, because there is no truth in him. When he lies, he speaks his native language, because he is a liar and the father of lies."},
+        {"ref": "2 Cor 11:14", "words": "Satan himself masquerades as an angel of light."},
+        {"ref": "Job 1:7"},
+        {"ref": "1 Pet 5:8-9", "words": "Your adversary the devil prowls around like a roaring lion, seeking someone to devour. Resist him, standing firm in your faith"},
+        {"ref": "1 John 3:8", "words": "the devil has been sinning from the very start. This is why the Son of God was revealed, to destroy the works of the devil."},
+        {"ref": "Rev 20:10", "words": "And the devil who had deceived them was thrown into the lake of fire and sulfur"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "is-the-bible-gods-word",
+      "group": "Church and Bible",
+      "question": "Is the Bible God's word?",
+      "also": ["bible", "scripture", "is the bible true", "inspiration of scripture", "god breathed", "word of god", "can i trust the bible", "is the bible inspired"],
+      "topics": [
+        {"subject": "WORD OF GOD", "only": ["INSPIRATION OF", "Not to be added to", "Fulfilled by Jesus", "Testify of Jesus"]},
+        {"subject": "SCRIPTURES", "only": ["The word of God", "Inspired by God"]}
+      ],
+      "chain": [
+        {"ref": "2 Tim 3:16-17"},
+        {"ref": "2 Pet 1:20-21"},
+        {"ref": "2 Sam 23:2"},
+        {"ref": "1 Thess 2:13", "words": "when you received the word of God that you heard from us, you accepted it not as the word of men, but as the true word of God"},
+        {"ref": "2 Pet 3:15-16", "words": "our beloved brother Paul also wrote you with the wisdom God gave him. He writes this way in all his letters, speaking in them about such matters. Some parts of his letters are hard to understand, which ignorant and unstable people distort, as they do the rest of the Scriptures, to their own destruction."},
+        {"ref": "John 10:35", "words": "the Scripture cannot be broken"},
+        {"ref": "Prov 30:5"},
+        {"ref": "John 17:17"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "the-lords-supper",
+      "group": "Church and Bible",
+      "question": "What is the Lord's Supper?",
+      "also": ["lord's supper", "communion", "holy communion", "breaking bread", "last supper", "bread and cup", "eucharist", "taking communion"],
+      "topics": [
+        {"subject": "EUCHARIST (THE LORD'S SUPPER)"},
+        {"subject": "PASSOVER", "only": ["The Lord's Supper ordained at", "The lamb of, a type of Christ", "Christ called"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 11:23-25", "words": "The Lord Jesus, on the night He was betrayed, took bread, and when He had given thanks, He broke it and said, “This is My body, which is for you; do this in remembrance of Me.” In the same way, after supper He took the cup, saying, “This cup is the new covenant in My blood; do this, as often as you drink it, in remembrance of Me.”"},
+        {"ref": "Matt 26:28"},
+        {"ref": "Jer 31:31", "words": "I will make a new covenant with the house of Israel and with the house of Judah."},
+        {"ref": "Luke 22:15", "words": "I have eagerly desired to eat this Passover with you before My suffering."},
+        {"ref": "1 Cor 5:7", "words": "For Christ, our Passover lamb, has been sacrificed."},
+        {"ref": "1 Cor 10:16-17", "words": "Is not the cup of blessing that we bless a participation in the blood of Christ? And is not the bread that we break a participation in the body of Christ? Because there is one loaf, we who are many are one body"},
+        {"ref": "1 Cor 11:26"},
+        {"ref": "1 Cor 11:27-28", "words": "whoever eats the bread or drinks the cup of the Lord in an unworthy manner will be guilty of sinning against the body and blood of the Lord. Each one must examine himself before he eats of the bread and drinks of the cup."}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "why-read-the-bible",
+      "group": "Church and Bible",
+      "question": "Why read the Bible?",
+      "also": ["reading the bible", "bible reading", "why study the bible", "is the bible important", "bible study", "why should i read the bible", "daily bible reading"],
+      "topics": [
+        {"subject": "WORD OF GOD", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO", "Searched", "Searching of, commanded", "Testify of Jesus"]}
+      ],
+      "chain": [
+        {"ref": "John 20:31"},
+        {"ref": "2 Tim 3:16-17"},
+        {"ref": "Rom 15:4"},
+        {"ref": "Ps 119:105"},
+        {"ref": "Deut 8:3", "words": "man does not live on bread alone, but on every word that comes from the mouth of the LORD."},
+        {"ref": "Heb 4:12"},
+        {"ref": "John 5:39-40"},
+        {"ref": "Jas 1:22"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-the-sabbath",
+      "group": "Church and Bible",
+      "question": "What does the Bible say about the Sabbath?",
+      "also": ["sabbath", "keeping the sabbath", "day of rest", "saturday or sunday", "fourth commandment", "lord's day", "sabbath rest"],
+      "topics": [
+        {"subject": "SABBATH", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO", "OBSERVANCE OF"]},
+        {"subject": "DAY", "only": ["The first day of the week called the Lord"]}
+      ],
+      "chain": [
+        {"ref": "Exod 20:8-10", "words": "Remember the Sabbath day by keeping it holy. Six days you shall labor and do all your work, but the seventh day is a Sabbath to the LORD your God, on which you must not do any work"},
+        {"ref": "Gen 2:3"},
+        {"ref": "Exod 31:16-17", "words": "The Israelites must keep the Sabbath, celebrating it as a permanent covenant for the generations to come. It is a sign between Me and the Israelites forever"},
+        {"ref": "Mark 2:27-28"},
+        {"ref": "Acts 20:7", "words": "On the first day of the week we came together to break bread."},
+        {"ref": "Rom 14:5"},
+        {"ref": "Col 2:16-17"},
+        {"ref": "Heb 4:9-10"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-is-the-church",
+      "group": "Church and Bible",
+      "question": "What is the church?",
+      "also": ["church", "the body of christ", "what is the church for", "the people of god", "the bride of christ", "congregation", "why does the church exist"],
+      "topics": [
+        {"subject": "CHURCH", "only": ["CHRIST, HEAD OF", "CHRISTIAN, DIVINELY ESTABLISHED", "DESIGN OF", "UNITY OF", "BODY OF CHRIST", "HOUSEHOLD OF GOD", "SPIRITUAL HOUSE", "PILLAR AND GROUND", "BRIDE OF CHRIST", "LAMB'S BRIDE", "LAMB'S WIFE", "Christ's love for"]}
+      ],
+      "chain": [
+        {"ref": "1 Cor 12:27"},
+        {"ref": "Col 1:18", "words": "And He is the head of the body, the church"},
+        {"ref": "Matt 16:18", "words": "I will build My church, and the gates of Hades will not prevail against it."},
+        {"ref": "Acts 20:28", "words": "Be shepherds of the church of God, which He purchased with His own blood."},
+        {"ref": "Exod 19:5-6", "words": "Now if you will indeed obey My voice and keep My covenant, you will be My treasured possession out of all the nations—for the whole earth is Mine. And unto Me you shall be a kingdom of priests and a holy nation."},
+        {"ref": "1 Pet 2:9"},
+        {"ref": "Eph 2:19-20"},
+        {"ref": "Acts 2:42"}
+      ],
+      "reviewed_by": []
+    },
+    {
+      "id": "what-about-angels",
+      "group": "Church and Bible",
+      "question": "What does the Bible say about angels?",
+      "also": ["angels", "guardian angels", "do angels exist", "what are angels", "archangel", "seraphim", "cherubim", "fallen angels"],
+      "topics": [
+        {"subject": "ANGEL (a spirit)", "only": ["A CELESTIAL SPIRIT", "FUNCTIONS OF", "MINISTRANT TO THE RIGHTEOUS", "UNCLASSIFIED"], "skip": ["Medium of revelation", "Announces the birth of Samson"]},
+        {"subject": "ARCHANGEL"}
+      ],
+      "chain": [
+        {"ref": "Heb 1:14"},
+        {"ref": "Ps 103:20"},
+        {"ref": "Ps 34:7"},
+        {"ref": "Luke 15:10", "words": "In the same way, I tell you, there is joy in the presence of God’s angels over one sinner who repents."},
+        {"ref": "Heb 13:2"},
+        {"ref": "Rev 22:8-9", "words": "I fell down to worship at the feet of the angel who had shown me these things. But he said to me, “Do not do that! I am a fellow servant with you and your brothers the prophets, and with those who keep the words of this book. Worship God!”"},
+        {"ref": "Jude 1:6"},
+        {"ref": "Matt 25:31"}
+      ],
+      "reviewed_by": []
+    }
+  ]
+}
