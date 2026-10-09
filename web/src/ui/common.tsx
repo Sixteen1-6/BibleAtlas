@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, chapterName, langName } from '../data/atlas';
 import { FLAG, type VerseRow, getVerse, rootsOf } from '../data/text';
-import { deepen } from '../depth';
 import * as S from '../state';
 import { GENRE } from './colors';
 
@@ -119,19 +118,13 @@ export function Distribution({ a, verses, height = 64 }: { a: Atlas; verses: Arr
   );
 }
 
-export function Provenance({ children }: { children: preact.ComponentChildren }) {
+/** A quiet credit line with a way to the Sources shelf, opened at the
+ * reader's level on the card of `work` (a config/shelf.json id) if given. */
+export function Provenance({ work, children }: { work?: string; children: preact.ComponentChildren }) {
   return (
     <p class="provenance">
       {children}{' '}
-      <button
-        onClick={() => {
-          // The Sources tab is Deep material; asking for it goes that deep.
-          deepen('deep');
-          S.tab.value = 'sources';
-        }}
-      >
-        All sources and checksums
-      </button>
+      <button onClick={() => S.openSources(work)}>All sources</button>
     </p>
   );
 }

@@ -1,7 +1,7 @@
 // Application state as signals: any component reading a signal re-renders
 // when it changes, and nothing else does.
 
-import { computed, signal } from '@preact/signals';
+import { batch, computed, signal } from '@preact/signals';
 import type { Atlas } from './data/atlas';
 import type { Engine, PathResult } from './engine/client';
 import type { View } from './gl/layout';
@@ -122,6 +122,87 @@ export function clearAll(): void {
 
 /** True while anything is highlighted on the map, so there is something to clear. */
 export const anythingLit = computed(() => selected.value !== null || path.value !== null || marks.value !== null || groupEdges.value !== null);
+
+// ------------------------------------------------------------ the Sources shelf
+
+/** The open card on the Sources shelf, by work id (config/shelf.json). */
+export const shelfWork = signal<string | null>(null);
+/** The dictionary being read on the shelf, and its open entry's slug. */
+export const shelfRead = signal<{ dict: string; term: string | null } | null>(null);
+/** The Sources tab was asked for (an "All sources" link, or a link to it), so
+ * it shows even below its level. Cleared when the reader leaves the tab. */
+export const sourcesAsked = signal(false);
+/** Bumped to bring the open card into view. */
+export const shelfJump = signal(0);
+tab.subscribe((t) => {
+  if (t !== 'sources') sourcesAsked.value = false;
+});
+
+/** Open the Sources shelf at any level: on a work's card when `work` is given,
+ * or reading a dictionary entry when `term` is given too. Back returns to
+ * where the reader was. */
+export function openSources(work?: string | null, term?: string | null): void {
+  step(() => {
+    if (work && term) {
+      shelfRead.value = { dict: work, term };
+    } else {
+      shelfRead.value = null;
+      shelfWork.value = work ?? null;
+    }
+    tab.value = 'sources';
+    sourcesAsked.value = true;
+    mobilePane.value = 'study';
+    shelfJump.value++;
+  });
+}
+
+// Steps Back can undo: opening the shelf, a dictionary or an entry adds a
+// history entry, so Back (and a phone's back gesture) returns to the list,
+// then the shelf, then where the reader was. url.ts writes the address, and
+// App.tsx follows it back on hashchange.
+
+/** Set while `step` runs. */
+let stepping = false;
+/** The history entries steps added, the latest last: the address each was
+ * taken from, and the one it made. */
+const steps: { from: string; to: string }[] = [];
+
+/** Make a change, all at once, as a step Back can undo. */
+export function step(change: () => void): void {
+  stepping = true;
+  try {
+    batch(change);
+  } finally {
+    stepping = false;
+  }
+}
+
+/** url.ts, syncHash: write a new address over the current one, or as a new
+ * history entry during a step. */
+export function writeAddress(next: string): void {
+  if (!stepping) {
+    history.replaceState(null, '', next);
+    return;
+  }
+  steps.push({ from: location.hash, to: next });
+  history.pushState(history.state, '', next);
+}
+
+/** Undo the last step with Back when the reader is still where it took them
+ * and it was taken from an address `from` accepts, so Back afterwards goes on
+ * from there. Otherwise make `change` in place. */
+export function stepBack(from: (h: URLSearchParams) => boolean, change: () => void): void {
+  const top = steps[steps.length - 1];
+  if (top && top.to === location.hash && from(new URLSearchParams(top.from.slice(1)))) history.back();
+  else change();
+}
+
+if (typeof window !== 'undefined') {
+  // Back (or Forward) left the entry a step made: forget the step.
+  window.addEventListener('popstate', () => {
+    while (steps.length && steps[steps.length - 1].to !== location.hash) steps.pop();
+  });
+}
 
 export function openRoot(root: number, verse?: number, pos?: number): void {
   // Word studies live at Study; asking for one is asking to go that deep.
