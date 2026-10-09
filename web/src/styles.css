@@ -23,8 +23,8 @@
   --accent: #9a5a06;
   --accent-soft: #fbe9c6;
   /* A verse lit because it is pointed at elsewhere: softer than a selection. */
-  --lit-soft: rgba(251, 233, 198, 0.6);
-  --lit-edge: rgba(154, 90, 6, 0.45);
+  --lit-soft: rgba(251, 233, 198, 0.4);
+  --lit-edge: rgba(154, 90, 6, 0.32);
   --link: #3546c4;
   --variant: #b4560f;
   --focus: #4f5dff;
@@ -790,8 +790,19 @@ p .godeeper {
 /* Rows that light when their verse is pointed at elsewhere (pointing.ts):
    room for the lit edge and background, as .verse has. */
 .refrow[data-lv] {
+  position: relative;
   padding-inline: 10px;
   margin-inline: -10px;
+  border-bottom-color: transparent;
+}
+/* The separator keeps to the text column (none where the row has no border). */
+.refrow[data-lv]::after {
+  content: '';
+  position: absolute;
+  inset-inline: 10px;
+  bottom: -1px;
+  border-bottom: inherit;
+  border-bottom-color: var(--line);
 }
 .refrow:hover .ref {
   text-decoration: underline;

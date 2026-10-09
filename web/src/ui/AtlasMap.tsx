@@ -22,10 +22,11 @@ export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
   return Uint32Array.from(list.slice(0, limit));
 }
 
-/** True if a cross-reference joins two verses, in either direction. */
+/** True if a cross-reference joins two verses, in either direction. Links
+ * readers voted down are left out, as they are in verseEdges. */
 function linked(a: Atlas, u: number, v: number): boolean {
-  for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xDst[e] === v) return true;
-  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xDst[e] === u) return true;
+  for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xDst[e] === v && a.xVotes[e] > 0) return true;
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xDst[e] === u && a.xVotes[e] > 0) return true;
   return false;
 }
 
@@ -533,12 +534,14 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const hoverLine = hv !== null ? <line x1={sx(hv)} x2={sx(hv)} y1={base - 14} y2={base + 6} stroke={ARC.lamp} stroke-width={1.5} /> : null;
 
   // A verse pointed at in the text or a panel: its arc to the selected verse
-  // when the two are linked, else a mark where it sits on the baseline.
+  // when the two are linked, else a mark where it sits on the baseline (unless
+  // a row previewing it on the map already marks it there).
   const pv = S.pointedVerse.value;
   let pointLayer: preact.JSX.Element | null = null;
-  if (pv !== null && pv !== hv && w > 0) {
+  if (pv !== null && w > 0) {
     const px = sx(pv);
-    if (selV !== null && pv !== selV && !p && linked(a, selV, pv)) {
+    // An arc to a verse a few pixels away would be invisible: mark the spot instead.
+    if (selV !== null && pv !== selV && !p && Math.abs(px - sx(selV)) >= 6 && linked(a, selV, pv)) {
       // The map's own arc hover already draws this one.
       if (!(tip?.from === selV && tip.v === pv)) {
         pointLayer = (
@@ -548,7 +551,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
           </g>
         );
       }
-    } else if (pv !== selV) {
+    } else if (pv !== selV && pv !== hv) {
       pointLayer = <line x1={px} x2={px} y1={base - 14} y2={base + 6} stroke={ARC.lamp} stroke-width={1.5} opacity={0.75} />;
     }
   }

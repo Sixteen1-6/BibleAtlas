@@ -61,6 +61,11 @@ function recheck(): void {
   });
 }
 
+/** Roots this common (the Greek article, "and", the Hebrew object marker) are
+ *  on nearly every line: lit everywhere they would checker the text and tell
+ *  the reader nothing, so they keep only their own hover look. */
+const TOO_COMMON = 9000;
+
 let installed = false;
 
 /** Start listening. Safe to call more than once. */
@@ -74,6 +79,10 @@ export function installPointing(): void {
       if (from === 'mouse') clear();
       return;
     }
+    // Focus scrolling a panel or the text into place sends a pointerover to
+    // whatever now lies under the resting mouse: the keyboard keeps pointing
+    // until the mouse really moves.
+    if (from === 'focus' && e.clientX === mouseX && e.clientY === mouseY) return;
     mouseX = e.clientX;
     mouseY = e.clientY;
     point(e.target, 'mouse');
@@ -131,13 +140,13 @@ export function installPointing(): void {
     const r = S.pointedRoot.value;
     let css = '';
     if (v !== null) {
-      css += `.verse[data-lv="${v}"]:not(:hover):not(.sel),.refrow[data-lv="${v}"]:not(:hover),.tj-step[data-lv="${v}"]:not(:hover):not([aria-current]),.x-parallels-one .x-parallels-v[data-lv="${v}"]:not(:hover):not(.x-parallels-here),.x-parallels-cols tr:not(.x-parallels-here) .x-parallels-v[data-lv="${v}"]:not(:hover){background:var(--lit-soft);box-shadow:inset 3px 0 0 var(--lit-edge)}`;
+      css += `.verse[data-lv="${v}"]:not(:hover):not(.sel),.refrow[data-lv="${v}"]:not(:hover),.tj-step[data-lv="${v}"]:not(:hover):not([aria-current]),.x-parallels-one .x-parallels-v[data-lv="${v}"]:not(:hover):not(.x-parallels-here),.x-parallels-cols tr:not(.x-parallels-here) .x-parallels-v[data-lv="${v}"]:not(:hover){background:var(--lit-soft);box-shadow:inset 2px 0 0 var(--lit-edge)}`;
       css += `.layerref[data-lv="${v}"]{background:var(--lit-soft);border-color:var(--lit-edge)}`;
       css += `.xt-pverse[data-lv="${v}"]:not(:hover){background:var(--lit-soft);box-shadow:-3px 0 0 var(--lit-edge),0 0 0 3px var(--lit-soft);border-radius:var(--r-sm)}`;
       css += `.wh-verse[data-lv="${v}"]:not(:hover):not(.wh-cur){background:var(--wh-hover);box-shadow:inset 2px 0 0 var(--wh-accent)}`;
     }
     // A word: softer than the studied word's own mark, which stays as it is.
-    if (r !== null) css += `.w[data-lr="${r}"]:not(.hit),.cell[data-lr="${r}"]:not(.hit),.chip[data-lr="${r}"],.x-quotes-word[data-lr="${r}"],.ws-o[data-lr="${r}"]{background:var(--lit-soft);box-shadow:0 0 0 1px var(--lit-edge)}`;
+    if (r !== null && (S.atlas.value?.lemmas.count[r] ?? 0) < TOO_COMMON) css += `.w[data-lr="${r}"]:not(.hit),.cell[data-lr="${r}"]:not(.hit),.chip[data-lr="${r}"],.x-quotes-word[data-lr="${r}"],.ws-o[data-lr="${r}"]{background:var(--lit-soft);box-shadow:0 0 0 1px var(--lit-edge)}`;
     style.textContent = css;
   });
 }
