@@ -191,6 +191,37 @@
       "files": { "tbesh": "Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt" }
     },
     {
+      "id": "tflsj",
+      "title": "STEPBible TFLSJ (Translators Formatted full LSJ Bible lexicon)",
+      "provides": "The full Liddell-Scott-Jones entry for each Greek root, with dated references to Greek writers, papyri and inscriptions. Used for 'Outside the Bible' in the word study.",
+      "license": "CC BY 4.0 (STEPBible); the LSJ text it formats comes from the Perseus Digital Library, CC BY-SA 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0); LSJ from the Perseus Digital Library, Tufts University (CC BY-SA 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "tflsj1": "Lexicons/TFLSJ  0-5624 - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt",
+        "tflsj2": "Lexicons/TFLSJ extra - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt"
+      },
+      "note": "Full LSJ - Liddell-Scott-Jones - from Perseus, with additional features and corrections by Tyndale House; dates have been added to authors by Tyndale House. Only short excerpts (glosses, writers and centuries) are shipped; the file itself is not redistributed."
+    },
+    {
+      "id": "ubs-ffr",
+      "title": "UBS Fauna, Flora and Realia handbooks",
+      "provides": "Background articles on the animals, plants and human-made things of the Bible, linked to the Hebrew and Greek words they discuss. Used for 'In their world' in the word study.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Animals in the Bible © United Bible Societies, 2025. Adapted from: All Creatures Great and Small: Living Things in the Bible, by Edward R. Hope © 2005 United Bible Societies. Plants and Trees in the Bible © United Bible Societies, 2025. Adapted from: Each According to its Kind: Plants and Trees in the Bible, by Robert Koops © 2012 United Bible Societies. Human-made Things in the Bible © United Bible Societies, 2025. Adapted from: The Works of Their Hands: Man-made Things in the Bible, by Ray Pritz © 2009 United Bible Societies.",
+      "homepage": "https://github.com/ubsicap/ubs-open-license",
+      "repo": "https://github.com/ubsicap/ubs-open-license",
+      "commit": "33dcc8c671511151551804e073f1d461bc5d5b1a",
+      "files": {
+        "fauna": "flora-fauna-realia/XML/FAUNA_1.1_en.xml",
+        "flora": "flora-fauna-realia/XML/FLORA_1.1_en.xml",
+        "realia": "flora-fauna-realia/XML/REALIA_1.1_en.xml"
+      },
+      "note": "Only the description, usage, discussion, symbolism and 'other' sections are shown; translation advice, reference lists and images are not used."
+    },
+    {
       "id": "tbesg",
       "title": "STEPBible TBESG (Brief Lexicon of Extended Strong's, Greek)",
       "provides": "Definitions for each Greek root, abridged from Abbott-Smith.",

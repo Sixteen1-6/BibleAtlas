@@ -344,6 +344,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
     let origin = crate::extra_aramaic::origins(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)?;
+    for (rel, bytes) in crate::world::build(out, &inputs, &vz, &lemmas.iter().map(|l| (l.key.as_str(), l.word.as_str())).collect::<Vec<_>>(), &lemmas.iter().map(|l| l.gloss.as_str()).collect::<Vec<_>>(), &l_off, &l_verse)? { write(out, &rel, &bytes, &mut files)?; }
     let lemmas_json = json!({
         "key": lemmas.iter().map(|l| &l.key).collect::<Vec<_>>(),
         "word": lemmas.iter().map(|l| &l.word).collect::<Vec<_>>(),

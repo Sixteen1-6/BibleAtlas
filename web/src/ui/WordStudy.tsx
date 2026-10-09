@@ -6,6 +6,7 @@ import { WordSky } from './WordSky';
 import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
+import { WordWorld } from './WordWorld';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
 import { atLeast } from '../depth';
@@ -155,6 +156,7 @@ export function WordStudy({ a }: { a: Atlas }) {
           )}
         </>
       )}
+      <WordWorld a={a} root={r} verse={st.verse} />
 
       <h3>Where it appears</h3>
       <Distribution a={a} verses={verses} />

@@ -20,7 +20,7 @@ export function Sources({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>Sources and checks</h2>
-      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the layers of meaning notes (config/layers.json), and the table that assigns chapters and books to the Tyndale Open Bible Dictionary's eras and dates; every quotation in that table is checked word for word against the dictionary when the data is built.</p>
+      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the layers of meaning notes (config/layers.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, and the table that assigns chapters and books to the Tyndale Open Bible Dictionary's eras and dates; every quotation in that table is checked word for word against the dictionary when the data is built.</p>
       <div class="stats">
         {Object.entries(LABELS).map(([k, l]) => (
           <div key={k}>
