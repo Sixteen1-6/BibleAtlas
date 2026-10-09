@@ -25,6 +25,7 @@ mod extra_notes;
 mod lexhtml;
 mod extra_wordplay;
 mod loaded;
+mod extra_hard_verses;
 mod lxx;
 mod parse;
 mod query;

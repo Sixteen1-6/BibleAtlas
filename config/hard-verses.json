@@ -1,0 +1,4 @@
+{
+  "_comment": "Questions people often ask about a verse. Checked by crates/atlas-cli/src/extra_hard_verses.rs. A card with an empty reviewed_by is a draft and is left out of the site unless ATLAS_HARD_VERSE_DRAFTS=1.",
+  "questions": []
+}
