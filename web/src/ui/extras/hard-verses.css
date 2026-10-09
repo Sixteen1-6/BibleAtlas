@@ -1,0 +1,85 @@
+/* Often asked. Only the app's colour variables, so the paper (light) and dark
+   themes both follow. */
+
+.x-hard-verses-card + .x-hard-verses-card {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-hard-verses-q {
+  margin: 0 0 6px;
+  font: 600 19px/1.3 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-hard-verses-h {
+  margin: 18px 0 8px;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+.x-hard-verses-views {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.x-hard-verses-views li {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.xt-body .x-hard-verses-views p {
+  margin: 0 0 6px;
+  font: 14.5px/1.5 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-hard-verses-views .x-hard-verses-label {
+  font: 600 13.5px var(--font-ui);
+}
+.x-hard-verses-strength {
+  margin-left: 4px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.x-hard-verses-refs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.x-hard-verses-ref {
+  padding: 2px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  font: 600 12px var(--font-ui);
+  color: var(--accent);
+  cursor: pointer;
+}
+.x-hard-verses-ref:hover,
+.x-hard-verses-ref:focus-visible {
+  border-color: var(--accent);
+}
+.x-hard-verses-deep {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.x-hard-verses-links {
+  margin: 0 0 10px;
+  padding-left: 18px;
+}
+.x-hard-verses-links li {
+  margin: 0 0 4px;
+}
+.x-hard-verses-links a,
+.x-hard-verses-meta a {
+  color: var(--link);
+}
+.x-hard-verses-site {
+  color: var(--muted);
+}
+.xt-body .x-hard-verses-meta {
+  font-size: 12.5px;
+  color: var(--muted);
+}
