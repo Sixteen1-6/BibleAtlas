@@ -121,6 +121,25 @@
       }
     },
     {
+      "id": "dsc-peshitta",
+      "title": "Digital Syriac Corpus: the Peshitta New Testament (Syriac)",
+      "provides": "The New Testament in Syriac, a dialect of Aramaic: the Peshitta, translated from the Greek around AD 350-450, as printed by the British and Foreign Bible Society (1905), with vowel points. 2 Peter, 2 and 3 John, Jude, Revelation and John 7:53-8:11, which the early Peshitta did not have, come from later Syriac translations. Shown at Deep beside the English, as a translation and never as Jesus' own words.",
+      "license": "CC BY 4.0 (TEI XML edition); the Syriac base text is public domain",
+      "attribution": "Syriac text from the Digital Syriac Corpus (syriaccorpus.org): TEI XML edition by James E. Walters, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Base text: The New Testament in Syriac (British and Foreign Bible Society, 1905), public domain; Syriac text transcribed by George A. Kiraz.",
+      "homepage": "https://syriaccorpus.org/",
+      "repo": "https://github.com/srophe/syriac-corpus",
+      "commit": "833adc148cc356a6c70c16f81b22df9188df717a",
+      "files": {
+        "Matt": "data/tei/100.xml", "Mark": "data/tei/119.xml", "Luke": "data/tei/120.xml", "John": "data/tei/121.xml", "Acts": "data/tei/122.xml",
+        "Rom": "data/tei/123.xml", "1Cor": "data/tei/124.xml", "2Cor": "data/tei/126.xml", "Gal": "data/tei/127.xml", "Eph": "data/tei/128.xml",
+        "Phil": "data/tei/129.xml", "Col": "data/tei/130.xml", "1Thess": "data/tei/131.xml", "2Thess": "data/tei/132.xml", "1Tim": "data/tei/133.xml",
+        "2Tim": "data/tei/134.xml", "Titus": "data/tei/135.xml", "Phlm": "data/tei/136.xml", "Heb": "data/tei/137.xml", "Jas": "data/tei/138.xml",
+        "1Pet": "data/tei/139.xml", "2Pet": "data/tei/140.xml", "1John": "data/tei/141.xml", "2John": "data/tei/142.xml", "3John": "data/tei/143.xml",
+        "Jude": "data/tei/144.xml", "Rev": "data/tei/145.xml"
+      },
+      "note": "The repository has no file 125; the build checks that each file's header names its book and carries the CC BY 4.0 license. The source marks the text as an uncorrected transcription, not yet fully proofread against the printed edition. Changes made: whitespace is collapsed; the transcription's '+' marks before some plural words (51, in Matthew) are removed; four places are moved onto the BSB's verse numbers: Luke 10:42 (coded inside chapter 11), Matthew 23:13-14 (the two woes in the other order), Romans 16:24-27 (the closing blessing numbered 16:27, where the BSB's footnoted 16:24 has it) and 3 John 1:15 (joined to 1:14, as in the BSB). An approximate romanization is added by this app, read from the vowel points."
+    },
+    {
       "id": "tyndale-tbd",
       "title": "Tyndale Open Bible Dictionary",
       "provides": "When each part of the Bible happened and when each book was written: eras, dated events and dating views, quoted word for word from the dictionary's articles and its two charts of significant events and dates.",

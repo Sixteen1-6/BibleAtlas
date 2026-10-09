@@ -340,8 +340,10 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let bin = c.finish();
     write(out, "atlas.bin", &bin, &mut files)?;
     for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_peshitta::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
+    let origin = crate::extra_aramaic::origins(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)?;
     let lemmas_json = json!({
         "key": lemmas.iter().map(|l| &l.key).collect::<Vec<_>>(),
         "word": lemmas.iter().map(|l| &l.word).collect::<Vec<_>>(),
@@ -349,6 +351,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         "gloss": lemmas.iter().map(|l| &l.gloss).collect::<Vec<_>>(),
         "lang": lang_str,
         "count": lemmas.iter().map(|l| l.count).collect::<Vec<_>>(),
+        "origin": origin,
     });
     write(out, "lemmas.json", serde_json::to_string(&lemmas_json).unwrap().as_bytes(), &mut files)?;
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
@@ -391,6 +394,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         write(out, &format!("text/{}.json", book.osis), serde_json::to_string(&doc).unwrap().as_bytes(), &mut files)?;
     }
     for (rel, bytes) in crate::extra_parallels::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_aramaic::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)? { write(out, &rel, &bytes, &mut files)?; }
 
     let empty_verses = words.iter().filter(|w| w.is_empty()).count();
     for (rel, bytes) in crate::eras::build(root, &inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }

@@ -1,0 +1,30 @@
+/* Syriac: the extra's own pieces. Built only from the app's colour variables,
+   so the paper (light) and dark themes both follow. The Syriac font (Noto Sans
+   Syriac, SIL OFL) is used here and nowhere else. */
+
+.xt-body .x-peshitta-head {
+  margin: 0;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+/* The Syriac, right to left, with room above and below for the vowel points. */
+.xt-body .x-peshitta-syc {
+  margin: 8px 0 0;
+  font-family: 'Noto Sans Syriac', 'Estrangelo Edessa', 'East Syriac Adiabene', serif;
+  font-size: 21px;
+  line-height: 2;
+  color: var(--ink);
+  text-align: right;
+  overflow-wrap: break-word;
+}
+.xt-body .x-peshitta-rom {
+  margin: 6px 0 0;
+  font: italic 14px/1.55 var(--font-read);
+  color: var(--muted);
+  overflow-wrap: break-word;
+}
+.xt-body .x-peshitta-placed {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}

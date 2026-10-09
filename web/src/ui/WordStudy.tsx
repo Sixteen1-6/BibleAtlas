@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { WordSky } from './WordSky';
-import { type Atlas, LANG_NAME, label, versesWithRoot } from '../data/atlas';
+import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
 import { FLAG } from '../data/text';
@@ -109,7 +109,7 @@ export function WordStudy({ a }: { a: Atlas }) {
       <dl class="facts">
         <dt>Language</dt>
         <dd>
-          {LANG_NAME[lang]} · Strong’s {L.key[r]}
+          {langName(L, r)} · Strong’s {L.key[r]}
         </dd>
         <dt>Occurs</dt>
         <dd>
