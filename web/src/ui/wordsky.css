@@ -1,5 +1,6 @@
 /* Echoes of a verse, in the Word study (WordSky.tsx). Every class starts
-   with ws-, except the one :has() rule for the map overlay at the end. */
+   with ws-; only the :has() rules for the map overlay at the end reach the
+   map's own elements. */
 
 .ws-lede {
   font-size: 13px;
@@ -19,8 +20,24 @@
 .ws-row .vt {
   text-align: right;
 }
-.ws-also {
-  white-space: nowrap;
+/* The pieces of a row's shared words (the word and its gloss, how this verse
+   renders it, a manuscript note) each move to the next line whole; a piece
+   wraps inside only when it is wider than the whole line. */
+.ws-also,
+.ws-here,
+.ws-doubt {
+  display: inline-block;
+  max-width: 100%;
+}
+.ws-doubt {
+  font-style: italic;
+}
+/* The studied word is itself in dispute in this verse. */
+.ws-row .ws-note {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
 }
 .ws-row.ws-lit .ref {
   color: var(--accent);
@@ -35,8 +52,9 @@
 .ws-actions > .more {
   margin-top: 0;
 }
-.ws-draw:disabled {
-  opacity: 0.6;
+/* Off in Wheel mode, but still focusable so its words are heard. */
+.ws-draw[aria-disabled='true'] {
+  color: var(--muted);
   cursor: default;
 }
 
@@ -59,8 +77,8 @@
 }
 
 /* The echoes drawn over the arc map: a 2D canvas appended to .map while the
-   drawing is on. The HUD, zoom hint and tooltip are raised above it only
-   while it exists, so nothing changes when it is off. */
+   drawing is on. Every rule below applies only while it exists, so nothing
+   changes when it is off. The HUD and zoom hint are raised above it. */
 .ws-sky {
   position: absolute;
   inset: 0;
@@ -69,6 +87,14 @@
   pointer-events: none;
   z-index: 1;
 }
-.map:has(> canvas.ws-sky) > :is(.hud, .zoomhint, .tip) {
+.map:has(> canvas.ws-sky) > :is(.hud, .zoomhint) {
   z-index: 2;
+}
+/* The map's own pointer tip, its highlighted hover arc and the labels of the
+   selected verse's cross-references describe the links under the veil, not
+   the gold echoes, so they are hidden while the echoes are drawn. */
+.map:has(> canvas.ws-sky) > .tip,
+.map:has(> canvas.ws-sky) .hoverarc,
+.map:has(> canvas.ws-sky) > svg.overlay > g > g:has(> .nodelabel) {
+  display: none;
 }

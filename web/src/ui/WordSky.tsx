@@ -3,17 +3,17 @@
 // same echoes are drawn as gold arcs over the map.
 //
 // The list is computed in the browser from the root postings already loaded
-// (data/echoes.ts), so nothing new is fetched. The drawing is a 2D canvas laid
-// over the arc map, found by its classes. It never writes the app's
-// selection, marks or view: a row click selecting its verse is the only state
-// it changes.
+// (data/echoes.ts), so nothing new is fetched. A row loads its verse's text
+// only when it comes near the view. The drawing is a 2D canvas laid over the
+// arc map, found by its classes. It never writes the app's selection, marks
+// or view: a row click selecting its verse is the only state it changes.
 
 import { Fragment } from 'preact';
 import { effect, signal, type Signal } from '@preact/signals';
-import { useEffect, useMemo, useState } from 'preact/hooks';
-import { type Atlas, label, versesWithRoot } from '../data/atlas';
-import { type Echo, MAXDF, rankEchoes } from '../data/echoes';
-import { FLAG, type WordRow } from '../data/text';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { type Atlas, label, locate, versesWithRoot } from '../data/atlas';
+import { type Echo, type EchoWord, MAXDF, RARE, countable, describeShared, holdsRoot, isContent, isDisputed, rankEchoes } from '../data/echoes';
+import { FLAG, isBookLoaded } from '../data/text';
 import { atLeast } from '../depth';
 import { BASELINE, arcHeight, toScreen, verseX } from '../gl/layout';
 import * as S from '../state';
@@ -42,11 +42,6 @@ function layoutOf(a: Atlas): Float32Array {
   return xs;
 }
 
-/** A base-text word (not one found only in other editions) of this root. */
-function inBase(w: WordRow | undefined, root: number): boolean {
-  return !!w && w[3] === root && !(w[5] & FLAG.otherEditions);
-}
-
 /** What the map overlay draws. */
 interface Sky {
   verse: number;
@@ -56,7 +51,60 @@ interface Sky {
   faint: number[];
 }
 
-export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse?: number; pos?: number }) {
+/** An echo with the (up to) two shared words its row names. */
+interface Shown {
+  e: Echo;
+  name: number[];
+}
+
+/** Calls `near` once, when the element comes within 400 px of the view, so a
+ *  row loads its verse only if someone may read it. One observer serves every
+ *  row of the block; its root is the panel that scrolls. */
+type Watch = (el: Element, near: () => void) => () => void;
+
+function useRowWatch(): Watch {
+  const io = useMemo(() => ({ obs: null as IntersectionObserver | null, waiting: new Map<Element, () => void>() }), []);
+  useEffect(
+    () => () => {
+      io.obs?.disconnect();
+      io.waiting.clear();
+    },
+    [io],
+  );
+  return useCallback(
+    (el: Element, near: () => void) => {
+      if (typeof IntersectionObserver === 'undefined') {
+        near();
+        return () => {};
+      }
+      if (!io.obs) {
+        let root: Element | null = el.parentElement;
+        while (root && !/(auto|scroll)/.test(getComputedStyle(root).overflowY)) root = root.parentElement;
+        io.obs = new IntersectionObserver(
+          (entries) => {
+            for (const en of entries) {
+              if (!en.isIntersecting) continue;
+              const f = io.waiting.get(en.target);
+              io.waiting.delete(en.target);
+              io.obs?.unobserve(en.target);
+              f?.();
+            }
+          },
+          { root, rootMargin: '400px 0px' },
+        );
+      }
+      io.waiting.set(el, near);
+      io.obs.observe(el);
+      return () => {
+        io.waiting.delete(el);
+        io.obs?.unobserve(el);
+      };
+    },
+    [io],
+  );
+}
+
+export function WordSky({ a, root, verse }: { a: Atlas; root: number; verse?: number; pos?: number }) {
   const row = useVerseRow(a, verse);
   // Everything below resets when the word or the study verse changes.
   const key = `${root}:${verse}`;
@@ -65,12 +113,16 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   const [hasMap, setHasMap] = useState(true);
   // The row under the pointer, so its arc can glow. Local to this block.
   const hot = useMemo(() => signal<number | null>(null), []);
+  const section = useRef<HTMLElement>(null);
+  // After "Show more", the first new row takes the focus the button had.
+  const focusRow = useRef<number | null>(null);
+  const watch = useRowWatch();
   const mode = S.mapMode.value;
+  const K = a.lemmas.key;
 
-  // The verse must hold the root in its base text. pos points at the tapped
-  // word, but a stale or other-edition pos is not trusted alone: the whole
-  // row is checked.
-  const holds = !!row && (inBase(row[1][pos ?? -1], root) || row[1].some((w) => inBase(w, root)));
+  // The verse must hold the root in its base text, in a reading no
+  // manuscript disputes. The whole row is checked, not just the tapped word.
+  const holds = !!row && holdsRoot(row[1], root, K);
 
   const found = useMemo(() => {
     if (verse === undefined || !row || !holds) return null;
@@ -82,11 +134,19 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
       cache.set(root, vs);
     }
     if (vs.length >= MAXDF) return null;
-    const res = rankEchoes({ n: a.n, lOff: a.lOff, lVerse: a.lVerse, gloss: a.lemmas.gloss, rank: a.rank, words: row[1], verse, root }, cache);
+    const l = locate(a, verse);
+    const words = countable(row[1], K, a.books[l.book].osis === 'Ps' && l.verse === 1);
+    const res = rankEchoes({ n: a.n, lOff: a.lOff, lVerse: a.lVerse, gloss: a.lemmas.gloss, rank: a.rank, words, verse, root }, cache);
     if (!res.echoes.length) return null;
+    // A row names two of the shared words: rare content words first, then
+    // the rest, each group rarest first.
+    const content = new Set<number>();
+    for (const w of words) if (!(w[5] & FLAG.otherEditions) && isContent(w[4])) content.add(w[3]);
+    const first = (q: number) => content.has(q) && (cache.get(q)?.length ?? MAXDF) < RARE;
+    const rows: Shown[] = res.echoes.map((e) => ({ e, name: [...e.shared.filter(first), ...e.shared.filter((q) => !first(q))].slice(0, 2) }));
     const lit = new Set(res.echoes.map((e) => e.v));
     const sky: Sky = { verse, echoes: res.echoes.map((e) => e.v), faint: Array.from(vs).filter((v) => v !== verse && !lit.has(v)) };
-    return { echoes: res.echoes, sky };
+    return { rows, sky };
   }, [a, root, verse, row, holds]);
 
   // The map must be in Arcs mode to draw on; leaving it turns the drawing off.
@@ -101,17 +161,53 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   const on = deep && canDraw && drawFor === key && !!found;
   useEchoSky(a, on && found ? found.sky : null, hot);
 
+  // Leaving Deep ends the drawing, so it does not come back on by itself.
+  useEffect(() => {
+    if (!deep) setDrawFor(null);
+  }, [deep]);
+
+  // The drawing never outlives its off switch: Escape (the app's key for
+  // clearing the map) ends it, as does an "atlas:clear" event on window (for
+  // any other control that clears the map), and so does the block being
+  // hidden, as on a phone when the Read pane replaces the Study pane.
+  useEffect(() => {
+    const el = section.current;
+    if (!on || !el) return;
+    const off = () => setDrawFor(null);
+    const esc = (ev: KeyboardEvent) => {
+      if (ev.key === 'Escape' && !S.paletteOpen.value) off();
+    };
+    const ro = new ResizeObserver(() => {
+      if (!el.getClientRects().length) off();
+    });
+    window.addEventListener('keydown', esc);
+    window.addEventListener('atlas:clear', off);
+    ro.observe(el);
+    return () => {
+      window.removeEventListener('keydown', esc);
+      window.removeEventListener('atlas:clear', off);
+      ro.disconnect();
+    };
+  }, [on]);
+
+  useEffect(() => {
+    const i = focusRow.current;
+    if (i === null) return;
+    focusRow.current = null;
+    section.current?.querySelectorAll<HTMLElement>('.ws-row')[i]?.focus();
+  });
+
   if (!found || verse === undefined) return null;
 
   const L = a.lemmas;
   const greek = L.lang[root] === 'G';
-  const echoes = found.echoes;
-  const limit = Math.min(echoes.length, shown?.key === key ? shown.n : FIRST);
-  const next = limit < SECOND ? Math.min(echoes.length, SECOND) : echoes.length;
+  const rows = found.rows;
+  const limit = Math.min(rows.length, shown?.key === key ? shown.n : FIRST);
+  const next = limit < SECOND ? Math.min(rows.length, SECOND) : rows.length;
   const where = label(a, verse);
 
   return (
-    <section class="ws-echoes" aria-labelledby={`ws-h-${root}`}>
+    <section class="ws-echoes" ref={section} aria-labelledby={`ws-h-${root}`}>
       <h3 id={`ws-h-${root}`}>Echoes of {where}</h3>
       <p class="muted ws-lede">
         Other verses that use{' '}
@@ -120,17 +216,23 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
         </span>{' '}
         together with more of this verse’s less common words.
       </p>
-      {echoes.slice(0, limit).map((e) => (
-        <EchoRow key={e.v} a={a} e={e} lit={on} hot={hot} />
+      {rows.slice(0, limit).map((r) => (
+        <EchoRow key={r.e.v} a={a} row={r} root={root} lit={on} hot={hot} watch={watch} />
       ))}
       <div class="ws-actions">
         {next > limit && (
-          <button class="btn more" onClick={() => setShown({ key, n: next })}>
+          <button
+            class="btn more"
+            onClick={(ev) => {
+              if (document.activeElement === ev.currentTarget) focusRow.current = limit;
+              setShown({ key, n: next });
+            }}
+          >
             Show {next - limit} more
           </button>
         )}
         {deep && (
-          <button class="btn more ws-draw" aria-pressed={on} disabled={!canDraw} onClick={() => setDrawFor(on ? null : key)}>
+          <button class="btn more ws-draw" aria-pressed={on} aria-disabled={!canDraw} onClick={() => canDraw && setDrawFor(on ? null : key)}>
             {!canDraw ? 'Switch the map to Arcs to draw echoes' : on ? 'Hide echoes on the map' : 'Draw these echoes on the map'}
           </button>
         )}
@@ -138,15 +240,29 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
       <details class="ws-how">
         <summary>How are echoes found?</summary>
         <Provenance>
-          Echoes are verses that use this word together with other, less common words from {where}. They are ranked by how rare the shared words are and computed in your browser from STEPBible’s tagged Hebrew and Greek (TAHOT, TAGNT). A shared word is a clue, not proof that one passage draws on the other.
+          Echoes are verses that use this word together with other, less common words from {where}. They are ranked by how rare the shared words are and computed in your browser from STEPBible’s tagged Hebrew and Greek (TAHOT, TAGNT). Words whose reading the manuscripts dispute, and the music words of psalm headings, are left out. A shared word is a clue, not proof that one passage draws on the other.
         </Provenance>
       </details>
     </section>
   );
 }
 
-function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Signal<number | null> }) {
+function EchoRow({ a, row, root, lit, hot, watch }: { a: Atlas; row: Shown; root: number; lit: boolean; hot: Signal<number | null>; watch: Watch }) {
+  const { e, name } = row;
   const L = a.lemmas;
+  const el = useRef<HTMLDivElement>(null);
+  // The verse's text (its snippet, and how it renders each shared word) is
+  // loaded once the row comes near the view, or at once if its book is in.
+  const [near, setNear] = useState(() => isBookLoaded(a.verseBook[e.v]));
+  useEffect(() => (near || !el.current ? undefined : watch(el.current, () => setNear(true))), [near, watch]);
+  const text = useVerseRow(a, near ? e.v : null);
+  const words = text ? (text[1] as EchoWord[]).filter((w) => !(w[5] & FLAG.otherEditions)) : null;
+  /** The root stands in this verse only in a reading the manuscripts dispute. */
+  const doubted = (q: number) => {
+    const ws = words?.filter((w) => w[3] === q) ?? [];
+    return ws.length > 0 && ws.every((w) => isDisputed(w, L.key));
+  };
+
   const open = () => S.selectVerse(e.v, { openTab: false });
   // A mouse over the row, or keyboard focus on it, spotlights its arc. Taps
   // are left out: on a touch screen the tap selects the verse instead.
@@ -156,6 +272,7 @@ function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Sig
   };
   return (
     <div
+      ref={el}
       class={`refrow ws-row${lit ? ' ws-lit' : ''}`}
       role="link"
       tabIndex={0}
@@ -168,9 +285,13 @@ function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Sig
     >
       <span class="ref">{label(a, e.v)}</span>
       <span class="vt">
-        {e.shared.slice(0, 2).map((q, i, all) => {
+        {name.map((q, i) => {
           const g = L.lang[q] === 'G';
-          // Lines break only between whole word-and-gloss pairs.
+          const d = describeShared(L.gloss[q], words?.find((w) => w[3] === q), text?.[0]);
+          const doubt = doubted(q);
+          const comma = i < name.length - 1 ? ',' : '';
+          // Lines break only between whole pieces: the word with its gloss,
+          // how this verse renders it, and a manuscript note.
           return (
             <Fragment key={q}>
               {i > 0 && ' '}
@@ -179,13 +300,36 @@ function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Sig
                 <span class={`ws-o ${g ? 'gr' : 'he'}`} lang={g ? 'grc' : 'hbo'}>
                   {L.word[q]}
                 </span>{' '}
-                “{L.gloss[q]}”{i < all.length - 1 && ','}
+                “{d.gloss}”{!d.here && !doubt && comma}
               </span>
+              {d.here && (
+                <>
+                  {' '}
+                  <span class="ws-here">
+                    · here “{d.here}”{!doubt && comma}
+                  </span>
+                </>
+              )}
+              {doubt && (
+                <>
+                  {' '}
+                  <span class="ws-doubt">(manuscripts differ here){comma}</span>
+                </>
+              )}
             </Fragment>
           );
         })}
       </span>
-      <Snippet a={a} v={e.v} max={170} />
+      {near ? <Snippet a={a} v={e.v} max={170} /> : <span class="snip">…</span>}
+      {doubted(root) && (
+        <span class="ws-note">
+          Manuscripts differ on{' '}
+          <span class={`ws-o ${L.lang[root] === 'G' ? 'gr' : 'he'}`} lang={L.lang[root] === 'G' ? 'grc' : 'hbo'}>
+            {L.word[root]}
+          </span>{' '}
+          in this verse.
+        </span>
+      )}
     </div>
   );
 }
@@ -204,12 +348,14 @@ const TAG_H = 17;
 const TAG_PAD = 6;
 const LABEL_GAP = 6;
 
-/** The half-sine arc of arcPath, from x0 towards x1, cut at fraction p. */
+/** The half-sine arc of arcPath, from x0 towards x1, cut at fraction p. Short
+ *  arcs need fewer segments to look smooth: about one per 12 px, 8 to 40. */
 function trace(ctx: CanvasRenderingContext2D, x0: number, x1: number, base: number, top: number, p: number): void {
+  const seg = Math.max(8, Math.min(SEGMENTS, Math.ceil(Math.abs(x1 - x0) / 12)));
   ctx.moveTo(x0, base);
-  const steps = Math.max(1, Math.ceil(SEGMENTS * p));
+  const steps = Math.max(1, Math.ceil(seg * p));
   for (let i = 1; i <= steps; i++) {
-    const t = Math.min(i / SEGMENTS, p);
+    const t = Math.min(i / seg, p);
     ctx.lineTo(x0 + (x1 - x0) * t, base - top * Math.sin(Math.PI * t));
   }
 }
@@ -249,7 +395,9 @@ function spread(tags: Tag[], width: number): void {
 function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float32Array, sky: Sky, p: number, hover: number | null, font: string): void {
   const w = map.clientWidth;
   const h = map.clientHeight;
-  const dpr = window.devicePixelRatio || 1;
+  // Backed at up to twice the CSS size, as the map's own strip is: sharper
+  // costs more to fill and is not visible on a phone.
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const W = Math.max(1, Math.round(w * dpr));
   const H = Math.max(1, Math.round(h * dpr));
   if (canvas.width !== W) canvas.width = W;
@@ -291,15 +439,15 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
   const isEcho = (v: number | null): v is number => v !== null && sky.echoes.includes(v);
   const focus = isEcho(hover) ? hover : isEcho(sel) ? sel : null;
 
-  // 3. The echoes in lamp gold, the top three a little heavier and on top.
+  // 3. The echoes in lamp gold, the top three a little heavier, glowing and
+  // on top. The glow is costly to draw, so the rest go without it.
   ctx.shadowColor = GLOW;
-  ctx.shadowBlur = 6 * dpr;
   ctx.strokeStyle = ARC.lamp;
   ctx.globalAlpha = focus === null ? 1 : 0.5;
   const feet: [number, number][] = [];
-  for (const [from, to, width] of [
-    [3, sky.echoes.length, 2],
-    [0, 3, 2.5],
+  for (const [from, to, width, blur] of [
+    [3, sky.echoes.length, 2, 0],
+    [0, 3, 2.5, 6],
   ] as const) {
     ctx.beginPath();
     for (let i = Math.min(to, sky.echoes.length) - 1; i >= from; i--) {
@@ -311,6 +459,7 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
       arcs++;
       lit++;
     }
+    ctx.shadowBlur = blur * dpr;
     ctx.lineWidth = width;
     ctx.stroke();
   }
@@ -453,6 +602,10 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
       stop();
       ro.disconnect();
       cancelAnimationFrame(raf);
+      // Give the pixels back now: some browsers free a detached canvas only
+      // at garbage collection and refuse new ones past a memory cap.
+      canvas.width = 0;
+      canvas.height = 0;
       canvas.remove();
     };
   }, [a, sky, hot]);
