@@ -96,6 +96,10 @@ export const visibleEdges = computed(() => {
 // ------------------------------------------------------------ URL state
 // Every view is linkable: #v=John.3.16&w=G0026&t=lamb&p=Gen.3.15~Rev.12.9
 
+/** Select a verse (or none) and show its chapter in the reader. `openTab`:
+ *  true always shows Links (for anything that means "this verse's links");
+ *  false never changes the tab; left out, the Themes tab stays open, so that
+ *  it can show the verse's themes, and any other tab gives way to Links. */
 export function selectVerse(v: number | null, opts: { scroll?: boolean; openTab?: boolean } = {}): void {
   const a = atlas.value;
   if (holdReaderScroll.peek() !== v) holdReaderScroll.value = null;
@@ -107,7 +111,7 @@ export function selectVerse(v: number | null, opts: { scroll?: boolean; openTab?
     // Chapter of v: largest chapter start <= v within the book.
     for (let i = a.bookChapterStart[b]; i < a.bookChapterStart[b + 1]; i++) if (a.chapterStart[i] <= v) c = i;
     reading.value = { book: b, chapter: c - a.bookChapterStart[b] + 1 };
-    if (opts.openTab !== false) tab.value = 'connections';
+    if (opts.openTab === true || (opts.openTab === undefined && tab.peek() !== 'themes')) tab.value = 'connections';
   }
 }
 

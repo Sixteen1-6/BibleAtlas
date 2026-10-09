@@ -14,6 +14,43 @@ const LABELS: Record<string, string> = {
   englishWords: 'distinct English words indexed',
 };
 
+/** How the themes are made, in numbers read from the build. */
+function Themes({ a }: { a: Atlas }) {
+  const groups = a.meta.themeGroups?.length ?? 0;
+  const broad = a.themes.filter((t) => t.level === 'study');
+  const counted = a.themes.filter((t) => t.skipWith?.length);
+  // The larger numbers that keep a verse out of a counting theme, in their own glosses.
+  const larger = [...new Set(counted.flatMap((t) => t.skipWith!.map((r) => a.lemmas.gloss[r])))];
+  const list = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`);
+  const r = a.meta.themeLinks;
+  const near = a.meta.themeNear;
+  return (
+    <>
+      <h3>Themes</h3>
+      <p>
+        {a.themes.length} themes{groups ? ` in ${groups} groups` : ''}, each defined in config/themes.json by the Strong’s numbers of its Hebrew, Aramaic and Greek words. A verse is in a theme when one
+        of those words is in its main text, so every lit verse can be checked in the original.
+        {broad.length > 0 && ` ${broad.length} broad words (${broad.map((t) => t.name).join(', ')}) show only at Study, because they mostly light family lines, court stories and counts.`}
+        {counted.length > 0 &&
+          ` ${counted.map((t) => t.name).join(' and ')} leave out any verse that also holds a word for ${list(larger)}, so a number inside a larger count is not counted.`}
+      </p>
+      {r && (
+        <p>
+          A verse with no theme word of its own can reach a theme through its links: of its {r.top} strongest links with {r.votes} or more votes, {r.carriers} must lead to verses of that theme,
+          or one link with {r.soloVotes} or more votes. Themes of more than {r.maxThemeSize} verses are never offered this way, nor a theme whose deliberately left-out sense is in the verse.
+          Each such theme is shown with the verse it comes through.
+        </p>
+      )}
+      {near && (
+        <p>
+          Themes are “often linked with” each other when, among the {near.pairs.toLocaleString()} pairs of verses joined by a link with {near.votes} or more votes, {near.minLinks} or more join
+          the two themes, at least {near.minLift} times what chance would give for themes of their size.
+        </p>
+      )}
+    </>
+  );
+}
+
 export function Sources({ a }: { a: Atlas }) {
   const m = a.meta;
   const unmapped = Object.values(m.unmapped).reduce((s, x) => s + x, 0);
@@ -66,6 +103,8 @@ export function Sources({ a }: { a: Atlas }) {
           )}
         </div>
       ))}
+
+      <Themes a={a} />
 
       <h3>ESV</h3>
       <p>

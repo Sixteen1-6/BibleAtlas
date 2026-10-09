@@ -413,19 +413,31 @@ function runIdle(d: Deadline): void {
 }
 
 const warmed = new WeakMap<Atlas, Set<string>>();
-/** Once the theme cards are on screen, in idle moments and one theme at a
- *  time: gather the links of the skies still to come, then work out what
- *  choosing each theme needs (its thread, its links), so a tap only draws. */
-function warmThemes(a: Atlas, mode: ArcColorMode): void {
+
+/** What warming a theme works out ahead of time: the links its small sky
+ *  paints ('sky'), what choosing it needs, its thread and links ('pick'), and
+ *  the links its wide sky paints once chosen ('hero'). */
+export type Warm = 'sky' | 'pick' | 'hero';
+
+/** In idle moments, one job at a time, works out ahead of time what the given
+ *  themes need, so a tap only draws. Only the themes on screen or one tap
+ *  away are given (the cards showing, the chosen theme and the themes often
+ *  linked with it), never the whole list: each theme is up to three jobs, and
+ *  each job is done once. */
+export function warmThemes(a: Atlas, themes: readonly Theme[], mode: ArcColorMode, what: readonly Warm[] = ['sky', 'pick', 'hero']): void {
   let done = warmed.get(a);
   if (!done) {
     done = new Set();
     warmed.set(a, done);
   }
   const todo = (key: string) => !done.has(key) && !!done.add(key);
-  for (const t of a.themes) if (todo(`sky|${t.id}|${mode}`)) whenIdle(() => skyData(a, t, THREAD_VOTES, mode));
-  for (const t of a.themes) if (todo(`pick|${t.id}`)) whenIdle(() => warmTheme(a, t));
-  for (const t of a.themes) if (todo(`hero|${t.id}|${mode}`)) whenIdle(() => skyData(a, t, ALL_VOTES, mode));
+  for (const w of what) {
+    for (const t of themes) {
+      if (w === 'sky' && todo(`sky|${t.id}|${mode}`)) whenIdle(() => skyData(a, t, THREAD_VOTES, mode));
+      else if (w === 'pick' && todo(`pick|${t.id}`)) whenIdle(() => warmTheme(a, t));
+      else if (w === 'hero' && todo(`hero|${t.id}|${mode}`)) whenIdle(() => skyData(a, t, ALL_VOTES, mode));
+    }
+  }
 }
 
 // ------------------------------------------------------------ MiniSky
@@ -437,7 +449,7 @@ export function MiniSky({ a, theme, height = 44 }: { a: Atlas; theme: Theme; hei
   useEffect(() => {
     const c = ref.current;
     if (!c) return;
-    warmThemes(a, mode);
+    warmThemes(a, [theme], mode);
     let shown = '';
     let visible = false;
     const paint = () => {
