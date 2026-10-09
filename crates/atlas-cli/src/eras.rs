@@ -19,7 +19,9 @@
 //!   `quote`, optional `from` and `to`, optional `views`;
 //! - an era date: `{ "event" }` (a row of a date chart) or
 //!   `{ "label", "quote", "article", "heading"?, "era"? }`; a missing end means
-//!   the dictionary gives no date;
+//!   the dictionary gives no date. Either form may add `hedge`, a sentence of
+//!   the era's own section that qualifies that year ("probably", "about"): the
+//!   end is then approximate, and the reader leaves the era's years off the line;
 //! - a range: `book`, `from`, `to` (chapters), `era`, and either a quotation
 //!   (`article`, `heading`?, `quote`) or a row of a TBD chart (`chart`, `row`:
 //!   the row's first cell), whose `?bref=` links must reach every chapter;
@@ -28,7 +30,10 @@
 //!   `era` when the label gives a bare year or century) or `"undated": true`.
 //!   `"prefers": true` needs `prefersQuote`, the dictionary's own words stating
 //!   the preference. A label that holds a number but is not a date needs
-//!   `"relative": true` and a `why`;
+//!   `"relative": true` and a `why`. A book's view may name the chapters it is
+//!   about, `"chapters": [[1, 8]]`, when the dictionary dates parts of the book
+//!   separately; a view without chapters is about the whole book. The reader
+//!   shows, for each chapter, only the views that are about it;
 //! - a book: `article`, `written`, and `"stages": true` when its views are
 //!   stages of writing rather than alternatives (the reader then never joins
 //!   them with "or").
@@ -58,7 +63,7 @@ const LICENSE: &str = "CC BY-SA 4.0";
 const README_LICENSE: &str = "Creative Commons Attribution-ShareAlike 4.0";
 const ATTRIBUTION: &str = "Adapted from Tyndale Open Bible Dictionary";
 /// What this project changed, as NOTICE.md states it.
-const CHANGES: &str = "Short quotations are taken word for word from the dictionary's articles; date labels are cut from those quotations; years are read from the labels and from the charts \"Significant Old Testament Events and Dates\" and \"Significant New Testament Events and Dates\"; the chart's reference for Abraham's birth is corrected from Gn 26:5 to Gen 21:5; chapters are assigned to the dictionary's eras by hand in config/eras.json, each assignment backed by a quotation or by a row of the chart \"Books of Postexilic Times\".";
+const CHANGES: &str = "Short quotations are taken word for word from the dictionary's articles; date labels are cut from those quotations; years are read from the labels and from the charts \"Significant Old Testament Events and Dates\" and \"Significant New Testament Events and Dates\"; the chart's reference for Abraham's birth is corrected from Gn 26:5 to Gen 21:5; chapters are assigned to the dictionary's eras by hand in config/eras.json, each assignment backed by a quotation or by a row of the chart \"Books of Postexilic Times\"; where the dictionary dates parts of a book separately, each dating view is tied by hand to the chapters it is about.";
 /// Book names in TBD's `?bref=` links that are neither OSIS nor STEP ids.
 const TBD_BOOKS: [(&str, &str); 1] = [("Hagg", "Hag")];
 
@@ -99,7 +104,8 @@ struct EraSpec {
     views: Vec<ViewSpec>,
 }
 
-/// Either `{ "event" }` (a row of a date chart) or `{ "label", "quote", "article", "heading"?, "era"? }`.
+/// Either `{ "event" }` (a row of a date chart) or `{ "label", "quote", "article", "heading"?, "era"? }`,
+/// with an optional `hedge`.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct DateSpec {
@@ -109,6 +115,8 @@ struct DateSpec {
     article: Option<String>,
     heading: Option<String>,
     era: Option<String>,
+    /// A sentence of the era's own section that qualifies this year.
+    hedge: Option<String>,
 }
 
 /// A dating view: of an era (`views`) or of when a book was written (`written`).
@@ -130,6 +138,9 @@ struct ViewSpec {
     article: Option<String>,
     heading: Option<String>,
     quote: String,
+    /// Book views only: the chapters the view is about, as `[first, last]`
+    /// pairs in order. Without it the view is about the whole book.
+    chapters: Option<Vec<[u16; 2]>>,
 }
 
 #[derive(Deserialize)]
@@ -1307,7 +1318,20 @@ struct End {
     src: Value,
 }
 
-fn era_end(ck: &mut Checker, events: &[Event], d: &DateSpec, side: Side) -> Result<End, String> {
+/// One end of an era. `home` is the era's own article and section, where a
+/// `hedge` must be found.
+fn era_end(
+    ck: &mut Checker,
+    events: &[Event],
+    d: &DateSpec,
+    side: Side,
+    home: (&str, Option<&str>),
+) -> Result<End, String> {
+    if let Some(h) = &d.hedge {
+        ck.quote(home.0, home.1, h)
+            .map_err(|e| format!("hedge: {e}"))?;
+    }
+    let hedged = d.hedge.is_some();
     match (&d.event, &d.label) {
         (Some(name), None) => {
             if d.quote.is_some() || d.article.is_some() || d.heading.is_some() || d.era.is_some() {
@@ -1325,8 +1349,8 @@ fn era_end(ck: &mut Checker, events: &[Event], d: &DateSpec, side: Side) -> Resu
             .ok_or("the chart event has no year")?;
             Ok(End {
                 year,
-                approx: e.span.approx,
-                src: json!({ "event": name, "label": e.label, "chart": e.chart_title }),
+                approx: e.span.approx || hedged,
+                src: json!({ "event": name, "label": e.label, "chart": e.chart_title, "hedge": d.hedge }),
             })
         }
         (None, Some(label)) => {
@@ -1353,8 +1377,8 @@ fn era_end(ck: &mut Checker, events: &[Event], d: &DateSpec, side: Side) -> Resu
             .ok_or_else(|| format!("the label {label:?} gives no year for this end"))?;
             Ok(End {
                 year,
-                approx: span.approx,
-                src: json!({ "label": label, "quote": quote, "cite": cite.json() }),
+                approx: span.approx || hedged,
+                src: json!({ "label": label, "quote": quote, "cite": cite.json(), "hedge": d.hedge }),
             })
         }
         _ => Err("give a date either an event or a label with its quotation".into()),
@@ -1369,9 +1393,39 @@ struct View {
     relative: bool,
 }
 
-/// Check one view of an era or of a book: its quotation, label, who and
-/// preference, and read its years.
-fn view(ck: &mut Checker, v: &ViewSpec, article: &str, era_view: bool) -> Result<View, String> {
+/// A view's chapters: `[first, last]` pairs inside a book of `count`
+/// chapters, in order and apart.
+fn check_scope(pairs: &[[u16; 2]], count: u16) -> Result<(), String> {
+    if pairs.is_empty() {
+        return Err("\"chapters\" is empty; leave it out for a view of the whole book".into());
+    }
+    let mut last = 0;
+    for &[a, b] in pairs {
+        if a == 0 || a > b || b > count {
+            return Err(format!(
+                "\"chapters\" [{a}, {b}] is not a span of chapters 1–{count}"
+            ));
+        }
+        if a <= last {
+            return Err(format!(
+                "\"chapters\" [{a}, {b}] overlaps or comes before the span ending at {last}"
+            ));
+        }
+        last = b;
+    }
+    Ok(())
+}
+
+/// Check one view of an era (`book` is `None`) or of a book of `book`
+/// chapters: its quotation, label, who, preference and chapters, and read its
+/// years.
+fn view(ck: &mut Checker, v: &ViewSpec, article: &str, book: Option<u16>) -> Result<View, String> {
+    let era_view = book.is_none();
+    match (&v.chapters, book) {
+        (Some(_), None) => return Err("an era's view takes no \"chapters\"".into()),
+        (Some(pairs), Some(count)) => check_scope(pairs, count)?,
+        (None, _) => {}
+    }
     let article = v.article.as_deref().unwrap_or(article);
     let heading = v.heading.as_deref();
     let cite = ck.quote(article, heading, &v.quote)?;
@@ -1437,6 +1491,7 @@ fn view(ck: &mut Checker, v: &ViewSpec, article: &str, era_view: bool) -> Result
         "prefersQuote": v.prefers_quote,
         "quote": v.quote,
         "cite": cite.json(),
+        "chapters": v.chapters,
     });
     Ok(View {
         json,
@@ -1446,17 +1501,18 @@ fn view(ck: &mut Checker, v: &ViewSpec, article: &str, era_view: bool) -> Result
     })
 }
 
-/// The views in display order: a preferred view first. At most one may be preferred.
+/// The views in display order: a preferred view first. At most one may be
+/// preferred. `book` is the book's chapter count, or `None` for an era.
 fn views(
     ck: &mut Checker,
     specs: &[ViewSpec],
     article: &str,
-    era_view: bool,
+    book: Option<u16>,
     what: &str,
 ) -> Result<Vec<View>, String> {
     let mut out = Vec::new();
     for (i, v) in specs.iter().enumerate() {
-        out.push(view(ck, v, article, era_view).map_err(|e| {
+        out.push(view(ck, v, article, book).map_err(|e| {
             format!(
                 "{what}, view {} ({:?}): {e}",
                 i + 1,
@@ -1552,15 +1608,16 @@ pub fn build(
         let cite = ck
             .quote(&e.article, e.heading.as_deref(), &e.quote)
             .map_err(|x| fail(format!("{what}: {x}")))?;
+        let home = (e.article.as_str(), e.heading.as_deref());
         let from = e
             .from
             .as_ref()
-            .map(|d| era_end(&mut ck, &events, d, Side::From))
+            .map(|d| era_end(&mut ck, &events, d, Side::From, home))
             .transpose()
             .map_err(|x| fail(format!("{what}, from: {x}")))?;
         let to =
             e.to.as_ref()
-                .map(|d| era_end(&mut ck, &events, d, Side::To))
+                .map(|d| era_end(&mut ck, &events, d, Side::To, home))
                 .transpose()
                 .map_err(|x| fail(format!("{what}, to: {x}")))?;
         if let (Some(a), Some(b)) = (&from, &to) {
@@ -1568,7 +1625,7 @@ pub fn build(
                 return Err(fail(format!("{what} ends before it starts")));
             }
         }
-        let vs = views(&mut ck, &e.views, &e.article, true, &what).map_err(fail)?;
+        let vs = views(&mut ck, &e.views, &e.article, None, &what).map_err(fail)?;
         let label = match (&from, &to) {
             (Some(a), Some(b)) => Some(format_years(a.year, b.year)),
             _ => None,
@@ -1694,7 +1751,7 @@ pub fn build(
     }
     let (mut dated, mut relative, mut undated) = (0, 0, 0);
     let mut books_json = Vec::new();
-    for bk in BOOKS.iter() {
+    for (bi, bk) in BOOKS.iter().enumerate() {
         let spec = cfg.books.get(bk.osis).ok_or_else(|| {
             fail(format!(
                 "books: {} needs at least one written view",
@@ -1711,7 +1768,8 @@ pub fn build(
         let (cite, _) = tbd
             .pool(&spec.article, None)
             .map_err(|x| fail(format!("{what}: {x}")))?;
-        let vs = views(&mut ck, &spec.written, &spec.article, false, &what).map_err(fail)?;
+        let count = vz.chapters_in(bi as u8);
+        let vs = views(&mut ck, &spec.written, &spec.article, Some(count), &what).map_err(fail)?;
         if vs.iter().any(|v| v.dated) {
             dated += 1;
         } else if vs.iter().any(|v| v.relative) {
@@ -1988,6 +2046,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("2Kgs", 18, "judah-after", true),
         ("1Kgs", 11, "divided-kingdom", false),
         ("Gen", 1, "prepatriarchal", true),
+        ("Gen", 46, "patriarchal", true),
+        ("Gen", 47, "sojourn", true),
     ] {
         let got = era_at(osis, c);
         check(
@@ -2011,6 +2071,123 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 && x["corrected"] == "Gn 26:5"
         }),
         "the chart has Abraham born at -2166 (Greek -2133), basis corrected to Gen 21:5".into(),
+    );
+    // Letters whose writing date the dictionary disputes carry no era.
+    let unplaced: Vec<&str> = ["Jas", "Col", "2Tim", "1Pet", "2Pet"]
+        .into_iter()
+        .filter(|osis| era_at(osis, 1).is_some())
+        .collect();
+    check(
+        unplaced.is_empty(),
+        format!("James, Colossians, 2 Timothy, 1 and 2 Peter have no era (these do: {unplaced:?})"),
+    );
+    let jesus = eras.iter().find(|x| x["id"] == "jesus-life");
+    check(
+        jesus.is_some_and(|x| {
+            x["approx"] == true
+                && x["start"].get("hedge").is_some()
+                && x["end"].get("hedge").is_some()
+        }),
+        "Chronology of Jesus’ Life: both ends are hedged, so the line leaves its years off".into(),
+    );
+
+    // Chapter scopes: on book views only, inside the book, in order.
+    let mut bad_scopes = 0;
+    for (bi, b) in books.iter().enumerate() {
+        let count = i64::from(d.vz.chapters_in(bi as u8));
+        for w in written(b) {
+            let Some(ps) = w.get("chapters") else {
+                continue;
+            };
+            let mut last = 0;
+            let ok = ps.as_array().is_some_and(|ps| {
+                !ps.is_empty()
+                    && ps.iter().all(|p| {
+                        let (a, z) = (num(&p[0]), num(&p[1]));
+                        let fine = a > last && a <= z && z <= count;
+                        last = z;
+                        fine
+                    })
+            });
+            if !ok {
+                bad_scopes += 1;
+            }
+        }
+    }
+    let era_scoped = eras
+        .iter()
+        .flat_map(|x| x["views"].as_array().cloned().unwrap_or_default())
+        .filter(|v| v.get("chapters").is_some())
+        .count();
+    check(
+        bad_scopes == 0 && era_scoped == 0,
+        format!("{bad_scopes} book views and {era_scoped} era views have bad chapter spans"),
+    );
+
+    // What the line shows for a chapter: the views about it, in order.
+    let applies = |w: &Value, c: i64| {
+        w["chapters"]
+            .as_array()
+            .is_none_or(|ps| ps.iter().any(|p| num(&p[0]) <= c && c <= num(&p[1])))
+    };
+    let shown = |osis: &str, c: i64| -> Vec<Value> {
+        book(osis).into_iter().filter(|w| applies(w, c)).collect()
+    };
+    let lead = |osis: &str, c: i64| {
+        shown(osis, c).first().map(|w| {
+            if w["undated"] == true {
+                "undated".to_string()
+            } else {
+                w["label"].as_str().unwrap_or("").to_string()
+            }
+        })
+    };
+    for (osis, c, want) in [
+        ("Zech", 1, "from 520 to 518 BC"),
+        ("Zech", 9, "undated"),
+        ("Isa", 1, "about 700 BC"),
+        ("Isa", 40, "during Isaiah’s retirement years"),
+        ("Ps", 23, "in the period of the monarchy"),
+        ("Ps", 137, "clearly exilic"),
+        ("Jer", 1, "c. 627–586 BC"),
+        ("Jer", 44, "latest writings of Jeremiah"),
+        ("Jer", 52, "editorial appendix"),
+    ] {
+        let got = lead(osis, c);
+        check(
+            got.as_deref() == Some(want),
+            format!("{osis} {c}: the line leads with {want:?} (it leads with {got:?})"),
+        );
+    }
+    let never = |osis: &str, cs: std::ops::RangeInclusive<i64>, label: &str| {
+        cs.filter(|&c| shown(osis, c).iter().any(|w| w["label"] == label))
+            .count()
+    };
+    let wrong = never("Zech", 9..=14, "from 520 to 518 BC")
+        + never("Isa", 40..=66, "about 700 BC")
+        + never("Ps", 137..=137, "in the period of the monarchy")
+        + never("Jer", 40..=44, "c. 627–586 BC")
+        + never("Jer", 52..=52, "c. 627–586 BC");
+    check(
+        wrong == 0,
+        format!("{wrong} chapters show a date the dictionary gives to other chapters (Zechariah 9–14, Isaiah 40–66, Psalm 137, Jeremiah 40–44 and 52)"),
+    );
+    let mut bare = Vec::new();
+    for (bi, bk) in BOOKS.iter().enumerate() {
+        let ws = books.get(bi).map(written).unwrap_or_default();
+        for c in 1..=i64::from(d.vz.chapters_in(bi as u8)) {
+            if !ws.iter().any(|w| applies(w, c)) {
+                bare.push(format!("{} {c}", bk.osis));
+            }
+        }
+    }
+    check(
+        bare == ["Ps 90"],
+        format!("chapters with no written view: {bare:?} (only Psalm 90, which the dictionary ascribes to Moses)"),
+    );
+    check(
+        book("Exod").len() >= 2 && book("Lev").len() >= 2 && book("Num").len() >= 2,
+        "Exodus, Leviticus and Numbers name the critical position too".into(),
     );
     Ok(out)
 }
@@ -2468,5 +2645,21 @@ mod tests {
         assert_eq!(century(1, Era::Ad, Part::Whole), span(1, 100));
         assert_eq!(century(1, Era::Bc, Part::Whole), span(-100, -1));
         assert_eq!(century(8, Era::Bc, Part::Whole), span(-800, -701));
+    }
+
+    #[test]
+    fn chapter_scopes() {
+        assert!(check_scope(&[[1, 8]], 14).is_ok());
+        assert!(check_scope(&[[1, 39], [46, 51]], 52).is_ok());
+        assert!(check_scope(&[[137, 137]], 150).is_ok());
+        assert!(check_scope(&[], 14).is_err(), "an empty list is a mistake");
+        assert!(check_scope(&[[0, 3]], 14).is_err(), "chapters start at 1");
+        assert!(check_scope(&[[5, 4]], 14).is_err(), "a span runs forward");
+        assert!(check_scope(&[[9, 15]], 14).is_err(), "Zechariah has 14");
+        assert!(check_scope(&[[3, 5], [5, 6]], 14).is_err(), "spans overlap");
+        assert!(
+            check_scope(&[[7, 8], [1, 2]], 14).is_err(),
+            "spans in order"
+        );
     }
 }
