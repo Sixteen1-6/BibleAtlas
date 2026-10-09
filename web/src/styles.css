@@ -484,20 +484,6 @@ p .godeeper {
   }
 }
 
-.wheel {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-}
-.wheel svg {
-  height: 100%;
-  max-width: 100%;
-}
-.wheel .ribbon {
-  mix-blend-mode: screen;
-}
-
 /* ------------------------------------------------------------ workspace */
 
 .work {
@@ -1035,6 +1021,17 @@ p .godeeper {
   border-radius: var(--r-md);
   padding: 10px 12px;
   margin-bottom: 10px;
+}
+.src-files summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--muted);
+}
+.src-files summary:hover {
+  color: var(--ink);
+}
+.src-files .hash {
+  margin-top: 4px;
 }
 .src code,
 .hash {

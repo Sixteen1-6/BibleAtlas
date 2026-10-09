@@ -165,6 +165,7 @@ export default defineExtra<Data>({
 - `useJson<T>(a, 'extras/<id>/<name>.json')` is for a heavier file that only the panel needs. It returns `undefined` while loading and `null` if the load failed. Show nothing, or `…`, until it arrives. Never show an error message.
 - Verses are numbers (`VerseRef`): 0 is Genesis 1:1 and 31101 is Revelation 22:21. These are the same numbers as `vz.index(book, chapter, verse)` in the build and as `S.selected`. Write verse numbers into your JSON in the build, so the web side does no parsing. `verseOf(a, 'Isa.40.3')` exists for the rare id that comes from somewhere else.
 - Keep `extras/<id>.json` small, under about 200 KB before compression, because it loads the first time a reader selects a verse. Put anything only the panel needs in separate files under `extras/<id>/`, and load those with `useJson`.
+- Start `load()` with `await readerHere('<id>')` (from `first-move.ts`) unless the first screen needs your line. On a plain first visit the app selects a verse by itself; this waits for the reader's first tap, key or scroll, so that visit downloads nothing extra. A link to a verse, a chapter or your panel loads at once. Only `quotes` skips it, because the welcome card points to its line under Isaiah 53:5.
 
 ## 2. The data
 
@@ -373,6 +374,7 @@ Before you commit:
 
 - `types.ts`: `VerseRef` (a number), `ChapterRef` (`{ book, chapter }`), `VerseLink` (`{ verse, to?, text? }`), `NoteLine` (a string, or strings and `VerseLink`s in reading order), `PanelProps<D>`, `ChapterPanelProps<D>`, `Extra<D>`, and `defineExtra(extra)`.
 - `data.ts`: `loadJson<T>(a, file)` and `useJson<T>(a, file | null)`.
+- `first-move.ts`: `readerHere(id)`, which holds a `load()` back until the reader's first move.
 - `kit.tsx`:
   - components: `<Lead>`, `<SideBySide>`, `<Passage a from to? navigate note?>`, `<SourceNote>`, `<Unsure title?>` and `<Facts rows>`;
   - names and links: `refName(a, verse, to?)` ("Mark 2:1–12"), `verseHash(a, verse)` ("#v=Mark.2.1"), `verseOf(a, osis)`;

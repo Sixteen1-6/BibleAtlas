@@ -1,18 +1,45 @@
 // One Hebrew, Aramaic or Greek root: meaning, grammar in this verse,
 // manuscript evidence, and every place it occurs.
 
+import type { ComponentProps, ComponentType } from 'preact';
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { WordSky } from './WordSky';
 import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
-import { WordWorld } from './WordWorld';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { Distribution, Provenance, useVerseRow } from './common';
 import { GoDeeper } from './Depth';
+
+type WordWorldType = ComponentType<ComponentProps<typeof import('./WordWorld').WordWorld>>;
+let wordWorld: Promise<WordWorldType> | null = null;
+
+/** "Outside the Bible" and its data code, fetched with the first word study. */
+function loadWordWorld(): Promise<WordWorldType> {
+  if (!wordWorld) {
+    wordWorld = import('./WordWorld').then((m) => m.WordWorld);
+    wordWorld.catch(() => (wordWorld = null));
+  }
+  return wordWorld;
+}
+
+function WordWorld(props: ComponentProps<WordWorldType>) {
+  const [impl, setImpl] = useState<{ C: WordWorldType } | null>(null);
+  useEffect(() => {
+    let live = true;
+    loadWordWorld().then(
+      (C) => live && setImpl({ C }),
+      () => {},
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  return impl ? <impl.C {...props} /> : null;
+}
 
 function Definition({ entry }: { entry: LexEntry }) {
   return (

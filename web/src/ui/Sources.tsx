@@ -20,7 +20,7 @@ export function Sources({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>Sources and checks</h2>
-      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the layers of meaning notes (config/layers.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, and the table that assigns chapters and books to the Tyndale Open Bible Dictionary's eras and dates; every quotation in that table is checked word for word against the dictionary when the data is built.</p>
+      <p>Everything here comes from openly licensed datasets, each pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the Aramaic and Hebrew words the Gospels and Acts keep (config/aramaic.json), the layers of meaning notes (config/layers.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, and the table that assigns chapters and books to the Tyndale Open Bible Dictionary's eras and dates; every quotation in that table is checked word for word against the dictionary when the data is built.</p>
       <div class="stats">
         {Object.entries(LABELS).map(([k, l]) => (
           <div key={k}>
@@ -50,11 +50,20 @@ export function Sources({ a }: { a: Atlas }) {
           </p>
           <p class="muted" style="margin:4px 0;font-size:12px">{s.attribution}</p>
           {s.note && <p class="muted" style="margin:4px 0;font-size:12px">{s.note}</p>}
-          {s.files.map((f) => (
-            <div key={f.path} class="hash" title={f.path}>
-              SHA-256 {f.sha256}
-            </div>
-          ))}
+          {s.files.length > 0 && (
+            <details class="src-files">
+              <summary>
+                {s.files.length === 1 ? 'The file and its checksum' : `${s.files.length} files and their checksums`}
+              </summary>
+              {s.files.map((f) => (
+                <div key={f.path} class="hash">
+                  <code>{f.path}</code>
+                  <br />
+                  SHA-256 {f.sha256}
+                </div>
+              ))}
+            </details>
+          )}
         </div>
       ))}
 
