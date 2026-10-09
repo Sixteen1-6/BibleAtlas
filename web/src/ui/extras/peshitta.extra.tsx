@@ -20,6 +20,7 @@
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Data, EARLY, LATER, load } from './peshitta/model';
+import { readerHere } from './first-move';
 import { type PanelProps, defineExtra } from './types';
 
 type PanelType = ComponentType<PanelProps<Data>>;
@@ -56,7 +57,10 @@ export default defineExtra<Data>({
   order: 40,
   title: 'Syriac translation',
   level: 'deep',
-  load,
+  async load(a) {
+    await readerHere('peshitta');
+    return load(a);
+  },
   note(verse, d) {
     const k = d.kind[verse];
     if (k === EARLY) return 'Syriac: an early Aramaic translation, made from the Greek';

@@ -2520,6 +2520,24 @@ struct Lsj {
     inscriptions: bool,
 }
 
+/// Number words that LSJ prints in bold when it translates an example.
+const NUMBER_WORDS: [&str; 15] = [
+    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven",
+    "twelve", "twenty", "hundred", "thousand",
+];
+
+/// A bare number word after an entry's first sense is an example's
+/// translation, not a meaning: ἅπαξ "once" lists "two" from Plato's "once or
+/// twice". A number's own entry leads with its number, so the first sense stays.
+fn drop_example_numbers(senses: &mut Vec<Sense>) {
+    let mut first = true;
+    senses.retain(|s| {
+        let keep = first || !NUMBER_WORDS.contains(&s.gloss.to_lowercase().as_str());
+        first = false;
+        keep
+    });
+}
+
 /// Read one LSJ entry: up to two senses from its opening and one from each
 /// later sense block, each the first English gloss followed by a dated
 /// reference to a writer outside the Bible. For a verb, noun or adjective
@@ -4004,6 +4022,7 @@ pub fn build(
             names += usize::from(name);
             others += usize::from(!name);
         }
+        drop_example_numbers(&mut e.senses);
         with_lsj += 1;
         with_senses += usize::from(!e.senses.is_empty());
         with_first += usize::from(e.first.is_some());
@@ -5091,6 +5110,24 @@ mod tests {
     /// An entry read as that of a word that is not a verb, noun or adjective.
     fn lsj(meaning: &str) -> Option<Lsj> {
         super::lsj(meaning, "")
+    }
+
+    #[test]
+    fn example_numbers_are_not_senses() {
+        let sense = |g: &str| Sense {
+            gloss: g.into(),
+            century: String::new(),
+            writer: None,
+            papyri: false,
+            inscriptions: false,
+        };
+        let glosses = |v: &[Sense]| v.iter().map(|s| s.gloss.clone()).collect::<Vec<_>>();
+        let mut once = vec![sense("once"), sense("two"), sense("once for all")];
+        drop_example_numbers(&mut once);
+        assert_eq!(glosses(&once), ["once", "once for all"]);
+        let mut two = vec![sense("two"), sense("Two")];
+        drop_example_numbers(&mut two);
+        assert_eq!(glosses(&two), ["two"]);
     }
 
     #[test]

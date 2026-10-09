@@ -2,12 +2,20 @@
 // top of it. Simple opens on one note with the rest a tap away; Study shows
 // every layer with its Hebrew or Greek words; Deep adds the evidence, who
 // reviewed it, and a way to suggest a correction.
+//
+// A link that quotes the passage, or another passage in the same note, word
+// for word or nearly, carries a quotation mark. That comes from the quotations
+// extra's data (the BSB's own footnotes, crates/atlas-cli/src/extra_quotes.rs),
+// which the reader's quotation line loads with the first selected verse.
 
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
 import { type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { dataState, ensureData } from './extras/data';
+import { type Data as Quotes, isNt } from './extras/quotes/model';
+import { extraById } from './extras/registry';
 
 const REPO = 'https://github.com/Sixteen1-6/BibleAtlas';
 
@@ -40,15 +48,63 @@ function smart(text: string): string {
   return text.replace(/"([^"]*)"/g, '“$1”').replace(/(\w)'(\w)/g, '$1’$2');
 }
 
-function RefChip({ a, p, r }: { a: Atlas; p: Passage; r: LayerRef }) {
+const QUOTES = extraById('quotes');
+
+/** The quotations data once it has loaded, else null (the marks simply wait). */
+function useQuotes(a: Atlas): Quotes | null {
+  useEffect(() => {
+    if (QUOTES) ensureData(QUOTES, a);
+  }, [a]);
+  const s = QUOTES ? dataState(QUOTES) : undefined;
+  return s?.state === 'ready' ? (s.data as Quotes) : null;
+}
+
+type Span = { s: number; e: number };
+
+/** "A", "A and B", "A, B and C". */
+function and(names: string[]): string {
+  return names.length < 2 ? names.join('') : `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+}
+
+/** For each link in a layer ("s-e"), the quotation it takes part in: "Quotes
+ * Psalm 8:2" or "Quoted in Matthew 21:16". Only quotations between the link
+ * and the passage, or another link in the same layer, count, and echoes never. */
+function quotedLinks(a: Atlas, q: Quotes, p: Passage, l: Layer): Map<string, string> {
+  const partners: Span[] = [{ s: p.v, e: p.end }, ...l.refs];
+  const out = new Map<string, string>();
+  for (const r of l.refs) {
+    const nt = isNt(a, r.s);
+    const seen = new Set<string>();
+    const names: string[] = [];
+    for (let v = r.s; v <= r.e; v++) {
+      for (const link of (nt ? q.byNt : q.byOt).get(v) ?? []) {
+        const [from, to] = nt ? [link.ot, link.otTo] : [link.nt, link.ntTo];
+        if (link.echo || seen.has(`${from}-${to}`) || !partners.some((x) => x.s <= to && from <= x.e)) continue;
+        seen.add(`${from}-${to}`);
+        names.push(rangeLabel(a, from, to - from + 1));
+      }
+    }
+    if (names.length) out.set(`${r.s}-${r.e}`, `${nt ? 'Quotes' : 'Quoted in'} ${and(names)}`);
+  }
+  return out;
+}
+
+function RefChip({ a, p, r, quote }: { a: Atlas; p: Passage; r: LayerRef; quote?: string }) {
+  const open = r.arc ? 'Open this passage' : 'Open this passage. The cross-reference map has no arc for this link, so it is drawn dashed.';
   return (
     <button
-      class={`layerref${r.arc ? '' : ' noarc'}`}
+      class={`layerref${r.arc ? '' : ' noarc'}${quote ? ' quoted' : ''}`}
       data-lv={r.s}
       onClick={(e) => (e.stopPropagation(), S.selectVerse(r.s))}
-      title={r.arc ? 'Open this passage' : 'Open this passage. The cross-reference map has no arc for this link, so it is drawn dashed.'}
+      title={quote ? `${quote}, as the BSB's own footnotes show. ${open}` : open}
     >
+      {quote && (
+        <span class="qmark" aria-hidden="true">
+          “
+        </span>
+      )}
       {rangeLabel(a, r.s, r.e - r.s + 1)}
+      {quote && <span class="sr-only">, {quote[0].toLowerCase() + quote.slice(1)}</span>}
       {!r.arc && p.v !== r.s && <span class="dash" aria-hidden="true" />}
     </button>
   );
@@ -72,7 +128,7 @@ function issueLink(a: Atlas, p: Passage, l: Layer): string {
   return `${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 }
 
-function LayerItem({ a, p, l }: { a: Atlas; p: Passage; l: Layer }) {
+function LayerItem({ a, p, l, quotes }: { a: Atlas; p: Passage; l: Layer; quotes: Map<string, string> }) {
   const study = atLeast('study');
   const deep = atLeast('deep');
   // The passage itself needs no chip; the others are where the layer leads.
@@ -92,7 +148,7 @@ function LayerItem({ a, p, l }: { a: Atlas; p: Passage; l: Layer }) {
       {(refs.length > 0 || (study && words.length > 0)) && (
         <div class="layerlinks">
           {refs.map((r) => (
-            <RefChip key={`${r.s}-${r.e}`} a={a} p={p} r={r} />
+            <RefChip key={`${r.s}-${r.e}`} a={a} p={p} r={r} quote={quotes.get(`${r.s}-${r.e}`)} />
           ))}
           {study && words.map((w) => <WordChip key={w[2]} a={a} w={w} />)}
         </div>
@@ -113,6 +169,7 @@ function LayerItem({ a, p, l }: { a: Atlas; p: Passage; l: Layer }) {
 export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   const list = passages.value;
   const [openFor, setOpenFor] = useState<string | null>(null);
+  const q = useQuotes(a);
   const p = passageAt(list, v);
   if (!p) {
     const from = pointingAt(list, v);
@@ -131,6 +188,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   const open = study || openFor === p.id;
   const lead = leadLayer(p);
   const shown = open ? p.layers : lead ? [lead] : p.layers.slice(0, 1);
+  const quotes = shown.map((l) => (q ? quotedLinks(a, q, p, l) : new Map<string, string>()));
   return (
     <section class="layers" aria-label="Layers of meaning">
       <h3>
@@ -143,7 +201,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       </h3>
       <ol>
         {shown.map((l, i) => (
-          <LayerItem key={i} a={a} p={p} l={l} />
+          <LayerItem key={i} a={a} p={p} l={l} quotes={quotes[i]} />
         ))}
       </ol>
       {!open && p.layers.length > shown.length && (
@@ -156,6 +214,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
         <p class="layerdeep">
           {p.source} {p.reviewed_by.length ? `Reviewed by ${p.reviewed_by.join(' and ')}.` : 'Not yet reviewed by a person.'} Every quotation of four or more words is checked
           against the BSB when the data is built.
+          {quotes.some((m) => m.size > 0) && ' A “ on a link marks a direct quotation, as the BSB’s own footnotes show it.'}
         </p>
       )}
     </section>
