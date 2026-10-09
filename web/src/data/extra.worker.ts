@@ -29,7 +29,7 @@ self.onmessage = async (e: MessageEvent<Req>) => {
     words.forEach((w, i) => (off[i + 1] = off[i] + x.index.get(w)!.length));
     const verses = new Uint32Array(off[words.length]);
     words.forEach((w, i) => verses.set(x.index.get(w)!, off[i]));
-    self.postMessage({ ok: true, names: x.names, lines, words, off, verses }, { transfer: [off.buffer, verses.buffer] });
+    self.postMessage({ ok: true, names: x.names, lines, words, off, verses, apart: [...x.apart] }, { transfer: [off.buffer, verses.buffer] });
   } catch (err) {
     self.postMessage({ ok: false, error: String(err) });
   }

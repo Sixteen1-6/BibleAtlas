@@ -53,7 +53,7 @@ export function loadExtraText(a: Atlas): Promise<Extra> {
         if (!d.ok) return reject(new Error(d.error));
         const index = new Map<string, Uint32Array>();
         (d.words as string[]).forEach((word, i) => index.set(word, d.verses.subarray(d.off[i], d.off[i + 1])));
-        extraReady = { names: d.names, lines: d.lines, index };
+        extraReady = { names: d.names, lines: d.lines, index, apart: new Set(d.apart) };
         resolve(extraReady);
       };
       w.onerror = (e) => {

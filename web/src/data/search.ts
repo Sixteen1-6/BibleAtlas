@@ -28,10 +28,13 @@
 import type { Atlas } from './atlas';
 import { fold, foldSpans } from './fold';
 
+const WORD = /[\p{L}\p{N}'’]+/gu;
+
 export function tokens(text: string): string[] {
   const out: string[] = [];
-  for (const raw of text.split(/[^\p{L}\p{N}'’]+/u)) {
-    const w = norm(raw);
+  WORD.lastIndex = 0;
+  for (let m = WORD.exec(text); m; m = WORD.exec(text)) {
+    const w = norm(m[0]);
     if (w) out.push(w);
   }
   return out;
@@ -282,6 +285,9 @@ export interface Extra {
   names: string[];
   lines: string[][];
   index: Map<string, Uint32Array>;
+  /** Word pairs the texts write apart even though they also join them
+   *  ("pass over", "every day"): a query never joins these. */
+  apart: Set<string>;
 }
 
 /** Index the words of other translations' text, as written and folded,
@@ -296,25 +302,30 @@ export function buildExtra(names: string[], lines: string[][], base?: string[]):
     if (!l) lists.set(w, (l = []));
     if (l[l.length - 1] !== v) l.push(v);
   };
+  const bsb = new Set<string>();
+  const folded: string[][] = [];
+  const index1 = (toks: string[], v: number, all: boolean) => {
+    const fs = foldSpans(toks);
+    for (const w of toks) {
+      if (all) put(w, v);
+      else bsb.add(w);
+    }
+    for (const f of fs) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
+    folded.push(fs.map((f) => f.tok));
+  };
   // Verse by verse across all translations, so every list comes out sorted
   // and unique without a second pass.
   for (let v = 0; v < n; v++) {
-    const line = base?.[v];
-    if (line) {
-      const toks = tokens(line);
-      for (const f of foldSpans(toks)) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
-    }
-    for (const ls of lines) {
-      const line = ls[v];
-      if (!line) continue;
-      const toks = tokens(line);
-      for (const w of toks) put(w, v);
-      for (const f of foldSpans(toks)) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
-    }
+    if (base?.[v]) index1(tokens(base[v]), v, false);
+    for (const ls of lines) if (ls[v]) index1(tokens(ls[v]), v, true);
+  }
+  const apart = new Set<string>();
+  for (const toks of folded) {
+    for (let i = 0; i + 1 < toks.length; i++) if (joinable(toks[i], toks[i + 1]) && (lists.has(toks[i] + toks[i + 1]) || bsb.has(toks[i] + toks[i + 1]))) apart.add(`${toks[i]} ${toks[i + 1]}`);
   }
   const index = new Map<string, Uint32Array>();
   for (const [w, l] of lists) index.set(w, Uint32Array.from(l));
-  return { names, lines, index };
+  return { names, lines, index, apart };
 }
 
 /** `raw` is the word as typed when folding changed it ("honour" for honor). */
@@ -340,11 +351,44 @@ function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null, r
   return { text: w, alts, guessed };
 }
 
+/** Spoken short forms the Bible writes out ("it's" is "it is", not "it"). */
+function spoken(q: string): string {
+  return q
+    .replace(/\b(it|that|there|here|he|she|what|who|where|how)['’]s\b/gi, '$1 is')
+    .replace(/\b(i|you|we|they|he|she|it)['’]ll\b/gi, '$1 will')
+    .replace(/\bi['’]m\b/gi, 'i am')
+    .replace(/\b(you|we|they)['’]re\b/gi, '$1 are')
+    .replace(/\b(i|you|we|they)['’]ve\b/gi, '$1 have')
+    .replace(/\bwon['’]t\b/gi, 'will not')
+    .replace(/\blet['’]s\b/gi, 'let us');
+}
+
+/** A word typed in two parts ("peace makers", "breast plate") that the Bible
+ *  writes as one, and never as two. */
+const plainWord = (x: string) => x.length >= 3 && !QUIET.has(x) && !(x.charCodeAt(0) <= 57);
+const joinable = (x: string, y: string) => plainWord(x) && plainWord(y);
+
+function joins(a: Atlas, x: string, y: string | undefined, extra: Extra): string | null {
+  if (!y || !joinable(x, y)) return null;
+  const w = x + y;
+  if (extra.apart.has(`${x} ${y}`) || !(find(a.englishWords, w) >= 0 || extra.index.has(w))) return null;
+  return w;
+}
+
 export function parseQuery(a: Atlas, query: string, extra?: Extra | null): Term[] {
-  const ws = tokens(query);
+  const ws = tokens(spoken(query));
   const typing = !/\s$/.test(query);
   const out: Term[] = [];
-  for (const f of foldSpans(ws)) {
+  const fs = foldSpans(ws);
+  for (let k = 0; k < fs.length; k++) {
+    const f = fs[k];
+    const g = fs[k + 1];
+    const w = extra && g && f.to - f.from === 1 && g.to - g.from === 1 ? joins(a, f.tok, g.tok, extra) : null;
+    if (w) {
+      out.push(buildTerm(a, w, typing && g.to === ws.length, extra));
+      k++;
+      continue;
+    }
     const last = typing && f.to === ws.length;
     if (f.to - f.from > 1) {
       // Folded forms of several words are only in the extra index; until it
