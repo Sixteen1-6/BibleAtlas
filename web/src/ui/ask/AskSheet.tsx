@@ -14,7 +14,7 @@
 import './ask.css';
 import { createPortal } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { type Atlas, locate } from '../../data/atlas';
+import { type Atlas, locate, verseIndex } from '../../data/atlas';
 import { plainText } from '../../data/plain';
 import { wordPieces } from '../../data/search';
 import { ALL_VOTES, linksWithinRows } from '../../data/thread';
@@ -312,6 +312,41 @@ function TopicBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'topic' } })
   );
 }
 
+/** For someone asking about ending their life, whole verses only, in this order. */
+const HOPE: [string, number, number, number][] = [
+  ['Ps', 34, 18, 18],
+  ['1Kgs', 19, 3, 5],
+  ['Ps', 42, 11, 11],
+  ['2Cor', 1, 8, 10],
+  ['Ps', 40, 1, 2],
+  ['Lam', 3, 21, 23],
+  ['Matt', 11, 28, 29],
+];
+
+/** Where to turn now, then the verses. The one place the panel speaks in words not the Bible's. */
+function CareBody({ a }: { a: Atlas }) {
+  const passages = HOPE.flatMap(([osis, c, v1, v2]) => {
+    const b = a.books.findIndex((x) => x.osis === osis);
+    return b < 0 ? [] : [[verseIndex(a, b, c, v1), verseIndex(a, b, c, v2)]];
+  });
+  return (
+    <>
+      <div class="ask-care" role="note">
+        <p>
+          <b>If you are thinking about ending your life, please talk to someone today.</b> In the US, call or text 988. In the UK and Ireland, call Samaritans on 116 123. Anywhere else,{' '}
+          <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">
+            find a helpline near you
+          </a>{' '}
+          or call your local emergency number.
+        </p>
+      </div>
+      {passages.map(([s, e]) => (
+        <Passage key={s} a={a} from={s} to={e} navigate={go} />
+      ))}
+    </>
+  );
+}
+
 /** The panel, when something is asked. Mounted once by the app. */
 export function AskSheet({ a }: { a: Atlas }) {
   const id = askOpen.value;
@@ -331,12 +366,13 @@ export function AskSheet({ a }: { a: Atlas }) {
   }, [id]);
 
   if (!id || !asked) return null;
-  const title = asked.kind === 'question' ? asked.q.q : asked.kind === 'topic' ? asked.title : asked.text;
+  const title = asked.kind === 'question' ? asked.q.q : asked.kind === 'topic' ? asked.title : asked.kind === 'care' ? 'Help, and hope' : asked.text;
   return createPortal(
     <Shell key={id} title={title} at="Ask the Bible" onDismiss={dismiss}>
       {asked.kind === 'question' && <QuestionBody a={a} asked={asked} />}
       {asked.kind === 'topic' && <TopicBody a={a} asked={asked} />}
       {asked.kind === 'live' && <LiveBody a={a} text={asked.text} />}
+      {asked.kind === 'care' && <CareBody a={a} />}
     </Shell>,
     document.body,
   );

@@ -505,7 +505,7 @@ fn outside_word(text: &str) -> Option<&'static str> {
 struct Check<'a> {
     vz: &'a Versification,
     text: &'a [String],
-    subjects: &'a HashMap<&'a str, &'a Subject>,
+    subjects: &'a HashMap<String, &'a Subject>,
     errors: Vec<String>,
 }
 
@@ -550,7 +550,7 @@ impl<'a> Check<'a> {
 
     /// The lines of a subject that a topic keeps.
     fn topic_lines(&mut self, at: &str, t: &TopicSpec) -> Vec<&'a Line> {
-        let subjects: &'a HashMap<&'a str, &'a Subject> = self.subjects;
+        let subjects: &'a HashMap<String, &'a Subject> = self.subjects;
         let Some(&subject) = subjects.get(t.subject.trim().to_uppercase().as_str()) else {
             self.fail(at, format_args!("Nave's has no subject {:?}", t.subject));
             return Vec::new();
@@ -742,7 +742,9 @@ pub fn build(
     degree: &[u32],
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
     let (subjects, bad) = read_naves(inputs, vz)?;
-    let by_key: HashMap<&str, &Subject> = subjects.iter().map(|s| (s.key.as_str(), s)).collect();
+    // By capitals: a few subjects are written "ANGEL (a spirit)".
+    let by_key: HashMap<String, &Subject> =
+        subjects.iter().map(|s| (s.key.to_uppercase(), s)).collect();
     let file: QuestionFile = serde_json::from_str(
         &fs::read_to_string(root.join(CONFIG)).map_err(|e| format!("reading {CONFIG}: {e}"))?,
     )

@@ -64,7 +64,9 @@ export type Asked =
   | { kind: 'question'; q: Question }
   | { kind: 'topic'; i: number; title: string; n: number }
   /** Any other question, answered with the verses gathered for it. */
-  | { kind: 'live'; text: string };
+  | { kind: 'live'; text: string }
+  /** Someone asking about ending their life: where to find help now, then verses of hope. */
+  | { kind: 'care'; text: string };
 
 /** The longest question kept in a link. */
 const LIVE_MAX = 160;
@@ -103,11 +105,14 @@ export function slug(title: string): string {
 }
 
 export function askId(asked: Asked): string {
+  // Their words stay out of the link.
+  if (asked.kind === 'care') return 'care';
   if (asked.kind === 'live') return `live:${asked.text}`;
   return asked.kind === 'question' ? asked.q.id : `topic.${slug(asked.title)}`;
 }
 
 export function findAsked(ix: AskIndex, id: string): Asked | null {
+  if (id === 'care') return { kind: 'care', text: '' };
   if (id.startsWith('live:')) {
     const text = id.slice(5).trim().slice(0, LIVE_MAX);
     return contentWords(text).length ? { kind: 'live', text } : null;
@@ -125,6 +130,7 @@ export function findAsked(ix: AskIndex, id: string): Asked | null {
 export function askLabel(asked: Asked): [string, string] {
   if (asked.kind === 'question') return [asked.q.q, `${asked.q.n.toLocaleString()} verses`];
   if (asked.kind === 'topic') return [asked.title, `${asked.n.toLocaleString()} verses`];
+  if (asked.kind === 'care') return ['Help, and hope', 'where to turn now, and verses for this'];
   return [asked.text, 'the verses on it'];
 }
 
@@ -368,7 +374,7 @@ export function looksLikeQuestion(q: string): boolean {
 }
 
 interface Prepared {
-  questions: { q: Question; whole: Set<string>; stems: Set<string> }[];
+  questions: { q: Question; whole: Set<string>; stems: Set<string>; own: Set<string> }[];
   topics: { title: string; whole: string; stems: string[] }[];
 }
 
@@ -379,12 +385,21 @@ function prepare(ix: AskIndex): Prepared {
   const p: Prepared = {
     questions: ix.questions.map((q) => {
       const phrases = [q.q, ...q.also];
-      return { q, whole: new Set(phrases.map((x) => contentWords(x).join(' '))), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))) };
+      return { q, whole: new Set(phrases.map((x) => contentWords(x).join(' '))), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
     }),
     topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), stems: contentWords(title).map(stem) })),
   };
   prepared = { ix, p };
   return p;
+}
+
+/** Words about ending one's own life. Search then offers help and verses of
+ * hope, and not every verse that says "kill" or "die". */
+const CARE =
+  /\b(suicid\w*|kill(ing)? (my|our)sel(f|ves)|end(ing)? (it all|my (own )?life)|take my (own )?life|want(ed)? to die|wish i (was|were|had) (dead|never been born)|(don'?t|do not) want to (live|be alive|be here|wake up)|better off dead|no reason to live|self[- ]?harm|hurt(ing)? myself|cut(ting)? myself)\b/i;
+
+export function isCare(query: string): boolean {
+  return CARE.test(query.replace(/[’‘]/g, "'"));
 }
 
 /**
@@ -394,6 +409,7 @@ function prepare(ix: AskIndex): Prepared {
  * so a phrase from a verse is not crowded out.
  */
 export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[] {
+  if (isCare(query)) return [{ kind: 'care', text: query.trim().slice(0, LIVE_MAX) }];
   if (!ix) return [];
   const ws = contentWords(query);
   if (!ws.length || ws.length > 12) return [];
@@ -403,14 +419,16 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[]
   const p = prepare(ix);
   const scored: { asked: Asked; score: number }[] = [];
   for (const x of p.questions) {
+    // Words in the question itself beat words only in its other phrasings.
+    const own = (stems.filter((s) => x.own.has(s)).length / stems.length) * 5;
     if (x.whole.has(whole)) {
-      scored.push({ asked: { kind: 'question', q: x.q }, score: 100 });
+      scored.push({ asked: { kind: 'question', q: x.q }, score: 100 + own });
       continue;
     }
     if (!asking) continue;
     const hits = stems.filter((s) => x.stems.has(s)).length;
     // Most of the reader's words, and at least one.
-    if (hits >= Math.max(1, Math.ceil(stems.length * 0.6))) scored.push({ asked: { kind: 'question', q: x.q }, score: 10 + (hits / stems.length) * 10 });
+    if (hits >= Math.max(1, Math.ceil(stems.length * 0.6))) scored.push({ asked: { kind: 'question', q: x.q }, score: 10 + (hits / stems.length) * 10 + own });
   }
   ix.topics.forEach(([title, n], i) => {
     const t = p.topics[i];
@@ -425,7 +443,7 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[]
   const out = scored.slice(0, asking ? limit : Math.min(limit, 2)).map((x) => x.asked);
   // Any question at all: the verses gathered for the reader's own words, unless
   // a prepared question already says it exactly.
-  const exact = scored[0]?.score === 100;
+  const exact = scored[0]?.score >= 100;
   if (asking && !exact) out.unshift({ kind: 'live', text: query.trim().slice(0, LIVE_MAX) });
   return out;
 }

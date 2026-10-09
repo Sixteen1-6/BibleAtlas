@@ -243,6 +243,8 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
   const qs = matchingQuestions(ix, ws, also.questionId);
   const inTopic = new Set<number>();
   const cited = new Set<number>();
+  /** A prepared question's own set: chosen for it, so it outranks verses that only share its words. */
+  const own = new Set<number>();
   const [topicSets, questionSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
     Promise.all(qs.map((q) => loadJson<{ v: Range[] }>(a, `ask/q/${q.id}.json`).catch(() => null))),
@@ -256,6 +258,7 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
     if (!set) continue;
     addRanges(inTopic, set.v);
     addRanges(cited, qs[k].top);
+    if (qs[k].id === also.questionId) addRanges(own, set.v);
   }
 
   // 3. Candidates: verses that hold enough of the question (all of it when it
@@ -283,7 +286,7 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
       dense = toks.length ? Math.min(1, (hits / toks.length) * 6) : 0;
     }
     const genre = TEACHING[a.books[a.verseBook[v]].genre] ?? 0;
-    score.set(v, 2 * (text.get(v) ?? 0) + (inTopic.has(v) ? 1.5 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre);
+    score.set(v, 2 * (text.get(v) ?? 0) + (inTopic.has(v) ? 1.5 : 0) + (own.has(v) ? 1.5 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre);
   }
 
   // The Bible pointing to itself: links among the best candidates count.

@@ -7,7 +7,7 @@ import { type Extra, type SearchResult, searchEnglish, searchRoots, wordPieces }
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
-import { type Asked, askIndex, askLabel, loadAsk, matchAsk, openAsk } from './ask/ask';
+import { type Asked, askIndex, askLabel, isCare, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
@@ -95,9 +95,11 @@ export function Palette({ a }: { a: Atlas }) {
       if (!live) return;
       if (range) out.push({ kind: 'ref', range });
       for (const asked of range && /\d/.test(query) ? [] : matchAsk(asks, query)) out.push({ kind: 'ask', asked });
-      for (const r of searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
+      // Someone asking about ending their life gets help and hope (matchAsk), not every verse that says "kill" or "die".
+      const care = isCare(query);
+      for (const r of care ? [] : searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
       // "Mathew 5:3" is a reference, not words to look for.
-      const found = range && /\d/.test(query) ? null : searchEnglish(a, q, 30, texts, extra);
+      const found = care || (range && /\d/.test(query)) ? null : searchEnglish(a, q, 30, texts, extra);
       found?.verses.forEach((v, i) => out.push({ kind: 'verse', v, span: found.spans[i], via: found.via[i] }));
       setItems(out);
       setRes(found);

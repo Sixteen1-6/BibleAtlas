@@ -161,3 +161,16 @@ button.ask-more {
 .ask-how li {
   margin: 0.2em 0;
 }
+.ask-care {
+  background: var(--accent-soft);
+  border-radius: var(--r-md);
+  padding: 0.7em 0.9em;
+  margin: 0 0 1em;
+}
+.ask-care p {
+  margin: 0;
+  line-height: 1.5;
+}
+.ask-care a {
+  color: var(--link);
+}
