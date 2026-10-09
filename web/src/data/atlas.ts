@@ -274,6 +274,15 @@ export function shortName(b: BookMeta): string {
   return b.osis.replace(/^(\d)/, '$1 ');
 }
 
+/** True if a cross-reference joins two verses, in either direction. Links
+ * readers voted down (zero or fewer net votes) are left out, as they are on
+ * the map and in Connections. */
+export function linked(a: Atlas, u: number, v: number): boolean {
+  for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xDst[e] === v && a.xVotes[e] > 0) return true;
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xDst[e] === u && a.xVotes[e] > 0) return true;
+  return false;
+}
+
 /** Iterate the edges leaving verse v (strongest first). */
 export function edgesFrom(a: Atlas, v: number): [number, number] {
   return [a.xOff[v], a.xOff[v + 1]];
