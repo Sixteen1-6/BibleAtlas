@@ -50,6 +50,13 @@
   border-radius: var(--r-md);
   background: var(--x-real-map-water);
 }
+/* Wider screens: the panel runs the full height of the window, so the map
+   can be about square and still leave the verse's places in view. */
+.xt-dock .x-real-map-frame {
+  aspect-ratio: 1 / 1;
+  max-height: min(52vh, 560px);
+  min-height: 260px;
+}
 .x-real-map-canvas {
   display: block;
   width: 100%;
@@ -256,12 +263,14 @@
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+.x-real-map-events,
 .x-real-map-people {
   margin: 0 0 6px;
   padding: 0;
   list-style: none;
   font-size: 13.5px;
 }
+.x-real-map-events li,
 .x-real-map-people li {
   margin: 0 0 3px;
 }

@@ -236,7 +236,7 @@ function PanelHost({ a }: { a: Atlas }) {
   const P = x.Panel;
   const C = x.ChapterPanel;
   return createPortal(
-    <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss}>
+    <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss} tall={x.tall}>
       <Guard id={x.id}>
         {o.kind === 'verse' ? (
           <P a={a} data={s.data} verse={o.verse!} close={dismiss} navigate={navigate} />

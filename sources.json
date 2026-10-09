@@ -83,16 +83,70 @@
       "note": "Coordinates the dataset credits to OpenStreetMap (ODbL), Google Maps or the Google Earth community, or takes from a Palestine Grid reference (epsg_28191), are left out; where it gives its own position for a site (custom_lonlat), that one is used. A place is listed under a verse only where the BSB text names it."
     },
     {
+      "id": "openbible-shapes",
+      "title": "OpenBible.info Bible Geocoding Data: region shapes",
+      "provides": "The shapes OpenBible.info drew for regions, valleys and wildernesses (Galilee, Edom, the Valley of Elah). Used to shade a region on the Places map. Where it gives bands of confidence, the middle band is used.",
+      "license": "CC BY 4.0",
+      "attribution": "Bible Geocoding Data from OpenBible.info, CC BY 4.0",
+      "homepage": "https://www.openbible.info/geo/",
+      "repo": "https://github.com/openbibleinfo/Bible-Geocoding-Data",
+      "commit": "7eb18a5ee62f27b9b93bd6689ea272d76dd23b8f",
+      "files": {
+        "index": "data/geometry.jsonl", "g00b3eb.geometry": "geometry/g00b3eb.geometry.geojson", "g0351db.geometry": "geometry/g0351db.geometry.geojson",
+        "g03ac48.isobands": "geometry/g03ac48.isobands.geojson", "g044645.geometry": "geometry/g044645.geometry.geojson", "g06a14c.isobands": "geometry/g06a14c.isobands.geojson",
+        "g0c3f61.geometry": "geometry/g0c3f61.geometry.geojson", "g0e6b24.geometry": "geometry/g0e6b24.geometry.geojson", "g0e7a2e.geometry": "geometry/g0e7a2e.geometry.geojson",
+        "g0ed146.isobands": "geometry/g0ed146.isobands.geojson", "g0f45b2.isobands": "geometry/g0f45b2.isobands.geojson", "g11a0a9.isobands": "geometry/g11a0a9.isobands.geojson",
+        "g15edcb.isobands": "geometry/g15edcb.isobands.geojson", "g1758b2.geometry": "geometry/g1758b2.geometry.geojson", "g182eb5.isobands": "geometry/g182eb5.isobands.geojson",
+        "g1a6676.geometry": "geometry/g1a6676.geometry.geojson", "g1d7e26.geometry": "geometry/g1d7e26.geometry.geojson", "g228665.isobands": "geometry/g228665.isobands.geojson",
+        "g25b264.isobands": "geometry/g25b264.isobands.geojson", "g2f72cc.geometry": "geometry/g2f72cc.geometry.geojson", "g307887.isobands": "geometry/g307887.isobands.geojson",
+        "g323d81.isobands": "geometry/g323d81.isobands.geojson", "g32a9d3.isobands": "geometry/g32a9d3.isobands.geojson", "g333df2.geometry": "geometry/g333df2.geometry.geojson",
+        "g357ac3.geometry": "geometry/g357ac3.geometry.geojson", "g3750ec.geometry": "geometry/g3750ec.geometry.geojson", "g3a5d8d.geometry": "geometry/g3a5d8d.geometry.geojson",
+        "g3ccc7b.isobands": "geometry/g3ccc7b.isobands.geojson", "g3d355b.isobands": "geometry/g3d355b.isobands.geojson", "g3d49f6.isobands": "geometry/g3d49f6.isobands.geojson",
+        "g3e5460.isobands": "geometry/g3e5460.isobands.geojson", "g3fb3df.isobands": "geometry/g3fb3df.isobands.geojson", "g40d263.isobands": "geometry/g40d263.isobands.geojson",
+        "g43da41.geometry": "geometry/g43da41.geometry.geojson", "g47a69b.geometry": "geometry/g47a69b.geometry.geojson", "g49e180.geometry": "geometry/g49e180.geometry.geojson",
+        "g4b4d59.isobands": "geometry/g4b4d59.isobands.geojson", "g4ddbf8.isobands": "geometry/g4ddbf8.isobands.geojson", "g4f25ac.geometry": "geometry/g4f25ac.geometry.geojson",
+        "g4f5a46.geometry": "geometry/g4f5a46.geometry.geojson", "g4fc33f.isobands": "geometry/g4fc33f.isobands.geojson", "g5008cf.geometry": "geometry/g5008cf.geometry.geojson",
+        "g504a8f.geometry": "geometry/g504a8f.geometry.geojson", "g51b30d.isobands": "geometry/g51b30d.isobands.geojson", "g523915.isobands": "geometry/g523915.isobands.geojson",
+        "g528234.geometry": "geometry/g528234.geometry.geojson", "g55ebd7.geometry": "geometry/g55ebd7.geometry.geojson", "g58daff.geometry": "geometry/g58daff.geometry.geojson",
+        "g590ac2.isobands": "geometry/g590ac2.isobands.geojson", "g5e91ea.isobands": "geometry/g5e91ea.isobands.geojson", "g5e98fb.geometry": "geometry/g5e98fb.geometry.geojson",
+        "g64db35.geometry": "geometry/g64db35.geometry.geojson", "g66ae51.geometry": "geometry/g66ae51.geometry.geojson", "g68cf68.isobands": "geometry/g68cf68.isobands.geojson",
+        "g69fcde.geometry": "geometry/g69fcde.geometry.geojson", "g6b9f35.geometry": "geometry/g6b9f35.geometry.geojson", "g6c0591.isobands": "geometry/g6c0591.isobands.geojson",
+        "g718940.isobands": "geometry/g718940.isobands.geojson", "g727b1f.isobands": "geometry/g727b1f.isobands.geojson", "g746ae5.isobands": "geometry/g746ae5.isobands.geojson",
+        "g759c47.isobands": "geometry/g759c47.isobands.geojson", "g76b6c9.isobands": "geometry/g76b6c9.isobands.geojson", "g76bdaf.isobands": "geometry/g76bdaf.isobands.geojson",
+        "g776ba1.geometry": "geometry/g776ba1.geometry.geojson", "g7ad983.isobands": "geometry/g7ad983.isobands.geojson", "g7bb3aa.geometry": "geometry/g7bb3aa.geometry.geojson",
+        "g7e51d1.isobands": "geometry/g7e51d1.isobands.geojson", "g803e7e.geometry": "geometry/g803e7e.geometry.geojson", "g80ab8b.isobands": "geometry/g80ab8b.isobands.geojson",
+        "g830d01.isobands": "geometry/g830d01.isobands.geojson", "g841f86.geometry": "geometry/g841f86.geometry.geojson", "g857eea.isobands": "geometry/g857eea.isobands.geojson",
+        "g858c01.isobands": "geometry/g858c01.isobands.geojson", "g8a8940.isobands": "geometry/g8a8940.isobands.geojson", "g8c2014.isobands": "geometry/g8c2014.isobands.geojson",
+        "g8d00f0.geometry": "geometry/g8d00f0.geometry.geojson", "g8e7709.geometry": "geometry/g8e7709.geometry.geojson", "g929ef9.geometry": "geometry/g929ef9.geometry.geojson",
+        "g933f6d.isobands": "geometry/g933f6d.isobands.geojson", "g9764d8.isobands": "geometry/g9764d8.isobands.geojson", "g99a57f.isobands": "geometry/g99a57f.isobands.geojson",
+        "g9a0f06.isobands": "geometry/g9a0f06.isobands.geojson", "g9a278d.isobands": "geometry/g9a278d.isobands.geojson", "g9ca219.isobands": "geometry/g9ca219.isobands.geojson",
+        "g9db00b.geometry": "geometry/g9db00b.geometry.geojson", "ga00ceb.isobands": "geometry/ga00ceb.isobands.geojson", "ga08869.isobands": "geometry/ga08869.isobands.geojson",
+        "ga277ef.isobands": "geometry/ga277ef.isobands.geojson", "ga2818f.isobands": "geometry/ga2818f.isobands.geojson", "ga7e226.isobands": "geometry/ga7e226.isobands.geojson",
+        "gadb142.isobands": "geometry/gadb142.isobands.geojson", "gae312e.isobands": "geometry/gae312e.isobands.geojson", "gb23fb1.geometry": "geometry/gb23fb1.geometry.geojson",
+        "gb51fc8.geometry": "geometry/gb51fc8.geometry.geojson", "gb731f9.isobands": "geometry/gb731f9.isobands.geojson", "gb88bb1.isobands": "geometry/gb88bb1.isobands.geojson",
+        "gbb2516.isobands": "geometry/gbb2516.isobands.geojson", "gbb47f1.geometry": "geometry/gbb47f1.geometry.geojson", "gc1086c.geometry": "geometry/gc1086c.geometry.geojson",
+        "gc82ef6.isobands": "geometry/gc82ef6.isobands.geojson", "gccdbf2.geometry": "geometry/gccdbf2.geometry.geojson", "gcd335e.geometry": "geometry/gcd335e.geometry.geojson",
+        "gced2db.isobands": "geometry/gced2db.isobands.geojson", "gd33034.geometry": "geometry/gd33034.geometry.geojson", "gd4e2eb.isobands": "geometry/gd4e2eb.isobands.geojson",
+        "gd63223.geometry": "geometry/gd63223.geometry.geojson", "gd70643.geometry": "geometry/gd70643.geometry.geojson", "gd87a62.geometry": "geometry/gd87a62.geometry.geojson",
+        "gda936b.geometry": "geometry/gda936b.geometry.geojson", "ge2a5b0.isobands": "geometry/ge2a5b0.isobands.geojson", "ge72c1b.isobands": "geometry/ge72c1b.isobands.geojson",
+        "ge7afb2.isobands": "geometry/ge7afb2.isobands.geojson", "ge8859c.isobands": "geometry/ge8859c.isobands.geojson", "ge980ef.isobands": "geometry/ge980ef.isobands.geojson",
+        "geafde0.isobands": "geometry/geafde0.isobands.geojson", "gf10b01.isobands": "geometry/gf10b01.isobands.geojson", "gf2ea0e.isobands": "geometry/gf2ea0e.isobands.geojson",
+        "gf328fd.isobands": "geometry/gf328fd.isobands.geojson", "gf5df80.isobands": "geometry/gf5df80.isobands.geojson", "gf811f0.geometry": "geometry/gf811f0.geometry.geojson",
+        "gfb335d.geometry": "geometry/gfb335d.geometry.geojson", "gffa031.isobands": "geometry/gffa031.isobands.geojson", "gffb7d8.isobands": "geometry/gffb7d8.isobands.geojson"
+      },
+      "note": "Only shapes the dataset drew itself (format 'kml' in data/geometry.jsonl) are listed: those taken from OpenStreetMap (ODbL), islands, which Natural Earth already draws, and generated circles are left out. The list is the best identification's shape for each place, as extra_real_map.rs picks it; a place whose shape is not listed is drawn without one."
+    },
+    {
       "id": "theographic",
       "title": "Theographic Bible Metadata",
-      "provides": "People tied to each place: who was born there, who died there and who was there. Shown in the Places map at Deep.",
+      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep.",
       "license": "CC BY-SA 4.0",
       "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
       "homepage": "https://github.com/robertrouse/theographic-bible-metadata",
       "repo": "https://github.com/robertrouse/theographic-bible-metadata",
       "commit": "cfb1c485d4da6fb63a69cb3b7f5b0752792f46bc",
-      "files": { "people": "CSV/People.csv", "places": "CSV/Places.csv" },
-      "note": "The file built from it, extras/real-map/people.json, is shared under the same license, CC BY-SA 4.0."
+      "files": { "people": "CSV/People.csv", "places": "CSV/Places.csv", "events": "CSV/Events.csv" },
+      "note": "The files built from it, extras/real-map/people.json and extras/real-map/events.json, are shared under the same license, CC BY-SA 4.0. Event years are Theographic's own, from one traditional chronology (Creation in 4004 BC, the Exodus in 1491 BC), and are shown only at Deep with that said."
     },
     {
       "id": "natural-earth",
@@ -302,6 +356,18 @@
         "english_ot": "data/eng/targets/BSB/ot_BSB.tsv",
         "english_nt": "data/eng/targets/BSB/nt_BSB.tsv"
       }
+    },
+    {
+      "id": "macula-hebrew",
+      "title": "MACULA Hebrew Linguistic Datasets",
+      "provides": "For each Hebrew word of the Old Testament, the Greek word the Septuagint (the Greek Old Testament) uses at that place, with its Strong's number. Used to pair the Greek words of a New Testament quotation with the Hebrew words they stand for.",
+      "license": "CC BY 4.0 (the Westminster Leningrad Codex it annotates is public domain)",
+      "attribution": "MACULA Hebrew Linguistic Datasets, available at https://github.com/Clear-Bible/macula-hebrew/ (© Biblica, Inc., CC BY 4.0)",
+      "homepage": "https://github.com/Clear-Bible/macula-hebrew",
+      "repo": "https://github.com/Clear-Bible/macula-hebrew",
+      "commit": "47db250bd55d0d8577f2a94fba114ef16c35b23c",
+      "files": { "tsv": "WLC/tsv/macula-hebrew.tsv" },
+      "note": "Only the word ids, Hebrew text and the 'greek' and 'greekstrong' columns are read. The file is stored with Git LFS, so `atlas fetch` downloads it from GitHub's media server and checks it against the pointer's SHA-256. MACULA's LICENSE.md lists 'Greek equivalents drawn from the Septuagint' among the data it licenses CC BY 4.0. Nothing from the file is published: the build writes only word positions."
     }
   ]
 }

@@ -176,16 +176,17 @@ function Pairs({ a, n, rows }: { a: Atlas; n: LinkNote; rows: Map<VerseRef, Vers
   return (
     <table class="x-quotes-pairs" aria-label="Greek words and the Hebrew words they stand for">
       <tbody>
-        {(n.w ?? []).map(([gv, gp, hv, hp]) => (
+        {(n.w ?? []).map(([gv, gp, hv, hp, how = 1]) => (
           <tr key={`${gv}.${gp}.${hv}.${hp}`}>
             <td>
               <PairWord a={a} v={gv} pos={gp} row={rows.get(gv)} />
             </td>
-            <td class="x-quotes-eq" title="stands for">
+            <td class="x-quotes-eq" title={how === 0 ? 'the Septuagint uses this word here' : 'the Septuagint often uses this word for it'}>
               =
             </td>
             <td>
               <PairWord a={a} v={hv} pos={hp} row={rows.get(hv)} />
+              {how !== 0 && <span class="x-quotes-often"> often</span>}
             </td>
           </tr>
         ))}
@@ -305,8 +306,9 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
                 Word by word <Unsure title="Paired by a program, not by hand">matched by computer</Unsure>
               </h3>
               <p class="x-quotes-hint">
-                Each Greek word is set beside a Hebrew word it often translates in the Septuagint, the Greek Old Testament, as Abbott-Smith’s lexicon notes. A program made these pairs,
-                so some may be wrong.
+                Each Greek word is set beside the Hebrew word it stands for. Most pairs are the Septuagint’s own: the Greek Old Testament uses that same Greek word for that Hebrew
+                word in this verse. A pair marked “often” is a word the Septuagint often uses for it elsewhere, as Abbott-Smith’s lexicon notes. A program made these pairs, so some may be
+                wrong.
               </p>
               {withPairs.map((l) => (
                 <div key={l.i}>
@@ -343,7 +345,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       {!deep && <GoDeeper to="deep">See the Hebrew and Greek</GoDeeper>}
       <SourceNote>
         {deep
-          ? 'Quotations from the footnotes of the Berean Standard Bible (public domain). Word pairs from STEPBible’s Greek and Hebrew lexicons, TBESG (from Abbott-Smith) and TBESH (CC BY 4.0).'
+          ? 'Quotations from the footnotes of the Berean Standard Bible (public domain). Word pairs from the Septuagint words in MACULA Hebrew (Biblica, CC BY 4.0) and from STEPBible’s Greek and Hebrew lexicons, TBESG (from Abbott-Smith) and TBESH (CC BY 4.0).'
           : 'Quotations from the footnotes of the Berean Standard Bible (public domain).'}
       </SourceNote>
     </>
