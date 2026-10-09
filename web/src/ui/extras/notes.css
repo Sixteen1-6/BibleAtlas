@@ -1,0 +1,68 @@
+/* Study notes: the notes in the reading font, verse names as quiet links, and
+   the wider passage's notes folded behind one line. */
+
+.x-notes-note + .x-notes-note {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-notes-h {
+  margin: 0 0 6px;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+.xt-body .x-notes-p {
+  margin: 0 0 10px;
+  font: 15px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.x-notes-list {
+  margin: 0 0 10px;
+  padding-left: 22px;
+  font: 15px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.x-notes-list li + li {
+  margin-top: 4px;
+}
+.x-notes-p em,
+.x-notes-list em {
+  font-style: italic;
+}
+.x-notes-ref {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.x-notes-ref:hover {
+  text-decoration-color: currentColor;
+}
+.x-notes-ref:focus-visible,
+.x-notes-more summary:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.x-notes-wide {
+  margin-top: 16px;
+}
+.x-notes-more {
+  border-top: 1px solid var(--line);
+}
+.x-notes-more:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.x-notes-more summary {
+  padding: 10px 0;
+  font: 600 14px var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-notes-more[open] summary {
+  padding-bottom: 6px;
+}
+.x-notes-more .x-notes-note {
+  padding-bottom: 4px;
+}

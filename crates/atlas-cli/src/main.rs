@@ -17,6 +17,7 @@ mod english;
 mod extra_quotes;
 mod fetch;
 mod layers;
+mod extra_notes;
 mod lexhtml;
 mod loaded;
 mod lxx;
