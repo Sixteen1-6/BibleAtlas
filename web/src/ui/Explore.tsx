@@ -52,13 +52,14 @@ function ThemeList({ a, onPick }: { a: Atlas; onPick: (id: string) => void }) {
     () => (q ? a.themes.flatMap((t, j) => (shownAt(t, level) && (t.name.toLowerCase().includes(q) || t.blurb.toLowerCase().includes(q)) ? [j] : [])) : []),
     [a, level, q],
   );
-  if (!listOpen.value) {
-    return (
-      <button type="button" class="btn tj-allbtn" aria-expanded="false" onClick={() => (listOpen.value = true)}>
-        All {count} themes ›
-      </button>
-    );
-  }
+  const isOpen = listOpen.value;
+  // One button opens and hides the list, so the focus stays on it.
+  const head = (
+    <button type="button" class={isOpen ? 'tj-listhead' : 'btn tj-allbtn'} aria-expanded={isOpen} onClick={() => (listOpen.value = !isOpen)}>
+      All {count} themes {isOpen ? <span class="tj-hide">Hide</span> : '›'}
+    </button>
+  );
+  if (!isOpen) return <section class="tj-list is-closed">{head}</section>;
   const toggle = (id: string) => {
     const next = new Set(openGroups.peek());
     if (next.has(id)) next.delete(id);
@@ -67,9 +68,7 @@ function ThemeList({ a, onPick }: { a: Atlas; onPick: (id: string) => void }) {
   };
   return (
     <section class="tj-list" aria-label={`All ${count} themes`}>
-      <button type="button" class="tj-listhead" aria-expanded="true" onClick={() => (listOpen.value = false)}>
-        All {count} themes <span class="tj-hide">Hide</span>
-      </button>
+      {head}
       {study && (
         <label class="tj-find">
           <span class="sr-only">Find a theme</span>
@@ -84,11 +83,11 @@ function ThemeList({ a, onPick }: { a: Atlas; onPick: (id: string) => void }) {
         )
       ) : (
         groups.map((g) => {
-          const isOpen = openGroups.value.has(g.id);
+          const shown = openGroups.value.has(g.id);
           const sample = g.themes.slice(0, 3).map((j) => a.themes[j].name);
           return (
-            <div key={g.id} class={`tj-group${isOpen ? ' is-open' : ''}`}>
-              <button type="button" class="tj-grow" aria-expanded={isOpen} onClick={() => toggle(g.id)}>
+            <div key={g.id} class={`tj-group${shown ? ' is-open' : ''}`}>
+              <button type="button" class="tj-grow" aria-expanded={shown} onClick={() => toggle(g.id)}>
                 <span class="tj-gname">{g.name}</span>
                 <span class="tj-gcount">{g.themes.length}</span>
                 <span class="tj-gsample">
@@ -96,7 +95,7 @@ function ThemeList({ a, onPick }: { a: Atlas; onPick: (id: string) => void }) {
                   {g.themes.length > sample.length ? '…' : ''}
                 </span>
               </button>
-              {isOpen && <ThemeChips a={a} themes={g.themes} onPick={onPick} />}
+              {shown && <ThemeChips a={a} themes={g.themes} onPick={onPick} />}
             </div>
           );
         })

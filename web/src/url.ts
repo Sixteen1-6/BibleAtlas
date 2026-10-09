@@ -49,7 +49,12 @@ export function restoreFromHash(a: Atlas): void {
     }
   }
   const t = h.get('t');
-  if (t && a.themes.some((x) => x.id === t)) S.theme.value = t;
+  const th = t ? a.themes.find((x) => x.id === t) : undefined;
+  if (th) {
+    S.theme.value = th.id;
+    // A broad word's theme shows from Study on, as it does everywhere else.
+    if (th.level === 'study') deepen('study');
+  }
   const tab = h.get('tab') as S.Tab | null;
   if (tab && tab in TAB_DEPTH) {
     // A shared link opens as deep as the view it points at.

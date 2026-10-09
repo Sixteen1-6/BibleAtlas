@@ -74,8 +74,9 @@
 
 /* ------------------------------------------------------------ hero */
 
-/* The journey takes the focus when a theme is chosen from the keyboard (so
-   the next Tab goes into its steps); the panel needs no ring around it. */
+/* The journey takes the focus when a theme is chosen from a card, chip or
+   list in the panel (so the next Tab goes into its steps); the panel needs no
+   ring around it. */
 .tj-journey:focus {
   outline: none;
 }
@@ -386,6 +387,9 @@
 }
 .tj-list {
   margin-top: 14px;
+}
+.tj-list.is-closed {
+  margin-top: 0;
 }
 .tj-listhead {
   display: block;
@@ -779,13 +783,23 @@
   .vt-line {
     min-height: 44px;
   }
-  .tj-names .tj-chip {
-    min-height: 36px;
-  }
+  /* Text-sized buttons, in a sentence or on their own, still get a full
+     thumb's height. */
   .vt-thrname,
   .vt-thrref,
-  .tj-steplink {
-    min-height: 32px;
+  .tj-steplink,
+  .tj-backto,
+  .tj-key,
+  .tj-link,
+  .tj-all {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .tj-listhead {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
   }
   .tj-gsample {
     grid-column: 2 / -1;

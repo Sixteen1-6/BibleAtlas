@@ -8,7 +8,7 @@
 //   for the Links tab on phones.
 // Everything comes from data/themes.ts: nothing is chosen by hand.
 
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo, useRef, useState } from 'preact/hooks';
 import { type Atlas, type Theme, label } from '../data/atlas';
 import { type OwnTheme, type ThemeLevel, type ThroughTheme, linkRule, strongestLinks, themeWordsIn, themesThroughLinks, verseThemes } from '../data/themes';
 import type { VerseRow } from '../data/text';
@@ -30,10 +30,17 @@ function possessive(s: string): string {
   return `${s}’s`;
 }
 
+/** Deep: how many of the verse's strong links share a theme. */
+function shareLine(shared: number, strong: number): string {
+  if (strong === 1) return shared ? 'Its one strong link shares it' : 'Its one strong link does not share it';
+  if (shared === 0) return `None of its ${strong} strongest links share it`;
+  return `${shared} of its ${strong} strongest links ${shared === 1 ? 'shares' : 'share'} it`;
+}
+
 function OwnChip({ a, theme, row, own, strong, onOpen }: { a: Atlas; theme: Theme; row: VerseRow | null; own: OwnTheme; strong: number; onOpen: () => void }) {
   const study = atLeast('study');
   const deep = atLeast('deep');
-  const words = useMemo(() => (row ? themeWordsIn(row, theme) : null), [row, theme]);
+  const words = useMemo(() => (row ? themeWordsIn(a, row, theme) : null), [a, row, theme]);
   const quote = words?.quotes.join(' / ') ?? '';
   const roots = words ? [...new Set(words.words.map((w) => w.root))] : [];
   return (
@@ -43,7 +50,7 @@ function OwnChip({ a, theme, row, own, strong, onOpen }: { a: Atlas; theme: Them
           <b>{theme.name}</b>
           {quote &&
             (words?.gloss ? (
-              <span class="vt-gloss" title="The word’s own meaning: the BSB has no English for it in this verse">
+              <span class="vt-gloss" title="The word’s own gloss: the word-by-word alignment does not show which BSB words carry it in this verse">
                 {quote}
               </span>
             ) : (
@@ -53,11 +60,7 @@ function OwnChip({ a, theme, row, own, strong, onOpen }: { a: Atlas; theme: Them
       </button>
       {study && theme.level === 'study' && <span class="tj-broad">broad word</span>}
       {study && roots.map((r) => <RootChip key={r} a={a} root={r} />)}
-      {deep && (
-        <span class="vt-share">
-          {own.shared} of its {strong} strongest {strong === 1 ? 'link shares' : 'links share'} it
-        </span>
-      )}
+      {deep && strong > 0 && <span class="vt-share">{shareLine(own.shared, strong)}</span>}
     </li>
   );
 }
@@ -105,8 +108,14 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
   const own = useMemo(() => verseThemes(a, v, level), [a, v, level]);
   const through = useMemo(() => themesThroughLinks(a, v, level), [a, v, level]);
   const strong = useMemo(() => strongestLinks(a, v).length, [a, v]);
-  // "+N more" opens in place, for this verse only.
+  // "+N more" opens in place, for this verse only, and hands the focus to
+  // the first chip it shows (the button itself goes away).
   const [allFor, setAllFor] = useState<number | null>(null);
+  const chips = useRef<HTMLUListElement>(null);
+  const showAll = () => {
+    setAllFor(v);
+    requestAnimationFrame(() => chips.current?.querySelectorAll<HTMLElement>('.vt-chip')[OWN_SHOWN]?.focus());
+  };
   const open = onTheme ?? ((id: string) => openThemeFromVerse(a, id, v));
   const goTo = go ?? ((u: number) => S.selectVerse(u, { openTab: false }));
   const name = label(a, v);
@@ -118,13 +127,13 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
     <section class="vt-card" aria-label={`Themes in ${name}`}>
       {title && <h3 class="vt-title">In {name}</h3>}
       {own.length > 0 ? (
-        <ul class="vt-chips">
+        <ul class="vt-chips" ref={chips}>
           {shownOwn.map((o) => (
             <OwnChip key={o.theme} a={a} theme={a.themes[o.theme]} row={row} own={o} strong={strong} onOpen={() => open(a.themes[o.theme].id)} />
           ))}
           {own.length > shownOwn.length && (
             <li>
-              <button type="button" class="vt-more" onClick={() => setAllFor(v)}>
+              <button type="button" class="vt-more" onClick={showAll}>
                 +{own.length - shownOwn.length} more
               </button>
             </li>
@@ -155,7 +164,7 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
       {deep && (
         <p class="vt-rule">
           Own themes: a theme’s Hebrew or Greek word is in this verse. They are ordered by how many of the verse’s {rule.top} strongest links ({rule.votes} or more votes) share the theme,
-          then the rarer theme. Themes through links: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
+          then the rarer theme, with the broad words after the others. Themes through links: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
           verses, and themes whose left-out sense is in this verse, are never offered.
         </p>
       )}

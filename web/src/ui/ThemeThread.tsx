@@ -32,6 +32,9 @@ export async function lightTheme(a: Atlas, id: string, mode: Mode = 'thread', op
   if (!th) return;
   const gen = ++generation;
   const keep = opts.keepSelection ? S.selected.peek() : null;
+  if (S.theme.peek() !== id) handOff = document.activeElement?.closest('.study') ? id : null;
+  // The verse it was opened from is let go with the selection.
+  if (!opts.keepSelection) themeFrom.value = null;
   S.theme.value = id;
   S.path.value = null;
   S.selected.value = keep;
@@ -58,9 +61,17 @@ export async function lightTheme(a: Atlas, id: string, mode: Mode = 'thread', op
   lit.value = { id, mode: 'all', group };
 }
 
-/** The verse a theme was opened from (a chip on its themes card), while that
- *  theme, or another chosen from the same verse, is open. */
+/** The verse a theme was opened from (a chip on its themes card, or a theme
+ *  name under the journey), while that theme stays open with the verse kept. */
 export const themeFrom = signal<{ verse: number; theme: string } | null>(null);
+S.theme.subscribe((t) => {
+  if (themeFrom.peek() && themeFrom.peek()!.theme !== t) themeFrom.value = null;
+});
+
+/** The theme just chosen from a control in the study panel (a card, a chip,
+ *  the list). That control goes away with the list or the old journey, so
+ *  the new journey takes the focus in its place. */
+let handOff: string | null = null;
 
 /** Put the map back to plain: no theme, path, ticks or lit links. The
  *  selected verse stays. */
@@ -75,8 +86,8 @@ export function closeTheme(): void {
 /** Open a theme from a verse's themes card: the theme lights up and the verse
  *  stays selected, so the journey can say where the verse fits. */
 export function openThemeFromVerse(a: Atlas, id: string, verse: number): void {
-  themeFrom.value = { verse, theme: id };
   void lightTheme(a, id, 'thread', { keepSelection: true });
+  themeFrom.value = { verse, theme: id };
 }
 
 /** The level whose themes show: Simple, or Study (which Deep includes). */
@@ -279,14 +290,16 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
   }, [a, theme.id]);
 
   // A newly chosen theme opens at the top of the panel, hero first. Chosen
-  // from the keyboard, it also takes the focus from its card (which has moved
-  // down into the strip), so the next Tab goes into the thread.
+  // from a card, chip or list in this panel, it also takes the focus, which
+  // went away with that control, so the next Tab goes into the thread.
   useEffect(() => {
     const el = root.current;
     if (!el) return;
     const box = scroller(el);
     if (box && el.getBoundingClientRect().top < visibleTop(box)) box.scrollTop = 0;
-    if (document.activeElement?.closest('.tj-card')) el.focus({ preventScroll: true });
+    const focus = document.activeElement;
+    if (handOff === theme.id && (focus === null || focus === document.body)) el.focus({ preventScroll: true });
+    handOff = null;
   }, [theme.id]);
 
   const step = (i: number) => {
@@ -484,7 +497,8 @@ export function OftenLinked({ a, theme }: { a: Atlas; theme: Theme }) {
   const g = S.groupEdges.value;
   const shown = nearShown.value;
   if (!near.length) return null;
-  const open = (id: string) => lightTheme(a, id, 'thread');
+  // The selected verse stays, so the partner's journey says where it fits.
+  const open = (id: string) => lightTheme(a, id, 'thread', { keepSelection: true });
   if (!study) {
     return (
       <>

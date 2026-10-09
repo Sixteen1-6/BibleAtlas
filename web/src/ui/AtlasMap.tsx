@@ -323,7 +323,10 @@ export function AtlasMap({ a }: { a: Atlas }) {
         // A tap on one of the selected verse's arcs follows it to the other end.
         const hit = arcAt(localX(e), localY(e), e.pointerType === 'touch');
         const v = hit ? hit.v : verseAt(xs, localX(e), S.view.value, w);
-        S.selectVerse(v);
+        // On a phone the tap opens the study panel on the verse's links (the
+        // Links tab has a line for its themes); beside the map, an open
+        // Themes tab stays and shows the verse's themes.
+        S.selectVerse(v, { openTab: S.phoneLayout() ? true : undefined });
         S.mobilePane.value = 'study';
         setTip(null);
       }

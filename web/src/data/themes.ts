@@ -3,9 +3,10 @@
 // in atlas.bin), never chosen by hand, and cached per atlas.
 //
 // A verse's own themes: the themes one of whose words is among the verse's
-// main-edition words (themeVerses in thread.ts, less skipWith verses). They
-// are ordered by how many of the verse's strongest links carry the same
-// theme, then the rarer theme first.
+// main-edition words (themeVerses in thread.ts, less skipWith verses). The
+// focused themes come first and Study's broad words after them; each part is
+// ordered by how many of the verse's strongest links carry the same theme,
+// then the rarer theme first.
 //
 // Themes through links: for a verse, take its `top` strongest links with
 // `votes` or more (either direction, the best votes per linked verse). A
@@ -175,16 +176,18 @@ export interface OwnTheme {
   shared: number;
 }
 
-/** The verse's own themes at a level: the theme most of its strongest links
- *  share first, then the rarer theme. */
+/** The verse's own themes at a level: the focused themes before Study's
+ *  broad words (so Study only adds to what Simple shows), and within each,
+ *  the theme most of its strongest links share first, then the rarer theme. */
 export function verseThemes(a: Atlas, v: number, level: ThemeLevel): OwnTheme[] {
   const own = ownThemes(a, v, level);
   if (!own.length) return [];
   const ix = themeIndex(a);
   const links = strongestLinks(a, v);
+  const broad = (j: number) => (a.themes[j].level === 'study' ? 1 : 0);
   return own
     .map((j) => ({ theme: j, shared: links.filter(([u]) => hasTheme(ix, u, j)).length }))
-    .sort((p, q) => q.shared - p.shared || ix.size[p.theme] - ix.size[q.theme] || p.theme - q.theme);
+    .sort((p, q) => broad(p.theme) - broad(q.theme) || q.shared - p.shared || ix.size[p.theme] - ix.size[q.theme] || p.theme - q.theme);
 }
 
 export interface ThroughTheme {
@@ -225,8 +228,8 @@ export function themesThroughLinks(a: Atlas, v: number, level: ThemeLevel): Thro
 
 export interface ThemeWords {
   /** The BSB words each theme word became, in English order, without repeats
-   *  ("the lamb"); or, where the BSB has no English aligned to it (a psalm
-   *  heading), the word's own gloss, with `gloss` set. */
+   *  ("the lamb"); or, where the word-by-word alignment gives no clear BSB
+   *  English for it, the word's own gloss, with `gloss` set. */
   quotes: string[];
   gloss: boolean;
   /** The theme's original words in the verse: position in the row, root. */
@@ -235,7 +238,8 @@ export interface ThemeWords {
 
 /** Words that never carry a theme on their own. An alignment that gives a
  *  theme word only these ("and", "of the") has gone astray, so the word's own
- *  gloss is shown instead of a misleading quote. */
+ *  gloss is shown instead of a misleading quote; at the end of a quote they
+ *  are left out ("loving devotion and"). */
 const SMALL = new Set(
   (
     'a an the and of to in on at by for with from into onto upon or but nor as so than that which who whom whose this these those ' +
@@ -244,8 +248,8 @@ const SMALL = new Set(
   ).split(' '),
 );
 
-/** A word's contextual gloss without the source's markings for implied words:
- *  "[are] dust" is "dust", "<the> seventh" is "seventh". */
+/** A word's contextual gloss without the source's markings for implied words
+ *  ("[are] dust" is "dust", "<the> seventh" is "seventh"). */
 function plainGloss(g: string): string {
   return g
     .replace(/\[[^\]]*\]|<[^>]*>|[¿¡]/g, ' ')
@@ -253,30 +257,98 @@ function plainGloss(g: string): string {
     .trim();
 }
 
+/** A gloss as a chip shows it: without small words or punctuation at either
+ *  end, which belong to the word's prefixes and suffixes ("and gracious" is
+ *  "gracious", "blood of" is "blood"); unchanged if nothing else is left. */
+function chipGloss(g: string): string {
+  const ws = g.split(' ');
+  const bare = (w: string) => w.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+  let i = 0;
+  let j = ws.length;
+  while (i < j && SMALL.has(bare(ws[i]))) i++;
+  while (j > i && SMALL.has(bare(ws[j - 1]))) j--;
+  const out = ws.slice(i, j).join(' ').replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+  return out || g;
+}
+
+/** The lowercase words of a text, less the small ones. */
+function stemWords(s: string): string[] {
+  return (s.toLowerCase().match(/\p{L}+/gu) ?? []).filter((w) => !SMALL.has(w));
+}
+
+/** True when two words look like forms of one word: they share their first
+ *  four letters, or all of the shorter one ("son" and "sons"), which needs
+ *  three letters at least. */
+function sameStem(x: string, y: string): boolean {
+  const n = Math.min(4, x.length, y.length);
+  return n >= 3 && x.slice(0, n) === y.slice(0, n);
+}
+
+/** Index of the last item that passes, or -1 (Array.findLastIndex is newer
+ *  than the build's ES2022 target). */
+function lastIndex<T>(xs: T[], ok: (x: T) => boolean): number {
+  for (let i = xs.length - 1; i >= 0; i--) if (ok(xs[i])) return i;
+  return -1;
+}
+
 /** The theme's words in a verse, and the BSB English aligned to them. Only
- *  main-edition words count, as they do for the theme's verses. */
-export function themeWordsIn(row: VerseRow, theme: Theme): ThemeWords {
+ *  main-edition words count, as they do for the theme's verses.
+ *
+ *  Each theme word's quote is the English the alignment gives it, less two
+ *  kinds of stray words a boundary a word off lets in: small words at its end
+ *  ("loving devotion and" is "loving devotion"), and, where a punctuation
+ *  mark splits it, the parts on the far side of the mark when only the other
+ *  part looks like the word (a form of its gloss, of its dictionary gloss or
+ *  of the theme's name): "in loving devotion—One who" is "in loving
+ *  devotion". When the alignment gives the word no English, or only small
+ *  words (it is missing there, or the build left it out as numbered for an
+ *  older BSB), the word's own gloss is shown instead, with `gloss` set. */
+export function themeWordsIn(a: Atlas, row: VerseRow, theme: Theme): ThemeWords {
   const roots = new Set(theme.roots);
   const al = row[2];
-  const tokens = al ? englishParts(row[0]).filter((p) => p.word >= 0).map((p) => p.text) : [];
+  // The English words, and after which of them a punctuation mark stands.
+  const tokens: string[] = [];
+  const mark: boolean[] = [];
+  if (al) {
+    for (const p of englishParts(row[0])) {
+      if (p.word >= 0) {
+        tokens.push(p.text);
+        mark.push(false);
+      } else if (tokens.length && /[^\s'’]/u.test(p.text)) mark[tokens.length - 1] = true;
+    }
+  }
+  const name = stemWords(theme.name);
   const runs: { at: number; text: string }[] = [];
   const glosses: string[] = [];
   const words: { pos: number; root: number }[] = [];
   row[1].forEach((w, pos) => {
     if (w[3] < 0 || !roots.has(w[3]) || w[5] & FLAG.otherEditions) return;
     words.push({ pos, root: w[3] });
+    const gloss = plainGloss(w[2] ?? '');
     if (al) {
       const entry = al.w[pos];
       const groups = new Set((Array.isArray(entry) ? entry.map((p) => p[2]) : [entry ?? -1]).filter((g) => g >= 0));
-      const ks: number[] = [];
+      let ks: number[] = [];
       al.e.forEach((g, k) => groups.has(g) && k < tokens.length && ks.push(k));
-      if (ks.some((k) => !SMALL.has(tokens[k].toLowerCase()))) {
-        runs.push({ at: ks[0], text: ks.map((k) => tokens[k]).join(' ') });
+      // Parts of the quote between punctuation marks.
+      const parts: number[][] = [];
+      ks.forEach((k, i) => {
+        if (i === 0 || mark.slice(ks[i - 1], k).some(Boolean)) parts.push([k]);
+        else parts[parts.length - 1].push(k);
+      });
+      if (parts.length > 1) {
+        const like = [...name, ...stemWords(gloss), ...stemWords(a.lemmas.gloss[w[3]] ?? '')];
+        const looks = parts.map((part) => part.some((k) => like.some((x) => sameStem(x, tokens[k].toLowerCase()))));
+        const first = looks.indexOf(true);
+        if (first >= 0) ks = parts.slice(first, lastIndex(looks, Boolean) + 1).flat();
+      }
+      const end = lastIndex(ks, (k) => !SMALL.has(tokens[k].toLowerCase())) + 1;
+      if (end > 0) {
+        runs.push({ at: ks[0], text: ks.slice(0, end).map((k) => tokens[k]).join(' ') });
         return;
       }
     }
-    const g = plainGloss(w[2] ?? '');
-    if (g) glosses.push(g);
+    if (gloss) glosses.push(chipGloss(gloss));
   });
   runs.sort((p, q) => p.at - q.at);
   const quotes = [...new Set(runs.map((r) => r.text))];

@@ -78,6 +78,12 @@ selected.subscribe((v) => {
 });
 export const mobilePane = signal<'read' | 'study'>('read');
 
+/** The phone layout (styles.css @media (max-width: 900px)), where the map
+ *  and reader take turns with the study panel instead of sitting beside it. */
+export function phoneLayout(): boolean {
+  return typeof matchMedia === 'function' && matchMedia('(max-width: 900px)').matches;
+}
+
 /** Touch screens tap and pinch; mice click and scroll. */
 export const TOUCH = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
 /** "Tap" or "Click", for instructions. */
