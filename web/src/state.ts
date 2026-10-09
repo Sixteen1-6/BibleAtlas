@@ -33,8 +33,9 @@ export const path = signal<(PathResult & { ms: number }) | null>(null);
 
 /** Verses marked with ticks on the map (theme, word or search hits). */
 export const marks = signal<{ verses: Uint32Array; label: string } | null>(null);
-/** Edges drawn bright on the map besides the selection (theme or word links). */
-export const groupEdges = signal<{ edges: Uint32Array; label: string } | null>(null);
+/** Edges drawn bright on the map besides the selection (theme or word links),
+ *  in the sky's colors or, with `color`, all in that one color (a theme's thread). */
+export const groupEdges = signal<{ edges: Uint32Array; label: string; color?: string } | null>(null);
 
 export const minVotes = signal(8);
 export const translation = signal<Translation>('BSB');
@@ -69,6 +70,12 @@ export const showOtherEditions = signal(false);
 export const paletteOpen = signal(false);
 /** A verse whose selection should not scroll the reader (the first-visit default). */
 export const holdReaderScroll = signal<number | null>(null);
+/** The verse a first visit opens on, until the reader picks any verse: while
+ *  it shows, the map keeps its first screen as calm as it has always been. */
+export const openingVerse = signal<number | null>(null);
+selected.subscribe((v) => {
+  if (v !== openingVerse.peek()) openingVerse.value = null;
+});
 export const mobilePane = signal<'read' | 'study'>('read');
 
 /** Touch screens tap and pinch; mice click and scroll. */
