@@ -1,4 +1,3680 @@
 {
   "_comment": "Questions people often ask about a verse. Checked by crates/atlas-cli/src/extra_hard_verses.rs. A card with an empty reviewed_by is a draft and is left out of the site unless ATLAS_HARD_VERSE_DRAFTS=1.",
-  "questions": []
+  "questions": [
+    {
+      "id": "judas-death",
+      "ref": "Acts 1:18",
+      "also": [
+        "Matthew 27:5"
+      ],
+      "question": "How did Judas die: hanging or falling?",
+      "answer": "Matthew says Judas hanged himself; Acts says he fell headfirst and his body burst open. Many Christians see one death told in two parts: he hanged himself, and later his body fell. Others think the writers passed on two early reports. Both link his money to a field called the Field of Blood.",
+      "views": [
+        {
+          "label": "Hanged, then fell",
+          "strength": "widely held",
+          "text": "Matthew tells how Judas died; Acts tells what became of his body. If the rope or branch gave way, or the body was later cut down, it could fall and burst open. Each writer gives the part that served his point: Matthew his remorse, Luke (who wrote Acts) the horror of his end.",
+          "refs": [
+            "Matthew 27:5",
+            "Acts 1:18"
+          ]
+        },
+        {
+          "label": "Luke's word may mean swollen",
+          "strength": "some interpreters",
+          "text": "The Greek word in Acts usually translated \"headlong\" (prēnēs) may mean \"swollen\". If so, Luke describes a body that swelled and burst, which would fit a body left hanging for some time. This reading is possible but not certain.",
+          "refs": [
+            "Acts 1:18"
+          ]
+        },
+        {
+          "label": "Two early reports, one core",
+          "strength": "commonly held",
+          "text": "Many scholars think Matthew and Luke passed on two separate early reports of Judas' end, each told with echoes of the Old Testament. Whether or not the details can be fitted together, both agree that Judas died a shameful death soon after the betrayal and that his money bought the Field of Blood.",
+          "refs": [
+            "Matthew 27:8",
+            "Acts 1:19",
+            "Psalms 69:25"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 27:6-8",
+        "Acts 1:19-20",
+        "Zechariah 11:13",
+        "2 Samuel 17:23",
+        "Psalms 109:8"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "How did Judas die?",
+          "url": "https://www.gotquestions.org/Judas-die.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Judas’s Demise in Matthew 27 and Acts 1. Do They Contradict?",
+          "url": "https://www.thegospelcoalition.org/article/judas-demise-matthew-1-acts-1/"
+        }
+      ],
+      "evidence": "Matthew 27:5 uses apēgxato, \"hanged himself\". Acts 1:18 says Judas \"acquired\" (ektēsato) a field with his wages and fell prēnēs, usually \"headlong\". Matthew 27:7 says the priests bought it with the silver he threw back, so his money paid for it. Both explain the name Field of Blood (Matthew 27:8; Acts 1:19), Akeldama in Aramaic. Ahithophel, who betrayed David, also hanged himself (2 Samuel 17:23).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "david-census",
+      "ref": "1 Chronicles 21:1",
+      "also": [
+        "2 Samuel 24:1"
+      ],
+      "question": "Who moved David to count Israel, God or Satan?",
+      "answer": "2 Samuel says the LORD stirred David up; Chronicles says Satan did (the Hebrew can also mean \"an adversary\"). Most Christians see both at work: God was judging Israel, and Satan did the tempting, as in Job's story. Either way, David admits the sin was his own.",
+      "views": [
+        {
+          "label": "God's judgment, Satan's temptation",
+          "strength": "widely held",
+          "text": "God was angry with Israel, and the tempter moved David, as Satan tested Job within God's limits. Christians differ on whether God permitted this evil or ruled over it for His purposes; either way, the evil intent was not God's (Genesis 50:20). David still confesses, \"I have sinned greatly.\"",
+          "refs": [
+            "Job 1:12",
+            "Job 2:3",
+            "Genesis 50:20",
+            "2 Samuel 24:10"
+          ]
+        },
+        {
+          "label": "Chronicles names the tempter",
+          "strength": "commonly held",
+          "text": "Chronicles was written long after Samuel, after the exile. Many scholars think its writer retold the story naming the tempter, so readers would not think God lures people into sin (compare James 1:13). Some see this as filling in what Samuel left unsaid, others as a later shift in emphasis.",
+          "refs": [
+            "1 Chronicles 21:1",
+            "James 1:13"
+          ]
+        },
+        {
+          "label": "A human adversary",
+          "strength": "some interpreters",
+          "text": "The Hebrew word satan in Chronicles has no \"the\" and often means any adversary, even a human enemy or the LORD's own angel. Some think a hostile nation or advisor pushed David to count his fighting men, while 2 Samuel looks behind it to God's judgment.",
+          "refs": [
+            "1 Kings 11:14",
+            "Numbers 22:22"
+          ]
+        }
+      ],
+      "helps": [
+        "Job 2:3",
+        "Job 1:12",
+        "Genesis 50:20",
+        "2 Samuel 24:10",
+        "1 Kings 22:22",
+        "James 1:13"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why was God so angry at David for taking the census?",
+          "url": "https://www.gotquestions.org/David-census.html"
+        },
+        {
+          "site": "Ligonier Ministries",
+          "title": "Who Called David’s Census—God or Satan?",
+          "url": "https://www.ligonier.org/learn/articles/davids-census"
+        }
+      ],
+      "evidence": "Both verses use the same Hebrew verb, sut, \"incite\". In 1 Chronicles 21:1 satan has no article, so it can be a name (Satan) or mean \"an adversary\", as in 1 Kings 11:14; Job and Zechariah say \"the satan\". Job 2:3 uses the same verb for Satan inciting God against Job. Chronicles, written after the exile, often retells Samuel and Kings with its own emphasis.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "creation-order",
+      "ref": "Genesis 2:19",
+      "also": [
+        "Genesis 1:25"
+      ],
+      "question": "Were animals made before or after the first man?",
+      "answer": "Genesis 1 puts animals before people. Genesis 2, read in order, seems to have God form the animals after the man. Many Christians see Genesis 2 as a close-up that follows the story, not the clock; some Bibles say God \"had formed\" them earlier. Christians differ on how literally to read them.",
+      "views": [
+        {
+          "label": "A close-up of day six",
+          "strength": "widely held",
+          "text": "Genesis 2:4 opens a new section, \"This is the account of the heavens and the earth\", and retells the making of humans up close. The order serves the story: God brings the animals to the man, and no suitable helper is found, which leads to the making of the woman.",
+          "refs": [
+            "Genesis 2:4",
+            "Genesis 2:18",
+            "Genesis 2:20",
+            "Genesis 2:22"
+          ]
+        },
+        {
+          "label": "God \"had formed\" the animals",
+          "strength": "some interpreters",
+          "text": "The Hebrew verb in this verse usually moves a story forward, but some scholars think it can look back to something done earlier. Some translations read \"had formed\": God brought to the man animals He had already made, as Genesis 1 describes. Hebrew experts debate this reading.",
+          "refs": [
+            "Genesis 1:24",
+            "Genesis 1:25"
+          ]
+        },
+        {
+          "label": "Two accounts placed side by side",
+          "strength": "commonly held",
+          "text": "Many scholars think Genesis 1 and 2 were once separate accounts, with different styles and names for God (\"God\", then \"the LORD God\"), set side by side on purpose. On this view each shows a different side of God and people, and they were never meant as one timeline.",
+          "refs": [
+            "Genesis 1:27",
+            "Genesis 2:7"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 1:24",
+        "Genesis 1:27",
+        "Genesis 2:4",
+        "Genesis 2:7",
+        "Genesis 2:20",
+        "Genesis 2:22"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why are there two different Creation accounts in Genesis chapters 1-2?",
+          "url": "https://www.gotquestions.org/two-Creation-accounts.html"
+        },
+        {
+          "site": "BibleProject",
+          "title": "One Creation Story or Two?",
+          "url": "https://bibleproject.com/podcasts/one-creation-story-or-two/"
+        }
+      ],
+      "evidence": "Genesis 1:24-27 puts land animals before humans. Genesis 2 tells of the man (Genesis 2:7), then animals formed and brought to him (Genesis 2:19), then the woman (Genesis 2:22). The verb wayyitser, \"formed\", is the normal story-telling form; a \"had formed\" sense is possible but debated. Genesis 2:5 speaks of field plants that need rain and a farmer, likely not all the plants of Genesis 1:11-12.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "two-genealogies",
+      "ref": "Luke 3:23",
+      "also": [
+        "Matthew 1:16"
+      ],
+      "question": "Why does Jesus have two different family trees?",
+      "answer": "Matthew traces Jesus through King Solomon, Luke through David's son Nathan, so most names between David and Joseph differ. Many say Luke follows Mary's family; others, that one list is Joseph's legal line and one his natural line. Some say it is not fully solved. Both show Jesus as David's heir.",
+      "views": [
+        {
+          "label": "Luke follows Mary's line",
+          "strength": "commonly held",
+          "text": "Luke tells the birth story from Mary's side, and his list begins, \"He was regarded as the son of Joseph.\" On this view Heli was Mary's father and Joseph his son-in-law, so Luke gives Jesus' descent through Mary, while Matthew gives Joseph's royal line.",
+          "refs": [
+            "Luke 3:23",
+            "Luke 1:27",
+            "Luke 1:32"
+          ]
+        },
+        {
+          "label": "One legal line, one natural",
+          "strength": "commonly held",
+          "text": "An early Christian answer: Jacob and Heli were half-brothers. When one died childless, the other married his widow, as the law provided, so Joseph was the natural son of one and the legal son of the other. Both lists then belong to Joseph.",
+          "refs": [
+            "Deuteronomy 25:5-6",
+            "Matthew 1:16"
+          ]
+        },
+        {
+          "label": "Lists built for a purpose",
+          "strength": "some interpreters",
+          "text": "Ancient family trees often made a point rather than recording every link. Matthew arranges his in three sets of fourteen and skips some kings; Luke runs back to Adam. Some scholars think the two lists cannot now be fully reconciled, yet both affirm Jesus as son of David.",
+          "refs": [
+            "Matthew 1:17",
+            "Luke 3:31",
+            "Luke 3:38"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 1:6",
+        "Matthew 1:12",
+        "Luke 3:27",
+        "Luke 3:31",
+        "Deuteronomy 25:5-6",
+        "Jeremiah 22:30"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why are Jesus’ genealogies in Matthew and Luke so different?",
+          "url": "https://www.gotquestions.org/Jesus-genealogy.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "The Genealogies of Christ",
+          "url": "https://www.catholic.com/magazine/print-edition/the-genealogies-of-christ"
+        }
+      ],
+      "evidence": "Matthew 1:16 says Jacob was Joseph's father; Luke 3:23 calls Joseph son of Heli. In Luke's Greek every name has \"the\" (tou) except Joseph's, which some take as a hint that Joseph stands apart. In the early 200s Julius Africanus explained the lists by levirate marriage; Eusebius preserves his letter (Church History 1.7). Both lists meet at Shealtiel and Zerubbabel (Matthew 1:12; Luke 3:27).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "empty-tomb-visitors",
+      "ref": "John 20:1",
+      "also": [
+        "Matthew 28:1",
+        "Mark 16:1",
+        "Luke 24:10"
+      ],
+      "question": "Do the Gospels disagree on who went to the tomb, and when?",
+      "answer": "Yes, in small details. All four say Mary Magdalene came very early on Sunday and found the tomb empty; Matthew, Mark and Luke name other women with her. John says it was \"still dark\", Mark \"just after sunrise\". Many see these as the normal differences of separate witnesses.",
+      "views": [
+        {
+          "label": "One group, different names",
+          "strength": "widely held",
+          "text": "Several women went together, and each writer names those he chose: Mark adds Salome, Luke adds Joanna and \"the other women\". John names only Mary Magdalene, yet she says, \"we do not know where they have put Him\", hinting that others were with her.",
+          "refs": [
+            "Mark 16:1",
+            "Luke 24:10",
+            "John 20:2"
+          ]
+        },
+        {
+          "label": "Leaving in the dark, arriving at dawn",
+          "strength": "commonly held",
+          "text": "The times fit a walk at first light: they may have set out while it was still dark and reached the tomb as the sun was coming up. John may mark when Mary set out, Mark when the women arrived.",
+          "refs": [
+            "John 20:1",
+            "Mark 16:2"
+          ]
+        },
+        {
+          "label": "Mary ran ahead",
+          "strength": "some interpreters",
+          "text": "Some suggest Mary Magdalene saw the stone moved and ran to tell Peter and the disciple Jesus loved before the other women met the angels. That would explain why, in John, she knows only that the body is gone.",
+          "refs": [
+            "John 20:2",
+            "Luke 24:12"
+          ]
+        },
+        {
+          "label": "Same core, varied details",
+          "strength": "commonly held",
+          "text": "Many scholars, including some who doubt every detail can be fitted together, stress what all four share: women as the first witnesses, the first day of the week, early morning, an empty tomb. No one smoothed the reports into a single script.",
+          "refs": [
+            "Matthew 28:1",
+            "Luke 24:1"
+          ]
+        }
+      ],
+      "helps": [
+        "John 20:2",
+        "Luke 24:1",
+        "Mark 16:2",
+        "Mark 15:47",
+        "Luke 23:55-56",
+        "Luke 8:2-3"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Can the various resurrection accounts from the four Gospels be harmonized?",
+          "url": "https://www.gotquestions.org/resurrection-accounts.html"
+        },
+        {
+          "site": "CrossExamined",
+          "title": "Don't the Resurrection Narratives Contradict?",
+          "url": "https://crossexamined.org/dont-the-resurrection-narratives-contradict/"
+        }
+      ],
+      "evidence": "Matthew 28:1 names two Marys; Mark 16:1 adds Salome; Luke 24:10 adds Joanna and others; John 20:1 names only Mary Magdalene, who is named in all four and first in the lists of Matthew, Mark and Luke. Times: \"while it was still dark\" (John), \"at dawn\" (Matthew), \"just after sunrise\" (Mark), \"very early in the morning\" (Luke). Some of the same women had watched the burial (Mark 15:47; Luke 23:55).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "paul-voice",
+      "ref": "Acts 22:9",
+      "also": [
+        "Acts 9:7"
+      ],
+      "question": "Did Paul's companions hear the voice or not?",
+      "answer": "Acts 9:7 says the men heard the voice. In Acts 22:9 the Greek says they did not hear it, which the BSB translates \"could not understand\". Most likely they heard a sound but not the words, like the crowd that thought God's voice was thunder (John 12:29).",
+      "views": [
+        {
+          "label": "Heard a sound, not the words",
+          "strength": "widely held",
+          "text": "The Greek verb for \"hear\" can also mean \"understand\" (as Paul uses it in 1 Corinthians 14:2), and Luke's word for \"voice\" can mean a sound (Acts 2:6). The companions heard something but did not grasp what was said to Paul, as a crowd once heard God's voice and some called it thunder.",
+          "refs": [
+            "Acts 9:7",
+            "1 Corinthians 14:2",
+            "Acts 2:6",
+            "John 12:29"
+          ]
+        },
+        {
+          "label": "A grammar clue",
+          "strength": "some interpreters",
+          "text": "Luke puts the word \"voice\" in a different grammatical form in Acts 9:7 than in Acts 22:9. Some argue Greek used the first for hearing a sound and the second for hearing with understanding. Others answer that Greek does not follow this rule consistently, so it is a hint at most.",
+          "refs": [
+            "Acts 9:7",
+            "Acts 22:9"
+          ]
+        },
+        {
+          "label": "The same author, on purpose",
+          "strength": "commonly held",
+          "text": "Luke tells this story three times in one book, in chapters 9, 22 and 26. Since he plainly knew both wordings, many read the differences as deliberate retellings with different emphasis for different audiences, not as a mistake he failed to notice.",
+          "refs": [
+            "Acts 26:13-14"
+          ]
+        }
+      ],
+      "helps": [
+        "Acts 26:13-14",
+        "John 12:28-29",
+        "1 Corinthians 14:2",
+        "Acts 2:6",
+        "Acts 22:2"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why does Acts 9:7 say that those traveling with Paul heard a voice, but Acts 22:9 says that they heard no voice?",
+          "url": "https://www.gotquestions.org/Acts-9-7-22-9.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "I’m troubled with the contradiction between Acts 9:7 and 22:9 where it is unclear whether the men with Paul at his conversion heard the voice he did.",
+          "url": "https://bible.org/question/i%E2%80%99m-troubled-contradiction-between-acts-97-and-229-where-it-unclear-whether-men-paul-his-co"
+        }
+      ],
+      "evidence": "Acts 9:7 has akouontes tēs phōnēs, \"hearing the voice\" (genitive). Acts 22:9 has tēn phōnēn ouk ēkousan, literally, they did not hear the voice (accusative); the BSB renders it \"could not understand\". Akouō can mean understand (1 Corinthians 14:2) and phōnē can mean sound (Acts 2:6). Paul gave this speech \"in Hebrew\" (Acts 22:2), likely Aramaic, so the Greek wording is Luke's.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "abiathar",
+      "ref": "Mark 2:26",
+      "also": [
+        "1 Samuel 21:1"
+      ],
+      "question": "Did Jesus name the wrong high priest?",
+      "answer": "In 1 Samuel the priest who gave David the holy bread is Ahimelech. In Mark's account, Jesus names Abiathar, Ahimelech's son, who later became David's high priest. Christians explain this in several ways, and some say plainly it remains a puzzle. Matthew and Luke leave the name out.",
+      "views": [
+        {
+          "label": "A reference to the Abiathar passage",
+          "strength": "some interpreters",
+          "text": "Mark's Greek phrase, epi Abiathar, could point to the passage about Abiathar rather than give a date. Mark uses the same construction for the burning bush (Mark 12:26); Luke 20:37 has \"in the passage about the burning bush\". With no chapter numbers yet, readers named sections by a key figure.",
+          "refs": [
+            "Mark 12:26",
+            "Luke 20:37"
+          ]
+        },
+        {
+          "label": "In Abiathar's day",
+          "strength": "commonly held",
+          "text": "Abiathar, a priest of Nob, escaped Saul's massacre and became the well-known high priest of David's reign. Naming him marks the era, much as Luke dates John's preaching to \"the high priesthood of Annas and Caiaphas\", though only Caiaphas then held the office.",
+          "refs": [
+            "1 Samuel 22:20",
+            "Luke 3:2"
+          ]
+        },
+        {
+          "label": "A slip in the telling",
+          "strength": "some interpreters",
+          "text": "Some Christian scholars think the name is a slip, by Mark or in the account he received, and that the point of the story does not depend on it. Christians who hold that Scripture has no errors prefer the other explanations.",
+          "refs": [
+            "1 Samuel 21:1"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Samuel 22:20",
+        "2 Samuel 8:17",
+        "Mark 12:26",
+        "Luke 3:2",
+        "Matthew 12:3-4",
+        "Luke 6:3-4"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why does Jesus call Abiathar the high priest in Mark 2:26, when 1 Samuel 21 indicates it was Ahimelech?",
+          "url": "https://www.gotquestions.org/Abiathar-Ahimelech.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "Mark 2:26 and the Problem of Abiathar",
+          "url": "https://bible.org/article/mark-226-and-problem-abiathar"
+        }
+      ],
+      "evidence": "1 Samuel 21:1 names Ahimelech; 1 Samuel 22:20 says his son Abiathar escaped to David. Yet 2 Samuel 8:17 and 1 Chronicles 24:6 list \"Ahimelech son of Abiathar\", so the two names travel together. Mark's Greek phrase is epi Abiathar. Matthew 12:4 and Luke 6:4 leave it out, and so do a few early copies of Mark, perhaps to avoid the difficulty or to match Matthew and Luke.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "jeremiah-zechariah",
+      "ref": "Matthew 27:9",
+      "also": [
+        "Zechariah 11:13"
+      ],
+      "question": "Did Matthew quote the wrong prophet?",
+      "answer": "The thirty silver pieces thrown to the potter come from Zechariah. But Matthew also draws on Jeremiah, who bought a field and went to a potter's house. Many think Matthew names the better-known prophet for the whole mix; others see a slip or an unsolved puzzle.",
+      "views": [
+        {
+          "label": "A blended quote under one name",
+          "strength": "widely held",
+          "text": "Matthew mixes Zechariah 11:13 with Jeremiah's potter (Jeremiah 18:2), a field bought with silver (Jeremiah 32:9) and a valley of graves (Jeremiah 19:11). He names the major prophet, just as Mark 1:2 names Isaiah for words from Malachi and Isaiah together.",
+          "refs": [
+            "Jeremiah 19:11",
+            "Jeremiah 32:9",
+            "Mark 1:2"
+          ]
+        },
+        {
+          "label": "Jeremiah headed the scroll",
+          "strength": "some interpreters",
+          "text": "In one old Jewish ordering of the prophets, Jeremiah came first, and a collection could be called by its first book. Some read Luke 24:44 this way, with \"the Psalms\" naming a whole group of writings. Matthew may be citing the prophets' scroll under Jeremiah's name.",
+          "refs": [
+            "Luke 24:44"
+          ]
+        },
+        {
+          "label": "A slip or an open puzzle",
+          "strength": "some interpreters",
+          "text": "Some scholars think Matthew, or an early copy, simply named the wrong prophet. Early copyists noticed too: some manuscripts drop the name and a few change it to Zechariah. Christians who hold that Scripture has no errors prefer the other explanations.",
+          "refs": [
+            "Zechariah 11:12"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 27:10",
+        "Zechariah 11:12",
+        "Jeremiah 32:9",
+        "Jeremiah 19:11",
+        "Jeremiah 18:2",
+        "Mark 1:2"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why does Matthew 27:9 attribute the prophecy to Jeremiah when it is from Zechariah?",
+          "url": "https://www.gotquestions.org/Matthew-27-9-Jeremiah-Zechariah.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "Managing “Over-Cites”: Learning from Evangelical Treatments of Faulty New Testament Citations of the Old Testament",
+          "url": "https://bible.org/article/managing-%E2%80%9Cover-cites%E2%80%9D-learning-evangelical-treatments-faulty-new-testament-citations-old-tes"
+        }
+      ],
+      "evidence": "Zechariah 11:12-13 supplies the thirty pieces of silver thrown to the potter in the LORD's house. Matthew adds \"the potter's field\", a purchase echoing Jeremiah 32:9, and Jeremiah 19:1-2 sets a potter's jar in the Valley of Ben-hinnom, where the dead would be buried. A Talmud passage (Bava Batra 14b) lists Jeremiah first among the later prophets.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "three-days",
+      "ref": "Matthew 12:40",
+      "also": [],
+      "question": "Was Jesus really in the tomb three days and three nights?",
+      "answer": "Most Christians believe Jesus died on Friday afternoon and rose early Sunday: parts of three days, but only two nights. Jews then often counted part of a day-and-night as the whole, so this could still be called three days and three nights. Some Christians place the death on Thursday or Wednesday.",
+      "views": [
+        {
+          "label": "Part of a day counts as a day",
+          "strength": "widely held",
+          "text": "The Gospels usually say Jesus would rise \"on the third day\", which fits Friday to Sunday. The Bible counts this way elsewhere too: Esther fasts \"three days, night or day\", yet goes to the king \"on the third day\".",
+          "refs": [
+            "Matthew 16:21",
+            "Esther 4:16",
+            "Esther 5:1",
+            "1 Samuel 30:12-13"
+          ]
+        },
+        {
+          "label": "A Thursday or Wednesday death",
+          "strength": "some interpreters",
+          "text": "John calls the Sabbath after the crucifixion a \"High Sabbath\". Some think a Passover feast day fell before the weekly Sabbath that year, so Jesus died on Thursday (or Wednesday), allowing three full nights in the tomb.",
+          "refs": [
+            "John 19:31"
+          ]
+        },
+        {
+          "label": "The sign of Jonah is the point",
+          "strength": "commonly held",
+          "text": "The phrase comes straight from Jonah 1:17. Jesus points to Jonah's rescue from what looked like certain death as a sign of His own rising, so the stress falls on the sign itself rather than on an exact count of hours.",
+          "refs": [
+            "Jonah 1:17",
+            "Matthew 12:39"
+          ]
+        }
+      ],
+      "helps": [
+        "Jonah 1:17",
+        "Matthew 16:21",
+        "Mark 8:31",
+        "Mark 15:42",
+        "Luke 24:21",
+        "1 Corinthians 15:4"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "On what day was Jesus crucified?",
+          "url": "https://www.gotquestions.org/three-days.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "Were the three days and three nights that Jesus was in the grave a full 72 hours?",
+          "url": "https://bible.org/question/were-three-days-and-three-nights-jesus-was-grave-full-72-hours"
+        }
+      ],
+      "evidence": "Mark 15:42 sets the burial on Preparation Day, \"the day before the Sabbath\". The Gospels use \"on the third day\" and \"after three days\" for the same event (Matthew 16:21; Mark 8:31). In 1 Samuel 30:12-13, \"three days and three nights\" without food matches \"three days ago\". A saying in the Talmud counts part of a day-and-night period as the whole.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "seen-god",
+      "ref": "John 1:18",
+      "also": [
+        "Exodus 33:20",
+        "Exodus 33:11",
+        "Genesis 32:30"
+      ],
+      "question": "Has anyone ever seen God?",
+      "answer": "The Bible answers both no and yes. John says \"No one has ever seen God\", and God told Moses no one could see His face and live. Yet Jacob said he had seen God face to face. Most Christians take this to mean no one has seen God's full glory, and that the Son makes the unseen God known.",
+      "views": [
+        {
+          "label": "Face to face means closeness",
+          "strength": "widely held",
+          "text": "One chapter says the LORD spoke to Moses \"face to face, as a man speaks to his friend\" and also that no one can see His face and live. The writer saw no clash: \"face to face\" means direct, personal meeting, not seeing God's full glory.",
+          "refs": [
+            "Exodus 33:11",
+            "Exodus 33:20",
+            "Numbers 12:8"
+          ]
+        },
+        {
+          "label": "God shown in veiled forms",
+          "strength": "widely held",
+          "text": "God appeared in forms people could bear: a man who wrestled Jacob, the angel of the LORD, a vision of a throne. These were real meetings, yet God stayed veiled, as Moses saw only His back.",
+          "refs": [
+            "Genesis 32:30",
+            "Hosea 12:4",
+            "Isaiah 6:1",
+            "Exodus 33:23"
+          ]
+        },
+        {
+          "label": "The Son was the One they saw",
+          "strength": "commonly held",
+          "text": "Many Christians since the early church have held that God's appearances in the Old Testament were the Son before His birth. John says Isaiah \"saw Jesus' glory\", and Jesus says, \"Anyone who has seen Me has seen the Father.\"",
+          "refs": [
+            "John 12:41",
+            "John 14:9",
+            "Colossians 1:15"
+          ]
+        },
+        {
+          "label": "God's being and God's glory",
+          "strength": "commonly held",
+          "text": "Eastern Orthodox Christians distinguish God's being, which no creature can see, from His light and glory, which people truly see, as the disciples did when Jesus was transfigured. Many Christians also hope one day to see God, as Jesus promised the pure in heart.",
+          "refs": [
+            "Matthew 17:2",
+            "Matthew 5:8",
+            "Revelation 22:4",
+            "1 John 3:2"
+          ]
+        }
+      ],
+      "helps": [
+        "Exodus 33:23",
+        "Numbers 12:8",
+        "John 14:9",
+        "1 Timothy 6:16",
+        "1 John 4:12",
+        "Revelation 22:4"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Has anyone ever seen God?",
+          "url": "https://www.gotquestions.org/seen-God.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "14. The Invisibility of God (Genesis 32:22-30; Exodus 24:9-11; 1 Timothy 1:17)",
+          "url": "https://bible.org/seriespage/14-invisibility-god-genesis-3222-30-exodus-249-11-1-timothy-117"
+        }
+      ],
+      "evidence": "Exodus 33:11 and Exodus 33:20 stand nine verses apart, suggesting \"face to face\" is an idiom for closeness. John 1:18 and 1 John 4:12 say no one has ever seen God; 1 Timothy 6:16 adds that no one can. Some manuscripts of John 1:18 read \"the only Son\", others \"the only God\". In the second century Justin Martyr argued that the God who appeared to the patriarchs was the Son.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "god-tempts",
+      "ref": "James 1:13",
+      "also": [
+        "Genesis 22:1"
+      ],
+      "question": "If God tempts no one, why did He test Abraham?",
+      "answer": "God tests people, but He never tempts them to sin. A test aims to prove and strengthen faith, as with Abraham; temptation is a pull toward evil, and James says it comes from our own desires. The New Testament's Greek uses one word for both, so the context shows which is meant.",
+      "views": [
+        {
+          "label": "Same word, different aim",
+          "strength": "widely held",
+          "text": "Greek peirazō means \"test\" or \"tempt\"; Hebrew nasah means \"test\", and the old Greek translation of Genesis 22:1 renders it with peirazō. God tests to reveal and grow faith, since \"the testing of your faith develops perseverance\", while temptation aims to make someone fall.",
+          "refs": [
+            "James 1:3",
+            "James 1:12",
+            "Deuteronomy 8:2",
+            "Hebrews 11:17"
+          ]
+        },
+        {
+          "label": "One trial, two sides",
+          "strength": "commonly held",
+          "text": "The same hardship can be God's test and, at once, a temptation from the devil or our own desires. Job's trials came through Satan with God's permission, and Jesus was led by the Spirit into the wilderness \"to be tempted by the devil\".",
+          "refs": [
+            "Matthew 4:1",
+            "Job 1:12",
+            "1 Corinthians 10:13"
+          ]
+        }
+      ],
+      "helps": [
+        "James 1:14",
+        "James 1:2-3",
+        "Hebrews 11:17",
+        "Deuteronomy 8:2",
+        "Matthew 6:13",
+        "1 Corinthians 10:13"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does God tempt us to sin?",
+          "url": "https://www.gotquestions.org/God-tempt-us-to-sin.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "Q. How do you tell a Test from a Temptation?",
+          "url": "https://bible.org/seriespage/q-how-do-you-tell-test-temptation"
+        }
+      ],
+      "evidence": "Genesis 22:1 uses nasah, \"test\". Hebrews 11:17 tells the same event with peirazō, the very verb James 1:13 uses for \"tempt\". James 1:2 calls trials peirasmoi, from the same root, and James 1:14 places the source of temptation in \"his own evil desires\". Older English Bibles said God did \"tempt\" Abraham, when \"tempt\" still meant \"test\".",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "god-relents",
+      "ref": "1 Samuel 15:29",
+      "also": [
+        "1 Samuel 15:11",
+        "Exodus 32:14"
+      ],
+      "question": "Does God change His mind?",
+      "answer": "In one chapter, 1 Samuel says God regretted making Saul king and also that He does not change His mind like a man. God's character and promises never change, yet He truly responds when people repent or pray. Christians differ on how to explain this, but agree He is never fickle.",
+      "views": [
+        {
+          "label": "Human words for an unchanging God",
+          "strength": "widely held",
+          "text": "A long Christian tradition holds that God never changes in His being or eternal plan. Words like \"regret\" describe how His dealings look from our side when people change, much as the Bible speaks of God's \"hand\". 1 Samuel 15:29 states the deeper truth plainly.",
+          "refs": [
+            "Malachi 3:6",
+            "Numbers 23:19",
+            "James 1:17"
+          ]
+        },
+        {
+          "label": "Warnings with conditions",
+          "strength": "widely held",
+          "text": "God says many announced judgments are conditional: \"if that nation I warned turns from its evil, then I will relent\". When He spares Nineveh, He does what He said He would. His character and sworn promises do not change, and His verdict on Saul was final.",
+          "refs": [
+            "Jeremiah 18:8",
+            "Jonah 3:10",
+            "Psalms 110:4"
+          ]
+        },
+        {
+          "label": "Real response, unchanging plan",
+          "strength": "commonly held",
+          "text": "Many hold that God's grief and relenting are real, not mere figures of speech, and that God planned from the start to act through prayers like Moses'. So He truly responds, yet His purpose does not change.",
+          "refs": [
+            "Exodus 32:11-14",
+            "Joel 2:13"
+          ]
+        },
+        {
+          "label": "God leaves some of the future open",
+          "strength": "some interpreters",
+          "text": "A minority view, called open theism, holds that God chose to leave parts of the future undecided and genuinely changes plans as people respond, as when Moses prayed. Supporters say this takes such verses at face value. Most churches reject it, holding that God knows the whole future.",
+          "refs": [
+            "Exodus 32:14",
+            "Jeremiah 18:10"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Samuel 15:35",
+        "Numbers 23:19",
+        "Jeremiah 18:7-10",
+        "Jonah 3:10",
+        "Malachi 3:6",
+        "Genesis 6:6"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does God change His mind?",
+          "url": "https://www.gotquestions.org/God-change-mind.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "How Can an Unchanging God Regret Making Saul King?",
+          "url": "https://www.thegospelcoalition.org/article/unchanging-god-regret-saul-king/"
+        }
+      ],
+      "evidence": "The same Hebrew verb, nacham (\"regret, relent\"), appears in 1 Samuel 15:11, 1 Samuel 15:29 and 1 Samuel 15:35, so the narrator puts both statements side by side on purpose. In verse 29 Samuel is refusing Saul's plea to undo the verdict. Numbers 23:19 draws the same contrast between God and \"a son of man\". Exodus 32:14 and Jonah 3:10 use nacham for God relenting from judgment.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "canaan-conquest",
+      "ref": "Deuteronomy 20:16",
+      "also": [
+        "Deuteronomy 7:2"
+      ],
+      "question": "Why did God order Israel to kill the Canaanites?",
+      "answer": "This is one of the Bible's hardest commands. The Bible ties it to one land at one time, as judgment on deep evil that included burning children as sacrifices. Christians differ on whether \"not leave alive anything that breathes\" was literal or the overstated way ancient armies described victory.",
+      "views": [
+        {
+          "label": "Judgment on long-grown evil",
+          "strength": "widely held",
+          "text": "God waited centuries, since \"the iniquity of the Amorites is not yet complete,\" and acted against practices like child sacrifice. Israel was told it was not given the land for its own goodness, and that the land would vomit Israel out too if it did the same.",
+          "refs": [
+            "Genesis 15:16",
+            "Deuteronomy 9:5",
+            "Deuteronomy 12:31",
+            "Leviticus 18:28"
+          ]
+        },
+        {
+          "label": "Ancient war language",
+          "strength": "commonly held",
+          "text": "Ancient war reports often claimed \"all\" were wiped out when many survived. Joshua says no one survived, yet Judges says Canaanites still lived there, and Moses forbids marrying them. Many read the real aim as driving the nations out and ending their idol worship.",
+          "refs": [
+            "Joshua 10:40",
+            "Judges 1:21",
+            "Deuteronomy 7:2-3",
+            "Exodus 23:30"
+          ]
+        },
+        {
+          "label": "One time and place, not a model",
+          "strength": "commonly held",
+          "text": "The rule covered only these nations in this land; other cities were first offered peace, on terms of forced labor. Rahab, who turned to Israel's God, was spared with her family. Christians today broadly agree it gives no warrant for violence, though some in the past misused it for conquest.",
+          "refs": [
+            "Deuteronomy 20:10-11",
+            "Deuteronomy 20:15",
+            "Joshua 6:25",
+            "Joshua 2:11"
+          ]
+        },
+        {
+          "label": "Israel's partial grasp of God",
+          "strength": "some interpreters",
+          "text": "Some Christians think Israel heard God's call to judgment through the war customs of its day, and only partly grasped his heart. They read these chapters through Jesus, who shows God most fully and taught love of enemies.",
+          "refs": [
+            "Hebrews 1:1-2",
+            "John 1:18",
+            "Matthew 5:44"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 15:16",
+        "Deuteronomy 9:5",
+        "Leviticus 18:25",
+        "Deuteronomy 18:12",
+        "Joshua 6:25",
+        "Judges 1:21"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did God command the extermination / genocide of the Canaanites, women and children included?",
+          "url": "https://www.gotquestions.org/Canaanites-extermination.html"
+        },
+        {
+          "site": "Christianity Today",
+          "title": "Israel’s Canaanite Conquest Presents a Question with Four Possible Answers",
+          "url": "https://www.christianitytoday.com/2022/03/destruction-canaanites-charlie-trimm-israel-conquest/"
+        }
+      ],
+      "evidence": "The verb in Deuteronomy 20:17 is charam, to \"devote to destruction\": to hand something wholly over to God, often by destroying it. It names six nations only (Deuteronomy 20:15-17); distant cities were offered peace first (Deuteronomy 20:10). Judges 1:27-28 records many Canaanites still in the land, one reason many read the \"all\" language as war idiom.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "amalekites",
+      "ref": "1 Samuel 15:3",
+      "also": [],
+      "question": "Why did God order Saul to kill even the babies?",
+      "answer": "The one reason the text gives is Amalek's ambush of Israel leaving Egypt, when it struck the weak and weary; Amalek kept raiding later. It never says why children were included, and that is hard. Christians differ: many trust God as the just Judge; others read it as ancient armies' overstated talk.",
+      "views": [
+        {
+          "label": "God's judgment on a violent nation",
+          "strength": "widely held",
+          "text": "Amalek ambushed Israel's stragglers and kept raiding for centuries. God gives every life and may justly end it; this view trusts that \"all His ways are just\" even where he does not explain. Many add that children who died are safe in God's care.",
+          "refs": [
+            "Deuteronomy 25:18",
+            "Exodus 17:16",
+            "Judges 6:3",
+            "Deuteronomy 32:4"
+          ]
+        },
+        {
+          "label": "Ancient war language",
+          "strength": "some interpreters",
+          "text": "Amalekites appear again soon after, raiding David's town. Some read \"men and women, children and infants\" as a stock formula for total victory, like other ancient war reports, more than a literal list.",
+          "refs": [
+            "1 Samuel 27:8",
+            "1 Samuel 30:1",
+            "1 Chronicles 4:43"
+          ]
+        },
+        {
+          "label": "A one-time command, not a pattern",
+          "strength": "widely held",
+          "text": "Christians today broadly agree this was a unique command to one people at one time. It gives no one a right to attack a nation; Jesus tells his followers to love enemies, and Paul says to leave vengeance to God.",
+          "refs": [
+            "Matthew 5:44",
+            "Romans 12:19"
+          ]
+        },
+        {
+          "label": "Israel's partial grasp of God",
+          "strength": "some interpreters",
+          "text": "Some Christians think Israel understood God's call to judgment through the war customs of its time, and that Jesus shows God's heart more fully than these chapters do.",
+          "refs": [
+            "Hebrews 1:1-2",
+            "John 1:18"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Samuel 15:2",
+        "Exodus 17:8",
+        "Deuteronomy 25:18",
+        "1 Samuel 15:6",
+        "1 Samuel 15:33",
+        "1 Samuel 30:1"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Who were the Amalekites?",
+          "url": "https://www.gotquestions.org/Amalekites.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "12. Saul and the Amalekites (1 Samuel 15:1-35)",
+          "url": "https://bible.org/seriespage/saul-and-amalekites-1-samuel-151-35"
+        }
+      ],
+      "evidence": "The verb is charam, \"devote to destruction\" (1 Samuel 15:3). The reason given is the ambush as Israel came out of Egypt (1 Samuel 15:2; Exodus 17:8), when Amalek struck stragglers who were \"tired and weary\" (Deuteronomy 25:18). Samuel tells Agag, \"As your sword has made women childless\" (1 Samuel 15:33). The Kenites were warned to leave first (1 Samuel 15:6).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "pharaoh-heart",
+      "ref": "Exodus 9:12",
+      "also": [
+        "Exodus 8:15"
+      ],
+      "question": "If God hardened Pharaoh's heart, was that fair?",
+      "answer": "Six times the story says Pharaoh hardened his heart or it \"was hardened\" before it says the LORD hardened it, though God had said he would. Many read this as God confirming Pharaoh's choice; others stress God's rule even over rebellion. Christians differ, but the Bible holds Pharaoh responsible.",
+      "views": [
+        {
+          "label": "God confirmed Pharaoh's choice",
+          "strength": "widely held",
+          "text": "Through the first five plagues Pharaoh hardens his own heart, or it simply was hardened. Not until the sixth does the text say the LORD did it. God gave Pharaoh over to the path he had already chosen.",
+          "refs": [
+            "Exodus 8:15",
+            "Exodus 8:32",
+            "Exodus 9:34",
+            "Romans 1:24"
+          ]
+        },
+        {
+          "label": "God rules even over rebellion",
+          "strength": "commonly held",
+          "text": "God announced the hardening before the plagues began, to make his name known. Paul uses Pharaoh to show that God \"hardens whom He wants to harden,\" yet Pharaoh remains guilty. Many Reformed Christians read it this way.",
+          "refs": [
+            "Exodus 4:21",
+            "Exodus 9:16",
+            "Romans 9:17-18"
+          ]
+        },
+        {
+          "label": "Strengthened to do what he wanted",
+          "strength": "some interpreters",
+          "text": "The verb in Exodus 9:12 means \"made strong.\" Some read it as God giving Pharaoh nerve to carry out what he already wanted, keeping Israel enslaved, rather than overriding a wish to let them go. Pharaoh had said from the start that he would not.",
+          "refs": [
+            "Exodus 9:12",
+            "Exodus 5:2",
+            "Exodus 14:4"
+          ]
+        }
+      ],
+      "helps": [
+        "Exodus 4:21",
+        "Exodus 8:32",
+        "Exodus 9:34",
+        "Romans 9:17",
+        "Exodus 5:2",
+        "1 Samuel 6:6"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did God harden Pharaoh’s heart?",
+          "url": "https://www.gotquestions.org/God-harden-Pharaoh-heart.html"
+        },
+        {
+          "site": "BibleProject",
+          "title": "If God Hardened Pharaoh's Heart, Did God Cause the Evil?",
+          "url": "https://bibleproject.com/articles/pharaohs-heart-grew-harder/"
+        }
+      ],
+      "evidence": "Three Hebrew verbs appear: chazaq, \"make strong\" (Exodus 9:12); kaved, \"make heavy\" (Exodus 8:15); qashah, \"make hard\" (Exodus 7:3). Pharaoh hardens his own heart (Exodus 8:15; Exodus 8:32) or it \"was hardened\" (Exodus 7:13; Exodus 9:7) before Exodus 9:12 names the LORD. God foretold it (Exodus 4:21). The Philistines later said Pharaoh hardened his own heart (1 Samuel 6:6).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "jephthah",
+      "ref": "Judges 11:39",
+      "also": [
+        "Judges 11:31"
+      ],
+      "question": "Did Jephthah really sacrifice his daughter?",
+      "answer": "Most readers, ancient and modern, think he did. The story does not stop to judge him, but God's law forbade child sacrifice, so most see a rash vow and a terrible sin. Some Christians think he gave her to lifelong service to God instead, since she mourns never marrying, not dying.",
+      "views": [
+        {
+          "label": "He sacrificed her, and it was wrong",
+          "strength": "widely held",
+          "text": "He vowed a burnt offering, and the text says he \"did to her as he had vowed.\" God's law calls child sacrifice detestable, so Judges records a tragic sin in a dark age, when \"everyone did what was right in his own eyes.\"",
+          "refs": [
+            "Judges 11:31",
+            "Deuteronomy 12:31",
+            "Leviticus 18:21",
+            "Judges 21:25"
+          ]
+        },
+        {
+          "label": "Given to lifelong service",
+          "strength": "some interpreters",
+          "text": "The Hebrew \"and\" in the vow can mean \"or\": whatever came out \"will belong to the LORD,\" or else be a burnt offering. She mourns her virginity, not her death, and the text adds that she stayed a virgin, which fits a life set apart.",
+          "refs": [
+            "Judges 11:31",
+            "Judges 11:37",
+            "Exodus 38:8",
+            "1 Samuel 1:11"
+          ]
+        }
+      ],
+      "helps": [
+        "Leviticus 18:21",
+        "Deuteronomy 12:31",
+        "Leviticus 27:2-4",
+        "1 Samuel 1:11",
+        "Hebrews 11:32",
+        "Judges 11:40"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Did Jephthah sacrifice his daughter to the Lord?",
+          "url": "https://www.gotquestions.org/Jephthahs-daughter.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Rethinking Jephthah’s Foolish Vow",
+          "url": "https://www.thegospelcoalition.org/article/rethinking-jephthah-foolish-vow/"
+        }
+      ],
+      "evidence": "Judges 11:31 joins \"belong to the LORD\" and \"burnt offering\" (Hebrew 'olah) with one small word, ve, usually \"and\"; the service reading takes it as \"or.\" The law let a person vowed to God be redeemed with money (Leviticus 27:2-4). Most ancient Jewish and Christian readers took it as a real sacrifice. Hebrews 11:32 lists Jephthah among people of faith but says nothing about the vow.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "ot-slavery",
+      "ref": "Exodus 21:20",
+      "also": [
+        "Leviticus 25:44"
+      ],
+      "question": "Does the Bible approve of slavery?",
+      "answer": "The Law of Moses regulated slavery as it existed in its world. It punished killing a slave, freed maimed slaves and banned kidnapping, but some rules, like lifelong slavery for foreigners and calling a slave property, are hard to read. Most Christians see these as limits on a broken practice.",
+      "views": [
+        {
+          "label": "Regulated, not endorsed",
+          "strength": "widely held",
+          "text": "Jesus said Moses allowed divorce \"because of your hardness of heart.\" Many read slave laws the same way: they limited a practice they did not create. Maiming a slave set the slave free, and runaways were not to be returned.",
+          "refs": [
+            "Matthew 19:8",
+            "Exodus 21:26-27",
+            "Deuteronomy 23:15-16",
+            "Exodus 21:16"
+          ]
+        },
+        {
+          "label": "Mostly unlike race-based slavery",
+          "strength": "commonly held",
+          "text": "Many Hebrew slaves were debt workers freed in the seventh year with gifts, and kidnapping a person to sell was a capital crime. That differs sharply from the Atlantic slave trade, which was built on kidnapping.",
+          "refs": [
+            "Exodus 21:2",
+            "Deuteronomy 15:12-14",
+            "Deuteronomy 24:7"
+          ]
+        },
+        {
+          "label": "Hard rules, a long road",
+          "strength": "commonly held",
+          "text": "Foreign slaves could be kept for life and inherited, and a master went unpunished if a beaten slave got up after a day or two, \"since the servant is his property.\" Many Christians admit this troubles them and see God moving his people step by step.",
+          "refs": [
+            "Leviticus 25:44-46",
+            "Exodus 21:21"
+          ]
+        },
+        {
+          "label": "The gospel undercut slavery",
+          "strength": "widely held",
+          "text": "Paul told slaves to serve their masters well and did not call for ending slavery. Yet he lists slave traders among the lawless, urges slaves to gain freedom if they can, and asks Philemon to receive his slave Onesimus, probably a runaway, \"as a beloved brother.\"",
+          "refs": [
+            "Ephesians 6:5",
+            "1 Timothy 1:10",
+            "1 Corinthians 7:21",
+            "Philemon 1:16"
+          ]
+        }
+      ],
+      "helps": [
+        "Exodus 21:16",
+        "Exodus 21:26",
+        "Deuteronomy 23:15",
+        "Leviticus 25:42",
+        "Job 31:15",
+        "Galatians 3:28"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does the Bible condone slavery?",
+          "url": "https://www.gotquestions.org/Bible-slavery.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Is the Bible Pro-Slavery?",
+          "url": "https://www.thegospelcoalition.org/article/is-bible-pro-slavery/"
+        }
+      ],
+      "evidence": "The Hebrew 'eved means servant or slave; Israel itself is God's 'eved (Leviticus 25:42). In Exodus 21:20 the slave's death is to be \"avenged\" (naqam), a strong word. Exodus 21:21 says literally that the slave is the master's \"money\" (kesef). Hebrew debt slaves went free in the seventh year (Deuteronomy 15:12). Christians once quoted the Bible both to defend and to end slavery.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "psalm-137",
+      "ref": "Psalms 137:9",
+      "also": [],
+      "question": "How can a psalm bless those who kill infants?",
+      "answer": "Psalm 137 is the raw cry of exiles whose city and children Babylon had destroyed. It longs for Babylon to be repaid as it had done, as the prophets had warned. The Bible records this honest prayer without making it a rule; Jesus later taught love for enemies, and Christians differ on how to pray it.",
+      "views": [
+        {
+          "label": "An honest prayer of the wounded",
+          "strength": "widely held",
+          "text": "The psalm voices grief and rage after Jerusalem fell, when children fainted and died in the streets. Bringing that fury to God in prayer, instead of acting on it, is itself a kind of faith; Scripture lets God's people say what they truly feel.",
+          "refs": [
+            "Psalms 137:1",
+            "Lamentations 2:11-12",
+            "Psalms 137:7"
+          ]
+        },
+        {
+          "label": "A cry for justice, not revenge",
+          "strength": "widely held",
+          "text": "Verse 7 asks the LORD to remember Edom's cruelty. Verses 8-9 speak to Babylon, calling blessed whoever repays her \"as you have done to us,\" the measure the prophets had announced. The psalmist voices the longing; he takes no revenge himself.",
+          "refs": [
+            "Psalms 137:8",
+            "Psalms 137:7",
+            "Jeremiah 50:29",
+            "Isaiah 13:16"
+          ]
+        },
+        {
+          "label": "How Christians pray it today",
+          "strength": "commonly held",
+          "text": "Christians differ. Many, following Jesus' call to love enemies, learn from this cry but do not pray it against people. Others pray such psalms against evil itself, leaving the outcome to God.",
+          "refs": [
+            "Matthew 5:44",
+            "Revelation 18:6"
+          ]
+        },
+        {
+          "label": "Little ones as seeds of sin",
+          "strength": "some interpreters",
+          "text": "Many early Christian writers read Babylon's little ones as sinful thoughts, to be dashed against Christ, the rock, while they are still small; Paul calls Christ the rock that went with Israel. Some who pray every psalm in worship still read it this way.",
+          "refs": [
+            "1 Corinthians 10:4"
+          ]
+        }
+      ],
+      "helps": [
+        "Psalms 137:8",
+        "Isaiah 13:16",
+        "Jeremiah 50:29",
+        "Lamentations 2:11",
+        "Romans 12:19",
+        "Matthew 5:44"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What does Psalm 137:9 mean when it says, “Happy is the one who seizes your infants and dashes them against the rocks”?",
+          "url": "https://www.gotquestions.org/dashing-babies-against-rocks.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "4 Things the 'Hate Psalms' Teach Us",
+          "url": "https://www.thegospelcoalition.org/article/4-things-the-hate-psalms-teach-us/"
+        }
+      ],
+      "evidence": "\"Blessed\" is 'ashrei, \"how fortunate,\" the word that opens Psalm 1. It calls the avenger fortunate; it is the psalmist speaking, not a blessing God pronounces. Killing infants was a known horror of ancient war (2 Kings 8:12; Hosea 13:16), and Isaiah 13:16 had foretold it for Babylon. Edom's part in Jerusalem's fall is the subject of Obadiah 1:10-14.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "elisha-bears",
+      "ref": "2 Kings 2:24",
+      "also": [
+        "2 Kings 2:23"
+      ],
+      "question": "Why did bears maul the boys who mocked Elisha?",
+      "answer": "This is a troubling story, and the text explains little. The Hebrew words can describe teens or young men, not only small boys, and a crowd of at least 42 from Bethel, a center of idol worship, was jeering at God's prophet. Elisha cursed them in the LORD's name, and two bears mauled 42 of them.",
+      "views": [
+        {
+          "label": "Contempt for God, not baldness",
+          "strength": "widely held",
+          "text": "\"Go up\" may sneer at Elijah's just going up to heaven, telling Elisha to vanish too. Bethel was where Israel's king set up a golden calf, so many read the mockery as hostility to the LORD and his word.",
+          "refs": [
+            "2 Kings 2:11",
+            "1 Kings 12:29",
+            "Amos 7:13"
+          ]
+        },
+        {
+          "label": "Probably youths, not small children",
+          "strength": "commonly held",
+          "text": "The word na'ar covers anyone from a baby to a grown man. The text adds \"small,\" yet King Solomon, already king, calls himself \"a little child\" with the same two words. A mob of over forty suggests a large, hostile group.",
+          "refs": [
+            "1 Kings 3:7",
+            "1 Kings 12:8"
+          ]
+        },
+        {
+          "label": "A covenant warning come true",
+          "strength": "some interpreters",
+          "text": "The law warned that wild animals would come against a people who kept defying God. Some see the bears as that warning coming true at Bethel, at the start of Elisha's work.",
+          "refs": [
+            "Leviticus 26:21-22"
+          ]
+        },
+        {
+          "label": "Still hard to explain",
+          "strength": "some interpreters",
+          "text": "Some readers admit that even if the mockers were teens, the punishment seems severe, and the text never comments on Elisha's curse. They hold the story with honest questions, remembering that Jesus rebuked disciples who wanted to call down fire on a village.",
+          "refs": [
+            "Luke 9:54-55"
+          ]
+        }
+      ],
+      "helps": [
+        "2 Kings 2:11",
+        "1 Kings 12:29",
+        "Leviticus 26:22",
+        "1 Kings 3:7",
+        "2 Kings 2:21"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did the Prophet Elisha curse the “youths” for making fun of his baldness (2 Kings 2:23-24)?",
+          "url": "https://www.gotquestions.org/Elisha-baldhead.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "4. Elisha and the Two Bears (2 Kings 2:23-25)",
+          "url": "https://bible.org/seriespage/elisha-and-two-bears-2-kings-223-25"
+        }
+      ],
+      "evidence": "The mockers are ne'arim qetannim (2 Kings 2:23); Solomon calls himself na'ar qaton as king (1 Kings 3:7). The 42 are yeladim (2 Kings 2:24), the word for Rehoboam's adult advisers (1 Kings 12:8). The verb baqa' means \"tear open\"; the text does not say how many died. Just before, Elisha heals Jericho's water (2 Kings 2:21): blessing, then curse.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "uzzah",
+      "ref": "2 Samuel 6:7",
+      "also": [
+        "1 Chronicles 13:10"
+      ],
+      "question": "Why did God kill Uzzah for steadying the ark?",
+      "answer": "The ark was the sacred chest that stood for God's presence. God's law said Levites must carry it on poles and must not touch it, or they would die. David moved it on an ox cart instead, and Uzzah touched it. It is still startling; David himself was angry and afraid.",
+      "views": [
+        {
+          "label": "The ark was moved the wrong way",
+          "strength": "widely held",
+          "text": "The law had Levites carry the ark on poles and warned them not to touch it. A cart copied the Philistines. David later said the LORD burst out because \"we did not consult Him about the proper order.\"",
+          "refs": [
+            "Numbers 4:15",
+            "Exodus 25:14",
+            "1 Samuel 6:7",
+            "1 Chronicles 15:13"
+          ]
+        },
+        {
+          "label": "God's holiness is not casual",
+          "strength": "widely held",
+          "text": "Like Aaron's sons, Uzzah shows that God's presence is not to be handled lightly. His family had kept the ark at home for decades; some think long familiarity had dulled their awe.",
+          "refs": [
+            "Leviticus 10:3",
+            "1 Samuel 7:1-2",
+            "1 Samuel 6:19"
+          ]
+        },
+        {
+          "label": "Good intentions, a hard lesson",
+          "strength": "some interpreters",
+          "text": "Uzzah likely meant well, and the text does not deny it. Some suggest the point is that a human hand was no cleaner than the ground; the ark did not need rescuing.",
+          "refs": [
+            "2 Samuel 6:6"
+          ]
+        }
+      ],
+      "helps": [
+        "Numbers 4:15",
+        "Exodus 25:14",
+        "1 Chronicles 15:13",
+        "1 Chronicles 15:15",
+        "Leviticus 10:3",
+        "2 Samuel 6:11"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did God strike Uzzah dead for touching the Ark of the Covenant?",
+          "url": "https://www.gotquestions.org/Uzzah.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "6. When God Rained on David’s Parade (2 Samuel 6:1-23)",
+          "url": "https://bible.org/seriespage/6-when-god-rained-david-s-parade-2-samuel-61-23"
+        }
+      ],
+      "evidence": "The word for his offense, shal (2 Samuel 6:7), appears only here; it is usually taken as \"irreverence\" or \"error.\" The parallel says he died \"because he had put his hand on the ark\" (1 Chronicles 13:10). Numbers 4:15 forbade even the Levite carriers to touch the holy things. Obed-edom's house was blessed while the ark stayed there (2 Samuel 6:11).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "ananias-sapphira",
+      "ref": "Acts 5:5",
+      "also": [
+        "Acts 5:10"
+      ],
+      "question": "Why did Ananias and Sapphira die?",
+      "answer": "Not for keeping money: Peter said the land and money were theirs. They lied, passing off part as the whole gift, and Peter says they lied to God himself, at the church's very start. It is still a severe story. The text says they fell dead; it does not say Peter killed them.",
+      "views": [
+        {
+          "label": "A lie to God, not a small gift",
+          "strength": "widely held",
+          "text": "Peter asks, \"Did it not belong to you before it was sold?\" Giving part was fine; claiming it was all was a lie, and \"You have not lied to men, but to God!\"",
+          "refs": [
+            "Acts 5:4",
+            "Acts 5:8",
+            "Acts 5:3"
+          ]
+        },
+        {
+          "label": "Guarding a new community",
+          "strength": "commonly held",
+          "text": "Like Achan at Israel's first battle in Canaan, this deceit came at the church's beginning. Luke uses the same rare verb for \"kept back\" that the ancient Greek translation of Joshua uses for Achan's theft. The result: \"great fear came over the whole church.\"",
+          "refs": [
+            "Joshua 7:1",
+            "Acts 5:11",
+            "Acts 4:32"
+          ]
+        },
+        {
+          "label": "Were they saved? Christians differ",
+          "strength": "some interpreters",
+          "text": "Some think they were true believers disciplined by early death but not lost, as Paul says of some in Corinth. Others think Satan filling Ananias's heart shows their faith was false. The text does not say.",
+          "refs": [
+            "1 Corinthians 11:30-32",
+            "1 Corinthians 5:5",
+            "Acts 5:3"
+          ]
+        }
+      ],
+      "helps": [
+        "Acts 4:32",
+        "Acts 4:36-37",
+        "Joshua 7:1",
+        "Joshua 7:21",
+        "1 Corinthians 11:30",
+        "Leviticus 10:2"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did God kill Ananias and Sapphira for lying?",
+          "url": "https://www.gotquestions.org/Ananias-and-Sapphira.html"
+        },
+        {
+          "site": "Desiring God",
+          "title": "Be Like Barnabas Not Like Ananias!",
+          "url": "https://www.desiringgod.org/messages/be-like-barnabas-not-like-ananias"
+        }
+      ],
+      "evidence": "Luke's verb in Acts 5:2-3 is nosphizomai, \"kept back,\" used elsewhere in the New Testament only at Titus 2:10 (\"stealing\"). The old Greek translation of Joshua 7:1 uses it for Achan's theft. Acts 5:3-4 treats lying to the Holy Spirit as lying to God. Barnabas's honest gift (Acts 4:36-37) comes just before.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "create-calamity",
+      "ref": "Isaiah 45:7",
+      "also": [
+        "Amos 3:6"
+      ],
+      "question": "Does God create evil?",
+      "answer": "Not in the sense of doing wrong. The word here means disaster, set opposite \"prosperity\": God tells Cyrus, a foreign king, that he rules over good times and bad, with no rival god of darkness. The Bible says God tempts no one, though Christians differ on how his plan relates to evil.",
+      "views": [
+        {
+          "label": "Calamity, not sin",
+          "strength": "widely held",
+          "text": "The verse is built in pairs: light and darkness, prosperity and calamity. Amos uses a form of the same word: \"If calamity comes to a city, has not the LORD caused it?\" Job too accepts good and \"adversity\" from God.",
+          "refs": [
+            "Amos 3:6",
+            "Lamentations 3:38",
+            "Job 2:10"
+          ]
+        },
+        {
+          "label": "One God, no rival",
+          "strength": "commonly held",
+          "text": "Spoken to Cyrus of Persia, the passage insists \"there is none but Me.\" No dark power rules beside the LORD. Some think it answers the Persian idea of a good god and an evil god at war.",
+          "refs": [
+            "Isaiah 45:6",
+            "Isaiah 45:1",
+            "Isaiah 45:5"
+          ]
+        },
+        {
+          "label": "God rules even over evil acts",
+          "strength": "commonly held",
+          "text": "Many Christians, especially Reformed ones, say God's plan includes even evil choices, which he turns to good without doing evil himself, as Joseph told his brothers and as Peter said of the cross.",
+          "refs": [
+            "Genesis 50:20",
+            "Acts 2:23"
+          ]
+        },
+        {
+          "label": "God allows evil, not causes it",
+          "strength": "commonly held",
+          "text": "Many others, including Arminian, Catholic and Orthodox Christians, say God permits the evil that free creatures choose and works through it, but never plans sin. God \"cannot be tempted by evil, nor does He tempt anyone.\"",
+          "refs": [
+            "James 1:13",
+            "Deuteronomy 30:19",
+            "1 John 1:5"
+          ]
+        }
+      ],
+      "helps": [
+        "Amos 3:6",
+        "Lamentations 3:38",
+        "Job 2:10",
+        "James 1:13",
+        "1 John 1:5",
+        "Jeremiah 18:11"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why does Isaiah 45:7 say that God created evil?",
+          "url": "https://www.gotquestions.org/Isaiah-45-7.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Did God Create Evil?",
+          "url": "https://www.catholic.com/magazine/print-edition/did-god-create-evil"
+        }
+      ],
+      "evidence": "Ra' covers anything \"bad,\" from wickedness to harm. In Isaiah 45:7 it stands opposite shalom, \"well-being,\" so it means disaster. Older English rendered it \"evil,\" which caused confusion. Jeremiah 18:11 uses a form of the same word for the disaster God warns of if Judah will not turn. James 1:13 and 1 John 1:5 deny that God tempts anyone or has any darkness in him.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "cain-wife",
+      "ref": "Genesis 4:17",
+      "also": [],
+      "question": "Where did Cain get his wife?",
+      "answer": "Genesis does not say. The traditional answer is a sister or other relative, since Adam \"had other sons and daughters\"; marrying a sister was forbidden only later, in the Law of Moses. Some Christians think Genesis leaves room for other people outside Adam's family.",
+      "views": [
+        {
+          "label": "A sister or close relative",
+          "strength": "widely held",
+          "text": "Eve is called \"the mother of all the living,\" and Adam had other sons and daughters. Marrying close relatives was forbidden later in the law; even Abraham married his half-sister before that law.",
+          "refs": [
+            "Genesis 3:20",
+            "Genesis 5:4",
+            "Genesis 20:12",
+            "Leviticus 18:9"
+          ]
+        },
+        {
+          "label": "Other people already existed",
+          "strength": "some interpreters",
+          "text": "Cain fears \"whoever finds me will kill me,\" gets a protective mark, and builds a city. Some read these as signs of a wider population, and see Adam and Eve as the first pair God chose to represent humanity.",
+          "refs": [
+            "Genesis 4:14-15",
+            "Genesis 4:17"
+          ]
+        },
+        {
+          "label": "Genesis skips many details",
+          "strength": "commonly held",
+          "text": "Genesis follows only the lines that matter to its story and passes over most births and marriages. Leaving Cain's wife unnamed fits its usual style.",
+          "refs": [
+            "Genesis 5:4",
+            "Genesis 4:25"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 5:4",
+        "Genesis 3:20",
+        "Genesis 4:14",
+        "Genesis 20:12",
+        "Leviticus 18:9",
+        "Acts 17:26"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Who was Cain’s wife? Was Cain’s wife his sister?",
+          "url": "https://www.gotquestions.org/Cains-wife.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Whom Did Cain Marry?",
+          "url": "https://www.catholic.com/qa/whom-did-cain-marry"
+        }
+      ],
+      "evidence": "Genesis 5:4 says Adam had \"other sons and daughters,\" and lifespans of centuries (Genesis 5:5) allow many generations. The ban on marrying a sister comes later (Leviticus 18:9). An ancient Jewish retelling, the Book of Jubilees, names Cain's wife Awan and calls her his sister. Acts 17:26 says God made every nation from one man.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "nephilim",
+      "ref": "Genesis 6:4",
+      "also": [
+        "Genesis 6:2",
+        "Numbers 13:33"
+      ],
+      "question": "Who were the sons of God and the Nephilim?",
+      "answer": "No one knows for sure, and Christians differ. The oldest known reading takes the \"sons of God\" as rebel angels; many later Christians saw godly men descended from Adam's son Seth; others see ancient kings. The Nephilim seem to be famous warriors, often called giants, but the word is uncertain.",
+      "views": [
+        {
+          "label": "Rebel angels",
+          "strength": "commonly held",
+          "text": "Elsewhere \"sons of God\" means heavenly beings. This is the oldest known reading, told at length in the Jewish book 1 Enoch, and Jude and Peter seem to recall angels who \"abandoned their proper dwelling.\" Jesus' words on angels not marrying speak of angels in heaven.",
+          "refs": [
+            "Job 1:6",
+            "Jude 1:6",
+            "2 Peter 2:4",
+            "Matthew 22:30"
+          ]
+        },
+        {
+          "label": "Seth's godly line",
+          "strength": "commonly held",
+          "text": "Augustine and many after him read them as Seth's descendants, who began to \"call upon the name of the LORD,\" marrying ungodly women. Jesus said angels do not marry, and the judgment that follows falls on humans.",
+          "refs": [
+            "Genesis 4:26",
+            "Matthew 22:30",
+            "Genesis 6:3"
+          ]
+        },
+        {
+          "label": "Kings who took what they wanted",
+          "strength": "some interpreters",
+          "text": "Ancient kings were often called sons of gods. Some read Genesis 6:2 as tyrants seizing \"whomever they chose,\" following Lamech, who took two wives and boasted of killing.",
+          "refs": [
+            "Genesis 4:19",
+            "Genesis 4:23-24",
+            "Psalms 82:6"
+          ]
+        }
+      ],
+      "helps": [
+        "Job 1:6",
+        "Job 38:7",
+        "Jude 1:6",
+        "2 Peter 2:4",
+        "Genesis 4:26",
+        "Matthew 22:30"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Who / what were the Nephilim?",
+          "url": "https://www.gotquestions.org/Nephilim.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "7. The Sons of God and the Daughters of Men (Genesis 6:1-8)",
+          "url": "https://bible.org/seriespage/sons-god-and-daughters-men-genesis-61-8"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Explaining the \"Nephilim\" of Genesis",
+          "url": "https://www.catholic.com/qa/explaining-the-nephilim-of-genesis"
+        }
+      ],
+      "evidence": "\"Sons of God\" (bene ha'elohim) means heavenly beings in Job 1:6 and Job 2:1. \"Nephilim\" may come from naphal, \"to fall\"; the old Greek translation rendered it \"giants.\" Genesis 6:4 says they lived then \"and afterward as well,\" and the spies' report of Nephilim (Numbers 13:33) was a \"bad report\" (Numbers 13:32). Jude 1:14 quotes 1 Enoch.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "hate-family",
+      "ref": "Luke 14:26",
+      "also": [
+        "Matthew 10:37"
+      ],
+      "question": "Does Jesus want us to hate our families?",
+      "answer": "No. The word is meant to startle, but in the Bible’s way of speaking “hate” can mean “love less” or “put second”: Jesus must come first, ahead of family and even our own life. Matthew words it as loving family “more than Me.” Jesus also told people to honor and care for their parents.",
+      "views": [
+        {
+          "label": "Hate means love less",
+          "strength": "widely held",
+          "text": "In the Bible, “hate” can mean to love someone less or put them second. In Genesis the Hebrew calls Leah “hated” (our English Bible says “unloved”) because Jacob loved Rachel more. Matthew’s similar saying puts Jesus’ point as loving family more than him.",
+          "refs": [
+            "Genesis 29:30-31",
+            "Deuteronomy 21:15",
+            "Matthew 10:37"
+          ]
+        },
+        {
+          "label": "Shock words to count the cost",
+          "strength": "widely held",
+          "text": "Right after this, Jesus tells of a builder and a king who sit down to count the cost first. The strong word is meant to stop a large, eager crowd and make them think about what following him will take, not to stir up bitterness.",
+          "refs": [
+            "Luke 14:25",
+            "Luke 14:28-33"
+          ]
+        },
+        {
+          "label": "When loyalties clash",
+          "strength": "commonly held",
+          "text": "In Jesus’ day, following him could split a family. The point is what you do when family pulls you away from him: he must win. Jesus promised that those who leave family for his sake receive a new family, along with persecutions.",
+          "refs": [
+            "Matthew 10:35-36",
+            "Mark 10:29-30"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 10:37",
+        "Genesis 29:31",
+        "Luke 14:33",
+        "Mark 7:10-13",
+        "John 19:26-27",
+        "1 Timothy 5:8"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What did Jesus mean when He instructed us to hate our father and mother (Luke 14:26)?",
+          "url": "https://www.gotquestions.org/hate-father-mother.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Does Jesus Really Want Me to Hate My Family?",
+          "url": "https://www.thegospelcoalition.org/article/does-jesus-want-hate-family/"
+        }
+      ],
+      "evidence": "Luke’s Greek verb is miseō, the ordinary word for hate. Behind it most scholars hear a Semitic idiom where hate means to put second: in Genesis 29:31 Leah is literally “hated” (Hebrew sane’), though Jacob married her and lived with her. Jesus condemned those who dodged caring for parents (Mark 7:10-13), and from the cross he gave his mother into a disciple’s care (John 19:26-27).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "this-generation",
+      "ref": "Mark 13:30",
+      "also": [
+        "Matthew 24:34",
+        "Luke 21:32"
+      ],
+      "question": "Did Jesus say the end would come within one generation?",
+      "answer": "Christians read this in different ways. Many say “all these things” means what Jesus foretold about the temple, destroyed about 40 years later; others say “this generation” means those alive when the final signs begin. In Mark and Matthew, Jesus then says only the Father knows the day.",
+      "views": [
+        {
+          "label": "Fulfilled when the temple fell",
+          "strength": "commonly held",
+          "text": "The disciples had asked when the temple would be thrown down. On this reading, “these things” are the troubles and signs leading up to that, which Jesus’ hearers lived to see when Rome destroyed Jerusalem in AD 70. The day of his return stays unknown.",
+          "refs": [
+            "Mark 13:2-4",
+            "Luke 21:20-24",
+            "Matthew 23:36"
+          ]
+        },
+        {
+          "label": "The generation that sees the signs",
+          "strength": "commonly held",
+          "text": "Others say “this generation” means the people living when the final signs Jesus listed begin to happen. Once those signs start, the end will come within that same lifetime. This view sees most of the chapter as still in the future.",
+          "refs": [
+            "Mark 13:29",
+            "Luke 21:28",
+            "Matthew 24:33"
+          ]
+        },
+        {
+          "label": "This kind of people",
+          "strength": "some interpreters",
+          "text": "The Gospels’ Greek word for generation, like the Hebrew word, can also mean a family line or kind of people. Some take it to mean the Jewish people, or unbelieving people, will last until the end. Most interpreters doubt this, since elsewhere “this generation” means Jesus’ hearers.",
+          "refs": [
+            "Matthew 12:39",
+            "Matthew 17:17",
+            "Psalms 24:6"
+          ]
+        },
+        {
+          "label": "The timing was not as expected",
+          "strength": "some interpreters",
+          "text": "Some scholars, including some Christians, think the words do point to the end within that lifetime, and that it did not come then. Christians who see it this way often link it to Mark 13:32, where Jesus says even the Son does not know the day.",
+          "refs": [
+            "Mark 13:32",
+            "2 Peter 3:8-9"
+          ]
+        }
+      ],
+      "helps": [
+        "Mark 13:2",
+        "Matthew 23:36",
+        "Luke 21:20",
+        "Mark 13:32",
+        "Matthew 24:3",
+        "2 Peter 3:8-9"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What did Jesus mean when He said, “this generation will not pass”?",
+          "url": "https://www.gotquestions.org/this-generation-not-pass.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Did Jesus Say He’d Return within His Disciples’ Lifetimes?",
+          "url": "https://www.thegospelcoalition.org/article/jesus-return-disciples-lifetimes/"
+        }
+      ],
+      "evidence": "Mark’s word is genea, which usually means the people living at one time; Matthew uses it again and again for Jesus’ hearers (Matthew 23:36). The chapter opens with a question about the temple (Mark 13:4), and Luke speaks of Jerusalem “surrounded by armies” (Luke 21:20). C. S. Lewis frankly called this the most embarrassing verse in the Bible and tied it to the not-knowing in Mark 13:32.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "some-standing-here",
+      "ref": "Matthew 16:28",
+      "also": [
+        "Mark 9:1",
+        "Luke 9:27"
+      ],
+      "question": "Did Jesus say some would see his kingdom before dying?",
+      "answer": "Many think Jesus meant what happens next in all three Gospels: on a mountain, Peter, James and John saw him shining in glory, a preview of his kingdom. Others think of his rising from the dead and the coming of the Spirit. Christians differ on which event he meant.",
+      "views": [
+        {
+          "label": "A preview on the mountain",
+          "strength": "widely held",
+          "text": "About a week later, three of those standing there saw Jesus transfigured. Peter’s second letter says that when they made known Jesus’ power and coming, they spoke as eyewitnesses of his majesty on the holy mountain.",
+          "refs": [
+            "Matthew 17:1-2",
+            "Mark 9:2",
+            "2 Peter 1:16-18"
+          ]
+        },
+        {
+          "label": "Risen and ruling with power",
+          "strength": "commonly held",
+          "text": "Mark speaks of the kingdom arriving “with power.” Many see this in the resurrection, when Jesus was declared Son of God with power, and at Pentecost, when the Spirit came.",
+          "refs": [
+            "Romans 1:4",
+            "Matthew 28:18",
+            "Acts 1:8",
+            "Acts 2:1-4"
+          ]
+        },
+        {
+          "label": "Judgment on Jerusalem",
+          "strength": "some interpreters",
+          "text": "Some link it to the fall of Jerusalem in AD 70, read as the Son of Man coming in judgment, which some of his hearers lived to see. They tie it to Jesus’ words about this generation.",
+          "refs": [
+            "Matthew 24:34",
+            "Matthew 26:64"
+          ]
+        },
+        {
+          "label": "His final coming",
+          "strength": "some interpreters",
+          "text": "Some scholars read it as the final return, expected within that lifetime. John’s Gospel shows early believers already sorting out such hopes, noting that Jesus never said the disciple he loved would not die.",
+          "refs": [
+            "John 21:22-23"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 17:1-2",
+        "2 Peter 1:16-18",
+        "Mark 9:2",
+        "Acts 2:1-4",
+        "Romans 1:4",
+        "John 21:22-23"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Was Jesus’ statement that “some who are standing here will not taste death” in Luke 9:27 (also Matthew 16:28; Mark 9:1) incorrect?",
+          "url": "https://www.gotquestions.org/not-taste-death.html"
+        },
+        {
+          "site": "Ligonier Ministries",
+          "title": "Some Standing Here Will Not Taste Death",
+          "url": "https://www.ligonier.org/learn/articles/some-standing-here-will-not-taste-death-unfolding-biblical-eschatology"
+        }
+      ],
+      "evidence": "Matthew has “the Son of Man coming in His kingdom”; Mark, the kingdom of God arriving “with power”; Luke simply “the kingdom of God.” Each Gospel places the Transfiguration right after: “after six days” in Matthew and Mark, “about eight days” in Luke. 2 Peter 1:16-18 ties that mountain to Jesus’ “power and coming.” To taste death is a Semitic way of saying to die.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "unforgivable-sin",
+      "ref": "Matthew 12:31",
+      "also": [
+        "Mark 3:29",
+        "Luke 12:10"
+      ],
+      "question": "What is the unforgivable sin, and could I commit it?",
+      "answer": "In Matthew and Mark, Jesus said this to religious leaders who claimed his power over demons came from the devil. Most Christians see it as a hardened, lasting refusal of God’s Spirit, not a careless word. Many pastors add that fearing you have done it shows your heart is still open to God.",
+      "views": [
+        {
+          "label": "Calling God’s work evil",
+          "strength": "widely held",
+          "text": "When a blind and mute man was healed, the Pharisees said Jesus did it by Beelzebul, the prince of demons. Mark says Jesus spoke “because they were saying, ‘He has an unclean spirit.’” It is knowingly calling the Spirit’s plain work evil, with a heart set against him.",
+          "refs": [
+            "Matthew 12:22-24",
+            "Matthew 12:28",
+            "Mark 3:30"
+          ]
+        },
+        {
+          "label": "Refusing to the very end",
+          "strength": "widely held",
+          "text": "Many since the early church describe it as a final, unrepented refusal of the Spirit, who convicts people of sin and draws them to forgiveness. It is not forgiven because the person will not turn to receive it, not because God’s mercy runs out.",
+          "refs": [
+            "John 16:8",
+            "1 John 1:9",
+            "Acts 7:51"
+          ]
+        },
+        {
+          "label": "Only while Jesus was on earth",
+          "strength": "some interpreters",
+          "text": "Some hold that this exact sin could only be committed while Jesus walked the earth, by people who saw his miracles in person and credited them to Satan. On this view no one can commit it in the same way today.",
+          "refs": [
+            "Matthew 12:24",
+            "Mark 3:22"
+          ]
+        },
+        {
+          "label": "Falling away after knowing Christ",
+          "strength": "some interpreters",
+          "text": "Some connect it with other warnings about falling away, or a sin that leads to death, and read it as fully turning from Christ after knowing him. Christians differ on whether a true believer can ever do this.",
+          "refs": [
+            "Hebrews 6:4-6",
+            "1 John 5:16"
+          ]
+        }
+      ],
+      "helps": [
+        "Mark 3:30",
+        "Matthew 12:24",
+        "Matthew 12:32",
+        "1 John 1:9",
+        "Acts 7:51",
+        "Hebrews 6:4-6"
+      ],
+      "read_more": [
+        {
+          "site": "Catholic Answers",
+          "title": "Is Blasphemy Against the Holy Spirit Unforgivable?",
+          "url": "https://www.catholic.com/qa/is-blasphemy-against-the-holy-spirit-unforgivable"
+        }
+      ],
+      "evidence": "The setting matters: a healing (Matthew 12:22), the charge of working by Beelzebul (Matthew 12:24), and Jesus’ claim to act “by the Spirit of God” (Matthew 12:28). Mark calls it “eternal sin” and adds his own explanation (Mark 3:30). Luke places the saying in a different setting. The same verse first promises that “every sin and blasphemy will be forgiven men.”",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "fig-tree",
+      "ref": "Mark 11:14",
+      "also": [
+        "Mark 11:13",
+        "Matthew 21:19"
+      ],
+      "question": "Why did Jesus curse a fig tree out of season?",
+      "answer": "Many see it as an acted-out warning. It comes right beside Jesus clearing the temple: like the leafy tree, the temple looked busy with worship but gave God no real fruit. A fig tree in leaf often had small early figs, so a tree with only leaves was all show.",
+      "views": [
+        {
+          "label": "A picture of the temple",
+          "strength": "widely held",
+          "text": "Mark puts the curse just before Jesus clears the temple and the withered tree just after. The prophets used a fruitless fig tree for God’s people when they failed him. The tree acts out the judgment coming on a temple that had lost its purpose.",
+          "refs": [
+            "Mark 11:15-17",
+            "Mark 11:20-21",
+            "Jeremiah 8:13",
+            "Hosea 9:10"
+          ]
+        },
+        {
+          "label": "Leaves that promised fruit",
+          "strength": "commonly held",
+          "text": "In spring, a fig tree’s leaves often come with small early figs that hungry people might eat. Many say a tree in full leaf with none of these would bear nothing that year. It looked fruitful from a distance but was empty up close.",
+          "refs": [
+            "Song of Solomon 2:13",
+            "Micah 7:1"
+          ]
+        },
+        {
+          "label": "A lesson in faith and prayer",
+          "strength": "commonly held",
+          "text": "When the disciples see the withered tree (in Mark, Peter points it out), Jesus turns it into teaching on faith and prayer; Mark adds forgiving others. Both Gospels draw this lesson, so the scene is about faith as well as warning.",
+          "refs": [
+            "Mark 11:22-25",
+            "Matthew 21:21-22"
+          ]
+        }
+      ],
+      "helps": [
+        "Mark 11:15-17",
+        "Mark 11:20-21",
+        "Jeremiah 8:13",
+        "Hosea 9:10",
+        "Luke 13:6-9",
+        "Micah 7:1"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did Jesus curse the fig tree?",
+          "url": "https://www.gotquestions.org/curse-fig-tree.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Why Did Jesus Curse the Fig Tree?",
+          "url": "https://www.thegospelcoalition.org/article/jesus-curse-fig-tree/"
+        }
+      ],
+      "evidence": "Mark’s own note, “it was not the season for figs,” explains why there was no fruit, and many take it as a hint that the act is symbolic. He splits the story in two around the temple scene, a pattern he uses elsewhere. Matthew tells it in one piece, with the tree withering at once. Jesus never used such power to harm a person; here it falls on a tree.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "forsaken",
+      "ref": "Matthew 27:46",
+      "also": [
+        "Mark 15:34"
+      ],
+      "question": "Did God abandon Jesus on the cross?",
+      "answer": "Jesus cried out the first line of Psalm 22, a psalm that begins in anguish and ends in rescue and praise. His anguish was real as he carried our sins, yet he still called God “my God.” Christians explain this moment in different ways, but the Father’s love and plan did not fail.",
+      "views": [
+        {
+          "label": "Praying Psalm 22",
+          "strength": "widely held",
+          "text": "Quoting a psalm’s opening line can call the whole psalm to mind. Psalm 22 moves from “why have You forsaken me?” to “He has not hidden His face from him,” and ends with the nations turning to the Lord.",
+          "refs": [
+            "Psalms 22:1",
+            "Psalms 22:24",
+            "Psalms 22:27"
+          ]
+        },
+        {
+          "label": "Bearing sin in our place",
+          "strength": "widely held",
+          "text": "Many believe Jesus truly felt the weight of God’s judgment on sin as he took it on himself, so that sinners could be brought near. Scripture says God “made Him who knew no sin to be sin on our behalf.”",
+          "refs": [
+            "2 Corinthians 5:21",
+            "Galatians 3:13",
+            "Isaiah 53:6"
+          ]
+        },
+        {
+          "label": "Real anguish, unbroken love",
+          "strength": "commonly held",
+          "text": "Others stress that the Father and the Son were never truly torn apart. Jesus felt utterly alone in his human suffering, yet he had said the Father was with him, and he died entrusting his spirit into the Father’s hands.",
+          "refs": [
+            "John 16:32",
+            "Luke 23:46"
+          ]
+        }
+      ],
+      "helps": [
+        "Psalms 22:1",
+        "Psalms 22:24",
+        "2 Corinthians 5:21",
+        "Isaiah 53:6",
+        "John 16:32",
+        "Luke 23:46"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did Jesus say, “My God, my God, why have you forsaken me?”",
+          "url": "https://www.gotquestions.org/forsaken-me.html"
+        },
+        {
+          "site": "Ligonier Ministries",
+          "title": "The Suffering and the Glory of Psalm 22",
+          "url": "https://www.ligonier.org/learn/articles/suffering-and-glory-psalm-22"
+        }
+      ],
+      "evidence": "Mark gives the cry in Aramaic, “Eloi, Eloi, lema sabachthani”; Matthew has “Eli, Eli,” closer to the Hebrew of Psalms 22:1 (eli eli lamah azavtani). Sabachthani is Aramaic, so Jesus was praying the psalm in his everyday language. The sound of Eli (or Eloi) explains why bystanders thought he was calling Elijah.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "day-hour",
+      "ref": "Mark 13:32",
+      "also": [
+        "Matthew 24:36"
+      ],
+      "question": "How could Jesus not know the day or hour?",
+      "answer": "Christians believe Jesus is fully God who also became fully human. Many say that in his human life he took on real limits, like growing in wisdom; others say he knew the date but was not sent to reveal it. Either way his point was clear: no one can set dates, so stay ready.",
+      "views": [
+        {
+          "label": "Limits he took on as a man",
+          "strength": "widely held",
+          "text": "Jesus took on a real human mind. Luke says he grew in wisdom, and Paul says he emptied himself to take the form of a servant. In his human knowing the date was not given to him, while as God he remains one with the Father.",
+          "refs": [
+            "Luke 2:52",
+            "Philippians 2:6-7",
+            "John 1:14"
+          ]
+        },
+        {
+          "label": "Known, but not his to reveal",
+          "strength": "commonly held",
+          "text": "Others, including Catholic teaching and some early writers, hold that Jesus in his human mind knew the Father’s plan, and that the date was something he was not sent to make known. After rising he told the disciples the Father had set those times.",
+          "refs": [
+            "Acts 1:7",
+            "John 16:30"
+          ]
+        },
+        {
+          "label": "The Son waits on the Father",
+          "strength": "some interpreters",
+          "text": "Some see here the loving order between the Son and the Father: the Son does nothing on his own and receives all from the Father, including the timing of his return. This is about role, not lesser worth.",
+          "refs": [
+            "John 5:19",
+            "John 5:26"
+          ]
+        }
+      ],
+      "helps": [
+        "Luke 2:52",
+        "Philippians 2:6-8",
+        "Acts 1:7",
+        "Mark 13:33",
+        "Matthew 24:42",
+        "John 1:14"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "If Jesus is God, why did He not know when He would return?",
+          "url": "https://www.gotquestions.org/Jesus-know-return.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "You Asked: How Can Jesus Not Know But Still Be Divine?",
+          "url": "https://www.thegospelcoalition.org/article/you-asked-how-can-jesus-not-know-but-still-be-divine/"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Was Jesus a Know-It-All?",
+          "url": "https://www.catholic.com/magazine/print-edition/was-jesus-a-know-it-all"
+        }
+      ],
+      "evidence": "Nearly all copies of Mark include “nor the Son.” Many later copies of Matthew 24:36 leave these words out, but the oldest copies have them. The Council of Chalcedon (451) taught that Christ is truly God and truly man, with a real human mind. The early church did not hide this verse; it debated how to read it.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "father-greater",
+      "ref": "John 14:28",
+      "also": [],
+      "question": "If the Father is greater, is Jesus less than God?",
+      "answer": "Most Christians say no. They read “greater” as about Jesus’ humble place as a servant on earth, or about the Father as the source who sends the Son, not as the Son being a lesser kind of being. The same Gospel calls Jesus God, though groups that reject the Trinity read it differently.",
+      "views": [
+        {
+          "label": "Greater than Jesus as a man",
+          "strength": "widely held",
+          "text": "Many read “greater” as about Jesus’ humbled state on earth: he had taken the form of a servant and was going back to the glory he had before the world existed. That is why his friends should rejoice that he is going.",
+          "refs": [
+            "Philippians 2:6-8",
+            "John 17:5",
+            "Hebrews 2:9"
+          ]
+        },
+        {
+          "label": "The Father as the source",
+          "strength": "commonly held",
+          "text": "Many early teachers, especially in the Eastern churches, said the Father is greater as the source: the Son is eternally from the Father, yet fully equal in being. John says the Father has granted the Son to have life in himself.",
+          "refs": [
+            "John 5:26",
+            "John 1:1",
+            "John 10:30"
+          ]
+        },
+        {
+          "label": "Greater as the one who sends",
+          "strength": "commonly held",
+          "text": "Others say it is about role, not nature: the Father sends and the Son is sent and obeys. Christians debate whether this order belongs to God eternally or only to the Son’s mission on earth.",
+          "refs": [
+            "John 6:38",
+            "John 8:42",
+            "1 Corinthians 15:28"
+          ]
+        },
+        {
+          "label": "A lesser being than God",
+          "strength": "some interpreters",
+          "text": "Groups outside the historic creeds, such as Jehovah’s Witnesses, take “greater” to mean greater in nature and hold that the Son is a created being below God. The historic creeds of the churches reject this reading.",
+          "refs": [
+            "1 Corinthians 11:3",
+            "1 Corinthians 15:28"
+          ]
+        }
+      ],
+      "helps": [
+        "John 10:30",
+        "John 1:1",
+        "Philippians 2:6-8",
+        "John 17:5",
+        "John 5:18",
+        "John 20:28"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "If Jesus was God, why did He say, “The Father is greater than I” in John 14:28?",
+          "url": "https://www.gotquestions.org/Father-greater-I.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "How is the Father Greater than Jesus while also Equal?",
+          "url": "https://www.thegospelcoalition.org/blogs/erik-raymond/how-is-the-father-greater-than-jesus-while-also-equal/"
+        }
+      ],
+      "evidence": "John’s Greek word is meizōn, the ordinary word for greater, used of rank as well as size. The same Gospel opens with “the Word was God” and, near its close, has Thomas say “My Lord and my God!” Arius used verses like this to argue the Son was created; the Council of Nicaea (325) answered that the Son is of one being with the Father. Augustine read this verse of Christ in the form of a servant.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "sword-not-peace",
+      "ref": "Matthew 10:34",
+      "also": [
+        "Luke 12:51"
+      ],
+      "question": "Did Jesus come to bring a sword instead of peace?",
+      "answer": "The sword here is a picture of division, not a call to fight. Luke’s version says “division,” and the next verses describe families split when some follow Jesus and others refuse. When Peter later drew a real sword, Jesus told him to put it away.",
+      "views": [
+        {
+          "label": "A sword that divides",
+          "strength": "widely held",
+          "text": "Jesus echoes the prophet Micah: a man’s enemies will be his own household. Choosing Jesus can split families, and Luke’s parallel calls this division. The sword describes the result of his coming, not a weapon for his followers.",
+          "refs": [
+            "Matthew 10:35-36",
+            "Micah 7:6",
+            "Luke 12:51-53"
+          ]
+        },
+        {
+          "label": "Peace with God, not with the world",
+          "strength": "commonly held",
+          "text": "Jesus does give peace, but not the kind the world gives. Peace with God can bring opposition from others, as Simeon foretold when he said the child would be a sign spoken against.",
+          "refs": [
+            "John 14:27",
+            "Romans 5:1",
+            "Luke 2:34-35"
+          ]
+        },
+        {
+          "label": "The word that cuts deep",
+          "strength": "some interpreters",
+          "text": "Some also connect the image with God’s word, pictured elsewhere as a sword that lays bare the heart. Jesus’ message forces a choice that cuts through even the closest ties.",
+          "refs": [
+            "Hebrews 4:12",
+            "Ephesians 6:17"
+          ]
+        }
+      ],
+      "helps": [
+        "John 18:10-11",
+        "Micah 7:6",
+        "Matthew 26:52",
+        "John 18:36",
+        "John 14:27",
+        "Luke 2:34-35"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What did Jesus mean by coming to bring a sword in Matthew 10:34-36?",
+          "url": "https://www.gotquestions.org/Jesus-sword.html"
+        },
+        {
+          "site": "Ligonier Ministries",
+          "title": "Not Peace but a Sword by Joel Kim",
+          "url": "https://www.ligonier.org/learn/articles/no-peace-sword"
+        }
+      ],
+      "evidence": "Matthew 10:35-36 quotes Micah 7:6, a picture of a family torn apart. Luke’s parallel (Luke 12:51) has “division” where Matthew has “sword.” When a disciple draws a sword at Jesus’ arrest (John names Peter), Jesus says, “Put your sword back in its place” (Matthew 26:52), and in John he says his servants do not fight because his kingdom is not of this world.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "divorce-exception",
+      "ref": "Matthew 19:9",
+      "also": [
+        "Matthew 5:32",
+        "Mark 10:11",
+        "Luke 16:18"
+      ],
+      "question": "When, if ever, does Jesus allow divorce?",
+      "answer": "Jesus pointed back to God’s plan that marriage be for life; Matthew records one exception, sexual immorality. Christians differ: many Protestants accept remarriage after adultery, Catholics teach a true marriage lasts for life, and Orthodox churches permit remarriage in some cases.",
+      "views": [
+        {
+          "label": "Unfaithfulness can end a marriage",
+          "strength": "commonly held",
+          "text": "Many Protestants read the exception plainly: adultery breaks the marriage bond, so the wronged spouse may divorce and remarry. Many also allow it when an unbelieving spouse leaves, since Paul says the believer is then not bound, and many today also count serious abuse.",
+          "refs": [
+            "Matthew 5:32",
+            "1 Corinthians 7:15"
+          ]
+        },
+        {
+          "label": "Marriage lasts for life",
+          "strength": "commonly held",
+          "text": "Catholic teaching and some Protestants hold that a valid Christian marriage lasts while both spouses live; separation may be allowed, but not remarriage. The Catholic Church may find a marriage was never valid (an annulment). Mark and Luke give no exception.",
+          "refs": [
+            "Mark 10:11-12",
+            "Luke 16:18",
+            "1 Corinthians 7:10-11"
+          ]
+        },
+        {
+          "label": "Mercy for broken marriages",
+          "strength": "commonly held",
+          "text": "Orthodox churches also teach that marriage is meant to be lifelong and that its breakdown is a sin. Yet as a concession to human weakness, they may allow a second marriage after divorce in some cases, with a service that includes prayers of repentance.",
+          "refs": [
+            "Matthew 19:8"
+          ]
+        },
+        {
+          "label": "A narrower exception",
+          "strength": "some interpreters",
+          "text": "Some read the exception narrowly, as unfaithfulness during engagement (betrothal), as when Joseph planned to divorce Mary, or a marriage the law forbade. On this view it gives no right to remarry after a true marriage.",
+          "refs": [
+            "Matthew 1:18-19",
+            "Leviticus 18:6"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 19:3-6",
+        "Genesis 2:24",
+        "Deuteronomy 24:1",
+        "1 Corinthians 7:10-11",
+        "1 Corinthians 7:15",
+        "Malachi 2:16"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What is the exception clause?",
+          "url": "https://www.gotquestions.org/exception-clause.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Did Jesus Say Adultery Is Grounds for Divorce?",
+          "url": "https://www.catholic.com/magazine/print-edition/did-jesus-say-adultery-is-grounds-for-divorce"
+        },
+        {
+          "site": "OrthodoxWiki",
+          "title": "Marriage - OrthodoxWiki",
+          "url": "https://orthodoxwiki.org/Marriage"
+        }
+      ],
+      "evidence": "The Pharisees’ question echoes a Jewish debate over Deuteronomy 24:1: the school of Hillel allowed divorce for almost any cause, the school of Shammai only for sexual wrong, as the Mishnah records. Matthew’s word is porneia, a broad word for sexual sin. Mark and Luke give the saying with no exception, and Mark adds that a wife who divorces and remarries also commits adultery.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "camel-needle",
+      "ref": "Mark 10:25",
+      "also": [
+        "Matthew 19:24",
+        "Luke 18:25"
+      ],
+      "question": "Can a rich person be saved?",
+      "answer": "Yes, but not by their own power, which is true for everyone. Jesus used a picture of the impossible to show how tightly wealth can grip a heart, then said that what is impossible for people is possible for God. The Gospels show rich people like Zacchaeus and Joseph of Arimathea following Jesus.",
+      "views": [
+        {
+          "label": "A picture of the impossible",
+          "strength": "widely held",
+          "text": "Jesus put the largest animal common in the land next to the smallest opening people knew. The disciples heard it as impossible and asked who then could be saved; Jesus agreed it was impossible for people, but not for God.",
+          "refs": [
+            "Mark 10:26-27",
+            "Matthew 19:25-26"
+          ]
+        },
+        {
+          "label": "Riches compete for the heart",
+          "strength": "commonly held",
+          "text": "The man who had just walked away loved his wealth more than following Jesus. Wealth itself is not sin, but trusting it is a trap; Paul tells the rich to hope in God and be generous.",
+          "refs": [
+            "Mark 10:21-22",
+            "1 Timothy 6:9-10",
+            "1 Timothy 6:17-18"
+          ]
+        },
+        {
+          "label": "A call to give it all away",
+          "strength": "some interpreters",
+          "text": "Some, like many early monks, took Jesus’ words to the rich man, sell everything and give to the poor, as a call for disciples to give up wealth. Most churches read it as aimed at what held that man back, while honoring those who choose to live simply for Christ.",
+          "refs": [
+            "Mark 10:21",
+            "Matthew 19:21",
+            "Luke 12:33",
+            "Acts 2:44-45"
+          ]
+        },
+        {
+          "label": "A rope, not a camel",
+          "strength": "some interpreters",
+          "text": "A few late Greek copies read kamilos, rope, instead of kamēlos, camel, and some suggest an Aramaic word behind it that might mean either (only a guess, since Jesus’ Aramaic here is not kept). Most scholars think camel is original, and a rope through a needle is just as impossible.",
+          "refs": [
+            "Matthew 23:24"
+          ]
+        }
+      ],
+      "helps": [
+        "Mark 10:27",
+        "Mark 10:21-22",
+        "Luke 19:8-9",
+        "Matthew 27:57",
+        "1 Timothy 6:17-19",
+        "Mark 10:23-24"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What did Jesus mean when He said it is easier for a camel to go through the eye of a needle than for a rich man to get into heaven?",
+          "url": "https://www.gotquestions.org/camel-eye-needle.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Urban Legends: The Preacher's Edition",
+          "url": "https://www.thegospelcoalition.org/blogs/trevin-wax/urban-legends-the-preachers-edition/"
+        }
+      ],
+      "evidence": "Matthew, Mark and Luke all keep the saying and all follow it with impossible for man, possible with God. Later Jewish sayings use an elephant through a needle’s eye for the impossible. Many later copies of Mark 10:24 add words limiting the warning to those who trust in riches. The popular story of a low Jerusalem gate called the Needle has no support in ancient sources.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "dogs-woman",
+      "ref": "Matthew 15:26",
+      "also": [
+        "Mark 7:27"
+      ],
+      "question": "Why did Jesus seem to call a woman a dog?",
+      "answer": "The words sound harsh, and the Gospels do not hide that. She was not Jewish, and Jesus spoke of his mission going first to Israel; she answered that even dogs get the crumbs. He honored her answer and healed her daughter. Christians differ on why he spoke as he did.",
+      "views": [
+        {
+          "label": "Drawing out her faith",
+          "strength": "widely held",
+          "text": "Like a teacher posing a hard question, Jesus tests and draws out her trust. She does not give up or take offense, and he answers that her faith is great. Her persistence is held up as a model.",
+          "refs": [
+            "Matthew 15:27-28",
+            "Mark 7:29"
+          ]
+        },
+        {
+          "label": "Israel first, then the nations",
+          "strength": "commonly held",
+          "text": "Mark’s version begins, “First let the children have their fill.” Jesus’ earthly mission went first to Israel, with the nations to follow. The woman sees that there is enough grace for her too, even now.",
+          "refs": [
+            "Matthew 15:24",
+            "Matthew 10:5-6",
+            "Romans 1:16",
+            "Matthew 28:19"
+          ]
+        },
+        {
+          "label": "Voicing a prejudice to undo it",
+          "strength": "some interpreters",
+          "text": "Some suggest Jesus voiced the common view of outsiders as dogs in front of disciples who wanted her sent away, then overturned it. Both Gospels set this right after his teaching on what truly makes a person unclean.",
+          "refs": [
+            "Matthew 15:23",
+            "Matthew 15:11",
+            "Mark 7:19"
+          ]
+        },
+        {
+          "label": "A real human turning point",
+          "strength": "some interpreters",
+          "text": "Some see a truly human moment: moved by her answer, Jesus widens his healing to her then and there, growing in understanding as a man without doing wrong. Many others reject this, holding that Jesus knew all along what he would do.",
+          "refs": [
+            "Mark 7:29",
+            "Matthew 15:28",
+            "Luke 2:52"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 15:24",
+        "Mark 7:19",
+        "Matthew 10:5-6",
+        "Romans 1:16",
+        "Matthew 8:10-11",
+        "Isaiah 56:7"
+      ],
+      "read_more": [
+        {
+          "site": "Bible.org",
+          "title": "23. The Faith Of A Canaanite Woman (Matthew 15:21-28)",
+          "url": "https://bible.org/seriespage/23-faith-canaanite-woman-matthew-1521-28"
+        }
+      ],
+      "evidence": "Matthew’s and Mark’s Greek uses kunarion, a small or household dog. What Aramaic word Jesus used is not known, so a softer tone cannot be pressed. Dogs was a common insult (Philippians 3:2). Matthew calls her a Canaanite, from Israel’s old enemies, yet she calls Jesus “Son of David.” Mark calls her a Greek of Syrophoenician origin.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "faith-works",
+      "ref": "James 2:24",
+      "also": [
+        "Romans 3:28"
+      ],
+      "question": "Are we saved by faith alone, or by works too?",
+      "answer": "Christians answer this differently, but all agree no one can earn God's grace and that real faith shows itself in good deeds. Paul stresses that we are put right with God by trusting Him, not by keeping the law. James stresses that faith with no deeds is dead.",
+      "views": [
+        {
+          "label": "Works show the faith is real",
+          "strength": "widely held",
+          "text": "Paul answers how a sinner is put right with God: by trusting Him, as a gift. James answers how you can tell faith is real: it acts. Good deeds are the fruit of being put right, not part of the reason. Abraham was counted righteous years before he offered Isaac. This is the usual Protestant reading.",
+          "refs": [
+            "Genesis 15:6",
+            "Ephesians 2:8-10",
+            "Genesis 22:12"
+          ]
+        },
+        {
+          "label": "Faith expressed through love",
+          "strength": "widely held",
+          "text": "Catholic and Orthodox Christians teach that we are saved by grace through a living faith expressed through love. No one can earn God's grace, but believers cooperate with it. Being made right with God includes being made holy, and it grows through the good deeds grace makes possible.",
+          "refs": [
+            "Galatians 5:6",
+            "James 2:22",
+            "Philippians 2:12-13"
+          ]
+        },
+        {
+          "label": "Two writers facing two problems",
+          "strength": "commonly held",
+          "text": "Paul was answering people who said Gentiles must keep the law of Moses, such as circumcision, to belong to God. James was answering people who thought agreeing with true facts was enough, though even demons believe. Both point to Abraham, so many see them as allies, not rivals.",
+          "refs": [
+            "Galatians 2:16",
+            "James 2:19",
+            "Romans 4:3"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 15:6",
+        "Genesis 22:12",
+        "Romans 4:1-5",
+        "Galatians 2:16",
+        "Ephesians 2:8-10",
+        "Galatians 5:6"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "How can you believe in salvation by faith alone when the only occurrence of “faith alone” in the Bible (James 2:24) says that salvation is not by faith alone?",
+          "url": "https://www.gotquestions.org/faith-alone.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Does James Really Contradict Paul?",
+          "url": "https://www.thegospelcoalition.org/article/james-really-contradict-paul/"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Aren't We Saved by Faith Alone?",
+          "url": "https://www.catholic.com/magazine/print-edition/arent-we-saved-by-faith-alone"
+        }
+      ],
+      "evidence": "Both writers quote Genesis 15:6: \"Abraham believed God, and it was credited to him as righteousness\" (Romans 4:3; James 2:23). Paul often says \"works of the law\"; James simply says deeds. James 2:24 is the only verse with the words \"faith alone\". Martin Luther added \"alone\" to Romans 3:28 in his German translation, saying it brought out Paul's sense; his critics said it went beyond the text.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "fall-away",
+      "ref": "Hebrews 6:6",
+      "also": [
+        "Hebrews 6:4"
+      ],
+      "question": "Can a believer lose their salvation?",
+      "answer": "Christians genuinely differ. Some believe God keeps every true believer to the end; others believe a real believer can turn away. Most agree this describes a deliberate rejection of Christ, not everyday struggles, and many pastors add that anyone who longs to come back has not been shut out.",
+      "views": [
+        {
+          "label": "God keeps true believers",
+          "strength": "widely held",
+          "text": "Many Reformed and Baptist Christians say that everyone truly born again will persevere, since Jesus says no one can snatch His sheep from His hand. The people here tasted good things, but like land soaked by rain that still grows thorns, their falling away showed they were never truly rooted.",
+          "refs": [
+            "John 10:28",
+            "1 John 2:19",
+            "Philippians 1:6",
+            "Hebrews 6:7-8"
+          ]
+        },
+        {
+          "label": "A believer can fall away",
+          "strength": "widely held",
+          "text": "Catholic, Orthodox, Methodist and many other Christians see here real believers who \"shared in the Holy Spirit\"; the New Testament often urges believers to hold firm to the end. Many read \"impossible\" as true while people go on rejecting Christ; others think so full a fall cannot be undone.",
+          "refs": [
+            "Hebrews 3:14",
+            "Colossians 1:22-23",
+            "Hebrews 10:26-27",
+            "1 Corinthians 10:12"
+          ]
+        },
+        {
+          "label": "A warning God uses to keep us",
+          "strength": "some interpreters",
+          "text": "Some say Hebrews describes what would happen if a believer turned away, in order to keep believers from doing it. The warning is real, and God uses it to keep His people going, which is why the writer adds that he is sure of \"better things in your case\".",
+          "refs": [
+            "Hebrews 6:9",
+            "Hebrews 10:39"
+          ]
+        }
+      ],
+      "helps": [
+        "Hebrews 6:9",
+        "Hebrews 10:26-29",
+        "John 10:27-29",
+        "1 John 2:19",
+        "Hebrews 3:14",
+        "Colossians 1:22-23"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does Hebrews 6:4-6 mean we can lose our salvation?",
+          "url": "https://www.gotquestions.org/Hebrews-6.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Can You Lose Your Salvation?",
+          "url": "https://www.catholic.com/magazine/print-edition/can-you-lose-your-salvation"
+        }
+      ],
+      "evidence": "Verses 4-5 use strong words: enlightened, tasted the heavenly gift, \"shared in the Holy Spirit\". The verb for fallen away (parapiptō) means to fall aside or defect. Crucifying is a present participle: the BSB reads it as \"because\", others as \"while\" they keep doing it, which would leave the door open if they stop. Verse 9 then turns to hope for the readers.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "esau-hated",
+      "ref": "Romans 9:13",
+      "also": [
+        "Malachi 1:3"
+      ],
+      "question": "Did God hate Esau?",
+      "answer": "The Bible says so, but when it sets \"love\" against \"hate\", it can mean loving one more, or choosing one and not the other. God chose Jacob's family to carry His promise; Malachi speaks of two nations, Israel and Edom. Christians differ on whether Paul, quoting it, means who is saved.",
+      "views": [
+        {
+          "label": "Love more, love less",
+          "strength": "widely held",
+          "text": "Set beside \"love\", \"hate\" can mean loving less or not choosing. The Hebrew of Genesis 29:31 calls Leah \"hated\" (our English Bible: \"unloved\") as Jacob loved Rachel more. In Luke, disciples must \"hate\" family; in Matthew, love Jesus more. God gave Esau a homeland, yet Malachi adds judgment on Edom.",
+          "refs": [
+            "Genesis 29:30-31",
+            "Luke 14:26",
+            "Matthew 10:37",
+            "Deuteronomy 2:5"
+          ]
+        },
+        {
+          "label": "Chosen for a role in history",
+          "strength": "commonly held",
+          "text": "Paul quotes words first spoken about two nations (Genesis 25:23; Malachi 1:2-3). His point is that God chose Jacob before birth, not for anything he did, to carry the promise that leads to Christ. On this view it is about roles in God's plan, not Esau's eternal fate.",
+          "refs": [
+            "Genesis 25:23",
+            "Romans 9:11-12",
+            "Malachi 1:2-4"
+          ]
+        },
+        {
+          "label": "Chosen by God's free mercy",
+          "strength": "commonly held",
+          "text": "Many Reformed Christians read Romans 9 as God choosing individuals for salvation. Before the twins did good or bad, God set His love on Jacob and passed over Esau, so salvation rests on \"God's mercy\", not human effort. Paul then faces the objection: \"Is God unjust?\"",
+          "refs": [
+            "Romans 9:11-12",
+            "Romans 9:14-16"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 25:23",
+        "Romans 9:11-12",
+        "Genesis 29:31",
+        "Luke 14:26",
+        "Deuteronomy 23:7",
+        "Deuteronomy 2:5"
+      ],
+      "read_more": [
+        {
+          "site": "Ligonier",
+          "title": "Jacob I Loved, but Esau Have I Hated",
+          "url": "https://learn.ligonier.org/devotionals/jacob-i-loved-esau-have-i-hated"
+        }
+      ],
+      "evidence": "The Hebrew verb in Malachi 1:3 is śānēʾ (to hate), the same verb used of Leah in Genesis 29:31 and of the \"unloved\" wife in Deuteronomy 21:15. Malachi's context is national: Edom's land is laid waste and called the \"Land of Wickedness\" (1:4). Romans 9:11 ties the choice to before the twins \"had done anything good or bad\". Deuteronomy 23:7 tells Israel not to despise an Edomite.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "all-saved",
+      "ref": "1 Timothy 2:4",
+      "also": [],
+      "question": "If God wants everyone saved, why isn't everyone saved?",
+      "answer": "Paul says God \"wants everyone to be saved\", yet Jesus grieved over people who were unwilling to come to Him. Christians differ on what \"everyone\" means here and on how God's wish and human refusal fit together, but all agree He turns away no one who comes to Him.",
+      "views": [
+        {
+          "label": "God lets people refuse Him",
+          "strength": "widely held",
+          "text": "Many Christians, including Catholic, Orthodox and Methodist believers, say God sincerely wants all to be saved and Christ died for all, but God does not force love. People can resist His call, as Jerusalem was \"unwilling\". The loss is theirs, not a lack of love in God.",
+          "refs": [
+            "Matthew 23:37",
+            "1 Timothy 2:6",
+            "John 5:40",
+            "Ezekiel 33:11"
+          ]
+        },
+        {
+          "label": "Two senses of God's will",
+          "strength": "commonly held",
+          "text": "Many Reformed Christians say Scripture speaks of what God desires and commands, and also of what He has decided to do. He takes no pleasure in anyone's death and invites all, yet for His own wise reasons He draws some to Christ. The lost are judged for their own sin; the saved owe all to grace.",
+          "refs": [
+            "Ezekiel 18:32",
+            "John 6:44",
+            "John 6:37"
+          ]
+        },
+        {
+          "label": "All kinds of people",
+          "strength": "some interpreters",
+          "text": "Some read \"everyone\" as people of every kind, since Paul has just urged prayer for \"kings and all those in authority\". On this reading God wants to save people from every rank and nation, rather than every single person.",
+          "refs": [
+            "1 Timothy 2:1-2",
+            "Titus 2:11"
+          ]
+        },
+        {
+          "label": "In the end all will be saved",
+          "strength": "some interpreters",
+          "text": "A small number of Christians believe or hope that God's wish will finally be fulfilled and all will be saved, pointing to verses about God having mercy on everyone. Most churches through history have not held this, pointing to Jesus' warnings.",
+          "refs": [
+            "Romans 11:32",
+            "1 Corinthians 15:22",
+            "1 Timothy 4:10"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Timothy 2:5-6",
+        "2 Peter 3:9",
+        "Ezekiel 33:11",
+        "Matthew 23:37",
+        "John 6:37",
+        "Matthew 7:13-14"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why doesn’t God save everyone?",
+          "url": "https://www.gotquestions.org/God-save-everyone.html"
+        },
+        {
+          "site": "Desiring God",
+          "title": "If God Desires All to Be Saved, Why Aren’t They?",
+          "url": "https://www.desiringgod.org/interviews/if-god-desires-all-to-be-saved-why-arent-they"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "On Good Friday, Did Jesus Die Only for the Elect?",
+          "url": "https://www.catholic.com/magazine/online-edition/on-good-friday-did-jesus-die-only-for-the-elect"
+        }
+      ],
+      "evidence": "The Greek verb is thelō, to want or to will. Verse 6 adds that Christ \"gave Himself as a ransom for all\". Peter says God is \"not wanting anyone to perish\" (2 Peter 3:9), and Ezekiel hears God say He takes \"no pleasure in the death of the wicked\". Yet Jesus also says the narrow way is one that \"only a few find\" (Matthew 7:14).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "women-silent",
+      "ref": "1 Corinthians 14:34",
+      "also": [
+        "1 Timothy 2:12"
+      ],
+      "question": "Must women be silent in church?",
+      "answer": "Not in every sense: in 1 Corinthians Paul expects women to pray and prophesy aloud in worship (1 Corinthians 11:5), so most read these verses as limiting a certain kind of speaking. Christians differ on what that is, and on whether women may preach or lead churches today.",
+      "views": [
+        {
+          "label": "Men lead and teach the church",
+          "strength": "widely held",
+          "text": "Many hold that Paul grounds 1 Timothy 2:12 in creation, \"Adam was formed first\", not local custom. So pastors and elders, who teach with authority, should be qualified men, while women serve, pray, prophesy and teach in many other ways. Catholic and Orthodox churches also ordain only men as priests.",
+          "refs": [
+            "1 Timothy 2:13",
+            "1 Timothy 3:2",
+            "1 Timothy 2:12",
+            "Titus 2:3-4"
+          ]
+        },
+        {
+          "label": "Paul fixing local problems",
+          "strength": "widely held",
+          "text": "Many others hold that Paul was correcting particular troubles: disorderly questions in Corinth and false teaching in Ephesus. Women prophesied, Priscilla helped teach Apollos, Phoebe served a church, and in Christ there is neither \"male nor female\". So women may preach and lead today.",
+          "refs": [
+            "Acts 2:17-18",
+            "Acts 18:26",
+            "Romans 16:1",
+            "Galatians 3:28"
+          ]
+        },
+        {
+          "label": "Silence at certain moments",
+          "strength": "commonly held",
+          "text": "In the same chapter Paul tells tongue-speakers and prophets to be silent at certain moments too. Verse 35 ties the women's silence to asking questions, so many think he meant disruptive questioning, or women judging the prophecies of others aloud, not all speaking.",
+          "refs": [
+            "1 Corinthians 14:28-30",
+            "1 Corinthians 14:35",
+            "1 Corinthians 11:5"
+          ]
+        },
+        {
+          "label": "A note added later",
+          "strength": "some interpreters",
+          "text": "In some old manuscripts verses 34-35 come after verse 40. Some scholars think they began as a note in the margin that was later copied into the text. Most think Paul wrote them, since every known copy includes them somewhere.",
+          "refs": [
+            "1 Corinthians 14:40"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Corinthians 11:5",
+        "1 Corinthians 14:35",
+        "Acts 2:17-18",
+        "Acts 18:26",
+        "Romans 16:1-2",
+        "1 Timothy 2:13-14"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Do women have to remain silent in church?",
+          "url": "https://www.gotquestions.org/women-silent-church.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "1 Corinthians 14: Are Women Really Supposed to Be Silent in Church?",
+          "url": "https://blogs.bible.org/1-corinthians-14-are-women-really-supposed-to-be-silent-in-church/"
+        },
+        {
+          "site": "Christianity Today",
+          "title": "Complementarian at Home, Egalitarian at Church? Paul Would Approve. - Christianity Today",
+          "url": "https://www.christianitytoday.com/2024/03/complementarian-home-egalitarian-church-paul-hugenberger/"
+        }
+      ],
+      "evidence": "Paul uses the same verb for keeping silent (sigaō) for a tongue-speaker with no interpreter (14:28) and for a prophet who should stop (14:30). 1 Timothy 2:12 uses a different word, quietness (hēsuchia), and the rare verb authenteō, found only here in the New Testament, which the BSB renders exercise authority; its exact sense is debated.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "head-coverings",
+      "ref": "1 Corinthians 11:5",
+      "also": [],
+      "question": "Should women cover their heads in church?",
+      "answer": "Paul told women in Corinth to cover their heads when praying or prophesying aloud in worship, and men not to. Christians differ: many see the covering as a custom of that culture that showed honor, while others keep wearing one as a lasting practice.",
+      "views": [
+        {
+          "label": "A custom that showed honor",
+          "strength": "widely held",
+          "text": "Many hold that in Paul's world a woman's head covering signaled modesty and respect, so going uncovered in worship brought shame. The sign can change with culture. What lasts is the principle behind it: for some, the order Paul sets out in 11:3; for others, honoring God and one another in worship.",
+          "refs": [
+            "1 Corinthians 11:13-14",
+            "1 Corinthians 11:3",
+            "1 Corinthians 14:40"
+          ]
+        },
+        {
+          "label": "A practice for all times",
+          "strength": "commonly held",
+          "text": "Others note that Paul grounds the covering in creation (11:7-9), in \"because of the angels\" (11:10), and in the practice of \"the churches of God\" (11:16), not only in custom. So women should still cover in worship, as Christian women generally did through most of church history and many still do.",
+          "refs": [
+            "1 Corinthians 11:7-10",
+            "1 Corinthians 11:16"
+          ]
+        },
+        {
+          "label": "Long hair as the covering",
+          "strength": "some interpreters",
+          "text": "Some point to verse 15, where long hair \"is given to her as a covering\", and think Paul means a woman's hair worn long or put up, not a cloth. On this view the problem was women letting their hair down or cutting it short in worship.",
+          "refs": [
+            "1 Corinthians 11:15"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Corinthians 11:3-4",
+        "1 Corinthians 11:10",
+        "1 Corinthians 11:13-16",
+        "1 Corinthians 14:40"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Should Christian women wear head coverings?",
+          "url": "https://www.gotquestions.org/head-coverings.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "What is the Head Covering in 1 Cor 11:2-16 and Does it Apply to Us Today?",
+          "url": "https://bible.org/article/what-head-covering-1-cor-112-16-and-does-it-apply-us-today"
+        }
+      ],
+      "evidence": "The passage assumes women prayed and prophesied aloud in church (11:5). In verse 10 the Greek has no word for \"sign\"; it says a woman ought to have authority on her head, and what \"because of the angels\" means is uncertain. In verse 15 the small Greek word anti can mean hair is given instead of a covering, or as one.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "baptism-dead",
+      "ref": "1 Corinthians 15:29",
+      "also": [],
+      "question": "What is baptism for the dead?",
+      "answer": "No one knows for sure, and Christians have offered many explanations. Paul mentions it in passing, without explaining it, to make one point: if the dead are never raised, why would people be baptized for them? His real subject is the hope of resurrection.",
+      "views": [
+        {
+          "label": "A practice Paul only mentions",
+          "strength": "commonly held",
+          "text": "Many think some Corinthians were baptized on behalf of people who had died, perhaps before they could be baptized. Paul speaks of \"those\" who do it, not \"we\", and neither praises nor commands it. He simply points out that even their practice assumes the dead will rise.",
+          "refs": [
+            "1 Corinthians 15:12",
+            "1 Corinthians 15:30"
+          ]
+        },
+        {
+          "label": "Baptized because of the dead",
+          "strength": "some interpreters",
+          "text": "Others read it as people coming to faith and baptism because of Christians who had died, hoping to see them again or moved by their faithful lives. The Greek word translated \"for\" can also carry the sense of doing something for someone's sake. Without resurrection, that hope would be empty.",
+          "refs": [
+            "1 Thessalonians 4:13",
+            "1 Corinthians 15:18-19"
+          ]
+        },
+        {
+          "label": "Baptism into death",
+          "strength": "some interpreters",
+          "text": "Some think the dead here points to baptism itself as a joining with Christ's death, or to believers who face death for their faith, as Paul says he does \"every day\". If the dead stay dead, such baptism and such risks would be pointless.",
+          "refs": [
+            "Romans 6:3-4",
+            "1 Corinthians 15:30-32"
+          ]
+        },
+        {
+          "label": "Baptism for ancestors today",
+          "strength": "some interpreters",
+          "text": "The Church of Jesus Christ of Latter-day Saints baptizes living members on behalf of ancestors, so that the dead may accept the gospel. Other churches do not, noting that no other verse teaches it and that Hebrews says judgment follows death.",
+          "refs": [
+            "Hebrews 9:27"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Corinthians 15:12-14",
+        "1 Corinthians 15:20",
+        "1 Corinthians 15:30-32",
+        "Romans 6:3-4"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Who were those who were baptized for the dead (1 Corinthians 15:29)?",
+          "url": "https://www.gotquestions.org/baptized-for-the-dead.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "What Does Paul Mean by ‘Baptism for the Dead’?",
+          "url": "https://www.thegospelcoalition.org/article/what-does-paul-mean-by-baptism-for-the-dead/"
+        }
+      ],
+      "evidence": "The Greek preposition is huper, which can mean on behalf of, or for the sake of. Paul's words \"those\" and \"people\" set the practice apart from himself, unlike verse 30, where he says \"we\". No other verse in the Bible mentions this practice, and Christian writers already disagreed about its meaning in the early centuries.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "spirits-prison",
+      "ref": "1 Peter 3:19",
+      "also": [],
+      "question": "Who are the spirits in prison Jesus preached to?",
+      "answer": "Peter does not say plainly, and Christians read it in a few ways. Many think Christ went to the dead between His death and rising; others, that He announced His victory to fallen angels from Noah's day, or that He spoke through Noah. All agree Christ now rules over every power.",
+      "views": [
+        {
+          "label": "Christ went to the realm of the dead",
+          "strength": "widely held",
+          "text": "Much of church tradition holds that between His death and rising Christ went to the dead: the Apostles' Creed says so, and Orthodox and Catholic teaching agree. There He proclaimed His victory, even to those who disobeyed in Noah's day, and freed the righteous who had died before Him.",
+          "refs": [
+            "1 Peter 4:6",
+            "Ephesians 4:8-10",
+            "Acts 2:27",
+            "Revelation 1:18"
+          ]
+        },
+        {
+          "label": "Victory announced to fallen angels",
+          "strength": "commonly held",
+          "text": "Many scholars note that \"spirits\" on its own usually means non-human spirits, and 2 Peter links angels who sinned and are held for judgment with Noah's flood. On this view the risen Christ announced His victory to them, which fits verse 22: angels and powers are \"subject to Him\".",
+          "refs": [
+            "2 Peter 2:4-5",
+            "Jude 1:6",
+            "Genesis 6:1-4",
+            "1 Peter 3:22"
+          ]
+        },
+        {
+          "label": "Christ preached through Noah",
+          "strength": "commonly held",
+          "text": "Others think Christ, by His Spirit, spoke through Noah, \"a preacher of righteousness\", to the people of his day while the ark was being built. They refused to listen, and they are now spirits in prison. Peter elsewhere says the Spirit of Christ spoke in the prophets.",
+          "refs": [
+            "2 Peter 2:5",
+            "1 Peter 1:11",
+            "1 Peter 3:20"
+          ]
+        }
+      ],
+      "helps": [
+        "1 Peter 3:18",
+        "1 Peter 3:20-22",
+        "1 Peter 4:6",
+        "2 Peter 2:4-5",
+        "Genesis 6:1-4",
+        "Ephesians 4:8-10"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Who were the spirits in prison?",
+          "url": "https://www.gotquestions.org/spirits-in-prison.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Does 1 Peter 3:19 Teach That Jesus Preached in Hell?",
+          "url": "https://www.thegospelcoalition.org/article/does-1-peter-teach-jesus-preached-hell/"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "What Does “He Descended into Hell” in the Apostles’ Creed Mean?",
+          "url": "https://www.catholic.com/qa/what-he-descended-into-hell-means"
+        }
+      ],
+      "evidence": "Peter's verb, kērussō, means to announce or proclaim, not always to offer good news. The words \"in whom\" tie the going to Christ being \"made alive in the Spirit\" (verse 18). These spirits \"disobeyed long ago\" in Noah's day. The next lines turn to baptism and to Christ at God's right hand, with angels and powers under Him.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "mark-ending",
+      "ref": "Mark 16:9",
+      "also": [],
+      "question": "Is the end of Mark's Gospel original?",
+      "answer": "Probably not from Mark's own hand. The two oldest complete copies of Mark end at 16:8, and most scholars think verses 9-20 were added early by another writer. Many churches still read them as Scripture, and most of what they say is also found in the other Gospels and Acts.",
+      "views": [
+        {
+          "label": "Added early by another writer",
+          "strength": "widely held",
+          "text": "The oldest full manuscripts end at 16:8, and some copies have a different, shorter ending. Verses 9-20 use words and a style unlike the rest of Mark, and read like a summary of events told in Luke, John and Acts. Many still receive them as Scripture.",
+          "refs": [
+            "Mark 16:8",
+            "Luke 24:13-35",
+            "Acts 28:3-6"
+          ]
+        },
+        {
+          "label": "Mark meant to stop at 16:8",
+          "strength": "commonly held",
+          "text": "Many think Mark chose to end with the women afraid and silent. The promise \"There you will see Him\" is left open on purpose, so that readers must answer the news of the empty tomb themselves. Jesus had already promised to meet them in Galilee.",
+          "refs": [
+            "Mark 16:7-8",
+            "Mark 14:28"
+          ]
+        },
+        {
+          "label": "The first ending was lost",
+          "strength": "some interpreters",
+          "text": "Some think Mark did write an ending with appearances of the risen Jesus, but it was lost early, perhaps with a damaged last page, and later Christians supplied verses 9-20 to finish the story.",
+          "refs": [
+            "Mark 14:28",
+            "Matthew 28:9-10"
+          ]
+        },
+        {
+          "label": "Original to Mark",
+          "strength": "some interpreters",
+          "text": "Some hold that Mark himself wrote verses 9-20. The vast majority of surviving Greek copies include them, as do many early translations, and Irenaeus quoted verse 19 as Mark's around AD 180.",
+          "refs": [
+            "Mark 16:19"
+          ]
+        }
+      ],
+      "helps": [
+        "Mark 16:7-8",
+        "Luke 24:13-35",
+        "Matthew 28:18-20",
+        "Luke 24:50-51",
+        "Acts 28:3-6"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Should Mark 16:9-20 be in the Bible?",
+          "url": "https://www.gotquestions.org/Mark-16-9-20.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Was Mark 16:9–20 Originally Part of Mark’s Gospel?",
+          "url": "https://www.thegospelcoalition.org/article/was-mark-16-9-20-originally-mark-gospel/"
+        }
+      ],
+      "evidence": "Codex Sinaiticus and Codex Vaticanus, both from the 300s, end Mark at 16:8. Most later copies include verses 9-20, and some add a short ending instead or as well. Irenaeus quoted verse 19 as Mark's around AD 180, while Eusebius later wrote that the accurate copies ended at 16:8. Verse 9 introduces Mary Magdalene as if she had not just been named in 16:1.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "adulteress",
+      "ref": "John 7:53",
+      "also": [
+        "John 8:7"
+      ],
+      "question": "Was the woman caught in adultery originally in John?",
+      "answer": "Probably not in John as first written. The oldest copies of John do not have it, and later copies place it in different spots, even in Luke. Many scholars still think it records a real event from Jesus' life, and most Bibles keep it, usually with a note or brackets.",
+      "views": [
+        {
+          "label": "A true story added later",
+          "strength": "widely held",
+          "text": "Many scholars think this was a genuine story about Jesus that was passed on by word of mouth and later written into John. It fits what we know of Jesus' mercy and holiness, yet it is missing from the earliest copies and its style differs from the rest of John.",
+          "refs": [
+            "Luke 21:37-38",
+            "John 3:17"
+          ]
+        },
+        {
+          "label": "Valued, but not Scripture",
+          "strength": "some interpreters",
+          "text": "Some think that since the story was not in John's Gospel as first written, it should be read as an early and likely true tradition about Jesus, but not preached as Scripture or used on its own to settle teaching.",
+          "refs": []
+        },
+        {
+          "label": "Received as Scripture",
+          "strength": "commonly held",
+          "text": "Many receive it as Scripture whoever first wrote it down. It is in most later Greek copies and in Jerome's Latin Bible, and the church has read it for many centuries. Catholic and Orthodox Christians and many Protestants receive it as inspired, and some think John wrote it.",
+          "refs": [
+            "John 8:11"
+          ]
+        }
+      ],
+      "helps": [
+        "John 8:11",
+        "John 8:12",
+        "Luke 21:37-38",
+        "John 3:17",
+        "Romans 3:23"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does John 7:53—8:11 belong in the Bible?",
+          "url": "https://www.gotquestions.org/John-7-53-8-11.html"
+        },
+        {
+          "site": "Christianity Today",
+          "title": "Is 'Let Him Who Is Without Sin Cast the First Stone' Biblical? - Christianity Today",
+          "url": "https://www.christianitytoday.com/2008/04/without-sin-cast-first-stone/"
+        }
+      ],
+      "evidence": "Early papyrus copies from around AD 200 and the great codices of the 300s go straight from John 7:52 to 8:12. The first Greek copy with the story is Codex Bezae, from about AD 400. Some manuscripts place it after Luke 21:38, others elsewhere in John. The word \"scribes\" appears nowhere else in John, though it is common in the other three Gospels.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "longer-1john-5-7",
+      "ref": "1 John 5:7",
+      "also": [],
+      "question": "Why do some Bibles have a longer 1 John 5:7?",
+      "answer": "Older Bibles like the King James include a line naming the Father, the Word and the Holy Spirit. That line is missing from all early Greek copies and seems to have begun in Latin Bibles. Belief in the Trinity does not depend on it; it rests on many other passages.",
+      "views": [
+        {
+          "label": "Added in later copies",
+          "strength": "widely held",
+          "text": "Nearly all scholars and modern Bibles treat the words as an addition. They are missing from every Greek copy before the late Middle Ages, from early translations other than some Latin ones, and from the Greek Trinity debates of the 300s, where defenders of the Trinity would likely have quoted them.",
+          "refs": [
+            "1 John 5:8"
+          ]
+        },
+        {
+          "label": "Kept in the King James tradition",
+          "strength": "some interpreters",
+          "text": "Some Christians, especially those who prefer the King James Version, keep the words. They hold that God preserved them through the Latin church and the printed Greek text of the 1500s, note early Latin writers who may allude to them, and argue the passage's grammar reads better with them.",
+          "refs": []
+        },
+        {
+          "label": "The Trinity rests elsewhere",
+          "strength": "widely held",
+          "text": "Christians who leave the words out still believe in the Trinity. The church confessed Father, Son and Holy Spirit as one God from passages like the baptism command in Matthew 28:19, John 1:1 and Paul's blessing in 2 Corinthians 13:14, without relying on this line.",
+          "refs": [
+            "Matthew 28:19",
+            "John 1:1",
+            "2 Corinthians 13:14",
+            "John 15:26"
+          ]
+        }
+      ],
+      "helps": [
+        "1 John 5:6",
+        "1 John 5:8",
+        "Matthew 28:19",
+        "John 1:1",
+        "2 Corinthians 13:14"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What is the Comma Johanneum (1 John 5:7-8)?",
+          "url": "https://www.gotquestions.org/Comma-Johanneum.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "What Is the \"Johannine Gloss?\"",
+          "url": "https://www.catholic.com/qa/what-is-the-johannine-gloss"
+        }
+      ],
+      "evidence": "The extra words say that in heaven the Father, the Word and the Holy Spirit bear witness and these three are one, and that three bear witness on earth. They appear in only a few late Greek copies, some only in the margin. Erasmus left them out of his Greek New Testament in 1516 and added them in 1522, and from there they reached the King James Version. The Greek shown here includes them.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "hell-forever",
+      "ref": "Matthew 25:46",
+      "also": [],
+      "question": "Does hell last forever?",
+      "answer": "In Matthew's account the same word, \"eternal\", describes both the punishment and the life, so most Christians through history have believed both last forever. Some read it as a final destruction that is never undone, and a few hope all will one day be restored. Christians differ here.",
+      "views": [
+        {
+          "label": "Punishment without end",
+          "strength": "widely held",
+          "text": "The historic teaching of Catholic, Orthodox and most Protestant churches is that hell never ends. In this verse the same word describes both the punishment and the life, and Revelation speaks of torment \"forever and ever\". Jesus also warns of a fire that is never quenched.",
+          "refs": [
+            "Matthew 25:41",
+            "Revelation 20:10",
+            "Mark 9:48",
+            "Revelation 14:11"
+          ]
+        },
+        {
+          "label": "Final destruction",
+          "strength": "some interpreters",
+          "text": "Some Christians, including a number of evangelicals, think the lost are finally destroyed and cease to exist. The Bible often speaks of death, perishing and \"eternal destruction\". On this view the punishment is eternal because its result can never be undone.",
+          "refs": [
+            "Matthew 10:28",
+            "2 Thessalonians 1:9",
+            "Romans 6:23",
+            "John 3:16"
+          ]
+        },
+        {
+          "label": "All restored in the end",
+          "strength": "some interpreters",
+          "text": "A small number of Christians believe or hope that punishment is meant to correct, and that God will finally reconcile all things to Himself. They note that the word for eternal can mean belonging to the age to come. Most churches have not accepted this view.",
+          "refs": [
+            "Colossians 1:20",
+            "1 Corinthians 15:28",
+            "Romans 11:32"
+          ]
+        }
+      ],
+      "helps": [
+        "Matthew 25:41",
+        "Daniel 12:2",
+        "2 Thessalonians 1:9",
+        "Mark 9:47-48",
+        "Matthew 10:28",
+        "Revelation 20:14-15"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Is hell real? Is hell eternal?",
+          "url": "https://www.gotquestions.org/hell-real-eternal.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Destroyed For Ever: An Examination of the Debates Concerning Annihilation and Conditional Immortality - The Gospel Coalition",
+          "url": "https://www.thegospelcoalition.org/themelios/article/destroyed-for-ever-an-examination-of-the-debates-concerning-annihilation-and-conditional-immortality/"
+        }
+      ],
+      "evidence": "In Matthew 25:46 the Greek adjective aiōnios describes both the punishment (kolasis) and the life. It can mean eternal, or belonging to the age to come. Daniel 12:2 pairs everlasting life with \"everlasting contempt\". Paul speaks of \"eternal destruction\" (2 Thessalonians 1:9), and Jesus warns of One who can \"destroy both soul and body in hell\" (Matthew 10:28).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "sun-stood-still",
+      "ref": "Joshua 10:13",
+      "also": [
+        "Joshua 10:12"
+      ],
+      "question": "Did the sun really stand still?",
+      "answer": "The Bible says the sun stopped until Israel won, and that no day was ever like it. Many Christians take it as a real miracle of extra daylight; others read the lines, quoted from an old song, as poetry for a stunning victory. Christians differ on how to read it, but agree the LORD fought for Israel.",
+      "views": [
+        {
+          "label": "A real miracle of extra daylight",
+          "strength": "widely held",
+          "text": "God truly lengthened the daylight, and verse 14 stresses that no day was like it. The text does not say how: by slowing the earth, or by keeping light over that one region, as He once gave Israel light during Egypt's darkness. The words describe what people saw from the ground.",
+          "refs": [
+            "Joshua 10:14",
+            "Exodus 10:23",
+            "2 Kings 20:11"
+          ]
+        },
+        {
+          "label": "Poetic words from an old war song",
+          "strength": "commonly held",
+          "text": "The lines are quoted from the Book of Jashar, a collection of songs that also held David's lament. Hebrew poetry often pictures sun, moon and stars joining God's battles. On this view the song celebrates how much God won in one day, with the hailstorm as the visible miracle.",
+          "refs": [
+            "2 Samuel 1:18",
+            "Judges 5:20",
+            "Habakkuk 3:11",
+            "Joshua 10:11"
+          ]
+        },
+        {
+          "label": "A storm that hid the sun's heat",
+          "strength": "some interpreters",
+          "text": "Joshua's verb often means 'be silent' or 'wait.' Some read his prayer as asking the sun to hold back its scorching heat, answered by the storm clouds and hail that let Israel keep marching and chasing. On this view 'about a full day' means one afternoon held a full day's march.",
+          "refs": [
+            "Joshua 10:11",
+            "Isaiah 23:2",
+            "1 Samuel 14:9",
+            "Psalms 37:7"
+          ]
+        },
+        {
+          "label": "A sign in the sky",
+          "strength": "some interpreters",
+          "text": "Others suggest the sun and moon were a sign, such as an eclipse or a rare position of the two, which ancient peoples read as an omen. On this view God gave a sign that encouraged Israel and unnerved its enemies, and the song remembers it.",
+          "refs": [
+            "Joshua 10:12"
+          ]
+        }
+      ],
+      "helps": [
+        "Joshua 10:11",
+        "Joshua 10:14",
+        "2 Samuel 1:18",
+        "Habakkuk 3:11",
+        "2 Kings 20:11",
+        "Isaiah 38:8"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Is it true that the sun stood still?",
+          "url": "https://www.gotquestions.org/sun-stood-still.html"
+        },
+        {
+          "site": "BiblicalTraining",
+          "title": "The Battle of Beth-horon",
+          "url": "https://www.biblicaltraining.org/library/the-battle-of-beth-horon"
+        }
+      ],
+      "evidence": "Joshua's command uses the Hebrew verb damam (Strong's H1826), elsewhere 'be still' or 'be silent'; verse 13 adds amad, 'stand.' The quoted line says the sun \"delayed going down about a full day.\" The Book of Jashar, now lost, is also quoted in 2 Samuel 1:18. A popular story that NASA computers found a 'missing day' is an urban legend with no basis.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "mustard-seed",
+      "ref": "Matthew 13:32",
+      "also": [
+        "Mark 4:31"
+      ],
+      "question": "Is the mustard seed really the smallest seed?",
+      "answer": "Not of every plant on earth: some orchid seeds are smaller. But among the seeds Galilean farmers sowed, the mustard seed was known as the tiniest, the usual picture of something very small. Jesus' point is that God's kingdom starts tiny and grows huge.",
+      "views": [
+        {
+          "label": "Smallest of the seeds farmers sowed",
+          "strength": "widely held",
+          "text": "Jesus was speaking to people who sowed fields and gardens. The seed is planted and grows to be \"the largest of all garden plants,\" so it is being compared with what people planted. Among those, the mustard seed was the smallest in common use, yet it grew taller than a person.",
+          "refs": [
+            "Mark 4:31",
+            "Mark 4:32"
+          ]
+        },
+        {
+          "label": "A common picture of 'tiny'",
+          "strength": "widely held",
+          "text": "The mustard seed was the everyday picture of the smallest thing you could imagine. Jesus uses it the same way when He speaks of \"faith the size of a mustard seed.\" His hearers would hear a familiar way of saying 'tiny,' built on what they knew.",
+          "refs": [
+            "Matthew 17:20",
+            "Luke 17:6"
+          ]
+        },
+        {
+          "label": "Inexact as botany, true as teaching",
+          "strength": "some interpreters",
+          "text": "Some Christians say plainly that, as a claim about every plant in the world, it would not be exact, and that this is no problem. Jesus taught about God's kingdom in the everyday terms of His hearers, and Scripture's truth lies in what it means to teach.",
+          "refs": []
+        }
+      ],
+      "helps": [
+        "Matthew 13:31",
+        "Matthew 17:20",
+        "Luke 13:19",
+        "Ezekiel 17:23",
+        "Daniel 4:12"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "What is the meaning of the Parable of the Mustard Seed?",
+          "url": "https://www.gotquestions.org/parable-mustard-seed.html"
+        },
+        {
+          "site": "Reasonable Faith",
+          "title": "Is Biblical Inerrancy Defensible?",
+          "url": "https://www.reasonablefaith.org/question-answer/P70/is-biblical-inerrancy-defensible"
+        }
+      ],
+      "evidence": "Matthew's Greek uses mikroteron, literally 'smaller,' often used to mean 'smallest.' Mark's Greek says that when sown, it is smaller than all the seeds on the earth. Mustard seeds are about 1 to 2 mm across. Some orchid seeds are far smaller; whether mustard was the smallest seed sown in Galilee is less certain. Nesting birds echo pictures of a great kingdom (Ezekiel 17:23; Daniel 4:12).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "bat-bird",
+      "ref": "Leviticus 11:19",
+      "also": [
+        "Deuteronomy 14:18"
+      ],
+      "question": "Why does the Bible list the bat with birds?",
+      "answer": "The list starts in verse 13 with a Hebrew word often translated 'birds' that really means 'flying creatures,' and verse 20 uses it for flying insects too. So the bat belongs with the flyers. The list groups animals by how they live and move, not by the categories of modern biology.",
+      "views": [
+        {
+          "label": "'Birds' means 'flyers'",
+          "strength": "widely held",
+          "text": "The Hebrew word comes from the verb 'to fly' and covers anything with wings. Leviticus uses it for flying insects as well. English 'birds' is narrower than the Hebrew, so the bat is in the right group: creatures that fly.",
+          "refs": [
+            "Leviticus 11:13",
+            "Leviticus 11:20",
+            "Genesis 1:20"
+          ]
+        },
+        {
+          "label": "Sorted by how animals live",
+          "strength": "widely held",
+          "text": "The food laws sort creatures the way people meet them: in the water, in the sky, and on the ground. That is a practical grouping for daily life, not a claim about anatomy, so it does not clash with biology's later categories.",
+          "refs": [
+            "Leviticus 11:46",
+            "Genesis 1:26"
+          ]
+        },
+        {
+          "label": "God spoke in Israel's own terms",
+          "strength": "commonly held",
+          "text": "Many add that God gave His laws using the categories Israel already used, rather than teaching modern science, just as the Bible speaks of the sun rising. The aim of the list was a holy people set apart, not a lesson in zoology.",
+          "refs": [
+            "Leviticus 11:44-45",
+            "Ecclesiastes 1:5"
+          ]
+        }
+      ],
+      "helps": [
+        "Leviticus 11:13",
+        "Leviticus 11:20",
+        "Leviticus 11:46",
+        "Genesis 1:20",
+        "Leviticus 11:44-45",
+        "Isaiah 2:20"
+      ],
+      "read_more": [
+        {
+          "site": "The Gospel Coalition",
+          "title": "You Are What (Animal) You Eat: Making Sense of the Bible’s Dietary Laws",
+          "url": "https://www.thegospelcoalition.org/article/you-are-animal-eat-bible-dietary-laws/"
+        }
+      ],
+      "evidence": "Leviticus 11:13 heads the list with ha-'of (Strong's H5775), from the verb 'uph, to fly. Verse 20 uses the same word for insects: literally the swarming things of the flyers. The bat is 'atalleph (H5847); Deuteronomy 14:18 repeats the list. The scientific class 'mammals' was named by Linnaeus in 1758, long after Leviticus was written.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "round-sea",
+      "ref": "1 Kings 7:23",
+      "also": [
+        "2 Chronicles 4:2"
+      ],
+      "question": "Does the Bible say pi equals 3?",
+      "answer": "No. The writer describes a huge metal basin, the Sea, in round numbers, the way builders talk, not as a math lesson. Its walls were a handbreadth thick, with a brim flared like a lily, so measuring across the top and around the body would give slightly different numbers.",
+      "views": [
+        {
+          "label": "Round numbers",
+          "strength": "widely held",
+          "text": "Ten across and thirty around are round figures, the kind people still use in everyday talk. The exact ratio, about 3.14, would give 31.4 cubits; the writer gives a round thirty. The passage describes a temple furnishing, not a geometry rule.",
+          "refs": [
+            "2 Chronicles 4:2"
+          ]
+        },
+        {
+          "label": "Measured at different places",
+          "strength": "commonly held",
+          "text": "The Sea was a handbreadth thick with a brim flared like a lily. If the ten cubits were measured across the outer brim, and the thirty around the inside or around the narrower body below the brim, the numbers fit: a width of about 9.5 cubits gives about 30 around.",
+          "refs": [
+            "1 Kings 7:26",
+            "2 Chronicles 4:5"
+          ]
+        },
+        {
+          "label": "A hidden hint in the spelling",
+          "strength": "some interpreters",
+          "text": "In 1 Kings 7:23 the word for the measuring line is written one way (qaveh) but read another (qav). Hebrew letters also stand for numbers: these spellings add up to 111 and 106, and 3 x 111/106 is about 3.1415. Most treat this as a curious coincidence, not the writer's intent.",
+          "refs": []
+        }
+      ],
+      "helps": [
+        "1 Kings 7:24",
+        "1 Kings 7:26",
+        "2 Chronicles 4:5",
+        "2 Chronicles 4:6"
+      ],
+      "read_more": [
+        {
+          "site": "Biblical Archaeology Society",
+          "title": "Origins: 3.14159265…",
+          "url": "https://www.biblicalarchaeology.org/daily/ancient-cultures/origins-pi/"
+        }
+      ],
+      "evidence": "Both accounts give ten cubits \"from rim to rim\" and thirty around. 1 Kings 7:26 adds that it was a handbreadth thick with a lily-shaped brim. A cubit was about 18 inches (45 cm), so the basin was roughly 15 feet across. Neighboring cultures used both 3 and closer values like 3 1/8 for this ratio, so rounding was normal. In 1 Kings 7:23 the line is written qwh but read qw; 2 Chronicles 4:2 has qw.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "jonah-fish",
+      "ref": "Jonah 1:17",
+      "also": [
+        "Jonah 2:10",
+        "Matthew 12:40"
+      ],
+      "question": "Could Jonah really survive inside a fish?",
+      "answer": "Not by natural means, and the book never says otherwise: God 'appointed' the fish, so it is told as a miracle. Christians differ on the rest: many read it as history, partly because Jesus pointed to it as a sign of His own death and rising, while others read Jonah as an inspired teaching story.",
+      "views": [
+        {
+          "label": "A real miracle",
+          "strength": "widely held",
+          "text": "The LORD 'appointed' the fish, as He later appoints a vine, a worm and a wind: the story shows God at work, not lucky survival. Jesus set Jonah's three days in the fish beside His own time in the grave, and said the men of Nineveh will stand at the judgment. Many take this as treating Jonah as real.",
+          "refs": [
+            "Jonah 4:6-8",
+            "Matthew 12:40",
+            "Matthew 12:41",
+            "Luke 11:30"
+          ]
+        },
+        {
+          "label": "An inspired teaching story",
+          "strength": "commonly held",
+          "text": "Others read Jonah as a God-inspired story told to teach, a little like a parable. Its truth is God's mercy, even toward Israel's cruel enemies. They note that Jesus could point to a well-known story as a sign without settling how it happened.",
+          "refs": [
+            "Jonah 4:11",
+            "Jonah 3:10"
+          ]
+        },
+        {
+          "label": "Jonah died and was raised",
+          "strength": "some interpreters",
+          "text": "Jonah's prayer speaks of \"the belly of Sheol\" and says God \"raised my life from the pit.\" Some take this literally: Jonah died in the fish and God brought him back, making him an even closer picture of Jesus' death and resurrection. Others read these as poetic words for near death.",
+          "refs": [
+            "Jonah 2:2",
+            "Jonah 2:6"
+          ]
+        }
+      ],
+      "helps": [
+        "Jonah 2:1",
+        "Jonah 4:6",
+        "Jonah 4:11",
+        "Matthew 12:41",
+        "Luke 11:30"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Was Jonah truly swallowed by a whale?",
+          "url": "https://www.gotquestions.org/Jonah-whale.html"
+        },
+        {
+          "site": "Catholic Answers",
+          "title": "Is the story of Jonah and the whale a myth?",
+          "url": "https://www.catholic.com/qa/is-the-story-of-jonah-and-the-whale-a-myth"
+        }
+      ],
+      "evidence": "The Hebrew says dag gadol, a great fish, and names no species. 'Whale' comes from older English versions of Matthew 12:40, where Matthew's Greek has ketos, a word for any huge sea creature. The verb 'appointed' (manah) returns in Jonah 4:6-8. Three days and three nights may count parts of days, as Hebrew reckoning often did. Tales of modern sailors surviving inside whales are not well documented.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "creation-days",
+      "ref": "Genesis 1:5",
+      "also": [
+        "Genesis 1:31",
+        "Exodus 20:11"
+      ],
+      "question": "Were the days of creation 24-hour days?",
+      "answer": "Christians who trust the Bible differ here. Many read them as ordinary days, since each has an evening and a morning; others see long ages, or a 'work week' picture showing God's wise order. All agree on the main point: God made everything, and it was good.",
+      "views": [
+        {
+          "label": "Six ordinary days",
+          "strength": "widely held",
+          "text": "Each day is numbered and marked by evening and morning, which usually means an ordinary day. The Sabbath command builds our week on God's six days of work and one of rest. Many Christians through history have read it this way.",
+          "refs": [
+            "Exodus 20:11",
+            "Exodus 31:17",
+            "Genesis 1:31"
+          ]
+        },
+        {
+          "label": "Long ages",
+          "strength": "commonly held",
+          "text": "The Hebrew word for day can mean a longer time; Genesis 2:4 sums up all creation as \"the day that the LORD God made them.\" The seventh day has no evening and morning, and God's rest is still open (Hebrews 4:9-10). To God, \"a thousand years are like a day.\"",
+          "refs": [
+            "Genesis 2:4",
+            "Hebrews 4:9-10",
+            "2 Peter 3:8",
+            "Psalms 90:4"
+          ]
+        },
+        {
+          "label": "A picture of God's work week",
+          "strength": "commonly held",
+          "text": "Days 1-3 shape realms (day and night, sky and sea, land) and days 4-6 fill them (sun and stars, birds and fish, animals and people). Since the sun appears on day 4, some see the week as an artful frame that shows God's order and models our work and rest, without fixing its length.",
+          "refs": [
+            "Genesis 1:14-19",
+            "Genesis 2:2-3"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 1:14",
+        "Genesis 2:2",
+        "Genesis 2:4",
+        "Exodus 31:17",
+        "Psalms 90:4",
+        "Hebrews 4:4"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Does Genesis chapter 1 mean literal 24-hour days?",
+          "url": "https://www.gotquestions.org/Genesis-days.html"
+        },
+        {
+          "site": "The Gospel Coalition",
+          "title": "Biblical Reasons to Doubt the Creation Days Were 24-Hour Periods",
+          "url": "https://www.thegospelcoalition.org/blogs/justin-taylor/biblical-reasons-to-doubt-the-creation-days-were-24-hour-periods/"
+        }
+      ],
+      "evidence": "The Hebrew yom (Strong's H3117) can mean daylight, a full day, or a longer span (Genesis 2:4). Genesis 1:5 literally says 'day one.' Light, evening and morning come before the sun on day 4. Day 7 has no closing refrain. Augustine, around AD 400, already argued the days were not ordinary solar days (he thought God made all things at once), so the debate is not only a reaction to modern science.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "long-lives",
+      "ref": "Genesis 5:27",
+      "also": [
+        "Genesis 5:5",
+        "Genesis 9:29"
+      ],
+      "question": "Did people really live over 900 years?",
+      "answer": "Genesis gives these ages plainly, and many Christians take them as written, though the Bible does not say how such long lives worked. Others think the numbers also carry meaning, as ancient lists often did. Christians differ, but even Methuselah's 969 years end with \"and then he died.\"",
+      "views": [
+        {
+          "label": "Real, long lifespans",
+          "strength": "widely held",
+          "text": "The ages are plain, precise numbers, and they drop sharply after the flood: Noah 950, Abraham 175, Moses 120. Suggested reasons include humanity's nearness to its created start and sin's slow damage, but the Bible itself does not explain how.",
+          "refs": [
+            "Genesis 9:29",
+            "Genesis 25:7",
+            "Deuteronomy 34:7",
+            "Psalms 90:10"
+          ]
+        },
+        {
+          "label": "Real people, meaningful numbers",
+          "strength": "some interpreters",
+          "text": "Some think the numbers are shaped to carry meaning, as ancient genealogies often were: Enoch lives 365 years, the days in a year, and Lamech 777. Neighboring king lists gave pre-flood kings reigns of tens of thousands of years; Genesis' smaller figures may answer them.",
+          "refs": [
+            "Genesis 5:23",
+            "Genesis 5:31"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 5:24",
+        "Genesis 6:3",
+        "Genesis 11:32",
+        "Genesis 47:9",
+        "Psalms 90:10"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Why did the people in Genesis live such long lives?",
+          "url": "https://www.gotquestions.org/Genesis-long-lives.html"
+        },
+        {
+          "site": "Bible.org",
+          "title": "The Ages of the Antediluvian Patriarchs In Genesis 5",
+          "url": "https://bible.org/article/ages-antediluvian-patriarchs-genesis-5"
+        }
+      ],
+      "evidence": "Genesis 5 repeats one pattern for ten generations, closing each life with \"and then he died\" (Noah's in Genesis 9:29), except Enoch, whom God took (Genesis 5:24). Genesis 6:3's 120 years is read as a new limit or a countdown to the flood. The ancient Greek and Samaritan copies give different numbers for several ages. The Sumerian King List gives pre-flood kings reigns of many thousands of years.",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    },
+    {
+      "id": "global-flood",
+      "ref": "Genesis 7:19",
+      "also": [
+        "Genesis 7:20"
+      ],
+      "question": "Did the flood cover the whole earth?",
+      "answer": "Christians differ: many read Genesis as a worldwide flood, while others see a vast regional flood that covered the whole world Noah's people knew, since the Hebrew word for 'earth' also means 'land.' Either way, the story shows God judging evil and saving Noah's family.",
+      "views": [
+        {
+          "label": "A worldwide flood",
+          "strength": "widely held",
+          "text": "The text stresses 'all': all the high mountains under all the heavens were covered, and the waters stayed about a year. God's promise never again to flood the earth points to a unique event, and Peter says the world of that time perished in the flood.",
+          "refs": [
+            "Genesis 7:20",
+            "Genesis 9:11",
+            "2 Peter 3:6",
+            "Genesis 8:13-14"
+          ]
+        },
+        {
+          "label": "A vast regional flood",
+          "strength": "commonly held",
+          "text": "The Hebrew word for earth also means 'land,' and 'all the earth' can mean the known world, as when every nation came to Joseph for grain. On this view the flood covered the region where people lived. Supporters add that most geologists see no trace of one worldwide flood.",
+          "refs": [
+            "Genesis 41:57",
+            "1 Kings 10:24",
+            "Acts 2:5"
+          ]
+        },
+        {
+          "label": "An ancient memory retold",
+          "strength": "commonly held",
+          "text": "Other ancient peoples, as in the Gilgamesh story, also told of a great flood. Some Christian scholars see Genesis telling that shared memory in a way that answers them: one just God grieves over violence, saves the righteous and makes a covenant with all life. They leave open how much is history.",
+          "refs": [
+            "Genesis 6:5-6",
+            "Genesis 6:13",
+            "Genesis 9:15"
+          ]
+        }
+      ],
+      "helps": [
+        "Genesis 6:13",
+        "Genesis 8:9",
+        "Genesis 9:11",
+        "Isaiah 54:9",
+        "Matthew 24:38-39",
+        "2 Peter 3:6"
+      ],
+      "read_more": [
+        {
+          "site": "GotQuestions",
+          "title": "Was Noah’s flood global or local?",
+          "url": "https://www.gotquestions.org/global-flood.html"
+        },
+        {
+          "site": "BiblicalTraining",
+          "title": "Flood (Genesis)",
+          "url": "https://www.biblicaltraining.org/library/flood-genesis"
+        }
+      ],
+      "evidence": "'Earth' here is ha-'erets (Strong's H776), used for the whole earth and for a single land. Verse 20 says the waters covered the mountaintops by fifteen cubits, about 7 m. Genesis 41:57 shows 'all the earth' can mean the known world. Mesopotamian texts such as Gilgamesh and Atrahasis also tell of a great flood and a boat. Jesus and Peter both speak of Noah's flood (Matthew 24:38-39; 2 Peter 3:6).",
+      "source": "Drafted with AI help (Claude) from the BSB and the Bible's own cross-references, checked for accuracy and fairness by separate AI reviewers; read-more pages are linked, not copied.",
+      "reviewed_by": []
+    }
+  ]
 }

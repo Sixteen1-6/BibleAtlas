@@ -214,13 +214,7 @@ impl Check<'_> {
 
         let mut links = Vec::new();
         for l in &c.read_more {
-            let host = l
-                .url
-                .strip_prefix("https://")
-                .and_then(|r| r.split(['/', '?', '#']).next())
-                .unwrap_or("");
-            let host = host.strip_prefix("www.").unwrap_or(host);
-            if !HOSTS.contains(&host) {
+            if !allowed_link(&l.url) {
                 self.fail(
                     &at,
                     format_args!(
@@ -456,6 +450,18 @@ fn mentions_esv(s: &str) -> bool {
         .any(|w| w.eq_ignore_ascii_case("esv"))
 }
 
+/// An https link to one of the sites in `HOSTS`, or to one of its own
+/// subdomains (www.gotquestions.org, learn.ligonier.org).
+fn allowed_link(url: &str) -> bool {
+    let host = url
+        .strip_prefix("https://")
+        .and_then(|r| r.split(['/', '?', '#']).next())
+        .unwrap_or("");
+    HOSTS
+        .iter()
+        .any(|h| host == *h || host.strip_suffix(h).is_some_and(|sub| sub.ends_with('.')))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -472,6 +478,16 @@ mod tests {
         );
         assert!(quotes("a \"stray").is_err());
         assert_eq!(word_count("one two ... three"), 3);
+    }
+
+    #[test]
+    fn allows_listed_sites_and_their_subdomains() {
+        assert!(allowed_link("https://www.gotquestions.org/Judas-die.html"));
+        assert!(allowed_link("https://learn.ligonier.org/articles/x"));
+        assert!(allowed_link("https://bible.org/seriespage/x"));
+        assert!(!allowed_link("http://www.gotquestions.org/x"));
+        assert!(!allowed_link("https://notgotquestions.org/x"));
+        assert!(!allowed_link("https://gotquestions.org.example.com/x"));
     }
 
     #[test]
