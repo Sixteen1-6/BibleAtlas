@@ -69,9 +69,8 @@ export function themeVerses(a: Atlas, theme: Theme): Uint32Array {
   if (!out) {
     const mask = new Uint8Array(a.n);
     let count = 0;
-    const all = [...theme.roots.map((r) => versesWithRoot(a, r)), ...(theme.near ?? []).map((n) => n.verses)];
-    for (const vs of all) {
-      for (const v of vs) {
+    for (const r of theme.roots) {
+      for (const v of versesWithRoot(a, r)) {
         if (!mask[v]) count++;
         mask[v] = 1;
       }

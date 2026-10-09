@@ -61,8 +61,6 @@ export interface Theme {
   name: string;
   blurb: string;
   roots: number[];
-  /** Roots that count only in some verses (שָׁבַת "to cease" where the verse says "seventh"). */
-  near?: { root: number; verses: number[] }[];
 }
 
 export interface Atlas {
