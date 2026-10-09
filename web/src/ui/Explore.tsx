@@ -80,7 +80,15 @@ export function Themes({ a }: { a: Atlas }) {
             {t.roots.map((r) => (
               <span key={r} class="tj-root">
                 <RootChip a={a} root={r} />
-                <span class="tj-rootn">{versesWithRoot(a, r).length.toLocaleString()} verses</span>
+                <span class="tj-rootn">{versesCount(versesWithRoot(a, r).length)}</span>
+              </span>
+            ))}
+            {t.near?.map((n) => (
+              <span key={n.root} class="tj-root">
+                <RootChip a={a} root={n.root} />
+                <span class="tj-rootn">
+                  {n.verses.length.toLocaleString()} of its {versesCount(versesWithRoot(a, n.root).length)}
+                </span>
               </span>
             ))}
           </div>
@@ -252,3 +260,5 @@ export function Hubs({ a }: { a: Atlas }) {
     </div>
   );
 }
+
+const versesCount = (n: number) => `${n.toLocaleString()} ${n === 1 ? 'verse' : 'verses'}`;

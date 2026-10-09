@@ -60,6 +60,11 @@ struct ThemeRoot {
     /// which are otherwise skipped as names.
     #[serde(default)]
     capitalized: bool,
+    /// Count this root only in verses that also hold one of these words
+    /// (שָׁבַת "to cease" where the verse says "seventh"), so a common sense
+    /// lights only the verses where it belongs to the theme.
+    #[serde(default)]
+    with: Vec<String>,
 }
 
 struct Lemma {
@@ -265,13 +270,16 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     )
     .map_err(|e| format!("parsing config/themes.json: {e}"))?;
     let mut themes_json = Vec::new();
+    let is_root = |key: &str, strong: &str| key.starts_with(strong) && key.len() <= strong.len() + 1;
     for t in &theme_file.themes {
         let mut idxs: Vec<u32> = Vec::new();
+        // Roots counted only in some verses: (root, those verses).
+        let mut near: Vec<(u32, Vec<u32>, &[String])> = Vec::new();
         for r in &t.roots {
             let found: Vec<u32> = lemmas
                 .iter()
                 .enumerate()
-                .filter(|(_, l)| l.key.starts_with(&r.strong) && l.key.len() <= r.strong.len() + 1)
+                .filter(|(_, l)| is_root(&l.key, &r.strong))
                 .filter(|(_, l)| {
                     // Skip names and places that merely contain the word
                     // ("House of Shepherds", "Water (Gate)"): their glosses
@@ -292,7 +300,22 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
                 let near: Vec<String> = lemmas.iter().filter(|l| l.key.starts_with(&r.strong)).map(|l| format!("{}={:?}", l.key, l.gloss)).collect();
                 return Err(format!("theme {}: {} matched no root with gloss {:?} (candidates: {})", t.id, r.strong, r.matches, near.join(", ")));
             }
-            idxs.extend(found);
+            if r.with.is_empty() {
+                idxs.extend(found);
+                continue;
+            }
+            for i in found {
+                let mut verses: Vec<u32> = l_verse[l_off[i as usize] as usize..l_off[i as usize + 1] as usize]
+                    .iter()
+                    .copied()
+                    .filter(|&v| words[v as usize].iter().any(|w| w.main && w.lemma.as_deref().is_some_and(|k| r.with.iter().any(|s| is_root(k, s)))))
+                    .collect();
+                verses.dedup();
+                if verses.is_empty() {
+                    return Err(format!("theme {}: {} never occurs with {:?}", t.id, lemmas[i as usize].key, r.with));
+                }
+                near.push((i, verses, &r.with));
+            }
         }
         idxs.sort_unstable();
         idxs.dedup();
@@ -303,7 +326,14 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             tokens,
             idxs.iter().map(|&i| format!("{} ({})", lemmas[i as usize].key, lemmas[i as usize].gloss)).collect::<Vec<_>>().join(", ")
         );
-        themes_json.push(json!({ "id": t.id, "name": t.name, "blurb": t.blurb, "roots": idxs }));
+        for (i, verses, with) in &near {
+            eprintln!("theme {:<9} {:>5} verses via {} ({}) with {:?}", t.id, verses.len(), lemmas[*i as usize].key, lemmas[*i as usize].gloss, with);
+        }
+        let mut theme = json!({ "id": t.id, "name": t.name, "blurb": t.blurb, "roots": idxs });
+        if !near.is_empty() {
+            theme["near"] = json!(near.iter().map(|(i, v, _)| json!({ "root": i, "verses": v })).collect::<Vec<_>>());
+        }
+        themes_json.push(theme);
     }
 
     // --- Layers of meaning -------------------------------------------------------------

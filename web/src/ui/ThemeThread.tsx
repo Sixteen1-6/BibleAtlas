@@ -215,7 +215,7 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
   const root = useRef<HTMLElement>(null);
   const thread: Thread = useMemo(() => themeThread(a, theme), [a, theme]);
   const allCount = useMemo(() => themeLinkCount(a, theme), [a, theme]);
-  const roots = useMemo(() => new Set(theme.roots), [theme]);
+  const roots = useMemo(() => new Set([...theme.roots, ...(theme.near ?? []).map((n) => n.root)]), [theme]);
   const sel = S.selected.value;
   const g = S.groupEdges.value;
   const l = lit.value;

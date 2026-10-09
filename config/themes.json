@@ -1,5 +1,5 @@
 {
-  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover or Christ). `exclude` lists sub-entries to leave out although their gloss matches (seed: semen). `atlas build` fails if any entry matches nothing, or if an exclude names a sub-entry the entry would not include, so a typo cannot silently empty a theme. Shared links name themes by `id`, so ids never change.",
+  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover or Christ). `exclude` lists sub-entries to leave out although their gloss matches (seed: semen). `with` counts an entry only in verses that also hold one of the named words (שָׁבַת 'to cease' where the verse says 'seventh', for God's rest in Genesis 2:2–3). `atlas build` fails if any entry matches nothing, or if an exclude names a sub-entry the entry would not include, so a typo cannot silently empty a theme. Shared links name themes by `id`, so ids never change.",
   "themes": [
     {
       "id": "lamb",
@@ -212,6 +212,7 @@
       "roots": [
         { "strong": "H7676", "match": ["sabbath"], "capitalized": true },
         { "strong": "H7673B", "match": ["keep"] },
+        { "strong": "H7673A", "match": ["cease"], "with": ["H7637"] },
         { "strong": "H4496H", "match": ["resting"] },
         { "strong": "G4521", "match": ["sabbath"], "capitalized": true },
         { "strong": "G2663", "match": ["rest"] },
