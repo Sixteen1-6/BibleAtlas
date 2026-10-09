@@ -967,7 +967,8 @@ fn gloss_groups(block: &str, bold: &[(usize, usize, &str, bool)]) -> Vec<Gloss> 
                 gloss = head.to_string();
             }
         }
-        let ok = gloss_ok(&gloss) && !runs_into_greek(inner, &gloss, after);
+        let ok =
+            gloss_ok(&gloss) && !runs_into_greek(inner, &gloss, after) && !cut_at_number(after);
         // "<b>to be a</b> προφήτης or <b>interpreter</b>": LSJ glosses the
         // Greek word it names, and the two spans are one gloss.
         if let Some(last) = out.last_mut().filter(|l| !l.ok) {
@@ -1271,6 +1272,35 @@ fn runs_into_greek(inner: &str, gloss: &str, after: &str) -> bool {
         && collapse(&decode_entities(&strip_tags(after)))
             .trim_start_matches(is_space)
             .starts_with(is_greek)
+}
+
+/// Does a span stop where TFLSJ made a link of a number in LSJ's gloss? It
+/// is then cut short, and no gloss: the link is only the number ("<b>number
+/// of</b> [<a title=" 10, 000, ">Refs</a>] <b>myriad</b>" for LSJ's "a number
+/// of 10,000, myriad"), or it opens with one written in thousands ("<b>times</b>
+/// [<a title=" 10, 000, 3rd c.AD: Diophantus 5.8">", of "10,000 times
+/// 10,000"), which no reference does.
+fn cut_at_number(after: &str) -> bool {
+    let Some(rest) = after
+        .trim_start_matches(|c: char| is_space(c) || c == '[')
+        .strip_prefix(LINK_HEAD)
+    else {
+        return false;
+    };
+    let title = rest.split('"').next().unwrap_or("").trim_matches(is_space);
+    let only = title.chars().any(|c| c.is_ascii_digit())
+        && title
+            .chars()
+            .all(|c| c.is_ascii_digit() || c == ',' || is_space(c));
+    let lead = title.bytes().take_while(u8::is_ascii_digit).count();
+    let thousands = (1..=3).contains(&lead)
+        && title[lead..].strip_prefix(", ").is_some_and(|r| {
+            let b = r.as_bytes();
+            b.len() >= 3
+                && b[..3].iter().all(u8::is_ascii_digit)
+                && !b.get(3).is_some_and(u8::is_ascii_digit)
+        });
+    only || thousands
 }
 
 /// One or two plain words ("one", "a thing"), the most that can sit inside
@@ -4545,6 +4575,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ("G2411", "holy place", "Herodotus"),
         ("G5234", "exceedingly", "Plato"),
         ("G4139", "near, hard by", "Homer"),
+        // Not LSJ's "a number of 10,000" cut short where TFLSJ made a link of
+        // the number (cut_at_number).
+        ("G3461", "myriad", "Simonides"),
     ] {
         let first = &slot(key)["l"][0];
         out.push((
@@ -5549,6 +5582,37 @@ mod tests {
 
     fn sense(gloss: &str, writer: &str) -> Option<(String, String)> {
         Some((gloss.to_string(), writer.to_string()))
+    }
+
+    #[test]
+    fn a_gloss_cut_short_at_a_number_is_none() {
+        // TFLSJ made a link of the number in LSJ's "a number of 10,000, myriad".
+        let n = lsj_link("Refs", " 10, 000, ");
+        let simon = lsj_link(
+            "Refs 5th c.BC+",
+            " 4th-5th c.BC: Simonides Lyricus 91, 5th c.BC: Herodotus Historicus 2.30",
+        );
+        assert_eq!(
+            first_sense(&format!(
+                "<b> μυριάς</b>, ἡ, :—<b>number of</b> [{n}]<b>myriad</b>, [{simon}]"
+            )),
+            sense("myriad", "Simonides")
+        );
+        // A reference after a gloss is no number of it.
+        for title in [
+            " 5.413 ",
+            " 91, 5th c.BC: Herodotus Historicus 2.30",
+            " 1229 b 3",
+        ] {
+            let l = lsj_link("Refs", title);
+            assert!(!cut_at_number(&format!(" [{l}]")), "{title}");
+        }
+        let times = lsj_link(
+            "Refs 3rd c.AD+",
+            " 10, 000, 3rd c.AD: Diophantus Mathematicus 5.8 ",
+        );
+        assert!(cut_at_number(&format!(" [{n}]")));
+        assert!(cut_at_number(&format!(" [{times}]")));
     }
 
     #[test]
