@@ -139,8 +139,8 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         &mut at,
     )?;
     eprintln!(
-        "word alignment: {} of {} links kept, {} verses; {} of {} source words and {} of {} English words without a partner",
-        at.kept, at.records, at.verses, at.source_unmatched, at.source_total, at.english_unmatched, at.english_total
+        "word alignment: {} of {} links kept, {} verses; {} of {} source words and {} of {} English words without a partner; {} links in {} verses left out because their English positions look shifted",
+        at.kept, at.records, at.verses, at.source_unmatched, at.source_total, at.english_unmatched, at.english_total, at.shifted, at.shifted_verses
     );
 
     // --- Lexicons ---------------------------------------------------------
@@ -407,7 +407,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             "englishWords": eng.words.len(), "versesWithoutOriginalWords": empty_verses,
         },
         "unmapped": { "crossReferences": xt.unmapped, "hebrewWords": ht.unmapped, "greekWords": gt.unmapped },
-        "alignment": { "links": at.kept, "verses": at.verses, "sourceWordsUnmatched": at.source_unmatched, "englishWordsWithoutPartner": at.english_unmatched },
+        "alignment": { "links": at.kept, "verses": at.verses, "sourceWordsUnmatched": at.source_unmatched, "englishWordsWithoutPartner": at.english_unmatched, "shiftedLinksLeftOut": at.shifted, "versesWithShiftedLinks": at.shifted_verses },
         "pagerank": { "damping": PAGERANK_DAMPING, "iterations": PAGERANK_ITERATIONS },
         "lexShard": LEX_SHARD,
         "flags": { "aramaic": FLAG_ARAMAIC, "otherEditionsOnly": FLAG_OTHER_EDITIONS, "variant": FLAG_VARIANT, "significant": FLAG_SIGNIFICANT },

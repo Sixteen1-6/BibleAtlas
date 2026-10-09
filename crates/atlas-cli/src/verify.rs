@@ -147,6 +147,23 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(jn[2]["e"][3].as_i64().is_some_and(|g| g >= 0) && jn[2]["e"][3].as_i64() == group(&jn, 2), "John 3:16 \"loved\" is aligned to ἠγάπησεν");
     let isa = d.verse(d.resolve("Isa 5:30")?.0)?;
     r.check(isa[2]["e"][13].as_i64().is_some_and(|g| g >= 0) && isa[2]["e"][13].as_i64() == group(&isa, 5), "Isaiah 5:30 \"sea\" is aligned to יָם");
+    // Links that name English positions of an older BSB revision are left
+    // out, not shown a word off: δόξαν "glory" never lands on "and" in
+    // Revelation 5:12, nor שֹׁפֵט "Judge" on "of all" in Genesis 18:25.
+    for (verse, key, wrong) in [("Rev 5:12", "G1391", &["and"][..]), ("Gen 18:25", "H8199", &["of", "all"])] {
+        let lemma = d.lemma_index(key).ok_or(format!("no root {key}"))?;
+        let x = d.verse(d.resolve(verse)?.0)?;
+        let mut groups: Vec<i64> = Vec::new();
+        for (i, w) in x[1].as_array().into_iter().flatten().enumerate() {
+            if w[3].as_i64() == Some(lemma as i64) {
+                let g = &x[2]["w"][i];
+                groups.extend(g.as_i64().into_iter().chain(g.as_array().into_iter().flatten().filter_map(|p| p[2].as_i64())).filter(|&g| g >= 0));
+            }
+        }
+        let english = crate::align::english_words(x[0].as_str().unwrap_or(""));
+        let shown: Vec<String> = english.iter().enumerate().filter(|(k, _)| x[2]["e"][*k].as_i64().is_some_and(|g| groups.contains(&g))).map(|(_, w)| w.to_lowercase()).collect();
+        r.check(!shown.iter().any(|w| wrong.contains(&w.as_str())), format!("{verse}: {key} is not aligned to any of {wrong:?} (aligned to {shown:?})"));
+    }
     let aligned = (0..n).filter(|&v| d.verse(v).map(|x| x[2].is_object()).unwrap_or(false)).count();
     r.check(aligned > 30_000, format!("only {aligned} verses have a word alignment"));
 
