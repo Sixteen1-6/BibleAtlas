@@ -12,7 +12,9 @@
 //   Testament names in the King James New Testament ("honour" -> "honor",
 //   "Elias" -> "elijah").
 //
-// Input is the output of `tokens()` (lowercase, apostrophes dropped).
+// Input is the output of `tokens()` (lowercase, apostrophes dropped), with
+// `breaks[i]` set where punctuation stood before word i: "a thousand, and
+// two" (Deuteronomy 32:30, King James) is two numbers, not 1002.
 
 import { COMPOUND_WORDS, SHORT_FORMS, SPELLINGS } from './fold-words';
 
@@ -52,6 +54,8 @@ for (const g of groups(COMPOUND_WORDS, ',')) {
 for (const [short, long] of groups(SHORT_FORMS, ',')) EXPAND.set(short, long.split(' '));
 /** Words a number in words can start with. */
 const STARTS = new Set([...Object.keys(UNITS), ...Object.keys(ORDINALS), ...Object.keys(SCALES), 'a', 'an']);
+/** Number words, for finishing one that is still being typed. */
+export const NUMBER_WORDS = [...STARTS].filter((w) => w.length > 2);
 /** First words of joined forms, to skip the lookup for most words. */
 const FIRSTS = new Set([...COMPOUNDS.keys()].map((k) => k.split(' ')[0]));
 
@@ -80,7 +84,7 @@ const isNumberWord = (w: string | undefined) => !!w && (w in UNITS || (w in ORDI
  * Read a number starting at toks[i]. Returns the value, how many tokens it
  * used and whether it was an ordinal, or null when no number starts there.
  */
-function readNumber(toks: string[], i: number): { value: number; used: number; ordinal: boolean } | null {
+function readNumber(toks: string[], i: number, breaks?: boolean[]): { value: number; used: number; ordinal: boolean } | null {
   const w0 = toks[i];
   const c = w0.charCodeAt(0);
   if (!(c >= 48 && c <= 57) && !STARTS.has(w0)) return null;
@@ -98,8 +102,9 @@ function readNumber(toks: string[], i: number): { value: number; used: number; o
     }
   };
   while (j < toks.length) {
+    if (j > i && breaks?.[j]) break;
     const w = toks[j];
-    const next = toks[j + 1];
+    const next = breaks?.[j + 1] ? undefined : toks[j + 1];
     if (isDigits(w)) {
       // "7,000" arrives as "7", "000"; "144,000" as "144", "000".
       let d = w;
@@ -140,7 +145,7 @@ function readNumber(toks: string[], i: number): { value: number; used: number; o
         // "six hundredth", and King James "six hundredth and first" (601st).
         scale(v);
         j++;
-        if (toks[j] === 'and' && isNumberWord(toks[j + 1]) && toks[j + 1] in ORDINALS) {
+        if (toks[j] === 'and' && !breaks?.[j] && !breaks?.[j + 1] && isNumberWord(toks[j + 1]) && toks[j + 1] in ORDINALS) {
           current += ORDINALS[toks[j + 1]];
           j += 2;
         }
@@ -155,11 +160,9 @@ function readNumber(toks: string[], i: number): { value: number; used: number; o
       break;
     }
     if (w in SCALES) {
-      // A scale starts a number only with a count before it ("seven
-      // thousand", "a thousand") or one after it ("the hundred and forty and
-      // four thousand", Revelation 14:3); "thousand thousands" is no count.
+      // A scale on its own is one of it, as "a hundred" is: "hundred sheep",
+      // "the hundred and forty and four thousand" (Revelation 14:3).
       if (!any) {
-        if (!(isNumberWord(next) || (next === 'and' && isNumberWord(toks[j + 2])))) break;
         current = 1;
         any = true;
       } else if (!current && !total) break;
@@ -176,7 +179,7 @@ function readNumber(toks: string[], i: number): { value: number; used: number; o
     }
     // "two hundred and fifty", "threescore and ten", "five and twenty",
     // "four and twentieth".
-    if (w === 'and' && any && isNumberWord(next) && continues(current, next, true) && !(next === 'one' && toks[j + 2] === 'another')) {
+    if (w === 'and' && any && next && isNumberWord(next) && continues(current, next, true) && !(next === 'one' && toks[j + 2] === 'another')) {
       j++;
       continue;
     }
@@ -201,12 +204,12 @@ export interface Folded {
   to: number;
 }
 
-export function foldSpans(toks: string[]): Folded[] {
+export function foldSpans(toks: string[], breaks?: boolean[]): Folded[] {
   const out: Folded[] = [];
   for (let i = 0; i < toks.length; ) {
     // Joined words first, so "first-born" is "firstborn", not a number.
     const first = SPELL.get(toks[i]) ?? toks[i];
-    if (i + 1 < toks.length && FIRSTS.has(first)) {
+    if (i + 1 < toks.length && FIRSTS.has(first) && !breaks?.[i + 1]) {
       const joined = COMPOUNDS.get(`${first} ${SPELL.get(toks[i + 1]) ?? toks[i + 1]}`);
       if (joined) {
         out.push({ tok: joined, from: i, to: i + 2 });
@@ -214,7 +217,7 @@ export function foldSpans(toks: string[]): Folded[] {
         continue;
       }
     }
-    const n = readNumber(toks, i);
+    const n = readNumber(toks, i, breaks);
     if (n) {
       out.push({ tok: numberToken(n.value, n.ordinal), from: i, to: i + n.used });
       i += n.used;
@@ -227,6 +230,6 @@ export function foldSpans(toks: string[]): Folded[] {
   return out;
 }
 
-export function fold(toks: string[]): string[] {
-  return foldSpans(toks).map((f) => f.tok);
+export function fold(toks: string[], breaks?: boolean[]): string[] {
+  return foldSpans(toks, breaks).map((f) => f.tok);
 }
