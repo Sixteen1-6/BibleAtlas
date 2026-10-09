@@ -77,6 +77,22 @@
 
 /* ------------------------------------------------------------ the walk */
 
+.xt-body .x-wordplay-where {
+  margin: 0 0 6px;
+}
+.x-wordplay-go {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 14px var(--font-ui);
+  color: var(--link);
+  cursor: pointer;
+}
+.x-wordplay-go:hover,
+.x-wordplay-go:focus-visible {
+  text-decoration: underline;
+}
+
 .x-wordplay-walk {
   display: flex;
   align-items: center;
@@ -118,6 +134,7 @@
 }
 .x-wordplay-grid li {
   display: grid;
+  align-content: start;
   justify-items: center;
 }
 .x-wordplay-grid button {

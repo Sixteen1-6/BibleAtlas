@@ -1,5 +1,6 @@
-//! Wordplay: the alphabet poems of the Hebrew Bible, where each part starts
-//! with the next letter from aleph to tav. Every letter listed below is
+//! Wordplay: the main alphabet poems of the Hebrew Bible, where each part
+//! starts with the next letter from aleph to tav. (Psalms 9 and 10 and Nahum 1
+//! keep only parts of the pattern, so they are left out.) Every letter listed below is
 //! checked against the first letter of the named word in STEPBible's TAHOT
 //! (CC BY 4.0, already a source), so a typo or a shifted verse stops the
 //! build. The plays on words themselves come from the reviewed layers in
@@ -43,30 +44,42 @@ struct Poem {
     note: &'static str,
 }
 
-const POEMS: [Poem; 10] = [
+const POEMS: [Poem; 12] = [
     Poem {
         chapter: "Psalms 25",
         layout: Layout::Listed("1.1=א 2.1=ב 3=ג 4=ד 5=ה 6=ז 7=ח 8=ט 9=י 10=כ 11=ל 12=מ 13=נ 14=ס 15=ע 16=פ 17=צ 18=ר 19=ר* 20=ש 21=ת 22=פ*"),
-        line: "An alphabet poem: each verse starts with the next Hebrew letter",
+        line: "An alphabet poem: its verses start with the Hebrew letters in order",
         note: "There is no line for vav or qof. Verses 18 and 19 both start with resh, and a last line, verse 22, starts with pe, outside the alphabet. In verse 2 the letter starts the second word.",
     },
     Poem {
         chapter: "Psalms 34",
         layout: Layout::Listed("1.8=א 2=ב 3=ג 4=ד 5=ה 6=ז 7=ח 8=ט 9=י 10=כ 11=ל 12=מ 13=נ 14=ס 15=ע 16=פ 17=צ 18=ק 19=ר 20=ש 21=ת 22=פ*"),
-        line: "An alphabet poem: each verse starts with the next Hebrew letter",
+        line: "An alphabet poem: its verses start with the Hebrew letters in order",
         note: "There is no line for vav, and a last line, verse 22, starts with pe, outside the alphabet, as in Psalm 25. Verse 1 starts after the psalm's title.",
     },
     Poem {
         chapter: "Psalms 37",
         layout: Layout::Listed("1.1=א 3=ב 5=ג 7=ד 8=ה 10=ו 12=ז 14=ח 16=ט 18=י 20=כ 21=ל 23=מ 25=נ 27=ס 30=פ 32=צ 34=ק 35=ר 37=ש 39=ת+"),
-        line: "An alphabet poem: about every two verses start a new Hebrew letter",
+        line: "An alphabet poem: a new Hebrew letter starts about every two verses",
         note: "There is no clear line for ayin, and the line for tav starts after the word \"and\".",
+    },
+    Poem {
+        chapter: "Psalms 111",
+        layout: Layout::Listed("1.2=א 1.6=ב 2=ג 2.3=ד 3=ה 3.3=ו 4=ז 4.3=ח 5=ט 5.3=י 6=כ 6.4=ל 7=מ 7.4=נ 8=ס 8.3=ע 9=פ 9.3=צ 9.6=ק 10=ר 10.4=ש 10.8=ת"),
+        line: "An alphabet poem: each half-line starts with the next Hebrew letter",
+        note: "After the opening \"Hallelujah,\" each half of a line starts with the next letter: two to a verse, and three in verses 9 and 10. Psalm 112 is built the same way.",
+    },
+    Poem {
+        chapter: "Psalms 112",
+        layout: Layout::Listed("1.2=א 1.7=ב 2=ג 2.4=ד 3=ה 3.3=ו 4=ז 4.4=ח 5=ט 5.4=י 6=כ 6.4=ל 7=מ 7.4=נ 8=ס 8.4=ע 9=פ 9.3=צ 9.6=ק 10=ר 10.3=ש 10.6=ת"),
+        line: "An alphabet poem: each half-line starts with the next Hebrew letter",
+        note: "Built like Psalm 111, its twin: after the opening \"Hallelujah,\" each half of a line starts with the next letter, three to a verse in verses 9 and 10. Psalm 111 praises what God does; Psalm 112, the person who fears Him.",
     },
     Poem {
         chapter: "Psalms 119",
         layout: Layout::Regular { from: 1, step: 8, pe_first: false },
-        line: "An alphabet poem: every 8 verses start with the next Hebrew letter",
-        note: "All eight verses of each part start with that part's letter, so the poem runs from aleph to tav eight times over.",
+        line: "An alphabet poem in 22 parts of 8 verses, from aleph to tav",
+        note: "All eight verses of each part start with that part's letter. The alphabet runs once, eight lines to a letter, 176 verses in all.",
     },
     Poem {
         chapter: "Psalms 145",
@@ -95,7 +108,7 @@ const POEMS: [Poem; 10] = [
     Poem {
         chapter: "Lamentations 3",
         layout: Layout::Regular { from: 1, step: 3, pe_first: true },
-        line: "An alphabet poem: every 3 verses start with the next Hebrew letter",
+        line: "An alphabet poem in 22 parts of 3 verses, from aleph to tav",
         note: "All three verses of each part start with that part's letter. Pe comes before ayin, as in chapters 2 and 4.",
     },
     Poem {
@@ -175,6 +188,9 @@ fn parts(layout: &Layout, verses_in_chapter: u32) -> Result<Vec<Part>, String> {
                 let v: u32 = v
                     .parse()
                     .map_err(|_| format!("{tok:?}: bad verse number"))?;
+                if v == 0 || v > verses_in_chapter {
+                    return Err(format!("{tok:?}: verse {v} is not in the chapter"));
+                }
                 let mut chars = rest.chars();
                 let letter = chars
                     .next()
@@ -369,5 +385,8 @@ mod tests {
         );
         assert!(parts(&Layout::Listed("3=x"), 10).is_err());
         assert!(parts(&Layout::Listed("3=א?"), 10).is_err());
+        // A verse outside the chapter would check a verse of the next or last one.
+        assert!(parts(&Layout::Listed("23=ל"), 22).is_err());
+        assert!(parts(&Layout::Listed("0=מ"), 22).is_err());
     }
 }

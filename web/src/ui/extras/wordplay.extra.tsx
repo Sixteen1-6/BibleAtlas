@@ -2,11 +2,14 @@
 // meaning, and the alphabet poems, where each part starts with the next
 // Hebrew letter.
 //
-// The line, under a verse it applies to:
+// The line, under a verse that holds the words (words in this verse first):
 //   "A play on words: adam and adamah"            (Genesis 2:7, 2:5, 3:19)
-//   "What a name means: Jacob"                    (a name-meaning layer)
+//   "What a name means: Levi"                     (Genesis 29:34)
 // and under the chapter heading of an alphabet poem:
-//   "An alphabet poem: every 8 verses start with the next Hebrew letter" (Psalm 119)
+//   "An alphabet poem in 22 parts of 8 verses, from aleph to tav" (Psalm 119)
+//
+// Its order puts it after the quotations, Aramaic, parallels and places, so a
+// more specific line keeps its place when a verse has several.
 //
 // The plays come from the reviewed layers in layers.json, so a draft never
 // shows on the live site. The alphabet poems are checked letter by letter
@@ -16,6 +19,7 @@
 import './wordplay.css';
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import { readerHere } from './first-move';
 import { type ChapterPanelProps, type PanelProps, defineExtra } from './types';
 import { type Data, chapterKey, load } from './wordplay/model';
 
@@ -62,9 +66,12 @@ function ChapterPanel(props: ChapterPanelProps<Data>) {
 
 export default defineExtra<Data>({
   id: 'wordplay',
-  order: 12,
+  order: 35,
   title: 'Wordplay',
-  load,
+  async load(a) {
+    await readerHere('wordplay');
+    return load(a);
+  },
   note(verse, d) {
     return d.lines.get(verse) ?? null;
   },

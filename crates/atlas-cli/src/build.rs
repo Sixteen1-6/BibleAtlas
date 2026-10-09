@@ -356,12 +356,12 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         "origin": origin,
     });
     write(out, "lemmas.json", serde_json::to_string(&lemmas_json).unwrap().as_bytes(), &mut files)?;
+    for (rel, bytes) in crate::extra_wordplay::build(&vz, &words)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
-    for (rel, bytes) in crate::extra_wordplay::build(&vz, &words)? { write(out, &rel, &bytes, &mut files)?; }
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {
