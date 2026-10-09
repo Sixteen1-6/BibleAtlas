@@ -99,6 +99,19 @@
    the gold echoes, so they are hidden while the echoes are drawn. */
 .map:has(> canvas.ws-sky) > .tip,
 .map:has(> canvas.ws-sky) .hoverarc,
+.map:has(> canvas.ws-sky) .kindarc,
 .map:has(> canvas.ws-sky) > svg.overlay > g > g:has(> .nodelabel) {
   display: none;
+}
+
+/* An echo that a cross-reference already joins to the verse. */
+.ws-known {
+  margin-left: 6px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 500 11px/16px var(--font-ui);
+  white-space: nowrap;
+  vertical-align: 1px;
 }

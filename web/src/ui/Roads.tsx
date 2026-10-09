@@ -8,13 +8,11 @@ import { type Atlas, label } from '../data/atlas';
 import type { PathResult } from '../engine/client';
 import { BASELINE, arcHeight, arcPath, verseX } from '../gl/layout';
 import * as S from '../state';
-import { SKY } from './colors';
+import { ROAD_GOLD, SKY } from './colors';
 import './roads.css';
 
 export type Road = PathResult & { ms: number };
 
-/** Roads 1, 2 and 3: pale gold, the lamp's gold, amber. */
-const GOLD = ['#ffe3a3', '#ffd27a', '#ffb36b'];
 const MAX_ROADS = 3;
 const COUNT_WORDS = ['No', 'One', 'Two', 'Three'];
 
@@ -371,7 +369,7 @@ function RoadCard({ a, road, i, checked, tabbable }: { a: Atlas; road: Road; i: 
       onPointerMove={(e) => e.pointerType === 'mouse' && preview(i)}
       onPointerLeave={(e) => e.pointerType === 'mouse' && preview(null)}
     >
-      <NightStrip a={a} road={road} color={GOLD[i % GOLD.length]} />
+      <NightStrip a={a} road={road} color={ROAD_GOLD[i % ROAD_GOLD.length]} />
       <span class="roads-text">
         <b class="roads-via">{via === null ? name : <ViaLabel text={label(a, via)} />}</b>
         <span class="roads-meta">
