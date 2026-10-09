@@ -21,6 +21,8 @@ export interface DateSource {
   label: string;
   quote?: string;
   cite?: Cite;
+  /** A sentence of the era's own section that qualifies this year; the year is then approximate. */
+  hedge?: string;
 }
 
 export interface DatedView {
@@ -40,6 +42,8 @@ export interface DatedView {
   prefersQuote?: string;
   quote: string;
   cite: Cite;
+  /** Book views only: the chapters the view is about, as [first, last] pairs. Absent: the whole book. */
+  chapters?: [number, number][];
 }
 
 export interface Era {
@@ -178,28 +182,68 @@ export function shownLabel(v: DatedView): string {
   return label;
 }
 
+/** Whether a book's view is about this chapter: it names no chapters, or names this one. */
+export function appliesTo(v: DatedView, chapter: number): boolean {
+  return !v.chapters || v.chapters.some(([a, b]) => a <= chapter && chapter <= b);
+}
+
+/** A book's views of one chapter, in display order, and the views it gives other chapters. */
+export function viewsFor(d: BookDates, chapter: number): { here: DatedView[]; elsewhere: DatedView[] } {
+  const here: DatedView[] = [];
+  const elsewhere: DatedView[] = [];
+  for (const v of d.written) (appliesTo(v, chapter) ? here : elsewhere).push(v);
+  return { here, elsewhere };
+}
+
 /** Longest "A or B" the line joins before it shows only the first view. */
 const JOIN_MAX = 50;
+/** Longest join of two dated views when the dictionary prefers neither. */
+const LONG_MAX = 72;
+
+const dated = (v: DatedView) => v.from !== undefined || v.to !== undefined;
 
 /**
- * The Written part of the chapter line: the preferred (or first) view, a
- * second one joined with "or" when it is short, and "(N views)" when the line
- * shows fewer than all of them.
+ * A label as the line shows it: an aside in parentheses that holds no year is
+ * left for More ("before AD 70 (before his last teaching was forgotten) and
+ * after AD 60" reads "before AD 70 and after AD 60").
  */
-export function writtenSummary(d: BookDates): string {
-  const w = d.written;
+export function lineLabel(v: DatedView): string {
+  return shownLabel(v)
+    .replace(/\s*\([^()]*\)/g, (m) => (/\d/.test(m) ? m : ''))
+    .trim();
+}
+
+/** A label without the years in parentheses at its end: "shortly after the reign of Nero (AD 54–68)". */
+function withoutTail(label: string): string {
+  return label.replace(/\s*\([^()]*\)\s*$/, '');
+}
+
+/**
+ * The Written part of a chapter's line, from the views that are about that
+ * chapter: the preferred (or first) one, a second one joined with "or" when
+ * the two are short, and "(N views)" when the line shows fewer than all of
+ * them. When the dictionary prefers neither of two dated views, both are
+ * named even when long, without their parenthesized years, so that neither
+ * reads as settled. Empty when no view is about the chapter.
+ */
+export function writtenSummary(d: BookDates, chapter: number): string {
+  const w = viewsFor(d, chapter).here;
   const n = w.length;
   let text = '';
   let shown = 1;
   if (!n) return '';
   if (w[0].undated) text = 'date uncertain';
   else {
-    text = shownLabel(w[0]);
+    text = lineLabel(w[0]);
     const second = w[1];
     if (second && !second.undated) {
-      const joint = d.stages ? (n === 2 && w[0].from !== undefined && second.from !== undefined ? ' to ' : null) : ' or ';
-      const joined = joint ? text + joint + shownLabel(second) : '';
-      if (joint && joined.length <= JOIN_MAX) {
+      const next = lineLabel(second);
+      let joined: string | null = null;
+      if (d.stages) {
+        if (n === 2 && w[0].from !== undefined && second.from !== undefined) joined = `${text} to ${next}`;
+      } else if (`${text} or ${next}`.length <= JOIN_MAX) joined = `${text} or ${next}`;
+      else if (!w.some((v) => v.prefers) && dated(w[0]) && dated(second)) joined = `${withoutTail(text)} or ${withoutTail(next)}`;
+      if (joined && joined.length <= (d.stages ? JOIN_MAX : LONG_MAX)) {
         text = joined;
         shown = 2;
       }
@@ -208,10 +252,14 @@ export function writtenSummary(d: BookDates): string {
   return n > shown ? `${text} (${n} views)` : text;
 }
 
+/** Whether an era's years can stand beside its name: no other view of them, no hedge, no number in the name. */
+export function settledYears(e: Era): boolean {
+  return !e.views?.length && !e.approx && e.from !== undefined && e.to !== undefined && !/\d/.test(e.name);
+}
+
 /** The When part of the line: the era's name, with its years only when they are not in question. */
 export function eraSummary(e: Era): string {
-  const settled = !e.views?.length && e.from !== undefined && e.to !== undefined && !/\d/.test(e.name);
-  return settled ? `${e.name} (${formatYears(e.from!, e.to!)})` : e.name;
+  return settledYears(e) ? `${e.name} (${formatYears(e.from!, e.to!)})` : e.name;
 }
 
 /** A quotation as shown: an ellipsis where it starts or stops mid-sentence. */

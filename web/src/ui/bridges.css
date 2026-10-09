@@ -63,6 +63,12 @@
   text-underline-offset: 2px;
   white-space: nowrap;
 }
+/* The negative margins above would push the focus ring over the line
+   above, so draw it inside the button. */
+.br-more:focus-visible {
+  outline-offset: -2px;
+  border-radius: 4px;
+}
 .br-deep {
   margin-top: 10px;
   padding-left: 10px;

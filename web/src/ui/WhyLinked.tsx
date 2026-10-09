@@ -1,6 +1,9 @@
-// Why a link between the testaments holds together at the level of the words:
-// a Hebrew word of the Old Testament verse that the Greek Old Testament (the
-// Septuagint) translates with a Greek word the New Testament verse uses.
+// Why a link between the testaments may hold together at the level of the
+// words: a Hebrew word of the Old Testament verse that the Greek Old Testament
+// (the Septuagint) sometimes translates with a Greek word the New Testament
+// verse uses. The pairs come from a lexicon's list of how the Septuagint
+// translates a word anywhere, not from this verse, so the wording never says
+// that this verse is translated so.
 //
 // Simple first: the rarest bridge as two word chips joined by a small arc of
 // light, and one plain sentence. The other bridges, what the Septuagint is and
@@ -53,7 +56,7 @@ function Hebrew({ a, root }: { a: Atlas; root: number }) {
 function Pair({ a, b }: { a: Atlas; b: Bridge }) {
   const L = a.lemmas;
   return (
-    <div class="br-pair" role="group" aria-label={`Word bridge: ${L.gloss[b.hebrew]} in Hebrew, ${L.gloss[b.greek]} in Greek`}>
+    <div class="br-pair" role="group" aria-label={`Word bridge: ${L.gloss[b.hebrew]} in ${L.lang[b.hebrew] === 'A' ? 'Aramaic' : 'Hebrew'}, ${L.gloss[b.greek]} in Greek`}>
       <RootChip a={a} root={b.hebrew} />
       <svg class="br-arc" viewBox="0 0 34 16" aria-hidden="true">
         <path d="M3 14 C 9 1, 25 1, 31 14" />
@@ -99,7 +102,7 @@ export function WhyLinked({ a, from, to, fromRow, toRow }: { a: Atlas; from: num
     <div class="br" onClickCapture={onChipClick} onClick={(e) => e.stopPropagation()}>
       <Pair a={a} b={first} />
       <p class="br-says">
-        The Greek Old Testament (the Septuagint) uses <Greek a={a} root={first.greek} /> for <Hebrew a={a} root={first.hebrew} />.{' '}
+        In the Greek Old Testament (the Septuagint), <Hebrew a={a} root={first.hebrew} /> is sometimes translated <Greek a={a} root={first.greek} />.{' '}
         <button class="br-more" aria-expanded={open} aria-controls={id} onClick={() => setOpen(!open)}>
           {toggle}
         </button>
@@ -110,13 +113,14 @@ export function WhyLinked({ a, from, to, fromRow, toRow }: { a: Atlas; from: num
             <div key={`${b.greek}-${b.hebrew}`} class="br-item">
               <Pair a={a} b={b} />
               <p class="br-says">
-                The Septuagint also uses <Greek a={a} root={b.greek} /> for <Hebrew a={a} root={b.hebrew} />.
+                The Septuagint sometimes translates <Hebrew a={a} root={b.hebrew} /> as <Greek a={a} root={b.greek} /> too.
               </p>
             </div>
           ))}
           <p class="br-note">
-            The Septuagint is the ancient Greek translation of the Old Testament. A word bridge pairs a Hebrew word of the Old Testament verse with the Greek word the Septuagint uses for it, when the New
-            Testament verse has that Greek word too. Tap a word for its full lexicon entry, with the verses Abbott-Smith cites.
+            The Septuagint is the ancient Greek translation of the Old Testament. Abbott-Smith’s lexicon lists the Hebrew words it translates with each Greek word. A bridge appears when this Old
+            Testament verse has the Hebrew word and the New Testament verse has the Greek one. The Septuagint’s own wording of this verse may differ, and some matches are coincidences. Tap the Greek
+            word for Abbott-Smith’s entry and the verses it cites.
           </p>
           <div class="br-prov">
             <Provenance>Word bridges: Abbott-Smith’s notes on Septuagint usage, in STEPBible’s TBESG (CC BY 4.0).</Provenance>

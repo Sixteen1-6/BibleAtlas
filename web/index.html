@@ -18,9 +18,10 @@
     <link rel="apple-touch-icon" href="%BASE_URL%icons/apple-touch-180.png" />
     <link rel="manifest" href="%BASE_URL%manifest.webmanifest" />
     <script>
-      // Before the first paint: use the page theme the app saved, so the sky
-      // below matches it. If the app has not started after 15 seconds, or its
-      // script fails to load, say so under the title.
+      // Before the first paint: use the page theme the app saved, so the
+      // reading panes open in it. If the app has not started after 15 seconds,
+      // or its script fails to load or stops on an error before drawing
+      // anything, say so under the title.
       (function () {
         try {
           var t = localStorage.getItem('atlas.theme');
@@ -33,56 +34,17 @@
         }
         setTimeout(stalled, 15000);
         addEventListener('error', function (e) {
-          if (e.target && e.target.tagName === 'SCRIPT') stalled();
+          if (e.target === window || (e.target && e.target.tagName === 'SCRIPT')) stalled();
         }, true);
       })();
     </script>
     <style>
       /* The boot sky: what a visitor sees before the app's script has run.
-         Paper by day, the night sky otherwise, following the same rules as
-         styles.css. src/arrival.css styles the app's own loading screen to
+         The night sky in every theme, because the map it hands over to is
+         always night (styles.css --sky); the page theme only changes the
+         reading panes. src/arrival.css styles the app's own loading screen to
          match, and fades this out once the atlas has loaded. */
       :root {
-        --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(232, 180, 76, 0.2), rgba(232, 180, 76, 0) 72%),
-          linear-gradient(180deg, #fbf8f2 0%, #f7f2e8 50%, #f1eadc 80%, #f4efe4 100%);
-        --arr-ink: #1c1f30;
-        --arr-muted: #625f72;
-        --arr-title: linear-gradient(90deg, #6e4108, #9a5a06 45%, #b4560f);
-        --arr-k: 0.62;
-        --arr-band: 0.5;
-        --arr-gold: #c08a2a;
-        --arr-spark: #9a5a06;
-        --arr-teal: #13a88b;
-        --arr-red: #d4505f;
-        --arr-orange: #d7782f;
-        --arr-yellow: #b8901c;
-        --arr-green: #4e9b45;
-        --arr-blue: #4169d8;
-        --arr-violet: #7656d6;
-        --arr-pink: #b04fc6;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root:not([data-theme='light']) {
-          --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(42, 35, 80, 0.9), rgba(42, 35, 80, 0) 72%),
-            linear-gradient(180deg, #04060e 0%, #060914 38%, #0b1028 70%, #0e1430 80%, #080c1d 100%);
-          --arr-ink: #f3eee2;
-          --arr-muted: #949cbd;
-          --arr-title: linear-gradient(90deg, #ffe3a3, #ffd27a 45%, #ffb36b);
-          --arr-k: 1;
-          --arr-band: 0.8;
-          --arr-gold: #ffd27a;
-          --arr-spark: #fff1c9;
-          --arr-teal: #2fd6c5;
-          --arr-red: #ff5f6d;
-          --arr-orange: #ff9a4a;
-          --arr-yellow: #ffd34e;
-          --arr-green: #8be36f;
-          --arr-blue: #4b9bff;
-          --arr-violet: #8c6dff;
-          --arr-pink: #e86bff;
-        }
-      }
-      :root[data-theme='dark'] {
         --arr-sky: radial-gradient(ellipse 80% 40% at 50% 80%, rgba(42, 35, 80, 0.9), rgba(42, 35, 80, 0) 72%),
           linear-gradient(180deg, #04060e 0%, #060914 38%, #0b1028 70%, #0e1430 80%, #080c1d 100%);
         --arr-ink: #f3eee2;
@@ -171,6 +133,11 @@
         min-height: 1.45em;
         font: 14px / 1.45 'Instrument Sans', system-ui, sans-serif;
         color: var(--arr-muted);
+      }
+      /* One line's height, so the block (and the title above) stays put on a
+         narrow phone; a second line flows on below. */
+      .arr-overlay p {
+        height: 1.45em;
       }
       .arr-ghost {
         visibility: hidden;

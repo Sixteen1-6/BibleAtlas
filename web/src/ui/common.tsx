@@ -36,7 +36,7 @@ export function OrigLine({ a, v, row, mark }: { a: Atlas; v: number; row: VerseR
         .filter((w) => !(w[5] & FLAG.otherEditions))
         .map((w, i) => (
           <span key={i}>
-            <button class={`w${mark?.has(w[3]) ? ' shared' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, row[1].indexOf(w))} title={`${w[1]} · ${w[2]}`}>
+            <button class={`w${mark?.has(w[3]) ? ' shared' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, row[1].indexOf(w))} title={`${w[1]} · ${w[2]}`}>
               {w[0]}
             </button>{' '}
           </span>
@@ -58,7 +58,7 @@ export function RootChip({ a, root }: { a: Atlas; root: number }) {
   const L = a.lemmas;
   const lang = L.lang[root];
   return (
-    <button class="chip" onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${langName(L, root)} ${L.key[root]}, ${L.count[root]} occurrences`}>
+    <button class="chip" data-lr={root} onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${langName(L, root)} ${L.key[root]}, ${L.count[root]} occurrences`}>
       <span class={`o ${lang === 'G' ? 'gr' : 'he'}`}>{L.word[root]}</span>
       <span>{L.gloss[root]}</span>
     </button>

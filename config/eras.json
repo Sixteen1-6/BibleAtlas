@@ -105,7 +105,8 @@
       "quote": "After the Romans took over Palestine, Hyrcanus II was confirmed as high priest and was also appointed as ethnarch or political ruler (63–40 BC)." },
 
     { "id": "jesus-life", "name": "Chronology of Jesus’ Life", "article": "ChronologyoftheBibleNewTestament", "heading": "Chronology of Jesus’ Life",
-      "from": { "event": "Christ’s birth" }, "to": { "event": "Christ is crucified, resurrected, and enthroned" },
+      "from": { "event": "Christ’s birth", "hedge": "A reasonable conclusion is that Jesus was born about 7 or 6 BC." },
+      "to": { "event": "Christ is crucified, resurrected, and enthroned", "hedge": "Thus Jesus was probably crucified in 29 or 30" },
       "quote": "Thus Jesus was probably crucified in 29 or 30, his public ministry lasted two or three years, and he was 35 or 36 years old when he died." },
 
     { "id": "ad30-50", "name": "Events from AD 30 to 50", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 30 to 50",
@@ -120,8 +121,10 @@
   "ranges": [
     { "book": "Gen", "from": 1, "to": 11, "era": "prepatriarchal", "article": "ChronologyoftheBibleOldTestament", "heading": "Prepatriarchal Period",
       "quote": "In the first 11 chapters of Genesis are found accounts of the Creation (chs 1–2), the fall (ch 3), Cain and Abel (ch 4), the Flood (chs 6–9), and the Tower of Babel (ch 11)." },
-    { "book": "Gen", "from": 12, "to": 50, "era": "patriarchal", "article": "PatriarchsPeriodofthe",
+    { "book": "Gen", "from": 12, "to": 46, "era": "patriarchal", "article": "PatriarchsPeriodofthe",
       "quote": "However, the word in the narrower sense usually refers to Abraham, Isaac, and Jacob (chs 12–36), with the addition of Joseph (chs 37–50)." },
+    { "book": "Gen", "from": 47, "to": 50, "era": "sojourn", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
+      "quote": "The Hebrews settled in Goshen, in the eastern delta region, under the protecting care of Joseph, who held a position at the Egyptian court roughly equivalent to that of prime minister." },
 
     { "book": "Exod", "from": 1, "to": 6, "era": "sojourn", "article": "IsraelHistoryof", "heading": "Sojourn in Egypt",
       "quote": "The Egyptians continued to oppress the Hebrew people severely until they cried urgently to God for deliverance. In response, God confronted Moses in the famous burning bush experience and called on him to return to Egypt and lead the people back into the land of Canaan (Ex 3–4)." },
@@ -186,7 +189,9 @@
       "quote": "At first Sennacherib was too preoccupied to attend to Judah, but finally in 701 he invaded. Despite tremendous initial success, he was stopped by a divinely sent plague (Is 36–39)." },
     { "book": "Jer", "from": 1, "to": 38, "era": "judah-after", "article": "IsraelHistoryof", "heading": "The Divided Kingdom",
       "quote": "It is certain that Jeremiah and Zephaniah ministered during Josiah’s reign, as did Nahum and Habakkuk (in all probability)." },
-    { "book": "Jer", "from": 45, "to": 51, "era": "judah-after", "article": "JeremiahBookof", "heading": "Date",
+    { "book": "Jer", "from": 45, "to": 45, "era": "judah-after", "article": "JeremiahBookof", "heading": "Outline and Content",
+      "quote": "The message to Baruch (ch 45), written about 605 BC, is placed here to round out the main part of the book, which begins with the commission to “break down” and “pluck up” (1:10) and concludes with the same Hebrew words (45:4)." },
+    { "book": "Jer", "from": 46, "to": 51, "era": "judah-after", "article": "JeremiahBookof", "heading": "Date",
       "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." },
     { "book": "Ezek", "from": 1, "to": 24, "era": "judah-after", "article": "EzekielBookof", "heading": "Content",
       "quote": "Chapters 1–24 cover the pre-586 ministry of Ezekiel, whereas chapters 33–48 represent his post-586 ministry." },
@@ -236,8 +241,6 @@
 
     { "book": "Acts", "from": 1, "to": 15, "era": "ad30-50", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 30 to 50",
       "quote": "After that, events of the early chapters of Acts are hard to date because no precise statements are made about the amount of time between various events." },
-    { "book": "Jas", "from": 1, "to": 5, "era": "ad30-50", "article": "JamesLetterof", "heading": "Date, Origin, and Destination",
-      "quote": "Thus, James should be dated AD 45–49." },
 
     { "book": "Acts", "from": 16, "to": 18, "era": "ad50-70", "article": "ActsoftheApostlesBookofthe", "heading": "Background and Content",
       "quote": "The deliberation of the Jerusalem Council about differences between Jewish and gentile Christians (ch 15) can be dated in the year AD 48. It was followed by Paul’s second missionary journey, which led him through the already evangelized territory of his native Cilicia, Galatia, and through Troas on the Aegean coast to Macedonia and down into Achaia, the Greek Peninsula (15:40–18:22)." },
@@ -255,16 +258,8 @@
       "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." },
     { "book": "Phil", "from": 1, "to": 4, "era": "ad50-70", "article": "PhilippiansLettertothe", "heading": "Date and Origin",
       "quote": "The most likely possibility is Rome, in which case the date would be around AD 62." },
-    { "book": "Col", "from": 1, "to": 4, "era": "ad50-70", "article": "ColossiansLettertothe", "heading": "Date, Origin, and Destination",
-      "quote": "But the general consensus is that all the Prison Epistles were written in Rome, thus leading to AD 60–62 as the date of Colossians." },
     { "book": "Phlm", "from": 1, "to": 1, "era": "ad50-70", "article": "EphesiansLettertothe", "heading": "Date and Origin",
-      "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." },
-    { "book": "2Tim", "from": 1, "to": 4, "era": "ad50-70", "article": "ChronologyoftheBibleNewTestament", "heading": "Events from AD 50 to 70",
-      "quote": "Written from Rome shortly before Paul’s martyrdom in 64, 2 Timothy was probably his last letter (2 Tm 2:9; 4:6)." },
-    { "book": "1Pet", "from": 1, "to": 5, "era": "ad50-70", "article": "PeterFirstLetterof", "heading": "Destination, Origin, Date",
-      "quote": "The date of 1 Peter is probably AD 64 or 65" },
-    { "book": "2Pet", "from": 1, "to": 3, "era": "ad50-70", "article": "PeterSecondLetterof", "heading": "Date, Origin, Destination",
-      "quote": "If that is so, this work was probably written in Rome before AD 70 (before his last teaching was forgotten) and after AD 60 (the earliest date when Peter might have known Paul’s letters)." }
+      "quote": "It is possible that Paul wrote some letters at that time, but most scholars think that Ephesians (along with Colossians, Philemon, and probably Philippians) was written during Paul’s imprisonment at Rome (28:16, 30). This probably took place sometime between AD 59 and 63 and lasted for two years." }
   ],
 
   "books": {
@@ -277,13 +272,19 @@
         "quote": "the liberal view of the date of Genesis would be from the ninth to the fifth centuries BC, with the final editing coming around the fifth century or perhaps even later." } ] },
     "Exod": { "article": "ExodusBookof", "written": [
       { "who": "the traditional view", "label": "in the time of Moses", "heading": "Date",
-        "quote": "If one accepts the traditional view that Moses wrote Exodus, then the book is to be dated in the time of Moses." } ] },
+        "quote": "If one accepts the traditional view that Moses wrote Exodus, then the book is to be dated in the time of Moses." },
+      { "who": "Some critics", "label": "centuries after Moses’ death", "heading": "Author",
+        "quote": "Some critics think they detect in the book several documents from various periods in Israel’s history that were finally put together by an editor centuries after Moses’ death." } ] },
     "Lev": { "article": "LeviticusBookof", "written": [
       { "label": "one year later than the exodus", "heading": "Date",
-        "quote": "Dates at the end of the 15th century BC or early in the 13th century are put forward by different scholars. Whichever view is adopted, the origin of Leviticus must be one year later than the exodus." } ] },
+        "quote": "Dates at the end of the 15th century BC or early in the 13th century are put forward by different scholars. Whichever view is adopted, the origin of Leviticus must be one year later than the exodus." },
+      { "who": "the common critical view", "label": "nearly a thousand years after Moses", "heading": "Author",
+        "quote": "It may be that Leviticus was not put into writing as soon as it was revealed, but there is little to commend the common critical view that it was composed nearly a thousand years after Moses." } ] },
     "Num": { "article": "NumbersBookof", "written": [
-      { "label": "15th-century BC", "heading": "Author",
-        "quote": "Although discrepancies in the Pentateuch were widely and openly acknowledged, nevertheless Moses, the 15th-century BC lawgiver, was affirmed as the primary author of the Pentateuchal literature." } ] },
+      { "who": "This time-honored tradition", "label": "15th-century BC", "heading": "Author",
+        "quote": "Although discrepancies in the Pentateuch were widely and openly acknowledged, nevertheless Moses, the 15th-century BC lawgiver, was affirmed as the primary author of the Pentateuchal literature." },
+      { "undated": true, "heading": "Author",
+        "quote": "Until the appearance of the higher-critical documentary theories of the 19th century, the Mosaic authorship of the Pentateuch was almost universally held by both Jews and Christians alike." } ] },
     "Deut": { "article": "DeuteronomyBookof", "written": [
       { "who": "Those who consider Moses the author", "label": "14th or 13th century BC", "heading": "Date and Authorship",
         "quote": "Those who consider Moses the author date the book in the 14th or 13th century BC." },
@@ -314,12 +315,17 @@
         "quote": "The author’s selection of his data to answer the burning theological questions of the exilic community also suggests a date between 561 and 539 BC." } ] },
     "1Chr": { "article": "ChroniclesBooksofFirstandSecond", "written": [
       { "label": "Around 400 BC", "heading": "Date",
-        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." } ] },
+        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." },
+      { "undated": true, "heading": "Author",
+        "quote": "Although many scholars defend the view that Ezra wrote Chronicles, there is still no general agreement about the date and authorship of the book." } ] },
     "2Chr": { "article": "ChroniclesBooksofFirstandSecond", "written": [
       { "label": "Around 400 BC", "heading": "Date",
-        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." } ] },
+        "quote": "Around 400 BC is probably the best estimate for the date of Chronicles, based on evidence now available." },
+      { "undated": true, "heading": "Author",
+        "quote": "Although many scholars defend the view that Ezra wrote Chronicles, there is still no general agreement about the date and authorship of the book." } ] },
     "Ezra": { "article": "EzraBookof", "written": [
-      { "who": "The traditional position", "label": "458 BC", "heading": "Date",
+      { "who": "The traditional position", "label": "458 BC", "heading": "Date", "prefers": true,
+        "prefersQuote": "The traditional position thus furnishes a reasonable date for the book of Ezra.",
         "quote": "Traditionally, the Artaxerxes in Ezra 7:1 has been identified with Artaxerxes I Longimanus. Ezra’s arrival in Jerusalem would thus have been in 458 BC (see nlt mg for 7:8)." },
       { "who": "One alternative", "label": "404–359 BC", "heading": "Date",
         "quote": "One alternative is to place Nehemiah during the reign of Artaxerxes I (464–424 BC) and Ezra at a later date, in the reign of Artaxerxes II Mnemon (404–359 BC)." } ] },
@@ -344,9 +350,14 @@
         "quote": "Others put it in the Solomonic era, while still others place it in the period of the patriarchs." } ] },
     "Ps": { "article": "PsalmsBookof", "stages": true, "written": [
       { "label": "in the period of the monarchy", "heading": "Date",
+        "chapters": [[1, 43], [45, 78], [80, 89], [91, 106], [108, 125], [127, 136], [138, 150]],
         "quote": "Thus, most of the psalms formed the hymnbook of Israel in the period of the monarchy." },
-      { "label": "later", "heading": "Date",
-        "quote": "Other psalms were written later. For example, Psalm 137 is clearly exilic, and Psalms 107:2-3 and 126:1 allude to the return from captivity." } ] },
+      { "label": "clearly exilic", "heading": "Date", "chapters": [[137, 137]],
+        "quote": "Other psalms were written later. For example, Psalm 137 is clearly exilic, and Psalms 107:2-3 and 126:1 allude to the return from captivity." },
+      { "label": "the return from captivity", "heading": "Date", "chapters": [[107, 107], [126, 126]],
+        "quote": "Other psalms were written later. For example, Psalm 137 is clearly exilic, and Psalms 107:2-3 and 126:1 allude to the return from captivity." },
+      { "label": "probably, but not conclusively, postexilic", "heading": "Date", "chapters": [[44, 44], [79, 79]],
+        "quote": "Psalms 44 and 79 are probably, but not conclusively, postexilic." } ] },
     "Prov": { "article": "ProverbsBookof", "stages": true, "written": [
       { "label": "c. 970–930 BC", "heading": "Date",
         "quote": "The larger part of the book may, with confidence, be ascribed to Solomon (ruled c. 970–930 BC)." },
@@ -367,15 +378,23 @@
       { "label": "before 586 BC", "heading": "Date",
         "quote": "But the contents indicate that the song must have been written and completed at some point during the Hebrew monarchy (before 586 BC)." } ] },
     "Isa": { "article": "IsaiahBookof", "stages": true, "written": [
-      { "label": "about 700 BC", "heading": "Date",
+      { "label": "about 700 BC", "heading": "Date", "chapters": [[1, 39]],
         "quote": "Since many of the events recorded in chapters 1–39 took place during the ministry of Isaiah, most of these chapters were probably written by about 700 BC or shortly thereafter." },
       { "label": "during Isaiah’s retirement years", "heading": "Date",
         "quote": "This means that some of the earlier chapters, along with 40–66, were probably written later, during Isaiah’s retirement years." },
-      { "who": "many scholars", "label": "much later than Isaiah in connection with the Babylonian exile", "heading": "Author",
+      { "who": "many scholars", "label": "much later than Isaiah in connection with the Babylonian exile", "heading": "Author", "chapters": [[40, 66]],
         "quote": "Chapters 40–66 contain many powerful passages that underscore the grandeur of the book. It is ironic, then, that many scholars attribute these chapters to a “second” or “third” Isaiah, unknown authors who wrote much later than Isaiah in connection with the Babylonian exile." } ] },
     "Jer": { "article": "JeremiahBookof", "written": [
-      { "label": "c. 627–586 BC", "heading": "Date",
-        "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." } ] },
+      { "label": "c. 627–586 BC", "heading": "Date", "chapters": [[1, 39], [46, 51]],
+        "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." },
+      { "label": "during Jeremiah’s ministry", "heading": "Date", "chapters": [[40, 43]],
+        "quote": "Nonetheless, the book was written during Jeremiah’s ministry (c. 627–586 BC)." },
+      { "label": "latest writings of Jeremiah", "heading": "Outline and Content", "chapters": [[44, 44]],
+        "quote": "The latest writings of Jeremiah are found in chapter 44." },
+      { "label": "about 605 BC", "heading": "Outline and Content", "chapters": [[45, 45]],
+        "quote": "The message to Baruch (ch 45), written about 605 BC, is placed here to round out the main part of the book, which begins with the commission to “break down” and “pluck up” (1:10) and concludes with the same Hebrew words (45:4)." },
+      { "label": "editorial appendix", "heading": "Author", "chapters": [[52, 52]],
+        "quote": "Note also that Jeremiah concludes his writing with chapter 51, making chapter 52 a true editorial appendix." } ] },
     "Lam": { "article": "LamentationsBookof", "written": [
       { "label": "shortly after the fall of Jerusalem (586 BC)", "heading": "Date",
         "quote": "If the book of Lamentations was written by Jeremiah, the time of writing would be shortly after the fall of Jerusalem (586 BC)." },
@@ -401,7 +420,11 @@
         "quote": "Others place it sometime shortly before the death of Josiah in 609 BC because of the reference to the enemy coming from the north (as in Jeremiah) and because of the appeal to the people (like Jeremiah’s appeal) to return to the Lord with all their hearts (2:12)." } ] },
     "Amos": { "article": "AmosBookof", "written": [
       { "label": "about 760 BC", "heading": "Date, Origin, and Destination",
-        "quote": "When all the evidence is taken into consideration, it seems reasonable to date the beginning of Amos’s prophecies at Bethel to about 760 BC, or approximately the middle of the period during which both Uzziah and Jeroboam II were on their thrones." } ] },
+        "quote": "When all the evidence is taken into consideration, it seems reasonable to date the beginning of Amos’s prophecies at Bethel to about 760 BC, or approximately the middle of the period during which both Uzziah and Jeroboam II were on their thrones." },
+      { "undated": true, "heading": "Author",
+        "quote": "Some have suggested that the sermons were passed on by word of mouth for a long time before they were written down in final form." },
+      { "who": "Another speculative proposal", "label": "during or after the Babylonian exile", "heading": "Author",
+        "quote": "The two sections could have been joined into one book much later, during or after the Babylonian exile, with some sections inserted at that time." } ] },
     "Obad": { "article": "ObadiahBookof", "written": [
       { "label": "shortly before the fall of Jerusalem", "heading": "Background",
         "quote": "He probably had his vision concerning Edom (v 1) shortly before the fall of Jerusalem and the devastation of Judah by Nebuchadnezzar in 586 BC." },
@@ -436,9 +459,9 @@
       { "label": "520 BC", "heading": "Author and Date",
         "quote": "Haggai was among the Jewish colonists at Jerusalem in the year 520 BC when his prophetic words were recorded (Ezr 5:1-2; 6:14)." } ] },
     "Zech": { "article": "ZechariahBookof", "written": [
-      { "label": "from 520 to 518 BC", "heading": "Background",
+      { "label": "from 520 to 518 BC", "heading": "Background", "chapters": [[1, 8]],
         "quote": "The first eight chapters of Zechariah are set against the social, political, and religious situations in Jerusalem from 520 to 518 BC." },
-      { "undated": true, "heading": "Date",
+      { "undated": true, "heading": "Date", "chapters": [[9, 14]],
         "quote": "Any attempt to assign specific dates to Zechariah 9–14 would be speculation." } ] },
     "Mal": { "article": "MalachiBookof", "written": [
       { "label": "just after 433 BC", "heading": "Date",
@@ -448,7 +471,9 @@
       { "who": "Irenaeus", "label": "in the 60s", "era": "AD", "heading": "Date and Provenance",
         "quote": "Irenaeus indicated that Matthew wrote this Gospel while Peter and Paul were in Rome. This would make the time of writing in the 60s." },
       { "who": "most scholars", "label": "before the destruction of Jerusalem (AD 70)", "heading": "Date and Provenance",
-        "quote": "Whether it preceded or followed Mark, most scholars are certain that it was written before the destruction of Jerusalem (AD 70) because the temple is spoken of as still standing (Mt 24:15)." } ] },
+        "quote": "Whether it preceded or followed Mark, most scholars are certain that it was written before the destruction of Jerusalem (AD 70) because the temple is spoken of as still standing (Mt 24:15)." },
+      { "undated": true, "heading": "Date and Provenance",
+        "quote": "Scholars are divided about the date when Matthew was written primarily because there is still debate about which Gospel was first written: Matthew or Mark." } ] },
     "Mark": { "article": "MarkGospelof", "written": [
       { "label": "between AD 60 and 68",
         "quote": "Second book of the NT, probably written by John Mark of Jerusalem sometime between AD 60 and 68." },
@@ -509,7 +534,9 @@
       { "who": "the general consensus", "label": "AD 60–62", "heading": "Date, Origin, and Destination",
         "quote": "But the general consensus is that all the Prison Epistles were written in Rome, thus leading to AD 60–62 as the date of Colossians." },
       { "who": "an increasing number of scholars", "label": "between AD 52 and 55", "heading": "Date, Origin, and Destination",
-        "quote": "Consequently, an increasing number of scholars name that city as the probable place where Paul wrote the prison letters. If that is correct, Paul wrote Colossians sometime between AD 52 and 55." } ] },
+        "quote": "Consequently, an increasing number of scholars name that city as the probable place where Paul wrote the prison letters. If that is correct, Paul wrote Colossians sometime between AD 52 and 55." },
+      { "who": "many", "label": "at a later time", "heading": "Author",
+        "quote": "Such theological matters have led many to believe that Paul could not have written the Letter to the Colossians. Rather, they see the letter as the product of a disciple of Paul who wrote at a later time." } ] },
     "1Thess": { "article": "ThessaloniansFirstLettertothe", "written": [
       { "label": "early in the year 50", "era": "AD", "heading": "Date, Origin, and Destination",
         "quote": "Since his work in Corinth can be approximately dated, this epistle was probably written early in the year 50, in all likelihood about a year after the first preaching of the gospel in Thessalonica." } ] },
@@ -549,10 +576,14 @@
         "quote": "If it was written after Paul’s death, that would put it after AD 67, the traditional date of his execution. Thus, Hebrews may have been written in the period AD 67–70." } ] },
     "Jas": { "article": "JamesLetterof", "written": [
       { "label": "AD 45–49", "heading": "Date, Origin, and Destination",
-        "quote": "Thus, James should be dated AD 45–49." } ] },
+        "quote": "Thus, James should be dated AD 45–49." },
+      { "label": "before AD 61 or 62", "heading": "Date, Origin, and Destination",
+        "quote": "If these dates are not accurate, then we are, at least, sure that it was written before AD 61 or 62, the time of James’s martyrdom, according to Josephus." } ] },
     "1Pet": { "article": "PeterFirstLetterof", "written": [
       { "label": "AD 64 or 65", "heading": "Destination, Origin, Date",
-        "quote": "The date of 1 Peter is probably AD 64 or 65" } ] },
+        "quote": "The date of 1 Peter is probably AD 64 or 65" },
+      { "who": "Some scholars", "label": "after Peter’s death", "heading": "Author",
+        "quote": "Some scholars think the Greek of this letter is too good to have been written by a former fisherman whose native language was Aramaic; that the doctrine is too much like Paul’s to have been written by an apostle whose position was different from Paul’s; and that someone wrote the letter after Peter’s death and used his name to give apostolic weight to it." } ] },
     "2Pet": { "article": "PeterSecondLetterof", "written": [
       { "label": "before AD 70 (before his last teaching was forgotten) and after AD 60", "heading": "Date, Origin, Destination",
         "quote": "Tradition tells us that Peter was martyred about AD 64 in Rome. If that is so, this work was probably written in Rome before AD 70 (before his last teaching was forgotten) and after AD 60 (the earliest date when Peter might have known Paul’s letters)." } ] },

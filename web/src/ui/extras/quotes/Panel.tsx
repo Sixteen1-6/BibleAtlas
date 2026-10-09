@@ -109,7 +109,7 @@ function cardNotes(l: Link, n: LinkNote | undefined): ComponentChildren[] {
 
 function Go({ a, l, navigate }: { a: Atlas; l: Link; navigate: (v: VerseRef) => void }) {
   return (
-    <button type="button" class="x-quotes-go" onClick={() => navigate(l.nt)}>
+    <button type="button" class="x-quotes-go" data-lv={l.nt} onClick={() => navigate(l.nt)}>
       {refName(a, l.nt, l.ntTo)}
     </button>
   );

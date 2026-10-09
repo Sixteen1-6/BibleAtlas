@@ -105,6 +105,12 @@
 .panel .roads-notice {
   margin: 12px 0 0;
 }
+/* The hidden live region is absolutely placed. Without a placed box around
+   it, it would sit outside the Study panel's scroll box and make the whole
+   page scroll on short screens. */
+.roads-live {
+  position: relative;
+}
 .roads-detail {
   color: var(--muted);
   font-size: 12px;
@@ -227,7 +233,12 @@
 }
 .roads-via {
   font: 600 14px/1.3 var(--font-read);
-  overflow-wrap: anywhere;
+  /* Lines break after "via" or before the chapter and verse; a word breaks
+     only when it cannot fit a line of its own. */
+  overflow-wrap: break-word;
+}
+.roads-cv {
+  white-space: nowrap;
 }
 .roads-meta {
   font-size: 12px;
@@ -239,6 +250,9 @@
   margin: 10px 0 0;
   font-size: 12.5px;
   color: var(--muted);
+}
+.roads .roads-note + .roads-note {
+  margin-top: 4px;
 }
 
 /* Wide panels (a tablet, say): the roads side by side, each sky above its words. */

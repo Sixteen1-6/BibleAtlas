@@ -172,7 +172,7 @@ export function Reader({ a }: { a: Atlas }) {
           // Pairs follow the BSB, so they are off while the ESV is shown.
           const al = orig && inter && pairsOn.value && !(tr === 'ESV' && esvReady?.data) ? row[2] : undefined;
           return (
-            <div class={`verse${sel.value === v ? ' sel' : ''}`} key={v} data-v={v}>
+            <div class={`verse${sel.value === v ? ' sel' : ''}`} key={v} data-v={v} data-lv={v}>
               <div class="en" onClick={() => S.selectVerse(v)}>
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
@@ -210,7 +210,7 @@ export function Reader({ a }: { a: Atlas }) {
               ) : inter ? (
                 <div class={`inter ${lang}`}>
                   {words.map((w) => (
-                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, false)}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>
+                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, false)}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>
                       <span class="o">{w[0]}</span>
                       <span class="t">{w[1]}</span>
                       <span class="g">{w[2]}</span>
@@ -221,7 +221,7 @@ export function Reader({ a }: { a: Atlas }) {
                 <div class={`orig ${lang}`} lang={isHebrew ? 'hbo' : 'grc'}>
                   {words.map((w) => (
                     <Fragment key={indexOf(w)}>
-                      <button class={wordClass(w, w[3] === studyRoot, false)} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={`${w[1]} · ${w[2]}`}>
+                      <button class={wordClass(w, w[3] === studyRoot, false)} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={`${w[1]} · ${w[2]}`}>
                         {w[0]}
                       </button>{' '}
                     </Fragment>
