@@ -122,7 +122,7 @@ function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?:
   return (
     <li>
       {edge !== undefined && <div class="hop">{a.xVotes[edge]} votes for this link</div>}
-      <div class="refrow" style="border:0;padding:2px 0" onClick={() => S.selectVerse(v)}>
+      <div class="refrow" style="border:0;padding-block:2px" data-lv={v} onClick={() => S.selectVerse(v)}>
         <span class="ref">{label(a, v)}</span>
         <span />
         <span class="snip">{row ? row[0] : '…'}</span>

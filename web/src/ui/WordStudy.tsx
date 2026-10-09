@@ -21,7 +21,7 @@ function Definition({ entry }: { entry: LexEntry }) {
         const el = style & 2 ? <i>{body}</i> : body;
         if (ref >= 0) {
           return (
-            <span key={i} class="r" role="link" tabIndex={0} onClick={() => S.selectVerse(ref)} onKeyDown={(e) => e.key === 'Enter' && S.selectVerse(ref)}>
+            <span key={i} class="r" role="link" tabIndex={0} data-lv={ref} onClick={() => S.selectVerse(ref)} onKeyDown={(e) => e.key === 'Enter' && S.selectVerse(ref)}>
               {el}
             </span>
           );
@@ -36,8 +36,8 @@ function Occurrence({ a, v, root }: { a: Atlas; v: number; root: number }) {
   const row = useVerseRow(a, v);
   const words = row ? row[1].filter((w) => w[3] === root) : [];
   return (
-    <div class="refrow" onClick={() => S.selectVerse(v, { openTab: false })}>
-      <span class="ref">{label(a, v)}</span>
+    <div class="refrow" data-lv={v} onClick={() => S.selectVerse(v, { openTab: false })}>
+      <button type="button" class="ref">{label(a, v)}</button>
       <span class="vt">{words.map((w) => w[2]).join(', ')}</span>
       <span class="snip">{row ? (row[0].length > 170 ? row[0].slice(0, 169) + '…' : row[0]) : '…'}</span>
     </div>

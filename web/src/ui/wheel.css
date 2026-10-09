@@ -44,7 +44,8 @@
 .wh-hls,
 .wh-chords,
 .wh-selmark,
-.wh-pairchord {
+.wh-pairchord,
+.wh-point {
   pointer-events: none;
 }
 .wh-hls {
@@ -150,6 +151,10 @@
 }
 .wh-pairchord circle {
   fill: #fff2d2;
+}
+/* A verse pointed at in the text or a panel: its chord, a little finer. */
+.wh-pairchord.wh-point path {
+  stroke-width: 1.6;
 }
 
 @keyframes wh-draw {
@@ -545,6 +550,9 @@
   color: inherit;
   font: inherit;
   text-align: left;
+  transition:
+    background-color 0.12s,
+    box-shadow 0.12s;
 }
 .wh-verse:hover {
   background: var(--wh-hover);

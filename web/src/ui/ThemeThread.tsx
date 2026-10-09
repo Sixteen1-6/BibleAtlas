@@ -96,6 +96,7 @@ export function PreviewRow({ v, class: cls, onClick, children }: { v: number; cl
   return (
     <div
       class={cls}
+      data-lv={v}
       role="button"
       tabIndex={0}
       onClick={onClick}
@@ -189,7 +190,7 @@ function Step({ a, i, v, edge, on, roots }: { a: Atlas; i: number; v: number; ed
   const votes = edge !== undefined ? a.xVotes[edge] : undefined;
   return (
     <li class={`tj-li${on ? ' is-on' : ''}`} data-step={i} style={`--tj-g:${GENRE[genre]?.color ?? 'var(--accent)'}`}>
-      <button class="tj-step" aria-current={on ? 'step' : undefined} aria-expanded={on} onClick={() => S.selectVerse(v, { openTab: false })} {...hover}>
+      <button class="tj-step" data-lv={v} aria-current={on ? 'step' : undefined} aria-expanded={on} onClick={() => S.selectVerse(v, { openTab: false })} {...hover}>
         <span class="tj-n" aria-hidden="true">
           {i + 1}
         </span>

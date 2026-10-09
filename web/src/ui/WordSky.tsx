@@ -274,6 +274,7 @@ function EchoRow({ a, row, root, lit, hot, watch }: { a: Atlas; row: Shown; root
     <div
       ref={el}
       class={`refrow ws-row${lit ? ' ws-lit' : ''}`}
+      data-lv={e.v}
       role="link"
       tabIndex={0}
       onClick={open}
@@ -297,7 +298,7 @@ function EchoRow({ a, row, root, lit, hot, watch }: { a: Atlas; row: Shown; root
               {i > 0 && ' '}
               <span class="ws-also">
                 {i === 0 && 'also '}
-                <span class={`ws-o ${g ? 'gr' : 'he'}`} lang={g ? 'grc' : 'hbo'}>
+                <span class={`ws-o ${g ? 'gr' : 'he'}`} lang={g ? 'grc' : 'hbo'} data-lr={q}>
                   {L.word[q]}
                 </span>{' '}
                 “{d.gloss}”{!d.here && !doubt && comma}

@@ -198,7 +198,7 @@ function Dot({ color }: { color: string }) {
 
 function VerseButton({ a, v, span, selected, onPick, max = 400 }: { a: Atlas; v: number; span: number; selected: number | null; onPick: (v: number) => void; max?: number }) {
   return (
-    <button class={`wh-verse${selected === v ? ' wh-cur' : ''}`} onClick={() => onPick(v)} aria-current={selected === v ? 'true' : undefined}>
+    <button class={`wh-verse${selected === v ? ' wh-cur' : ''}`} data-lv={v} onClick={() => onPick(v)} aria-current={selected === v ? 'true' : undefined}>
       <span class="wh-ref">{rangeLabel(a, v, span)}</span>
       <Snippet a={a} v={v} max={max} />
     </button>

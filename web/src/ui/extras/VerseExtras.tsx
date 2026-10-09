@@ -82,6 +82,7 @@ function VerseA({ a, link }: { a: Atlas; link: VerseLink }) {
     <a
       class="xt-ref"
       href={verseHash(a, link.verse)}
+      data-lv={link.verse}
       onClick={(e) => {
         e.stopPropagation();
         // Let a middle click or Ctrl/Cmd-click open a new tab.

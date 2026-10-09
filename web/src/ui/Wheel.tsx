@@ -934,6 +934,7 @@ export function Wheel({ a }: { a: Atlas }) {
           <g class={`wh-threads${card ? ' wh-live' : ''}`}>{threadEls}</g>
           <g class="wh-books">{bookEls}</g>
           {selMark}
+          {!preview && <PointMark a={a} geo={geo} c={c} r={r} sel={sel} chords={chords} />}
           {pairChord}
         </svg>
       )}
@@ -1007,6 +1008,24 @@ export function Wheel({ a }: { a: Atlas }) {
       )}
     </div>
   );
+}
+
+/** A verse pointed at in the text or a panel: its chord from the selected
+ *  verse when that is one of the chords drawn, else a dot where it sits on its
+ *  book. It reads the signal itself, so the wheel does not re-render. */
+function PointMark({ a, geo, c, r, sel, chords }: { a: Atlas; geo: Geo; c: number; r: number; sel: number | null; chords: { u: number; votes: number }[] }) {
+  const pv = S.pointedVerse.value;
+  if (pv === null || pv === sel) return null;
+  const q = verseAngle(a, geo, pv);
+  if (sel !== null && chords.some((l) => l.u === pv)) {
+    return (
+      <g class="wh-pairchord wh-point" aria-hidden="true">
+        <path d={chord(c, r, verseAngle(a, geo, sel), q)} />
+        <circle cx={c + Math.cos(q) * r} cy={c + Math.sin(q) * r} r={3} />
+      </g>
+    );
+  }
+  return <circle class="wh-point" cx={c + Math.cos(q) * (r + 5.5)} cy={c + Math.sin(q) * (r + 5.5)} r={2.6} fill={ARC.lamp} aria-hidden="true" />;
 }
 
 function Legend({ a, phone, chordFrom, chordCount, maxWidth }: { a: Atlas; phone: boolean; chordFrom: number | null; chordCount: number; maxWidth?: number }) {

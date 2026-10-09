@@ -268,7 +268,7 @@ interface CardProps {
 
 function Ref({ a, v, navigate, current }: { a: Atlas; v: VerseRef; navigate: (v: VerseRef) => void; current?: boolean }) {
   return (
-    <button type="button" class={`x-real-map-ref${current ? ' x-real-map-here' : ''}`} onClick={() => navigate(v)} aria-current={current ? 'true' : undefined}>
+    <button type="button" class={`x-real-map-ref${current ? ' x-real-map-here' : ''}`} data-lv={v} onClick={() => navigate(v)} aria-current={current ? 'true' : undefined}>
       {refName(a, v)}
     </button>
   );
@@ -342,6 +342,7 @@ function AllVerses({ a, vs, current, navigate }: { a: Atlas; vs: readonly VerseR
                 <button
                   type="button"
                   class={`x-real-map-ref${v === current ? ' x-real-map-here' : ''}`}
+                  data-lv={v}
                   onClick={() => navigate(v)}
                   aria-label={refName(a, v)}
                   aria-current={v === current ? 'true' : undefined}

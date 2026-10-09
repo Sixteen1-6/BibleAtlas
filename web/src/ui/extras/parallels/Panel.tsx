@@ -72,7 +72,7 @@ function Deeper({ a, s, d, texts, verse, navigate }: { a: Atlas; s: PSet; d: Set
           <ul class="x-parallels-list">
             {d.apart.map(([from, to, why]) => (
               <li key={from}>
-                <button type="button" class="x-parallels-go" onClick={() => navigate(from)}>
+                <button type="button" class="x-parallels-go" data-lv={from} onClick={() => navigate(from)}>
                   {refName(a, from, to)}
                 </button>
                 : {why}.
@@ -108,7 +108,7 @@ function InBook({ a, data, file, book, current, navigate }: { a: Atlas; data: Da
           const p = s.passages[i];
           return (
             <li key={`${s.id}.${i}`} aria-current={current.has(s.id) ? 'true' : undefined}>
-              <button type="button" class="x-parallels-go" onClick={() => navigate(p.from)}>
+              <button type="button" class="x-parallels-go" data-lv={p.from} onClick={() => navigate(p.from)}>
                 {nameOf(a, p)}
               </button>
               {title && ` ${title}`}

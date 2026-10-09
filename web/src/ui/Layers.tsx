@@ -44,6 +44,7 @@ function RefChip({ a, p, r }: { a: Atlas; p: Passage; r: LayerRef }) {
   return (
     <button
       class={`layerref${r.arc ? '' : ' noarc'}`}
+      data-lv={r.s}
       onClick={(e) => (e.stopPropagation(), S.selectVerse(r.s))}
       title={r.arc ? 'Open this passage' : 'Open this passage. The cross-reference map has no arc for this link, so it is drawn dashed.'}
     >
@@ -58,7 +59,7 @@ function WordChip({ a, w }: { a: Atlas; w: [number, number, number] }) {
   const L = a.lemmas;
   const lang = L.lang[root];
   return (
-    <button class="chip" onClick={(e) => (e.stopPropagation(), S.openRoot(root, verse, pos))} title={`${L.key[root]} in ${label(a, verse)}`}>
+    <button class="chip" data-lr={root} onClick={(e) => (e.stopPropagation(), S.openRoot(root, verse, pos))} title={`${L.key[root]} in ${label(a, verse)}`}>
       <span class={`o ${lang === 'G' ? 'gr' : 'he'}`}>{L.word[root]}</span>
       <span>{L.translit[root] || L.gloss[root]}</span>
     </button>
@@ -119,7 +120,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
     return (
       <div class="layerpointer">
         {from.slice(0, 3).map((q) => (
-          <button key={q.id} class="godeeper" onClick={() => S.selectVerse(q.v)}>
+          <button key={q.id} class="godeeper" data-lv={q.v} onClick={() => S.selectVerse(q.v)}>
             {label(a, q.v)} has layers of meaning that lead here ›
           </button>
         ))}
@@ -178,7 +179,7 @@ export function LayeredPassages({ a }: { a: Atlas }) {
           </summary>
           <div class="startrow">
             {ps.map((p) => (
-              <button key={p.id} class="btn" onClick={() => (S.selectVerse(p.v), (S.mobilePane.value = 'study'))}>
+              <button key={p.id} class="btn" data-lv={p.v} onClick={() => (S.selectVerse(p.v), (S.mobilePane.value = 'study'))}>
                 {label(a, p.v)}
               </button>
             ))}
