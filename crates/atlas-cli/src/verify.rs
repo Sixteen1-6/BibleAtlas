@@ -155,6 +155,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     let empty = (0..n).filter(|&v| d.verse(v).map(|x| x[1].as_array().is_none_or(|a| a.is_empty())).unwrap_or(true)).count();
     r.check(empty == 0, format!("{empty} verses have no original-language words"));
     for (ok, what) in crate::extra_parallels::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_aramaic::verify(&d)? { r.check(ok, what); }
     let elohim = d.lemma_index("H0430G").ok_or("no root H0430G (Elohim)")?;
     r.check(counts[elohim] > 2_000, format!("אֱלֹהִים occurs {} times", counts[elohim]));
     let (src, _) = d.resolve("Gen 1:1")?;

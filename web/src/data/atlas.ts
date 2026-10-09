@@ -49,6 +49,11 @@ export interface Lemmas {
   /** One character per root: H (Hebrew), A (Aramaic), G (Greek). */
   lang: string;
   count: number[];
+  /** Roots whose script does not show their language, by root index (from
+   * config/aramaic.json): A, H or AH (Aramaic, Hebrew, Aramaic or Hebrew) for
+   * a word kept in that language, as ταλιθα in Greek letters; GA, GH or GAH
+   * for a Greek word taken from it, as ἀμήν. */
+  origin?: Record<string, string>;
 }
 
 export interface Theme {
@@ -287,3 +292,15 @@ export function versesWithRoot(a: Atlas, root: number): Uint32Array {
 }
 
 export const LANG_NAME: Record<string, string> = { H: 'Hebrew', A: 'Aramaic', G: 'Greek' };
+
+const ORIGIN_NAME: Record<string, string> = { A: 'Aramaic', H: 'Hebrew', AH: 'Aramaic or Hebrew' };
+
+/** A root's language in words: "Greek", "Hebrew", "Aramaic, written in Greek
+ * letters" (ταλιθα), "Greek, from Hebrew" (ἀμήν). */
+export function langName(L: Lemmas, root: number): string {
+  const o = L.origin?.[root];
+  const from = o && ORIGIN_NAME[o.replace(/^G/, '')];
+  if (!o || !from) return LANG_NAME[L.lang[root]];
+  if (o.startsWith('G')) return `Greek, from ${from}`;
+  return L.lang[root] === 'G' ? `${from}, written in Greek letters` : from;
+}

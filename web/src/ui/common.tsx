@@ -1,7 +1,7 @@
 // Small shared pieces for the study panels.
 
 import { useEffect, useState } from 'preact/hooks';
-import { type Atlas, LANG_NAME, chapterName } from '../data/atlas';
+import { type Atlas, chapterName, langName } from '../data/atlas';
 import { FLAG, type VerseRow, getVerse, rootsOf } from '../data/text';
 import { deepen } from '../depth';
 import * as S from '../state';
@@ -58,7 +58,7 @@ export function RootChip({ a, root }: { a: Atlas; root: number }) {
   const L = a.lemmas;
   const lang = L.lang[root];
   return (
-    <button class="chip" onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${LANG_NAME[lang]} ${L.key[root]}, ${L.count[root]} occurrences`}>
+    <button class="chip" onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${langName(L, root)} ${L.key[root]}, ${L.count[root]} occurrences`}>
       <span class={`o ${lang === 'G' ? 'gr' : 'he'}`}>{L.word[root]}</span>
       <span>{L.gloss[root]}</span>
     </button>

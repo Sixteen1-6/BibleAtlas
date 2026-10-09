@@ -1,0 +1,181 @@
+/* Aramaic and Hebrew. Only the app's colour variables, so the paper (light)
+   and dark themes both follow. Square letters use the app's Hebrew font and
+   read right to left (.he); Greek letters use its Greek font (.gr). */
+
+/* ------------------------------------------------------------ the word */
+
+.x-aramaic-word {
+  margin: 0 0 12px;
+}
+.x-aramaic-entry + .x-aramaic-entry {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-aramaic-say {
+  margin: 0 0 2px;
+  font: 600 26px/1.25 var(--font-read);
+  color: var(--ink);
+}
+.x-aramaic-say .xt-unsure {
+  vertical-align: 5px;
+}
+.xt-body .x-aramaic-means {
+  margin: 0 0 6px;
+  font: italic 16px/1.5 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-aramaic-meta {
+  margin: 0 0 4px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.xt-body .x-aramaic-note {
+  margin: 8px 0 12px;
+}
+.xt-body .x-aramaic-hint {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------ the letters */
+
+.x-aramaic-scripts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px 14px;
+  margin: 4px 0 10px;
+}
+.x-aramaic-script {
+  min-width: 0;
+  margin: 0;
+  padding: 8px 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.x-aramaic-script figcaption {
+  font: 12.5px var(--font-ui);
+  color: var(--muted);
+}
+.xt-body .x-aramaic-sq {
+  margin: 4px 0 0;
+  font-size: 30px;
+  line-height: 1.55;
+  color: var(--ink);
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+.xt-body .x-aramaic-gk {
+  margin: 4px 0 0;
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+/* An Old Testament verse in runs of Hebrew and Aramaic. */
+.x-aramaic-runs {
+  display: grid;
+  gap: 6px;
+  margin: 4px 0 8px;
+}
+.x-aramaic-run {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.x-aramaic-run.x-aramaic-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.x-aramaic-tag {
+  font: 600 12px var(--font-ui);
+  color: var(--muted);
+}
+.x-aramaic-on .x-aramaic-tag {
+  color: var(--ink);
+}
+.xt-body .x-aramaic-verse {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.x-aramaic-w {
+  padding: 0 1px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.x-aramaic-w:hover {
+  background: var(--surface-2);
+}
+
+/* ------------------------------------------------------------ links and lists */
+
+/* A verse named in a sentence, which takes the reader there. */
+.x-aramaic-go {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.x-aramaic-go:hover {
+  text-decoration-color: currentColor;
+}
+.x-aramaic-roots,
+.x-aramaic-sources {
+  margin: 4px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.x-aramaic-roots li {
+  margin: 0 0 10px;
+}
+.x-aramaic-roots .x-aramaic-hint {
+  margin: 2px 0 0;
+}
+.x-aramaic-root {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font: 13px var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-aramaic-root:hover {
+  border-color: var(--accent);
+}
+.x-aramaic-root .gr {
+  font-size: 16px;
+}
+.x-aramaic-sources li {
+  margin: 0 0 6px;
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+@media (pointer: coarse) {
+  .x-aramaic-root {
+    min-height: 36px;
+  }
+}

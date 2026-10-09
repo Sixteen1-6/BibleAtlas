@@ -1,7 +1,7 @@
 // Command palette: a reference, an English phrase, or a Hebrew/Greek word.
 
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { type Atlas, LANG_NAME, label } from '../data/atlas';
+import { type Atlas, label, langName } from '../data/atlas';
 import { loadPlainText, plainText } from '../data/plain';
 import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
 import { getVerse } from '../data/text';
@@ -120,7 +120,7 @@ export function Palette({ a }: { a: Atlas }) {
               )}
               {it.kind === 'root' && (
                 <>
-                  <span class="k">{LANG_NAME[L.lang[it.root]]}</span>
+                  <span class="k">{langName(L, it.root)}</span>
                   <b class={L.lang[it.root] === 'G' ? 'gr' : 'he'}>{L.word[it.root]}</b> <i>{L.translit[it.root]}</i> “{L.gloss[it.root]}” <span class="k">{L.count[it.root].toLocaleString()}×</span>
                 </>
               )}

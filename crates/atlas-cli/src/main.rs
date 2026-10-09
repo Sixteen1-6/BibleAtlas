@@ -26,6 +26,7 @@ mod extra_real_map;
 mod sources;
 mod verify;
 mod extra_parallels;
+mod extra_aramaic;
 
 use std::path::PathBuf;
 

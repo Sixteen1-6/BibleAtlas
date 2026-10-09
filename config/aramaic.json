@@ -1,0 +1,1356 @@
+{
+  "_comment": [
+    "Aramaic words: where the Bible keeps a word in Aramaic (or Hebrew) instead of translating it, and the parts of the Old Testament written in Aramaic. atlas build reads this file (crates/atlas-cli/src/extra_aramaic.rs) for the Aramaic words line under a verse, its panel, and the language the word study names for these roots.",
+    "Why it exists: the New Testament text is the Greek of STEPBible's TAGNT, and the Gospel writers wrote Jesus' Aramaic (Talitha koum, Ephphatha, Abba, Eloi, Eloi, lema sabachthani) in Greek letters, so every New Testament root is Greek to the build. This list says which of them are Aramaic or Hebrew, and how sure that is.",
+    "words: one entry per word kept in the New Testament. refs: the verses, as the BSB names them (\"Mark 5:41\", \"1 Corinthians 16:22\"). word: the word as English readers say it. bsb: for each ref, the exact words of the BSB verse that stand for it (sometimes a translation: \"hell\", \"money\"). meaning, and meaningFrom: \"verse\" when the verse itself gives that meaning (the build checks it is in the verse), \"gloss\" when it comes from a lexicon.",
+    "speaker: who says it in the verse. jesus: true when Jesus himself says it there. kind: saying, prayer, word, name, place or title. language: Aramaic, Hebrew, or \"Aramaic or Hebrew\". certainty: widely agreed, commonly held, or scholars differ (shown as such; never present a disputed reading as fact).",
+    "greek: for each ref, the word as TAGNT prints it in that verse, with TAGNT's own code points (oxia accents, not tonos; not NFC). The build compares it with the verse's TAGNT words byte for byte. strongs: its roots, as the app keys them (G5008, G0921G).",
+    "aramaic: the word in Hebrew square letters. It holds Hebrew when language is Hebrew, so the app labels it from language, never as \"Aramaic\" by itself. Some forms are reconstructions, and aramaicNote and deep say so. aramaicNote: spelling and manuscript notes. line: the one quiet line under the verse (70 characters at most). note: the plain panel note (220 at most). deep: the scholarly detail for Deep (450 at most). sources: what each entry rests on.",
+    "sections: the parts of the Old Testament written in Aramaic, as BSB verse ranges (from, to). startsMidVerse and endsMidVerse: the switch is inside the first or last verse. basis: \"tahot\" when TAHOT tags every word of the range Aramaic and the verses around it Hebrew (the build checks this against TAHOT word by word, and that no Aramaic-tagged word lies outside a section); \"tbesh+bsb-footnote\" for Genesis 31:47, whose two Aramaic words TAHOT tags as Hebrew, with words: their TAHOT word numbers.",
+    "loanRoots: Greek roots whose word comes from Aramaic or Hebrew: strongs, word (as TBESG gives it), language, why (the evidence, for Deep) and certainty. The word study names the language of these roots: \"Aramaic, written in Greek letters\" for a root that a words entry uses, and \"Greek, from Hebrew\" (amen, sabbath, Satan) for a word Greek had already made its own.",
+    "atlas build fails on a ref that is not a BSB verse, a bsb or meaning (from the verse) not in its verse, a greek value not among that verse's TAGNT words, a root not in the verse or not in the lemma table, a line, note or deep over its length, an unknown field or value, a section that does not match TAHOT, and the abbreviation of a copyrighted translation the project never quotes. atlas verify checks well-known cases.",
+    "Researched and checked by script against the pinned BSB, TAGNT, TAHOT, TBESG and TBESH (STEPBible, CC BY 4.0; BSB public domain). Scholarly works are cited, not copied."
+  ],
+  "words": [
+    {
+      "id": "talitha-koum",
+      "refs": ["Mark 5:41"],
+      "word": "Talitha koum",
+      "bsb": { "Mark 5:41": "Talitha koum" },
+      "meaning": "Little girl, I say to you, get up!",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "saying",
+      "language": "Aramaic",
+      "greek": { "Mark 5:41": "ταλιθα κουμ" },
+      "strongs": ["G5008", "G2891"],
+      "aramaic": "טְלִיתָא קוּם",
+      "aramaicNote": "The editions behind most modern Bibles read koum (קוּם); later manuscripts, followed by the TR and Byzantine text, read koumi (קוּמִי), the form used to a girl. Westcott-Hort spell the first word Taleitha.",
+      "line": "Jesus’ words in Aramaic: Talitha koum, ‘Little girl, get up!’",
+      "note": "Mark gives Jesus’ words to the girl in Aramaic, an everyday language of Galilee, and then translates them for his Greek-speaking readers.",
+      "deep": "Talitha is Aramaic ṭĕlîtā, “girl” (Abbott-Smith: טְלִיתָא, citing Dalman); koum is qûm, “get up”. Copyists later changed koum to koumi, the strictly feminine form. Mark’s “I say to you” explains rather than translates word for word. Mark keeps more of Jesus’ Aramaic than the other Gospels do (also 7:34; 14:36; 15:34).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G5008 and G2891",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 5:41: grammar N-VSF-ARAM and V-AAM-2S-ARAM; TR+Byz κοῦμι",
+        "G. Abbott-Smith, A Manual Greek Lexicon of the New Testament (Edinburgh: T&T Clark, 1922), s.v. ταλιθά, κοῦμι",
+        "Gustaf Dalman, Grammatik des jüdisch-palästinischen Aramäisch, 2nd ed. (Leipzig, 1905), p. 150, as cited by Abbott-Smith"
+      ]
+    },
+    {
+      "id": "ephphatha",
+      "refs": ["Mark 7:34"],
+      "word": "Ephphatha",
+      "bsb": { "Mark 7:34": "Ephphatha" },
+      "meaning": "Be opened!",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "saying",
+      "language": "Aramaic",
+      "greek": { "Mark 7:34": "εφφαθα" },
+      "strongs": ["G2188"],
+      "aramaic": "אֶתְפְּתַח",
+      "aramaicNote": "Read ʾeppattaḥ: in speech the t of ʾetpĕtaḥ blends into the p, giving the double ph of the Greek.",
+      "line": "Jesus’ word, usually read as Aramaic: Ephphatha, ‘Be opened!’",
+      "note": "Healing a deaf man, Jesus speaks one word in his own language. Mark keeps the sound of it and then tells his Greek readers what it means.",
+      "deep": "Usually read as Aramaic ʾetpĕtaḥ / ʾeppattaḥ, “be opened” (Abbott-Smith, TBESG morph A:V). Isaac Rabinowitz (JSS 1971) argued it is Hebrew (hippātaḥ), so the language is commonly held, not certain. TAGNT tags it V-APM-2S without its usual -ARAM mark. The word later entered the baptism rite of the Western church.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2188 (morph A:V; “Aram. אֶתְפְּתח”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 7:34",
+        "Isaac Rabinowitz, “Ἐφφαθά (Mark VII.34): Certainly Hebrew, not Aramaic”, Journal of Semitic Studies 16.2 (1971): 151-156"
+      ]
+    },
+    {
+      "id": "abba",
+      "refs": ["Mark 14:36"],
+      "word": "Abba",
+      "bsb": { "Mark 14:36": "Abba" },
+      "meaning": "Father",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "prayer",
+      "language": "Aramaic",
+      "greek": { "Mark 14:36": "αββα" },
+      "strongs": ["G0005"],
+      "aramaic": "אַבָּא",
+      "aramaicNote": "",
+      "line": "Jesus prays in Aramaic: Abba, ‘Father’",
+      "note": "In Gethsemane Jesus calls God “Abba”, the Aramaic word for father. Mark keeps it and adds the Greek word for father beside it.",
+      "deep": "Abba is the Aramaic emphatic form ʾabbā, “father” or “the father” (Abbott-Smith). It was used by children and by adults, so the popular claim that it means “Daddy” is disputed: James Barr, “’Abbā Isn’t ‘Daddy’” (JTS 1988). TBESG marks the entry G: (Greek) though its definition says Aramaic, and TAGNT gives no -ARAM tag.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0005 (“Aram, אַבָּא, emphatic form of אַב”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 14:36",
+        "James Barr, “’Abbā Isn’t ‘Daddy’”, Journal of Theological Studies 39.1 (1988): 28-47, https://doi.org/10.1093/jts/39.1.28"
+      ]
+    },
+    {
+      "id": "abba-father",
+      "refs": ["Romans 8:15", "Galatians 4:6"],
+      "word": "Abba",
+      "bsb": { "Romans 8:15": "Abba", "Galatians 4:6": "Abba" },
+      "meaning": "Father",
+      "meaningFrom": "verse",
+      "speaker": "Paul",
+      "jesus": false,
+      "kind": "prayer",
+      "language": "Aramaic",
+      "greek": { "Romans 8:15": "αββα", "Galatians 4:6": "αββα" },
+      "strongs": ["G0005"],
+      "aramaic": "אַבָּא",
+      "aramaicNote": "",
+      "line": "Abba, ‘Father’: the Aramaic word Jesus prayed with",
+      "note": "Writing in Greek, Paul keeps the Aramaic word Abba: by the Spirit believers too call God Abba, Father, the same words Jesus prays in Mark 14:36.",
+      "deep": "The pairing “Abba, ho patēr” in Romans and Galatians matches Mark 14:36, and suggests that Greek-speaking churches kept Jesus’ own Aramaic address to God in prayer. That “abba” means “Daddy” is disputed (Barr, JTS 1988).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0005",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Romans 8:15 and Galatians 4:6",
+        "James Barr, “’Abbā Isn’t ‘Daddy’”, Journal of Theological Studies 39.1 (1988): 28-47"
+      ]
+    },
+    {
+      "id": "eloi-eloi",
+      "refs": ["Mark 15:34"],
+      "word": "Eloi, Eloi, lema sabachthani",
+      "bsb": { "Mark 15:34": "Eloi, Eloi, lema sabachthani" },
+      "meaning": "My God, My God, why have You forsaken Me?",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "prayer",
+      "language": "Aramaic",
+      "greek": { "Mark 15:34": "ελωι ελωι λεμα σαβαχθανι" },
+      "strongs": ["G1682", "G2982", "G4518"],
+      "aramaic": "אֱלָהִי אֱלָהִי לְמָה שְׁבַקְתַּנִי",
+      "aramaicNote": "Spellings of lema vary in the editions: lama (Tregelles, Westcott-Hort, Tyndale House), lima (Byzantine), lamma (TR). The Hebrew of Psalm 22:1 is ʾēlî ʾēlî lāmâ ʿăzabtānî.",
+      "line": "Mark gives Jesus’ cry from the cross in Aramaic, praying Psalm 22",
+      "note": "On the cross Jesus prays the first line of Psalm 22. Mark gives it in Aramaic and then translates it; Matthew’s form begins Eli, nearer the Hebrew psalm.",
+      "deep": "Eloi is Aramaic ʾĕlāhî, “my God”; sabachthani is Aramaic šĕbaqtanî, “you have left me” (the Hebrew psalm has ʿăzabtānî). TAGNT tags all three words -ARAM. Bystanders heard a call to Elijah (15:35). That Mark’s form is Aramaic is widely agreed; which form Jesus himself used is debated (Brown 1994; Buth 2014).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 15:34: G1682 N-VSM-ARAM, G2982 PRT-ARAM, G4518 V-AAI-2S-ARAM",
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G1682, G2982, G4518 (“Aram. שְׁבַקְתַּנִי”)",
+        "Raymond E. Brown, The Death of the Messiah, vol. 2 (New York: Doubleday, 1994), on Mark 15:34 and Matthew 27:46",
+        "Randall Buth, \"The Riddle of Jesus' Cry from the Cross: The Meaning of ηλι ηλι λαμα σαβαχθανι (Matthew 27:46) and the Literary Function of ελωι ελωι λειμα σαβαχθανι (Mark 15:34)\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014), chapter 11"
+      ]
+    },
+    {
+      "id": "eli-eli",
+      "refs": ["Matthew 27:46"],
+      "word": "Eli, Eli, lema sabachthani",
+      "bsb": { "Matthew 27:46": "Eli, Eli, lema sabachthani" },
+      "meaning": "My God, My God, why have You forsaken Me?",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "prayer",
+      "language": "Aramaic or Hebrew",
+      "greek": { "Matthew 27:46": "ηλι ηλι λεμα σαβαχθανι" },
+      "strongs": ["G2241", "G2982", "G4518"],
+      "aramaic": "אֵלִי אֵלִי לְמָה שְׁבַקְתַּנִי",
+      "aramaicNote": "Westcott-Hort read Eloi here as in Mark; a few manuscripts, such as Codex Bezae, read zaphthani, nearer the Hebrew ʿăzabtānî.",
+      "line": "Matthew gives Jesus’ cry mostly in Aramaic, with Eli as in Psalm 22",
+      "note": "Matthew gives the cry as “Eli, Eli”, closer to the Hebrew of Psalm 22, which helps explain why bystanders heard a call to Elijah (27:47). The rest, lema sabachthani, is usually read as Aramaic.",
+      "deep": "Eli (ʾēlî) is the Hebrew of Psalm 22:1, but the Targum, a later Aramaic translation of the psalm, also reads ʾēlî ʾēlî, so it is possible in Aramaic too; sabachthani is Aramaic. Abbott-Smith (TBESG G2241, morph G:) calls Eli Hebrew, while TAGNT tags it N-VSM-ARAM: the sources disagree. Many think Matthew brought the cry nearer the Hebrew psalm; scholars differ on which form Jesus used (Brown 1994; Buth 2014).",
+      "certainty": "scholars differ",
+      "sources": [
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 27:46: G2241 N-VSM-ARAM; WH variant Ἐλωί",
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2241 (“Heb. אֵל”)",
+        "Raymond E. Brown, The Death of the Messiah, vol. 2 (New York: Doubleday, 1994), on Mark 15:34 and Matthew 27:46",
+        "Randall Buth, \"The Riddle of Jesus' Cry from the Cross: The Meaning of ηλι ηλι λαμα σαβαχθανι (Matthew 27:46) and the Literary Function of ελωι ελωι λειμα σαβαχθανι (Mark 15:34)\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014), chapter 11",
+        "Bruce M. Metzger, A Textual Commentary on the Greek New Testament, 2nd ed. (Stuttgart: German Bible Society, 1994), on Matthew 27:46",
+        "Targum of Psalms 22:2 (Aramaic; Psalm 22:1 in English Bibles), which reads ʾēlî ʾēlî mĕṭûl mâ šĕbaqtanî"
+      ]
+    },
+    {
+      "id": "raca",
+      "refs": ["Matthew 5:22"],
+      "word": "Raca",
+      "bsb": { "Matthew 5:22": "Raca" },
+      "meaning": "empty-head, a word of contempt",
+      "meaningFrom": "gloss",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "word",
+      "language": "Aramaic",
+      "greek": { "Matthew 5:22": "ῥακά" },
+      "strongs": ["G4469"],
+      "aramaic": "רֵיקָא",
+      "aramaicNote": "",
+      "line": "Raca: an Aramaic insult Jesus quotes, ‘empty-head’",
+      "note": "Jesus quotes an insult people actually used, in Aramaic: like anger, contempt for a brother puts a person under God’s judgment, as murder does. The BSB keeps the word and notes it is Aramaic.",
+      "deep": "Usually taken as Aramaic rêqā, “empty one”, from the word for empty, in a Galilean pronunciation (Abbott-Smith; TBESG morph A:N; TAGNT N-VSM-ARAM). Other explanations exist (Abbott-Smith points to Zorell), so the exact form is not certain, but an Aramaic term of abuse is the common view.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4469 (“usually taken to represent the Aram. רֵיקָא”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 5:22: N-VSM-ARAM",
+        "Berean Standard Bible footnote (public domain) on Matthew 5:22: “Raca is an Aramaic expression of contempt.”"
+      ]
+    },
+    {
+      "id": "mammon",
+      "refs": ["Matthew 6:24", "Luke 16:9", "Luke 16:11", "Luke 16:13"],
+      "word": "Mammon",
+      "bsb": { "Matthew 6:24": "money", "Luke 16:9": "wealth", "Luke 16:11": "wealth", "Luke 16:13": "money" },
+      "meaning": "wealth, money, property",
+      "meaningFrom": "gloss",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "word",
+      "language": "Aramaic",
+      "greek": { "Matthew 6:24": "μαμωνᾷ", "Luke 16:9": "μαμωνᾶ", "Luke 16:11": "μαμωνᾷ", "Luke 16:13": "μαμωνᾷ" },
+      "strongs": ["G3126"],
+      "aramaic": "מָמוֹנָא",
+      "aramaicNote": "TAGNT has μαμωνᾷ in Matthew 6:24 and Luke 16:11, 13 and μαμωνᾶ in Luke 16:9; the TR spells it with double m.",
+      "line": "The Greek keeps Jesus’ word mammon, ‘wealth’, in its Aramaic form",
+      "note": "Where the BSB says “money” or “wealth”, the Greek keeps Jesus’ word mammon, in its Aramaic form. He sets it against God as a rival master: you cannot serve both.",
+      "deep": "Greek mamōnas renders Aramaic māmônā, “wealth, property” (Abbott-Smith: “Aram. מָמוֺנָא”). The word was also used in Hebrew of the time (Mishnah Avot 2:12); the Greek ending -as points to the Aramaic form māmônā. The Gospels keep it only on Jesus’ lips. TBESG marks the entry G: and TAGNT gives no -ARAM tag, so the data alone would call it Greek.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G3126 (“Aram. מָמוֺנָא”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 6:24; Luke 16:9, 11, 13",
+        "Mishnah, Avot 2:12 (Hebrew māmôn, “property”)"
+      ]
+    },
+    {
+      "id": "gehenna",
+      "refs": [
+        "Matthew 5:22",
+        "Matthew 5:29",
+        "Matthew 5:30",
+        "Matthew 10:28",
+        "Matthew 18:9",
+        "Matthew 23:15",
+        "Matthew 23:33",
+        "Mark 9:43",
+        "Mark 9:45",
+        "Mark 9:47",
+        "Luke 12:5"
+      ],
+      "word": "Gehenna",
+      "bsb": {
+        "Matthew 5:22": "hell",
+        "Matthew 5:29": "hell",
+        "Matthew 5:30": "hell",
+        "Matthew 10:28": "hell",
+        "Matthew 18:9": "hell",
+        "Matthew 23:15": "hell",
+        "Matthew 23:33": "hell",
+        "Mark 9:43": "hell",
+        "Mark 9:45": "hell",
+        "Mark 9:47": "hell",
+        "Luke 12:5": "hell"
+      },
+      "meaning": "the Valley of Hinnom; here, the place of final punishment",
+      "meaningFrom": "gloss",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "place",
+      "language": "Aramaic or Hebrew",
+      "greek": {
+        "Matthew 5:22": "γέενναν",
+        "Matthew 5:29": "γέενναν",
+        "Matthew 5:30": "γέενναν",
+        "Matthew 10:28": "γεέννῃ",
+        "Matthew 18:9": "γέενναν",
+        "Matthew 23:15": "γεέννης",
+        "Matthew 23:33": "γεέννης",
+        "Mark 9:43": "γέενναν",
+        "Mark 9:45": "γέενναν",
+        "Mark 9:47": "γέενναν",
+        "Luke 12:5": "γέενναν"
+      },
+      "strongs": ["G1067"],
+      "aramaic": "גֵּיהִנָּם",
+      "aramaicNote": "Hebrew gê hinnōm (גֵּי הִנֹּם), “Valley of Hinnom” (Joshua 15:8); the Greek form probably came through Aramaic gêhinnām (Abbott-Smith: “perh. through Aram.”).",
+      "line": "Behind “hell” here is Jesus’ word Gehenna, the Valley of Hinnom",
+      "note": "Where the BSB says “hell”, Jesus names Gehenna, the Valley of Hinnom just outside Jerusalem. Jeremiah linked the valley with judgment, and it became a name for the place of final punishment.",
+      "deep": "Greek geenna comes from Hebrew gê hinnōm, “Valley of Hinnom” (Joshua 15:8), probably through Aramaic gêhinnām (Abbott-Smith). Jeremiah makes it a place of judgment (7:31-32; 19:6). Jewish writings use the name for the place of final punishment (4 Ezra 7:36; Mishnah Avot 1:5). Jesus uses it 11 times; outside the Gospels only James 3:6 does. TBESG marks it N: and TAGNT gives no -ARAM tag, so the data alone would call it Greek.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G1067 (“perh. through Aram. גֵּיהִנָּם, from Heb. גֵּי הִנֹּם”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 5:22, 29, 30; 10:28; 18:9; 23:15, 33; Mark 9:43, 45, 47; Luke 12:5",
+        "Berean Standard Bible footnote (public domain) on Matthew 5:29: “Greek Gehenna; also in verse 30”",
+        "4 Ezra (2 Esdras) 7:36",
+        "Mishnah, Avot 1:5"
+      ]
+    },
+    {
+      "id": "korban",
+      "refs": ["Mark 7:11"],
+      "word": "Corban",
+      "bsb": { "Mark 7:11": "Corban" },
+      "meaning": "a gift devoted to God",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "word",
+      "language": "Aramaic or Hebrew",
+      "greek": { "Mark 7:11": "κορβᾶν" },
+      "strongs": ["G2878"],
+      "aramaic": "קָרְבָּן",
+      "aramaicNote": "Qorbān is the same in Hebrew and Aramaic. Matthew 27:6 uses the related Aramaic form korbanas, “the temple treasury” (BSB “treasury”), also tagged G2878.",
+      "line": "Jesus quotes the vow word Corban, ‘a gift devoted to God’",
+      "note": "Jesus quotes the word people used to vow their goods to God, and so avoid helping their parents. Mark keeps the word and explains it; Matthew 15:5 just gives the Greek for “gift”.",
+      "deep": "Qorbān, “offering”, is used in both Hebrew and Aramaic (TBESG marks it H:). An Aramaic inscription on an ossuary from Jebel Hallet et-Turi near Jerusalem uses qrbn in this very sense of a vow-gift (Fitzmyer). Josephus also explains korban as “a gift of God” (Against Apion 1.167).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2878 (“Heb. קׇרְבָּן”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 7:11",
+        "Joseph A. Fitzmyer, “The Aramaic Qorbān Inscription from Jebel Ḫallet eṭ-Ṭûri and Mk 7:11/Mt 15:5”, Journal of Biblical Literature 78 (1959): 60-65; reprinted in The Semitic Background of the New Testament (Eerdmans, 1997), 93-100",
+        "Josephus, Against Apion 1.167"
+      ]
+    },
+    {
+      "id": "boanerges",
+      "refs": ["Mark 3:17"],
+      "word": "Boanerges",
+      "bsb": { "Mark 3:17": "Boanerges" },
+      "meaning": "Sons of Thunder",
+      "meaningFrom": "verse",
+      "speaker": "the writer (Mark)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic or Hebrew",
+      "greek": { "Mark 3:17": "Βοανηργές" },
+      "strongs": ["G0993"],
+      "aramaic": "בְּנֵי רְגֵשׁ",
+      "aramaicNote": "A reconstruction, not a certainty: bĕnê, “sons of”, is clear, but the second part (regeš “tumult”? rĕgaz “anger”?) is debated. Both parts exist in Hebrew and in Aramaic. The TR spells it Boanerges with epsilon.",
+      "line": "A name Jesus gave in his own language: Boanerges, ‘Sons of Thunder’",
+      "note": "Jesus gives James and John a nickname in his own language. Mark keeps the name and gives its meaning, “Sons of Thunder”.",
+      "deep": "Bo-ane- renders bĕnê, “sons of” (the same in Aramaic and Hebrew), though the vowels are unusual. The -rges part has no agreed source: proposals include regeš, “commotion”, and rĕgaz, “anger”; none means “thunder” exactly. The name is usually taken as Aramaic, but nothing in it rules out Hebrew. Abbott-Smith points to Dalman and Swete. Mark narrates the naming, so it is not marked as Jesus’ words.",
+      "certainty": "scholars differ",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0993 (“on the derivation, see Dalman, Gr., 144; Words, 42”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 3:17",
+        "Gustaf Dalman, The Words of Jesus (Eng. trans., Edinburgh: T&T Clark, 1902), p. 42"
+      ]
+    },
+    {
+      "id": "cephas",
+      "refs": ["John 1:42"],
+      "word": "Cephas",
+      "bsb": { "John 1:42": "Cephas" },
+      "meaning": "rock (in Greek, Peter)",
+      "meaningFrom": "gloss",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "John 1:42": "Κηφᾶς" },
+      "strongs": ["G2786"],
+      "aramaic": "כֵּיפָא",
+      "aramaicNote": "The verse itself translates Cephas by the Greek name Petros, Peter; both mean rock or stone.",
+      "line": "Jesus names Simon in Aramaic: Cephas, ‘Rock’",
+      "note": "Jesus gives Simon a new name in Aramaic, Cephas. John explains that in Greek it is Peter: both mean “rock”.",
+      "deep": "Kêpā is Aramaic for “rock, stone” (Abbott-Smith). Fitzmyer pointed to Kpʾ as a possible personal name in an Aramaic papyrus from Elephantine, so it may have been a name before Jesus used it. Paul calls Peter “Cephas” eight times. TBESG marks it N: (a name), so the data alone would call it Greek.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2786 (“Aram. כֵּיפָא”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 1:42",
+        "Joseph A. Fitzmyer, “Aramaic Kephaʾ and Peter’s Name in the New Testament”, in E. Best and R. McL. Wilson (eds.), Text and Interpretation: Studies Presented to Matthew Black (Cambridge University Press, 1979), 121-132"
+      ]
+    },
+    {
+      "id": "cephas-paul",
+      "refs": [
+        "1 Corinthians 1:12",
+        "1 Corinthians 3:22",
+        "1 Corinthians 9:5",
+        "1 Corinthians 15:5",
+        "Galatians 1:18",
+        "Galatians 2:9",
+        "Galatians 2:11",
+        "Galatians 2:14"
+      ],
+      "word": "Cephas",
+      "bsb": {
+        "1 Corinthians 1:12": "Cephas",
+        "1 Corinthians 3:22": "Cephas",
+        "1 Corinthians 9:5": "Cephas",
+        "1 Corinthians 15:5": "Cephas",
+        "Galatians 1:18": "Cephas",
+        "Galatians 2:9": "Cephas",
+        "Galatians 2:11": "Cephas",
+        "Galatians 2:14": "Cephas"
+      },
+      "meaning": "rock (Peter)",
+      "meaningFrom": "gloss",
+      "speaker": "Paul",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": {
+        "1 Corinthians 1:12": "Κηφᾶ",
+        "1 Corinthians 3:22": "Κηφᾶς",
+        "1 Corinthians 9:5": "Κηφᾶς",
+        "1 Corinthians 15:5": "Κηφᾷ",
+        "Galatians 1:18": "Κηφᾶν",
+        "Galatians 2:9": "Κηφᾶς",
+        "Galatians 2:11": "Κηφᾶς",
+        "Galatians 2:14": "Κηφᾷ"
+      },
+      "strongs": ["G2786"],
+      "aramaic": "כֵּיפָא",
+      "aramaicNote": "In Galatians 1:18; 2:11 and 2:14 the TR and Byzantine text read Petros (Peter) instead of Cephas.",
+      "line": "Cephas: Peter’s Aramaic name, meaning ‘Rock’",
+      "note": "Paul usually calls Peter by the Aramaic name Jesus gave him, Cephas, even when writing in Greek to Greek-speaking churches.",
+      "deep": "Paul uses Kēphas eight times and Petros only twice (Gal 2:7-8), which suggests the Aramaic name was what the early church in Jerusalem called him. Kêpā means “rock, stone” (Abbott-Smith; Fitzmyer 1979).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2786",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), 1 Corinthians 1:12; 3:22; 9:5; 15:5; Galatians 1:18; 2:9, 11, 14",
+        "Joseph A. Fitzmyer, “Aramaic Kephaʾ and Peter’s Name in the New Testament” (1979)"
+      ]
+    },
+    {
+      "id": "bar-jonah",
+      "refs": ["Matthew 16:17"],
+      "word": "Bar-Jonah",
+      "bsb": { "Matthew 16:17": "son of Jonah" },
+      "meaning": "son of Jonah",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "Matthew 16:17": "Βαριωνᾶ" },
+      "strongs": ["G0920"],
+      "aramaic": "בַּר־יוֹנָה",
+      "aramaicNote": "",
+      "line": "Jesus calls Simon by an Aramaic name: Bar-Jonah, ‘son of Jonah’",
+      "note": "Jesus calls Simon “Bar-Jonah”, Aramaic for “son of Jonah”. The BSB translates it; its footnote gives the Greek, Simon Bar-Jonah.",
+      "deep": "Bar is Aramaic for “son” (Hebrew would be ben). John calls Simon’s father John in the critical text (John 1:42; 21:15-17), though the TR and Byzantine text read Jonah there too; Jonah may be a short form of John or a different name, and scholars differ. TBESG marks it N: (a name).",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0920 (“Aram. בַּר־יוֹנָה, son of Jonah”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 16:17",
+        "Berean Standard Bible footnote (public domain) on Matthew 16:17: “Greek Simon Bar-Jonah”"
+      ]
+    },
+    {
+      "id": "rabbi-jesus",
+      "refs": ["Matthew 23:7", "Matthew 23:8"],
+      "word": "Rabbi",
+      "bsb": { "Matthew 23:7": "Rabbi", "Matthew 23:8": "Rabbi" },
+      "meaning": "my teacher, my master",
+      "meaningFrom": "gloss",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "title",
+      "language": "Aramaic or Hebrew",
+      "greek": { "Matthew 23:7": "ῥαββί", "Matthew 23:8": "ῥαββί" },
+      "strongs": ["G4461"],
+      "aramaic": "רַבִּי",
+      "aramaicNote": "Westcott-Hort and the Tyndale House edition spell it ῥαββεί; in 23:7 the TR and Byzantine text repeat it: Rabbi, Rabbi.",
+      "line": "Jesus uses the Jewish title Rabbi, ‘my teacher’, kept in the Greek",
+      "note": "Jesus warns against seeking the title Rabbi, “my teacher”: his followers have one Teacher and are all brothers. Matthew keeps the Jewish title as it was said.",
+      "deep": "Rabbî, literally “my great one”, was used in both Hebrew and Aramaic as a respectful address to a teacher (Abbott-Smith: “Heb. and Aram.”; TBESG morph H:). Matthew, Mark and John keep it 15 times; Luke never uses it. These two verses are the only place where Jesus himself says it.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4461 (“Heb. and Aram. רַב, my master”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 23:7-8 (WH and Tyndale House ῥαββεί; TR and Byzantine repeat it in 23:7)",
+        "Berean Standard Bible footnote (public domain) on Matthew 23:7: “Literally and to be called ‘Rabbi’ by men”",
+        "Gustaf Dalman, The Words of Jesus (Eng. trans., Edinburgh: T&T Clark, 1902), pp. 327, 331-340, as cited by Abbott-Smith"
+      ]
+    },
+    {
+      "id": "rabbi",
+      "refs": ["John 1:38"],
+      "word": "Rabbi",
+      "bsb": { "John 1:38": "Rabbi" },
+      "meaning": "Teacher",
+      "meaningFrom": "verse",
+      "speaker": "two disciples of John the Baptist",
+      "jesus": false,
+      "kind": "title",
+      "language": "Aramaic or Hebrew",
+      "greek": { "John 1:38": "ῥαββί" },
+      "strongs": ["G4461"],
+      "aramaic": "רַבִּי",
+      "aramaicNote": "Westcott-Hort and the Tyndale House edition spell it ῥαββεί.",
+      "line": "Rabbi: a Jewish title, ‘my teacher’, which John keeps and explains",
+      "note": "The first disciples address Jesus with the Jewish title Rabbi. John keeps it and explains it for readers who did not know it: it means Teacher.",
+      "deep": "Rabbî, literally “my great one”, was used in both Hebrew and Aramaic as a respectful address to a teacher (Abbott-Smith: “Heb. and Aram.”; TBESG morph H:). Matthew, Mark and John keep it 15 times; Luke never uses it. Only here is it translated; John 20:16 translates the related Rabboni.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4461 (“Heb. and Aram. רַב, my master”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 1:38",
+        "Gustaf Dalman, The Words of Jesus (Eng. trans., Edinburgh: T&T Clark, 1902), pp. 327, 331-340"
+      ]
+    },
+    {
+      "id": "rabboni",
+      "refs": ["John 20:16"],
+      "word": "Rabboni",
+      "bsb": { "John 20:16": "Rabboni" },
+      "meaning": "Teacher",
+      "meaningFrom": "verse",
+      "speaker": "Mary Magdalene",
+      "jesus": false,
+      "kind": "title",
+      "language": "Aramaic",
+      "greek": { "John 20:16": "ραββουνι" },
+      "strongs": ["G4462"],
+      "aramaic": "רַבּוּנִי",
+      "aramaicNote": "Westcott-Hort spell it Rabbounei.",
+      "line": "Mary answers in her own language: Rabboni, ‘my teacher’",
+      "note": "When the risen Jesus says her name, Mary answers “Rabboni!”, and John explains it. John says “in Hebrew”; most scholars take this to mean the Aramaic Jews spoke, though some argue for Hebrew.",
+      "deep": "Rabbûnî is an Aramaic form of “my master/teacher” (Abbott-Smith: “Aram. רַבּוֺנִי”; TBESG morph A:N), though the related ribbôn also occurs in later Hebrew (Mishnah Taanit 3:8). On “in Hebrew” (Hebraisti), most lexicons, including Abbott-Smith, take it here to mean the Aramaic spoken by Jews; Buth and Pierce (2014) and Penner (2019) argue it always means Hebrew. The BSB footnote says “Or in Aramaic”.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4462",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 20:16",
+        "Berean Standard Bible footnote (public domain) on John 20:16: “Or in Aramaic”",
+        "Ken M. Penner, \"Ancient Names for Hebrew and Aramaic: A Case for Lexical Revision\", New Testament Studies 65.3 (2019): 412-423, https://doi.org/10.1017/S0028688519000067",
+        "Randall Buth and Chad Pierce, \"Hebraisti in Ancient Texts: Does Hebraisti Ever Mean 'Aramaic'?\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014)",
+        "Mishnah, Taanit 3:8 (Hebrew ribbônô šel ʿôlām, “Master of the world”)"
+      ]
+    },
+    {
+      "id": "rabboni-bartimaeus",
+      "refs": ["Mark 10:51"],
+      "word": "Rabboni",
+      "bsb": { "Mark 10:51": "Rabboni" },
+      "meaning": "my teacher, my master",
+      "meaningFrom": "gloss",
+      "speaker": "Bartimaeus, the blind man",
+      "jesus": false,
+      "kind": "title",
+      "language": "Aramaic",
+      "greek": { "Mark 10:51": "ραββουνι" },
+      "strongs": ["G4462"],
+      "aramaic": "רַבּוּנִי",
+      "aramaicNote": "Westcott-Hort spell it Rabbounei; the TR Rabboni.",
+      "line": "The blind man says Rabboni, ‘my teacher’, usually read as Aramaic",
+      "note": "Blind Bartimaeus asks Jesus for his sight using the Aramaic title Rabboni, “my teacher”. Mark keeps the word as he said it.",
+      "deep": "Rabbûnî is an Aramaic form of “my master/teacher”, a fuller form of rabbi (Abbott-Smith, citing Dalman; TBESG morph A:N). The only other use is Mary Magdalene’s at John 20:16.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4462 (“Aram. רַבּוֺנִי”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 10:51",
+        "Gustaf Dalman, The Words of Jesus (Eng. trans., Edinburgh: T&T Clark, 1902), pp. 324, 340"
+      ]
+    },
+    {
+      "id": "marana-tha",
+      "refs": ["1 Corinthians 16:22"],
+      "word": "Marana tha",
+      "bsb": { "1 Corinthians 16:22": "Come, O Lord!" },
+      "meaning": "Our Lord, come!",
+      "meaningFrom": "gloss",
+      "speaker": "Paul",
+      "jesus": false,
+      "kind": "prayer",
+      "language": "Aramaic",
+      "greek": { "1 Corinthians 16:22": "μαράνα θά" },
+      "strongs": ["G3134"],
+      "aramaic": "מָרַנָא תָא",
+      "aramaicNote": "The Greek letters can be divided marana tha, “Our Lord, come!” (NA28, SBL) or maran atha, “Our Lord has come/is coming” (TR, Byzantine, Westcott-Hort, Tregelles, Tyndale House).",
+      "line": "Paul keeps an Aramaic prayer: Marana tha, probably ‘Our Lord, come!’",
+      "note": "Paul ends a Greek letter with an Aramaic prayer, untranslated. The BSB renders it “Come, O Lord!” and notes the Aramaic behind it.",
+      "deep": "A prayer from the Aramaic-speaking first church, kept even in Greek churches (also Didache 10:6). Most now read marana tha, “Our Lord, come!”, matching Revelation 22:20, though maran atha, “has come”, is possible. Fitzmyer argues it shows Jesus was called “Lord” in Aramaic very early.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G3134 (morph A:V + A:N)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), 1 Corinthians 16:22: N-NSM-ARAM; variant Μαρὰν ἀθά",
+        "Berean Standard Bible footnote (public domain) on 1 Corinthians 16:22: “Greek Marana Tha! from a transliteration of the Aramaic”",
+        "Joseph A. Fitzmyer, “New Testament Kyrios and Maranatha and Their Aramaic Background”, in To Advance the Gospel, 2nd ed. (Eerdmans, 1998), 218-235",
+        "Didache 10:6"
+      ]
+    },
+    {
+      "id": "saul-saul",
+      "refs": ["Acts 9:4", "Acts 22:7", "Acts 26:14"],
+      "word": "Saoul, Saoul",
+      "bsb": { "Acts 9:4": "Saul, Saul", "Acts 22:7": "Saul, Saul", "Acts 26:14": "Saul, Saul" },
+      "meaning": "Saul, the apostle Paul’s Jewish name",
+      "meaningFrom": "gloss",
+      "speaker": "the risen Jesus (the voice Paul heard)",
+      "jesus": true,
+      "kind": "name",
+      "language": "Aramaic or Hebrew",
+      "greek": { "Acts 9:4": "Σαοὺλ Σαούλ", "Acts 22:7": "Σαοὺλ Σαούλ", "Acts 26:14": "Σαοὺλ Σαούλ" },
+      "strongs": ["G4549G"],
+      "aramaic": "שָׁאוּל שָׁאוּל",
+      "aramaicNote": "Šāʾûl is the same in Hebrew and Aramaic. Elsewhere Acts uses the Greek form Saulos (Σαῦλος); Saoul appears only when someone speaks to Paul (Jesus here, Ananias in 9:17 and 22:13) and for King Saul (13:21).",
+      "line": "The risen Jesus speaks to Saul in Hebrew or Aramaic: ‘Saul, Saul’",
+      "note": "Acts 26:14 says the voice spoke “in Hebrew”; most take this to mean the Aramaic Jews spoke, though some argue for Hebrew. Luke gives the words in Greek but keeps the name in its Hebrew form, Saoul.",
+      "deep": "Here Acts writes Saoul (Σαούλ), the undeclined Hebrew form of the name, not its usual Greek form Saulos; Abbott-Smith notes it is used only in address. In 26:14 Paul adds that the voice spoke “in the Hebrew language” (BSB footnote); TAGNT glosses the word Aramaic, TBESG Hebrew. The debate over what “Hebrew” means is the same as in John (Buth and Pierce 2014; Penner 2019).",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4549 (“used in the indecl. form only in address”) and G1446",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Acts 9:4; 22:7; 26:14 (26:14 G1446 Ἑβραΐδι, TAGNT gloss “Aramaic”)",
+        "Berean Standard Bible footnote (public domain) on Acts 26:14: “Or in Aramaic; literally in the Hebrew language”",
+        "Ken M. Penner, \"Ancient Names for Hebrew and Aramaic: A Case for Lexical Revision\", New Testament Studies 65.3 (2019): 412-423, https://doi.org/10.1017/S0028688519000067",
+        "Randall Buth and Chad Pierce, \"Hebraisti in Ancient Texts: Does Hebraisti Ever Mean 'Aramaic'?\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014)"
+      ]
+    },
+    {
+      "id": "tabitha",
+      "refs": ["Acts 9:36", "Acts 9:40"],
+      "word": "Tabitha",
+      "bsb": { "Acts 9:36": "Tabitha", "Acts 9:40": "Tabitha" },
+      "meaning": "gazelle (in Greek, Dorcas)",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (Luke); Peter in 9:40",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "Acts 9:36": "Ταβιθά", "Acts 9:40": "Ταβιθά" },
+      "strongs": ["G5000"],
+      "aramaic": "טַבְיְתָא",
+      "aramaicNote": "Acts 9:36 itself translates the name by the Greek Dorcas. Westcott-Hort spell it Tabeitha.",
+      "line": "Tabitha: her Aramaic name, meaning ‘gazelle’",
+      "note": "Luke gives this disciple’s Aramaic name and its Greek form, Dorcas; both mean “gazelle”. Peter calls her by her Aramaic name: “Tabitha, get up!”",
+      "deep": "Ṭabyĕtā is Aramaic for “gazelle” (Abbott-Smith; BSB footnote). Peter’s “Tabitha, get up” (9:40) echoes Jesus’ “Talitha koum” (Mark 5:41), where Peter was present; Luke gives Peter’s words in Greek.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G5000 (“Aram. טַבְיְתָא or טְבִיתָא”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Acts 9:36, 40",
+        "Berean Standard Bible footnote (public domain) on Acts 9:36: “Tabitha in Aramaic and Dorcas in Greek both mean gazelle.”"
+      ]
+    },
+    {
+      "id": "akeldama",
+      "refs": ["Acts 1:19"],
+      "word": "Akeldama",
+      "bsb": { "Acts 1:19": "Akeldama" },
+      "meaning": "Field of Blood",
+      "meaningFrom": "verse",
+      "speaker": "the writer (Luke), quoting what Jerusalem called it",
+      "jesus": false,
+      "kind": "place",
+      "language": "Aramaic",
+      "greek": { "Acts 1:19": "Ἁκελδαμάχ" },
+      "strongs": ["G0184"],
+      "aramaic": "חֲקֵל דְּמָא",
+      "aramaicNote": "The Greek ends in -ch (Hakeldamach), a letter Greek writers sometimes added to foreign words; the Tyndale House edition spells it Ἀχελδαμάχ. The vowels of the Aramaic are a reconstruction; lexicons point the first word slightly differently.",
+      "line": "Akeldama: the field’s Aramaic name, ‘Field of Blood’",
+      "note": "Luke gives the name people in Jerusalem used “in their own language”, Aramaic, and translates it: Field of Blood.",
+      "deep": "Ḥăqēl dĕmāʾ is Aramaic for “field of blood”; Thayer’s lexicon derives the name from Chaldee, an old name for Aramaic. The words “their own language” fit the Aramaic form of the name: Aramaic was widely spoken in Jerusalem, alongside Hebrew and Greek (Fitzmyer 1970). Matthew 27:8 gives the same name in Greek only.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0184 (“field of blood”)",
+        "Joseph Henry Thayer, A Greek-English Lexicon of the New Testament (New York, 1889; public domain), s.v. Ἀκελδαμά: from Chaldee (Aramaic), field of blood",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Acts 1:19",
+        "Joseph A. Fitzmyer, \"The Languages of Palestine in the First Century A.D.\", Catholic Biblical Quarterly 32 (1970): 501-531"
+      ]
+    },
+    {
+      "id": "golgotha",
+      "refs": ["Matthew 27:33", "Mark 15:22", "John 19:17"],
+      "word": "Golgotha",
+      "bsb": { "Matthew 27:33": "Golgotha", "Mark 15:22": "Golgotha", "John 19:17": "Golgotha" },
+      "meaning": "The Place of the Skull",
+      "meaningFrom": "verse",
+      "speaker": "the writers (Matthew, Mark, John)",
+      "jesus": false,
+      "kind": "place",
+      "language": "Aramaic",
+      "greek": { "Matthew 27:33": "Γολγοθᾶ", "Mark 15:22": "Γολγοθᾶν", "John 19:17": "Γολγοθα" },
+      "strongs": ["G1115"],
+      "aramaic": "גָּלְגָּלְתָּא",
+      "aramaicNote": "TAGNT prints Γολγοθᾶ (Matthew), Γολγοθᾶν (Mark) and Γολγοθα (John). The Greek has one l fewer than the Aramaic. Luke 23:33 uses only the Greek, Kranion; Latin calvaria gives “Calvary”.",
+      "line": "Golgotha: the local word for ‘skull’, usually taken as Aramaic",
+      "note": "Three Gospels keep the local name of the place where Jesus was crucified and translate it. John says “in Hebrew”; most scholars take this to mean the Aramaic Jews spoke, though some argue for Hebrew.",
+      "deep": "Abbott-Smith gives “Aram. גָּלְגָּלְתָּא = Heb. גֻּלְגֹּלֶת”, “skull”; the Aramaic vowels are uncertain (golgoltā or gulgaltā). Buth and Pierce (2014) note that the word is Hebrew as well as Aramaic. On John’s “in Hebrew” (Hebraisti), most lexicons take it to mean the Aramaic spoken by Jews; Buth and Pierce and Penner (2019) argue it always means Hebrew. Why the place was called “skull” is not known for certain.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G1115",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 27:33; Mark 15:22; John 19:17",
+        "Berean Standard Bible footnote (public domain) on John 19:13: “Or in Aramaic; also in verses 17 and 20”",
+        "Ken M. Penner, \"Ancient Names for Hebrew and Aramaic: A Case for Lexical Revision\", New Testament Studies 65.3 (2019): 412-423, https://doi.org/10.1017/S0028688519000067",
+        "Randall Buth and Chad Pierce, \"Hebraisti in Ancient Texts: Does Hebraisti Ever Mean 'Aramaic'?\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014), p. 107, as cited by Penner 2019, n. 20"
+      ]
+    },
+    {
+      "id": "gabbatha",
+      "refs": ["John 19:13"],
+      "word": "Gabbatha",
+      "bsb": { "John 19:13": "Gabbatha" },
+      "meaning": "uncertain; perhaps ‘height’ or ‘ridge’",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (John)",
+      "jesus": false,
+      "kind": "place",
+      "language": "Aramaic",
+      "greek": { "John 19:13": "Γαββαθα" },
+      "strongs": ["G1042"],
+      "aramaic": "גַּבְּתָא",
+      "aramaicNote": "The Aramaic word is uncertain (Abbott-Smith); gabbĕtā, “height”, is a common suggestion. “Stone Pavement” is the place’s Greek name, not a translation of Gabbatha.",
+      "line": "Gabbatha: the local name of Pilate’s judgment place",
+      "note": "John gives the place’s Greek name, the Stone Pavement, and its local name, Gabbatha. He says “in Hebrew”; most scholars take this to mean the Aramaic Jews spoke, though some argue for Hebrew.",
+      "deep": "Abbott-Smith calls Gabbatha “the Greek transliteration of an uncertain Aramaic word”, citing Dalman; “height” or “ridge” is a common guess. Some derive it instead from Latin gabata, “platter” (Buth and Pierce 2014). On “in Hebrew” (Hebraisti), most lexicons, including Abbott-Smith, take it here to mean the Aramaic spoken by Jews; Buth and Pierce (2014) and Penner (2019) argue it always means Hebrew.",
+      "certainty": "scholars differ",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G1042 (“the Greek transliteration of an uncertain Aramaic word”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 19:13",
+        "Berean Standard Bible footnote (public domain) on John 19:13: “Or in Aramaic”",
+        "Ken M. Penner, \"Ancient Names for Hebrew and Aramaic: A Case for Lexical Revision\", New Testament Studies 65.3 (2019): 412-423, https://doi.org/10.1017/S0028688519000067",
+        "Randall Buth and Chad Pierce, \"Hebraisti in Ancient Texts: Does Hebraisti Ever Mean 'Aramaic'?\", in R. Buth and R. S. Notley (eds.), The Language Environment of First Century Judaea (Leiden: Brill, 2014) (on gabata, as cited by Penner 2019, n. 19)"
+      ]
+    },
+    {
+      "id": "bethesda",
+      "refs": ["John 5:2"],
+      "word": "Bethesda",
+      "bsb": { "John 5:2": "Bethesda" },
+      "meaning": "uncertain; perhaps ‘house of mercy’ or ‘house of flowing water’",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (John)",
+      "jesus": false,
+      "kind": "place",
+      "language": "Aramaic or Hebrew",
+      "greek": { "John 5:2": "Βηθεσδά" },
+      "strongs": ["G0964"],
+      "aramaic": "בית אשדתין",
+      "aramaicNote": "The manuscripts differ: Bethzatha (NA28, TAGNT’s main text), Bethesda (TR, Byzantine, SBL, Tregelles, Tyndale House; followed by the BSB) and Bethsaida (some early manuscripts). The Copper Scroll, a Hebrew text from Qumran, names a place Bet ʾEshdatayin, which its editor read as “house of the two pools”; this supports a name like Bethesda.",
+      "line": "Bethesda: the pool’s local name, which John gives",
+      "note": "John gives the pool’s local name, saying it is “in Hebrew”. Which spelling is original is debated, and so is its meaning.",
+      "deep": "Bēth- is “house of” in both Hebrew and Aramaic. NA28 prints Bethzatha; the BSB footnote notes this. The Copper Scroll (3Q15) mentions Bet ʾEshdatayin, and the twin pools excavated by St Anne’s Church in Jerusalem are often linked with John’s “five covered colonnades”. John’s “in Hebrew” is usually taken as Aramaic; some scholars dispute that.",
+      "certainty": "scholars differ",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0964 (“deriv. uncertain”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 5:2: N(k)O Βηθζαθά; variant Βηθεσδά",
+        "Berean Standard Bible footnote (public domain) on John 5:2: “Or in Aramaic” and “NA, NE, and WH Bethzatha”",
+        "Bruce M. Metzger, A Textual Commentary on the Greek New Testament, 2nd ed. (Stuttgart: German Bible Society, 1994), on John 5:2",
+        "Copper Scroll (3Q15), Discoveries in the Judaean Desert III (Oxford, 1962)"
+      ]
+    },
+    {
+      "id": "messiah",
+      "refs": ["John 1:41", "John 4:25"],
+      "word": "Messiah",
+      "bsb": { "John 1:41": "Messiah", "John 4:25": "Messiah" },
+      "meaning": "Anointed One (in Greek, Christ)",
+      "meaningFrom": "gloss",
+      "speaker": "Andrew (1:41); the Samaritan woman (4:25)",
+      "jesus": false,
+      "kind": "title",
+      "language": "Aramaic or Hebrew",
+      "greek": { "John 1:41": "Μεσσίαν", "John 4:25": "Μεσσίας" },
+      "strongs": ["G3323"],
+      "aramaic": "מְשִׁיחָא",
+      "aramaicNote": "TAGNT has Μεσσίαν in 1:41 and Μεσσίας in 4:25. Both verses translate it by the Greek Christos, Christ.",
+      "line": "Messiah: Hebrew and Aramaic for ‘Anointed One’; in Greek, Christ",
+      "note": "Only John keeps the word Messiah itself. Both times he adds the Greek word that translates it, Christ: both mean the Anointed One.",
+      "deep": "Greek Messias renders Aramaic mĕšîḥā (Hebrew māšîaḥ), “anointed” (Abbott-Smith). The -as ending fits the Aramaic form. Everywhere else the New Testament uses the Greek translation, Christos.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G3323 (“Aram. מְשִׁיחָא = Heb. מָשִׁיחַ = Χριστός”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 1:41; 4:25"
+      ]
+    },
+    {
+      "id": "thomas",
+      "refs": ["John 11:16", "John 20:24", "John 21:2"],
+      "word": "Thomas",
+      "bsb": { "John 11:16": "Thomas", "John 20:24": "Thomas", "John 21:2": "Thomas" },
+      "meaning": "twin (in Greek, Didymus)",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (John)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "John 11:16": "Θωμᾶς", "John 20:24": "Θωμᾶς", "John 21:2": "Θωμᾶς" },
+      "strongs": ["G2381"],
+      "aramaic": "תְּאוֹמָא",
+      "aramaicNote": "Didymus, the name John adds, is Greek for “twin” (BSB footnote).",
+      "line": "Thomas is Aramaic for ‘twin’; Didymus is the Greek",
+      "note": "Thomas is an Aramaic name meaning “twin”. John adds the Greek name that means the same, Didymus.",
+      "deep": "Tĕʾômā is Aramaic for “twin” (Hebrew tĕʾôm; Abbott-Smith gives the Hebrew). The -as ending fits the Aramaic form. TBESG marks it N: (a name). Thomas appears in all the lists of the Twelve, but only John gives the Greek equivalent.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G2381 (“Heb.: תָּאוֹם, a twin; cf. δίδυμος”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 11:16; 20:24; 21:2",
+        "Berean Standard Bible footnote (public domain) on John 11:16: “Didymus means the twin.”"
+      ]
+    },
+    {
+      "id": "barnabas",
+      "refs": ["Acts 4:36"],
+      "word": "Barnabas",
+      "bsb": { "Acts 4:36": "Barnabas" },
+      "meaning": "Son of Encouragement",
+      "meaningFrom": "verse",
+      "speaker": "the writer (Luke)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "Acts 4:36": "Βαρναβᾶς" },
+      "strongs": ["G0921G"],
+      "aramaic": "בַּר",
+      "aramaicNote": "Only bar, “son”, is certain. How “-nabas” gives “encouragement” is unclear: Abbott-Smith suggests nĕbûʾâ, “prophecy”; Deissmann suggested Bar-Nebo. TAGNT tags this person G0921G.",
+      "line": "Barnabas: an Aramaic name (bar means ‘son’)",
+      "note": "The apostles gave Joseph an Aramaic nickname, Barnabas. Luke explains it: Son of Encouragement.",
+      "deep": "Bar is Aramaic for “son”; the rest of the name is debated. Proposals include bar nĕbûʾâ, “son of prophecy” (Abbott-Smith), and a form of the name Barnebous, “son of Nebo” (Deissmann). Sebastian Brock discussed Luke’s explanation in JTS 1974. Luke may give the sense of the nickname rather than its etymology.",
+      "certainty": "scholars differ",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0921G (“Aram. בַּר, son, as prefix to another word interpreted in Act.4:36”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Acts 4:36",
+        "Sebastian Brock, “ΒΑΡΝΑΒΑΣ: ϒΙΟΣ ΠΑΡΑΚΛΗΣΕΩΣ”, Journal of Theological Studies n.s. 25.1 (1974): 93-98, https://doi.org/10.1093/jts/XXV.1.93"
+      ]
+    },
+    {
+      "id": "bartimaeus",
+      "refs": ["Mark 10:46"],
+      "word": "Bartimaeus",
+      "bsb": { "Mark 10:46": "Bartimaeus" },
+      "meaning": "the son of Timaeus",
+      "meaningFrom": "verse",
+      "speaker": "the writer (Mark)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Aramaic",
+      "greek": { "Mark 10:46": "Βαρτιμαῖος" },
+      "strongs": ["G0924"],
+      "aramaic": "בַּר־טִמְאַי",
+      "aramaicNote": "Bar is Aramaic for “son”; Timaeus may be the Greek name Timaios or a Semitic name (Abbott-Smith: “perh. Aram. בַּר־טִמְאַי”).",
+      "line": "Bartimaeus: bar is Aramaic for ‘son’, so ‘son of Timaeus’",
+      "note": "The blind beggar’s name starts with the Aramaic bar, “son”. Mark explains it for Greek readers: the son of Timaeus.",
+      "deep": "In the Greek, Mark puts “the son of Timaeus” before the name Bartimaeus, giving the translation first. Bar- is Aramaic; Timaeus could be Greek, making the name a mix of the two languages, or a Semitic name. Abbott-Smith marks the Aramaic “perh.” (perhaps).",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0924 and G5090",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Mark 10:46"
+      ]
+    },
+    {
+      "id": "siloam",
+      "refs": ["John 9:7"],
+      "word": "Siloam",
+      "bsb": { "John 9:7": "Siloam" },
+      "meaning": "Sent",
+      "meaningFrom": "verse",
+      "speaker": "Jesus",
+      "jesus": true,
+      "kind": "place",
+      "language": "Hebrew",
+      "greek": { "John 9:7": "Σιλωάμ" },
+      "strongs": ["G4611"],
+      "aramaic": "שִׁלֹחַ",
+      "aramaicNote": "The word shown is the Hebrew name, not an Aramaic one: the Shiloah of Isaiah 8:6.",
+      "line": "A Hebrew name John explains: Siloam, ‘Sent’",
+      "note": "Jesus sends the blind man to wash in the Pool of Siloam. John translates the Hebrew name, “Sent”, perhaps pointing to Jesus as the one sent by God.",
+      "deep": "Šilōaḥ, from the verb “to send”, is the Hebrew name of the water channel in Isaiah 8:6 (Abbott-Smith). Unlike most words in this list it is Hebrew, not Aramaic. John often calls Jesus the one the Father “sent”.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4611 (“Heb. שִׁלֹחַ”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 9:7"
+      ]
+    },
+    {
+      "id": "immanuel",
+      "refs": ["Matthew 1:23"],
+      "word": "Immanuel",
+      "bsb": { "Matthew 1:23": "Immanuel" },
+      "meaning": "God with us",
+      "meaningFrom": "verse",
+      "speaker": "the writer (Matthew), quoting Isaiah 7:14",
+      "jesus": false,
+      "kind": "name",
+      "language": "Hebrew",
+      "greek": { "Matthew 1:23": "Ἐμμανουήλ" },
+      "strongs": ["G1694"],
+      "aramaic": "עִמָּנוּ אֵל",
+      "aramaicNote": "A Hebrew name from Isaiah 7:14, not Aramaic.",
+      "line": "A Hebrew name from Isaiah: Immanuel, ‘God with us’",
+      "note": "Matthew quotes Isaiah’s Hebrew name for the promised child and translates it for Greek readers: God with us.",
+      "deep": "ʿImmānû ʾēl is Hebrew for “God (is) with us” (Isaiah 7:14; 8:8). The Greek Old Testament (Isaiah 7:14) also keeps the name untranslated; Matthew adds the translation.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G1694 (“Heb. עִמָּנוּאֵל, Isa.7:14”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Matthew 1:23"
+      ]
+    },
+    {
+      "id": "melchizedek-salem",
+      "refs": ["Hebrews 7:2"],
+      "word": "Salem",
+      "bsb": { "Hebrews 7:2": "Salem" },
+      "meaning": "peace",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (Hebrews)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Hebrew",
+      "greek": { "Hebrews 7:2": "Σαλήμ" },
+      "strongs": ["G4532"],
+      "aramaic": "שָׁלֵם",
+      "aramaicNote": "A Hebrew name (Genesis 14:18), heard as šālôm, “peace”. Melchizedek, named in 7:1, is Hebrew Malkî-ṣedeq (מַלְכִּי־צֶדֶק).",
+      "line": "Two Hebrew names explained here: Melchizedek and Salem",
+      "note": "The writer translates two Hebrew names for Greek readers: Melchizedek means “king of righteousness”, and Salem means peace, so he is also “king of peace”.",
+      "deep": "Malkî-ṣedeq (Abbott-Smith: “Heb. מַלְכִּי־צֶדֶק”) is Hebrew for “my king is righteousness” or “king of righteousness”; Šālēm (Genesis 14:18; Psalm 76:2) is close to šālôm, “peace”. The verb for “translated” here (hermēneuō) is the one John uses for Cephas and Siloam (John 1:42; 9:7). Philo and Josephus explain the two names the same way.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G4532 (“Heb. שָׁלֵם Gen.14:18”) and G3198 (“Heb. מַלְכִּי־צֶדֶק”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Hebrews 7:2 (G4532; G2059 ἑρμηνευόμενος, “being translated”)",
+        "Philo, Allegorical Interpretation 3.79",
+        "Josephus, Jewish Antiquities 1.180"
+      ]
+    },
+    {
+      "id": "abaddon",
+      "refs": ["Revelation 9:11"],
+      "word": "Abaddon",
+      "bsb": { "Revelation 9:11": "Abaddon" },
+      "meaning": "Destruction (in Greek, Apollyon, ‘Destroyer’)",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (John of Revelation)",
+      "jesus": false,
+      "kind": "name",
+      "language": "Hebrew",
+      "greek": { "Revelation 9:11": "Ἀβαδδών" },
+      "strongs": ["G0003"],
+      "aramaic": "אֲבַדּוֹן",
+      "aramaicNote": "A Hebrew word (Job 26:6; Proverbs 15:11), not Aramaic.",
+      "line": "Abaddon: a Hebrew name, ‘Destruction’",
+      "note": "Revelation gives the angel of the Abyss two names: in Hebrew Abaddon, “Destruction”, and in Greek Apollyon, “Destroyer”.",
+      "deep": "ʾĂbaddôn, “destruction”, names the place of the dead in Job and Proverbs (Abbott-Smith). Here “in Hebrew” plainly means Hebrew: Abaddon is a Hebrew word.",
+      "certainty": "widely agreed",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0003 (“Heb. אֲבַדּוֹן, destruction”) and G1447",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Revelation 9:11",
+        "Berean Standard Bible footnote (public domain) on Revelation 9:11: “Abaddon means Destruction.”"
+      ]
+    },
+    {
+      "id": "armageddon",
+      "refs": ["Revelation 16:16"],
+      "word": "Armageddon",
+      "bsb": { "Revelation 16:16": "Armageddon" },
+      "meaning": "probably ‘Mount of Megiddo’",
+      "meaningFrom": "gloss",
+      "speaker": "the writer (John of Revelation)",
+      "jesus": false,
+      "kind": "place",
+      "language": "Hebrew",
+      "greek": { "Revelation 16:16": "Ἁρμαγεδών" },
+      "strongs": ["G0717"],
+      "aramaic": "הַר מְגִדּוֹן",
+      "aramaicNote": "Har-Magedon; the TR spells it with double d. The link to Megiddo is the usual view, not a certainty.",
+      "line": "Armageddon: a Hebrew name, probably ‘Mount Megiddo’",
+      "note": "Revelation says the name is “in Hebrew”. It is usually read as Har Megiddo, “Mount of Megiddo”, a town where famous battles were fought.",
+      "deep": "Most take Harmagedōn as Hebrew har Mĕgiddôn, “Mount of Megiddo”, with the spelling of Zechariah 12:11 (Abbott-Smith); but no mountain is called Megiddo (the town lies by a plain), so other proposals exist (such as har môʿēd, “mount of assembly”, Isaiah 14:13). Scholars differ.",
+      "certainty": "commonly held",
+      "sources": [
+        "TBESG, Translators Brief lexicon of Extended Strongs for Greek (STEPBible.org, CC BY 4.0; definitions from Abbott-Smith 1922), G0717 (“prop. = הַר מְגִדּוֹן”)",
+        "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), Revelation 16:16"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "jegar-sahadutha",
+      "from": "Genesis 31:47",
+      "to": "Genesis 31:47",
+      "startsMidVerse": true,
+      "endsMidVerse": true,
+      "words": [4, 5],
+      "basis": "tbesh+bsb-footnote",
+      "line": "Two words here are Aramaic: Jegar-sahadutha, ‘heap of witnesses’",
+      "note": "Laban, from Aram, names the stone heap in Aramaic, Jegar-sahadutha; Jacob names it in Hebrew, Galeed. Both mean “heap of witnesses”. These are the Bible’s first Aramaic words.",
+      "deep": "Only two words of this Hebrew verse are Aramaic: yĕgar śāhădûtāʾ. TBESH explains them as Aramaic, “witness heap”, the place Jacob called in Hebrew Galeed; but TAHOT tags both words with Hebrew grammar codes (HNpl), so the app’s Aramaic flag misses them. BSB footnote: “The Aramaic Jegar-Sahadutha and the Hebrew Galeed both mean heap of witnesses.”",
+      "sources": [
+        "Berean Standard Bible footnote (public domain) on Genesis 31:47",
+        "TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org, CC BY 4.0), Genesis 31:47 words 4-5 (H3026A, H3026B, tagged HNpl)",
+        "TBESH (STEPBible.org, CC BY 4.0), H3026A: “Aramaic of ra.mot gi.l.ad … Jegar-sahadutha = ‘witness heap’”",
+        "Franz Rosenthal, A Grammar of Biblical Aramaic (Wiesbaden: Harrassowitz, 1961), section 1"
+      ]
+    },
+    {
+      "id": "jeremiah",
+      "from": "Jeremiah 10:11",
+      "to": "Jeremiah 10:11",
+      "startsMidVerse": false,
+      "endsMidVerse": false,
+      "basis": "tahot",
+      "line": "This verse was written in Aramaic, not Hebrew",
+      "note": "In the middle of a Hebrew prophecy, one verse is in Aramaic, perhaps because it is a message for the nations in a language many of them shared: their gods will perish.",
+      "deep": "All 15 words of Jeremiah 10:11 are Aramaic in TAHOT; verses 10 and 12 are Hebrew. The verse even uses two Aramaic words for “earth” (ʾarqā and ʾarʿā). Why it is in Aramaic is debated: an address to the nations in their common language, or a later note added to the text.",
+      "sources": [
+        "Berean Standard Bible footnote (public domain) on Jeremiah 10:11: “The original text of this verse is in Aramaic.”",
+        "TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org, CC BY 4.0), Jeremiah 10:11 (15 of 15 words Aramaic)",
+        "Franz Rosenthal, A Grammar of Biblical Aramaic (Wiesbaden: Harrassowitz, 1961), section 1"
+      ]
+    },
+    {
+      "id": "daniel",
+      "from": "Daniel 2:4",
+      "to": "Daniel 7:28",
+      "startsMidVerse": true,
+      "endsMidVerse": false,
+      "basis": "tahot",
+      "line": "This part of Daniel was written in Aramaic, not Hebrew",
+      "note": "Halfway through 2:4, right after “in Aramaic”, the book of Daniel switches from Hebrew to Aramaic and keeps it up to the end of chapter 7. Chapter 8 returns to Hebrew.",
+      "deep": "TAHOT tags Daniel 2:4 words 1-4 (BSB “Then the astrologers answered the king in Aramaic”) Hebrew and words 5-12 Aramaic; every word from 2:5 to 7:28 is Aramaic: 200 verses in English numbering (the Hebrew Bible numbers 4:1-3 as 3:31-33 and 5:31 as 6:1). Why the book uses two languages is debated.",
+      "sources": [
+        "Berean Standard Bible footnote (public domain) on Daniel 2:4: “The original text from this point of Daniel 2:4 through Daniel 7:28 is in Aramaic.”",
+        "TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org, CC BY 4.0), Daniel 2:4-7:28",
+        "Franz Rosenthal, A Grammar of Biblical Aramaic (Wiesbaden: Harrassowitz, 1961), section 1"
+      ]
+    },
+    {
+      "id": "ezra-letters",
+      "from": "Ezra 4:8",
+      "to": "Ezra 6:18",
+      "startsMidVerse": false,
+      "endsMidVerse": false,
+      "basis": "tahot",
+      "line": "This part of Ezra was written in Aramaic, not Hebrew",
+      "note": "Here the book of Ezra quotes letters to and from the Persian kings in Aramaic, the language of the empire’s offices, and tells the story around them in Aramaic too.",
+      "deep": "Ezra 4:7, in Hebrew, says (BSB) “It was written in Aramaic and then translated”; its last word, ʾărāmît, may be a heading marking the switch. TAHOT tags every word of 4:8-6:18 Aramaic (52 verses) and 4:7 and 6:19 Hebrew. Official Aramaic was the administrative language of the Persian empire.",
+      "sources": [
+        "Berean Standard Bible footnote (public domain) on Ezra 4:7: “The original text of Ezra 4:8 through Ezra 6:18 is in Aramaic.”",
+        "TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org, CC BY 4.0), Ezra 4:8-6:18",
+        "Franz Rosenthal, A Grammar of Biblical Aramaic (Wiesbaden: Harrassowitz, 1961), section 1"
+      ]
+    },
+    {
+      "id": "ezra-decree",
+      "from": "Ezra 7:12",
+      "to": "Ezra 7:26",
+      "startsMidVerse": false,
+      "endsMidVerse": false,
+      "basis": "tahot",
+      "line": "The king’s letter here was written in Aramaic, not Hebrew",
+      "note": "The book gives the Persian king’s letter granting Ezra authority in Aramaic, the language of the empire’s offices. The story then returns to Hebrew.",
+      "deep": "TAHOT tags every word of Ezra 7:12-26 Aramaic (15 verses); 7:11, which introduces the letter, and 7:27, Ezra’s blessing, are Hebrew.",
+      "sources": [
+        "Berean Standard Bible footnote (public domain) on Ezra 7:11: “The original text of Ezra 7:12–26 is in Aramaic.”",
+        "TAHOT, Translators Amalgamated Hebrew OT (STEPBible.org, CC BY 4.0), Ezra 7:12-26",
+        "Franz Rosenthal, A Grammar of Biblical Aramaic (Wiesbaden: Harrassowitz, 1961), section 1"
+      ]
+    }
+  ],
+  "loanRoots": [
+    {
+      "strongs": "G5008",
+      "word": "ταλιθά",
+      "language": "Aramaic",
+      "why": "TBESG morph A:N; definition “Aram. טְלִיתָא”; TAGNT tags N-VSF-ARAM (Mark 5:41).",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G2891",
+      "word": "κοῦμι",
+      "language": "Aramaic",
+      "why": "TBESG morph A:V (its Abbott-Smith definition says “Heb. imperat.”, since qum is also Hebrew); TAGNT tags V-AAM-2S-ARAM.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G2188",
+      "word": "ἐφφαθά",
+      "language": "Aramaic",
+      "why": "TBESG morph A:V; “Aram. אֶתְפְּתח”. Rabinowitz (1971) argued Hebrew. TAGNT has no -ARAM tag.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G0005",
+      "word": "ἀββά",
+      "language": "Aramaic",
+      "why": "TBESG definition “Aram, אַבָּא, emphatic form of אַב” though its morph field says G:N-M; TAGNT has no -ARAM tag.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G1682",
+      "word": "ἐλωΐ",
+      "language": "Aramaic",
+      "why": "TBESG morph A:N; TAGNT N-VSM-ARAM (Mark 15:34).",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G2241",
+      "word": "ἠλί",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG morph G:N-M with definition “Heb. אֵל”; TAGNT tags N-VSM-ARAM (Matthew 27:46). The form matches Hebrew Psalm 22:1 and is possible in Aramaic.",
+      "certainty": "scholars differ"
+    },
+    {
+      "strongs": "G2982",
+      "word": "λαμά",
+      "language": "Aramaic",
+      "why": "TBESG morph A:PRT-I; TAGNT PRT-ARAM. The lema spelling of NA28 matches Aramaic lĕmā (Hebrew lāmâ).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4518",
+      "word": "σαβαχθάνι",
+      "language": "Aramaic",
+      "why": "TBESG morph A:V, “Aram. שְׁבַקְתַּנִי”; TAGNT V-AAI-2S-ARAM.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G4469",
+      "word": "ῥακά",
+      "language": "Aramaic",
+      "why": "TBESG morph A:N, “usually taken to represent the Aram. רֵיקָא”; TAGNT N-VSM-ARAM; BSB footnote “an Aramaic expression of contempt”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G3126",
+      "word": "μαμμωνᾶς",
+      "language": "Aramaic",
+      "why": "TBESG definition “Aram. מָמוֺנָא” (morph G:N-M).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G2878",
+      "word": "κορβᾶν",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG morph H:N, “Heb. קׇרְבָּן”; the word is the same in Aramaic (Jebel Hallet et-Turi ossuary). Also covers κορβανᾶς, Aramaic emphatic “the treasury”, Matthew 27:6.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0993",
+      "word": "Βοανεργές",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG name entry citing Dalman for the derivation; bĕnê “sons of” is the same in Aramaic and Hebrew; usually taken as Aramaic; the rest is debated.",
+      "certainty": "scholars differ"
+    },
+    {
+      "strongs": "G2786",
+      "word": "Κηφᾶς",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. כֵּיפָא”; translated Petros in John 1:42.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0920",
+      "word": "Βαριωνᾶς",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. בַּר־יוֹנָה, son of Jonah”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G4549G",
+      "word": "Σαούλ",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG “Heb. שָׁאוּל”, “used in the indecl. form only in address”; in Acts 26:14 the voice speaks “in Hebrew” (BSB footnote “literally in the Hebrew language”). Covers Paul only (King Saul is G4549H).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4461",
+      "word": "ῥαββί",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG morph H:N, “Heb. and Aram. רַב, my master”. A Jewish title kept in Matthew, Mark and John (15 times); Luke does not use it.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G4462",
+      "word": "ῥαββονί",
+      "language": "Aramaic",
+      "why": "TBESG morph A:N, “Aram. רַבּוֺנִי”; the related ribbôn also occurs in later Hebrew (Mishnah Taanit 3:8).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G3134",
+      "word": "μαρὰν ἀθά",
+      "language": "Aramaic",
+      "why": "TBESG morph A:V + A:N; TAGNT N-NSM-ARAM; BSB footnote “a transliteration of the Aramaic”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G5000",
+      "word": "Ταβιθά",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. טַבְיְתָא”; BSB footnote “Tabitha in Aramaic and Dorcas in Greek both mean gazelle”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0184",
+      "word": "Ἀκελδαμά",
+      "language": "Aramaic",
+      "why": "TBESG “field of blood”; Acts 1:19 says “in their own language”; Thayer derives it from Chaldee (Aramaic).",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G1115",
+      "word": "Γολγοθᾶ",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. גָּלְגָּלְתָּא = Heb. גֻּלְגֹּלֶת”. Buth and Pierce (2014) treat it as Hebrew as well as Aramaic.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G1042",
+      "word": "γαββαθά",
+      "language": "Aramaic",
+      "why": "TBESG “the Greek transliteration of an uncertain Aramaic word”. Buth and Pierce (2014) prefer a Latin loanword, gabata.",
+      "certainty": "scholars differ"
+    },
+    {
+      "strongs": "G0964",
+      "word": "Βηθζαθά",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG “deriv. uncertain”; John 5:2 says “in Hebrew”. Spelling differs by manuscript (Bethzatha, Bethesda, Bethsaida).",
+      "certainty": "scholars differ"
+    },
+    {
+      "strongs": "G3323",
+      "word": "Μεσσίας",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG “Aram. מְשִׁיחָא = Heb. מָשִׁיחַ”; the Greek ending fits the Aramaic form.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G2381",
+      "word": "Θωμᾶς",
+      "language": "Aramaic",
+      "why": "TBESG “Heb.: תָּאוֹם, a twin”; the Greek -ᾶς ending reflects Aramaic tĕʾômā; John glosses it Didymus.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0921G",
+      "word": "Βαρνάβας",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. בַּר, son, as prefix to another word”. TAGNT tags the apostle G0921G (G0921H is his unnamed father). This certainty covers only the Aramaic prefix bar, which is what the label rests on; how the rest of the name gives “encouragement” is debated (see words: barnabas).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G0924",
+      "word": "Βαρτιμαῖος",
+      "language": "Aramaic",
+      "why": "TBESG “perh. Aram. בַּר־טִמְאַי”; Mark 10:46 translates it “son of Timaeus”.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4611",
+      "word": "Σιλωάμ",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. שִׁלֹחַ”; John 9:7 translates it “Sent”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G1694",
+      "word": "Ἐμμανουήλ",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. עִמָּנוּאֵל, Isa.7:14”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G4532",
+      "word": "Σαλήμ",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. שָׁלֵם Gen.14:18”; Hebrews 7:2 translates it “peace”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0003",
+      "word": "Ἀβαδδών",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. אֲבַדּוֹן, destruction”; Revelation 9:11 says “in Hebrew”.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0717",
+      "word": "Ἀρμαγεδδών",
+      "language": "Hebrew",
+      "why": "TBESG “prop. = הַר מְגִדּוֹן”; Revelation 16:16 says “in Hebrew”.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G5614",
+      "word": "ὡσαννά",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG morph H:INJ, “Heb נָא and הוֹשֵׁעַ” (Psalm 118:25); BSB footnote “a transliteration of the Hebrew Hosia-na”. The short form hosha‘na may be Aramaic or later Hebrew. Not in “words”: a liturgical cry the text neither translates nor labels, and not unambiguously Aramaic.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G0281",
+      "word": "ἀμήν",
+      "language": "Hebrew",
+      "why": "TBESG morph H:INJ, “Heb. אָמֵן”; TAGNT tags INJ-HEB. Also used in Aramaic. Left out of “words”: a loanword long used in Greek worship (already in the Septuagint), though Jesus’ “Amen, I say to you” is distinctive.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G0239",
+      "word": "ἀλληλουϊα",
+      "language": "Hebrew",
+      "why": "TBESG morph H:INJ, “Heb. הָלַל יָהּ”; BSB footnote “a transliteration of the Hebrew Hallelu YAH”. Left out of “words”: a Hebrew liturgical word already in the Septuagint.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G4519",
+      "word": "σαβαώθ",
+      "language": "Hebrew",
+      "why": "TBESG morph H:N; Hebrew ṣĕbāʾôt, “hosts”, taken from the Septuagint of Isaiah (Romans 9:29; James 5:4).",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G3131",
+      "word": "μάννα",
+      "language": "Hebrew",
+      "why": "TBESG morph H:N (“מָן, Aram. מַנָּא”); TAGNT tags N-ASN-HEB. Already standard in the Septuagint. Has a Septuagint bridge in lxx.json.",
+      "certainty": "widely agreed"
+    },
+    {
+      "strongs": "G3957",
+      "word": "πάσχα",
+      "language": "Aramaic",
+      "why": "TBESG morph A:N, “Aram. טַּסְחָא” (sic: פַּסְחָא, pasḥā, is meant); Hebrew is pesaḥ. Indeclinable and foreign in form, but standard Jewish Greek since the Septuagint. Left out of “words”.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4521",
+      "word": "σάββατον",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG “Aram. שַׁבָּתָא, transliterated σάββατα … the sing. σάββατον was formed from it” (morph G:N-N). A fully Greek noun by NT times; has a Septuagint bridge. Label as “from Aramaic/Hebrew” rather than “written in Greek letters”, if at all.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4567",
+      "word": "Σατανᾶς",
+      "language": "Aramaic",
+      "why": "TBESG “Heb. שָׂטָן; Aram. סָטָנָא, whence the inflected Gk. form” (morph N:). A naturalized loanword; left out of “words”.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G1067",
+      "word": "γέεννα",
+      "language": "Aramaic or Hebrew",
+      "why": "TBESG “perh. through Aram. גֵּיהִנָּם, from Heb. גֵּי הִנֹּם”. Jesus’ word for hell (BSB footnotes “Greek Gehenna”); a declined Greek noun. In “words” (gehenna) for Jesus’ 11 uses.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4608",
+      "word": "σίκερα",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. שִׁכְרָא” (morph G:N-N), Luke 1:15 “strong drink”; already in the Septuagint; has a Septuagint bridge.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G4568",
+      "word": "σάτον",
+      "language": "Aramaic",
+      "why": "TBESG “Aram. סָאתָא = Heb. סְאָה”, a dry measure (Matthew 13:33; Luke 13:21, BSB “measures”). Jesus’ parable word, but a measure loanword.",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G0943",
+      "word": "βάτος",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. בַּת”, a liquid measure (Luke 16:6, BSB “measures”).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G2884",
+      "word": "κόρος",
+      "language": "Hebrew",
+      "why": "TBESG “Heb. כֹּר”, a dry measure (Luke 16:7).",
+      "certainty": "commonly held"
+    },
+    {
+      "strongs": "G5502",
+      "word": "χερουβίμ",
+      "language": "Hebrew",
+      "why": "Hebrew plural kĕrûbîm kept in Greek (Hebrews 9:5); already in the Septuagint.",
+      "certainty": "widely agreed"
+    }
+  ]
+}
