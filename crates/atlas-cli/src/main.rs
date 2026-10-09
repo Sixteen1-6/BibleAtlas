@@ -24,6 +24,7 @@ mod extra_peshitta;
 mod parse;
 mod query;
 mod extra_real_map;
+mod extra_translations;
 mod sources;
 mod world;
 mod verify;

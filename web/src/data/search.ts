@@ -12,6 +12,12 @@
 // people quote from memory and from other translations, so the closest matches
 // still come back, after the verses that do hold them all.
 //
+// Two more public-domain translations (KJV, ASV) can be added as `Extra`
+// text: their words count as matches and their wording counts for word order,
+// so a verse remembered in older or other wording is found. A few words that
+// translations swap for one another (looks/sees, anxious/worry) count too, at
+// a lower weight. Words spread over two neighboring verses can match the pair.
+//
 // Normalization must match crates/atlas-cli/src/english.rs exactly.
 
 import type { Atlas } from './atlas';
@@ -26,6 +32,7 @@ export function tokens(text: string): string[] {
 }
 
 function norm(raw: string): string {
+  if (raw.indexOf("'") < 0 && raw.indexOf('’') < 0) return raw.toLowerCase();
   let w = raw.toLowerCase().replace(/’/g, "'");
   w = w.replace(/^'+|'+$/g, '');
   if (w.endsWith("'s")) w = w.slice(0, -2);
@@ -114,10 +121,53 @@ const QUIET = new Set(
   'a an and are as at be but by for from had has have he her him his i in is it its me my no not of on or our she so that the their them they this to us was we were who will with you your'.split(' '),
 );
 
+/** Words translations use for one another. Each group's words stand in for
+ *  each other at a lower weight than a word's own forms. */
+const SWAPS: string[][] = [
+  ['look', 'looks', 'see', 'sees', 'behold'],
+  ['steadfast', 'lovingkindness', 'unfailing', 'devotion', 'mercy', 'kindness'],
+  ['anxious', 'anxiety', 'worry', 'worried', 'careful'],
+  ['afraid', 'fear', 'fearful', 'dismayed', 'terrified'],
+  ['everlasting', 'eternal', 'forever'],
+  ['compassion', 'mercy', 'pity'],
+  ['jehovah', 'lord'],
+  ['wrath', 'anger', 'fury'],
+  ['glad', 'joy', 'rejoice', 'joyful'],
+  ['trouble', 'tribulation', 'distress', 'affliction'],
+  ['perish', 'destroyed', 'die'],
+  ['strong', 'mighty', 'strength'],
+  ['courage', 'courageous'],
+  ['savior', 'saviour', 'deliverer', 'redeemer'],
+  ['save', 'deliver', 'rescue'],
+  ['iniquity', 'iniquities', 'sin', 'sins', 'transgression', 'transgressions'],
+  ['righteous', 'just', 'upright'],
+  ['wicked', 'evil', 'ungodly'],
+  ['weary', 'tired', 'faint'],
+  ['heavy', 'burdened', 'laden'],
+  ['rest', 'repose'],
+  ['children', 'sons', 'offspring'],
+  ['faithful', 'trustworthy'],
+  ['trust', 'rely', 'hope'],
+  ['abide', 'remain', 'dwell', 'live'],
+  ['grace', 'favor', 'favour'],
+  ['comfort', 'console', 'encourage'],
+  ['seek', 'search', 'look'],
+  ['heaven', 'heavens', 'sky'],
+  ['nations', 'gentiles', 'peoples'],
+  ['meek', 'humble', 'gentle'],
+  ['labor', 'labour', 'work', 'toil'],
+  ['spirit', 'ghost'],
+  ['spoke', 'said', 'spake'],
+  ['gift', 'present', 'offering'],
+  ['worry', 'troubled'],
+];
+const SWAP = new Map<string, string[]>();
+for (const g of SWAPS) for (const w of g) SWAP.set(w, [...new Set([...(SWAP.get(w) ?? []), ...g.filter((x) => x !== w)])]);
+
 const SUFFIXES = ['eth', 'est', 'ing', 'ed', 'es', 's', 'd', 'ly'];
 
 /** Other forms of a word that exist in the index: "loved" -> love, loves, loving. */
-function forms(words: string[], w: string): string[] {
+function forms(has: (w: string) => boolean, w: string): string[] {
   const stems = new Set<string>([w]);
   for (const s of SUFFIXES) {
     if (w.length - s.length >= 3 && w.endsWith(s)) {
@@ -132,11 +182,11 @@ function forms(words: string[], w: string): string[] {
   for (const stem of stems) {
     for (const s of ['', 's', 'es', 'd', 'ed', 'ing', 'eth', 'est']) {
       const f = stem + s;
-      if (f !== w && find(words, f) >= 0) out.add(f);
+      if (f !== w && has(f)) out.add(f);
     }
     if (stem.endsWith('e')) {
       const f = `${stem.slice(0, -1)}ing`;
-      if (f !== w && find(words, f) >= 0) out.add(f);
+      if (f !== w && has(f)) out.add(f);
     }
   }
   return [...out];
@@ -202,14 +252,51 @@ export interface Term {
   guessed: string[];
 }
 
-function buildTerm(a: Atlas, w: string, prefix: boolean): Term {
+/** Text from more translations, one array of lines (one per verse) each,
+ *  with an index of which verses each word appears in. */
+export interface Extra {
+  names: string[];
+  lines: string[][];
+  index: Map<string, Uint32Array>;
+}
+
+/** Index the words of other translations' text. Takes a few hundred
+ *  milliseconds for two whole Bibles, so callers run it off the main path. */
+export function buildExtra(names: string[], lines: string[][]): Extra {
+  const lists = new Map<string, number[]>();
+  const re = /[\p{L}\p{N}'’]+/gu;
+  const n = Math.max(...lines.map((l) => l.length));
+  // Verse by verse across all translations, so every list comes out sorted
+  // and unique without a second pass.
+  for (let v = 0; v < n; v++) {
+    for (const ls of lines) {
+      const line = ls[v];
+      if (!line) continue;
+      re.lastIndex = 0;
+      for (let m = re.exec(line); m; m = re.exec(line)) {
+        const w = norm(m[0]);
+        if (!w) continue;
+        let l = lists.get(w);
+        if (!l) lists.set(w, (l = []));
+        if (l[l.length - 1] !== v) l.push(v);
+      }
+    }
+  }
+  const index = new Map<string, Uint32Array>();
+  for (const [w, l] of lists) index.set(w, Uint32Array.from(l));
+  return { names, lines, index };
+}
+
+function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null): Term {
   const words = a.englishWords;
+  const has = (x: string) => find(words, x) >= 0 || !!extra?.index.has(x);
   const alts = new Map<string, number>();
   const put = (x: string, weight: number) => alts.set(x, Math.max(alts.get(x) ?? 0, weight));
-  if (find(words, w) >= 0) put(w, 1);
-  for (const x of OLDER[w] ?? []) if (find(words, x) >= 0) put(x, 0.95);
-  for (const x of forms(words, w)) put(x, 0.8);
-  for (const x of OLDER[w] ?? []) for (const f of forms(words, x)) put(f, 0.7);
+  if (has(w)) put(w, 1);
+  for (const x of OLDER[w] ?? []) if (has(x)) put(x, 0.95);
+  for (const x of forms(has, w)) put(x, 0.8);
+  for (const x of OLDER[w] ?? []) for (const f of forms(has, x)) put(f, 0.7);
+  for (const x of SWAP.get(w) ?? []) if (has(x)) put(x, 0.6);
   if (prefix && w.length >= 2) {
     let i = lowerBound(words, w);
     for (let k = 0; i < words.length && words[i].startsWith(w) && k < 64; i++, k++) put(words[i], 0.85);
@@ -219,14 +306,20 @@ function buildTerm(a: Atlas, w: string, prefix: boolean): Term {
   return { text: w, alts, guessed };
 }
 
-export function parseQuery(a: Atlas, query: string): Term[] {
+export function parseQuery(a: Atlas, query: string, extra?: Extra | null): Term[] {
   const ws = tokens(query);
   const typing = !/\s$/.test(query);
-  return ws.map((w, i) => buildTerm(a, w, typing && i === ws.length - 1));
+  return ws.map((w, i) => buildTerm(a, w, typing && i === ws.length - 1, extra));
 }
 
 export interface SearchResult {
+  /** First verse of each result. */
   verses: number[];
+  /** How many verses each result covers: 1, or 2 when the words were
+   *  spread over a verse and the next. */
+  spans: number[];
+  /** The translation whose wording matched best, when it was not the BSB. */
+  via: (string | null)[];
   /** Verses that hold every query word (or a form of it). */
   total: number;
   /** Every index word that matched, for highlighting. */
@@ -237,32 +330,94 @@ export interface SearchResult {
   guesses: [string, string[]][];
 }
 
-const EMPTY: SearchResult = { verses: [], total: 0, words: new Set(), unknown: [], guesses: [] };
+const EMPTY: SearchResult = { verses: [], spans: [], via: [], total: 0, words: new Set(), unknown: [], guesses: [] };
+
+/** How closely a run of words reads like the query: the longest stretch
+ *  matching query words in order, plus how many neighboring query word pairs
+ *  appear side by side. */
+function orderScore(toks: string[], pos: Map<string, number>[]): number {
+  const all = pos.length;
+  // Skipping a query word ("eye for an eye" vs "eye for eye") or swapping one
+  // ("walk in the light" vs "walk into the light") costs half a word.
+  let run = 0;
+  for (let i = 0; i < toks.length; i++) {
+    for (let q = 0; q < all; q++) {
+      if (!pos[q].has(toks[i])) continue;
+      let got = 1;
+      let qi = q;
+      for (let j = i + 1; j < toks.length; j++) {
+        if (qi + 1 < all && pos[qi + 1].has(toks[j])) {
+          qi += 1;
+          got += 1;
+        } else if (qi + 2 < all && pos[qi + 2].has(toks[j])) {
+          qi += 2;
+          got += 0.5;
+        } else if (qi + 2 < all && j + 1 < toks.length && pos[qi + 2].has(toks[j + 1])) {
+          // A different word in the same place ("into" for "in").
+          qi += 2;
+          j += 1;
+          got += 1.5;
+        } else break;
+      }
+      run = Math.max(run, got);
+    }
+  }
+  let pairs = 0;
+  for (let q = 0; q + 1 < all; q++) {
+    for (let i = 0; i + 1 < toks.length; i++) {
+      if (pos[q].has(toks[i]) && pos[q + 1].has(toks[i + 1])) {
+        pairs++;
+        break;
+      }
+    }
+  }
+  return run / all + pairs / (all - 1);
+}
+
+/** Tokens per verse per text, kept across searches: typing re-ranks the
+ *  same verses on every key. */
+const tokCache = new WeakMap<string[], (string[] | undefined)[]>();
+function verseTokens(ls: string[], v: number): string[] {
+  let c = tokCache.get(ls);
+  if (!c) tokCache.set(ls, (c = []));
+  return (c[v] ??= tokens(ls[v] ?? ''));
+}
+
+interface Unit {
+  v: number;
+  span: number;
+  cover: number;
+}
 
 /**
  * Best verses for an English query. `texts` (the BSB, one string per verse)
- * is optional; without it results are ranked on words alone.
+ * is optional; without it results are ranked on words alone. `extra` adds
+ * other translations' wording.
  */
-export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: string[] | null): SearchResult {
-  const terms = parseQuery(a, query);
+export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: string[] | null, extra?: Extra | null): SearchResult {
+  const terms = parseQuery(a, query, extra);
   if (!terms.length) return EMPTY;
   const n = a.rank.length;
   const score = new Float32Array(n);
   const hits = new Uint8Array(n);
   const touched: number[] = [];
   const idf: number[] = [];
+  const bests: Map<number, number>[] = [];
   const words = new Set<string>();
   const unknown: string[] = [];
   for (const t of terms) {
-    // Best weight per verse for this term.
+    // Best weight per verse for this term, in any translation.
     const best = new Map<number, number>();
+    const add = (v: number, weight: number) => {
+      if ((best.get(v) ?? 0) < weight) best.set(v, weight);
+    };
     for (const [x, weight] of t.alts) {
       const i = find(a.englishWords, x);
-      for (let p = a.eOff[i]; p < a.eOff[i + 1]; p++) {
-        const v = a.eVerse[p];
-        if ((best.get(v) ?? 0) < weight) best.set(v, weight);
-      }
+      if (i >= 0) for (let p = a.eOff[i]; p < a.eOff[i + 1]; p++) add(a.eVerse[p], weight);
+      const more = extra?.index.get(x);
+      if (more) for (const v of more) add(v, weight);
     }
+    bests.push(best);
     if (!best.size) unknown.push(t.text);
     // Highlight the words that carry the query, not every "the" and "is".
     if (!QUIET.has(t.text) || terms.length === 1) for (const x of t.alts.keys()) words.add(x);
@@ -279,65 +434,71 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
   let total = 0;
   for (const v of touched) if (hits[v] >= all) total++;
 
-  // Word-level ranking: coverage first, then how connected the verse is.
-  const cover = (v: number) => score[v] / mass;
   // Short queries must match fully; long ones (quotes from memory) may miss a few words.
-  const floor = all <= 2 ? 0.99 : all <= 4 ? 0.6 : 0.45;
-  let cands = touched.filter((v) => cover(v) >= floor * 0.999);
-  if (!cands.length) cands = touched;
-  cands.sort((x, y) => cover(y) - cover(x) || a.rank[y] - a.rank[x] || x - y);
-
-  if (texts && all >= 2) {
-    cands = cands.slice(0, 600);
-    const pos = terms.map((t) => t.alts);
-    const fine = new Map<number, number>();
-    for (const v of cands) {
-      const toks = tokens(texts[v] ?? '');
-      // Longest stretch of the verse that reads like the query: consecutive
-      // verse words matching query words in order. Skipping a query word
-      // ("eye for an eye" vs "eye for eye") or swapping one ("walk in the
-      // light" vs "walk into the light") costs half a word.
-      let run = 0;
-      for (let i = 0; i < toks.length; i++) {
-        for (let q = 0; q < pos.length; q++) {
-          if (!pos[q].has(toks[i])) continue;
-          let got = 1;
-          let qi = q;
-          for (let j = i + 1; j < toks.length; j++) {
-            if (qi + 1 < pos.length && pos[qi + 1].has(toks[j])) {
-              qi += 1;
-              got += 1;
-            } else if (qi + 2 < pos.length && pos[qi + 2].has(toks[j])) {
-              qi += 2;
-              got += 0.5;
-            } else if (qi + 2 < pos.length && j + 1 < toks.length && pos[qi + 2].has(toks[j + 1])) {
-              // A different word in the same place ("into" for "in").
-              qi += 2;
-              j += 1;
-              got += 1.5;
-            } else break;
-          }
-          run = Math.max(run, got);
-        }
-      }
-      let pairs = 0;
-      for (let q = 0; q + 1 < pos.length; q++) {
-        for (let i = 0; i + 1 < toks.length; i++) {
-          if (pos[q].has(toks[i]) && pos[q + 1].has(toks[i + 1])) {
-            pairs++;
-            break;
-          }
-        }
-      }
-      const order = run / all + pairs / (all - 1);
-      // Shorter verses that are mostly the query read as the quote itself.
-      const focus = Math.min(1, all / Math.max(1, toks.length));
-      fine.set(v, cover(v) * 4 + order * 2 + focus * 0.5 + a.rank[v] * 0.5);
+  const floor = (all <= 2 ? 0.99 : all <= 4 ? 0.6 : 0.45) * 0.999;
+  let units: Unit[] = [];
+  for (const v of touched) if (score[v] / mass >= floor) units.push({ v, span: 1, cover: score[v] / mass });
+  // Words remembered from around a verse: a verse and the next, together,
+  // when together they hold clearly more of the query than either alone.
+  if (all >= 3) {
+    for (const v of touched) {
+      const w = v + 1;
+      if (w >= n || a.verseBook[w] !== a.verseBook[v] || !score[w]) continue;
+      let s2 = 0;
+      for (let t = 0; t < all; t++) s2 += idf[t] * Math.max(bests[t].get(v) ?? 0, bests[t].get(w) ?? 0);
+      const c2 = s2 / mass;
+      if (c2 >= floor && c2 >= Math.max(score[v], score[w]) / mass + 0.2) units.push({ v, span: 2, cover: c2 - 0.05 });
     }
-    cands.sort((x, y) => fine.get(y)! - fine.get(x)! || x - y);
+  }
+  if (!units.length) units = touched.map((v) => ({ v, span: 1, cover: score[v] / mass }));
+  units.sort((x, y) => y.cover - x.cover || a.rank[y.v] - a.rank[x.v] || x.v - y.v);
+
+  const via = new Map<Unit, string>();
+  if (texts && all >= 2) {
+    units = units.slice(0, 600);
+    const pos = terms.map((t) => t.alts);
+    const fine = new Map<Unit, number>();
+    const versions: [string | null, string[]][] = [[null, texts], ...(extra?.names.map((nm, i): [string, string[]] => [nm, extra.lines[i]]) ?? [])];
+    for (const u of units) {
+      let order = -1;
+      let bsbToks = 0;
+      for (const [name, ls] of versions) {
+        const toks = u.span === 2 ? [...verseTokens(ls, u.v), ...verseTokens(ls, u.v + 1)] : verseTokens(ls, u.v);
+        if (!name) bsbToks = toks.length;
+        const o = orderScore(toks, pos);
+        // Another translation's wording wins only when it reads clearly closer.
+        if (name ? o > order + 0.25 : o > order) {
+          // Name it only when that wording really reads like the query.
+          if (name && o >= 0.8) via.set(u, name);
+          else via.delete(u);
+          order = o;
+        }
+      }
+      // Shorter verses that are mostly the query read as the quote itself.
+      const focus = Math.min(1, all / Math.max(1, bsbToks));
+      fine.set(u, u.cover * 4 + order * 2 + focus * 0.5 + a.rank[u.v] * 0.5);
+    }
+    units.sort((x, y) => fine.get(y)! - fine.get(x)! || x.v - y.v);
+  }
+  // A verse shows once: drop results that overlap a better one.
+  const taken = new Set<number>();
+  const out: Unit[] = [];
+  for (const u of units) {
+    if (out.length >= limit) break;
+    if (taken.has(u.v) || (u.span === 2 && taken.has(u.v + 1))) continue;
+    out.push(u);
+    for (let k = 0; k < u.span; k++) taken.add(u.v + k);
   }
   const guesses = terms.filter((t) => t.guessed.length).map((t): [string, string[]] => [t.text, t.guessed]);
-  return { verses: cands.slice(0, limit), total, words, unknown, guesses };
+  return {
+    verses: out.map((u) => u.v),
+    spans: out.map((u) => u.span),
+    via: out.map((u) => via.get(u) ?? null),
+    total,
+    words,
+    unknown,
+    guesses,
+  };
 }
 
 /** Lowercase ASCII-ish form for comparing transliterations ("agapē" -> "agape"). */
