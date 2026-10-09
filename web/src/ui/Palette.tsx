@@ -7,9 +7,11 @@ import { type Extra, type SearchResult, searchEnglish, searchRoots, markWords } 
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
+import { type Asked, askIndex, askLabel, isCare, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
+  | { kind: 'ask'; asked: Asked }
   | { kind: 'root'; root: number }
   | { kind: 'verse'; v: number; span: number; via: string | null };
 
@@ -49,7 +51,7 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
 }
 
 function footNote(q: string, res: SearchResult | null, ref: boolean): string {
-  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a Strong’s number, or a transliteration like “agape” or “ruach”.';
+  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a question like “what happens when we die?”, a Strong’s number, or a transliteration like “agape” or “ruach”.';
   if (!res) return ref ? 'Press Enter to open it.' : '';
   const notes: string[] = [];
   if (res.guesses.length) notes.push(`Read ${res.guesses.map(([w, as]) => `“${w}” as “${as.join('” or “')}”`).join(', ')}.`);
@@ -71,6 +73,8 @@ export function Palette({ a }: { a: Atlas }) {
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => input.current?.focus(), []);
+  const asks = askIndex.value;
+  useEffect(() => void loadAsk(a).catch(() => {}), []);
   useEffect(() => {
     if (!texts) loadPlainText(a).then(setTexts, () => {});
     // Other translations' wording: search works without it and improves when it lands.
@@ -90,9 +94,12 @@ export function Palette({ a }: { a: Atlas }) {
       const range = /\d/.test(query) || query.length >= 3 ? await S.engine.value?.parseRef(query) : null;
       if (!live) return;
       if (range) out.push({ kind: 'ref', range });
-      for (const r of searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
+      for (const asked of range && /\d/.test(query) ? [] : matchAsk(asks, query)) out.push({ kind: 'ask', asked });
+      // Someone asking about ending their life gets help and hope (matchAsk), not every verse that says "kill" or "die".
+      const care = isCare(query);
+      for (const r of care ? [] : searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
       // "Mathew 5:3" is a reference, not words to look for.
-      const found = range && /\d/.test(query) ? null : searchEnglish(a, q, 30, texts, extra);
+      const found = care || (range && /\d/.test(query)) ? null : searchEnglish(a, q, 30, texts, extra);
       found?.verses.forEach((v, i) => out.push({ kind: 'verse', v, span: found.spans[i], via: found.via[i] }));
       setItems(out);
       setRes(found);
@@ -101,14 +108,15 @@ export function Palette({ a }: { a: Atlas }) {
     return () => {
       live = false;
     };
-  }, [q, texts, extra]);
+  }, [q, texts, extra, asks]);
 
   const choose = (it: Item) => {
     S.paletteOpen.value = false;
     if (it.kind === 'ref') {
       S.selectVerse(it.range[0]);
       S.mobilePane.value = 'read';
-    } else if (it.kind === 'root') S.openRoot(it.root);
+    } else if (it.kind === 'ask') openAsk(it.asked);
+    else if (it.kind === 'root') S.openRoot(it.root);
     else S.selectVerse(it.v);
   };
 
@@ -133,6 +141,12 @@ export function Palette({ a }: { a: Atlas }) {
                 <>
                   <span class="k">Go to</span>
                   <b>{it.range[0] === it.range[1] ? label(a, it.range[0]) : `${label(a, it.range[0])} – ${label(a, it.range[1])}`}</b>
+                </>
+              )}
+              {it.kind === 'ask' && (
+                <>
+                  <span class="k ask-k">Ask</span>
+                  <b>{askLabel(it.asked)[0]}</b> <span class="k">{askLabel(it.asked)[1]}</span>
                 </>
               )}
               {it.kind === 'root' && (

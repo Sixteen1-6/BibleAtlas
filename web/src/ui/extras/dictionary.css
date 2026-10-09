@@ -1,0 +1,79 @@
+/* Old Bible dictionaries. Only the app's colour variables, so the paper
+   (light) and dark themes both follow. The entry text itself is styled with
+   the Sources shelf's dictionary reader (.dict-text in ui/shelf.css). */
+
+.x-dictionary-list {
+  list-style: none;
+  margin: 4px 0 12px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.x-dictionary-item + .x-dictionary-item {
+  border-top: 1px solid var(--line);
+}
+.x-dictionary-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 8px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.x-dictionary-head:hover {
+  background: var(--surface-2);
+}
+.x-dictionary-name {
+  font: 600 15.5px/1.35 var(--font-read);
+  color: var(--ink);
+}
+.x-dictionary-from {
+  grid-row: 2;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.x-dictionary-chev {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: center;
+  color: var(--accent);
+  transition: transform 0.15s;
+}
+.x-dictionary-on .x-dictionary-chev {
+  transform: rotate(90deg);
+}
+.x-dictionary-on .x-dictionary-head {
+  background: var(--surface-2);
+}
+.x-dictionary-body {
+  padding: 4px 12px 12px;
+  background: var(--surface-2);
+}
+.xt-body .x-dictionary-hint {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.x-dictionary-open {
+  display: block;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 13.5px var(--font-ui);
+  color: var(--link);
+  text-align: left;
+  cursor: pointer;
+}
+.x-dictionary-open:hover {
+  text-decoration: underline;
+}
+@media (prefers-reduced-motion: reduce) {
+  .x-dictionary-chev {
+    transition: none;
+  }
+}

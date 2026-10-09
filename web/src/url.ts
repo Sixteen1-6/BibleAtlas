@@ -1,12 +1,15 @@
 // Every view is a link: #v=John.3.16&w=G0026&wv=John.3.16&wp=4&t=lamb&p=Gen.3.15~Rev.12.9&road=2&tab=word
 // (wv and wp: the verse and word position a word study was opened from; road:
 // which of the roads between the two ends of p is lit, when it is not the first).
+// The Sources shelf: tab=sources&src=easton (a work's card open), and
+// tab=sources&read=easton&term=quails (reading a dictionary, at an entry).
 
 import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
 import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
 import { extraFromHash, extraToHash } from './ui/extras/open';
+import { askFromHash, askToHash } from './ui/ask/ask';
 import { chosenRoad, pickLinkedRoad } from './ui/Roads';
 
 function osis(a: Atlas, v: number): string {
@@ -51,12 +54,42 @@ export function restoreFromHash(a: Atlas): void {
   if (t && a.themes.some((x) => x.id === t)) S.theme.value = t;
   const tab = h.get('tab') as S.Tab | null;
   if (tab && tab in TAB_DEPTH) {
-    // A shared link opens as deep as the view it points at.
     S.tab.value = tab;
-    deepen(TAB_DEPTH[tab]);
+    // A shared link opens as deep as the view it points at; the Sources
+    // shelf opens at any level.
+    if (tab === 'sources') S.sourcesAsked.value = true;
+    else deepen(TAB_DEPTH[tab]);
   }
+  shelfFromHash(h);
   if (h.has('p')) pickLinkedRoad(Number(h.get('road')));
   extraFromHash(h);
+  askFromHash(h);
+}
+
+const SHELF_ID = /^[a-z0-9-]{1,64}$/;
+
+/** src= (the open card), read= and term= (the dictionary and entry being read).
+ * src=easton&term=quails is read as reading that entry too. */
+function shelfFromHash(h: URLSearchParams): void {
+  const id = (k: string) => {
+    const x = h.get(k);
+    return x && SHELF_ID.test(x) ? x : null;
+  };
+  const src = id('src');
+  const term = id('term');
+  const read = id('read') ?? (term ? src : null);
+  S.shelfWork.value = read ?? src;
+  S.shelfRead.value = read ? { dict: read, term } : null;
+  if (src || read) S.shelfJump.value++;
+}
+
+function shelfToHash(h: URLSearchParams): void {
+  if (S.tab.value !== 'sources') return;
+  const r = S.shelfRead.value;
+  if (r) {
+    h.set('read', r.dict);
+    if (r.term) h.set('term', r.term);
+  } else if (S.shelfWork.value) h.set('src', S.shelfWork.value);
 }
 
 export function pathFromHash(a: Atlas): [number, number] | null {
@@ -66,7 +99,7 @@ export function pathFromHash(a: Atlas): [number, number] | null {
   return x !== null && y !== null && x !== undefined && y !== undefined ? [x, y] : null;
 }
 
-/** Keep the address bar in sync without adding history entries. */
+/** Keep the address bar in sync, adding a history entry only for a step (S.step). */
 export function syncHash(a: Atlas): () => void {
   return effect(() => {
     const h = new URLSearchParams();
@@ -89,8 +122,10 @@ export function syncHash(a: Atlas): () => void {
       if (road > 0) h.set('road', String(road + 1));
     }
     h.set('tab', S.tab.value);
+    shelfToHash(h);
     extraToHash(h);
+    askToHash(h);
     const next = `#${h.toString()}`;
-    if (location.hash !== next) history.replaceState(null, '', next);
+    if (location.hash !== next) S.writeAddress(next);
   });
 }

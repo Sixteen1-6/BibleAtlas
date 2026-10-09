@@ -204,7 +204,7 @@ export function WordStudy({ a }: { a: Atlas }) {
           Show more
         </button>
       )}
-      <Provenance>
+      <Provenance work={greek ? 'tbesg' : 'tbesh'}>
         Definition: STEPBible {lex?.s === 'tbesg' ? 'TBESG, abridged from Abbott-Smith' : 'TBESH, abridged from Brown-Driver-Briggs'} (CC BY 4.0). Words and grammar: STEPBible {greek ? 'TAGNT' : 'TAHOT'}. Counts are computed from the base text ({greek ? 'Nestle-Aland family' : 'Leningrad Codex'}).
       </Provenance>
     </div>
