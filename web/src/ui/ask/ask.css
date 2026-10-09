@@ -1,0 +1,176 @@
+/* Ask the Bible. Classes start with ask-; the frame and passages use the
+   extras' xt- classes. */
+
+.ask-answer p {
+  font-family: var(--font-read);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0 0 0.7em;
+  color: var(--ink);
+}
+.ask-refs {
+  white-space: normal;
+}
+.ask-ref {
+  font: inherit;
+  font-size: 0.86em;
+  color: var(--link);
+  background: none;
+  border: 0;
+  padding: 0 0.15em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ask-ref + .ask-ref::before {
+  content: '· ';
+  color: var(--muted);
+}
+.ask-ref:hover,
+.ask-ref:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ask-draft {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  padding: 0.35em 0.6em;
+}
+.xt-body .ask-more {
+  margin: 0.9em 0 0.4em;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+button.ask-more {
+  display: block;
+}
+.ask-all {
+  margin-top: 0.4em;
+}
+.ask-book h4 {
+  margin: 0.8em 0 0.3em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.ask-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.ask-chip {
+  font-size: 0.82rem;
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+}
+.ask-chip:hover,
+.ask-chip:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* In search: the "Ask" rows. */
+.palette li .k.ask-k {
+  color: var(--accent);
+}
+
+/* The verse extra's panel: the questions a verse answers. */
+.x-ask-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.x-ask-q {
+  font: inherit;
+  font-family: var(--font-read);
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  padding: 0.55em 0.2em;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--link);
+  cursor: pointer;
+}
+.x-ask-q:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* A chain of Scripture: each part in the reading font, its reference under it. */
+.ask-chain {
+  margin: 0.2em 0 0.6em;
+}
+.ask-part {
+  margin: 0 0 0.9em;
+  padding: 0 0 0 0.85em;
+  border-left: 2px solid var(--accent-soft);
+}
+.ask-part p {
+  font-family: var(--font-read);
+  font-size: 1.04rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--ink);
+}
+.ask-part sup {
+  font-size: 0.68em;
+  color: var(--muted);
+  margin-right: 0.15em;
+}
+.ask-part footer {
+  display: flex;
+  gap: 0.8em;
+  align-items: baseline;
+  margin-top: 0.15em;
+}
+.ask-part .ask-ref {
+  padding: 0;
+}
+.ask-whole {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+.ask-found mark,
+.ask-part mark {
+  background: var(--accent-soft);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.ask-how {
+  font-size: 0.86rem;
+  color: var(--muted);
+  padding-left: 1.1em;
+}
+.ask-how li {
+  margin: 0.2em 0;
+}
+.ask-care {
+  background: var(--accent-soft);
+  border-radius: var(--r-md);
+  padding: 0.7em 0.9em;
+  margin: 0 0 1em;
+}
+.ask-care p {
+  margin: 0;
+  line-height: 1.5;
+}
+.ask-care a {
+  color: var(--link);
+}
