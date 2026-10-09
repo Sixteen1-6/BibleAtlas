@@ -1,16 +1,23 @@
 // The cards the Wheel opens. A ribbon's card answers "what do these two books
 // say to each other?" with the verse pairs readers voted strongest. A book's
-// card shows the verses the rest of the Bible leans on most, and the books it
-// talks with. Each opens short, with more one tap away.
+// card shows its most connected verses (the ones the rest of the Bible leans on
+// most) and the books it talks with. Each opens short, with more one tap away.
 
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, locate, rangeLabel } from '../data/atlas';
-import { ARC, GENRE } from './colors';
 import { TAP } from '../state';
+import { GENRE } from './colors';
 import { Provenance, Snippet } from './common';
 
 /** Rows a card shows before "Show more". */
 const FIRST_ROWS = 3;
+/** The strongest book pairs, each drawn as a ribbon. Weaker pairs get a thin thread while their card is open. */
+export const TOP_PAIRS = 420;
+/**
+ * Ribbons between the Testaments. Pale silver, because every genre color is taken and the
+ * Testaments pink (ARC.testaments) is too close to the major prophets' pink to tell apart here.
+ */
+export const CROSS = '#e6e9ff';
 
 // ------------------------------------------------------------------ data
 
@@ -151,7 +158,21 @@ interface Common {
   onClose: () => void;
 }
 
-function Head({ id, children, sub, action, onClose }: { id: string; children: preact.ComponentChildren; sub: preact.ComponentChildren; action?: preact.ComponentChildren; onClose: () => void }) {
+function Head({
+  id,
+  children,
+  sub,
+  nav,
+  action,
+  onClose,
+}: {
+  id: string;
+  children: preact.ComponentChildren;
+  sub: preact.ComponentChildren;
+  nav?: preact.ComponentChildren;
+  action?: preact.ComponentChildren;
+  onClose: () => void;
+}) {
   return (
     <header class="wh-head">
       <div class="wh-titles">
@@ -159,6 +180,7 @@ function Head({ id, children, sub, action, onClose }: { id: string; children: pr
           {children}
         </h2>
         <p class="wh-sub">{sub}</p>
+        {nav}
       </div>
       {action}
       <button class="wh-x" onClick={onClose} aria-label="Close this card" title="Close (Esc)">
@@ -174,7 +196,7 @@ function Dot({ color }: { color: string }) {
   return <i class="wh-dot" style={`background:${color}`} aria-hidden="true" />;
 }
 
-function VerseButton({ a, v, span, selected, onPick, max = 170 }: { a: Atlas; v: number; span: number; selected: number | null; onPick: (v: number) => void; max?: number }) {
+function VerseButton({ a, v, span, selected, onPick, max = 400 }: { a: Atlas; v: number; span: number; selected: number | null; onPick: (v: number) => void; max?: number }) {
   return (
     <button class={`wh-verse${selected === v ? ' wh-cur' : ''}`} onClick={() => onPick(v)} aria-current={selected === v ? 'true' : undefined}>
       <span class="wh-ref">{rangeLabel(a, v, span)}</span>
@@ -192,7 +214,7 @@ function More({ hidden, open, onOpen }: { hidden: number; open: boolean; onOpen:
   );
 }
 
-export function PairCard({ a, i, j, titleId, onBook, ...c }: Common & { i: number; j: number; titleId: string; onBook: (i: number) => void }) {
+export function PairCard({ a, i, j, hasRibbon, titleId, onBook, ...c }: Common & { i: number; j: number; hasRibbon: boolean; titleId: string; onBook: (i: number) => void }) {
   const info = useMemo(() => pairRows(a, i, j), [a, i, j]);
   const [all, setAll] = useState(false);
   const A = a.books[i];
@@ -215,7 +237,7 @@ export function PairCard({ a, i, j, titleId, onBook, ...c }: Common & { i: numbe
           <Dot color={GENRE[A.genre].color} />
           {A.name}
         </button>
-        <span class="wh-amp" style={cross ? `color:${ARC.testaments}` : undefined} aria-hidden="true">
+        <span class={`wh-amp${cross ? ' wh-amp-cross' : ''}`} aria-hidden="true">
           ↔
         </span>
         <span class="sr-only">and</span>
@@ -260,7 +282,10 @@ export function PairCard({ a, i, j, titleId, onBook, ...c }: Common & { i: numbe
           <summary>How these are chosen</summary>
           <p>
             Each row is one pair of verses, strongest first by readers’ votes on OpenBible.info. A link that runs both ways counts once, with its stronger vote. A verse can appear in at most two rows,
-            so one famous verse cannot fill the list. The {fmt(info.total)} links are what sizes this ribbon on the wheel.
+            so one famous verse cannot fill the list.{' '}
+            {hasRibbon
+              ? `The ${fmt(info.total)} links are what sizes this ribbon on the wheel.`
+              : `Only the ${TOP_PAIRS} strongest book pairs get a ribbon; this pair is drawn as a thin thread while its card is open.`}
           </p>
         </details>
         <Provenance>Links and votes: OpenBible.info cross-references (CC BY 4.0).</Provenance>
@@ -269,10 +294,21 @@ export function PairCard({ a, i, j, titleId, onBook, ...c }: Common & { i: numbe
   );
 }
 
-export function BookCard({ a, i, titleId, onPair, onRead, ...c }: Common & { i: number; titleId: string; onPair: (j: number) => void; onRead: () => void }) {
+export function BookCard({
+  a,
+  i,
+  titleId,
+  onPair,
+  onRead,
+  onStep,
+  ...c
+}: Common & { i: number; titleId: string; onPair: (j: number) => void; onRead: () => void; onStep: (d: -1 | 1) => void }) {
   const f = useMemo(() => bookFacts(a, i), [a, i]);
   const [all, setAll] = useState(false);
   const b = a.books[i];
+  const B = a.books.length;
+  const prev = a.books[(i + B - 1) % B];
+  const next = a.books[(i + 1) % B];
   const g = GENRE[b.genre];
   const shown = all ? f.top : f.top.slice(0, FIRST_ROWS);
   const share = f.between ? Math.round((100 * f.cross) / f.between) : 0;
@@ -294,6 +330,17 @@ export function BookCard({ a, i, titleId, onPair, onRead, ...c }: Common & { i: 
             {g.label} · {fmt(f.chapters)} {f.chapters === 1 ? 'chapter' : 'chapters'} · {fmt(f.verses)} verses
           </>
         }
+        nav={
+          // The books on either side, in canon order: the way to the shortest books, whose arcs are hard to tap.
+          <div class="wh-steps" role="group" aria-label="Books on either side">
+            <button class="wh-step wh-step-prev" onClick={() => onStep(-1)} aria-label={`Previous book: ${prev.name}`}>
+              <span aria-hidden="true">‹</span> {prev.name}
+            </button>
+            <button class="wh-step wh-step-next" onClick={() => onStep(1)} aria-label={`Next book: ${next.name}`}>
+              {next.name} <span aria-hidden="true">›</span>
+            </button>
+          </div>
+        }
       >
         <span class="wh-booktitle">
           <Dot color={g.color} />
@@ -301,11 +348,11 @@ export function BookCard({ a, i, titleId, onPair, onRead, ...c }: Common & { i: 
         </span>
       </Head>
       <div class="wh-body">
-        <h3 class="wh-h3">Key verses</h3>
+        <h3 class="wh-h3">Most connected verses</h3>
         <ol class="wh-keys">
           {shown.map((v) => (
             <li key={v} data-v={osisRef(a, v)} onPointerEnter={() => c.onPreview({ a: v })} onPointerLeave={() => c.onPreview(null)} onFocusIn={() => c.onPreview({ a: v })} onFocusOut={() => c.onPreview(null)}>
-              <VerseButton a={a} v={v} span={1} selected={c.selected} onPick={c.onPick} max={190} />
+              <VerseButton a={a} v={v} span={1} selected={c.selected} onPick={c.onPick} />
             </li>
           ))}
         </ol>
@@ -324,7 +371,7 @@ export function BookCard({ a, i, titleId, onPair, onRead, ...c }: Common & { i: 
               ))}
             </div>
             <p class="wh-reach">
-              Reaches {b.testament === 'OT' ? 'into the New Testament' : 'back into the Old Testament'} <b>{fmt(f.cross)}</b> times: {share}% of its links to other books.
+              Shares <b>{fmt(f.cross)}</b> links with the {b.testament === 'OT' ? 'New' : 'Old'} Testament: {share}% of its links to other books.
             </p>
           </>
         )}
@@ -332,9 +379,9 @@ export function BookCard({ a, i, titleId, onPair, onRead, ...c }: Common & { i: 
         <details class="wh-how">
           <summary>How these are chosen</summary>
           <p>
-            Key verses are ranked by PageRank over the {fmt(a.meta.counts.crossReferencesPositive ?? a.meta.counts.crossReferences)} links readers voted up, weighted by their votes: a verse ranks high
-            when many passages point to it, and higher still when those passages are themselves widely linked. “Talks most with” and the share above count the links between two books in both
-            directions.
+            These are ranked by PageRank over the {fmt(a.meta.counts.crossReferencesPositive ?? a.meta.counts.crossReferences)} links readers voted up, weighted by their votes: a verse ranks high
+            when many passages point to it, and higher still when those passages are themselves widely linked. It measures links, not importance, so lists of names can rank high too. “Talks
+            most with” and the share above count the links between two books in both directions.
           </p>
         </details>
         <Provenance>Links: OpenBible.info cross-references (CC BY 4.0).</Provenance>
