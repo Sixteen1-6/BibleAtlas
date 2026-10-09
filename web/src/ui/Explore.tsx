@@ -134,7 +134,7 @@ function Step({ a, v, prev, edge }: { a: Atlas; v: number; prev?: number; edge?:
           </span>
         )}
       </div>
-      {prev !== undefined && !sameLang && <WhyLinked a={a} from={prev} to={v} fromRow={prevRow} toRow={row} />}
+      {prev !== undefined && !sameLang && <WhyLinked key={`${prev}-${v}`} a={a} from={prev} to={v} fromRow={prevRow} toRow={row} />}
     </li>
   );
 }

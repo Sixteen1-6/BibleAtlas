@@ -189,8 +189,10 @@
       "roots": [
         { "strong": "H3727", "match": ["mercy seat"] },
         { "strong": "H3722A", "match": ["atone"] },
+        { "strong": "H3725", "match": ["atonement"] },
         { "strong": "G2435", "match": ["propitiation"] },
-        { "strong": "G2434", "match": ["propitiation"] }
+        { "strong": "G2434", "match": ["propitiation"] },
+        { "strong": "G2433", "match": ["propitiate"] }
       ]
     },
     {
@@ -206,19 +208,21 @@
     {
       "id": "sabbath",
       "name": "Sabbath rest",
-      "blurb": "The seventh day of rest, and a Sabbath rest for the people of God.",
+      "blurb": "The seventh day of rest, and a Sabbath rest for the people of God (the Greek word also means week).",
       "roots": [
         { "strong": "H7676", "match": ["sabbath"], "capitalized": true },
+        { "strong": "H7673B", "match": ["keep"] },
         { "strong": "H4496H", "match": ["resting"] },
         { "strong": "G4521", "match": ["sabbath"], "capitalized": true },
         { "strong": "G2663", "match": ["rest"] },
+        { "strong": "G2664", "match": ["keep from"] },
         { "strong": "G4520", "match": ["sabbath"], "capitalized": true }
       ]
     },
     {
       "id": "kingdom",
       "name": "The kingdom",
-      "blurb": "The kingdoms of the earth, and a kingdom that will never be destroyed.",
+      "blurb": "The kingdoms of the earth, and a kingdom that will never be destroyed (one Hebrew word for it also means reign or royalty).",
       "roots": [
         { "strong": "H4438", "match": ["royalty", "kingdom"] },
         { "strong": "H4467", "match": ["kingdom"] },
