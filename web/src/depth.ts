@@ -19,10 +19,12 @@ import type { Tab } from './state';
 export type Depth = 'simple' | 'study' | 'deep';
 export const DEPTHS: readonly Depth[] = ['simple', 'study', 'deep'];
 
+/** Each level's name, and what it adds in one plain sentence: the one cue the
+ *  switch's hint and every "go deeper" link share. */
 export const DEPTH_INFO: Record<Depth, { label: string; about: string }> = {
-  simple: { label: 'Simple', about: 'The English and its strongest links' },
-  study: { label: 'Study', about: 'Adds the Hebrew and Greek, word studies and paths' },
-  deep: { label: 'Deep', about: 'Adds manuscripts, every link, the numbers and the sources' },
+  simple: { label: 'Simple', about: 'Simple shows the English and its strongest links.' },
+  study: { label: 'Study', about: 'Study adds the Hebrew and Greek, word studies and paths.' },
+  deep: { label: 'Deep', about: 'Deep adds manuscripts, every link, the numbers and the sources.' },
 };
 
 function initial(): Depth {

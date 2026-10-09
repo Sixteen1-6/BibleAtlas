@@ -8,7 +8,7 @@ import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
 import { ALL_VOTES, THREAD_VOTES, type Thread, linksWithinRows, themeLinkCount, themeThread, themeVerses } from '../data/thread';
 import * as S from '../state';
 import { OrigLine, Snippet, useVerseRow } from './common';
-import { GENRE } from './colors';
+import { GENRE, KIND } from './colors';
 import { ThemeHero } from './ThemeSky';
 import './themes.css';
 
@@ -36,7 +36,7 @@ export async function lightTheme(a: Atlas, id: string, mode: Mode = 'thread', op
   S.marks.value = { verses, label: `theme:${id}` };
   const thread = themeThread(a, th);
   if (mode === 'thread' && thread.kind === 'thread') {
-    const group: Group = { edges: Uint32Array.from(thread.edges), label: `${th.name}: the thread, ${thread.verses.length} verses` };
+    const group: Group = { edges: Uint32Array.from(thread.edges), label: `${th.name}: the thread, ${thread.verses.length} verses`, color: KIND.thread };
     S.groupEdges.value = group;
     lit.value = { id, mode, group };
     return;
