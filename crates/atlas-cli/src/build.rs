@@ -7,7 +7,10 @@
 //!   of every output file, build id
 //! - `lemmas.json`: one row per Hebrew/Aramaic/Greek root (column-oriented)
 //! - `words.json`: sorted English vocabulary for search
-//! - `themes.json`: themes resolved to root indices
+//! - `themes.json`: themes from `config/themes.json` resolved to root indices,
+//!   with their group, level, key verses, left-out senses and the themes they
+//!   are often linked with (see `themes.rs`); `meta.json` gets the groups, the
+//!   featured list and the rules for theme links
 //! - `layers.json`: layers of meaning from `config/layers.json`, checked against
 //!   the BSB, the roots and the cross-references (drafts only with ATLAS_LAYER_DRAFTS=1)
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
@@ -21,7 +24,6 @@ use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
 use crate::sources::{sha256_bytes, Inputs};
 use atlas_core::canon::{Testament, BOOKS};
 use atlas_core::{ContainerWriter, XrefGraph};
-use serde::Deserialize;
 use serde_json::{json, Value};
 use std::collections::{BTreeMap, HashMap};
 use std::fs;
@@ -36,31 +38,6 @@ pub const FLAG_ARAMAIC: u8 = 1;
 pub const FLAG_OTHER_EDITIONS: u8 = 2;
 pub const FLAG_VARIANT: u8 = 4;
 pub const FLAG_SIGNIFICANT: u8 = 8;
-
-#[derive(Deserialize)]
-struct ThemeFile {
-    themes: Vec<ThemeSpec>,
-}
-#[derive(Deserialize)]
-struct ThemeSpec {
-    id: String,
-    name: String,
-    blurb: String,
-    roots: Vec<ThemeRoot>,
-}
-#[derive(Deserialize)]
-struct ThemeRoot {
-    strong: String,
-    #[serde(rename = "match")]
-    matches: Vec<String>,
-    /// Sub-entries left out although their gloss matches ("H2233I", seed: semen).
-    #[serde(default)]
-    exclude: Vec<String>,
-    /// Keep glosses that start with a capital letter ("Passover", "Christ"),
-    /// which are otherwise skipped as names.
-    #[serde(default)]
-    capitalized: bool,
-}
 
 struct Lemma {
     key: String,
@@ -260,51 +237,13 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let eng = english::build(&bsb.text);
 
     // --- Themes -----------------------------------------------------------------
-    let theme_file: ThemeFile = serde_json::from_str(
-        &fs::read_to_string(root.join("config/themes.json")).map_err(|e| format!("reading config/themes.json: {e}"))?,
-    )
-    .map_err(|e| format!("parsing config/themes.json: {e}"))?;
-    let mut themes_json = Vec::new();
-    for t in &theme_file.themes {
-        let mut idxs: Vec<u32> = Vec::new();
-        for r in &t.roots {
-            let found: Vec<u32> = lemmas
-                .iter()
-                .enumerate()
-                .filter(|(_, l)| l.key.starts_with(&r.strong) && l.key.len() <= r.strong.len() + 1)
-                .filter(|(_, l)| {
-                    // Skip names and places that merely contain the word
-                    // ("House of Shepherds", "Water (Gate)"): their glosses
-                    // start with a capital letter, unless the root's own
-                    // gloss is capitalized ("Passover", "Christ").
-                    let proper = l.gloss.chars().find(|c| c.is_alphabetic()).is_some_and(char::is_uppercase);
-                    let g = l.gloss.to_lowercase();
-                    (!proper || r.capitalized) && r.matches.iter().any(|m| g.contains(m.as_str()))
-                })
-                .map(|(i, _)| i as u32)
-                .collect();
-            // An exclude that would not match anyway is a typo: fail loudly.
-            if let Some(x) = r.exclude.iter().find(|x| !found.iter().any(|&i| lemmas[i as usize].key == **x)) {
-                return Err(format!("theme {}: exclude {x} is not a root that {} {:?} includes", t.id, r.strong, r.matches));
-            }
-            let found: Vec<u32> = found.into_iter().filter(|&i| !r.exclude.contains(&lemmas[i as usize].key)).collect();
-            if found.is_empty() {
-                let near: Vec<String> = lemmas.iter().filter(|l| l.key.starts_with(&r.strong)).map(|l| format!("{}={:?}", l.key, l.gloss)).collect();
-                return Err(format!("theme {}: {} matched no root with gloss {:?} (candidates: {})", t.id, r.strong, r.matches, near.join(", ")));
-            }
-            idxs.extend(found);
-        }
-        idxs.sort_unstable();
-        idxs.dedup();
-        let tokens: u32 = idxs.iter().map(|&i| lemmas[i as usize].count).sum();
-        eprintln!(
-            "theme {:<9} {:>5} occurrences via {}",
-            t.id,
-            tokens,
-            idxs.iter().map(|&i| format!("{} ({})", lemmas[i as usize].key, lemmas[i as usize].gloss)).collect::<Vec<_>>().join(", ")
-        );
-        themes_json.push(json!({ "id": t.id, "name": t.name, "blurb": t.blurb, "roots": idxs }));
-    }
+    let theme_keys: Vec<&str> = lemmas.iter().map(|l| l.key.as_str()).collect();
+    let theme_glosses: Vec<&str> = lemmas.iter().map(|l| l.gloss.as_str()).collect();
+    let theme_counts: Vec<u32> = lemmas.iter().map(|l| l.count).collect();
+    let themes = crate::themes::build(
+        root,
+        &crate::themes::Sources { keys: &theme_keys, glosses: &theme_glosses, counts: &theme_counts, l_off: &l_off, l_verse: &l_verse, vz: &vz, graph: &graph },
+    )?;
 
     // --- Layers of meaning -------------------------------------------------------------
     let layer_sources = layers::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index, graph: &graph };
@@ -360,7 +299,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
-    write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
+    write(out, crate::themes::OUT, &themes.json, &mut files)?;
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     for (rel, bytes) in crate::ask::build(root, &inputs, &vz, &bsb.text, &degree)? { write(out, &rel, &bytes, &mut files)?; }
 
@@ -456,7 +395,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         .iter()
         .map(|s| json!({ "name": s.name, "type": s.dtype.name(), "count": s.count }))
         .collect();
-    let meta = json!({
+    let mut meta = json!({
         "format": 1,
         "buildId": build_id,
         "counts": {
@@ -477,6 +416,11 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         "sections": sections,
         "files": files,
     });
+    if let Some(m) = meta.as_object_mut() {
+        for (k, v) in themes.meta {
+            m.insert(k.to_string(), v);
+        }
+    }
     fs::write(out.join("meta.json"), serde_json::to_string_pretty(&meta).unwrap()).map_err(|e| e.to_string())?;
 
     let total_bytes: u64 = files.values().map(|f| f["bytes"].as_u64().unwrap()).sum();

@@ -93,39 +93,10 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(bad == 0, format!("{bad} sampled root postings point at the wrong word"));
     for (ok, what) in crate::extra_wordplay::verify(&d)? { r.check(ok, what); }
 
-    // Themes: shared links name them by id, each lights a readable number of
-    // verses, the word senses left out stay out, and the newer themes reach
-    // the verses they are about.
-    let themes: serde_json::Value = serde_json::from_str(&fs::read_to_string(out.join("themes.json")).map_err(|e| format!("themes.json: {e}"))?).map_err(|e| format!("themes.json: {e}"))?;
-    let theme_list = themes.as_array().ok_or("themes.json is not a list")?;
-    let ids: Vec<&str> = theme_list.iter().filter_map(|t| t["id"].as_str()).collect();
-    let first = ["lamb", "light", "shepherd", "vine", "bread", "water", "rock", "fire", "blood", "covenant", "seed", "bride", "temple", "tree", "way", "spirit"];
-    r.check(ids.starts_with(&first), format!("the first 16 theme ids are unchanged and in order: {ids:?}"));
-    let theme_verses = |id: &str| -> std::collections::BTreeSet<u32> {
-        let roots = theme_list.iter().find(|t| t["id"] == id).and_then(|t| t["roots"].as_array());
-        roots.into_iter().flatten().filter_map(|x| x.as_u64()).flat_map(|x| l_verse[l_off[x as usize] as usize..l_off[x as usize + 1] as usize].iter().copied()).collect()
-    };
-    for id in &ids {
-        let lit = theme_verses(id).len();
-        r.check((40..=3_000).contains(&lit), format!("theme {id} lights {lit} verses, expected 40 to 3,000"));
-    }
-    for (id, verse) in [("seed", "Lev 15:16"), ("spirit", "Ezek 42:16")] {
-        r.check(!theme_verses(id).contains(&d.resolve(verse)?.0), format!("theme {id} leaves out {verse}"));
-    }
-    for (id, verses) in [
-        ("passover", &["Exod 12:11", "1 Cor 5:7"][..]),
-        ("redeemer", &["Job 19:25", "Mark 10:45"]),
-        ("atonement", &["Lev 16:30", "Lev 23:27", "Rom 3:25", "Heb 2:17"]),
-        ("anointed", &["Ps 2:2", "John 1:41"]),
-        ("sabbath", &["Exod 20:8", "Lev 23:32", "Heb 4:4", "Heb 4:9"]),
-        ("kingdom", &["Dan 2:44", "Matt 6:10"]),
-        ("firstborn", &["Exod 4:22", "Col 1:15"]),
-    ] {
-        let lit = theme_verses(id);
-        for &verse in verses {
-            r.check(lit.contains(&d.resolve(verse)?.0), format!("theme {id} includes {verse}"));
-        }
-    }
+    // Themes: ids pinned, groups and levels, readable sizes, the word senses
+    // left out stay out, the verses they are about stay in, coverage, the
+    // themes they are often linked with, and the links rule's pins.
+    for (ok, what) in crate::themes::verify(&d)? { r.check(ok, what); }
 
     // 4. Facts known independently of this project.
     let gen11 = d.verse(d.resolve("Gen 1:1")?.0)?;

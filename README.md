@@ -141,7 +141,7 @@ The data is stored like a code-intelligence index. Every verse has a dense integ
 | Crate | Role |
 | --- | --- |
 | `atlas-core` | `no_std` engine: canon and book names, versification, container format, CSR graph, PageRank, Dijkstra connection paths, neighborhoods, reference parsing |
-| `atlas-cli` | the `atlas` command: fetch, build, verify, query |
+| `atlas-cli` | the `atlas` command: fetch, build, verify, query, themes-review |
 | `atlas-wasm` | `atlas-core` as WebAssembly with a small C-style API (no wasm-bindgen) |
 
 ### Measured performance
@@ -163,6 +163,12 @@ cargo run --release -p atlas-cli -- query xref "Isa 53:5"
 cargo run --release -p atlas-cli -- query path "Gen 3:15" "Rev 12:9"
 cargo run --release -p atlas-cli -- query near "Ps 23:1"
 cargo run --release -p atlas-cli -- query word G0026
+```
+
+To review themes before they ship, `themes-review` prints each theme's Hebrew and Greek words with their glosses, the senses left out, its size in each testament, its key verses and six sample verses, each with the BSB words the theme's word became (`--group <id>` or `--theme <id>` to narrow it):
+
+```bash
+cargo run --release -p atlas-cli -- themes-review --group nature
 ```
 
 ## How it is checked

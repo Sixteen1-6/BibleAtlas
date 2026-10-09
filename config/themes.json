@@ -1,10 +1,41 @@
 {
-  "_comment": "Each theme traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text. `strong` is a Strong's number; every STEPBible sub-entry of it whose lexicon gloss contains one of `match` is included. Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover or Christ). `exclude` lists sub-entries to leave out although their gloss matches (seed: semen). `atlas build` fails if any entry matches nothing, or if an exclude names a sub-entry the entry would not include, so a typo cannot silently empty a theme. Shared links name themes by `id`, so ids never change.",
+  "_comment": [
+    "Themes: each one traces specific Hebrew, Aramaic and Greek words, never hand-picked verses, so every highlighted verse can be checked against the original text.",
+    "groups: the plain-named rows the theme list folds into, in display order ({id, name}). Every group must be used by at least one theme.",
+    "featured: the theme ids shown first as 'Start with' cards. Each must exist and show at the Simple level.",
+    "links: the rule for reaching a theme through a verse's links when the verse's own words carry none. Take the verse's `top` strongest cross-references with at least `votes` votes (both directions, the best votes per pair); a theme counts when `carriers` of those linked verses carry it, or one linked verse whose link has `soloVotes` or more; themes of more than `maxThemeSize` verses are skipped, and so is a theme one of whose `exclude`d senses occurs in the verse. The build copies these numbers to meta.json (themeLinks) for the app and atlas verify.",
+    "near: the rule for 'Often linked with'. Over the distinct verse pairs joined by a cross-reference with at least `votes` votes, count the pairs with one end in each theme; a partner needs `minLinks` such pairs and a lift of `minLift` (pairs over the count expected by chance), ranked by pairs times ln(lift), at most `max` per theme. Copied to meta.json (themeNear).",
+    "Per theme: `id` names the theme in shared links (#t=lamb), so ids never change and new themes are only ever appended. `name` and `blurb` are plain words; the blurb may only paraphrase verses the theme lights, starting with its key verses.",
+    "`group`: one of the groups above. `level`: \"study\" for a broad word that mostly lights ordinary narrative (genealogies, court stories, counts), shown from the Study level up; leave it out for Simple.",
+    "`key_verses`: 2 or 3 references the blurb rests on. atlas build fails unless each one resolves to a single verse that the theme lights, and atlas verify checks them again.",
+    "`roots`: `strong` is a Strong's number, optionally with one STEPBible sub-entry letter (H2022G is the mountain sense, not H2022H hill country); every sub-entry of it whose Tyndale lexicon gloss contains one of `match` is included. Match strings are lowercase, because glosses are compared in lowercase.",
+    "Glosses that start with a capital letter belong to names and places and are skipped, unless `capitalized` is true (for roots whose own gloss is capitalized, such as Passover, Christ or Jerusalem).",
+    "`exclude` lists sub-entries deliberately left out although their gloss matches (seed: semen, sea: west). The app shows them as 'Left out', and the links rule never offers the theme on a verse that contains one of them.",
+    "`skip_with`: Strong's numbers (with or without a sub-entry letter) that take a verse out of the theme when they occur in it. Seven and Forty use it for hundred and thousand, where the number is part of a count (Ezra 2:3 '2,172'), not a picture.",
+    "atlas build fails if a root matches nothing, if an exclude names a sub-entry the root would not include, or if a group, featured id, level, skip_with key or key verse is wrong, so a typo cannot silently empty or change a theme. `atlas themes-review --group <id>` prints each theme's words, leave-outs, size and sample verses for review."
+  ],
+  "groups": [
+    { "id": "nature", "name": "Pictures from nature" },
+    { "id": "living", "name": "Animals and plants" },
+    { "id": "things", "name": "Everyday things" },
+    { "id": "body", "name": "Body and voice" },
+    { "id": "promises", "name": "What God gives" },
+    { "id": "acts", "name": "What God does" },
+    { "id": "people", "name": "People" },
+    { "id": "worship", "name": "Worship and faith" },
+    { "id": "struggle", "name": "When things go wrong" },
+    { "id": "times", "name": "Places and times" }
+  ],
+  "featured": ["lamb", "light", "shepherd", "vine", "bread", "water", "rock", "fire"],
+  "links": { "votes": 3, "top": 10, "carriers": 2, "soloVotes": 10, "maxThemeSize": 500 },
+  "near": { "votes": 3, "minLinks": 15, "minLift": 2, "max": 8 },
   "themes": [
     {
       "id": "lamb",
       "name": "Lamb",
+      "group": "living",
       "blurb": "From Abel's flock and the Passover to the Lamb on the throne.",
+      "key_verses": ["Genesis 22:8", "John 1:29", "Revelation 5:6"],
       "roots": [
         { "strong": "H3532", "match": ["lamb"] },
         { "strong": "H3535", "match": ["lamb"] },
@@ -16,7 +47,9 @@
     {
       "id": "light",
       "name": "Light",
+      "group": "nature",
       "blurb": "The first words of creation, the lamp of the law, the light of the world.",
+      "key_verses": ["Genesis 1:3", "Psalm 119:105", "John 8:12"],
       "roots": [
         { "strong": "H0216", "match": ["light"] },
         { "strong": "H3974", "match": ["light", "luminary"] },
@@ -27,7 +60,9 @@
     {
       "id": "shepherd",
       "name": "Shepherd",
+      "group": "people",
       "blurb": "Shepherding as the picture of leading, feeding and protecting a people.",
+      "key_verses": ["Psalm 23:1", "Ezekiel 34:23", "John 10:11"],
       "roots": [
         { "strong": "H7462", "match": ["shepherd", "pasture", "tend", "feed", "graze"] },
         { "strong": "G4166", "match": ["shepherd"] },
@@ -38,7 +73,9 @@
     {
       "id": "vine",
       "name": "Vine and vineyard",
+      "group": "living",
       "blurb": "Israel as a planted vine, the vineyard song, the true vine.",
+      "key_verses": ["Psalm 80:8", "Isaiah 5:1", "John 15:1"],
       "roots": [
         { "strong": "H1612", "match": ["vine"] },
         { "strong": "H3754", "match": ["vineyard"] },
@@ -49,7 +86,9 @@
     {
       "id": "bread",
       "name": "Bread",
+      "group": "things",
       "blurb": "Daily bread, manna, the bread of the presence, the bread of life.",
+      "key_verses": ["Exodus 16:4", "Matthew 6:11", "John 6:35"],
       "roots": [
         { "strong": "H3899", "match": ["bread", "food"] },
         { "strong": "G0740", "match": ["bread", "loaf"] }
@@ -58,7 +97,9 @@
     {
       "id": "water",
       "name": "Water",
+      "group": "nature",
       "blurb": "The deep at creation, water from the rock, living water.",
+      "key_verses": ["Genesis 1:2", "Exodus 17:6", "John 4:10"],
       "roots": [
         { "strong": "H4325", "match": ["water"] },
         { "strong": "G5204", "match": ["water"] }
@@ -67,7 +108,9 @@
     {
       "id": "rock",
       "name": "Rock",
+      "group": "nature",
       "blurb": "God as a rock and refuge, the rock in the wilderness, the house on the rock.",
+      "key_verses": ["Psalm 18:2", "Exodus 17:6", "Matthew 7:24"],
       "roots": [
         { "strong": "H6697", "match": ["rock"] },
         { "strong": "H5553", "match": ["rock", "crag", "cliff"] },
@@ -77,7 +120,9 @@
     {
       "id": "fire",
       "name": "Fire",
+      "group": "nature",
       "blurb": "The burning bush, the pillar of fire, refining fire, tongues of fire.",
+      "key_verses": ["Exodus 3:2", "Exodus 13:21", "Acts 2:3"],
       "roots": [
         { "strong": "H0784", "match": ["fire"] },
         { "strong": "G4442", "match": ["fire"] }
@@ -86,7 +131,9 @@
     {
       "id": "blood",
       "name": "Blood",
+      "group": "body",
       "blurb": "Life is in the blood: sacrifice, covenant and the cup.",
+      "key_verses": ["Leviticus 17:11", "Exodus 24:8", "Matthew 26:28"],
       "roots": [
         { "strong": "H1818", "match": ["blood"] },
         { "strong": "G0129", "match": ["blood"] }
@@ -95,7 +142,9 @@
     {
       "id": "covenant",
       "name": "Covenant",
+      "group": "promises",
       "blurb": "Noah, Abraham, Sinai, David, and the new covenant.",
+      "key_verses": ["Genesis 9:9", "Genesis 17:7", "Jeremiah 31:31"],
       "roots": [
         { "strong": "H1285", "match": ["covenant"] },
         { "strong": "G1242", "match": ["covenant"] }
@@ -104,7 +153,9 @@
     {
       "id": "seed",
       "name": "Seed and offspring",
+      "group": "promises",
       "blurb": "The promised offspring, from Genesis 3 to Galatians 3.",
+      "key_verses": ["Genesis 3:15", "Genesis 22:18", "Galatians 3:16"],
       "roots": [
         { "strong": "H2233", "match": ["seed", "offspring", "descendant"], "exclude": ["H2233I"] },
         { "strong": "G4690", "match": ["seed", "offspring", "descendant"] }
@@ -113,7 +164,9 @@
     {
       "id": "bride",
       "name": "Bride and bridegroom",
+      "group": "people",
       "blurb": "Marriage as the picture of God and his people. The Hebrew word for bridegroom, חָתָן, also means son-in-law.",
+      "key_verses": ["Isaiah 62:5", "John 3:29", "Revelation 21:2"],
       "roots": [
         { "strong": "H2860", "match": ["bridegroom", "son-in-law"] },
         { "strong": "H3618", "match": ["bride", "daughter-in-law"], "exclude": ["H3618H"] },
@@ -124,7 +177,9 @@
     {
       "id": "temple",
       "name": "Temple and tabernacle",
+      "group": "worship",
       "blurb": "Where God dwells with people: tent, temple, body, city.",
+      "key_verses": ["Exodus 40:34", "John 2:21", "Revelation 21:3"],
       "roots": [
         { "strong": "H1964", "match": ["temple", "palace"], "exclude": ["H1964H"] },
         { "strong": "H4908", "match": ["tabernacle", "dwelling"] },
@@ -136,7 +191,9 @@
     {
       "id": "tree",
       "name": "Tree",
+      "group": "living",
       "blurb": "The tree of life, the cursed tree, the leaves for healing.",
+      "key_verses": ["Genesis 2:9", "Galatians 3:13", "Revelation 22:2"],
       "roots": [
         { "strong": "H6086", "match": ["tree", "wood"], "exclude": ["H6086K"] },
         { "strong": "G1186", "match": ["tree"] },
@@ -146,7 +203,9 @@
     {
       "id": "way",
       "name": "The way",
+      "group": "things",
       "blurb": "Walking in the way, the two ways, the way prepared in the wilderness.",
+      "key_verses": ["Psalm 1:6", "Isaiah 40:3", "John 14:6"],
       "roots": [
         { "strong": "H1870", "match": ["way", "road"] },
         { "strong": "G3598", "match": ["way", "road"] }
@@ -155,7 +214,9 @@
     {
       "id": "spirit",
       "name": "Spirit, wind and breath",
+      "group": "nature",
       "blurb": "One word in Hebrew and one in Greek carry all three meanings.",
+      "key_verses": ["Genesis 1:2", "Ezekiel 37:9", "John 3:8"],
       "roots": [
         { "strong": "H7307", "match": ["spirit", "wind", "breath"], "exclude": ["H7307I"] },
         { "strong": "G4151", "match": ["spirit", "wind", "breath"] }
@@ -164,7 +225,9 @@
     {
       "id": "passover",
       "name": "Passover",
+      "group": "times",
       "blurb": "From the night of the LORD’s Passover in Egypt to Christ, our Passover lamb.",
+      "key_verses": ["Exodus 12:11", "1 Corinthians 5:7"],
       "roots": [
         { "strong": "H6453", "match": ["passover"], "capitalized": true },
         { "strong": "G3957", "match": ["passover"], "capitalized": true }
@@ -173,7 +236,9 @@
     {
       "id": "redeemer",
       "name": "Redeemer",
+      "group": "acts",
       "blurb": "From the kinsman-redeemer of Ruth to a ransom for many.",
+      "key_verses": ["Ruth 3:9", "Job 19:25", "Mark 10:45"],
       "roots": [
         { "strong": "H1350", "match": ["redeem", "redemption"] },
         { "strong": "H1353", "match": ["redemption"] },
@@ -185,7 +250,9 @@
     {
       "id": "atonement",
       "name": "Atonement and the mercy seat",
+      "group": "worship",
       "blurb": "From the mercy seat to the atoning sacrifice for our sins.",
+      "key_verses": ["Leviticus 16:30", "Romans 3:25", "1 John 2:2"],
       "roots": [
         { "strong": "H3727", "match": ["mercy seat"] },
         { "strong": "H3722A", "match": ["atone"] },
@@ -198,7 +265,9 @@
     {
       "id": "anointed",
       "name": "The Anointed One",
+      "group": "people",
       "blurb": "Anointed priests and kings, and the Messiah, which is translated as Christ.",
+      "key_verses": ["1 Samuel 24:6", "Psalm 2:2", "John 1:41"],
       "roots": [
         { "strong": "H4899", "match": ["anointed"] },
         { "strong": "G5547", "match": ["christ"], "capitalized": true },
@@ -208,7 +277,9 @@
     {
       "id": "sabbath",
       "name": "Sabbath rest",
+      "group": "times",
       "blurb": "The seventh day of rest, and a Sabbath rest for the people of God (the Greek word also means week).",
+      "key_verses": ["Exodus 20:8", "Hebrews 4:9"],
       "roots": [
         { "strong": "H7676", "match": ["sabbath"], "capitalized": true },
         { "strong": "H7673B", "match": ["keep"] },
@@ -222,7 +293,9 @@
     {
       "id": "kingdom",
       "name": "The kingdom",
+      "group": "promises",
       "blurb": "The kingdoms of the earth, and a kingdom that will never be destroyed (one Hebrew word for it also means reign or royalty).",
+      "key_verses": ["Daniel 2:44", "Matthew 6:10"],
       "roots": [
         { "strong": "H4438", "match": ["royalty", "kingdom"] },
         { "strong": "H4467", "match": ["kingdom"] },
@@ -234,10 +307,1882 @@
     {
       "id": "firstborn",
       "name": "Firstborn",
+      "group": "people",
       "blurb": "Israel, the LORD’s firstborn son, and the firstborn over all creation.",
+      "key_verses": ["Exodus 4:22", "Colossians 1:15"],
       "roots": [
         { "strong": "H1060", "match": ["firstborn"] },
         { "strong": "G4416", "match": ["firstborn"] }
+      ]
+    },
+    {
+      "id": "darkness",
+      "name": "Darkness",
+      "group": "nature",
+      "blurb": "Darkness over the deep, a people walking in darkness, and a light the darkness has not overcome.",
+      "key_verses": ["Genesis 1:2", "Isaiah 9:2", "John 1:5"],
+      "roots": [
+        { "strong": "H2822", "match": ["dark"] },
+        { "strong": "H0653", "match": ["dark"] },
+        { "strong": "H0652", "match": ["dark"] },
+        { "strong": "G4655", "match": ["dark"] },
+        { "strong": "G4653", "match": ["dark"] },
+        { "strong": "G4652", "match": ["dark"] }
+      ]
+    },
+    {
+      "id": "mountain",
+      "name": "Mountains",
+      "group": "nature",
+      "blurb": "Ararat, Moriah, Sinai, Zion, Carmel, the mount of the sermon and of the Transfiguration.",
+      "key_verses": ["Genesis 22:2", "Exodus 19:20", "Matthew 17:1"],
+      "roots": [
+        { "strong": "H2022G", "match": ["mountain"] },
+        { "strong": "G3735", "match": ["mountain"] },
+        { "strong": "H2906", "match": ["mountain"] }
+      ]
+    },
+    {
+      "id": "sea",
+      "name": "The sea",
+      "group": "nature",
+      "blurb": "The gathered waters called seas, the sea divided for Israel, Jonah and the storm, and the sea that was no more.",
+      "key_verses": ["Exodus 14:21", "Jonah 1:4", "Revelation 21:1"],
+      "roots": [
+        { "strong": "H3220", "match": ["sea"], "exclude": ["H3220H"] },
+        { "strong": "G2281", "match": ["sea"] }
+      ]
+    },
+    {
+      "id": "river",
+      "name": "Rivers",
+      "group": "nature",
+      "blurb": "The river out of Eden, streams in the desert, the river of the water of life.",
+      "key_verses": ["Genesis 2:10", "Isaiah 43:19", "Revelation 22:1"],
+      "roots": [
+        { "strong": "H5104", "match": ["river"] },
+        { "strong": "G4215", "match": ["river"] }
+      ]
+    },
+    {
+      "id": "wilderness",
+      "name": "Wilderness",
+      "group": "nature",
+      "blurb": "Forty years in the wilderness, a voice calling in it, forty days of testing.",
+      "key_verses": ["Numbers 14:33", "Isaiah 40:3", "Matthew 4:1"],
+      "roots": [
+        { "strong": "H4057", "match": ["wilderness"] },
+        { "strong": "G2048", "match": ["desert"] },
+        { "strong": "G2047", "match": ["desert"] }
+      ]
+    },
+    {
+      "id": "garden",
+      "name": "Garden",
+      "group": "nature",
+      "blurb": "Eden, the garden of the Song, a garden where Jesus was arrested and a garden tomb, and paradise.",
+      "key_verses": ["Genesis 2:8", "John 18:1", "Luke 23:43"],
+      "roots": [
+        { "strong": "H1588", "match": ["garden"] },
+        { "strong": "H1593", "match": ["garden"] },
+        { "strong": "G2779", "match": ["garden"] },
+        { "strong": "G3857", "match": ["paradise"] }
+      ]
+    },
+    {
+      "id": "cup",
+      "name": "Cup",
+      "group": "things",
+      "blurb": "My cup overflows, the cup of wrath, the cup of the new covenant.",
+      "key_verses": ["Psalm 23:5", "Jeremiah 25:15", "Luke 22:20"],
+      "roots": [
+        { "strong": "H3563", "match": ["cup"] },
+        { "strong": "G4221", "match": ["cup"] }
+      ]
+    },
+    {
+      "id": "oil",
+      "name": "Oil and anointing",
+      "group": "things",
+      "blurb": "Oil poured on priests, kings and the sick: the root of the word Messiah.",
+      "key_verses": ["Exodus 29:7", "1 Samuel 16:13", "James 5:14"],
+      "roots": [
+        { "strong": "H8081", "match": ["oil"] },
+        { "strong": "H4886", "match": ["anoint"] },
+        { "strong": "G1637", "match": ["oil"] },
+        { "strong": "G0218", "match": ["anoint"] },
+        { "strong": "G5548", "match": ["anoint"] },
+        { "strong": "G5545", "match": ["anoint"] }
+      ]
+    },
+    {
+      "id": "wine",
+      "name": "Wine",
+      "group": "things",
+      "blurb": "Wine that gladdens the heart, the wedding at Cana, new wine in new wineskins.",
+      "key_verses": ["Psalm 104:15", "John 2:3", "Mark 2:22"],
+      "roots": [
+        { "strong": "H3196", "match": ["wine"] },
+        { "strong": "H8492", "match": ["wine"] },
+        { "strong": "G3631", "match": ["wine"] }
+      ]
+    },
+    {
+      "id": "gate",
+      "name": "Doors and gates",
+      "group": "things",
+      "blurb": "The gate of heaven at Bethel, the gates of righteousness, I am the gate.",
+      "key_verses": ["Genesis 28:17", "Psalm 118:19", "John 10:9"],
+      "roots": [
+        { "strong": "H8179G", "match": ["gate"] },
+        { "strong": "H1817", "match": ["door"] },
+        { "strong": "G2374", "match": ["door"] },
+        { "strong": "G4439", "match": ["gate"] },
+        { "strong": "G4440", "match": ["gate"] }
+      ]
+    },
+    {
+      "id": "stars",
+      "name": "Stars",
+      "group": "nature",
+      "blurb": "Offspring as many as the stars, a star out of Jacob, the bright morning star.",
+      "key_verses": ["Genesis 15:5", "Numbers 24:17", "Revelation 22:16"],
+      "roots": [
+        { "strong": "H3556", "match": ["star"] },
+        { "strong": "G0792", "match": ["star"] },
+        { "strong": "G0798", "match": ["star"] }
+      ]
+    },
+    {
+      "id": "sun",
+      "name": "Sun and moon",
+      "group": "nature",
+      "blurb": "The sun will not strike you by day, nor the moon by night; the sun of righteousness; a city with no need of sun or moon.",
+      "key_verses": ["Psalm 121:6", "Malachi 4:2", "Revelation 21:23"],
+      "roots": [
+        { "strong": "H8121", "match": ["sun"] },
+        { "strong": "G2246", "match": ["sun"] },
+        { "strong": "H3394", "match": ["moon"] },
+        { "strong": "G4582", "match": ["moon"] }
+      ]
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud",
+      "group": "nature",
+      "blurb": "The pillar of cloud, the glory filling the temple, the Son of Man coming on the clouds.",
+      "key_verses": ["Exodus 13:21", "1 Kings 8:10", "Matthew 24:30"],
+      "roots": [
+        { "strong": "H6051", "match": ["cloud"] },
+        { "strong": "H6205", "match": ["cloud"] },
+        { "strong": "G3507", "match": ["cloud"] }
+      ]
+    },
+    {
+      "id": "rain",
+      "name": "Rain and dew",
+      "group": "nature",
+      "blurb": "Rain in its season, the dew of Hermon, teaching that falls like rain.",
+      "key_verses": ["Deuteronomy 11:14", "Psalm 133:3", "Deuteronomy 32:2"],
+      "roots": [
+        { "strong": "H4306", "match": ["rain"] },
+        { "strong": "H1653", "match": ["rain"] },
+        { "strong": "H2919", "match": ["dew"] },
+        { "strong": "G5205", "match": ["rain"] },
+        { "strong": "G1026", "match": ["rain"] }
+      ]
+    },
+    {
+      "id": "harvest",
+      "name": "Harvest",
+      "group": "living",
+      "blurb": "Seedtime and harvest, Ruth in the fields, the harvest is plentiful.",
+      "key_verses": ["Genesis 8:22", "Ruth 2:23", "Matthew 9:37"],
+      "roots": [
+        { "strong": "H7105", "match": ["harvest"] },
+        { "strong": "H7114B", "match": ["reap"] },
+        { "strong": "G2326", "match": ["harvest"] },
+        { "strong": "G2325", "match": ["reap"] }
+      ]
+    },
+    {
+      "id": "fruit",
+      "name": "Fruit",
+      "group": "living",
+      "blurb": "Be fruitful and multiply, a tree is known by its fruit, the fruit of the Spirit.",
+      "key_verses": ["Genesis 1:28", "Matthew 12:33", "Galatians 5:22"],
+      "roots": [
+        { "strong": "H6529", "match": ["fruit"] },
+        { "strong": "H6509", "match": ["fruitful"] },
+        { "strong": "G2590", "match": ["fruit"] }
+      ]
+    },
+    {
+      "id": "flock",
+      "name": "Sheep and flock",
+      "group": "living",
+      "blurb": "Abel and the patriarchs with their flocks, sheep gone astray, one flock and one shepherd.",
+      "key_verses": ["Genesis 4:2", "Isaiah 53:6", "John 10:16"],
+      "roots": [
+        { "strong": "H6629", "match": ["flock"] },
+        { "strong": "H5739", "match": ["flock"] },
+        { "strong": "G4263", "match": ["sheep"] },
+        { "strong": "G4167", "match": ["flock"] },
+        { "strong": "G4168", "match": ["flock"] }
+      ]
+    },
+    {
+      "id": "lion",
+      "name": "Lion",
+      "group": "living",
+      "blurb": "Judah a young lion, the lion eating straw like the ox, the Lion of the tribe of Judah.",
+      "key_verses": ["Genesis 49:9", "Isaiah 11:7", "Revelation 5:5"],
+      "roots": [
+        { "strong": "H0738", "match": ["lion"] },
+        { "strong": "H3715", "match": ["lion"] },
+        { "strong": "H3833", "match": ["lion"] },
+        { "strong": "G3023", "match": ["lion"] }
+      ]
+    },
+    {
+      "id": "wings",
+      "name": "Wings",
+      "group": "living",
+      "blurb": "Carried on eagles’ wings, refuge under his wings, healing in its wings. The Hebrew word for wing is also the corner of a garment (Ruth 3:9).",
+      "key_verses": ["Exodus 19:4", "Psalm 91:4", "Malachi 4:2"],
+      "roots": [
+        { "strong": "H3671", "match": ["wing"] },
+        { "strong": "G4420", "match": ["wing"] },
+        { "strong": "H5404", "match": ["eagle"] },
+        { "strong": "G0105", "match": ["eagle"] }
+      ]
+    },
+    {
+      "id": "dove",
+      "name": "Dove",
+      "group": "living",
+      "blurb": "Noah’s dove with an olive leaf, the dove of the Song, the Spirit descending like a dove.",
+      "key_verses": ["Genesis 8:11", "Song of Solomon 2:14", "Matthew 3:16"],
+      "roots": [
+        { "strong": "H3123", "match": ["dove"] },
+        { "strong": "G4058", "match": ["dove"] }
+      ]
+    },
+    {
+      "id": "serpent",
+      "name": "Serpent and dragon",
+      "group": "living",
+      "blurb": "The serpent in the garden, the bronze snake, the dragon of Revelation.",
+      "key_verses": ["Genesis 3:1", "Numbers 21:9", "Revelation 12:9"],
+      "roots": [
+        { "strong": "H5175", "match": ["serpent"] },
+        { "strong": "H8577", "match": ["serpent"] },
+        { "strong": "G3789", "match": ["snake"] },
+        { "strong": "G1404", "match": ["dragon"] }
+      ]
+    },
+    {
+      "id": "throne",
+      "name": "Throne",
+      "group": "things",
+      "blurb": "David’s throne forever, a throne high and exalted, the throne of grace.",
+      "key_verses": ["2 Samuel 7:16", "Isaiah 6:1", "Hebrews 4:16"],
+      "roots": [
+        { "strong": "H3678G", "match": ["throne"] },
+        { "strong": "H3764", "match": ["throne"] },
+        { "strong": "G2362", "match": ["throne"] }
+      ]
+    },
+    {
+      "id": "crown",
+      "name": "Crown",
+      "group": "things",
+      "blurb": "A crown of pure gold, a crown of thorns, the crown of life.",
+      "key_verses": ["Psalm 21:3", "John 19:2", "Revelation 2:10"],
+      "roots": [
+        { "strong": "H5850", "match": ["crown"] },
+        { "strong": "G4735", "match": ["crown"] },
+        { "strong": "G1238", "match": ["diadem"] }
+      ]
+    },
+    {
+      "id": "sword",
+      "name": "Sword",
+      "group": "things",
+      "blurb": "The flaming sword at Eden, swords into plowshares, the sword of the Spirit.",
+      "key_verses": ["Genesis 3:24", "Isaiah 2:4", "Ephesians 6:17"],
+      "roots": [
+        { "strong": "H2719", "match": ["sword"] },
+        { "strong": "G3162", "match": ["sword"] },
+        { "strong": "G4501", "match": ["sword"] }
+      ]
+    },
+    {
+      "id": "refuge",
+      "name": "Refuge and shield",
+      "group": "things",
+      "blurb": "God as refuge, fortress and shield; the cities of refuge.",
+      "key_verses": ["Psalm 46:1", "Psalm 18:2", "Numbers 35:11"],
+      "roots": [
+        { "strong": "H2620", "match": ["refuge"] },
+        { "strong": "H4268", "match": ["refuge"] },
+        { "strong": "H4733", "match": ["refuge"] },
+        { "strong": "H4869A", "match": ["refuge"] },
+        { "strong": "H4686B", "match": ["fortress"] },
+        { "strong": "H4043", "match": ["shield"] },
+        { "strong": "H4581", "match": ["security"] }
+      ]
+    },
+    {
+      "id": "horn",
+      "name": "Horn",
+      "group": "things",
+      "blurb": "Horns of the altar, a horn of salvation, the horns of Daniel and Revelation.",
+      "key_verses": ["Exodus 27:2", "Psalm 18:2", "Luke 1:69"],
+      "roots": [
+        { "strong": "H7161", "match": ["horn"] },
+        { "strong": "G2768", "match": ["horn"] }
+      ]
+    },
+    {
+      "id": "arm",
+      "name": "Arm",
+      "group": "body",
+      "blurb": "An outstretched arm brought Israel out of Egypt; to whom has the arm of the LORD been revealed?",
+      "key_verses": ["Deuteronomy 5:15", "Isaiah 53:1"],
+      "roots": [
+        { "strong": "H2220", "match": ["arm"] }
+      ]
+    },
+    {
+      "id": "heart",
+      "name": "Heart",
+      "group": "body",
+      "blurb": "Love the LORD with all your heart, a new heart, the pure in heart.",
+      "key_verses": ["Deuteronomy 6:5", "Ezekiel 36:26", "Matthew 5:8"],
+      "roots": [
+        { "strong": "H3820", "match": ["heart"] },
+        { "strong": "H3824", "match": ["heart"] },
+        { "strong": "H3825", "match": ["heart"] },
+        { "strong": "G2588", "match": ["heart"] }
+      ]
+    },
+    {
+      "id": "name",
+      "name": "The name",
+      "group": "body",
+      "level": "study",
+      "blurb": "Call on the name of the LORD, hallowed be your name, the name above all names.",
+      "key_verses": ["Genesis 4:26", "Matthew 6:9", "Philippians 2:9"],
+      "roots": [
+        { "strong": "H8034", "match": ["name"] },
+        { "strong": "G3686", "match": ["name"] }
+      ]
+    },
+    {
+      "id": "word",
+      "name": "The word",
+      "group": "body",
+      "level": "study",
+      "blurb": "The word of the LORD came, your word is a lamp, in the beginning was the Word.",
+      "key_verses": ["Jeremiah 1:4", "Psalm 119:105", "John 1:1"],
+      "roots": [
+        { "strong": "H1697", "match": ["word"], "exclude": ["H1697I", "H1697K", "H1697L", "H1697M", "H1697N"] },
+        { "strong": "H0565", "match": ["word"] },
+        { "strong": "H0561", "match": ["word"] },
+        { "strong": "G3056", "match": ["word"] },
+        { "strong": "G4487", "match": ["declaration"] }
+      ]
+    },
+    {
+      "id": "voice",
+      "name": "Voice",
+      "group": "body",
+      "blurb": "The voice of the LORD over the waters, a voice in the wilderness, my sheep listen to my voice.",
+      "key_verses": ["Psalm 29:3", "Isaiah 40:3", "John 10:27"],
+      "roots": [
+        { "strong": "H6963", "match": ["voice"], "exclude": ["H6963H", "H6963K", "H6963L"] },
+        { "strong": "G5456", "match": ["voice"], "exclude": ["G5456H"] }
+      ]
+    },
+    {
+      "id": "scroll",
+      "name": "Book and scroll",
+      "group": "things",
+      "blurb": "The book of the law, the scroll Jesus read, the Lamb’s book of life.",
+      "key_verses": ["Joshua 1:8", "Luke 4:17", "Revelation 21:27"],
+      "roots": [
+        { "strong": "H5612", "match": ["scroll"], "exclude": ["H5612A"] },
+        { "strong": "H4039", "match": ["scroll"] },
+        { "strong": "G0975", "match": ["scroll"] },
+        { "strong": "G0976", "match": ["book"] }
+      ]
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "group": "things",
+      "blurb": "A table prepared before me, the table of the presence, the Lord’s table.",
+      "key_verses": ["Psalm 23:5", "Exodus 25:30", "1 Corinthians 10:21"],
+      "roots": [
+        { "strong": "H7979", "match": ["table"] },
+        { "strong": "G5132", "match": ["table"] }
+      ]
+    },
+    {
+      "id": "yoke",
+      "name": "Yoke",
+      "group": "things",
+      "blurb": "The yoke of slavery broken, and my yoke is easy.",
+      "key_verses": ["Leviticus 26:13", "Matthew 11:30", "Galatians 5:1"],
+      "roots": [
+        { "strong": "H5923", "match": ["yoke"] },
+        { "strong": "H4133", "match": ["yoke"] },
+        { "strong": "G2218", "match": ["yoke"] }
+      ]
+    },
+    {
+      "id": "clothing",
+      "name": "Robes and clothing",
+      "group": "things",
+      "blurb": "Garments of skin, Joseph’s robe, garments of salvation, clothes as white as the light.",
+      "key_verses": ["Genesis 3:21", "Genesis 37:3", "Matthew 17:2"],
+      "roots": [
+        { "strong": "H0899", "match": ["garment"] },
+        { "strong": "H8071", "match": ["mantle"] },
+        { "strong": "H3801", "match": ["tunic"] },
+        { "strong": "G2440", "match": ["clothing"] },
+        { "strong": "G5509", "match": ["tunic"] }
+      ]
+    },
+    {
+      "id": "stone",
+      "name": "Stone",
+      "group": "nature",
+      "blurb": "Jacob’s pillow, tablets of stone, a heart of stone, the stone the builders rejected.",
+      "key_verses": ["Genesis 28:11", "Ezekiel 36:26", "Matthew 21:42"],
+      "roots": [
+        { "strong": "H0068", "match": ["stone"], "exclude": ["H0068H"] },
+        { "strong": "G3037", "match": ["stone"] }
+      ]
+    },
+    {
+      "id": "dust",
+      "name": "Dust",
+      "group": "nature",
+      "blurb": "Formed from the dust and returning to it, offspring like the dust, raised from the dust.",
+      "key_verses": ["Genesis 3:19", "Genesis 13:16", "1 Samuel 2:8"],
+      "roots": [
+        { "strong": "H6083", "match": ["dust"] },
+        { "strong": "G5522", "match": ["dust"] },
+        { "strong": "G2868", "match": ["dust"] }
+      ]
+    },
+    {
+      "id": "grass",
+      "name": "Grass and flowers",
+      "group": "living",
+      "blurb": "All flesh is like grass, its glory like the flowers of the field; God clothes the grass of the field.",
+      "key_verses": ["Isaiah 40:6", "Matthew 6:30", "1 Peter 1:24"],
+      "roots": [
+        { "strong": "H2682", "match": ["grass"] },
+        { "strong": "H6731", "match": ["flower"] },
+        { "strong": "G5528", "match": ["grass"] },
+        { "strong": "G0438", "match": ["flower"] }
+      ]
+    },
+    {
+      "id": "leaven",
+      "name": "Leaven and unleavened bread",
+      "group": "things",
+      "blurb": "Bread made in haste at the Passover, and the leaven that works through all the flour.",
+      "key_verses": ["Deuteronomy 16:3", "Matthew 13:33", "1 Corinthians 5:7"],
+      "roots": [
+        { "strong": "H7603", "match": ["leaven"] },
+        { "strong": "H2557", "match": ["leaven"] },
+        { "strong": "H4682", "match": ["unleavened"] },
+        { "strong": "G2219", "match": ["leaven"] },
+        { "strong": "G2220", "match": ["leaven"] },
+        { "strong": "G0106", "match": ["unleavened"] }
+      ]
+    },
+    {
+      "id": "milkhoney",
+      "name": "Milk and honey",
+      "group": "things",
+      "blurb": "A land flowing with milk and honey, sweeter than honey, pure spiritual milk.",
+      "key_verses": ["Exodus 3:8", "Psalm 19:10", "1 Peter 2:2"],
+      "roots": [
+        { "strong": "H2461", "match": ["milk"] },
+        { "strong": "H1706", "match": ["honey"] },
+        { "strong": "G1051", "match": ["milk"] },
+        { "strong": "G3192", "match": ["honey"] }
+      ]
+    },
+    {
+      "id": "figolive",
+      "name": "Fig tree and olive",
+      "group": "living",
+      "blurb": "Fig leaves in Eden, everyone under their own vine and fig tree, the olive tree of Romans 11.",
+      "key_verses": ["Genesis 3:7", "Micah 4:4", "Romans 11:17"],
+      "roots": [
+        { "strong": "H8384", "match": ["fig"] },
+        { "strong": "H2132", "match": ["olive"] },
+        { "strong": "G4808", "match": ["fig"] },
+        { "strong": "G4810", "match": ["fig"] },
+        { "strong": "G1636", "match": ["olive"] }
+      ]
+    },
+    {
+      "id": "trumpet",
+      "name": "Trumpet",
+      "group": "things",
+      "blurb": "The ram’s horn at Sinai and at Jericho, the year of Jubilee, the last trumpet.",
+      "key_verses": ["Exodus 19:16", "Joshua 6:20", "1 Corinthians 15:52"],
+      "roots": [
+        { "strong": "H7782", "match": ["trumpet"] },
+        { "strong": "H2689", "match": ["trumpet"] },
+        { "strong": "G4536", "match": ["trumpet"] },
+        { "strong": "G4537", "match": ["trumpet"] }
+      ]
+    },
+    {
+      "id": "ark",
+      "name": "The ark",
+      "group": "things",
+      "blurb": "Noah’s ark and the ark of the covenant: two Hebrew words, one Greek word for both.",
+      "key_verses": ["Genesis 6:14", "Exodus 25:10", "Hebrews 11:7"],
+      "roots": [
+        { "strong": "H0727", "match": ["ark"] },
+        { "strong": "H8392", "match": ["ark"] },
+        { "strong": "G2787", "match": ["ark"] }
+      ]
+    },
+    {
+      "id": "lamp",
+      "name": "Lamp and lampstand",
+      "group": "things",
+      "blurb": "The golden lampstand, your word is a lamp to my feet, a lamp on a stand.",
+      "key_verses": ["Exodus 25:31", "Psalm 119:105", "Matthew 5:15"],
+      "roots": [
+        { "strong": "H5216", "match": ["lamp"] },
+        { "strong": "H3940", "match": ["torch"] },
+        { "strong": "H4501", "match": ["lampstand"] },
+        { "strong": "G3088", "match": ["lamp"] },
+        { "strong": "G3087", "match": ["lampstand"] }
+      ]
+    },
+    {
+      "id": "fish",
+      "name": "Fish and nets",
+      "group": "living",
+      "blurb": "Jonah’s great fish, fishers of men, the net full of fish.",
+      "key_verses": ["Jonah 1:17", "Matthew 4:19", "John 21:11"],
+      "roots": [
+        { "strong": "H1709", "match": ["fish"] },
+        { "strong": "H1710", "match": ["fish"] },
+        { "strong": "G2486", "match": ["fish"] },
+        { "strong": "G0231", "match": ["fisherman"] },
+        { "strong": "G1350", "match": ["net"] }
+      ]
+    },
+    {
+      "id": "potter",
+      "name": "Potter and clay",
+      "group": "things",
+      "blurb": "The Hebrew word for potter means one who forms: God formed Adam from the dust; we are the clay.",
+      "key_verses": ["Genesis 2:7", "Isaiah 64:8", "Romans 9:21"],
+      "roots": [
+        { "strong": "H3335", "match": ["potter", "formed"] },
+        { "strong": "H2563A", "match": ["clay"] },
+        { "strong": "G2763", "match": ["potter"] },
+        { "strong": "G4081", "match": ["clay"] }
+      ]
+    },
+    {
+      "id": "foundation",
+      "name": "Foundation",
+      "group": "things",
+      "blurb": "The foundations of the earth, a tested cornerstone laid in Zion, the house built on rock.",
+      "key_verses": ["Psalm 102:25", "Isaiah 28:16", "Luke 6:48"],
+      "roots": [
+        { "strong": "H3245", "match": ["found"] },
+        { "strong": "G2310", "match": ["foundation"] },
+        { "strong": "G2311", "match": ["found"] }
+      ]
+    },
+    {
+      "id": "root",
+      "name": "Root and branch",
+      "group": "living",
+      "blurb": "A shoot from the stump of Jesse, a Branch from his roots, I am the vine, you are the branches.",
+      "key_verses": ["Isaiah 11:1", "Jeremiah 23:5", "John 15:5"],
+      "roots": [
+        { "strong": "H8328", "match": ["root"] },
+        { "strong": "H6780", "match": ["branch"] },
+        { "strong": "H5342", "match": ["branch"] },
+        { "strong": "G4491", "match": ["root"] },
+        { "strong": "G2814", "match": ["branch"] },
+        { "strong": "G2798", "match": ["branch"] }
+      ]
+    },
+    {
+      "id": "grain",
+      "name": "Grain and wheat",
+      "group": "living",
+      "blurb": "Grain, new wine and oil; the wheat gathered into the barn; a kernel of wheat that falls and dies.",
+      "key_verses": ["Deuteronomy 7:13", "Matthew 13:30", "John 12:24"],
+      "roots": [
+        { "strong": "H1715", "match": ["grain"] },
+        { "strong": "H2406", "match": ["wheat"] },
+        { "strong": "G4621", "match": ["grain"] }
+      ]
+    },
+    {
+      "id": "gold",
+      "name": "Silver and gold",
+      "group": "things",
+      "blurb": "Gold of the tabernacle, refined like silver, thirty pieces of silver, a street of pure gold.",
+      "key_verses": ["Exodus 25:11", "Matthew 26:15", "Revelation 21:21"],
+      "roots": [
+        { "strong": "H2091", "match": ["gold"] },
+        { "strong": "H3701", "match": ["silver"] },
+        { "strong": "G5557", "match": ["gold"] },
+        { "strong": "G5553", "match": ["gold"] },
+        { "strong": "G0694", "match": ["money"] },
+        { "strong": "G0696", "match": ["silver"] }
+      ]
+    },
+    {
+      "id": "righthand",
+      "name": "Right hand",
+      "group": "body",
+      "blurb": "Sit at my right hand, a line the New Testament comes back to again and again; at your right hand are pleasures forever.",
+      "key_verses": ["Psalm 110:1", "Psalm 16:11", "Hebrews 1:13"],
+      "roots": [
+        { "strong": "H3225G", "match": ["right"] },
+        { "strong": "G1188", "match": ["right"] }
+      ]
+    },
+    {
+      "id": "face",
+      "name": "Face",
+      "group": "body",
+      "blurb": "The LORD make his face shine on you, seek my face, face to face. The Hebrew word for face is also used for presence.",
+      "key_verses": ["Numbers 6:25", "Psalm 27:8", "1 Corinthians 13:12"],
+      "roots": [
+        { "strong": "H6440H", "match": ["face"] },
+        { "strong": "G4383", "match": ["face"] }
+      ]
+    },
+    {
+      "id": "morning",
+      "name": "Morning",
+      "group": "nature",
+      "blurb": "Evening and morning, joy comes in the morning, mercies new every morning, early on the first day.",
+      "key_verses": ["Genesis 1:5", "Psalm 30:5", "Lamentations 3:23"],
+      "roots": [
+        { "strong": "H1242", "match": ["morning"] },
+        { "strong": "G4404", "match": ["early"] }
+      ]
+    },
+    {
+      "id": "love",
+      "name": "Love",
+      "group": "promises",
+      "blurb": "Love the LORD your God, love your neighbor, God so loved the world, God is love.",
+      "key_verses": ["Deuteronomy 6:5", "John 3:16", "1 John 4:8"],
+      "roots": [
+        { "strong": "H0157", "match": ["love"] },
+        { "strong": "H0160", "match": ["love"] },
+        { "strong": "G0025", "match": ["love"] },
+        { "strong": "G0026", "match": ["love"] },
+        { "strong": "G5368", "match": ["love"] }
+      ]
+    },
+    {
+      "id": "chesed",
+      "name": "Loving devotion",
+      "group": "promises",
+      "blurb": "The Hebrew chesed, which the BSB calls loving devotion: abounding in loving devotion, his loving devotion endures forever, because of the loving devotion of the LORD we are not consumed.",
+      "key_verses": ["Exodus 34:6", "Psalm 136:1", "Lamentations 3:22"],
+      "roots": [
+        { "strong": "H2617", "match": ["kindness"] }
+      ]
+    },
+    {
+      "id": "mercy",
+      "name": "Mercy and compassion",
+      "group": "promises",
+      "blurb": "The LORD, compassionate and gracious; have mercy on me; moved with compassion for the crowds.",
+      "key_verses": ["Exodus 34:6", "Luke 18:38", "Matthew 9:36"],
+      "roots": [
+        { "strong": "H7355", "match": ["compassion"] },
+        { "strong": "H7356B", "match": ["compassion"] },
+        { "strong": "H7349", "match": ["compassion"] },
+        { "strong": "G1653", "match": ["mercy"] },
+        { "strong": "G1656", "match": ["mercy"] },
+        { "strong": "G3628", "match": ["compassion"] },
+        { "strong": "G3629", "match": ["compassion"] },
+        { "strong": "G4697", "match": ["pity"] }
+      ]
+    },
+    {
+      "id": "grace",
+      "name": "Grace and favor",
+      "group": "promises",
+      "blurb": "Noah found favor, the LORD be gracious to you, by grace you have been saved.",
+      "key_verses": ["Genesis 6:8", "Numbers 6:25", "Ephesians 2:8"],
+      "roots": [
+        { "strong": "H2580", "match": ["favor"] },
+        { "strong": "H2603", "match": ["gracious"] },
+        { "strong": "H2587", "match": ["gracious"] },
+        { "strong": "G5485", "match": ["grace"] }
+      ]
+    },
+    {
+      "id": "truth",
+      "name": "Truth and faithfulness",
+      "group": "promises",
+      "blurb": "Abounding in loving devotion and faithfulness, great is your faithfulness, the way, the truth and the life.",
+      "key_verses": ["Exodus 34:6", "Lamentations 3:23", "John 14:6"],
+      "roots": [
+        { "strong": "H0571", "match": ["truth"] },
+        { "strong": "H0530", "match": ["faithfulness"] },
+        { "strong": "G0225", "match": ["truth"] },
+        { "strong": "G0227", "match": ["true"] }
+      ]
+    },
+    {
+      "id": "salvation",
+      "name": "Salvation",
+      "group": "promises",
+      "blurb": "The LORD is my light and my salvation; you are to give him the name Jesus, because he will save his people.",
+      "key_verses": ["Psalm 27:1", "Exodus 15:2", "Matthew 1:21"],
+      "roots": [
+        { "strong": "H3467", "match": ["save"] },
+        { "strong": "H3444", "match": ["salvation"] },
+        { "strong": "H3468", "match": ["salvation"] },
+        { "strong": "H8668", "match": ["salvation"] },
+        { "strong": "G4982", "match": ["save"] },
+        { "strong": "G4991", "match": ["salvation"] },
+        { "strong": "G4990", "match": ["savior"] },
+        { "strong": "G4992", "match": ["saving"] }
+      ]
+    },
+    {
+      "id": "peace",
+      "name": "Peace",
+      "group": "promises",
+      "blurb": "Shalom: the LORD give you peace, the Prince of Peace, peace I leave with you.",
+      "key_verses": ["Numbers 6:26", "Isaiah 9:6", "John 14:27"],
+      "roots": [
+        { "strong": "H7965", "match": ["peace"] },
+        { "strong": "H8001", "match": ["peace"] },
+        { "strong": "G1515", "match": ["peace"] },
+        { "strong": "G1514", "match": ["peace"] },
+        { "strong": "G1516", "match": ["peace"] },
+        { "strong": "G1517", "match": ["peace"] },
+        { "strong": "G1518", "match": ["peace"] }
+      ]
+    },
+    {
+      "id": "hope",
+      "name": "Hope and waiting",
+      "group": "promises",
+      "blurb": "Those who wait upon the LORD will renew their strength; a future and a hope; hope does not disappoint.",
+      "key_verses": ["Isaiah 40:31", "Jeremiah 29:11", "Romans 5:5"],
+      "roots": [
+        { "strong": "H8615B", "match": ["hope"] },
+        { "strong": "H8431", "match": ["hope"] },
+        { "strong": "H6960A", "match": ["await"] },
+        { "strong": "H3176H", "match": ["hope"] },
+        { "strong": "G1680", "match": ["hope"] },
+        { "strong": "G1679", "match": ["hope"] }
+      ]
+    },
+    {
+      "id": "joy",
+      "name": "Joy",
+      "group": "promises",
+      "blurb": "You will fill me with joy in your presence, good news of great joy, rejoice in the Lord always.",
+      "key_verses": ["Psalm 16:11", "Luke 2:10", "Philippians 4:4"],
+      "roots": [
+        { "strong": "H8055", "match": ["rejoice"] },
+        { "strong": "H8057", "match": ["joy"] },
+        { "strong": "H1523", "match": ["rejoice"] },
+        { "strong": "H7797", "match": ["rejoice"] },
+        { "strong": "H8342", "match": ["rejoicing"] },
+        { "strong": "H8056", "match": ["glad"] },
+        { "strong": "G5463", "match": ["rejoice"] },
+        { "strong": "G5479", "match": ["joy"] },
+        { "strong": "G0021", "match": ["rejoice"] },
+        { "strong": "G0020", "match": ["joy"] }
+      ]
+    },
+    {
+      "id": "life",
+      "name": "Life",
+      "group": "promises",
+      "blurb": "The breath of life, choose life, the bread of life, eternal life.",
+      "key_verses": ["Deuteronomy 30:19", "John 6:35", "John 3:16"],
+      "roots": [
+        { "strong": "H2416E", "match": ["life"] },
+        { "strong": "G2198", "match": ["live"] },
+        { "strong": "G2222", "match": ["life"] }
+      ]
+    },
+    {
+      "id": "forever",
+      "name": "Forever",
+      "group": "promises",
+      "blurb": "An everlasting covenant, his loving devotion endures forever, eternal life.",
+      "key_verses": ["Genesis 17:7", "Psalm 136:1", "John 3:16"],
+      "roots": [
+        { "strong": "H5769G", "match": ["forever"] },
+        { "strong": "G0166", "match": ["eternal"] },
+        { "strong": "G0165H", "match": ["eternity"] }
+      ]
+    },
+    {
+      "id": "glory",
+      "name": "Glory",
+      "group": "promises",
+      "blurb": "The glory of the LORD filled the tabernacle; we have seen his glory.",
+      "key_verses": ["Exodus 40:34", "John 1:14"],
+      "roots": [
+        { "strong": "H3519", "match": ["glory"] },
+        { "strong": "H1926", "match": ["glory"] },
+        { "strong": "G1391", "match": ["glory"] },
+        { "strong": "G1392", "match": ["glorify"] }
+      ]
+    },
+    {
+      "id": "holy",
+      "name": "Holy",
+      "group": "promises",
+      "blurb": "Take off your sandals, this is holy ground; be holy, because I am holy; holy, holy, holy is the LORD of Hosts.",
+      "key_verses": ["Exodus 3:5", "Leviticus 11:44", "Isaiah 6:3"],
+      "roots": [
+        { "strong": "H6944G", "match": ["holiness"] },
+        { "strong": "H6918", "match": ["holy"] },
+        { "strong": "H6942", "match": ["consecrat"] },
+        { "strong": "G0040", "match": ["holy"] },
+        { "strong": "G0037", "match": ["sanctify"] },
+        { "strong": "G0038", "match": ["holiness"] }
+      ]
+    },
+    {
+      "id": "righteousness",
+      "name": "Righteousness",
+      "group": "promises",
+      "blurb": "Abram believed and it was credited as righteousness; the righteous will live by faith.",
+      "key_verses": ["Genesis 15:6", "Habakkuk 2:4", "Romans 1:17"],
+      "roots": [
+        { "strong": "H6664", "match": ["righteous"] },
+        { "strong": "H6666", "match": ["righteous"] },
+        { "strong": "H6662", "match": ["righteous"] },
+        { "strong": "H6663", "match": ["righteous", "justify"] },
+        { "strong": "G1343", "match": ["righteous"] },
+        { "strong": "G1342", "match": ["just"] },
+        { "strong": "G1344", "match": ["justify"] }
+      ]
+    },
+    {
+      "id": "justice",
+      "name": "Justice and judgment",
+      "group": "promises",
+      "blurb": "Will not the Judge of all the earth do what is right? Let justice roll on like a river.",
+      "key_verses": ["Genesis 18:25", "Amos 5:24"],
+      "roots": [
+        { "strong": "H4941", "match": ["justice"], "exclude": ["H4941I", "H4941J"] },
+        { "strong": "H8199", "match": ["judge"] },
+        { "strong": "G2920", "match": ["judgment"] },
+        { "strong": "G2917", "match": ["judgment"] },
+        { "strong": "G2919", "match": ["judge"] }
+      ]
+    },
+    {
+      "id": "forgiveness",
+      "name": "Forgiveness",
+      "group": "promises",
+      "blurb": "He forgives all your iniquities, forgive us our debts, the forgiveness of sins.",
+      "key_verses": ["Psalm 103:3", "Matthew 6:12", "Matthew 26:28"],
+      "roots": [
+        { "strong": "H5545", "match": ["forgive"] },
+        { "strong": "H5547", "match": ["forgive"] },
+        { "strong": "G0863H", "match": ["forgive"] },
+        { "strong": "G0859", "match": ["forgive"] }
+      ]
+    },
+    {
+      "id": "oath",
+      "name": "Promise and oath",
+      "group": "promises",
+      "blurb": "By myself I have sworn, the promise to Abraham, God guaranteed it with an oath.",
+      "key_verses": ["Genesis 22:16", "Romans 4:13", "Hebrews 6:17"],
+      "roots": [
+        { "strong": "H7650", "match": ["swear"] },
+        { "strong": "H7621", "match": ["oath"] },
+        { "strong": "G1860", "match": ["promise"] },
+        { "strong": "G1861", "match": ["profess"] },
+        { "strong": "G3727", "match": ["oath"] },
+        { "strong": "G3660", "match": ["swear"] }
+      ]
+    },
+    {
+      "id": "blessing",
+      "name": "Blessing",
+      "group": "promises",
+      "blurb": "All nations blessed in Abraham, the LORD bless you and keep you, blessed are the poor in spirit.",
+      "key_verses": ["Genesis 12:3", "Numbers 6:24", "Matthew 5:3"],
+      "roots": [
+        { "strong": "H1288", "match": ["bless"] },
+        { "strong": "H1293", "match": ["blessing"] },
+        { "strong": "H0835", "match": ["blessed"] },
+        { "strong": "G2127", "match": ["bless"] },
+        { "strong": "G2129", "match": ["praise"] },
+        { "strong": "G3107", "match": ["blessed"] }
+      ]
+    },
+    {
+      "id": "inheritance",
+      "name": "Inheritance",
+      "group": "promises",
+      "blurb": "The land as Israel’s inheritance, the LORD as Levi’s, heirs of God.",
+      "key_verses": ["Deuteronomy 4:21", "Deuteronomy 10:9", "Romans 8:17"],
+      "roots": [
+        { "strong": "H5159", "match": ["inheritance"] },
+        { "strong": "H5157", "match": ["inherit"] },
+        { "strong": "G2817", "match": ["inheritance"] },
+        { "strong": "G2818", "match": ["heir"] },
+        { "strong": "G2816", "match": ["inherit"] }
+      ]
+    },
+    {
+      "id": "healing",
+      "name": "Healing",
+      "group": "promises",
+      "blurb": "I am the LORD who heals you; by his stripes we are healed; he healed them all.",
+      "key_verses": ["Exodus 15:26", "Isaiah 53:5", "Matthew 12:15"],
+      "roots": [
+        { "strong": "H7495", "match": ["heal"] },
+        { "strong": "H4832", "match": ["healing"] },
+        { "strong": "G2323", "match": ["heal"] },
+        { "strong": "G2390", "match": ["heal"] },
+        { "strong": "G2392", "match": ["healing"] },
+        { "strong": "G2386", "match": ["healing"] }
+      ]
+    },
+    {
+      "id": "raised",
+      "name": "Rising from the dead",
+      "group": "promises",
+      "blurb": "The Greek word for resurrection, from the question put to Jesus about the seven brothers to the hope Paul writes about.",
+      "key_verses": ["Matthew 22:28", "John 11:25", "1 Corinthians 15:42"],
+      "roots": [
+        { "strong": "G0386", "match": ["resurrection"] },
+        { "strong": "G1454", "match": ["resurrection"] }
+      ]
+    },
+    {
+      "id": "new",
+      "name": "New",
+      "group": "promises",
+      "blurb": "A new song, a new heart, a new covenant, new heavens and a new earth.",
+      "key_verses": ["Psalm 96:1", "Jeremiah 31:31", "Revelation 21:1"],
+      "roots": [
+        { "strong": "H2319", "match": ["new"] },
+        { "strong": "H2318", "match": ["renew"] },
+        { "strong": "G2537", "match": ["new"] },
+        { "strong": "G3501", "match": ["new"] }
+      ]
+    },
+    {
+      "id": "wisdom",
+      "name": "Wisdom",
+      "group": "promises",
+      "blurb": "The fear of the LORD is the beginning of wisdom; Christ the wisdom of God.",
+      "key_verses": ["Proverbs 9:10", "1 Corinthians 1:24"],
+      "roots": [
+        { "strong": "H2451", "match": ["wisdom"] },
+        { "strong": "H2450", "match": ["wise"] },
+        { "strong": "H2449", "match": ["wise"] },
+        { "strong": "G4678", "match": ["wisdom"] },
+        { "strong": "G4680", "match": ["wise"] }
+      ]
+    },
+    {
+      "id": "comfort",
+      "name": "Comfort",
+      "group": "promises",
+      "blurb": "Comfort, comfort my people; your rod and your staff, they comfort me; the God of all comfort.",
+      "key_verses": ["Isaiah 40:1", "Psalm 23:4", "2 Corinthians 1:3"],
+      "roots": [
+        { "strong": "H5162G", "match": ["comfort"] },
+        { "strong": "G3874", "match": ["encouragement"] }
+      ]
+    },
+    {
+      "id": "freedom",
+      "name": "Freedom",
+      "group": "promises",
+      "blurb": "Proclaim liberty in the land; the truth will set you free.",
+      "key_verses": ["Leviticus 25:10", "John 8:32"],
+      "roots": [
+        { "strong": "H1865", "match": ["liberty"] },
+        { "strong": "H2670", "match": ["free"] },
+        { "strong": "G1657", "match": ["freedom"] },
+        { "strong": "G1658", "match": ["free"] },
+        { "strong": "G1659", "match": ["free"] }
+      ]
+    },
+    {
+      "id": "goodnews",
+      "name": "Good news",
+      "group": "promises",
+      "blurb": "How beautiful the feet of those who bring good news; the gospel of the kingdom.",
+      "key_verses": ["Isaiah 52:7", "Romans 10:15", "Matthew 24:14"],
+      "roots": [
+        { "strong": "H1319", "match": ["tidings"] },
+        { "strong": "H1309", "match": ["good news"] },
+        { "strong": "G2097", "match": ["good news"] },
+        { "strong": "G2098", "match": ["gospel"] }
+      ]
+    },
+    {
+      "id": "servant",
+      "name": "Servant",
+      "group": "people",
+      "level": "study",
+      "blurb": "Moses my servant, my righteous Servant in Isaiah, Christ taking the form of a servant.",
+      "key_verses": ["Joshua 1:2", "Isaiah 53:11", "Philippians 2:7"],
+      "roots": [
+        { "strong": "H5650", "match": ["servant"] },
+        { "strong": "G1401", "match": ["slave"] }
+      ]
+    },
+    {
+      "id": "priest",
+      "name": "Priest",
+      "group": "people",
+      "blurb": "Melchizedek, Aaron and his sons, a kingdom of priests, a great high priest.",
+      "key_verses": ["Genesis 14:18", "Exodus 19:6", "Hebrews 4:14"],
+      "roots": [
+        { "strong": "H3548", "match": ["priest"] },
+        { "strong": "G2409", "match": ["priest"] },
+        { "strong": "G0749", "match": ["priest"] }
+      ]
+    },
+    {
+      "id": "prophet",
+      "name": "Prophet",
+      "group": "people",
+      "blurb": "A prophet like Moses, the prophets who spoke of the coming one, and a prophet from Nazareth.",
+      "key_verses": ["Deuteronomy 18:15", "Luke 24:27", "Matthew 21:11"],
+      "roots": [
+        { "strong": "H5030", "match": ["prophet"] },
+        { "strong": "H5012", "match": ["prophesy"] },
+        { "strong": "G4396", "match": ["prophet"] },
+        { "strong": "G4395", "match": ["prophesy"] }
+      ]
+    },
+    {
+      "id": "king",
+      "name": "King",
+      "group": "people",
+      "level": "study",
+      "blurb": "Kings of Israel and Judah, your king comes to you, King of kings.",
+      "key_verses": ["Zechariah 9:9", "John 12:15", "Revelation 19:16"],
+      "roots": [
+        { "strong": "H4428", "match": ["king"] },
+        { "strong": "H4430", "match": ["king"] },
+        { "strong": "G0935", "match": ["king"] }
+      ]
+    },
+    {
+      "id": "father",
+      "name": "Father",
+      "group": "people",
+      "level": "study",
+      "blurb": "Abraham, father of many nations, a father of the fatherless, our Father in heaven.",
+      "key_verses": ["Genesis 17:5", "Psalm 68:5", "Matthew 6:9"],
+      "roots": [
+        { "strong": "H0001", "match": ["father"] },
+        { "strong": "H0002", "match": ["father"] },
+        { "strong": "G3962", "match": ["father"] }
+      ]
+    },
+    {
+      "id": "son",
+      "name": "Son",
+      "group": "people",
+      "level": "study",
+      "blurb": "Sons in every family line; you are my Son; a son is given; the Son of God.",
+      "key_verses": ["Psalm 2:7", "Isaiah 9:6", "Mark 1:1"],
+      "roots": [
+        { "strong": "H1121A", "match": ["son"] },
+        { "strong": "H1247", "match": ["son"] },
+        { "strong": "G5207", "match": ["son"] }
+      ]
+    },
+    {
+      "id": "widow",
+      "name": "Widows and orphans",
+      "group": "people",
+      "blurb": "God defends the fatherless and the widow; the widow’s offering.",
+      "key_verses": ["Deuteronomy 10:18", "Psalm 68:5", "Mark 12:42"],
+      "roots": [
+        { "strong": "H0490", "match": ["widow"] },
+        { "strong": "H3490", "match": ["orphan"] },
+        { "strong": "G5503", "match": ["widow"] },
+        { "strong": "G3737", "match": ["orphan"] }
+      ]
+    },
+    {
+      "id": "stranger",
+      "name": "Strangers and foreigners",
+      "group": "people",
+      "blurb": "You were foreigners in Egypt; Ruth the foreigner; no longer strangers and foreigners.",
+      "key_verses": ["Exodus 22:21", "Ruth 2:10", "Ephesians 2:19"],
+      "roots": [
+        { "strong": "H1616", "match": ["sojourner"] },
+        { "strong": "H5237", "match": ["foreign"] },
+        { "strong": "H8453A", "match": ["sojourner"] },
+        { "strong": "G3581", "match": ["foreign"] },
+        { "strong": "G3941", "match": ["foreigner"] },
+        { "strong": "G3927", "match": ["stranger"] }
+      ]
+    },
+    {
+      "id": "poor",
+      "name": "The poor and needy",
+      "group": "people",
+      "blurb": "He raises the poor from the dust; good news to the poor.",
+      "key_verses": ["1 Samuel 2:8", "Luke 4:18"],
+      "roots": [
+        { "strong": "H6041", "match": ["afflicted"] },
+        { "strong": "H0034", "match": ["needy"] },
+        { "strong": "H1800", "match": ["poor"] },
+        { "strong": "H6035", "match": ["poor"] },
+        { "strong": "H7326", "match": ["poor"] },
+        { "strong": "G4434", "match": ["poor"] }
+      ]
+    },
+    {
+      "id": "disciple",
+      "name": "Teaching and learning",
+      "group": "people",
+      "blurb": "Teach them to your children; learn from me; teaching them to obey all that I have commanded you.",
+      "key_verses": ["Deuteronomy 11:19", "Matthew 11:29", "Matthew 28:20"],
+      "roots": [
+        { "strong": "H3925", "match": ["teach", "learn"] },
+        { "strong": "G1321", "match": ["teach"] },
+        { "strong": "G1320", "match": ["teacher"] },
+        { "strong": "G3129", "match": ["learn"] },
+        { "strong": "G3101", "match": ["disciple"] }
+      ]
+    },
+    {
+      "id": "angel",
+      "name": "Angels and messengers",
+      "group": "people",
+      "blurb": "The angel of the LORD, I send my messenger, the angels at the tomb. One word in Hebrew and one in Greek mean both.",
+      "key_verses": ["Genesis 22:11", "Malachi 3:1", "Matthew 28:5"],
+      "roots": [
+        { "strong": "H4397", "match": ["messenger"] },
+        { "strong": "G0032", "match": ["angel"] }
+      ]
+    },
+    {
+      "id": "enemy",
+      "name": "Enemies",
+      "group": "people",
+      "blurb": "Deliver me from my enemies; love your enemies; the last enemy is death.",
+      "key_verses": ["Psalm 59:1", "Matthew 5:44", "1 Corinthians 15:26"],
+      "roots": [
+        { "strong": "H0341", "match": ["enemy"] },
+        { "strong": "H6862C", "match": ["enemy"] },
+        { "strong": "G2190", "match": ["enemy"] }
+      ]
+    },
+    {
+      "id": "nations",
+      "name": "The nations",
+      "group": "people",
+      "blurb": "All nations blessed through Abraham, a light for the nations, make disciples of all nations.",
+      "key_verses": ["Genesis 22:18", "Isaiah 49:6", "Matthew 28:19"],
+      "roots": [
+        { "strong": "H1471", "match": ["nation", "gentile"], "capitalized": true },
+        { "strong": "G1484", "match": ["gentile"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "neighbor",
+      "name": "Neighbors and friends",
+      "group": "people",
+      "blurb": "Love your neighbor as yourself; who is my neighbor? You are my friends.",
+      "key_verses": ["Leviticus 19:18", "Luke 10:29", "John 15:14"],
+      "roots": [
+        { "strong": "H7453", "match": ["neighbor"] },
+        { "strong": "G4139", "match": ["neighbor"] },
+        { "strong": "G5384", "match": ["friend"] }
+      ]
+    },
+    {
+      "id": "witness",
+      "name": "Witness and testimony",
+      "group": "people",
+      "blurb": "The ark of the testimony, you are my witnesses, you will be my witnesses.",
+      "key_verses": ["Exodus 25:22", "Isaiah 43:10", "Acts 1:8"],
+      "roots": [
+        { "strong": "H5707", "match": ["witness"] },
+        { "strong": "H5715", "match": ["testimony"] },
+        { "strong": "G3144", "match": ["witness"] },
+        { "strong": "G3140", "match": ["testify"] },
+        { "strong": "G3141", "match": ["testimony"] }
+      ]
+    },
+    {
+      "id": "remnant",
+      "name": "Remnant",
+      "group": "people",
+      "blurb": "A remnant will return; a remnant chosen by grace.",
+      "key_verses": ["Isaiah 10:21", "Romans 11:5"],
+      "roots": [
+        { "strong": "H7605", "match": ["remnant"] },
+        { "strong": "H7611", "match": ["remnant"] },
+        { "strong": "G3005", "match": ["remnant"] }
+      ]
+    },
+    {
+      "id": "creation",
+      "name": "Creation",
+      "group": "acts",
+      "blurb": "In the beginning God created; create in me a clean heart; a new creation.",
+      "key_verses": ["Genesis 1:1", "Psalm 51:10", "2 Corinthians 5:17"],
+      "roots": [
+        { "strong": "H1254A", "match": ["create"] },
+        { "strong": "G2936", "match": ["create"] },
+        { "strong": "G2937", "match": ["creation"] },
+        { "strong": "G2939", "match": ["creator"] }
+      ]
+    },
+    {
+      "id": "chosen",
+      "name": "Chosen",
+      "group": "acts",
+      "blurb": "The LORD chose Abram, Israel and David; a chosen people; chosen before the foundation of the world.",
+      "key_verses": ["Nehemiah 9:7", "Ephesians 1:4", "1 Peter 2:9"],
+      "roots": [
+        { "strong": "H0977", "match": ["choose"] },
+        { "strong": "G1586", "match": ["select"] },
+        { "strong": "G1588", "match": ["select"] },
+        { "strong": "G1589", "match": ["select"] }
+      ]
+    },
+    {
+      "id": "remember",
+      "name": "Remember",
+      "group": "acts",
+      "blurb": "God remembered Noah, remember the Sabbath, Jesus, remember me when you come into your kingdom.",
+      "key_verses": ["Genesis 8:1", "Exodus 20:8", "Luke 23:42"],
+      "roots": [
+        { "strong": "H2142", "match": ["remember"] },
+        { "strong": "H2146", "match": ["memorial"] },
+        { "strong": "G3403", "match": ["remember"] }
+      ]
+    },
+    {
+      "id": "rescue",
+      "name": "Rescue",
+      "group": "acts",
+      "blurb": "I have come down to rescue them; deliver us from the evil one.",
+      "key_verses": ["Exodus 3:8", "Matthew 6:13"],
+      "roots": [
+        { "strong": "H5337", "match": ["rescue"] },
+        { "strong": "H6403", "match": ["escape"] },
+        { "strong": "G4506", "match": ["rescue"] }
+      ]
+    },
+    {
+      "id": "gather",
+      "name": "Scattered and gathered",
+      "group": "acts",
+      "blurb": "Scattered at Babel and among the nations, then gathered again; strike the shepherd and the sheep will be scattered.",
+      "key_verses": ["Genesis 11:9", "Deuteronomy 30:3", "Matthew 26:31"],
+      "roots": [
+        { "strong": "H6908", "match": ["gather"] },
+        { "strong": "H6327A", "match": ["scatter"] },
+        { "strong": "G1287", "match": ["scatter"] }
+      ]
+    },
+    {
+      "id": "exile",
+      "name": "Exile",
+      "group": "acts",
+      "blurb": "Carried away to Assyria and Babylon, and brought back; the exile in Matthew’s family line.",
+      "key_verses": ["2 Kings 17:6", "Jeremiah 29:14", "Matthew 1:11"],
+      "roots": [
+        { "strong": "H1473", "match": ["captivity"] },
+        { "strong": "H7628", "match": ["captiv"] },
+        { "strong": "H7622", "match": ["captivity"] },
+        { "strong": "H1540K", "match": ["remove"] },
+        { "strong": "G0161", "match": ["captivity"] },
+        { "strong": "G3350", "match": ["deportation"] }
+      ]
+    },
+    {
+      "id": "wrath",
+      "name": "Anger and wrath",
+      "group": "acts",
+      "blurb": "Slow to anger, the cup of his fury, rescued from the coming wrath.",
+      "key_verses": ["Exodus 34:6", "Isaiah 51:17", "1 Thessalonians 1:10"],
+      "roots": [
+        { "strong": "H0639G", "match": ["anger"] },
+        { "strong": "H2534", "match": ["rage"] },
+        { "strong": "H5678", "match": ["fury"] },
+        { "strong": "H2740", "match": ["anger"] },
+        { "strong": "G3709", "match": ["wrath"] },
+        { "strong": "G2372", "match": ["wrath"] }
+      ]
+    },
+    {
+      "id": "reveal",
+      "name": "Revealed",
+      "group": "acts",
+      "blurb": "The secret things belong to the LORD but the things revealed belong to us; the glory of the LORD revealed; the revelation of Jesus Christ.",
+      "key_verses": ["Deuteronomy 29:29", "Isaiah 40:5", "Revelation 1:1"],
+      "roots": [
+        { "strong": "H1540H", "match": ["reveal"] },
+        { "strong": "G0601", "match": ["reveal"] },
+        { "strong": "G0602", "match": ["revelation"] }
+      ]
+    },
+    {
+      "id": "faith",
+      "name": "Faith and trust",
+      "group": "worship",
+      "blurb": "Abram believed the LORD; trust in the LORD with all your heart; whoever believes in him.",
+      "key_verses": ["Genesis 15:6", "Proverbs 3:5", "John 3:16"],
+      "roots": [
+        { "strong": "H0539", "match": ["faithful"] },
+        { "strong": "H0982", "match": ["trust"] },
+        { "strong": "G4100", "match": ["trust"] },
+        { "strong": "G4102", "match": ["faith"] },
+        { "strong": "G4103", "match": ["faithful"] }
+      ]
+    },
+    {
+      "id": "repent",
+      "name": "Turning back",
+      "group": "worship",
+      "blurb": "Repent and live; let the wicked return to the LORD; repent, for the kingdom of heaven is near.",
+      "key_verses": ["Ezekiel 18:32", "Isaiah 55:7", "Matthew 4:17"],
+      "roots": [
+        { "strong": "H7725O", "match": ["repent"] },
+        { "strong": "G3340", "match": ["repent"] },
+        { "strong": "G3341", "match": ["repentance"] }
+      ]
+    },
+    {
+      "id": "prayer",
+      "name": "Prayer",
+      "group": "worship",
+      "blurb": "Hannah’s prayer, Solomon’s prayer, a house of prayer, teach us to pray.",
+      "key_verses": ["1 Samuel 2:1", "Isaiah 56:7", "Luke 11:1"],
+      "roots": [
+        { "strong": "H6419", "match": ["pray"] },
+        { "strong": "H8605", "match": ["prayer"] },
+        { "strong": "G4336", "match": ["pray"] },
+        { "strong": "G4335", "match": ["prayer"] },
+        { "strong": "G1189", "match": ["pray"] },
+        { "strong": "G1162", "match": ["petition"] }
+      ]
+    },
+    {
+      "id": "praise",
+      "name": "Praise and thanks",
+      "group": "worship",
+      "blurb": "Give thanks to the LORD for he is good; praise the LORD; give thanks in every circumstance.",
+      "key_verses": ["Psalm 136:1", "Psalm 150:1", "1 Thessalonians 5:18"],
+      "roots": [
+        { "strong": "H1984B", "match": ["praise"] },
+        { "strong": "H3034", "match": ["thanks"] },
+        { "strong": "H8416", "match": ["praise"] },
+        { "strong": "H8426", "match": ["thanksgiving"] },
+        { "strong": "G0134", "match": ["praise"] },
+        { "strong": "G0136", "match": ["praise"] },
+        { "strong": "G2168", "match": ["thank"] }
+      ]
+    },
+    {
+      "id": "worship",
+      "name": "Worship",
+      "group": "worship",
+      "blurb": "Abraham went to worship, come let us worship and bow down, worship in spirit and truth. The Hebrew word means to bow down.",
+      "key_verses": ["Genesis 22:5", "Psalm 95:6", "John 4:24"],
+      "roots": [
+        { "strong": "H7812", "match": ["bow"] },
+        { "strong": "G4352", "match": ["worship"] }
+      ]
+    },
+    {
+      "id": "song",
+      "name": "Songs",
+      "group": "worship",
+      "blurb": "The song of Moses, sing to the LORD a new song, psalms, hymns and spiritual songs.",
+      "key_verses": ["Exodus 15:1", "Psalm 96:1", "Ephesians 5:19"],
+      "roots": [
+        { "strong": "H7891", "match": ["sing"] },
+        { "strong": "H7892", "match": ["song"] },
+        { "strong": "H2167", "match": ["sing"] },
+        { "strong": "H4210", "match": ["melody"] },
+        { "strong": "G0103", "match": ["sing"] },
+        { "strong": "G5603", "match": ["song"] },
+        { "strong": "G5568", "match": ["psalm"] }
+      ]
+    },
+    {
+      "id": "fear",
+      "name": "Fear and awe",
+      "group": "worship",
+      "blurb": "The same words mean being afraid and standing in awe: do not be afraid, and the fear of the LORD.",
+      "key_verses": ["Genesis 15:1", "Proverbs 1:7", "Luke 2:10"],
+      "roots": [
+        { "strong": "H3372", "match": ["fear"] },
+        { "strong": "H3374", "match": ["fear"] },
+        { "strong": "G5399", "match": ["fear"] },
+        { "strong": "G5401", "match": ["fear"] }
+      ]
+    },
+    {
+      "id": "obey",
+      "name": "Listening and obeying",
+      "group": "worship",
+      "blurb": "The Hebrew for obey is to hear: obedience is better than sacrifice; he learned obedience from what he suffered.",
+      "key_verses": ["Genesis 22:18", "1 Samuel 15:22", "Hebrews 5:8"],
+      "roots": [
+        { "strong": "H8085H", "match": ["obey"] },
+        { "strong": "H8104G", "match": ["obey"] },
+        { "strong": "G5219", "match": ["obey"] },
+        { "strong": "G5218", "match": ["obedience"] }
+      ]
+    },
+    {
+      "id": "weeping",
+      "name": "Tears and mourning",
+      "group": "worship",
+      "blurb": "Those who sow in tears, Jesus wept, he will wipe away every tear.",
+      "key_verses": ["Psalm 126:5", "John 11:35", "Revelation 21:4"],
+      "roots": [
+        { "strong": "H1058", "match": ["weep"] },
+        { "strong": "H0056", "match": ["mourn"] },
+        { "strong": "H5594", "match": ["mourn"] },
+        { "strong": "H1832", "match": ["tears"] },
+        { "strong": "G2799", "match": ["weep"] },
+        { "strong": "G1145", "match": ["weep"] },
+        { "strong": "G2805", "match": ["weeping"] },
+        { "strong": "G3996", "match": ["mourn"] },
+        { "strong": "G3997", "match": ["grief"] },
+        { "strong": "G1144", "match": ["tear"] }
+      ]
+    },
+    {
+      "id": "fasting",
+      "name": "Fasting",
+      "group": "worship",
+      "blurb": "Esther’s fast, the fast the LORD chooses, forty days in the wilderness.",
+      "key_verses": ["Esther 4:16", "Isaiah 58:6", "Matthew 4:2"],
+      "roots": [
+        { "strong": "H6684", "match": ["fast"] },
+        { "strong": "H6685", "match": ["fast"] },
+        { "strong": "G3522", "match": ["fast"] },
+        { "strong": "G3521", "match": ["fast"] }
+      ]
+    },
+    {
+      "id": "sacrifice",
+      "name": "Sacrifice and offering",
+      "group": "worship",
+      "blurb": "Abel’s offering, the burnt offering on Moriah, a living sacrifice, one sacrifice for sins forever.",
+      "key_verses": ["Genesis 4:4", "Romans 12:1", "Hebrews 10:12"],
+      "roots": [
+        { "strong": "H2077", "match": ["sacrifice"] },
+        { "strong": "H5930A", "match": ["burnt offering"] },
+        { "strong": "H7133", "match": ["offering"] },
+        { "strong": "H4503G", "match": ["offering"] },
+        { "strong": "H8002", "match": ["peace offering"] },
+        { "strong": "H0817", "match": ["guilt"] },
+        { "strong": "H2403H", "match": ["sin offering"] },
+        { "strong": "G2378", "match": ["sacrifice"] },
+        { "strong": "G4376", "match": ["offering"] },
+        { "strong": "G3646", "match": ["burnt offering"] }
+      ]
+    },
+    {
+      "id": "altar",
+      "name": "Altar",
+      "group": "worship",
+      "blurb": "Noah’s altar, Abraham’s altars, the altar of the tabernacle, and the altar before the throne.",
+      "key_verses": ["Genesis 8:20", "Genesis 12:7", "Revelation 8:3"],
+      "roots": [
+        { "strong": "H4196", "match": ["altar"] },
+        { "strong": "G2379", "match": ["altar"] }
+      ]
+    },
+    {
+      "id": "incense",
+      "name": "Incense",
+      "group": "worship",
+      "blurb": "The altar of incense, my prayer set before you like incense, and incense rising with the prayers of the saints.",
+      "key_verses": ["Exodus 30:1", "Psalm 141:2", "Revelation 8:4"],
+      "roots": [
+        { "strong": "H7004", "match": ["incense"] },
+        { "strong": "H3828", "match": ["frankincense"] },
+        { "strong": "G2368", "match": ["incense"] }
+      ]
+    },
+    {
+      "id": "washing",
+      "name": "Washing and baptism",
+      "group": "worship",
+      "blurb": "Naaman told to wash seven times in the Jordan; wash me, and I will be whiter than snow; baptized in the Jordan River.",
+      "key_verses": ["2 Kings 5:10", "Psalm 51:7", "Matthew 3:6"],
+      "roots": [
+        { "strong": "H7364", "match": ["wash"] },
+        { "strong": "H3526H", "match": ["wash"] },
+        { "strong": "G0907", "match": ["baptize"] },
+        { "strong": "G0908", "match": ["baptism"] },
+        { "strong": "G3068", "match": ["wash"] },
+        { "strong": "G3538", "match": ["wash"] }
+      ]
+    },
+    {
+      "id": "clean",
+      "name": "Clean and unclean",
+      "group": "worship",
+      "blurb": "Laws of clean and unclean, create in me a clean heart, what God has made clean.",
+      "key_verses": ["Leviticus 11:47", "Psalm 51:10", "Acts 10:15"],
+      "roots": [
+        { "strong": "H2930A", "match": ["defile"] },
+        { "strong": "H2931", "match": ["unclean"] },
+        { "strong": "H2932", "match": ["uncleanness"] },
+        { "strong": "H2891", "match": ["pure"] },
+        { "strong": "H2889", "match": ["pure"] },
+        { "strong": "H2893", "match": ["purifying"] },
+        { "strong": "G2513", "match": ["clean"] },
+        { "strong": "G2511", "match": ["clean"] },
+        { "strong": "G0169", "match": ["unclean"] }
+      ]
+    },
+    {
+      "id": "law",
+      "name": "Law and commandments",
+      "group": "worship",
+      "blurb": "Those who love me and keep my commandments, his delight is in the law of the LORD, the greatest commandment.",
+      "key_verses": ["Exodus 20:6", "Psalm 1:2", "Matthew 22:36"],
+      "roots": [
+        { "strong": "H8451", "match": ["instruction"] },
+        { "strong": "H4687", "match": ["commandment"] },
+        { "strong": "H2706G", "match": ["statute"] },
+        { "strong": "G3551", "match": ["law"] },
+        { "strong": "G1785", "match": ["commandment"] }
+      ]
+    },
+    {
+      "id": "cross",
+      "name": "The cross",
+      "group": "worship",
+      "blurb": "The Greek words for the cross and for crucifying, from the Gospels to Paul and Revelation.",
+      "key_verses": ["Matthew 27:35", "Galatians 6:14", "Revelation 11:8"],
+      "roots": [
+        { "strong": "G4716", "match": ["cross"] },
+        { "strong": "G4717", "match": ["crucify"] },
+        { "strong": "G4957", "match": ["crucify"] }
+      ]
+    },
+    {
+      "id": "sin",
+      "name": "Sin",
+      "group": "struggle",
+      "blurb": "Sin crouching at the door, transgressions and iniquities, the Lamb who takes away the sin of the world.",
+      "key_verses": ["Genesis 4:7", "Isaiah 53:5", "John 1:29"],
+      "roots": [
+        { "strong": "H2398", "match": ["sin"] },
+        { "strong": "H2403", "match": ["sin"], "exclude": ["H2403H"] },
+        { "strong": "H5771", "match": ["iniquity"] },
+        { "strong": "H6588", "match": ["transgression"] },
+        { "strong": "H6586", "match": ["transgress"] },
+        { "strong": "G0266", "match": ["sin"] },
+        { "strong": "G0264", "match": ["sin"] },
+        { "strong": "G3900", "match": ["trespass"] },
+        { "strong": "G0458", "match": ["lawlessness"] }
+      ]
+    },
+    {
+      "id": "death",
+      "name": "Death",
+      "group": "struggle",
+      "blurb": "You will surely die, he will swallow up death forever, where, O Death, is your sting?",
+      "key_verses": ["Genesis 2:17", "Isaiah 25:8", "1 Corinthians 15:55"],
+      "roots": [
+        { "strong": "H4191", "match": ["die"] },
+        { "strong": "H4194", "match": ["death"] },
+        { "strong": "G2288", "match": ["death"] },
+        { "strong": "G0599", "match": ["die"] },
+        { "strong": "G3498", "match": ["dead"] }
+      ]
+    },
+    {
+      "id": "grave",
+      "name": "The grave",
+      "group": "struggle",
+      "blurb": "Sheol in Hebrew, Hades and Gehenna in Greek: you will not abandon my soul to Sheol.",
+      "key_verses": ["Psalm 16:10", "Acts 2:27", "Matthew 10:28"],
+      "roots": [
+        { "strong": "H7585", "match": ["sheol"] },
+        { "strong": "G0086", "match": ["hades"] },
+        { "strong": "G1067", "match": ["gehenna"] }
+      ]
+    },
+    {
+      "id": "idols",
+      "name": "Idols",
+      "group": "struggle",
+      "blurb": "Their idols are silver and gold, a land full of idols, keep yourselves from idols.",
+      "key_verses": ["Psalm 115:4", "Isaiah 2:8", "1 John 5:21"],
+      "roots": [
+        { "strong": "H6456", "match": ["idol"] },
+        { "strong": "H0457", "match": ["idol"] },
+        { "strong": "H6091", "match": ["idol"] },
+        { "strong": "H1544", "match": ["idol"] },
+        { "strong": "G1497", "match": ["idol"] },
+        { "strong": "G1495", "match": ["idol"] },
+        { "strong": "G1496", "match": ["idol"] }
+      ]
+    },
+    {
+      "id": "pride",
+      "name": "Pride and humility",
+      "group": "struggle",
+      "blurb": "Pride goes before destruction; he humbled himself; God opposes the proud.",
+      "key_verses": ["Proverbs 16:18", "Philippians 2:8", "James 4:6"],
+      "roots": [
+        { "strong": "H1347", "match": ["pride"] },
+        { "strong": "H1346", "match": ["pride"] },
+        { "strong": "H3665", "match": ["humble"] },
+        { "strong": "H8213", "match": ["abase"] },
+        { "strong": "G5243", "match": ["pride"] },
+        { "strong": "G5244", "match": ["arrogant"] },
+        { "strong": "G5011", "match": ["lowly"] },
+        { "strong": "G5013", "match": ["humble"] },
+        { "strong": "G5012", "match": ["humility"] }
+      ]
+    },
+    {
+      "id": "satan",
+      "name": "Satan",
+      "group": "struggle",
+      "blurb": "The Hebrew satan means adversary: human enemies, the angel who stood in Balaam’s way, the accuser in Job; then the tempter and the devil defeated.",
+      "key_verses": ["Job 1:6", "Matthew 4:10", "Revelation 20:2"],
+      "roots": [
+        { "strong": "H7854", "match": ["satan"], "capitalized": true },
+        { "strong": "G4567", "match": ["satan"], "capitalized": true },
+        { "strong": "G1228", "match": ["devil"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "unfaithful",
+      "name": "Unfaithfulness",
+      "group": "struggle",
+      "blurb": "Unfaithfulness in marriage as the prophets’ picture of turning from God, in Hosea, Ezekiel and Revelation.",
+      "key_verses": ["Hosea 1:2", "Ezekiel 16:15", "Revelation 17:2"],
+      "roots": [
+        { "strong": "H5003", "match": ["adultery"] },
+        { "strong": "H2181", "match": ["fornicate"] },
+        { "strong": "H8457", "match": ["fornication"] },
+        { "strong": "H4603", "match": ["unfaithful"] },
+        { "strong": "H4604", "match": ["unfaithful"] },
+        { "strong": "G3431", "match": ["adultery"] },
+        { "strong": "G4202", "match": ["sexual"] },
+        { "strong": "G4203", "match": ["sexual"] }
+      ]
+    },
+    {
+      "id": "blind",
+      "name": "Blind and seeing",
+      "group": "struggle",
+      "blurb": "The eyes of the blind opened, I was blind but now I see.",
+      "key_verses": ["Isaiah 35:5", "John 9:25"],
+      "roots": [
+        { "strong": "H5787", "match": ["blind"] },
+        { "strong": "G5185", "match": ["blind"] },
+        { "strong": "G5186", "match": ["blind"] }
+      ]
+    },
+    {
+      "id": "hunger",
+      "name": "Hunger and thirst",
+      "group": "struggle",
+      "blurb": "Famine in Canaan and Egypt, my soul thirsts for God, blessed are those who hunger and thirst.",
+      "key_verses": ["Genesis 12:10", "Psalm 42:2", "Matthew 5:6"],
+      "roots": [
+        { "strong": "H7458", "match": ["famine"] },
+        { "strong": "H7456", "match": ["hungry"] },
+        { "strong": "H7457", "match": ["hungry"] },
+        { "strong": "H6772", "match": ["thirst"] },
+        { "strong": "H6770", "match": ["thirst"] },
+        { "strong": "G3983", "match": ["hunger"] },
+        { "strong": "G1372", "match": ["thirst"] }
+      ]
+    },
+    {
+      "id": "curse",
+      "name": "Curse",
+      "group": "struggle",
+      "blurb": "Cursed is the ground, blessing and cursing set before you, Christ became a curse for us.",
+      "key_verses": ["Genesis 3:17", "Deuteronomy 30:19", "Galatians 3:13"],
+      "roots": [
+        { "strong": "H0779", "match": ["curse"] },
+        { "strong": "H7045", "match": ["curse"] },
+        { "strong": "G2671", "match": ["curse"] },
+        { "strong": "G2672", "match": ["curse"] },
+        { "strong": "G1944", "match": ["cursed"] }
+      ]
+    },
+    {
+      "id": "heaven",
+      "name": "Heaven",
+      "group": "times",
+      "blurb": "The heavens and the earth, the heavens declare the glory of God, our Father in heaven, a new heaven.",
+      "key_verses": ["Genesis 1:1", "Psalm 19:1", "Matthew 6:9"],
+      "roots": [
+        { "strong": "H8064", "match": ["heaven"] },
+        { "strong": "H8065", "match": ["heaven"] },
+        { "strong": "G3772", "match": ["heaven"] }
+      ]
+    },
+    {
+      "id": "zion",
+      "name": "Jerusalem and Zion",
+      "group": "times",
+      "level": "study",
+      "blurb": "The city of David, Mount Zion, O Jerusalem, Jerusalem, the new Jerusalem.",
+      "key_verses": ["2 Samuel 5:7", "Luke 13:34", "Revelation 21:2"],
+      "roots": [
+        { "strong": "H3389", "match": ["jerusalem"], "capitalized": true },
+        { "strong": "H3390", "match": ["jerusalem"], "capitalized": true },
+        { "strong": "H6726", "match": ["zion"], "capitalized": true },
+        { "strong": "G2414", "match": ["jerusalem"], "capitalized": true },
+        { "strong": "G2419", "match": ["jerusalem"], "capitalized": true },
+        { "strong": "G4622", "match": ["zion"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "egypt",
+      "name": "Egypt",
+      "group": "times",
+      "blurb": "Joseph in Egypt, the exodus, out of Egypt I called my son.",
+      "key_verses": ["Genesis 39:1", "Exodus 20:2", "Matthew 2:15"],
+      "roots": [
+        { "strong": "H4714", "match": ["egypt"], "exclude": ["H4714I", "H4714J"], "capitalized": true },
+        { "strong": "G0125", "match": ["egypt"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "babylon",
+      "name": "Babylon",
+      "group": "times",
+      "blurb": "Babel, the exile to Babylon, by the rivers of Babylon, Babylon the great.",
+      "key_verses": ["Genesis 11:9", "Psalm 137:1", "Revelation 18:2"],
+      "roots": [
+        { "strong": "H0894", "match": ["babylon"], "capitalized": true },
+        { "strong": "G0897", "match": ["babylon"], "capitalized": true }
+      ]
+    },
+    {
+      "id": "feasts",
+      "name": "Feasts",
+      "group": "times",
+      "blurb": "The pilgrim feasts of Israel, and Jesus at the feasts in Jerusalem.",
+      "key_verses": ["Deuteronomy 16:16", "John 7:10"],
+      "roots": [
+        { "strong": "H2282", "match": ["feast"] },
+        { "strong": "G1859", "match": ["festival"] }
+      ]
+    },
+    {
+      "id": "birth",
+      "name": "Births and family lines",
+      "group": "people",
+      "blurb": "Mothers giving birth and fathers having children: Isaac, Samuel, a virgin will bear a son, and the family lines from Genesis 5 to Matthew 1.",
+      "key_verses": ["Genesis 21:2", "Isaiah 7:14", "Matthew 1:2"],
+      "roots": [
+        { "strong": "H3205", "match": ["beget"] },
+        { "strong": "H2029", "match": ["conceive"] },
+        { "strong": "H3209", "match": ["born"] },
+        { "strong": "G1080", "match": ["beget"] },
+        { "strong": "G5088", "match": ["birth"] },
+        { "strong": "G0313", "match": ["beget"] }
+      ]
+    },
+    {
+      "id": "war",
+      "name": "War and battle",
+      "group": "struggle",
+      "blurb": "The LORD will fight for you, nation will no longer take up the sword against nation, war in heaven.",
+      "key_verses": ["Exodus 14:14", "Isaiah 2:4", "Revelation 12:7"],
+      "roots": [
+        { "strong": "H4421", "match": ["battle"] },
+        { "strong": "H3898A", "match": ["fight"] },
+        { "strong": "G4171", "match": ["war"] },
+        { "strong": "G4170", "match": ["fight"] }
+      ]
+    },
+    {
+      "id": "seven",
+      "name": "Seven",
+      "group": "times",
+      "level": "study",
+      "blurb": "The seventh day, seven times, seventy weeks, seven lampstands and seven seals. A seven inside a larger count (2,172) is left out.",
+      "key_verses": ["Genesis 2:2", "Daniel 9:24", "Revelation 5:1"],
+      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G5507", "G3461"],
+      "roots": [
+        { "strong": "H7651", "match": ["seven"] },
+        { "strong": "H7637", "match": ["seventh"] },
+        { "strong": "H7657", "match": ["seventy"] },
+        { "strong": "H7620H", "match": ["week"] },
+        { "strong": "H7620I", "match": ["week"] },
+        { "strong": "G2033", "match": ["seven"] },
+        { "strong": "G1442", "match": ["seventh"] },
+        { "strong": "G1440", "match": ["seventy"] }
+      ]
+    },
+    {
+      "id": "forty",
+      "name": "Forty",
+      "group": "times",
+      "level": "study",
+      "blurb": "Forty days of rain, forty years in the wilderness, forty days of fasting and testing. A forty inside a larger count (46,500) is left out.",
+      "key_verses": ["Genesis 7:4", "Numbers 14:33", "Matthew 4:2"],
+      "skip_with": ["H3967", "H0505G", "H7239", "H7233", "G1540", "G5507", "G3461"],
+      "roots": [
+        { "strong": "H0705", "match": ["forty"] },
+        { "strong": "G5062", "match": ["forty"] }
+      ]
+    },
+    {
+      "id": "generations",
+      "name": "Generations",
+      "group": "times",
+      "blurb": "The account of the heavens and the earth, from generation to generation, the genealogy of Jesus.",
+      "key_verses": ["Genesis 2:4", "Luke 1:50", "Matthew 1:1"],
+      "roots": [
+        { "strong": "H8435", "match": ["generation"] },
+        { "strong": "H1755", "match": ["generation"] },
+        { "strong": "G1074", "match": ["generation"] },
+        { "strong": "G1078", "match": ["origin"] }
       ]
     }
   ]
