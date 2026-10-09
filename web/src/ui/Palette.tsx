@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { type Atlas, label, langName, rangeLabel } from '../data/atlas';
 import { extraText, loadExtraText, loadPlainText, plainText } from '../data/plain';
-import { type Extra, type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
+import { type Extra, type SearchResult, searchEnglish, searchRoots, markWords } from '../data/search';
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
@@ -43,7 +43,7 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
   if (!t) return <span class="s">{failed ? NOT_LOADED : '…'}</span>;
   return (
     <span class="s">
-      {wordPieces(t).map((p, i) => (p.word && words.has(p.word) ? <mark key={i}>{p.text}</mark> : p.text))}
+      {markWords(t, words).map((p, i) => (p.mark ? <mark key={i}>{p.text}</mark> : p.text))}
     </span>
   );
 }

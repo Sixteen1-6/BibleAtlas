@@ -18,9 +18,15 @@
 // translations swap for one another (looks/sees, anxious/worry) count too, at
 // a lower weight. Words spread over two neighboring verses can match the pair.
 //
+// Numbers, joined words, short forms and other spellings are folded to one
+// form on both sides (fold.ts), so "7,000", "7000" and "seven thousand" are the
+// same word. The Rust index holds the words as written, so the folded forms
+// live in the `Extra` index, built for the BSB as well.
+//
 // Normalization must match crates/atlas-cli/src/english.rs exactly.
 
 import type { Atlas } from './atlas';
+import { fold, foldSpans } from './fold';
 
 export function tokens(text: string): string[] {
   const out: string[] = [];
@@ -37,6 +43,24 @@ function norm(raw: string): string {
   w = w.replace(/^'+|'+$/g, '');
   if (w.endsWith("'s")) w = w.slice(0, -2);
   return w.replace(/'/g, '');
+}
+
+/** Split text into pieces for showing a verse with `words` (from a search)
+ *  marked, reading it the way search does: "seven thousand" is marked when
+ *  the search was for 7,000. */
+export function markWords(text: string, words: Set<string>): { text: string; mark: boolean }[] {
+  const ps = wordPieces(text).map((p) => ({ text: p.text, word: p.word, mark: false }));
+  const at: number[] = [];
+  ps.forEach((p, i) => p.word && at.push(i));
+  for (const f of foldSpans(at.map((i) => ps[i].word))) {
+    if (!words.has(f.tok)) continue;
+    for (let k = f.from; k < f.to; k++) {
+      ps[at[k]].mark = true;
+      // The space or comma inside "seven thousand" or "7,000" too.
+      if (k + 1 < f.to) for (let g = at[k] + 1; g < at[k + 1]; g++) ps[g].mark = true;
+    }
+  }
+  return ps;
 }
 
 /** Split text into alternating [other, word, other, word, ...] pieces, with
@@ -260,26 +284,32 @@ export interface Extra {
   index: Map<string, Uint32Array>;
 }
 
-/** Index the words of other translations' text. Takes a few hundred
- *  milliseconds for two whole Bibles, so callers run it off the main path. */
-export function buildExtra(names: string[], lines: string[][]): Extra {
+/** Index the words of other translations' text, as written and folded,
+ *  plus the folded words of the BSB (`base`), whose words as written are in
+ *  the Rust index already. Takes a few hundred milliseconds for whole Bibles,
+ *  so callers run it off the main path. */
+export function buildExtra(names: string[], lines: string[][], base?: string[]): Extra {
   const lists = new Map<string, number[]>();
-  const re = /[\p{L}\p{N}'’]+/gu;
-  const n = Math.max(...lines.map((l) => l.length));
+  const n = Math.max(base?.length ?? 0, ...lines.map((l) => l.length));
+  const put = (w: string, v: number) => {
+    let l = lists.get(w);
+    if (!l) lists.set(w, (l = []));
+    if (l[l.length - 1] !== v) l.push(v);
+  };
   // Verse by verse across all translations, so every list comes out sorted
   // and unique without a second pass.
   for (let v = 0; v < n; v++) {
+    const line = base?.[v];
+    if (line) {
+      const toks = tokens(line);
+      for (const f of foldSpans(toks)) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
+    }
     for (const ls of lines) {
       const line = ls[v];
       if (!line) continue;
-      re.lastIndex = 0;
-      for (let m = re.exec(line); m; m = re.exec(line)) {
-        const w = norm(m[0]);
-        if (!w) continue;
-        let l = lists.get(w);
-        if (!l) lists.set(w, (l = []));
-        if (l[l.length - 1] !== v) l.push(v);
-      }
+      const toks = tokens(line);
+      for (const w of toks) put(w, v);
+      for (const f of foldSpans(toks)) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
     }
   }
   const index = new Map<string, Uint32Array>();
@@ -287,19 +317,23 @@ export function buildExtra(names: string[], lines: string[][]): Extra {
   return { names, lines, index };
 }
 
-function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null): Term {
+/** `raw` is the word as typed when folding changed it ("honour" for honor). */
+function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null, raw?: string): Term {
   const words = a.englishWords;
   const has = (x: string) => find(words, x) >= 0 || !!extra?.index.has(x);
   const alts = new Map<string, number>();
   const put = (x: string, weight: number) => alts.set(x, Math.max(alts.get(x) ?? 0, weight));
   if (has(w)) put(w, 1);
+  // Until the extra index loads, the folded form may not be found yet.
+  if (raw && !extra && has(raw)) put(raw, 1);
   for (const x of OLDER[w] ?? []) if (has(x)) put(x, 0.95);
   for (const x of forms(has, w)) put(x, 0.8);
   for (const x of OLDER[w] ?? []) for (const f of forms(has, x)) put(f, 0.7);
   for (const x of SWAP.get(w) ?? []) if (has(x)) put(x, 0.6);
-  if (prefix && w.length >= 2) {
-    let i = lowerBound(words, w);
-    for (let k = 0; i < words.length && words[i].startsWith(w) && k < 64; i++, k++) put(words[i], 0.85);
+  const start = raw ?? w;
+  if (prefix && start.length >= 2) {
+    let i = lowerBound(words, start);
+    for (let k = 0; i < words.length && words[i].startsWith(start) && k < 64; i++, k++) put(words[i], 0.85);
   }
   const guessed = alts.size ? [] : nearWords(a, w);
   for (const x of guessed) put(x, 0.7);
@@ -309,7 +343,20 @@ function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null): 
 export function parseQuery(a: Atlas, query: string, extra?: Extra | null): Term[] {
   const ws = tokens(query);
   const typing = !/\s$/.test(query);
-  return ws.map((w, i) => buildTerm(a, w, typing && i === ws.length - 1, extra));
+  const out: Term[] = [];
+  for (const f of foldSpans(ws)) {
+    const last = typing && f.to === ws.length;
+    if (f.to - f.from > 1) {
+      // Folded forms of several words are only in the extra index; until it
+      // loads, look for the words one by one.
+      if (extra) out.push(buildTerm(a, f.tok, false, extra));
+      else for (let i = f.from; i < f.to; i++) out.push(buildTerm(a, ws[i], last && i === f.to - 1, extra));
+    } else {
+      const raw = ws[f.from];
+      out.push(buildTerm(a, f.tok, last, extra, raw !== f.tok ? raw : undefined));
+    }
+  }
+  return out;
 }
 
 export interface SearchResult {
@@ -380,7 +427,7 @@ const tokCache = new WeakMap<string[], (string[] | undefined)[]>();
 function verseTokens(ls: string[], v: number): string[] {
   let c = tokCache.get(ls);
   if (!c) tokCache.set(ls, (c = []));
-  return (c[v] ??= tokens(ls[v] ?? ''));
+  return (c[v] ??= fold(tokens(ls[v] ?? '')));
 }
 
 interface Unit {
