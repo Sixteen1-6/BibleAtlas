@@ -11,6 +11,7 @@
 //! Options: --raw <dir> (default data/raw), --out <dir> (default web/public/data)
 
 mod align;
+mod ask;
 mod build;
 mod english;
 mod eras;

@@ -7,6 +7,7 @@ import { type Atlas, locate, verseIndex } from './data/atlas';
 import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
 import { extraFromHash, extraToHash } from './ui/extras/open';
+import { askFromHash, askToHash } from './ui/ask/ask';
 import { chosenRoad, pickLinkedRoad } from './ui/Roads';
 
 function osis(a: Atlas, v: number): string {
@@ -57,6 +58,7 @@ export function restoreFromHash(a: Atlas): void {
   }
   if (h.has('p')) pickLinkedRoad(Number(h.get('road')));
   extraFromHash(h);
+  askFromHash(h);
 }
 
 export function pathFromHash(a: Atlas): [number, number] | null {
@@ -90,6 +92,7 @@ export function syncHash(a: Atlas): () => void {
     }
     h.set('tab', S.tab.value);
     extraToHash(h);
+    askToHash(h);
     const next = `#${h.toString()}`;
     if (location.hash !== next) history.replaceState(null, '', next);
   });

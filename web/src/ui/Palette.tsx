@@ -7,9 +7,11 @@ import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../da
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
+import { type Asked, askIndex, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
+  | { kind: 'ask'; asked: Asked }
   | { kind: 'root'; root: number }
   | { kind: 'verse'; v: number };
 
@@ -49,7 +51,7 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
 }
 
 function footNote(q: string, res: SearchResult | null, ref: boolean): string {
-  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a Strong’s number, or a transliteration like “agape” or “ruach”.';
+  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a question like “what happens when we die?”, a Strong’s number, or a transliteration like “agape” or “ruach”.';
   if (!res) return ref ? 'Press Enter to open it.' : '';
   const notes: string[] = [];
   if (res.guesses.length) notes.push(`Read ${res.guesses.map(([w, as]) => `“${w}” as “${as.join('” or “')}”`).join(', ')}.`);
@@ -70,6 +72,8 @@ export function Palette({ a }: { a: Atlas }) {
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => input.current?.focus(), []);
+  const asks = askIndex.value;
+  useEffect(() => void loadAsk(a).catch(() => {}), []);
   useEffect(() => {
     if (!texts) loadPlainText(a).then(setTexts, () => {});
   }, []);
@@ -87,6 +91,7 @@ export function Palette({ a }: { a: Atlas }) {
       const range = /\d/.test(query) || query.length >= 3 ? await S.engine.value?.parseRef(query) : null;
       if (!live) return;
       if (range) out.push({ kind: 'ref', range });
+      for (const asked of range && /\d/.test(query) ? [] : matchAsk(asks, query)) out.push({ kind: 'ask', asked });
       for (const r of searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
       // "Mathew 5:3" is a reference, not words to look for.
       const found = range && /\d/.test(query) ? null : searchEnglish(a, q, 30, texts);
@@ -98,14 +103,15 @@ export function Palette({ a }: { a: Atlas }) {
     return () => {
       live = false;
     };
-  }, [q, texts]);
+  }, [q, texts, asks]);
 
   const choose = (it: Item) => {
     S.paletteOpen.value = false;
     if (it.kind === 'ref') {
       S.selectVerse(it.range[0]);
       S.mobilePane.value = 'read';
-    } else if (it.kind === 'root') S.openRoot(it.root);
+    } else if (it.kind === 'ask') openAsk(it.asked);
+    else if (it.kind === 'root') S.openRoot(it.root);
     else S.selectVerse(it.v);
   };
 
@@ -130,6 +136,12 @@ export function Palette({ a }: { a: Atlas }) {
                 <>
                   <span class="k">Go to</span>
                   <b>{it.range[0] === it.range[1] ? label(a, it.range[0]) : `${label(a, it.range[0])} – ${label(a, it.range[1])}`}</b>
+                </>
+              )}
+              {it.kind === 'ask' && (
+                <>
+                  <span class="k ask-k">Ask</span>
+                  <b>{it.asked.kind === 'question' ? it.asked.q.q : it.asked.title}</b> <span class="k">{(it.asked.kind === 'question' ? it.asked.q.n : it.asked.n).toLocaleString()} verses</span>
                 </>
               )}
               {it.kind === 'root' && (

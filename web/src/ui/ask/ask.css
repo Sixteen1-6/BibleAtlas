@@ -1,0 +1,105 @@
+/* Ask the Bible. Classes start with ask-; the frame and passages use the
+   extras' xt- classes. */
+
+.ask-answer p {
+  font-family: var(--font-read);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0 0 0.7em;
+  color: var(--ink);
+}
+.ask-refs {
+  white-space: normal;
+}
+.ask-ref {
+  font: inherit;
+  font-size: 0.86em;
+  color: var(--link);
+  background: none;
+  border: 0;
+  padding: 0 0.15em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ask-ref + .ask-ref::before {
+  content: '· ';
+  color: var(--muted);
+}
+.ask-ref:hover,
+.ask-ref:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ask-draft {
+  font-size: 0.82rem;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  padding: 0.35em 0.6em;
+}
+.xt-body .ask-more {
+  margin: 0.9em 0 0.4em;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+button.ask-more {
+  display: block;
+}
+.ask-all {
+  margin-top: 0.4em;
+}
+.ask-book h4 {
+  margin: 0.8em 0 0.3em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.ask-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.ask-chip {
+  font-size: 0.82rem;
+  padding: 2px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface);
+  cursor: pointer;
+}
+.ask-chip:hover,
+.ask-chip:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* In search: the "Ask" rows. */
+.palette li .k.ask-k {
+  color: var(--accent);
+}
+
+/* The verse extra's panel: the questions a verse answers. */
+.x-ask-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.x-ask-q {
+  font: inherit;
+  font-family: var(--font-read);
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  padding: 0.55em 0.2em;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--link);
+  cursor: pointer;
+}
+.x-ask-q:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -49,6 +49,17 @@
       "files": { "bsb": "formats/json/BSB.json" }
     },
     {
+      "id": "naves",
+      "title": "Nave's Topical Bible (Orville J. Nave, 1896), as a table",
+      "provides": "About 5,300 subjects, each with the verses Nave listed for it. Ask the Bible uses it as an index only, to gather the verses on a question or subject; none of Nave's own wording is shown.",
+      "license": "CC BY 4.0 (this edition); Nave's Topical Bible itself is public domain",
+      "attribution": "Nave's Topical Dictionary from BibleData by Brady Stephenson, github.com/BradyStephenson/bible-data (CC BY 4.0)",
+      "homepage": "https://github.com/BradyStephenson/bible-data",
+      "repo": "https://github.com/BradyStephenson/bible-data",
+      "commit": "720a8da6d220ff676e424c468069c7d67be2ca49",
+      "files": { "topics": "NavesTopicalDictionary.csv" }
+    },
+    {
       "id": "openbible-geo",
       "title": "OpenBible.info Bible Geocoding Data",
       "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",

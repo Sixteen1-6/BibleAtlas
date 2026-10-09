@@ -11,6 +11,7 @@ import { Connections } from './ui/Connections';
 import { DepthControl } from './ui/Depth';
 import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
+import { AskSheet } from './ui/ask/AskSheet';
 import { Reader } from './ui/Reader';
 import { Sources } from './ui/Sources';
 import { installPointing } from './ui/pointing';
@@ -226,6 +227,7 @@ export function App() {
         </aside>
       </main>
       {S.paletteOpen.value && <Palette a={a} />}
+      <AskSheet a={a} />
     </div>
   );
 }

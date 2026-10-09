@@ -9,6 +9,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Cross-references and vote counts | OpenBible.info, via the unmodified copy in scrollmapper/bible_databases | CC BY 4.0 |
 | Where the New Testament quotes the Old (the BSB's footnotes) | berean.bible, via the USFM edition in usfm-bible/examples.bsb | Public domain |
 | Berean Standard Bible (English) | berean.bible, via scrollmapper/bible_databases | Public domain |
+| Which verses go with each question and subject in Ask the Bible (used as an index; none of its wording is shown) | Nave's Topical Bible (Orville J. Nave, 1896), as a table by Brady Stephenson, via BradyStephenson/bible-data | CC BY 4.0 (this edition); the 1896 work is public domain |
 | Hebrew and Aramaic Old Testament (TAHOT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
 | Places named in each verse, their proposed sites and how confident each is; people tied to each place; the coastlines, lakes, rivers, sea names and borders of the Places map | OpenBible.info Bible Geocoding Data, via openbibleinfo/Bible-Geocoding-Data; Theographic Bible Metadata by Robert Rouse, via robertrouse/theographic-bible-metadata; Natural Earth, via nvkelso/natural-earth-vector | CC BY 4.0; CC BY-SA 4.0 (extras/real-map/people.json is shared under the same license); public domain |
 | Greek New Testament (TAGNT) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
