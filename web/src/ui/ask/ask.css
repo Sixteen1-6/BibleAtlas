@@ -103,3 +103,61 @@ button.ask-more {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* A chain of Scripture: each part in the reading font, its reference under it. */
+.ask-chain {
+  margin: 0.2em 0 0.6em;
+}
+.ask-part {
+  margin: 0 0 0.9em;
+  padding: 0 0 0 0.85em;
+  border-left: 2px solid var(--accent-soft);
+}
+.ask-part p {
+  font-family: var(--font-read);
+  font-size: 1.04rem;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--ink);
+}
+.ask-part sup {
+  font-size: 0.68em;
+  color: var(--muted);
+  margin-right: 0.15em;
+}
+.ask-part footer {
+  display: flex;
+  gap: 0.8em;
+  align-items: baseline;
+  margin-top: 0.15em;
+}
+.ask-part .ask-ref {
+  padding: 0;
+}
+.ask-whole {
+  font: inherit;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+.ask-found mark,
+.ask-part mark {
+  background: var(--accent-soft);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.ask-how {
+  font-size: 0.86rem;
+  color: var(--muted);
+  padding-left: 1.1em;
+}
+.ask-how li {
+  margin: 0.2em 0;
+}

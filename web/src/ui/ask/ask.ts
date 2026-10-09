@@ -19,10 +19,14 @@ import { closeExtra, openPanel } from '../extras/open';
 /** [first verse, last verse], inclusive. */
 export type Range = [number, number];
 
-export interface Sentence {
-  /** Plain words that say only what `r` says. */
-  t: string;
-  r: Range[];
+/** One part of a chain of Scripture: whole verses, or `w`, a span of their
+ * BSB text word for word. `a`: it starts after the verse's first word; `z`:
+ * it ends before its last. */
+export interface Part {
+  r: Range;
+  w?: string;
+  a?: true;
+  z?: true;
 }
 
 export interface Question {
@@ -33,10 +37,11 @@ export interface Question {
   also: string[];
   /** How many verses its cluster holds. */
   n: number;
-  /** Reviewed: the key verses. Not yet reviewed: its most-cited verses. */
+  /** Its wider set's most-cited verses. */
   top: Range[];
-  /** Only once reviewed (or in a preview build with drafts). */
-  answer?: Sentence[];
+  /** The answer, in the Bible's own words: only once reviewed (or in a
+   * preview build with drafts). */
+  chain?: Part[];
   draft?: true;
 }
 
@@ -55,7 +60,14 @@ export interface TopicData {
   v: Range[];
 }
 
-export type Asked = { kind: 'question'; q: Question } | { kind: 'topic'; i: number; title: string; n: number };
+export type Asked =
+  | { kind: 'question'; q: Question }
+  | { kind: 'topic'; i: number; title: string; n: number }
+  /** Any other question, answered with the verses gathered for it. */
+  | { kind: 'live'; text: string };
+
+/** The longest question kept in a link. */
+const LIVE_MAX = 160;
 
 // ------------------------------------------------------------ loading
 
@@ -69,7 +81,7 @@ export function loadAsk(a: Atlas): Promise<AskIndex> {
 }
 
 /** All the verses of what was asked, as ranges. */
-export async function askVerses(a: Atlas, asked: Asked): Promise<Range[]> {
+export async function askVerses(a: Atlas, asked: Asked & { kind: 'question' | 'topic' }): Promise<Range[]> {
   if (asked.kind === 'question') return (await loadJson<{ v: Range[] }>(a, `ask/q/${asked.q.id}.json`)).v;
   return (await topicData(a, asked.i)).v;
 }
@@ -91,10 +103,15 @@ export function slug(title: string): string {
 }
 
 export function askId(asked: Asked): string {
+  if (asked.kind === 'live') return `live:${asked.text}`;
   return asked.kind === 'question' ? asked.q.id : `topic.${slug(asked.title)}`;
 }
 
 export function findAsked(ix: AskIndex, id: string): Asked | null {
+  if (id.startsWith('live:')) {
+    const text = id.slice(5).trim().slice(0, LIVE_MAX);
+    return contentWords(text).length ? { kind: 'live', text } : null;
+  }
   if (id.startsWith('topic.')) {
     const s = id.slice(6);
     const i = ix.topics.findIndex(([t]) => slug(t) === s);
@@ -102,6 +119,13 @@ export function findAsked(ix: AskIndex, id: string): Asked | null {
   }
   const q = ix.questions.find((x) => x.id === id);
   return q ? { kind: 'question', q } : null;
+}
+
+/** How a search row names what it would open: the words, and a quiet note. */
+export function askLabel(asked: Asked): [string, string] {
+  if (asked.kind === 'question') return [asked.q.q, `${asked.q.n.toLocaleString()} verses`];
+  if (asked.kind === 'topic') return [asked.title, `${asked.n.toLocaleString()} verses`];
+  return [asked.text, 'the verses on it'];
 }
 
 // ------------------------------------------------------------ open and close
@@ -151,7 +175,8 @@ export function closeAsk(how: 'dismiss' | 'navigate' | 'quiet' = 'dismiss'): voi
 export function askFromHash(h: URLSearchParams): void {
   pushed = null;
   const id = h.get('ask');
-  askOpen.value = id && /^(topic\.)?[\p{L}\p{N}-]{1,80}$/u.test(id) ? id : null;
+  const ok = id && (/^(topic\.)?[\p{L}\p{N}-]{1,80}$/u.test(id) || (id.startsWith('live:') && id.length <= LIVE_MAX + 5));
+  askOpen.value = ok ? id : null;
 }
 
 /** url.ts, syncHash. */
@@ -176,13 +201,143 @@ if (typeof window !== 'undefined') {
 
 // ------------------------------------------------------------ matching
 
-const QUESTION_WORDS = new Set(['who', 'what', 'whats', 'why', 'how', 'is', 'are', 'was', 'does', 'do', 'did', 'can', 'could', 'will', 'would', 'should', 'where', 'when', 'which', 'may', 'am', 'shall']);
+const QUESTION_WORDS = new Set([
+  'who',
+  'what',
+  'whats',
+  'why',
+  'how',
+  'is',
+  'are',
+  'was',
+  'does',
+  'do',
+  'did',
+  'can',
+  'could',
+  'will',
+  'would',
+  'should',
+  'where',
+  'when',
+  'which',
+  'may',
+  'am',
+  'shall',
+]);
 const STOP = new Set([
   ...QUESTION_WORDS,
-  'a', 'an', 'the', 'and', 'or', 'of', 'to', 'in', 'on', 'for', 'with', 'about', 'at', 'by', 'from', 'it', 'its', 'be', 'been', 'being',
-  'i', 'me', 'my', 'we', 'us', 'our', 'you', 'your', 'he', 'his', 'him', 'she', 'her', 'they', 'them', 'their', 'that', 'this', 'there',
-  'bible', 'scripture', 'scriptures', 'say', 'says', 'said', 'tell', 'teach', 'teaches', 'mean', 'means', 'verse', 'verses', 'really', 'ok', 'okay',
-  'if', 'so', 'then', 'than', 'as', 'into', 'up', 'out', 'any', 'some', 'all', 'just', 'get', 'go', 'have', 'has', 'had', 'way',
+  'a',
+  'an',
+  'the',
+  'and',
+  'or',
+  'of',
+  'to',
+  'in',
+  'on',
+  'for',
+  'with',
+  'about',
+  'at',
+  'by',
+  'from',
+  'it',
+  'its',
+  'be',
+  'been',
+  'being',
+  'i',
+  'me',
+  'my',
+  'we',
+  'us',
+  'our',
+  'you',
+  'your',
+  'he',
+  'his',
+  'him',
+  'she',
+  'her',
+  'they',
+  'them',
+  'their',
+  'that',
+  'this',
+  'there',
+  'bible',
+  'scripture',
+  'scriptures',
+  'say',
+  'says',
+  'said',
+  'tell',
+  'teach',
+  'teaches',
+  'mean',
+  'means',
+  'verse',
+  'verses',
+  'really',
+  'ok',
+  'okay',
+  'if',
+  'so',
+  'then',
+  'than',
+  'as',
+  'into',
+  'up',
+  'out',
+  'any',
+  'some',
+  'all',
+  'just',
+  'get',
+  'go',
+  'have',
+  'has',
+  'had',
+  'way',
+  'happen',
+  'happens',
+  'like',
+  'meaning',
+  'thing',
+  'things',
+  'someone',
+  'something',
+  'people',
+  'person',
+  'not',
+  'no',
+  'yes',
+  // Words of asking rather than of the subject: "how do I deal with worry", "is it wrong to be angry".
+  'deal',
+  'handle',
+  'cope',
+  'overcome',
+  'stop',
+  'find',
+  'help',
+  'make',
+  'feel',
+  'use',
+  'know',
+  'wrong',
+  'right',
+  'allowed',
+  'possible',
+  'best',
+  'ever',
+  'really',
+  'still',
+  'even',
+  'too',
+  'also',
+  'much',
+  'many',
 ]);
 
 function words(s: string): string[] {
@@ -194,14 +349,15 @@ function words(s: string): string[] {
 }
 
 /** A rough stem, so "prayers", "praying" and "prayed" meet "prayer"/"pray". */
-function stem(w: string): string {
+export function stem(w: string): string {
   for (const end of ['ness', 'ing', 'ies', 'ied', 'es', 'ed', 'ly', 's', 'y', 'e']) {
     if (w.length > end.length + 2 && w.endsWith(end)) return w.slice(0, -end.length);
   }
   return w;
 }
 
-function content(s: string): string[] {
+/** The words of a question that carry it: "what happens when we die" -> happens, die. */
+export function contentWords(s: string): string[] {
   return words(s).filter((w) => !STOP.has(w));
 }
 
@@ -223,9 +379,9 @@ function prepare(ix: AskIndex): Prepared {
   const p: Prepared = {
     questions: ix.questions.map((q) => {
       const phrases = [q.q, ...q.also];
-      return { q, whole: new Set(phrases.map((x) => content(x).join(' '))), stems: new Set(phrases.flatMap((x) => content(x).map(stem))) };
+      return { q, whole: new Set(phrases.map((x) => contentWords(x).join(' '))), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))) };
     }),
-    topics: ix.topics.map(([title]) => ({ title, whole: content(title).join(' '), stems: content(title).map(stem) })),
+    topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), stems: contentWords(title).map(stem) })),
   };
   prepared = { ix, p };
   return p;
@@ -239,7 +395,7 @@ function prepare(ix: AskIndex): Prepared {
  */
 export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[] {
   if (!ix) return [];
-  const ws = content(query);
+  const ws = contentWords(query);
   if (!ws.length || ws.length > 12) return [];
   const asking = looksLikeQuestion(query);
   const whole = ws.join(' ');
@@ -261,9 +417,15 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[]
     if (!t.stems.length) return;
     const exact = t.whole === whole;
     // A subject named by the reader's words: "anger", "love of god".
-    const named = asking && t.stems.every((s) => stems.includes(s));
+    // ...and covering at least half of them, so "does God hear prayer" does not offer all of "God".
+    const named = asking && t.stems.every((s) => stems.includes(s)) && t.stems.length * 2 >= stems.length;
     if (exact || named) scored.push({ asked: { kind: 'topic', i, title, n }, score: (exact ? 50 : 5) + t.stems.length + Math.min(n, 500) / 1000 });
   });
   scored.sort((x, y) => y.score - x.score);
-  return scored.slice(0, asking ? limit : Math.min(limit, 2)).map((x) => x.asked);
+  const out = scored.slice(0, asking ? limit : Math.min(limit, 2)).map((x) => x.asked);
+  // Any question at all: the verses gathered for the reader's own words, unless
+  // a prepared question already says it exactly.
+  const exact = scored[0]?.score === 100;
+  if (asking && !exact) out.unshift({ kind: 'live', text: query.trim().slice(0, LIVE_MAX) });
+  return out;
 }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Ask the Bible: questions answered from verses alone. The owner's rule for this box: answers pick up only verses, and the Bible is the framework for interpreting the Bible, with no other logic and no scholars' frameworks. So each answer is 2 to 4 short sentences that say only what their verses say, each with its refs (which must lie inside the key verses); quotations of four or more words must be word for word in the BSB. `topics` names Nave's Topical Bible subjects (an index only, none of its wording is shown) whose verses form the wider cluster; `only` and `skip` keep or drop labels by prefix, and a top-level label covers its indented lines. `also` lists other ways people ask, for search. `group` is one of the groups in crates/atlas-cli/src/ask.rs. An answer with an empty `reviewed_by` is a draft: its question and verses are published, its key verses and sentences only with ATLAS_ASK_DRAFTS=1. Only the owner approves. Links name questions by `id`, so ids never change.",
+  "_comment": "Ask the Bible: questions answered in the Bible's own words. The owner's rule for this box: the framework for interpreting the Bible is the Bible, with no other logic and no scholars' frameworks. So an answer is a `chain` of Scripture and nothing else: 3 to 8 parts, each whole verses (`ref`, at most 3 verses) or `words`, a span of their BSB text copied word for word (at least 3 words). There are no words of ours between the parts, and each part is used only where its own context supports it. `topics` names Nave's Topical Bible subjects (an index only; none of its wording is shown) whose verses form the wider set lit on the map; `only` and `skip` keep or drop labels by prefix, and a top-level label covers its indented lines. `also` lists other ways people ask, for search. `group` is one of the groups in crates/atlas-cli/src/ask.rs. A chain with an empty `reviewed_by` is a draft: its question and verses are published, the chain only with ATLAS_ASK_DRAFTS=1. Only the owner approves. Links name questions by `id`, so ids never change.",
   "questions": [
     {
       "id": "is-it-wrong-to-be-angry",
@@ -24,32 +24,22 @@
           "subject": "SELF-CONTROL"
         }
       ],
-      "key": [
-        "Eph 4:26-27",
-        "Jas 1:19-20",
-        "Prov 15:1",
-        "Prov 16:32",
-        "Ps 37:8"
-      ],
-      "answer": [
+      "chain": [
         {
-          "text": "Paul writes, “Be angry, yet do not sin,” and says not to let the sun set on your anger, so it gives the devil no foothold.",
-          "refs": [
-            "Eph 4:26-27"
-          ]
+          "ref": "Eph 4:26-27"
         },
         {
-          "text": "James says to be slow to anger, because “man’s anger does not bring about the righteousness that God desires.”",
-          "refs": [
-            "Jas 1:19-20"
-          ]
+          "ref": "Jas 1:19-20",
+          "words": "Everyone should be quick to listen, slow to speak, and slow to anger, for man’s anger does not bring about the righteousness that God desires."
         },
         {
-          "text": "Proverbs says a gentle answer turns away wrath, and the one slow to anger is better than a warrior.",
-          "refs": [
-            "Prov 15:1",
-            "Prov 16:32"
-          ]
+          "ref": "Prov 15:1"
+        },
+        {
+          "ref": "Prov 16:32"
+        },
+        {
+          "ref": "Col 3:8"
         }
       ],
       "reviewed_by": []

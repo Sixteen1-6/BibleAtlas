@@ -7,7 +7,7 @@ import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../da
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
-import { type Asked, askIndex, loadAsk, matchAsk, openAsk } from './ask/ask';
+import { type Asked, askIndex, askLabel, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
@@ -141,7 +141,7 @@ export function Palette({ a }: { a: Atlas }) {
               {it.kind === 'ask' && (
                 <>
                   <span class="k ask-k">Ask</span>
-                  <b>{it.asked.kind === 'question' ? it.asked.q.q : it.asked.title}</b> <span class="k">{(it.asked.kind === 'question' ? it.asked.q.n : it.asked.n).toLocaleString()} verses</span>
+                  <b>{askLabel(it.asked)[0]}</b> <span class="k">{askLabel(it.asked)[1]}</span>
                 </>
               )}
               {it.kind === 'root' && (

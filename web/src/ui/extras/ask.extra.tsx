@@ -1,5 +1,5 @@
 // Ask the Bible, under a verse: "People ask: What happens when we die?" on the
-// key verses of each reviewed question. The panel is the question itself.
+// verses of each approved question's chain. The panel is the question itself.
 
 import { loadAsk, openAsk } from '../ask/ask';
 import { readerHere } from './first-move';
@@ -38,9 +38,9 @@ export default defineExtra<Data>({
     await readerHere('ask');
     const ix = await loadAsk(a);
     const byVerse = new Map<VerseRef, Question[]>();
-    // Only answered questions: their key verses were chosen and reviewed.
-    for (const q of ix.questions.filter((x) => x.answer)) {
-      for (const [s, e] of q.top) {
+    // Only approved questions: the verses of their chains were chosen and reviewed.
+    for (const q of ix.questions.filter((x) => x.chain)) {
+      for (const [s, e] of q.chain!.map((p) => p.r)) {
         for (let v = s; v <= e; v++) {
           const list = byVerse.get(v);
           if (list) list.push(q);

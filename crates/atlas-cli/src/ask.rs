@@ -1,27 +1,27 @@
-//! Ask the Bible: questions answered from verses alone.
+//! Ask the Bible: questions answered in the Bible's own words.
 //!
-//! Two kinds of question, both built from Scripture and nothing else:
+//! The owner's rule for this box: the framework for interpreting the Bible is
+//! the Bible, with no other logic and no scholars' frameworks. So nothing here
+//! writes an answer. There are two kinds of question:
 //!
-//! - The questions in `config/questions.json`. Each names its key verses and
-//!   2 to 4 short sentences that say only what those verses say, each with the
-//!   verses it comes from, and the Nave's subjects whose verses form its wider
-//!   cluster. The build stops at the first problem: a reference that does not
-//!   resolve, a quotation of four or more words that is not in the BSB text of
-//!   its sentence's verses, a sentence citing a verse outside the key verses,
-//!   words that bring in another framework ("scholars", "Christians believe", a
-//!   church name), a Nave's subject or label that does not exist, or text too
-//!   long to read at a glance. An answer nobody reviewed is a draft: its
-//!   question and verses are published, its key verses and sentences only when
-//!   `ATLAS_ASK_DRAFTS=1` is set. Until then the verses shown first are the
-//!   cluster's most cited, ranked by data alone.
+//! - The questions in `config/questions.json`. Each answer is a chain of
+//!   Scripture: whole verses, or parts of verses in the exact BSB wording, set
+//!   one after another, with no words of ours between them. The build stops at
+//!   the first problem: a reference that does not resolve, a part that is not
+//!   word for word in its verse, a chain too short or too long, words that bring
+//!   in another framework in a question or its other phrasings, or a Nave's
+//!   subject or label that does not exist. A chain nobody reviewed is a draft:
+//!   its question and verses are published, the chain itself only when
+//!   `ATLAS_ASK_DRAFTS=1` is set.
 //! - Every subject of Nave's Topical Bible, as a list of verses. Nave's (1896)
 //!   is used as an index only: which verses go with which subject. None of its
-//!   wording is published, so no interpretation comes with the verses.
+//!   wording is published. The app also gathers verses for any other question
+//!   as it is asked, from these lists, the BSB text and the cross-references.
 //!
 //! Files, under web/public/data:
 //! - `ask/index.json`: the questions, the groups, and every Nave's subject's
 //!   name and verse count. Loaded when search opens.
-//! - `ask/q/<id>.json`: one question's cluster, as verse ranges.
+//! - `ask/q/<id>.json`: one question's wider set of verses, as ranges.
 //! - `ask/topics/<n>.json`: subjects `n * 250` onward, each its most-cited
 //!   verses and all its verses as ranges.
 
@@ -51,51 +51,28 @@ pub const GROUPS: [&str; 8] = [
     "Church and Bible",
 ];
 
-/// Words that bring in a framework besides the verses themselves. An answer
-/// says only what its verses say, so none of these may appear in one.
-/// Matched at the start of a word, so "scholar" also stops "scholarly".
-const OUTSIDE: [&str; 29] = [
+/// Words that bring in a framework besides the verses themselves; none may
+/// appear in a question or its other phrasings. Matched at the start of a
+/// word, so "scholar" also stops "scholarly".
+const OUTSIDE: [&str; 9] = [
     "scholar",
     "theolog",
     "commentat",
-    "calvin",
-    "arminian",
-    "luther",
-    "catholic",
-    "protestant",
-    "orthodox",
     "denomination",
-    "trinity",
-    "church father",
     "christians believe",
-    "many christians",
-    "some christians",
-    "most christians",
-    "interpret",
-    "tradition",
-    "doctrine",
     "gotquestions",
     "esv",
-    "we believe",
-    "experts",
-    "historians",
-    "science",
-    "rapture",
-    "purgatory",
-    "sacrament",
     "nave",
+    "interpret",
 ];
 
-const KEY_MIN: usize = 3;
-const KEY_MAX: usize = 5;
-/// Longest key reference, in verses: a key verse is read in full at Simple.
-const KEY_SPAN_MAX: u32 = 6;
-const SENTENCES: (usize, usize) = (2, 4);
-const SENTENCE_MAX: usize = 220;
-const ANSWER_MAX: usize = 600;
+const CHAIN: (usize, usize) = (3, 8);
+/// Longest part, in verses, and shortest part of a verse, in words.
+const PART_VERSES_MAX: u32 = 3;
+const PART_WORDS_MIN: usize = 3;
+/// Most characters a chain shows, so it reads at a glance.
+const CHAIN_MAX: usize = 1200;
 const QUESTION_MAX: usize = 90;
-/// Quoted spans shorter than this are glosses, not quotations.
-const QUOTE_MIN_WORDS: usize = 4;
 /// Verses shown first for a topic or an unreviewed question.
 const TOP: usize = 5;
 /// A Nave's reference longer than this is a passage; its verses still join
@@ -117,8 +94,7 @@ struct QuestionSpec {
     question: String,
     also: Vec<String>,
     topics: Vec<TopicSpec>,
-    key: Vec<String>,
-    answer: Vec<SentenceSpec>,
+    chain: Vec<PartSpec>,
     reviewed_by: Vec<String>,
 }
 
@@ -132,11 +108,14 @@ struct TopicSpec {
     skip: Vec<String>,
 }
 
+/// One part of a chain: whole verses, or `words`, a span of their BSB text.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct SentenceSpec {
-    text: String,
-    refs: Vec<String>,
+struct PartSpec {
+    #[serde(rename = "ref")]
+    reference: String,
+    #[serde(default)]
+    words: Option<String>,
 }
 
 // ------------------------------------------------------------ Nave's
@@ -437,41 +416,81 @@ fn most_cited<'l>(lines: impl Iterator<Item = &'l Line>, degree: &[u32]) -> Vec<
 
 // ------------------------------------------------------------ checks
 
-/// Lowercase letters and digits, single spaces between words; dashes split
-/// words and quotation marks and apostrophes of every style are dropped.
-fn normalize(s: &str) -> String {
+/// Lowercase letters and digits with single spaces between words, and for
+/// each character of the result the byte offset in `s` it came from. Dashes
+/// and other punctuation split words; apostrophes of every style are dropped
+/// ("God's" -> "gods").
+fn normalize_at(s: &str) -> (String, Vec<usize>) {
     let mut out = String::with_capacity(s.len());
+    let mut at = Vec::with_capacity(s.len());
     let mut space = true;
-    for c in s.chars() {
+    for (i, c) in s.char_indices() {
         if c.is_alphanumeric() {
-            out.extend(c.to_lowercase());
+            for l in c.to_lowercase() {
+                out.push(l);
+                at.extend(std::iter::repeat_n(i, l.len_utf8()));
+            }
             space = false;
         } else if matches!(c, '\'' | '’' | '‘' | 'ʼ') {
-            // "God's" -> "gods", as people and the BSB both write it.
         } else if !space {
             out.push(' ');
+            at.push(i);
             space = true;
         }
     }
-    out.trim_end().to_string()
+    if out.ends_with(' ') {
+        out.pop();
+        at.pop();
+    }
+    (out, at)
 }
 
-/// The quoted spans of a sentence, in curly or straight double quotes.
-fn quotes(text: &str) -> Vec<&str> {
-    let mut out = Vec::new();
-    let mut open: Option<usize> = None;
-    for (i, c) in text.char_indices() {
-        match (c, open) {
-            ('“', _) => open = Some(i + c.len_utf8()),
-            ('"', None) => open = Some(i + 1),
-            ('”' | '"', Some(s)) => {
-                out.push(&text[s..i]);
-                open = None;
-            }
-            _ => {}
-        }
+fn normalize(s: &str) -> String {
+    normalize_at(s).0
+}
+
+/// Where `words` sit in `text`, matched word for word: the exact span of
+/// `text` (its own punctuation and quotation marks kept), and whether it
+/// starts after the first word and ends before the last.
+fn find_words<'t>(text: &'t str, words: &str) -> Option<(&'t str, bool, bool)> {
+    let (hay, at) = normalize_at(text);
+    let needle = normalize(words);
+    if needle.is_empty() {
+        return None;
     }
-    out
+    let mut from = 0;
+    let start = loop {
+        let i = from + hay[from..].find(&needle)?;
+        let before = i == 0 || hay.as_bytes()[i - 1] == b' ';
+        let end = i + needle.len();
+        let after = end == hay.len() || hay.as_bytes()[end] == b' ';
+        if before && after {
+            break i;
+        }
+        from = i + 1;
+    };
+    let end = start + needle.len();
+    let first = at[start];
+    let last = at[end - 1];
+    let last_end = last + text[last..].chars().next().map_or(1, char::len_utf8);
+    // Keep closing punctuation and quotation marks that belong to the last word.
+    let tail = text[last_end..]
+        .chars()
+        .take_while(|c| matches!(c, '.' | ',' | ';' | ':' | '!' | '?' | '”' | '’' | '"'))
+        .map(char::len_utf8)
+        .sum::<usize>();
+    // And an opening quotation mark right before the first word.
+    let head = text[..first]
+        .chars()
+        .rev()
+        .take_while(|c| matches!(c, '“' | '‘' | '"'))
+        .map(char::len_utf8)
+        .sum::<usize>();
+    Some((
+        &text[first - head..last_end + tail],
+        start > 0,
+        end < hay.len(),
+    ))
 }
 
 /// The first framework word a text uses, if any.
@@ -510,10 +529,6 @@ impl<'a> Check<'a> {
         found
     }
 
-    fn bsb(&self, (s, e): (u32, u32)) -> String {
-        normalize(&self.text[s as usize..=e as usize].join(" "))
-    }
-
     fn plain(&mut self, at: &str, field: &str, s: &str, max: usize) {
         if s.trim().is_empty() {
             self.fail(at, format_args!("{field} is empty"));
@@ -528,7 +543,7 @@ impl<'a> Check<'a> {
         if let Some(w) = outside_word(s) {
             self.fail(
                 at,
-                format_args!("{field} uses {w:?}; an answer says only what its verses say"),
+                format_args!("{field} uses {w:?}; this box speaks only in the Bible's words"),
             );
         }
     }
@@ -607,111 +622,87 @@ fn question(
     if !q.question.trim_end().ends_with('?') {
         c.fail(&at, "question must end with a question mark");
     }
-    if !(2..=10).contains(&q.also.len())
-        || q.also
-            .iter()
-            .any(|a| a.trim().is_empty() || a.chars().count() > 60)
-    {
-        c.fail(
-            &at,
-            "also needs 2 to 10 other ways to ask, each at most 60 characters",
-        );
+    if !(2..=10).contains(&q.also.len()) {
+        c.fail(&at, "also needs 2 to 10 other ways to ask");
     }
     for a in &q.also {
-        if let Some(w) = outside_word(a) {
-            c.fail(&at, format_args!("also uses {w:?}"));
-        }
+        c.plain(&at, "also", a, 60);
     }
     if q.reviewed_by.iter().any(|n| n.trim().is_empty()) {
         c.fail(&at, "reviewed_by has an empty name");
     }
 
-    // Key verses.
-    if !(KEY_MIN..=KEY_MAX).contains(&q.key.len()) {
+    // The chain: whole verses, or their exact words.
+    if !(CHAIN.0..=CHAIN.1).contains(&q.chain.len()) {
         c.fail(
             &at,
-            format_args!("key needs {KEY_MIN} to {KEY_MAX} references"),
+            format_args!("chain needs {} to {} parts", CHAIN.0, CHAIN.1),
         );
     }
-    let key: Vec<Option<(u32, u32)>> = q.key.iter().map(|r| c.range(&at, r)).collect();
-    for (r, k) in q.key.iter().zip(&key) {
-        if let Some((s, e)) = *k {
-            if e - s + 1 > KEY_SPAN_MAX {
-                c.fail(
-                    &at,
-                    format_args!(
-                        "key {r:?} is {} verses; keep each to {KEY_SPAN_MAX}",
-                        e - s + 1
-                    ),
-                );
-            }
+    let mut chain = Vec::new();
+    let mut parts = Vec::new();
+    let mut shown = 0usize;
+    for (i, p) in q.chain.iter().enumerate() {
+        let at = format!("{at}, chain[{i}]");
+        let Some((s, e)) = c.range(&at, &p.reference) else {
+            continue;
+        };
+        parts.push((s, e));
+        if e - s + 1 > PART_VERSES_MAX {
+            c.fail(
+                &at,
+                format_args!(
+                    "{:?} is {} verses; keep a part to {PART_VERSES_MAX}",
+                    p.reference,
+                    e - s + 1
+                ),
+            );
         }
-    }
-    let key: Vec<(u32, u32)> = key.into_iter().flatten().collect();
-
-    // The answer.
-    if !(SENTENCES.0..=SENTENCES.1).contains(&q.answer.len()) {
-        c.fail(
-            &at,
-            format_args!("answer needs {} to {} sentences", SENTENCES.0, SENTENCES.1),
-        );
-    }
-    let total: usize = q.answer.iter().map(|s| s.text.chars().count()).sum();
-    if total > ANSWER_MAX {
-        c.fail(
-            &at,
-            format_args!("answer is {total} characters; keep it to {ANSWER_MAX}"),
-        );
-    }
-    let mut answer = Vec::new();
-    for (i, s) in q.answer.iter().enumerate() {
-        let at = format!("{at}, answer[{i}]");
-        c.plain(&at, "text", &s.text, SENTENCE_MAX);
-        if !(1..=3).contains(&s.refs.len()) {
-            c.fail(&at, "needs 1 to 3 refs");
+        let full = c.text[s as usize..=e as usize].join(" ");
+        let Some(words) = &p.words else {
+            shown += full.chars().count();
+            chain.push(json!({ "r": [s, e] }));
+            continue;
+        };
+        if normalize(words).split(' ').count() < PART_WORDS_MIN {
+            c.fail(&at, format_args!("words must be at least {PART_WORDS_MIN} words; leave them out to show the whole verse"));
         }
-        let mut rs = Vec::new();
-        for r in &s.refs {
-            let Some(range) = c.range(&at, r) else {
-                continue;
-            };
-            if !key.iter().any(|&(ks, ke)| ks <= range.0 && range.1 <= ke) {
-                c.fail(
-                    &at,
-                    format_args!("ref {r:?} is not inside one of the key references"),
-                );
-            }
-            rs.push(range);
-        }
-        if rs.len() == s.refs.len() {
-            let texts: Vec<String> = rs.iter().map(|&r| c.bsb(r)).collect();
-            for quote in quotes(&s.text)
-                .into_iter()
-                .map(normalize)
-                .filter(|q| q.split(' ').count() >= QUOTE_MIN_WORDS)
-            {
-                if !texts.iter().any(|t| t.contains(&quote)) {
-                    c.fail(
-                        &at,
-                        format_args!(
-                            "quotation {quote:?} is not in the BSB text of {}",
-                            s.refs.join(", ")
-                        ),
-                    );
+        match find_words(&full, words) {
+            None => c.fail(
+                &at,
+                format_args!(
+                    "words {words:?} are not word for word in the BSB text of {}",
+                    p.reference
+                ),
+            ),
+            Some((span, cut_start, cut_end)) => {
+                shown += span.chars().count();
+                let mut part = json!({ "r": [s, e], "w": span });
+                if cut_start {
+                    part["a"] = json!(true);
                 }
+                if cut_end {
+                    part["z"] = json!(true);
+                }
+                chain.push(part);
             }
         }
-        answer.push(json!({ "t": s.text, "r": ranges_json(&rs) }));
+    }
+    if shown > CHAIN_MAX {
+        c.fail(
+            &at,
+            format_args!("the chain shows {shown} characters; keep it to {CHAIN_MAX}"),
+        );
     }
 
-    // The cluster: the key verses and the Nave's lines the topics keep.
+    // The wider set: the chain's verses and the Nave's lines the topics keep.
     if !(1..=5).contains(&q.topics.len()) {
         c.fail(&at, "topics needs 1 to 5 Nave's subjects");
     }
     let mut lines: Vec<&Line> = Vec::new();
     for (i, t) in q.topics.iter().enumerate() {
         let kept = c.topic_lines(&format!("{at}, topics[{i}]"), t);
-        if kept.iter().all(|l| l.refs.is_empty()) && !kept.is_empty() {
+        if !kept.is_empty() && kept.iter().all(|l| l.refs.is_empty()) {
             c.fail(
                 &format!("{at}, topics[{i}]"),
                 format_args!("the lines kept under {} cite no verses", t.subject),
@@ -720,7 +711,8 @@ fn question(
         lines.extend(kept);
     }
     let cluster = merge(
-        key.iter()
+        parts
+            .iter()
             .copied()
             .chain(lines.iter().flat_map(|l| l.refs.iter().copied()))
             .collect(),
@@ -730,15 +722,13 @@ fn question(
     let group = group?;
     let mut index = json!({
         "id": q.id, "g": group, "q": q.question.trim(), "also": q.also, "n": count(&cluster),
+        "top": ranges_json(&most_cited(lines.iter().copied(), degree)),
     });
     if !draft || include_drafts {
-        index["top"] = ranges_json(&key);
-        index["answer"] = Value::Array(answer);
+        index["chain"] = Value::Array(chain);
         if draft {
             index["draft"] = json!(true);
         }
-    } else {
-        index["top"] = ranges_json(&most_cited(lines.iter().copied(), degree));
     }
     Some(Built { index, cluster })
 }
@@ -835,8 +825,8 @@ pub fn build(
 
     let drafts_note = match (drafts, include_drafts) {
         (0, _) => String::from("no drafts"),
-        (d, true) => format!("{d} draft answers included ({DRAFTS_ENV}=1)"),
-        (d, false) => format!("{d} draft answers left out (set {DRAFTS_ENV}=1 to include them)"),
+        (d, true) => format!("{d} draft chains included ({DRAFTS_ENV}=1)"),
+        (d, false) => format!("{d} draft chains left out (set {DRAFTS_ENV}=1 to include them)"),
     };
     eprintln!(
         "ask the bible: {} questions checked, {drafts_note}; {} Nave's subjects, {bad} references not in the BSB left out",
@@ -896,9 +886,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             && in_text(&cluster["v"])
             && cluster["v"].as_array().is_some_and(|v| !v.is_empty())
             && q["top"].as_array().is_some_and(|t| !t.is_empty());
-        for s in q["answer"].as_array().into_iter().flatten() {
-            q_ok &= in_text(&s["r"]);
-        }
+        q_ok &= in_text(&Value::Array(
+            q["chain"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .map(|p| p["r"].clone())
+                .collect(),
+        ));
     }
     Ok(vec![
         (
@@ -956,20 +951,39 @@ mod tests {
 
     #[test]
     fn framework_words() {
-        assert_eq!(outside_word("Most scholars agree."), Some("scholar"));
         assert_eq!(
-            outside_word("Many Christians believe this."),
+            outside_word("What do scholars say about hell?"),
+            Some("scholar")
+        );
+        assert_eq!(
+            outside_word("What do Christians believe about heaven?"),
             Some("christians believe")
         );
-        assert_eq!(outside_word("Jesus says no one can snatch them."), None);
-        assert_eq!(outside_word("The Lord is our shepherd."), None);
+        assert_eq!(outside_word("What happens when we die?"), None);
     }
 
     #[test]
-    fn quoted_spans() {
+    fn exact_words() {
+        let v = "My beloved brothers, understand this: Everyone should be quick to listen, slow to speak, and slow to anger,";
         assert_eq!(
-            quotes("Paul writes, “Be angry, yet do not sin,” and more."),
-            vec!["Be angry, yet do not sin,"]
+            find_words(v, "everyone should be quick to listen"),
+            Some(("Everyone should be quick to listen,", true, true))
+        );
+        assert_eq!(
+            find_words(v, "slow to anger"),
+            Some(("slow to anger,", true, false))
+        );
+        assert_eq!(
+            find_words(v, "My beloved brothers"),
+            Some(("My beloved brothers,", false, true))
+        );
+        // Word for word only: no partial words, no words out of order.
+        assert_eq!(find_words(v, "low to anger"), None);
+        assert_eq!(find_words(v, "slow to listen"), None);
+        let q = "“Be angry, yet do not sin.” Do not let the sun set upon your anger,";
+        assert_eq!(
+            find_words(q, "be angry yet do not sin"),
+            Some(("“Be angry, yet do not sin.”", false, true))
         );
         assert_eq!(normalize("God’s love—“for all”"), "gods love for all");
     }
