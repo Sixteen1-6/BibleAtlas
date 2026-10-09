@@ -280,6 +280,21 @@
         "english_ot": "data/eng/targets/BSB/ot_BSB.tsv",
         "english_nt": "data/eng/targets/BSB/nt_BSB.tsv"
       }
+    },
+    {
+      "id": "strongs",
+      "title": "Strong's Hebrew and Greek dictionaries (Open Scriptures JSON)",
+      "provides": "Which Hebrew and Greek words come from which. Used for each word's family of related words in the word study.",
+      "license": "CC BY-SA (JSON edition); Strong's dictionaries (1890) are public domain",
+      "attribution": "James Strong, Exhaustive Concordance of the Bible (1890, public domain); JSON edition by Open Scriptures, github.com/openscriptures/strongs (CC BY-SA), Greek from the XML by Ulrik Petersen",
+      "homepage": "https://github.com/openscriptures/strongs",
+      "repo": "https://github.com/openscriptures/strongs",
+      "commit": "0acd2f251c2d35ff8db2dece4e0593979d3ac223",
+      "files": {
+        "greek": "greek/strongs-greek-dictionary.js",
+        "hebrew": "hebrew/strongs-hebrew-dictionary.js"
+      },
+      "note": "Only each entry's derivation line is used, to link a word to the word it comes from. Strong's definitions are not shown, and guesses ('perhaps', 'probably', 'akin to') and compound words are left out."
     }
   ]
 }

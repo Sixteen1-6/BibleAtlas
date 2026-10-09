@@ -52,6 +52,11 @@ pub struct Word {
     /// The word's parts (prefixes, stem, suffixes) as (surface, gloss), when
     /// the source splits it into more than one.
     pub pieces: Vec<(String, String)>,
+    /// The root's own part of the word and its grammar code, to group a
+    /// root's occurrences by form: for Hebrew and Aramaic the stem without
+    /// prefixes, suffixes or accents (grammar "H" + its segment, as "HVqw3ms"),
+    /// for Greek the whole word without punctuation.
+    pub form: (String, String),
 }
 
 #[derive(Default, Debug)]
@@ -286,6 +291,46 @@ fn pieces(surface: &str, gloss: &str) -> Vec<(String, String)> {
     s.iter().zip(g).map(|(s, g)| (s.replace('\\', ""), g.trim().to_string())).collect()
 }
 
+/// A Greek word with its grave accents written acute, as it is spelled on its
+/// own: a grave only marks an acute followed by another word (θεὸς, θεός).
+fn acute(s: &str) -> String {
+    s.chars()
+        .map(|c| {
+            let u = c as u32;
+            let to = match u {
+                // ὰ ὲ ὴ ὶ ὸ ὺ ὼ (varia) -> oxia, the next code point.
+                0x1F70..=0x1F7D if u.is_multiple_of(2) => u + 1,
+                // With a breathing mark (and iota subscript): varia sits two before oxia.
+                0x1F00..=0x1F6F | 0x1F80..=0x1FAF if matches!(u % 8, 2 | 3) => u + 2,
+                0x1FB2 | 0x1FC2 | 0x1FF2 => u + 2,
+                0x1FD2 | 0x1FE2 | 0x1FBA | 0x1FC8 | 0x1FCA | 0x1FDA | 0x1FEA | 0x1FF8 | 0x1FFA => u + 1,
+                _ => u,
+            };
+            char::from_u32(to).unwrap_or(c)
+        })
+        .collect()
+}
+
+/// The root's own segment of a Hebrew or Aramaic word: "וַ/יִּשְׁבֹּת֙" with
+/// dStrongs "H9001/{H7673A}" and grammar "Hc/Vqw3ms" gives ("יִּשְׁבֹּת", "HVqw3ms").
+/// Accents (cantillation) and punctuation are dropped, vowels kept.
+fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> (String, String) {
+    let lang = grammar.get(..1).unwrap_or("H");
+    let parts: Vec<&str> = strongs.split('/').collect();
+    let at = parts.iter().position(|p| p.contains('{')).unwrap_or(0);
+    let seg = |s: &str, n: usize| -> Option<String> {
+        let segs: Vec<&str> = s.split('/').collect();
+        (segs.len() == n).then(|| segs[at].split('\\').next().unwrap_or("").to_string())
+    };
+    let text = seg(surface, parts.len()).unwrap_or_else(|| clean_join(surface));
+    let text: String = text
+        .chars()
+        .filter(|&c| matches!(c, '\u{05B0}'..='\u{05BC}' | '\u{05C1}' | '\u{05C2}' | '\u{05C7}' | '\u{05D0}'..='\u{05EA}'))
+        .collect();
+    let code = grammar.get(1..).and_then(|g| seg(g, parts.len())).unwrap_or_else(|| grammar.get(1..).unwrap_or("").to_string());
+    (text, format!("{lang}{code}"))
+}
+
 fn clean_join(s: &str) -> String {
     s.replace(['/', '\\'], "")
 }
@@ -353,6 +398,7 @@ pub fn tahot(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 key: consonants(cols[1]),
                 src_verse: hebrew_ref(first).and_then(|r| dotted(&r, canon::by_step)),
                 pieces: pieces(cols[1].trim(), cols[3].trim()),
+                form: hebrew_form(cols[1].trim(), cols[4].trim(), grammar),
             });
         }
     }
@@ -417,6 +463,8 @@ pub fn tagnt(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 key: strong.get(..5).unwrap_or(strong).to_string(),
                 src_verse: None,
                 pieces: Vec::new(),
+                // "-T" marks a title (θεός for God), not another form.
+                form: (acute(surface.trim_matches(|c: char| !c.is_alphabetic())), morph.trim().trim_end_matches("-T").to_string()),
             });
         }
     }

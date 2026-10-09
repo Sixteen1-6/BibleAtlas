@@ -17,6 +17,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Section headings and the parallel passages they name (Berean Standard Bible) | berean.bible, via usfm-bible/examples.bsb | Public domain |
 | Study notes on almost every passage, by Bible scholars, shown one tap away from a verse (the notes in web/public/data/extras/notes/ are adapted to plain text and shared under the same license) | Aquifer Open Study Notes by Mission Mutual (2026), via BibleAquifer/AquiferOpenStudyNotes, an adaptation of the Tyndale Open Study Notes by Tyndale House Publishers (2023) | CC BY-SA 4.0 |
 | Hebrew and Greek lexicons (TBESH, TBESG) | STEPBible.org, based on work at Tyndale House Cambridge | CC BY 4.0 |
+| Which Hebrew and Greek words come from which (each word's family in the word study; only root numbers are kept, in web/public/data/forms/, shared under the same license) | James Strong's Hebrew and Greek dictionaries (1890), in the JSON edition by Open Scriptures, github.com/openscriptures/strongs | Public domain (dictionaries); CC BY-SA (JSON edition) |
 | Word alignments to the BSB, with the WLC (Macula) and Berean Greek NT texts they are keyed to | Clear Bible / Biblica, github.com/Clear-Bible/Alignments | CC BY 4.0 (alignments); WLC and BSB public domain |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
 
@@ -33,6 +34,7 @@ STEPBible asks that changes to its data be noted. The build changes the presenta
 - Morpheme separators (`/` and `\`) are removed from the displayed Hebrew and transliteration.
 - Lexicon definitions are converted from HTML to plain text segments (bold, italic, line breaks and verse links are kept).
 - Words found only in non-base editions are kept and flagged, and are excluded from word counts.
+- Each root's uses are grouped by their grammar code into forms (forms/*.json). For Hebrew and Aramaic the form is the root's own part of the word, without prefixes, suffixes or accents; for Greek, grave accents are written acute and the title mark (-T) is set aside.
 - Abbott-Smith's notes on Septuagint usage in TBESG are read into a table of Greek and Hebrew root pairs (lxx.json, root numbers only). Hebrew words in those notes are matched to TBESH entries by their spelling; when several entries share a spelling, the verses the note cites or an entry with nearly all the uses decides, and otherwise the word is left out. Phrases, names, pronouns, prepositions, conjunctions and particles are left out.
 
 ## Greek usage outside the Bible (LSJ) and things of the biblical world (UBS handbooks)

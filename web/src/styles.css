@@ -885,6 +885,55 @@ p .godeeper {
 .chip .o {
   font-size: 14px;
 }
+.forms {
+  display: grid;
+  gap: 2px;
+}
+.formrow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2px 10px;
+  align-items: baseline;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: none;
+  color: inherit;
+  font: 13px var(--font-ui);
+  text-align: left;
+}
+.formrow:hover {
+  background: var(--surface-2);
+}
+.formrow[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.formrow .o {
+  font-size: 18px;
+}
+.formrow .g {
+  color: var(--muted);
+}
+.formrow.here .g b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.formrow .n {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.kin {
+  display: grid;
+  gap: 4px;
+}
+.kinrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  align-items: baseline;
+  font-size: 12px;
+}
 .bar {
   display: inline-block;
   height: 4px;

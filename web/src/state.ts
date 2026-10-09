@@ -27,6 +27,8 @@ export const pointedRoot = signal<number | null>(null);
 export const reading = signal<{ book: number; chapter: number }>({ book: 42, chapter: 1 });
 /** Root shown in Word study, with the occurrence that was clicked. */
 export const study = signal<{ root: number; verse?: number; pos?: number } | null>(null);
+/** The studied root's family (ui/WordStudy.tsx), underlined in the text when shown. */
+export const studyKin = signal<Set<number> | null>(null);
 export const tab = signal<Tab>('connections');
 export const theme = signal<string | null>(null);
 export const path = signal<(PathResult & { ms: number }) | null>(null);

@@ -2,16 +2,18 @@
 // manuscript evidence, and every place it occurs.
 
 import type { ComponentProps, ComponentType } from 'preact';
+import { effect } from '@preact/signals';
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { WordSky } from './WordSky';
 import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
+import { type Forms, RELATION, getForms, versesWithForm, versesWithRoots } from '../data/forms';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
 import { atLeast } from '../depth';
 import * as S from '../state';
-import { Distribution, Provenance, useVerseRow } from './common';
+import { Distribution, Provenance, RootChip, useVerseRow } from './common';
 import { GoDeeper } from './Depth';
 
 type WordWorldType = ComponentType<ComponentProps<typeof import('./WordWorld').WordWorld>>;
@@ -39,6 +41,133 @@ function WordWorld(props: ComponentProps<WordWorldType>) {
     };
   }, []);
   return impl ? <impl.C {...props} /> : null;
+}
+
+// The studied word's family, underlined in the reader wherever a word study
+// is open (a shared link opens one without this panel).
+effect(() => {
+  const st = S.study.value;
+  const a = S.atlas.value;
+  if (!st || !a) {
+    S.studyKin.value = null;
+    return;
+  }
+  const root = st.root;
+  getForms(a, root).then(
+    (f) => {
+      if (S.study.peek()?.root !== root) return;
+      S.studyKin.value = f?.r?.length ? new Set(f.r.map((x) => x[0])) : null;
+    },
+    () => {},
+  );
+});
+
+/** Light a set of verses on the map with the links among them, or put them
+ *  out if they are already lit. */
+async function lightUp(a: Atlas, verses: Uint32Array, key: string, text: string): Promise<void> {
+  if (S.marks.value?.label === key) {
+    S.marks.value = null;
+    S.groupEdges.value = null;
+    return;
+  }
+  S.marks.value = { verses, label: key };
+  const edges = await S.engine.value?.linksWithin(a.n, verses, 1);
+  if (edges && S.marks.value?.label === key) {
+    S.groupEdges.value = { edges, label: text };
+    S.selected.value = null;
+  }
+}
+
+/** Forms shown before "Show all". */
+const FIRST_FORMS = 8;
+
+/** Every form the word takes in the Bible, each one tap from lighting its verses. */
+function EveryForm({ a, r, fm, here }: { a: Atlas; r: number; fm: Forms; here: number }) {
+  const [open, setOpen] = useState(false);
+  const [all, setAll] = useState(false);
+  useEffect(() => {
+    setOpen(false);
+    setAll(false);
+  }, [r]);
+  const L = a.lemmas;
+  const greek = L.lang[r] === 'G';
+  const n = fm.f.length;
+  if (n < 2) return null;
+  if (!open) {
+    return (
+      <p class="muted">
+        Its spelling changes with how it is used in a sentence, so it appears in {n} forms, all counted above.{' '}
+        <button class="godeeper" onClick={() => setOpen(true)}>
+          See every form ›
+        </button>
+      </p>
+    );
+  }
+  const shown = all ? fm.f : fm.f.slice(0, FIRST_FORMS);
+  return (
+    <>
+      <h3>Every form ({n})</h3>
+      <p class="muted">{S.TAP} a form to light the verses that use it.</p>
+      <div class="forms">
+        {shown.map(([spelling, code, count], i) => {
+          const key = `form:${r}:${i}`;
+          const lit = S.marks.value?.label === key;
+          return (
+            <button
+              key={i}
+              class={`formrow${i === here ? ' here' : ''}`}
+              aria-pressed={lit}
+              onClick={() => lightUp(a, versesWithForm(a, r, fm, i), key, `${spelling} (${L.word[r]})`)}
+            >
+              <span class={greek ? 'o gr' : 'o he'} lang={greek ? 'grc' : 'hbo'}>
+                {spelling}
+              </span>
+              <span class="g">
+                {describeMorph(code, code[0] === 'A' && !greek ? 'A' : greek ? 'G' : 'H')}
+                {i === here && <b> · this verse</b>}
+              </span>
+              <span class="n">{count.toLocaleString()}</span>
+            </button>
+          );
+        })}
+      </div>
+      {n > shown.length && (
+        <button class="btn more" onClick={() => setAll(true)}>
+          Show all {n} forms
+        </button>
+      )}
+    </>
+  );
+}
+
+/** Words from the same root, each one tap from its own study. */
+function Family({ a, r, fm }: { a: Atlas; r: number; fm: Forms }) {
+  const rel = fm.r ?? [];
+  const members = useMemo(() => [r, ...rel.map((x) => x[0])], [r, fm]);
+  const verses = useMemo(() => versesWithRoots(a, members), [a, members]);
+  if (!rel.length) return null;
+  const L = a.lemmas;
+  const key = `family:${r}`;
+  const lit = S.marks.value?.label === key;
+  return (
+    <>
+      <h3>Word family</h3>
+      <p class="muted">Words from the same root as {L.word[r]}. In the text they are underlined. {S.TAP} one to study it.</p>
+      <div class="kin">
+        {rel.map(([j, how]) => (
+          <div class="kinrow" key={j}>
+            <RootChip a={a} root={j} />
+            <span class="muted">
+              {RELATION[how]} · {L.count[j].toLocaleString()}×
+            </span>
+          </div>
+        ))}
+      </div>
+      <button class="btn more" aria-pressed={lit} onClick={() => lightUp(a, verses, key, `${L.word[r]} and its family in ${verses.length.toLocaleString()} verses`)}>
+        {lit ? 'Hide the family on map' : `Light up the whole family (${verses.length.toLocaleString()} verses)`}
+      </button>
+    </>
+  );
 }
 
 function Definition({ entry }: { entry: LexEntry }) {
@@ -75,6 +204,7 @@ function Occurrence({ a, v, root }: { a: Atlas; v: number; root: number }) {
 export function WordStudy({ a }: { a: Atlas }) {
   const st = S.study.value;
   const [entry, setEntry] = useState<{ root: number; e: LexEntry | null } | null>(null);
+  const [forms, setForms] = useState<{ root: number; f: Forms | null } | null>(null);
   const [limit, setLimit] = useState(40);
   const verses = useMemo(() => (st ? versesWithRoot(a, st.root) : new Uint32Array()), [a, st?.root]);
   const row = useVerseRow(a, st?.verse);
@@ -85,6 +215,10 @@ export function WordStudy({ a }: { a: Atlas }) {
     let live = true;
     setLimit(40);
     getLex(a, st.root).then((e) => live && setEntry({ root: st.root, e }));
+    getForms(a, st.root).then(
+      (f) => live && setForms({ root: st.root, f }),
+      () => {},
+    );
     return () => {
       live = false;
     };
@@ -108,20 +242,12 @@ export function WordStudy({ a }: { a: Atlas }) {
   const word = row && st.pos !== undefined && row[1][st.pos]?.[3] === r ? row[1][st.pos] : null;
   const variant = word && word[5] & FLAG.variant && word[6] ? describeVariant(word[6].k, greek, word[6].e, !!(word[5] & FLAG.significant)) : null;
   const lex = entry?.root === r ? entry.e : undefined;
+  const fm = forms?.root === r ? forms.f : null;
+  // Which form the tapped word is: its grammar (for Hebrew, the root's own
+  // part of it) is one of the forms'.
+  const here = word && fm ? fm.f.findIndex(([, code]) => (greek ? code === word[4].replace(/-T$/, '') : word[4].slice(1).split('/').includes(code.slice(1)))) : -1;
 
-  const toggleMap = async () => {
-    if (onMap) {
-      S.marks.value = null;
-      S.groupEdges.value = null;
-      return;
-    }
-    S.marks.value = { verses, label: `root:${r}` };
-    const edges = await S.engine.value?.linksWithin(a.n, verses, 1);
-    if (edges && S.marks.value?.label === `root:${r}`) {
-      S.groupEdges.value = { edges, label: `${L.word[r]} in ${verses.length.toLocaleString()} verses` };
-      S.selected.value = null;
-    }
-  };
+  const toggleMap = () => lightUp(a, verses, `root:${r}`, `${L.word[r]} in ${verses.length.toLocaleString()} verses`);
 
   return (
     <div class="panel">
@@ -188,8 +314,10 @@ export function WordStudy({ a }: { a: Atlas }) {
       <h3>Where it appears</h3>
       <Distribution a={a} verses={verses} />
       <button class="btn more" aria-pressed={onMap} onClick={toggleMap}>
-        {onMap ? 'Hide on map' : 'Light up every use on the map'}
+        {onMap ? 'Hide on map' : fm && fm.f.length > 1 ? 'Light up every use, in every form' : 'Light up every use on the map'}
       </button>
+      {fm && <EveryForm a={a} r={r} fm={fm} here={here} />}
+      {fm && <Family a={a} r={r} fm={fm} />}
 
       <h3>Definition</h3>
       {lex === undefined ? <p class="muted">Loading…</p> : lex ? <Definition entry={lex} /> : <p class="muted">No lexicon entry for this root.</p>}
@@ -205,6 +333,7 @@ export function WordStudy({ a }: { a: Atlas }) {
         </button>
       )}
       <Provenance>
+        {fm?.r && "Word family: from the derivations in Strong's dictionaries (1890, public domain; JSON by Open Scriptures, CC BY-SA). "}
         Definition: STEPBible {lex?.s === 'tbesg' ? 'TBESG, abridged from Abbott-Smith' : 'TBESH, abridged from Brown-Driver-Briggs'} (CC BY 4.0). Words and grammar: STEPBible {greek ? 'TAGNT' : 'TAHOT'}. Counts are computed from the base text ({greek ? 'Nestle-Aland family' : 'Leningrad Codex'}).
       </Provenance>
     </div>

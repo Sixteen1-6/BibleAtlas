@@ -85,16 +85,17 @@ export function PairedEnglish({ v, text, al }: { v: number; text: string; al: Ve
   );
 }
 
-function cellClass(w: WordRow, hit: boolean): string {
+function cellClass(w: WordRow, hit: boolean, kin: boolean): string {
   let c = 'w';
   if (w[5] & FLAG.variant) c += ' var';
   if (w[5] & FLAG.otherEditions) c += ' other';
   if (hit) c += ' hit';
+  if (kin) c += ' shared';
   return c;
 }
 
 /** "Word for word" line plus the interlinear cells, both colored by pair. */
-export function PairedWords({ v, row, al, hebrew, other, studyRoot }: { v: number; row: VerseRow; al: VerseAlign; hebrew: boolean; other: boolean; studyRoot: number }) {
+export function PairedWords({ v, row, al, hebrew, other, studyRoot, kin }: { v: number; row: VerseRow; al: VerseAlign; hebrew: boolean; other: boolean; studyRoot: number; kin: Set<number> | null }) {
   const active = activeIn(v);
   const lang = hebrew ? 'he' : 'gr';
   const shown = row[1].map((w, i) => ({ w, i, pieces: piecesOf(al.w[i], w[0], w[2]) })).filter(({ w }) => other || !(w[5] & FLAG.otherEditions));
@@ -114,7 +115,7 @@ export function PairedWords({ v, row, al, hebrew, other, studyRoot }: { v: numbe
       </div>
       <div class={`inter ${lang}`}>
         {shown.map(({ w, i, pieces }) => (
-          <button key={i} class={`cell ${lang} ${cellClass(w, w[3] === studyRoot)}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, i)} title={w[4]}>
+          <button key={i} class={`cell ${lang} ${cellClass(w, w[3] === studyRoot, !!kin?.has(w[3]))}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, i)} title={w[4]}>
             <span class="o" lang={hebrew ? 'hbo' : 'grc'}>
               {pieces.map((p, k) => (
                 <span key={k} class={`op${pairClass(p[2], active)}`} {...handlers(v, p[2])}>

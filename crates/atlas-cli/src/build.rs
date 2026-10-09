@@ -15,6 +15,7 @@
 
 use crate::align;
 use crate::english;
+use crate::family;
 use crate::layers;
 use crate::lexhtml;
 use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
@@ -412,6 +413,16 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             })
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
+    }
+    let mut derivations = family::Derivations::default();
+    let ng = family::derivations(&inputs.path("strongs", "greek"), 'G', &mut derivations)?;
+    let nh = family::derivations(&inputs.path("strongs", "hebrew"), 'H', &mut derivations)?;
+    let family_roots: Vec<family::Root> = lemmas.iter().map(|l| family::Root { key: &l.key, count: l.count, name: l.lex.as_ref().is_some_and(|e| e.morph.starts_with("N:")) }).collect();
+    let forms = family::build(&family_roots, &words, &lemma_index, &l_off, &derivations);
+    let related = forms.iter().filter(|f| f.get("r").is_some()).count();
+    eprintln!("word families: {} derivations from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives", derivations.parent.len() + derivations.same.len());
+    for (s, chunk) in forms.chunks(LEX_SHARD).enumerate() {
+        write(out, &format!("forms/{s}.json"), serde_json::to_string(chunk).unwrap().as_bytes(), &mut files)?;
     }
     write(out, "lxx.json", crate::lxx::emit(lemmas.iter().map(|l| crate::lxx::Root { key: &l.key, word: &l.word, gloss: &l.gloss, lang: l.lang, kind: l.lex.as_ref().map_or("", |e| e.morph.as_str()), count: l.count }), &lex, &words, &vz).as_bytes(), &mut files)?;
 
