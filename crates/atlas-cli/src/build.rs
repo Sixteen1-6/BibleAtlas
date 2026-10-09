@@ -341,6 +341,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "atlas.bin", &bin, &mut files)?;
     for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_peshitta::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_translations::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
     let origin = crate::extra_aramaic::origins(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)?;
@@ -357,6 +358,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "lemmas.json", serde_json::to_string(&lemmas_json).unwrap().as_bytes(), &mut files)?;
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
+    for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_wordplay::build(&vz, &words)? { write(out, &rel, &bytes, &mut files)?; }

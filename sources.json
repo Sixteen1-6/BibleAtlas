@@ -49,6 +49,28 @@
       "files": { "bsb": "formats/json/BSB.json" }
     },
     {
+      "id": "kjv",
+      "title": "King James Version (1769)",
+      "provides": "English text used only by search, so a verse typed in King James wording is found. Never shown.",
+      "license": "Public domain",
+      "attribution": "King James Version (1769), public domain",
+      "homepage": "https://github.com/scrollmapper/bible_databases",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "kjv": "formats/json/KJV.json" }
+    },
+    {
+      "id": "asv",
+      "title": "American Standard Version (1901)",
+      "provides": "English text used only by search, so a verse typed in the wording of the ASV or the modern translations built on it is found. Never shown.",
+      "license": "Public domain",
+      "attribution": "American Standard Version (1901), public domain",
+      "homepage": "https://github.com/scrollmapper/bible_databases",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "asv": "formats/json/ASV.json" }
+    },
+    {
       "id": "openbible-geo",
       "title": "OpenBible.info Bible Geocoding Data",
       "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",
@@ -178,6 +200,37 @@
         "readme": "tyndale-source-files/_README.txt"
       },
       "note": "Only tyndale-source-files/ (Tyndale's unmodified package) is read; adapted-articles/ is not used. Every quotation shown in the app is checked word for word against these files at build time."
+    },
+    {
+      "id": "aquifer-osn",
+      "title": "Aquifer Open Study Notes (English), adapted from Tyndale Open Study Notes",
+      "provides": "Study notes on almost every passage of the Bible, written by Bible scholars at Tyndale House Publishers and adapted into plain English by Mission Mutual. Shown one tap away from a verse, as notes from these scholars and never as the app's own claim.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Aquifer Open Study Notes, (C) 2026 Mission Mutual, licensed under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). It is an adaptation of Tyndale Open Study Notes, (C) 2023 Tyndale House Publishers (https://tyndaleopenresources.com), licensed under CC BY-SA 4.0.",
+      "homepage": "https://aquifer.bible/",
+      "repo": "https://github.com/BibleAquifer/AquiferOpenStudyNotes",
+      "commit": "bbb3f86016cd20913f410a95af63d9f7ff9a71d6",
+      "files": {
+        "metadata": "eng/metadata.json",
+        "01": "eng/json/01.content.json", "02": "eng/json/02.content.json", "03": "eng/json/03.content.json", "04": "eng/json/04.content.json",
+        "05": "eng/json/05.content.json", "06": "eng/json/06.content.json", "07": "eng/json/07.content.json", "08": "eng/json/08.content.json",
+        "09": "eng/json/09.content.json", "10": "eng/json/10.content.json", "11": "eng/json/11.content.json", "12": "eng/json/12.content.json",
+        "13": "eng/json/13.content.json", "14": "eng/json/14.content.json", "15": "eng/json/15.content.json", "16": "eng/json/16.content.json",
+        "17": "eng/json/17.content.json", "18": "eng/json/18.content.json", "19": "eng/json/19.content.json", "20": "eng/json/20.content.json",
+        "21": "eng/json/21.content.json", "22": "eng/json/22.content.json", "23": "eng/json/23.content.json", "24": "eng/json/24.content.json",
+        "25": "eng/json/25.content.json", "26": "eng/json/26.content.json", "27": "eng/json/27.content.json", "28": "eng/json/28.content.json",
+        "29": "eng/json/29.content.json", "30": "eng/json/30.content.json", "31": "eng/json/31.content.json", "32": "eng/json/32.content.json",
+        "33": "eng/json/33.content.json", "34": "eng/json/34.content.json", "35": "eng/json/35.content.json", "36": "eng/json/36.content.json",
+        "37": "eng/json/37.content.json", "38": "eng/json/38.content.json", "39": "eng/json/39.content.json", "40": "eng/json/40.content.json",
+        "41": "eng/json/41.content.json", "42": "eng/json/42.content.json", "43": "eng/json/43.content.json", "44": "eng/json/44.content.json",
+        "45": "eng/json/45.content.json", "46": "eng/json/46.content.json", "47": "eng/json/47.content.json", "48": "eng/json/48.content.json",
+        "49": "eng/json/49.content.json", "50": "eng/json/50.content.json", "51": "eng/json/51.content.json", "52": "eng/json/52.content.json",
+        "53": "eng/json/53.content.json", "54": "eng/json/54.content.json", "55": "eng/json/55.content.json", "56": "eng/json/56.content.json",
+        "57": "eng/json/57.content.json", "58": "eng/json/58.content.json", "59": "eng/json/59.content.json", "60": "eng/json/60.content.json",
+        "61": "eng/json/61.content.json", "62": "eng/json/62.content.json", "63": "eng/json/63.content.json", "64": "eng/json/64.content.json",
+        "65": "eng/json/65.content.json", "66": "eng/json/66.content.json"
+      },
+      "note": "Only the English JSON files are read. Changes made: each note's HTML is reduced to paragraphs, lists, italics and verse references (links and empty headings are dropped); verse references are placed on the BSB's numbering, and any the BSB does not have are left as plain text. The adapted data (web/public/data/extras/notes/) is shared under the same license, CC BY-SA 4.0."
     },
     {
       "id": "tbesh",

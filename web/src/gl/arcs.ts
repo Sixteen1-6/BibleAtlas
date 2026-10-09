@@ -9,7 +9,8 @@
 // an HDR photo, and composited over the night sky: a gradient, the horizon
 // glow, faint fixed stars and a soft vignette.
 // Pass 3 (focus): the selected verse's, path's or theme's arcs are drawn
-// bright on top.
+// bright on top, in the sky's colors or, for a theme's thread or a road, in
+// one color of their own (setFocus's tint).
 //
 // Motion (none at all under prefers-reduced-motion):
 // - The opening reveal: the sky draws itself from Genesis to Revelation. Pass
@@ -24,12 +25,13 @@
 // or the color mode changes; hovering, selecting and animating only rerun
 // passes 2 and 3.
 //
-// Sturdiness: a field whose canvas has left the page is freed when the next
-// one is made (AtlasMap makes one per mount), and a lost context is rebuilt
-// when the browser restores it. For tests the canvas carries data-drawn (the
-// instances issued by the last full accumulate), data-anim ("1" while
-// anything moves) and data-focus (what is lit: hover, path, verse or group,
-// with " waiting" while a verse waits for the reveal).
+// Sturdiness: AtlasMap disposes its field when it unmounts or makes a new
+// one; any field whose canvas has left the page is also freed when the next
+// one is made, and a lost context is rebuilt when the browser restores it.
+// For tests the canvas carries data-drawn (the instances issued by the last
+// full accumulate), data-anim ("1" while anything moves) and data-focus
+// (what is lit: hover, path, verse or group, with " waiting" while a verse
+// waits for the reveal).
 
 import type { Atlas } from '../data/atlas';
 import * as S from '../state';
@@ -94,6 +96,7 @@ uniform int uMode;                    // 0 spectrum, 1 reach, 2 genre
 uniform vec3 uReach[4];               // same book, near, far, across testaments
 uniform vec3 uSpec[${SPECTRUM.length}];
 uniform vec3 uGenre[${GENRE_IDS.length}];
+uniform vec4 uTint;                   // a focus set drawn in one color: rgb, and 1 to use it
 out vec4 vColor;
 ${
   focus
@@ -128,6 +131,7 @@ void main() {
   if (uMode == 0) c = spectrum(min(aEdge.x, aEdge.y));
   else if (uMode == 2) c = uGenre[int(floor(aEdge.w / 4.0 + 0.01))];
   else c = cls < 0.5 ? uReach[0] : (cls < 1.5 ? mix(uReach[1], uReach[2], reach) : uReach[3]);
+  c = mix(c, uTint.rgb, uTint.a);
   float w = clamp(log(max(aEdge.z, 1.0)) / log(150.0), 0.0, 1.0);
   float a = (0.25 + 0.75 * w) * uIntensity;
   vColor = vec4(c * a, a);${
@@ -359,6 +363,10 @@ function sortForDrawing(src: Float32Array): { data: Float32Array; ends: number[]
 
 /** A cheap fingerprint of a set of instances, so an identical set (sent again
  *  because some other signal changed) never restarts its animation. */
+function tintOf(hex: string | null): [number, number, number, number] {
+  return hex ? [...rgb(hex), 1] : [0, 0, 0, 0];
+}
+
 function fingerprint(f: Float32Array): string {
   let x0 = 0;
   let x1 = 0;
@@ -497,6 +505,8 @@ interface Layer {
   count: number;
   key: string;
   kind: Kind;
+  /** One color for the whole set (rgb, then 1), or all zeros for the sky's colors. */
+  tint: [number, number, number, number];
   /** False for a set seen just before (back from a hover): it only fades in. */
   entrance: boolean;
   anchor: number | null;
@@ -614,9 +624,9 @@ export class ArcField {
     private canvas: HTMLCanvasElement,
     instances: Float32Array,
   ) {
-    // AtlasMap makes a field on every mount and never frees the last one, so
-    // free here every field whose canvas has left the page. This caps the
-    // live WebGL contexts at the current map (plus one, while on the Wheel).
+    // A field that was never disposed (an error mid-mount, say) is freed here
+    // once its canvas has left the page, and one on this same canvas gives
+    // way. This caps the live WebGL contexts at the current map.
     for (const f of [...fields]) {
       if (f.canvas === canvas) f.teardown(false);
       else if (f.attached && !f.canvas.isConnected) f.teardown(true);
@@ -643,8 +653,9 @@ export class ArcField {
   }
 
   /** Show these arcs bright on top, or none. The set's entrance follows what
-   *  it is: see focusKind(). */
-  setFocus(instances: Float32Array | null): void {
+   *  it is: see focusKind(). With `tint` (a hex color) every arc of the set
+   *  takes that color instead of the sky's. */
+  setFocus(instances: Float32Array | null, tint: string | null = null): void {
     if (this.disposed) return;
     const t = now();
     const sel = S.selected.peek();
@@ -659,7 +670,10 @@ export class ArcField {
     }
     const key = fingerprint(instances);
     const cur = this.cur;
+    const tone = tintOf(tint);
     if (cur && cur.key === key) {
+      // Only the color changed (if anything): repaint without a new entrance.
+      cur.tint = tone;
       // The same arcs, sent again because another signal changed: keep their
       // animation. Clicking the verse that hovering already lit sends one
       // pulse out along its links instead of growing them again.
@@ -679,6 +693,7 @@ export class ArcField {
     L.count = p.data.length >> 2;
     L.key = key;
     L.kind = kind;
+    L.tint = tone;
     L.entrance = kind !== 'hover' && this.played.get(kind) !== key;
     L.anchor = p.anchor;
     L.lo = p.lo;
@@ -757,9 +772,22 @@ export class ArcField {
     this.render(now(), true);
   }
 
-  /** Free the WebGL context now. A new field also frees the old ones whose canvas has left the page. */
+  /** Free this field's buffers and programs now; safe to call at any time and
+   *  more than once. The canvas can take a new field straight away (the same
+   *  context is reused), so the context itself goes back to the browser only
+   *  once the canvas has left the page and no field has claimed it since.
+   *  AtlasMap calls this when it unmounts or rebuilds its field. */
   dispose(): void {
-    this.teardown(true);
+    if (this.disposed) return;
+    const { canvas, gl } = this;
+    this.teardown(false);
+    // Unmounting runs this before the canvas is removed: look again once the
+    // page has settled.
+    queueMicrotask(() => {
+      if (canvas.isConnected || gl.isContextLost()) return;
+      for (const f of fields) if (f.canvas === canvas) return;
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
+    });
   }
 
   // ---------------------------------------------------------- frames
@@ -983,6 +1011,7 @@ export class ArcField {
     gl.uniform1f(u.uIntensity, intensity);
     gl.uniform1f(u.uLift, lift * dpr);
     gl.uniform1i(u.uMode, MODES[this.opts.colorMode]);
+    gl.uniform4f(u.uTint, 0, 0, 0, 0);
   }
 
   // ---------------------------------------------------------- pass 2
@@ -1057,6 +1086,7 @@ export class ArcField {
     const u = P.u;
     const strength = L.count > 2000 ? 0.3 : L.count > 300 ? 0.55 : 0.9;
     this.useArcs(P, -1e9, strength, 0);
+    gl.uniform4fv(u.uTint, L.tint);
     gl.uniform1f(u.uTime, k.time);
     gl.uniform1f(u.uGrowOn, k.grow);
     gl.uniform1f(u.uFront, k.front);
@@ -1109,6 +1139,7 @@ export class ArcField {
           count: 0,
           key: '',
           kind: 'group',
+          tint: [0, 0, 0, 0],
           entrance: false,
           anchor: null,
           lo: 0,

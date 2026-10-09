@@ -12,24 +12,26 @@
 
 mod align;
 mod build;
-mod eras;
 mod english;
+mod eras;
+mod extra_aramaic;
+mod extra_parallels;
+mod extra_peshitta;
 mod extra_quotes;
+mod extra_real_map;
 mod fetch;
 mod layers;
+mod extra_notes;
 mod lexhtml;
 mod extra_wordplay;
 mod loaded;
 mod lxx;
-mod extra_peshitta;
 mod parse;
 mod query;
-mod extra_real_map;
+mod extra_translations;
 mod sources;
-mod world;
 mod verify;
-mod extra_parallels;
-mod extra_aramaic;
+mod world;
 
 use std::path::PathBuf;
 
