@@ -9,12 +9,13 @@
 //   the Old Testament, the verse in the original with its Hebrew and Aramaic
 //   marked.
 // Deep: the scholarly detail, how sure it is, the word studies of its roots,
-//   and the sources.
+//   and the sources, each a link to its card on the Sources shelf.
 
 import type { ComponentChildren } from 'preact';
 import { type Atlas, langName, verseIndex } from '../../../data/atlas';
 import { FLAG, type VerseRow } from '../../../data/text';
 import { GoDeeper } from '../../Depth';
+import { CitedSource } from '../../Sources';
 import { useJson } from '../data';
 import { Facts, Lead, Passage, SourceNote, Unsure, openWord, refName, usePassage } from '../kit';
 import { levelAtLeast } from '../level';
@@ -321,7 +322,9 @@ function EntryDeep({ a, data, deep, e, verse, row, navigate }: { a: Atlas; data:
           <h3>Sources</h3>
           <ul class="x-aramaic-sources">
             {d.sources.map((s, k) => (
-              <li key={k}>{s}</li>
+              <li key={k}>
+                <CitedSource a={a} text={s} />
+              </li>
             ))}
           </ul>
         </>
@@ -471,7 +474,9 @@ function SectionPanel({ a, s, verse, navigate }: { a: Atlas; s: Section; verse: 
                 <h3>Sources</h3>
                 <ul class="x-aramaic-sources">
                   {d.sources.map((x, k) => (
-                    <li key={k}>{x}</li>
+                    <li key={k}>
+                      <CitedSource a={a} text={x} />
+                    </li>
                   ))}
                 </ul>
               </>

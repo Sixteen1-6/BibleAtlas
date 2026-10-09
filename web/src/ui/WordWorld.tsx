@@ -128,7 +128,7 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
             {earliest && <p>Earliest example LSJ cites: {cited(earliest[1], earliest[0])}.</p>}
             {w.p && <p>LSJ also cites everyday papyri (letters, contracts, receipts).</p>}
             {w.i && <p>LSJ also cites inscriptions.</p>}
-            <Provenance>
+            <Provenance work="tflsj">
               Liddell–Scott–Jones Greek–English Lexicon (Perseus Digital Library, CC BY-SA 4.0), via STEPBible TFLSJ (CC BY 4.0); centuries added by Tyndale House. Each meaning gets the earliest century among the passages LSJ cites for it and the first writer LSJ lists from that century; uncertain readings and Greek Bible versions are left out. That is LSJ’s earliest example, not the first time the word was used.
             </Provenance>
           </>
@@ -194,7 +194,7 @@ function ArticlePanel({ a, entry, handbook, id, open, onFail }: { a: Atlas; entr
               </div>
             ))}
           </div>
-          <Provenance>
+          <Provenance work="ubs-ffr">
             From <i>{HANDBOOK_TITLE[handbook]}</i>, United Bible Societies (CC BY-SA 4.0), adapted. Linked to this word by the verses it cites.
           </Provenance>
         </>

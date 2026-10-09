@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, DATA_BASE, loadAtlas } from './data/atlas';
 import { loadLayers } from './data/layers';
@@ -12,7 +13,6 @@ import { DepthControl } from './ui/Depth';
 import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
 import { Reader } from './ui/Reader';
-import { Sources } from './ui/Sources';
 import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
 import { Wheel } from './ui/Wheel';
@@ -26,6 +26,34 @@ const TABS: [S.Tab, string][] = [
   ['hubs', 'Top verses'],
   ['sources', 'Sources'],
 ];
+
+type SourcesType = typeof import('./ui/Sources').Sources;
+
+let sources: Promise<SourcesType> | null = null;
+
+/** The Sources shelf and its dictionary reader, fetched the first time the tab opens. */
+function loadSources(): Promise<SourcesType> {
+  if (!sources) {
+    sources = import('./ui/Sources').then((m) => m.Sources);
+    sources.catch(() => (sources = null));
+  }
+  return sources;
+}
+
+function Sources(props: ComponentProps<SourcesType>) {
+  const [impl, setImpl] = useState<{ C: SourcesType } | null>(null);
+  useEffect(() => {
+    let live = true;
+    loadSources().then(
+      (C) => live && setImpl({ C }),
+      () => {},
+    );
+    return () => {
+      live = false;
+    };
+  }, []);
+  return impl ? <impl.C {...props} /> : <p class="panel muted">…</p>;
+}
 
 /** Where a first visit opens: a link the Bible makes itself (1 Peter 2:24 quotes it). */
 const FIRST_VERSE = 'Isa.53.5';
@@ -66,7 +94,7 @@ async function followLink(atlas: Atlas, eng: Engine, p: [number, number] | null,
       console.warn('Could not restore the linked path', e);
     }
   }
-  if (linked && (h.has('t') || h.has('p') || h.has('w'))) S.mobilePane.value = 'study';
+  if (linked && (h.has('t') || h.has('p') || h.has('w') || h.get('tab') === 'sources')) S.mobilePane.value = 'study';
 }
 
 export function App() {
@@ -113,6 +141,10 @@ export function App() {
   useEffect(() => {
     const study = document.querySelector('.study');
     if (study) study.scrollTop = 0;
+    // On a narrow tab row (phones, at Deep), keep the open tab in sight.
+    const row = document.querySelector<HTMLElement>('.tabs');
+    const on = row?.querySelector<HTMLElement>('[aria-selected="true"]');
+    if (row && on && (on.offsetLeft < row.scrollLeft || on.offsetLeft + on.offsetWidth > row.scrollLeft + row.clientWidth)) row.scrollLeft = on.offsetLeft - 10;
   }, [tabNow]);
 
   useEffect(() => {
@@ -151,7 +183,9 @@ export function App() {
     );
   }
 
-  const tab = atLeast(TAB_DEPTH[S.tab.value]) ? S.tab.value : 'connections';
+  // The Sources shelf shows at any level when it was asked for.
+  const asked = S.tab.value === 'sources' && S.sourcesAsked.value;
+  const tab = atLeast(TAB_DEPTH[S.tab.value]) || asked ? S.tab.value : 'connections';
   const wheel = S.mapMode.value === 'wheel' && atLeast('study');
   return (
     <div class="app">
@@ -211,7 +245,7 @@ export function App() {
         <Reader a={a} />
         <aside class="study">
           <div class="tabs" role="tablist">
-            {TABS.filter(([id]) => atLeast(TAB_DEPTH[id])).map(([id, name]) => (
+            {TABS.filter(([id]) => atLeast(TAB_DEPTH[id]) || (id === 'sources' && asked)).map(([id, name]) => (
               <button key={id} role="tab" aria-selected={tab === id} onClick={() => (S.tab.value = id)}>
                 {name}
               </button>
