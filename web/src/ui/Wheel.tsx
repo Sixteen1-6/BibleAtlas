@@ -8,6 +8,7 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { type Atlas, label, shortName } from '../data/atlas';
+import { deepen } from '../depth';
 import * as S from '../state';
 import { ARC, GENRE, GENRE_IDS } from './colors';
 import { BookCard, CROSS, PairCard, TOP_PAIRS, bookEnd, bookFacts, pairTotal } from './WheelCards';
@@ -954,6 +955,7 @@ export function Wheel({ a }: { a: Atlas }) {
           onClickCapture={(e) => {
             if (f.phone && (e.target as Element).closest?.('.provenance button')) {
               S.mobilePane.value = 'study';
+              deepen('deep');
               S.tab.value = 'sources';
               closeCard();
             }
