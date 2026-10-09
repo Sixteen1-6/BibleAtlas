@@ -66,8 +66,11 @@ pub struct Form {
     /// follows it, as עַמּוֹ for עַמּ: what is shown when the root never
     /// appears without one in that form.
     pub full: String,
-    /// A pronoun ending or the Aramaic article follows the root's part.
+    /// A pronoun ending or the Aramaic article follows the root's part (for
+    /// Greek: the word is elided, as ἀλλ᾽ for ἀλλά).
     pub ending: bool,
+    /// The pronoun ending's grammar ("Sp3ms"), empty when there is none.
+    pub suffix: String,
     /// Grammar of the root's part ("HVqw3ms", "N-NSF"). Empty when the
     /// source's parts do not line up, so the use is left out of every form.
     pub code: String,
@@ -325,6 +328,45 @@ fn acute(s: &str) -> String {
         .collect()
 }
 
+/// A Greek word without the second accent a following enclitic gives it
+/// (ἐλέησόν με, δέδωκάς μοι): an acute on the last vowel after another accent.
+fn enclitic_accent_out(s: &str) -> String {
+    let acute_to_plain = |c: char| -> Option<char> {
+        Some(match c as u32 {
+            0x03AC | 0x1F71 => 'α',
+            0x03AD | 0x1F73 => 'ε',
+            0x03AE | 0x1F75 => 'η',
+            0x03AF | 0x1F77 => 'ι',
+            0x03CC | 0x1F79 => 'ο',
+            0x03CD | 0x1F7B => 'υ',
+            0x03CE | 0x1F7D => 'ω',
+            0x0390 | 0x1FD3 => 'ϊ',
+            0x03B0 | 0x1FE3 => 'ϋ',
+            0x1FB4 => 'ᾳ',
+            0x1FC4 => 'ῃ',
+            0x1FF4 => 'ῳ',
+            _ => return None,
+        })
+    };
+    let accented = |c: char| {
+        let u = c as u32;
+        acute_to_plain(c).is_some()
+            || matches!(u, 0x1FB6 | 0x1FB7 | 0x1FC6 | 0x1FC7 | 0x1FD6 | 0x1FD7 | 0x1FE6 | 0x1FE7 | 0x1FF6 | 0x1FF7 | 0x1FBB | 0x1FC9 | 0x1FCB | 0x1FDB | 0x1FEB | 0x1FF9 | 0x1FFB)
+            || (matches!(u, 0x1F00..=0x1F6F | 0x1F80..=0x1FAF) && matches!(u % 8, 4..=7))
+    };
+    let vowel = |c: char| "αεηιουωϊϋᾳῃῳ".contains(c) || accented(c) || matches!(c as u32, 0x1F00..=0x1F7D | 0x1F80..=0x1FFC);
+    let cs: Vec<char> = s.chars().collect();
+    let marks: Vec<usize> = (0..cs.len()).filter(|&i| accented(cs[i])).collect();
+    if let [.., _, last] = marks[..] {
+        if let Some(plain) = acute_to_plain(cs[last]).filter(|_| !cs[last + 1..].iter().any(|&c| vowel(c))) {
+            let mut out = cs.clone();
+            out[last] = plain;
+            return out.into_iter().collect();
+        }
+    }
+    s.to_string()
+}
+
 /// The root's own form of a Hebrew or Aramaic word. "וַ/יִּשְׁבֹּת֙" with
 /// dStrongs "H9001/{H7673A}" and grammar "Hc/Vqw3ms" gives "יִשְׁבֹּת" and
 /// "HVqw3ms"; "עַמִּ֛/י" (HNcmsc/Sp1bs) gives "עַמּ" and, with its ending, "עַמִּי".
@@ -337,7 +379,8 @@ fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
     let segs: Vec<&str> = surface.split('/').collect();
     let codes: Vec<&str> = grammar.get(1..).unwrap_or("").split('/').collect();
     let Some(at) = parts.iter().position(|p| p.contains('{')) else { return Form::default() };
-    if segs.len() != parts.len() || codes.len() != parts.len() {
+    // "{H1176}+": the first word of a name written as two (בַּעַל זְבוּב), not a form of it.
+    if segs.len() != parts.len() || codes.len() != parts.len() || parts[at].contains("}+") {
         return Form::default();
     }
     let letters = |s: &str| -> String { s.chars().filter(|&c| matches!(c, '\u{05B0}'..='\u{05BC}' | '\u{05C1}' | '\u{05C2}' | '\u{05C7}' | '\u{05D0}'..='\u{05EA}')).collect() };
@@ -353,6 +396,7 @@ fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
     // backslash, after which the source puts punctuation.
     let mut full = plain.clone();
     let mut ending = false;
+    let mut suffix = String::new();
     if !segs[at].contains('\\') {
         for k in at + 1..segs.len() {
             let piece = segs[k].split('\\').next().unwrap_or("");
@@ -362,6 +406,9 @@ fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
             }
             full.push_str(&l);
             ending |= codes[k].starts_with('S') || codes[k] == "Ta";
+            if codes[k].starts_with('S') && suffix.is_empty() {
+                suffix = codes[k].to_string();
+            }
             if segs[k].contains('\\') {
                 break;
             }
@@ -379,7 +426,7 @@ fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
     } else {
         code.to_string()
     };
-    Form { plain: tidy(plain), full: tidy(full), ending, code: format!("{lang}{code}") }
+    Form { plain: tidy(plain), full: tidy(full), ending, suffix, code: format!("{lang}{code}") }
 }
 
 /// The dagesh on a Hebrew word's first letter as it stands on its own: ב ג ד
@@ -554,12 +601,19 @@ pub fn tagnt(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                     let m = morph.trim();
                     let lower = cols[4].split('=').next().and_then(|f| f.trim().chars().next()).is_some_and(char::is_lowercase)
                         && !["-L", "-P", "-T"].iter().any(|t| m.ends_with(t));
-                    let mut sp = acute(surface.trim_matches(|c: char| !c.is_alphabetic()));
+                    let core = surface.trim_matches(|c: char| !c.is_alphabetic());
+                    let mut sp = enclitic_accent_out(&acute(core));
                     if lower {
                         let mut cs = sp.chars();
                         sp = cs.next().map(|f| f.to_lowercase().chain(cs).collect()).unwrap_or_default();
                     }
-                    Form { full: sp.clone(), plain: sp, ending: false, code: greek_code(m).to_string() }
+                    // An elided word (ἀλλ᾽) is shown only where the word is never written in full.
+                    let elided = surface.trim_start_matches(|c: char| !c.is_alphabetic())[core.len()..].starts_with(['\u{1FBD}', '\u{2019}']);
+                    // A compound the source files under its first part (ἀπέπνιξαν under ἀπό)
+                    // is another word; crasis with καί (κἀγώ) is a form of the word.
+                    let compound = m.contains(" + ") && strong != "G2532" && !m.contains("G2532=");
+                    let code = if compound { String::new() } else { greek_code(m).to_string() };
+                    Form { full: if elided { format!("{sp}\u{1FBD}") } else { sp.clone() }, plain: sp, ending: elided, suffix: String::new(), code }
                 },
             });
         }

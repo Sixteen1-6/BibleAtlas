@@ -19,7 +19,7 @@ const ARA_STEM: Record<string, string> = {
 const HEB_VERB_FORM: Record<string, string> = {
   p: 'perfect', q: 'sequential perfect', i: 'imperfect', w: 'sequential imperfect', h: 'cohortative', j: 'jussive',
   v: 'imperative', r: 'active participle', s: 'passive participle', a: 'infinitive absolute', c: 'infinitive construct',
-  u: 'imperfect after "and"',
+  u: 'imperfect with plain "and" (not sequential)',
 };
 const PERSON: Record<string, string> = { '1': '1st person', '2': '2nd person', '3': '3rd person' };
 const GENDER: Record<string, string> = { m: 'masculine', f: 'feminine', b: 'both genders', c: 'common gender', n: 'neuter' };
@@ -35,9 +35,20 @@ function pgn(s: string, i: number): string[] {
   return out;
 }
 
-function hebSegment(seg: string, aramaic: boolean): string {
+/** Words the source tags as numbers ("Ac") though they are adverbs or
+ *  prepositions: אַחַר after, עוֹד still, בֵּין between, מְאֹד very. Their
+ *  forms say gender, number and state with no word class. */
+const NOT_NUMBERS = new Set([
+  'H0310A', 'H0383', 'H0996G', 'H0996H', 'H1004A', 'H1107', 'H1157', 'H2270', 'H2962', 'H3426', 'H3520A',
+  'H3795', 'H3966', 'H4295', 'H4605', 'H5048', 'H5227', 'H5750', 'H6941', 'H7317', 'H7946', 'H8602A',
+]);
+
+function hebSegment(seg: string, aramaic: boolean, root?: string): string {
   const t = seg[0];
   const rest = seg.slice(1);
+  if ((t === 'A' || t === 'N') && rest[0] === 'c' && root && NOT_NUMBERS.has(root)) {
+    return [GENDER[rest[1]], NUMBER[rest[2]], STATE[rest[3]]].filter(Boolean).join(', ');
+  }
   switch (t) {
     case 'A': {
       const kind = { a: 'adjective', c: 'number', g: 'gentilic adjective', o: 'ordinal number' }[rest[0]] ?? 'adjective';
@@ -140,8 +151,9 @@ function greek(code: string): string {
 
 /** Plain-English description of a grammar code. Unknown codes are returned as-is.
  *  `lang` is the word's language (H, A or G); the code alone is ambiguous
- *  (Greek adjectives start with "A", like Aramaic codes). */
-export function describeMorph(code: string, lang: string): string {
+ *  (Greek adjectives start with "A", like Aramaic codes). `root` is the
+ *  word's key, for words the source mislabels. */
+export function describeMorph(code: string, lang: string, root?: string): string {
   if (!code) return '';
   const c = code.trim();
   if (lang === 'H' || lang === 'A') {
@@ -151,7 +163,7 @@ export function describeMorph(code: string, lang: string): string {
       .split('/')
       .filter(Boolean)
       // "Rd" before a pronoun ending is a preposition: the article can't take one.
-      .map((s, i, all) => (s === 'Rd' && all[i + 1]?.[0] === 'S' ? 'preposition' : hebSegment(s, aramaic)))
+      .map((s, i, all) => (s === 'Rd' && all[i + 1]?.[0] === 'S' ? 'preposition' : hebSegment(s, aramaic, root)))
       .join(' + ');
   }
   // Crasis forms combine two words: "CONJ + G1565=D".

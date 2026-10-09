@@ -4,11 +4,12 @@
 import { type Atlas, DATA_BASE } from './atlas';
 
 /** How a relative is related to the word studied. */
-export type Relation = 'p' | 'c' | 's' | 'a' | 'n';
+export type Relation = 'f' | 'p' | 'c' | 's' | 'a' | 'n';
 
 export interface Forms {
-  /** [spelling, grammar code, count], most used first. */
-  f: [string, string, number][];
+  /** [spelling, grammar code, count, other spellings of the same form],
+   *  most used first. */
+  f: [string, string, number, string[]?][];
   /** Which form each of the root's postings is (index into f, -1 for none),
    *  when it has more than one or some use has none. */
   o?: number[];
@@ -75,6 +76,8 @@ export function versesWithRoots(a: Atlas, roots: number[]): Uint32Array {
  *  relative's language letter (G, H or A). */
 export function relation(rel: Relation, lang: string): string {
   switch (rel) {
+    case 'f':
+      return 'another form of the same word';
     case 'p':
       return 'the word it comes from';
     case 'c':

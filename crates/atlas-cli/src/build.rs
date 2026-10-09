@@ -437,7 +437,11 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             family::Root {
                 key: &l.key,
                 count: l.count,
-                name: s(|e| &e.morph).starts_with("N:"),
+                // A name, or a sense the lexicon files as a name or a spelling of
+                // one (מֶלֶךְ for Molech, שָׂדַי for Sirion), titles of God aside.
+                name: s(|e| &e.morph).starts_with("N:")
+                    || (own && s(|e| &e.relation).contains("Name of") && s(|e| &e.target) != "H3068G")
+                    || (own && s(|e| &e.relation).contains("Spelling of") && lex.get(s(|e| &e.target)).is_some_and(|t| t.morph.starts_with("N:"))),
                 word: s(|e| &e.word),
                 morph: s(|e| &e.morph),
                 gloss: s(|e| &e.gloss),

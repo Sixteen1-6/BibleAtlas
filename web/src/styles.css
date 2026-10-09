@@ -885,6 +885,9 @@ p .godeeper {
 .chip .o {
   font-size: 14px;
 }
+.chip.more {
+  color: var(--muted);
+}
 .forms {
   display: grid;
   gap: 2px;
@@ -1217,6 +1220,14 @@ p .godeeper {
   .map .hud .legend,
   .map .hud .colors {
     display: none;
+  }
+  /* The caption naming what is lit wraps beside the zoom hint, never under it. */
+  .map .hud {
+    max-width: calc(100% - 150px);
+  }
+  .map .zoomhint {
+    max-width: 130px;
+    text-align: right;
   }
   .work {
     grid-template-columns: 1fr;
