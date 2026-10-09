@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'preact/hooks';
 import { RoadCards, RoadsStatus, useRoads } from './Roads';
-import { type Atlas, label, versesWithRoot } from '../data/atlas';
+import { type Atlas, label, linkCount, versesWithRoot } from '../data/atlas';
 import { WhyLinked } from './WhyLinked';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
@@ -91,7 +91,7 @@ export function Themes({ a }: { a: Atlas }) {
             {(v) => (
               <PreviewRow key={v} v={v} class="refrow" onClick={() => S.selectVerse(v)}>
                 <span class="ref">{label(a, v)}</span>
-                <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
+                <span class="vt">{linkCount(a, v).toLocaleString()} links</span>
                 <Snippet a={a} v={v} />
               </PreviewRow>
             )}
@@ -241,7 +241,7 @@ export function Hubs({ a }: { a: Atlas }) {
             <span class="ref">
               {i + 1}. {label(a, v)}
             </span>
-            <span class="vt">{(a.xOff[v + 1] - a.xOff[v] + a.xInOff[v + 1] - a.xInOff[v]).toLocaleString()} links</span>
+            <span class="vt">{linkCount(a, v).toLocaleString()} links</span>
             <Snippet a={a} v={v} max={140} />
           </PreviewRow>
         )}

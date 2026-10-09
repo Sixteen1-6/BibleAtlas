@@ -6,7 +6,7 @@ import { atLeast } from '../depth';
 import * as S from '../state';
 import { GoDeeper } from './Depth';
 import { LayeredPassages, LayersCard } from './Layers';
-import { OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseRow } from './common';
+import { NOT_LOADED, OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseLoad, useVerseRow } from './common';
 import { openStarter } from './Welcome';
 import { WhyLinked } from './WhyLinked';
 
@@ -75,7 +75,7 @@ export function Connections({ a }: { a: Atlas }) {
   const all = allFor === v;
   const disputed = disputedFor === v;
   const [near, setNear] = useState<{ v: number; verses: number[] } | null>(null);
-  const row = useVerseRow(a, v);
+  const { row, failed } = useVerseLoad(a, v);
   const every = useMemo(() => (v === null ? [] : links(a, v)), [a, v]);
   // Links that readers voted down (zero or fewer votes) stay hidden until asked for.
   const weak = every.filter((l) => l.votes <= 0).length;
@@ -127,7 +127,7 @@ export function Connections({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>{label(a, v)}</h2>
-      {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">…</p>}
+      {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">{failed ? NOT_LOADED : '…'}</p>}
       {row && study && <OrigLine a={a} v={v} row={row} />}
       <LayersCard a={a} v={v} />
       <p class="muted linkfacts">

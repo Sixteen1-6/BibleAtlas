@@ -20,6 +20,7 @@ import './aramaic.css';
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Data, chapterKey, load } from './aramaic/model';
+import { readerHere } from './first-move';
 import { type ChapterPanelProps, type PanelProps, defineExtra } from './types';
 
 interface Panels {
@@ -67,7 +68,10 @@ export default defineExtra<Data>({
   id: 'aramaic',
   order: 15,
   title: 'Aramaic and Hebrew',
-  load,
+  async load(a) {
+    await readerHere('aramaic');
+    return load(a);
+  },
   note(verse, d) {
     return d.verses.get(verse)?.line ?? null;
   },

@@ -50,11 +50,20 @@ export function Sources({ a }: { a: Atlas }) {
           </p>
           <p class="muted" style="margin:4px 0;font-size:12px">{s.attribution}</p>
           {s.note && <p class="muted" style="margin:4px 0;font-size:12px">{s.note}</p>}
-          {s.files.map((f) => (
-            <div key={f.path} class="hash" title={f.path}>
-              SHA-256 {f.sha256}
-            </div>
-          ))}
+          {s.files.length > 0 && (
+            <details class="src-files">
+              <summary>
+                {s.files.length === 1 ? 'The file and its checksum' : `${s.files.length} files and their checksums`}
+              </summary>
+              {s.files.map((f) => (
+                <div key={f.path} class="hash">
+                  <code>{f.path}</code>
+                  <br />
+                  SHA-256 {f.sha256}
+                </div>
+              ))}
+            </details>
+          )}
         </div>
       ))}
 
