@@ -3,14 +3,17 @@
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useSignalEffect } from '@preact/signals';
-import { type Atlas, label, linkCount, shortName } from '../data/atlas';
+import { type Atlas, label, linkCount, linked, shortName } from '../data/atlas';
 import { passageAt, passages } from '../data/layers';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
 import { atLeast } from '../depth';
 import * as S from '../state';
-import { ARC, type ArcColorMode, GENRE, SPECTRUM_CSS } from './colors';
+import { ARC, type ArcColorMode, GENRE, KIND, ROAD_GOLD, SPECTRUM_CSS } from './colors';
+import { type LinkKind, kindLinks } from './mapKinds';
+import { mapSlot } from './mapSlot';
+import { chosenRoad } from './Roads';
 
 /** Edges touching a verse (outgoing and incoming), strongest first. Links readers
  * voted down (zero or fewer votes) are left out, as they are in Connections. */
@@ -22,12 +25,14 @@ export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
   return Uint32Array.from(list.slice(0, limit));
 }
 
-/** True if a cross-reference joins two verses, in either direction. Links
- * readers voted down are left out, as they are in verseEdges. */
-function linked(a: Atlas, u: number, v: number): boolean {
-  for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xDst[e] === v && a.xVotes[e] > 0) return true;
-  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xDst[e] === u && a.xVotes[e] > 0) return true;
-  return false;
+/** The color of each kind of link drawn over the selection (echoes are dashed). */
+const KIND_COLOR: Record<LinkKind, string> = { quote: KIND.quote, echo: KIND.quote, parallel: KIND.parallel };
+
+/** The gold the lit road is drawn in: its own of the three, as on its card in
+ *  Many roads, or the lamp's while no road card is chosen (a link's path). */
+function roadGold(): string {
+  const i = chosenRoad();
+  return i >= 0 ? ROAD_GOLD[i % ROAD_GOLD.length] : ARC.lamp;
 }
 
 function useSize(ref: { current: HTMLElement | null }): { w: number; h: number } {
@@ -104,10 +109,23 @@ export function AtlasMap({ a }: { a: Atlas }) {
       f.resize();
       f.setView(S.view.value);
       field.current = f;
+      return () => {
+        if (field.current === f) field.current = null;
+        f.dispose();
+      };
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     }
   }, [a, xs]);
+
+  // The overlay slot other panels draw over the map in.
+  useEffect(() => {
+    const el = wrap.current;
+    mapSlot.value = el;
+    return () => {
+      if (mapSlot.peek() === el) mapSlot.value = null;
+    };
+  }, []);
 
   useEffect(() => {
     field.current?.resize();
@@ -130,11 +148,18 @@ export function AtlasMap({ a }: { a: Atlas }) {
     const sel = S.selected.value;
     const group = S.groupEdges.value;
     let edges: Uint32Array | null = null;
+    // A road keeps its own gold and a theme's thread the lamp's; a verse's links keep the sky's colors.
+    let tint: string | null = null;
     if (hv !== null) edges = verseEdges(a, hv);
-    else if (p) edges = Uint32Array.from(p.edges);
-    else if (sel !== null) edges = verseEdges(a, sel);
-    else if (group) edges = group.edges;
-    f.setFocus(edges && edges.length ? edgeInstances(a, xs, edges) : null);
+    else if (p) {
+      edges = Uint32Array.from(p.edges);
+      tint = roadGold();
+    } else if (sel !== null) edges = verseEdges(a, sel);
+    else if (group) {
+      edges = group.edges;
+      tint = group.color ?? null;
+    }
+    f.setFocus(edges && edges.length ? edgeInstances(a, xs, edges) : null, tint);
     f.setDim(edges ? (edges.length > 2000 ? 0.55 : 0.4) : 1);
   });
 
@@ -451,22 +476,38 @@ export function AtlasMap({ a }: { a: Atlas }) {
     const x = sx(selV);
     const top = verseEdges(a, selV, 14);
     const placed: number[] = [x];
-    const labels = Array.from(top)
-      .map((e) => (a.xSrc[e] === selV ? a.xDst[e] : a.xSrc[e]))
+    // Quotations, echoes and parallels in their own colors (not on a first
+    // visit's opening screen, which stays as calm as it was). They are named
+    // before the strongest cross-references, which they usually are too.
+    const kinds = w > 0 && S.openingVerse.value !== selV ? kindLinks(a, selV) : [];
+    const kindOf = new Map(kinds.map((k) => [k.to, k.kind]));
+    const labels = [...kinds.map((k) => k.to), ...Array.from(top).map((e) => (a.xSrc[e] === selV ? a.xDst[e] : a.xSrc[e]))]
       .filter((u, i, arr) => arr.indexOf(u) === i)
       .map((u) => {
         const ux = sx(u);
         if (ux < 0 || ux > w || placed.some((px) => Math.abs(px - ux) < 64)) return null;
         placed.push(ux);
+        const kind = kindOf.get(u);
+        const color = kind ? KIND_COLOR[kind] : ARC.lamp;
         return (
           <g key={u}>
-            <circle cx={ux} cy={base} r={2.5} fill={ARC.lamp} />
-            <text class="nodelabel" x={Math.min(Math.max(ux, 32), w - 32)} y={base - 8} text-anchor="middle" style="font-weight:500;font-size:10.5px">
+            <circle cx={ux} cy={base} r={2.5} fill={color} />
+            <text class="nodelabel" x={Math.min(Math.max(ux, 32), w - 32)} y={base - 8} text-anchor="middle" style={`font-weight:500;font-size:10.5px${kind ? `;fill:${color}` : ''}`}>
               {label(a, u, true)}
             </text>
           </g>
         );
       });
+    // An arc to a verse a few pixels away would be invisible: its colored dot marks it.
+    const kindArcs = kinds.map(({ to, kind }) => {
+      const ux = sx(to);
+      return (
+        <g key={`k${to}`} class={`kindarc ${kind}`} style={`--kind:${KIND_COLOR[kind]}`}>
+          {Math.abs(ux - x) >= 6 && <path d={arcPath(x, ux, h, w)} />}
+          <circle cx={ux} cy={base} r={2.5} />
+        </g>
+      );
+    });
     // Links a layer of meaning makes that no cross-reference covers: drawn dashed.
     // (Not while the map is hidden, as on a phone showing the text: it has no size to draw in.)
     const passage = w > 0 ? passageAt(passages.value, selV) : null;
@@ -476,6 +517,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     }
     selection = (
       <g>
+        {kindArcs}
         {[...unseen].map(([u, ux]) => (
           <g key={`l${u}`}>
             <path class="layerarc" d={arcPath(x, ux, h, w)} />
@@ -496,8 +538,9 @@ export function AtlasMap({ a }: { a: Atlas }) {
   let pathLayer: preact.JSX.Element | null = null;
   if (p) {
     const pts = p.verses.map(sx);
+    const gold = roadGold();
     pathLayer = (
-      <g>
+      <g style={`--road:${gold}`}>
         {pts.slice(1).map((x1, i) => {
           const x0 = pts[i];
           const len = Math.PI * (Math.abs(x1 - x0) / 2 + arcHeight(x0, x1, h, w)) / 2 + 10;
@@ -505,7 +548,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
         })}
         {p.verses.map((v, i) => (
           <g key={v}>
-            <circle cx={pts[i]} cy={base} r={4.5} fill={ARC.lamp} />
+            <circle cx={pts[i]} cy={base} r={4.5} fill={gold} />
             <text class="nodelabel" x={Math.min(Math.max(pts[i], 44), w - 44)} y={base + 48 + (i % 2) * 14} text-anchor="middle">
               {label(a, v, true)}
             </text>

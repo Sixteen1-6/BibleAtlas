@@ -12,6 +12,22 @@ export const ARC = {
   lamp: '#ffd27a',
 };
 
+/** Links the map draws in a color of their own, over the sky, so they never
+ *  read as ordinary cross-references. The map is a night sky in both page
+ *  themes, so these are bright; the matching marks on paper use the --quote
+ *  and --parallel CSS variables. Theme threads are lamp gold, as in their panel. */
+export const KIND = {
+  /** The New Testament quoting the Old (an echo is the same color, dashed). */
+  quote: '#ff8fbf',
+  /** The same event, song or law told in more than one place. */
+  parallel: '#7fd4ff',
+  thread: ARC.lamp,
+};
+
+/** Roads 1, 2 and 3 in Many roads: pale gold, the lamp's gold, amber. The
+ *  panel's cards and the road lit on the map use the same three. */
+export const ROAD_GOLD = ['#ffe3a3', '#ffd27a', '#ffb36b'];
+
 /** Spectrum mode: hue follows where an arc starts in the canon, Genesis to Revelation. */
 export const SPECTRUM = ['#ff5f6d', '#ff9a4a', '#ffd34e', '#8be36f', '#2fd6c5', '#4b9bff', '#8c6dff', '#e86bff'];
 

@@ -91,6 +91,7 @@ export function App() {
           const first = fromOsis(atlas, FIRST_VERSE);
           if (first !== null) {
             S.holdReaderScroll.value = first;
+            S.openingVerse.value = first;
             S.selectVerse(first);
           }
         }

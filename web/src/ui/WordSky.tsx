@@ -1,17 +1,18 @@
 // Echoes of the studied verse: the few other verses that use this word
 // together with more of the verse's less common words. One tap further, the
-// same echoes are drawn as gold arcs over the map.
+// same echoes are drawn as gold arcs over the map. An echo that is already
+// one of the map's cross-references says so, in the list and on the map.
 //
 // The list is computed in the browser from the root postings already loaded
 // (data/echoes.ts), so nothing new is fetched. A row loads its verse's text
-// only when it comes near the view. The drawing is a 2D canvas laid over the
-// arc map, found by its classes. It never writes the app's selection, marks
+// only when it comes near the view. The drawing is a 2D canvas laid in the
+// arc map's overlay slot (ui/mapSlot.ts). It never writes the app's selection, marks
 // or view: a row click selecting its verse is the only state it changes.
 
 import { Fragment } from 'preact';
 import { effect, signal, type Signal } from '@preact/signals';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { type Atlas, label, locate, versesWithRoot } from '../data/atlas';
+import { type Atlas, label, linked, locate, versesWithRoot } from '../data/atlas';
 import { type Echo, type EchoWord, MAXDF, RARE, countable, describeShared, holdsRoot, isContent, isDisputed, rankEchoes } from '../data/echoes';
 import { FLAG, isBookLoaded } from '../data/text';
 import { atLeast } from '../depth';
@@ -19,6 +20,7 @@ import { BASELINE, arcHeight, toScreen, verseX } from '../gl/layout';
 import * as S from '../state';
 import { ARC, SKY } from './colors';
 import { Provenance, Snippet, useVerseRow } from './common';
+import { mapSlot } from './mapSlot';
 import './wordsky.css';
 
 /** Rows shown at first; the first "Show more" goes up to SECOND, the next shows all. */
@@ -49,6 +51,8 @@ interface Sky {
   echoes: number[];
   /** The other verses with the root that are not echoes. */
   faint: number[];
+  /** Echoes a cross-reference already joins to the verse. */
+  known: Set<number>;
 }
 
 /** An echo with the (up to) two shared words its row names. */
@@ -110,7 +114,7 @@ export function WordSky({ a, root, verse }: { a: Atlas; root: number; verse?: nu
   const key = `${root}:${verse}`;
   const [shown, setShown] = useState<{ key: string; n: number } | null>(null);
   const [drawFor, setDrawFor] = useState<string | null>(null);
-  const [hasMap, setHasMap] = useState(true);
+  const hasMap = mapSlot.value !== null;
   // The row under the pointer, so its arc can glow. Local to this block.
   const hot = useMemo(() => signal<number | null>(null), []);
   const section = useRef<HTMLElement>(null);
@@ -145,13 +149,13 @@ export function WordSky({ a, root, verse }: { a: Atlas; root: number; verse?: nu
     const first = (q: number) => content.has(q) && (cache.get(q)?.length ?? MAXDF) < RARE;
     const rows: Shown[] = res.echoes.map((e) => ({ e, name: [...e.shared.filter(first), ...e.shared.filter((q) => !first(q))].slice(0, 2) }));
     const lit = new Set(res.echoes.map((e) => e.v));
-    const sky: Sky = { verse, echoes: res.echoes.map((e) => e.v), faint: Array.from(vs).filter((v) => v !== verse && !lit.has(v)) };
+    const known = new Set(res.echoes.filter((e) => linked(a, verse, e.v)).map((e) => e.v));
+    const sky: Sky = { verse, echoes: res.echoes.map((e) => e.v), faint: Array.from(vs).filter((v) => v !== verse && !lit.has(v)), known };
     return { rows, sky };
   }, [a, root, verse, row, holds]);
 
   // The map must be in Arcs mode to draw on; leaving it turns the drawing off.
   useEffect(() => {
-    setHasMap(!!document.querySelector('.map canvas.arcs'));
     if (mode !== 'arcs') setDrawFor(null);
   }, [mode]);
 
@@ -217,7 +221,7 @@ export function WordSky({ a, root, verse }: { a: Atlas; root: number; verse?: nu
         together with more of this verse’s less common words.
       </p>
       {rows.slice(0, limit).map((r) => (
-        <EchoRow key={r.e.v} a={a} row={r} root={root} lit={on} hot={hot} watch={watch} />
+        <EchoRow key={r.e.v} a={a} row={r} root={root} lit={on} known={found.sky.known.has(r.e.v)} hot={hot} watch={watch} />
       ))}
       <div class="ws-actions">
         {next > limit && (
@@ -247,7 +251,7 @@ export function WordSky({ a, root, verse }: { a: Atlas; root: number; verse?: nu
   );
 }
 
-function EchoRow({ a, row, root, lit, hot, watch }: { a: Atlas; row: Shown; root: number; lit: boolean; hot: Signal<number | null>; watch: Watch }) {
+function EchoRow({ a, row, root, lit, known, hot, watch }: { a: Atlas; row: Shown; root: number; lit: boolean; known: boolean; hot: Signal<number | null>; watch: Watch }) {
   const { e, name } = row;
   const L = a.lemmas;
   const el = useRef<HTMLDivElement>(null);
@@ -284,7 +288,14 @@ function EchoRow({ a, row, root, lit, hot, watch }: { a: Atlas; row: Shown; root
       onFocus={(ev) => (ev.currentTarget as HTMLElement).matches(':focus-visible') && enter()}
       onBlur={leave}
     >
-      <span class="ref">{label(a, e.v)}</span>
+      <span class="ref">
+        {label(a, e.v)}
+        {known && (
+          <span class="ws-known" title="Bible readers have linked these two verses too, so the map already joins them.">
+            already linked
+          </span>
+        )}
+      </span>
       <span class="vt">
         {name.map((q, i) => {
           const g = L.lang[q] === 'G';
@@ -445,7 +456,7 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
   ctx.shadowColor = GLOW;
   ctx.strokeStyle = ARC.lamp;
   ctx.globalAlpha = focus === null ? 1 : 0.5;
-  const feet: [number, number][] = [];
+  const feet: [number, number, boolean][] = [];
   for (const [from, to, width, blur] of [
     [3, sky.echoes.length, 2, 0],
     [0, 3, 2.5, 6],
@@ -456,7 +467,7 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
       const x1 = sx(v);
       if (hidden(x1)) continue;
       if (v !== focus) trace(ctx, x0, x1, base, arcHeight(x0, x1, h, w), p);
-      feet.push([x1, i < 3 ? 2.6 : 2]);
+      feet.push([x1, i < 3 ? 2.6 : 2, sky.known.has(v)]);
       arcs++;
       lit++;
     }
@@ -476,14 +487,18 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
   }
   ctx.shadowBlur = 0;
 
-  // 4. Where each echo lands, and the study verse itself.
+  // 4. Where each echo lands, and the study verse itself. An echo already
+  // linked by a cross-reference lands on a ring, the rest on a dot.
   if (p >= 1) {
     ctx.fillStyle = ARC.lamp;
-    for (const [x, r] of feet) {
+    ctx.strokeStyle = ARC.lamp;
+    ctx.lineWidth = 1.4;
+    for (const [x, r, known] of feet) {
       if (x < -4 || x > w + 4) continue;
       ctx.beginPath();
-      ctx.arc(x, base, r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.arc(x, base, known ? r + 1 : r, 0, Math.PI * 2);
+      if (known) ctx.stroke();
+      else ctx.fill();
     }
   }
   if (x0 > -6 && x0 < w + 6) {
@@ -563,10 +578,9 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
     let draws = 0;
 
     const ro = new ResizeObserver(() => request());
-    // The map is found by its classes (it is another component's), and
-    // followed if it is ever rebuilt.
+    // The map's overlay slot, followed if the map is ever rebuilt.
     const attach = () => {
-      const m = document.querySelector('.map canvas.arcs')?.closest<HTMLElement>('.map') ?? null;
+      const m = mapSlot.peek();
       if (m === map && canvas.parentElement === m) return;
       if (map) ro.unobserve(map);
       map = m;
@@ -577,7 +591,7 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
     };
     const frame = (now: number) => {
       raf = 0;
-      if (!map?.isConnected || canvas.parentElement !== map) attach();
+      if (map !== mapSlot.peek() || canvas.parentElement !== map) attach();
       if (!map) return;
       if (!start) start = now;
       const p = still ? 1 : 1 - Math.pow(1 - Math.min(1, (now - start) / GROW_MS), 3);
@@ -592,8 +606,9 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
     }
 
     attach();
-    // Redraw on pan and zoom, and when the focused echo changes.
+    // Redraw on pan and zoom, when the focused echo changes and when the map comes or goes.
     const stop = effect(() => {
+      void mapSlot.value;
       void S.view.value;
       void S.selected.value;
       void hot.value;

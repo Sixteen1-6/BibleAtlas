@@ -227,6 +227,16 @@ function InTheirWorld({ a, root, links, index, isOpen, toggle }: { a: Atlas; roo
         >
           {lead}
           <b>{title}</b>
+          {/* A verse-only link rests on how the handbook reads this verse
+              (Ps 84:11 "sun" as "Small shield"), so it says so. */}
+          {l[1] === 0 && (
+            <>
+              {' '}
+              <span class="ww-tag" title="The handbook ties the word to this only in the verses it discusses, this one among them, not everywhere the word is used.">
+                in this verse
+              </span>
+            </>
+          )}
           {!open && <> — {text}</>}
         </Line>
         <ArticlePanel key={l[0]} a={a} entry={l[0]} handbook={index.entries[l[0]][0]} id={id} open={open} onFail={() => open && toggle(k)} />

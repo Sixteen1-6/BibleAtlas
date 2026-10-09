@@ -18,6 +18,7 @@ import './parallels.css';
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Data, load } from './parallels/model';
+import { readerHere } from './first-move';
 import { type PanelProps, defineExtra } from './types';
 
 type PanelType = ComponentType<PanelProps<Data>>;
@@ -53,7 +54,10 @@ export default defineExtra<Data>({
   id: 'parallels',
   order: 20,
   title: 'Parallel passages',
-  load,
+  async load(a) {
+    await readerHere('parallels');
+    return load(a);
+  },
   note(verse, d) {
     return d.lines.get(verse) ?? null;
   },
