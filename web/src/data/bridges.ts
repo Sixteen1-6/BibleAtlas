@@ -56,8 +56,29 @@ export function bridgeTable(a: Atlas): BridgeTable | null {
   return ready?.version === a.version ? ready.table : null;
 }
 
-/** Roots this common (and, the, LORD) say little about a link; sharedRoots skips them too. */
+/** Words used this often (and, the, LORD, son) say little about a link. sharedRoots uses the same bar, per root. */
 const COMMON = 1500;
+
+/** Strong's number without STEPBible's sub-entry letter: "H1121G" is H1121.
+ *  An extended number ("G20286") is a number of its own. */
+function numberOf(key: string): string {
+  return key.length > 5 && key[5] >= '0' && key[5] <= '9' ? key : key.slice(0, 5);
+}
+
+let totals: { version: string; uses: number[] } | null = null;
+
+/** Uses of each root's Strong's number, all its senses together: בֵּן (son)
+ *  is split into many senses of a few hundred uses each, but is still one of
+ *  the commonest words. atlas verify counts the same way. */
+function numberUses(a: Atlas): number[] {
+  if (totals?.version !== a.version) {
+    const { key, count } = a.lemmas;
+    const sum = new Map<string, number>();
+    key.forEach((k, i) => sum.set(numberOf(k), (sum.get(numberOf(k)) ?? 0) + count[i]));
+    totals = { version: a.version, uses: key.map((k) => sum.get(numberOf(k)) ?? 0) };
+  }
+  return totals.uses;
+}
 
 /** Up to `max` word bridges between an Old Testament verse and a New Testament
  *  verse, rarest first. Only base-text words count on either side. Empty
@@ -65,15 +86,15 @@ const COMMON = 1500;
 export function bridges(a: Atlas, otRow: VerseRow, ntRow: VerseRow, max = 4): Bridge[] {
   const t = bridgeTable(a);
   if (!t) return [];
-  const count = a.lemmas.count;
+  const uses = numberUses(a);
   const ot = rootsOf(otRow);
   const out: Bridge[] = [];
   for (const g of rootsOf(ntRow)) {
-    if (count[g] >= COMMON) continue;
-    for (const h of t.get(g) ?? []) if (ot.has(h) && count[h] < COMMON) out.push({ greek: g, hebrew: h });
+    if (uses[g] >= COMMON) continue;
+    for (const h of t.get(g) ?? []) if (ot.has(h) && uses[h] < COMMON) out.push({ greek: g, hebrew: h });
   }
-  const rarer = (b: Bridge) => Math.min(count[b.greek], count[b.hebrew]);
-  const commoner = (b: Bridge) => Math.max(count[b.greek], count[b.hebrew]);
+  const rarer = (b: Bridge) => Math.min(uses[b.greek], uses[b.hebrew]);
+  const commoner = (b: Bridge) => Math.max(uses[b.greek], uses[b.hebrew]);
   out.sort((x, y) => rarer(x) - rarer(y) || commoner(x) - commoner(y) || x.greek - y.greek || x.hebrew - y.hebrew);
   return out.slice(0, max);
 }
