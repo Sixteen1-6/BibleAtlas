@@ -90,6 +90,7 @@ pub fn run(out: &Path) -> Result<(), String> {
         }
     }
     r.check(bad == 0, format!("{bad} sampled root postings point at the wrong word"));
+    for (ok, what) in crate::extra_wordplay::verify(&d)? { r.check(ok, what); }
 
     // Themes: shared links name them by id, each lights a readable number of
     // verses, the word senses left out stay out, and the newer themes reach

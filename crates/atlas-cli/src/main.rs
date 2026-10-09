@@ -18,6 +18,7 @@ mod extra_quotes;
 mod fetch;
 mod layers;
 mod lexhtml;
+mod extra_wordplay;
 mod loaded;
 mod lxx;
 mod extra_peshitta;
