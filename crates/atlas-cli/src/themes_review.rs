@@ -116,7 +116,8 @@ fn hits(d: &Loaded, lem: &Lemmas, v: u32, roots: &[u32]) -> Result<Vec<Hit>, Str
 
 /// The BSB words each of the theme's words became in this verse:
 /// `"the lamb" <- שֶׂה H7716`, or the word's gloss when no English is aligned
-/// to it (psalm headings, words the translation leaves implicit).
+/// to it (psalm headings, words the translation leaves implicit, links the
+/// build left out as numbered for an older BSB).
 fn theme_words(d: &Loaded, lem: &Lemmas, v: u32, roots: &[u32]) -> Result<Vec<String>, String> {
     Ok(hits(d, lem, v, roots)?
         .into_iter()

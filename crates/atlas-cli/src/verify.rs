@@ -149,8 +149,11 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(isa[2]["e"][13].as_i64().is_some_and(|g| g >= 0) && isa[2]["e"][13].as_i64() == group(&isa, 5), "Isaiah 5:30 \"sea\" is aligned to יָם");
     // Links that name English positions of an older BSB revision are left
     // out, not shown a word off: δόξαν "glory" never lands on "and" in
-    // Revelation 5:12, nor שֹׁפֵט "Judge" on "of all" in Genesis 18:25.
-    for (verse, key, wrong) in [("Rev 5:12", "G1391", &["and"][..]), ("Gen 18:25", "H8199", &["of", "all"])] {
+    // Revelation 5:12, nor שֹׁפֵט "Judge" on "of all" in Genesis 18:25, nor
+    // חַנּוּן "gracious" on "slow" or אַף "anger" on "abounding" in Exodus 34:6
+    // (where commas moved the ids), nor the trumpets on "ark" or the ark on
+    // "Obed-edom" in 1 Chronicles 15:24.
+    let aligned_to = |verse: &str, key: &str| -> Result<Vec<String>, String> {
         let lemma = d.lemma_index(key).ok_or(format!("no root {key}"))?;
         let x = d.verse(d.resolve(verse)?.0)?;
         let mut groups: Vec<i64> = Vec::new();
@@ -161,9 +164,23 @@ pub fn run(out: &Path) -> Result<(), String> {
             }
         }
         let english = crate::align::english_words(x[0].as_str().unwrap_or(""));
-        let shown: Vec<String> = english.iter().enumerate().filter(|(k, _)| x[2]["e"][*k].as_i64().is_some_and(|g| groups.contains(&g))).map(|(_, w)| w.to_lowercase()).collect();
+        Ok(english.iter().enumerate().filter(|(k, _)| x[2]["e"][*k].as_i64().is_some_and(|g| groups.contains(&g))).map(|(_, w)| w.to_lowercase()).collect())
+    };
+    for (verse, key, wrong) in [
+        ("Rev 5:12", "G1391", &["and"][..]),
+        ("Gen 18:25", "H8199", &["of", "all"]),
+        ("Exod 34:6", "H2587", &["slow"]),
+        ("Exod 34:6", "H0639G", &["abounding"]),
+        ("1 Chr 15:24", "H2689", &["ark", "of"]),
+        ("1 Chr 15:24", "H0727", &["obed-edom"]),
+    ] {
+        let shown = aligned_to(verse, key)?;
         r.check(!shown.iter().any(|w| wrong.contains(&w.as_str())), format!("{verse}: {key} is not aligned to any of {wrong:?} (aligned to {shown:?})"));
     }
+    // ... while a link whose article fits a "the" a few words back better
+    // than its noun fits its own word stays: both of Daniel 12:5's שְׂפַת "bank".
+    let banks = aligned_to("Dan 12:5", "H8193J")?;
+    r.check(banks.iter().filter(|w| *w == "bank").count() == 2, format!("Daniel 12:5: H8193J is aligned to both \"bank\"s (aligned to {banks:?})"));
     let aligned = (0..n).filter(|&v| d.verse(v).map(|x| x[2].is_object()).unwrap_or(false)).count();
     r.check(aligned > 30_000, format!("only {aligned} verses have a word alignment"));
 

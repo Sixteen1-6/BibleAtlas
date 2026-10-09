@@ -18,7 +18,8 @@
 //! In some verses the alignment names its English words by positions in an
 //! older revision of the BSB (a comma or a word added or removed since), so
 //! from some point on every link lands a word or two off: δόξαν "glory" on
-//! "and" in Revelation 5:12, שֹׁפֵט "Judge" on "of all" in Genesis 18:25.
+//! "and" in Revelation 5:12, שֹׁפֵט "Judge" on "of all" in Genesis 18:25,
+//! חַנּוּן "gracious" on "gracious slow" in Exodus 34:6.
 //! [`shifted_links`] finds those stretches and leaves their links out.
 
 use crate::parse::{consonants, Word, WordsByVerse};
@@ -272,28 +273,46 @@ struct Fit {
     targets: Vec<u64>,
 }
 
-/// Offsets tried for a stretch of English token ids.
+/// Offsets tried, in English words, for a stretch of links.
 const SHIFTS: [i64; 7] = [-3, -2, -1, 0, 1, 2, 3];
 /// Where offset 0 sits in `SHIFTS`.
 const NO_SHIFT: usize = 3;
 /// What changing the offset costs (also starting a verse at a non-zero one),
-/// against a link's fit of 0 to 1. Lower finds more shifted stretches; at 0.4
-/// it starts to mistake an ordinary reordering for one.
-const SHIFT_COST: f64 = 0.6;
+/// against a link's fit of 0 to 1. Lower finds more shifted stretches, and
+/// below about 0.4 it starts to mistake an ordinary reordering for one.
+const SHIFT_COST: f64 = 0.4;
+/// What an English function word ("the", "and", "of", ...) counts for in a
+/// link's fit, against 1 for any other word. Such words follow almost every
+/// original word somewhere, so they say little about where a link belongs:
+/// without this, an article in a link fits the "the" two words before its
+/// noun better than the noun fits its own word.
+const SMALL_WEIGHT: f64 = 0.3;
+/// The English function words `SMALL_WEIGHT` applies to (the same list as
+/// `SMALL` in web/src/data/themes.ts).
+const SMALL_WORDS: &str = "a an the and of to in on at by for with from into onto upon or but nor as so than that which who whom whose this these those \
+    it its he him his she her they them their we us our you your i me my is are was were be been being am shall will would should \
+    may might can could do does did has have had not no then there here when where what how also all";
 
 /// Which links name English positions of an older BSB revision.
 ///
 /// First a table of how often each Strong's number is linked to each English
 /// word is counted over the whole alignment, which is right almost
-/// everywhere. A link's fit at an offset is then, per English token id moved
-/// by that offset, the share of its Strong's number's links that reach that
-/// word (the best of its numbers), averaged; a punctuation mark or a missing
-/// token fits 0. Each verse's links, in English order, get the offsets with
-/// the best total fit, where changing the offset costs `SHIFT_COST`. When
-/// that beats leaving every link where it is, the links given another offset
-/// are marked: the caller leaves them out rather than moving them, because
-/// where they belong is only a guess.
-fn shifted_links(fits: &[Fit], token_word: &HashMap<u64, u32>) -> Vec<bool> {
+/// everywhere. A link's fit at an offset of d words is then, per English
+/// token, the share of its Strong's number's links that reach the word d
+/// words away in the verse (the best of its numbers; punctuation is not
+/// counted as a word), times `SMALL_WEIGHT` for a function word, averaged
+/// over the link's tokens. A punctuation mark or a missing token fits 0 where
+/// it is. Each verse's links, in English order, get the offsets with the best
+/// total fit, where changing the offset costs `SHIFT_COST`. When that beats
+/// leaving every link where it is, the links given another offset are
+/// marked: the caller leaves them out rather than moving them, because where
+/// they belong is only a guess.
+///
+/// Offsets count words, not token ids, because a revision that added or
+/// dropped a comma moves the ids of the words after it but not their order:
+/// in Exodus 34:6 every link from the second יְהוָה on names the word after
+/// its own, though the ids are one or two off.
+fn shifted_links(fits: &[Fit], token_word: &HashMap<u64, u32>, small: &[bool]) -> Vec<bool> {
     let strongs = fits.iter().flat_map(|f| f.strongs.iter()).max().map_or(0, |&m| m as usize + 1);
     let mut totals = vec![0u32; strongs];
     let mut pairs: HashMap<(u32, u32), u32> = HashMap::new();
@@ -308,6 +327,26 @@ fn shifted_links(fits: &[Fit], token_word: &HashMap<u64, u32>) -> Vec<bool> {
             }
         }
     }
+    // Each verse's word tokens, in order (the verse is the token id / 1000).
+    let mut verse_words: HashMap<u64, Vec<u64>> = HashMap::new();
+    for &t in token_word.keys() {
+        verse_words.entry(t / 1000).or_default().push(t);
+    }
+    for list in verse_words.values_mut() {
+        list.sort_unstable();
+    }
+    // The word `d` words away from token `t` (a word or a punctuation mark).
+    let word_at = |t: u64, d: i64| -> Option<u32> {
+        if d == 0 {
+            return token_word.get(&t).copied();
+        }
+        let list = verse_words.get(&(t / 1000))?;
+        // Words before t: t's own place if it is a word, else the next word's.
+        let p = list.partition_point(|&x| x < t) as i64;
+        let q = if d < 0 || token_word.contains_key(&t) { p + d } else { p + d - 1 };
+        let u = *list.get(usize::try_from(q).ok()?)?;
+        token_word.get(&u).copied()
+    };
     let fit = |f: &Fit, d: i64| -> f64 {
         if f.targets.is_empty() {
             return 0.0;
@@ -316,12 +355,9 @@ fn shifted_links(fits: &[Fit], token_word: &HashMap<u64, u32>) -> Vec<bool> {
             .targets
             .iter()
             .map(|&t| {
-                let u = t as i64 + d;
-                if u <= 0 || u / 1000 != t as i64 / 1000 || u % 1000 == 0 {
-                    return 0.0;
-                }
-                token_word.get(&(u as u64)).map_or(0.0, |&w| {
-                    f.strongs.iter().map(|&s| *pairs.get(&(s, w)).unwrap_or(&0) as f64 / totals[s as usize].max(1) as f64).fold(0.0, f64::max)
+                word_at(t, d).map_or(0.0, |w| {
+                    let share = f.strongs.iter().map(|&s| *pairs.get(&(s, w)).unwrap_or(&0) as f64 / totals[s as usize].max(1) as f64).fold(0.0, f64::max);
+                    share * if small.get(w as usize).copied().unwrap_or(false) { SMALL_WEIGHT } else { 1.0 }
                 })
             })
             .sum();
@@ -486,7 +522,13 @@ pub fn build(inp: &Inputs, vz: &Versification, texts: &[String], words: &WordsBy
             Fit { strongs, targets: r.target.iter().filter_map(|t| t.get(..11)?.parse().ok()).collect() }
         })
         .collect();
-    let shifted = shifted_links(&fits, &token_word);
+    let mut small = vec![false; words_seen.len()];
+    for w in SMALL_WORDS.split_whitespace() {
+        if let Some(&id) = words_seen.get(w) {
+            small[id as usize] = true;
+        }
+    }
+    let shifted = shifted_links(&fits, &token_word, &small);
     let mut shifted_in: Vec<u64> = fits.iter().zip(&shifted).filter(|(_, &s)| s).filter_map(|(f, _)| Some(f.targets.first()? / 1000)).collect();
     shifted_in.sort_unstable();
     shifted_in.dedup();
@@ -571,30 +613,47 @@ mod tests {
 
     #[test]
     fn finds_shifted_links() {
-        // Strong's 0 is always "and", 1 "glory", 2 "power", 3 "riches". Words:
-        // 0 and, 1 glory, 2 power, 3 riches. Verses 1..=20 are aligned right:
-        // power and riches and glory.
+        // Words: 0 and, 1 glory, 2 power, 3 riches, 4 the, 5 bank, 6 river,
+        // 7 shore, 8 far; "and" and "the" are function words. Strong's 0 to 6
+        // are "and", "glory", "power", "riches", the article, "bank" and "river".
+        let small = [true, false, false, false, true, false, false, false, false];
         let mut token_word = HashMap::new();
         let mut fits = Vec::new();
         let tid = |verse: u64, word: u64| 1_001_000_000 + verse * 1000 + word;
-        for verse in 1..=21 {
-            for (w, word) in [2, 0, 3, 0, 1].into_iter().enumerate() {
-                token_word.insert(tid(verse, w as u64 + 1), word);
+        let mut verse = |v: u64, words: &[u32], links: &[(&[u32], &[u64])], fits: &mut Vec<Fit>| {
+            for (w, &word) in words.iter().enumerate() {
+                if word != u32::MAX {
+                    token_word.insert(tid(v, w as u64 + 1), word);
+                }
             }
+            let first = fits.len();
+            fits.extend(links.iter().map(|(strongs, at)| Fit { strongs: strongs.to_vec(), targets: at.iter().map(|&w| tid(v, w)).collect() }));
+            first
+        };
+        // Aligned right: "power and riches and glory"; "the river" (the
+        // article and the noun in one link); "bank" (Strong's 5), which is
+        // more often "shore".
+        for v in 1..=20 {
+            verse(v, &[2, 0, 3, 0, 1], &[(&[2], &[1]), (&[0], &[2]), (&[3], &[3]), (&[0], &[4]), (&[1], &[5])], &mut fits);
+            verse(100 + v, &[4, 6, 5], &[(&[4, 6], &[1, 2]), (&[5], &[3])], &mut fits);
+            verse(200 + v, &[7, 7, 7], &[(&[5], &[1]), (&[5], &[2]), (&[5], &[3])], &mut fits);
         }
-        for verse in 1..=20 {
-            for (w, strong) in [2, 0, 3, 0, 1].into_iter().enumerate() {
-                fits.push(Fit { strongs: vec![strong], targets: vec![tid(verse, w as u64 + 1)] });
-            }
-        }
-        // Verse 21 is numbered one word late from its second link on.
-        let first = fits.len();
-        fits.push(Fit { strongs: vec![2], targets: vec![tid(21, 1)] });
-        for (w, strong) in [0, 3, 0, 1].into_iter().enumerate() {
-            fits.push(Fit { strongs: vec![strong], targets: vec![tid(21, w as u64 + 3)] });
-        }
-        let got = shifted_links(&fits, &token_word);
-        assert!(got[..first].iter().all(|&s| !s), "a right verse is left alone");
-        assert_eq!(&got[first..], [false, true, true, true, true]);
+        let right = fits.len();
+        // Numbered one word late from its second link on.
+        let late = verse(21, &[2, 0, 3, 0, 1], &[(&[2], &[1]), (&[0], &[3]), (&[3], &[4]), (&[0], &[5]), (&[1], &[6])], &mut fits);
+        // The same, with a comma (not a word) after "riches": offsets count
+        // words, so the link that skips it is one word off like the rest.
+        const COMMA: u32 = u32::MAX;
+        let comma = verse(22, &[2, 0, 3, COMMA, 0, 1], &[(&[2], &[1]), (&[0], &[3]), (&[3], &[5]), (&[0], &[6]), (&[1], &[7])], &mut fits);
+        // "the river, the far far bank", its last link holding the article,
+        // "bank" and "river" (as in Daniel 12:5): right where it is, though
+        // the article fits the "the" three words before far better than
+        // "bank" fits Strong's 5.
+        let bank = verse(23, &[4, 6, COMMA, 4, 8, 8, 5], &[(&[4, 6], &[1, 2]), (&[4, 5, 6], &[7])], &mut fits);
+        let got = shifted_links(&fits, &token_word, &small);
+        assert!(got[..right].iter().all(|&s| !s), "a right verse is left alone");
+        assert_eq!(&got[late..comma], [false, true, true, true, true]);
+        assert_eq!(&got[comma..bank], [false, true, true, true, true]);
+        assert_eq!(&got[bank..], [false, false]);
     }
 }
