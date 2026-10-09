@@ -107,16 +107,16 @@ pub fn run(out: &Path) -> Result<(), String> {
         r.check(!theme_verses(id).contains(&d.resolve(verse)?.0), format!("theme {id} leaves out {verse}"));
     }
     for (id, verses) in [
-        ("passover", ["Exod 12:11", "1 Cor 5:7"]),
-        ("redeemer", ["Job 19:25", "Mark 10:45"]),
-        ("atonement", ["Lev 16:30", "Rom 3:25"]),
-        ("anointed", ["Ps 2:2", "John 1:41"]),
-        ("sabbath", ["Exod 20:8", "Heb 4:9"]),
-        ("kingdom", ["Dan 2:44", "Matt 6:10"]),
-        ("firstborn", ["Exod 4:22", "Col 1:15"]),
+        ("passover", &["Exod 12:11", "1 Cor 5:7"][..]),
+        ("redeemer", &["Job 19:25", "Mark 10:45"]),
+        ("atonement", &["Lev 16:30", "Lev 23:27", "Rom 3:25", "Heb 2:17"]),
+        ("anointed", &["Ps 2:2", "John 1:41"]),
+        ("sabbath", &["Exod 20:8", "Lev 23:32", "Heb 4:4", "Heb 4:9"]),
+        ("kingdom", &["Dan 2:44", "Matt 6:10"]),
+        ("firstborn", &["Exod 4:22", "Col 1:15"]),
     ] {
         let lit = theme_verses(id);
-        for verse in verses {
+        for &verse in verses {
             r.check(lit.contains(&d.resolve(verse)?.0), format!("theme {id} includes {verse}"));
         }
     }
