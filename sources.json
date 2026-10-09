@@ -49,6 +49,28 @@
       "files": { "bsb": "formats/json/BSB.json" }
     },
     {
+      "id": "kjv",
+      "title": "King James Version (1769)",
+      "provides": "English text used only by search, so a verse typed in King James wording is found. Never shown.",
+      "license": "Public domain",
+      "attribution": "King James Version (1769), public domain",
+      "homepage": "https://github.com/scrollmapper/bible_databases",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "kjv": "formats/json/KJV.json" }
+    },
+    {
+      "id": "asv",
+      "title": "American Standard Version (1901)",
+      "provides": "English text used only by search, so a verse typed in the wording of the ASV or the modern translations built on it is found. Never shown.",
+      "license": "Public domain",
+      "attribution": "American Standard Version (1901), public domain",
+      "homepage": "https://github.com/scrollmapper/bible_databases",
+      "repo": "https://github.com/scrollmapper/bible_databases",
+      "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
+      "files": { "asv": "formats/json/ASV.json" }
+    },
+    {
       "id": "openbible-geo",
       "title": "OpenBible.info Bible Geocoding Data",
       "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",

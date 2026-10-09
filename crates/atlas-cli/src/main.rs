@@ -28,6 +28,7 @@ mod loaded;
 mod lxx;
 mod parse;
 mod query;
+mod extra_translations;
 mod sources;
 mod verify;
 mod world;
