@@ -1,118 +1,1088 @@
 // Book-to-book wheel: all 66 books around a circle (arc length = number of
 // verses), with ribbons sized by how many cross-references join each pair.
+//
+// It answers one question: what do these two books say to each other? Tap a
+// ribbon for the verse pairs that join two books, or a book for its most
+// connected verses and closest partners. The selected verse's book glows, and
+// its own links are drawn as gold chords.
 
-import { useMemo, useRef, useState, useEffect } from 'preact/hooks';
-import type { Atlas } from '../data/atlas';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { type Atlas, label, shortName } from '../data/atlas';
+import { deepen } from '../depth';
 import * as S from '../state';
-import { ARC, GENRE } from './colors';
+import { ARC, GENRE, GENRE_IDS } from './colors';
+import { BookCard, CROSS, PairCard, TOP_PAIRS, bookEnd, bookFacts, pairTotal } from './WheelCards';
+import './wheel.css';
 
 const GAP = 0.006;
-const TOP_PAIRS = 420;
+/** The selected verse's strongest links drawn as chords, as on the arc map. */
+const MAX_CHORDS = 60;
+/**
+ * At or below this width the card is a sheet under the wheel instead of a card beside it.
+ * It matches styles.css @media (max-width: 900px), where the app stacks the reader and study.
+ */
+const PHONE = 900;
+/** A phone sheet needs this much room under the map; with less (a phone on its side) it covers the map. */
+const SHEET_MIN = 200;
+/** Room the key needs in the wheel's left corners. */
+const KEY_W = 190;
+/** A narrow map at least this much wider than tall puts its caption beside the wheel, not above it. */
+const SIDE_CAPTION = 220;
+/** Book-label font size, in px. */
+const FONT = 10;
+/** Labels sit this far out from the ribbons' rim. */
+const LABEL_OUT = 14;
+/** How far a label may slide past its book's edge to make room (radians). */
+const LABEL_TOL = 0.3 * Math.PI * 2 * GAP;
+const ENTER_KEY = 'atlas.wheelEntrance';
+const TAU = Math.PI * 2;
+
+const fmt = (n: number) => n.toLocaleString('en-US');
+
+// ------------------------------------------------------------------ geometry
 
 interface Seg {
   a0: number;
   a1: number;
 }
+interface Pair {
+  i: number;
+  j: number;
+  n: number;
+}
+interface Geo {
+  books: Seg[];
+  /** The strongest book pairs, strongest first: one ribbon each. */
+  top: Pair[];
+  /** Each ribbon's two ends: on book i, then on book j. */
+  ends: [Seg, Seg][];
+  max: number;
+  /** Ribbons touching each book. */
+  byBook: number[][];
+  /** Ribbon index by book pair (i * B + j, i < j). */
+  index: Map<number, number>;
+  /** Books from longest to shortest: who keeps a label when space runs out. */
+  byLength: number[];
+}
+
+function geometry(a: Atlas): Geo {
+  const B = a.books.length;
+  const usable = TAU * (1 - GAP * B);
+  const books: Seg[] = [];
+  let ang = -Math.PI / 2;
+  for (let i = 0; i < B; i++) {
+    const span = (usable * (bookEnd(a, i) - a.books[i].start)) / a.n;
+    books.push({ a0: ang, a1: ang + span });
+    ang += span + TAU * GAP;
+  }
+  // Symmetric flows between distinct books.
+  const pairs: Pair[] = [];
+  for (let i = 0; i < B; i++)
+    for (let j = i + 1; j < B; j++) {
+      const n = pairTotal(a, i, j);
+      if (n) pairs.push({ i, j, n });
+    }
+  pairs.sort((x, y) => y.n - x.n || x.i - y.i || x.j - y.j);
+  const top = pairs.slice(0, TOP_PAIRS);
+  // Each book's arc is shared among its ribbons, in order around the circle.
+  const perBook: { k: number; other: number }[][] = Array.from({ length: B }, () => []);
+  top.forEach((p, k) => {
+    perBook[p.i].push({ k, other: p.j });
+    perBook[p.j].push({ k, other: p.i });
+  });
+  const ends: [Seg, Seg][] = top.map(() => [
+    { a0: 0, a1: 0 },
+    { a0: 0, a1: 0 },
+  ]);
+  for (let i = 0; i < B; i++) {
+    const list = perBook[i].sort((x, y) => ((x.other - i + B) % B) - ((y.other - i + B) % B));
+    const sum = list.reduce((s, x) => s + top[x.k].n, 0);
+    let at = books[i].a0;
+    for (const x of list) {
+      const span = ((books[i].a1 - books[i].a0) * top[x.k].n) / sum;
+      ends[x.k][top[x.k].i === i ? 0 : 1] = { a0: at, a1: at + span };
+      at += span;
+    }
+  }
+  const index = new Map<number, number>();
+  top.forEach((p, k) => index.set(p.i * B + p.j, k));
+  const byLength = [...Array(B).keys()].sort((x, y) => bookEnd(a, y) - a.books[y].start - (bookEnd(a, x) - a.books[x].start) || x - y);
+  return { books, top, ends, max: top[0]?.n ?? 1, byBook: perBook.map((l) => l.map((x) => x.k)), index, byLength };
+}
+
+/** Where a verse sits on the circle. */
+function verseAngle(a: Atlas, geo: Geo, v: number): number {
+  const b = a.verseBook[v];
+  const s = geo.books[b];
+  const start = a.books[b].start;
+  return s.a0 + ((v - start + 0.5) / (bookEnd(a, b) - start)) * (s.a1 - s.a0);
+}
+
+/** A chord between two angles on the rim: through the middle when far apart, hugging the rim when close. */
+function chord(c: number, r: number, p: number, q: number): string {
+  let d = (q - p) % TAU;
+  if (d > Math.PI) d -= TAU;
+  if (d < -Math.PI) d += TAU;
+  const k = 0.82 * (1 - Math.abs(d) / Math.PI) ** 2;
+  const m = p + d / 2;
+  const at = (ang: number) => `${(c + Math.cos(ang) * r).toFixed(1)},${(c + Math.sin(ang) * r).toFixed(1)}`;
+  return `M${at(p)} Q${(c + Math.cos(m) * r * k).toFixed(1)},${(c + Math.sin(m) * r * k).toFixed(1)} ${at(q)}`;
+}
+
+/**
+ * The book whose stretch of rim an angle falls in: inside a book's arc, that book; in the gap
+ * between books, the one whose middle is nearest, which favors the small books beside a gap.
+ * Lets a tap near a small book, not only exactly on it, find it.
+ */
+function bookAtAngle(geo: Geo, ang: number): number {
+  let t = ang;
+  while (t < -Math.PI / 2) t += TAU;
+  while (t >= (3 * Math.PI) / 2) t -= TAU;
+  const inside = geo.books.findIndex((g) => t >= g.a0 && t <= g.a1);
+  if (inside >= 0) return inside;
+  const off = (d: number) => Math.min(Math.abs(d), TAU - Math.abs(d));
+  let best = 0;
+  let bestD = Infinity;
+  geo.books.forEach((g, i) => {
+    const d = off(t - (g.a0 + g.a1) / 2);
+    if (d < bestD) {
+      bestD = d;
+      best = i;
+    }
+  });
+  return best;
+}
+
+/** A verse's strongest positively voted links (both directions, one per verse), as AtlasMap picks them. */
+function verseLinks(a: Atlas, v: number, limit = MAX_CHORDS): { u: number; votes: number }[] {
+  const list: { u: number; votes: number }[] = [];
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xVotes[e] > 0) list.push({ u: a.xDst[e], votes: a.xVotes[e] });
+  for (let i = a.xInOff[v]; i < a.xInOff[v + 1]; i++) {
+    const e = a.xInEdge[i];
+    if (a.xVotes[e] > 0) list.push({ u: a.xSrc[e], votes: a.xVotes[e] });
+  }
+  list.sort((x, y) => y.votes - x.votes || x.u - y.u);
+  const seen = new Set<number>();
+  const out: { u: number; votes: number }[] = [];
+  for (const l of list) {
+    if (l.u === v || seen.has(l.u)) continue;
+    seen.add(l.u);
+    out.push(l);
+    if (out.length >= limit) break;
+  }
+  return out;
+}
+
+// ------------------------------------------------------------------ labels
+
+let measureCtx: CanvasRenderingContext2D | null | undefined;
+const widths = new Map<string, number>();
+
+function textWidth(s: string): number {
+  let w = widths.get(s);
+  if (w === undefined) {
+    if (measureCtx === undefined) {
+      try {
+        measureCtx = document.createElement('canvas').getContext('2d');
+      } catch {
+        measureCtx = null;
+      }
+    }
+    if (measureCtx) {
+      measureCtx.font = `400 ${FONT}px "Instrument Sans", system-ui, sans-serif`;
+      w = measureCtx.measureText(s).width;
+    } else {
+      w = s.length * FONT * 0.58;
+    }
+    widths.set(s, w);
+  }
+  return w;
+}
+
+/**
+ * Label angles, keeping neighbors at least `gap` apart so no two labels touch.
+ * Labels sweep clockwise and may slide a little past their book's edge; any
+ * label that cannot fit is left out. Books earlier in `order` win.
+ */
+function placeLabels(books: Seg[], order: number[], forced: Set<number>, gap: number): Map<number, number> {
+  const sweep = (set: Set<number>) => {
+    const ids = [...set].sort((x, y) => x - y);
+    const pos = new Map<number, number>();
+    let prev = -Infinity;
+    for (const i of ids) {
+      const s = books[i];
+      const tol = forced.has(i) ? Math.max(LABEL_TOL, gap) : LABEL_TOL;
+      const p = Math.max((s.a0 + s.a1) / 2, prev + gap);
+      if (p > s.a1 + tol) return null;
+      pos.set(i, p);
+      prev = p;
+    }
+    if (ids.length > 1 && pos.get(ids[0])! + TAU - pos.get(ids[ids.length - 1])! < gap) return null;
+    return pos;
+  };
+  const chosen = new Set<number>();
+  let best = new Map<number, number>();
+  for (const i of order) {
+    if (chosen.has(i)) continue;
+    chosen.add(i);
+    const p = sweep(chosen);
+    if (p) best = p;
+    else chosen.delete(i);
+  }
+  return best;
+}
+
+// ------------------------------------------------------------------ layout
+
+interface Box {
+  W: number;
+  H: number;
+  /** The map's top and bottom on screen, and the screen's height: where a phone sheet docks. */
+  top: number;
+  bottom: number;
+  vh: number;
+}
+interface Frame {
+  /** The app's stacked layout (narrow screens): the card is a sheet over the reader and the key folds into a pill. */
+  phone: boolean;
+  /** The caption runs centered across the top. Otherwise it sits in the top-left corner, beside the wheel. */
+  capTop: boolean;
+  /** SVG square: side, top-left corner, and the slide that makes room for a card. */
+  s: number;
+  x: number;
+  y: number;
+  dx: number;
+  /** Ribbon radius. */
+  r: number;
+  capH: number;
+  /** The caption's width when it sits in the corner. */
+  capW: number;
+  cardW: number;
+  /** A card is open and the wheel has slid into the corners the caption and key use: they step aside until it closes. */
+  crowd: boolean;
+  /** Where labels may run, in root coordinates. */
+  free: { x0: number; x1: number; y0: number; y1: number };
+}
+
+/** Room around the ribbons for labels: 15% of the wheel, 40 to 60 px, but never more than a tiny wheel can spare. */
+const marginFor = (s: number) => Math.min(60, Math.max(40, 0.15 * s), s / 2 - 16);
+
+/**
+ * The wheel's layout in a map of W x H. `labelMax` is the widest book name, so the caption and
+ * key can keep clear of the farthest a label can reach.
+ */
+function frame({ W, H }: Box, card: boolean, labelMax: number): Frame {
+  const phone = W <= PHONE;
+  /** The leftmost any label can reach, for a wheel centered at cx with ribbon radius r. */
+  const labelsLeft = (cx: number, r: number) => cx - (r + LABEL_OUT + labelMax + 2);
+  if (phone) {
+    // A phone on its side has a wide, short map: the wheel takes the full height and the caption sits beside it.
+    const capTop = W - H < 2 * SIDE_CAPTION;
+    const capH = capTop ? 36 : 0;
+    const s = Math.max(64, Math.min(W - 8, H - capH - (capTop ? 2 : 4)));
+    const x = (W - s) / 2;
+    const y = capTop ? capH + Math.max(0, (H - capH - s) / 2) : (H - s) / 2;
+    const r = s / 2 - marginFor(s);
+    const capW = Math.max(120, Math.min(360, labelsLeft(W / 2, r) - 24));
+    return { phone, capTop, s, x, y, dx: 0, r, capH, capW, cardW: W, crowd: false, free: { x0: 2, x1: W - 2, y0: capH + 2, y1: H - 2 } };
+  }
+  const s = Math.max(200, Math.min(W, H));
+  const r = s / 2 - marginFor(s);
+  const x = (W - s) / 2;
+  const cardW = Math.round(Math.min(460, Math.max(300, (W - s) / 2 - 24)));
+  let dx = 0;
+  let x1 = W - 4;
+  let crowd = false;
+  if (card) {
+    // Slide the wheel left only as far as its right-hand labels need room beside the card.
+    const left = W - 16 - cardW;
+    dx = Math.max(Math.min(0, left - 12 - (x + s / 2 + r + LABEL_OUT + 64)), 4 - x);
+    x1 = left - 8;
+    // On narrower screens that slide reaches the corners where the caption and key sit (tablets, small windows).
+    crowd = labelsLeft(x + dx + s / 2, r) < 16 + KEY_W + 12;
+  }
+  const capW = Math.max(170, Math.min(420, labelsLeft(x + dx + s / 2, r) - 28));
+  return { phone, capTop: false, s, x, y: (H - s) / 2, dx, r, capH: 0, capW, cardW, crowd, free: { x0: 4, x1, y0: 4, y1: H - 4 } };
+}
+
+/**
+ * How far a label may run from the wheel's center along angle `ang` and stay in the free area.
+ * A label is a box along that line, so its corners stand out sideways by up to half its height.
+ */
+function reach(f: Frame, ang: number, half = FONT * 0.65): number {
+  const cx = f.x + f.dx + f.s / 2;
+  const cy = f.y + f.s / 2;
+  const c = Math.cos(ang);
+  const s = Math.sin(ang);
+  const ex = half * Math.abs(s);
+  const ey = half * Math.abs(c);
+  let t = Infinity;
+  if (c > 1e-6) t = Math.min(t, (f.free.x1 - ex - cx) / c);
+  if (c < -1e-6) t = Math.min(t, (f.free.x0 + ex - cx) / c);
+  if (s > 1e-6) t = Math.min(t, (f.free.y1 - ey - cy) / s);
+  if (s < -1e-6) t = Math.min(t, (f.free.y0 + ey - cy) / s);
+  return t;
+}
+
+// ------------------------------------------------------------------ entrance
+
+let enteredThisVisit = false;
+
+/** The ribbons grow in once per session, never under reduced motion. */
+function shouldEnter(): boolean {
+  if (enteredThisVisit) return false;
+  enteredThisVisit = true;
+  if (typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+  try {
+    if (sessionStorage.getItem(ENTER_KEY)) return false;
+    sessionStorage.setItem(ENTER_KEY, '1');
+  } catch {
+    // Storage blocked: the flag above still keeps it to once per visit.
+  }
+  return true;
+}
+
+/** Focus that came from the keyboard (or a script after keyboard use), not from a click or tap. */
+function keyboardFocus(el: Element): boolean {
+  try {
+    return el.matches(':focus-visible');
+  } catch {
+    return true;
+  }
+}
+
+// ------------------------------------------------------------------ component
+
+type Hot = { kind: 'rib'; k: number } | { kind: 'book'; i: number } | null;
+type Card = { kind: 'pair'; i: number; j: number } | { kind: 'book'; i: number } | null;
+type Preview = { a: number; b?: number } | null;
+
+const CARD_TITLE = 'wh-card-title';
 
 export function Wheel({ a }: { a: Atlas }) {
-  const box = useRef<HTMLDivElement>(null);
-  const [size, setSize] = useState(300);
-  const [hot, setHot] = useState<number | null>(null);
-  useEffect(() => {
-    const el = box.current;
+  const root = useRef<HTMLDivElement>(null);
+  const [box, setBox] = useState<Box | null>(null);
+  const [hot, setHot] = useState<Hot>(null);
+  const [card, setCard] = useState<Card>(null);
+  const [preview, setPreview] = useState<Preview>(null);
+  const [focusK, setFocusK] = useState(0);
+  const [focusBook, setFocusBook] = useState<number | null>(null);
+  const [entering, setEntering] = useState(false);
+  const [fontsV, setFontsV] = useState(0);
+  const enterChecked = useRef(false);
+  /** The ribbon or book that opened the card from the keyboard, to return focus to. */
+  const opener = useRef<Element | null>(null);
+  /** Move focus into the card after the next render (keyboard opening). */
+  const focusCard = useRef(false);
+  /** When a touch last opened a card on lifting the finger; the click that follows is ignored. */
+  const touchOpened = useRef(0);
+  /** The highlight came from keyboard focus, so losing focus clears it. */
+  const focusLit = useRef(false);
+  /** The last press began on empty sky: only then may its click close the card (a text drag out of the card must not). */
+  const downOnSky = useRef(false);
+  /** A book card's "previous" or "next" button was used: keep focus on it in the next card. */
+  const stepFocus = useRef<'prev' | 'next' | null>(null);
+  /** A finger (or pointer) dragging the phone sheet down by its header. */
+  const drag = useRef<{ id: number; y0: number; dy: number } | null>(null);
+  const svgEl = useRef<SVGSVGElement>(null);
+  const sel = S.selected.value;
+
+  useLayoutEffect(() => {
+    const el = root.current;
     if (!el) return;
-    const ro = new ResizeObserver(() => setSize(Math.max(200, Math.min(el.clientWidth, el.clientHeight))));
+    const measure = () => {
+      const rc = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      setBox((b) =>
+        b && b.W === rc.width && b.H === rc.height && b.top === rc.top && b.bottom === rc.bottom && b.vh === vh ? b : { W: rc.width, H: rc.height, top: rc.top, bottom: rc.bottom, vh },
+      );
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
     ro.observe(el);
-    return () => ro.disconnect();
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
   }, []);
 
-  const B = a.books.length;
-  const layout = useMemo(() => {
-    const total = a.n;
-    const usable = Math.PI * 2 * (1 - GAP * B);
-    const books: Seg[] = [];
-    let ang = -Math.PI / 2;
-    for (let i = 0; i < B; i++) {
-      const verses = (i + 1 < B ? a.books[i + 1].start : a.n) - a.books[i].start;
-      const span = (usable * verses) / total;
-      books.push({ a0: ang, a1: ang + span });
-      ang += span + Math.PI * 2 * GAP;
-    }
-    // Symmetric flows between distinct books.
-    const pairs: { i: number; j: number; n: number }[] = [];
-    for (let i = 0; i < B; i++)
-      for (let j = i + 1; j < B; j++) {
-        const n = a.bookFlow[i * B + j] + a.bookFlow[j * B + i];
-        if (n) pairs.push({ i, j, n });
-      }
-    pairs.sort((x, y) => y.n - x.n);
-    const top = pairs.slice(0, TOP_PAIRS);
-    // Each book's arc is shared among its ribbons, in order around the circle.
-    const perBook: { k: number; other: number }[][] = Array.from({ length: B }, () => []);
-    top.forEach((p, k) => {
-      perBook[p.i].push({ k, other: p.j });
-      perBook[p.j].push({ k, other: p.i });
+  // Label widths are measured with the UI font; measure again once it has loaded.
+  useEffect(() => {
+    let live = true;
+    document.fonts?.ready.then(() => {
+      if (!live) return;
+      widths.clear();
+      setFontsV((v) => v + 1);
     });
-    const ends = new Map<string, Seg>();
-    for (let i = 0; i < B; i++) {
-      const list = perBook[i].sort((x, y) => ((x.other - i + B) % B) - ((y.other - i + B) % B));
-      const sum = list.reduce((s, x) => s + top[x.k].n, 0);
-      let at = books[i].a0;
-      for (const x of list) {
-        const span = ((books[i].a1 - books[i].a0) * top[x.k].n) / sum;
-        ends.set(`${x.k}:${i}`, { a0: at, a1: at + span });
-        at += span;
-      }
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  // The entrance: decided before the first paint, so the wheel never flashes in whole first.
+  useLayoutEffect(() => {
+    if (!box || enterChecked.current) return;
+    enterChecked.current = true;
+    if (shouldEnter()) setEntering(true);
+  }, [box]);
+  useEffect(() => {
+    if (!entering) return;
+    const t = setTimeout(() => setEntering(false), 1200);
+    return () => clearTimeout(t);
+  }, [entering]);
+
+  // Esc closes the card first; a second Esc reaches the app and clears the selection.
+  // Listening from mount (not from when a card opens) leaves no moment where Esc misses an open card.
+  const cardNow = useRef<Card>(null);
+  cardNow.current = card;
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || !cardNow.current || S.paletteOpen.peek()) return;
+      e.stopPropagation();
+      e.preventDefault();
+      closeCard();
+    };
+    window.addEventListener('keydown', onKey, true);
+    return () => window.removeEventListener('keydown', onKey, true);
+  }, []);
+
+  // Keyboard openings move focus into the card; swapping cards keeps it there. Done right
+  // after the card renders, so a fast next key press lands where the user expects.
+  useLayoutEffect(() => {
+    if (!card) return;
+    const active = document.activeElement;
+    const step = stepFocus.current;
+    stepFocus.current = null;
+    const stepBtn = step ? root.current?.querySelector<HTMLElement>(`.wh-step-${step}`) : null;
+    if (stepBtn && (!active || active === document.body)) stepBtn.focus();
+    else if (focusCard.current || !active || active === document.body) root.current?.querySelector<HTMLElement>(`#${CARD_TITLE}`)?.focus();
+    focusCard.current = false;
+  }, [card]);
+
+  const geo = useMemo(() => geometry(a), [a]);
+  const B = a.books.length;
+  const labelMax = useMemo(() => Math.max(...a.books.map((b) => textWidth(b.name))), [a, fontsV]);
+  const f = box ? frame(box, card !== null, labelMax) : null;
+
+  const openCard = (next: Card, from: Element | null, viaKeyboard: boolean) => {
+    opener.current = viaKeyboard ? from : null;
+    focusCard.current = viaKeyboard;
+    setPreview(null);
+    setCard(next);
+  };
+  // Uses only refs and state setters, so the Esc listener set up at mount can call it.
+  const closeCard = () => {
+    const back = opener.current;
+    opener.current = null;
+    setCard(null);
+    setPreview(null);
+    if (back && back.isConnected) (back as SVGElement).focus();
+  };
+  const openPair = (k: number, from: Element | null = null, viaKeyboard = false) => {
+    const p = geo.top[k];
+    if (p) openCard({ kind: 'pair', i: p.i, j: p.j }, from, viaKeyboard);
+  };
+  const openBook = (i: number, from: Element | null = null, viaKeyboard = false) => openCard({ kind: 'book', i }, from, viaKeyboard);
+
+  // --- what is lit -------------------------------------------------------
+  const lit: number[] = useMemo(() => {
+    if (hot?.kind === 'rib') return [hot.k];
+    if (hot?.kind === 'book') return geo.byBook[hot.i];
+    if (card?.kind === 'pair') {
+      const k = geo.index.get(Math.min(card.i, card.j) * B + Math.max(card.i, card.j));
+      return k === undefined ? [] : [k];
     }
-    const max = top[0]?.n ?? 1;
-    return { books, top, ends, max };
-  }, [a]);
+    if (card?.kind === 'book') return geo.byBook[card.i];
+    return [];
+  }, [geo, hot, card, B]);
 
-  const r = size / 2 - 58;
-  const c = size / 2;
+  const litBooks = new Set<number>();
+  if (hot?.kind === 'rib') {
+    litBooks.add(geo.top[hot.k].i);
+    litBooks.add(geo.top[hot.k].j);
+  } else if (hot?.kind === 'book') litBooks.add(hot.i);
+  else if (card?.kind === 'pair') {
+    litBooks.add(card.i);
+    litBooks.add(card.j);
+  } else if (card?.kind === 'book') litBooks.add(card.i);
+  const selBook = sel !== null ? a.verseBook[sel] : null;
+  const focusing = hot !== null || card !== null;
+
+  // Gold chords: the card's pointed-at verse, or else the selected verse.
+  const chordFrom = preview && preview.b === undefined ? preview.a : sel;
+  const chords = useMemo(() => (chordFrom === null ? [] : verseLinks(a, chordFrom)), [a, chordFrom]);
+
+  // --- layers --------------------------------------------------------------
+  const s = f?.s ?? 0;
+  const r = f?.r ?? 0;
+  const c = s / 2;
   const pt = (ang: number, rad = r) => `${(c + Math.cos(ang) * rad).toFixed(1)},${(c + Math.sin(ang) * rad).toFixed(1)}`;
-  const ntStart = a.books.findIndex((b) => b.testament === 'NT');
+  const ntStart = useMemo(() => a.books.findIndex((b) => b.testament === 'NT'), [a]);
 
-  const ribbons = layout.top.map((p, k) => {
-    const s = layout.ends.get(`${k}:${p.i}`)!;
-    const t = layout.ends.get(`${k}:${p.j}`)!;
-    const d = `M${pt(s.a0)} A${r},${r} 0 0 1 ${pt(s.a1)} Q${c},${c} ${pt(t.a0)} A${r},${r} 0 0 1 ${pt(t.a1)} Q${c},${c} ${pt(s.a0)}Z`;
-    const cross = p.i < ntStart !== p.j < ntStart;
-    const lit = hot === null || hot === p.i || hot === p.j;
-    const color = cross ? ARC.testaments : GENRE[a.books[p.i].genre].color;
-    return <path key={k} class="ribbon" d={d} fill={color} opacity={lit ? 0.18 + 0.6 * (p.n / layout.max) : 0.03} />;
-  });
+  const paths = useMemo(
+    () =>
+      geo.top.map((_, k) => {
+        const [p, q] = geo.ends[k];
+        return `M${pt(p.a0)} A${r},${r} 0 0 1 ${pt(p.a1)} Q${c},${c} ${pt(q.a0)} A${r},${r} 0 0 1 ${pt(q.a1)} Q${c},${c} ${pt(p.a0)}Z`;
+      }),
+    [geo, s, r],
+  );
+  const colors = useMemo(() => geo.top.map((p) => (p.i < ntStart !== p.j < ntStart ? CROSS : GENRE[a.books[p.i].genre].color)), [geo, a, ntStart]);
 
-  const labels = layout.books.map((s, i) => {
-    const mid = (s.a0 + s.a1) / 2;
-    const deg = (mid * 180) / Math.PI;
-    const flip = deg > 90 && deg < 270;
-    const name = s.a1 - s.a0 > 0.035 ? a.books[i].name : a.books[i].osis;
-    return (
-      <g key={i} onPointerEnter={() => setHot(i)} onPointerLeave={() => setHot(null)} onClick={() => (S.reading.value = { book: i, chapter: 1 })} style="cursor:pointer">
-        <path d={`M${pt(s.a0, r + 2)} A${r + 2},${r + 2} 0 0 1 ${pt(s.a1, r + 2)} L${pt(s.a1, r + 9)} A${r + 9},${r + 9} 0 0 0 ${pt(s.a0, r + 9)}Z`} fill={GENRE[a.books[i].genre].color} opacity={hot === null || hot === i ? 1 : 0.4} />
-        <text class={`booklabel${hot === i ? ' on' : ''}`} transform={`translate(${pt(mid, r + 14)}) rotate(${flip ? deg + 180 : deg})`} text-anchor={flip ? 'end' : 'start'} dominant-baseline="middle" style="font-size:10px">
-          {name}
-        </text>
+  const ribbons = useMemo(
+    () =>
+      paths.map((d, k) => (
+        <path key={k} class="wh-rib" d={d} fill={colors[k]} opacity={(0.18 + 0.6 * (geo.top[k].n / geo.max)).toFixed(3)} style={`--d:${Math.round((380 * k) / Math.max(1, paths.length - 1))}ms`} />
+      )),
+    [paths, colors, geo],
+  );
+
+  const names = useMemo(() => geo.top.map((p) => `${a.books[p.i].name} and ${a.books[p.j].name}: ${fmt(p.n)} links`), [geo, a]);
+  // Hit areas: wider than the ribbons, strongest on top so a tap in the crowded middle finds the big ones.
+  const hits = useMemo(
+    () =>
+      paths
+        .map((d, k) => <path key={k} class="wh-hit" d={d} data-k={k} role="button" aria-label={names[k]} tabindex={k === focusK ? 0 : -1} />)
+        .reverse(),
+    [paths, names, focusK],
+  );
+
+  // Threads: a focused book's strongest partners that have no ribbon of their own
+  // (small books like Obadiah or Jude), or an opened pair too small for a ribbon.
+  const threadKey = hot?.kind === 'book' ? `b${hot.i}` : hot?.kind === 'rib' ? '' : card?.kind === 'book' ? `b${card.i}` : card?.kind === 'pair' ? `p${card.i}-${card.j}` : '';
+  const threads = useMemo(() => {
+    const out: { i: number; j: number; n: number }[] = [];
+    const has = (i: number, j: number) => geo.index.has(Math.min(i, j) * B + Math.max(i, j));
+    if (threadKey[0] === 'b') {
+      const i = Number(threadKey.slice(1));
+      for (const p of bookFacts(a, i, 0, 5).partners) if (!has(i, p.j)) out.push({ i, j: p.j, n: p.n });
+    } else if (threadKey[0] === 'p') {
+      const [i, j] = threadKey.slice(1).split('-').map(Number);
+      if (!has(i, j)) out.push({ i, j, n: pairTotal(a, i, j) });
+    }
+    return out;
+  }, [a, geo, B, threadKey]);
+  for (const t of threads) {
+    litBooks.add(t.i);
+    litBooks.add(t.j);
+  }
+  const threadEls = f
+    ? threads.map((t) => {
+        const p = (geo.books[t.i].a0 + geo.books[t.i].a1) / 2;
+        const q = (geo.books[t.j].a0 + geo.books[t.j].a1) / 2;
+        const [lo, hi] = t.i < t.j ? [t.i, t.j] : [t.j, t.i];
+        const color = (lo < ntStart) !== (hi < ntStart) ? CROSS : GENRE[a.books[lo].genre].color;
+        return (
+          <path
+            key={`${t.i}-${t.j}`}
+            class="wh-thread"
+            d={chord(c, r, p, q)}
+            stroke={color}
+            stroke-width={(1.2 + 2.2 * Math.sqrt(t.n / Math.max(1, threads[0].n))).toFixed(2)}
+            data-pair={`${lo}-${hi}`}
+          >
+            <title>{`${a.books[lo].name} and ${a.books[hi].name}: ${fmt(t.n)} links`}</title>
+          </path>
+        );
+      })
+    : null;
+
+  // One ribbon pointed at shines fully; a book's many ribbons keep their relative strengths.
+  const highlight = lit.map((k) => (
+    <path key={k} class="wh-hl" d={paths[k]} fill={colors[k]} stroke={colors[k]} opacity={lit.length === 1 ? 0.95 : (0.42 + 0.58 * (geo.top[k].n / geo.max)).toFixed(3)} />
+  ));
+
+  const chordEls = useMemo(() => {
+    if (!f || chordFrom === null || !chords.length) return null;
+    const p0 = verseAngle(a, geo, chordFrom);
+    const max = chords[0].votes;
+    const els = chords.map((l, n) => {
+      const q = verseAngle(a, geo, l.u);
+      const w = Math.sqrt(l.votes / max);
+      return (
+        <g key={`${chordFrom}:${l.u}`}>
+          <path
+            class="wh-chord"
+            pathLength={1}
+            d={chord(c, r, p0, q)}
+            stroke={ARC.lamp}
+            stroke-width={(0.8 + 1.5 * w).toFixed(2)}
+            opacity={(0.32 + 0.6 * w).toFixed(2)}
+            style={`--d:${Math.round(n * 9)}ms`}
+          />
+          <circle class="wh-end" cx={c + Math.cos(q) * (r - 1.5)} cy={c + Math.sin(q) * (r - 1.5)} r={1.6} fill={ARC.lamp} />
+        </g>
+      );
+    });
+    return els;
+  }, [a, geo, chords, chordFrom, s, r]);
+
+  // A verse pair pointed at in the card: one bright chord between its two verses.
+  let pairChord: preact.JSX.Element | null = null;
+  if (f && preview && preview.b !== undefined) {
+    const p = verseAngle(a, geo, preview.a);
+    const q = verseAngle(a, geo, preview.b);
+    pairChord = (
+      <g class="wh-pairchord">
+        <path d={chord(c, r, p, q)} />
+        <circle cx={c + Math.cos(p) * r} cy={c + Math.sin(p) * r} r={3} />
+        <circle cx={c + Math.cos(q) * r} cy={c + Math.sin(q) * r} r={3} />
       </g>
     );
-  });
-
-  let caption = 'Hover a book to see its strongest connections. Tap to open it.';
-  if (hot !== null) {
-    const partners = layout.top.filter((p) => p.i === hot || p.j === hot).slice(0, 3);
-    caption = `${a.books[hot].name}: most linked with ${partners.map((p) => `${a.books[p.i === hot ? p.j : p.i].name} (${p.n.toLocaleString()})`).join(', ')}`;
   }
 
+  // --- labels --------------------------------------------------------------
+  const forced = new Set<number>(litBooks);
+  if (selBook !== null) forced.add(selBook);
+  const forcedKey = [...forced].sort((x, y) => x - y).join(',');
+  const labelSpots = useMemo(() => {
+    if (!f) return new Map<number, { ang: number; text: string }>();
+    const R0 = r + LABEL_OUT;
+    // Neighbors stay a full label height (plus a hair) apart where labels start.
+    const gap = (FONT * 1.32) / R0;
+    const order = [...forced, ...geo.byLength.filter((i) => !forced.has(i))];
+    const pos = placeLabels(geo.books, order, forced, gap);
+    const out = new Map<number, { ang: number; text: string }>();
+    for (const [i, ang] of pos) {
+      const room = reach(f, ang) - R0 - 5;
+      const full = a.books[i].name;
+      const short = shortName(a.books[i]);
+      let text: string | null = null;
+      if (textWidth(full) <= room) text = full;
+      else if (textWidth(short) <= room || forced.has(i)) text = short;
+      if (text) out.set(i, { ang, text });
+    }
+    return out;
+  }, [a, geo, forcedKey, f?.s, f?.r, f?.x, f?.y, f?.dx, f?.free.x1, f?.free.y0, f?.free.y1, fontsV]);
+
+  const bookEls = f
+    ? geo.books.map((g, i) => {
+        const on = litBooks.has(i);
+        const isSel = i === selBook;
+        const spot = labelSpots.get(i);
+        let text: preact.JSX.Element | null = null;
+        if (spot) {
+          const deg = (spot.ang * 180) / Math.PI;
+          const flip = deg > 90 && deg < 270;
+          text = (
+            <text
+              class={`wh-label${on || forced.has(i) ? ' wh-on' : ''}${isSel ? ' wh-sel' : ''}`}
+              transform={`translate(${pt(spot.ang, r + LABEL_OUT)}) rotate(${(flip ? deg + 180 : deg).toFixed(2)})`}
+              text-anchor={flip ? 'end' : 'start'}
+              dominant-baseline="central"
+            >
+              {spot.text}
+            </text>
+          );
+        }
+        const book = a.books[i];
+        return (
+          <g
+            key={i}
+            class={`wh-book${on ? ' wh-on' : ''}${focusing && !on ? ' wh-off' : ''}`}
+            data-i={i}
+            role="button"
+            tabindex={i === (focusBook ?? selBook ?? 0) ? 0 : -1}
+            aria-label={`${book.name}: its most connected verses and the books it talks with`}
+          >
+            <path class="wh-bhit" d={`M${pt(g.a0, r + 1)} A${r + 1},${r + 1} 0 0 1 ${pt(g.a1, r + 1)} L${pt(g.a1, r + 13)} A${r + 13},${r + 13} 0 0 0 ${pt(g.a0, r + 13)}Z`} />
+            <path
+              class={`wh-arc${isSel ? ' wh-glow' : ''}`}
+              d={`M${pt(g.a0, r + 2)} A${r + 2},${r + 2} 0 0 1 ${pt(g.a1, r + 2)} L${pt(g.a1, r + 9)} A${r + 9},${r + 9} 0 0 0 ${pt(g.a0, r + 9)}Z`}
+              fill={GENRE[book.genre].color}
+            />
+            {text}
+          </g>
+        );
+      })
+    : null;
+
+  // The selected verse's place on its book.
+  let selMark: preact.JSX.Element | null = null;
+  if (f && sel !== null) {
+    const p = verseAngle(a, geo, sel);
+    selMark = (
+      <g class="wh-selmark" aria-hidden="true">
+        <circle cx={c + Math.cos(p) * (r + 5.5)} cy={c + Math.sin(p) * (r + 5.5)} r={6.5} class="wh-halo" />
+        <circle cx={c + Math.cos(p) * (r + 5.5)} cy={c + Math.sin(p) * (r + 5.5)} r={2.6} fill={ARC.lamp} />
+      </g>
+    );
+  }
+
+  // --- interaction -----------------------------------------------------------
+  // Pointer handling lives on the root, so a tap just outside the SVG's square (where long
+  // labels run) still finds its book. Events from the card and the key are theirs alone.
+  const ribbonOf = (t: EventTarget | null): { el: Element; k: number } | null => {
+    const el = (t as Element | null)?.closest?.('[data-k]');
+    return el ? { el, k: Number(el.getAttribute('data-k')) } : null;
+  };
+  const bookOf = (t: EventTarget | null): { el: Element; i: number } | null => {
+    const el = (t as Element | null)?.closest?.('[data-i]');
+    return el ? { el, i: Number(el.getAttribute('data-i')) } : null;
+  };
+  const inPanel = (t: EventTarget | null) => !!(t as Element | null)?.closest?.('.wh-card, .wh-legend');
+  const isSky = (t: EventTarget | null) => t === root.current || t === svgEl.current;
+  /** A point over the rim (the ring of book arcs and labels) but on no element: the book whose stretch of rim it is. */
+  const rimBook = (x: number, y: number): number | null => {
+    const el = svgEl.current;
+    if (!el || !f) return null;
+    const rc = el.getBoundingClientRect();
+    const px = x - (rc.left + rc.width / 2);
+    const py = y - (rc.top + rc.height / 2);
+    const d = Math.hypot(px, py);
+    if (d < f.r - 6 || d > f.r + LABEL_OUT + 60) return null;
+    return bookAtAngle(geo, Math.atan2(py, px));
+  };
+  type Hit = { kind: 'thread'; i: number; j: number } | { kind: 'rib'; k: number; el: Element } | { kind: 'book'; i: number; el: Element | null } | null;
+  const hitAt = (t: EventTarget | null, x: number, y: number): Hit => {
+    if (!t || inPanel(t)) return null;
+    const th = (t as Element).closest?.('[data-pair]');
+    if (th) {
+      const [i, j] = th.getAttribute('data-pair')!.split('-').map(Number);
+      return { kind: 'thread', i, j };
+    }
+    const rb = ribbonOf(t);
+    if (rb) return { kind: 'rib', ...rb };
+    const bk = bookOf(t);
+    if (bk) return { kind: 'book', ...bk };
+    const i = rimBook(x, y);
+    return i === null ? null : { kind: 'book', i, el: null };
+  };
+  const openHit = (h: NonNullable<Hit>, viaKeyboard: boolean) => {
+    if (h.kind === 'thread') openCard({ kind: 'pair', i: h.i, j: h.j }, null, false);
+    else if (h.kind === 'rib') openPair(h.k, h.el, viaKeyboard);
+    else openBook(h.i, h.el, viaKeyboard);
+  };
+
+  // Pointing lights what is under the pointer; along the rim that includes small books
+  // with no label, whose name then appears. A finger can scrub the rim to find one.
+  const pointAt = (e: PointerEvent) => {
+    const h = hitAt(e.target, e.clientX, e.clientY);
+    if (h?.kind === 'rib') return setHot((o) => (o?.kind === 'rib' && o.k === h.k ? o : { kind: 'rib', k: h.k }));
+    if (h?.kind === 'book') return setHot((o) => (o?.kind === 'book' && o.i === h.i ? o : { kind: 'book', i: h.i }));
+    setHot(null);
+  };
+  const onPointerDown = (e: PointerEvent) => {
+    downOnSky.current = isSky(e.target) && hitAt(e.target, e.clientX, e.clientY) === null;
+    // A finger can scrub across the wheel: let other ribbons see it pass.
+    if (e.pointerType === 'touch') {
+      const el = e.target as Element;
+      if (el.hasPointerCapture?.(e.pointerId)) el.releasePointerCapture(e.pointerId);
+    }
+  };
+  const onPointerUp = (e: PointerEvent) => {
+    if (e.pointerType !== 'touch') return;
+    const h = hitAt(document.elementFromPoint(e.clientX, e.clientY), e.clientX, e.clientY);
+    if (h) {
+      openHit(h, false);
+      touchOpened.current = performance.now();
+    }
+    setHot(null);
+  };
+  const onClick = (e: MouseEvent) => {
+    if (inPanel(e.target)) return;
+    // A tap was already handled when the finger lifted; its click can land on a neighbor.
+    if (performance.now() - touchOpened.current < 500) return;
+    const h = hitAt(e.target, e.clientX, e.clientY);
+    if (h) return openHit(h, e.detail === 0);
+    // A tap on empty sky closes the card, but only when the press began there too:
+    // selecting a verse's text and letting go just past the card must not close it.
+    if (card && isSky(e.target) && downOnSky.current) closeCard();
+  };
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    const rb = ribbonOf(e.target);
+    const bk = rb ? null : bookOf(e.target);
+    if (!rb && !bk) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (rb) openPair(rb.k, rb.el, true);
+      else if (bk) openBook(bk.i, bk.el, true);
+      return;
+    }
+    const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+    const count = rb ? geo.top.length : B;
+    const at = rb ? rb.k : bk!.i;
+    let next: number | null = null;
+    if (step !== undefined) next = (at + step + count) % count;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = count - 1;
+    if (next === null) return;
+    e.preventDefault();
+    if (rb) setFocusK(next);
+    else setFocusBook(next);
+    root.current?.querySelector<SVGElement>(rb ? `.wh-hit[data-k="${next}"]` : `.wh-book[data-i="${next}"]`)?.focus();
+  };
+  const onFocusIn = (e: FocusEvent) => {
+    const rb = ribbonOf(e.target);
+    const bk = rb ? null : bookOf(e.target);
+    if (rb) setFocusK(rb.k);
+    else if (bk) setFocusBook(bk.i);
+    else return;
+    // Keyboard focus lights what it lands on; a click or tap has already lit it by pointing.
+    if (!keyboardFocus(e.target as Element)) return;
+    focusLit.current = true;
+    setHot(rb ? { kind: 'rib', k: rb.k } : { kind: 'book', i: bk!.i });
+  };
+  const onFocusOut = () => {
+    if (!focusLit.current) return;
+    focusLit.current = false;
+    setHot(null);
+  };
+
+  const pick = (v: number) => {
+    S.selectVerse(v);
+    if (f?.phone) closeCard();
+  };
+
+  // The phone sheet can be pulled down by its header (or its grabber) to close it, by finger or pen.
+  // A mouse drag there selects text instead; the mouse has the close button and Esc.
+  const reduceMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const onSheetDown = (e: PointerEvent) => {
+    const t = e.target as Element;
+    if (e.pointerType === 'mouse' || e.button > 0 || !(t === e.currentTarget || (t.closest('.wh-head') && !t.closest('button, a')))) return;
+    drag.current = { id: e.pointerId, y0: e.clientY, dy: 0 };
+    (e.currentTarget as Element).setPointerCapture?.(e.pointerId);
+  };
+  const onSheetMove = (e: PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    d.dy = Math.max(0, e.clientY - d.y0);
+    const el = e.currentTarget as HTMLElement;
+    el.style.transition = 'none';
+    el.style.transform = d.dy ? `translateY(${d.dy.toFixed(0)}px)` : '';
+  };
+  const onSheetUp = (e: PointerEvent) => {
+    const d = drag.current;
+    if (!d || d.id !== e.pointerId) return;
+    drag.current = null;
+    const el = e.currentTarget as HTMLElement;
+    if (e.type === 'pointerup' && d.dy > 60) {
+      if (reduceMotion()) return closeCard();
+      el.style.transition = 'transform 0.16s ease-in';
+      el.style.transform = 'translateY(100%)';
+      setTimeout(closeCard, 160);
+      return;
+    }
+    el.style.transition = reduceMotion() ? '' : 'transform 0.18s ease';
+    el.style.transform = '';
+  };
+
+  // --- caption ---------------------------------------------------------------
+  let caption: preact.ComponentChildren = (
+    <>
+      <span>{S.TAP} a ribbon to see the verses that join two books.</span> <span>{S.TAP} a book for its most connected verses.</span>
+    </>
+  );
+  if (hot?.kind === 'rib') {
+    const p = geo.top[hot.k];
+    caption = (
+      <>
+        <b>
+          {a.books[p.i].name} and {a.books[p.j].name}
+        </b>
+        : {fmt(p.n)} links. {S.TAP} to see the verses that join them.
+      </>
+    );
+  } else if (hot?.kind === 'book') {
+    const partners = bookFacts(a, hot.i, 0, 3).partners;
+    caption = (
+      <>
+        <b>{a.books[hot.i].name}</b>: most linked with {partners.map((p) => `${a.books[p.j].name} (${fmt(p.n)})`).join(', ')}
+      </>
+    );
+  }
+
+  // A phone sheet docks under the map; when too little room is left there (a phone on its side) it covers the map.
+  const sheetTop = box ? Math.round(box.vh - box.bottom >= SHEET_MIN ? box.bottom : box.top) : 0;
+  const dim = focusing ? ' wh-dim' : chordFrom !== null && chords.length ? ' wh-soft' : '';
+  const layout = f ? `${f.phone ? ' wh-phone' : ''}${f.capTop ? ' wh-captop' : ''}${f.crowd ? ' wh-crowd' : ''}` : '';
   return (
-    <div class="wheel" ref={box}>
-      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size} role="img" aria-label="Wheel of the 66 books with ribbons sized by cross-references between them">
-        <g>{ribbons}</g>
-        <g>{labels}</g>
-      </svg>
-      <div class="hud" style="left:12px;top:10px;position:absolute;max-width:46%">
-        <span>{caption}</span>
+    <div
+      class={`wh-root${layout}${entering ? ' wh-enter' : ''}${dim}`}
+      ref={root}
+      style={box ? `--wh-top:${sheetTop}px` : undefined}
+      // Focus listeners live here, not on the <svg>: Chromium puts an SVG with focus listeners in the tab order.
+      onFocusIn={onFocusIn}
+      onFocusOut={onFocusOut}
+      onPointerOver={pointAt}
+      onPointerMove={pointAt}
+      onPointerLeave={() => setHot(null)}
+      onPointerCancel={() => setHot(null)}
+      onPointerDown={onPointerDown}
+      onPointerUp={onPointerUp}
+      onClick={onClick}
+    >
+      {f && (
+        <svg
+          ref={svgEl}
+          class="wh-svg"
+          width={s}
+          height={s}
+          viewBox={`0 0 ${s} ${s}`}
+          style={`left:${f.x.toFixed(1)}px;top:${f.y.toFixed(1)}px;transform:translateX(${f.dx.toFixed(1)}px)`}
+          role="group"
+          aria-label="Wheel of the 66 books. Ribbons join books that cite each other, sized by how many links they share."
+          aria-describedby="wh-hint"
+          onKeyDown={onKeyDown}
+        >
+          <g class="wh-ribs">{ribbons}</g>
+          <g class="wh-hls">{highlight}</g>
+          <g class="wh-chords">{chordEls}</g>
+          <g class="wh-hits">{hits}</g>
+          <g class={`wh-threads${card ? ' wh-live' : ''}`}>{threadEls}</g>
+          <g class="wh-books">{bookEls}</g>
+          {selMark}
+          {!preview && <PointMark a={a} geo={geo} c={c} r={r} sel={sel} chords={chords} />}
+          {pairChord}
+        </svg>
+      )}
+      <p id="wh-hint" class="sr-only">
+        Arrow keys move between ribbons, strongest first, or between books. Enter opens a card; Escape closes it.
+      </p>
+      <p class="wh-caption" style={f && !f.capTop ? `max-width:${f.capW.toFixed(0)}px` : undefined}>
+        {caption}
+      </p>
+      {f && <Legend a={a} phone={f.phone} chordFrom={chordFrom} chordCount={chords.length} maxWidth={f.phone ? undefined : f.capW} />}
+      {f && card && (
+        <aside
+          class="wh-card"
+          role="region"
+          aria-labelledby={CARD_TITLE}
+          style={f.phone ? undefined : `width:${f.cardW}px`}
+          // On a phone the sources live in the Study pane, under this sheet: go there. The tab is set
+          // here too, because closing the card unmounts the button before its own click handler runs.
+          onClickCapture={(e) => {
+            if (f.phone && (e.target as Element).closest?.('.provenance button')) {
+              S.mobilePane.value = 'study';
+              deepen('deep');
+              S.tab.value = 'sources';
+              closeCard();
+            }
+          }}
+          onPointerDown={f.phone ? onSheetDown : undefined}
+          onPointerMove={f.phone ? onSheetMove : undefined}
+          onPointerUp={f.phone ? onSheetUp : undefined}
+          onPointerCancel={f.phone ? onSheetUp : undefined}
+        >
+          {card.kind === 'pair' ? (
+            <PairCard
+              key={`p${card.i}-${card.j}`}
+              a={a}
+              i={card.i}
+              j={card.j}
+              hasRibbon={geo.index.has(Math.min(card.i, card.j) * B + Math.max(card.i, card.j))}
+              titleId={CARD_TITLE}
+              selected={sel}
+              onPick={pick}
+              onPreview={setPreview}
+              onClose={closeCard}
+              onBook={(i) => openBook(i, null, false)}
+            />
+          ) : (
+            <BookCard
+              key={`b${card.i}`}
+              a={a}
+              i={card.i}
+              titleId={CARD_TITLE}
+              selected={sel}
+              onPick={pick}
+              onPreview={setPreview}
+              onClose={closeCard}
+              onStep={(d) => {
+                stepFocus.current = d < 0 ? 'prev' : 'next';
+                openBook((card.i + d + B) % B, null, false);
+              }}
+              onPair={(j) => openCard({ kind: 'pair', i: Math.min(card.i, j), j: Math.max(card.i, j) }, null, false)}
+              onRead={() => {
+                S.reading.value = { book: card.i, chapter: 1 };
+                if (f.phone) {
+                  S.mobilePane.value = 'read';
+                  closeCard();
+                }
+              }}
+            />
+          )}
+        </aside>
+      )}
+    </div>
+  );
+}
+
+/** A verse pointed at in the text or a panel: its chord from the selected
+ *  verse when that is one of the chords drawn, else a dot where it sits on its
+ *  book. It reads the signal itself, so the wheel does not re-render. */
+function PointMark({ a, geo, c, r, sel, chords }: { a: Atlas; geo: Geo; c: number; r: number; sel: number | null; chords: { u: number; votes: number }[] }) {
+  const pv = S.pointedVerse.value;
+  if (pv === null || pv === sel) return null;
+  const q = verseAngle(a, geo, pv);
+  if (sel !== null && chords.some((l) => l.u === pv)) {
+    return (
+      <g class="wh-pairchord wh-point" aria-hidden="true">
+        <path d={chord(c, r, verseAngle(a, geo, sel), q)} />
+        <circle cx={c + Math.cos(q) * r} cy={c + Math.sin(q) * r} r={3} />
+      </g>
+    );
+  }
+  return <circle class="wh-point" cx={c + Math.cos(q) * (r + 5.5)} cy={c + Math.sin(q) * (r + 5.5)} r={2.6} fill={ARC.lamp} aria-hidden="true" />;
+}
+
+function Legend({ a, phone, chordFrom, chordCount, maxWidth }: { a: Atlas; phone: boolean; chordFrom: number | null; chordCount: number; maxWidth?: number }) {
+  const [open, setOpen] = useState(false);
+  const genre = `linear-gradient(90deg, ${GENRE_IDS.map((g) => GENRE[g].color).join(', ')})`;
+  const items = (
+    <ul class="wh-keys-list">
+      <li>
+        <i class="wh-sw" style={`background:${genre}`} />
+        Links within a Testament
+      </li>
+      <li>
+        <i class="wh-sw" style={`background:${CROSS}`} />
+        Links between the Testaments
+      </li>
+      {chordFrom !== null && chordCount > 0 && (
+        <li>
+          <i class="wh-sw" style={`background:${ARC.lamp}`} />
+          {label(a, chordFrom)}: its {chordCount === MAX_CHORDS ? `${MAX_CHORDS} strongest links` : `${chordCount} ${chordCount === 1 ? 'link' : 'links'}`}
+        </li>
+      )}
+    </ul>
+  );
+  const groups = (
+    <ul class="wh-groups">
+      {GENRE_IDS.map((g) => (
+        <li key={g}>
+          <i class="wh-dot" style={`background:${GENRE[g].color}`} />
+          {GENRE[g].label}
+        </li>
+      ))}
+    </ul>
+  );
+  if (phone) {
+    return (
+      <div class={`wh-legend wh-legend-phone${open ? ' wh-open' : ''}`}>
+        {open && (
+          <div class="wh-pop" id="wh-key">
+            {items}
+            <p class="wh-h4">Book colors</p>
+            {groups}
+          </div>
+        )}
+        <button class="wh-keybtn" aria-expanded={open} aria-controls="wh-key" onClick={() => setOpen(!open)}>
+          {chordFrom !== null && chordCount > 0 && <i class="wh-dot" style={`background:${ARC.lamp}`} />}
+          {open ? 'Hide key' : 'Key'}
+        </button>
       </div>
+    );
+  }
+  return (
+    <div class="wh-legend" style={maxWidth ? `max-width:${maxWidth.toFixed(0)}px` : undefined}>
+      {items}
+      <button class="wh-groupsbtn" aria-expanded={open} onClick={() => setOpen(!open)}>
+        {open ? 'Hide book colors' : 'Book colors'}
+      </button>
+      {open && groups}
     </div>
   );
 }

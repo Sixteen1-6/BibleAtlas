@@ -64,6 +64,7 @@ Every view is a link, so these open straight to the story:
 - Arc map. All 344,799 OpenBible.info cross-references drawn at once with WebGL2. Overlapping arcs add their light together and are tone-mapped like an HDR photo, so dense regions glow instead of washing out. Three color modes: Spectrum (a rainbow from Genesis to Revelation, by where each arc starts), Reach (same book, near to far, Old Testament to New Testament) and Genre (law, history, prophets, gospels, letters and so on). Light, dark or system theme.
 - Wheel. The 66 books on a circle with ribbons sized by how many references join each pair.
 - Reader. English (BSB, or ESV with your API key when you run it yourself) with the original text under each verse, inline or word by word.
+- Color pairs. In word-by-word mode each Hebrew, Aramaic or Greek word (down to its prefixes and suffixes) shares a color with the BSB words it became, and a "word for word" line shows the same glosses in the original order, so you can watch the translator reorder and fill in. Gray words have no partner. Tap a word to follow it through the verse.
 - Word study. Tap any Hebrew, Aramaic or Greek word: root, transliteration, meaning in this verse, grammar in plain English, the lexicon definition, where it appears across the 66 books, and every occurrence.
 - Manuscript evidence. Words where Greek editions or Hebrew manuscripts differ are marked, with which editions have them. Psalm 22:16, for example, shows the Dead Sea Scroll reading next to the Leningrad Codex.
 - Why connected. For any two linked verses in the same language, the roots they share are highlighted.
@@ -110,7 +111,7 @@ Every push to `main` builds the data, the engine and the site and publishes it t
 sources.json (pinned commits)
       |  atlas fetch: sparse git checkout, SHA-256 recorded in data/raw/manifest.lock.json
       v
-data/raw/  OpenBible.info cross-references, BSB, STEPBible TAHOT, TAGNT, TBESH, TBESG
+data/raw/  OpenBible.info cross-references, BSB, STEPBible TAHOT, TAGNT, TBESH, TBESG, Clear Bible BSB alignments
       |  atlas build (Rust, about 2.5 s): verifies hashes, parses, maps everything to one verse numbering
       v
 web/public/data/

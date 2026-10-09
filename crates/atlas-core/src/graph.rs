@@ -257,6 +257,63 @@ impl Adjacency {
     /// Cheapest chain of cross-references from `a` to `b` using only edges
     /// with at least `min_votes` votes (Dijkstra with [`hop_cost`]).
     pub fn shortest_path(&self, a: u32, b: u32, min_votes: i16) -> Option<Path> {
+        // Nothing is banned, so this copy of the search has no ban check at
+        // all and runs as fast as it did before roads existed.
+        self.dijkstra_by(a, b, min_votes, |_, _| false)
+    }
+
+    /// Up to `k` roads from `a` to `b`: chains of links that share no verse
+    /// except their two ends, cheapest first.
+    ///
+    /// Road 1 is [`Self::shortest_path`]. Each next road is the cheapest chain
+    /// that never enters an inner verse of the roads before it, and never
+    /// takes the direct `a`–`b` link once a road has used it. Every search runs
+    /// on a smaller graph than the one before, so costs never decrease. Stops
+    /// at `k` roads, or sooner when no road is left. `a == b` is one road of a
+    /// single verse; a verse out of range gives none.
+    pub fn roads(&self, a: u32, b: u32, min_votes: i16, k: usize) -> Vec<Path> {
+        let n = self.verse_count();
+        if a >= n || b >= n || k == 0 {
+            return Vec::new();
+        }
+        if a == b {
+            return vec![Path { verses: vec![a], edges: Vec::new(), cost: 0 }];
+        }
+        let mut banned = vec![false; n as usize];
+        let mut direct = None;
+        let mut roads = Vec::new();
+        while roads.len() < k {
+            let Some(p) = self.dijkstra_avoiding(a, b, min_votes, &banned, direct) else { break };
+            let inner = &p.verses[1..p.verses.len() - 1];
+            if inner.is_empty() {
+                // The adjacency holds a twin entry per direction (and one per
+                // duplicate source row), so the link is banned by its verse
+                // pair, never by an edge index.
+                direct = Some((a, b));
+            }
+            for &v in inner {
+                banned[v as usize] = true;
+            }
+            roads.push(p);
+        }
+        roads
+    }
+
+    /// Dijkstra from `a` to `b` over edges with at least `min_votes` votes,
+    /// never entering a verse marked in `banned` (an empty slice bans none;
+    /// `b` itself is always allowed) and never crossing the unordered verse
+    /// pair `banned_pair`. The heap pops by (cost, verse), so ties go to the
+    /// lower verse index and the result is deterministic.
+    fn dijkstra_avoiding(&self, a: u32, b: u32, min_votes: i16, banned: &[bool], banned_pair: Option<(u32, u32)>) -> Option<Path> {
+        self.dijkstra_by(a, b, min_votes, |v, u| {
+            (u != b && banned.get(u as usize).copied().unwrap_or(false)) || banned_pair.is_some_and(|(x, y)| (v, u) == (x, y) || (v, u) == (y, x))
+        })
+    }
+
+    /// The Dijkstra search itself: it never crosses from `v` to `u` when
+    /// `blocked(v, u)`. Generic, so each caller gets its own compiled copy
+    /// and [`Self::shortest_path`]'s has no check left in its inner loop.
+    fn dijkstra_by(&self, a: u32, b: u32, min_votes: i16, blocked: impl Fn(u32, u32) -> bool) -> Option<Path> {
         let n = self.verse_count();
         if a >= n || b >= n {
             return None;
@@ -282,6 +339,9 @@ impl Adjacency {
                     continue;
                 }
                 let u = self.nbr[i];
+                if blocked(v, u) {
+                    continue;
+                }
                 let nd = d + hop_cost(self.votes[i]);
                 if nd < dist[u as usize] {
                     dist[u as usize] = nd;
@@ -291,20 +351,7 @@ impl Adjacency {
                 }
             }
         }
-        if dist[b as usize] == u32::MAX {
-            return None;
-        }
-        let mut verses = vec![b];
-        let mut edges = Vec::new();
-        let mut cur = b;
-        while cur != a {
-            edges.push(prev_edge[cur as usize]);
-            cur = prev[cur as usize];
-            verses.push(cur);
-        }
-        verses.reverse();
-        edges.reverse();
-        Some(Path { verses, edges, cost: dist[b as usize] })
+        trace(a, b, &dist, &prev, &prev_edge)
     }
 
     /// Verses within `hops` steps of `seed` (breadth-first, strongest links
@@ -351,6 +398,25 @@ impl Adjacency {
     }
 }
 
+/// Walk a finished search back from `b` to `a`. Kept out of the generic
+/// search, so its copies share one.
+fn trace(a: u32, b: u32, dist: &[u32], prev: &[u32], prev_edge: &[u32]) -> Option<Path> {
+    if dist[b as usize] == u32::MAX {
+        return None;
+    }
+    let mut verses = vec![b];
+    let mut edges = Vec::new();
+    let mut cur = b;
+    while cur != a {
+        edges.push(prev_edge[cur as usize]);
+        cur = prev[cur as usize];
+        verses.push(cur);
+    }
+    verses.reverse();
+    edges.reverse();
+    Some(Path { verses, edges, cost: dist[b as usize] })
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -388,6 +454,163 @@ mod tests {
         assert!(adj.shortest_path(0, 3, 1).is_none());
         // Raising the threshold removes the weak shortcut but keeps the strong chain.
         assert_eq!(adj.shortest_path(2, 0, 50).unwrap().verses, [2, 1, 0]);
+    }
+
+    /// A deterministic tangle of `n` verses: a weak ring (so most pairs are
+    /// joined) plus random chords with random votes, some disputed, some
+    /// repeated in the other direction or with another span.
+    fn tangle(n: u32, chords: usize, seed: u64) -> XrefGraph {
+        let mut s = seed;
+        let mut next = move || {
+            s = s.wrapping_mul(6364136223846793005).wrapping_add(1442695040888963407);
+            (s >> 33) as u32
+        };
+        let mut edges: Vec<RawEdge> = (0..n).map(|v| e(v, (v + 1) % n, 1)).collect();
+        for _ in 0..chords {
+            let (x, y) = (next() % n, next() % n);
+            let votes = (next() % 90) as i16 - 10;
+            edges.push(e(x, y, votes));
+            match next() % 6 {
+                0 => edges.push(e(y, x, votes / 2)),
+                1 => edges.push(RawEdge { src: x, dst: y, span: 3, votes }),
+                _ => {}
+            }
+        }
+        XrefGraph::build(n, edges)
+    }
+
+    /// Checks every road from `a` to `b` is a real chain of links in `g`,
+    /// costs what it says, and that the roads together keep their promises.
+    fn check_roads(g: &XrefGraph, a: u32, b: u32, min_votes: i16, roads: &[Path]) {
+        let sources = g.sources();
+        let mut inner_seen = alloc::collections::BTreeSet::new();
+        for (i, p) in roads.iter().enumerate() {
+            assert_eq!(p.verses.first(), Some(&a));
+            assert_eq!(p.verses.last(), Some(&b));
+            assert_eq!(p.edges.len() + 1, p.verses.len());
+            // Loopless: no verse twice.
+            let mut vs = p.verses.clone();
+            vs.sort_unstable();
+            vs.dedup();
+            assert_eq!(vs.len(), p.verses.len(), "road {i} repeats a verse: {:?}", p.verses);
+            // Each edge joins its two verses (either way round) and is strong enough.
+            let mut cost = 0;
+            for (j, &edge) in p.edges.iter().enumerate() {
+                let (x, y) = (p.verses[j], p.verses[j + 1]);
+                let (src, dst) = (sources[edge as usize], g.dst[edge as usize]);
+                assert!((src, dst) == (x, y) || (src, dst) == (y, x), "edge {edge} does not join {x} and {y}");
+                assert!(g.votes[edge as usize] >= min_votes.max(1));
+                cost += hop_cost(g.votes[edge as usize]);
+            }
+            assert_eq!(cost, p.cost);
+            // Disjoint: no inner verse is shared with an earlier road.
+            for &v in &p.verses[1..p.verses.len() - 1] {
+                assert!(inner_seen.insert(v), "verse {v} is on two roads");
+            }
+            if i > 0 {
+                assert!(p.cost >= roads[i - 1].cost, "costs went down");
+                assert_ne!(p.verses, roads[i - 1].verses);
+            }
+        }
+        // At most one direct road, however many twin entries the link has.
+        assert!(roads.iter().filter(|p| p.verses.len() == 2).count() <= 1);
+    }
+
+    #[test]
+    fn first_road_is_the_shortest_path() {
+        let g = sample();
+        let adj = Adjacency::from_graph(&g);
+        for (a, b, mv) in [(0, 2, 1), (2, 0, 50), (0, 4, 1), (0, 3, 1), (1, 1, 1)] {
+            assert_eq!(adj.roads(a, b, mv, 1), adj.shortest_path(a, b, mv).into_iter().collect::<Vec<_>>());
+        }
+        let g = tangle(240, 900, 7);
+        let adj = Adjacency::from_graph(&g);
+        for a in (0..240).step_by(17) {
+            for b in (3..240).step_by(23) {
+                for mv in [1, 5, 40] {
+                    let roads = adj.roads(a, b, mv, 3);
+                    assert_eq!(roads.first(), adj.shortest_path(a, b, mv).as_ref(), "{a} -> {b} at {mv}");
+                    assert_eq!(adj.roads(a, b, mv, 1).first(), roads.first());
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn roads_are_disjoint_loopless_and_never_cheaper() {
+        for seed in [1, 2, 3] {
+            let g = tangle(300, 1500, seed);
+            let adj = Adjacency::from_graph(&g);
+            let mut many = 0;
+            for a in (0..300).step_by(29) {
+                for b in (5..300).step_by(31) {
+                    for mv in [1, 10] {
+                        let roads = adj.roads(a, b, mv, 4);
+                        check_roads(&g, a, b, mv, &roads);
+                        if roads.len() >= 3 {
+                            many += 1;
+                        }
+                    }
+                }
+            }
+            // The tangle is dense enough that most pairs have several roads.
+            assert!(many > 50, "only {many} pairs had 3 or more roads");
+        }
+    }
+
+    #[test]
+    fn twin_and_duplicate_links_make_one_road() {
+        // 0 and 5 are linked three times over: both directions, and a second
+        // row with another span. One more road goes round through 1, 2, 3.
+        let g = XrefGraph::build(
+            6,
+            vec![e(0, 5, 40), e(5, 0, 12), RawEdge { src: 0, dst: 5, span: 2, votes: 9 }, e(0, 1, 30), e(1, 2, 30), e(2, 3, 30), e(3, 5, 30)],
+        );
+        let adj = Adjacency::from_graph(&g);
+        // Six adjacency entries join 0 and 5.
+        assert_eq!(adj.neighbors(0).filter(|&i| adj.nbr[i] == 5).count(), 3);
+        let roads = adj.roads(0, 5, 1, 5);
+        assert_eq!(roads.len(), 2);
+        assert_eq!(roads[0].verses, [0, 5]);
+        assert_eq!(roads[1].verses, [0, 1, 2, 3, 5]);
+        check_roads(&g, 0, 5, 1, &roads);
+        // The same from the other end.
+        let back = adj.roads(5, 0, 1, 5);
+        assert_eq!(back.len(), 2);
+        assert_eq!(back[0].verses, [5, 0]);
+        assert_eq!(back[1].verses, [5, 3, 2, 1, 0]);
+    }
+
+    #[test]
+    fn sparse_graphs_have_fewer_roads() {
+        let g = sample();
+        let adj = Adjacency::from_graph(&g);
+        // 0 -> 2 has the strong chain through 1 and the weak direct link.
+        let roads = adj.roads(0, 2, 1, 3);
+        assert_eq!(roads.iter().map(|p| p.verses.clone()).collect::<Vec<_>>(), [vec![0, 1, 2], vec![0, 2]]);
+        check_roads(&g, 0, 2, 1, &roads);
+        // A higher threshold leaves only the strong chain.
+        assert_eq!(adj.roads(0, 2, 50, 3).len(), 1);
+        // Nothing reaches the isolated verse or crosses the disputed link.
+        assert!(adj.roads(0, 3, 1, 3).is_empty());
+        assert!(adj.roads(0, 4, 1, 3).is_empty());
+        // A bare chain is a single road.
+        let chain = XrefGraph::build(4, vec![e(0, 1, 9), e(1, 2, 9), e(2, 3, 9)]);
+        assert_eq!(Adjacency::from_graph(&chain).roads(0, 3, 1, 3).len(), 1);
+    }
+
+    #[test]
+    fn roads_edge_cases() {
+        let g = sample();
+        let adj = Adjacency::from_graph(&g);
+        // One verse is its own single road.
+        let same = adj.roads(3, 3, 1, 3);
+        assert_eq!(same, [Path { verses: vec![3], edges: Vec::new(), cost: 0 }]);
+        // Out of range, or no roads asked for.
+        assert!(adj.roads(0, 5, 1, 3).is_empty());
+        assert!(adj.roads(9, 0, 1, 3).is_empty());
+        assert!(adj.roads(0, 2, 1, 0).is_empty());
+        assert!(adj.roads(2, 2, 1, 0).is_empty());
     }
 
     #[test]

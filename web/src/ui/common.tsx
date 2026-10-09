@@ -1,8 +1,9 @@
 // Small shared pieces for the study panels.
 
 import { useEffect, useState } from 'preact/hooks';
-import { type Atlas, LANG_NAME } from '../data/atlas';
+import { type Atlas, chapterName, langName } from '../data/atlas';
 import { FLAG, type VerseRow, getVerse, rootsOf } from '../data/text';
+import { deepen } from '../depth';
 import * as S from '../state';
 import { GENRE } from './colors';
 
@@ -35,7 +36,7 @@ export function OrigLine({ a, v, row, mark }: { a: Atlas; v: number; row: VerseR
         .filter((w) => !(w[5] & FLAG.otherEditions))
         .map((w, i) => (
           <span key={i}>
-            <button class={`w${mark?.has(w[3]) ? ' shared' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, row[1].indexOf(w))} title={`${w[1]} · ${w[2]}`}>
+            <button class={`w${mark?.has(w[3]) ? ' shared' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, row[1].indexOf(w))} title={`${w[1]} · ${w[2]}`}>
               {w[0]}
             </button>{' '}
           </span>
@@ -57,7 +58,7 @@ export function RootChip({ a, root }: { a: Atlas; root: number }) {
   const L = a.lemmas;
   const lang = L.lang[root];
   return (
-    <button class="chip" onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${LANG_NAME[lang]} ${L.key[root]}, ${L.count[root]} occurrences`}>
+    <button class="chip" data-lr={root} onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${langName(L, root)} ${L.key[root]}, ${L.count[root]} occurrences`}>
       <span class={`o ${lang === 'G' ? 'gr' : 'he'}`}>{L.word[root]}</span>
       <span>{L.gloss[root]}</span>
     </button>
@@ -91,7 +92,7 @@ export function Distribution({ a, verses, height = 64 }: { a: Atlas; verses: Arr
       </svg>
       <figcaption class="muted" style="font-size:12px;display:flex;justify-content:space-between">
         <span>Genesis</span>
-        <span>{top.map(([c, i]) => `${a.books[i].name} ${c}`).join(' · ')}</span>
+        <span>{top.map(([c, i]) => `${chapterName(a.books[i])} ${c}`).join(' · ')}</span>
         <span>Revelation</span>
       </figcaption>
     </figure>
@@ -102,7 +103,15 @@ export function Provenance({ children }: { children: preact.ComponentChildren })
   return (
     <p class="provenance">
       {children}{' '}
-      <button onClick={() => (S.tab.value = 'sources')}>All sources and checksums</button>
+      <button
+        onClick={() => {
+          // The Sources tab is Deep material; asking for it goes that deep.
+          deepen('deep');
+          S.tab.value = 'sources';
+        }}
+      >
+        All sources and checksums
+      </button>
     </p>
   );
 }

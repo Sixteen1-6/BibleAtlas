@@ -8,10 +8,14 @@
 //! - `lemmas.json`: one row per Hebrew/Aramaic/Greek root (column-oriented)
 //! - `words.json`: sorted English vocabulary for search
 //! - `themes.json`: themes resolved to root indices
+//! - `layers.json`: layers of meaning from `config/layers.json`, checked against
+//!   the BSB, the roots and the cross-references (drafts only with ATLAS_LAYER_DRAFTS=1)
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
 //! - `lex/<n>.json`: lexicon definitions, 500 roots per shard, as safe segments
 
+use crate::align;
 use crate::english;
+use crate::layers;
 use crate::lexhtml;
 use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
 use crate::sources::{sha256_bytes, Inputs};
@@ -49,6 +53,13 @@ struct ThemeRoot {
     strong: String,
     #[serde(rename = "match")]
     matches: Vec<String>,
+    /// Sub-entries left out although their gloss matches ("H2233I", seed: semen).
+    #[serde(default)]
+    exclude: Vec<String>,
+    /// Keep glosses that start with a capital letter ("Passover", "Christ"),
+    /// which are otherwise skipped as names.
+    #[serde(default)]
+    capitalized: bool,
 }
 
 struct Lemma {
@@ -133,6 +144,27 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             eprintln!("  unmapped {label} examples: {}", t.unmapped_examples.join(" | "));
         }
     }
+
+    // --- Word alignment (original word -> BSB English words) -----------------
+    let mut at = align::AlignTally::default();
+    let (eng_ot, eng_nt) = (inputs.path("clear-align", "english_ot"), inputs.path("clear-align", "english_nt"));
+    let aligned = align::build(
+        &align::Inputs {
+            hebrew_links: &inputs.path("clear-align", "hebrew_links"),
+            hebrew_source: &inputs.path("clear-align", "hebrew_source"),
+            greek_links: &inputs.path("clear-align", "greek_links"),
+            greek_source: &inputs.path("clear-align", "greek_source"),
+            english: &[eng_ot.as_path(), eng_nt.as_path()],
+        },
+        &vz,
+        &bsb.text,
+        &words,
+        &mut at,
+    )?;
+    eprintln!(
+        "word alignment: {} of {} links kept, {} verses; {} of {} source words and {} of {} English words without a partner",
+        at.kept, at.records, at.verses, at.source_unmatched, at.source_total, at.english_unmatched, at.english_total
+    );
 
     // --- Lexicons ---------------------------------------------------------
     let mut lex: HashMap<String, LexEntry> = HashMap::new();
@@ -243,13 +275,19 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
                 .filter(|(_, l)| {
                     // Skip names and places that merely contain the word
                     // ("House of Shepherds", "Water (Gate)"): their glosses
-                    // start with a capital letter.
+                    // start with a capital letter, unless the root's own
+                    // gloss is capitalized ("Passover", "Christ").
                     let proper = l.gloss.chars().find(|c| c.is_alphabetic()).is_some_and(char::is_uppercase);
                     let g = l.gloss.to_lowercase();
-                    !proper && r.matches.iter().any(|m| g.contains(m.as_str()))
+                    (!proper || r.capitalized) && r.matches.iter().any(|m| g.contains(m.as_str()))
                 })
                 .map(|(i, _)| i as u32)
                 .collect();
+            // An exclude that would not match anyway is a typo: fail loudly.
+            if let Some(x) = r.exclude.iter().find(|x| !found.iter().any(|&i| lemmas[i as usize].key == **x)) {
+                return Err(format!("theme {}: exclude {x} is not a root that {} {:?} includes", t.id, r.strong, r.matches));
+            }
+            let found: Vec<u32> = found.into_iter().filter(|&i| !r.exclude.contains(&lemmas[i as usize].key)).collect();
             if found.is_empty() {
                 let near: Vec<String> = lemmas.iter().filter(|l| l.key.starts_with(&r.strong)).map(|l| format!("{}={:?}", l.key, l.gloss)).collect();
                 return Err(format!("theme {}: {} matched no root with gloss {:?} (candidates: {})", t.id, r.strong, r.matches, near.join(", ")));
@@ -268,6 +306,10 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         themes_json.push(json!({ "id": t.id, "name": t.name, "blurb": t.blurb, "roots": idxs }));
     }
 
+    // --- Layers of meaning -------------------------------------------------------------
+    let layer_sources = layers::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index, graph: &graph };
+    let layers_json = layers::build(root, &layer_sources)?;
+
     // --- Write outputs -------------------------------------------------------------
     for sub in ["text", "lex"] {
         let d = out.join(sub);
@@ -277,6 +319,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     }
     fs::create_dir_all(out).map_err(|e| e.to_string())?;
     let mut files: BTreeMap<String, Value> = BTreeMap::new();
+    for (rel, bytes) in crate::extra_quotes::build(&inputs, &vz, &bsb.text, &words)? { write(out, &rel, &bytes, &mut files)?; }
 
     let mut c = ContainerWriter::new();
     c.u32s("vz_bchap", &vz.book_chapter_start);
@@ -296,8 +339,12 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     c.u32s("e_verse", &eng.verses);
     let bin = c.finish();
     write(out, "atlas.bin", &bin, &mut files)?;
+    for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_peshitta::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
 
     let lang_str: String = lemmas.iter().map(|l| l.lang).collect();
+    let origin = crate::extra_aramaic::origins(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)?;
+    for (rel, bytes) in crate::world::build(out, &inputs, &vz, &lemmas.iter().map(|l| (l.key.as_str(), l.word.as_str())).collect::<Vec<_>>(), &lemmas.iter().map(|l| l.gloss.as_str()).collect::<Vec<_>>(), &l_off, &l_verse)? { write(out, &rel, &bytes, &mut files)?; }
     let lemmas_json = json!({
         "key": lemmas.iter().map(|l| &l.key).collect::<Vec<_>>(),
         "word": lemmas.iter().map(|l| &l.word).collect::<Vec<_>>(),
@@ -305,10 +352,13 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         "gloss": lemmas.iter().map(|l| &l.gloss).collect::<Vec<_>>(),
         "lang": lang_str,
         "count": lemmas.iter().map(|l| l.count).collect::<Vec<_>>(),
+        "origin": origin,
     });
     write(out, "lemmas.json", serde_json::to_string(&lemmas_json).unwrap().as_bytes(), &mut files)?;
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
+    write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     write(out, "themes.json", serde_json::to_string(&themes_json).unwrap().as_bytes(), &mut files)?;
+    write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {
@@ -334,15 +384,21 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
                         word_json(w, li)
                     })
                     .collect();
-                verses.push(json!([bsb.text[idx], ws]));
+                match &aligned[idx] {
+                    Some(a) => verses.push(json!([bsb.text[idx], ws, a.to_json(&words[idx])])),
+                    None => verses.push(json!([bsb.text[idx], ws])),
+                }
             }
             chapters.push(Value::Array(verses));
         }
         let doc = json!({ "book": book.osis, "chapters": chapters });
         write(out, &format!("text/{}.json", book.osis), serde_json::to_string(&doc).unwrap().as_bytes(), &mut files)?;
     }
+    for (rel, bytes) in crate::extra_parallels::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_aramaic::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index, &lex)? { write(out, &rel, &bytes, &mut files)?; }
 
     let empty_verses = words.iter().filter(|w| w.is_empty()).count();
+    for (rel, bytes) in crate::eras::build(root, &inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     for (s, chunk) in lemmas.chunks(LEX_SHARD).enumerate() {
         let rows: Vec<Value> = chunk
             .iter()
@@ -356,6 +412,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
     }
+    write(out, "lxx.json", crate::lxx::emit(lemmas.iter().map(|l| crate::lxx::Root { key: &l.key, word: &l.word, gloss: &l.gloss, lang: l.lang, kind: l.lex.as_ref().map_or("", |e| e.morph.as_str()), count: l.count }), &lex, &words, &vz).as_bytes(), &mut files)?;
 
     // Build id: hash of every output's hash, so identical inputs give an identical id.
     let digest: String = files.values().map(|f| f["sha256"].as_str().unwrap().to_string()).collect();
@@ -407,6 +464,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             "englishWords": eng.words.len(), "versesWithoutOriginalWords": empty_verses,
         },
         "unmapped": { "crossReferences": xt.unmapped, "hebrewWords": ht.unmapped, "greekWords": gt.unmapped },
+        "alignment": { "links": at.kept, "verses": at.verses, "sourceWordsUnmatched": at.source_unmatched, "englishWordsWithoutPartner": at.english_unmatched },
         "pagerank": { "damping": PAGERANK_DAMPING, "iterations": PAGERANK_ITERATIONS },
         "lexShard": LEX_SHARD,
         "flags": { "aramaic": FLAG_ARAMAIC, "otherEditionsOnly": FLAG_OTHER_EDITIONS, "variant": FLAG_VARIANT, "significant": FLAG_SIGNIFICANT },

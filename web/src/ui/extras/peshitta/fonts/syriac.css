@@ -1,0 +1,13 @@
+/* Noto Sans Syriac, regular, Syriac letters only: copyright 2022 The Noto
+   Project Authors (https://github.com/notofonts/syriac), SIL Open Font License
+   1.1 (OFL.txt, beside this file). The file is the Syriac subset of
+   @fontsource/noto-sans-syriac 5.3.0, copied here so the extra adds no npm
+   dependency. Imported by ../Panel.tsx, so it loads only with the panel, and
+   only .x-peshitta-syc asks for it. */
+@font-face {
+  font-family: 'Noto Sans Syriac';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(./noto-sans-syriac-syriac-400-normal.woff2) format('woff2');
+}

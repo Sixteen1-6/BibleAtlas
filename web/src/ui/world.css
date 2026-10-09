@@ -1,0 +1,166 @@
+/* Words in their world: two quiet lines in the word study ("Outside the
+   Bible", "In their world"), each at most two lines tall, opening into more
+   on request. Colors come from the page tokens, so dark mode follows. */
+
+.ww {
+  --ww-bg: var(--surface);
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 4px;
+}
+/* While the next word's lines load, an empty block of the last one's height,
+   so the panel below does not jump. */
+.ww-wait {
+  margin: 16px 0 4px;
+}
+
+/* ---- the summary lines. Rules that meet the panel's own (.panel p) are
+   scoped under .ww so they win whatever order the style sheets load in. */
+
+.ww-row {
+  position: relative;
+}
+.ww .ww-line {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+.ww-in {
+  font-weight: 600;
+  color: var(--muted);
+}
+.ww-acts,
+.ww-room {
+  white-space: nowrap;
+}
+.ww-room {
+  display: none;
+  visibility: hidden;
+  /* A little wider than the buttons, so the line can never flip back and forth. */
+  padding-left: 8px;
+}
+.ww-clamped .ww-room {
+  display: inline;
+}
+.ww-clamped .ww-acts {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding-left: 30px;
+  background: linear-gradient(to right, transparent, var(--ww-bg) 26px);
+}
+.ww-act {
+  border: 0;
+  background: none;
+  padding: 0 2px;
+  color: var(--link);
+  font-size: 13px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.ww-act + .ww-act {
+  margin-left: 8px;
+}
+.ww-act:hover {
+  text-decoration-thickness: 2px;
+}
+/* The ring sits inside the button, so the clamped line never clips it. */
+.ww-act:focus-visible {
+  outline-offset: -2px;
+  border-radius: var(--r-sm);
+}
+
+/* ---- what opens below a line */
+
+.ww-more {
+  --ww-bg: var(--surface-2);
+  margin: -2px 0 2px;
+  padding: 10px 12px 2px;
+  background: var(--ww-bg);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  font-size: 13.5px;
+}
+.ww .ww-more > p {
+  margin: 0 0 6px;
+}
+.ww .ww-more > .provenance {
+  margin: 10px 0 8px;
+}
+.ww-senses {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.ww-senses li {
+  position: relative;
+  padding-left: 14px;
+}
+.ww-senses li::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+/* After a space, so the tag reads as its own word. */
+.ww-tag {
+  display: inline-block;
+  margin-left: 3px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--muted);
+  vertical-align: 1px;
+}
+
+/* The handbook article itself reads like the definition: the reading face. */
+.ww-text {
+  font: 15px/1.6 var(--font-read);
+}
+.ww-text h4 {
+  font: 600 12.5px/1.3 var(--font-ui);
+  color: var(--muted);
+  margin: 12px 0 4px;
+}
+.ww-text > div:first-child h4 {
+  margin-top: 2px;
+}
+.ww .ww-text p {
+  margin: 0 0 8px;
+}
+.ww-ref {
+  color: var(--link);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+/* ---- other handbook articles that fit ("+2 more") */
+
+.ww-others {
+  display: grid;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 2px solid var(--line);
+}
+.ww-other {
+  display: grid;
+  gap: 8px;
+}
+.ww [hidden] {
+  display: none;
+}

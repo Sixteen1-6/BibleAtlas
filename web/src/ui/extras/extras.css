@@ -1,0 +1,352 @@
+/* Extras: the quiet notes under a selected verse or a chapter heading, and the
+   panel each one opens. Built only from the app's own variables (styles.css),
+   so the paper (light) and dark themes both follow. Every class starts with
+   xt-; an extra's own stylesheet uses x-<id>-. */
+
+/* ------------------------------------------------------------ the notes */
+
+.xt-notes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--line);
+  font: 13.5px/1.45 var(--font-ui);
+  color: var(--muted);
+}
+.xt-notes.xt-chapter {
+  max-width: 760px;
+  margin: -6px auto 14px;
+  padding-top: 0;
+  border-top: 0;
+}
+.xt-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  width: 100%;
+  margin: 0;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+.xt-tap {
+  cursor: pointer;
+}
+.xt-words {
+  min-width: 0;
+}
+.xt-tap:hover .xt-words {
+  color: var(--ink);
+}
+.xt-ref {
+  color: var(--accent);
+  text-decoration: none;
+}
+.xt-ref:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.xt-chev {
+  flex: none;
+  padding: 0 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.15s ease-out;
+}
+button.xt-chev {
+  cursor: pointer;
+}
+.xt-tap:hover .xt-chev,
+.xt-on .xt-chev {
+  transform: translateX(2px);
+}
+/* The note whose panel is open. */
+.xt-on .xt-words {
+  color: var(--ink);
+}
+.xt-more {
+  align-self: flex-start;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: 12.5px var(--font-ui);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.xt-more:hover {
+  color: var(--ink);
+}
+@media (pointer: coarse) {
+  .xt-line,
+  .xt-more {
+    padding: 5px 0;
+  }
+}
+
+/* ------------------------------------------------------------ the panel */
+
+.xt-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 18;
+  background: rgba(6, 10, 22, 0.55);
+  animation: xt-fade 0.18s ease-out;
+}
+.xt-panel {
+  position: fixed;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  color: var(--ink);
+  font: 14px/1.45 var(--font-ui);
+}
+/* Wider screens: over the study column, from below the map to the bottom. */
+.xt-dock {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 100vw);
+  border-left: 1px solid var(--line);
+  box-shadow: -18px 0 40px -28px rgba(6, 10, 22, 0.5);
+  animation: xt-in-dock 0.2s ease-out;
+}
+/* Phones: a sheet from the bottom. */
+.xt-sheet {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: calc(100dvh - 48px);
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 -10px 40px rgba(6, 10, 22, 0.35);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition: transform 0.2s ease-out;
+  animation: xt-in-sheet 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.xt-head {
+  flex: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 12px 10px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.xt-sheet .xt-head {
+  position: relative;
+  padding-top: 20px;
+  touch-action: none;
+}
+.xt-grab {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 36px;
+  height: 4px;
+  margin-left: -18px;
+  border-radius: 2px;
+  background: var(--muted);
+  opacity: 0.35;
+}
+.xt-titles {
+  flex: 1;
+  min-width: 0;
+}
+.xt-head h2 {
+  margin: 0;
+  font: 600 18px/1.25 var(--font-read);
+}
+.xt-head h2:focus {
+  outline: none;
+}
+.xt-at {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.xt-close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-top: -4px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+}
+.xt-close:hover {
+  color: var(--ink);
+  border-color: var(--muted);
+}
+.xt-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 14px 18px 32px;
+}
+.xt-body h3 {
+  margin: 20px 0 8px;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+.xt-body p {
+  margin: 0 0 10px;
+}
+.xt-body .xt-lead {
+  margin: 0 0 12px;
+  font: 15.5px/1.55 var(--font-read);
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------ kit.tsx */
+
+.xt-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px 16px;
+  align-items: start;
+  margin: 4px 0 12px;
+}
+.xt-passage {
+  min-width: 0;
+  padding: 10px 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.xt-pverse {
+  /* Keeps the text's top margin inside, so the pointer stays on the verse
+     between verses and the lit look (pointing.ts) covers it. */
+  display: flow-root;
+  transition:
+    background-color 0.12s,
+    box-shadow 0.12s;
+}
+.xt-pref {
+  display: inline-flex;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 13px var(--font-ui);
+  color: var(--accent);
+  text-align: left;
+  cursor: pointer;
+}
+.xt-pref:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.xt-body .xt-pnote {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.xt-body .xt-ptext {
+  margin: 6px 0 0;
+  font: 15.5px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.xt-ptext sup {
+  margin-right: 3px;
+  font: 600 10px var(--font-ui);
+  color: var(--accent);
+}
+.xt-body .xt-wait {
+  color: var(--muted);
+}
+.xt-porig .orig {
+  margin-top: 2px;
+}
+.xt-porig .orig.he {
+  font-size: 19px;
+}
+.xt-porig .orig.gr {
+  font-size: 16px;
+}
+.xt-unsure {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 7px;
+  border: 1px dashed var(--muted);
+  border-radius: 999px;
+  font: 11.5px/1.6 var(--font-ui);
+  color: var(--muted);
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+.xt-facts {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 12px;
+  font-size: 13px;
+}
+.xt-facts div {
+  display: grid;
+  grid-template-columns: minmax(90px, 30%) 1fr;
+  gap: 10px;
+}
+.xt-facts dt {
+  color: var(--muted);
+}
+.xt-facts dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.xt-body .xt-source {
+  margin: 22px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+}
+.xt-source button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@keyframes xt-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes xt-in-dock {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+@keyframes xt-in-sheet {
+  from {
+    transform: translateY(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xt-scrim,
+  .xt-panel {
+    animation: none;
+  }
+  .xt-sheet,
+  .xt-chev {
+    transition: none;
+  }
+}

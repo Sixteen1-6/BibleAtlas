@@ -1,0 +1,275 @@
+/* Places: the map panel. Every class starts with x-real-map-. The map's own
+   colours (water, land, shores, rivers) are defined here three times, as the
+   README asks, so the paper and dark themes both work. */
+
+:root {
+  --x-real-map-water: #dbe4e6;
+  --x-real-map-land: #f8f3e8;
+  --x-real-map-shore: #b3a991;
+  --x-real-map-river: #86a8bc;
+  --x-real-map-water-ink: #587687;
+  --x-real-map-halo: #fbf7ef;
+  --x-real-map-dot: #fffcf6;
+  --x-real-map-shadow: rgba(6, 10, 22, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --x-real-map-water: #0a1222;
+    --x-real-map-land: #182033;
+    --x-real-map-shore: #3a4562;
+    --x-real-map-river: #3e6190;
+    --x-real-map-water-ink: #7a90b5;
+    --x-real-map-halo: #131a2c;
+    --x-real-map-dot: #0e1324;
+    --x-real-map-shadow: rgba(0, 0, 0, 0.35);
+  }
+}
+:root[data-theme='dark'] {
+  --x-real-map-water: #0a1222;
+  --x-real-map-land: #182033;
+  --x-real-map-shore: #3a4562;
+  --x-real-map-river: #3e6190;
+  --x-real-map-water-ink: #7a90b5;
+  --x-real-map-halo: #131a2c;
+  --x-real-map-dot: #0e1324;
+  --x-real-map-shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* ------------------------------------------------------------ the map */
+
+.x-real-map-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  /* Short enough that the verse's places show under the map on a laptop. */
+  max-height: min(34vh, 460px);
+  min-height: 220px;
+  margin: 4px 0 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--x-real-map-water);
+}
+.x-real-map-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.x-real-map-canvas:active {
+  cursor: grabbing;
+}
+.x-real-map-zoom {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.x-real-map-zoom button {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 1px 3px var(--x-real-map-shadow);
+}
+.x-real-map-zoom button:hover {
+  border-color: var(--muted);
+}
+.x-real-map-zoom button:focus-visible,
+.x-real-map-chip:focus-visible,
+.x-real-map-toggle:focus-visible,
+.x-real-map-ref:focus-visible,
+.x-real-map-more:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+@media (pointer: coarse) {
+  .x-real-map-zoom button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* ------------------------------------------------------------ the verse's places */
+
+.x-real-map-under {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin: 0 0 8px;
+}
+.x-real-map-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.x-real-map-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 11px 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font: 500 13px/1.5 var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-real-map-chip:hover {
+  border-color: var(--muted);
+}
+.x-real-map-chip.x-real-map-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.x-real-map-mark {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.x-real-map-mark.x-real-map-open {
+  background: transparent;
+  border: 1.5px dashed var(--accent);
+}
+.x-real-map-vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.x-real-map-toggle {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  font: 12.5px var(--font-ui);
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.x-real-map-toggle:hover,
+.x-real-map-toggle[aria-pressed='true'] {
+  color: var(--ink);
+}
+@media (pointer: coarse) {
+  .x-real-map-chip {
+    padding: 6px 13px 6px 11px;
+  }
+}
+
+/* ------------------------------------------------------------ the chosen place */
+
+.x-real-map-card {
+  margin: 4px 0 6px;
+  padding: 10px 12px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.xt-body .x-real-map-where {
+  margin: 0 0 6px;
+  font: 15.5px/1.55 var(--font-read);
+  color: var(--ink);
+}
+.x-real-map-where strong {
+  font-weight: 600;
+}
+.xt-body .x-real-map-aka,
+.xt-body .x-real-map-also {
+  margin: 0 0 6px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.x-real-map-ref,
+.x-real-map-more {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-align: left;
+}
+.x-real-map-ref:hover,
+.x-real-map-more:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.x-real-map-more {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+.x-real-map-ref.x-real-map-here {
+  color: var(--ink);
+  font-weight: 600;
+}
+.x-real-map-allvs {
+  margin: 2px 0 8px;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  max-height: 260px;
+  overflow: auto;
+}
+.xt-body .x-real-map-allvs p {
+  margin: 0 0 4px;
+}
+.x-real-map-book {
+  font-weight: 600;
+  color: var(--ink);
+}
+.xt-body .x-real-map-sure {
+  margin: 0 0 6px;
+}
+.x-real-map-sites {
+  margin: 0;
+  padding-left: 18px;
+}
+.x-real-map-sites li {
+  margin: 0 0 2px;
+}
+.x-real-map-num {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.x-real-map-people {
+  margin: 0 0 6px;
+  padding: 0;
+  list-style: none;
+  font-size: 13.5px;
+}
+.x-real-map-people li {
+  margin: 0 0 3px;
+}
+.x-real-map-who {
+  font-weight: 600;
+}
+.xt-body .x-real-map-fine {
+  margin: 6px 0 8px;
+  font-size: 12px;
+  color: var(--muted);
+}

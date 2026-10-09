@@ -14,6 +14,30 @@
       "note": "openbible.info publishes the file directly; this build reads the unmodified copy mirrored in scrollmapper/bible_databases so the input is pinned by git commit."
     },
     {
+      "id": "bsb-usfm",
+      "title": "Berean Standard Bible (BSB), USFM edition with footnotes and section headings",
+      "provides": "The BSB's own footnotes. In the New Testament they name the Old Testament verse behind each quotation, sometimes adding \"see also LXX\" for the Septuagint; in the Old Testament they list where a verse is cited in the New. The Quotations notes are read from them. Its section headings, and the parallel passages they name such as \"Jesus Heals a Paralytic (Matthew 9:1–8; Luke 5:17–26)\", are where the Parallels notes start.",
+      "license": "Public domain (dedicated April 2023)",
+      "attribution": "The Holy Bible, Berean Standard Bible, BSB is produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com, and the Berean Bible Translation Committee. This text of God's Word has been dedicated to the public domain.",
+      "homepage": "https://berean.bible/",
+      "repo": "https://github.com/usfm-bible/examples.bsb",
+      "commit": "48a9feb71f0a66f9b8f418b11ae25b7ad2e49a0d",
+      "files": {
+        "Gen": "01GENBSB.usfm", "Exod": "02EXOBSB.usfm", "Lev": "03LEVBSB.usfm", "Num": "04NUMBSB.usfm", "Deut": "05DEUBSB.usfm", "Josh": "06JOSBSB.usfm",
+        "Judg": "07JDGBSB.usfm", "Ruth": "08RUTBSB.usfm", "1Sam": "091SABSB.usfm", "2Sam": "102SABSB.usfm", "1Kgs": "111KIBSB.usfm", "2Kgs": "122KIBSB.usfm",
+        "1Chr": "131CHBSB.usfm", "2Chr": "142CHBSB.usfm", "Ezra": "15EZRBSB.usfm", "Neh": "16NEHBSB.usfm", "Esth": "17ESTBSB.usfm", "Job": "18JOBBSB.usfm",
+        "Ps": "19PSABSB.usfm", "Prov": "20PROBSB.usfm", "Eccl": "21ECCBSB.usfm", "Song": "22SNGBSB.usfm", "Isa": "23ISABSB.usfm", "Jer": "24JERBSB.usfm",
+        "Lam": "25LAMBSB.usfm", "Ezek": "26EZKBSB.usfm", "Dan": "27DANBSB.usfm", "Hos": "28HOSBSB.usfm", "Joel": "29JOLBSB.usfm", "Amos": "30AMOBSB.usfm",
+        "Obad": "31OBABSB.usfm", "Jonah": "32JONBSB.usfm", "Mic": "33MICBSB.usfm", "Nah": "34NAMBSB.usfm", "Hab": "35HABBSB.usfm", "Zeph": "36ZEPBSB.usfm",
+        "Hag": "37HAGBSB.usfm", "Zech": "38ZECBSB.usfm", "Mal": "39MALBSB.usfm", "Matt": "41MATBSB.usfm", "Mark": "42MRKBSB.usfm", "Luke": "43LUKBSB.usfm",
+        "John": "44JHNBSB.usfm", "Acts": "45ACTBSB.usfm", "Rom": "46ROMBSB.usfm", "1Cor": "471COBSB.usfm", "2Cor": "482COBSB.usfm", "Gal": "49GALBSB.usfm",
+        "Eph": "50EPHBSB.usfm", "Phil": "51PHPBSB.usfm", "Col": "52COLBSB.usfm", "1Thess": "531THBSB.usfm", "2Thess": "542THBSB.usfm", "1Tim": "551TIBSB.usfm",
+        "2Tim": "562TIBSB.usfm", "Titus": "57TITBSB.usfm", "Phlm": "58PHMBSB.usfm", "Heb": "59HEBBSB.usfm", "Jas": "60JASBSB.usfm", "1Pet": "611PEBSB.usfm",
+        "2Pet": "622PEBSB.usfm", "1John": "631JNBSB.usfm", "2John": "642JNBSB.usfm", "3John": "653JNBSB.usfm", "Jude": "66JUDBSB.usfm", "Rev": "67REVBSB.usfm"
+      },
+      "note": "A USFM copy of the BSB published by the usfm-bible project as an example of USFM markup: per its README, a fork of the text as of 26 August 2024 with the licensing unchanged. Only its footnotes and section headings are used; the English the app shows comes from the BSB entry listed separately."
+    },
+    {
       "id": "bsb",
       "title": "Berean Standard Bible (BSB)",
       "provides": "English text of all 66 books. Used for search, the word-to-word links, and as the default reading text.",
@@ -23,6 +47,48 @@
       "repo": "https://github.com/scrollmapper/bible_databases",
       "commit": "e1b254cef86d0e65b1a5d1a94b8b112d0f296a2c",
       "files": { "bsb": "formats/json/BSB.json" }
+    },
+    {
+      "id": "openbible-geo",
+      "title": "OpenBible.info Bible Geocoding Data",
+      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",
+      "license": "CC BY 4.0",
+      "attribution": "Bible Geocoding Data from OpenBible.info, CC BY 4.0",
+      "homepage": "https://www.openbible.info/geo/",
+      "repo": "https://github.com/openbibleinfo/Bible-Geocoding-Data",
+      "commit": "7eb18a5ee62f27b9b93bd6689ea272d76dd23b8f",
+      "files": { "ancient": "data/ancient.jsonl", "modern": "data/modern.jsonl" },
+      "note": "Coordinates the dataset credits to OpenStreetMap (ODbL), Google Maps or the Google Earth community, or takes from a Palestine Grid reference (epsg_28191), are left out; where it gives its own position for a site (custom_lonlat), that one is used. A place is listed under a verse only where the BSB text names it."
+    },
+    {
+      "id": "theographic",
+      "title": "Theographic Bible Metadata",
+      "provides": "People tied to each place: who was born there, who died there and who was there. Shown in the Places map at Deep.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
+      "homepage": "https://github.com/robertrouse/theographic-bible-metadata",
+      "repo": "https://github.com/robertrouse/theographic-bible-metadata",
+      "commit": "cfb1c485d4da6fb63a69cb3b7f5b0752792f46bc",
+      "files": { "people": "CSV/People.csv", "places": "CSV/Places.csv" },
+      "note": "The file built from it, extras/real-map/people.json, is shared under the same license, CC BY-SA 4.0."
+    },
+    {
+      "id": "natural-earth",
+      "title": "Natural Earth",
+      "provides": "Coastlines, lakes, rivers, sea names and modern borders, cut to the Bible lands and simplified for the Places map.",
+      "license": "Public domain",
+      "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.",
+      "homepage": "https://www.naturalearthdata.com/",
+      "repo": "https://github.com/nvkelso/natural-earth-vector",
+      "commit": "ca96624a56bd078437bca8184e78163e5039ad19",
+      "files": {
+        "land": "geojson/ne_10m_land.geojson",
+        "lakes": "geojson/ne_10m_lakes.geojson",
+        "rivers": "geojson/ne_10m_rivers_lake_centerlines.geojson",
+        "seas": "geojson/ne_10m_geography_marine_polys.geojson",
+        "countries": "geojson/ne_50m_admin_0_countries.geojson"
+      },
+      "note": "The coastlines and rivers are today's; the borders are used only to name the modern country of places far from Jerusalem."
     },
     {
       "id": "tahot",
@@ -55,6 +121,65 @@
       }
     },
     {
+      "id": "dsc-peshitta",
+      "title": "Digital Syriac Corpus: the Peshitta New Testament (Syriac)",
+      "provides": "The New Testament in Syriac, a dialect of Aramaic: the Peshitta, translated from the Greek around AD 350-450, as printed by the British and Foreign Bible Society (1905), with vowel points. 2 Peter, 2 and 3 John, Jude, Revelation and John 7:53-8:11, which the early Peshitta did not have, come from later Syriac translations. Shown at Deep beside the English, as a translation and never as Jesus' own words.",
+      "license": "CC BY 4.0 (TEI XML edition); the Syriac base text is public domain",
+      "attribution": "Syriac text from the Digital Syriac Corpus (syriaccorpus.org): TEI XML edition by James E. Walters, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Base text: The New Testament in Syriac (British and Foreign Bible Society, 1905), public domain; Syriac text transcribed by George A. Kiraz.",
+      "homepage": "https://syriaccorpus.org/",
+      "repo": "https://github.com/srophe/syriac-corpus",
+      "commit": "833adc148cc356a6c70c16f81b22df9188df717a",
+      "files": {
+        "Matt": "data/tei/100.xml", "Mark": "data/tei/119.xml", "Luke": "data/tei/120.xml", "John": "data/tei/121.xml", "Acts": "data/tei/122.xml",
+        "Rom": "data/tei/123.xml", "1Cor": "data/tei/124.xml", "2Cor": "data/tei/126.xml", "Gal": "data/tei/127.xml", "Eph": "data/tei/128.xml",
+        "Phil": "data/tei/129.xml", "Col": "data/tei/130.xml", "1Thess": "data/tei/131.xml", "2Thess": "data/tei/132.xml", "1Tim": "data/tei/133.xml",
+        "2Tim": "data/tei/134.xml", "Titus": "data/tei/135.xml", "Phlm": "data/tei/136.xml", "Heb": "data/tei/137.xml", "Jas": "data/tei/138.xml",
+        "1Pet": "data/tei/139.xml", "2Pet": "data/tei/140.xml", "1John": "data/tei/141.xml", "2John": "data/tei/142.xml", "3John": "data/tei/143.xml",
+        "Jude": "data/tei/144.xml", "Rev": "data/tei/145.xml"
+      },
+      "note": "The repository has no file 125; the build checks that each file's header names its book and carries the CC BY 4.0 license. The source marks the text as an uncorrected transcription, not yet fully proofread against the printed edition. Changes made: whitespace is collapsed; the transcription's '+' marks before some plural words (51, in Matthew) are removed; four places are moved onto the BSB's verse numbers: Luke 10:42 (coded inside chapter 11), Matthew 23:13-14 (the two woes in the other order), Romans 16:24-27 (the closing blessing numbered 16:27, where the BSB's footnoted 16:24 has it) and 3 John 1:15 (joined to 1:14, as in the BSB). An approximate romanization is added by this app, read from the vowel points."
+    },
+    {
+      "id": "tyndale-tbd",
+      "title": "Tyndale Open Bible Dictionary",
+      "provides": "When each part of the Bible happened and when each book was written: eras, dated events and dating views, quoted word for word from the dictionary's articles and its two charts of significant events and dates.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Adapted from Tyndale Open Bible Dictionary. The original work by Tyndale House Publishers is available for free at http://www.tyndaleopenresources.com. Copyright (C) 2023 by Tyndale House Publishers. Licensed under CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/",
+      "homepage": "https://tyndaleopenresources.com/",
+      "repo": "https://github.com/mvh-solutions/aquiferized-tbd-english",
+      "commit": "1bd1bb39b661432145be86ab754675da7e1c365f",
+      "files": {
+        "A": "tyndale-source-files/Articles/A.xml",
+        "B": "tyndale-source-files/Articles/B.xml",
+        "C": "tyndale-source-files/Articles/C.xml",
+        "D": "tyndale-source-files/Articles/D.xml",
+        "E": "tyndale-source-files/Articles/E.xml",
+        "F": "tyndale-source-files/Articles/F.xml",
+        "G": "tyndale-source-files/Articles/G.xml",
+        "H": "tyndale-source-files/Articles/H.xml",
+        "I": "tyndale-source-files/Articles/I.xml",
+        "J": "tyndale-source-files/Articles/J.xml",
+        "K": "tyndale-source-files/Articles/K.xml",
+        "L": "tyndale-source-files/Articles/L.xml",
+        "M": "tyndale-source-files/Articles/M.xml",
+        "N": "tyndale-source-files/Articles/N.xml",
+        "O": "tyndale-source-files/Articles/O.xml",
+        "P": "tyndale-source-files/Articles/P.xml",
+        "Q": "tyndale-source-files/Articles/Q.xml",
+        "R": "tyndale-source-files/Articles/R.xml",
+        "S": "tyndale-source-files/Articles/S.xml",
+        "T": "tyndale-source-files/Articles/T.xml",
+        "U": "tyndale-source-files/Articles/U.xml",
+        "V": "tyndale-source-files/Articles/V.xml",
+        "W": "tyndale-source-files/Articles/W.xml",
+        "XY": "tyndale-source-files/Articles/XY.xml",
+        "Z": "tyndale-source-files/Articles/Z.xml",
+        "charts": "tyndale-source-files/Charts/Charts.xml",
+        "readme": "tyndale-source-files/_README.txt"
+      },
+      "note": "Only tyndale-source-files/ (Tyndale's unmodified package) is read; adapted-articles/ is not used. Every quotation shown in the app is checked word for word against these files at build time."
+    },
+    {
       "id": "tbesh",
       "title": "STEPBible TBESH (Brief Lexicon of Extended Strong's, Hebrew)",
       "provides": "Definitions for each Hebrew and Aramaic root, abridged from BDB.",
@@ -66,6 +191,37 @@
       "files": { "tbesh": "Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt" }
     },
     {
+      "id": "tflsj",
+      "title": "STEPBible TFLSJ (Translators Formatted full LSJ Bible lexicon)",
+      "provides": "The full Liddell-Scott-Jones entry for each Greek root, with dated references to Greek writers, papyri and inscriptions. Used for 'Outside the Bible' in the word study.",
+      "license": "CC BY 4.0 (STEPBible); the LSJ text it formats comes from the Perseus Digital Library, CC BY-SA 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0); LSJ from the Perseus Digital Library, Tufts University (CC BY-SA 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "tflsj1": "Lexicons/TFLSJ  0-5624 - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt",
+        "tflsj2": "Lexicons/TFLSJ extra - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt"
+      },
+      "note": "Full LSJ - Liddell-Scott-Jones - from Perseus, with additional features and corrections by Tyndale House; dates have been added to authors by Tyndale House. Only short excerpts (glosses, writers and centuries) are shipped; the file itself is not redistributed."
+    },
+    {
+      "id": "ubs-ffr",
+      "title": "UBS Fauna, Flora and Realia handbooks",
+      "provides": "Background articles on the animals, plants and human-made things of the Bible, linked to the Hebrew and Greek words they discuss. Used for 'In their world' in the word study.",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Animals in the Bible © United Bible Societies, 2025. Adapted from: All Creatures Great and Small: Living Things in the Bible, by Edward R. Hope © 2005 United Bible Societies. Plants and Trees in the Bible © United Bible Societies, 2025. Adapted from: Each According to its Kind: Plants and Trees in the Bible, by Robert Koops © 2012 United Bible Societies. Human-made Things in the Bible © United Bible Societies, 2025. Adapted from: The Works of Their Hands: Man-made Things in the Bible, by Ray Pritz © 2009 United Bible Societies.",
+      "homepage": "https://github.com/ubsicap/ubs-open-license",
+      "repo": "https://github.com/ubsicap/ubs-open-license",
+      "commit": "33dcc8c671511151551804e073f1d461bc5d5b1a",
+      "files": {
+        "fauna": "flora-fauna-realia/XML/FAUNA_1.1_en.xml",
+        "flora": "flora-fauna-realia/XML/FLORA_1.1_en.xml",
+        "realia": "flora-fauna-realia/XML/REALIA_1.1_en.xml"
+      },
+      "note": "Only the description, usage, discussion, symbolism and 'other' sections are shown; translation advice, reference lists and images are not used."
+    },
+    {
       "id": "tbesg",
       "title": "STEPBible TBESG (Brief Lexicon of Extended Strong's, Greek)",
       "provides": "Definitions for each Greek root, abridged from Abbott-Smith.",
@@ -75,6 +231,24 @@
       "repo": "https://github.com/STEPBible/STEPBible-Data",
       "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
       "files": { "tbesg": "Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt" }
+    },
+    {
+      "id": "clear-align",
+      "title": "Clear Bible BSB word alignments",
+      "provides": "Hand-made links from each Hebrew, Aramaic and Greek word to the BSB English words that translate it (Hebrew from the WLC as tokenized by Macula, Greek from the Berean Greek New Testament). Used to color matching words in word-by-word mode.",
+      "license": "CC BY 4.0 (alignments); the WLC and the BSB are public domain",
+      "attribution": "Word alignments from Clear Bible / Biblica, github.com/Clear-Bible/Alignments (CC BY 4.0)",
+      "homepage": "https://github.com/Clear-Bible/Alignments",
+      "repo": "https://github.com/Clear-Bible/Alignments",
+      "commit": "c99bd0ae6946775f932517656308ca19fc706921",
+      "files": {
+        "hebrew_links": "data/eng/alignments/BSB/WLCM-BSB-manual.json",
+        "hebrew_source": "data/sources/WLCM.tsv",
+        "greek_links": "data/eng/alignments/BSB/BGNT-BSB-manual.json",
+        "greek_source": "data/sources/BGNT.tsv",
+        "english_ot": "data/eng/targets/BSB/ot_BSB.tsv",
+        "english_nt": "data/eng/targets/BSB/nt_BSB.tsv"
+      }
     }
   ]
 }

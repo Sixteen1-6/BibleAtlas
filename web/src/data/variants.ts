@@ -69,8 +69,20 @@ export function describeVariant(kind: string, greek: boolean, editions?: string,
     const absent = ['N', 'K', 'O'].filter((c) => !outside.toUpperCase().includes(c) && !inside.toUpperCase().includes(c));
     const varies = [...new Set(inside.toUpperCase())].filter((c) => GREEK_FAMILY[c]);
     const witnesses = (editions ?? '').split('+').map((e) => e.trim()).filter(Boolean).map((e) => GREEK_EDITIONS[e] ?? e);
+    // Words STEPBible does not class as Ancient (no N) that its data still
+    // lists in Nestle-Aland. With the 27th edition listed they are Mark
+    // 16:8-20 and John 7:53-8:11, which Nestle-Aland prints in double
+    // brackets (atlas verify checks this). With the 28th alone, most are
+    // slips of STEPBible's NA28 column in Mark and Acts and a few are real
+    // changes in James to 2 Peter, so the note says only what the data says.
+    const listed = (editions ?? '').split('+').map((e) => e.trim());
+    const kjv = present.includes('K') ? 'has it' : varies.includes('K') ? 'has it in a different form' : 'does not have it';
     let summary: string;
-    if (!present.includes('N')) summary = `This word is not in ${GREEK_FAMILY.N}. It comes from ${present.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
+    if (!present.includes('N') && listed.includes('NA27'))
+      summary = `Nestle-Aland prints this word in double brackets [[ ]], which its editors use for very early passages they judge were not part of the original text. The Greek text behind the KJV ${kjv}.`;
+    else if (!present.includes('N') && listed.includes('NA28'))
+      summary = `STEPBible’s data lists this word in Nestle-Aland’s 28th edition but not the 27th. The Greek text behind the KJV ${kjv}.`;
+    else if (!present.includes('N')) summary = `This word is not in ${GREEK_FAMILY.N}. It comes from ${present.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
     else if (absent.length) summary = `This word is missing from ${absent.map((c) => GREEK_FAMILY[c]).join(' and ')}.`;
     else if (varies.length) summary = `${varies.map((c) => GREEK_FAMILY[c]).join(' and ')} ${significant ? 'has a different word here' : 'spells or orders this word differently'}.`;
     else summary = 'The editions agree on this word.';

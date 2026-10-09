@@ -1,0 +1,317 @@
+/* When it happened and when it was written: one quiet line after the last
+   verse, and the panel that "More" opens under it, in layers: the picture
+   first, then a line or two per view, then the sources one tap away. Colors
+   come from the tokens in styles.css, so light and dark both work. */
+
+.tp-when {
+  max-width: 760px;
+  margin: 22px auto 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.tp-part {
+  overflow-wrap: anywhere;
+}
+.tp-more {
+  min-height: 24px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tp-more:hover {
+  text-decoration-thickness: 2px;
+}
+/* A tall touch target that does not push the line apart when it wraps. */
+.tp-when .tp-more {
+  margin: -2px 0 -2px 8px;
+}
+
+.tp-panel {
+  max-width: 760px;
+  box-sizing: border-box;
+  margin: 6px auto 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+.tp-frame {
+  margin: 0;
+  color: var(--muted);
+}
+.tp-sec {
+  margin-top: 14px;
+}
+.tp-h {
+  margin: 0 0 6px;
+  font: 600 11px/1.3 var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.tp-era {
+  margin: 0 0 4px;
+  font: 600 15px/1.35 var(--font-read);
+}
+.tp-years {
+  font-weight: 400;
+  color: var(--muted);
+}
+.tp-q {
+  margin: 4px 0 2px;
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+  font: 14px/1.55 var(--font-read);
+}
+.tp-cite {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tp-ends {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  margin: 6px 0 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tp-ends dt {
+  font-weight: 600;
+}
+.tp-ends dd {
+  margin: 0;
+}
+.tp-views {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tp-view {
+  margin: 0 0 8px;
+}
+.tp-view + .tp-view {
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+}
+.tp-vlabel {
+  margin: 0;
+}
+.tp-vlabel b,
+.tp-lines b {
+  font-weight: 600;
+}
+.tp-view:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+/* The chapters a view is about, when they are not this one. */
+.tp-chs {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tp-lines {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.tp-lines li + li {
+  margin-top: 2px;
+}
+.tp-lines .tp-pref {
+  font-size: 12px;
+}
+.tp-who {
+  color: var(--muted);
+}
+.tp-pref {
+  margin: 2px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.tp-show {
+  margin: 0 0 6px;
+  padding: 0;
+}
+.tp-why {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.tp-whyh {
+  font-weight: 600;
+}
+.tp-why .tp-cite {
+  margin-top: 2px;
+}
+.tp-row {
+  margin: 6px 0 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.tp-row table {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.tp-row th,
+.tp-row td {
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.tp-row th {
+  font-weight: 600;
+}
+.tp-map {
+  margin-top: 8px;
+  min-height: 32px;
+  font-size: 13px;
+}
+
+/* ---- sources and evidence */
+
+.tp-evidence {
+  margin-top: 14px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.tp-evbtn {
+  padding-left: 0;
+}
+.tp-evbtn::before {
+  content: '▸ ';
+  display: inline-block;
+  width: 1em;
+  text-decoration: none;
+}
+.tp-evbtn[aria-expanded='true']::before {
+  content: '▾ ';
+}
+.tp-ev {
+  margin-top: 6px;
+}
+.tp-evsec + .tp-evsec {
+  margin-top: 12px;
+}
+.tp-evview {
+  margin-top: 8px;
+}
+.tp-key {
+  color: var(--ink);
+}
+.tp-hedge {
+  font-style: italic;
+}
+
+/* ---- timeline */
+
+.tp-time {
+  display: block;
+  margin-top: 14px;
+  overflow: visible;
+  font-family: var(--font-ui);
+}
+.tp-band {
+  fill: var(--muted);
+  fill-opacity: 0.28;
+  /* A full-strength edge keeps each band visible against the panel. */
+  stroke: var(--muted);
+  stroke-width: 1;
+}
+.tp-band.alt {
+  fill-opacity: 0.45;
+}
+.tp-band.cur {
+  fill: var(--accent);
+  fill-opacity: 1;
+  stroke: var(--accent);
+}
+.tp-band.tp-lane {
+  fill-opacity: 0.4;
+}
+.tp-stop {
+  stop-color: var(--muted);
+}
+.tp-stop.cur {
+  stop-color: var(--accent);
+}
+.tp-stop.w {
+  stop-color: var(--ink);
+}
+.tp-wbar {
+  fill: var(--ink);
+  fill-opacity: 0.5;
+}
+.tp-wbar.first {
+  fill-opacity: 0.9;
+}
+.tp-tick {
+  stroke-width: 3;
+}
+.tp-band.tp-tick {
+  stroke: var(--muted);
+  stroke-opacity: 0.6;
+}
+.tp-band.cur.tp-tick {
+  stroke: var(--accent);
+  stroke-opacity: 1;
+}
+.tp-wbar.tp-tick {
+  stroke: var(--ink);
+  stroke-opacity: 0.5;
+}
+.tp-wbar.first.tp-tick {
+  stroke-opacity: 0.9;
+}
+/* The current era's other dated views. */
+.tp-eview {
+  fill: var(--ink);
+  fill-opacity: 0.75;
+}
+.tp-eview.tp-tick {
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-opacity: 0.85;
+}
+.tp-axis {
+  stroke: var(--muted);
+}
+.tp-label,
+.tp-rowname {
+  fill: var(--muted);
+  font-size: 10px;
+}
+.tp-name,
+.tp-wlabel {
+  fill: var(--ink);
+  font-size: 10px;
+}
+.tp-name {
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .tp-when {
+    margin-top: 18px;
+  }
+  .tp-panel {
+    padding: 10px 12px;
+  }
+  .tp-more {
+    min-height: 32px;
+  }
+  .tp-when .tp-more {
+    margin-block: -6px;
+  }
+}

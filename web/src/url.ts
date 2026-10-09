@@ -1,15 +1,20 @@
-// Every view is a link: #v=John.3.16&w=G0026&t=lamb&p=Gen.3.15~Rev.12.9&tab=word
+// Every view is a link: #v=John.3.16&w=G0026&wv=John.3.16&wp=4&t=lamb&p=Gen.3.15~Rev.12.9&road=2&tab=word
+// (wv and wp: the verse and word position a word study was opened from; road:
+// which of the roads between the two ends of p is lit, when it is not the first).
 
 import { effect } from '@preact/signals';
 import { type Atlas, locate, verseIndex } from './data/atlas';
+import { TAB_DEPTH, deepen } from './depth';
 import * as S from './state';
+import { extraFromHash, extraToHash } from './ui/extras/open';
+import { chosenRoad, pickLinkedRoad } from './ui/Roads';
 
 function osis(a: Atlas, v: number): string {
   const l = locate(a, v);
   return `${a.books[l.book].osis}.${l.chapter}.${l.verse}`;
 }
 
-function fromOsis(a: Atlas, s: string): number | null {
+export function fromOsis(a: Atlas, s: string): number | null {
   const [b, c, v] = s.split('.');
   const book = a.books.findIndex((x) => x.osis === b);
   const ch = Number(c);
@@ -33,12 +38,25 @@ export function restoreFromHash(a: Atlas): void {
   const w = h.get('w');
   if (w) {
     const root = a.lemmas.key.indexOf(w);
-    if (root >= 0) S.study.value = { root };
+    if (root >= 0) {
+      const wv = h.get('wv');
+      const verse = wv ? fromOsis(a, wv) ?? undefined : undefined;
+      const wp = Number(h.get('wp'));
+      const pos = verse !== undefined && Number.isInteger(wp) && wp >= 0 && h.has('wp') ? wp : undefined;
+      S.study.value = { root, verse, pos };
+      deepen('study');
+    }
   }
   const t = h.get('t');
   if (t && a.themes.some((x) => x.id === t)) S.theme.value = t;
   const tab = h.get('tab') as S.Tab | null;
-  if (tab && ['connections', 'word', 'themes', 'paths', 'hubs', 'sources'].includes(tab)) S.tab.value = tab;
+  if (tab && tab in TAB_DEPTH) {
+    // A shared link opens as deep as the view it points at.
+    S.tab.value = tab;
+    deepen(TAB_DEPTH[tab]);
+  }
+  if (h.has('p')) pickLinkedRoad(Number(h.get('road')));
+  extraFromHash(h);
 }
 
 export function pathFromHash(a: Atlas): [number, number] | null {
@@ -56,11 +74,22 @@ export function syncHash(a: Atlas): () => void {
     if (sel !== null) h.set('v', osis(a, sel));
     else h.set('r', `${a.books[S.reading.value.book].osis}.${S.reading.value.chapter}`);
     const st = S.study.value;
-    if (st) h.set('w', a.lemmas.key[st.root]);
+    if (st) {
+      h.set('w', a.lemmas.key[st.root]);
+      if (st.verse !== undefined) {
+        h.set('wv', osis(a, st.verse));
+        if (st.pos !== undefined) h.set('wp', String(st.pos));
+      }
+    }
     if (S.theme.value) h.set('t', S.theme.value);
     const p = S.path.value;
-    if (p) h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);
+    if (p) {
+      h.set('p', `${osis(a, p.verses[0])}~${osis(a, p.verses[p.verses.length - 1])}`);
+      const road = chosenRoad();
+      if (road > 0) h.set('road', String(road + 1));
+    }
     h.set('tab', S.tab.value);
+    extraToHash(h);
     const next = `#${h.toString()}`;
     if (location.hash !== next) history.replaceState(null, '', next);
   });

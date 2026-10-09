@@ -2,13 +2,17 @@
 // manuscript evidence, and every place it occurs.
 
 import { useEffect, useMemo, useState } from 'preact/hooks';
-import { type Atlas, LANG_NAME, label, versesWithRoot } from '../data/atlas';
+import { WordSky } from './WordSky';
+import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
 import { type LexEntry, getLex } from '../data/lex';
 import { describeMorph } from '../data/morph';
+import { WordWorld } from './WordWorld';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
+import { atLeast } from '../depth';
 import * as S from '../state';
 import { Distribution, Provenance, useVerseRow } from './common';
+import { GoDeeper } from './Depth';
 
 function Definition({ entry }: { entry: LexEntry }) {
   return (
@@ -18,7 +22,7 @@ function Definition({ entry }: { entry: LexEntry }) {
         const el = style & 2 ? <i>{body}</i> : body;
         if (ref >= 0) {
           return (
-            <span key={i} class="r" role="link" tabIndex={0} onClick={() => S.selectVerse(ref)} onKeyDown={(e) => e.key === 'Enter' && S.selectVerse(ref)}>
+            <span key={i} class="r" role="link" tabIndex={0} data-lv={ref} onClick={() => S.selectVerse(ref)} onKeyDown={(e) => e.key === 'Enter' && S.selectVerse(ref)}>
               {el}
             </span>
           );
@@ -33,8 +37,8 @@ function Occurrence({ a, v, root }: { a: Atlas; v: number; root: number }) {
   const row = useVerseRow(a, v);
   const words = row ? row[1].filter((w) => w[3] === root) : [];
   return (
-    <div class="refrow" onClick={() => S.selectVerse(v, { openTab: false })}>
-      <span class="ref">{label(a, v)}</span>
+    <div class="refrow" data-lv={v} onClick={() => S.selectVerse(v, { openTab: false })}>
+      <button type="button" class="ref">{label(a, v)}</button>
       <span class="vt">{words.map((w) => w[2]).join(', ')}</span>
       <span class="snip">{row ? (row[0].length > 170 ? row[0].slice(0, 169) + '…' : row[0]) : '…'}</span>
     </div>
@@ -63,7 +67,7 @@ export function WordStudy({ a }: { a: Atlas }) {
     return (
       <div class="panel">
         <h2>Word study</h2>
-        <p class="empty">Tap any Hebrew or Greek word in the text. You will see what it means, how it is used in that verse, whether manuscripts differ, and every other place it appears.</p>
+        <p class="empty">{S.TAP} any Hebrew or Greek word in the text. You will see what it means, how it is used in that verse, whether manuscripts differ, and every other place it appears.</p>
       </div>
     );
   }
@@ -74,7 +78,7 @@ export function WordStudy({ a }: { a: Atlas }) {
   const greek = lang === 'G';
   const count = L.count[r];
   const books = new Set(Array.from(verses, (v) => a.verseBook[v])).size;
-  const word = row && st.pos !== undefined ? row[1][st.pos] : null;
+  const word = row && st.pos !== undefined && row[1][st.pos]?.[3] === r ? row[1][st.pos] : null;
   const variant = word && word[5] & FLAG.variant && word[6] ? describeVariant(word[6].k, greek, word[6].e, !!(word[5] & FLAG.significant)) : null;
   const lex = entry?.root === r ? entry.e : undefined;
 
@@ -106,7 +110,7 @@ export function WordStudy({ a }: { a: Atlas }) {
       <dl class="facts">
         <dt>Language</dt>
         <dd>
-          {LANG_NAME[lang]} · Strong’s {L.key[r]}
+          {langName(L, r)} · Strong’s {L.key[r]}
         </dd>
         <dt>Occurs</dt>
         <dd>
@@ -137,7 +141,12 @@ export function WordStudy({ a }: { a: Atlas }) {
             <dt>Grammar</dt>
             <dd>{describeMorph(word[4], word[5] & FLAG.aramaic ? 'A' : greek ? 'G' : 'H')}</dd>
           </dl>
-          {variant && (
+          {variant && !atLeast('deep') && (
+            <p class="muted">
+              {variant.significant ? 'Manuscripts differ here.' : 'Manuscripts differ slightly here.'} <GoDeeper to="deep">See how</GoDeeper>
+            </p>
+          )}
+          {variant && atLeast('deep') && (
             <div class="variantbox">
               <b>{variant.significant ? 'Manuscripts differ here' : 'Minor manuscript difference'}</b>
               <p>{variant.summary}</p>
@@ -147,6 +156,7 @@ export function WordStudy({ a }: { a: Atlas }) {
           )}
         </>
       )}
+      <WordWorld a={a} root={r} verse={st.verse} />
 
       <h3>Where it appears</h3>
       <Distribution a={a} verses={verses} />
@@ -156,6 +166,7 @@ export function WordStudy({ a }: { a: Atlas }) {
 
       <h3>Definition</h3>
       {lex === undefined ? <p class="muted">Loading…</p> : lex ? <Definition entry={lex} /> : <p class="muted">No lexicon entry for this root.</p>}
+      <WordSky a={a} root={r} verse={st.verse} pos={st.pos} />
 
       <h3>Every occurrence ({verses.length.toLocaleString()} verses)</h3>
       {Array.from(verses.subarray(0, limit), (v) => (
