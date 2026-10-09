@@ -48,7 +48,7 @@ function LinkRow({ a, from, link, max, bridge }: { a: Atlas; from: number; link:
   const sameLang = (a.books[a.verseBook[from]].testament === 'OT') === (a.books[a.verseBook[link.v]].testament === 'OT');
   const shared = study && src && dst && sameLang ? sharedRoots(a, src, dst) : [];
   return (
-    <div class="refrow" onClick={() => S.selectVerse(link.v)}>
+    <div class="refrow" data-lv={link.v} onClick={() => S.selectVerse(link.v)}>
       <span class="ref">{rangeLabel(a, link.v, link.span)}</span>
       <span class="vt" title={`${link.votes} community votes on OpenBible.info`}>
         <span class="bar" style={`width:${Math.max(3, (40 * Math.max(0, link.votes)) / max)}px`} />

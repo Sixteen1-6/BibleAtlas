@@ -22,6 +22,13 @@ export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
   return Uint32Array.from(list.slice(0, limit));
 }
 
+/** True if a cross-reference joins two verses, in either direction. */
+function linked(a: Atlas, u: number, v: number): boolean {
+  for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xDst[e] === v) return true;
+  for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xDst[e] === u) return true;
+  return false;
+}
+
 function useSize(ref: { current: HTMLElement | null }): { w: number; h: number } {
   const [size, setSize] = useState({ w: 0, h: 0 });
   useEffect(() => {
@@ -231,6 +238,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
       if (d.moved) {
         setView({ scale: d.view.scale, offset: d.view.offset - (x - d.x) / (d.view.scale * w) });
         S.hovered.value = null;
+        S.pointedVerse.value = null;
         setTip(null);
         return;
       }
@@ -240,6 +248,8 @@ export function AtlasMap({ a }: { a: Atlas }) {
     if (S.selected.value !== null && !S.path.value && localY(e) < h * BASELINE - 12) {
       const hit = arcAt(x, localY(e), false);
       S.hovered.value = null;
+      // The arc's far end lights in the panel and the text too.
+      if (S.pointedVerse.peek() !== (hit?.v ?? null)) S.pointedVerse.value = hit?.v ?? null;
       const y = localY(e);
       if (!hit) {
         hoverArc.current = null;
@@ -261,6 +271,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
       return;
     }
     hoverArc.current = null;
+    if (S.pointedVerse.peek() !== null) S.pointedVerse.value = null;
     const v = verseAt(xs, x, S.view.value, w);
     if (S.hovered.value !== v) {
       S.hovered.value = v;
@@ -297,6 +308,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const onLeave = () => {
     hoverArc.current = null;
     S.hovered.value = null;
+    S.pointedVerse.value = null;
     setTip(null);
     window.clearTimeout(hoverTimer.current);
   };
@@ -520,6 +532,27 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const hv = S.hovered.value;
   const hoverLine = hv !== null ? <line x1={sx(hv)} x2={sx(hv)} y1={base - 14} y2={base + 6} stroke={ARC.lamp} stroke-width={1.5} /> : null;
 
+  // A verse pointed at in the text or a panel: its arc to the selected verse
+  // when the two are linked, else a mark where it sits on the baseline.
+  const pv = S.pointedVerse.value;
+  let pointLayer: preact.JSX.Element | null = null;
+  if (pv !== null && pv !== hv && w > 0) {
+    const px = sx(pv);
+    if (selV !== null && pv !== selV && !p && linked(a, selV, pv)) {
+      // The map's own arc hover already draws this one.
+      if (!(tip?.from === selV && tip.v === pv)) {
+        pointLayer = (
+          <g>
+            <path class="pointarc" d={arcPath(sx(selV), px, h, w)} />
+            <circle cx={px} cy={base} r={3.5} fill={ARC.lamp} />
+          </g>
+        );
+      }
+    } else if (pv !== selV) {
+      pointLayer = <line x1={px} x2={px} y1={base - 14} y2={base + 6} stroke={ARC.lamp} stroke-width={1.5} opacity={0.75} />;
+    }
+  }
+
   const n = S.visibleEdges.value;
   const group = S.groupEdges.value;
 
@@ -533,6 +566,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
         {selection}
         {pathLayer}
         {hoverLine}
+        {pointLayer}
         {tip?.from !== undefined && tip.from === selV && !p && <path class="hoverarc" d={arcPath(sx(tip.from), sx(tip.v), h, w)} />}
       </svg>
       <canvas class="strip" ref={strip} style={`top:${h - 10}px`} aria-hidden="true" />

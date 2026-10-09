@@ -13,6 +13,7 @@ import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
 import { Reader } from './ui/Reader';
 import { Sources } from './ui/Sources';
+import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
 import { Wheel } from './ui/Wheel';
 import { WordStudy } from './ui/WordStudy';
@@ -72,6 +73,8 @@ export function App() {
   const [progress, setProgress] = useState('Starting');
   const [error, setError] = useState<string | null>(null);
   const a = S.atlas.value;
+
+  useEffect(installPointing, []);
 
   useEffect(() => {
     let stop: (() => void) | undefined;

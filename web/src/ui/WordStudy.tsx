@@ -36,7 +36,7 @@ function Occurrence({ a, v, root }: { a: Atlas; v: number; root: number }) {
   const row = useVerseRow(a, v);
   const words = row ? row[1].filter((w) => w[3] === root) : [];
   return (
-    <div class="refrow" onClick={() => S.selectVerse(v, { openTab: false })}>
+    <div class="refrow" data-lv={v} onClick={() => S.selectVerse(v, { openTab: false })}>
       <span class="ref">{label(a, v)}</span>
       <span class="vt">{words.map((w) => w[2]).join(', ')}</span>
       <span class="snip">{row ? (row[0].length > 170 ? row[0].slice(0, 169) + '…' : row[0]) : '…'}</span>

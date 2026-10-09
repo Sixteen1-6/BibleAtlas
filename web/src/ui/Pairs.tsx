@@ -114,7 +114,7 @@ export function PairedWords({ v, row, al, hebrew, other, studyRoot }: { v: numbe
       </div>
       <div class={`inter ${lang}`}>
         {shown.map(({ w, i, pieces }) => (
-          <button key={i} class={`cell ${lang} ${cellClass(w, w[3] === studyRoot)}`} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, i)} title={w[4]}>
+          <button key={i} class={`cell ${lang} ${cellClass(w, w[3] === studyRoot)}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, i)} title={w[4]}>
             <span class="o" lang={hebrew ? 'hbo' : 'grc'}>
               {pieces.map((p, k) => (
                 <span key={k} class={`op${pairClass(p[2], active)}`} {...handlers(v, p[2])}>

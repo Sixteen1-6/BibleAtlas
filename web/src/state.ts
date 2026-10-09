@@ -18,6 +18,11 @@ export const engine = signal<Engine | null>(null);
 export const selected = signal<number | null>(null);
 /** Verse under the pointer on the map. */
 export const hovered = signal<number | null>(null);
+/** A verse the pointer or keyboard focus rests on in the text or a panel
+ *  (or on one of the selected verse's arcs). Lit everywhere else; see ui/pointing.ts. */
+export const pointedVerse = signal<number | null>(null);
+/** A Hebrew or Greek root the pointer or keyboard focus rests on. */
+export const pointedRoot = signal<number | null>(null);
 /** Chapter shown in the reader. */
 export const reading = signal<{ book: number; chapter: number }>({ book: 42, chapter: 1 });
 /** Root shown in Word study, with the occurrence that was clicked. */

@@ -22,6 +22,9 @@
   --line: #e4dccd;
   --accent: #9a5a06;
   --accent-soft: #fbe9c6;
+  /* A verse lit because it is pointed at elsewhere: softer than a selection. */
+  --lit-soft: rgba(251, 233, 198, 0.6);
+  --lit-edge: rgba(154, 90, 6, 0.45);
   --link: #3546c4;
   --variant: #b4560f;
   --focus: #4f5dff;
@@ -52,6 +55,8 @@
     --line: rgba(160, 172, 235, 0.13);
     --accent: #f5c46a;
     --accent-soft: rgba(245, 196, 106, 0.13);
+    --lit-soft: rgba(245, 196, 106, 0.07);
+    --lit-edge: rgba(245, 196, 106, 0.5);
     --link: #a3b4ff;
     --variant: #ffa45c;
     --focus: #8fa2ff;
@@ -71,6 +76,8 @@
   --line: rgba(160, 172, 235, 0.13);
   --accent: #f5c46a;
   --accent-soft: rgba(245, 196, 106, 0.13);
+  --lit-soft: rgba(245, 196, 106, 0.07);
+  --lit-edge: rgba(245, 196, 106, 0.5);
   --link: #a3b4ff;
   --variant: #ffa45c;
   --focus: #8fa2ff;
@@ -378,11 +385,15 @@ p .godeeper {
 .booklabel.on {
   fill: var(--sky-ink);
 }
-.hoverarc {
+.hoverarc,
+.pointarc {
   fill: none;
   stroke: var(--lamp);
   stroke-width: 2;
   filter: drop-shadow(0 0 4px var(--lamp-glow));
+}
+.pointarc {
+  stroke-width: 1.6;
 }
 .grouplabel {
   font: 600 9.5px var(--font-ui);
@@ -619,6 +630,12 @@ p .godeeper {
   margin: 0 -10px;
   border-radius: var(--r-md);
   scroll-margin-top: 40vh;
+}
+.verse,
+.refrow {
+  transition:
+    background-color 0.12s,
+    box-shadow 0.12s;
 }
 .verse.sel {
   background: var(--accent-soft);
