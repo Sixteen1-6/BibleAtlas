@@ -4,8 +4,8 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { signal } from '@preact/signals';
 import type { ComponentChildren } from 'preact';
-import { type Atlas, type Theme, label } from '../data/atlas';
-import { THREAD_VOTES, type Thread, linksWithinRows, themeLinksOf, themeThread, themeVerses } from '../data/thread';
+import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
+import { ALL_VOTES, THREAD_VOTES, type Thread, linksWithinRows, themeLinkCount, themeThread, themeVerses } from '../data/thread';
 import * as S from '../state';
 import { OrigLine, Snippet, useVerseRow } from './common';
 import { GENRE } from './colors';
@@ -21,9 +21,9 @@ const lit = signal<{ id: string; mode: Mode; group: Group | null } | null>(null)
 let generation = 0;
 
 /** Light a theme on the map: its verses as ticks, and either its thread
- *  ('thread') or every link between its verses with 2 or more votes ('all',
- *  the view the Themes panel has always shown). A theme without a thread
- *  shows all its links. */
+ *  ('thread') or every link between its verses with ALL_VOTES or more votes
+ *  ('all', the view the Themes panel has always shown). A theme without a
+ *  thread shows all its links. */
 export async function lightTheme(a: Atlas, id: string, mode: Mode = 'thread', opts: { keepSelection?: boolean } = {}): Promise<void> {
   const th = a.themes.find((x) => x.id === id);
   if (!th) return;
@@ -44,12 +44,12 @@ export async function lightTheme(a: Atlas, id: string, mode: Mode = 'thread', op
   lit.value = { id, mode: 'all', group: null };
   let edges: Uint32Array | undefined;
   try {
-    edges = await S.engine.peek()?.linksWithin(a.n, verses, 2);
+    edges = await S.engine.peek()?.linksWithin(a.n, verses, ALL_VOTES);
   } catch {
     edges = undefined;
   }
   if (gen !== generation || S.theme.peek() !== id) return;
-  edges ??= linksWithinRows(a, verses, 2);
+  edges ??= linksWithinRows(a, verses, ALL_VOTES);
   const group: Group = { edges, label: `${th.name}: ${edges.length.toLocaleString()} links between ${verses.length.toLocaleString()} verses` };
   S.groupEdges.value = group;
   lit.value = { id, mode: 'all', group };
@@ -89,11 +89,24 @@ export function useHoverPreview(v: number) {
   };
 }
 
-/** A clickable verse row that previews its verse on the map under a mouse. */
+/** A clickable verse row that previews its verse on the map under a mouse.
+ *  It works from the keyboard too: Tab to it, then Enter or Space. */
 export function PreviewRow({ v, class: cls, onClick, children }: { v: number; class?: string; onClick?: () => void; children: ComponentChildren }) {
   const hover = useHoverPreview(v);
   return (
-    <div class={cls} data-lv={v} onClick={onClick} {...hover}>
+    <div
+      class={cls}
+      data-lv={v}
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        onClick?.();
+      }}
+      {...hover}
+    >
       {children}
     </div>
   );
@@ -126,18 +139,32 @@ function scroller(el: HTMLElement | null): HTMLElement | null {
   return null;
 }
 
+/** Where the visible part of a scroller begins: below any sticky bar pinned
+ *  to its top, such as the study panel's tabs. */
+function visibleTop(box: HTMLElement): number {
+  let top = box.getBoundingClientRect().top;
+  for (const child of Array.from(box.children)) {
+    if (getComputedStyle(child).position !== 'sticky') continue;
+    const r = child.getBoundingClientRect();
+    if (r.top <= top + 1 && r.bottom > top) top = r.bottom;
+  }
+  return top;
+}
+
 const smooth = (): ScrollBehavior => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
 
 /** Scroll the panel just enough to show a step whole (its top, if it is taller
- *  than the panel), clear of the "Back to the thread" button at the bottom. */
+ *  than the panel), clear of the tab bar at the top and of the "Back to the
+ *  thread" button at the bottom. */
 function reveal(el: Element | null | undefined): void {
   const box = scroller(el as HTMLElement | null);
   if (!el || !box) return;
   const r = el.getBoundingClientRect();
   const b = box.getBoundingClientRect();
+  const top = visibleTop(box);
   let d = Math.max(0, r.bottom - (b.bottom - 64));
-  d = Math.min(d, r.top - (b.top + 8));
-  if (d > 0 || r.top < b.top) box.scrollBy({ top: d, behavior: smooth() });
+  d = Math.min(d, r.top - (top + 8));
+  if (d > 0 || r.top < top) box.scrollBy({ top: d, behavior: smooth() });
 }
 
 /** A tapped step, opened up: the whole verse, and its Hebrew or Greek with the theme's word marked. */
@@ -157,19 +184,21 @@ function StepDetail({ a, v, roots }: { a: Atlas; v: number; roots: Set<number> }
   );
 }
 
-function Step({ a, i, v, prev, edge, on, roots }: { a: Atlas; i: number; v: number; prev?: number; edge?: number; on: boolean; roots: Set<number> }) {
+function Step({ a, i, v, edge, on, roots }: { a: Atlas; i: number; v: number; edge?: number; on: boolean; roots: Set<number> }) {
   const hover = useHoverPreview(v);
   const genre = a.books[a.verseBook[v]].genre;
   const votes = edge !== undefined ? a.xVotes[edge] : undefined;
   return (
     <li class={`tj-li${on ? ' is-on' : ''}`} data-step={i} style={`--tj-g:${GENRE[genre]?.color ?? 'var(--accent)'}`}>
-      <button class="tj-step" data-lv={v} aria-current={on ? 'step' : undefined} onClick={() => S.selectVerse(v, { openTab: false })} {...hover}>
+      <button class="tj-step" data-lv={v} aria-current={on ? 'step' : undefined} aria-expanded={on} onClick={() => S.selectVerse(v, { openTab: false })} {...hover}>
         <span class="tj-n" aria-hidden="true">
           {i + 1}
         </span>
         <span class="tj-ref">{label(a, v)}</span>
-        {votes !== undefined && prev !== undefined && (
-          <span class="tj-votes" title={`OpenBible.info readers gave the link from ${label(a, prev)} to ${label(a, v)} ${votes} net votes`}>
+        {edge !== undefined && votes !== undefined && (
+          // The step's link is the best-voted row between the two verses, which
+          // may run either way: name the row's own direction.
+          <span class="tj-votes" title={`${votes} community votes on OpenBible.info for the link from ${label(a, a.xSrc[edge])} to ${rangeLabel(a, a.xDst[edge], a.xSpan[edge])}`}>
             {votes} votes
           </span>
         )}
@@ -185,9 +214,7 @@ function Step({ a, i, v, prev, edge, on, roots }: { a: Atlas; i: number; v: numb
 export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
   const root = useRef<HTMLElement>(null);
   const thread: Thread = useMemo(() => themeThread(a, theme), [a, theme]);
-  const verses = useMemo(() => themeVerses(a, theme), [a, theme]);
-  const allCount = useMemo(() => linksWithinRows(a, verses, 2).length, [a, verses]);
-  const skyLinks = useMemo(() => themeLinksOf(a, theme, 2), [a, theme]);
+  const allCount = useMemo(() => themeLinkCount(a, theme), [a, theme]);
   const roots = useMemo(() => new Set(theme.roots), [theme]);
   const sel = S.selected.value;
   const g = S.groupEdges.value;
@@ -208,12 +235,15 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
     if ((m?.label === mine && ge === null) || (staleTheme && ours)) lightTheme(a, theme.id, 'thread', { keepSelection: true });
   }, [a, theme.id]);
 
-  // A newly chosen theme opens at the top of the panel, hero first.
+  // A newly chosen theme opens at the top of the panel, hero first. Chosen
+  // from the keyboard, it also takes the focus from its card (which has moved
+  // down into the strip), so the next Tab goes into the thread.
   useEffect(() => {
     const el = root.current;
+    if (!el) return;
     const box = scroller(el);
-    if (!el || !box) return;
-    if (el.getBoundingClientRect().top < box.getBoundingClientRect().top) box.scrollTop = 0;
+    if (box && el.getBoundingClientRect().top < visibleTop(box)) box.scrollTop = 0;
+    if (document.activeElement?.closest('.tj-card')) el.focus({ preventScroll: true });
   }, [theme.id]);
 
   const step = (i: number) => {
@@ -222,8 +252,8 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
   };
 
   return (
-    <section class="tj-journey" ref={root} aria-label={`${theme.name}, traced through the Bible`}>
-      <ThemeHero a={a} theme={theme} thread={thread} mode={mode} links={skyLinks} onStep={step} />
+    <section class="tj-journey" ref={root} tabIndex={-1} aria-label={`${theme.name}, traced through the Bible`}>
+      <ThemeHero a={a} theme={theme} thread={thread} mode={mode} total={allCount} onStep={step} />
       <p class="tj-intro">
         <b>{theme.name}</b> {theme.blurb}
       </p>
@@ -231,18 +261,18 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
         <>
           <h3 class="tj-h">
             {isThread ? 'The thread' : 'Key verses (not a linked chain)'}
-            <span> · {thread.verses.length} verses</span>
+            <span>{isThread ? ` · ${label(a, thread.verses[0])} to ${label(a, thread.verses[thread.verses.length - 1])}` : ` · ${thread.verses.length} verses`}</span>
           </h3>
           <ol class={`tj-steps${isThread ? '' : ' is-key'}`}>
             {thread.verses.map((v, i) => (
-              <Step key={v} a={a} i={i} v={v} prev={thread.verses[i - 1]} edge={isThread && i > 0 ? thread.edges[i - 1] : undefined} on={i === on} roots={roots} />
+              <Step key={v} a={a} i={i} v={v} edge={isThread && i > 0 ? thread.edges[i - 1] : undefined} on={i === on} roots={roots} />
             ))}
           </ol>
         </>
       )}
       {sel !== null && (
         <button class="tj-back" onClick={() => (S.selected.value = null)}>
-          {isThread ? 'Back to the thread' : 'Back to the theme'}
+          {!isThread ? 'Back to the theme' : mode === 'all' ? 'Back to all links' : 'Back to the thread'}
         </button>
       )}
       {isThread ? (
@@ -264,8 +294,8 @@ export function ThemeJourney({ a, theme }: { a: Atlas; theme: Theme }) {
       )}
       <p class="tj-why">
         {isThread
-          ? `The thread is computed, not chosen by hand: the strongest chain of links with ${THREAD_VOTES} or more votes between this theme's verses that moves forward through the Bible and ends at one of its most central New Testament verses.`
-          : `These verses are not a linked chain: no chain of 4 or more links with ${THREAD_VOTES} or more votes moves forward through this theme's verses to one of its most central New Testament verses. They are its most central verses, in Bible order.`}
+          ? `The thread is computed, not chosen by hand. A fixed rule follows links between this theme's verses that OpenBible.info readers voted for (${THREAD_VOTES} or more votes), always moving forward through the Bible. It favours well-voted links and well-connected verses, and ends at one of the theme's most connected New Testament verses.`
+          : `These verses are not a linked chain: no chain of 4 or more verses, joined by links with ${THREAD_VOTES} or more votes, moves forward through this theme's verses to one of its most connected New Testament verses. They are its most connected verses, in Bible order.`}
       </p>
     </section>
   );

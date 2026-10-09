@@ -7,6 +7,8 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
+  /* clip, where supported, also stops focus or find-in-page from scrolling the wheel. */
+  overflow: clip;
   color: var(--sky-ink);
   -webkit-tap-highlight-color: transparent;
 }
@@ -202,18 +204,22 @@
 }
 .wh-phone .wh-caption {
   left: 12px;
+  top: 8px;
+  font-size: 11.5px;
+  line-height: 1.35;
+}
+/* Narrow and tall: the caption runs centered across the top, above the wheel. */
+.wh-captop .wh-caption {
   right: 12px;
   top: 5px;
   max-width: none;
-  font-size: 11.5px;
-  line-height: 1.35;
   text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.wh-phone .wh-caption > span {
+.wh-captop .wh-caption > span {
   display: block;
 }
 
@@ -223,6 +229,21 @@
   bottom: 12px;
   font-size: 11.5px;
   color: var(--sky-muted);
+}
+/* A card is open and the wheel has slid into the corners: the caption and key step aside until it closes. */
+.wh-caption,
+.wh-legend {
+  transition:
+    opacity 0.2s ease,
+    visibility 0s;
+}
+.wh-crowd .wh-caption,
+.wh-crowd .wh-legend {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0s 0.2s;
 }
 .wh-keys-list,
 .wh-groups {
@@ -320,6 +341,8 @@
   --wh-line: var(--sky-line);
   --wh-accent: var(--lamp);
   --wh-hover: rgba(255, 255, 255, 0.06);
+  /* The ↔ between two books in different Testaments: the ribbons' silver on the night sky. */
+  --wh-cross: #e6e9ff;
   position: absolute;
   right: 16px;
   top: 12px;
@@ -328,6 +351,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Only the body scrolls: clip keeps the title row from being scrolled away. */
+  overflow: clip;
   border: 1px solid var(--wh-line);
   border-radius: 12px;
   background: var(--wh-bg);
@@ -351,6 +376,7 @@
   --wh-line: var(--line);
   --wh-accent: var(--accent);
   --wh-hover: var(--surface-2);
+  --wh-cross: var(--ink);
   position: fixed;
   left: 0;
   right: 0;
@@ -363,6 +389,7 @@
   backdrop-filter: none;
   animation-name: wh-sheet-in;
 }
+/* The grabber: the sheet can be pulled down by it, or by its header, to close it. */
 .wh-phone .wh-card::before {
   content: '';
   position: absolute;
@@ -373,6 +400,10 @@
   margin-left: -18px;
   border-radius: 2px;
   background: var(--wh-line);
+}
+.wh-phone .wh-card,
+.wh-phone .wh-head {
+  touch-action: none;
 }
 @keyframes wh-sheet-in {
   from {
@@ -449,8 +480,34 @@
   color: var(--wh-muted);
   font: 400 16px var(--font-ui);
 }
+.wh-amp.wh-amp-cross {
+  color: var(--wh-cross);
+}
+
+/* A book card's neighbors in canon order. */
+.wh-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 14px;
+  margin-top: 5px;
+}
+.wh-step {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--wh-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.wh-step:hover {
+  color: var(--wh-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 
 .wh-body {
+  /* Positioned, so the screen-reader-only text in its rows stays inside this scroller. */
+  position: relative;
   flex: 1;
   min-height: 0;
   overflow: auto;
@@ -647,7 +704,12 @@
   }
   .wh-svg,
   .wh-ribs,
-  .wh-arc {
+  .wh-arc,
+  .wh-chords,
+  .wh-caption,
+  .wh-legend,
+  .wh-crowd .wh-caption,
+  .wh-crowd .wh-legend {
     transition: none;
   }
 }

@@ -6,7 +6,7 @@
 //   installed as an app and keeps working offline for everything already
 //   opened. The worker never stores anything under /api/, where the ESV is
 //   served; see public/sw.js.
-// - Tells visitors when a new version is ready.
+// - Tells visitors when a new version is ready, and when they are offline.
 // - With ?sw=off in the address, removes the worker and its saved copies, and
 //   keeps that tab without one until it closes (for support).
 
@@ -29,8 +29,13 @@ const reduceMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matche
 
 // ------------------------------------------------------------ boot hand-off
 
-// The script did start, so the "still on its way" note is no longer needed.
-document.getElementById('boot-note')?.remove();
+// The script did start, so the "still on its way" note is not needed. It is
+// hidden rather than removed: index.html shows it again if the app stops on an
+// error before drawing anything.
+{
+  const note = document.getElementById('boot-note');
+  if (note) note.hidden = true;
+}
 
 {
   const boot = document.getElementById('boot');
@@ -57,7 +62,7 @@ document.getElementById('boot-note')?.remove();
 
 let toastEl: HTMLElement | null = null;
 
-function toast(message: string, action?: { label: string; run: () => void }): void {
+function toast(message: string, action?: { label: string; run: () => void }): HTMLElement {
   toastEl?.remove();
   const el = document.createElement('div');
   el.className = 'arr-toast';
@@ -79,8 +84,12 @@ function toast(message: string, action?: { label: string; run: () => void }): vo
   close.textContent = '×';
   close.addEventListener('click', () => el.remove());
   el.append(close);
-  document.body.append(el);
+  // First in the page, so from the top the keyboard reaches it with one Tab
+  // (on a verse link, Tab starts at the verse, where the reader scrolled). It
+  // is drawn at the bottom of the screen all the same.
+  document.body.prepend(el);
   toastEl = el;
+  return el;
 }
 
 // ------------------------------------------------------------ offline and updates
@@ -147,7 +156,9 @@ async function register(): Promise<void> {
   const track = (w: ServiceWorker | null) => {
     if (!w) return;
     const check = () => {
-      if (w.state === 'installed' && sw.controller) offerUpdate();
+      // Only for a worker that really waits. The kill switch (sw.js KILL)
+      // passes through 'installed' too, but takes over at once.
+      if (w.state === 'installed' && sw.controller) window.setTimeout(() => reg.waiting === w && offerUpdate(), 1000);
     };
     w.addEventListener('statechange', check);
     check();
@@ -214,12 +225,37 @@ function offState(set?: 'reload' | 'on'): string | null {
   }
 }
 
+// ------------------------------------------------------------ offline notice
+
+let offlineEl: HTMLElement | null = null;
+
+/** Offline (going, or opening the site so): say once what still works. */
+function sayOffline(): void {
+  if (offlineEl?.isConnected || (offered && toastEl?.isConnected)) return; // already said, or the update notice is up
+  offlineEl = toast(
+    sw?.controller ? 'You’re offline. Chapters you’ve opened before still work.' : 'You’re offline. Some parts need a connection.',
+  );
+}
+window.addEventListener('offline', sayOffline);
+window.addEventListener('online', () => {
+  offlineEl?.remove();
+  offlineEl = null;
+});
+if (!navigator.onLine) sayOffline();
+
+// ------------------------------------------------------------ start
+
 const params = new URLSearchParams(location.search);
-if (params.get('sw') === 'off') {
-  // Support switch: remove the worker and its copies, and keep the address clean.
+const swParam = params.get('sw');
+if (swParam !== null) {
+  // Keep the address clean: ?sw=off is the support switch, and ?sw=reset is
+  // the kill switch loading this page again (public/sw.js).
   params.delete('sw');
   const q = params.toString();
   history.replaceState(history.state, '', `${location.pathname}${q ? `?${q}` : ''}${location.hash}`);
+}
+if (swParam === 'off') {
+  // Support switch: remove the worker and its copies.
   void clearOfflineData().then(() => {
     // The old worker still runs this page and would save files again: reload
     // without it. (The address no longer says sw=off, so this happens once.)
@@ -236,10 +272,21 @@ if (params.get('sw') === 'off') {
 } else if (import.meta.env.PROD && sw) {
   sw.addEventListener('controllerchange', () => {
     if (switching) location.reload();
-    else if (hadController) offerUpdate(); // another tab switched to a newer version
+    // Another tab switched to a newer version. Asked again a moment later, as
+    // the kill switch also takes over this way: by then it has removed itself
+    // (and has this page load again).
+    else if (hadController) {
+      window.setTimeout(() => {
+        void sw
+          .getRegistration(SCOPE)
+          .then((r) => r?.active && offerUpdate())
+          .catch(() => {});
+      }, 1500);
+    }
   });
   sw.addEventListener('message', (e: MessageEvent) => {
     if (e.data?.type === 'NEW_VERSION') offerUpdate();
+    else if (e.data?.type === 'RELOAD') location.reload(); // the kill switch: load again from the network
   });
   if (document.readyState === 'complete') void register();
   else window.addEventListener('load', () => void register(), { once: true });

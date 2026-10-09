@@ -5,8 +5,8 @@
 // - Pages (navigations): network first, waiting about 3 s; then the saved
 //   index.html. A typed link such as /John.3.16 gets the saved 404 page, which
 //   turns it into the verse.
-// - data/meta.json: network first, saved without its ?t= cache-buster. It
-//   names the data build in use.
+// - data/meta.json: network first, waiting about 4 s; then the saved copy.
+//   Saved without its ?t= cache-buster. It names the data build in use.
 // - Data files with ?v=<buildId> and Vite's hashed files under assets/: saved
 //   the first time they are used, then served from the copy. Nothing large is
 //   downloaded ahead of time (atlas.bin is 8 MB).
@@ -16,8 +16,9 @@
 // Staying safe:
 // - Caches are versioned and pruned: one data build at a time, and only the
 //   hashed files the current and previous page still use.
-// - KILL = true, deployed, removes this worker and its caches for everyone.
-//   ?sw=off in the address does the same in one browser (see src/arrival.ts).
+// - KILL = true, deployed, removes this worker and its caches for everyone,
+//   and has open pages load again from the network. ?sw=off in the address
+//   does the same in one browser (see src/arrival.ts).
 // - A new worker waits until the visitor chooses "Reload".
 
 const KILL = false;
@@ -35,14 +36,15 @@ const PREVIOUS = `${SCOPE}__sw/previous-index.html`; // the page before the late
 const META = `${SCOPE}data/meta.json`;
 const LATEST = `${SCOPE}__sw/latest-build`; // the newest data build meta.json has named
 const NAV_TIMEOUT_MS = 3000;
+const META_TIMEOUT_MS = 4000;
 const HTML = { 'Content-Type': 'text/html; charset=utf-8' };
-/** The page is removing the offline copy (?sw=off, or "Clear saved data" on
- * the error screen): from now on this worker saves nothing and steps aside. */
+/** The page is removing the offline copy (?sw=off, or "Clear the offline copy"
+ * on the error screen): from now on this worker saves nothing and steps aside. */
 let stopped = false;
 
 if (KILL) {
-  // Take over at once, then remove every trace and reload the pages that this
-  // worker (or an older one) was running, so they load from the network.
+  // Take over at once, then remove every trace, and have the pages that this
+  // worker (or an older one) was running load again from the network.
   self.addEventListener('install', () => self.skipWaiting());
   self.addEventListener('activate', (event) => {
     event.waitUntil(
@@ -50,7 +52,17 @@ if (KILL) {
         const pages = await self.clients.matchAll({ type: 'window' });
         for (const name of await caches.keys()) if (OURS(name)) await caches.delete(name);
         await self.registration.unregister();
-        for (const page of pages) page.navigate(page.url).catch(() => {});
+        // Each page reloads itself, keeping its view (src/arrival.ts).
+        for (const page of pages) page.postMessage({ type: 'RELOAD' });
+        // A page that is still here a moment later (its script has stopped)
+        // is sent to its own address with ?sw=reset added: a new query, so the
+        // browser loads the page again rather than only moving to its #view.
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        for (const page of await self.clients.matchAll({ type: 'window' })) {
+          const url = new URL(page.url);
+          url.searchParams.set('sw', 'reset');
+          page.navigate(url.href).catch(() => {});
+        }
       })(),
     );
   });
@@ -212,15 +224,18 @@ async function meta(event) {
     const kept = await data.match(META);
     if (kept) return kept;
   }
+  const network = fetch(event.request);
+  // Note what the network says, however late it comes.
+  event.waitUntil(network.then((res) => (res.ok ? noteMeta(res.clone()) : undefined)).catch(() => {}));
   try {
-    const res = await fetch(event.request);
-    if (res.ok) event.waitUntil(noteMeta(res.clone()).catch(() => {}));
-    return res;
-  } catch (err) {
+    return await withTimeout(network, META_TIMEOUT_MS);
+  } catch {
+    // Offline, or the network stalls: the saved copy names a build whose
+    // files are saved.
     const latest = await data.match(LATEST);
     const kept = (await data.match(META)) || (latest && (await data.match(`${META}?v=${await latest.text()}`)));
     if (kept) return kept;
-    throw err;
+    return network; // nothing saved yet: wait for the network after all
   }
 }
 
@@ -376,6 +391,8 @@ async function ensure(cacheName, key) {
   }
   const res = await fetch(key, { cache: 'force-cache' });
   if (res.status !== 200 || res.type !== 'basic') return null;
-  await store(cache, cacheName, key, res.clone());
-  return res;
+  // Save the download itself and hand back the saved copy, so a large file
+  // (atlas.bin is 8 MB) is not held twice in memory.
+  await store(cache, cacheName, key, res);
+  return cache.match(key, { ignoreVary: true });
 }

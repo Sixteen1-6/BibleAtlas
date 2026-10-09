@@ -98,6 +98,11 @@
 
 /* ------------------------------------------------------------ hero */
 
+/* The journey takes the focus when a theme is chosen from the keyboard (so
+   the next Tab goes into its steps); the panel needs no ring around it. */
+.tj-journey:focus {
+  outline: none;
+}
 .tj-hero {
   position: relative;
   height: 150px;
@@ -357,9 +362,20 @@
     padding: 5px 8px 6px;
   }
 }
+/* Short laptop screens: the same shorter sky, so the first steps show too. */
+@media (min-width: 901px) and (max-height: 820px) {
+  .tj-hero {
+    height: 100px;
+  }
+}
 @media (max-width: 560px) {
   .tj-grid {
     grid-template-columns: 1fr;
+  }
+  /* Narrower cards, so part of the next one shows and the strip reads as
+     something to swipe. */
+  .tj-strip .card.tj-card {
+    flex-basis: 104px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
