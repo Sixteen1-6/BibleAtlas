@@ -1,6 +1,6 @@
 /* Arrival: the app's loading and error screens, the hand-off from the boot sky
    in index.html, the update notice and the error screen. Colors come from the
-   --arr-* tokens defined in index.html (paper by day, the night sky otherwise).
+   --arr-* tokens defined in index.html (the night sky, in every theme).
    Selectors start at #app or #boot so they win over styles.css's .loading. */
 
 /* ------------------------------------------------------------ loading screen */
@@ -20,8 +20,12 @@
 #boot ~ #app > .loading {
   background: none;
 }
+/* As wide as its words, like the boot title, so the gold runs across the same
+   letters when one title takes over from the other (on a phone the line below
+   is wider than the title). */
 #app > .loading h1 {
-  margin: 0 0 6px;
+  width: fit-content;
+  margin: 0 auto 6px;
   font: 600 clamp(30px, 4.4vw, 44px) / 1.15 var(--font-read);
   letter-spacing: 0.01em;
   color: var(--arr-ink, var(--sky-ink));
@@ -59,7 +63,7 @@
   left: 0;
   right: 0;
   bottom: max(16px, env(safe-area-inset-bottom));
-  z-index: 1000;
+  z-index: 1001; /* above the boot sky while it fades */
   display: flex;
   align-items: center;
   gap: 4px;
@@ -81,7 +85,7 @@
   margin-right: 6px;
 }
 .arr-toast button {
-  border: 0;
+  border: 1px solid transparent; /* drawn in forced colours, so it still looks like a button */
   background: none;
   color: inherit;
   border-radius: 999px;
@@ -165,7 +169,7 @@
 .arr-btn {
   min-width: 180px;
   padding: 10px 22px;
-  border: 0;
+  border: 1px solid transparent; /* drawn in forced colours */
   border-radius: 999px;
   background: var(--lamp);
   color: #1b1606;
