@@ -33,24 +33,26 @@ interface Dock {
   width: number;
 }
 
-function measureDock(): Dock {
+function measureDock(tall: boolean): Dock {
   const vw = document.documentElement.clientWidth;
   const study = document.querySelector<HTMLElement>('.study')?.getBoundingClientRect();
+  const bar = tall ? document.querySelector<HTMLElement>('.topbar')?.getBoundingClientRect() : undefined;
   const text = document.querySelector<HTMLElement>('.reader .verses')?.getBoundingClientRect();
   const base = study && study.width > 0 ? study.width : Math.min(440, vw);
   const room = text && text.width > 0 ? vw - text.right - 24 : base;
   return {
-    top: Math.max(0, Math.round(study && study.height > 0 ? study.top : 0)),
+    top: Math.max(0, Math.round(bar && bar.height > 0 ? bar.bottom : study && study.height > 0 ? study.top : 0)),
     width: Math.round(Math.min(vw, Math.max(base, Math.min(MAX_SIDE, room)))),
   };
 }
 
-/** Where the desktop panel sits: over the study column, measured live. */
-function useDock(on: boolean): Dock | null {
+/** Where the desktop panel sits: over the study column, measured live; a
+ * tall panel from just under the top bar. */
+function useDock(on: boolean, tall: boolean): Dock | null {
   const [dock, setDock] = useState<Dock | null>(null);
   useLayoutEffect(() => {
     if (!on) return;
-    const update = () => setDock(measureDock());
+    const update = () => setDock(measureDock(tall));
     update();
     window.addEventListener('resize', update);
     const study = document.querySelector('.study');
@@ -60,13 +62,13 @@ function useDock(on: boolean): Dock | null {
       window.removeEventListener('resize', update);
       ro?.disconnect();
     };
-  }, [on]);
+  }, [on, tall]);
   return on ? dock : null;
 }
 
-export function Shell({ title, at, onDismiss, children }: { title: string; at: string; onDismiss: () => void; children: ComponentChildren }) {
+export function Shell({ title, at, onDismiss, tall = false, children }: { title: string; at: string; onDismiss: () => void; tall?: boolean; children: ComponentChildren }) {
   const phone = usePhone();
-  const dock = useDock(!phone);
+  const dock = useDock(!phone, tall);
   const id = useId();
   const box = useRef<HTMLDivElement>(null);
   const head = useRef<HTMLHeadingElement>(null);

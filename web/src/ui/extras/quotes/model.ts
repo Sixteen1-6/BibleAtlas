@@ -44,8 +44,11 @@ export interface LinkNote {
   s?: [number, number, number, number];
   /** Words the two passages share: [verse, start, end, start, end, ...]. */
   h?: number[][];
-  /** A Greek word and the Hebrew word it stands for: [verse, word, verse, word]. */
-  w?: [number, number, number, number][];
+  /** A Greek word and the Hebrew word it stands for: [verse, word, verse, word,
+   * how]. How: 0, the Septuagint uses this Greek word for this Hebrew word in
+   * this verse; 1, Abbott-Smith's lexicon says it often does. Files built
+   * before the Septuagint pairs have no fifth number: those are all 1. */
+  w?: [number, number, number, number, number?][];
 }
 
 export const FLAG = { lxx: 1, dss: 2, both: 4, marks: 8, see: 16, joined: 32, part: 64 } as const;
