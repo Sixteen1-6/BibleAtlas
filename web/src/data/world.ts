@@ -12,7 +12,11 @@ const ARTICLE_SHARD = 40;
 
 /** One LSJ sense: [gloss, century, writer or "", flags "" | "p" | "i" | "pi"]. */
 export type Sense = [string, string, string, string];
-/** A handbook link: [entry index, 1 general or 0 verse-only, the root's verses the entry cites]. */
+/**
+ * A handbook link: [entry index, 1 general or 0 verse-only, the root's
+ * verses the entry cites]. General: it cites at least half of the root's
+ * verses. A root lists its links in the order a study shows them.
+ */
 export type UbsLink = [number, 0 | 1, number[]];
 
 export interface RootWorld {
@@ -37,8 +41,8 @@ export interface RootWorld {
 }
 
 export type Handbook = 'realia' | 'fauna' | 'flora';
-/** [handbook, Key, title, lead]. */
-export type UbsEntry = [Handbook, string, string, string];
+/** [handbook, Key, title, lead, 1 when the lead is the whole article (one paragraph, no verse links)]. */
+export type UbsEntry = [Handbook, string, string, string, 0 | 1];
 export interface UbsIndex {
   format: number;
   source: { title: string; license: string; attribution: string; changes: string };
@@ -119,8 +123,9 @@ function cites(link: UbsLink, v: number): boolean {
  * Which handbook entries a study shows (the same rule as world::verify):
  * the ones that cite the study verse, if any do; otherwise the general ones.
  * A verse-only entry is shown only at a verse it cites. The study verse
- * counts only if the root occurs in it. Fewer verses first, then handbook
- * (realia, fauna, flora) and key, which is the entry order.
+ * counts only if the root occurs in it. Fewer verses first, then in the
+ * root's own order (world.rs: a title that names the root's gloss, then
+ * handbook and key). The sort is stable, so that order holds.
  */
 export function entriesFor(a: Atlas, w: RootWorld | null, root: number, verse?: number): UbsLink[] {
   const links = w?.u ?? [];
@@ -128,5 +133,5 @@ export function entriesFor(a: Atlas, w: RootWorld | null, root: number, verse?: 
   const v = verse !== undefined && occursIn(a, root, verse) ? verse : undefined;
   const cited = v === undefined ? [] : links.filter((l) => cites(l, v));
   const pick = cited.length ? cited : links.filter((l) => l[1] === 1);
-  return pick.sort((x, y) => x[2].length - y[2].length || x[0] - y[0]);
+  return pick.sort((x, y) => x[2].length - y[2].length);
 }

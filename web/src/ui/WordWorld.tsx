@@ -59,27 +59,29 @@ function useClamped(ref: { current: HTMLElement | null }): boolean {
  * the text is cut short they move to the end of the second line, and an
  * invisible copy keeps their place in the text so the layout never jumps
  * (and the buttons themselves never leave the page, so focus stays put).
+ * `actions` is told whether the text is cut short.
  */
-function Line({ children, actions }: { children: ComponentChildren; actions: () => ComponentChildren }) {
+function Line({ children, actions }: { children: ComponentChildren; actions: (clamped: boolean) => ComponentChildren }) {
   const ref = useRef<HTMLParagraphElement>(null);
   const clamped = useClamped(ref);
   return (
     <div class={clamped ? 'ww-row ww-clamped' : 'ww-row'}>
       <p class="ww-line" ref={ref}>
         {children}{' '}
-        <span class="ww-acts">{actions()}</span>
+        <span class="ww-acts">{actions(clamped)}</span>
         <span class="ww-room" aria-hidden="true">
-          {actions()}
+          {actions(clamped)}
         </span>
       </p>
     </div>
   );
 }
 
-function Toggle({ open, controls, onToggle, label, openLabel }: { open: boolean; controls: string; onToggle: () => void; label: string; openLabel: string }) {
+/** Every toggle closes with the same words. */
+function Toggle({ open, controls, onToggle, label }: { open: boolean; controls: string; onToggle: () => void; label: string }) {
   return (
     <button type="button" class="ww-act" aria-expanded={open} aria-controls={controls} onClick={onToggle}>
-      {open ? openLabel : label}
+      {open ? 'Show less' : label}
     </button>
   );
 }
@@ -99,16 +101,12 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
     <>
       “{top[0]}” — {cited(top[2], top[1])}
     </>
-  ) : f && f[1] ? (
-    <>
-      first cited from {f[1]}, {f[0]}
-    </>
   ) : (
-    <>first cited in the {f?.[0]}</>
+    <>earliest example in LSJ — {f ? cited(f[1], f[0]) : ''}</>
   );
   return (
     <>
-      <Line actions={() => <Toggle open={open} controls={id} onToggle={onToggle} label="More" openLabel="Less" />}>
+      <Line actions={() => <Toggle open={open} controls={id} onToggle={onToggle} label="More" />}>
         <b class="ww-in">Outside the Bible:</b> {summary}
       </Line>
       <div class="ww-more" id={id} hidden={!open}>
@@ -121,8 +119,8 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
                 {senses.map(([gloss, century, writer, flags], i) => (
                   <li key={i}>
                     “{gloss}” — {cited(writer, century)}
-                    {flags.includes('p') && <span class="ww-tag">papyri</span>}
-                    {flags.includes('i') && <span class="ww-tag">inscription</span>}
+                    {flags.includes('p') && <>{' '}<span class="ww-tag">papyri</span></>}
+                    {flags.includes('i') && <>{' '}<span class="ww-tag">inscription</span></>}
                   </li>
                 ))}
               </ul>
@@ -131,7 +129,7 @@ function OutsideTheBible({ w, id, open, onToggle }: { w: RootWorld; id: string; 
             {w.p && <p>LSJ also cites everyday papyri (letters, contracts, receipts).</p>}
             {w.i && <p>LSJ also cites inscriptions.</p>}
             <Provenance>
-              Liddell–Scott–Jones Greek–English Lexicon (Perseus Digital Library, CC BY-SA 4.0), via STEPBible TFLSJ (CC BY 4.0); centuries added by Tyndale House. A century is that of the earliest writer LSJ cites for that meaning, not the first time the word was used.
+              Liddell–Scott–Jones Greek–English Lexicon (Perseus Digital Library, CC BY-SA 4.0), via STEPBible TFLSJ (CC BY 4.0); centuries added by Tyndale House. Each meaning gets the earliest century among the passages LSJ cites for it and the first writer LSJ lists from that century; uncertain readings and Greek Bible versions are left out. That is LSJ’s earliest example, not the first time the word was used.
             </Provenance>
           </>
         )}
@@ -211,16 +209,18 @@ function InTheirWorld({ a, root, links, index, isOpen, toggle }: { a: Atlas; roo
   const [main, ...rest] = shown;
   const othersId = `ww-others-${root}`;
   const item = (l: UbsLink, lead: ComponentChildren, extra?: () => ComponentChildren) => {
-    const [, , title, text] = index.entries[l[0]];
+    const [, , title, text, whole] = index.entries[l[0]];
     const k = `u${l[0]}`;
     const id = `ww-ubs-${root}-${l[0]}`;
     const open = isOpen(k);
     return (
       <>
         <Line
-          actions={() => (
+          actions={(clamped) => (
             <>
-              <Toggle open={open} controls={id} onToggle={() => toggle(k)} label="Read more" openLabel="Show less" />
+              {/* When the line already holds the whole article, Read more
+                  would only repeat it, unless the line is cut short. */}
+              {(whole !== 1 || clamped || open) && <Toggle open={open} controls={id} onToggle={() => toggle(k)} label="Read more" />}
               {extra?.()}
             </>
           )}
@@ -242,7 +242,7 @@ function InTheirWorld({ a, root, links, index, isOpen, toggle }: { a: Atlas; roo
           <b class="ww-in">In their world:</b>{' '}
         </>,
         rest.length
-          ? () => <Toggle open={othersOpen} controls={othersId} onToggle={() => toggle('others')} label={`+${rest.length} more`} openLabel={`Hide ${rest.length}`} />
+          ? () => <Toggle open={othersOpen} controls={othersId} onToggle={() => toggle('others')} label={`+${rest.length} more`} />
           : undefined,
       )}
       {rest.length > 0 && (
@@ -280,8 +280,16 @@ export function WordWorld({ a, root, verse }: { a: Atlas; root: number; verse?: 
     };
   }, [a, root]);
 
-  const w = data && data.root === root ? data.w : null;
+  const loading = !data || data.root !== root;
+  const w = loading ? null : data.w;
   const links = useMemo(() => entriesFor(a, w, root, verse), [a, w, root, verse]);
+  // While a new word's data loads, an empty box of the last block's height
+  // keeps the study below from jumping; the last word's lines never show.
+  const box = useRef<HTMLDivElement>(null);
+  const lastHeight = useRef(0);
+  useLayoutEffect(() => {
+    if (!loading) lastHeight.current = box.current?.offsetHeight ?? 0;
+  });
   const needIndex = links.length > 0;
   useEffect(() => {
     if (!needIndex || index) return;
@@ -295,6 +303,10 @@ export function WordWorld({ a, root, verse }: { a: Atlas; root: number; verse?: 
     };
   }, [a, needIndex, index]);
 
+  if (loading) {
+    const height = lastHeight.current;
+    return height > 0 ? <div class="ww-wait" aria-busy="true" style={{ height: `${height}px` }} /> : null;
+  }
   if (!w) return null;
   const isOpen = (k: string) => open.study === study && open.keys.has(k);
   const toggle = (k: string) =>
@@ -308,7 +320,7 @@ export function WordWorld({ a, root, verse }: { a: Atlas; root: number; verse?: 
   const ubs = needIndex && index !== null && links.some((l) => index.entries[l[0]]);
   if (!lsj && !ubs) return null;
   return (
-    <div class="ww">
+    <div class="ww" ref={box}>
       {lsj && <OutsideTheBible w={w} id={`ww-lsj-${root}`} open={isOpen('lsj')} onToggle={() => toggle('lsj')} />}
       {ubs && <InTheirWorld a={a} root={root} links={links} index={index} isOpen={isOpen} toggle={toggle} />}
     </div>

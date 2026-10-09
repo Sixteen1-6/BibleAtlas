@@ -8,6 +8,11 @@
   gap: 8px;
   margin: 16px 0 4px;
 }
+/* While the next word's lines load, an empty block of the last one's height,
+   so the panel below does not jump. */
+.ww-wait {
+  margin: 16px 0 4px;
+}
 
 /* ---- the summary lines. Rules that meet the panel's own (.panel p) are
    scoped under .ww so they win whatever order the style sheets load in. */
@@ -109,9 +114,10 @@
   border-radius: 50%;
   background: var(--accent);
 }
+/* After a space, so the tag reads as its own word. */
 .ww-tag {
   display: inline-block;
-  margin-left: 6px;
+  margin-left: 3px;
   padding: 0 6px;
   border: 1px solid var(--line);
   border-radius: 999px;
