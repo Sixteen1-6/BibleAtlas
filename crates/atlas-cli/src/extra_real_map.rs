@@ -38,6 +38,9 @@ const OUT: &str = "extras/real-map.json";
 const OUT_PLACES: &str = "extras/real-map/places.json";
 const OUT_BASE: &str = "extras/real-map/base.json";
 const OUT_PEOPLE: &str = "extras/real-map/people.json";
+const OUT_EVENTS: &str = "extras/real-map/events.json";
+const OUT_SHAPES: &str = "extras/real-map/shapes.json";
+const SHAPES: &str = "openbible-shapes";
 
 const GEO: &str = "openbible-geo";
 const THEO: &str = "theographic";
@@ -639,6 +642,9 @@ struct Place {
     /// (OSIS reference, translations that name it there as a place, and
     /// translations that name its people there instead).
     verses: Vec<(String, u64, u64)>,
+    /// The shape the dataset drew for its strongest identification, when it
+    /// drew one and did not take it from OpenStreetMap: "g99a57f.isobands".
+    shape: Option<String>,
 }
 
 /// An identification in OpenBible.info's own words, with its markup:
@@ -800,6 +806,20 @@ fn places(rows: &[Value], moderns: &HashMap<String, Option<Pt>>, t: &mut Tally) 
                 }
             });
 
+        let shape = ids
+            .iter()
+            .filter(|i| !is_special(i))
+            .max_by_key(|i| score_of(i))
+            .and_then(|i| {
+                i["resolutions"]
+                    .as_array()?
+                    .iter()
+                    .find(|z| z["ancient_geometry"].as_str() == Some("polygon"))
+            })
+            .and_then(|z| z["geojson_roles"]["geometry"]["id"].as_str())
+            .filter(|_| r["geometry_credit"].as_str() != Some("osm"))
+            .map(str::to_string);
+
         let mut sites = Vec::new();
         let mut off: Option<(String, i64)> = None;
         if let Some(assoc) = r["modern_associations"].as_object() {
@@ -867,6 +887,7 @@ fn places(rows: &[Value], moderns: &HashMap<String, Option<Pt>>, t: &mut Tally) 
             how,
             comment: r["comment"].as_str().unwrap_or("").to_string(),
             verses,
+            shape,
         });
     }
     t.places = out.len();
@@ -2479,7 +2500,7 @@ fn people(
     names: &[String],
     vz: &Versification,
     text: &[Vec<char>],
-) -> Result<(Value, PeopleTally), String> {
+) -> Result<(Value, PeopleTally, Vec<Option<String>>), String> {
     let tp = Table::open(
         &inputs.path(THEO, "places"),
         &[
@@ -2632,6 +2653,7 @@ fn people(
     }
 
     let mut per_place = Vec::with_capacity(kept.len());
+    let mut owned: Vec<Option<String>> = vec![None; kept.len()];
     for (k, (_, vs)) in kept.iter().enumerate() {
         let Some((ti, _)) = joins[k] else {
             per_place.push(json!(0));
@@ -2643,6 +2665,7 @@ fn people(
             continue;
         }
         t.joined += 1;
+        owned[k] = Some(lookup_of[ti].to_string());
         let mut rows: Vec<(i64, String, u8, i64)> = Vec::new();
         for (&who, &bits) in rel.get(lookup_of[ti]).into_iter().flatten() {
             let Some(&r) = row_of.get(who) else { continue };
@@ -2769,6 +2792,304 @@ fn people(
         "source": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
         "names": out_names,
         "places": per_place,
+    });
+    Ok((doc, t, owned))
+}
+
+// ------------------------------------------------------------------ shapes
+
+/// Each tribe's land as Joshua lists its towns, the passage given as OSIS
+/// verse ranges. Manasseh has land on both sides of the Jordan. Joshua
+/// 19:47, where Dan takes Leshem far to the north, is left out of Dan's.
+const TRIBES: [(&str, &[(&str, &str)]); 13] = [
+    ("Reuben", &[("Josh.13.15", "Josh.13.23")]),
+    ("Gad", &[("Josh.13.24", "Josh.13.28")]),
+    ("Manasseh", &[("Josh.13.29", "Josh.13.31")]),
+    ("Judah", &[("Josh.15.1", "Josh.15.63")]),
+    ("Ephraim", &[("Josh.16.1", "Josh.16.10")]),
+    ("Manasseh", &[("Josh.17.1", "Josh.17.13")]),
+    ("Benjamin", &[("Josh.18.11", "Josh.18.28")]),
+    ("Simeon", &[("Josh.19.1", "Josh.19.9")]),
+    ("Zebulun", &[("Josh.19.10", "Josh.19.16")]),
+    ("Issachar", &[("Josh.19.17", "Josh.19.23")]),
+    ("Asher", &[("Josh.19.24", "Josh.19.31")]),
+    ("Naphtali", &[("Josh.19.32", "Josh.19.39")]),
+    ("Dan", &[("Josh.19.40", "Josh.19.46"), ("Josh.19.48", "Josh.19.48")]),
+];
+
+/// How far a tribe's shape reaches past its outermost towns, in km.
+const TRIBE_MARGIN_KM: f64 = 4.0;
+
+#[derive(Default)]
+struct ShapeTally {
+    shaded: usize,
+    unlisted: usize,
+    towns: usize,
+}
+
+/// The convex hull of some points, counter-clockwise (Andrew's monotone chain).
+fn hull(mut pts: Vec<Pt>) -> Vec<Pt> {
+    pts.sort_by(|a, b| a.0.total_cmp(&b.0).then(a.1.total_cmp(&b.1)));
+    pts.dedup();
+    if pts.len() < 3 {
+        return pts;
+    }
+    let cross = |o: Pt, a: Pt, b: Pt| (a.0 - o.0) * (b.1 - o.1) - (a.1 - o.1) * (b.0 - o.0);
+    let mut lower: Vec<Pt> = Vec::new();
+    for &p in &pts {
+        while lower.len() >= 2 && cross(lower[lower.len() - 2], lower[lower.len() - 1], p) <= 0.0 {
+            lower.pop();
+        }
+        lower.push(p);
+    }
+    let mut upper: Vec<Pt> = Vec::new();
+    for &p in pts.iter().rev() {
+        while upper.len() >= 2 && cross(upper[upper.len() - 2], upper[upper.len() - 1], p) <= 0.0 {
+            upper.pop();
+        }
+        upper.push(p);
+    }
+    lower.pop();
+    upper.pop();
+    lower.extend(upper);
+    lower
+}
+
+/// A hull grown outward by `km` (each corner pushed away from the middle),
+/// and rounded with extra points at each corner, so that two or three towns
+/// still make a shape.
+fn grown(h: &[Pt], km_out: f64) -> Vec<Pt> {
+    let n = h.len() as f64;
+    let mid = (h.iter().map(|p| p.0).sum::<f64>() / n, h.iter().map(|p| p.1).sum::<f64>() / n);
+    let (dy, dx) = (km_out / 111.32, km_out / (111.32 * mid.1.to_radians().cos()));
+    let mut out = Vec::new();
+    for &p in h {
+        // Eight points around each corner: the hull of the lot is the grown shape.
+        for k in 0..8 {
+            let a = f64::from(k) * std::f64::consts::PI / 4.0;
+            out.push((p.0 + dx * a.cos(), p.1 + dy * a.sin()));
+        }
+    }
+    hull(out)
+}
+
+/// Shapes for the Places map: the dataset's own shape for each place that
+/// has one (`places`, aligned with places.json, 0 for none), and the tribes'
+/// lands drawn around the towns Joshua lists for each (`tribes`: [name,
+/// first verse, last verse, label longitude, label latitude, ring]).
+/// Rings are encoded like base.json's.
+fn shapes(
+    inputs: &Inputs,
+    kept: &[(&Place, Vec<Mention>)],
+    towns: &[Option<Pt>],
+    vz: &Versification,
+) -> Result<(Value, ShapeTally), String> {
+    let mut t = ShapeTally::default();
+    let spec = inputs
+        .spec
+        .sources
+        .iter()
+        .find(|s| s.id == SHAPES)
+        .ok_or("real-map: openbible-shapes is not in sources.json")?;
+    let mut formats: HashMap<String, (String, String)> = HashMap::new();
+    for g in read_jsonl(&inputs.path(SHAPES, "index"))? {
+        if let Some(id) = g["id"].as_str() {
+            let f = g["format"].as_str().unwrap_or("").to_string();
+            let land = g["land_or_water"].as_str().unwrap_or("").to_string();
+            formats.insert(id.to_string(), (f, land));
+        }
+    }
+    let mut places = Vec::with_capacity(kept.len());
+    for (p, _) in kept {
+        let Some(id) = p.shape.as_deref() else {
+            places.push(json!(0));
+            continue;
+        };
+        let drawn = formats
+            .get(id.split('.').next().unwrap_or(""))
+            .is_some_and(|(f, land)| f == "kml" && land == "land");
+        if !drawn || p.kind == "island" {
+            places.push(json!(0));
+            continue;
+        }
+        if !spec.files.contains_key(id) {
+            t.unlisted += 1;
+            places.push(json!(0));
+            continue;
+        }
+        let path = inputs.path(SHAPES, id);
+        let doc = read_json(&path)?;
+        let geometry = if doc["type"] == "Feature" {
+            doc["geometry"].clone()
+        } else {
+            doc.clone()
+        };
+        let mut polys = polygons(&geometry);
+        // Bands of confidence, widest first: the middle one.
+        if id.ends_with(".isobands") && polys.len() > 1 {
+            polys = vec![polys.swap_remove(polys.len() / 2)];
+        }
+        let rings: Vec<Vec<i64>> = polys
+            .iter()
+            .filter_map(|rs| rs.first())
+            .map(|r| simplify_ring(&clip_ring(r), TOLERANCE))
+            .filter(|r| r.len() >= 3 && area(r).abs() >= MIN_AREA / 4.0)
+            .map(|r| encode(&r))
+            .collect();
+        if rings.is_empty() {
+            places.push(json!(0));
+            continue;
+        }
+        t.shaded += 1;
+        places.push(json!(rings));
+    }
+
+    let mut tribes = Vec::new();
+    for (name, ranges) in TRIBES {
+        let spans: Vec<(u32, u32)> = ranges
+            .iter()
+            .filter_map(|(a, b)| Some((osis_verse(a, vz)?, osis_verse(b, vz)?)))
+            .collect();
+        if spans.len() != ranges.len() {
+            return Err(format!("real-map: {name}'s passage is not in the BSB numbering"));
+        }
+        let mut pts: Vec<Pt> = Vec::new();
+        for (k, (_, ms)) in kept.iter().enumerate() {
+            let Some(at) = towns[k] else { continue };
+            if ms.iter().any(|m| spans.iter().any(|&(a, b)| m.verse >= a && m.verse <= b)) {
+                pts.push(at);
+            }
+        }
+        t.towns += pts.len();
+        if pts.len() < 2 {
+            return Err(format!("real-map: too few towns the map is sure of for {name} ({})", pts.len()));
+        }
+        let n = pts.len() as f64;
+        let mid = (pts.iter().map(|p| p.0).sum::<f64>() / n, pts.iter().map(|p| p.1).sum::<f64>() / n);
+        let ring = simplify_ring(&grown(&hull(pts), TRIBE_MARGIN_KM), TOLERANCE);
+        tribes.push(json!([
+            name,
+            spans.first().map_or(0, |s| s.0),
+            spans.last().map_or(0, |s| s.1),
+            round(mid.0, 3),
+            round(mid.1, 3),
+            encode(&ring)
+        ]));
+    }
+    let doc = json!({
+        "format": 1,
+        "q": Q,
+        "places": places,
+        "tribes": tribes,
+    });
+    Ok((doc, t))
+}
+
+/// Misspellings in Theographic's event titles, corrected where shown.
+const EVENT_TITLES: [(&str, &str); 9] = [
+    ("The Annuciation", "The Annunciation"),
+    ("Parable of the Winseskins", "Parable of the Wineskins"),
+    ("The Transfiguation", "The Transfiguration"),
+    ("Death of Jehoahash", "Death of Jehoash"),
+    ("Reign of Johoahaz (Shallum)", "Reign of Jehoahaz (Shallum)"),
+    ("Lazarus Raised form the Dead", "Lazarus Raised from the Dead"),
+    ("Discourse with Pharisees and Saducees", "Discourse with Pharisees and Sadducees"),
+    ("Gamaliel advises the counsel and Apostles freed", "Gamaliel advises the council and Apostles freed"),
+    ("Blind and Dumb Demoniac and Following Discourse", "Blind and Mute Demoniac and Following Discourse"),
+];
+
+/// Events left out, with why: Theographic dates Jair's judgeship 1992 BC,
+/// before Abraham, though Judges 10:3 sets it after Tola's.
+const NOT_EVENTS: [(&str, &str); 1] = [("Judgeship of Jair", "dated before Abraham")];
+
+/// The most events kept for one place.
+const MAX_EVENTS: usize = 40;
+
+/// What events() found, for the build's report.
+#[derive(Default)]
+struct EventTally {
+    events: usize,
+    placed: usize,
+    places: usize,
+    unmapped: usize,
+}
+
+/// Theographic's dated events at each place, in its time order: for each
+/// place, [title, year, first verse]. A year is astronomical (-1490 is 1491
+/// BC), as Theographic gives it. A place gets the events of the Theographic
+/// place it was joined to for its people.
+fn events(
+    inputs: &Inputs,
+    owned: &[Option<String>],
+    vz: &Versification,
+) -> Result<(Value, EventTally), String> {
+    let te = Table::open(
+        &inputs.path(THEO, "events"),
+        &["title", "eventID", "startDate", "verses", "locations", "sortKey"],
+    )?;
+    let mut t = EventTally::default();
+    let mut at: HashMap<&str, Vec<usize>> = HashMap::new();
+    for (k, l) in owned.iter().enumerate() {
+        if let Some(l) = l {
+            at.entry(l.as_str()).or_default().push(k);
+        }
+    }
+    let mut rows: Vec<(f64, String, i64, i64, Vec<usize>)> = Vec::new();
+    for r in &te.rows {
+        t.events += 1;
+        let title = te.get(r, "title");
+        let places: Vec<usize> = list(te.get(r, "locations"))
+            .flat_map(|l| at.get(l).map(Vec::as_slice).unwrap_or(&[]))
+            .copied()
+            .collect();
+        if title.is_empty() || places.is_empty() || NOT_EVENTS.iter().any(|(n, _)| *n == title) {
+            continue;
+        }
+        // "-1490", "0030", "0046-01-01": the year comes first.
+        let date = te.get(r, "startDate");
+        let (neg, digits) = match date.strip_prefix('-') {
+            Some(d) => (true, d),
+            None => (false, date),
+        };
+        let Some(year) = digits.split('-').next().and_then(|y| y.parse::<i64>().ok()) else {
+            continue;
+        };
+        let year = if neg { -year } else { year };
+        let mut verses: Vec<u32> = list(te.get(r, "verses")).filter_map(|o| osis_verse(o, vz)).collect();
+        verses.sort_unstable();
+        let Some(&first) = verses.first() else {
+            t.unmapped += 1;
+            continue;
+        };
+        let sort = te.get(r, "sortKey").parse::<f64>().unwrap_or(year as f64);
+        let title = EVENT_TITLES
+            .iter()
+            .find(|(from, _)| *from == title)
+            .map_or(title, |(_, to)| to);
+        t.placed += 1;
+        rows.push((sort, title.to_string(), year, i64::from(first), places));
+    }
+    rows.sort_by(|a, b| a.0.total_cmp(&b.0).then_with(|| a.3.cmp(&b.3)));
+    let mut list_out: Vec<Value> = Vec::new();
+    let mut per_place: Vec<Vec<usize>> = vec![Vec::new(); owned.len()];
+    for (i, (_, title, year, verse, places)) in rows.into_iter().enumerate() {
+        list_out.push(json!([title, year, verse]));
+        for k in places {
+            if per_place[k].len() < MAX_EVENTS && !per_place[k].contains(&i) {
+                per_place[k].push(i);
+            }
+        }
+    }
+    t.places = per_place.iter().filter(|e| !e.is_empty()).count();
+    let doc = json!({
+        "format": 1,
+        "license": "CC BY-SA 4.0",
+        "source": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
+        "events": list_out,
+        "places": per_place
+            .into_iter()
+            .map(|e| if e.is_empty() { json!(0) } else { json!(e) })
+            .collect::<Vec<_>>(),
     });
     Ok((doc, t))
 }
@@ -2926,6 +3247,8 @@ pub fn build(
     let mut place_rows = Vec::with_capacity(kept.len());
     let (mut confident, mut far, mut related, mut noted) = (0usize, 0usize, 0usize, 0usize);
     let mut off_map = 0usize;
+    // Where each place is, when it is a town the map is fairly sure of.
+    let mut towns: Vec<Option<Pt>> = Vec::with_capacity(kept.len());
     for ((p, ms), name) in kept.iter().zip(&names) {
         let kind_name = KIND_BY_NAME
             .iter()
@@ -2947,6 +3270,12 @@ pub fn build(
         // site ("Tel Avdon").
         let how = p.how.clone().unwrap_or_default();
         let direct = how.html.trim().starts_with('<') && how.html.matches('<').count() == 2;
+        towns.push(
+            best.filter(|_| {
+                direct && p.off.is_none() && p.sure >= CONFIDENT && kind_name == "settlement"
+            })
+            .map(|s| s.at),
+        );
         let how_words = if direct || how.html.is_empty() {
             String::new()
         } else {
@@ -3034,7 +3363,9 @@ pub fn build(
             spans.entry(m.verse).or_default().push((m.pos, m.len));
         }
     }
-    let (people_doc, pt) = people(inputs, &verse_lists, &spans, &names, vz, &text)?;
+    let (people_doc, pt, owned) = people(inputs, &verse_lists, &spans, &names, vz, &text)?;
+    let (events_doc, et) = events(inputs, &owned, vz)?;
+    let (shapes_doc, st) = shapes(inputs, &kept, &towns, vz)?;
 
     eprintln!(
         "real-map: {} places in the geocoding data, {} named in the BSB in {} verses ({} mentions); {} have a confident site, {} far from Jerusalem",
@@ -3057,6 +3388,14 @@ pub fn build(
         "real-map: {} places joined to Theographic ({} more left without people because another place shares more verses with theirs), {} with people tied to them; {} \"was there\" ties left out as unconfirmed, {} births and deaths the text rules out, {} names told apart by a parent",
         pt.joined, pt.shared, pt.tied, pt.unconfirmed, pt.ruled_out, pt.told_apart
     );
+    eprintln!(
+        "real-map: {} places shaded with the dataset's own shapes ({} drawn shapes not pinned in sources.json); the tribes' lands drawn around {} towns",
+        st.shaded, st.unlisted, st.towns
+    );
+    eprintln!(
+        "real-map: {} of Theographic's {} events placed at {} places ({} with no verse in the BSB)",
+        et.placed, et.events, et.places, et.unmapped
+    );
 
     let bytes = |v: &Value| serde_json::to_vec(v).map_err(|e| e.to_string());
     Ok(vec![
@@ -3064,6 +3403,8 @@ pub fn build(
         (OUT_PLACES.to_string(), bytes(&places_doc)?),
         (OUT_BASE.to_string(), bytes(&base.json)?),
         (OUT_PEOPLE.to_string(), bytes(&people_doc)?),
+        (OUT_EVENTS.to_string(), bytes(&events_doc)?),
+        (OUT_SHAPES.to_string(), bytes(&shapes_doc)?),
     ])
 }
 
@@ -3578,6 +3919,62 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         rows_ok,
         "people.json has a row for every place, and every person and verse in it exists"
             .to_string(),
+    ));
+
+    // Events: one row per place, each event with a verse, in time order.
+    let events = load(d, OUT_EVENTS)?;
+    let evs = events["events"].as_array().ok_or("events.json has no events")?;
+    let ev_ok = events["places"].as_array().is_some_and(|ps| {
+        ps.len() == names.len()
+            && ps
+                .iter()
+                .filter_map(Value::as_array)
+                .flatten()
+                .all(|i| i.as_u64().is_some_and(|i| (i as usize) < evs.len()))
+    }) && evs.iter().all(|e| {
+        e[0].as_str().is_some_and(|t| !t.is_empty())
+            && e[2].as_i64().is_some_and(|v| (0..i64::from(n)).contains(&v))
+    }) && evs
+        .windows(2)
+        .all(|w| w[0][1].as_i64() <= w[1][1].as_i64());
+    out.push((
+        ev_ok,
+        format!("events.json: {} events, each with a verse, in time order, rows for every place", evs.len()),
+    ));
+    let events_at = |verse: &str, name: &str| -> Result<Vec<String>, String> {
+        let k = place_in(verse, name)?.ok_or(format!("{name} is not named in {verse}"))?;
+        Ok(events["places"][k]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|i| evs.get(i.as_u64()? as usize)?[0].as_str().map(str::to_string))
+            .collect())
+    };
+    let born = events_at("Matt 2:1", "Bethlehem")?;
+    out.push((
+        born.iter().any(|t| t == "Birth of Jesus"),
+        format!("Bethlehem has the Birth of Jesus among its events: {born:?}"),
+    ));
+
+    // Shapes: Galilee is shaded, and Judah's land lies around Hebron.
+    let shapes = load(d, OUT_SHAPES)?;
+    let shaped = |verse: &str, name: &str| -> Result<bool, String> {
+        let k = place_in(verse, name)?.ok_or(format!("{name} is not named in {verse}"))?;
+        Ok(shapes["places"][k].as_array().is_some_and(|r| !r.is_empty()))
+    };
+    out.push((shaped("Matt 4:15", "Galilee")?, "Galilee has a shape on the map".to_string()));
+    let judah = shapes["tribes"]
+        .as_array()
+        .and_then(|ts| ts.iter().find(|t| t[0] == "Judah"))
+        .and_then(|t| t[5].as_array())
+        .map(|r| decode(r));
+    let hebron = (35.1, 31.53);
+    let inside_judah = judah
+        .as_ref()
+        .is_some_and(|ring| ring.len() >= 3 && inside(std::slice::from_ref(ring), hebron));
+    out.push((
+        inside_judah && shapes["tribes"].as_array().is_some_and(|t| t.len() == TRIBES.len()),
+        "every tribe has a land, and Hebron lies inside Judah's".to_string(),
     ));
     Ok(out)
 }

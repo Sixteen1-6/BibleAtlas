@@ -1,7 +1,10 @@
 //! `atlas fetch`: download exactly the pinned files, nothing more.
 //!
 //! Uses the system `git` with a blob-filtered, sparse, depth-1 fetch of the
-//! pinned commit, so only the listed files are transferred.
+//! pinned commit, so only the listed files are transferred. A file stored
+//! with Git LFS checks out as a small pointer; its content is then downloaded
+//! from GitHub's media server with the system `curl` and checked against the
+//! pointer's SHA-256.
 
 use crate::sources::{load_spec, repo_dir_name, sha256_file, Lock, LockedFile, LockedSource};
 use std::collections::BTreeMap;
@@ -19,6 +22,51 @@ fn git(dir: &Path, args: &[&str]) -> Result<(), String> {
         return Err(format!("git {} failed in {}:\n{}", args.join(" "), dir.display(), String::from_utf8_lossy(&out.stderr).trim()));
     }
     Ok(())
+}
+
+/// The SHA-256 and size a Git LFS pointer file names, if `text` is one.
+fn lfs_pointer(text: &str) -> Option<(String, u64)> {
+    let rest = text.strip_prefix("version https://git-lfs.github.com/spec/v1\n")?;
+    let mut oid = None;
+    let mut size = None;
+    for line in rest.lines() {
+        if let Some(h) = line.strip_prefix("oid sha256:") {
+            oid = Some(h.trim().to_string());
+        } else if let Some(n) = line.strip_prefix("size ") {
+            size = n.trim().parse().ok();
+        }
+    }
+    Some((oid?, size?))
+}
+
+/// Replace a checked-out LFS pointer with the file it points to.
+fn lfs_content(repo: &str, commit: &str, path: &Path, rel: &str) -> Result<(), String> {
+    let Ok(meta) = fs::metadata(path) else { return Ok(()) };
+    if meta.len() > 1024 {
+        return Ok(());
+    }
+    let Some((oid, size)) = fs::read_to_string(path).ok().as_deref().and_then(lfs_pointer) else { return Ok(()) };
+    let Some(slug) = repo.strip_prefix("https://github.com/") else {
+        return Err(format!("{rel} is stored with Git LFS, which is only fetched from github.com"));
+    };
+    let url = format!("https://media.githubusercontent.com/media/{}/{commit}/{rel}", slug.trim_end_matches(".git"));
+    eprintln!("  downloading {rel} from Git LFS ({} MB)", size / 1_000_000);
+    let tmp = path.with_extension("lfs-part");
+    let out = Command::new("curl")
+        .args(["-sSfL", "--retry", "3", "-o"])
+        .arg(&tmp)
+        .arg(&url)
+        .output()
+        .map_err(|e| format!("could not run curl ({e}); is curl installed?"))?;
+    if !out.status.success() {
+        return Err(format!("downloading {url} failed:\n{}", String::from_utf8_lossy(&out.stderr).trim()));
+    }
+    let (sha, bytes) = sha256_file(&tmp)?;
+    if sha != oid || bytes != size {
+        let _ = fs::remove_file(&tmp);
+        return Err(format!("{url} does not match its LFS pointer (sha256 {sha}, {bytes} bytes; expected {oid}, {size})"));
+    }
+    fs::rename(&tmp, path).map_err(|e| e.to_string())
 }
 
 pub fn run(root: &Path, raw: &Path) -> Result<(), String> {
@@ -47,6 +95,9 @@ pub fn run(root: &Path, raw: &Path) -> Result<(), String> {
         fs::write(dest.join(".git/info/sparse-checkout"), sparse).map_err(|e| e.to_string())?;
         git(&dest, &["fetch", "-q", "--depth", "1", "--filter=blob:none", "origin", &commit])?;
         git(&dest, &["-c", "advice.detachedHead=false", "checkout", "-q", "--force", "FETCH_HEAD"])?;
+        for f in &files {
+            lfs_content(&repo, &commit, &dest.join(f), f)?;
+        }
     }
 
     let mut lock = Lock::default();

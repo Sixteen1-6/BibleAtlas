@@ -130,6 +130,36 @@ export function geometry(b: BaseFile): Geometry {
   return g;
 }
 
+// ------------------------------------------------------------------ shapes
+
+/** A shaded area: a region's shape, or a tribe's land. Both are approximate,
+ * so they are drawn soft, with a dashed edge. */
+export interface Shade {
+  path: Path2D;
+  /** 0: the chosen place, 1: named in this verse or this passage, 2: shown for reference (the tribes). */
+  tier: 0 | 1 | 2;
+}
+
+/** Projected rings of a delta-encoded shape, as a path, with its bounding box. */
+export function shadePath(rings: readonly (readonly number[])[], q: number): { path: Path2D; box: [number, number, number, number] } {
+  const path = new Path2D();
+  const box: [number, number, number, number] = [Infinity, Infinity, -Infinity, -Infinity];
+  for (const r of rings) {
+    const pts = points(r, 0, q);
+    if (pts.length < 3) continue;
+    path.moveTo(pts[0][0], pts[0][1]);
+    for (const [x, y] of pts) {
+      path.lineTo(x, y);
+      box[0] = Math.min(box[0], x);
+      box[1] = Math.min(box[1], y);
+      box[2] = Math.max(box[2], x);
+      box[3] = Math.max(box[3], y);
+    }
+    path.closePath();
+  }
+  return { path, box };
+}
+
 // ------------------------------------------------------------------ markers
 
 export interface Marker {
@@ -191,6 +221,7 @@ export class MapView {
   /** Where the zoom buttons sit, in canvas pixels: kept clear of names and fitted places. */
   private reserved: Rect | null = null;
   private markers: Marker[] = [];
+  private shades: Shade[] = [];
   private hits: Hit[] = [];
   private frame = 0;
   private anim: { from: ViewState; to: ViewState; t0: number; ms: number } | null = null;
@@ -277,6 +308,11 @@ export class MapView {
 
   setMarkers(ms: Marker[]): void {
     this.markers = ms;
+    this.request();
+  }
+
+  setShades(ss: Shade[]): void {
+    this.shades = ss;
     this.request();
   }
 
@@ -531,6 +567,25 @@ export class MapView {
     ctx.strokeStyle = c.shore;
     ctx.lineWidth = 0.9 / s;
     ctx.stroke(geo.shore);
+
+    // Regions and the tribes' lands, on land only, softly: their edges are
+    // approximate. Reference shapes first, the chosen one last.
+    if (this.shades.length) {
+      ctx.save();
+      ctx.clip(geo.land, 'evenodd');
+      for (const sh of [...this.shades].sort((a, b) => b.tier - a.tier)) {
+        const ink = sh.tier === 2 ? c.muted : c.accent;
+        ctx.fillStyle = ink;
+        ctx.globalAlpha = sh.tier === 0 ? 0.16 : sh.tier === 1 ? 0.1 : 0.05;
+        ctx.fill(sh.path, 'evenodd');
+        ctx.globalAlpha = sh.tier === 2 ? 0.55 : 0.8;
+        ctx.strokeStyle = ink;
+        ctx.lineWidth = (sh.tier === 0 ? 1.5 : 1.1) / s;
+        ctx.setLineDash([5 / s, 4 / s]);
+        ctx.stroke(sh.path);
+      }
+      ctx.restore();
+    }
 
     // Names and places: in pixels.
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);

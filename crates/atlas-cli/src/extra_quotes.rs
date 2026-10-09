@@ -18,10 +18,12 @@
 //! It also measures how close the English wording is (where a footnote names
 //! several passages quoted together, each one against the clauses that come
 //! from it), marks the words the two passages share, and pairs Greek words
-//! with Hebrew words they often stand for in the Septuagint, using the notes
-//! ("[in LXX chiefly for קוֹל]") of Abbott-Smith's lexicon as given in
-//! STEPBible's TBESG, with the Hebrew dictionary forms of its TBESH (both CC
-//! BY 4.0).
+//! with the Hebrew words they stand for. A pair is the Septuagint's own where
+//! the Greek Old Testament uses that very Greek word for that Hebrew word in
+//! the quoted verse, as MACULA Hebrew records it (CC BY 4.0); otherwise it
+//! comes from the notes ("[in LXX chiefly for קוֹל]") of Abbott-Smith's
+//! lexicon as given in STEPBible's TBESG, with the Hebrew dictionary forms of
+//! its TBESH (both CC BY 4.0).
 //!
 //! Outputs, under web/public/data:
 //! - `extras/quotes.json`: `{"format":1,"links":[[ntFrom,ntTo,otFrom,otTo,kind]]}`,
@@ -88,6 +90,23 @@ const SPAN_VERSES: usize = 12;
 const OPEN_VERSES: usize = 3;
 /// The most word pairs kept for one link.
 const MAX_PAIRS: usize = 12;
+/// MACULA Hebrew: the Greek word the Septuagint uses for each Hebrew word.
+const LXX_SOURCE: &str = "macula-hebrew";
+// How a word pair was found, its fifth number. The Septuagint uses this
+// Greek word for this Hebrew word in this verse,
+const BY_SEPTUAGINT: u32 = 0;
+/// or Abbott-Smith's lexicon says the Septuagint often uses it for the
+/// Hebrew word's root.
+const BY_LEXICON: u32 = 1;
+
+/// "G5456" or "G5456G" -> 5456. Extended numbers ("G20286") are their own.
+fn strong_number(lemma: &str) -> Option<u32> {
+    let digits: String = lemma.strip_prefix('G')?.chars().take_while(char::is_ascii_digit).collect();
+    if digits.len() > 4 {
+        return None;
+    }
+    digits.parse().ok()
+}
 /// An echo of a longer passage than this points to a story, not to words.
 const ECHO_VERSES: u32 = 5;
 /// The longest introduction shown, in chars.
@@ -1285,8 +1304,9 @@ struct Link {
     span: Option<[u32; 4]>,
     /// Shared words to mark: [verse, start, end, start, end, ...] (UTF-16).
     marks: Vec<Vec<u32>>,
-    /// Greek word and the Hebrew word it stands for: [verse, word, verse, word].
-    pairs: Vec<[u32; 4]>,
+    /// Greek word and the Hebrew word it stands for: [verse, word, verse,
+    /// word, how] (BY_SEPTUAGINT or BY_LEXICON).
+    pairs: Vec<[u32; 5]>,
 }
 
 #[derive(Default)]
@@ -1315,6 +1335,8 @@ struct Ctx<'a> {
     words: &'a [Vec<Word>],
     books: Vec<Vec<UVerse>>,
     lex: Lex,
+    /// Hebrew word (verse, index) -> the Greek words the Septuagint uses for it there.
+    lxx: HashMap<(u32, u32), Vec<u32>>,
 }
 
 impl Ctx<'_> {
@@ -1517,9 +1539,12 @@ impl Ctx<'_> {
     }
 
     /// Greek words of the quotation paired with the Hebrew words they stand
-    /// for: a pair needs the Greek word's Septuagint note to name the Hebrew
-    /// word's root. Each word pairs once; glosses that agree go first.
-    fn pairs(&self, parts: &[Part], ot: (u32, u32)) -> Vec<[u32; 4]> {
+    /// for. A pair is either the Septuagint's own: the Greek Old Testament
+    /// uses this very Greek word for this Hebrew word in this verse (MACULA
+    /// Hebrew); or the lexicon's: the Greek word's Septuagint note in
+    /// Abbott-Smith names the Hebrew word's root. The Septuagint's pairs go
+    /// first; each word pairs once; glosses that agree go first.
+    fn pairs(&self, parts: &[Part], ot: (u32, u32)) -> Vec<[u32; 5]> {
         let lex = &self.lex;
         let mut greek = Vec::new();
         for p in parts {
@@ -1528,13 +1553,13 @@ impl Ctx<'_> {
                 if !window.contains(&i) || !w.main || !greek_content(&w.morph) {
                     continue;
                 }
-                if let Some((l, notes)) = w
-                    .lemma
-                    .as_deref()
-                    .and_then(|l| Some((l, Lex::get(&lex.lxx, l)?)))
-                {
-                    greek.push((p.verse, i, w, l, notes));
+                let Some(l) = w.lemma.as_deref() else { continue };
+                let notes = Lex::get(&lex.lxx, l).map_or(&[][..], Vec::as_slice);
+                let number = strong_number(l);
+                if notes.is_empty() && number.is_none() {
+                    continue;
                 }
+                greek.push((p.verse, i, w, l, notes, number));
             }
         }
         let mut hebrew = Vec::new();
@@ -1543,13 +1568,13 @@ impl Ctx<'_> {
                 if !w.main || !hebrew_content(&w.morph) {
                     continue;
                 }
-                if let Some((l, head)) = w
-                    .lemma
-                    .as_deref()
-                    .and_then(|l| Some((l, Lex::get(&lex.head, l)?)))
-                {
-                    hebrew.push((o, i, w, l, head));
+                let Some(l) = w.lemma.as_deref() else { continue };
+                let head = Lex::get(&lex.head, l);
+                let lxx = self.lxx.get(&(o, i as u32)).map_or(&[][..], Vec::as_slice);
+                if head.is_none() && lxx.is_empty() {
+                    continue;
                 }
+                hebrew.push((o, i, w, l, head, lxx));
             }
         }
         let gloss = |w: &Word, l: &str| {
@@ -1561,20 +1586,22 @@ impl Ctx<'_> {
         for (gi, g) in greek.iter().enumerate() {
             let gk = gloss(g.2, g.3);
             for (hi, h) in hebrew.iter().enumerate() {
-                if !g.4.iter().any(|n| heb_eq(n, h.4)) {
+                let here = g.5.is_some_and(|n| h.5.contains(&n));
+                let noted = h.4.is_some_and(|head| g.4.iter().any(|n| heb_eq(n, head)));
+                if !here && !noted {
                     continue;
                 }
                 let agree = !gk.is_disjoint(&gloss(h.2, h.3));
                 // How far apart the two words sit, as shares of their passages.
                 let apart = (gi * hebrew.len()).abs_diff(hi * greek.len()) * 1000
                     / (greek.len() * hebrew.len());
-                cand.push((!agree, apart, gi, hi));
+                cand.push((!here, !agree, apart, gi, hi));
             }
         }
         cand.sort_unstable();
         let (mut used_g, mut used_h) = (vec![false; greek.len()], vec![false; hebrew.len()]);
         let mut out = Vec::new();
-        for (_, _, gi, hi) in cand {
+        for (lexicon, _, _, gi, hi) in cand {
             if used_g[gi] || used_h[hi] || out.len() == MAX_PAIRS {
                 continue;
             }
@@ -1585,6 +1612,7 @@ impl Ctx<'_> {
                 greek[gi].1 as u32,
                 hebrew[hi].0,
                 hebrew[hi].1 as u32,
+                if lexicon { BY_LEXICON } else { BY_SEPTUAGINT },
             ]);
         }
         out.sort_unstable();
@@ -1845,6 +1873,7 @@ pub fn build(
         words,
         books,
         lex: Lex::read(inputs)?,
+        lxx: crate::align::septuagint_words(&inputs.path(LXX_SOURCE, "tsv"), words)?,
     };
     let mut t = Tally::default();
     let cited = cx.cited_in(&mut t);
@@ -1856,8 +1885,14 @@ pub fn build(
         .filter(|l| l.quote && l.flags & BOTH != 0)
         .count();
     let paired = links.iter().filter(|l| !l.pairs.is_empty()).count();
+    let pairs: usize = links.iter().map(|l| l.pairs.len()).sum();
+    let septuagint = links
+        .iter()
+        .flat_map(|l| &l.pairs)
+        .filter(|p| p[4] == BY_SEPTUAGINT)
+        .count();
     eprintln!(
-        "quotations: {} links ({quotes} quotations, {} echoes) from {} footnotes; {both} quotations named in the Old Testament's notes too; {paired} links with Hebrew-Greek word pairs",
+        "quotations: {} links ({quotes} quotations, {} echoes) from {} footnotes; {both} quotations named in the Old Testament's notes too; {paired} links with Hebrew-Greek word pairs ({pairs} pairs, {septuagint} the Septuagint's own)",
         links.len(),
         links.len() - quotes,
         t.footnotes,
@@ -2060,6 +2095,28 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             })
         });
     out.push((voice, "Matthew 3:3 pairs φωνή with קוֹל (voice)".into()));
+
+    // Matthew 1:23 pairs παρθένος with עַלְמָה, as the Septuagint of Isaiah 7:14 does.
+    let virgin = note(find("Matt 1:23", "Isa 7:14")?)["w"]
+        .as_array()
+        .is_some_and(|w| {
+            w.iter().any(|p| {
+                let at = |i: usize| p[i].as_u64().unwrap_or(u64::MAX);
+                at(4) == u64::from(BY_SEPTUAGINT)
+                    && key_at(at(0), at(1)).is_some_and(|k| k.starts_with("G3933"))
+                    && key_at(at(2), at(3)).is_some_and(|k| k.starts_with("H5959"))
+            })
+        });
+    out.push((
+        virgin,
+        "Matthew 1:23 pairs παρθένος with עַלְמָה, the Septuagint's own word there".into(),
+    ));
+    let all_pairs: Vec<&Value> = notes.iter().flat_map(|n| n["w"].as_array().into_iter().flatten()).collect();
+    let own = all_pairs.iter().filter(|p| p[4].as_u64() == Some(u64::from(BY_SEPTUAGINT))).count();
+    out.push((
+        own * 2 >= all_pairs.len(),
+        format!("{own} of {} word pairs are the Septuagint's own", all_pairs.len()),
+    ));
 
     // Every marked word lies inside its verse, in a verse of its link.
     let mut stray = 0usize;
