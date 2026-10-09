@@ -257,7 +257,9 @@ impl Adjacency {
     /// Cheapest chain of cross-references from `a` to `b` using only edges
     /// with at least `min_votes` votes (Dijkstra with [`hop_cost`]).
     pub fn shortest_path(&self, a: u32, b: u32, min_votes: i16) -> Option<Path> {
-        self.dijkstra_avoiding(a, b, min_votes, &[], None)
+        // Nothing is banned, so this copy of the search has no ban check at
+        // all and runs as fast as it did before roads existed.
+        self.dijkstra_by(a, b, min_votes, |_, _| false)
     }
 
     /// Up to `k` roads from `a` to `b`: chains of links that share no verse
@@ -303,6 +305,15 @@ impl Adjacency {
     /// pair `banned_pair`. The heap pops by (cost, verse), so ties go to the
     /// lower verse index and the result is deterministic.
     fn dijkstra_avoiding(&self, a: u32, b: u32, min_votes: i16, banned: &[bool], banned_pair: Option<(u32, u32)>) -> Option<Path> {
+        self.dijkstra_by(a, b, min_votes, |v, u| {
+            (u != b && banned.get(u as usize).copied().unwrap_or(false)) || banned_pair.is_some_and(|(x, y)| (v, u) == (x, y) || (v, u) == (y, x))
+        })
+    }
+
+    /// The Dijkstra search itself: it never crosses from `v` to `u` when
+    /// `blocked(v, u)`. Generic, so each caller gets its own compiled copy
+    /// and [`Self::shortest_path`]'s has no check left in its inner loop.
+    fn dijkstra_by(&self, a: u32, b: u32, min_votes: i16, blocked: impl Fn(u32, u32) -> bool) -> Option<Path> {
         let n = self.verse_count();
         if a >= n || b >= n {
             return None;
@@ -310,9 +321,6 @@ impl Adjacency {
         if a == b {
             return Some(Path { verses: vec![a], edges: Vec::new(), cost: 0 });
         }
-        let blocked = |v: u32, u: u32| {
-            (u != b && banned.get(u as usize).copied().unwrap_or(false)) || banned_pair.is_some_and(|(x, y)| (v, u) == (x, y) || (v, u) == (y, x))
-        };
         let mut dist = vec![u32::MAX; n as usize];
         let mut prev = vec![u32::MAX; n as usize];
         let mut prev_edge = vec![u32::MAX; n as usize];
@@ -343,20 +351,7 @@ impl Adjacency {
                 }
             }
         }
-        if dist[b as usize] == u32::MAX {
-            return None;
-        }
-        let mut verses = vec![b];
-        let mut edges = Vec::new();
-        let mut cur = b;
-        while cur != a {
-            edges.push(prev_edge[cur as usize]);
-            cur = prev[cur as usize];
-            verses.push(cur);
-        }
-        verses.reverse();
-        edges.reverse();
-        Some(Path { verses, edges, cost: dist[b as usize] })
+        trace(a, b, &dist, &prev, &prev_edge)
     }
 
     /// Verses within `hops` steps of `seed` (breadth-first, strongest links
@@ -401,6 +396,25 @@ impl Adjacency {
         }
         (nodes, edges)
     }
+}
+
+/// Walk a finished search back from `b` to `a`. Kept out of the generic
+/// search, so its copies share one.
+fn trace(a: u32, b: u32, dist: &[u32], prev: &[u32], prev_edge: &[u32]) -> Option<Path> {
+    if dist[b as usize] == u32::MAX {
+        return None;
+    }
+    let mut verses = vec![b];
+    let mut edges = Vec::new();
+    let mut cur = b;
+    while cur != a {
+        edges.push(prev_edge[cur as usize]);
+        cur = prev[cur as usize];
+        verses.push(cur);
+    }
+    verses.reverse();
+    edges.reverse();
+    Some(Path { verses, edges, cost: dist[b as usize] })
 }
 
 #[cfg(test)]
