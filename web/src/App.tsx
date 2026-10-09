@@ -12,6 +12,7 @@ import { Connections } from './ui/Connections';
 import { DepthControl } from './ui/Depth';
 import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
+import { AskSheet } from './ui/ask/AskSheet';
 import { Reader } from './ui/Reader';
 import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
@@ -119,6 +120,7 @@ export function App() {
           const first = fromOsis(atlas, FIRST_VERSE);
           if (first !== null) {
             S.holdReaderScroll.value = first;
+            S.openingVerse.value = first;
             S.selectVerse(first);
           }
         }
@@ -260,6 +262,7 @@ export function App() {
         </aside>
       </main>
       {S.paletteOpen.value && <Palette a={a} />}
+      <AskSheet a={a} />
     </div>
   );
 }

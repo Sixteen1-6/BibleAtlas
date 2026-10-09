@@ -18,12 +18,19 @@ import { Facts, Lead, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
 import { MapCanvas } from './MapCanvas';
-import type { BaseFile, Data, Mention, PeopleFile, PlacesFile, Site } from './model';
+import type { BaseFile, Data, EventsFile, Mention, PeopleFile, PlacesFile, ShapesFile, Site } from './model';
 import { coords, inHundred, info, latOf, lonOf, proposals, readingLine, spread, sureLine, tieWords } from './places';
-import { type Marker, projX, projY } from './view';
+import { type Marker, type Shade, projX, projY, shadePath } from './view';
 
 /** People shown before "all N people". */
 const PEOPLE_SHOWN = 8;
+/** Events shown before "all N events". */
+const EVENTS_SHOWN = 4;
+
+/** An astronomical year in words: -1490 is "1491 BC", 30 is "AD 30". */
+function yearWords(y: number): string {
+  return y <= 0 ? `${1 - y} BC` : `AD ${y}`;
+}
 
 function and(names: readonly string[]): string {
   if (names.length <= 1) return names.join('');
@@ -120,12 +127,58 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
   const places = useJson<PlacesFile>(a, 'extras/real-map/places.json');
   const base = useJson<BaseFile>(a, 'extras/real-map/base.json');
   const deep = levelAtLeast('deep');
+  const study = levelAtLeast('study');
   const people = useJson<PeopleFile>(a, deep ? 'extras/real-map/people.json' : null);
+  const events = useJson<EventsFile>(a, study ? 'extras/real-map/events.json' : null);
+  const shapes = useJson<ShapesFile>(a, 'extras/real-map/shapes.json');
+  const [tribesOn, setTribesOn] = useState(false);
   const here = useMemo(() => data.byVerse.get(verse) ?? [], [data, verse]);
   const chapter = useMemo(() => chapterPlaces(a, data, verse, here), [a, data, verse, here]);
   const [chosen, setChosen] = useState<number | null>(null);
   const [proposed, setProposed] = useState(false);
   const sel = chosen ?? here[0]?.place ?? null;
+  // The tribe whose land this verse lists (Joshua 13-19), if any.
+  const tribeHere = useMemo(() => (shapes ? shapes.tribes.findIndex(([, from, to]) => verse >= from && verse <= to) : -1), [shapes, verse]);
+  const paths = useMemo(() => {
+    if (!shapes) return null;
+    const q = shapes.q || 1000;
+    return {
+      places: new Map<number, ReturnType<typeof shadePath>>(),
+      tribes: shapes.tribes.map((t) => shadePath([t[5]], q)),
+      q,
+    };
+  }, [shapes]);
+  const shapeOf = (p: number) => {
+    if (!shapes || !paths) return null;
+    const rings = shapes.places[p];
+    if (!rings) return null;
+    let hit = paths.places.get(p);
+    if (!hit) {
+      hit = shadePath(rings, paths.q);
+      paths.places.set(p, hit);
+    }
+    return hit;
+  };
+  const shades = useMemo(() => {
+    const out: Shade[] = [];
+    if (!shapes || !paths) return out;
+    const seen = new Set<number>();
+    for (const m of here) {
+      if (seen.has(m.place)) continue;
+      seen.add(m.place);
+      const sh = shapeOf(m.place);
+      if (sh) out.push({ path: sh.path, tier: m.place === sel ? 0 : 1 });
+    }
+    if (sel !== null && !seen.has(sel)) {
+      const sh = shapeOf(sel);
+      if (sh) out.push({ path: sh.path, tier: 0 });
+    }
+    paths.tribes.forEach((t, i) => {
+      if (i === tribeHere) out.push({ path: t.path, tier: 1 });
+      else if (tribesOn && study) out.push({ path: t.path, tier: 2 });
+    });
+    return out;
+  }, [shapes, paths, here, sel, tribeHere, tribesOn, study]);
 
   const markers = useMemo(() => {
     const out: Marker[] = [];
@@ -150,12 +203,19 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
     };
     for (const [p, c] of chapter) add(p, c.name, p === sel ? 0 : 2, p === sel);
     for (const m of here) add(m.place, m.name, m.place === sel ? 0 : 1, proposed || m.place === sel);
-    // Jerusalem, faintly, so there is always somewhere to get one's bearings
+    // The tribes' names, on their lands. A tribe name is not a place of
+    // the panel, so its marker has no place (-1 and below).
+    if (shapes) {
+      shapes.tribes.forEach(([name, , , lon, lat], i) => {
+        if (i === tribeHere || (tribesOn && study)) out.push({ place: -1 - i, label: name, x: projX(lon), y: projY(lat), tier: i === tribeHere ? 1 : 2, area: true, proposed: false });
+      });
+    }
+        // Jerusalem, faintly, so there is always somewhere to get one's bearings
     // (the place lines say how far each place is from it).
     const jerusalem = places.places.findIndex((r) => r[1] === 'jerusalem');
     if (jerusalem >= 0 && !out.some((m) => m.place === jerusalem)) add(jerusalem, data.names[jerusalem] ?? 'Jerusalem', jerusalem === sel ? 0 : 2, false);
     return out;
-  }, [places, here, chapter, sel, proposed, deep, data]);
+  }, [places, here, chapter, sel, proposed, deep, data, shapes, tribeHere, tribesOn, study]);
 
   // Fit the verse's places that are fairly sure; if none are, the area of
   // the sites proposed for them.
@@ -178,9 +238,11 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
   const revealPoints = useMemo(() => {
     const p = sel === null || !places ? null : info(places, sel);
     if (!p) return [];
-    if (p.confident && p.best) return [at(lonOf(p.best), latOf(p.best))];
-    return proposals(places!, p).map((s) => at(lonOf(s), latOf(s)));
-  }, [places, sel]);
+    const sh = sel === null ? null : shapeOf(sel);
+    const box: [number, number][] = sh && Number.isFinite(sh.box[0]) ? [[sh.box[0], sh.box[1]], [sh.box[2], sh.box[3]]] : [];
+    if (p.confident && p.best) return [at(lonOf(p.best), latOf(p.best)), ...box];
+    return [...proposals(places!, p).map((s) => at(lonOf(s), latOf(s))), ...box];
+  }, [places, sel, shapes, paths]);
 
   if (!places || !base) return <p class="xt-lead xt-wait">…</p>;
 
@@ -198,11 +260,12 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
       <MapCanvas
         base={base}
         markers={markers}
+        shades={shades}
         fitKey={String(verse)}
         fitPoints={fitPoints}
         revealKey={String(sel)}
         revealPoints={revealPoints}
-        onTap={(p) => setChosen(p)}
+        onTap={(p) => p >= 0 && setChosen(p)}
         label={mapLabel}
       />
       <div class="x-real-map-under">
@@ -228,7 +291,18 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
             {proposed ? 'Hide proposed sites' : 'Show proposed sites'}
           </button>
         )}
+        {study && shapes && (
+          <button type="button" class="x-real-map-toggle" aria-pressed={tribesOn} onClick={() => setTribesOn(!tribesOn)}>
+            {tribesOn ? 'Hide the tribes’ lands' : 'Show the tribes’ lands'}
+          </button>
+        )}
       </div>
+      {shapes && (tribeHere >= 0 || (tribesOn && study)) && (
+        <p class="x-real-map-fine">
+          {tribeHere >= 0 && !(tribesOn && study) ? `${shapes.tribes[tribeHere][0]}’s land is` : 'The tribes’ lands are'} drawn around the towns Joshua 13–19 lists for each tribe, so
+          the edges are only approximate.
+        </p>
+      )}
       {sel !== null && (
         <PlaceCard
           key={sel}
@@ -236,6 +310,7 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
           data={data}
           places={places}
           people={deep ? people : undefined}
+          events={study ? events : undefined}
           place={sel}
           name={nameOf(sel)}
           verse={verse}
@@ -245,8 +320,8 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
         />
       )}
       <SourceNote>
-        Places and their proposed sites from OpenBible.info’s Bible Geocoding Data, CC BY 4.0. The map is drawn from Natural Earth (public domain); its coastlines, rivers and borders are today’s.
-        {deep && ' People from Theographic Bible Metadata, CC BY-SA 4.0.'}
+        Places, their proposed sites and the approximate shapes of regions from OpenBible.info’s Bible Geocoding Data, CC BY 4.0. The map is drawn from Natural Earth (public domain); its coastlines, rivers and borders are today’s.
+        {study && (deep ? ' Events, people and dates from Theographic Bible Metadata, CC BY-SA 4.0.' : ' Events from Theographic Bible Metadata, CC BY-SA 4.0.')}
       </SourceNote>
     </>
   );
@@ -257,6 +332,7 @@ interface CardProps {
   data: Data;
   places: PlacesFile;
   people: PeopleFile | null | undefined;
+  events: EventsFile | null | undefined;
   place: number;
   name: string;
   verse: VerseRef;
@@ -274,7 +350,7 @@ function Ref({ a, v, navigate, current }: { a: Atlas; v: VerseRef; navigate: (v:
   );
 }
 
-function PlaceCard({ a, data, places, people, place, name, verse, chapterVerse, navigate, deep }: CardProps) {
+function PlaceCard({ a, data, places, people, events, place, name, verse, chapterVerse, navigate, deep }: CardProps) {
   const [all, setAll] = useState(false);
   const vs = data.versesOf[place] ?? [];
   const inVerse = vs.includes(verse);
@@ -315,8 +391,52 @@ function PlaceCard({ a, data, places, people, place, name, verse, chapterVerse, 
         </p>
       )}
       {all && <AllVerses a={a} vs={vs} current={verse} navigate={navigate} />}
+      {events && <Events a={a} events={events} place={place} verse={verse} navigate={navigate} deep={deep} />}
       {deep && <Deep a={a} places={places} people={people} place={place} name={name} navigate={navigate} />}
     </section>
+  );
+}
+
+/** Study: what happened at the place, in time order, each with the verse it
+ * starts at. Deep adds Theographic's year for each, and says whose dates
+ * they are. */
+function Events({ a, events, place, verse, navigate, deep }: { a: Atlas; events: EventsFile; place: number; verse: VerseRef; navigate: (v: VerseRef) => void; deep: boolean }) {
+  const [all, setAll] = useState(false);
+  const here = events.places[place];
+  if (!here || !here.length) return null;
+  const shown = all ? here : here.slice(0, EVENTS_SHOWN);
+  return (
+    <>
+      <h3>What happened here</h3>
+      <ul class="x-real-map-events">
+        {shown.map((i) => {
+          const [title, year, v] = events.events[i];
+          return (
+            <li key={i}>
+              {title}
+              {deep && <span class="x-real-map-num"> {yearWords(year)}</span>}
+              {v >= 0 && v < a.n && (
+                <>
+                  {' · '}
+                  <Ref a={a} v={v} navigate={navigate} current={v === verse} />
+                </>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      {here.length > EVENTS_SHOWN && (
+        <button type="button" class="x-real-map-more" aria-expanded={all} onClick={() => setAll(!all)}>
+          {all ? 'fewer' : `all ${here.length} events`}
+        </button>
+      )}
+      {deep && (
+        <p class="x-real-map-fine">
+          Events and their years from Theographic Bible Metadata by Robert Rouse (CC BY-SA 4.0). Its years follow one traditional reckoning from the Bible’s own numbers, close to
+          Archbishop Ussher’s (Creation in 4004 BC, the Exodus in 1491 BC); many scholars date the earlier events differently, some by centuries.
+        </p>
+      )}
+    </>
   );
 }
 

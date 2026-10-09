@@ -104,9 +104,9 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
   const open = () => openExtra(x.id, kind, at, btn.current);
   const words = plain(a, parts);
   if (!parts.some((p) => typeof p !== 'string')) {
-    if (!canOpen) return <p class="xt-line">{words}</p>;
+    if (!canOpen) return <p class="xt-line" data-x={x.id}>{words}</p>;
     return (
-      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
+      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
         <span class="xt-words">{words}</span>
         <span class="xt-chev" aria-hidden="true">
           ›
@@ -115,7 +115,7 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
     );
   }
   return (
-    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} onClick={canOpen ? open : undefined}>
+    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={canOpen ? open : undefined}>
       <span class="xt-words">{parts.map((p, i) => (typeof p === 'string' ? p : <VerseA key={i} a={a} link={p} />))}</span>
       {canOpen && (
         <button
@@ -236,7 +236,7 @@ function PanelHost({ a }: { a: Atlas }) {
   const P = x.Panel;
   const C = x.ChapterPanel;
   return createPortal(
-    <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss}>
+    <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss} tall={x.tall}>
       <Guard id={x.id}>
         {o.kind === 'verse' ? (
           <P a={a} data={s.data} verse={o.verse!} close={dismiss} navigate={navigate} />

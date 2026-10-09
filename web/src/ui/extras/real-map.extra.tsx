@@ -75,6 +75,7 @@ export default defineExtra<Data>({
   id: 'real-map',
   order: 30,
   title: 'Places',
+  tall: true,
   async load(a) {
     await readerHere();
     return decodeIndex(await loadJson<IndexFile>(a, 'extras/real-map.json'), a.n);

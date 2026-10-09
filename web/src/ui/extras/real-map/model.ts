@@ -87,6 +87,28 @@ export interface BaseFile {
 }
 
 /** extras/real-map/people.json, from Theographic Bible Metadata (CC BY-SA 4.0). */
+export interface ShapesFile {
+  format: 1;
+  /** Coordinates are in 1/q degrees, delta-encoded like base.json's. */
+  q: number;
+  /** Per place: 0, or the rings of the shape OpenBible.info drew for it. */
+  places: (0 | number[][])[];
+  /** The tribes' lands, drawn around the towns Joshua lists for each:
+   * [name, first verse, last verse of the passage, label lon, label lat, ring]. */
+  tribes: [string, number, number, number, number, number[]][];
+}
+
+export interface EventsFile {
+  format: 1;
+  license: string;
+  source: string;
+  /** [title, year, first verse], in Theographic's time order. Years are
+   * astronomical: -1490 is 1491 BC, 30 is AD 30. */
+  events: [string, number, number][];
+  /** Per place: 0, or indices into `events`. */
+  places: (0 | number[])[];
+}
+
 export interface PeopleFile {
   format: 1;
   license: string;

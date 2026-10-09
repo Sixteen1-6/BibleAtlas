@@ -1,0 +1,179 @@
+/* Wordplay. Only the app's colour variables, so the paper (light) and dark
+   themes both follow. Hebrew uses the app's Hebrew font and reads right to
+   left (.he); Greek uses its Greek font (.gr). */
+
+/* ------------------------------------------------------------ a play */
+
+.x-wordplay-play {
+  margin: 0 0 14px;
+}
+.x-wordplay-play + .x-wordplay-play {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-wordplay-kind {
+  margin: 0 0 8px;
+  font: 600 11.5px var(--font-ui);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.x-wordplay-strength {
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.x-wordplay-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+.x-wordplay-word {
+  display: grid;
+  justify-items: center;
+  gap: 1px;
+  min-width: 84px;
+  padding: 8px 12px 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-wordplay-word:hover,
+.x-wordplay-word:focus-visible {
+  border-color: var(--accent);
+}
+.x-wordplay-orig {
+  font-size: 26px;
+  line-height: 1.3;
+}
+.x-wordplay-orig.gr {
+  font-size: 21px;
+}
+/* The letters the words share. */
+.x-wordplay-same {
+  padding: 0;
+  border-radius: 3px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.x-wordplay-say {
+  font: italic 600 15px var(--font-read);
+}
+.x-wordplay-gloss {
+  font-size: 12px;
+  color: var(--muted);
+}
+.xt-body .x-wordplay-text {
+  font: 15.5px/1.55 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-wordplay-deep {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------ the walk */
+
+.xt-body .x-wordplay-where {
+  margin: 0 0 6px;
+}
+.x-wordplay-go {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 14px var(--font-ui);
+  color: var(--link);
+  cursor: pointer;
+}
+.x-wordplay-go:hover,
+.x-wordplay-go:focus-visible {
+  text-decoration: underline;
+}
+
+.x-wordplay-walk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 8px 0 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.x-wordplay-walk button {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  font: 600 12.5px var(--font-ui);
+  color: var(--accent);
+  cursor: pointer;
+}
+.x-wordplay-walk button:disabled {
+  color: var(--muted);
+  cursor: default;
+  opacity: 0.5;
+}
+.x-wordplay-at {
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------ alphabet poems */
+
+.x-wordplay-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  gap: 6px;
+  margin: 4px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.x-wordplay-grid li {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+}
+.x-wordplay-grid button {
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  padding: 6px 4px 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-wordplay-grid button:hover,
+.x-wordplay-grid button:focus-visible {
+  border-color: var(--accent);
+}
+.x-wordplay-grid .x-wordplay-extra button {
+  border-style: dashed;
+  background: none;
+}
+.x-wordplay-grid .xt-unsure {
+  margin: 3px 0 0;
+  font-size: 10.5px;
+}
+.x-wordplay-letter {
+  font-size: 26px;
+  line-height: 1.25;
+  color: var(--accent);
+}
+.x-wordplay-lname {
+  font: 600 11.5px var(--font-ui);
+}
+.x-wordplay-v {
+  font-size: 11px;
+  color: var(--muted);
+}
+.xt-body .x-wordplay-missing,
+.xt-body .x-wordplay-hint {
+  font-size: 13px;
+  color: var(--muted);
+}

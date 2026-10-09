@@ -194,6 +194,61 @@ fn source_text(path: &Path, hebrew: bool) -> Result<SourceText, String> {
     Ok(SourceText { verses })
 }
 
+/// The Greek words the Septuagint uses for each Hebrew word of the atlas, as
+/// MACULA Hebrew records them (its `greekstrong` column, one per part of a
+/// word): atlas (verse, word index) -> Strong's numbers, without the "G".
+///
+/// MACULA tokenizes the WLC as the alignment source does, so its words are
+/// matched to TAHOT's the same way: by consonants, in the Hebrew Bible's own
+/// verse numbering. As `pair` does, an equal run of unmatched words between
+/// two matches is paired in order (which keeps a ketiv with its qere); a word
+/// left unpaired gets nothing.
+pub fn septuagint_words(macula: &Path, words: &[Vec<Word>]) -> Result<HashMap<(u32, u32), Vec<u32>>, String> {
+    let text = read(macula)?;
+    let mut lines = text.lines();
+    let head: Vec<&str> = lines.next().unwrap_or("").split('\t').collect();
+    let col = |name: &str| head.iter().position(|h| *h == name).ok_or_else(|| format!("{}: no '{name}' column", macula.display()));
+    let (c_id, c_text, c_greek) = (col("xml:id")?, col("text")?, col("greekstrong")?);
+    // verse -> words as (word number, consonants, Greek numbers)
+    let mut theirs: HashMap<Bcv, Vec<(u32, String, Vec<u32>)>> = HashMap::new();
+    for line in lines {
+        let cols: Vec<&str> = line.split('\t').collect();
+        let (Some(id), Some(t)) = (cols.get(c_id), cols.get(c_text)) else { continue };
+        let (Some(v), Some(w)) = (id.get(1..).and_then(bcv), id.get(9..12).and_then(num)) else { continue };
+        let greek: Vec<u32> = cols.get(c_greek).map_or("", |g| g).split('|').filter_map(|g| g.trim().parse().ok()).collect();
+        let list = theirs.entry(v).or_default();
+        match list.last_mut() {
+            Some(last) if last.0 == w => {
+                last.1.push_str(&consonants(t));
+                last.2.extend(greek);
+            }
+            _ => list.push((w, consonants(t), greek)),
+        }
+    }
+    let mut ours: HashMap<Bcv, Vec<(u32, u32)>> = HashMap::new();
+    for (v, ws) in words.iter().enumerate() {
+        for (i, w) in ws.iter().enumerate() {
+            if let Some(sv) = w.src_verse {
+                ours.entry(sv).or_default().push((v as u32, i as u32));
+            }
+        }
+    }
+    let mut out = HashMap::new();
+    for (sv, th) in &theirs {
+        let Some(us) = ours.get(sv) else { continue };
+        let a: Vec<&str> = th.iter().map(|t| t.1.as_str()).collect();
+        let b: Vec<&str> = us.iter().map(|&(v, i)| words[v as usize][i as usize].key.as_str()).collect();
+        for (i, j) in pair(&a, &b) {
+            if !th[i].2.is_empty() {
+                let mut g = th[i].2.clone();
+                g.dedup();
+                out.insert(us[j], g);
+            }
+        }
+    }
+    Ok(out)
+}
+
 pub struct Inputs<'a> {
     pub hebrew_links: &'a Path,
     pub hebrew_source: &'a Path,

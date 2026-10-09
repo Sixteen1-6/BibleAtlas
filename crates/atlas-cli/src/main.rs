@@ -11,6 +11,7 @@
 //! Options: --raw <dir> (default data/raw), --out <dir> (default web/public/data)
 
 mod align;
+mod ask;
 mod build;
 mod english;
 mod eras;
@@ -22,11 +23,15 @@ mod extra_quotes;
 mod extra_real_map;
 mod fetch;
 mod layers;
+mod extra_notes;
 mod lexhtml;
+mod extra_wordplay;
 mod loaded;
+mod extra_hard_verses;
 mod lxx;
 mod parse;
 mod query;
+mod extra_translations;
 mod shelf;
 mod sources;
 mod verify;

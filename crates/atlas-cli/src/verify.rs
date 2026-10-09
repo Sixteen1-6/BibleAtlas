@@ -64,8 +64,10 @@ pub fn run(out: &Path) -> Result<(), String> {
     let plain = fs::read_to_string(out.join("bsb.txt")).map_err(|e| format!("bsb.txt: {e}"))?;
     r.check(plain.lines().count() == n as usize, "search text has one line per verse");
     r.check(d.vz.chapter_count() == 1_189, format!("chapter count is {}, expected 1,189", d.vz.chapter_count()));
+    for (ok, what) in crate::extra_notes::verify(&d)? { r.check(ok, what); }
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
+    for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;
@@ -90,6 +92,7 @@ pub fn run(out: &Path) -> Result<(), String> {
         }
     }
     r.check(bad == 0, format!("{bad} sampled root postings point at the wrong word"));
+    for (ok, what) in crate::extra_wordplay::verify(&d)? { r.check(ok, what); }
 
     // Themes: shared links name them by id, each lights a readable number of
     // verses, the word senses left out stay out, and the newer themes reach
@@ -164,6 +167,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     r.check(counts[elohim] > 2_000, format!("אֱלֹהִים occurs {} times", counts[elohim]));
     let (src, _) = d.resolve("Gen 1:1")?;
     r.check(d.graph.out(src).len() >= 10, "Genesis 1:1 has at least 10 cross-references");
+    for (ok, what) in crate::ask::verify(&d)? { r.check(ok, what); }
 
     // Word alignment: the English word and the original word it translates
     // share a group: John 3:16 "loved" (4th English word) is ἠγάπησεν (3rd

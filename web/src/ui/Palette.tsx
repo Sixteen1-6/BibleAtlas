@@ -1,17 +1,19 @@
 // Command palette: a reference, an English phrase, or a Hebrew/Greek word.
 
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { type Atlas, label, langName } from '../data/atlas';
-import { loadPlainText, plainText } from '../data/plain';
-import { type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
+import { type Atlas, label, langName, rangeLabel } from '../data/atlas';
+import { extraText, loadExtraText, loadPlainText, plainText } from '../data/plain';
+import { type Extra, type SearchResult, searchEnglish, searchRoots, wordPieces } from '../data/search';
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
+import { type Asked, askIndex, askLabel, isCare, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
   | { kind: 'ref'; range: [number, number] }
+  | { kind: 'ask'; asked: Asked }
   | { kind: 'root'; root: number }
-  | { kind: 'verse'; v: number };
+  | { kind: 'verse'; v: number; span: number; via: string | null };
 
 function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> }) {
   const [t, setT] = useState(() => plainText()?.[v] ?? '');
@@ -49,14 +51,14 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
 }
 
 function footNote(q: string, res: SearchResult | null, ref: boolean): string {
-  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a Strong’s number, or a transliteration like “agape” or “ruach”.';
+  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a question like “what happens when we die?”, a Strong’s number, or a transliteration like “agape” or “ruach”.';
   if (!res) return ref ? 'Press Enter to open it.' : '';
   const notes: string[] = [];
   if (res.guesses.length) notes.push(`Read ${res.guesses.map(([w, as]) => `“${w}” as “${as.join('” or “')}”`).join(', ')}.`);
-  if (res.unknown.length) notes.push(`No BSB verse uses “${res.unknown.join('”, “')}”.`);
+  if (res.unknown.length) notes.push(`No verse uses “${res.unknown.join('”, “')}”.`);
   if (res.verses.length) {
-    if (res.total) notes.unshift(`${res.total.toLocaleString()} ${res.total === 1 ? 'verse holds' : 'verses hold'} all these words (BSB). Closest wording first.`);
-    else notes.unshift('No verse holds every word, so these are the closest matches (BSB).');
+    if (res.total) notes.unshift(`${res.total.toLocaleString()} ${res.total === 1 ? 'verse holds' : 'verses hold'} all these words. Closest wording first; KJV and ASV wording count too.`);
+    else notes.unshift('No verse holds every word, so these are the closest matches, including verses that span two.');
   }
   return notes.join(' ');
 }
@@ -66,12 +68,17 @@ export function Palette({ a }: { a: Atlas }) {
   const [items, setItems] = useState<Item[]>([]);
   const [res, setRes] = useState<SearchResult | null>(null);
   const [texts, setTexts] = useState<string[] | null>(plainText);
+  const [extra, setExtra] = useState<Extra | null>(extraText);
   const [active, setActive] = useState(0);
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => input.current?.focus(), []);
+  const asks = askIndex.value;
+  useEffect(() => void loadAsk(a).catch(() => {}), []);
   useEffect(() => {
     if (!texts) loadPlainText(a).then(setTexts, () => {});
+    // Other translations' wording: search works without it and improves when it lands.
+    if (!extra) loadExtraText(a).then(setExtra, () => {});
   }, []);
 
   useEffect(() => {
@@ -87,10 +94,13 @@ export function Palette({ a }: { a: Atlas }) {
       const range = /\d/.test(query) || query.length >= 3 ? await S.engine.value?.parseRef(query) : null;
       if (!live) return;
       if (range) out.push({ kind: 'ref', range });
-      for (const r of searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
+      for (const asked of range && /\d/.test(query) ? [] : matchAsk(asks, query)) out.push({ kind: 'ask', asked });
+      // Someone asking about ending their life gets help and hope (matchAsk), not every verse that says "kill" or "die".
+      const care = isCare(query);
+      for (const r of care ? [] : searchRoots(a, query, 5)) out.push({ kind: 'root', root: r });
       // "Mathew 5:3" is a reference, not words to look for.
-      const found = range && /\d/.test(query) ? null : searchEnglish(a, q, 30, texts);
-      for (const v of found?.verses ?? []) out.push({ kind: 'verse', v });
+      const found = care || (range && /\d/.test(query)) ? null : searchEnglish(a, q, 30, texts, extra);
+      found?.verses.forEach((v, i) => out.push({ kind: 'verse', v, span: found.spans[i], via: found.via[i] }));
       setItems(out);
       setRes(found);
       setActive(0);
@@ -98,14 +108,15 @@ export function Palette({ a }: { a: Atlas }) {
     return () => {
       live = false;
     };
-  }, [q, texts]);
+  }, [q, texts, extra, asks]);
 
   const choose = (it: Item) => {
     S.paletteOpen.value = false;
     if (it.kind === 'ref') {
       S.selectVerse(it.range[0]);
       S.mobilePane.value = 'read';
-    } else if (it.kind === 'root') S.openRoot(it.root);
+    } else if (it.kind === 'ask') openAsk(it.asked);
+    else if (it.kind === 'root') S.openRoot(it.root);
     else S.selectVerse(it.v);
   };
 
@@ -132,6 +143,12 @@ export function Palette({ a }: { a: Atlas }) {
                   <b>{it.range[0] === it.range[1] ? label(a, it.range[0]) : `${label(a, it.range[0])} – ${label(a, it.range[1])}`}</b>
                 </>
               )}
+              {it.kind === 'ask' && (
+                <>
+                  <span class="k ask-k">Ask</span>
+                  <b>{askLabel(it.asked)[0]}</b> <span class="k">{askLabel(it.asked)[1]}</span>
+                </>
+              )}
               {it.kind === 'root' && (
                 <>
                   <span class="k">{langName(L, it.root)}</span>
@@ -140,8 +157,10 @@ export function Palette({ a }: { a: Atlas }) {
               )}
               {it.kind === 'verse' && (
                 <>
-                  <b>{label(a, it.v)}</b>
+                  <b>{rangeLabel(a, it.v, it.span)}</b>
+                  {it.via && <span class="k"> · matched {it.via} wording</span>}
                   <VerseText a={a} v={it.v} words={res?.words ?? new Set()} />
+                  {it.span === 2 && <VerseText a={a} v={it.v + 1} words={res?.words ?? new Set()} />}
                 </>
               )}
             </li>
