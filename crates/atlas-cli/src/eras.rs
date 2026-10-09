@@ -2073,8 +2073,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         "the chart has Abraham born at -2166 (Greek -2133), basis corrected to Gen 21:5".into(),
     );
     // Letters whose writing date the dictionary disputes carry no era.
-    // Colossians does: every date the dictionary gives for Paul writing it
-    // (Rome AD 60–62, Ephesus AD 52–55) falls in AD 50 to 70, as Philemon's does.
+    // Colossians does, by the owner's choice (2026-10-09): it was sent with
+    // Philemon, which carries this era, and both places the dictionary gives
+    // for Paul writing it (Rome AD 60–62, Ephesus AD 52–55) fall in AD 50 to 70.
     let unplaced: Vec<&str> = ["Jas", "2Tim", "1Pet", "2Pet"]
         .into_iter()
         .filter(|osis| era_at(osis, 1).is_some())
