@@ -20,6 +20,7 @@ mod layers;
 mod lexhtml;
 mod loaded;
 mod lxx;
+mod extra_peshitta;
 mod parse;
 mod query;
 mod extra_real_map;
