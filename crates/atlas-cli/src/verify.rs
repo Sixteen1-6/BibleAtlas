@@ -161,10 +161,11 @@ pub fn run(out: &Path) -> Result<(), String> {
     let path = adj.shortest_path(a, b, 1);
     r.check(path.as_ref().is_some_and(|p| p.verses.len() <= 6), format!("Gen 3:15 to Rev 12:9 path: {:?}", path.map(|p| p.verses.len())));
 
-    // 6. Septuagint word bridges (lxx.json): a well-formed table, the pairs
-    // Abbott-Smith's notes are known to give, and how many links between
-    // the testaments they explain under the app's rule (base-text words,
-    // both roots used fewer than 1,500 times).
+    // 6. Septuagint word bridges (lxx.json): a well-formed table, pairs that
+    // Abbott-Smith's notes are known to give, pairs they must not give (words
+    // of a phrase, a look-alike spelling), and how many links between the
+    // testaments they explain under the app's rule: base-text words, each
+    // Strong's number used fewer than 1,500 times in all its senses.
     let lxx: serde_json::Value = serde_json::from_str(&fs::read_to_string(out.join("lxx.json")).map_err(|e| format!("lxx.json: {e}"))?).map_err(|e| format!("lxx.json: {e}"))?;
     let column = |k: &str| -> Vec<u32> { lxx[k].as_array().into_iter().flatten().filter_map(|x| x.as_u64()).map(|x| x as u32).collect() };
     let (greek, offsets, hebrew) = (column("greek"), column("offsets"), column("hebrew"));
@@ -180,17 +181,53 @@ pub fn run(out: &Path) -> Result<(), String> {
             pairs.insert((g, h));
         }
     }
-    for (g, h) in [("G3468", "H2250"), ("G3933", "H5959"), ("G3933", "H1330"), ("G2435", "H3727"), ("G5547", "H4899")] {
-        let found = d.lemma_index(g).zip(d.lemma_index(h)).is_some_and(|(g, h)| pairs.contains(&(g as u32, h as u32)));
-        r.check(found, format!("Septuagint bridge {g} to {h}"));
+    // Strong's number without STEPBible's sub-entry letter (H1350A is H1350;
+    // the extended G20286 is a number of its own).
+    fn number(key: &str) -> &str {
+        match key.as_bytes().get(5) {
+            Some(b) if b.is_ascii_digit() => key,
+            _ => key.get(..5).unwrap_or(key),
+        }
+    }
+    let keys: Vec<&str> = d.lemmas["key"].as_array().into_iter().flatten().map(|k| k.as_str().unwrap_or("")).collect();
+    let roots_of = |num: &str| -> Vec<u32> { keys.iter().enumerate().filter(|(_, k)| number(k) == num).map(|(i, _)| i as u32).collect() };
+    let linked = |g: &str, h: &str| -> bool {
+        let hs = roots_of(h);
+        roots_of(g).iter().any(|gi| hs.iter().any(|hi| pairs.contains(&(*gi, *hi))))
+    };
+    for (g, h) in [
+        ("G3468", "H2250"),
+        ("G3933", "H5959"),
+        ("G3933", "H1330"),
+        ("G2435", "H3727"),
+        ("G5547", "H4899"),
+        ("G3957", "H6453"),
+        ("G0025", "H0157"),
+        ("G4139", "H7453"),
+        ("G0266", "H5771"),
+        ("G1242", "H1285"),
+        ("G3841", "H7706"),
+    ] {
+        r.check(linked(g, h), format!("Septuagint bridge {g} to {h}"));
+    }
+    // σκολιός and (דֶּרֶךְ עָקַשׁ), ἀνεξιχνίαστος and (חֵקֶר אַיִן),
+    // ἱεράτευμα and (כֹּהֵן מַמְלָכָה): words of a phrase. παντοκράτωρ and
+    // שָׂדֶה 'field': the letters of שַׁדַּי 'Almighty' only.
+    for (g, h) in [("G4646", "H1870"), ("G0421", "H2714"), ("G2406", "H4467"), ("G3841", "H7704")] {
+        r.check(!linked(g, h), format!("no Septuagint bridge {g} to {h}"));
     }
     r.check(greek.len() >= 2_000, format!("{} Greek roots have a Septuagint bridge, expected 2,000 or more", greek.len()));
+    let mut total: std::collections::HashMap<&str, u64> = std::collections::HashMap::new();
+    for (k, &c) in keys.iter().zip(&counts) {
+        *total.entry(number(k)).or_default() += c;
+    }
+    let rare: Vec<bool> = keys.iter().map(|k| total[number(k)] < 1_500).collect();
     let ot: Vec<bool> = (0..n).map(|v| d.vz.locate(v).is_some_and(|(b, _, _)| BOOKS[b as usize].testament == atlas_core::canon::Testament::Old)).collect();
     let roots: Vec<Vec<u32>> = (0..n)
         .map(|v| {
             let row = d.verse(v).unwrap_or_default();
             let base_text = row[1].as_array().into_iter().flatten().filter(|w| w[5].as_u64().unwrap_or(0) & u64::from(crate::build::FLAG_OTHER_EDITIONS) == 0);
-            base_text.filter_map(|w| w[3].as_u64()).map(|x| x as u32).filter(|&x| counts[x as usize] < 1_500).collect()
+            base_text.filter_map(|w| w[3].as_u64()).map(|x| x as u32).filter(|&x| rare.get(x as usize) == Some(&true)).collect()
         })
         .collect();
     let (mut across, mut bridged) = (0usize, 0usize);
@@ -206,7 +243,7 @@ pub fn run(out: &Path) -> Result<(), String> {
         }
     }
     r.check(bridged * 10 >= across * 3, format!("{bridged} of {across} links between the testaments with 8+ votes have a word bridge, expected 30% or more"));
-    eprintln!("Septuagint bridges: {} Greek roots; {bridged} of {across} links between the testaments with 8+ votes ({:.1}%)", greek.len(), 100.0 * bridged as f64 / across.max(1) as f64);
+    eprintln!("Septuagint bridges: {} Greek roots, {} pairs; {bridged} of {across} links between the testaments with 8+ votes ({:.1}%)", greek.len(), hebrew.len(), 100.0 * bridged as f64 / across.max(1) as f64);
 
     eprintln!("{} checks passed", r.passed);
     if r.failed.is_empty() {
