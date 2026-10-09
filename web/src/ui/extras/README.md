@@ -58,6 +58,7 @@ export default defineExtra<Data>({
   Panel, //                  the panel behind the line
   // chapterNote(chapter, data) { ... },  optional: a line under the chapter heading
   // ChapterPanel,                        optional: its panel
+  // tall: true,                          optional: on wider screens the panel reaches up over the map of links
 });
 ```
 

@@ -3,11 +3,13 @@
 
 import { useEffect, useLayoutEffect, useRef } from 'preact/hooks';
 import type { BaseFile } from './model';
-import { MapView, type Marker, geometry } from './view';
+import { MapView, type Marker, type Shade, geometry } from './view';
 
 export interface MapCanvasProps {
   base: BaseFile;
   markers: Marker[];
+  /** Regions and lands to shade. */
+  shades: Shade[];
   /** A new key fits the map to these projected points. */
   fitKey: string;
   fitPoints: [number, number][];
@@ -34,6 +36,7 @@ export function MapCanvas(props: MapCanvasProps) {
     const v = new MapView(el, geometry(props.base), (p) => latest.current.onTap(p));
     view.current = v;
     v.setMarkers(latest.current.markers);
+    v.setShades(latest.current.shades);
     v.fit(latest.current.fitPoints, false);
     const size = () => {
       if (!live) return;
@@ -69,6 +72,10 @@ export function MapCanvas(props: MapCanvasProps) {
   useLayoutEffect(() => {
     view.current?.setMarkers(props.markers);
   }, [props.markers]);
+
+  useLayoutEffect(() => {
+    view.current?.setShades(props.shades);
+  }, [props.shades]);
 
   const fitted = useRef(props.fitKey);
   useLayoutEffect(() => {
