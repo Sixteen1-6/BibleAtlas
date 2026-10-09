@@ -75,6 +75,9 @@ export interface Extra<D> {
   note(verse: VerseRef, data: D): NoteLine | null;
   /** The one-tap depth view behind the note. */
   Panel: ComponentType<PanelProps<D>>;
+  /** Optional: on wider screens, the panel reaches up over the map of links
+   * to just under the top bar, for a panel that needs the height (Places). */
+  tall?: boolean;
   /** Optional: a line under the chapter heading, or null. */
   chapterNote?(chapter: ChapterRef, data: D): NoteLine | null;
   /** Optional: the panel behind the chapter line. Without it, the chapter line

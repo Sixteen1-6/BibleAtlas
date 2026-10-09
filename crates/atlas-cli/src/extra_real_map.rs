@@ -2814,7 +2814,10 @@ const TRIBES: [(&str, &[(&str, &str)]); 13] = [
     ("Issachar", &[("Josh.19.17", "Josh.19.23")]),
     ("Asher", &[("Josh.19.24", "Josh.19.31")]),
     ("Naphtali", &[("Josh.19.32", "Josh.19.39")]),
-    ("Dan", &[("Josh.19.40", "Josh.19.46"), ("Josh.19.48", "Josh.19.48")]),
+    (
+        "Dan",
+        &[("Josh.19.40", "Josh.19.46"), ("Josh.19.48", "Josh.19.48")],
+    ),
 ];
 
 /// How far a tribe's shape reaches past its outermost towns, in km.
@@ -2860,8 +2863,14 @@ fn hull(mut pts: Vec<Pt>) -> Vec<Pt> {
 /// still make a shape.
 fn grown(h: &[Pt], km_out: f64) -> Vec<Pt> {
     let n = h.len() as f64;
-    let mid = (h.iter().map(|p| p.0).sum::<f64>() / n, h.iter().map(|p| p.1).sum::<f64>() / n);
-    let (dy, dx) = (km_out / 111.32, km_out / (111.32 * mid.1.to_radians().cos()));
+    let mid = (
+        h.iter().map(|p| p.0).sum::<f64>() / n,
+        h.iter().map(|p| p.1).sum::<f64>() / n,
+    );
+    let (dy, dx) = (
+        km_out / 111.32,
+        km_out / (111.32 * mid.1.to_radians().cos()),
+    );
     let mut out = Vec::new();
     for &p in h {
         // Eight points around each corner: the hull of the lot is the grown shape.
@@ -2951,21 +2960,32 @@ fn shapes(
             .filter_map(|(a, b)| Some((osis_verse(a, vz)?, osis_verse(b, vz)?)))
             .collect();
         if spans.len() != ranges.len() {
-            return Err(format!("real-map: {name}'s passage is not in the BSB numbering"));
+            return Err(format!(
+                "real-map: {name}'s passage is not in the BSB numbering"
+            ));
         }
         let mut pts: Vec<Pt> = Vec::new();
         for (k, (_, ms)) in kept.iter().enumerate() {
             let Some(at) = towns[k] else { continue };
-            if ms.iter().any(|m| spans.iter().any(|&(a, b)| m.verse >= a && m.verse <= b)) {
+            if ms
+                .iter()
+                .any(|m| spans.iter().any(|&(a, b)| m.verse >= a && m.verse <= b))
+            {
                 pts.push(at);
             }
         }
         t.towns += pts.len();
         if pts.len() < 2 {
-            return Err(format!("real-map: too few towns the map is sure of for {name} ({})", pts.len()));
+            return Err(format!(
+                "real-map: too few towns the map is sure of for {name} ({})",
+                pts.len()
+            ));
         }
         let n = pts.len() as f64;
-        let mid = (pts.iter().map(|p| p.0).sum::<f64>() / n, pts.iter().map(|p| p.1).sum::<f64>() / n);
+        let mid = (
+            pts.iter().map(|p| p.0).sum::<f64>() / n,
+            pts.iter().map(|p| p.1).sum::<f64>() / n,
+        );
         let ring = simplify_ring(&grown(&hull(pts), TRIBE_MARGIN_KM), TOLERANCE);
         tribes.push(json!([
             name,
@@ -2992,10 +3012,22 @@ const EVENT_TITLES: [(&str, &str); 9] = [
     ("The Transfiguation", "The Transfiguration"),
     ("Death of Jehoahash", "Death of Jehoash"),
     ("Reign of Johoahaz (Shallum)", "Reign of Jehoahaz (Shallum)"),
-    ("Lazarus Raised form the Dead", "Lazarus Raised from the Dead"),
-    ("Discourse with Pharisees and Saducees", "Discourse with Pharisees and Sadducees"),
-    ("Gamaliel advises the counsel and Apostles freed", "Gamaliel advises the council and Apostles freed"),
-    ("Blind and Dumb Demoniac and Following Discourse", "Blind and Mute Demoniac and Following Discourse"),
+    (
+        "Lazarus Raised form the Dead",
+        "Lazarus Raised from the Dead",
+    ),
+    (
+        "Discourse with Pharisees and Saducees",
+        "Discourse with Pharisees and Sadducees",
+    ),
+    (
+        "Gamaliel advises the counsel and Apostles freed",
+        "Gamaliel advises the council and Apostles freed",
+    ),
+    (
+        "Blind and Dumb Demoniac and Following Discourse",
+        "Blind and Mute Demoniac and Following Discourse",
+    ),
 ];
 
 /// Events left out, with why: Theographic dates Jair's judgeship 1992 BC,
@@ -3025,7 +3057,14 @@ fn events(
 ) -> Result<(Value, EventTally), String> {
     let te = Table::open(
         &inputs.path(THEO, "events"),
-        &["title", "eventID", "startDate", "verses", "locations", "sortKey"],
+        &[
+            "title",
+            "eventID",
+            "startDate",
+            "verses",
+            "locations",
+            "sortKey",
+        ],
     )?;
     let mut t = EventTally::default();
     let mut at: HashMap<&str, Vec<usize>> = HashMap::new();
@@ -3055,7 +3094,9 @@ fn events(
             continue;
         };
         let year = if neg { -year } else { year };
-        let mut verses: Vec<u32> = list(te.get(r, "verses")).filter_map(|o| osis_verse(o, vz)).collect();
+        let mut verses: Vec<u32> = list(te.get(r, "verses"))
+            .filter_map(|o| osis_verse(o, vz))
+            .collect();
         verses.sort_unstable();
         let Some(&first) = verses.first() else {
             t.unmapped += 1;
@@ -3923,7 +3964,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
 
     // Events: one row per place, each event with a verse, in time order.
     let events = load(d, OUT_EVENTS)?;
-    let evs = events["events"].as_array().ok_or("events.json has no events")?;
+    let evs = events["events"]
+        .as_array()
+        .ok_or("events.json has no events")?;
     let ev_ok = events["places"].as_array().is_some_and(|ps| {
         ps.len() == names.len()
             && ps
@@ -3933,13 +3976,16 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 .all(|i| i.as_u64().is_some_and(|i| (i as usize) < evs.len()))
     }) && evs.iter().all(|e| {
         e[0].as_str().is_some_and(|t| !t.is_empty())
-            && e[2].as_i64().is_some_and(|v| (0..i64::from(n)).contains(&v))
-    }) && evs
-        .windows(2)
-        .all(|w| w[0][1].as_i64() <= w[1][1].as_i64());
+            && e[2]
+                .as_i64()
+                .is_some_and(|v| (0..i64::from(n)).contains(&v))
+    }) && evs.windows(2).all(|w| w[0][1].as_i64() <= w[1][1].as_i64());
     out.push((
         ev_ok,
-        format!("events.json: {} events, each with a verse, in time order, rows for every place", evs.len()),
+        format!(
+            "events.json: {} events, each with a verse, in time order, rows for every place",
+            evs.len()
+        ),
     ));
     let events_at = |verse: &str, name: &str| -> Result<Vec<String>, String> {
         let k = place_in(verse, name)?.ok_or(format!("{name} is not named in {verse}"))?;
@@ -3947,7 +3993,11 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             .as_array()
             .into_iter()
             .flatten()
-            .filter_map(|i| evs.get(i.as_u64()? as usize)?[0].as_str().map(str::to_string))
+            .filter_map(|i| {
+                evs.get(i.as_u64()? as usize)?[0]
+                    .as_str()
+                    .map(str::to_string)
+            })
             .collect())
     };
     let born = events_at("Matt 2:1", "Bethlehem")?;
@@ -3960,9 +4010,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let shapes = load(d, OUT_SHAPES)?;
     let shaped = |verse: &str, name: &str| -> Result<bool, String> {
         let k = place_in(verse, name)?.ok_or(format!("{name} is not named in {verse}"))?;
-        Ok(shapes["places"][k].as_array().is_some_and(|r| !r.is_empty()))
+        Ok(shapes["places"][k]
+            .as_array()
+            .is_some_and(|r| !r.is_empty()))
     };
-    out.push((shaped("Matt 4:15", "Galilee")?, "Galilee has a shape on the map".to_string()));
+    out.push((
+        shaped("Matt 4:15", "Galilee")?,
+        "Galilee has a shape on the map".to_string(),
+    ));
     let judah = shapes["tribes"]
         .as_array()
         .and_then(|ts| ts.iter().find(|t| t[0] == "Judah"))
@@ -3973,7 +4028,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .as_ref()
         .is_some_and(|ring| ring.len() >= 3 && inside(std::slice::from_ref(ring), hebron));
     out.push((
-        inside_judah && shapes["tribes"].as_array().is_some_and(|t| t.len() == TRIBES.len()),
+        inside_judah
+            && shapes["tribes"]
+                .as_array()
+                .is_some_and(|t| t.len() == TRIBES.len()),
         "every tribe has a land, and Hebron lies inside Judah's".to_string(),
     ));
     Ok(out)
@@ -3982,6 +4040,24 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn tribe_shapes() {
+        // A hull keeps the corners and drops the point inside.
+        let h = hull(vec![
+            (0.0, 0.0),
+            (1.0, 0.0),
+            (1.0, 1.0),
+            (0.0, 1.0),
+            (0.5, 0.5),
+        ]);
+        assert_eq!(h.len(), 4);
+        assert!(!h.contains(&(0.5, 0.5)));
+        // Two towns still make a shape, wider than the line between them.
+        let g = grown(&hull(vec![(35.0, 31.5), (35.1, 31.6)]), 4.0);
+        assert!(g.len() >= 3 && area(&g).abs() > 0.0);
+        assert!(inside(std::slice::from_ref(&g), (35.05, 31.55)));
+    }
 
     fn chars(s: &str) -> Vec<char> {
         s.chars().collect()
@@ -4116,6 +4192,7 @@ mod tests {
             how: None,
             comment: String::new(),
             verses: Vec::new(),
+            shape: None,
         };
         let at = |verse: u32, text: &str| {
             let t = chars(text);
@@ -4278,6 +4355,7 @@ mod tests {
                 how: None,
                 comment: String::new(),
                 verses: Vec::new(),
+                shape: None,
             };
             let (countries, courses) = (Countries(Vec::new()), HashMap::new());
             let g = Geo {
@@ -4425,6 +4503,7 @@ mod tests {
             how: None,
             comment: String::new(),
             verses: Vec::new(),
+            shape: None,
         };
         let site = |score| Site {
             at: (35.0, 31.0),

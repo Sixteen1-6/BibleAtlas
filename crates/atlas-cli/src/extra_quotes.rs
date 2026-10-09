@@ -101,7 +101,11 @@ const BY_LEXICON: u32 = 1;
 
 /// "G5456" or "G5456G" -> 5456. Extended numbers ("G20286") are their own.
 fn strong_number(lemma: &str) -> Option<u32> {
-    let digits: String = lemma.strip_prefix('G')?.chars().take_while(char::is_ascii_digit).collect();
+    let digits: String = lemma
+        .strip_prefix('G')?
+        .chars()
+        .take_while(char::is_ascii_digit)
+        .collect();
     if digits.len() > 4 {
         return None;
     }
@@ -1553,7 +1557,9 @@ impl Ctx<'_> {
                 if !window.contains(&i) || !w.main || !greek_content(&w.morph) {
                     continue;
                 }
-                let Some(l) = w.lemma.as_deref() else { continue };
+                let Some(l) = w.lemma.as_deref() else {
+                    continue;
+                };
                 let notes = Lex::get(&lex.lxx, l).map_or(&[][..], Vec::as_slice);
                 let number = strong_number(l);
                 if notes.is_empty() && number.is_none() {
@@ -1568,7 +1574,9 @@ impl Ctx<'_> {
                 if !w.main || !hebrew_content(&w.morph) {
                     continue;
                 }
-                let Some(l) = w.lemma.as_deref() else { continue };
+                let Some(l) = w.lemma.as_deref() else {
+                    continue;
+                };
                 let head = Lex::get(&lex.head, l);
                 let lxx = self.lxx.get(&(o, i as u32)).map_or(&[][..], Vec::as_slice);
                 if head.is_none() && lxx.is_empty() {
@@ -2111,11 +2119,20 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         virgin,
         "Matthew 1:23 pairs παρθένος with עַלְמָה, the Septuagint's own word there".into(),
     ));
-    let all_pairs: Vec<&Value> = notes.iter().flat_map(|n| n["w"].as_array().into_iter().flatten()).collect();
-    let own = all_pairs.iter().filter(|p| p[4].as_u64() == Some(u64::from(BY_SEPTUAGINT))).count();
+    let all_pairs: Vec<&Value> = notes
+        .iter()
+        .flat_map(|n| n["w"].as_array().into_iter().flatten())
+        .collect();
+    let own = all_pairs
+        .iter()
+        .filter(|p| p[4].as_u64() == Some(u64::from(BY_SEPTUAGINT)))
+        .count();
     out.push((
         own * 2 >= all_pairs.len(),
-        format!("{own} of {} word pairs are the Septuagint's own", all_pairs.len()),
+        format!(
+            "{own} of {} word pairs are the Septuagint's own",
+            all_pairs.len()
+        ),
     ));
 
     // Every marked word lies inside its verse, in a verse of its link.
@@ -2539,6 +2556,15 @@ mod tests {
         assert!(!rest);
         assert_eq!(closeness(&measure(&nt[r], &side(1, deut)), true), 1);
         assert_eq!(closeness(&measure(&nt, &side(1, deut)), true), 2);
+    }
+
+    #[test]
+    fn strong_numbers() {
+        assert_eq!(strong_number("G5456"), Some(5456));
+        assert_eq!(strong_number("G0994"), Some(994));
+        assert_eq!(strong_number("G3700G"), Some(3700));
+        assert_eq!(strong_number("G20286"), None);
+        assert_eq!(strong_number("H6963"), None);
     }
 
     #[test]

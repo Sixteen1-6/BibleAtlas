@@ -391,7 +391,7 @@ function PlaceCard({ a, data, places, people, events, place, name, verse, chapte
         </p>
       )}
       {all && <AllVerses a={a} vs={vs} current={verse} navigate={navigate} />}
-      {events && <Events a={a} events={events} place={place} name={name} verse={verse} navigate={navigate} deep={deep} />}
+      {events && <Events a={a} events={events} place={place} verse={verse} navigate={navigate} deep={deep} />}
       {deep && <Deep a={a} places={places} people={people} place={place} name={name} navigate={navigate} />}
     </section>
   );
@@ -400,14 +400,14 @@ function PlaceCard({ a, data, places, people, events, place, name, verse, chapte
 /** Study: what happened at the place, in time order, each with the verse it
  * starts at. Deep adds Theographic's year for each, and says whose dates
  * they are. */
-function Events({ a, events, place, name, verse, navigate, deep }: { a: Atlas; events: EventsFile; place: number; name: string; verse: VerseRef; navigate: (v: VerseRef) => void; deep: boolean }) {
+function Events({ a, events, place, verse, navigate, deep }: { a: Atlas; events: EventsFile; place: number; verse: VerseRef; navigate: (v: VerseRef) => void; deep: boolean }) {
   const [all, setAll] = useState(false);
   const here = events.places[place];
   if (!here || !here.length) return null;
   const shown = all ? here : here.slice(0, EVENTS_SHOWN);
   return (
     <>
-      <h3>What happened {inSentence(name, '') === name ? `at ${name}` : 'here'}</h3>
+      <h3>What happened here</h3>
       <ul class="x-real-map-events">
         {shown.map((i) => {
           const [title, year, v] = events.events[i];

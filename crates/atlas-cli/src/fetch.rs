@@ -117,3 +117,15 @@ pub fn run(root: &Path, raw: &Path) -> Result<(), String> {
     eprintln!("wrote {}", lock_path.display());
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn lfs_pointers() {
+        let p = "version https://git-lfs.github.com/spec/v1\noid sha256:965cb0599beed2fe31283b615bcc369178141c0e718a66d97518d94309cfc124\nsize 84382719\n";
+        assert_eq!(lfs_pointer(p), Some(("965cb0599beed2fe31283b615bcc369178141c0e718a66d97518d94309cfc124".into(), 84382719)));
+        assert_eq!(lfs_pointer("id\tref\n"), None);
+    }
+}
