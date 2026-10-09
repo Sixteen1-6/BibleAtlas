@@ -9,7 +9,7 @@
 // it changes.
 
 import { Fragment } from 'preact';
-import { effect, signal, type Signal } from '@preact/signals';
+import { effect } from '@preact/signals';
 import { useEffect, useMemo, useState } from 'preact/hooks';
 import { type Atlas, label, versesWithRoot } from '../data/atlas';
 import { type Echo, MAXDF, rankEchoes } from '../data/echoes';
@@ -63,8 +63,6 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   const [shown, setShown] = useState<{ key: string; n: number } | null>(null);
   const [drawFor, setDrawFor] = useState<string | null>(null);
   const [hasMap, setHasMap] = useState(true);
-  // The row under the pointer, so its arc can glow. Local to this block.
-  const hot = useMemo(() => signal<number | null>(null), []);
   const mode = S.mapMode.value;
 
   // The verse must hold the root in its base text. pos points at the tapped
@@ -99,7 +97,7 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   // Drawing echoes on the map is Deep; Study shows the list.
   const deep = atLeast('deep');
   const on = deep && canDraw && drawFor === key && !!found;
-  useEchoSky(a, on && found ? found.sky : null, hot);
+  useEchoSky(a, on && found ? found.sky : null);
 
   if (!found || verse === undefined) return null;
 
@@ -121,7 +119,7 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
         together with more of this verse’s less common words.
       </p>
       {echoes.slice(0, limit).map((e) => (
-        <EchoRow key={e.v} a={a} e={e} lit={on} hot={hot} />
+        <EchoRow key={e.v} a={a} e={e} lit={on} />
       ))}
       <div class="ws-actions">
         {next > limit && (
@@ -145,27 +143,14 @@ export function WordSky({ a, root, verse, pos }: { a: Atlas; root: number; verse
   );
 }
 
-function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Signal<number | null> }) {
+function EchoRow({ a, e, lit }: { a: Atlas; e: Echo; lit: boolean }) {
   const L = a.lemmas;
   const open = () => S.selectVerse(e.v, { openTab: false });
-  // A mouse over the row, or keyboard focus on it, spotlights its arc. Taps
-  // are left out: on a touch screen the tap selects the verse instead.
-  const enter = () => (hot.value = e.v);
-  const leave = () => {
-    if (hot.value === e.v) hot.value = null;
-  };
+  // A mouse over the row, or keyboard focus on it, points at its verse
+  // (pointing.ts), which spotlights its arc. On a touch screen the tap
+  // selects the verse instead.
   return (
-    <div
-      class={`refrow ws-row${lit ? ' ws-lit' : ''}`}
-      role="link"
-      tabIndex={0}
-      onClick={open}
-      onKeyDown={(ev) => ev.key === 'Enter' && open()}
-      onPointerEnter={(ev) => ev.pointerType === 'mouse' && enter()}
-      onPointerLeave={leave}
-      onFocus={(ev) => (ev.currentTarget as HTMLElement).matches(':focus-visible') && enter()}
-      onBlur={leave}
-    >
+    <div class={`refrow ws-row${lit ? ' ws-lit' : ''}`} role="link" tabIndex={0} data-lv={e.v} onClick={open} onKeyDown={(ev) => ev.key === 'Enter' && open()}>
       <span class="ref">{label(a, e.v)}</span>
       <span class="vt">
         {e.shared.slice(0, 2).map((q, i, all) => {
@@ -176,7 +161,7 @@ function EchoRow({ a, e, lit, hot }: { a: Atlas; e: Echo; lit: boolean; hot: Sig
               {i > 0 && ' '}
               <span class="ws-also">
                 {i === 0 && 'also '}
-                <span class={`ws-o ${g ? 'gr' : 'he'}`} lang={g ? 'grc' : 'hbo'}>
+                <span class={`ws-o ${g ? 'gr' : 'he'}`} lang={g ? 'grc' : 'hbo'} data-lr={q}>
                   {L.word[q]}
                 </span>{' '}
                 “{L.gloss[q]}”{i < all.length - 1 && ','}
@@ -397,7 +382,7 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, a: Atlas, xs: Float3
 }
 
 /** Draws `sky` over the map while it is given; removes everything when it is not. */
-function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void {
+function useEchoSky(a: Atlas, sky: Sky | null): void {
   useEffect(() => {
     if (!sky) return;
     const xs = layoutOf(a);
@@ -411,6 +396,8 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
     let raf = 0;
     let start = 0;
     let draws = 0;
+    // The echo pointed at in the text or a panel, so its arc can glow.
+    let hot: number | null = null;
 
     const ro = new ResizeObserver(() => request());
     // The map is found by its classes (it is another component's), and
@@ -432,7 +419,7 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
       if (!start) start = now;
       const p = still ? 1 : 1 - Math.pow(1 - Math.min(1, (now - start) / GROW_MS), 3);
       const t0 = performance.now();
-      paint(canvas, map, a, xs, sky, p, hot.peek(), font);
+      paint(canvas, map, a, xs, sky, p, hot, font);
       canvas.dataset.ms = (performance.now() - t0).toFixed(1);
       canvas.dataset.draws = String(++draws);
       if (p < 1) request();
@@ -442,18 +429,27 @@ function useEchoSky(a: Atlas, sky: Sky | null, hot: Signal<number | null>): void
     }
 
     attach();
-    // Redraw on pan and zoom, and when the focused echo changes.
+    // Redraw on pan and zoom.
     const stop = effect(() => {
       void S.view.value;
       void S.selected.value;
-      void hot.value;
       request();
+    });
+    // And when the focused echo changes, only then: a repaint draws every faint arc.
+    const stopHot = effect(() => {
+      const v = S.pointedVerse.value ?? S.hovered.value;
+      const h = v !== null && sky.echoes.includes(v) ? v : null;
+      if (h !== hot) {
+        hot = h;
+        request();
+      }
     });
     return () => {
       stop();
+      stopHot();
       ro.disconnect();
       cancelAnimationFrame(raf);
       canvas.remove();
     };
-  }, [a, sky, hot]);
+  }, [a, sky]);
 }

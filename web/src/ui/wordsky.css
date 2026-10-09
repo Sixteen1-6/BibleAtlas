@@ -10,6 +10,10 @@
   font-size: 15px;
   unicode-bidi: isolate;
 }
+/* Lit when the word is pointed at elsewhere (pointing.ts). */
+.ws-o[data-lr] {
+  border-radius: 3px;
+}
 
 /* Echo rows: the reference keeps its width and the shared words take the
    rest of the line, right-aligned like the glosses of an occurrence row. */

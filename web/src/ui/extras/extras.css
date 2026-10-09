@@ -227,6 +227,14 @@ button.xt-chev {
   border-radius: var(--r-md);
   background: var(--surface-2);
 }
+.xt-pverse {
+  /* Keeps the text's top margin inside, so the pointer stays on the verse
+     between verses and the lit look (pointing.ts) covers it. */
+  display: flow-root;
+  transition:
+    background-color 0.12s,
+    box-shadow 0.12s;
+}
 .xt-pref {
   display: inline-flex;
   gap: 4px;

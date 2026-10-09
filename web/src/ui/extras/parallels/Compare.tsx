@@ -141,7 +141,7 @@ function Orig({ a, v, row, shared }: { a: Atlas; v: VerseRef; row: VerseRow; sha
         const same = !!shared && w[3] >= 0 && shared.has(w[3]) && content(w[4]);
         return (
           <span key={pos}>
-            <button type="button" class={`w${same ? ' shared' : ''}${other ? ' other' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} onClick={() => w[3] >= 0 && openWord(w[3], v, pos)} title={`${w[1]} · ${w[2]}`}>
+            <button type="button" class={`w${same ? ' shared' : ''}${other ? ' other' : ''}${w[5] & FLAG.variant ? ' var' : ''}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && openWord(w[3], v, pos)} title={`${w[1]} · ${w[2]}`}>
               {w[0]}
             </button>{' '}
           </span>
@@ -172,7 +172,7 @@ function Verse({ a, p, v, texts, shared, here }: VerseProps) {
   const deep = levelAtLeast('deep');
   if (!row) return null;
   return (
-    <div class={`x-parallels-v${here ? ' x-parallels-here' : ''}`}>
+    <div class={`x-parallels-v${here ? ' x-parallels-here' : ''}`} data-lv={v}>
       <p class="x-parallels-text">
         <sup>{num(a, p, v)}</sup>
         {here && <span class="x-parallels-sr">{here} </span>}
@@ -188,7 +188,7 @@ function Head({ a, p, texts, navigate }: { a: Atlas; p: Span; texts: Texts; navi
   const name = nameOf(a, p);
   return (
     <div class="x-parallels-head">
-      <button type="button" class="xt-pref" onClick={() => navigate(p.from)} title={`Read ${name} in its chapter`}>
+      <button type="button" class="xt-pref" data-lv={p.from} onClick={() => navigate(p.from)} title={`Read ${name} in its chapter`}>
         {name} <span aria-hidden="true">›</span>
       </button>
       {lacksBase(texts, p) && <Unsure>not in some early manuscripts</Unsure>}

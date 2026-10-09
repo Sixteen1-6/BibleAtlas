@@ -49,7 +49,7 @@ function LinkRow({ a, from, link, max, bridge }: { a: Atlas; from: number; link:
   const shared = study && src && dst && sameLang ? sharedRoots(a, src, dst) : [];
   return (
     <div class="refrow" data-lv={link.v} onClick={() => S.selectVerse(link.v)}>
-      <span class="ref">{rangeLabel(a, link.v, link.span)}</span>
+      <button type="button" class="ref">{rangeLabel(a, link.v, link.span)}</button>
       <span class="vt" title={`${link.votes} community votes on OpenBible.info`}>
         <span class="bar" style={`width:${Math.max(3, (40 * Math.max(0, link.votes)) / max)}px`} />
         {study && link.votes}

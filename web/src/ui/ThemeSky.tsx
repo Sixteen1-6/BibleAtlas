@@ -386,7 +386,11 @@ export function ThemeHero({ a, theme, thread, mode, links, onStep }: { a: Atlas;
   const geo = useRef<HeroGeometry | null>(null);
   const colorMode = S.arcColor.value;
   const sel = useComputed(() => (S.selected.value === null ? -1 : thread.verses.indexOf(S.selected.value))).value;
-  const hov = useComputed(() => (S.hovered.value === null ? -1 : thread.verses.indexOf(S.hovered.value))).value;
+  // A verse pointed at in the text or a panel counts as hovered, as pointing.ts reads them.
+  const hov = useComputed(() => {
+    const p = S.pointedVerse.value ?? S.hovered.value;
+    return p === null ? -1 : thread.verses.indexOf(p);
+  }).value;
   const bright = mode === 'all';
 
   useEffect(() => {

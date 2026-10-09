@@ -97,6 +97,7 @@ function Orig({ a, v, row, paired }: { a: Atlas; v: VerseRef; row: VerseRow; pai
               <button
                 type="button"
                 class={`w${paired?.has(pos) ? ' shared' : ''}${w[5] & FLAG.variant ? ' var' : ''}`}
+                data-lr={w[3] >= 0 ? w[3] : undefined}
                 onClick={() => w[3] >= 0 && openWord(w[3], v, pos)}
                 title={`${w[1]} · ${w[2]}`}
               >
@@ -146,7 +147,7 @@ export function QPassage({
   const many = to > from;
   return (
     <section class="xt-passage" aria-label={name}>
-      <button type="button" class="xt-pref" onClick={() => navigate(from)} title={`Read ${name} in its chapter`}>
+      <button type="button" class="xt-pref" data-lv={from} onClick={() => navigate(from)} title={`Read ${name} in its chapter`}>
         {name} <span aria-hidden="true">›</span>
       </button>
       {(notes ?? []).map((n, i) => (
@@ -160,7 +161,7 @@ export function QPassage({
         rows.map((row, i) => {
           const v = from + i;
           return (
-            <div key={v} class="xt-pverse">
+            <div key={v} class="xt-pverse" data-lv={v}>
               <p class="xt-ptext">
                 {many && <sup>{locate(a, v).verse}</sup>}
                 <Marked text={row[0]} marks={marks?.get(v)} quoted={quoted ? quoted.get(v) ?? [] : undefined} />
@@ -205,7 +206,7 @@ export function PairWord({ a, v, pos, row }: { a: Atlas; v: VerseRef; pos: numbe
   return (
     <span class="x-quotes-pw">
       {w[3] >= 0 ? (
-        <button type="button" class={`x-quotes-word ${he ? 'he' : 'gr'}`} lang={he ? 'hbo' : 'grc'} onClick={() => openWord(w[3], v, pos)} title={`${w[1]}: open the word study`}>
+        <button type="button" class={`x-quotes-word ${he ? 'he' : 'gr'}`} lang={he ? 'hbo' : 'grc'} data-lr={w[3]} onClick={() => openWord(w[3], v, pos)} title={`${w[1]}: open the word study`}>
           {word}
         </button>
       ) : (

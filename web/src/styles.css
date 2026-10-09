@@ -632,10 +632,14 @@ p .godeeper {
   scroll-margin-top: 40vh;
 }
 .verse,
-.refrow {
+.refrow,
+.tj-step,
+.layerref,
+.x-parallels-v {
   transition:
     background-color 0.12s,
-    box-shadow 0.12s;
+    box-shadow 0.12s,
+    border-color 0.12s;
 }
 .verse.sel {
   background: var(--accent-soft);
@@ -783,11 +787,26 @@ p .godeeper {
   border-bottom: 1px solid var(--line);
   cursor: pointer;
 }
+/* Rows that light when their verse is pointed at elsewhere (pointing.ts):
+   room for the lit edge and background, as .verse has. */
+.refrow[data-lv] {
+  padding-inline: 10px;
+  margin-inline: -10px;
+}
 .refrow:hover .ref {
   text-decoration: underline;
 }
 .refrow .ref {
   font-weight: 600;
+}
+/* The label is a button so keyboard focus can reach the row; it looks the same. */
+.refrow button.ref {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  justify-self: start;
 }
 .refrow .vt {
   font-size: 12px;
