@@ -38,9 +38,9 @@ export default defineExtra<Data>({
     await readerHere('ask');
     const ix = await loadAsk(a);
     const byVerse = new Map<VerseRef, Question[]>();
-    // Only approved questions: the verses of their chains were chosen and reviewed.
-    for (const q of ix.questions.filter((x) => x.chain)) {
-      for (const [s, e] of q.chain!.map((p) => p.r)) {
+    // The verses of each question's chain, where Scripture answers it.
+    for (const q of ix.questions) {
+      for (const [s, e] of q.chain.map((p) => p.r)) {
         for (let v = s; v <= e; v++) {
           const list = byVerse.get(v);
           if (list) list.push(q);
