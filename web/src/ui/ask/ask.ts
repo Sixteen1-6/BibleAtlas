@@ -476,7 +476,7 @@ function prepare(ix: AskIndex): Prepared {
 /** Words about ending one's own life. Search then offers help and verses of
  * hope, and not every verse that says "kill" or "die". */
 const CARE =
-  /\b(suicid\w*|kill(ing)? (my|our)sel(f|ves)|end(ing)? (it all|my (own )?life)|take my (own )?life|want(ed)? to die|wish i (was|were|had) (dead|never been born)|(don'?t|do not) want to (live|be alive|be here|wake up)|better off dead|no reason to live|self[- ]?harm|hurt(ing)? myself|cut(ting)? myself)\b/i;
+  /\b(suicid\w*|kill(ing|ed|s)? (my|our|him|her|them|your)sel(f|ves)|end(ing)? (it all|my (own )?life)|(take|took|taken|taking) (my|his|her|their|your) (own )?life|(want(ed)?|wanna) (to )?die|wish i (was|were|had) (dead|never been born)|(don'?t|do not) want to (live|be alive|be here|wake up|exist)|better off (dead|without me)|(no one|nobody) would (miss|care about|notice) me|no reason to live|not worth living|(can'?t|cannot) go on|self[- ]?harm(ing)?|(hurt|cut)(ting|s)? (my|her|him|them|your)sel(f|ves)|overdos\w*)\b/i;
 
 export function isCare(query: string): boolean {
   return CARE.test(query.replace(/[’‘]/g, "'"));

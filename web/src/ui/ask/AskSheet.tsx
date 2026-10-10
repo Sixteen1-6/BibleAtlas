@@ -25,7 +25,7 @@ import { Shell } from '../extras/Sheet';
 import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
 import { type Asked, type Part, type Range, askId, askIndex, askOpen, askVerses, closeAsk, findAsked, lastClose, loadAsk, topicData } from './ask';
-import { type Gathered, gather } from './gather';
+import type { Gathered } from './gather';
 
 const dismiss = () => closeAsk('dismiss');
 
@@ -283,7 +283,8 @@ function QuestionBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'question
 }
 
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
-  const got = useAsync<Gathered>(`live:${text}`, () => gather(a, text));
+  // The word tables load with the first live question, not with the page.
+  const got = useAsync<Gathered>(`live:${text}`, () => import('./gather').then((m) => m.gather(a, text)));
   const study = atLeast('study');
   const deep = atLeast('deep');
   useEffect(() => {
