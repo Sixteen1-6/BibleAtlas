@@ -717,6 +717,42 @@
 .vt-votes {
   font-variant-numeric: tabular-nums;
 }
+/* Through a related word: dashed like the rows through links, in the accent
+   of the verse's own chips, and labelled "a related word", so never taken for
+   the verse's own words or for one of the theme's verses. */
+.vt-rels.is-after {
+  margin-top: 8px;
+}
+.vt-rel {
+  padding: 6px 10px;
+  border: 1px dashed var(--accent);
+  border-radius: var(--r-md);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.vt-rel .tj-broad {
+  margin-left: 6px;
+}
+.vt-relq {
+  font: italic 14px/1.4 var(--font-read);
+  color: var(--ink);
+}
+.vt-rel .vt-gloss {
+  margin-left: 0;
+}
+.vt-tie {
+  display: block;
+  margin-top: 4px;
+}
+.vt-tie .chip {
+  margin-right: 2px;
+  vertical-align: middle;
+}
+.vt-via .o {
+  font-size: 15px;
+  color: var(--ink);
+}
 .vt-peek {
   display: block;
   margin-top: 4px;
