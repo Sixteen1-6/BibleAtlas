@@ -30,6 +30,9 @@
 //!   search opens or a verse is read.
 //! - `ask/also.json`: each question's other phrasings, in the index's order.
 //!   Loaded when search opens.
+//! - `ask/signals.json`: the everyday words that point to each question
+//!   ("layoffs", "severance"), in the index's order, for matching what someone
+//!   typed only; never shown. Loaded with the first question typed.
 //! - `ask/q/<id>.json`: one question's chain, its most-cited verses, and its
 //!   wider set of verses as ranges. Loaded when the question opens.
 //! - `ask/topics/<n>.json`: subjects `n * 250` onward, each its most-cited
@@ -99,6 +102,8 @@ const PART_WORDS_MIN: usize = 3;
 /// Most characters a chain shows, so it reads at a glance.
 const CHAIN_MAX: usize = 1200;
 const QUESTION_MAX: usize = 90;
+/// Signal words per question, at most.
+const SIGNALS_MAX: usize = 60;
 /// Verses shown first for a topic or an unreviewed question.
 const TOP: usize = 5;
 /// Subjects per `ask/topics/<n>.json` file.
@@ -141,6 +146,9 @@ struct QuestionSpec {
     group: String,
     question: String,
     also: Vec<String>,
+    /// Words people use about it that its phrasings do not hold.
+    #[serde(default)]
+    signals: Vec<String>,
     topics: Vec<TopicSpec>,
     chain: Vec<PartSpec>,
 }
@@ -630,6 +638,19 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
     for a in &q.also {
         c.plain(&at, "also", a, 60);
     }
+    if q.signals.len() > SIGNALS_MAX {
+        c.fail(&at, format_args!("keep signals to {SIGNALS_MAX}"));
+    }
+    let mut seen = BTreeSet::new();
+    for w in &q.signals {
+        c.plain(&at, "signal", w, 40);
+        if w.split_whitespace().count() > 3 || w.trim() != w || w.to_lowercase() != *w {
+            c.fail(&at, format_args!("signal {w:?} should be 1 to 3 lowercase words"));
+        }
+        if !seen.insert(w.as_str()) {
+            c.fail(&at, format_args!("signal {w:?} is listed twice"));
+        }
+    }
 
     // The chain: whole verses, or their exact words.
     if !(CHAIN.0..=CHAIN.1).contains(&q.chain.len()) {
@@ -783,6 +804,7 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
     let mut ids = BTreeSet::new();
     let mut questions = Vec::new();
     let mut also: Vec<&Vec<String>> = Vec::new();
+    let mut signals: Vec<&Vec<String>> = Vec::new();
     let mut tally = Tally::default();
     for q in &file.questions {
         if !ids.insert(q.id.as_str()) {
@@ -799,6 +821,7 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
             ));
             questions.push(b.index);
             also.push(&q.also);
+            signals.push(&q.signals);
         }
     }
     // Every problem is listed, so one run shows all there is to fix.
@@ -860,6 +883,10 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
         "ask/also.json".to_string(),
         serde_json::to_vec(&also).map_err(|e| e.to_string())?,
     ));
+    out.push((
+        "ask/signals.json".to_string(),
+        serde_json::to_vec(&signals).map_err(|e| e.to_string())?,
+    ));
 
     eprintln!(
         "ask the bible: {} questions, {} chain parts, each tied to the question or the chain ({}); {} Nave's subjects, {bad} references not in the BSB left out",
@@ -890,6 +917,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let also = read("ask/also.json")?;
     let also_ok = also.as_array().is_some_and(|a| {
         a.len() == questions.len() && a.iter().all(|x| x.as_array().is_some_and(|p| !p.is_empty()))
+    });
+    let signals = read("ask/signals.json")?;
+    let signals_ok = signals.as_array().is_some_and(|a| {
+        a.len() == questions.len() && a.iter().all(|x| x.as_array().is_some_and(|w| w.iter().all(Value::is_string)))
     });
     let n = d.vz.verse_count();
     let in_text = |v: &Value| {
@@ -947,6 +978,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         (
             also_ok,
             "ask/also.json has every question's other phrasings, in the index's order".to_string(),
+        ),
+        (
+            signals_ok,
+            "ask/signals.json has every question's signal words, in the index's order".to_string(),
         ),
         (
             q_ok,

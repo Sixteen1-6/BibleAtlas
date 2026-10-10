@@ -26,7 +26,7 @@ import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
 import { type Asked, type Part, type Range, askId, askIndex, askOpen, closeAsk, findAsked, lastClose, loadAsk, questionData, topicData } from './ask';
 import type { Gathered } from './gather';
-import { route } from './route';
+import { loadSignals, route } from './route';
 
 const dismiss = () => closeAsk('dismiss');
 
@@ -291,6 +291,9 @@ function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'q
  * does, else the verses gathered for its words. */
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
   const ix = askIndex.value;
+  // The words that point to each prepared question load with the first one typed.
+  const signals = useAsync('signals', () => loadSignals(a));
+  if (signals === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
   const q = ix ? route(ix, text) : null;
   return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;
 }
@@ -326,7 +329,7 @@ function GatheredBody({ a, text }: { a: Atlas; text: string }) {
                 .join('; ') || 'none'}
             </li>
             {got.subjects.length > 0 && <li>Subjects in Nave’s index: {got.subjects.join(', ')}</li>}
-            {got.questions.length > 0 && <li>Prepared questions with these words: {got.questions.join(' · ')}</li>}
+            {got.questions.length > 0 && <li>Prepared questions near these words: {got.questions.join(' · ')}</li>}
             <li>Verses that hold all the words, sit under a matching subject, and are cross-referenced by the others come first.</li>
           </ul>
           <SourceNote>Every verse is the Bible’s own words (BSB), found by words, by {NAVES}, and by cross-references, with nothing written in between.</SourceNote>
