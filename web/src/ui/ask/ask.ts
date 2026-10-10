@@ -16,6 +16,9 @@ import type { Atlas } from '../../data/atlas';
 import * as S from '../../state';
 import { loadJson } from '../extras/data';
 import { closeExtra, openPanel, setOpener } from '../extras/open';
+import { QUESTION_WORDS, STOP, contentWords, stem, words } from './words';
+
+export { contentWords, stem } from './words';
 
 /** [first verse, last verse], inclusive. */
 export type Range = [number, number];
@@ -248,171 +251,6 @@ if (typeof window !== 'undefined') {
 
 // ------------------------------------------------------------ matching
 
-const QUESTION_WORDS = new Set([
-  'who',
-  'what',
-  'whats',
-  'why',
-  'how',
-  'is',
-  'are',
-  'was',
-  'does',
-  'do',
-  'did',
-  'can',
-  'could',
-  'will',
-  'would',
-  'should',
-  'where',
-  'when',
-  'which',
-  'may',
-  'am',
-  'shall',
-]);
-const STOP = new Set([
-  ...QUESTION_WORDS,
-  'a',
-  'an',
-  'the',
-  'and',
-  'or',
-  'of',
-  'to',
-  'in',
-  'on',
-  'for',
-  'with',
-  'about',
-  'at',
-  'by',
-  'from',
-  'it',
-  'its',
-  'be',
-  'been',
-  'being',
-  'i',
-  'me',
-  'my',
-  'we',
-  'us',
-  'our',
-  'you',
-  'your',
-  'he',
-  'his',
-  'him',
-  'she',
-  'her',
-  'they',
-  'them',
-  'their',
-  'that',
-  'this',
-  'there',
-  'here',
-  'bible',
-  'scripture',
-  'scriptures',
-  'say',
-  'says',
-  'said',
-  'tell',
-  'teach',
-  'teaches',
-  'mean',
-  'means',
-  'verse',
-  'verses',
-  'really',
-  'ok',
-  'okay',
-  'if',
-  'so',
-  'then',
-  'than',
-  'as',
-  'into',
-  'up',
-  'out',
-  'any',
-  'some',
-  'all',
-  'just',
-  'get',
-  'go',
-  'have',
-  'has',
-  'had',
-  'way',
-  'happen',
-  'happens',
-  'like',
-  'meaning',
-  'thing',
-  'things',
-  'someone',
-  'something',
-  'people',
-  'person',
-  'not',
-  'no',
-  'yes',
-  // Words of asking rather than of the subject: "how do I deal with worry", "is it wrong to be angry".
-  'deal',
-  'handle',
-  'cope',
-  'overcome',
-  'beat',
-  'stop',
-  'find',
-  'help',
-  'make',
-  'feel',
-  'use',
-  'know',
-  'wrong',
-  'right',
-  'allowed',
-  'possible',
-  'best',
-  'ever',
-  'really',
-  'still',
-  'even',
-  'too',
-  'also',
-  'much',
-  'many',
-  'treat',
-  'let',
-  'see',
-  'care',
-  'real',
-  'anything',
-  'everything',
-  'more',
-  'ones',
-  'supposed',
-  'myself',
-  'yourself',
-  'ourselves',
-  'themselves',
-  'himself',
-  'herself',
-]);
-
-function words(s: string): string[] {
-  return s
-    .toLowerCase()
-    .replace(/[’‘']/g, '')
-    .split(/[^\p{L}\p{N}]+/u)
-    .filter(Boolean);
-}
-
 /** Words search leaves out that still change what is asked: "why did God
  * make me" is not "is there a God", and "what did Jesus teach" is not "who is
  * Jesus". A prepared question opens only when these match too. */
@@ -453,18 +291,7 @@ export function sameWord(a: string, b: string): boolean {
   return false;
 }
 
-/** A rough stem, so "prayers", "praying" and "prayed" meet "prayer"/"pray". */
-export function stem(w: string): string {
-  for (const end of ['ness', 'ing', 'ies', 'ied', 'es', 'ed', 'ly', 's', 'y', 'e']) {
-    if (w.length > end.length + 2 && w.endsWith(end)) return w.slice(0, -end.length);
-  }
-  return w;
-}
 
-/** The words of a question that carry it: "what happens when we die" -> happens, die. */
-export function contentWords(s: string): string[] {
-  return words(s).filter((w) => !STOP.has(w));
-}
 
 /** True when the reader is asking rather than quoting: "why do we suffer", "is anger a sin?". */
 export function looksLikeQuestion(q: string): boolean {

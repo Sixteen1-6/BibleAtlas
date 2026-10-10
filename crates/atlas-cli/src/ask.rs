@@ -37,6 +37,13 @@
 //!   wider set of verses as ranges. Loaded when the question opens.
 //! - `ask/topics/<n>.json`: subjects `n * 250` onward, each its most-cited
 //!   verses and all its verses as ranges.
+//!
+//! `config/ask-examples.json` holds, for every question, example messages
+//! people might type that it answers ("car got repossessed this morning" for
+//! debt). Only the meaning matcher learns from them
+//! (`web/scripts/ask-meaning.mjs`, which writes `ask/meaning.json` when the
+//! site is built); they are never shown. The build checks every question has
+//! some and that each example says one question only (see [`examples`]).
 
 use crate::loaded::Loaded;
 use crate::naves::{count, merge, title, Line, Naves, Subject, CITE_SPAN_MAX};
@@ -50,6 +57,7 @@ use std::fs;
 use std::path::Path;
 
 pub const CONFIG: &str = "config/questions.json";
+pub const EXAMPLES: &str = "config/ask-examples.json";
 
 /// What the build reads from the rest of the data.
 pub struct Sources<'a> {
@@ -104,6 +112,9 @@ const CHAIN_MAX: usize = 1200;
 const QUESTION_MAX: usize = 90;
 /// Signal words per question, at most.
 const SIGNALS_MAX: usize = 60;
+/// Example messages per question, fewest and most, and the longest one.
+const EXAMPLES_PER: (usize, usize) = (10, 60);
+const EXAMPLE_MAX: usize = 400;
 /// Verses shown first for a topic or an unreviewed question.
 const TOP: usize = 5;
 /// Subjects per `ask/topics/<n>.json` file.
@@ -151,6 +162,12 @@ struct QuestionSpec {
     signals: Vec<String>,
     topics: Vec<TopicSpec>,
     chain: Vec<PartSpec>,
+}
+
+#[derive(Deserialize)]
+struct ExampleFile {
+    /// Question id -> what people might type that it answers.
+    examples: BTreeMap<String, Vec<String>>,
 }
 
 #[derive(Deserialize)]
@@ -783,6 +800,60 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
 }
 
 /// The files to write under web/public/data, as (path, bytes).
+/// What is wrong with the example messages, if anything: every question needs
+/// some, an example is plain text in the box's words, and each says one
+/// question only (it is no other question's way of asking and no other
+/// question's example), so it teaches the meaning matcher one answer.
+fn examples(questions: &[QuestionSpec], examples: &BTreeMap<String, Vec<String>>) -> Vec<String> {
+    let mut problems = Vec::new();
+    let ids: BTreeSet<&str> = questions.iter().map(|q| q.id.as_str()).collect();
+    for id in examples.keys().filter(|id| !ids.contains(id.as_str())) {
+        problems.push(format!("{id:?}: no question has this id"));
+    }
+    let mut said: HashMap<String, &str> = HashMap::new();
+    for q in questions {
+        for p in std::iter::once(&q.question).chain(&q.also) {
+            said.entry(normalize(p)).or_insert(&q.id);
+        }
+    }
+    let mut seen: HashMap<String, &str> = HashMap::new();
+    for q in questions {
+        let at = &q.id;
+        let ex = examples.get(&q.id).map_or(&[][..], Vec::as_slice);
+        if !(EXAMPLES_PER.0..=EXAMPLES_PER.1).contains(&ex.len()) {
+            problems.push(format!(
+                "{at:?}: has {} examples; give it {} to {}",
+                ex.len(),
+                EXAMPLES_PER.0,
+                EXAMPLES_PER.1
+            ));
+        }
+        for e in ex {
+            let key = normalize(e);
+            if key.is_empty() || e.chars().count() > EXAMPLE_MAX || e.trim() != e {
+                problems.push(format!("{at:?}: example {e:?} should be 1 to {EXAMPLE_MAX} characters, trimmed"));
+            }
+            if let Some(w) = outside_word(e) {
+                problems.push(format!("{at:?}: example {e:?} uses {w:?}; this box speaks only in the Bible's words"));
+            }
+            match said.get(&key) {
+                Some(other) if *other != q.id => {
+                    problems.push(format!("{at:?}: example {e:?} is a way of asking {other:?}"));
+                }
+                _ => {}
+            }
+            if let Some(other) = seen.insert(key, &q.id) {
+                problems.push(if other == q.id {
+                    format!("{at:?}: example {e:?} is listed twice")
+                } else {
+                    format!("{at:?}: example {e:?} is also an example of {other:?}")
+                });
+            }
+        }
+    }
+    problems
+}
+
 pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, String> {
     let (vz, degree) = (src.vz, src.degree);
     let (subjects, bad) = (&naves.subjects, naves.bad);
@@ -823,6 +894,13 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
             also.push(&q.also);
             signals.push(&q.signals);
         }
+    }
+    let said: ExampleFile = serde_json::from_str(
+        &fs::read_to_string(root.join(EXAMPLES)).map_err(|e| format!("reading {EXAMPLES}: {e}"))?,
+    )
+    .map_err(|e| format!("parsing {EXAMPLES}: {e}"))?;
+    for p in examples(&file.questions, &said.examples) {
+        check.errors.push(format!("{EXAMPLES}: {p}"));
     }
     // Every problem is listed, so one run shows all there is to fix.
     if let Some(first) = check.errors.first() {
@@ -889,10 +967,11 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
     ));
 
     eprintln!(
-        "ask the bible: {} questions, {} chain parts, each tied to the question or the chain ({}); {} Nave's subjects, {bad} references not in the BSB left out",
+        "ask the bible: {} questions, {} chain parts, each tied to the question or the chain ({}); {} example messages for the meaning matcher; {} Nave's subjects, {bad} references not in the BSB left out",
         file.questions.len(),
         tally.parts,
         tally.summary(),
+        said.examples.values().map(Vec::len).sum::<usize>(),
         topics.len()
     );
     Ok(out)
@@ -1034,6 +1113,31 @@ mod tests {
             Some(("“Be angry, yet do not sin.”", false, true))
         );
         assert_eq!(normalize("God’s love—“for all”"), "gods love for all");
+    }
+
+    #[test]
+    fn example_messages() {
+        let q = |id: &str, question: &str, also: &[&str]| -> QuestionSpec {
+            serde_json::from_value(json!({ "id": id, "group": "Living", "question": question, "also": also, "topics": [], "chain": [] })).unwrap()
+        };
+        let qs = [q("debt", "I'm drowning in debt", &["cant pay my bills"]), q("job", "I lost my job", &["laid off"])];
+        let mut ex: BTreeMap<String, Vec<String>> = BTreeMap::new();
+        let many = |xs: &[&str]| -> Vec<String> { xs.iter().map(|x| x.to_string()).chain((0..EXAMPLES_PER.0).map(|i| format!("example {i}"))).collect() };
+        ex.insert("debt".into(), many(&["car got repossessed this morning"]));
+        ex.insert("job".into(), (0..EXAMPLES_PER.0).map(|i| format!("job example {i}")).collect());
+        assert!(examples(&qs, &ex).is_empty());
+        // Another question's way of asking, another question's example, an
+        // outside word, an unknown id, and too few.
+        ex.get_mut("job").unwrap().extend(["Can't pay my bills!".to_string(), "Car got repossessed this morning".to_string(), "what do scholars say".to_string()]);
+        ex.insert("nobody".into(), vec!["hello there".into()]);
+        ex.get_mut("debt").unwrap().truncate(3);
+        let p = examples(&qs, &ex);
+        assert_eq!(p.len(), 5, "{p:#?}");
+        assert!(p[0].contains("no question has this id"));
+        assert!(p[1].contains("has 3 examples"));
+        assert!(p.iter().any(|x| x.contains("is a way of asking \"debt\"")));
+        assert!(p.iter().any(|x| x.contains("is also an example of \"debt\"")));
+        assert!(p.iter().any(|x| x.contains("uses \"scholar\"")));
     }
 
     #[test]

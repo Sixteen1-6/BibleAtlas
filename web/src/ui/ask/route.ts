@@ -6,62 +6,15 @@
 // when one of its ways of asking is said, nearly whole, in what they typed
 // ("my husband is hooked on pills and lies about it" says most of "husband
 // hooked on pills"), and its question covers most of what they typed. Words
-// that many questions share count for little, rare ones for much.
+// that many questions share count for little, rare ones for much. First,
+// though, the meaning matcher (./meaning) opens the question people plainly
+// mean by what they typed, even when it shares no word with it.
 
 import type { Atlas } from '../../data/atlas';
 import { loadJson } from '../extras/data';
-import { type AskIndex, type Question, contentWords, exactQuestion, stem } from './ask';
-
-/** Words too plain to tell one question from another. */
-const PLAIN = new Set(['bible', 'want', 'need', 'feel', 'feeling', 'keep', 'going', 'doing', 'done', 'now', 'got', 'gets', 'getting', 'said', 'told', 'tells', 'every', 'always', 'never', 'today', 'last', 'week', 'year', 'years', 'day', 'days', 'time', 'times', 'good', 'bad', 'okay', 'life', 'lot', 'lots', 'dont', 'doesnt', 'didnt', 'cant', 'wont', 'isnt', 'im', 'ive', 'id', 'ill', 'its', 'thats', 'cannot', 'actually', 'already', 'anymore', 'basically', 'literally', 'honestly', 'seriously', 'kinda', 'idk', 'lol', 'but', 'were', 'wasnt', 'werent', 'because', 'stuff', 'somebody', 'guy', 'guys', 'think']);
-
-/** Words that ask the same thing here: "we buried our son" tells of a child
- * who died, as "my daughter passed" would. Each group counts as its first
- * word. Words with a second sense stay out ("work", "father", "cheating",
- * "passed", "pills"). */
-const SAME = new Map<string, string>();
-for (const group of [
-  'die died dies dying dead death deaths buried burial funeral deceased',
-  'child children son sons daughter daughters kid kids baby babies infant infants toddler newborn',
-  'mom mum mother mommy dad daddy parent parents',
-  'spouse husband husbands wife wives hubby',
-  'grandparent grandparents grandma grandpa grandmother grandfather granny nana',
-  'grandchild grandchildren grandson granddaughter grandkids',
-  'sibling siblings brother sister',
-  'drugs meth heroin opioids opioid fentanyl cocaine oxy',
-  'alcohol alcoholic drinking drunk booze',
-  'fired layoff layoffs laidoff',
-  'job jobs career employment',
-  'affair unfaithful adultery',
-  'sick sickness illness disease diagnosis diagnosed',
-  'anxiety anxious worry worried worrying worries panic',
-  'depressed depression',
-  'miscarriage miscarried stillbirth stillborn',
-  'gay lesbian homosexual homosexuality lgbt lgbtq bisexual queer',
-  'transgender trans nonbinary',
-  'porn pornography',
-  'afraid scared fear fears fearful terrified frightened',
-  'lonely loneliness alone isolated',
-  'angry anger mad furious rage',
-  'abuse abused abusive',
-  'marry married marriage',
-  'divorce divorced divorcing',
-  'boyfriend girlfriend fiance fiancee',
-]) {
-  const [head, ...rest] = group.split(' ');
-  for (const w of [head, ...rest]) {
-    SAME.set(w, head);
-    SAME.set(stem(w), head);
-  }
-}
-
-export function terms(s: string): Set<string> {
-  return new Set(
-    contentWords(s)
-      .filter((w) => !PLAIN.has(w) && !PLAIN.has(stem(w)) && !/^\d+$/.test(w))
-      .map((w) => SAME.get(w) ?? SAME.get(stem(w)) ?? stem(w)),
-  );
-}
+import { type AskIndex, type Question, exactQuestion } from './ask';
+import { meanings } from './meaning';
+import { terms } from './words';
 
 /** The everyday words that point to each question ("layoffs", "chemo"), in
  * the index's order, once loaded. */
@@ -167,11 +120,17 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
 /** The thresholds a route must pass to open its question. */
 export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
 
+/** How sure the meaning matcher must be to open its question. */
+export const MEANT = 0.8;
+
 /** The prepared question that plainly answers `text`, or null. */
 export function route(ix: AskIndex, text: string): Question | null {
   // Asked as one of its ways, word for word.
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
+  // Plainly what people mean by such words ("car got repossessed": debt).
+  const [sense] = meanings(ix, text, 1);
+  if (sense && sense.p >= MEANT) return sense.q;
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
   if (next && best.score - next.score < OPEN.margin && next.said >= OPEN.said) return null;

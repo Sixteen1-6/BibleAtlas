@@ -26,6 +26,7 @@ import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
 import { type Asked, type Part, type Range, askId, askIndex, askOpen, closeAsk, findAsked, lastClose, loadAsk, questionData, topicData } from './ask';
 import type { Gathered } from './gather';
+import { loadMeaning } from './meaning';
 import { loadSignals, route } from './route';
 
 const dismiss = () => closeAsk('dismiss');
@@ -291,9 +292,10 @@ function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'q
  * does, else the verses gathered for its words. */
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
   const ix = askIndex.value;
-  // The words that point to each prepared question load with the first one typed.
-  const signals = useAsync('signals', () => loadSignals(a));
-  if (signals === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
+  // The words that point to each prepared question, and what people mean by
+  // theirs, load with the first one typed.
+  const ready = useAsync('signals', () => Promise.all([loadSignals(a), loadMeaning(a).catch(() => null)]));
+  if (ready === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
   const q = ix ? route(ix, text) : null;
   return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;
 }
