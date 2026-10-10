@@ -75,6 +75,8 @@ export interface AskIndex {
 export interface TopicData {
   top: Range[];
   v: Range[];
+  /** Verses cited only where Nave's uses the subject as a figure. */
+  f?: Range[];
 }
 
 export type Asked =
@@ -292,6 +294,7 @@ const STOP = new Set([
   'that',
   'this',
   'there',
+  'here',
   'bible',
   'scripture',
   'scriptures',
@@ -344,6 +347,7 @@ const STOP = new Set([
   'handle',
   'cope',
   'overcome',
+  'beat',
   'stop',
   'find',
   'help',
@@ -364,6 +368,22 @@ const STOP = new Set([
   'also',
   'much',
   'many',
+  'treat',
+  'let',
+  'see',
+  'care',
+  'real',
+  'anything',
+  'everything',
+  'more',
+  'ones',
+  'supposed',
+  'myself',
+  'yourself',
+  'ourselves',
+  'themselves',
+  'himself',
+  'herself',
 ]);
 
 function words(s: string): string[] {
@@ -372,6 +392,46 @@ function words(s: string): string[] {
     .replace(/[’‘']/g, '')
     .split(/[^\p{L}\p{N}]+/u)
     .filter(Boolean);
+}
+
+/** Words search leaves out that still change what is asked: "why did God
+ * make me" is not "is there a God", and "what did Jesus teach" is not "who is
+ * Jesus". A prepared question opens only when these match too. */
+const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real']);
+
+/** "What does the Bible say about X" asks about X. */
+const ABOUT = /^\s*(what|how)\s+(does|do|did)\s+(the\s+)?(bible|scriptures?|god|jesus|lord)\s+(say|says|teach|teaches|tell|tells)\s+(us\s+)?(about|of|on)\s+/i;
+
+/** The words that must match for a question to open a prepared chain. */
+export function askKey(s: string): string {
+  const key = (x: string) =>
+    words(x)
+      .filter((w) => !STOP.has(w) || KEEP.has(w))
+      .join(' ');
+  const t = s.replace(/[’‘]/g, "'");
+  // "What did Jesus say about himself" asks about Jesus.
+  return key(t.replace(ABOUT, '')) || key(t);
+}
+
+const INFLECT = new Set(['s', 'es', 'd', 'ed', 'ing', 'er', 'ers', 'ness']);
+
+/** The same word or a plain form of it: prayer/prayers, sin/sinned,
+ * baby/babies, love/loving. Not treat/treaty, here/Heres or let/letters. */
+export function sameWord(a: string, b: string): boolean {
+  if (a === b) return true;
+  const [s, l] = a.length <= b.length ? [a, b] : [b, a];
+  if (s.length < 3 || !l.startsWith(s.slice(0, -1))) return false;
+  if (l.startsWith(s)) {
+    const rest = l.slice(s.length);
+    // teach -> teacher, but not moth -> mother or pet -> Peter.
+    if (rest === 'er' || rest === 'ers') return s.length >= 5;
+    // sin -> sinned, sinning: the last letter doubled before the ending (not let -> letters).
+    return INFLECT.has(rest) || (rest[0] === s[s.length - 1] && (rest === `${rest[0]}ed` || rest === `${rest[0]}ing`));
+  }
+  const cut = s.slice(0, -1);
+  if (s.endsWith('e')) return l === `${cut}ing`;
+  if (s.endsWith('y')) return l === `${cut}ies` || l === `${cut}ied`;
+  return false;
 }
 
 /** A rough stem, so "prayers", "praying" and "prayed" meet "prayer"/"pray". */
@@ -395,7 +455,7 @@ export function looksLikeQuestion(q: string): boolean {
 
 interface Prepared {
   questions: { q: Question; whole: Set<string>; stems: Set<string>; own: Set<string> }[];
-  topics: { title: string; whole: string; stems: string[] }[];
+  topics: { title: string; whole: string; words: string[] }[];
 }
 
 let prepared: { ix: AskIndex; p: Prepared } | null = null;
@@ -405,9 +465,9 @@ function prepare(ix: AskIndex): Prepared {
   const p: Prepared = {
     questions: ix.questions.map((q) => {
       const phrases = [q.q, ...q.also];
-      return { q, whole: new Set(phrases.map((x) => contentWords(x).join(' '))), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
+      return { q, whole: new Set(phrases.map(askKey)), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
     }),
-    topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), stems: contentWords(title).map(stem) })),
+    topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), words: contentWords(title) })),
   };
   prepared = { ix, p };
   return p;
@@ -435,13 +495,14 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[]
   if (!ws.length || ws.length > 12) return [];
   const asking = looksLikeQuestion(query);
   const whole = ws.join(' ');
+  const key = askKey(query);
   const stems = ws.map(stem);
   const p = prepare(ix);
   const scored: { asked: Asked; score: number }[] = [];
   for (const x of p.questions) {
     // Words in the question itself beat words only in its other phrasings.
     const own = (stems.filter((s) => x.own.has(s)).length / stems.length) * 5;
-    if (x.whole.has(whole)) {
+    if (key && x.whole.has(key)) {
       scored.push({ asked: { kind: 'question', q: x.q }, score: 100 + own });
       continue;
     }
@@ -452,12 +513,12 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[]
   }
   ix.topics.forEach(([title, n], i) => {
     const t = p.topics[i];
-    if (!t.stems.length) return;
+    if (!t.words.length) return;
     const exact = t.whole === whole;
     // A subject named by the reader's words: "anger", "love of god".
     // ...and covering at least half of them, so "does God hear prayer" does not offer all of "God".
-    const named = asking && t.stems.every((s) => stems.includes(s)) && t.stems.length * 2 >= stems.length;
-    if (exact || named) scored.push({ asked: { kind: 'topic', i, title, n }, score: (exact ? 50 : 5) + t.stems.length + Math.min(n, 500) / 1000 });
+    const named = asking && t.words.every((s) => ws.some((w) => sameWord(w, s))) && t.words.length * 2 >= ws.length;
+    if (exact || named) scored.push({ asked: { kind: 'topic', i, title, n }, score: (exact ? 50 : 5) + t.words.length + Math.min(n, 500) / 1000 });
   });
   scored.sort((x, y) => y.score - x.score);
   const out = scored.slice(0, asking ? limit : Math.min(limit, 2)).map((x) => x.asked);
