@@ -38,7 +38,8 @@ export function plainText(): string[] | null {
 let extraCache: Promise<Extra> | null = null;
 let extraReady: Extra | null = null;
 
-/** KJV and ASV wording for search (data/search/*.txt), loaded and indexed in
+/** KJV and ASV wording for search (data/search/*.txt), and the folded words
+ *  of all three translations (7,000 = seven thousand), loaded and indexed in
  *  a worker. Search works without it and gets better once it arrives. */
 export function loadExtraText(a: Atlas): Promise<Extra> {
   if (!extraCache) {
@@ -52,14 +53,14 @@ export function loadExtraText(a: Atlas): Promise<Extra> {
         if (!d.ok) return reject(new Error(d.error));
         const index = new Map<string, Uint32Array>();
         (d.words as string[]).forEach((word, i) => index.set(word, d.verses.subarray(d.off[i], d.off[i + 1])));
-        extraReady = { names: d.names, lines: d.lines, index };
+        extraReady = { names: d.names, lines: d.lines, index, apart: new Set(d.apart) };
         resolve(extraReady);
       };
       w.onerror = (e) => {
         w.terminate();
         reject(new Error(e.message));
       };
-      w.postMessage({ names, urls });
+      w.postMessage({ names, urls, baseUrl: new URL(`${DATA_BASE}bsb.txt?${a.version}`, location.href).href });
     });
     extraCache.catch(() => {
       extraCache = null;

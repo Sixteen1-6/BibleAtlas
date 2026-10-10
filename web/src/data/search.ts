@@ -18,17 +18,42 @@
 // translations swap for one another (looks/sees, anxious/worry) count too, at
 // a lower weight. Words spread over two neighboring verses can match the pair.
 //
+// Numbers, joined words, short forms and other spellings are folded to one
+// form on both sides (fold.ts), so "7,000", "7000" and "seven thousand" are the
+// same word. The Rust index holds the words as written, so the folded forms
+// live in the `Extra` index, built for the BSB as well.
+//
 // Normalization must match crates/atlas-cli/src/english.rs exactly.
 
 import type { Atlas } from './atlas';
+import { fold, foldSpans, NUMBER_WORDS } from './fold';
 
-export function tokens(text: string): string[] {
+const WORD = /[\p{L}\p{N}'’]+/gu;
+
+/** Words of `text`, normalized. With `breaks`, also notes which words come
+ *  right after punctuation that ends a number or a phrase (fold.ts). */
+export function tokens(text: string, breaks?: boolean[]): string[] {
   const out: string[] = [];
-  for (const raw of text.split(/[^\p{L}\p{N}'’]+/u)) {
-    const w = norm(raw);
-    if (w) out.push(w);
+  let end = 0;
+  WORD.lastIndex = 0;
+  for (let m = WORD.exec(text); m; m = WORD.exec(text)) {
+    const w = norm(m[0]);
+    if (!w) continue;
+    if (breaks) breaks[out.length] = BREAK.test(text.slice(end, m.index));
+    end = m.index + m[0].length;
+    out.push(w);
   }
   return out;
+}
+
+/** Punctuation between words that a number never runs across. Not a comma
+ *  between digits: "7,000" is one number. */
+const BREAK = /[,;:.!?()]/;
+
+/** Words of `text` folded to the forms search uses (fold.ts). */
+export function foldedTokens(text: string): string[] {
+  const breaks: boolean[] = [];
+  return fold(tokens(text, breaks), breaks);
 }
 
 function norm(raw: string): string {
@@ -37,6 +62,25 @@ function norm(raw: string): string {
   w = w.replace(/^'+|'+$/g, '');
   if (w.endsWith("'s")) w = w.slice(0, -2);
   return w.replace(/'/g, '');
+}
+
+/** Split text into pieces for showing a verse with `words` (from a search)
+ *  marked, reading it the way search does: "seven thousand" is marked when
+ *  the search was for 7,000. */
+export function markWords(text: string, words: Set<string>): { text: string; mark: boolean }[] {
+  const ps = wordPieces(text).map((p) => ({ text: p.text, word: p.word, mark: !!p.word && words.has(p.word) }));
+  const at: number[] = [];
+  ps.forEach((p, i) => p.word && at.push(i));
+  const breaks = at.map((i, k) => k > 0 && at[k - 1] < i - 1 && BREAK.test(ps[i - 1].text));
+  for (const f of foldSpans(at.map((i) => ps[i].word), breaks)) {
+    if (!words.has(f.tok)) continue;
+    for (let k = f.from; k < f.to; k++) {
+      ps[at[k]].mark = true;
+      // The space or comma inside "seven thousand" or "7,000" too.
+      if (k + 1 < f.to) for (let g = at[k] + 1; g < at[k + 1]; g++) ps[g].mark = true;
+    }
+  }
+  return ps;
 }
 
 /** Split text into alternating [other, word, other, word, ...] pieces, with
@@ -250,6 +294,8 @@ export interface Term {
   alts: Map<string, number>;
   /** Read as a typo of these words. */
   guessed: string[];
+  /** The words as typed, when folding changed them ("seven thousand"). */
+  typed?: string;
 }
 
 /** Text from more translations, one array of lines (one per verse) each,
@@ -258,58 +304,157 @@ export interface Extra {
   names: string[];
   lines: string[][];
   index: Map<string, Uint32Array>;
+  /** Word pairs the texts write apart even though they also join them
+   *  ("pass over", "every day"): a query never joins these. */
+  apart: Set<string>;
 }
 
-/** Index the words of other translations' text. Takes a few hundred
- *  milliseconds for two whole Bibles, so callers run it off the main path. */
-export function buildExtra(names: string[], lines: string[][]): Extra {
+/** Index the words of other translations' text, as written and folded,
+ *  plus the folded words of the BSB (`base`), whose words as written are in
+ *  the Rust index already. Takes a second or two for three whole Bibles, so
+ *  callers run it in a worker. */
+export function buildExtra(names: string[], lines: string[][], base?: string[]): Extra {
   const lists = new Map<string, number[]>();
-  const re = /[\p{L}\p{N}'’]+/gu;
-  const n = Math.max(...lines.map((l) => l.length));
+  const n = Math.max(base?.length ?? 0, ...lines.map((l) => l.length));
+  const put = (w: string, v: number) => {
+    let l = lists.get(w);
+    if (!l) lists.set(w, (l = []));
+    if (l[l.length - 1] !== v) l.push(v);
+  };
+  const bsb = new Set<string>();
+  const folded: string[][] = [];
+  const index1 = (line: string, v: number, all: boolean) => {
+    const breaks: boolean[] = [];
+    const toks = tokens(line, breaks);
+    const fs = foldSpans(toks, breaks);
+    for (const w of toks) {
+      if (all) put(w, v);
+      else bsb.add(w);
+    }
+    for (const f of fs) if (f.to - f.from > 1 || f.tok !== toks[f.from]) put(f.tok, v);
+    folded.push(fs.map((f) => f.tok));
+  };
   // Verse by verse across all translations, so every list comes out sorted
   // and unique without a second pass.
   for (let v = 0; v < n; v++) {
-    for (const ls of lines) {
-      const line = ls[v];
-      if (!line) continue;
-      re.lastIndex = 0;
-      for (let m = re.exec(line); m; m = re.exec(line)) {
-        const w = norm(m[0]);
-        if (!w) continue;
-        let l = lists.get(w);
-        if (!l) lists.set(w, (l = []));
-        if (l[l.length - 1] !== v) l.push(v);
-      }
-    }
+    if (base?.[v]) index1(base[v], v, false);
+    for (const ls of lines) if (ls[v]) index1(ls[v], v, true);
+  }
+  const apart = new Set<string>();
+  for (const toks of folded) {
+    for (let i = 0; i + 1 < toks.length; i++) if (joinable(toks[i], toks[i + 1]) && (lists.has(toks[i] + toks[i + 1]) || bsb.has(toks[i] + toks[i + 1]))) apart.add(`${toks[i]} ${toks[i + 1]}`);
   }
   const index = new Map<string, Uint32Array>();
   for (const [w, l] of lists) index.set(w, Uint32Array.from(l));
-  return { names, lines, index };
+  return { names, lines, index, apart };
 }
 
-function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null): Term {
+/** `raw` is the word as typed when folding changed it ("honour" for honor). */
+function buildTerm(a: Atlas, w: string, prefix: boolean, extra?: Extra | null, raw?: string): Term {
   const words = a.englishWords;
   const has = (x: string) => find(words, x) >= 0 || !!extra?.index.has(x);
   const alts = new Map<string, number>();
   const put = (x: string, weight: number) => alts.set(x, Math.max(alts.get(x) ?? 0, weight));
   if (has(w)) put(w, 1);
+  // Until the extra index loads, the folded form may not be found yet. After,
+  // "three" still finds "three thousand", below verses that say three.
+  if (raw && !raw.includes(' ')) {
+    const weight = !extra ? 1 : w[0] === '#' ? 0.6 : 0;
+    if (weight && has(raw)) put(raw, weight);
+    // "thousand" finds "thousands".
+    if (weight && w[0] === '#') for (const x of forms(has, raw)) put(x, weight * 0.8);
+  }
   for (const x of OLDER[w] ?? []) if (has(x)) put(x, 0.95);
   for (const x of forms(has, w)) put(x, 0.8);
   for (const x of OLDER[w] ?? []) for (const f of forms(has, x)) put(f, 0.7);
   for (const x of SWAP.get(w) ?? []) if (has(x)) put(x, 0.6);
-  if (prefix && w.length >= 2) {
-    let i = lowerBound(words, w);
-    for (let k = 0; i < words.length && words[i].startsWith(w) && k < 64; i++, k++) put(words[i], 0.85);
+  const start = raw ?? w;
+  if (prefix && start.length >= 2) {
+    let i = lowerBound(words, start);
+    for (let k = 0; i < words.length && words[i].startsWith(start) && k < 64; i++, k++) put(words[i], 0.85);
   }
   const guessed = alts.size ? [] : nearWords(a, w);
   for (const x of guessed) put(x, 0.7);
-  return { text: w, alts, guessed };
+  return { text: w, alts, guessed, typed: raw };
+}
+
+/** Spoken short forms the Bible writes out ("it's" is "it is", not "it"). */
+function spoken(q: string): string {
+  return q
+    .replace(/\b(it|that|there|here|he|she|what|who|where|how)['’]s\b/gi, '$1 is')
+    .replace(/\b(i|you|we|they|he|she|it)['’]ll\b/gi, '$1 will')
+    .replace(/\bi['’]m\b/gi, 'i am')
+    .replace(/\b(you|we|they)['’]re\b/gi, '$1 are')
+    .replace(/\b(i|you|we|they)['’]ve\b/gi, '$1 have')
+    .replace(/\bwon['’]t\b/gi, 'will not')
+    .replace(/\blet['’]s\b/gi, 'let us');
+}
+
+/** A word typed in two parts ("peace makers", "breast plate") that the Bible
+ *  writes as one, and never as two. */
+const plainWord = (x: string) => x.length >= 3 && !QUIET.has(x) && !(x.charCodeAt(0) <= 57);
+const joinable = (x: string, y: string) => plainWord(x) && plainWord(y);
+
+function joins(a: Atlas, x: string, y: string | undefined, extra: Extra): string | null {
+  if (!y || !joinable(x, y)) return null;
+  const w = x + y;
+  if (extra.apart.has(`${x} ${y}`) || !(find(a.englishWords, w) >= 0 || extra.index.has(w))) return null;
+  return w;
 }
 
 export function parseQuery(a: Atlas, query: string, extra?: Extra | null): Term[] {
-  const ws = tokens(query);
-  const typing = !/\s$/.test(query);
-  return ws.map((w, i) => buildTerm(a, w, typing && i === ws.length - 1, extra));
+  const breaks: boolean[] = [];
+  const ws = tokens(spoken(query), breaks);
+  // A last word that spoken() wrote out ("it's") is finished, not being typed.
+  const tail = /\S*$/.exec(query)![0];
+  const typing = !/\s$/.test(query) && spoken(tail) === tail;
+  const out = parseTokens(a, ws, breaks, typing, extra);
+  // A number still being typed ("seven thous"): the last word also stands for
+  // the numbers it could finish. The words before it still count on their own.
+  const last = ws[ws.length - 1];
+  if (extra && typing && ws.length >= 2 && last.length >= 2 && !breaks[ws.length - 1] && !NUMBER_WORDS.includes(last)) {
+    const t = out[out.length - 1];
+    for (const c of NUMBER_WORDS) {
+      if (!c.startsWith(last)) continue;
+      const f = foldSpans([...ws.slice(0, -1), c], breaks).at(-1)!;
+      if (f.to - f.from < 2 || f.tok[0] !== '#' || !extra.index.has(f.tok)) continue;
+      // So does the start of that number ("seven" in "seven thous").
+      const before = new Set(ws.slice(f.from, -1));
+      for (const u of out) {
+        if (u === t || u.text[0] !== '#' || !(u.typed ?? '').split(' ').every((x) => before.has(x))) continue;
+        u.alts.set(f.tok, Math.max(u.alts.get(f.tok) ?? 0, 0.9));
+      }
+      t.alts.set(f.tok, Math.max(t.alts.get(f.tok) ?? 0, 0.9));
+    }
+  }
+  return out;
+}
+
+function parseTokens(a: Atlas, ws: string[], breaks: boolean[], typing: boolean, extra?: Extra | null): Term[] {
+  const out: Term[] = [];
+  const fs = foldSpans(ws, breaks);
+  for (let k = 0; k < fs.length; k++) {
+    const f = fs[k];
+    const g = fs[k + 1];
+    const w = extra && g && f.to - f.from === 1 && g.to - g.from === 1 && !breaks[g.from] ? joins(a, ws[f.from], ws[g.from], extra) : null;
+    if (w) {
+      out.push(buildTerm(a, w, typing && g.to === ws.length, extra));
+      k++;
+      continue;
+    }
+    const last = typing && f.to === ws.length;
+    if (f.to - f.from > 1) {
+      // Folded forms of several words are only in the extra index; until it
+      // loads, or when no verse has that number ("forty and four thousand" is
+      // part of 144,000), look for the words one by one.
+      if (extra && (extra.index.has(f.tok) || find(a.englishWords, f.tok) >= 0)) out.push(buildTerm(a, f.tok, false, extra, ws.slice(f.from, f.to).join(' ')));
+      else for (let i = f.from; i < f.to; i++) out.push(buildTerm(a, ws[i], last && i === f.to - 1, extra));
+    } else {
+      const raw = ws[f.from];
+      out.push(buildTerm(a, f.tok, last, extra, raw !== f.tok ? raw : undefined));
+    }
+  }
+  return out;
 }
 
 export interface SearchResult {
@@ -345,7 +490,17 @@ function orderScore(toks: string[], pos: Map<string, number>[]): number {
       if (!pos[q].has(toks[i])) continue;
       let got = 1;
       let qi = q;
+      // One number can stand for several query words ("seven thous" while
+      // "seven thousand" is being typed).
+      const spread = (t: string) => {
+        while (t[0] === '#' && qi + 1 < all && pos[qi + 1].has(t)) {
+          qi += 1;
+          got += 1;
+        }
+      };
+      spread(toks[i]);
       for (let j = i + 1; j < toks.length; j++) {
+        spread(toks[j - 1]);
         if (qi + 1 < all && pos[qi + 1].has(toks[j])) {
           qi += 1;
           got += 1;
@@ -364,8 +519,8 @@ function orderScore(toks: string[], pos: Map<string, number>[]): number {
   }
   let pairs = 0;
   for (let q = 0; q + 1 < all; q++) {
-    for (let i = 0; i + 1 < toks.length; i++) {
-      if (pos[q].has(toks[i]) && pos[q + 1].has(toks[i + 1])) {
+    for (let i = 0; i < toks.length; i++) {
+      if (pos[q].has(toks[i]) && (pos[q + 1].has(toks[i + 1]) || (toks[i][0] === '#' && pos[q + 1].has(toks[i])))) {
         pairs++;
         break;
       }
@@ -377,10 +532,14 @@ function orderScore(toks: string[], pos: Map<string, number>[]): number {
 /** Tokens per verse per text, kept across searches: typing re-ranks the
  *  same verses on every key. */
 const tokCache = new WeakMap<string[], (string[] | undefined)[]>();
-function verseTokens(ls: string[], v: number): string[] {
-  let c = tokCache.get(ls);
-  if (!c) tokCache.set(ls, (c = []));
-  return (c[v] ??= tokens(ls[v] ?? ''));
+const rawCache = new WeakMap<string[], (string[] | undefined)[]>();
+/** Folded once the extra index (which holds the folded forms) has loaded;
+ *  until then queries look for the words as written. */
+function verseTokens(ls: string[], v: number, folded: boolean): string[] {
+  const m = folded ? tokCache : rawCache;
+  let c = m.get(ls);
+  if (!c) m.set(ls, (c = []));
+  return (c[v] ??= folded ? foldedTokens(ls[v] ?? '') : tokens(ls[v] ?? ''));
 }
 
 interface Unit {
@@ -418,7 +577,7 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
       if (more) for (const v of more) add(v, weight);
     }
     bests.push(best);
-    if (!best.size) unknown.push(t.text);
+    if (!best.size) unknown.push(t.typed ?? t.text);
     // Highlight the words that carry the query, not every "the" and "is".
     if (!QUIET.has(t.text) || terms.length === 1) for (const x of t.alts.keys()) words.add(x);
     const f = Math.log(1 + n / Math.max(1, best.size));
@@ -437,7 +596,8 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
   // Short queries must match fully; long ones (quotes from memory) may miss a few words.
   const floor = (all <= 2 ? 0.99 : all <= 4 ? 0.6 : 0.45) * 0.999;
   let units: Unit[] = [];
-  for (const v of touched) if (score[v] / mass >= floor) units.push({ v, span: 1, cover: score[v] / mass });
+  // (Fully: each word or a form of it, or the start of the word being typed.)
+  for (const v of touched) if (score[v] / mass >= floor || (all <= 2 && hits[v] >= all)) units.push({ v, span: 1, cover: score[v] / mass });
   // Words remembered from around a verse: a verse and the next, together,
   // when together they hold clearly more of the query than either alone.
   if (all >= 3) {
@@ -463,7 +623,8 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
       let order = -1;
       let bsbToks = 0;
       for (const [name, ls] of versions) {
-        const toks = u.span === 2 ? [...verseTokens(ls, u.v), ...verseTokens(ls, u.v + 1)] : verseTokens(ls, u.v);
+        const f = !!extra;
+        const toks = u.span === 2 ? [...verseTokens(ls, u.v, f), ...verseTokens(ls, u.v + 1, f)] : verseTokens(ls, u.v, f);
         if (!name) bsbToks = toks.length;
         const o = orderScore(toks, pos);
         // Another translation's wording wins only when it reads clearly closer.
@@ -489,7 +650,7 @@ export function searchEnglish(a: Atlas, query: string, limit = 60, texts?: strin
     out.push(u);
     for (let k = 0; k < u.span; k++) taken.add(u.v + k);
   }
-  const guesses = terms.filter((t) => t.guessed.length).map((t): [string, string[]] => [t.text, t.guessed]);
+  const guesses = terms.filter((t) => t.guessed.length).map((t): [string, string[]] => [t.typed ?? t.text, t.guessed]);
   return {
     verses: out.map((u) => u.v),
     spans: out.map((u) => u.span),
