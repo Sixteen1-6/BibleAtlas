@@ -14,9 +14,11 @@
 //!   its question and verses are published, the chain itself only when
 //!   `ATLAS_ASK_DRAFTS=1` is set.
 //! - Every subject of Nave's Topical Bible, as a list of verses. Nave's (1896)
-//!   is used as an index only: which verses go with which subject. None of its
-//!   wording is published. The app also gathers verses for any other question
-//!   as it is asked, from these lists, the BSB text and the cross-references.
+//!   is used as an index only: which verses go with which subject. Its subject
+//!   headings are published, never the wording of its lines. The reader is in
+//!   `naves.rs`, shared with the Themes tab's Nave's rows. The app also gathers
+//!   verses for any other question as it is asked, from these lists, the BSB
+//!   text and the cross-references.
 //!
 //! Files, under web/public/data:
 //! - `ask/index.json`: the questions, the groups, and every Nave's subject's
@@ -26,18 +28,17 @@
 //!   verses and all its verses as ranges.
 
 use crate::loaded::Loaded;
-use crate::sources::Inputs;
+use crate::naves::{count, merge, Line, Naves, Subject, CITE_SPAN_MAX};
 use atlas_core::{refs, Versification};
 use serde::Deserialize;
 use serde_json::{json, Value};
-use std::collections::{BTreeMap, BTreeSet, HashMap};
+use std::collections::{BTreeSet, HashMap};
 use std::fmt::Display;
 use std::fs;
 use std::path::Path;
 
 pub const CONFIG: &str = "config/questions.json";
 pub const DRAFTS_ENV: &str = "ATLAS_ASK_DRAFTS";
-const SOURCE: &str = "naves";
 
 /// The groups questions are listed under, in this order.
 pub const GROUPS: [&str; 8] = [
@@ -75,9 +76,6 @@ const CHAIN_MAX: usize = 1200;
 const QUESTION_MAX: usize = 90;
 /// Verses shown first for a topic or an unreviewed question.
 const TOP: usize = 5;
-/// A Nave's reference longer than this is a passage; its verses still join
-/// the cluster but do not count towards which verses are shown first.
-const CITE_SPAN_MAX: u32 = 3;
 /// Subjects per `ask/topics/<n>.json` file.
 pub const TOPIC_SHARD: usize = 250;
 
@@ -118,275 +116,7 @@ struct PartSpec {
     words: Option<String>,
 }
 
-// ------------------------------------------------------------ Nave's
-
-/// One line of a Nave's entry: its label and the verse ranges it cites.
-struct Line {
-    label: String,
-    /// The top-level line an indented line belongs to.
-    parent: Option<usize>,
-    refs: Vec<(u32, u32)>,
-}
-
-struct Subject {
-    /// As Nave's writes it: "ANGER", "SPEAKING, EVIL".
-    key: String,
-    lines: Vec<Line>,
-}
-
-/// Rows of a CSV file with quoted fields (which may hold commas, doubled
-/// quotes and line breaks).
-fn csv_rows(text: &str) -> Vec<Vec<String>> {
-    let mut rows = Vec::new();
-    let mut row = Vec::new();
-    let mut field = String::new();
-    let mut quoted = false;
-    let mut chars = text.trim_start_matches('\u{feff}').chars().peekable();
-    while let Some(c) = chars.next() {
-        match (quoted, c) {
-            (true, '"') if chars.peek() == Some(&'"') => {
-                field.push('"');
-                chars.next();
-            }
-            (true, '"') => quoted = false,
-            (true, c) => field.push(c),
-            (false, '"') => quoted = true,
-            (false, ',') => row.push(std::mem::take(&mut field)),
-            (false, '\r') => {}
-            (false, '\n') => {
-                row.push(std::mem::take(&mut field));
-                rows.push(std::mem::take(&mut row));
-            }
-            (false, c) => field.push(c),
-        }
-    }
-    if !field.is_empty() || !row.is_empty() {
-        row.push(field);
-        rows.push(row);
-    }
-    rows
-}
-
-/// A Nave's book code ("EXO", "1CO", "Jude", "So" for the Song) at the
-/// start of `s`, followed by a reference ("31:16", "24"): the book, and the
-/// text after the code.
-fn book_code(s: &str) -> Option<(u8, &str)> {
-    let (code, rest) = s.split_once(' ')?;
-    let next = rest.split_whitespace().next()?;
-    let numbers = next.starts_with(|c: char| c.is_ascii_digit())
-        && next
-            .chars()
-            .all(|c| c.is_ascii_digit() || ":-,;.".contains(c));
-    let shaped = (2..=4).contains(&code.len())
-        && code.chars().all(|c| c.is_ascii_alphanumeric())
-        && code.chars().any(|c| c.is_ascii_alphabetic());
-    if !numbers || !shaped {
-        return None;
-    }
-    let book = if code.eq_ignore_ascii_case("so") {
-        refs::parse_book("song")
-    } else {
-        refs::parse_book(code)
-    };
-    Some((book?, rest))
-}
-
-/// Split a line of an entry into its depth (0 or 1), its label and the text of
-/// its references: "     -Called SLEEP DEU 31:16; JOB 7:21" gives
-/// (1, "Called SLEEP", "DEU 31:16; JOB 7:21").
-fn split_line(line: &str) -> (u8, &str, &str) {
-    let depth = u8::from(line.starts_with([' ', '\t']));
-    let s = line.trim().trim_start_matches('-').trim();
-    for (i, _) in s
-        .char_indices()
-        .filter(|&(i, _)| i == 0 || s[..i].ends_with(' '))
-    {
-        if book_code(&s[i..]).is_some() {
-            return (depth, s[..i].trim().trim_end_matches(',').trim(), &s[i..]);
-        }
-    }
-    (depth, s, "")
-}
-
-/// The verse ranges in a Nave's reference list: "EXO 6:16-20; JOS 21:4,10;
-/// 24; LEV 8" (a bare number after a verse is a verse in the same chapter;
-/// otherwise it is a whole chapter). `bad` counts pieces that do not resolve.
-fn nave_refs(text: &str, vz: &Versification, bad: &mut usize) -> Vec<(u32, u32)> {
-    let mut out = Vec::new();
-    let mut book: Option<u8> = None;
-    let pieces = text.split(';').flat_map(|p| p.split(" with "));
-    for piece in pieces {
-        let mut piece = piece.trim().trim_end_matches('.');
-        if piece.is_empty() {
-            continue;
-        }
-        if let Some((b, rest)) = book_code(piece) {
-            book = Some(b);
-            piece = rest;
-        }
-        let Some(b) = book else {
-            *bad += 1;
-            continue;
-        };
-        let mut chapter: Option<u16> = None;
-        // "19:18." and "12. See also" end a list: keep the numbers.
-        for part in piece
-            .split(',')
-            .filter_map(|p| p.split_whitespace().next())
-            .map(|p| p.trim_end_matches('.'))
-            .filter(|p| !p.is_empty())
-        {
-            let range = nave_part(part, b, &mut chapter, vz);
-            match range {
-                Some(r) => out.push(r),
-                None => *bad += 1,
-            }
-        }
-    }
-    out
-}
-
-fn nave_part(
-    part: &str,
-    b: u8,
-    chapter: &mut Option<u16>,
-    vz: &Versification,
-) -> Option<(u32, u32)> {
-    let num = |s: &str| s.trim().parse::<u16>().ok().filter(|&n| n > 0);
-    let (first, last) = match part.split_once('-') {
-        Some((x, y)) => (x, Some(y)),
-        None => (part, None),
-    };
-    let one_chapter = vz.chapters_in(b) == 1;
-    if let Some((c, v)) = first.split_once(':') {
-        let (c, v) = (num(c)?, num(v)?);
-        *chapter = Some(c);
-        let start = vz.index(b, c, v)?;
-        let end = match last {
-            None => start,
-            Some(y) => match y.split_once(':') {
-                Some((c2, v2)) => vz.index(b, num(c2)?, num(v2)?)?,
-                None => vz.index(b, c, num(y)?)?,
-            },
-        };
-        return (end >= start).then_some((start, end));
-    }
-    let n = num(first)?;
-    let m = match last {
-        Some(y) => num(y)?,
-        None => n,
-    };
-    if m < n {
-        return None;
-    }
-    if let Some(c) = chapter.or(one_chapter.then_some(1)) {
-        // A verse in the chapter named earlier in this piece (or in a one-chapter book).
-        return Some((vz.index(b, c, n)?, vz.index(b, c, m)?));
-    }
-    // Whole chapters.
-    let start = vz.index(b, n, 1)?;
-    let end = vz.index(b, m, vz.verses_in(b, m)?)?;
-    Some((start, end))
-}
-
-fn read_naves(inputs: &Inputs, vz: &Versification) -> Result<(Vec<Subject>, usize), String> {
-    let path = inputs.path(SOURCE, "topics");
-    let text = fs::read_to_string(&path).map_err(|e| format!("reading {}: {e}", path.display()))?;
-    let mut rows = csv_rows(&text).into_iter();
-    let header = rows.next().unwrap_or_default();
-    if header != ["section", "subject", "entry"] {
-        return Err(format!(
-            "{}: expected the columns section, subject, entry; found {header:?}",
-            path.display()
-        ));
-    }
-    let mut bad = 0usize;
-    let mut subjects: Vec<Subject> = Vec::new();
-    for row in rows.filter(|r| r.len() == 3) {
-        let key = row[1].trim().to_string();
-        if key.is_empty() {
-            continue;
-        }
-        let mut lines: Vec<Line> = Vec::new();
-        let mut parent = None;
-        for raw in row[2].lines().filter(|l| !l.trim().is_empty()) {
-            let (depth, label, refs_text) = split_line(raw);
-            let refs = nave_refs(refs_text, vz, &mut bad);
-            if depth == 0 {
-                parent = Some(lines.len());
-            }
-            lines.push(Line {
-                label: label.to_string(),
-                parent: if depth == 0 { None } else { parent },
-                refs,
-            });
-        }
-        // A subject listed twice reads as one.
-        match subjects.iter_mut().find(|s| s.key == key) {
-            Some(s) => s.lines.extend(lines.into_iter().map(|mut l| {
-                l.parent = None;
-                l
-            })),
-            None => subjects.push(Subject { key, lines }),
-        }
-    }
-    Ok((subjects, bad))
-}
-
-/// "SPEAKING, EVIL" -> "Speaking, Evil"; "JESUS, THE CHRIST" -> "Jesus, the Christ".
-fn title(key: &str) -> String {
-    const SMALL: [&str; 12] = [
-        "a", "an", "and", "as", "at", "by", "for", "from", "in", "of", "the", "to",
-    ];
-    key.split(' ')
-        .enumerate()
-        .map(|(i, w)| {
-            let lower = w.to_lowercase();
-            if i > 0 && SMALL.contains(&lower.as_str()) {
-                return lower;
-            }
-            let mut c = lower.chars();
-            match c.next() {
-                Some(f) => f.to_uppercase().chain(c).collect(),
-                None => String::new(),
-            }
-        })
-        .collect::<Vec<_>>()
-        .join(" ")
-}
-
-/// The id a topic is linked by: its title in lowercase words joined by hyphens.
-/// The web app computes the same from the title.
-pub fn slug(title: &str) -> String {
-    let mut out = String::new();
-    for c in title.chars().flat_map(char::to_lowercase) {
-        if c.is_alphanumeric() {
-            out.push(c);
-        } else if !out.is_empty() && !out.ends_with('-') {
-            out.push('-');
-        }
-    }
-    out.trim_end_matches('-').to_string()
-}
-
 // ------------------------------------------------------------ verse sets
-
-/// Sorted, merged, inclusive ranges.
-fn merge(mut rs: Vec<(u32, u32)>) -> Vec<(u32, u32)> {
-    rs.sort_unstable();
-    let mut out: Vec<(u32, u32)> = Vec::new();
-    for (s, e) in rs {
-        match out.last_mut() {
-            Some(last) if s <= last.1 + 1 => last.1 = last.1.max(e),
-            _ => out.push((s, e)),
-        }
-    }
-    out
-}
-
-fn count(rs: &[(u32, u32)]) -> u32 {
-    rs.iter().map(|(s, e)| e - s + 1).sum()
-}
 
 fn ranges_json(rs: &[(u32, u32)]) -> Value {
     Value::Array(rs.iter().map(|&(s, e)| json!([s, e])).collect())
@@ -736,12 +466,12 @@ fn question(
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(
     root: &Path,
-    inputs: &Inputs,
+    naves: &Naves,
     vz: &Versification,
     text: &[String],
     degree: &[u32],
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
-    let (subjects, bad) = read_naves(inputs, vz)?;
+    let (subjects, bad) = (&naves.subjects, naves.bad);
     // By capitals: a few subjects are written "ANGEL (a spirit)".
     let by_key: HashMap<String, &Subject> =
         subjects.iter().map(|s| (s.key.to_uppercase(), s)).collect();
@@ -784,34 +514,13 @@ pub fn build(
 
     // Every subject: its title and verse count in the index, its verses in a shard.
     let mut topics = Vec::new();
-    let mut slugs: BTreeMap<String, usize> = BTreeMap::new();
     let mut shards: Vec<Vec<Value>> = Vec::new();
-    for s in subjects
-        .iter()
-        .filter(|s| s.lines.iter().any(|l| !l.refs.is_empty()))
-    {
-        let name = title(&s.key);
-        let id = slug(&name);
-        if id.is_empty() {
-            continue;
-        }
-        if let Some(prev) = slugs.insert(id.clone(), topics.len()) {
-            return Err(format!(
-                "Nave's subjects {} and {} would share the link {id:?}",
-                subjects[prev].key, s.key
-            ));
-        }
-        let all = merge(
-            s.lines
-                .iter()
-                .flat_map(|l| l.refs.iter().copied())
-                .collect(),
-        );
+    for t in &naves.listed {
         if topics.len() % TOPIC_SHARD == 0 {
             shards.push(Vec::new());
         }
-        shards.last_mut().unwrap().push(json!({ "top": ranges_json(&most_cited(s.lines.iter(), degree)), "v": ranges_json(&all) }));
-        topics.push(json!([name, count(&all)]));
+        shards.last_mut().unwrap().push(json!({ "top": ranges_json(&most_cited(subjects[t.subject].lines.iter(), degree)), "v": ranges_json(&t.verses) }));
+        topics.push(json!([t.title, count(&t.verses)]));
     }
     for (n, shard) in shards.iter().enumerate() {
         out.push((
@@ -918,40 +627,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn csv_quoted_fields() {
-        let rows = csv_rows("a,b,c\nA,\"X, Y\",\"-one \"\"two\"\"\n-three\"\n");
-        assert_eq!(
-            rows,
-            vec![
-                vec!["a", "b", "c"],
-                vec!["A", "X, Y", "-one \"two\"\n-three"]
-            ]
-        );
-    }
-
-    #[test]
-    fn lines_and_labels() {
-        assert_eq!(
-            split_line("-Called SLEEP DEU 31:16; JOB 7:21"),
-            (0, "Called SLEEP", "DEU 31:16; JOB 7:21")
-        );
-        assert_eq!(
-            split_line("     -JOB JOB 3; 6:8-11"),
-            (1, "JOB", "JOB 3; 6:8-11")
-        );
-        assert_eq!(split_line("-See HATRED"), (0, "See HATRED", ""));
-        assert_eq!(split_line("-INSTANCES OF"), (0, "INSTANCES OF", ""));
-    }
-
-    #[test]
-    fn titles_and_slugs() {
-        assert_eq!(title("SPEAKING, EVIL"), "Speaking, Evil");
-        assert_eq!(title("JESUS, THE CHRIST"), "Jesus, the Christ");
-        assert_eq!(slug("Speaking, Evil"), "speaking-evil");
-        assert_eq!(slug("Love of God"), "love-of-god");
-    }
-
-    #[test]
     fn framework_words() {
         assert_eq!(
             outside_word("What do scholars say about hell?"),
@@ -988,14 +663,5 @@ mod tests {
             Some(("“Be angry, yet do not sin.”", false, true))
         );
         assert_eq!(normalize("God’s love—“for all”"), "gods love for all");
-    }
-
-    #[test]
-    fn merged_ranges() {
-        assert_eq!(
-            merge(vec![(5, 7), (1, 2), (3, 4), (10, 10), (6, 9)]),
-            vec![(1, 10)]
-        );
-        assert_eq!(count(&[(1, 3), (8, 8)]), 4);
     }
 }

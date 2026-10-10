@@ -48,7 +48,8 @@ fn bare_greek(s: &str) -> String {
         .collect()
 }
 
-pub fn run(out: &Path) -> Result<(), String> {
+/// `root` is the repository, for the config files some checks read.
+pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     let d = Loaded::open(out)?;
     let mut r = Report { passed: 0, failed: Vec::new() };
 
@@ -139,6 +140,7 @@ pub fn run(out: &Path) -> Result<(), String> {
     let (src, _) = d.resolve("Gen 1:1")?;
     r.check(d.graph.out(src).len() >= 10, "Genesis 1:1 has at least 10 cross-references");
     for (ok, what) in crate::ask::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::naves::verify(&d, root)? { r.check(ok, what); }
 
     // Word alignment: the English word and the original word it translates
     // share a group: John 3:16 "loved" (4th English word) is ἠγάπησεν (3rd
