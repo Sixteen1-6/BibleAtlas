@@ -97,8 +97,9 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
 
     // Themes: ids pinned, groups and levels, readable sizes, the word senses
     // left out stay out, the verses they are about stay in, coverage, the
-    // themes they are often linked with, and the links rule's pins.
-    for (ok, what) in crate::themes::verify(&d)? { r.check(ok, what); }
+    // themes they are often linked with, the links rule's pins, and related
+    // words checked against config/theme-related.json and the word families.
+    for (ok, what) in crate::themes::verify(&d, root)? { r.check(ok, what); }
 
     // 4. Facts known independently of this project.
     let gen11 = d.verse(d.resolve("Gen 1:1")?.0)?;

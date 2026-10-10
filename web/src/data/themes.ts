@@ -16,9 +16,19 @@
 // skipped. Ranked by carrying links, then the summed log2(1 + votes), then
 // the smaller theme. The same rule, with the same constants from
 // meta.themeLinks, runs in crates/atlas-cli/src/themes.rs for atlas verify.
+//
+// Themes through a related word: a verse word whose root is one of a theme's
+// related roots (theme.related, from the reviewed list in
+// config/theme-related.json: a word of the same family as one of the theme's
+// words). Never on one of the theme's own verses, a verse holding one of its
+// left-out senses or skipWith roots, or (for a root in relatedOnly) a verse
+// not listed there; never a theme hidden at the level. A separate, labelled
+// reason: it adds no verse to the theme. The same rule runs in themes.rs
+// (Related) for atlas verify.
 
 import { englishParts } from './align';
 import { type Atlas, type Theme, type ThemeLinkRule, versesWithRoot } from './atlas';
+import type { Relation } from './forms';
 import { FLAG, type VerseRow } from './text';
 import { THREAD_VOTES, themeThread, themeVerses } from './thread';
 
@@ -86,6 +96,9 @@ interface Index {
   blocked: Map<number, number[]>;
   /** Themes through links, per level and verse. */
   through: Map<string, ThroughTheme[]>;
+  /** Verse -> [theme, related root] pairs, reached through a related word
+   *  (every level). */
+  related: Map<number, [number, number][]>;
 }
 
 const indexes = new WeakMap<Atlas, Index>();
@@ -114,7 +127,22 @@ export function themeIndex(a: Atlas): Index {
       }
     }
   });
-  ix = { off, theme, size: Uint32Array.from(sets, (s) => s.length), blocked, through: new Map() };
+  ix = { off, theme, size: Uint32Array.from(sets, (s) => s.length), blocked, through: new Map(), related: new Map() };
+  const index = ix;
+  a.themes.forEach((t, j) => {
+    if (!t.related?.length) return;
+    const barred = new Set<number>();
+    for (const r of [...(t.left ?? []), ...(t.skipWith ?? [])]) for (const v of versesWithRoot(a, r)) barred.add(v);
+    for (const [r] of t.related) {
+      const only = t.relatedOnly?.find((o) => o[0] === r)?.[2];
+      for (const v of versesWithRoot(a, r)) {
+        if (barred.has(v) || hasTheme(index, v, j) || (only && !only.includes(v))) continue;
+        const list = index.related.get(v);
+        if (!list) index.related.set(v, [[j, r]]);
+        else if (!list.some(([k, x]) => k === j && x === r)) list.push([j, r]);
+      }
+    }
+  });
   indexes.set(a, ix);
   return ix;
 }
@@ -224,6 +252,65 @@ export function themesThroughLinks(a: Atlas, v: number, level: ThemeLevel): Thro
   return out;
 }
 
+// ------------------------------------------------------------ related words
+
+export interface RelatedWord {
+  /** The verse's word (its root). */
+  root: number;
+  /** The theme's word it is related to, and that word's tie to it, as
+   *  forms.ts names relations ('c': the theme's word comes from it). */
+  via: number;
+  rel: Relation;
+}
+
+export interface RelatedTheme {
+  theme: number;
+  /** The verse's words related to the theme's words, one per root. */
+  words: RelatedWord[];
+  /** How many of the verse's strongest links carry the theme. */
+  shared: number;
+}
+
+/** Themes reached through a related word in the verse (see the rule at the
+ *  top of this file), ordered as its own themes are: the focused ones before
+ *  Study's broad words, then the theme most of its strongest links share,
+ *  then the rarer theme. */
+export function relatedThemes(a: Atlas, v: number, level: ThemeLevel): RelatedTheme[] {
+  const ix = themeIndex(a);
+  const pairs = ix.related.get(v);
+  if (!pairs) return [];
+  const by = new Map<number, RelatedWord[]>();
+  for (const [j, r] of pairs) {
+    const t = a.themes[j];
+    const row = t.related?.find((x) => x[0] === r);
+    if (!shownAt(t, level) || !row) continue;
+    const word = { root: r, rel: row[1], via: row[2] };
+    const list = by.get(j);
+    if (list) list.push(word);
+    else by.set(j, [word]);
+  }
+  if (!by.size) return [];
+  const links = strongestLinks(a, v);
+  const broad = (j: number) => (a.themes[j].level === 'study' ? 1 : 0);
+  return [...by]
+    .map(([theme, words]) => ({ theme, words, shared: links.filter(([u]) => hasTheme(ix, u, theme)).length }))
+    .sort((p, q) => broad(p.theme) - broad(q.theme) || q.shared - p.shared || ix.size[p.theme] - ix.size[q.theme] || p.theme - q.theme);
+}
+
+/** The theme's word as a related word's row names it: the part of its gloss
+ *  ("face: anger") that shares a word with the theme's name, the sense first,
+ *  else the gloss before the colon. */
+export function viaName(a: Atlas, theme: Theme, via: number): string {
+  const gloss = (a.lemmas.gloss[via] ?? '').replace(/`/g, '');
+  const cut = gloss.indexOf(':');
+  const head = (cut >= 0 ? gloss.slice(0, cut) : gloss).trim();
+  const sense = cut >= 0 ? gloss.slice(cut + 1).trim() : '';
+  const name = stemWords(theme.name);
+  const likeName = (s: string) => stemWords(s).some((w) => name.some((x) => sameStem(x, w)));
+  if (sense && likeName(sense)) return sense;
+  return head || sense;
+}
+
 // ------------------------------------------------------------ the words
 
 export interface ThemeWords {
@@ -291,6 +378,51 @@ function lastIndex<T>(xs: T[], ok: (x: T) => boolean): number {
   return -1;
 }
 
+interface EnglishTokens {
+  /** The verse's English words... */
+  tokens: string[];
+  /** ...and after which of them a punctuation mark stands. */
+  mark: boolean[];
+}
+
+/** The verse's English words, for a verse with a word-by-word alignment. */
+function englishTokens(row: VerseRow): EnglishTokens | null {
+  if (!row[2]) return null;
+  const tokens: string[] = [];
+  const mark: boolean[] = [];
+  for (const p of englishParts(row[0])) {
+    if (p.word >= 0) {
+      tokens.push(p.text);
+      mark.push(false);
+    } else if (tokens.length && /[^\s'’]/u.test(p.text)) mark[tokens.length - 1] = true;
+  }
+  return { tokens, mark };
+}
+
+/** The English words (indices into `eng.tokens`) aligned to word `pos`, less
+ *  the parts on the far side of a punctuation mark when only the other part
+ *  looks like the word (a form of one of `like()`). */
+function alignedTokens(row: VerseRow, eng: EnglishTokens, pos: number, like: () => string[]): number[] {
+  const al = row[2]!;
+  const entry = al.w[pos];
+  const groups = new Set((Array.isArray(entry) ? entry.map((p) => p[2]) : [entry ?? -1]).filter((g) => g >= 0));
+  let ks: number[] = [];
+  al.e.forEach((g, k) => groups.has(g) && k < eng.tokens.length && ks.push(k));
+  // Parts of the quote between punctuation marks.
+  const parts: number[][] = [];
+  ks.forEach((k, i) => {
+    if (i === 0 || eng.mark.slice(ks[i - 1], k).some(Boolean)) parts.push([k]);
+    else parts[parts.length - 1].push(k);
+  });
+  if (parts.length > 1) {
+    const words = like();
+    const looks = parts.map((part) => part.some((k) => words.some((x) => sameStem(x, eng.tokens[k].toLowerCase()))));
+    const first = looks.indexOf(true);
+    if (first >= 0) ks = parts.slice(first, lastIndex(looks, Boolean) + 1).flat();
+  }
+  return ks;
+}
+
 /** The theme's words in a verse, and the BSB English aligned to them. Only
  *  main-edition words count, as they do for the theme's verses.
  *
@@ -305,18 +437,7 @@ function lastIndex<T>(xs: T[], ok: (x: T) => boolean): number {
  *  older BSB), the word's own gloss is shown instead, with `gloss` set. */
 export function themeWordsIn(a: Atlas, row: VerseRow, theme: Theme): ThemeWords {
   const roots = new Set(theme.roots);
-  const al = row[2];
-  // The English words, and after which of them a punctuation mark stands.
-  const tokens: string[] = [];
-  const mark: boolean[] = [];
-  if (al) {
-    for (const p of englishParts(row[0])) {
-      if (p.word >= 0) {
-        tokens.push(p.text);
-        mark.push(false);
-      } else if (tokens.length && /[^\s'’]/u.test(p.text)) mark[tokens.length - 1] = true;
-    }
-  }
+  const eng = englishTokens(row);
   const name = stemWords(theme.name);
   const runs: { at: number; text: string }[] = [];
   const glosses: string[] = [];
@@ -325,26 +446,11 @@ export function themeWordsIn(a: Atlas, row: VerseRow, theme: Theme): ThemeWords 
     if (w[3] < 0 || !roots.has(w[3]) || w[5] & FLAG.otherEditions) return;
     words.push({ pos, root: w[3] });
     const gloss = plainGloss(w[2] ?? '');
-    if (al) {
-      const entry = al.w[pos];
-      const groups = new Set((Array.isArray(entry) ? entry.map((p) => p[2]) : [entry ?? -1]).filter((g) => g >= 0));
-      let ks: number[] = [];
-      al.e.forEach((g, k) => groups.has(g) && k < tokens.length && ks.push(k));
-      // Parts of the quote between punctuation marks.
-      const parts: number[][] = [];
-      ks.forEach((k, i) => {
-        if (i === 0 || mark.slice(ks[i - 1], k).some(Boolean)) parts.push([k]);
-        else parts[parts.length - 1].push(k);
-      });
-      if (parts.length > 1) {
-        const like = [...name, ...stemWords(gloss), ...stemWords(a.lemmas.gloss[w[3]] ?? '')];
-        const looks = parts.map((part) => part.some((k) => like.some((x) => sameStem(x, tokens[k].toLowerCase()))));
-        const first = looks.indexOf(true);
-        if (first >= 0) ks = parts.slice(first, lastIndex(looks, Boolean) + 1).flat();
-      }
-      const end = lastIndex(ks, (k) => !SMALL.has(tokens[k].toLowerCase())) + 1;
+    if (eng) {
+      const ks = alignedTokens(row, eng, pos, () => [...name, ...stemWords(gloss), ...stemWords(a.lemmas.gloss[w[3]] ?? '')]);
+      const end = lastIndex(ks, (k) => !SMALL.has(eng.tokens[k].toLowerCase())) + 1;
       if (end > 0) {
-        runs.push({ at: ks[0], text: ks.slice(0, end).map((k) => tokens[k]).join(' ') });
+        runs.push({ at: ks[0], text: ks.slice(0, end).map((k) => eng.tokens[k]).join(' ') });
         return;
       }
     }
@@ -354,6 +460,73 @@ export function themeWordsIn(a: Atlas, row: VerseRow, theme: Theme): ThemeWords 
   const quotes = [...new Set(runs.map((r) => r.text))];
   if (quotes.length) return { quotes, gloss: false, words };
   return { quotes: [...new Set(glosses)], gloss: glosses.length > 0, words };
+}
+
+export interface RelatedWordIn extends RelatedWord {
+  /** The BSB words it became, without small words at either end ("rested"),
+   *  or its own gloss, with `gloss` set. */
+  quote: string;
+  gloss: boolean;
+}
+
+/** Gloss words that never make an English word look like a related word
+ *  ("to testify against" does not make "against" the word). */
+const NOT_LIKE = new Set(['against']);
+
+/** A theme's related words in a verse, each with the BSB English aligned to
+ *  it: small words left out at both ends ("He rested" is "rested"); in a run
+ *  of three words or more, only the words that look like the word or the
+ *  theme's word or name, and the words straight after them up to a small
+ *  word ("as well as wheat" is "wheat", "indulged in sexual immorality" is
+ *  "sexual immorality"); for a root in relatedOnly, only the listed words
+ *  ("the land will have the rest" is "rest"); for a root in relatedGloss, or
+ *  with no English, its gloss. */
+export function relatedWordsIn(a: Atlas, row: VerseRow, theme: Theme, related: RelatedWord[]): RelatedWordIn[] {
+  const eng = englishTokens(row);
+  const name = stemWords(theme.name);
+  return related.map((rw) => {
+    // A listed root with no words counts only in its verses, with any English.
+    const listed = theme.relatedOnly?.find((o) => o[0] === rw.root)?.[1];
+    const only = listed?.length ? listed : undefined;
+    const byGloss = theme.relatedGloss?.includes(rw.root) ?? false;
+    const runs: { at: number; text: string }[] = [];
+    const glosses: string[] = [];
+    row[1].forEach((w, pos) => {
+      if (w[3] !== rw.root || w[5] & FLAG.otherEditions) return;
+      const gloss = plainGloss(w[2] ?? '');
+      if (eng && !byGloss) {
+        let ks = alignedTokens(row, eng, pos, () => [...name, ...stemWords(gloss), ...stemWords(a.lemmas.gloss[rw.root] ?? ''), ...stemWords(a.lemmas.gloss[rw.via] ?? '')]);
+        if (only) ks = ks.filter((k) => only.includes(eng.tokens[k].toLowerCase()));
+        else {
+          const big = (k: number) => !SMALL.has(eng.tokens[k].toLowerCase());
+          const start = ks.findIndex(big);
+          ks = start < 0 ? [] : ks.slice(start, lastIndex(ks, big) + 1);
+          if (ks.length >= 3) {
+            const like = [...name, ...stemWords(a.lemmas.gloss[rw.root] ?? ''), ...stemWords(a.lemmas.gloss[rw.via] ?? '')].filter((x) => !NOT_LIKE.has(x));
+            const looks = (k: number) => like.some((x) => sameStem(x, eng.tokens[k].toLowerCase()));
+            const first = ks.findIndex(looks);
+            if (first >= 0) {
+              let end = lastIndex(ks, looks) + 1;
+              while (end < ks.length && big(ks[end])) end++;
+              ks = ks.slice(first, end);
+            }
+          }
+        }
+        if (ks.length) {
+          runs.push({ at: ks[0], text: ks.map((k) => eng.tokens[k]).join(' ') });
+          return;
+        }
+        // Another use of the root in the verse, not the one the list names.
+        if (only) return;
+      }
+      if (gloss) glosses.push(chipGloss(gloss));
+    });
+    runs.sort((p, q) => p.at - q.at);
+    const quotes = [...new Set(runs.map((r) => r.text))];
+    if (quotes.length) return { ...rw, quote: quotes.join(' / '), gloss: false };
+    const g = [...new Set(glosses)];
+    return { ...rw, quote: g.length ? g.join(' / ') : (a.lemmas.gloss[rw.root] ?? '').replace(/`/g, ''), gloss: true };
+  });
 }
 
 // ------------------------------------------------------------ in a theme's journey

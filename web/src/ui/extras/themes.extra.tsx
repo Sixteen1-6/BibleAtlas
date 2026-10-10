@@ -1,7 +1,9 @@
 // Themes, under a verse: the themes its own Hebrew or Greek words carry,
 //   "Themes: Lamb · Sacrifice and offering"                 (Genesis 22:8)
-// or, with none, the first theme its strongest links lead to,
-//   "Linked to Sabbath rest, through Hebrews 4:4"           (Genesis 2:2)
+// or, with none, the first theme one of its words is a related word of,
+//   "Sabbath rest, through a related word"                  (Genesis 2:2)
+// or else the first theme its strongest links lead to,
+//   "Linked to Sabbath rest, through Luke 13:14"            (Exodus 20:9)
 // and nothing at all where no theme runs through the verse or its links.
 //
 // The panel is the verse's themes card from the Themes tab, and a way to
@@ -13,10 +15,10 @@
 import './themes.css';
 import { useEffect } from 'preact/hooks';
 import type { Atlas } from '../../data/atlas';
-import { themeIndex, themesThroughLinks, verseThemes } from '../../data/themes';
+import { relatedThemes, themeIndex, themesThroughLinks, verseThemes } from '../../data/themes';
 import * as S from '../../state';
 import { openThemeFromVerse, themeLevel } from '../ThemeThread';
-import { VerseThemeCard, ownLineText, themeLine } from '../VerseThemes';
+import { VerseThemeCard, ownLineText, relatedLineText, themeLine } from '../VerseThemes';
 import { readerHere } from './first-move';
 import { Lead, SourceNote } from './kit';
 import { closeExtra } from './open';
@@ -35,7 +37,7 @@ function Panel({ a, verse, navigate }: PanelProps<Data>) {
     return S.study.subscribe((now) => now !== before && closeExtra('quiet'));
   }, []);
   const level = themeLevel();
-  const first = verseThemes(a, verse, level)[0]?.theme ?? themesThroughLinks(a, verse, level)[0]?.theme;
+  const first = verseThemes(a, verse, level)[0]?.theme ?? relatedThemes(a, verse, level)[0]?.theme ?? themesThroughLinks(a, verse, level)[0]?.theme;
   // The theme opens in the Themes tab, lit on the map, with the verse kept.
   const follow = (id: string) => {
     closeExtra('quiet');
@@ -52,7 +54,10 @@ function Panel({ a, verse, navigate }: PanelProps<Data>) {
           Follow {a.themes[first].name} through the Bible <span aria-hidden="true">›</span>
         </button>
       )}
-      <SourceNote>Themes from config/themes.json, traced through STEPBible’s tagged Hebrew and Greek (CC BY 4.0); links from OpenBible.info (CC BY 4.0).</SourceNote>
+      <SourceNote>
+        Themes from config/themes.json, traced through STEPBible’s tagged Hebrew and Greek (CC BY 4.0); links from OpenBible.info (CC BY 4.0); related words from config/theme-related.json, checked
+        against the word families from Strong’s dictionaries (1890; JSON by Open Scriptures, CC BY-SA) and STEPBible’s lexicons (CC BY 4.0).
+      </SourceNote>
     </>
   );
 }
@@ -70,6 +75,7 @@ export default defineExtra<Data>({
     const d = themeLine(a, verse, themeLevel());
     if (!d) return null;
     if (d.kind === 'own') return ownLineText(d);
+    if (d.kind === 'related') return relatedLineText(d);
     return [`Linked to ${d.theme}, through `, { verse: d.via }];
   },
   Panel,

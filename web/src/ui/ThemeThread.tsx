@@ -6,7 +6,7 @@ import { signal } from '@preact/signals';
 import type { ComponentChildren } from 'preact';
 import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
 import { type BridgeTable, loadBridges } from '../data/bridges';
-import { type ThemeLevel, inTheme, linksBetween, shownAt, themesThroughLinks, verseThemes, whereItFits } from '../data/themes';
+import { type RelatedWord, type RelatedWordIn, type ThemeLevel, inTheme, linksBetween, relatedThemes, relatedWordsIn, shownAt, themesThroughLinks, verseThemes, viaName, whereItFits } from '../data/themes';
 import { ALL_VOTES, THREAD_VOTES, type Thread, linksWithinRows, themeLinkCount, themeThread, themeVerses } from '../data/thread';
 import { atLeast } from '../depth';
 import * as S from '../state';
@@ -395,9 +395,91 @@ function backToVerse(id: string): void {
   });
 }
 
+/** How a verse's related word is tied to the theme's word, seen from the
+ *  verse's word: "the word שַׁבָּת Sabbath comes from it". `w.rel` is the theme
+ *  word's tie to it, as forms.ts relation() words it, turned round. */
+export function RelatedTie({ a, theme, w }: { a: Atlas; theme: Theme; w: RelatedWord }) {
+  const via = (
+    <span class="vt-via">
+      <span class={`o ${a.lemmas.lang[w.via] === 'G' ? 'gr' : 'he'}`}>{a.lemmas.word[w.via]}</span> {viaName(a, theme, w.via)}
+    </span>
+  );
+  switch (w.rel) {
+    case 'c':
+      return <>the word {via} comes from it</>;
+    case 'p':
+      return <>it comes from the word {via}</>;
+    case 's':
+      // Across Hebrew and Aramaic, the other word's language: Aramaic טַל dew
+      // shares a root with the Hebrew word טַל dew.
+      return (
+        <>
+          it shares a root with the {a.lemmas.lang[w.via] === a.lemmas.lang[w.root] ? '' : a.lemmas.lang[w.via] === 'A' ? 'Aramaic ' : 'Hebrew '}word {via}
+        </>
+      );
+    case 'a':
+      return (
+        <>
+          the same word as {via}, in {a.lemmas.lang[w.root] === 'A' ? 'Aramaic' : 'Hebrew'}
+        </>
+      );
+    case 'f':
+      return <>another form of the word {via}</>;
+    default:
+      return <>related to the word {via}</>;
+  }
+}
+
+/** A verse outside the theme whose words are related words of the theme's:
+ *  "its word “rested” is related to one of this theme's words" ("its words
+ *  “gold” / “silver” are related to this theme's words"); Study adds the
+ *  Hebrew or Greek and how ("the word שַׁבָּת Sabbath comes from it"). */
+function RelatedFit({ a, theme, v, words }: { a: Atlas; theme: Theme; v: number; words: RelatedWord[] }) {
+  const study = atLeast('study');
+  const row = useVerseRow(a, v);
+  const got = useMemo(() => (row ? relatedWordsIn(a, row, theme, words) : null), [a, row, theme, words]);
+  const quote = (w: RelatedWordIn) => (w.gloss ? <span class="vt-gloss">{w.quote}</span> : <q class="vt-relq">{w.quote}</q>);
+  return (
+    <>
+      but{' '}
+      {!got?.length ? (
+        'one of its words is related to one of this theme’s words'
+      ) : got.length === 1 ? (
+        <>its word {quote(got[0])} is related to one of this theme’s words</>
+      ) : (
+        <>
+          its words{' '}
+          {got.map((w, i) => (
+            <span key={w.root}>
+              {i > 0 && ' / '}
+              {quote(w)}
+            </span>
+          ))}{' '}
+          are related to this theme’s words
+        </>
+      )}
+      {study && got?.length ? (
+        <>
+          :{' '}
+          {got.map((w, i) => (
+            <span key={w.root}>
+              {i > 0 && '; '}
+              <RootChip a={a} root={w.root} /> <RelatedTie a={a} theme={theme} w={w} />
+            </span>
+          ))}
+          .
+        </>
+      ) : (
+        '.'
+      )}{' '}
+    </>
+  );
+}
+
 /** One line under the hero for the selected verse: its step of the thread,
  *  the step it links to, or one of the theme's verses; or, for a verse
- *  outside the theme, plainly that it is not one of them, and its own themes. */
+ *  outside the theme, plainly that it is not one of them, how one of its
+ *  words is related to the theme's (when it is), and its own themes. */
 function FitLine({ a, theme, v, fromHere, onStep }: { a: Atlas; theme: Theme; v: number; fromHere: boolean; onStep: (i: number) => void }) {
   const level = themeLevel();
   const study = atLeast('study');
@@ -406,6 +488,7 @@ function FitLine({ a, theme, v, fromHere, onStep }: { a: Atlas; theme: Theme; v:
   const fit = useMemo(() => whereItFits(a, theme, v), [a, theme, v]);
   const mine = inTheme(a, j, v);
   const own = useMemo(() => verseThemes(a, v, level).map((o) => o.theme), [a, v, level]);
+  const related = useMemo(() => relatedThemes(a, v, level).find((t) => t.theme === j), [a, v, level, j]);
   const through = useMemo(() => themesThroughLinks(a, v, level), [a, v, level]);
   const stepLink = (i: number) => (
     <button type="button" class="tj-steplink" onClick={() => onStep(i)}>
@@ -452,6 +535,17 @@ function FitLine({ a, theme, v, fromHere, onStep }: { a: Atlas; theme: Theme; v:
   }
 
   const reached = through.find((t) => t.theme === j);
+  if (related) {
+    return (
+      <div class="tj-fit is-out">
+        <p>
+          {name} is not one of the {theme.name} verses, <RelatedFit a={a} theme={theme} v={v} words={related.words} />
+          {linkLine && <>It {linkLine}</>}
+        </p>
+        {back}
+      </div>
+    );
+  }
   return (
     <div class="tj-fit is-out">
       <p>
