@@ -7,8 +7,12 @@
 //! that has none, such as a source added after the shelf was written, gets a
 //! plain card made from its sources.json entry and a warning, never an error.
 //! The build also finds where the app cites each work: every source string in
-//! `config/aramaic.json` is matched against the works' `cites`, and a string
-//! that matches no work, or more than one, is a warning that lists it.
+//! `config/aramaic.json`, and every site the published "Often asked" answers
+//! (`config/hard-verses.json`) link to for further reading, is matched against
+//! the works' `cites`, and a string that matches no work, or more than one, is
+//! a warning that lists it. A work marked `onlyWhenCited` (a website only those
+//! answers link to) is on the shelf only while the app cites it, so the sites
+//! of answers still waiting for review stay off it.
 //!
 //! The dictionaries, Easton's (1897) and Smith's (1884), are read from the
 //! Christian Classics Ethereal Library's ThML editions, as kept in NEUU's
@@ -25,11 +29,12 @@
 //!
 //! Outputs, under web/public/data:
 //! - `shelf.json`: `{format, groups, works, dictionaries}`. Groups in display
-//!   order (only those with works); each work as config/shelf.json gives it
-//!   (`cites` too, when it has any, so the web can link a citation string to
-//!   its work), plus `cited` (where the app cites it, at most [`CITED_MAX`]:
-//!   `{verse, to?, where}`) and `citedCount`; and for each dictionary its
-//!   number of entries and the letters it has files for.
+//!   order (only those with works); each work on the shelf as
+//!   config/shelf.json gives it (`cites` too, when it has any, so the web can
+//!   link a citation string to its work), plus `cited` (where the app cites
+//!   it, at most [`CITED_MAX`]: `{verse, to?, where}`, `where` being
+//!   "aramaic" or "hard-verses") and `citedCount`; and for each dictionary
+//!   its number of entries and the letters it has files for.
 //! - `dict/<id>/index.json`: `[[name, slug, letter]]`, sorted by name.
 //! - `dict/<id>/<letter>.json`: `{slug: {name, text, refs}}`. `text` is a note
 //!   line: a string, or strings and verse links (`{verse, to?, text}`) in
@@ -51,6 +56,7 @@ use std::path::Path;
 
 const CONFIG: &str = "config/shelf.json";
 const ARAMAIC: &str = "config/aramaic.json";
+const HARD_VERSES: &str = "config/hard-verses.json";
 const OUT: &str = "shelf.json";
 
 /// The dictionaries: sources.json id, the title its edition gives itself, and
@@ -120,6 +126,9 @@ struct Work {
     citation: String,
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     cites: Vec<String>,
+    /// On the shelf only while the app cites it.
+    #[serde(default, skip_serializing)]
+    only_when_cited: bool,
 }
 
 /// Where to read a work: in the app (`app`), or at a free full copy (`url`, `label`).
@@ -1051,14 +1060,13 @@ struct Citation {
     place: &'static str,
 }
 
-/// The source strings of config/aramaic.json, each with the verses of its
-/// word or section. Nothing if the file is not there.
+/// The sources the app shows, each with the verses it is shown at: the
+/// source strings of config/aramaic.json, with the verses of their word or
+/// section; and the sites each "Often asked" answer links to, with the verses
+/// the answer is shown at. Only published answers count, as only they are on
+/// the site (all of them when the build includes drafts). A file that is not
+/// there gives nothing.
 fn citations(root: &Path, vz: &Versification) -> Result<Vec<Citation>, String> {
-    let path = root.join(ARAMAIC);
-    if !path.exists() {
-        return Ok(Vec::new());
-    }
-    let doc: Value = read_json(&path)?;
     let at = |s: &Value| s.as_str().and_then(|s| refs::resolve(refs::parse(s)?, vz));
     let strings = |v: &Value| -> Vec<String> {
         v.as_array()
@@ -1069,35 +1077,75 @@ fn citations(root: &Path, vz: &Versification) -> Result<Vec<Citation>, String> {
             .collect()
     };
     let mut out = Vec::new();
-    for w in doc["words"].as_array().into_iter().flatten() {
-        let places: Vec<(u32, u32)> = w["refs"]
-            .as_array()
-            .into_iter()
-            .flatten()
-            .filter_map(at)
-            .collect();
-        for text in strings(&w["sources"]) {
-            out.push(Citation {
-                text,
-                at: places.clone(),
-                place: "aramaic",
-            });
+    let path = root.join(ARAMAIC);
+    if path.exists() {
+        let doc: Value = read_json(&path)?;
+        for w in doc["words"].as_array().into_iter().flatten() {
+            let places: Vec<(u32, u32)> = w["refs"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .filter_map(at)
+                .collect();
+            for text in strings(&w["sources"]) {
+                out.push(Citation {
+                    text,
+                    at: places.clone(),
+                    place: "aramaic",
+                });
+            }
+        }
+        for s in doc["sections"].as_array().into_iter().flatten() {
+            let places: Vec<(u32, u32)> = match (at(&s["from"]), at(&s["to"])) {
+                (Some((a, _)), Some((_, b))) => vec![(a, b.max(a))],
+                _ => Vec::new(),
+            };
+            for text in strings(&s["sources"]) {
+                out.push(Citation {
+                    text,
+                    at: places.clone(),
+                    place: "aramaic",
+                });
+            }
         }
     }
-    for s in doc["sections"].as_array().into_iter().flatten() {
-        let places: Vec<(u32, u32)> = match (at(&s["from"]), at(&s["to"])) {
-            (Some((a, _)), Some((_, b))) => vec![(a, b.max(a))],
-            _ => Vec::new(),
-        };
-        for text in strings(&s["sources"]) {
-            out.push(Citation {
-                text,
-                at: places.clone(),
-                place: "aramaic",
-            });
+    let path = root.join(HARD_VERSES);
+    if path.exists() {
+        let doc: Value = read_json(&path)?;
+        let drafts = std::env::var(crate::extra_hard_verses::DRAFTS_ENV).is_ok_and(|v| v == "1");
+        for q in doc["questions"].as_array().into_iter().flatten() {
+            let published = q["reviewed_by"].as_array().is_some_and(|r| !r.is_empty());
+            if !published && !drafts {
+                continue;
+            }
+            let places: Vec<(u32, u32)> = std::iter::once(&q["ref"])
+                .chain(q["also"].as_array().into_iter().flatten())
+                .filter_map(at)
+                .collect();
+            let sites: BTreeSet<&str> = q["read_more"]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .filter_map(|l| l["site"].as_str())
+                .collect();
+            for site in sites {
+                out.push(Citation {
+                    text: site.to_string(),
+                    at: places.clone(),
+                    place: "hard-verses",
+                });
+            }
         }
     }
     Ok(out)
+}
+
+/// Whether a citation string names a work by one of its `cites`: has it
+/// where a word starts, so that "Bible.org" names Bible.org but
+/// "STEPBible.org" does not.
+fn names(text: &str, part: &str) -> bool {
+    text.match_indices(part)
+        .any(|(i, _)| !text[..i].chars().next_back().is_some_and(char::is_alphanumeric))
 }
 
 // --- shelf.json ------------------------------------------------------------------------
@@ -1232,7 +1280,6 @@ fn assemble(
             name: FALLBACK_GROUP.1.to_string(),
         });
     }
-    groups.retain(|g| works.iter().any(|w| w.group == g.id));
 
     // Where the app cites each work. A citation that names several works is
     // credited to the first, as the web links it, and warned about.
@@ -1243,7 +1290,7 @@ fn assemble(
         let hits: Vec<usize> = works
             .iter()
             .enumerate()
-            .filter(|(_, w)| w.cites.iter().any(|s| c.text.contains(s.as_str())))
+            .filter(|(_, w)| w.cites.iter().any(|s| names(&c.text, s)))
             .map(|(i, _)| i)
             .collect();
         match hits.as_slice() {
@@ -1280,6 +1327,16 @@ fn assemble(
             list.join("\n")
         ));
     }
+    // A work shown only when cited, and not cited, is left out, and so is a
+    // group left with no works.
+    let shown = works.len();
+    let (works, cited): (Vec<Work>, Vec<_>) = works
+        .into_iter()
+        .zip(cited)
+        .filter(|(w, places)| !w.only_when_cited || !places.is_empty())
+        .unzip();
+    let waiting = shown - works.len();
+    groups.retain(|g| works.iter().any(|w| w.group == g.id));
 
     let mut works_json = Vec::new();
     for (w, places) in works.iter().zip(&cited) {
@@ -1313,10 +1370,10 @@ fn assemble(
             .filter(|c| unmatched.contains(c.text.as_str()))
             .count();
     eprintln!(
-        "shelf: {} works in {} groups ({configured} from {CONFIG}, {} plain cards from sources.json); {matched} of {} citations matched to a work",
+        "shelf: {} works in {} groups ({configured} from {CONFIG}, {} plain cards from sources.json, {waiting} left out until the app cites them); {matched} of {} citations matched to a work",
         works.len(),
         groups.len(),
-        works.len() - configured,
+        shown - configured,
         cites.len()
     );
     Ok((
@@ -1443,6 +1500,12 @@ fn check(
         if w.cites.iter().any(|c| c.trim().is_empty()) {
             return fail("cites has an empty string".into());
         }
+        if w.only_when_cited && (w.cites.is_empty() || !w.datasets.is_empty()) {
+            return fail(
+                "a work shown only when cited needs cites, and cannot be a dataset the app ships"
+                    .into(),
+            );
+        }
     }
     Ok(())
 }
@@ -1478,6 +1541,7 @@ fn fallback(s: &Source) -> Work {
         }),
         citation: s.attribution.clone(),
         cites: Vec::new(),
+        only_when_cited: false,
     }
 }
 
@@ -2163,6 +2227,7 @@ mod tests {
             }),
             citation: "A citation.".into(),
             cites: Vec::new(),
+            only_when_cited: false,
         }
     }
 
@@ -2334,6 +2399,79 @@ mod tests {
             (Some("Free for any use, see the site"), Some(""), Some("https://example.org/x"))
         );
         assert!(warnings.iter().any(|w| w.contains("cannot tell the license")));
+    }
+
+    #[test]
+    fn names_a_work_where_a_word_starts() {
+        assert!(names("Bible.org", "Bible.org"));
+        assert!(names("Ligonier Ministries", "Ligonier"));
+        assert!(names("x, Didache 10:6", "Didache"));
+        assert!(names("STEPBible.org and Bible.org", "Bible.org"));
+        assert!(!names(
+            "TAGNT, Translators Amalgamated Greek NT (STEPBible.org, CC BY 4.0), John 1:38",
+            "Bible.org"
+        ));
+        assert!(!names("Didache", "Didaches"));
+    }
+
+    #[test]
+    fn shows_a_work_marked_only_when_cited_while_it_is_cited() {
+        let site = |id: &str, cites: &str| {
+            let mut w = work(id, "copyrighted", &[]);
+            w.group = "unused".into();
+            w.cites = vec![cites.into()];
+            w.only_when_cited = true;
+            w
+        };
+        let works = || {
+            vec![
+                work("easton", "public-domain", &[]),
+                site("gotquestions", "GotQuestions"),
+                site("ligonier", "Ligonier"),
+            ]
+        };
+        // No answer cites them yet: both are left out, and so is their group.
+        let (shelf, warnings) = assemble(config(works()), &[], &[], &[]).unwrap();
+        let ids = |shelf: &Value| -> Vec<String> {
+            shelf["works"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .map(|w| w["id"].as_str().unwrap().to_string())
+                .collect()
+        };
+        assert_eq!(ids(&shelf), ["easton"]);
+        assert_eq!(shelf["groups"], json!([{ "id": "dictionaries", "name": "Dictionaries" }]));
+        assert!(warnings.is_empty());
+        // One answer links GotQuestions: its card and group are back, with where it is cited.
+        let cites = [Citation {
+            text: "GotQuestions".into(),
+            at: vec![(26_000, 26_000), (40_000, 40_001)],
+            place: "hard-verses",
+        }];
+        let (shelf, warnings) = assemble(config(works()), &[], &[], &cites).unwrap();
+        assert_eq!(ids(&shelf), ["easton", "gotquestions"]);
+        assert_eq!(shelf["groups"].as_array().unwrap().len(), 2);
+        assert_eq!(
+            shelf["works"][1]["cited"],
+            json!([{ "verse": 26_000, "where": "hard-verses" }, { "verse": 40_000, "to": 40_001, "where": "hard-verses" }])
+        );
+        assert!(shelf["works"][1].get("onlyWhenCited").is_none());
+        assert!(warnings.is_empty());
+        // Such a work needs cites, and is never a dataset.
+        let mut w = site("gotquestions", "GotQuestions");
+        w.cites.clear();
+        assert!(assemble(config(vec![w]), &[], &[], &[])
+            .unwrap_err()
+            .contains("shown only when cited"));
+        let sources = [source("easton", "Public domain")];
+        let mut w = site("easton", "Easton");
+        w.license = "public-domain".into();
+        w.find = None;
+        w.datasets = vec!["easton".into()];
+        assert!(assemble(config(vec![w]), &sources, &[], &[])
+            .unwrap_err()
+            .contains("shown only when cited"));
     }
 
     #[test]

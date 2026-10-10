@@ -9,6 +9,7 @@
 
 import { type Atlas } from '../../../data/atlas';
 import { GoDeeper } from '../../Depth';
+import { CitedSource } from '../../Sources';
 import { useJson } from '../data';
 import { Lead, Passage, SideBySide, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
@@ -95,7 +96,9 @@ function CardView({ a, c, verse, navigate }: { a: Atlas; c: Card; verse: VerseRe
                     <a href={l.url} target="_blank" rel="noopener noreferrer">
                       {l.title}
                     </a>{' '}
-                    <span class="x-hard-verses-site">{l.site}</span>
+                    <span class="x-hard-verses-site">
+                      <CitedSource a={a} text={l.site} />
+                    </span>
                   </li>
                 ))}
               </ul>

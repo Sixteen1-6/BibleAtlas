@@ -32,7 +32,8 @@ export interface ShelfGroup {
 export interface Cited {
   verse: number;
   to?: number;
-  /** "aramaic": the notes on Aramaic and Hebrew words. */
+  /** "aramaic": the notes on Aramaic and Hebrew words; "hard-verses": the
+   * sites the "Often asked" answers link to for further reading. */
   where: string;
 }
 
@@ -132,10 +133,19 @@ export function useShelf(a: Atlas, on = true): Shelf | null | undefined {
   return useLoaded(on ? `shelf ${a.version}` : null, () => loadShelf(a));
 }
 
+/** Whether a citation string has `part` where a word starts, so that
+ * "Bible.org" names Bible.org but "STEPBible.org" does not. */
+function names(citation: string, part: string): boolean {
+  for (let i = citation.indexOf(part); i >= 0; i = citation.indexOf(part, i + 1)) {
+    if (i === 0 || !/[\p{L}\p{N}]/u.test(citation[i - 1])) return true;
+  }
+  return false;
+}
+
 /** The work a citation string names, matched the way the build matches it:
- * the first work one of whose `cites` the string contains. */
+ * the first work one of whose `cites` the string has where a word starts. */
 export function workFor(shelf: Shelf, citation: string): Work | null {
-  return shelf.works.find((w) => w.cites?.some((c) => citation.includes(c))) ?? null;
+  return shelf.works.find((w) => w.cites?.some((c) => names(citation, c))) ?? null;
 }
 
 // ------------------------------------------------------------ dictionaries
