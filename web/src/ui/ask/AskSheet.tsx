@@ -26,6 +26,7 @@ import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
 import { type Asked, type Part, type Range, askId, askIndex, askOpen, askVerses, closeAsk, findAsked, lastClose, loadAsk, topicData } from './ask';
 import type { Gathered } from './gather';
+import { route } from './route';
 
 const dismiss = () => closeAsk('dismiss');
 
@@ -263,8 +264,9 @@ const NAVES = 'Nave’s Topical Bible (1896; this edition CC BY 4.0, Brady Steph
 
 // ------------------------------------------------------------ bodies
 
-/** A prepared question: its chain, then its wider set. */
-function QuestionBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'question' } }) {
+/** A prepared question: its chain, then its wider set. `typed`: what was
+ * asked in other words, when this question is the one that answers it. */
+function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'question' }; typed?: string }) {
   const q = asked.q;
   const rs = useAsync(`q:${q.id}`, () => askVerses(a, asked));
   const study = atLeast('study');
@@ -277,12 +279,21 @@ function QuestionBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'question
       <SeeAll total={q.n} />
       {atLeast('deep') && <WhyEach a={a} parts={q.chain} />}
       {atLeast('deep') && rs && <AllVerses a={a} rs={rs} />}
+      {atLeast('deep') && typed && <SourceNote>These verses were prepared for the question “{q.q}”.</SourceNote>}
       {atLeast('deep') && <SourceNote>Every word above is the Bible’s (BSB). The wider set of verses was gathered with {NAVES}.</SourceNote>}
     </>
   );
 }
 
+/** Anything typed: the prepared question that answers it, when one plainly
+ * does, else the verses gathered for its words. */
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
+  const ix = askIndex.value;
+  const q = ix ? route(ix, text) : null;
+  return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;
+}
+
+function GatheredBody({ a, text }: { a: Atlas; text: string }) {
   // The word tables load with the first live question, not with the page.
   const got = useAsync<Gathered>(`live:${text}`, () => import('./gather').then((m) => m.gather(a, text)));
   const study = atLeast('study');
