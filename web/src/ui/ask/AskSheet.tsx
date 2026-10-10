@@ -222,6 +222,7 @@ function WhyEach({ a, parts }: { a: Atlas; parts: Part[] }) {
   const names = (js: number[]) => js.map(name).join(', ');
   // Matthew is the 40th book.
   const newTestament = (j: number) => locate(a, parts[j].r[0]).book >= 39;
+
   return (
     <>
       <h3>Why each verse is here</h3>
@@ -233,7 +234,10 @@ function WhyEach({ a, parts }: { a: Atlas; parts: Part[] }) {
           if (t.s) why.push(`Nave’s lists it under ${t.s.join(', ')}`);
           if (t.x) why.push(`cross-referenced with ${names(t.x)}`);
           for (const j of t.q ?? []) why.push(newTestament(i) && !newTestament(j) ? `quotes ${name(j)}` : `quoted in ${name(j)}`);
-          for (const [j, root] of t.r ?? []) why.push(`shares the ${langName(L, root)} word ${L.word[root]} (“${L.gloss[root]}”) with ${name(j)}`);
+          // One line per root, with every part that shares it.
+          const byRoot = new Map<number, number[]>();
+          for (const [j, root] of t.r ?? []) byRoot.set(root, [...(byRoot.get(root) ?? []), j]);
+          for (const [root, js] of byRoot) why.push(`shares the ${langName(L, root)} word ${L.word[root]} (“${L.gloss[root]}”) with ${names(js)}`);
           if (t.p) why.push(`the same passage as ${names(t.p)}`);
           return (
             <li key={i}>

@@ -120,7 +120,7 @@ const QUESTION_STOP: &[&str] = &[
     "will", "would", "should", "could", "can", "may", "might", "must", "shall", "are", "was", "were",
     "the", "and", "for", "with", "about", "from", "into", "that", "this", "there", "they", "them",
     "their", "you", "your", "our", "his", "her", "its", "have", "has", "had", "not", "any", "all",
-    "say", "says", "said", "bible", "verse", "verses", "mean", "means", "really", "god", "lord",
+    "say", "says", "said", "bible", "verse", "verses", "mean", "means", "really", "god", "gods", "lord", "lords",
     "get", "one", "way", "like", "deal", "handle", "cope", "overcome", "stop", "find", "help",
     "make", "feel", "use", "wrong", "right", "allowed", "possible", "best", "ever", "still",
     "even", "too", "also", "much", "many", "happen", "happens", "thing", "things", "someone",
@@ -561,10 +561,13 @@ fn ties(
         .enumerate()
         .map(|(i, &p)| {
             let mut t = serde_json::Map::new();
+            // The words as the part shows them ("Christ", "God’s").
             let mut words: Vec<String> = Vec::new();
-            for w in normalize(&said[i]).split(' ') {
-                if w.chars().count() >= 3 && !QUESTION_STOP.contains(&w) && meets(w, asked) && !words.iter().any(|x| x == w) {
-                    words.push(w.to_string());
+            let mut seen = BTreeSet::new();
+            for raw in said[i].split(|c: char| !(c.is_alphanumeric() || matches!(c, '\'' | '’' | '‘' | 'ʼ'))) {
+                let w = normalize(raw);
+                if w.chars().count() >= 3 && !w.contains(' ') && !QUESTION_STOP.contains(&w.as_str()) && meets(&w, asked) && seen.insert(w) {
+                    words.push(raw.trim_matches(|c: char| !c.is_alphanumeric()).to_string());
                 }
             }
             if !words.is_empty() {
