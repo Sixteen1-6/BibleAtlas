@@ -22,7 +22,7 @@ import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { type AskIndex, type Question, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
 import { loadMeaning, meanings } from './meaning';
-import { loadSignals, routes } from './route';
+import { couldMean, loadSignals, routes } from './route';
 
 /** Plain English -> the words the BSB uses for it. Search mechanics only: each
  * entry adds words to look for; every verse found is shown as it stands. */
@@ -715,11 +715,12 @@ const COMMON = 2000;
 /** A concept this wide does not answer a question alone. */
 const BROAD = 600;
 
-/** How close a prepared question must come for its chain to count among the
- * gathered verses ("said" and "score" as the router measures them, or how
- * likely the meaning matcher finds it is meant), how many may, and how much
- * their verses weigh. */
-export const LEAN = { said: 0.5, score: 0.45, meant: 0.3, top: 3, weight: 3 };
+/** How close a prepared question must come by its words for its chain to count
+ * among the gathered verses ("said" and "score" as the router measures them),
+ * how many may, and how much their verses weigh. The meaning matcher's closest
+ * questions always count in full: read blind, that answered more questions,
+ * with fewer off verses, than weighing each by how sure the matcher was. */
+export const LEAN = { said: 0.5, score: 0.45, top: 3, weight: 3 };
 
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null), loadSignals(a).catch(() => null), loadMeaning(a).catch(() => null)]);
@@ -788,8 +789,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // The closest prepared questions, by their words and by what people mean by
   // such words, each once at its higher score.
   const near = new Map<Question, number>();
-  for (const r of routes(ix, question, LEAN.top)) if (r.said >= LEAN.said && r.score >= LEAN.score) near.set(r.q, r.score);
-  for (const m of meanings(ix, question, LEAN.top)) if (m.p >= LEAN.meant) near.set(m.q, Math.max(near.get(m.q) ?? 0, m.p));
+  for (const r of routes(ix, question, LEAN.top)) if (r.said >= LEAN.said && r.score >= LEAN.score && couldMean(ix, question, r.q)) near.set(r.q, r.score);
+  for (const m of meanings(ix, question, LEAN.top)) near.set(m.q, 1);
   const lean = [...near].map(([q, score]) => ({ q, score }));
   const [topicSets, questionSets, leanSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),

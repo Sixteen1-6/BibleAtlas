@@ -44,14 +44,14 @@ export interface Sense {
   p: number;
 }
 
-/** The prepared questions `text` most likely means, likeliest first; none
- * before the weights load, or when none of its words is known. */
-export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
+/** How likely each prepared question is what `text` means, by its place in
+ * the index; null before the weights load, or when none of its words is known. */
+function likelihoods(ix: AskIndex, text: string): Float64Array | null {
   const m = meaning;
-  if (!m) return [];
+  if (!m) return null;
   if (fits?.ix !== ix || fits.m !== m) fits = { ix, m, ok: m.ids === idsHash(ix.questions.map((q) => q.id)) };
   // Weights learned for another list of questions would point to the wrong ones.
-  if (!fits.ok) return [];
+  if (!fits.ok) return null;
   const z = new Float64Array(ix.questions.length);
   let known = false;
   for (const t of terms(text)) {
@@ -60,12 +60,28 @@ export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
     known = true;
     for (let k = 0; k < e.length; k += 2) z[e[k]] += e[k + 1] / m.scale;
   }
-  if (!known) return [];
+  if (!known) return null;
   const max = Math.max(...z);
   let sum = 0;
   for (let k = 0; k < z.length; k++) sum += z[k] = Math.exp(z[k] - max);
+  for (let k = 0; k < z.length; k++) z[k] /= sum;
+  return z;
+}
+
+/** The prepared questions `text` most likely means, likeliest first; none
+ * before the weights load, or when none of its words is known. */
+export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
+  const z = likelihoods(ix, text);
+  if (!z) return [];
   return [...z.keys()]
     .sort((x, y) => z[y] - z[x])
     .slice(0, limit)
-    .map((k) => ({ q: ix.questions[k], p: z[k] / sum }));
+    .map((k) => ({ q: ix.questions[k], p: z[k] }));
+}
+
+/** How likely `text` means question `q`; null when the matcher cannot tell. */
+export function likelihood(ix: AskIndex, text: string, q: Question): number | null {
+  const z = likelihoods(ix, text);
+  const k = ix.questions.indexOf(q);
+  return z && k >= 0 ? z[k] : null;
 }

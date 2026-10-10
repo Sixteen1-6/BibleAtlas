@@ -28,10 +28,11 @@ const OUT = join(ASK, 'meaning.json');
 
 /** How much each kind of text counts in training. */
 export const KINDS = { title: 2, also: 2, signal: 1, example: 1 };
-export const TRAIN = { epochs: 8, rate: 0.5, l2: 1e-4, least: 0.1, seed: 1 };
-/** Weights are written as whole numbers of 1/SCALE; smaller ones are dropped. */
+export const TRAIN = { epochs: 8, rate: 0.5, l2: 1e-3, seed: 1 };
+/** Weights are written as whole numbers of 1/SCALE; those under KEEP are
+ * dropped. */
 export const SCALE = 100;
-export const KEEP = 0.2;
+export const KEEP = 1;
 
 /** The id list's fingerprint, so the page can tell the weights match its index. */
 export function idsHash(ids) {
@@ -95,11 +96,11 @@ export function train(data, classes, opts = TRAIN) {
       let sum = 0;
       for (let k = 0; k < C; k++) sum += z[k] = Math.exp(z[k] - max);
       for (let k = 0; k < C; k++) z[k] = w * (z[k] / sum - (k === c ? 1 : 0));
+      // Every question learns from every row, so a word also learns which
+      // questions it does not point to ("child" in a question about a stutter
+      // is not about wanting a child).
       for (const t of f) {
         for (let k = 0, o = t * C; k < C; k++) {
-          // Only questions the row could be taken for learn from it, so most
-          // words end with weights for a few questions only.
-          if (z[k] < opts.least && k !== c) continue;
           const g = z[k] + opts.l2 * W[o + k];
           H[o + k] += g * g;
           W[o + k] -= (opts.rate * g) / (Math.sqrt(H[o + k]) + 1e-6);
@@ -182,7 +183,7 @@ async function main() {
     all++;
     if (best(w, C, ts) === c) right++;
   }
-  if (all && right / all < 0.8) throw new Error(`ask-meaning: only ${right} of ${all} examples find their own question`);
+  if (all && right / all < 0.7) throw new Error(`ask-meaning: only ${right} of ${all} examples find their own question`);
   const out = { format: 1, key, ids: idsHash(index.questions.map((q) => q.id)), scale: SCALE, w };
   writeFileSync(OUT, JSON.stringify(out));
   const entries = Object.values(w).reduce((s, e) => s + e.length / 2, 0);

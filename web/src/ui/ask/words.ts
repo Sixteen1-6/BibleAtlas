@@ -224,12 +224,16 @@ for (const group of [
   }
 }
 
+/** Words whose stem is a group word's, though they mean something else: what
+ * God "made" is not "mad", a house "fire" is not being "fired". */
+const OTHER = new Set(['made', 'fire', 'fires', 'scar', 'scars', 'rag', 'rags']);
+
 /** What `s` says, as Ask the Bible matches it: its content words less the
  * plain ones and numbers, each as its group's word or its stem. */
 export function terms(s: string): Set<string> {
   return new Set(
     contentWords(s)
       .filter((w) => !PLAIN.has(w) && !PLAIN.has(stem(w)) && !/^\d+$/.test(w))
-      .map((w) => SAME.get(w) ?? SAME.get(stem(w)) ?? stem(w)),
+      .map((w) => SAME.get(w) ?? (OTHER.has(w) ? undefined : SAME.get(stem(w))) ?? stem(w)),
   );
 }

@@ -4092,9 +4092,9 @@
         {"ref": "Hos 3:3", "words": "You must live with me for many days; you must not be promiscuous or belong to another, and I will do the same for you."},
         {"ref": "Col 3:13"},
         {"ref": "Matt 18:21-22"},
+        {"ref": "Luke 17:3", "words": "If your brother sins, rebuke him; and if he repents, forgive him."},
         {"ref": "Acts 26:20", "words": "they should repent and turn to God, performing deeds worthy of their repentance"},
         {"ref": "1 Cor 13:7"},
-        {"ref": "Eph 4:32"},
         {"ref": "Ps 147:3"}
       ]
     },
@@ -4301,7 +4301,6 @@
         {"ref": "Gen 1:28", "words": "Be fruitful and multiply, and fill the earth"},
         {"ref": "Ps 128:3"},
         {"ref": "Gen 38:9-10"},
-        {"ref": "1 Cor 7:5", "words": "Do not deprive each other, except by mutual consent and for a time"},
         {"ref": "1 Cor 7:4"},
         {"ref": "Prov 5:18-19"}
       ]
@@ -4314,13 +4313,14 @@
       "signals": ["fiancé", "fiancee", "fiancée", "engagement ring", "he proposed", "she said yes", "wedding planning", "wedding day", "honeymoon", "groom", "bride to be", "marriage prep", "pre-cana", "prepare enrich", "premarital class", "marriage class", "newlywed", "newly married", "marriage tips", "healthy marriage", "happy marriage", "lasting marriage", "marriage goals", "getting hitched", "tying the knot", "marriage mentor", "mentor couple", "marriage book", "wedding countdown", "save the date", "wedding registry"],
       "topics": [
         {"subject": "MARRIAGE", "only": ["UNCLASSIFIED", "The groom exempt"]},
-        {"subject": "HUSBAND", "only": ["General scriptures concerning"]}
+        {"subject": "HUSBAND", "only": ["General scriptures concerning"]},
+        {"subject": "UNION", "only": ["Advantages of"]}
       ],
       "chain": [
         {"ref": "Ps 127:1", "words": "Unless the LORD builds the house, its builders labor in vain"},
         {"ref": "Gen 2:24"},
+        {"ref": "Matt 19:6"},
         {"ref": "Eccl 4:9-10"},
-        {"ref": "Eccl 4:12", "words": "a cord of three strands is not quickly broken"},
         {"ref": "1 Cor 13:4-5"},
         {"ref": "Col 3:13-14"},
         {"ref": "Eph 5:33"},
@@ -4442,7 +4442,9 @@
         {"ref": "Ps 147:3"},
         {"ref": "Ps 34:18"},
         {"ref": "Ps 88:18", "words": "You have removed my beloved and my friend"},
+        {"ref": "Ps 62:8", "words": "Trust in Him at all times, O people; pour out your hearts before Him."},
         {"ref": "Ps 73:26"},
+        {"ref": "Heb 13:5", "words": "Never will I leave you, never will I forsake you."},
         {"ref": "1 Pet 5:7"},
         {"ref": "Ps 30:5", "words": "Weeping may stay the night, but joy comes in the morning."}
       ]
@@ -5839,9 +5841,9 @@
         {"ref": "Ps 31:13", "words": "For I hear the slander of many"},
         {"ref": "Ps 31:14"},
         {"ref": "1 Pet 2:23"},
-        {"ref": "Rom 8:33-34"},
         {"ref": "Col 3:13"},
-        {"ref": "Rom 15:7"}
+        {"ref": "Rom 15:7"},
+        {"ref": "Matt 18:15"}
       ]
     },
     {
@@ -6050,7 +6052,8 @@
       "chain": [
         {"ref": "Jas 4:7"},
         {"ref": "Eph 6:11-12"},
-        {"ref": "1 Pet 5:8-9"},
+        {"ref": "Eph 6:18"},
+        {"ref": "1 Pet 5:8-9", "words": "Be sober-minded and alert. Your adversary the devil prowls around like a roaring lion, seeking someone to devour. Resist him, standing firm in your faith"},
         {"ref": "2 Thess 3:3"},
         {"ref": "1 John 4:4", "words": "greater is He who is in you than he who is in the world."},
         {"ref": "Rom 8:38-39"},
@@ -6240,7 +6243,8 @@
       "chain": [
         {"ref": "Rom 7:19"},
         {"ref": "Rom 7:24-25", "words": "What a wretched man I am! Who will rescue me from this body of death? Thanks be to God, through Jesus Christ our Lord!"},
-        {"ref": "1 John 2:1"},
+        {"ref": "1 John 1:9"},
+        {"ref": "1 John 2:1", "words": "But if anyone does sin, we have an advocate before the Father—Jesus Christ, the Righteous One."},
         {"ref": "Mic 7:18-19"},
         {"ref": "Ps 103:13-14"},
         {"ref": "Lam 3:22-23"},
@@ -6409,7 +6413,6 @@
         {"ref": "Jer 10:2", "words": "Do not learn the ways of the nations or be terrified by the signs in the heavens"},
         {"ref": "Isa 47:13"},
         {"ref": "Acts 19:18-19", "words": "Many who had believed now came forward, confessing and disclosing their deeds. And a number of those who had practiced magic arts brought their books and burned them in front of everyone."},
-        {"ref": "Prov 26:2"},
         {"ref": "Col 1:13"}
       ]
     },
@@ -6519,8 +6522,8 @@
         {"ref": "Acts 10:34-35"},
         {"ref": "Acts 17:26", "words": "From one man He made every nation of men"},
         {"ref": "Gal 3:28"},
-        {"ref": "Jas 2:1"},
-        {"ref": "Rev 7:9"}
+        {"ref": "Rev 7:9"},
+        {"ref": "Deut 10:18"}
       ]
     },
     {
@@ -6755,6 +6758,7 @@
         {"ref": "Gal 1:10"},
         {"ref": "John 12:42-43"},
         {"ref": "1 Thess 2:4", "words": "not in order to please men but God, who examines our hearts."},
+        {"ref": "Col 3:23"},
         {"ref": "1 Cor 4:3-4"},
         {"ref": "John 5:44"},
         {"ref": "Ps 118:6"}
@@ -6949,7 +6953,7 @@
         {"ref": "Luke 7:47-48"},
         {"ref": "Luke 19:9-10"},
         {"ref": "Matt 21:31", "words": "the tax collectors and prostitutes are entering the kingdom of God before you."},
-        {"ref": "John 4:39"},
+        {"ref": "Luke 23:42-43"},
         {"ref": "2 Cor 5:17"}
       ]
     },
@@ -7094,9 +7098,9 @@
         {"ref": "1 Thess 4:3-5"},
         {"ref": "Matt 5:28"},
         {"ref": "1 Cor 6:12"},
+        {"ref": "1 Cor 6:19-20"},
         {"ref": "2 Tim 2:22"},
         {"ref": "Rom 13:14"},
-        {"ref": "Gal 5:22-23"},
         {"ref": "Rom 8:1"},
         {"ref": "1 John 1:9"}
       ]
@@ -7541,7 +7545,8 @@
       "also": ["new year fresh start", "new year's resolutions", "starting over this year", "turning a new page", "it's my birthday and i want to change", "a new season of life", "after a hard year i want to start over", "new beginnings", "leave last year behind", "starting the new year with god", "making a fresh start with god", "goals for the new year", "this year will be different"],
       "signals": ["january", "january 1st", "jan 1", "new years eve", "new year's eve", "new year's day", "2027", "reset", "clean slate", "blank page", "new chapter", "new me", "year in review", "annual goals", "new habits", "build habits", "turning 30", "turning 40", "turning 50", "milestone birthday", "ring in", "auld lang syne", "new month", "nye", "december 31", "year end"],
       "topics": [
-        {"subject": "REGENERATION", "only": ["General scriptures"]}
+        {"subject": "REGENERATION", "only": ["General scriptures"]},
+        {"subject": "FAITH", "only": ["ENJOINED"]}
       ],
       "chain": [
         {"ref": "Lam 3:22-23"},
@@ -7550,7 +7555,8 @@
         {"ref": "Eph 4:22-24"},
         {"ref": "Rom 12:2"},
         {"ref": "Ps 51:10"},
-        {"ref": "Ps 65:11"}
+        {"ref": "Ps 37:5"},
+        {"ref": "Phil 1:6"}
       ]
     },
     {
@@ -8431,10 +8437,10 @@
         {"ref": "Luke 22:43-44"},
         {"ref": "Matt 26:40-41"},
         {"ref": "Matt 26:42"},
+        {"ref": "Luke 22:47-48", "words": "a crowd arrived, led by the man called Judas, one of the Twelve. He approached Jesus to kiss Him. But Jesus asked him, “Judas, are you betraying the Son of Man with a kiss?”"},
         {"ref": "Matt 26:50", "words": "Then the men stepped forward, seized Jesus, and arrested Him."},
         {"ref": "John 18:11", "words": "“Put your sword back in its sheath!” Jesus said to Peter. “Shall I not drink the cup the Father has given Me?”"},
-        {"ref": "Matt 26:56", "words": "Then all the disciples deserted Him and fled."},
-        {"ref": "Heb 5:7"}
+        {"ref": "Matt 26:56", "words": "Then all the disciples deserted Him and fled."}
       ]
     },
     {
@@ -10070,8 +10076,7 @@
         {"ref": "1 Pet 3:3-4"},
         {"ref": "Deut 22:5"},
         {"ref": "1 Sam 16:7", "words": "man sees the outward appearance, but the LORD sees the heart."},
-        {"ref": "Gen 3:21"},
-        {"ref": "Prov 31:25"}
+        {"ref": "Gen 3:21"}
       ]
     },
     {
@@ -10751,7 +10756,8 @@
       "signals": ["pink slip", "downsized", "restructuring", "reduction in force", "rif", "furloughed", "furlough", "position eliminated", "got canned", "canned", "sacked", "axed", "unemployment benefits", "filing unemployment", "job hunting", "job search", "resume", "no callbacks", "rejection emails", "cardboard box", "walked me out", "escorted out", "cobra", "lost health insurance", "shut off notice", "overdraft", "overdrawn", "payday loan", "bills piling up", "out of work", "jobless", "between jobs", "plant closed", "outsourced"],
       "topics": [
         {"subject": "GOD", "only": ["PROVIDENCE OF"]},
-        {"subject": "FOOD", "only": ["FROM GOD"]}
+        {"subject": "FOOD", "only": ["FROM GOD"]},
+        {"subject": "BLESSING", "only": ["TEMPORAL, FROM GOD"]}
       ],
       "chain": [
         {"ref": "Matt 6:31-33"},
@@ -10760,7 +10766,7 @@
         {"ref": "1 Pet 5:7"},
         {"ref": "Ps 34:10"},
         {"ref": "Phil 4:12-13", "words": "I am accustomed to any and every situation—to being filled and being hungry, to having plenty and having need. I can do all things through Christ who gives me strength."},
-        {"ref": "Ps 145:15-16"},
+        {"ref": "Phil 4:19"},
         {"ref": "Prov 30:8", "words": "Give me neither poverty nor riches; feed me with the bread that is my portion."}
       ]
     },
@@ -11388,10 +11394,10 @@
       "chain": [
         {"ref": "Eph 6:4"},
         {"ref": "Deut 6:6-7"},
+        {"ref": "Josh 24:15", "words": "As for me and my house, we will serve the LORD!"},
         {"ref": "Ps 103:13"},
         {"ref": "Prov 3:12"},
         {"ref": "1 Thess 2:11-12"},
-        {"ref": "Luke 11:11-13"},
         {"ref": "2 Cor 12:14", "words": "For children should not have to save up for their parents, but parents for their children."},
         {"ref": "Prov 20:7"}
       ]
@@ -11488,7 +11494,7 @@
       "chain": [
         {"ref": "Matt 24:21-22"},
         {"ref": "Matt 24:15"},
-        {"ref": "Dan 9:27", "words": "And he will confirm a covenant with many for one week, but in the middle of the week he will put an end to sacrifice and offering."},
+        {"ref": "Dan 9:27", "words": "And he will confirm a covenant with many for one week, but in the middle of the week he will put an end to sacrifice and offering. And on the wing of the temple will come the abomination that causes desolation"},
         {"ref": "Dan 12:1", "words": "There will be a time of distress, the likes of which will not have occurred from the beginning of nations until that time."},
         {"ref": "Rev 7:14", "words": "These are the ones who have come out of the great tribulation; they have washed their robes and made them white in the blood of the Lamb."},
         {"ref": "Matt 24:29"},
@@ -11955,9 +11961,9 @@
         {"ref": "1 Tim 5:18"},
         {"ref": "2 Pet 3:16", "words": "He writes this way in all his letters, speaking in them about such matters. Some parts of his letters are hard to understand, which ignorant and unstable people distort, as they do the rest of the Scriptures"},
         {"ref": "1 Thess 2:13"},
+        {"ref": "Col 4:16"},
         {"ref": "2 Thess 2:2", "words": "not to be easily disconcerted or alarmed by any spirit or message or letter seeming to be from us"},
-        {"ref": "Gal 1:8"},
-        {"ref": "Deut 4:2"}
+        {"ref": "Gal 1:8"}
       ]
     },
     {
@@ -12437,10 +12443,10 @@
         {"ref": "Acts 2:4"},
         {"ref": "Acts 2:11", "words": "we hear them declaring the wonders of God in our own tongues!"},
         {"ref": "Acts 2:16-17", "words": "this is what was spoken by the prophet Joel: ‘In the last days, God says, I will pour out My Spirit on all people."},
+        {"ref": "Acts 2:33"},
         {"ref": "Acts 2:38"},
         {"ref": "Acts 2:41"},
-        {"ref": "Exod 34:22", "words": "you are to celebrate the Feast of Weeks with the firstfruits of the wheat harvest"},
-        {"ref": "Acts 1:5"}
+        {"ref": "Exod 34:22", "words": "you are to celebrate the Feast of Weeks with the firstfruits of the wheat harvest"}
       ]
     },
     {
@@ -12601,9 +12607,9 @@
       "chain": [
         {"ref": "1 Cor 10:11"},
         {"ref": "Rom 15:4"},
+        {"ref": "Ps 78:7", "words": "they should put their confidence in God, not forgetting His works, but keeping His commandments."},
         {"ref": "Judg 21:25"},
         {"ref": "2 Sam 11:27", "words": "But the thing that David had done was evil in the sight of the LORD."},
-        {"ref": "1 Kgs 11:6"},
         {"ref": "2 Kgs 17:13"},
         {"ref": "Josh 21:45"},
         {"ref": "Luke 24:27"}
@@ -13091,11 +13097,11 @@
         {"ref": "Ps 119:160"},
         {"ref": "John 10:35", "words": "and the Scripture cannot be broken"},
         {"ref": "Prov 30:5"},
+        {"ref": "2 Tim 3:16", "words": "All Scripture is God-breathed"},
         {"ref": "Num 23:19", "words": "God is not a man, that He should lie"},
         {"ref": "Matt 22:29"},
         {"ref": "2 Pet 3:16", "words": "Some parts of his letters are hard to understand, which ignorant and unstable people distort, as they do the rest of the Scriptures"},
-        {"ref": "2 Tim 2:15"},
-        {"ref": "Acts 17:11"}
+        {"ref": "2 Tim 2:15"}
       ]
     },
     {
@@ -13169,9 +13175,9 @@
         {"ref": "Gen 1:27"},
         {"ref": "Gen 2:7"},
         {"ref": "Gen 2:19", "words": "out of the ground the LORD God formed every beast of the field and every bird of the air"},
-        {"ref": "1 Cor 15:39"},
         {"ref": "Mark 10:6"},
         {"ref": "Acts 17:26", "words": "From one man He made every nation of men"},
+        {"ref": "Rom 5:12"},
         {"ref": "Heb 11:3"}
       ]
     },
@@ -13189,7 +13195,7 @@
         {"ref": "Gen 1:5", "words": "And there was evening, and there was morning—the first day."},
         {"ref": "Exod 20:11", "words": "For in six days the LORD made the heavens and the earth and the sea and all that is in them"},
         {"ref": "Gen 2:4"},
-        {"ref": "Ps 90:2"},
+        {"ref": "Gen 5:3"},
         {"ref": "Ps 90:4"},
         {"ref": "2 Pet 3:8"},
         {"ref": "Job 38:4"}
@@ -13253,12 +13259,12 @@
       "chain": [
         {"ref": "Isa 40:22"},
         {"ref": "Job 26:7"},
+        {"ref": "Prov 8:27"},
         {"ref": "Rev 7:1", "words": "I saw four angels standing at the four corners of the earth, holding back its four winds"},
         {"ref": "Ps 75:3", "words": "When the earth and all its dwellers quake, it is I who bear up its pillars."},
         {"ref": "Gen 1:7"},
         {"ref": "Lev 11:13", "words": "you are to detest the following birds"},
-        {"ref": "Lev 11:19"},
-        {"ref": "Ps 19:1"}
+        {"ref": "Lev 11:19"}
       ]
     },
     {
@@ -13297,11 +13303,11 @@
       "chain": [
         {"ref": "Ps 115:16"},
         {"ref": "Isa 45:18", "words": "He formed the earth and fashioned it; He established it; He did not create it to be empty, but formed it to be inhabited"},
+        {"ref": "Isa 45:12"},
         {"ref": "Neh 9:6"},
         {"ref": "Isa 40:26"},
         {"ref": "Ps 8:3-4"},
-        {"ref": "Col 1:16", "words": "in Him all things were created, things in heaven and on earth, visible and invisible"},
-        {"ref": "Heb 1:2", "words": "through whom He made the universe"}
+        {"ref": "Col 1:16", "words": "in Him all things were created, things in heaven and on earth, visible and invisible"}
       ]
     },
     {
@@ -13407,7 +13413,8 @@
         {"ref": "1 Cor 12:8-10"},
         {"ref": "1 Cor 12:11"},
         {"ref": "Rom 12:6-8"},
-        {"ref": "1 Pet 4:10"}
+        {"ref": "Eph 4:11"},
+        {"ref": "1 Pet 4:10", "words": "each of you should use whatever gift he has received to serve one another."}
       ]
     },
     {
@@ -13807,19 +13814,20 @@
       "signals": ["closes a door", "opens a window", "co-pilot", "idle hands", "devil's workshop", "shakespeare", "hamlet", "polonius", "abraham lincoln", "persian adage", "solomon's ring", "fact check", "verse check", "real verse", "quote check", "pinterest verse", "instagram quote", "tiktok verse", "misattributed", "misattributed quotes", "folk sayings", "old wives tales", "misquotations", "false quotes", "made-up verses", "nonexistent verse", "fake quote"],
       "topics": [
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["Temporary", "Comparatively light"]},
-        {"subject": "WOLF", "only": ["FIGURATIVE"]},
         {"subject": "DECEIT", "only": ["Characteristic of the heart"]},
-        {"subject": "FALSE CONFIDENCE", "only": ["In self"]}
+        {"subject": "FALSE CONFIDENCE", "only": ["In self"]},
+        {"subject": "WORD OF GOD", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO"]},
+        {"subject": "TEMPTATION", "only": ["General scriptures concerning"]}
       ],
       "chain": [
+        {"ref": "Prov 30:5-6"},
         {"ref": "Isa 11:6"},
-        {"ref": "Isa 65:25", "words": "The wolf and the lamb will feed together, and the lion will eat straw like the ox"},
         {"ref": "2 Cor 4:17-18"},
         {"ref": "Ps 30:5", "words": "Weeping may stay the night, but joy comes in the morning."},
+        {"ref": "1 Cor 10:13", "words": "God is faithful; He will not let you be tempted beyond what you can bear"},
         {"ref": "Jer 17:9"},
         {"ref": "Prov 3:5-6"},
-        {"ref": "1 Tim 5:8"},
-        {"ref": "Gal 6:10"}
+        {"ref": "1 Tim 5:8"}
       ]
     },
     {
@@ -13922,8 +13930,8 @@
         {"ref": "Acts 17:26"},
         {"ref": "Dan 2:21", "words": "He removes kings and establishes them"},
         {"ref": "Isa 40:15"},
-        {"ref": "Rev 12:14", "words": "the woman was given two wings of a great eagle"},
         {"ref": "Ezek 38:13", "words": "the merchants of Tarshish with all its villages"},
+        {"ref": "Matt 24:14"},
         {"ref": "Rev 7:9", "words": "from every nation and tribe and people and tongue"},
         {"ref": "Phil 3:20"},
         {"ref": "Acts 1:7"}
@@ -14112,7 +14120,7 @@
         {"ref": "Rev 19:8"},
         {"ref": "1 Tim 6:7"},
         {"ref": "Matt 6:19-20"},
-        {"ref": "Rev 21:5", "words": "Behold, I make all things new."},
+        {"ref": "Rev 22:3", "words": "The throne of God and of the Lamb will be within the city, and His servants will worship Him."},
         {"ref": "Ps 16:11"}
       ]
     },
@@ -14297,11 +14305,11 @@
       "chain": [
         {"ref": "Acts 6:5", "words": "They chose Stephen, a man full of faith and of the Holy Spirit"},
         {"ref": "Acts 6:8"},
+        {"ref": "Acts 6:13", "words": "they presented false witnesses who said, “This man never stops speaking against this holy place and against the law."},
         {"ref": "Acts 6:15", "words": "they saw that his face was like the face of an angel"},
         {"ref": "Acts 7:55-56"},
         {"ref": "Acts 7:57-58"},
         {"ref": "Acts 7:59-60"},
-        {"ref": "Acts 8:1", "words": "And Saul was there, giving approval to Stephen’s death."},
         {"ref": "Acts 22:20"}
       ]
     },
@@ -14382,7 +14390,7 @@
         {"ref": "Matt 4:2"},
         {"ref": "John 4:6", "words": "Jesus, weary from His journey, sat down by the well"},
         {"ref": "John 19:34"},
-        {"ref": "Heb 4:15"}
+        {"ref": "John 11:35"}
       ]
     },
     {
@@ -14584,8 +14592,7 @@
         {"ref": "Matt 7:1"},
         {"ref": "Titus 3:2-3"},
         {"ref": "Col 4:5-6"},
-        {"ref": "1 Cor 13:4-5"},
-        {"ref": "John 1:46"}
+        {"ref": "1 Cor 13:4-5"}
       ]
     },
     {
@@ -14626,7 +14633,7 @@
         {"ref": "Gen 29:31-33"},
         {"ref": "1 Sam 16:11"},
         {"ref": "1 Sam 16:7", "words": "the LORD does not see as man does. For man sees the outward appearance, but the LORD sees the heart."},
-        {"ref": "Jas 2:1"},
+        {"ref": "Rom 2:11"},
         {"ref": "Ps 147:3"}
       ]
     },
@@ -14690,8 +14697,8 @@
         {"ref": "1 Sam 16:7", "words": "man sees the outward appearance, but the LORD sees the heart"},
         {"ref": "Prov 17:22", "words": "A joyful heart is good medicine"},
         {"ref": "Rom 12:15"},
-        {"ref": "Matt 5:23-24"},
-        {"ref": "Col 3:13"}
+        {"ref": "Prov 25:20"},
+        {"ref": "Matt 5:23-24"}
       ]
     },
     {
@@ -14728,9 +14735,9 @@
         {"ref": "1 Sam 28:14", "words": "So Saul knew that it was Samuel, and he bowed facedown in reverence."},
         {"ref": "1 Sam 28:15", "words": "Then Samuel said to Saul, “Why have you disturbed me by bringing me up?”"},
         {"ref": "1 Sam 28:16"},
+        {"ref": "1 Sam 28:17"},
         {"ref": "1 Sam 28:19", "words": "tomorrow you and your sons will be with me"},
         {"ref": "1 Sam 31:6"},
-        {"ref": "1 Sam 28:6"},
         {"ref": "1 Chr 10:13-14"}
       ]
     },
@@ -14844,8 +14851,8 @@
       "chain": [
         {"ref": "Phil 4:6-7"},
         {"ref": "Ps 56:3"},
-        {"ref": "Ps 34:18"},
         {"ref": "Ps 147:3"},
+        {"ref": "1 Cor 7:39", "words": "if her husband dies, she is free to marry anyone she wishes, as long as he belongs to the Lord."},
         {"ref": "Heb 13:6", "words": "The Lord is my helper; I will not be afraid."},
         {"ref": "Prov 3:5-6"},
         {"ref": "Prov 4:23"},
@@ -14927,9 +14934,10 @@
       ],
       "chain": [
         {"ref": "Luke 23:42-43"},
-        {"ref": "Luke 18:13-14"},
+        {"ref": "Luke 18:13-14", "words": "But the tax collector stood at a distance, unwilling even to lift up his eyes to heaven. Instead, he beat his breast and said, ‘God, have mercy on me, a sinner!’ I tell you, this man, rather than the Pharisee, went home justified."},
         {"ref": "Matt 20:13-15"},
         {"ref": "Rom 3:23-24"},
+        {"ref": "Rom 3:26"},
         {"ref": "Rom 4:5"},
         {"ref": "Gen 18:25", "words": "Will not the Judge of all the earth do what is right?"}
       ]
@@ -14949,6 +14957,7 @@
       "chain": [
         {"ref": "Matt 5:28"},
         {"ref": "Mark 7:21", "words": "For from within the hearts of men come evil thoughts, sexual immorality"},
+        {"ref": "Jas 1:14-15"},
         {"ref": "Job 31:1"},
         {"ref": "Col 3:5"},
         {"ref": "Rom 13:14"},
@@ -15010,9 +15019,9 @@
         {"ref": "Gen 22:15-16"},
         {"ref": "Gen 16:13"},
         {"ref": "Judg 13:21-22"},
+        {"ref": "Exod 23:20-21"},
         {"ref": "Mal 3:1", "words": "the Lord whom you seek will suddenly come to His temple—the Messenger of the covenant"},
-        {"ref": "John 1:18"},
-        {"ref": "Heb 1:5"}
+        {"ref": "John 1:18"}
       ]
     },
     {
@@ -15196,13 +15205,13 @@
         {"subject": "REVELATION"}
       ],
       "chain": [
+        {"ref": "2 Tim 3:16"},
         {"ref": "2 Pet 1:21"},
         {"ref": "John 14:26"},
         {"ref": "Luke 22:41"},
         {"ref": "1 Cor 2:10"},
         {"ref": "Luke 1:2-3"},
         {"ref": "John 21:24"},
-        {"ref": "Deut 34:5-6"},
         {"ref": "Exod 34:27"}
       ]
     },
@@ -15319,8 +15328,8 @@
       ],
       "chain": [
         {"ref": "1 Pet 3:21"},
+        {"ref": "Acts 2:38"},
         {"ref": "Acts 2:41"},
-        {"ref": "Acts 8:36"},
         {"ref": "Acts 19:3-5"},
         {"ref": "Eph 4:5"},
         {"ref": "Col 2:12"},
@@ -15392,7 +15401,7 @@
         {"ref": "1 Cor 10:32-33"},
         {"ref": "Rom 12:18"},
         {"ref": "1 Cor 8:6"},
-        {"ref": "Exod 20:3"}
+        {"ref": "1 Cor 10:21", "words": "You cannot drink the cup of the Lord and the cup of demons too"}
       ]
     },
     {
@@ -15409,6 +15418,7 @@
         {"ref": "Luke 9:59-60"},
         {"ref": "Matt 8:21-22"},
         {"ref": "Luke 9:61-62"},
+        {"ref": "Matt 10:37", "words": "Anyone who loves his father or mother more than Me is not worthy of Me"},
         {"ref": "1 Kgs 19:20"},
         {"ref": "John 5:25"},
         {"ref": "John 19:26-27"}
@@ -15452,7 +15462,6 @@
         {"ref": "Gen 2:9", "words": "the LORD God gave growth to every tree that is pleasing to the eye and good for food"},
         {"ref": "Exod 31:3-5"},
         {"ref": "Exod 35:35"},
-        {"ref": "Gen 9:13"},
         {"ref": "Rev 4:3"},
         {"ref": "Matt 6:28-29"},
         {"ref": "Ps 27:4"}
@@ -15867,6 +15876,7 @@
       ],
       "chain": [
         {"ref": "Prov 26:17"},
+        {"ref": "Prov 26:20"},
         {"ref": "Prov 25:9"},
         {"ref": "Exod 20:12"},
         {"ref": "Rom 12:18"},
@@ -15885,6 +15895,7 @@
         {"subject": "CROSS", "only": ["Jesus crucified"]}
       ],
       "chain": [
+        {"ref": "John 19:30", "words": "And bowing His head, He yielded up His spirit."},
         {"ref": "John 19:33-35"},
         {"ref": "Mark 15:44-45"},
         {"ref": "John 19:25-26"},
@@ -16163,10 +16174,10 @@
         {"ref": "Matt 11:28"},
         {"ref": "Gal 6:2"},
         {"ref": "Phil 2:4"},
+        {"ref": "Eph 4:15", "words": "speaking the truth in love"},
         {"ref": "Eccl 4:9-10"},
         {"ref": "Exod 18:18", "words": "the task is too heavy for you. You cannot handle it alone."},
         {"ref": "Eph 5:28-29"},
-        {"ref": "1 Pet 3:7", "words": "treat your wives with consideration"},
         {"ref": "Isa 40:29"}
       ]
     },
@@ -16206,7 +16217,6 @@
         {"ref": "1 Cor 9:25", "words": "Everyone who competes in the games trains with strict discipline"},
         {"ref": "1 Cor 9:27", "words": "I discipline my body and make it my slave"},
         {"ref": "Heb 12:11"},
-        {"ref": "Prov 24:16", "words": "though a righteous man may fall seven times, he still gets up"},
         {"ref": "Eph 5:15-16"}
       ]
     },
@@ -16225,9 +16235,9 @@
         {"ref": "Heb 1:1-2"},
         {"ref": "Heb 9:26", "words": "But now He has appeared once for all at the end of the ages to do away with sin by the sacrifice of Himself"},
         {"ref": "Col 2:9"},
-        {"ref": "Rom 6:9", "words": "since Christ was raised from the dead, He cannot die again"},
         {"ref": "1 Tim 2:5"},
-        {"ref": "Acts 4:12"}
+        {"ref": "Acts 4:12"},
+        {"ref": "John 14:6"}
       ]
     },
     {
@@ -16514,10 +16524,10 @@
         {"ref": "Neh 8:10", "words": "Go and eat what is rich, drink what is sweet, and send out portions to those who have nothing prepared"},
         {"ref": "Rom 12:15"},
         {"ref": "Eccl 3:4"},
-        {"ref": "Jas 1:17"},
         {"ref": "Eccl 9:7", "words": "Go, eat your bread with joy, and drink your wine with a cheerful heart"},
         {"ref": "Deut 16:14"},
-        {"ref": "Amos 6:6", "words": "but you fail to grieve over the ruin of Joseph"}
+        {"ref": "Amos 6:6", "words": "but you fail to grieve over the ruin of Joseph"},
+        {"ref": "Eccl 5:19"}
       ]
     },
     {
@@ -16557,9 +16567,9 @@
         {"ref": "Lev 12:2"},
         {"ref": "Lev 12:5"},
         {"ref": "Lev 12:7", "words": "This is the law for a woman giving birth, whether to a male or to a female."},
+        {"ref": "Lev 15:19", "words": "When a woman has a discharge consisting of blood from her body, she will be unclean due to her menstruation for seven days"},
         {"ref": "Num 19:11"},
         {"ref": "Luke 2:22", "words": "when the time of purification according to the Law of Moses was complete"},
-        {"ref": "Mark 5:34"},
         {"ref": "Heb 9:13-14"}
       ]
     },
@@ -16640,8 +16650,8 @@
       "chain": [
         {"ref": "Eccl 3:4"},
         {"ref": "Ps 30:11"},
+        {"ref": "Ps 149:3"},
         {"ref": "Jer 31:13", "words": "the maidens will rejoice with dancing, young men and old as well"},
-        {"ref": "Luke 15:25"},
         {"ref": "2 Sam 6:14"},
         {"ref": "Exod 32:19"},
         {"ref": "Rom 13:13"},
@@ -16977,7 +16987,7 @@
         {"ref": "Prov 11:13"},
         {"ref": "Eph 4:29"},
         {"ref": "Col 3:19"},
-        {"ref": "Prov 31:11-12"},
+        {"ref": "Eph 5:33"},
         {"ref": "Matt 18:15"}
       ]
     },
@@ -17137,7 +17147,7 @@
       ],
       "chain": [
         {"ref": "Heb 1:5-6"},
-        {"ref": "Heb 1:13"},
+        {"ref": "Heb 1:8"},
         {"ref": "Jude 1:9"},
         {"ref": "Dan 10:13", "words": "Michael, one of the chief princes, came to help me"},
         {"ref": "1 Thess 4:16"},
@@ -17182,8 +17192,8 @@
         {"ref": "Gen 2:7"},
         {"ref": "Zech 12:1", "words": "who forms the spirit of man within him"},
         {"ref": "1 Cor 2:11", "words": "For who among men knows the thoughts of man except his own spirit within him?"},
-        {"ref": "Ps 139:13"},
         {"ref": "Eccl 12:7"},
+        {"ref": "2 Cor 5:8"},
         {"ref": "Jas 2:26", "words": "the body without the spirit is dead"},
         {"ref": "1 Thess 5:23"}
       ]
@@ -17197,12 +17207,13 @@
       "topics": [
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["RESIGNATION IN", "PRAYER IN", "CONSOLATION IN"]},
         {"subject": "FAITH", "only": ["EXEMPLIFIED"]},
-        {"subject": "CARE", "only": ["REMEDY FOR"]}
+        {"subject": "CARE", "only": ["REMEDY FOR"]},
+        {"subject": "GOD", "only": ["CREATOR OF MAN"]}
       ],
       "chain": [
         {"ref": "Ps 56:3"},
+        {"ref": "Isa 41:10"},
         {"ref": "Ps 139:13"},
-        {"ref": "Ps 22:9-10"},
         {"ref": "Phil 4:6-7"},
         {"ref": "Isa 26:3"},
         {"ref": "Ps 31:15", "words": "My times are in Your hands"},
@@ -17370,7 +17381,7 @@
         {"ref": "2 Kgs 18:4", "words": "He also demolished the bronze snake called Nehushtan that Moses had made"},
         {"ref": "2 Kgs 19:35-36"},
         {"ref": "2 Kgs 20:5-6", "words": "I have heard your prayer; I have seen your tears. I will surely heal you. On the third day from now you will go up to the house of the LORD. I will add fifteen years to your life."},
-        {"ref": "2 Kgs 20:11"},
+        {"ref": "2 Chr 32:25-26", "words": "But because his heart was proud, Hezekiah did not repay the favor shown to him. Therefore wrath came upon him and upon Judah and Jerusalem. Then Hezekiah humbled the pride of his heart"},
         {"ref": "Prov 25:1"},
         {"ref": "2 Chr 32:32"}
       ]
@@ -17611,12 +17622,12 @@
       "chain": [
         {"ref": "Ps 139:4"},
         {"ref": "Rev 7:9-10"},
-        {"ref": "Acts 2:8"},
         {"ref": "Acts 2:11", "words": "we hear them declaring the wonders of God in our own tongues!"},
         {"ref": "Matt 6:7-8"},
         {"ref": "Rom 8:26", "words": "the Spirit Himself intercedes for us with groans too deep for words"},
         {"ref": "Zeph 3:9"},
-        {"ref": "1 Cor 13:1"}
+        {"ref": "1 Cor 13:1"},
+        {"ref": "Gen 11:9"}
       ]
     },
     {
@@ -17856,6 +17867,7 @@
         {"ref": "John 19:26-27"},
         {"ref": "John 20:2", "words": "the other disciple, the one whom Jesus loved"},
         {"ref": "John 20:8", "words": "Then the other disciple, who had reached the tomb first, also went in. And he saw and believed."},
+        {"ref": "John 21:2"},
         {"ref": "John 21:7", "words": "Then the disciple whom Jesus loved said to Peter, “It is the Lord!”"},
         {"ref": "John 21:20"},
         {"ref": "John 21:23-24"}
@@ -17956,6 +17968,7 @@
         {"subject": "PRUDENCE", "only": ["In charging"]}
       ],
       "chain": [
+        {"ref": "Matt 12:14"},
         {"ref": "Matt 12:16-17"},
         {"ref": "Matt 12:19"},
         {"ref": "Mark 1:44-45"},
@@ -17977,8 +17990,9 @@
       "chain": [
         {"ref": "Ps 16:11", "words": "You will fill me with joy in Your presence, with eternal pleasures at Your right hand."},
         {"ref": "Rev 22:3-5"},
-        {"ref": "Rev 7:15"},
+        {"ref": "Rev 7:15", "words": "they are before the throne of God and serve Him day and night in His temple"},
         {"ref": "Isa 65:21-22"},
+        {"ref": "Matt 8:11", "words": "many will come from the east and the west to share the banquet with Abraham, Isaac, and Jacob in the kingdom of heaven."},
         {"ref": "Matt 25:21", "words": "I will put you in charge of many things. Enter into the joy of your master!"},
         {"ref": "Rev 14:13", "words": "they will rest from their labors, for their deeds will follow them."},
         {"ref": "Isa 65:18", "words": "be glad and rejoice forever in what I create"}

@@ -8,12 +8,13 @@
 // hooked on pills"), and its question covers most of what they typed. Words
 // that many questions share count for little, rare ones for much. First,
 // though, the meaning matcher (./meaning) opens the question people plainly
-// mean by what they typed, even when it shares no word with it.
+// mean by what they typed, even when it shares no word with it; and a question
+// the words point to but the matcher all but rules out stays shut.
 
 import type { Atlas } from '../../data/atlas';
 import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
-import { meanings } from './meaning';
+import { likelihood, meanings } from './meaning';
 import { terms } from './words';
 
 /** The everyday words that point to each question ("layoffs", "chemo"), in
@@ -121,7 +122,18 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
 export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
 
 /** How sure the meaning matcher must be to open its question. */
-export const MEANT = 0.8;
+export const MEANT = 0.7;
+
+/** A question the router picks by its words opens only if the meaning
+ * matcher finds it at least this likely meant: "did Jesus have a beard"
+ * shares words with why the prophets did strange things, but is not that
+ * question. */
+export const UNMEANT = 0.05;
+
+/** Could `text` mean `q`? Yes, too, when the meaning matcher cannot tell. */
+export function couldMean(ix: AskIndex, text: string, q: Question): boolean {
+  return (likelihood(ix, text, q) ?? 1) >= UNMEANT;
+}
 
 /** The prepared question that plainly answers `text`, or null. */
 export function route(ix: AskIndex, text: string): Question | null {
@@ -135,5 +147,5 @@ export function route(ix: AskIndex, text: string): Question | null {
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
   if (next && best.score - next.score < OPEN.margin && next.said >= OPEN.said) return null;
-  return best.q;
+  return couldMean(ix, text, best.q) ? best.q : null;
 }
