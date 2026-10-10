@@ -150,10 +150,10 @@ const BIBLE_WORDS: Record<string, string[]> = {
   foreigners: ['foreigner', 'strangers'],
   orphans: ['fatherless'],
   orphan: ['fatherless'],
-  racism: ['favoritism', 'partiality', 'every nation', 'jew greek'],
+  racism: ['favoritism', 'partiality', 'every nation', 'jew greek', 'one man every nation'],
   prejudice: ['favoritism', 'partiality'],
   sorry: ['repent', 'repents', 'repentance'],
-  apologize: ['confess', 'reconciled'],
+  apologize: ['first reconciled', 'confess sins one another', 'repents forgive'],
   patient: ['patience', 'patiently', 'perseverance'],
   patience: ['patient', 'patiently', 'perseverance'],
   conflict: ['quarrel', 'quarrels', 'strife', 'dispute'],
@@ -168,8 +168,8 @@ const BIBLE_WORDS: Record<string, string[]> = {
   thankful: ['thanks', 'thanksgiving'],
   grateful: ['thanks', 'thanksgiving', 'thankful'],
   gratitude: ['thanks', 'thanksgiving', 'thankful'],
-  dress: ['clothing', 'adorn', 'apparel', 'modesty'],
-  clothes: ['clothing', 'adorn', 'apparel'],
+  dress: ['adorn', 'adornment', 'apparel', 'modesty', 'modest', 'decently'],
+  clothes: ['adorn', 'adornment', 'apparel', 'modesty', 'modest'],
   overthinking: ['anxious', 'anxiety', 'worry'],
   stress: ['anxious', 'anxiety', 'troubled', 'weary'],
   stressed: ['anxious', 'anxiety', 'troubled', 'weary'],
@@ -183,10 +183,10 @@ const BIBLE_WORDS: Record<string, string[]> = {
   lazy: ['slacker', 'sluggard', 'idle', 'laziness'],
   laziness: ['slacker', 'sluggard', 'idle', 'lazy'],
   innocent: ['blameless', 'innocent'],
-  failure: ['fail', 'weakness'],
+  failure: ['weakness', 'grace sufficient', 'falls seven', 'flesh heart fail'],
   worthless: ['worth', 'valuable', 'precious'],
   distant: ['far', 'near'],
-  closer: ['near', 'draw near'],
+  closer: ['draw near', 'come near'],
   tired: ['weary', 'faint', 'rest'],
   exhausted: ['weary', 'faint', 'rest'],
   burnout: ['weary', 'faint', 'rest'],
@@ -225,7 +225,6 @@ const BIBLE_WORDS: Record<string, string[]> = {
   decision: ['plans', 'counsel', 'guide'],
   decisions: ['plans', 'counsel', 'guide'],
   hard: ['hardship', 'hardships', 'trials', 'affliction', 'trouble'],
-  insomnia: ['sleep', 'sleepless'],
   calm: ['peace', 'quiet', 'still'],
 };
 
@@ -237,33 +236,44 @@ const INSTEAD = new Set(['worthless', 'distant', 'christian', 'christians', 'har
 /** Phrases of a question and the Bible's words for them; their words are not
  * then looked for one by one ("share my faith" is not "share" and "faith"). */
 const PHRASES: [RegExp, string[]][] = [
+  [/\bjudg(e|ing) (others|other people|people|anyone|each other|one another|someone)\b|\bjudgmental\b/, ['do not judge', 'passing judgment', 'judge neighbor', 'speck']],
+  [/\b(greatest|most important|first|great) commandments?\b/, ['greatest commandment', 'great commandment', 'most important commandment', 'first commandment']],
+  [/\bten commandments\b/, ['ten commandments', 'no other gods', 'two tablets']],
+  [/\bholy spirit (is )?(in|within|living in|lives in|inside) (me|us|you)\b|\b(have|got|received) the holy spirit\b/, ['spirit lives', 'spirit dwells', 'spirit testifies', 'sealed spirit', 'given spirit']],
+  [/\b(babies|baby|infants?|little children)\b.*\b(die|died|dies|death)\b/, ['child died', 'stillborn', 'go him return', 'little children kingdom']],
+  [/\barmor of god\b/, ['full armor', 'armor god', 'armor light', 'breastplate righteousness']],
+  [/\bwhat did jesus (teach|preach|say)\b|\bjesus teachings?\b/, ['began preach', 'taught authority', 'repent kingdom near', 'astonished teaching']],
+  [/\b(was|is) jesus (a )?real( person)?\b|\bdid jesus (really |actually )?exist\b|\bhistorical jesus\b/, ['eyewitnesses', 'seen heard touched', 'came flesh', 'word became flesh']],
+  [/\b(defend|protect) (myself|yourself|themselves|ourselves|my family)\b|\bself[- ]defen[cs]e\b/, ['turn other cheek', 'sell cloak buy', 'repay evil', 'avenge yourselves']],
+  [/\b(ok|okay|wrong|sin|bad) to (be )?(sad|cry|grieve|mourn)\b/, ['jesus wept', 'weep with', 'time weep', 'sorrowful']],
+  [/\btreat (each other|one another)\b/, ['love one another', 'devoted one another', 'kind one another']],
   [/\b(share|sharing|spread|tell (people|others) about) (my |our |your |the )?(faith|gospel|jesus)\b/, ['preach', 'proclaim', 'good news', 'my witnesses', 'reason hope', 'testify']],
   [/\bdifficult (person|people)\b/, ['quarrelsome', 'contentious', 'hot tempered']],
   [/\b((break|breaking|quit|kick|stop|beat) (a |my |the |this )?)?(bad )?habits?\b/, ['mastered', 'old self', 'former way']],
-  [/\bloved ones?\b/, ['fallen asleep', 'asleep']],
+  [/\bloved ones?\b/, ['fallen asleep jesus', 'asleep grieve hope', 'caught up together', 'go him return']],
   [/\bend times\b/, ['last days', 'end age']],
   [/\b(death penalty|capital punishment)\b/, ['surely put death', 'sheds blood', 'carry sword']],
-  [/\bmake peace\b/, ['reconciled', 'reconcile', 'peacemakers', 'live peace']],
+  [/\bmake peace\b/, ['live peace', 'peacemakers', 'first reconciled', 'brothers live harmony']],
   [/\bsame sex\b/, ['homosexual', 'homosexuals', 'natural relations']],
   [/\bfar from god\b/, ['hide face', 'forsaken', 'near']],
   [/\bnever heard\b/, ['ignorance', 'not heard']],
-  [/\b(cannot|can ?not|cant) sleep\b/, ['sleep', 'sleepless']],
+  [/\b(cannot|can ?not|cant) sleep\b|\binsomnia\b/, ['lie down sleep', 'sleep peace', 'gives sleep', 'sleepless']],
   [/\bgod (make|made|create|created) (me|us|people|humans|humanity|man|mankind)\b/, ['created', 'formed', 'make man', 'my glory']],
   [/\b(life is|life gets|times are|going through) (so )?(hard|difficult|tough)\b|\b(hard|difficult|tough) times\b/, ['trials', 'affliction', 'hardship', 'hardships', 'trouble', 'troubles', 'distress']],
   [/\blife (begin|begins|start|starts)\b/, ['womb', 'conceived', 'knit']],
-  [/\bnon[- ]?(christians?|believers?)\b|\bunbelievers?\b/, ['unbeliever', 'unbelievers', 'unbelieving', 'yoked']],
+  [/\bnon[- ]?(christians?|believers?)\b|\bunbelievers?\b/, ['unequally yoked', 'only in lord', 'unbeliever', 'unbelievers']],
   [/\bold testament\b/, ['scripture', 'scriptures', 'law prophets', 'written instruction']],
-  [/\bspiritual (battles?|warfare|war|attacks?)\b/, ['struggle', 'armor', 'schemes', 'strongholds']],
+  [/\bspiritual (battles?|warfare|war|attacks?)\b/, ['struggle flesh blood', 'full armor', 'weapons warfare', 'strongholds', 'schemes devil']],
   [/\bfruits? of the spirit\b/, ['fruit spirit']],
   [/\b(speaking|speak|speaks) in tongues\b/, ['speaks tongue', 'speak tongues', 'interpretation tongues', 'other tongues']],
-  [/\b(who wrote|writers? of|authors? of|wrote) (the )?(bible|scriptures?)\b/, ['god breathed', 'carried along', 'scripture']],
+  [/\b(who wrote|writers? of|authors? of|wrote) (the )?(bible|scriptures?)\b/, ['god breathed', 'carried along', 'prophecy scripture']],
   [/\b(hate|loathe|cant stand) myself\b/, ['fearfully wonderfully', 'hated own body', 'precious', 'worth more']],
   [/\b(love|loving) god\b/, ['love lord god', 'love me keep', 'love god']],
   [/\bwhat is love\b|\b(real|true|genuine) love\b/, ['love is', 'love patient', 'greater love', 'this is love']],
   [/\bfind (a |my )?(wife|husband|spouse)\b/, ['finds wife', 'prudent wife']],
   [/\bsave (my |our |a )?marriage\b/, ['one flesh', 'husbands love', 'wives submit', 'forgiving']],
   [/\bwhere is jesus( now)?\b/, ['right hand', 'seated', 'intercede', 'ascended']],
-  [/\b(manage|use|spend|spending|using) (my |our )?time\b/, ['number days', 'redeeming time', 'teach number']],
+  [/\b(manage|use|spend|spending|using) (my |our )?time\b/, ['teach number days', 'redeeming time', 'most opportunity']],
   [/\b(people|everyone|men|humans|races|all) (as |are )?equal\b/, ['favoritism', 'partiality', 'every nation', 'jew greek']],
   [/\bhear (from )?god( speak| speaking)?\b|\bgod( voice| speak| speaking| speaks)( to (me|us))?\b/, ['sheep listen voice', 'hears my voice', 'speak servant listening', 'hear word']],
   [/\b(not|never) (good|smart|strong|holy|worthy) enough\b/, ['grace sufficient', 'competent', 'weakness', 'worthy']],
@@ -415,6 +425,9 @@ const OLD_SENSE = new Set(['Boss', 'Pastor', 'Ghost', 'Conversation', 'Prevent',
 /** A word in more verses than this says little about one question. */
 const COMMON = 2000;
 
+/** A concept this wide does not answer a question alone. */
+const BROAD = 600;
+
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null)]);
   // "God's voice" is God's, not "gods".
@@ -493,6 +506,9 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
 
   // 3. How much of the question each verse holds, rarer concepts counting more.
   const usable = concepts.map((_, i) => i).filter((i) => reach[i].size > 0 && reach[i].size < n * 0.2);
+  // A word the Bible does not use, with only broad words beside it ("is
+  // gambling a sin"): verses that hold only "sin" would not answer it.
+  if (concepts.some((_, i) => !reach[i].size) && usable.every((i) => reach[i].size > BROAD)) usable.length = 0;
   const idf = new Map(usable.map((i) => [i, Math.log(1 + n / reach[i].size)]));
   const mass = [...idf.values()].reduce((x, y) => x + y, 0) || 1;
   const text = new Map<number, number>();
