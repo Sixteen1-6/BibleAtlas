@@ -36,6 +36,8 @@ export function Reader({ a }: { a: Atlas }) {
   const isHebrew = b.testament === 'OT';
   const tr = S.translation.value;
   const studyRoot = S.study.value?.root ?? -1;
+  // The studied word's relatives (ἀγαπάω beside ἀγάπη) are underlined.
+  const kin = S.studyKin.value;
   // Simple shows the English alone; Study adds the original words; Deep adds
   // words found only in other editions.
   const orig = atLeast('study');
@@ -206,11 +208,11 @@ export function Reader({ a }: { a: Atlas }) {
                 )}
               </div>
               {!orig ? null : al ? (
-                <PairedWords v={v} row={row} al={al} hebrew={isHebrew} other={other} studyRoot={studyRoot} />
+                <PairedWords v={v} row={row} al={al} hebrew={isHebrew} other={other} studyRoot={studyRoot} kin={kin} />
               ) : inter ? (
                 <div class={`inter ${lang}`}>
                   {words.map((w) => (
-                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, false)}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>
+                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, !!kin?.has(w[3]))}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>
                       <span class="o">{w[0]}</span>
                       <span class="t">{w[1]}</span>
                       <span class="g">{w[2]}</span>
@@ -221,7 +223,7 @@ export function Reader({ a }: { a: Atlas }) {
                 <div class={`orig ${lang}`} lang={isHebrew ? 'hbo' : 'grc'}>
                   {words.map((w) => (
                     <Fragment key={indexOf(w)}>
-                      <button class={wordClass(w, w[3] === studyRoot, false)} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={`${w[1]} · ${w[2]}`}>
+                      <button class={wordClass(w, w[3] === studyRoot, !!kin?.has(w[3]))} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={`${w[1]} · ${w[2]}`}>
                         {w[0]}
                       </button>{' '}
                     </Fragment>

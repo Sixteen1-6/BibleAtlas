@@ -20,6 +20,7 @@
 
 use crate::align;
 use crate::english;
+use crate::family;
 use crate::layers;
 use crate::lexhtml;
 use crate::parse::{self, GreekForms, Lang, LexEntry, Tally, Word, WordsByVerse};
@@ -112,7 +113,8 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     // --- Original-language words -------------------------------------------
     let mut words: WordsByVerse = vec![Vec::new(); n as usize];
     let mut ht = Tally::default();
-    parse::tahot(&inputs.paths("tahot"), &vz, &mut words, &mut ht)?;
+    let mut senses = parse::SourceSenses::new();
+    parse::tahot(&inputs.paths("tahot"), &vz, &mut words, &mut senses, &mut ht)?;
     let mut gt = Tally::default();
     let mut forms = GreekForms::new();
     parse::tagnt(&inputs.paths("tagnt"), &vz, &mut words, &mut forms, &mut gt)?;
@@ -150,11 +152,11 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let nh = parse::lexicon(&inputs.path("tbesh", "tbesh"), "tbesh", &mut lex)?;
     let ng = parse::lexicon(&inputs.path("tbesg", "tbesg"), "tbesg", &mut lex)?;
     eprintln!("lexicon entries: {nh} Hebrew/Aramaic, {ng} Greek");
-    let mut by_base: HashMap<&str, &LexEntry> = HashMap::new();
+    let mut by_base: HashMap<&str, Vec<&LexEntry>> = HashMap::new();
     let mut lex_keys: Vec<&String> = lex.keys().collect();
     lex_keys.sort();
     for k in lex_keys {
-        by_base.entry(&k[..5]).or_insert(&lex[k]);
+        by_base.entry(&k[..5]).or_default().push(&lex[k]);
     }
 
     // --- Root (lemma) table -------------------------------------------------
@@ -174,7 +176,32 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let lemmas: Vec<Lemma> = stats
         .iter()
         .map(|(key, &(count, aramaic))| {
-            let entry = lex.get(key).or_else(|| by_base.get(&key[..5]).copied()).cloned();
+            // A sense with no entry of its own (H0430J "gods") borrows an entry of
+            // its number, the one glossed like it if any, but keeps the gloss the
+            // source gives it ("gods", not "God"; ": child" becomes "son: child").
+            // (TAGNT keeps only the first gloss it meets, so Greek keeps the lexicon's.)
+            let source = senses.get(key).and_then(|m| m.iter().max_by(|a, b| a.1.cmp(b.1).then(b.0.cmp(a.0)))).map(|(wg, _)| wg.1.clone()).filter(|g| !g.is_empty());
+            let head = |g: &str| g.split(':').next().unwrap_or("").trim().to_lowercase();
+            let mut entry = lex.get(key).cloned();
+            if entry.is_none() {
+                let all = by_base.get(&key[..5]).map_or(&[][..], |v| v.as_slice());
+                let alike = source.as_deref().and_then(|g| all.iter().find(|e| head(&e.gloss) == head(g) && !head(g).is_empty()));
+                entry = alike.or(all.first()).map(|e| {
+                    let mut e = (*e).clone();
+                    if let Some(g) = source.as_deref().filter(|g| head(g) != head(&e.gloss) || g.starts_with(':')) {
+                        let named = e.relation.contains("Name of") || e.relation.contains("Part of");
+                        // A name's entry says nothing true of a common word (gods).
+                        if named && !g.starts_with(|c: char| c.is_uppercase()) {
+                            e.definition.clear();
+                        }
+                        e.gloss = match g.strip_prefix(':') {
+                            Some(m) => format!("{}: {}", e.gloss.split(':').next().unwrap_or("").trim(), m.trim()),
+                            None => g.to_string(),
+                        };
+                    }
+                    e
+                });
+            }
             if entry.is_none() {
                 missing_lex += 1;
             }
@@ -366,14 +393,53 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
         let rows: Vec<Value> = chunk
             .iter()
             .map(|l| match &l.lex {
-                Some(e) => json!({
+                Some(e) if !e.definition.is_empty() || lex.contains_key(&l.key) => json!({
                     "w": e.word, "t": e.translit, "m": e.morph, "g": e.gloss, "s": e.source,
                     "d": lexhtml::segments(&e.definition, &vz),
                 }),
-                None => Value::Null,
+                _ => Value::Null,
             })
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
+    }
+    let mut derivations = family::Derivations::default();
+    let ng = family::derivations(&inputs.path("strongs", "greek"), 'G', &mut derivations)?;
+    let nh = family::derivations(&inputs.path("strongs", "hebrew"), 'H', &mut derivations)?;
+    let family_roots: Vec<family::Root> = lemmas
+        .iter()
+        .map(|l| {
+            let e = l.lex.as_ref();
+            // A sense with no entry of its own borrows its number's first entry:
+            // the same dictionary word, but not that entry's links.
+            let own = lex.contains_key(&l.key);
+            let s = |f: fn(&LexEntry) -> &str| e.map_or("", f);
+            family::Root {
+                key: &l.key,
+                count: l.count,
+                // A name, or a sense the lexicon files as a name or a spelling of
+                // one (מֶלֶךְ for Molech, שָׂדַי for Sirion), titles of God aside.
+                name: s(|e| &e.morph).starts_with("N:")
+                    || (own && s(|e| &e.relation).contains("Name of") && s(|e| &e.target) != "H3068G")
+                    || (own && s(|e| &e.relation).contains("Spelling of") && lex.get(s(|e| &e.target)).is_some_and(|t| t.morph.starts_with("N:"))),
+                word: s(|e| &e.word),
+                morph: s(|e| &e.morph),
+                gloss: s(|e| &e.gloss),
+                estrong: s(|e| &e.estrong),
+                relation: if own { s(|e| &e.relation) } else { "" },
+                target: if own { s(|e| &e.target) } else { "" },
+            }
+        })
+        .collect();
+    let forms = family::build(&family_roots, &words, &l_off, &l_verse, &l_pos, &derivations);
+    let related = forms.iter().filter(|f| f.get("r").is_some()).count();
+    eprintln!(
+        "word families: {} derivations ({} prefix compounds, {} shared roots) from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives",
+        derivations.parent.len(),
+        derivations.head.len(),
+        derivations.same.len()
+    );
+    for (s, chunk) in forms.chunks(LEX_SHARD).enumerate() {
+        write(out, &format!("forms/{s}.json"), serde_json::to_string(chunk).unwrap().as_bytes(), &mut files)?;
     }
     write(out, "lxx.json", crate::lxx::emit(lemmas.iter().map(|l| crate::lxx::Root { key: &l.key, word: &l.word, gloss: &l.gloss, lang: l.lang, kind: l.lex.as_ref().map_or("", |e| e.morph.as_str()), count: l.count }), &lex, &words, &vz).as_bytes(), &mut files)?;
 
