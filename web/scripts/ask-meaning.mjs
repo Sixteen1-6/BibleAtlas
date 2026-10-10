@@ -3,8 +3,8 @@
 //
 // For every prepared question the repository holds its title and other ways of
 // asking (config/questions.json), the everyday words that point to it, and
-// example messages people might type (config/ask-examples.json): "car got
-// repossessed this morning" for "drowning in debt". This trains a softmax
+// example messages people might type (config/ask-examples.json): "the repo man
+// took my truck at 5am" for "drowning in debt". This trains a softmax
 // regression over the words Ask the Bible reads (web/src/ui/ask/words.ts, the
 // same code the page runs), so words like "rehab", "repo" and "chemo" come to
 // weigh toward the questions people use them about. It writes the weights

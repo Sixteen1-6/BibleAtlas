@@ -128,7 +128,8 @@ export function route(ix: AskIndex, text: string): Question | null {
   // Asked as one of its ways, word for word.
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
-  // Plainly what people mean by such words ("car got repossessed": debt).
+  // Plainly what people mean by such words ("they took my car because I
+  // missed payments": debt).
   const [sense] = meanings(ix, text, 1);
   if (sense && sense.p >= MEANT) return sense.q;
   const [best, next] = routes(ix, text, 2);
