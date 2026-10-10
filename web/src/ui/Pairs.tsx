@@ -140,8 +140,8 @@ export function PairedWords({ v, row, al, hebrew, other, studyRoot }: { v: numbe
 export function PairsNote({ hebrew }: { hebrew: boolean }) {
   return (
     <p class="pairs-note">
-      Matching colors show which English words came from which {hebrew ? 'Hebrew' : 'Greek'} word. <span class="pair-none">Gray</span> words have no partner: the translator added them, or left
-      the original word untranslated. Tap a word to follow it.{' '}
+      Matching colors show which English words came from which {hebrew ? 'Hebrew' : 'Greek'} word. <span class="pair-none">Gray</span> words have no partner: the translator added them, left
+      the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it.{' '}
       <span class="muted">
         Alignment by{' '}
         <a href="https://github.com/Clear-Bible/Alignments" target="_blank" rel="noopener">
