@@ -18,8 +18,7 @@
 import { type Atlas, chapterRange } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
-import { loadJson } from '../extras/data';
-import { type AskIndex, type Range, contentWords, loadAsk, sameWord, stem, topicData } from './ask';
+import { type AskIndex, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
 
 /** Plain English -> the words the BSB uses for it. Search mechanics only: each
  * entry adds words to look for; every verse found is shown as it stands. */
@@ -766,7 +765,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const qs = matchingQuestions(ix, ws);
   const [topicSets, questionSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
-    Promise.all(qs.map((q) => loadJson<{ v: Range[] }>(a, `ask/q/${q.id}.json`).catch(() => null))),
+    Promise.all(qs.map((q) => questionData(a, q).catch(() => null))),
   ]);
 
   // A verse Nave's lists under a subject holds that subject's concepts, as a
@@ -790,8 +789,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   });
   // A prepared question with these words only leans toward its verses: its
   // wider set is about its own question, which may not be the reader's.
-  for (const set of questionSets) if (set) addRanges(inTopic, set.v);
-  for (const q of qs) addRanges(cited, q.top);
+  for (const set of questionSets) {
+    if (!set) continue;
+    addRanges(inTopic, set.v);
+    addRanges(cited, set.top);
+  }
 
   // 3. How much of the question each verse holds, rarer concepts counting more.
   const usable = concepts.map((_, i) => i).filter((i) => reach[i].size > 0 && reach[i].size < n * 0.2);

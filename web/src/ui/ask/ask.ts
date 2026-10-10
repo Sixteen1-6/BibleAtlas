@@ -2,7 +2,8 @@
 //
 // The data (crates/atlas-cli/src/ask.rs writes it):
 // - ask/index.json: the questions and every Nave's subject's name, loaded when
-//   search opens;
+//   search opens or a verse is read;
+// - ask/also.json: each question's other phrasings, loaded when search opens;
 // - ask/q/<id>.json: a question's chain and wider set of verses, and
 //   ask/topics/<n>.json: a subject's verses, loaded when it opens.
 //
@@ -48,32 +49,37 @@ export interface Ties {
   p?: number[];
 }
 
-export interface Question {
+/** A prepared question as a verse's panel lists it. */
+export interface QuestionTitle {
   id: string;
   /** Index into AskIndex.groups. */
   g: number;
   q: string;
-  also: string[];
   /** How many verses its cluster holds. */
   n: number;
-  /** Its wider set's most-cited verses. */
-  top: Range[];
   /** The verses of its chain. */
   r: Range[];
+}
+
+/** ...and as search finds it, by its other phrasings too. */
+export interface Question extends QuestionTitle {
+  also: string[];
 }
 
 /** A prepared question's answer, loaded when it opens. */
 export interface QuestionData {
   /** The answer, in the Bible's own words. */
   chain: Part[];
+  /** Its wider set's most-cited verses. */
+  top: Range[];
   /** Its wider set of verses. */
   v: Range[];
 }
 
-export interface AskIndex {
+export interface AskIndex<Q = Question> {
   format: 2;
   groups: string[];
-  questions: Question[];
+  questions: Q[];
   /** [title, verse count], in the order of the topic files. */
   topics: [string, number][];
   /** Subjects per ask/topics/<n>.json. */
@@ -88,7 +94,7 @@ export interface TopicData {
 }
 
 export type Asked =
-  | { kind: 'question'; q: Question }
+  | { kind: 'question'; q: QuestionTitle }
   | { kind: 'topic'; i: number; title: string; n: number }
   /** Any other question, answered with the verses gathered for it. */
   | { kind: 'live'; text: string }
@@ -102,14 +108,21 @@ const LIVE_MAX = 400;
 
 export const askIndex = signal<AskIndex | null>(null);
 
+/** The questions without their other phrasings, for a verse's panel. */
+export function loadAskTitles(a: Atlas): Promise<AskIndex<QuestionTitle>> {
+  return loadJson<AskIndex<QuestionTitle>>(a, 'ask/index.json');
+}
+
 export function loadAsk(a: Atlas): Promise<AskIndex> {
-  return loadJson<AskIndex>(a, 'ask/index.json').then((x) => {
+  return Promise.all([loadAskTitles(a), loadJson<string[][]>(a, 'ask/also.json')]).then(([titles, also]) => {
+    const x = titles as AskIndex;
+    x.questions.forEach((q, i) => (q.also = also[i] ?? []));
     if (askIndex.peek() !== x) askIndex.value = x;
     return x;
   });
 }
 
-export function questionData(a: Atlas, q: Question): Promise<QuestionData> {
+export function questionData(a: Atlas, q: QuestionTitle): Promise<QuestionData> {
   return loadJson<QuestionData>(a, `ask/q/${q.id}.json`);
 }
 
