@@ -22,6 +22,7 @@ mod extra_parallels;
 mod extra_peshitta;
 mod extra_quotes;
 mod extra_real_map;
+mod family;
 mod fetch;
 mod layers;
 mod extra_notes;

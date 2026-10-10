@@ -407,6 +407,21 @@
       "commit": "47db250bd55d0d8577f2a94fba114ef16c35b23c",
       "files": { "tsv": "WLC/tsv/macula-hebrew.tsv" },
       "note": "Only the word ids, Hebrew text and the 'greek' and 'greekstrong' columns are read. The file is stored with Git LFS, so `atlas fetch` downloads it from GitHub's media server and checks it against the pointer's SHA-256. MACULA's LICENSE.md lists 'Greek equivalents drawn from the Septuagint' among the data it licenses CC BY 4.0. Nothing from the file is published: the build writes only word positions."
+    },
+    {
+      "id": "strongs",
+      "title": "Strong's Hebrew and Greek dictionaries (Open Scriptures JSON)",
+      "provides": "Which Hebrew and Greek words come from which. Used for each word's family of related words in the word study.",
+      "license": "CC BY-SA (JSON edition); Strong's dictionaries (1890) are public domain",
+      "attribution": "James Strong, Exhaustive Concordance of the Bible (1890, public domain); JSON edition by Open Scriptures, github.com/openscriptures/strongs (CC BY-SA), Greek from the XML by Ulrik Petersen",
+      "homepage": "https://github.com/openscriptures/strongs",
+      "repo": "https://github.com/openscriptures/strongs",
+      "commit": "0acd2f251c2d35ff8db2dece4e0593979d3ac223",
+      "files": {
+        "greek": "greek/strongs-greek-dictionary.js",
+        "hebrew": "hebrew/strongs-hebrew-dictionary.js"
+      },
+      "note": "Only each entry's derivation line is used, to link a word to the word it comes from. Strong's definitions are not shown. Guesses ('perhaps', 'probably', 'apparently', 'akin to'), links that rest on a sense the reader can't see, comparisons and compounds of two words are left out, except a Greek word built on a prefix (as ἐξέρχομαι on ἔρχομαι). 'From the same as' and 'from the base of' a word that is not a verb make two words share a root. Where one number covers words that only look alike, the link goes to the one with nearly all the uses or a sense checked by hand. A short hand-checked list corrects slips in Strong's numbers (see NOTICE.md)."
     }
   ]
 }

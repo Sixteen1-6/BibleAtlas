@@ -21,12 +21,31 @@ export type Range = [number, number];
 
 /** One part of a chain of Scripture: whole verses, or `w`, a span of their
  * BSB text word for word. `a`: it starts after the verse's first word; `z`:
- * it ends before its last. */
+ * it ends before its last. `t`: why it is in the chain. */
 export interface Part {
   r: Range;
   w?: string;
   a?: true;
   z?: true;
+  t?: Ties;
+}
+
+/** What ties a part to the question or to the other parts of its chain, from
+ * the Bible's own data (the build checks every part has at least one). Other
+ * parts are numbered from 0. */
+export interface Ties {
+  /** The question's words the part holds. */
+  w?: string[];
+  /** The question's Nave's subjects the part sits under. */
+  s?: string[];
+  /** Parts it shares a cross-reference with. */
+  x?: number[];
+  /** Parts it quotes, or that quote it (the BSB's footnotes). */
+  q?: number[];
+  /** [part, root]: the rarest Hebrew or Greek root it shares with that part. */
+  r?: [number, number][];
+  /** Parts of the same passage. */
+  p?: number[];
 }
 
 export interface Question {
@@ -39,10 +58,8 @@ export interface Question {
   n: number;
   /** Its wider set's most-cited verses. */
   top: Range[];
-  /** The answer, in the Bible's own words: only once reviewed (or in a
-   * preview build with drafts). */
-  chain?: Part[];
-  draft?: true;
+  /** The answer, in the Bible's own words. */
+  chain: Part[];
 }
 
 export interface AskIndex {
