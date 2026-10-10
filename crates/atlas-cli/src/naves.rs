@@ -10,8 +10,11 @@
 //!   subjects whose short references cite it, else up to two passages of 4 to
 //!   60 verses it is part of. At Study the Themes tab shows them for a verse no
 //!   theme reaches. People, places and bare names are left out (see [`kind`]),
-//!   and so is every subject in `config/naves-display.json`. Nave's never
-//!   becomes a theme and adds no verse or root to one.
+//!   and so are the lines of a numbered sense that names one. For these rows
+//!   only, `config/naves-display.json` hides some subjects, lets through
+//!   concepts the name lists take for names, and fixes a few references Ask
+//!   still reads as written. Nave's never becomes a theme and adds no verse or
+//!   root to one.
 //! - [`verify`] checks the written files, for `atlas verify`.
 
 use crate::loaded::Loaded;
@@ -41,13 +44,17 @@ const CELL_MAX: usize = 32_767;
 // ------------------------------------------------------------ the table
 
 /// One line of a Nave's entry: its label and the verse ranges it cites.
+#[derive(Clone)]
 pub struct Line {
+    /// The line as the table writes it.
+    pub text: String,
     pub label: String,
     /// The top-level line an indented line belongs to.
     pub parent: Option<usize>,
     pub refs: Vec<(u32, u32)>,
 }
 
+#[derive(Clone)]
 pub struct Subject {
     /// As Nave's writes it: "ANGER", "SPEAKING, EVIL".
     pub key: String,
@@ -266,6 +273,7 @@ fn parse(
                 parent = Some(lines.len());
             }
             lines.push(Line {
+                text: raw.to_string(),
                 label: label.to_string(),
                 parent: if depth == 0 { None } else { parent },
                 refs,
@@ -577,40 +585,110 @@ pub fn kind(key: &str, lines: &[Line], names: &Names) -> Kind {
 
 #[derive(Deserialize)]
 struct DisplayFile {
-    hide: Vec<Hidden>,
+    hide: Vec<Pick>,
+    show: Vec<Pick>,
+    fix: Vec<Fix>,
 }
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Hidden {
+struct Pick {
     key: String,
     why: String,
 }
 
-/// The subjects `config/naves-display.json` hides from the Themes rows, by
-/// key. The build stops on a key Nave's does not have, written exactly.
-fn hidden(root: &Path, subjects: &[Subject]) -> Result<Vec<String>, String> {
+/// A reference the table writes wrongly ("JOS 10:12; 13" reads as all of
+/// Joshua 13), written right for the Themes rows.
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Fix {
+    key: String,
+    from: String,
+    to: String,
+    why: String,
+}
+
+/// `config/naves-display.json`: the subjects hidden from the Themes rows, the
+/// concepts the name lists take for names (let through), and the fixes, by
+/// key. The build stops on a key Nave's does not have, written exactly, and on
+/// a fix whose `from` is not in that subject's entry exactly once.
+struct Display {
+    hide: Vec<String>,
+    show: Vec<String>,
+    fix: Vec<Fix>,
+}
+
+fn display(root: &Path, subjects: &[Subject]) -> Result<Display, String> {
     let text = fs::read_to_string(root.join(DISPLAY)).map_err(|e| format!("reading {DISPLAY}: {e}"))?;
-    let file: DisplayFile = serde_json::from_str(&text).map_err(|e| format!("parsing {DISPLAY}: {e}"))?;
-    let mut keys = Vec::new();
-    for h in file.hide {
-        if !subjects.iter().any(|s| s.key == h.key) {
-            return Err(format!("{DISPLAY}: Nave's has no subject {:?} (write it exactly as the table does)", h.key));
+    display_in(&text, subjects)
+}
+
+fn display_in(text: &str, subjects: &[Subject]) -> Result<Display, String> {
+    let file: DisplayFile = serde_json::from_str(text).map_err(|e| format!("parsing {DISPLAY}: {e}"))?;
+    let subject = |key: &str, why: &str| -> Result<&Subject, String> {
+        let s = subjects.iter().find(|s| s.key == key).ok_or(format!("{DISPLAY}: Nave's has no subject {key:?} (write it exactly as the table does)"))?;
+        if why.trim().is_empty() {
+            return Err(format!("{DISPLAY}: {key:?} needs a why"));
         }
-        if h.why.trim().is_empty() {
-            return Err(format!("{DISPLAY}: {:?} needs a why", h.key));
+        Ok(s)
+    };
+    let keys = |list: Vec<Pick>, what: &str| -> Result<Vec<String>, String> {
+        let mut keys: Vec<String> = Vec::new();
+        for p in list {
+            subject(&p.key, &p.why)?;
+            if keys.contains(&p.key) {
+                return Err(format!("{DISPLAY}: {:?} is listed twice in {what}", p.key));
+            }
+            keys.push(p.key);
         }
-        if keys.contains(&h.key) {
-            return Err(format!("{DISPLAY}: {:?} is listed twice", h.key));
-        }
-        keys.push(h.key);
+        Ok(keys)
+    };
+    let hide = keys(file.hide, "hide")?;
+    let show = keys(file.show, "show")?;
+    if let Some(k) = show.iter().find(|k| hide.contains(k)) {
+        return Err(format!("{DISPLAY}: {k:?} is both hidden and shown"));
     }
-    Ok(keys)
+    for f in &file.fix {
+        let s = subject(&f.key, &f.why)?;
+        let found: usize = s.lines.iter().map(|l| l.text.matches(f.from.as_str()).count()).sum();
+        if f.from.is_empty() || found != 1 {
+            return Err(format!("{DISPLAY}: {:?} is in {}'s entry {found} times, not once", f.from, f.key));
+        }
+    }
+    Ok(Display { hide, show, fix: file.fix })
 }
 
 /// Whether a subject may show in the Themes rows: a concept, and not hidden.
 fn shown(kind: Kind, key: &str, hidden: &[String]) -> bool {
     kind == Kind::Concept && !hidden.iter().any(|h| h == key)
+}
+
+/// The subjects with `fixes` made, for the Themes rows only: Ask reads the
+/// table as written.
+fn fixed(subjects: &[Subject], fixes: &[Fix], vz: &Versification) -> Vec<Subject> {
+    let mut out = subjects.to_vec();
+    for f in fixes {
+        let line = out.iter_mut().filter(|s| s.key == f.key).flat_map(|s| s.lines.iter_mut()).find(|l| l.text.contains(f.from.as_str()));
+        if let Some(l) = line {
+            let text = l.text.replacen(f.from.as_str(), &f.to, 1);
+            let (_, label, refs) = split_line(&text);
+            l.label = label.to_string();
+            l.refs = nave_refs(refs, vz, &mut 0);
+            l.text = text;
+        }
+    }
+    out
+}
+
+/// A numbered sense that names a place or a person, not the subject's concept:
+/// IRON's "2. A city of Naphtali", SIN's "1. Desert of, a wilderness between
+/// Elim and Sinai". Its lines are left out of the Themes rows.
+fn name_sense(label: &str) -> bool {
+    const PLACES_OF: [&str; 6] = ["desert of", "wilderness of", "valley of", "plain of", "plains of", "town of"];
+    let Some((n, rest)) = label.split_once(". ") else { return false };
+    !n.is_empty()
+        && n.chars().all(|c| c.is_ascii_digit())
+        && (label_starts(rest, &PLACE_LABELS) || label_starts(rest, &PERSON_LABELS) || label_starts(rest, &PLACES_OF))
 }
 
 // ------------------------------------------------------------ per verse
@@ -625,7 +703,8 @@ enum Row {
     Passages(Vec<(usize, u32, u32)>),
 }
 
-/// Each verse's row, from the listed subjects that may show.
+/// Each verse's row, from the listed subjects that may show, leaving out the
+/// lines of a sense that names a place or a person.
 fn rows(subjects: &[Subject], listed: &[Listed], show: &[bool], n: usize) -> Vec<Row> {
     // (listed subject, lines citing the verse) and (listed subject, passage).
     let mut direct: Vec<Vec<(usize, u32)>> = vec![Vec::new(); n];
@@ -633,7 +712,9 @@ fn rows(subjects: &[Subject], listed: &[Listed], show: &[bool], n: usize) -> Vec
     for (i, t) in listed.iter().enumerate().filter(|&(i, _)| show[i]) {
         let mut lines_at: BTreeMap<u32, u32> = BTreeMap::new();
         let mut shortest: BTreeMap<u32, (u32, u32)> = BTreeMap::new();
-        for l in &subjects[t.subject].lines {
+        let lines = &subjects[t.subject].lines;
+        let named = |l: &Line| name_sense(&l.label) || l.parent.is_some_and(|p| name_sense(&lines[p].label));
+        for l in lines.iter().filter(|l| !named(l)) {
             let mut cited = BTreeSet::new();
             for &(s, e) in &l.refs {
                 if e - s < CITE_SPAN_MAX {
@@ -698,13 +779,14 @@ pub fn build(
     bsb: &[String],
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
     let names = Names::read(inputs, glosses, bsb)?;
-    let hide = hidden(root, &naves.subjects)?;
+    let Display { hide, show: concepts, fix } = display(root, &naves.subjects)?;
+    // A subject the display file lets through is a concept, whatever its heading.
     let kinds: Vec<Kind> = naves
         .listed
         .iter()
         .map(|t| {
             let s = &naves.subjects[t.subject];
-            kind(&s.key, &s.lines, &names)
+            if concepts.contains(&s.key) { Kind::Concept } else { kind(&s.key, &s.lines, &names) }
         })
         .collect();
     let show: Vec<bool> = naves
@@ -714,7 +796,7 @@ pub fn build(
         .map(|(t, &k)| shown(k, &naves.subjects[t.subject].key, &hide))
         .collect();
     let n = vz.verse_count() as usize;
-    let rows = rows(&naves.subjects, &naves.listed, &show, n);
+    let rows = rows(&fixed(&naves.subjects, &fix, vz), &naves.listed, &show, n);
     let mut out = Vec::new();
     for (b, book) in BOOKS.iter().enumerate() {
         let b = b as u8;
@@ -755,11 +837,13 @@ pub fn build(
     let bytes: usize = out.iter().map(|(_, b)| b.len()).sum();
     let largest = out.iter().max_by_key(|(_, b)| b.len()).map(|(p, b)| format!("{p} {:.1} KB", b.len() as f64 / 1e3)).unwrap_or_default();
     eprintln!(
-        "naves rows: {} of {} subjects can show ({} concepts, {} hidden by {DISPLAY}; left out {} people, {} places, {} other names and {} more names known by how the KJV and BSB write them); {direct} verses with a subject citing them, {passage} more inside a passage; {} files, {:.0} KB, the largest {largest}",
+        "naves rows: {} of {} subjects can show ({} concepts, {} of them let through and {} hidden by {DISPLAY}, which also fixes {} references; left out {} people, {} places, {} other names and {} more names known by how the KJV and BSB write them); {direct} verses with a subject citing them, {passage} more inside a passage; {} files, {:.0} KB, the largest {largest}",
         show.iter().filter(|&&s| s).count(),
         naves.listed.len(),
         left(Kind::Concept),
+        concepts.len(),
         hidden_listed,
+        fix.len(),
         left(Kind::Person),
         left(Kind::Place),
         left(Kind::Name),
@@ -844,7 +928,10 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
         r.push((entries, format!("{rel}: each verse has nothing, subjects citing it, or 1 to {PASSAGES_SHOWN} passages of 4 to {PASSAGE_MAX} verses that hold it")));
     }
 
-    // The hidden subjects: each is a subject Ask lists, and none ever shows.
+    r.push((!titles.iter().any(|t| t.contains('·')), "no Nave's title in naves/ holds a '·', which the Themes tab puts between headings".to_string()));
+
+    // The display file: each hidden subject is one Ask lists and never shows;
+    // each subject it lets through shows.
     let text = fs::read_to_string(root.join(DISPLAY)).map_err(|e| format!("reading {DISPLAY}: {e}"))?;
     let file: DisplayFile = serde_json::from_str(&text).map_err(|e| format!("parsing {DISPLAY}: {e}"))?;
     for h in &file.hide {
@@ -852,16 +939,27 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
         r.push((topics.iter().any(|x| x[0] == t.as_str()), format!("{DISPLAY}: {} is a Nave's subject Ask lists", h.key)));
         r.push((!titles.contains(&t), format!("the hidden Nave's subject {t} never shows in naves/")));
     }
+    for p in &file.show {
+        let t = title(&p.key);
+        r.push((titles.contains(&t), format!("{DISPLAY} lets {} through, and it shows in naves/", p.key)));
+    }
+
+    // Whether Ask's topic number `i` holds a verse, and a subject's number and title.
+    let cites = |i: usize, verse: &str| -> Result<bool, String> {
+        let shard = read(&format!("ask/topics/{}.json", i / crate::ask::TOPIC_SHARD))?;
+        let v = d.resolve(verse)?.0 as u64;
+        Ok(shard[i % crate::ask::TOPIC_SHARD]["v"].as_array().into_iter().flatten().any(|x| x[0].as_u64().zip(x[1].as_u64()).is_some_and(|(s, e)| s <= v && v <= e)))
+    };
+    let topic = |key: &str| -> Result<(usize, String), String> {
+        let t = title(key);
+        let i = topics.iter().position(|x| x[0] == t.as_str()).ok_or(format!("no Nave's subject {t}"))?;
+        Ok((i, t))
+    };
 
     // The cut entry: "Jesus, the Christ" keeps 1 Corinthians 1:24, cited by
     // whole lines, but not 1:10, which only its cut last line ("1CO 1") reached.
-    let jesus = topics.iter().position(|t| t[0] == "Jesus, the Christ").ok_or("no Nave's subject Jesus, the Christ")?;
-    let shard = read(&format!("ask/topics/{}.json", jesus / crate::ask::TOPIC_SHARD))?;
-    let has = |verse: &str| -> Result<bool, String> {
-        let v = d.resolve(verse)?.0 as u64;
-        Ok(shard[jesus % crate::ask::TOPIC_SHARD]["v"].as_array().into_iter().flatten().any(|x| x[0].as_u64().zip(x[1].as_u64()).is_some_and(|(s, e)| s <= v && v <= e)))
-    };
-    r.push((has("1 Cor 1:24")? && !has("1 Cor 1:10")?, "Nave's Jesus, the Christ includes 1 Corinthians 1:24 but not 1:10 (its cut last line is left out)".to_string()));
+    let (jesus, _) = topic("JESUS, THE CHRIST")?;
+    r.push((cites(jesus, "1 Cor 1:24")? && !cites(jesus, "1 Cor 1:10")?, "Nave's Jesus, the Christ includes 1 Corinthians 1:24 but not 1:10 (its cut last line is left out)".to_string()));
 
     // Coverage: of the verses no theme reaches at Study (no theme of their
     // own, none through links), how many get a Nave's row; and the same for
@@ -910,8 +1008,35 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
         none && gen222.direct.is_empty() && gen222.passages.first().is_some_and(|p| p.0 == "Creation" && (p.1, p.2) == creation),
         format!("Genesis 2:22 has no theme at Study and is part of the passage Nave's lists under Creation (Genesis 2:1-25): {:?}", gen222.passages),
     ));
-    let (_, sam) = at("1 Sam 17:43")?;
-    r.push((!sam.direct.iter().chain(sam.passages.iter().map(|p| &p.0)).any(|t| t == "Dog (Sodomite?)"), format!("1 Samuel 17:43 never shows Dog (Sodomite?): {:?}", sam.direct)));
+    // The titles a verse's row shows.
+    let shown_at = |verse: &str| -> Result<Vec<String>, String> {
+        let w = &rows[d.resolve(verse)?.0 as usize];
+        Ok(w.direct.iter().cloned().chain(w.passages.iter().map(|p| p.0.clone())).collect())
+    };
+    let (dog_i, dog) = topic("DOG (SODOMITE?)")?;
+    let sam = shown_at("1 Sam 17:43")?;
+    r.push((cites(dog_i, "1 Sam 17:43")? && !sam.contains(&dog), format!("Nave's {dog} cites 1 Samuel 17:43, and the verse never shows it: {sam:?}")));
+    // References the display file fixes, a sense that names a town, and a
+    // line it drops: Ask's topic still holds the verse the table misreads, the
+    // Themes rows do not, and the verse meant (or another the subject keeps)
+    // shows it.
+    for (key, wrong, meant, what) in [
+        ("MOON", "Josh 13:1", "Josh 10:13", "\"JOS 10:12; 13\" means 10:13, not all of Joshua 13"),
+        ("MOON", "Josh 13:16", "Josh 10:13", "\"JOS 10:12; 13\" means 10:13, not all of Joshua 13"),
+        ("CONEY", "Psalm 18:38", "Psalm 104:18", "\"PSA 18\" means Psalm 104:18"),
+        ("IRON", "Job 19:1", "Job 19:24", "\"JOB 19; 24\" means Job 19:24"),
+        ("PENNY", "Matt 18:11", "Matt 18:28", "\"MAT 18; 28\" means Matthew 18:28"),
+        ("WAY", "Matt 7:4", "Matt 7:14", "\"MAT 7:1,4\" means Matthew 7:14"),
+        ("IRON", "Josh 19:38", "Gen 4:22", "its \"2. A city of Naphtali\" is the town, not the metal"),
+        ("SONG", "Song 1:13", "Num 21:27", "only its \"Impersonation of the church (?)\" line cites all of the Song"),
+    ] {
+        let (i, t) = topic(key)?;
+        let (at_wrong, at_meant) = (shown_at(wrong)?, shown_at(meant)?);
+        r.push((
+            cites(i, wrong)? && !at_wrong.contains(&t) && at_meant.contains(&t),
+            format!("{wrong} never shows Nave's {t}, which Ask lists it under ({what}), and {meant} does: {at_wrong:?}, {at_meant:?}"),
+        ));
+    }
     Ok(r)
 }
 
@@ -1009,7 +1134,7 @@ mod tests {
     fn subject(key: &str, lines: &[&[(u32, u32)]]) -> Subject {
         Subject {
             key: key.to_string(),
-            lines: lines.iter().map(|refs| Line { label: String::new(), parent: None, refs: refs.to_vec() }).collect(),
+            lines: lines.iter().map(|refs| Line { text: String::new(), label: String::new(), parent: None, refs: refs.to_vec() }).collect(),
         }
     }
 
@@ -1067,11 +1192,77 @@ mod tests {
         assert_eq!(rows(&s, &l, &show, 20)[5], Row::Passages(vec![(1, 1, 10)]));
     }
 
+    const TABLE: &str = "section,subject,entry
+I,IRON,\"-1. First recorded use of GEN 4:22
+-2. A city of Naphtali JOS 19:38
+          -Pen JOB 19; 24; JER 17:1\"
+M,MOON,\"-Stands still JOS 10:12; 13; HAB 3:11\"
+S,SIN,\"-UNCLASSIFIED DEU 29:18
+-1. Desert of, a wilderness between Elim and Sinai
+     -The people of Israel journey through EXO 16:1
+-2. A city of Egypt EZK 30:15\"
+A,ALTAR,\"-A place of refuge 1KI 1:50\"
+";
+
+    #[test]
+    fn the_display_file_is_checked_against_the_table() {
+        let (s, _) = subjects(TABLE);
+        let file = |hide: &str, show: &str, fix: &str| display_in(&format!("{{\"hide\": [{hide}], \"show\": [{show}], \"fix\": [{fix}]}}"), &s);
+        let moon = r#"{"key": "MOON", "from": "JOS 10:12; 13", "to": "JOS 10:12,13", "why": "w"}"#;
+        let d = file(r#"{"key": "ALTAR", "why": "w"}"#, r#"{"key": "SIN", "why": "w"}"#, moon).unwrap();
+        assert_eq!((d.hide, d.show, d.fix.len()), (vec!["ALTAR".to_string()], vec!["SIN".to_string()], 1));
+        // A key not written exactly as the table writes it, one with no reason,
+        // one both hidden and shown, and a fix not found exactly once.
+        assert!(file(r#"{"key": "Altar", "why": "w"}"#, "", "").is_err());
+        assert!(file(r#"{"key": "ALTAR", "why": " "}"#, "", "").is_err());
+        assert!(file(r#"{"key": "SIN", "why": "w"}"#, r#"{"key": "SIN", "why": "w"}"#, "").is_err());
+        assert!(file("", "", r#"{"key": "MOON", "from": "JOS 9:1", "to": "", "why": "w"}"#).is_err());
+        assert!(file("", "", r#"{"key": "SIN", "from": "EXO 16:1", "to": "", "why": "w"}"#).is_ok());
+        assert!(file("", "", r#"{"key": "SIN", "from": "-", "to": "", "why": "w"}"#).is_err());
+    }
+
+    #[test]
+    fn a_fix_reads_a_line_again_for_the_rows_only() {
+        let (s, _) = subjects(TABLE);
+        // As written, "13" after a verse in another piece is a whole chapter.
+        assert_eq!(s[1].lines[0].refs[1], (at(5, 13, 1), at(5, 13, 60)));
+        let fixes = |from: &str, to: &str| vec![Fix { key: "MOON".to_string(), from: from.to_string(), to: to.to_string(), why: String::new() }];
+        let f = fixed(&s, &fixes("JOS 10:12; 13", "JOS 10:12,13"), &vz());
+        let one = |b, c, v| (at(b, c, v), at(b, c, v));
+        assert_eq!(f[1].lines[0].refs, vec![one(5, 10, 12), one(5, 10, 13), one(34, 3, 11)]);
+        assert_eq!(f[1].lines[0].label, "Stands still");
+        assert_eq!(s[1].lines[0].refs[1], (at(5, 13, 1), at(5, 13, 60)));
+        // A reference written to nothing drops out; the label stays as it was.
+        let f = fixed(&s, &fixes("JOS 10:12; 13; ", ""), &vz());
+        assert_eq!((f[1].lines[0].label.as_str(), f[1].lines[0].refs.clone()), ("Stands still", vec![one(34, 3, 11)]));
+    }
+
+    #[test]
+    fn a_sense_that_names_a_place_is_left_out() {
+        assert!(name_sense("2. A city of Naphtali"));
+        assert!(name_sense("1. Desert of, a wilderness between Elim and Sinai"));
+        assert!(name_sense("2. A man of Manasseh"));
+        assert!(!name_sense("1. First recorded use of"));
+        assert!(!name_sense("A place of refuge"));
+        assert!(!name_sense("2. A phycial place of assembly"));
+        let (s, _) = subjects(TABLE);
+        let l = listed_of(&s);
+        let rows = rows(&s, &l, &[true; 4], vz().verse_count() as usize);
+        let row = |b, c, v| &rows[at(b, c, v) as usize];
+        assert_eq!(*row(0, 4, 22), Row::Direct(vec![0]));
+        assert_eq!(*row(5, 19, 38), Row::None);
+        // The lines under a numbered sense go with it.
+        assert_eq!(*row(1, 16, 1), Row::None);
+        assert_eq!(*row(25, 30, 15), Row::None);
+        assert_eq!(*row(4, 29, 18), Row::Direct(vec![2]));
+        assert_eq!(*row(10, 1, 50), Row::Direct(vec![3]));
+    }
+
     #[test]
     fn people_places_and_names() {
         let set = |xs: &[&str]| xs.iter().map(|s| s.to_string()).collect::<HashSet<_>>();
         let names = Names { people: set(&["abraham", "jordan"]), places: set(&["jerusalem", "jordan"]), glossed: set(&["abba"]), capitals: capitals(["Then Beth–el, the Amorites and the sea.", "The sea of Bethel."].into_iter()) };
-        let lines = |labels: &[&str]| labels.iter().map(|l| Line { label: l.to_string(), parent: None, refs: Vec::new() }).collect::<Vec<_>>();
+        let lines = |labels: &[&str]| labels.iter().map(|l| Line { text: String::new(), label: l.to_string(), parent: None, refs: Vec::new() }).collect::<Vec<_>>();
         assert_eq!(kind("FRIENDSHIP", &lines(&["Of David and Jonathan"]), &names), Kind::Concept);
         assert_eq!(kind("ABRAHAM", &lines(&["Son of Terah"]), &names), Kind::Person);
         assert_eq!(kind("JERUSALEM, CITY OF", &[], &names), Kind::Place);

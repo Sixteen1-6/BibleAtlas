@@ -14,7 +14,7 @@
 import type { ComponentChildren } from 'preact';
 import { useMemo, useRef, useState } from 'preact/hooks';
 import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
-import { type NavesPassage, type NavesTopic, navesRow } from '../data/naves';
+import { type NavesPassage, type NavesTopic, navesRow, navesRowNow } from '../data/naves';
 import { useLoaded } from '../data/shelf';
 import { type OwnTheme, type ThemeLevel, type ThroughTheme, linkRule, strongestLinks, themeWordsIn, themesThroughLinks, verseThemes } from '../data/themes';
 import type { VerseRow } from '../data/text';
@@ -111,15 +111,32 @@ function ThroughRow({ a, t, onOpen, go }: { a: Atlas; t: ThroughTheme; onOpen: (
 function NavesName({ t }: { t: NavesTopic }) {
   const [i, title, n] = t;
   return (
-    <button type="button" class="vt-nname" onClick={() => openAsk({ kind: 'topic', i, title, n })} title={`Open ${title} in Ask the Bible (${n.toLocaleString()} verses)`}>
+    <button type="button" class="vt-nname" onClick={(e) => openAsk({ kind: 'topic', i, title, n }, e.currentTarget)} title={`Open ${title} in Ask the Bible (${n.toLocaleString()} verses)`}>
       {title}
     </button>
   );
 }
 
 /** "A, B and C", with JSX in place of the names. */
-function andList(xs: ComponentChildren[], and = ' and '): ComponentChildren[] {
-  return xs.flatMap((x, k) => (k === 0 ? [x] : [k === xs.length - 1 ? and : ', ', x]));
+function andList(xs: ComponentChildren[], and = ' and ', sep = ', '): ComponentChildren[] {
+  return xs.flatMap((x, k) => (k === 0 ? [x] : [k === xs.length - 1 ? and : sep, x]));
+}
+
+/** Nave's headings side by side. Some hold a comma or "and" ("Intolerance,
+ *  Religious"), so a dot, which none holds, keeps each one whole. */
+const headings = (xs: ComponentChildren[]) => andList(xs, ' · ', ' · ');
+
+const tie = (s: string) => s.replace(/ /g, '\u00a0');
+
+/** "(1 Chronicles 1:1–24)", breaking only before the chapter and verse. */
+function RangeRef({ a, from, to }: { a: Atlas; from: number; to: number }) {
+  const ref = rangeLabel(a, from, to - from + 1);
+  const cut = ref.lastIndexOf(' ');
+  return (
+    <>
+      ({tie(ref.slice(0, cut))} <span class="vt-nref">{ref.slice(cut + 1)})</span>
+    </>
+  );
 }
 
 /** Passages to name: one entry per range, with every subject Nave lists it under. */
@@ -137,7 +154,10 @@ function byRange(ps: NavesPassage[]): { from: number; to: number; topics: NavesT
  *  verse, or the passages Nave lists it in, or else the quiet line itself. */
 function NavesRows({ a, v, quiet }: { a: Atlas; v: number; quiet: string }) {
   const deep = atLeast('deep');
-  const got = useLoaded(`naves ${a.version} ${v}`, () => navesRow(a, v));
+  // At once when the book is loaded; the first verse of a book waits for it.
+  const now = navesRowNow(a, v);
+  const later = useLoaded(now === undefined ? `naves ${a.version} ${v}` : null, () => navesRow(a, v));
+  const got = now !== undefined ? now : later;
   // "+N more" opens in place, for this verse only, and hands the focus to the
   // first subject it shows.
   const [allFor, setAllFor] = useState<number | null>(null);
@@ -155,7 +175,7 @@ function NavesRows({ a, v, quiet }: { a: Atlas; v: number; quiet: string }) {
     const more = got.topics.length - shown.length;
     row = (
       <p class="vt-naves" ref={line}>
-        Nave’s Topical Bible (1896) lists this verse under {andList(shown.map((t) => <NavesName key={t[0]} t={t} />), ', ')}
+        Nave’s Topical Bible (1896) lists this verse under {headings(shown.map((t) => <NavesName key={t[0]} t={t} />))}
         {more > 0 && (
           <>
             {' '}
@@ -174,8 +194,8 @@ function NavesRows({ a, v, quiet }: { a: Atlas; v: number; quiet: string }) {
         Part of {one ? 'a passage' : 'passages'} Nave’s lists under{' '}
         {andList(
           ranges.map((r) => (
-            <span key={r.from}>
-              {andList(r.topics.map((t) => <NavesName key={t[0]} t={t} />))} ({rangeLabel(a, r.from, r.to - r.from + 1)})
+            <span key={`${r.from}-${r.to}`}>
+              {headings(r.topics.map((t) => <NavesName key={t[0]} t={t} />))} <RangeRef a={a} from={r.from} to={r.to} />
             </span>
           )),
         )}

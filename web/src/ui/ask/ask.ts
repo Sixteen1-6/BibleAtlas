@@ -14,7 +14,7 @@ import { effect, signal } from '@preact/signals';
 import type { Atlas } from '../../data/atlas';
 import * as S from '../../state';
 import { loadJson } from '../extras/data';
-import { closeExtra, openPanel } from '../extras/open';
+import { closeExtra, openPanel, setOpener } from '../extras/open';
 
 /** [first verse, last verse], inclusive. */
 export type Range = [number, number];
@@ -144,9 +144,12 @@ let backPending = false;
 /** How the panel last closed: after 'navigate' the question's verses stay lit on the map. */
 export let lastClose: 'dismiss' | 'navigate' | 'quiet' = 'dismiss';
 
-export function openAsk(asked: Asked): void {
+export function openAsk(asked: Asked, from?: HTMLElement): void {
   if (backPending) return;
   closeExtra('quiet');
+  // A control outside a panel names itself, so closing hands the focus back
+  // to it; without one, the note that opened the extra keeps it.
+  if (from) setOpener(from);
   if (!askOpen.peek()) {
     try {
       history.pushState(history.state, '', location.href);

@@ -761,6 +761,10 @@
 .vt-nmore {
   padding: 1px 10px;
 }
+/* A passage's chapter and verse stay on one line with its closing bracket. */
+.vt-nref {
+  white-space: nowrap;
+}
 .vt-src {
   margin: 8px 0 0;
   font-size: 12px;
