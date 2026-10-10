@@ -75,6 +75,8 @@ export interface AskIndex {
 export interface TopicData {
   top: Range[];
   v: Range[];
+  /** Verses cited only where Nave's uses the subject as a figure. */
+  f?: Range[];
 }
 
 export type Asked =
@@ -363,6 +365,22 @@ const STOP = new Set([
   'also',
   'much',
   'many',
+  'treat',
+  'let',
+  'see',
+  'care',
+  'real',
+  'anything',
+  'everything',
+  'more',
+  'ones',
+  'supposed',
+  'myself',
+  'yourself',
+  'ourselves',
+  'themselves',
+  'himself',
+  'herself',
 ]);
 
 function words(s: string): string[] {
@@ -376,16 +394,20 @@ function words(s: string): string[] {
 /** Words search leaves out that still change what is asked: "why did God
  * make me" is not "is there a God", and "what did Jesus teach" is not "who is
  * Jesus". A prepared question opens only when these match too. */
-const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no']);
+const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real']);
 
 /** "What does the Bible say about X" asks about X. */
 const ABOUT = /^\s*(what|how)\s+(does|do|did)\s+(the\s+)?(bible|scriptures?|god|jesus|lord)\s+(say|says|teach|teaches|tell|tells)\s+(us\s+)?(about|of|on)\s+/i;
 
 /** The words that must match for a question to open a prepared chain. */
 export function askKey(s: string): string {
-  return words(s.replace(/[’‘]/g, "'").replace(ABOUT, ''))
-    .filter((w) => !STOP.has(w) || KEEP.has(w))
-    .join(' ');
+  const key = (x: string) =>
+    words(x)
+      .filter((w) => !STOP.has(w) || KEEP.has(w))
+      .join(' ');
+  const t = s.replace(/[’‘]/g, "'");
+  // "What did Jesus say about himself" asks about Jesus.
+  return key(t.replace(ABOUT, '')) || key(t);
 }
 
 const INFLECT = new Set(['s', 'es', 'd', 'ed', 'ing', 'er', 'ers', 'ness']);
@@ -398,6 +420,8 @@ export function sameWord(a: string, b: string): boolean {
   if (s.length < 3 || !l.startsWith(s.slice(0, -1))) return false;
   if (l.startsWith(s)) {
     const rest = l.slice(s.length);
+    // teach -> teacher, but not moth -> mother or pet -> Peter.
+    if (rest === 'er' || rest === 'ers') return s.length >= 5;
     // sin -> sinned, sinning: the last letter doubled before the ending (not let -> letters).
     return INFLECT.has(rest) || (rest[0] === s[s.length - 1] && (rest === `${rest[0]}ed` || rest === `${rest[0]}ing`));
   }

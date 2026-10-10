@@ -25,7 +25,7 @@
       "id": "why-does-god-allow-suffering",
       "group": "God",
       "question": "Why does God allow suffering?",
-      "also": ["suffering", "why is there evil", "problem of evil", "why does god let bad things happen", "pain and suffering", "why is there pain in the world", "why does god allow evil", "if god is good why is there suffering"],
+      "also": ["suffering", "why is there evil", "problem of evil", "why does god let bad things happen", "pain and suffering", "why is there pain in the world", "why does god allow evil", "if god is good why is there suffering", "why does god let evil happen", "why did god let my baby die"],
       "topics": [
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["MISCELLANY OF MINOR SUB-TOPICS", "DESIGN OF", "BENEFITS OF", "FROM SATAN"], "skip": ["BENEFITS OF, ILLUSTRATED"]}
       ],
@@ -84,7 +84,7 @@
       "id": "does-god-love-me",
       "group": "God",
       "question": "Does God love me?",
-      "also": ["god's love", "does god care about me", "how much does god love me", "am i loved", "love of god", "does god love everyone", "god's love for me", "does god love sinners"],
+      "also": ["god's love", "does god care about me", "how much does god love me", "am i loved", "does god love everyone", "god's love for me", "does god love sinners", "does god care about my problems", "i feel worthless", "what does god think of me", "does god still love me after i sinned"],
       "topics": [
         {"subject": "GOD", "only": ["LOVE OF"], "skip": ["LOVE OF, EXEMPLIFIED"]},
         {"subject": "JESUS, THE CHRIST", "only": ["LOVE OF"]}
@@ -104,7 +104,7 @@
       "id": "who-is-the-holy-spirit",
       "group": "God",
       "question": "Who is the Holy Spirit?",
-      "also": ["holy spirit", "holy ghost", "what is the holy spirit", "spirit of god", "the comforter", "the advocate", "is the holy spirit god", "what does the holy spirit do"],
+      "also": ["holy spirit", "holy ghost", "what is the holy spirit", "spirit of god", "the comforter", "the advocate", "is the holy spirit god", "what does the holy spirit do", "what is the holy spirit doing in me"],
       "topics": [
         {"subject": "HOLY SPIRIT", "only": ["General scriptures concerning"]}
       ],
@@ -165,7 +165,7 @@
       "id": "who-is-jesus",
       "group": "Jesus",
       "question": "Who is Jesus?",
-      "also": ["jesus", "who was jesus", "is jesus the son of god", "jesus christ", "who is christ", "the messiah", "is jesus god"],
+      "also": ["jesus", "who was jesus", "is jesus the son of god", "jesus christ", "who is christ", "the messiah", "is jesus god", "what did jesus say about himself"],
       "topics": [
         {"subject": "JESUS, THE CHRIST", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO THE DIVINITY", "OTHER SCRIPTURES RELATING TO HIS MESSIAHSHIP", "MISSION OF"]}
       ],
@@ -345,7 +345,7 @@
       "id": "will-god-forgive-me",
       "group": "Saved",
       "question": "Will God forgive anything I have done?",
-      "also": ["forgiveness", "can god forgive me", "unforgivable sin", "too sinful for god", "does god forgive all sins", "guilt", "forgiven", "can i be forgiven"],
+      "also": ["forgiveness", "can god forgive me", "unforgivable sin", "too sinful for god", "does god forgive all sins", "guilt", "forgiven", "can i be forgiven", "will god forgive me for anything", "i feel ashamed of my past", "how do i stop feeling guilty", "shame"],
       "topics": [
         {"subject": "SIN", "only": ["FORGIVENESS OF", "The unpardonable"]}
       ],
@@ -459,7 +459,7 @@
       "id": "how-can-i-be-saved",
       "group": "Saved",
       "question": "How can I be saved?",
-      "also": ["salvation", "how to be saved", "what must i do to be saved", "how do i get to heaven", "becoming a christian", "eternal life", "how to be right with god"],
+      "also": ["salvation", "how to be saved", "what must i do to be saved", "how do i get to heaven", "becoming a christian", "eternal life", "how to be right with god", "who goes to heaven"],
       "topics": [
         {"subject": "SALVATION", "only": ["CONDITIONS OF", "PLAN OF"]},
         {"subject": "FAITH", "only": ["IN CHRIST"], "skip": ["IN CHRIST, EXEMPLIFIED"]}
@@ -479,7 +479,7 @@
       "id": "what-is-faith",
       "group": "Saved",
       "question": "What is faith?",
-      "also": ["faith", "believing", "what does it mean to believe", "trusting god", "how do i have faith", "meaning of faith", "faith and works"],
+      "also": ["faith", "believing", "what does it mean to believe", "trusting god", "how do i have faith", "meaning of faith", "faith and works", "how do i trust god", "how can i have more faith"],
       "topics": [
         {"subject": "FAITH", "only": ["General scriptures concerning", "IN CHRIST"], "skip": ["IN CHRIST, EXEMPLIFIED"]}
       ],
@@ -498,7 +498,7 @@
       "id": "can-i-lose-salvation",
       "group": "Saved",
       "question": "Can I lose my salvation?",
-      "also": ["once saved always saved", "losing salvation", "eternal security", "falling away", "can a christian lose salvation", "assurance of salvation", "backsliding", "can you lose your salvation"],
+      "also": ["once saved always saved", "losing salvation", "eternal security", "falling away", "can a christian lose salvation", "assurance of salvation", "backsliding", "can you lose your salvation", "can a christian lose their faith", "how do i know i am saved"],
       "topics": [
         {"subject": "PERSEVERANCE", "only": ["General scriptures concerning"]},
         {"subject": "APOSTASY", "only": ["Described", "Cautions against", "Guilt and punishment of", "UNCLASSIFIED"]},
@@ -519,7 +519,7 @@
       "id": "how-do-i-know-gods-will",
       "group": "Living",
       "question": "How do I know what God wants me to do?",
-      "also": ["gods will", "will of god", "guidance", "what does god want from me", "what does god require of me", "gods plan for my life", "making decisions", "finding my purpose"],
+      "also": ["gods will", "will of god", "guidance", "what does god want from me", "what does god require of me", "gods plan for my life", "making decisions", "finding my purpose", "what is my purpose in life", "what is god's will for my life", "how do i make a decision", "does god have a plan for me"],
       "topics": [
         {"subject": "WILL", "only": ["OF GOD, THE SUPREME RULE OF DUTY"]},
         {"subject": "GOD", "only": ["GUIDE"]}
@@ -601,7 +601,7 @@
       "id": "what-about-jealousy",
       "group": "Living",
       "question": "What does the Bible say about jealousy and envy?",
-      "also": ["jealousy", "envy", "jealous", "envious", "coveting", "comparing myself to others", "is jealousy a sin"],
+      "also": ["jealousy", "envy", "jealous", "envious", "coveting", "comparing myself to others", "is jealousy a sin", "how do i stop comparing myself to others"],
       "topics": [
         {"subject": "ENVY", "only": ["General scriptures concerning"]},
         {"subject": "JEALOUSY", "only": ["General scriptures concerning", "Attributed to God", "FIGURATIVE"]},
@@ -622,7 +622,7 @@
       "id": "is-it-wrong-to-be-angry",
       "group": "Living",
       "question": "Is it wrong to be angry?",
-      "also": ["anger", "angry", "losing my temper", "rage", "is anger a sin", "how to control anger", "righteous anger"],
+      "also": ["anger", "angry", "losing my temper", "rage", "is anger a sin", "how to control anger", "righteous anger", "is it a sin to be angry"],
       "topics": [
         {"subject": "ANGER", "only": ["General scriptures concerning"]},
         {"subject": "MEEKNESS", "only": ["General scriptures concerning"]}
@@ -642,7 +642,7 @@
       "id": "love-your-neighbor",
       "group": "Living",
       "question": "Who is my neighbor, and how do I love them?",
-      "also": ["love your neighbor", "who is my neighbor", "good samaritan", "love others", "love one another", "loving people", "loving my neighbor"],
+      "also": ["love your neighbor", "who is my neighbor", "good samaritan", "love others", "love one another", "loving people", "loving my neighbor", "how should i treat people who are different", "how should i treat others"],
       "topics": [
         {"subject": "NEIGHBOR", "only": ["General scriptures concerning"]},
         {"subject": "LOVE", "only": ["OF MAN FOR MAN"]}
@@ -662,7 +662,7 @@
       "id": "what-about-work",
       "group": "Living",
       "question": "What does the Bible say about work?",
-      "also": ["work", "job", "laziness", "hard work", "working for the lord", "my job", "labor", "career"],
+      "also": ["work", "job", "laziness", "hard work", "working for the lord", "my job", "labor", "career", "how do i stop being lazy"],
       "topics": [
         {"subject": "INDUSTRY", "skip": ["Jeroboam"]},
         {"subject": "LABOR", "only": ["General scriptures concerning"]},
@@ -683,7 +683,7 @@
       "id": "what-about-alcohol",
       "group": "Living",
       "question": "Is it wrong to drink alcohol?",
-      "also": ["alcohol", "drinking", "wine", "drunkenness", "is drinking a sin", "can christians drink", "beer", "is it a sin to drink"],
+      "also": ["alcohol", "drinking", "wine", "drunkenness", "is drinking a sin", "can christians drink", "beer", "is it a sin to drink", "can christians drink wine"],
       "topics": [
         {"subject": "WINE", "only": ["UNCLASSIFIED", "ADMONITIONS AGAINST", "Made by Jesus", "Recommended by Paul", "Medicinal use"]},
         {"subject": "DRUNKENNESS", "only": ["General scriptures concerning"]},
@@ -704,7 +704,7 @@
       "id": "what-about-the-poor",
       "group": "Living",
       "question": "How should I treat the poor?",
-      "also": ["poor", "poverty", "helping the poor", "giving to the poor", "the needy", "charity", "homeless", "caring for the poor"],
+      "also": ["poor", "poverty", "helping the poor", "giving to the poor", "the needy", "charity", "homeless", "caring for the poor", "how do i help someone in need"],
       "topics": [
         {"subject": "POOR", "only": ["DUTY TO", "UNCLASSIFIED", "OPPRESSIONS OF"]}
       ],
@@ -742,7 +742,7 @@
       "id": "how-do-i-forgive",
       "group": "Living",
       "question": "How do I forgive someone who hurt me?",
-      "also": ["forgiveness", "forgiving others", "how to forgive", "i can't forgive", "bitterness", "holding a grudge", "forgive and forget", "how many times should i forgive"],
+      "also": ["forgiveness", "forgiving others", "how to forgive", "i can't forgive", "bitterness", "holding a grudge", "forgive and forget", "how many times should i forgive", "how do i forgive my father", "how do i deal with betrayal"],
       "topics": [
         {"subject": "FORGIVENESS", "only": ["OF ENEMIES", "Joseph forgives", "Jesus forgives his enemies"]},
         {"subject": "REVENGE", "only": ["Forbidden", "Jesus an example"]}
@@ -762,7 +762,7 @@
       "id": "love-your-enemies",
       "group": "Living",
       "question": "How should I treat my enemies?",
-      "also": ["enemies", "love your enemies", "turn the other cheek", "revenge", "people who hate me", "pray for those who persecute you", "getting even"],
+      "also": ["enemies", "love your enemies", "turn the other cheek", "revenge", "people who hate me", "pray for those who persecute you", "getting even", "should i get revenge"],
       "topics": [
         {"subject": "ENEMY", "only": ["General scriptures concerning", "Instances of forgiveness of", "Jesus, of his persecutors", "Stephen, of his murderers"]},
         {"subject": "GOOD FOR EVIL"},
@@ -803,7 +803,7 @@
       "id": "what-about-temptation",
       "group": "Living",
       "question": "How do I resist temptation?",
-      "also": ["temptation", "tempted", "resisting temptation", "how to stop sinning", "struggling with sin", "lust", "being tempted", "lead us not into temptation"],
+      "also": ["temptation", "tempted", "resisting temptation", "how to stop sinning", "struggling with sin", "being tempted", "lead us not into temptation", "i keep sinning"],
       "topics": [
         {"subject": "TEMPTATION", "only": ["General scriptures concerning", "RESISTANCE TO", "Prayer against being led into"]}
       ],
@@ -842,7 +842,7 @@
       "id": "does-god-answer-prayer",
       "group": "Living",
       "question": "Does God answer prayer?",
-      "also": ["answered prayer", "unanswered prayer", "why doesn't god answer my prayers", "does prayer work", "does god hear me", "god is silent", "does god listen to prayer"],
+      "also": ["answered prayer", "unanswered prayer", "why doesn't god answer my prayers", "does prayer work", "does god hear me", "god is silent", "does god listen to prayer", "does god hear my prayers", "why does god not answer my prayers"],
       "topics": [
         {"subject": "PRAYER", "only": ["ANSWER TO, PROMISE", "ANSWERED", "Answer to, delayed", "Of JOB", "Of the Israelites, when attacked", "Moses asked to be permitted", "The Israelites lusted", "Paul asked that"], "skip": ["Abraham, for a son", "Abraham' s servant", "Jacob, for deliverance", "Moses, concerning the complaint", "From Pharaoh", "Ammon", "For God' s favor", "Solomon, asking for wisdom", "Jehoshaphat, for victory", "Centurion", "Cain", "Ezekiel, to have the baking"]}
       ],
@@ -861,7 +861,7 @@
       "id": "what-about-worry",
       "group": "Living",
       "question": "What do I do with worry and anxiety?",
-      "also": ["worry", "anxiety", "anxious", "stress", "how to stop worrying", "worried about the future", "overwhelmed"],
+      "also": ["worry", "anxiety", "anxious", "stress", "how to stop worrying", "worried about the future", "overwhelmed", "how do i stop overthinking", "how do i calm my mind", "how can i stop worrying"],
       "topics": [
         {"subject": "CARE", "only": ["WORLDLY", "REMEDY FOR"]},
         {"subject": "TROUBLE", "only": ["BORROWING"]}
@@ -881,7 +881,7 @@
       "id": "what-about-money",
       "group": "Living",
       "question": "What does the Bible say about money?",
-      "also": ["money", "wealth", "debt", "greed", "being rich", "love of money", "contentment", "finances"],
+      "also": ["money", "wealth", "debt", "greed", "being rich", "love of money", "contentment", "finances", "should i borrow money", "is debt a sin", "how do i stop being greedy"],
       "topics": [
         {"subject": "RICHES", "only": ["General scriptures concerning"]},
         {"subject": "COVETOUSNESS", "only": ["General scriptures concerning"]}
@@ -901,7 +901,7 @@
       "id": "what-about-words",
       "group": "Living",
       "question": "How should I use my words?",
-      "also": ["speech", "the tongue", "gossip", "cursing", "taming the tongue", "what i say", "hurtful words", "bad language"],
+      "also": ["speech", "the tongue", "gossip", "cursing", "taming the tongue", "what i say", "hurtful words", "bad language", "is gossip a sin", "is it a sin to swear"],
       "topics": [
         {"subject": "SPEAKING", "only": ["EVIL", "FOLLY IN", "WISDOM IN"]},
         {"subject": "TONGUE", "only": ["Loquacious", "Restrained by wisdom", "Hasty"]},
@@ -923,7 +923,7 @@
       "id": "what-about-doubt",
       "group": "Living",
       "question": "Is it wrong to doubt?",
-      "also": ["doubt", "doubting god", "doubts about faith", "struggling to believe", "unbelief", "questioning god", "is doubt a sin"],
+      "also": ["doubt", "doubting god", "doubts about faith", "struggling to believe", "unbelief", "questioning god", "is doubt a sin", "is it okay to question god", "what if i have doubts"],
       "topics": [
         {"subject": "DOUBTING", "only": ["General scriptures concerning", "EXEMPLIFIED"]},
         {"subject": "UNBELIEF", "only": ["General scriptures concerning"]}
@@ -943,7 +943,7 @@
       "id": "what-about-government",
       "group": "Living",
       "question": "How should I relate to rulers and government?",
-      "also": ["government", "authorities", "obeying the law", "paying taxes", "politics", "submitting to rulers", "civil disobedience", "should i obey the government"],
+      "also": ["government", "authorities", "obeying the law", "paying taxes", "politics", "submitting to rulers", "civil disobedience", "should i obey the government", "should christians obey the government"],
       "topics": [
         {"subject": "CITIZENS", "only": ["DUTIES OF"]},
         {"subject": "GOVERNMENT", "only": ["DUTY OF CITIZENS TO", "UNCLASSIFIED SCRIPTURES RELATING TO GOD IN"]}
@@ -963,7 +963,7 @@
       "id": "why-do-good-people-suffer",
       "group": "Hard times",
       "question": "Why do good people suffer?",
-      "also": ["why do bad things happen to good people", "suffering of the righteous", "life is unfair", "why me", "trials", "job", "why does god let good people suffer"],
+      "also": ["why do bad things happen to good people", "suffering of the righteous", "life is unfair", "why me", "trials", "job", "why does god let good people suffer", "why do innocent people suffer"],
       "topics": [
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["OF SAINTS"]},
         {"subject": "GOD", "only": ["PROVIDENCE OF, MYSTERIOUS AND MISINTERPRETED"]},
@@ -1004,7 +1004,7 @@
       "id": "comfort-in-grief",
       "group": "Hard times",
       "question": "Where do I find comfort when someone dies?",
-      "also": ["grief", "grieving", "death of a loved one", "mourning", "loss", "comfort", "bereavement", "losing a loved one"],
+      "also": ["grief", "grieving", "death of a loved one", "mourning", "loss", "comfort", "bereavement", "losing a loved one", "how do i get through grief", "my mom died how do i cope", "someone i love died"],
       "topics": [
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["CONSOLATION IN"]},
         {"subject": "BEREAVEMENT", "only": ["RESIGNATION IN"]},
@@ -1026,7 +1026,7 @@
       "id": "what-about-loneliness",
       "group": "Hard times",
       "question": "Does God see me when I feel alone?",
-      "also": ["loneliness", "lonely", "feeling alone", "no one cares about me", "abandoned", "isolated", "does god see me", "forsaken"],
+      "also": ["loneliness", "lonely", "feeling alone", "no one cares about me", "abandoned", "isolated", "does god see me", "forsaken", "i feel alone", "nobody loves me", "god feels distant", "i feel far from god"],
       "topics": [
         {"subject": "GOD", "only": ["PRESENCE OF", "KNOWLEDGE OF"]},
         {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["FORSAKEN BY FRIENDS IN"]}
@@ -1046,7 +1046,7 @@
       "id": "what-about-despair",
       "group": "Hard times",
       "question": "What do I do when I feel hopeless?",
-      "also": ["hopeless", "hopelessness", "despair", "depression", "feeling down", "giving up", "no hope", "discouraged"],
+      "also": ["hopeless", "hopelessness", "despair", "depression", "feeling down", "giving up", "no hope", "discouraged", "i am tired of everything"],
       "topics": [
         {"subject": "DESPONDENCY", "only": ["General scriptures concerning", "COMFORT IN"]},
         {"subject": "HOPE", "only": ["General scriptures concerning"]},
@@ -1066,7 +1066,7 @@
       "id": "what-about-singleness",
       "group": "Family",
       "question": "Is it good to stay single?",
-      "also": ["singleness", "single", "staying single", "being unmarried", "celibacy", "should i get married", "gift of singleness", "is it ok to be single"],
+      "also": ["singleness", "single", "staying single", "being unmarried", "celibacy", "should i get married", "gift of singleness", "is it ok to be single", "should i stay single"],
       "topics": [
         {"subject": "CELIBACY"},
         {"subject": "MARRIAGE", "only": ["Celibacy deplored", "Advised", "Not binding after death"]}
@@ -1107,7 +1107,7 @@
       "id": "parents-and-children",
       "group": "Family",
       "question": "How should parents and children treat each other?",
-      "also": ["parenting", "honor your father and mother", "obey your parents", "raising children", "fathers", "mothers", "family", "raising kids"],
+      "also": ["parenting", "honor your father and mother", "obey your parents", "raising children", "fathers", "mothers", "family", "raising kids", "how do i raise my children", "how do i raise a teenager", "how should i treat my parents"],
       "topics": [
         {"subject": "CHILDREN", "only": ["COMMANDMENTS TO", "INSTRUCTION OF", "CORRECTION OF", "GOOD"], "skip": ["Character of, illustrates", "Illustrative of a teachable"]},
         {"subject": "PARENTS", "only": ["UNCLASSIFIED"]}
@@ -1127,7 +1127,7 @@
       "id": "what-about-divorce",
       "group": "Family",
       "question": "What does the Bible say about divorce?",
-      "also": ["divorce", "remarriage", "is divorce a sin", "getting divorced", "divorce and remarriage", "can christians divorce", "leaving my spouse", "grounds for divorce"],
+      "also": ["divorce", "remarriage", "is divorce a sin", "getting divorced", "divorce and remarriage", "can christians divorce", "leaving my spouse", "grounds for divorce", "can i remarry after divorce"],
       "topics": [
         {"subject": "DIVORCE", "only": ["General scriptures concerning"]}
       ],
@@ -1166,7 +1166,7 @@
       "id": "what-about-sex",
       "group": "Family",
       "question": "What does the Bible say about sex?",
-      "also": ["sex", "sexual immorality", "sex before marriage", "purity", "lust", "sexuality", "intimacy in marriage", "fornication"],
+      "also": ["sex", "sexual immorality", "sex before marriage", "purity", "lust", "sexuality", "intimacy in marriage", "fornication", "is porn a sin", "pornography", "what does the bible say about lust"],
       "topics": [
         {"subject": "CHASTITY", "only": ["General scriptures concerning"]},
         {"subject": "ADULTERY", "only": ["General scriptures concerning", "FORBIDDEN"]},
@@ -1187,7 +1187,7 @@
       "id": "what-is-heaven-like",
       "group": "Death and the future",
       "question": "What is heaven like?",
-      "also": ["heaven", "what happens in heaven", "new heaven and new earth", "paradise", "will we see god", "afterlife", "eternal life"],
+      "also": ["heaven", "what happens in heaven", "new heaven and new earth", "paradise", "will we see god", "afterlife", "eternal life", "what is the new earth", "the new heaven and new earth"],
       "topics": [
         {"subject": "HEAVEN", "only": ["THE FUTURE DWELLING PLACE", "UNCLASSIFIED", "NEW HEAVENS"]}
       ],
@@ -1206,7 +1206,7 @@
       "id": "when-will-the-world-end",
       "group": "Death and the future",
       "question": "When will the world end?",
-      "also": ["end of the world", "end times", "when is jesus coming back", "last days", "second coming", "the end", "rapture", "when will jesus return"],
+      "also": ["end of the world", "end times", "when is jesus coming back", "last days", "second coming", "the end", "rapture", "when will jesus return", "when will jesus come back", "what are the signs of the end times"],
       "topics": [
         {"subject": "HEAVEN", "only": ["PHYSICAL HEAVENS, DESTRUCTION OF", "NEW HEAVENS"]},
         {"subject": "DAY", "only": ["Called THE DAY OF THE LORD"]},
@@ -1228,7 +1228,7 @@
       "id": "what-is-hell",
       "group": "Death and the future",
       "question": "What does the Bible say about hell?",
-      "also": ["hell", "is hell real", "lake of fire", "eternal punishment", "who goes to hell", "eternal fire", "what is hell"],
+      "also": ["hell", "is hell real", "lake of fire", "eternal punishment", "who goes to hell", "eternal fire", "what is hell", "am i going to hell"],
       "topics": [
         {"subject": "HELL", "only": ["THE FUTURE HOME", "In the R. V. the Greek word"]},
         {"subject": "PUNISHMENT", "only": ["ETERNAL"]},
@@ -1268,7 +1268,7 @@
       "id": "what-happens-when-we-die",
       "group": "Death and the future",
       "question": "What happens when we die?",
-      "also": ["death", "life after death", "afterlife", "where do we go when we die", "dying", "the soul after death", "is there life after death"],
+      "also": ["death", "life after death", "afterlife", "where do we go when we die", "dying", "the soul after death", "is there life after death", "how do i face death", "i am afraid of dying"],
       "topics": [
         {"subject": "DEATH", "only": ["OF THE RIGHTEOUS", "Called SLEEP"]},
         {"subject": "HADES", "only": ["2. The realm"]},
@@ -1308,7 +1308,7 @@
       "id": "why-meet-together",
       "group": "Church and Bible",
       "question": "Why meet together with other believers?",
-      "also": ["church", "going to church", "fellowship", "do i need church", "christian community", "gathering together", "can i follow jesus without church"],
+      "also": ["church", "going to church", "fellowship", "do i need church", "christian community", "gathering together", "can i follow jesus without church", "why should i go to church"],
       "topics": [
         {"subject": "FELLOWSHIP", "only": ["General scriptures concerning", "OF THE RIGHTEOUS"]},
         {"subject": "COMMUNION", "only": ["OF SAINTS"]},
@@ -1348,7 +1348,7 @@
       "id": "is-the-bible-gods-word",
       "group": "Church and Bible",
       "question": "Is the Bible God's word?",
-      "also": ["bible", "scripture", "is the bible true", "inspiration of scripture", "god breathed", "word of god", "can i trust the bible", "is the bible inspired"],
+      "also": ["bible", "scripture", "is the bible true", "inspiration of scripture", "god breathed", "word of god", "can i trust the bible", "is the bible inspired", "is the bible reliable"],
       "topics": [
         {"subject": "WORD OF GOD", "only": ["INSPIRATION OF", "Not to be added to", "Fulfilled by Jesus", "Testify of Jesus"]},
         {"subject": "SCRIPTURES", "only": ["The word of God", "Inspired by God"]}
@@ -1368,7 +1368,7 @@
       "id": "the-lords-supper",
       "group": "Church and Bible",
       "question": "What is the Lord's Supper?",
-      "also": ["lord's supper", "communion", "holy communion", "breaking bread", "last supper", "bread and cup", "eucharist", "taking communion"],
+      "also": ["lord's supper", "communion", "holy communion", "breaking bread", "last supper", "bread and cup", "eucharist", "taking communion", "why do christians take communion"],
       "topics": [
         {"subject": "EUCHARIST (THE LORD'S SUPPER)"},
         {"subject": "PASSOVER", "only": ["The Lord's Supper ordained at", "The lamb of, a type of Christ", "Christ called"]}
@@ -1427,7 +1427,7 @@
       "id": "what-is-the-church",
       "group": "Church and Bible",
       "question": "What is the church?",
-      "also": ["church", "the body of christ", "what is the church for", "the people of god", "the bride of christ", "congregation", "why does the church exist"],
+      "also": ["church", "the body of christ", "what is the church for", "the people of god", "the bride of christ", "congregation", "why does the church exist", "what is a church supposed to do"],
       "topics": [
         {"subject": "CHURCH", "only": ["CHRIST, HEAD OF", "CHRISTIAN, DIVINELY ESTABLISHED", "DESIGN OF", "UNITY OF", "BODY OF CHRIST", "HOUSEHOLD OF GOD", "SPIRITUAL HOUSE", "PILLAR AND GROUND", "BRIDE OF CHRIST", "LAMB'S BRIDE", "LAMB'S WIFE", "Christ's love for"]}
       ],

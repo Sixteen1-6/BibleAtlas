@@ -429,6 +429,36 @@ fn merge(mut rs: Vec<(u32, u32)>) -> Vec<(u32, u32)> {
     out
 }
 
+/// The verses of `a` that are not in `b` (both sorted and merged).
+fn subtract(a: &[(u32, u32)], b: &[(u32, u32)]) -> Vec<(u32, u32)> {
+    let mut out = Vec::new();
+    for &(s, e) in a {
+        let mut from = s;
+        for &(bs, be) in b {
+            if be < from || bs > e {
+                continue;
+            }
+            if bs > from {
+                out.push((from, bs - 1));
+            }
+            from = be + 1;
+            if from > e {
+                break;
+            }
+        }
+        if from <= e {
+            out.push((from, e));
+        }
+    }
+    out
+}
+
+/// A line headed "FIGURATIVE", or one under it.
+fn figurative(s: &Subject, l: &Line) -> bool {
+    let fig = |x: &str| x.to_uppercase().starts_with("FIGURATIVE");
+    fig(&l.label) || l.parent.is_some_and(|p| fig(&s.lines[p].label))
+}
+
 fn count(rs: &[(u32, u32)]) -> u32 {
     rs.iter().map(|(s, e)| e - s + 1).sum()
 }
@@ -858,8 +888,8 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
     if !q.question.trim_end().ends_with('?') {
         c.fail(&at, "question must end with a question mark");
     }
-    if !(2..=10).contains(&q.also.len()) {
-        c.fail(&at, "also needs 2 to 10 other ways to ask");
+    if !(2..=16).contains(&q.also.len()) {
+        c.fail(&at, "also needs 2 to 16 other ways to ask");
     }
     for a in &q.also {
         c.plain(&at, "also", a, 60);
@@ -1065,10 +1095,32 @@ pub fn build(root: &Path, inputs: &Inputs, src: &Sources) -> Result<Vec<(String,
                 .flat_map(|l| l.refs.iter().copied())
                 .collect(),
         );
+        // Lines that use the subject as a figure stay in the list but do not
+        // answer for it: Jeremiah 3:8 under Divorce speaks of Israel.
+        let literal: Vec<&Line> = s.lines.iter().filter(|l| !figurative(s, l)).collect();
+        let fig = subtract(
+            &merge(
+                s.lines
+                    .iter()
+                    .filter(|l| figurative(s, l))
+                    .flat_map(|l| l.refs.iter().copied())
+                    .collect(),
+            ),
+            &merge(literal.iter().flat_map(|l| l.refs.iter().copied()).collect()),
+        );
+        let top = if literal.is_empty() {
+            most_cited(s.lines.iter(), degree)
+        } else {
+            most_cited(literal.into_iter(), degree)
+        };
         if topics.len() % TOPIC_SHARD == 0 {
             shards.push(Vec::new());
         }
-        shards.last_mut().unwrap().push(json!({ "top": ranges_json(&most_cited(s.lines.iter(), degree)), "v": ranges_json(&all) }));
+        let mut shard = json!({ "top": ranges_json(&top), "v": ranges_json(&all) });
+        if !fig.is_empty() {
+            shard["f"] = ranges_json(&fig);
+        }
+        shards.last_mut().unwrap().push(shard);
         topics.push(json!([name, count(&all)]));
     }
     for (n, shard) in shards.iter().enumerate() {
@@ -1302,5 +1354,13 @@ mod tests {
             vec![(1, 10)]
         );
         assert_eq!(count(&[(1, 3), (8, 8)]), 4);
+    }
+
+    #[test]
+    fn subtracted_ranges() {
+        assert_eq!(subtract(&[(1, 10)], &[(3, 4), (8, 12)]), vec![(1, 2), (5, 7)]);
+        assert_eq!(subtract(&[(1, 2), (5, 6)], &[(2, 5)]), vec![(1, 1), (6, 6)]);
+        assert_eq!(subtract(&[(4, 6)], &[(1, 9)]), vec![]);
+        assert_eq!(subtract(&[(4, 6)], &[]), vec![(4, 6)]);
     }
 }
