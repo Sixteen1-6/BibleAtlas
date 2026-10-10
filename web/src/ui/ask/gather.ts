@@ -207,7 +207,7 @@ const WIDE_SUBJECT = 1500;
 /** The most verses lit and listed for one question. */
 const MAX = 400;
 
-export async function gather(a: Atlas, question: string, also: { questionId?: string } = {}): Promise<Gathered> {
+export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null)]);
   const ws = [...new Set(contentWords(question))].slice(0, 8);
   const n = a.n;
@@ -240,11 +240,9 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
   subjects.sort((x, y) => ix.topics[y.i][1] - ix.topics[x.i][1]);
   const focused = subjects.filter((x) => ix.topics[x.i][1] <= WIDE_SUBJECT);
   const chosen = (focused.length ? focused : subjects).slice(0, 4);
-  const qs = matchingQuestions(ix, ws, also.questionId);
+  const qs = matchingQuestions(ix, ws);
   const inTopic = new Set<number>();
   const cited = new Set<number>();
-  /** A prepared question's own set: chosen for it, so it outranks verses that only share its words. */
-  const own = new Set<number>();
   const [topicSets, questionSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
     Promise.all(qs.map((q) => loadJson<{ v: Range[] }>(a, `ask/q/${q.id}.json`).catch(() => null))),
@@ -258,7 +256,6 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
     if (!set) continue;
     addRanges(inTopic, set.v);
     addRanges(cited, qs[k].top);
-    if (qs[k].id === also.questionId) addRanges(own, set.v);
   }
 
   // 3. Candidates: verses that hold enough of the question (all of it when it
@@ -286,7 +283,7 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
       dense = toks.length ? Math.min(1, (hits / toks.length) * 6) : 0;
     }
     const genre = TEACHING[a.books[a.verseBook[v]].genre] ?? 0;
-    score.set(v, 2 * (text.get(v) ?? 0) + (inTopic.has(v) ? 1.5 : 0) + (own.has(v) ? 1.5 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre);
+    score.set(v, 2 * (text.get(v) ?? 0) + (inTopic.has(v) ? 1.5 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre);
   }
 
   // The Bible pointing to itself: links among the best candidates count.
@@ -312,10 +309,9 @@ export async function gather(a: Atlas, question: string, also: { questionId?: st
   };
 }
 
-function matchingQuestions(ix: AskIndex, ws: string[], own?: string) {
+function matchingQuestions(ix: AskIndex, ws: string[]) {
   const stems = ws.map(stem);
   return ix.questions.filter((q) => {
-    if (q.id === own) return true;
     const qs = new Set([q.q, ...q.also].flatMap((x) => contentWords(x).map(stem)));
     const hits = stems.filter((s) => qs.has(s)).length;
     return stems.length > 0 && hits >= Math.max(1, Math.ceil(stems.length * 0.6));

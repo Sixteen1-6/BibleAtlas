@@ -1,5 +1,5 @@
 {
-  "_comment": "Ask the Bible: questions answered in the Bible's own words. The owner's rule for this box: the framework for interpreting the Bible is the Bible, with no other logic and no scholars' frameworks. So an answer is a `chain` of Scripture and nothing else: 3 to 8 parts, each whole verses (`ref`, at most 3 verses) or `words`, a span of their BSB text copied word for word (at least 3 words). There are no words of ours between the parts, and each part is used only where its own context supports it. `topics` names Nave's Topical Bible subjects (an index only; none of its wording is shown) whose verses form the wider set lit on the map; `only` and `skip` keep or drop labels by prefix, and a top-level label covers its indented lines. `also` lists other ways people ask, for search. `group` is one of the groups in crates/atlas-cli/src/ask.rs. A chain with an empty `reviewed_by` is a draft: its question and verses are published, the chain only with ATLAS_ASK_DRAFTS=1. Only the owner approves. Links name questions by `id`, so ids never change.",
+  "_comment": "Ask the Bible: questions answered in the Bible's own words. The owner's rule for this box: the framework for interpreting the Bible is the Bible, with no other logic and no scholars' frameworks. So an answer is a `chain` of Scripture and nothing else: 3 to 8 parts, each whole verses (`ref`, at most 3 verses) or `words`, a span of their BSB text copied word for word (at least 3 words). There are no words of ours between the parts, and each part is used only where its own context supports it. `topics` names Nave's Topical Bible subjects (an index only; none of its wording is shown) whose verses form the wider set lit on the map; `only` and `skip` keep or drop labels by prefix, and a top-level label covers its indented lines. `also` lists other ways people ask, for search. `group` is one of the groups in crates/atlas-cli/src/ask.rs. Every part must be tied by the Bible's own data to the question or to another part: it holds the question's words, sits under one of its Nave's subjects, or shares a cross-reference, a quotation (the New Testament quoting the Old, from the BSB's footnotes) or a rarer Hebrew or Greek root with another part. The build checks this and publishes the ties, so the app can show why each verse is there. Links name questions by `id`, so ids never change.",
   "questions": [
     {
       "id": "is-god-real",
@@ -18,9 +18,8 @@
         {"ref": "John 14:9", "words": "Anyone who has seen Me has seen the Father."},
         {"ref": "Acts 17:27"},
         {"ref": "Heb 11:6"},
-        {"ref": "Ps 34:8"}
-      ],
-      "reviewed_by": []
+        {"ref": "Jer 29:13"}
+      ]
     },
     {
       "id": "why-does-god-allow-suffering",
@@ -34,13 +33,12 @@
         {"ref": "Rom 5:12", "words": "sin entered the world through one man, and death through sin, so also death was passed on to all men, because all sinned."},
         {"ref": "Rom 8:20-21"},
         {"ref": "Lam 3:32-33"},
-        {"ref": "Job 42:3", "words": "Surely I spoke of things I did not understand, things too wonderful for me to know."},
+        {"ref": "Eccl 7:14", "words": "in the day of adversity, consider this: God has made one of these along with the other"},
         {"ref": "Gen 50:20"},
         {"ref": "Rom 8:28"},
         {"ref": "Rom 5:3-4", "words": "we also rejoice in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope."},
         {"ref": "Rev 21:4"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-god-like",
@@ -59,8 +57,7 @@
         {"ref": "Deut 32:4"},
         {"ref": "Ps 90:2"},
         {"ref": "John 14:9", "words": "Anyone who has seen Me has seen the Father."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "father-son-spirit",
@@ -69,7 +66,8 @@
       "also": ["trinity", "father son and holy spirit", "three in one", "is god three persons", "triune god", "one god", "holy trinity", "godhead"],
       "topics": [
         {"subject": "TRINITY"},
-        {"subject": "GOD", "only": ["UNITY OF"]}
+        {"subject": "GOD", "only": ["UNITY OF"]},
+        {"subject": "JESUS, THE CHRIST", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO THE DIVINITY OF"]}
       ],
       "chain": [
         {"ref": "Deut 6:4"},
@@ -80,8 +78,7 @@
         {"ref": "John 14:26"},
         {"ref": "Acts 5:3", "words": "Ananias, how is it that Satan has filled your heart to lie to the Holy Spirit"},
         {"ref": "Acts 5:4", "words": "You have not lied to men, but to God!"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "does-god-love-me",
@@ -97,12 +94,11 @@
         {"ref": "Rom 5:8"},
         {"ref": "Gal 2:20", "words": "The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me."},
         {"ref": "Ps 103:13"},
-        {"ref": "Luke 12:7"},
+        {"ref": "1 Pet 5:7"},
         {"ref": "1 John 3:1", "words": "Behold what manner of love the Father has given to us, that we should be called children of God. And that is what we are!"},
         {"ref": "Rom 8:38-39"},
         {"ref": "1 John 4:19"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "who-is-the-holy-spirit",
@@ -121,8 +117,7 @@
         {"ref": "Joel 2:28", "words": "I will pour out My Spirit on all people."},
         {"ref": "Rom 8:16"},
         {"ref": "Eph 4:30"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-god-in-control",
@@ -130,7 +125,7 @@
       "question": "Is God in control of everything?",
       "also": ["sovereignty of god", "is god in control", "god's plan", "does everything happen for a reason", "providence", "does god control everything", "free will and god's will"],
       "topics": [
-        {"subject": "GOD", "only": ["SOVEREIGN", "PROVIDENCE OF, OVERRULING"]},
+        {"subject": "GOD", "only": ["SOVEREIGN", "PROVIDENCE OF"]},
         {"subject": "CHOICE", "only": ["THE SINNER'S"]}
       ],
       "chain": [
@@ -142,8 +137,7 @@
         {"ref": "Gen 50:20"},
         {"ref": "Acts 2:23"},
         {"ref": "Rom 8:28"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "how-did-the-world-begin",
@@ -165,8 +159,7 @@
         {"ref": "Gen 1:27"},
         {"ref": "Gen 1:31", "words": "And God looked upon all that He had made, and indeed, it was very good."},
         {"ref": "Rev 4:11", "words": "for You created all things; by Your will they exist and came to be."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "who-is-jesus",
@@ -185,8 +178,7 @@
         {"ref": "Mark 10:45", "words": "For even the Son of Man did not come to be served, but to serve, and to give His life as a ransom for many."},
         {"ref": "Rev 1:18", "words": "I was dead, and behold, now I am alive forever and ever!"},
         {"ref": "John 14:6", "words": "I am the way and the truth and the life. No one comes to the Father except through Me."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "did-jesus-rise",
@@ -206,8 +198,7 @@
         {"ref": "Ps 16:10"},
         {"ref": "Acts 2:31-32"},
         {"ref": "1 Cor 15:20"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-jesus-god",
@@ -226,8 +217,7 @@
         {"ref": "John 10:30"},
         {"ref": "John 20:28-29"},
         {"ref": "Col 2:9"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-jesus-coming-back",
@@ -250,8 +240,7 @@
         {"ref": "Matt 24:36"},
         {"ref": "Matt 24:44"},
         {"ref": "Rev 22:20"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-did-jesus-come",
@@ -270,8 +259,7 @@
         {"ref": "John 10:10", "words": "I have come that they may have life, and have it in all its fullness."},
         {"ref": "1 John 3:8", "words": "This is why the Son of God was revealed, to destroy the works of the devil."},
         {"ref": "John 3:17"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-jesus-the-only-way",
@@ -291,8 +279,7 @@
         {"ref": "Acts 10:34-35", "words": "God does not show favoritism, but welcomes those from every nation who fear Him and do what is right."},
         {"ref": "Acts 10:43"},
         {"ref": "John 6:68", "words": "Lord, to whom would we go? You have the words of eternal life."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-did-jesus-die",
@@ -312,8 +299,7 @@
         {"ref": "2 Cor 5:21"},
         {"ref": "John 10:18", "words": "No one takes it from Me, but I lay it down of My own accord."},
         {"ref": "John 3:16"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-sin",
@@ -321,7 +307,8 @@
       "question": "What is sin?",
       "also": ["sin", "definition of sin", "what counts as sin", "sinning", "what does sin mean", "am i a sinner", "what is a sin"],
       "topics": [
-        {"subject": "SIN", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO, DEFINING", "SEPARATES FROM GOD"]}
+        {"subject": "SIN", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO, DEFINING", "SEPARATES FROM GOD"]},
+        {"subject": "DEPRAVITY OF MAN", "only": ["General scriptures concerning"]}
       ],
       "chain": [
         {"ref": "1 John 3:4"},
@@ -332,8 +319,7 @@
         {"ref": "Isa 53:6", "words": "We all like sheep have gone astray, each one has turned to his own way"},
         {"ref": "Isa 59:2"},
         {"ref": "Rom 6:23"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "do-good-works-save",
@@ -353,8 +339,7 @@
         {"ref": "Eph 2:10"},
         {"ref": "Jas 2:17"},
         {"ref": "Jas 2:24"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "will-god-forgive-me",
@@ -373,8 +358,7 @@
         {"ref": "1 Tim 1:15-16", "words": "Christ Jesus came into the world to save sinners, of whom I am the worst. But for this very reason I was shown mercy, so that in me, the worst of sinners, Christ Jesus might display His perfect patience as an example to those who would believe in Him for eternal life."},
         {"ref": "1 Cor 6:11", "words": "But you were washed, you were sanctified, you were justified, in the name of the Lord Jesus Christ and by the Spirit of our God."},
         {"ref": "Acts 3:19", "words": "Repent, then, and turn back, so that your sins may be wiped away"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-the-gospel",
@@ -393,8 +377,7 @@
         {"ref": "John 3:16"},
         {"ref": "Eph 2:8-9"},
         {"ref": "Mark 1:15"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-repentance",
@@ -413,8 +396,7 @@
         {"ref": "2 Cor 7:10"},
         {"ref": "Acts 26:20", "words": "that they should repent and turn to God, performing deeds worthy of their repentance."},
         {"ref": "Luke 15:7"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-be-baptized",
@@ -433,8 +415,7 @@
         {"ref": "1 Pet 3:21", "words": "this water symbolizes the baptism that now saves you also—not the removal of dirt from the body, but the pledge of a clear conscience toward God—through the resurrection of Jesus Christ"},
         {"ref": "Acts 22:16"},
         {"ref": "Acts 10:47"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-grace",
@@ -453,8 +434,7 @@
         {"ref": "2 Cor 8:9"},
         {"ref": "Titus 2:11-12"},
         {"ref": "2 Cor 12:9", "words": "But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.”"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "born-again",
@@ -473,8 +453,7 @@
         {"ref": "1 Pet 1:23"},
         {"ref": "2 Cor 5:17"},
         {"ref": "1 John 5:1", "words": "Everyone who believes that Jesus is the Christ has been born of God"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "how-can-i-be-saved",
@@ -494,8 +473,7 @@
         {"ref": "Eph 2:8-9"},
         {"ref": "Titus 3:5"},
         {"ref": "Acts 4:12", "words": "Salvation exists in no one else, for there is no other name under heaven given to men by which we must be saved."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-faith",
@@ -514,8 +492,7 @@
         {"ref": "Gal 2:20", "words": "The life I live in the body, I live by faith in the Son of God, who loved me and gave Himself up for me."},
         {"ref": "Rom 10:17"},
         {"ref": "Jas 2:17"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "can-i-lose-salvation",
@@ -536,14 +513,13 @@
         {"ref": "Heb 10:26", "words": "If we deliberately go on sinning after we have received the knowledge of the truth, no further sacrifice for sins remains"},
         {"ref": "1 John 2:19"},
         {"ref": "2 Pet 1:10", "words": "strive to make your calling and election sure. For if you practice these things you will never stumble"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "how-do-i-know-gods-will",
       "group": "Living",
       "question": "How do I know what God wants me to do?",
-      "also": ["gods will", "will of god", "guidance", "what does god want from me", "gods plan for my life", "making decisions", "finding my purpose"],
+      "also": ["gods will", "will of god", "guidance", "what does god want from me", "what does god require of me", "gods plan for my life", "making decisions", "finding my purpose"],
       "topics": [
         {"subject": "WILL", "only": ["OF GOD, THE SUPREME RULE OF DUTY"]},
         {"subject": "GOD", "only": ["GUIDE"]}
@@ -554,11 +530,10 @@
         {"ref": "John 6:29", "words": "The work of God is this: to believe in the One He has sent."},
         {"ref": "1 Thess 4:3", "words": "For it is God’s will that you should be holy: You must abstain from sexual immorality"},
         {"ref": "1 Thess 5:16-18"},
-        {"ref": "Ps 119:105"},
+        {"ref": "Ps 143:10"},
         {"ref": "Jas 1:5"},
         {"ref": "Prov 3:5-6"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-fear",
@@ -580,8 +555,7 @@
         {"ref": "Matt 10:30-31"},
         {"ref": "2 Tim 1:7"},
         {"ref": "John 14:27"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-giving",
@@ -602,8 +576,7 @@
         {"ref": "Mal 3:10", "words": "Bring the full tithe into the storehouse, so that there may be food in My house."},
         {"ref": "Matt 23:23"},
         {"ref": "Luke 21:3-4"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-lying",
@@ -622,8 +595,7 @@
         {"ref": "Exod 1:19-21"},
         {"ref": "Josh 2:4-5", "words": "But the woman had taken the two men and hidden them. So she said, “Yes, the men did come to me, but I did not know where they had come from. At dusk, when the gate was about to close, the men went out, and I do not know which way they went."},
         {"ref": "Jas 2:25"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-jealousy",
@@ -632,7 +604,8 @@
       "also": ["jealousy", "envy", "jealous", "envious", "coveting", "comparing myself to others", "is jealousy a sin"],
       "topics": [
         {"subject": "ENVY", "only": ["General scriptures concerning"]},
-        {"subject": "JEALOUSY", "only": ["General scriptures concerning", "Attributed to God", "FIGURATIVE"]}
+        {"subject": "JEALOUSY", "only": ["General scriptures concerning", "Attributed to God", "FIGURATIVE"]},
+        {"subject": "CONTENTMENT", "only": ["General scriptures concerning"]}
       ],
       "chain": [
         {"ref": "Prov 14:30"},
@@ -643,8 +616,7 @@
         {"ref": "Exod 34:14"},
         {"ref": "2 Cor 11:2"},
         {"ref": "Phil 4:11", "words": "I have learned to be content regardless of my circumstances."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-it-wrong-to-be-angry",
@@ -664,8 +636,7 @@
         {"ref": "Prov 15:1"},
         {"ref": "Prov 16:32"},
         {"ref": "Eph 4:31-32"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "love-your-neighbor",
@@ -685,8 +656,7 @@
         {"ref": "Matt 5:44"},
         {"ref": "Rom 13:10"},
         {"ref": "1 John 3:18"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-work",
@@ -707,8 +677,7 @@
         {"ref": "Eph 4:28"},
         {"ref": "Eccl 3:13", "words": "every man should eat and drink and find satisfaction in all his labor—this is the gift of God."},
         {"ref": "Ps 127:2"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-alcohol",
@@ -729,8 +698,7 @@
         {"ref": "John 2:9", "words": "the master of the banquet tasted the water that had been turned into wine"},
         {"ref": "1 Tim 5:23"},
         {"ref": "Rom 14:21"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-the-poor",
@@ -749,8 +717,7 @@
         {"ref": "Luke 14:13-14"},
         {"ref": "1 John 3:17"},
         {"ref": "Matt 25:40", "words": "whatever you did for one of the least of these brothers of Mine, you did for Me."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "how-should-i-pray",
@@ -769,8 +736,7 @@
         {"ref": "1 John 5:14", "words": "If we ask anything according to His will, He hears us."},
         {"ref": "Rom 8:26"},
         {"ref": "1 Thess 5:17"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "how-do-i-forgive",
@@ -790,8 +756,7 @@
         {"ref": "Rom 12:19"},
         {"ref": "Gen 50:19-20", "words": "Do not be afraid. Am I in the place of God? As for you, what you intended against me for evil, God intended for good"},
         {"ref": "Luke 23:34", "words": "Father, forgive them, for they do not know what they are doing."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "love-your-enemies",
@@ -812,8 +777,7 @@
         {"ref": "Rom 12:21"},
         {"ref": "Acts 7:60", "words": "Lord, do not hold this sin against them."},
         {"ref": "Rom 5:10", "words": "when we were enemies of God, we were reconciled to Him through the death of His Son"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-pride",
@@ -833,8 +797,7 @@
         {"ref": "Phil 2:5-7"},
         {"ref": "Phil 2:8"},
         {"ref": "Jer 9:23-24", "words": "Let not the wise man boast in his wisdom, nor the strong man in his strength, nor the wealthy man in his riches. But let him who boasts boast in this, that he understands and knows Me"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-temptation",
@@ -853,8 +816,7 @@
         {"ref": "2 Tim 2:22"},
         {"ref": "Gal 5:16"},
         {"ref": "Heb 2:18"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-justice",
@@ -874,8 +836,7 @@
         {"ref": "Eccl 3:16-17"},
         {"ref": "Luke 18:7-8", "words": "Will not God bring about justice for His elect who cry out to Him day and night? Will He continue to defer their help? I tell you, He will promptly carry out justice on their behalf."},
         {"ref": "Acts 17:31", "words": "He has set a day when He will judge the world with justice by the Man He has appointed."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "does-god-answer-prayer",
@@ -894,8 +855,7 @@
         {"ref": "Jas 4:2-3", "words": "You do not have, because you do not ask. And when you do ask, you do not receive, because you ask with wrong motives, that you may squander it on your pleasures."},
         {"ref": "Matt 26:39"},
         {"ref": "2 Cor 12:8-9", "words": "Three times I pleaded with the Lord to take it away from me. But He said to me, “My grace is sufficient for you, for My power is perfected in weakness.”"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-worry",
@@ -915,8 +875,7 @@
         {"ref": "Matt 6:32-33", "words": "your heavenly Father knows that you need them. But seek first the kingdom of God and His righteousness, and all these things will be added unto you."},
         {"ref": "Matt 6:34"},
         {"ref": "Isa 26:3"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-money",
@@ -936,8 +895,7 @@
         {"ref": "Matt 6:20-21"},
         {"ref": "1 Tim 6:17-18", "words": "Instruct those who are rich in the present age not to be conceited and not to put their hope in the uncertainty of wealth, but in God, who richly provides all things for us to enjoy. Instruct them to do good, to be rich in good works, and to be generous and ready to share"},
         {"ref": "Prov 3:9", "words": "Honor the LORD with your wealth and with the firstfruits of all your harvest"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-words",
@@ -959,8 +917,7 @@
         {"ref": "Matt 12:36-37", "words": "But I tell you that men will give an account on the day of judgment for every careless word they have spoken. For by your words you will be acquitted, and by your words you will be condemned."},
         {"ref": "Col 4:6"},
         {"ref": "Ps 19:14"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-doubt",
@@ -980,8 +937,7 @@
         {"ref": "Matt 28:17"},
         {"ref": "John 20:27-28"},
         {"ref": "Jude 1:22", "words": "have mercy on those who doubt"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-government",
@@ -1001,8 +957,7 @@
         {"ref": "Dan 2:21", "words": "He removes kings and establishes them."},
         {"ref": "Exod 1:17"},
         {"ref": "Acts 5:29", "words": "We must obey God rather than men."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-do-good-people-suffer",
@@ -1023,8 +978,7 @@
         {"ref": "1 Pet 4:12-13"},
         {"ref": "Heb 12:10", "words": "God disciplines us for our good, so that we may share in His holiness."},
         {"ref": "1 Pet 5:10"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-sickness",
@@ -1044,8 +998,7 @@
         {"ref": "2 Tim 4:20", "words": "Trophimus I left sick in Miletus."},
         {"ref": "1 Tim 5:23"},
         {"ref": "Rev 21:4", "words": "there will be no more death or mourning or crying or pain, for the former things have passed away."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "comfort-in-grief",
@@ -1059,7 +1012,7 @@
         {"subject": "DEATH", "only": ["Called SLEEP"]}
       ],
       "chain": [
-        {"ref": "Ps 34:18"},
+        {"ref": "Ps 23:4"},
         {"ref": "Matt 5:4"},
         {"ref": "2 Cor 1:3-4", "words": "the Father of compassion and the God of all comfort, who comforts us in all our troubles"},
         {"ref": "John 11:35"},
@@ -1067,8 +1020,7 @@
         {"ref": "1 Thess 4:13-14"},
         {"ref": "Isa 25:8", "words": "He will swallow up death forever. The Lord GOD will wipe away the tears from every face"},
         {"ref": "Rev 21:4"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-loneliness",
@@ -1088,8 +1040,7 @@
         {"ref": "2 Tim 4:16-17", "words": "no one stood with me, but everyone deserted me. May it not be charged against them. But the Lord stood by me and strengthened me"},
         {"ref": "Ps 68:6", "words": "God settles the lonely in families"},
         {"ref": "Heb 13:5", "words": "God has said: “Never will I leave you, never will I forsake you.”"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-despair",
@@ -1109,8 +1060,7 @@
         {"ref": "2 Cor 1:8-9", "words": "We were under a burden far beyond our ability to endure, so that we despaired even of life. Indeed, we felt we were under the sentence of death, in order that we would not trust in ourselves, but in God, who raises the dead."},
         {"ref": "Matt 11:28"},
         {"ref": "Rom 15:13"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-singleness",
@@ -1130,8 +1080,7 @@
         {"ref": "1 Cor 7:9", "words": "But if they cannot control themselves, let them marry. For it is better to marry than to burn with passion."},
         {"ref": "1 Cor 7:26"},
         {"ref": "1 Cor 7:28", "words": "But if you do marry, you have not sinned."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-marriage",
@@ -1152,8 +1101,7 @@
         {"ref": "Mal 2:14", "words": "she is your companion and your wife by covenant"},
         {"ref": "Heb 13:4"},
         {"ref": "Prov 18:22"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "parents-and-children",
@@ -1173,8 +1121,7 @@
         {"ref": "Col 3:21"},
         {"ref": "Deut 6:6-7"},
         {"ref": "Prov 22:6"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-divorce",
@@ -1193,8 +1140,7 @@
         {"ref": "Mark 10:11-12", "words": "Whoever divorces his wife and marries another woman commits adultery against her. And if a woman divorces her husband and marries another man, she commits adultery."},
         {"ref": "1 Cor 7:10-11", "words": "A wife must not separate from her husband. But if she does, she must remain unmarried or else be reconciled to her husband. And a husband must not divorce his wife."},
         {"ref": "1 Cor 7:15"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-friendship",
@@ -1214,8 +1160,7 @@
         {"ref": "Eccl 4:9-10"},
         {"ref": "1 Sam 23:16", "words": "Saul’s son Jonathan came to David in Horesh and strengthened his hand in God"},
         {"ref": "Prov 13:20"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-sex",
@@ -1236,8 +1181,7 @@
         {"ref": "Matt 5:28"},
         {"ref": "1 Cor 6:18", "words": "Flee from sexual immorality."},
         {"ref": "1 Cor 6:11", "words": "But you were washed, you were sanctified, you were justified, in the name of the Lord Jesus Christ and by the Spirit of our God."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-heaven-like",
@@ -1256,8 +1200,7 @@
         {"ref": "Ps 16:11", "words": "You will fill me with joy in Your presence, with eternal pleasures at Your right hand."},
         {"ref": "1 John 3:2", "words": "We know that when Christ appears, we will be like Him, for we will see Him as He is."},
         {"ref": "2 Pet 3:13"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "when-will-the-world-end",
@@ -1279,8 +1222,7 @@
         {"ref": "1 Pet 4:7"},
         {"ref": "Rev 22:20"},
         {"ref": "Matt 24:44"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-hell",
@@ -1301,8 +1243,7 @@
         {"ref": "2 Thess 1:8-9", "words": "inflicting vengeance on those who do not know God and do not obey the gospel of our Lord Jesus. They will suffer the penalty of eternal destruction, separated from the presence of the Lord and the glory of His might"},
         {"ref": "Rev 20:14-15", "words": "This is the second death—the lake of fire. And if anyone was found whose name was not written in the Book of Life, he was thrown into the lake of fire."},
         {"ref": "2 Pet 3:9", "words": "not wanting anyone to perish but everyone to come to repentance"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "will-the-dead-rise",
@@ -1321,8 +1262,7 @@
         {"ref": "1 Cor 15:20"},
         {"ref": "John 11:25", "words": "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."},
         {"ref": "1 Cor 15:42-43", "words": "So will it be with the resurrection of the dead: What is sown is perishable; it is raised imperishable. It is sown in dishonor; it is raised in glory. It is sown in weakness; it is raised in power."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-happens-when-we-die",
@@ -1343,8 +1283,7 @@
         {"ref": "1 Thess 4:14"},
         {"ref": "Dan 12:2"},
         {"ref": "John 11:25", "words": "I am the resurrection and the life. Whoever believes in Me will live, even though he dies."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "judgment-day",
@@ -1363,8 +1302,7 @@
         {"ref": "Gen 18:25", "words": "Will not the Judge of all the earth do what is right?"},
         {"ref": "John 5:24"},
         {"ref": "Rom 8:1"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-meet-together",
@@ -1385,8 +1323,7 @@
         {"ref": "Rom 12:5"},
         {"ref": "Col 3:16"},
         {"ref": "Heb 3:13"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "who-is-satan",
@@ -1405,8 +1342,7 @@
         {"ref": "1 Pet 5:8-9", "words": "Your adversary the devil prowls around like a roaring lion, seeking someone to devour. Resist him, standing firm in your faith"},
         {"ref": "1 John 3:8", "words": "the devil has been sinning from the very start. This is why the Son of God was revealed, to destroy the works of the devil."},
         {"ref": "Rev 20:10", "words": "And the devil who had deceived them was thrown into the lake of fire and sulfur"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "is-the-bible-gods-word",
@@ -1426,8 +1362,7 @@
         {"ref": "John 10:35", "words": "the Scripture cannot be broken"},
         {"ref": "Prov 30:5"},
         {"ref": "John 17:17"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "the-lords-supper",
@@ -1447,8 +1382,7 @@
         {"ref": "1 Cor 10:16-17", "words": "Is not the cup of blessing that we bless a participation in the blood of Christ? And is not the bread that we break a participation in the body of Christ? Because there is one loaf, we who are many are one body"},
         {"ref": "1 Cor 11:26"},
         {"ref": "1 Cor 11:27-28", "words": "whoever eats the bread or drinks the cup of the Lord in an unworthy manner will be guilty of sinning against the body and blood of the Lord. Each one must examine himself before he eats of the bread and drinks of the cup."}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "why-read-the-bible",
@@ -1467,8 +1401,7 @@
         {"ref": "Heb 4:12"},
         {"ref": "John 5:39-40"},
         {"ref": "Jas 1:22"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-the-sabbath",
@@ -1488,8 +1421,7 @@
         {"ref": "Rom 14:5"},
         {"ref": "Col 2:16-17"},
         {"ref": "Heb 4:9-10"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-is-the-church",
@@ -1508,8 +1440,7 @@
         {"ref": "1 Pet 2:9"},
         {"ref": "Eph 2:19-20"},
         {"ref": "Acts 2:42"}
-      ],
-      "reviewed_by": []
+      ]
     },
     {
       "id": "what-about-angels",
@@ -1529,8 +1460,7 @@
         {"ref": "Rev 22:8-9", "words": "I fell down to worship at the feet of the angel who had shown me these things. But he said to me, “Do not do that! I am a fellow servant with you and your brothers the prophets, and with those who keep the words of this book. Worship God!”"},
         {"ref": "Jude 1:6"},
         {"ref": "Matt 25:31"}
-      ],
-      "reviewed_by": []
+      ]
     }
   ]
 }
