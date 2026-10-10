@@ -87,7 +87,7 @@ function ThemesNote({ a }: { a: Atlas }) {
  * at which those notes show their sources, and how to say it below that. */
 const WHERE: Record<string, { words: string; level: Depth; below: string } | undefined> = {
   aramaic: { words: 'the notes on Aramaic and Hebrew words', level: 'deep', below: 'the detailed notes on Aramaic and Hebrew words (shown at Deep)' },
-  'hard-verses': { words: 'the further reading of the “Often asked” answers', level: 'deep', below: 'the further reading of the “Often asked” answers (shown at Deep)' },
+  'hard-verses': { words: 'the pages that answer hard passages', level: 'deep', below: 'the pages that answer hard passages (shown at Deep)' },
 };
 
 /** How many places a card names before "and N more". */

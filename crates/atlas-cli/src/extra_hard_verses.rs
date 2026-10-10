@@ -12,7 +12,11 @@
 //! 5. every link is https to one of the sites listed below.
 //!
 //! A card nobody has reviewed is a draft: checked like the rest, but written
-//! only when `ATLAS_HARD_VERSE_DRAFTS=1` is set.
+//! only when `ATLAS_HARD_VERSE_DRAFTS=1` is set. Until then only a pointer to
+//! it is written: its verses and its read-more links (each site's own title
+//! and address), with none of the card's own words, so that Deep can point out
+//! the passage and where to read about it (the "Hard passages" extra,
+//! web/src/ui/extras/hard-passages.extra.tsx).
 
 use crate::loaded::Loaded;
 use atlas_core::{refs, Versification};
@@ -245,6 +249,28 @@ impl Check<'_> {
     }
 }
 
+/// The line under each verse, as [verse, card index]: each card's own verse
+/// and its "also" verses, a short passage on each of its verses and a long one
+/// on its first.
+fn lines(cards: &[Value]) -> Vec<(u32, usize)> {
+    let mut lines: Vec<(u32, usize)> = Vec::new();
+    for (i, c) in cards.iter().enumerate() {
+        lines.push((c["v"].as_u64().unwrap_or(0) as u32, i));
+        for a in c["also"].as_array().into_iter().flatten() {
+            let (s, e) = (
+                a[0].as_u64().unwrap_or(0) as u32,
+                a[1].as_u64().unwrap_or(0) as u32,
+            );
+            for v in s..=if e - s < 3 { e } else { s } {
+                lines.push((v, i));
+            }
+        }
+    }
+    lines.sort_unstable();
+    lines.dedup();
+    lines
+}
+
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(
     root: &Path,
@@ -263,6 +289,7 @@ pub fn build(
     };
     let mut ids = BTreeSet::new();
     let mut cards = Vec::new();
+    let mut pointers = Vec::new();
     let mut drafts = 0;
     for c in &file.questions {
         if !ids.insert(c.id.as_str()) {
@@ -273,8 +300,12 @@ pub fn build(
         }
         let card = check.card(c);
         drafts += c.reviewed_by.is_empty() as usize;
-        if let Some(card) = card.filter(|_| drafts_ok || !c.reviewed_by.is_empty()) {
-            cards.push(card);
+        match card {
+            Some(card) if drafts_ok || !c.reviewed_by.is_empty() => cards.push(card),
+            Some(card) if card["read_more"].as_array().is_some_and(|l| !l.is_empty()) => {
+                pointers.push(json!({ "v": card["v"], "end": card["end"], "also": card["also"], "links": card["read_more"] }))
+            }
+            _ => {}
         }
     }
     if let Some(e) = check.errors.into_iter().next() {
@@ -287,31 +318,19 @@ pub fn build(
         if drafts_ok {
             format!("included ({DRAFTS_ENV}=1)")
         } else {
-            format!("left out (set {DRAFTS_ENV}=1 to include them)")
+            format!(
+                "left out (set {DRAFTS_ENV}=1 to include them), {} of them pointed out at Deep with their links only",
+                pointers.len()
+            )
         }
     );
 
-    // The line under each verse: [verse, card index], the card's own verse and its "also" verses.
-    let mut lines: Vec<(u32, usize)> = Vec::new();
-    for (i, c) in cards.iter().enumerate() {
-        lines.push((c["v"].as_u64().unwrap_or(0) as u32, i));
-        for a in c["also"].as_array().into_iter().flatten() {
-            let (s, e) = (
-                a[0].as_u64().unwrap_or(0) as u32,
-                a[1].as_u64().unwrap_or(0) as u32,
-            );
-            // A short passage shows the line on each verse; a long one on its first.
-            for v in s..=if e - s < 3 { e } else { s } {
-                lines.push((v, i));
-            }
-        }
-    }
-    lines.sort_unstable();
-    lines.dedup();
     let index = json!({
         "format": 1,
         "questions": cards.iter().map(|c| json!({ "id": c["id"], "q": c["question"] })).collect::<Vec<_>>(),
-        "lines": lines,
+        "lines": lines(&cards),
+        "pointers": pointers,
+        "pointer_lines": lines(&pointers),
     });
     let detail = json!({ "format": 1, "cards": cards });
     Ok(vec![
@@ -347,10 +366,51 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .as_array()
         .ok_or("hard-verses.json has no lines")?;
     let n = u64::from(d.vz.verse_count());
+    let pointers = index["pointers"].as_array().cloned().unwrap_or_default();
+    let pointer_lines = index["pointer_lines"]
+        .as_array()
+        .cloned()
+        .unwrap_or_default();
+    let span_ok = |x: &Value| {
+        x[0].as_u64()
+            .zip(x[1].as_u64())
+            .is_some_and(|(s, e)| s <= e && e < n)
+    };
+    // A pointer is only verses and links: none of a card's own words.
+    let pointers_ok = pointers.iter().all(|p| {
+        p.as_object().is_some_and(|o| {
+            o.keys()
+                .all(|k| ["v", "end", "also", "links"].contains(&k.as_str()))
+        }) && p["v"]
+            .as_u64()
+            .zip(p["end"].as_u64())
+            .is_some_and(|(s, e)| s <= e && e < n)
+            && p["also"].as_array().is_some_and(|a| a.iter().all(span_ok))
+            && p["links"].as_array().is_some_and(|ls| {
+                !ls.is_empty()
+                    && ls.iter().all(|l| {
+                        l.as_object().is_some_and(|o| o.len() == 3)
+                            && l["site"].as_str().is_some_and(|t| !t.is_empty())
+                            && l["title"].as_str().is_some_and(|t| !t.is_empty())
+                            && l["url"].as_str().is_some_and(allowed_link)
+                    })
+            })
+    });
     Ok(vec![
         (
             qs.len() == cs.len() && qs.iter().zip(cs).all(|(q, c)| q["id"] == c["id"]),
             "hard-verse questions and cards match".to_string(),
+        ),
+        (
+            pointers_ok
+                && pointer_lines.iter().all(|l| {
+                    l[0].as_u64().is_some_and(|v| v < n)
+                        && l[1].as_u64().is_some_and(|i| (i as usize) < pointers.len())
+                }),
+            format!(
+                "{} hard verses pointed out at Deep carry only their verses and links on listed sites, and every line points at one",
+                pointers.len()
+            ),
         ),
         (
             lines.iter().all(|l| {

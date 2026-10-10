@@ -1,12 +1,12 @@
 {
   "_comment": [
-    "The Sources shelf: every work the app draws on or cites, one card each, so anyone can see what a source is, who made it, when, its license, and where to read or find it. atlas build reads this file (crates/atlas-cli/src/shelf.rs) with sources.json, the sources config/aramaic.json cites and the sites the published answers in config/hard-verses.json link to, and writes shelf.json for the Sources tab.",
+    "The Sources shelf: every work the app draws on or cites, one card each, so anyone can see what a source is, who made it, when, its license, and where to read or find it. atlas build reads this file (crates/atlas-cli/src/shelf.rs) with sources.json, the sources config/aramaic.json cites and the sites the questions in config/hard-verses.json link to (shown at Deep), and writes shelf.json for the Sources tab.",
     "groups: the shelves, in the order shown. id: lowercase letters and hyphens, named by a work's group. name: the plain heading.",
     "works: one card per work. id: unique, lowercase letters, digits and hyphens; a work that is a dataset uses its sources.json id. group: a groups id. plain: what the Simple level shows, the kind of work and when, in words anyone understands (48 characters at most), such as \"Bible dictionary, 1897\", or for a book or article what it is about, such as \"Article on the word Abba, 1988\". title. by: who wrote or made it. when: as shown, such as \"1897\" or \"around AD 200\". what: one or two plain, modest sentences (240 characters at most).",
     "license: public-domain, cc-by-4.0, cc-by-sa-4.0 or copyrighted; licenseNote (optional) says more, such as a dataset's license beside its text's. The app ships only public domain, CC BY 4.0 and CC BY-SA 4.0 material. A copyrighted work is cited and linked, never quoted at length or stored.",
     "datasets: the sources.json ids whose pinned files are this work; [] for a work the app only cites. Each sources.json id belongs to exactly one work. A dataset no work claims still gets a plain card made from sources.json, with a build warning.",
     "read: where to read the whole work free, either {\"app\": \"bible\"} or {\"app\": \"dictionary\"} inside the app, or {\"url\", \"label\"} for a free full copy of that very work, checked by opening it. Never for a copyrighted work. find: {\"url\", \"label\"}, a link for the citation: https://doi.org/ and the DOI when there is one, else a publisher or library catalog page, else a WorldCat search. Required for a copyrighted work. Links are https only.",
-    "citation: the full bibliographic citation, shown at Deep. cites: parts of the source strings the app shows (config/aramaic.json sources, and the site of each read_more link in config/hard-verses.json) that name this work, each found where a word starts (\"Bible.org\" is not found in \"STEPBible.org\"). The build records where the app cites each work and warns about any source string no work matches. Keep each one long enough to match only this work's strings; plain ASCII is safest. onlyWhenCited: true for a work shown only while the app cites it, such as a website only the \"Often asked\" answers link to: its card stays off the shelf until an answer that links it is published. It needs cites and no datasets.",
+    "citation: the full bibliographic citation, shown at Deep. cites: parts of the source strings the app shows (config/aramaic.json sources, and the site of each read_more link in config/hard-verses.json) that name this work, each found where a word starts (\"Bible.org\" is not found in \"STEPBible.org\"). The build records where the app cites each work and warns about any source string no work matches. Keep each one long enough to match only this work's strings; plain ASCII is safest. onlyWhenCited: true for a work shown only while the app cites it, such as a website that only the hard passages at Deep and the \"Often asked\" answers link to. It needs cites and no datasets.",
     "To add a work: add one entry with facts checked against the work itself, its publisher or a library catalog, never guessed; give it cites for each source string that names it; if it is a dataset, pin it in sources.json and credit it in NOTICE.md as well. Works only drafted in config/layers.json are added when they go live."
   ],
   "groups": [
@@ -15,11 +15,13 @@
     {"id": "links", "name": "Links between verses"},
     {"id": "dictionaries", "name": "Bible dictionaries and handbooks"},
     {"id": "notes", "name": "Study notes"},
+    {"id": "writers", "name": "Christian writers of the past"},
     {"id": "word-books", "name": "Hebrew and Greek word books"},
     {"id": "places", "name": "Places and maps"},
     {"id": "ancient", "name": "Other ancient writings"},
     {"id": "scholars", "name": "Books and articles by scholars"},
-    {"id": "answers", "name": "Websites the “Often asked” answers link to"}
+    {"id": "answers", "name": "Websites that answer hard passages"},
+    {"id": "elsewhere", "name": "Websites to read more on a verse"}
   ],
   "works": [
     {
@@ -202,6 +204,48 @@
       "datasets": ["aquifer-osn"],
       "find": {"url": "https://github.com/BibleAquifer/AquiferOpenStudyNotes/tree/bbb3f86016cd20913f410a95af63d9f7ff9a71d6", "label": "the data files (GitHub)"},
       "citation": "Aquifer Open Study Notes, (C) 2026 Mission Mutual, CC BY-SA 4.0, github.com/BibleAquifer/AquiferOpenStudyNotes; adapted from Tyndale Open Study Notes, (C) 2023 Tyndale House Publishers, CC BY-SA 4.0, https://tyndaleopenresources.com."
+    },
+    {
+      "id": "catena-aurea",
+      "group": "writers",
+      "plain": "Church Fathers on the Gospels, gathered 1260s",
+      "title": "Catena Aurea (the Golden Chain)",
+      "by": "Thomas Aquinas, from the writings of the Church Fathers; Oxford translation edited by John Henry Newman",
+      "when": "1260s; this translation 1841–45",
+      "what": "For each passage of the four Gospels, Aquinas linked together what the Church Fathers and later teachers had written on it, each under their name. Shown at Deep, in their own words, once a reader chooses to see them.",
+      "license": "public-domain",
+      "licenseNote": "The Catena Aurea and its Oxford translation are public domain. This copy is from the Catena corpus, whose code is MIT licensed and whose data files mark the text public domain.",
+      "datasets": ["catena-aurea"],
+      "find": {"url": "https://github.com/AlvaroBalbin/catena/tree/efe1bd084d918a34ca22ffeef2ecf711c593b392/data/catena", "label": "the data files (GitHub)"},
+      "citation": "Thomas Aquinas, Catena Aurea: Commentary on the Four Gospels, Collected out of the Works of the Fathers, Oxford translation edited by John Henry Newman, 4 vols. (Oxford: John Henry Parker; London: J. G. F. and J. Rivington, 1841–45). Text from the Catena corpus, github.com/AlvaroBalbin/catena."
+    },
+    {
+      "id": "henry-concise",
+      "group": "writers",
+      "plain": "Bible commentary, early 1700s, shortened",
+      "title": "Concise Commentary on the Whole Bible",
+      "by": "Matthew Henry",
+      "when": "early 1700s",
+      "what": "A shortened form of the Bible commentary of Matthew Henry, a Welsh-born Nonconformist minister, which others finished after his death in 1714: a short note on each part of every chapter. Shown at Deep once a reader chooses to see it.",
+      "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (MHCC) marks it. This copy is from the Let's Church repository, which is CC0 1.0.",
+      "datasets": ["henry-concise"],
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhcc.json", "label": "the data file (GitHub)"},
+      "citation": "Matthew Henry, Concise Commentary on the Whole Bible, from the CrossWire Bible Society's SWORD module MHCC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0)."
+    },
+    {
+      "id": "wesley-notes",
+      "group": "writers",
+      "plain": "Bible notes, 1755–66",
+      "title": "Explanatory Notes upon the Old and New Testaments",
+      "by": "John Wesley",
+      "when": "1755 (New Testament); 1765–66 (Old Testament)",
+      "what": "Short notes, verse by verse, by the founder of Methodism, written for ordinary readers. Shown at Deep once a reader chooses to see them.",
+      "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (Wesley) marks it; based on the electronic edition by Sulu Kelley and Bill Brown. This copy is from the Let's Church repository, which is CC0 1.0.",
+      "datasets": ["wesley-notes"],
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/wesley.json", "label": "the data file (GitHub)"},
+      "citation": "John Wesley, Explanatory Notes upon the New Testament (London, 1755) and Explanatory Notes upon the Old Testament (Bristol, 1765–66), from the CrossWire Bible Society's SWORD module Wesley, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0)."
     },
     {
       "id": "tyndale-tbd",
@@ -684,7 +728,7 @@
     },
     {
       "id": "gotquestions",
-      "group": "answers",
+      "group": "elsewhere",
       "plain": "Question-and-answer website, since 2002",
       "title": "GotQuestions.org",
       "by": "Got Questions Ministries; founded by S. Michael Houdmann",
@@ -694,8 +738,7 @@
       "datasets": [],
       "find": {"url": "https://www.gotquestions.org/", "label": "gotquestions.org"},
       "citation": "GotQuestions.org. Got Questions Ministries, 2002–. https://www.gotquestions.org/.",
-      "cites": ["GotQuestions"],
-      "onlyWhenCited": true
+      "cites": ["GotQuestions"]
     },
     {
       "id": "gospel-coalition",
@@ -714,7 +757,7 @@
     },
     {
       "id": "bible-org",
-      "group": "answers",
+      "group": "elsewhere",
       "plain": "Library of Bible studies, since 1994",
       "title": "Bible.org",
       "by": "Biblical Studies Foundation",
@@ -724,8 +767,7 @@
       "datasets": [],
       "find": {"url": "https://bible.org/", "label": "bible.org"},
       "citation": "Bible.org. Biblical Studies Foundation, 1994–. https://bible.org/.",
-      "cites": ["Bible.org"],
-      "onlyWhenCited": true
+      "cites": ["Bible.org"]
     },
     {
       "id": "catholic-answers",
@@ -877,6 +919,59 @@
       "citation": "Biblical Archaeology Society. Biblical Archaeology Society, 1974–. https://www.biblicalarchaeology.org/.",
       "cites": ["Biblical Archaeology Society"],
       "onlyWhenCited": true
+    },
+    {
+      "id": "bibleref",
+      "group": "elsewhere",
+      "plain": "Verse-by-verse explanations website",
+      "title": "BibleRef.com",
+      "by": "Got Questions Ministries",
+      "when": "since 2017",
+      "what": "Plain explanations of what a verse means, written verse by verse, from the same evangelical ministry as GotQuestions.org. So far it covers the New Testament and parts of the Old.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://www.bibleref.com/", "label": "bibleref.com"},
+      "citation": "BibleRef.com. Got Questions Ministries. https://www.bibleref.com/."
+    },
+    {
+      "id": "historical-christian-faith",
+      "group": "elsewhere",
+      "plain": "Church Fathers' words by verse, since 2022",
+      "title": "Historical Christian Faith",
+      "by": "Sean Kooyman and volunteers",
+      "when": "since 2022",
+      "what": "A free, volunteer-built collection of what the Church Fathers and later Christian writers said about each verse. Some of its translations are older public-domain ones; some are its own, made with AI.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://historicalchristian.faith/", "label": "historicalchristian.faith"},
+      "citation": "Historical Christian Faith. Sean Kooyman, 2022–. https://historicalchristian.faith/."
+    },
+    {
+      "id": "biblehub",
+      "group": "elsewhere",
+      "plain": "Bible study website, since 2004",
+      "title": "Bible Hub",
+      "by": "the Online Parallel Bible Project",
+      "when": "since 2004",
+      "what": "A large free Bible study site. Its page for each verse gathers many older commentaries side by side, such as Matthew Henry, Albert Barnes, John Gill and Ellicott.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://biblehub.com/", "label": "biblehub.com"},
+      "citation": "Bible Hub. Online Parallel Bible Project, 2004–. https://biblehub.com/."
+    },
+    {
+      "id": "sefaria",
+      "group": "elsewhere",
+      "plain": "Library of Jewish texts, since 2011",
+      "title": "Sefaria",
+      "by": "Sefaria, a nonprofit founded by Brett Lockspeiser and Joshua Foer",
+      "when": "since 2011",
+      "what": "A free, open library of Jewish texts. Its page for each verse of the Hebrew Bible gathers the Jewish commentaries on it, such as Rashi and Ibn Ezra, in Hebrew and often in English.",
+      "license": "copyrighted",
+      "licenseNote": "Its texts carry their own licenses, many of them free. The app only links to it, by the Hebrew Bible's own verse numbers.",
+      "datasets": [],
+      "find": {"url": "https://www.sefaria.org/", "label": "sefaria.org"},
+      "citation": "Sefaria: A Living Library of Jewish Texts. Sefaria, 2011–. https://www.sefaria.org/."
     }
   ]
 }

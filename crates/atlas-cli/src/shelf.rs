@@ -7,12 +7,12 @@
 //! that has none, such as a source added after the shelf was written, gets a
 //! plain card made from its sources.json entry and a warning, never an error.
 //! The build also finds where the app cites each work: every source string in
-//! `config/aramaic.json`, and every site the published "Often asked" answers
+//! `config/aramaic.json`, and every site the "Often asked" questions
 //! (`config/hard-verses.json`) link to for further reading, is matched against
 //! the works' `cites`, and a string that matches no work, or more than one, is
-//! a warning that lists it. A work marked `onlyWhenCited` (a website only those
-//! answers link to) is on the shelf only while the app cites it, so the sites
-//! of answers still waiting for review stay off it.
+//! a warning that lists it. (A published answer shows its links with it; a
+//! question still waiting for review shows only its links, at Deep.) A work
+//! marked `onlyWhenCited` is on the shelf only while the app cites it.
 //!
 //! The dictionaries, Easton's (1897) and Smith's (1884), are read from the
 //! Christian Classics Ethereal Library's ThML editions, as kept in NEUU's
@@ -1112,12 +1112,9 @@ fn citations(root: &Path, vz: &Versification) -> Result<Vec<Citation>, String> {
     let path = root.join(HARD_VERSES);
     if path.exists() {
         let doc: Value = read_json(&path)?;
-        let drafts = std::env::var(crate::extra_hard_verses::DRAFTS_ENV).is_ok_and(|v| v == "1");
+        // Every question's links are on the site: a published answer's at
+        // Deep, and a draft's as a pointer at Deep (extra_hard_verses.rs).
         for q in doc["questions"].as_array().into_iter().flatten() {
-            let published = q["reviewed_by"].as_array().is_some_and(|r| !r.is_empty());
-            if !published && !drafts {
-                continue;
-            }
             let places: Vec<(u32, u32)> = std::iter::once(&q["ref"])
                 .chain(q["also"].as_array().into_iter().flatten())
                 .filter_map(at)
