@@ -1,29 +1,45 @@
 // A verse's themes, in three sizes:
 // - VerseThemeCard: the card at the top of the Themes tab (and in the reader's
 //   themes panel). Its own themes as chips quoting the BSB words that carry
-//   them; or, with none, up to two dashed rows reached through its strongest
-//   links; or one quiet line. Study adds the Hebrew or Greek word, the broad
-//   words and a separate "Linked themes" section; Deep adds the rule. Where
-//   no theme reaches the verse, Study names the Nave's subjects that list it
-//   instead of the quiet line (data/naves.ts), each a way into Ask the Bible.
+//   them; then, labelled, the themes one of its words is a related word of
+//   ("Sabbath rest, a related word: “rested”"); or, with neither, up to two
+//   dashed rows reached through its strongest links; or one quiet line. Study
+//   adds the Hebrew or Greek word (and how a related word is related), the
+//   broad words and a separate "Linked themes" section; Deep adds the rule.
+//   Where no theme reaches the verse, Study names the Nave's subjects that
+//   list it instead of the quiet line (data/naves.ts), each a way into Ask
+//   the Bible.
 // - themeLine / VerseThemesLine: one plain line, for the reader's extras and
 //   for the Links tab on phones.
-// Themes come from data/themes.ts: nothing is chosen by hand. Nave's rows come
-// from data/naves.ts and are never themes.
+// Themes come from data/themes.ts: nothing is chosen by hand but the reviewed
+// list of related words (config/theme-related.json), which never adds a verse
+// to a theme. Nave's rows come from data/naves.ts and are never themes.
 
 import type { ComponentChildren } from 'preact';
 import { useMemo, useRef, useState } from 'preact/hooks';
 import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
 import { type NavesPassage, type NavesTopic, navesRow, navesRowNow } from '../data/naves';
 import { useLoaded } from '../data/shelf';
-import { type OwnTheme, type ThemeLevel, type ThroughTheme, linkRule, strongestLinks, themeWordsIn, themesThroughLinks, verseThemes } from '../data/themes';
+import {
+  type OwnTheme,
+  type RelatedTheme,
+  type ThemeLevel,
+  type ThroughTheme,
+  linkRule,
+  relatedThemes,
+  relatedWordsIn,
+  strongestLinks,
+  themeWordsIn,
+  themesThroughLinks,
+  verseThemes,
+} from '../data/themes';
 import type { VerseRow } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { openAsk } from './ask/ask';
 import { RootChip, Snippet, useVerseRow } from './common';
 import { showSources } from './extras/kit';
-import { moreLinks, openThemeFromVerse, themeLevel, useHoverPreview } from './ThemeThread';
+import { RelatedTie, moreLinks, openThemeFromVerse, themeLevel, useHoverPreview } from './ThemeThread';
 import './themes.css';
 
 /** Own themes shown before "+N more". */
@@ -34,6 +50,9 @@ const THROUGH_SHOWN = 2;
 const LINKED_SHOWN = 3;
 /** Nave's subjects shown before "+N more". */
 const NAVES_SHOWN = 3;
+/** Themes through a related word: all Simple shows, and Study before "+N more". */
+const RELATED_SHOWN = 2;
+const RELATED_STUDY = 3;
 
 /** "Genesis 2:6's" */
 function possessive(s: string): string {
@@ -103,6 +122,49 @@ function ThroughRow({ a, t, onOpen, go }: { a: Atlas; t: ThroughTheme; onOpen: (
           </button>
         </span>
       )}
+    </li>
+  );
+}
+
+/** A theme one of the verse's words is a related word of: labelled, and never
+ *  taken for the verse's own words. Study adds the Hebrew or Greek word,
+ *  opening its word study, and how it is related. */
+function RelatedRow({ a, t, row, onOpen }: { a: Atlas; t: RelatedTheme; row: VerseRow | null; onOpen: () => void }) {
+  const study = atLeast('study');
+  const theme = a.themes[t.theme];
+  const words = useMemo(() => (row ? relatedWordsIn(a, row, theme, t.words) : null), [a, row, theme, t.words]);
+  return (
+    <li class="vt-rel">
+      <span class="vt-thrline">
+        <button type="button" class="vt-thrname" data-theme={theme.id} onClick={onOpen}>
+          {theme.name}
+        </button>
+        {theme.level === 'study' && study && <span class="tj-broad">broad word</span>}
+        <span>, {t.words.length > 1 ? 'related words' : 'a related word'}</span>
+        {words && (
+          <>
+            {': '}
+            {words.map((w, i) => (
+              <span key={w.root}>
+                {i > 0 && ' / '}
+                {w.gloss ? (
+                  <span class="vt-gloss" title="The word’s own gloss: the word-by-word alignment does not show which BSB words carry it in this verse">
+                    {w.quote}
+                  </span>
+                ) : (
+                  <q class="vt-relq">{w.quote}</q>
+                )}
+              </span>
+            ))}
+          </>
+        )}
+      </span>
+      {study &&
+        words?.map((w) => (
+          <span key={w.root} class="vt-tie">
+            <RootChip a={a} root={w.root} /> <RelatedTie a={a} theme={theme} w={w} />
+          </span>
+        ))}
     </li>
   );
 }
@@ -226,15 +288,23 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
   const deep = atLeast('deep');
   const row = useVerseRow(a, v);
   const own = useMemo(() => verseThemes(a, v, level), [a, v, level]);
-  const through = useMemo(() => themesThroughLinks(a, v, level), [a, v, level]);
+  const related = useMemo(() => relatedThemes(a, v, level), [a, v, level]);
+  // A theme shown through a related word is not offered again through links.
+  const through = useMemo(() => themesThroughLinks(a, v, level).filter((t) => !related.some((r) => r.theme === t.theme)), [a, v, level, related]);
   const strong = useMemo(() => strongestLinks(a, v).length, [a, v]);
   // "+N more" opens in place, for this verse only, and hands the focus to
-  // the first chip it shows (the button itself goes away).
+  // the first chip or row it shows (the button itself goes away).
   const [allFor, setAllFor] = useState<number | null>(null);
+  const [allRelFor, setAllRelFor] = useState<number | null>(null);
   const chips = useRef<HTMLUListElement>(null);
+  const rels = useRef<HTMLUListElement>(null);
   const showAll = () => {
     setAllFor(v);
     requestAnimationFrame(() => chips.current?.querySelectorAll<HTMLElement>('.vt-chip')[OWN_SHOWN]?.focus());
+  };
+  const showAllRel = () => {
+    setAllRelFor(v);
+    requestAnimationFrame(() => rels.current?.querySelectorAll<HTMLElement>('.vt-thrname')[RELATED_STUDY]?.focus());
   };
   const open = onTheme ?? ((id: string) => openThemeFromVerse(a, id, v));
   const goTo = go ?? ((u: number) => S.selectVerse(u, { openTab: false }));
@@ -242,12 +312,13 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
   const quiet = `No theme runs through ${possessive(name)} words or its strongest links.`;
   const rule = linkRule(a);
   const shownOwn = allFor === v ? own : own.slice(0, OWN_SHOWN);
-  const linked = study && own.length ? through.slice(0, LINKED_SHOWN) : [];
+  const shownRel = !study ? related.slice(0, RELATED_SHOWN) : allRelFor === v ? related : related.slice(0, RELATED_STUDY);
+  const linked = study && (own.length || related.length) ? through.slice(0, LINKED_SHOWN) : [];
 
   return (
     <section class="vt-card" aria-label={`Themes in ${name}`}>
       {title && <h3 class="vt-title">In {name}</h3>}
-      {own.length > 0 ? (
+      {own.length > 0 && (
         <ul class="vt-chips" ref={chips}>
           {shownOwn.map((o) => (
             <OwnChip key={o.theme} a={a} theme={a.themes[o.theme]} row={row} own={o} strong={strong} onOpen={() => open(a.themes[o.theme].id)} />
@@ -260,7 +331,22 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
             </li>
           )}
         </ul>
-      ) : through.length > 0 ? (
+      )}
+      {related.length > 0 && (
+        <ul class={`vt-thrs vt-rels${own.length ? ' is-after' : ''}`} ref={rels}>
+          {shownRel.map((t) => (
+            <RelatedRow key={t.theme} a={a} t={t} row={row} onOpen={() => open(a.themes[t.theme].id)} />
+          ))}
+          {study && related.length > shownRel.length && (
+            <li>
+              <button type="button" class="vt-more" onClick={showAllRel}>
+                +{related.length - shownRel.length} more
+              </button>
+            </li>
+          )}
+        </ul>
+      )}
+      {own.length > 0 || related.length > 0 ? null : through.length > 0 ? (
         <>
           <p class="vt-lead">{name} has no theme words of its own. Its strongest links lead to:</p>
           <ul class="vt-thrs">
@@ -287,7 +373,8 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
       {deep && (
         <p class="vt-rule">
           Own themes: a theme’s Hebrew or Greek word is in this verse. They are ordered by how many of the verse’s {rule.top} strongest links ({rule.votes} or more votes) share the theme,
-          then the rarer theme, with the broad words after the others. Themes through links: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
+          then the rarer theme, with the broad words after the others. A related word: one of the verse’s words is in the same family as a theme’s word, from a reviewed list
+          (config/theme-related.json), never on a verse with the theme’s left-out sense; it adds no verse to the theme. Themes through links, when there is neither: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
           verses, and themes whose left-out sense is in this verse, are never offered.
         </p>
       )}
@@ -297,13 +384,14 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
 
 // ------------------------------------------------------------ one line
 
-export type ThemeLineData = { kind: 'own'; names: string[]; more: number } | { kind: 'through'; theme: string; via: number } | null;
+export type ThemeLineData = { kind: 'own'; names: string[]; more: number } | { kind: 'related'; theme: string } | { kind: 'through'; theme: string; via: number } | null;
 
 /** Longest a one-line list of theme names gets before "and N more". */
 const LINE_CHARS = 52;
 
 /** The verse's themes as one plain line's worth of data: its own theme
- *  names (as many as fit), else the first theme through its links, else null. */
+ *  names (as many as fit), else the first theme through a related word, else
+ *  the first through its links, else null. */
 export function themeLine(a: Atlas, v: number, level: ThemeLevel): ThemeLineData {
   const own = verseThemes(a, v, level);
   if (own.length) {
@@ -317,6 +405,8 @@ export function themeLine(a: Atlas, v: number, level: ThemeLevel): ThemeLineData
     }
     return { kind: 'own', names, more: own.length - names.length };
   }
+  const r = relatedThemes(a, v, level)[0];
+  if (r) return { kind: 'related', theme: a.themes[r.theme].name };
   const t = themesThroughLinks(a, v, level)[0];
   return t ? { kind: 'through', theme: a.themes[t.theme].name, via: t.via[0][0] } : null;
 }
@@ -324,6 +414,11 @@ export function themeLine(a: Atlas, v: number, level: ThemeLevel): ThemeLineData
 /** "Themes: Lamb · Sacrifice and offering" */
 export function ownLineText(d: { names: string[]; more: number }): string {
   return `Themes: ${d.names.join(' · ')}${d.more > 0 ? ` and ${d.more} more` : ''}`;
+}
+
+/** "Related word: Sabbath rest" */
+export function relatedLineText(d: { theme: string }): string {
+  return `Related word: ${d.theme}`;
 }
 
 /** The one-line form as a button, for the Links tab on phones (hidden on
@@ -335,7 +430,7 @@ export function VerseThemesLine({ a, v, onOpen, class: cls }: { a: Atlas; v: num
   if (!d) return null;
   return (
     <button type="button" class={`vt-line${cls ? ` ${cls}` : ''}`} onClick={onOpen}>
-      <span>{d.kind === 'own' ? ownLineText(d) : `Linked to ${d.theme}, through ${label(a, d.via)}`}</span>
+      <span>{d.kind === 'own' ? ownLineText(d) : d.kind === 'related' ? relatedLineText(d) : `Linked to ${d.theme}, through ${label(a, d.via)}`}</span>
       <span aria-hidden="true">›</span>
     </button>
   );

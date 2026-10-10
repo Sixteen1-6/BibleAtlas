@@ -4,6 +4,8 @@
 // every section is 8-byte aligned, so each one becomes a typed array view over
 // the fetched ArrayBuffer with no parsing and no copying.
 
+import type { Relation } from './forms';
+
 export interface BookMeta {
   osis: string;
   step: string;
@@ -83,6 +85,16 @@ export interface Theme {
   /** A verse holding any of these roots is not in the theme (Seven and Forty
    *  leave out a digit inside a larger count). */
   skipWith?: number[];
+  /** Related words, from the reviewed list in config/theme-related.json:
+   *  [root, relation, theme root], the relation being the theme root's tie to
+   *  the related root as forms.ts names it ('c': the theme's word comes from
+   *  it). A separate reason on a verse's card, never one of the theme's verses. */
+  related?: [number, Relation, number][];
+  /** A related root that counts only where its BSB English is one of some
+   *  words: [root, the words, the verses where it is]. */
+  relatedOnly?: [number, string[], number[]][];
+  /** Related roots shown by their gloss, where the alignment gives the wrong English. */
+  relatedGloss?: number[];
 }
 
 /** meta.themeLinks: the rule for themes reached through a verse's links. */

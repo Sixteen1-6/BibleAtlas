@@ -44,6 +44,7 @@ function ThemesNote({ a }: { a: Atlas }) {
   const list = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} or ${xs[xs.length - 1]}`);
   const r = a.meta.themeLinks;
   const near = a.meta.themeNear;
+  const related = a.themes.reduce((n, t) => n + (t.related?.length ?? 0), 0);
   return (
     <>
       <h3>Themes</h3>
@@ -59,6 +60,12 @@ function ThemesNote({ a }: { a: Atlas }) {
           A verse with no theme word of its own can reach a theme through its links: of its {r.top} strongest links with {r.votes} or more votes, {r.carriers} must lead to verses of that theme,
           or one link with {r.soloVotes} or more votes. Themes of more than {r.maxThemeSize} verses are never offered this way, nor a theme whose deliberately left-out sense is in the verse.
           Each such theme is shown with the verse it comes through.
+        </p>
+      )}
+      {related > 0 && (
+        <p>
+          A verse can also show a theme through a related word, a word of the same family as one of the theme’s words (שָׁבַת “rested” in Genesis 2:2, from which שַׁבָּת Sabbath comes),
+          from {related} pairs checked by hand and listed with their reasons in config/theme-related.json; it is labelled as a related word and adds no verse to the theme.
         </p>
       )}
       <p>
@@ -189,7 +196,7 @@ function ShelfView({ a, shelf }: { a: Atlas; shelf: Shelf | null | undefined }) 
         <>
           <h3>Checks</h3>
           <p>
-            Every dataset is openly licensed, pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the Aramaic and Hebrew
+            Every dataset is openly licensed, pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists and their reviewed related words (config/theme-related.json), the sets of parallel passages (config/parallels.json), the Aramaic and Hebrew
             words the Gospels and Acts keep (config/aramaic.json), the layers of meaning notes (config/layers.json), which Nave’s headings the Themes tab leaves out or lets through, and the few Nave’s references it corrects (config/naves-display.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, the table that assigns chapters and books to the Tyndale
             Open Bible Dictionary’s eras and dates, and this shelf: what each work is, who made it, when, and where to read or find it (config/shelf.json). Every quotation in the eras table is checked word for word against the dictionary when the data is built.
           </p>
