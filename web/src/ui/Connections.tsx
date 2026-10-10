@@ -8,6 +8,7 @@ import { GoDeeper } from './Depth';
 import { LayeredPassages, LayersCard } from './Layers';
 import { NOT_LOADED, OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseLoad, useVerseRow } from './common';
 import { openStarter } from './Welcome';
+import { VerseThemesLine } from './VerseThemes';
 import { WhyLinked } from './WhyLinked';
 
 const STARTERS = ['Isaiah 53:5', 'John 3:14', 'Genesis 22:8', 'Psalm 22:1', 'John 3:16', 'Micah 5:2'];
@@ -129,6 +130,8 @@ export function Connections({ a }: { a: Atlas }) {
       <h2>{label(a, v)}</h2>
       {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">{failed ? NOT_LOADED : '…'}</p>}
       {row && study && <OrigLine a={a} v={v} row={row} />}
+      {/* Phones only: the reader's extras line with the themes is on the other pane. */}
+      <VerseThemesLine a={a} v={v} class="vt-phone" onOpen={() => (S.tab.value = 'themes')} />
       <LayersCard a={a} v={v} />
       <p class="muted linkfacts">
         Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'}

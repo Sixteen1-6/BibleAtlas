@@ -7,6 +7,7 @@
 //!   atlas query path "Gen 3:15" "Rev 12:9"
 //!   atlas query near "Isa 53:5"
 //!   atlas query word G0026
+//!   atlas themes-review --group nature    review sheet: each theme's words, leave-outs and samples
 //!
 //! Options: --raw <dir> (default data/raw), --out <dir> (default web/public/data)
 
@@ -34,6 +35,8 @@ mod query;
 mod extra_translations;
 mod shelf;
 mod sources;
+mod themes;
+mod themes_review;
 mod verify;
 mod world;
 
@@ -73,7 +76,8 @@ fn main() {
             Some("build") => build::run(&root, &raw, &out),
             Some("verify") => verify::run(&out),
             Some("query") => query::run(&out, &args[1..]),
-            _ => Err("usage: atlas <fetch|build|verify|query> [--raw DIR] [--out DIR]".into()),
+            Some("themes-review") => themes_review::run(&out, &args[1..]),
+            _ => Err("usage: atlas <fetch|build|verify|query|themes-review> [--raw DIR] [--out DIR]".into()),
         }
     })();
     if let Err(e) = result {

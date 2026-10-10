@@ -183,7 +183,7 @@ export function Reader({ a }: { a: Atlas }) {
                     class="xc"
                     onClick={(e) => {
                       e.stopPropagation();
-                      S.selectVerse(v);
+                      S.selectVerse(v, { openTab: true });
                       S.mobilePane.value = 'study';
                     }}
                     aria-label={`Show the ${xc} links for verse ${i + 1}`}
@@ -196,7 +196,7 @@ export function Reader({ a }: { a: Atlas }) {
                     class="xc layersmark"
                     onClick={(e) => {
                       e.stopPropagation();
-                      S.selectVerse(v);
+                      S.selectVerse(v, { openTab: true });
                       S.mobilePane.value = 'study';
                     }}
                     title="This verse has layers of meaning"

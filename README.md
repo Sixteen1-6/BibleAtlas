@@ -68,7 +68,9 @@ Every view is a link, so these open straight to the story:
 - Word study. Tap any Hebrew, Aramaic or Greek word: root, transliteration, meaning in this verse, grammar in plain English, the lexicon definition, where it appears across the 66 books, and every occurrence.
 - Manuscript evidence. Words where Greek editions or Hebrew manuscripts differ are marked, with which editions have them. Psalm 22:16, for example, shows the Dead Sea Scroll reading next to the Leningrad Codex.
 - Why connected. For any two linked verses in the same language, the roots they share are highlighted.
-- Themes. Lamb, light, shepherd, vine, bread, water, rock, fire, blood, covenant, seed, bride, temple, tree, way, spirit. Each traces specific Hebrew and Greek words, so every lit verse can be checked.
+- Themes. 163 themes in 10 groups, from Lamb, Light and Shepherd to Passover, Sabbath rest and Widows and orphans. Each traces specific Hebrew and Greek words, so every lit verse can be checked. Nine broad words (Son, King, Father, Servant, The word, The name, Jerusalem and Zion, Seven, Forty) show only at Study; Seven and Forty leave out a number inside a larger count.
+  - A verse's themes. Pick a verse with the Themes tab open and it stays open, showing the verse's own themes, each with the BSB words that carry it ("Lamb: the lamb"). A verse with no theme word of its own shows, dashed and labelled, the themes its strongest links lead to: of its 10 strongest links with 3 or more votes, 2 must carry the theme, or one link with 10 or more, never a theme of more than 500 verses or one whose left-out sense is in the verse. Otherwise one quiet line, and nothing in the reader.
+  - Often linked with. Themes whose verses the cross-references join far more often than chance: 15 or more links between them, at least twice what chance would give for themes of their size, counted over every pair of verses joined by a link with 3 or more votes.
 - Connection paths. The chain of cross-references between any two verses, found by the Rust engine in a few milliseconds.
 - Most connected verses, by PageRank over the reference graph.
 - Search by reference ("jn 3:16"), English phrase, Strong's number or transliteration ("agape", "ruach").
@@ -144,7 +146,7 @@ The data is stored like a code-intelligence index. Every verse has a dense integ
 | Crate | Role |
 | --- | --- |
 | `atlas-core` | `no_std` engine: canon and book names, versification, container format, CSR graph, PageRank, Dijkstra connection paths, neighborhoods, reference parsing |
-| `atlas-cli` | the `atlas` command: fetch, build, verify, query |
+| `atlas-cli` | the `atlas` command: fetch, build, verify, query, themes-review |
 | `atlas-wasm` | `atlas-core` as WebAssembly with a small C-style API (no wasm-bindgen) |
 
 ### Measured performance
@@ -166,6 +168,12 @@ cargo run --release -p atlas-cli -- query xref "Isa 53:5"
 cargo run --release -p atlas-cli -- query path "Gen 3:15" "Rev 12:9"
 cargo run --release -p atlas-cli -- query near "Ps 23:1"
 cargo run --release -p atlas-cli -- query word G0026
+```
+
+To review themes before they ship, `themes-review` prints each theme's Hebrew and Greek words with their glosses, the senses left out, its size in each testament, its key verses and six sample verses, each with the BSB words the theme's word became (`--group <id>` or `--theme <id>` to narrow it):
+
+```bash
+cargo run --release -p atlas-cli -- themes-review --group nature
 ```
 
 ## How it is checked

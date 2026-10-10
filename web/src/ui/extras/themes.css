@@ -1,0 +1,26 @@
+/* The themes panel: the verse's themes card (styled in ui/themes.css) and
+   a way to follow a theme through the Bible in the Themes tab. */
+
+.x-themes-follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  margin: 14px 0 4px;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  font: 600 14px/1.3 var(--font-ui);
+  text-align: left;
+}
+.x-themes-follow:hover {
+  background: var(--accent);
+  color: var(--surface);
+}
+@media (max-width: 900px) {
+  .x-themes-follow {
+    min-height: 44px;
+  }
+}

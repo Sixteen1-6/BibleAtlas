@@ -39,6 +39,12 @@ export interface Meta {
   sources: SourceMeta[];
   sections: { name: string; type: string; count: number }[];
   files: Record<string, { bytes: number; sha256: string }>;
+  /** Theme groups in display order (older builds have none). */
+  themeGroups?: { id: string; name: string }[];
+  /** Theme ids for the Themes panel's first screen, all shown at Simple. */
+  themeFeatured?: string[];
+  themeLinks?: ThemeLinkRule;
+  themeNear?: ThemeNearRule;
 }
 
 export interface Lemmas {
@@ -60,7 +66,47 @@ export interface Theme {
   id: string;
   name: string;
   blurb: string;
+  /** Root indices whose verses make up the theme. */
   roots: number[];
+  /** A meta.themeGroups id. */
+  group?: string;
+  /** 'study': a broad word that shows only at Study and Deep. */
+  level?: 'simple' | 'study';
+  /** 2 or 3 verses the blurb speaks of, all lit by the theme. */
+  keyVerses?: number[];
+  /** Themes often linked with this one: [theme index, links, lift], strongest
+   *  first (see meta.themeNear). May include Study themes. */
+  near?: [number, number, number][];
+  /** Roots of senses deliberately left out ("seed: semen"). A theme is never
+   *  offered through links on a verse that holds one. */
+  left?: number[];
+  /** A verse holding any of these roots is not in the theme (Seven and Forty
+   *  leave out a digit inside a larger count). */
+  skipWith?: number[];
+}
+
+/** meta.themeLinks: the rule for themes reached through a verse's links. */
+export interface ThemeLinkRule {
+  /** Fewest votes a link needs. */
+  votes: number;
+  /** How many of the verse's strongest links are read. */
+  top: number;
+  /** Linked verses that must carry a theme... */
+  carriers: number;
+  /** ...unless one link has this many votes. */
+  soloVotes: number;
+  /** Themes lighting more verses than this are never offered. */
+  maxThemeSize: number;
+}
+
+/** meta.themeNear: the rule behind each theme's `near` list. */
+export interface ThemeNearRule {
+  votes: number;
+  minLinks: number;
+  minLift: number;
+  max: number;
+  /** Distinct verse pairs joined by a link with `votes` or more. */
+  pairs: number;
 }
 
 export interface Atlas {
