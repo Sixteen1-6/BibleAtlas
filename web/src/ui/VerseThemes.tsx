@@ -374,7 +374,7 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
         <p class="vt-rule">
           Own themes: a theme’s Hebrew or Greek word is in this verse. They are ordered by how many of the verse’s {rule.top} strongest links ({rule.votes} or more votes) share the theme,
           then the rarer theme, with the broad words after the others. A related word: one of the verse’s words is in the same family as a theme’s word, from a reviewed list
-          (config/theme-related.json), never on a verse with the theme’s left-out sense; it adds no verse to the theme. Themes through links, when there is neither: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
+          (config/theme-related.json), never on a verse with the theme’s left-out sense; it adds no verse to the theme. Themes through links: carried by {rule.carriers} of those links, or by one link with {rule.soloVotes} or more votes; themes of more than {rule.maxThemeSize}{' '}
           verses, and themes whose left-out sense is in this verse, are never offered.
         </p>
       )}
@@ -416,9 +416,9 @@ export function ownLineText(d: { names: string[]; more: number }): string {
   return `Themes: ${d.names.join(' · ')}${d.more > 0 ? ` and ${d.more} more` : ''}`;
 }
 
-/** "Related word: Sabbath rest" */
+/** "Sabbath rest, through a related word" */
 export function relatedLineText(d: { theme: string }): string {
-  return `Related word: ${d.theme}`;
+  return `${d.theme}, through a related word`;
 }
 
 /** The one-line form as a button, for the Links tab on phones (hidden on

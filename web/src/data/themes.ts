@@ -469,10 +469,18 @@ export interface RelatedWordIn extends RelatedWord {
   gloss: boolean;
 }
 
+/** Gloss words that never make an English word look like a related word
+ *  ("to testify against" does not make "against" the word). */
+const NOT_LIKE = new Set(['against']);
+
 /** A theme's related words in a verse, each with the BSB English aligned to
- *  it: small words left out at both ends ("He rested" is "rested"); for a
- *  root in relatedOnly, only the listed words ("the land will have the rest"
- *  is "rest"); for a root in relatedGloss, or with no English, its gloss. */
+ *  it: small words left out at both ends ("He rested" is "rested"); in a run
+ *  of three words or more, only the words that look like the word or the
+ *  theme's word or name, and the words straight after them up to a small
+ *  word ("as well as wheat" is "wheat", "indulged in sexual immorality" is
+ *  "sexual immorality"); for a root in relatedOnly, only the listed words
+ *  ("the land will have the rest" is "rest"); for a root in relatedGloss, or
+ *  with no English, its gloss. */
 export function relatedWordsIn(a: Atlas, row: VerseRow, theme: Theme, related: RelatedWord[]): RelatedWordIn[] {
   const eng = englishTokens(row);
   const name = stemWords(theme.name);
@@ -488,8 +496,19 @@ export function relatedWordsIn(a: Atlas, row: VerseRow, theme: Theme, related: R
         let ks = alignedTokens(row, eng, pos, () => [...name, ...stemWords(gloss), ...stemWords(a.lemmas.gloss[rw.root] ?? ''), ...stemWords(a.lemmas.gloss[rw.via] ?? '')]);
         if (only) ks = ks.filter((k) => only.includes(eng.tokens[k].toLowerCase()));
         else {
-          const start = ks.findIndex((k) => !SMALL.has(eng.tokens[k].toLowerCase()));
-          ks = start < 0 ? [] : ks.slice(start, lastIndex(ks, (k) => !SMALL.has(eng.tokens[k].toLowerCase())) + 1);
+          const big = (k: number) => !SMALL.has(eng.tokens[k].toLowerCase());
+          const start = ks.findIndex(big);
+          ks = start < 0 ? [] : ks.slice(start, lastIndex(ks, big) + 1);
+          if (ks.length >= 3) {
+            const like = [...name, ...stemWords(a.lemmas.gloss[rw.root] ?? ''), ...stemWords(a.lemmas.gloss[rw.via] ?? '')].filter((x) => !NOT_LIKE.has(x));
+            const looks = (k: number) => like.some((x) => sameStem(x, eng.tokens[k].toLowerCase()));
+            const first = ks.findIndex(looks);
+            if (first >= 0) {
+              let end = lastIndex(ks, looks) + 1;
+              while (end < ks.length && big(ks[end])) end++;
+              ks = ks.slice(first, end);
+            }
+          }
         }
         if (ks.length) {
           runs.push({ at: ks[0], text: ks.map((k) => eng.tokens[k]).join(' ') });

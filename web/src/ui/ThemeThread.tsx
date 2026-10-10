@@ -6,7 +6,7 @@ import { signal } from '@preact/signals';
 import type { ComponentChildren } from 'preact';
 import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
 import { type BridgeTable, loadBridges } from '../data/bridges';
-import { type RelatedWord, type ThemeLevel, inTheme, linksBetween, relatedThemes, relatedWordsIn, shownAt, themesThroughLinks, verseThemes, viaName, whereItFits } from '../data/themes';
+import { type RelatedWord, type RelatedWordIn, type ThemeLevel, inTheme, linksBetween, relatedThemes, relatedWordsIn, shownAt, themesThroughLinks, verseThemes, viaName, whereItFits } from '../data/themes';
 import { ALL_VOTES, THREAD_VOTES, type Thread, linksWithinRows, themeLinkCount, themeThread, themeVerses } from '../data/thread';
 import { atLeast } from '../depth';
 import * as S from '../state';
@@ -410,7 +410,13 @@ export function RelatedTie({ a, theme, w }: { a: Atlas; theme: Theme; w: Related
     case 'p':
       return <>it comes from the word {via}</>;
     case 's':
-      return <>it shares a root with the word {via}</>;
+      // Across Hebrew and Aramaic, the other word's language: Aramaic טַל dew
+      // shares a root with the Hebrew word טַל dew.
+      return (
+        <>
+          it shares a root with the {a.lemmas.lang[w.via] === a.lemmas.lang[w.root] ? '' : a.lemmas.lang[w.via] === 'A' ? 'Aramaic ' : 'Hebrew '}word {via}
+        </>
+      );
     case 'a':
       return (
         <>
@@ -424,20 +430,44 @@ export function RelatedTie({ a, theme, w }: { a: Atlas; theme: Theme; w: Related
   }
 }
 
-/** A verse outside the theme whose word is a related word of the theme's:
- *  "its word “rested” is related to one of this theme's words"; Study adds
- *  the Hebrew or Greek and how ("the word שַׁבָּת Sabbath comes from it"). */
+/** A verse outside the theme whose words are related words of the theme's:
+ *  "its word “rested” is related to one of this theme's words" ("its words
+ *  “gold” / “silver” are related to this theme's words"); Study adds the
+ *  Hebrew or Greek and how ("the word שַׁבָּת Sabbath comes from it"). */
 function RelatedFit({ a, theme, v, words }: { a: Atlas; theme: Theme; v: number; words: RelatedWord[] }) {
   const study = atLeast('study');
   const row = useVerseRow(a, v);
   const got = useMemo(() => (row ? relatedWordsIn(a, row, theme, words) : null), [a, row, theme, words]);
-  const w = got?.[0];
+  const quote = (w: RelatedWordIn) => (w.gloss ? <span class="vt-gloss">{w.quote}</span> : <q class="vt-relq">{w.quote}</q>);
   return (
     <>
-      but {w ? <>its word {w.gloss ? <span class="vt-gloss">{w.quote}</span> : <q class="vt-relq">{w.quote}</q>}</> : 'one of its words'} is related to one of this theme’s words
-      {study && w ? (
+      but{' '}
+      {!got?.length ? (
+        'one of its words is related to one of this theme’s words'
+      ) : got.length === 1 ? (
+        <>its word {quote(got[0])} is related to one of this theme’s words</>
+      ) : (
         <>
-          : <RootChip a={a} root={w.root} /> <RelatedTie a={a} theme={theme} w={w} />.
+          its words{' '}
+          {got.map((w, i) => (
+            <span key={w.root}>
+              {i > 0 && ' / '}
+              {quote(w)}
+            </span>
+          ))}{' '}
+          are related to this theme’s words
+        </>
+      )}
+      {study && got?.length ? (
+        <>
+          :{' '}
+          {got.map((w, i) => (
+            <span key={w.root}>
+              {i > 0 && '; '}
+              <RootChip a={a} root={w.root} /> <RelatedTie a={a} theme={theme} w={w} />
+            </span>
+          ))}
+          .
         </>
       ) : (
         '.'

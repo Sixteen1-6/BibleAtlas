@@ -1,7 +1,7 @@
 // Themes, under a verse: the themes its own Hebrew or Greek words carry,
 //   "Themes: Lamb · Sacrifice and offering"                 (Genesis 22:8)
 // or, with none, the first theme one of its words is a related word of,
-//   "Related word: Sabbath rest"                            (Genesis 2:2)
+//   "Sabbath rest, through a related word"                  (Genesis 2:2)
 // or else the first theme its strongest links lead to,
 //   "Linked to Sabbath rest, through Luke 13:14"            (Exodus 20:9)
 // and nothing at all where no theme runs through the verse or its links.
@@ -54,7 +54,10 @@ function Panel({ a, verse, navigate }: PanelProps<Data>) {
           Follow {a.themes[first].name} through the Bible <span aria-hidden="true">›</span>
         </button>
       )}
-      <SourceNote>Themes from config/themes.json, traced through STEPBible’s tagged Hebrew and Greek (CC BY 4.0); links from OpenBible.info (CC BY 4.0).</SourceNote>
+      <SourceNote>
+        Themes from config/themes.json, traced through STEPBible’s tagged Hebrew and Greek (CC BY 4.0); links from OpenBible.info (CC BY 4.0); related words from config/theme-related.json, checked
+        against the word families from Strong’s dictionaries (1890; JSON by Open Scriptures, CC BY-SA) and STEPBible’s lexicons (CC BY 4.0).
+      </SourceNote>
     </>
   );
 }

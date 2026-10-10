@@ -65,7 +65,7 @@ function ThemesNote({ a }: { a: Atlas }) {
       {related > 0 && (
         <p>
           A verse can also show a theme through a related word, a word of the same family as one of the theme’s words (שָׁבַת “rested” in Genesis 2:2, from which שַׁבָּת Sabbath comes),
-          from {related} pairs checked by hand and listed with their reasons in config/theme-related.json; it is labelled as a related word and adds no verse to the theme.
+          from {related} pairs, each listed with its reason in config/theme-related.json; it is labelled as a related word and adds no verse to the theme.
         </p>
       )}
       <p>
