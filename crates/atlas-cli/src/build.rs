@@ -287,7 +287,20 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     }
     fs::create_dir_all(out).map_err(|e| e.to_string())?;
     let mut files: BTreeMap<String, Value> = BTreeMap::new();
-    for (rel, bytes) in crate::extra_quotes::build(&inputs, &vz, &bsb.text, &words)? { write(out, &rel, &bytes, &mut files)?; }
+    // Quotation links, kept for Ask the Bible's ties: [ntFrom, ntTo, otFrom, otTo, kind].
+    let mut quotes: Vec<(u32, u32, u32, u32)> = Vec::new();
+    for (rel, bytes) in crate::extra_quotes::build(&inputs, &vz, &bsb.text, &words)? {
+        if rel == "extras/quotes.json" {
+            let doc: Value = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+            for l in doc["links"].as_array().into_iter().flatten() {
+                let n = |i: usize| l[i].as_u64().map(|x| x as u32);
+                if let (Some(a), Some(b), Some(c), Some(d)) = (n(0), n(1), n(2), n(3)) {
+                    quotes.push((a, b, c, d));
+                }
+            }
+        }
+        write(out, &rel, &bytes, &mut files)?;
+    }
 
     let mut c = ContainerWriter::new();
     c.u32s("vz_bchap", &vz.book_chapter_start);
@@ -331,7 +344,8 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
-    for (rel, bytes) in crate::ask::build(root, &inputs, &vz, &bsb.text, &degree)? { write(out, &rel, &bytes, &mut files)?; }
+    let ask_sources = crate::ask::Sources { text: &bsb.text, vz: &vz, degree: &degree, graph: &graph, words: &words, lemma_index: &lemma_index, lemma_count: &theme_counts, quotes: &quotes };
+    for (rel, bytes) in crate::ask::build(root, &inputs, &ask_sources)? { write(out, &rel, &bytes, &mut files)?; }
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {

@@ -30,13 +30,6 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.ask-draft {
-  font-size: 0.82rem;
-  color: var(--muted);
-  border: 1px dashed var(--line);
-  border-radius: 6px;
-  padding: 0.35em 0.6em;
-}
 .xt-body .ask-more {
   margin: 0.9em 0 0.4em;
   color: var(--muted);

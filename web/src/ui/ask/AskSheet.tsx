@@ -1,20 +1,20 @@
 // Ask the Bible, the panel: one question at a time, in the same frame as the
 // verse extras' panels. It speaks only in the Bible's words.
 //
-//   A prepared question, once approved: its chain of Scripture, whole verses
-//   and parts of verses set one after another, with nothing of ours between.
-//   Any other question (and a prepared one not yet approved): the verses
-//   gathered for its words, best first, with those words highlighted.
+//   A prepared question: its chain of Scripture, whole verses and parts of
+//   verses set one after another, with nothing of ours between.
+//   Any other question: the verses gathered for its words, best first, with
+//   those words highlighted.
 //   A Nave's subject: its verses.
 //
 //   Simple  the chain, or the best few verses.
 //   Study   every verse found, lit on the map with the links between them.
-//   Deep    the full list, and how the verses were found.
+//   Deep    the full list, and how the verses were found or why each is there.
 
 import './ask.css';
 import { createPortal } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { type Atlas, locate, verseIndex } from '../../data/atlas';
+import { type Atlas, langName, locate, verseIndex } from '../../data/atlas';
 import { plainText } from '../../data/plain';
 import { wordPieces } from '../../data/search';
 import { ALL_VOTES, linksWithinRows } from '../../data/thread';
@@ -214,6 +214,42 @@ function AllVerses({ a, rs }: { a: Atlas; rs: Range[] }) {
   );
 }
 
+/** Why each part is in its chain, at Deep: the ties the build found between it
+ * and the question or the other parts, in the Bible's own data. */
+function WhyEach({ a, parts }: { a: Atlas; parts: Part[] }) {
+  const L = a.lemmas;
+  const name = (j: number) => refName(a, parts[j].r[0], parts[j].r[1]);
+  const names = (js: number[]) => js.map(name).join(', ');
+  // Matthew is the 40th book.
+  const newTestament = (j: number) => locate(a, parts[j].r[0]).book >= 39;
+
+  return (
+    <>
+      <h3>Why each verse is here</h3>
+      <ul class="ask-how">
+        {parts.map((p, i) => {
+          const t = p.t ?? {};
+          const why: string[] = [];
+          if (t.w) why.push(`it says ${t.w.map((w) => `“${w}”`).join(', ')}`);
+          if (t.s) why.push(`Nave’s lists it under ${t.s.join(', ')}`);
+          if (t.x) why.push(`cross-referenced with ${names(t.x)}`);
+          for (const j of t.q ?? []) why.push(newTestament(i) && !newTestament(j) ? `quotes ${name(j)}` : `quoted in ${name(j)}`);
+          // One line per root, with every part that shares it.
+          const byRoot = new Map<number, number[]>();
+          for (const [j, root] of t.r ?? []) byRoot.set(root, [...(byRoot.get(root) ?? []), j]);
+          for (const [root, js] of byRoot) why.push(`shares the ${langName(L, root)} word ${L.word[root]} (“${L.gloss[root]}”) with ${names(js)}`);
+          if (t.p) why.push(`the same passage as ${names(t.p)}`);
+          return (
+            <li key={i}>
+              <b>{name(i)}</b>: {why.join('; ')}
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}
+
 function SeeAll({ total }: { total: number }) {
   if (atLeast('study')) return <p class="ask-more">{total.toLocaleString()} verses in all, lit on the map.</p>;
   return (
@@ -227,13 +263,8 @@ const NAVES = 'Nave’s Topical Bible (1896; this edition CC BY 4.0, Brady Steph
 
 // ------------------------------------------------------------ bodies
 
+/** A prepared question: its chain, then its wider set. */
 function QuestionBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'question' } }) {
-  // Not yet approved: the verses gathered for it, as for any question.
-  return asked.q.chain ? <ChainBody a={a} asked={asked} parts={asked.q.chain} /> : <LiveBody a={a} text={asked.q.q} questionId={asked.q.id} />;
-}
-
-/** A prepared question once approved: its chain, then its wider set. */
-function ChainBody({ a, asked, parts }: { a: Atlas; asked: Asked & { kind: 'question' }; parts: Part[] }) {
   const q = asked.q;
   const rs = useAsync(`q:${q.id}`, () => askVerses(a, asked));
   const study = atLeast('study');
@@ -242,21 +273,21 @@ function ChainBody({ a, asked, parts }: { a: Atlas; asked: Asked & { kind: 'ques
   }, [q.id, study, rs]);
   return (
     <>
-      {q.draft && <p class="ask-draft">Draft, not yet approved. Only preview builds show it.</p>}
-      <Chain a={a} parts={parts} />
+      <Chain a={a} parts={q.chain} />
       <SeeAll total={q.n} />
+      {atLeast('deep') && <WhyEach a={a} parts={q.chain} />}
       {atLeast('deep') && rs && <AllVerses a={a} rs={rs} />}
       {atLeast('deep') && <SourceNote>Every word above is the Bible’s (BSB). The wider set of verses was gathered with {NAVES}.</SourceNote>}
     </>
   );
 }
 
-function LiveBody({ a, text, questionId }: { a: Atlas; text: string; questionId?: string }) {
-  const got = useAsync<Gathered>(`live:${questionId ?? ''}:${text}`, () => gather(a, text, { questionId }));
+function LiveBody({ a, text }: { a: Atlas; text: string }) {
+  const got = useAsync<Gathered>(`live:${text}`, () => gather(a, text));
   const study = atLeast('study');
   const deep = atLeast('deep');
   useEffect(() => {
-    if (study && got && got.verses.length) void lightOnMap(a, questionId ?? `live:${text}`, got.verses, text);
+    if (study && got && got.verses.length) void lightOnMap(a, `live:${text}`, got.verses, text);
   }, [text, study, got]);
   if (got === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
   if (!got || !got.verses.length) return <p class="xt-lead">No verses came up for these words. Try asking with other words.</p>;
