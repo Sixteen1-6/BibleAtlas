@@ -40,6 +40,12 @@ export function openerElement(): HTMLElement | null {
   return opener && opener.isConnected ? opener : null;
 }
 
+/** Name the control that opened a panel some other way (Ask the Bible from a
+ *  Nave's heading), so closing hands the focus back to it. */
+export function setOpener(el: HTMLElement | null): void {
+  opener = el;
+}
+
 /** Open an extra's panel from a tap on its note. */
 export function openExtra(id: string, kind: 'verse' | 'chapter', at: VerseRef | ChapterRef, from?: HTMLElement | null): void {
   if (backPending || S.paletteOpen.peek()) return;

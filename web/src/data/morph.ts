@@ -19,6 +19,7 @@ const ARA_STEM: Record<string, string> = {
 const HEB_VERB_FORM: Record<string, string> = {
   p: 'perfect', q: 'sequential perfect', i: 'imperfect', w: 'sequential imperfect', h: 'cohortative', j: 'jussive',
   v: 'imperative', r: 'active participle', s: 'passive participle', a: 'infinitive absolute', c: 'infinitive construct',
+  u: 'imperfect with plain "and" (not sequential)',
 };
 const PERSON: Record<string, string> = { '1': '1st person', '2': '2nd person', '3': '3rd person' };
 const GENDER: Record<string, string> = { m: 'masculine', f: 'feminine', b: 'both genders', c: 'common gender', n: 'neuter' };
@@ -34,9 +35,20 @@ function pgn(s: string, i: number): string[] {
   return out;
 }
 
-function hebSegment(seg: string, aramaic: boolean): string {
+/** Words the source tags as numbers ("Ac") though they are adverbs or
+ *  prepositions: אַחַר after, עוֹד still, בֵּין between, מְאֹד very. Their
+ *  forms say gender, number and state with no word class. */
+export const NOT_NUMBERS = new Set([
+  'H0310A', 'H0383', 'H0996G', 'H0996H', 'H1004A', 'H1107', 'H1157', 'H2270', 'H2962', 'H3426', 'H3520A',
+  'H3795', 'H3966', 'H4295', 'H4605', 'H5048', 'H5227', 'H5750', 'H6941', 'H7317', 'H7946', 'H8602A',
+]);
+
+function hebSegment(seg: string, aramaic: boolean, root?: string): string {
   const t = seg[0];
   const rest = seg.slice(1);
+  if ((t === 'A' || t === 'N') && rest[0] === 'c' && root && NOT_NUMBERS.has(root)) {
+    return [GENDER[rest[1]], NUMBER[rest[2]], STATE[rest[3]]].filter(Boolean).join(', ');
+  }
   switch (t) {
     case 'A': {
       const kind = { a: 'adjective', c: 'number', g: 'gentilic adjective', o: 'ordinal number' }[rest[0]] ?? 'adjective';
@@ -65,18 +77,22 @@ function hebSegment(seg: string, aramaic: boolean): string {
       return ['pronoun suffix', ...pgn(rest, 1)].join(', ');
     }
     case 'T': {
+      // Aramaic writes "the" as an ending, -א, which TAHOT tags "Ta".
+      if (aramaic && rest[0] === 'a') return 'definite article (the ending ־א)';
       const kind = { a: 'affirmation particle', d: 'definite article', e: 'exhortation particle', i: 'interrogative particle', j: 'interjection', m: 'demonstrative particle', n: 'negative particle', o: 'object marker', r: 'relative particle' }[rest[0]] ?? 'particle';
       return kind;
     }
     case 'V': {
       const stem = (aramaic ? ARA_STEM : HEB_STEM)[rest[0]] ?? 'verb';
-      const form = HEB_VERB_FORM[rest[1]] ?? '';
+      // TAHOT marks a cohortative ("let me…", "let us…") as "c" with a person.
+      // Only a Qal (Peal) participle is plainly active; a Niphal one is passive.
+      const form = rest[1] === 'c' && PERSON[rest[2]] ? 'cohortative' : rest[1] === 'r' && rest[0] !== 'q' ? 'participle' : (HEB_VERB_FORM[rest[1]] ?? '');
       const parts = [`verb, ${stem}${form ? ' ' + form : ''}`];
       if (rest[1] === 'r' || rest[1] === 's') {
         if (GENDER[rest[2]]) parts.push(GENDER[rest[2]]);
         if (NUMBER[rest[3]]) parts.push(NUMBER[rest[3]]);
         if (STATE[rest[4]]) parts.push(STATE[rest[4]]);
-      } else if (rest[1] !== 'a' && rest[1] !== 'c') {
+      } else if (rest[1] !== 'a' && (rest[1] !== 'c' || PERSON[rest[2]])) {
         parts.push(...pgn(rest, 2));
       }
       return parts.join(', ');
@@ -89,11 +105,13 @@ function hebSegment(seg: string, aramaic: boolean): string {
 const GK_CASE: Record<string, string> = { N: 'nominative', G: 'genitive', D: 'dative', A: 'accusative', V: 'vocative' };
 const GK_NUM: Record<string, string> = { S: 'singular', P: 'plural' };
 const GK_GEN: Record<string, string> = { M: 'masculine', F: 'feminine', N: 'neuter' };
+/** Whose it is, for possessive pronouns ("S-1SNSF" = my, of a feminine noun). */
+const GK_OWNER: Record<string, string> = { '1S': 'my', '1P': 'our', '2S': 'your (one person)', '2P': 'your (more than one)' };
 const GK_TENSE: Record<string, string> = { P: 'present', I: 'imperfect', F: 'future', A: 'aorist', R: 'perfect', L: 'pluperfect', X: 'no tense stated' };
 const GK_VOICE: Record<string, string> = { A: 'active', M: 'middle', P: 'passive', E: 'middle or passive', D: 'middle deponent', O: 'passive deponent', N: 'middle or passive deponent', X: '' };
 const GK_MOOD: Record<string, string> = { I: 'indicative', S: 'subjunctive', O: 'optative', M: 'imperative', N: 'infinitive', P: 'participle', R: 'imperative participle' };
 const GK_POS: Record<string, string> = {
-  A: 'adjective', C: 'conjunction', CONJ: 'conjunction', COND: 'conditional', D: 'demonstrative pronoun', F: 'reflexive pronoun',
+  A: 'adjective', C: 'reciprocal pronoun', CONJ: 'conjunction', COND: 'conditional', D: 'demonstrative pronoun', F: 'reflexive pronoun',
   I: 'interrogative pronoun', K: 'correlative pronoun', N: 'noun', P: 'personal pronoun', PREP: 'preposition', PRT: 'particle',
   Q: 'correlative pronoun', R: 'relative pronoun', S: 'possessive pronoun', T: 'article', X: 'indefinite pronoun', ADV: 'adverb',
   INJ: 'interjection', HEB: 'Hebrew word', ARAM: 'Aramaic word', V: 'verb',
@@ -121,6 +139,8 @@ function greek(code: string): string {
   for (const x of [a, b, c]) {
     if (!x) continue;
     if (/^[123][SP]$/.test(x)) parts.push(PERSON[x[0]], GK_NUM[x[1]]);
+    else if (/^[123][SP][NGDAV][SP][MFN]?$/.test(x)) parts.push(GK_OWNER[x.slice(0, 2)], ...cng(x.slice(2)));
+    else if (/^[123][NGDAV][SP][MFN]$/.test(x)) parts.push(PERSON[x[0]], ...cng(x.slice(1)));
     else if (/^[123][NGDAV][SP]$/.test(x)) parts.push(PERSON[x[0]], ...cng(x.slice(1)));
     else if (/^[NGDAV][SP][MFN]?$/.test(x)) parts.push(...cng(x));
     else if (x === 'P') parts[0] = 'proper name';
@@ -134,8 +154,9 @@ function greek(code: string): string {
 
 /** Plain-English description of a grammar code. Unknown codes are returned as-is.
  *  `lang` is the word's language (H, A or G); the code alone is ambiguous
- *  (Greek adjectives start with "A", like Aramaic codes). */
-export function describeMorph(code: string, lang: string): string {
+ *  (Greek adjectives start with "A", like Aramaic codes). `root` is the
+ *  word's key, for words the source mislabels. */
+export function describeMorph(code: string, lang: string, root?: string): string {
   if (!code) return '';
   const c = code.trim();
   if (lang === 'H' || lang === 'A') {
@@ -144,7 +165,8 @@ export function describeMorph(code: string, lang: string): string {
       .slice(1)
       .split('/')
       .filter(Boolean)
-      .map((s) => hebSegment(s, aramaic))
+      // "Rd" before a pronoun ending is a preposition: the article can't take one.
+      .map((s, i, all) => (s === 'Rd' && all[i + 1]?.[0] === 'S' ? 'preposition' : hebSegment(s, aramaic, root)))
       .join(' + ');
   }
   // Crasis forms combine two words: "CONJ + G1565=D".

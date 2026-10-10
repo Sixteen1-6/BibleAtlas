@@ -51,7 +51,7 @@
     {
       "id": "naves",
       "title": "Nave's Topical Bible (Orville J. Nave, 1896), as a table",
-      "provides": "About 5,300 subjects, each with the verses Nave listed for it. Ask the Bible uses it as an index only, to gather the verses on a question or subject; none of Nave's own wording is shown.",
+      "provides": "About 5,300 subjects, each with the verses Nave listed for it. Ask the Bible uses it as an index, to gather the verses on a question or subject, and at Study the Themes tab names the subjects about a concept that list a verse no theme reaches. Only its subject headings are shown, never the text of its entries.",
       "license": "CC BY 4.0 (this edition); Nave's Topical Bible itself is public domain",
       "attribution": "Nave's Topical Dictionary from BibleData by Brady Stephenson, github.com/BradyStephenson/bible-data (CC BY 4.0)",
       "homepage": "https://github.com/BradyStephenson/bible-data",
@@ -62,7 +62,7 @@
     {
       "id": "kjv",
       "title": "King James Version (1769)",
-      "provides": "English text used only by search, so a verse typed in King James wording is found. Never shown.",
+      "provides": "English text used by search, so a verse typed in King James wording is found, and by the build to tell which Nave's subject headings are names (a word the KJV always capitalizes). Never shown.",
       "license": "Public domain",
       "attribution": "King James Version (1769), public domain",
       "homepage": "https://github.com/scrollmapper/bible_databases",
@@ -84,7 +84,7 @@
     {
       "id": "openbible-geo",
       "title": "OpenBible.info Bible Geocoding Data",
-      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",
+      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map, and its place names keep places out of the Themes tab's Nave's subjects.",
       "license": "CC BY 4.0",
       "attribution": "Bible Geocoding Data from OpenBible.info, CC BY 4.0",
       "homepage": "https://www.openbible.info/geo/",
@@ -150,7 +150,7 @@
     {
       "id": "theographic",
       "title": "Theographic Bible Metadata",
-      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep.",
+      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep. Its names of people and places keep them out of the Themes tab's Nave's subjects.",
       "license": "CC BY-SA 4.0",
       "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
       "homepage": "https://github.com/robertrouse/theographic-bible-metadata",
@@ -407,6 +407,21 @@
       "commit": "47db250bd55d0d8577f2a94fba114ef16c35b23c",
       "files": { "tsv": "WLC/tsv/macula-hebrew.tsv" },
       "note": "Only the word ids, Hebrew text and the 'greek' and 'greekstrong' columns are read. The file is stored with Git LFS, so `atlas fetch` downloads it from GitHub's media server and checks it against the pointer's SHA-256. MACULA's LICENSE.md lists 'Greek equivalents drawn from the Septuagint' among the data it licenses CC BY 4.0. Nothing from the file is published: the build writes only word positions."
+    },
+    {
+      "id": "strongs",
+      "title": "Strong's Hebrew and Greek dictionaries (Open Scriptures JSON)",
+      "provides": "Which Hebrew and Greek words come from which. Used for each word's family of related words in the word study.",
+      "license": "CC BY-SA (JSON edition); Strong's dictionaries (1890) are public domain",
+      "attribution": "James Strong, Exhaustive Concordance of the Bible (1890, public domain); JSON edition by Open Scriptures, github.com/openscriptures/strongs (CC BY-SA), Greek from the XML by Ulrik Petersen",
+      "homepage": "https://github.com/openscriptures/strongs",
+      "repo": "https://github.com/openscriptures/strongs",
+      "commit": "0acd2f251c2d35ff8db2dece4e0593979d3ac223",
+      "files": {
+        "greek": "greek/strongs-greek-dictionary.js",
+        "hebrew": "hebrew/strongs-hebrew-dictionary.js"
+      },
+      "note": "Only each entry's derivation line is used, to link a word to the word it comes from. Strong's definitions are not shown. Guesses ('perhaps', 'probably', 'apparently', 'akin to'), links that rest on a sense the reader can't see, comparisons and compounds of two words are left out, except a Greek word built on a prefix (as ἐξέρχομαι on ἔρχομαι). 'From the same as' and 'from the base of' a word that is not a verb make two words share a root. Where one number covers words that only look alike, the link goes to the one with nearly all the uses or a sense checked by hand. A short hand-checked list corrects slips in Strong's numbers (see NOTICE.md)."
     }
   ]
 }

@@ -22,6 +22,7 @@ mod extra_parallels;
 mod extra_peshitta;
 mod extra_quotes;
 mod extra_real_map;
+mod family;
 mod fetch;
 mod layers;
 mod extra_notes;
@@ -30,6 +31,7 @@ mod extra_wordplay;
 mod loaded;
 mod extra_hard_verses;
 mod lxx;
+mod naves;
 mod parse;
 mod query;
 mod extra_translations;
@@ -74,7 +76,7 @@ fn main() {
         match args.first().map(String::as_str) {
             Some("fetch") => fetch::run(&root, &raw),
             Some("build") => build::run(&root, &raw, &out),
-            Some("verify") => verify::run(&out),
+            Some("verify") => verify::run(&root, &out),
             Some("query") => query::run(&out, &args[1..]),
             Some("themes-review") => themes_review::run(&out, &args[1..]),
             _ => Err("usage: atlas <fetch|build|verify|query|themes-review> [--raw DIR] [--out DIR]".into()),

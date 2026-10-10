@@ -61,6 +61,11 @@ function ThemesNote({ a }: { a: Atlas }) {
           Each such theme is shown with the verse it comes through.
         </p>
       )}
+      <p>
+        At Study, a verse no theme reaches shows the subjects Nave’s Topical Bible (1896) lists it under, each opening in Ask the Bible: subjects whose references of 3 verses or fewer cite it,
+        those citing it in the most lines first, then the smaller; else up to two passages of 4 to 60 verses that hold it. Only subjects about a concept are shown, never people, places or
+        other names or those config/naves-display.json leaves out, and none becomes a theme.
+      </p>
       {near && (
         <p>
           Themes are “often linked with” each other when, among the {near.pairs.toLocaleString()} pairs of verses joined by a link with {near.votes} or more votes, {near.minLinks} or more join
@@ -185,7 +190,7 @@ function ShelfView({ a, shelf }: { a: Atlas; shelf: Shelf | null | undefined }) 
           <h3>Checks</h3>
           <p>
             Every dataset is openly licensed, pinned to an exact git commit and checked against a SHA-256 hash before every build. Nothing is typed in by hand except the theme word lists, the sets of parallel passages (config/parallels.json), the Aramaic and Hebrew
-            words the Gospels and Acts keep (config/aramaic.json), the layers of meaning notes (config/layers.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, the table that assigns chapters and books to the Tyndale
+            words the Gospels and Acts keep (config/aramaic.json), the layers of meaning notes (config/layers.json), which Nave’s headings the Themes tab leaves out or lets through, and the few Nave’s references it corrects (config/naves-display.json), a short list of corrections to the Greek lexicon used by the Outside the Bible notes, the table that assigns chapters and books to the Tyndale
             Open Bible Dictionary’s eras and dates, and this shelf: what each work is, who made it, when, and where to read or find it (config/shelf.json). Every quotation in the eras table is checked word for word against the dictionary when the data is built.
           </p>
           <div class="stats">

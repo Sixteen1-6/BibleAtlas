@@ -79,7 +79,7 @@ export function RootChip({ a, root }: { a: Atlas; root: number }) {
   return (
     <button class="chip" data-lr={root} onClick={(e) => (e.stopPropagation(), S.openRoot(root))} title={`${langName(L, root)} ${L.key[root]}, ${L.count[root]} occurrences`}>
       <span class={`o ${lang === 'G' ? 'gr' : 'he'}`}>{L.word[root]}</span>
-      <span>{L.gloss[root]}</span>
+      <span>{L.gloss[root].replace(/`/g, '')}</span>
     </button>
   );
 }
