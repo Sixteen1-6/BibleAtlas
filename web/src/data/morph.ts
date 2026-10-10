@@ -38,7 +38,7 @@ function pgn(s: string, i: number): string[] {
 /** Words the source tags as numbers ("Ac") though they are adverbs or
  *  prepositions: אַחַר after, עוֹד still, בֵּין between, מְאֹד very. Their
  *  forms say gender, number and state with no word class. */
-const NOT_NUMBERS = new Set([
+export const NOT_NUMBERS = new Set([
   'H0310A', 'H0383', 'H0996G', 'H0996H', 'H1004A', 'H1107', 'H1157', 'H2270', 'H2962', 'H3426', 'H3520A',
   'H3795', 'H3966', 'H4295', 'H4605', 'H5048', 'H5227', 'H5750', 'H6941', 'H7317', 'H7946', 'H8602A',
 ]);
@@ -77,13 +77,16 @@ function hebSegment(seg: string, aramaic: boolean, root?: string): string {
       return ['pronoun suffix', ...pgn(rest, 1)].join(', ');
     }
     case 'T': {
+      // Aramaic writes "the" as an ending, -א, which TAHOT tags "Ta".
+      if (aramaic && rest[0] === 'a') return 'definite article (the ending ־א)';
       const kind = { a: 'affirmation particle', d: 'definite article', e: 'exhortation particle', i: 'interrogative particle', j: 'interjection', m: 'demonstrative particle', n: 'negative particle', o: 'object marker', r: 'relative particle' }[rest[0]] ?? 'particle';
       return kind;
     }
     case 'V': {
       const stem = (aramaic ? ARA_STEM : HEB_STEM)[rest[0]] ?? 'verb';
       // TAHOT marks a cohortative ("let me…", "let us…") as "c" with a person.
-      const form = rest[1] === 'c' && PERSON[rest[2]] ? 'cohortative' : (HEB_VERB_FORM[rest[1]] ?? '');
+      // Only a Qal (Peal) participle is plainly active; a Niphal one is passive.
+      const form = rest[1] === 'c' && PERSON[rest[2]] ? 'cohortative' : rest[1] === 'r' && rest[0] !== 'q' ? 'participle' : (HEB_VERB_FORM[rest[1]] ?? '');
       const parts = [`verb, ${stem}${form ? ' ' + form : ''}`];
       if (rest[1] === 'r' || rest[1] === 's') {
         if (GENDER[rest[2]]) parts.push(GENDER[rest[2]]);

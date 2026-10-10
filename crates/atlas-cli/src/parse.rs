@@ -429,6 +429,22 @@ fn hebrew_form(surface: &str, strongs: &str, grammar: &str) -> Form {
     Form { plain: tidy(plain), full: tidy(full), ending, suffix, code: format!("{lang}{code}") }
 }
 
+/// TAHOT tags every אֶחָד ("one") feminine; its gender shows in its spelling,
+/// as אַחַת is the feminine. Other grammar codes are returned as they are.
+fn one_gender(surface: &str, strongs: &str, grammar: &str) -> String {
+    let parts: Vec<&str> = strongs.split('/').collect();
+    let segs: Vec<&str> = surface.split('/').collect();
+    let mut codes: Vec<String> = grammar.get(1..).unwrap_or("").split('/').map(str::to_string).collect();
+    let Some(at) = parts.iter().position(|p| p.trim_start_matches('{').starts_with("H0259")) else { return grammar.to_string() };
+    let (Some(seg), Some(code)) = (segs.get(at), codes.get_mut(at)) else { return grammar.to_string() };
+    let last = seg.split('\\').next().unwrap_or("").chars().rev().find(|c| matches!(c, '\u{05D0}'..='\u{05EA}'));
+    if segs.len() != parts.len() || !(code.starts_with("Ac") || code.starts_with("Nc")) || code.get(3..4) != Some("s") || last.is_none() {
+        return grammar.to_string();
+    }
+    code.replace_range(2..3, if last == Some('ת') { "f" } else { "m" });
+    format!("{}{}", &grammar[..1], codes.join("/"))
+}
+
 /// The dagesh on a Hebrew word's first letter as it stands on its own: ב ג ד
 /// כ פ ת always take one, other letters lose the one a prefix put there
 /// (וַיֹּאמֶר, הַמֶּלֶךְ), except a shureq (וּ).
@@ -483,7 +499,12 @@ pub type WordsByVerse = Vec<Vec<Word>>;
 
 // ---------------------------------------------------------------- TAHOT (Hebrew / Aramaic)
 
-pub fn tahot(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsByVerse, tally: &mut Tally) -> Result<(), String> {
+/// How often TAHOT spells and glosses each Hebrew dStrong ("{H0430J=אֱלֹהִים=gods}"
+/// in its expanded column). A sense with no lexicon entry of its own is named
+/// from these, not from its number's first entry ("gods", not "God").
+pub type SourceSenses = HashMap<String, HashMap<(String, String), u32>>;
+
+pub fn tahot(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsByVerse, senses: &mut SourceSenses, tally: &mut Tally) -> Result<(), String> {
     for p in paths {
         let text = read(p.as_ref())?;
         for line in text.lines() {
@@ -501,7 +522,16 @@ pub fn tahot(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
                 tally.miss(first);
                 continue;
             };
-            let grammar = cols[5].trim();
+            for seg in cols.get(11).map_or("", |c| c.trim()).split('{').skip(1) {
+                let mut part = seg.split('}').next().unwrap_or("").splitn(3, '=');
+                if let (Some(k), Some(w), Some(g)) = (part.next(), part.next(), part.next()) {
+                    if is_strong(k) {
+                        let g = g.split(['»', '@']).next().unwrap_or("").replace('_', " ");
+                        *senses.entry(k.to_string()).or_default().entry((w.trim().to_string(), g.trim().to_string())).or_default() += 1;
+                    }
+                }
+            }
+            let grammar = &one_gender(cols[1].trim(), cols[4].trim(), cols[5].trim());
             let lang = if grammar.starts_with('A') { Lang::Aramaic } else { Lang::Hebrew };
             let lemma = braced(cols[4])
                 .map(str::to_string)
@@ -569,6 +599,10 @@ pub fn tagnt(paths: &[impl AsRef<Path>], vz: &Versification, words: &mut WordsBy
             };
             let (strong, morph) = cols[3].split_once('=').unwrap_or((cols[3], ""));
             let strong = strong.trim();
+            // TAGNT tags every ἐμοῦ as the possessive "my" (S-1SGSN), but after a
+            // preposition (μετ᾽ ἐμοῦ, "with me") it is the pronoun; only τοῦ ἐμοῦ is "my".
+            let after_tou = words[idx as usize].last().is_some_and(|w| w.surface.trim_matches(|c: char| !c.is_alphabetic()) == "τοῦ");
+            let morph = if strong == "G1473" && morph.trim() == "S-1SGSN" && !after_tou { "P-1GS" } else { morph };
             let lemma = is_strong(strong).then(|| strong.to_string());
             if let (Some(l), Some((form, gloss))) = (&lemma, cols[4].split_once('=')) {
                 forms.entry(l.clone()).or_insert_with(|| (form.trim().to_string(), gloss.trim().to_string()));
@@ -684,6 +718,10 @@ mod tests {
         assert_eq!(hebrew_ref("Psa.3.1(3.2)#01=L").as_deref(), Some("Psa.3.2"));
         assert_eq!(hebrew_ref("Gen.1.1#01=L").as_deref(), Some("Gen.1.1"));
         assert_eq!(consonants("בַּ/עֲרִיפֶֽי/הָ\\׃\\ \\פ"), "בעריפיה");
+        assert_eq!(one_gender("אֶחָ֔ד", "{H0259}", "HAcfsa"), "HAcmsa");
+        assert_eq!(one_gender("הָ/אַחַ֖ת", "H9009/{H0259}", "HTd/Acfsa"), "HTd/Acfsa");
+        assert_eq!(one_gender("אַחַ֣ד", "{H0259}", "HAcfsc"), "HAcmsc");
+        assert_eq!(one_gender("שְׁלֹשָׁה", "{H7969}", "HAcbsa"), "HAcbsa");
         let p = pieces("כְּ/נַהֲמַת\\־", "like/ [the] growling of");
         assert_eq!(p, [("כְּ".to_string(), "like".to_string()), ("נַהֲמַת־".to_string(), "[the] growling of".to_string())]);
         assert!(pieces("יָ֑ם", "[the] sea").is_empty());

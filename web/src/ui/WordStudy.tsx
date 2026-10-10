@@ -2,13 +2,14 @@
 // manuscript evidence, and every place it occurs.
 
 import type { ComponentProps, ComponentType } from 'preact';
+import { Fragment } from 'preact';
 import { effect } from '@preact/signals';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { WordSky } from './WordSky';
 import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
 import { type Forms, type Relation, formAt, getForms, relation, versesWithForm, versesWithRoots } from '../data/forms';
 import { type LexEntry, getLex } from '../data/lex';
-import { describeMorph } from '../data/morph';
+import { NOT_NUMBERS, describeMorph } from '../data/morph';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
 import { atLeast } from '../depth';
@@ -73,6 +74,8 @@ async function lightUp(a: Atlas, verses: Uint32Array, key: string, text: string)
     return;
   }
   S.marks.value = { verses, label: key };
+  // The Wheel does not draw marks.
+  if (S.mapMode.value === 'wheel') S.mapMode.value = 'arcs';
   const edges = await S.engine.value?.linksWithin(a.n, verses, 1);
   if (edges && S.marks.value?.label === key) {
     S.groupEdges.value = { edges, label: text };
@@ -136,23 +139,38 @@ function formCaption(row: FormRow, rows: FormRow[], headword: string): string {
 }
 
 /** The pronoun a Hebrew word's ending adds ("his", "him"), from its grammar
- *  code: empty when it has none. */
-function ending(code: string): string {
+ *  code: empty when it has none. `root` and `gloss` are the tapped word's. */
+function ending(code: string, root: string, gloss: string): string {
   const segs = code.slice(1).split('/');
   const i = segs.findIndex((x) => x.startsWith('Sp'));
   if (i < 1) return '';
   const s = segs[i];
   const k = s[2] + s[4];
-  // A verb or preposition takes the pronoun as its object; a noun, as its owner.
-  const object = segs[i - 1][0] === 'V' || segs[i - 1][0] === 'R';
-  const own: Record<string, string> = { '1s': 'my', '2s': 'your', '3s': s[3] === 'f' ? 'her' : 'his', '1p': 'our', '2p': 'your', '3p': 'their' };
-  const obj: Record<string, string> = { '1s': 'me', '2s': 'you', '3s': s[3] === 'f' ? 'her' : 'him', '1p': 'us', '2p': 'you', '3p': 'them' };
-  return (object ? obj : own)[k] ?? '';
+  const f = s[3] === 'f';
+  const host = segs[i - 1];
+  const own: Record<string, string> = { '1s': 'my', '2s': 'your', '3s': f ? 'her/its' : 'his/its', '1p': 'our', '2p': 'your', '3p': 'their' };
+  const obj: Record<string, string> = { '1s': 'me', '2s': 'you', '3s': f ? 'her/it' : 'him/it', '1p': 'us', '2p': 'you', '3p': 'them' };
+  // A finite verb or a preposition takes the pronoun as its object; a noun,
+  // adjective or participle, as its owner ("my shepherd").
+  if (host[0] === 'R' || (host[0] === 'V' && 'pqiwuhjv'.includes(host[2]))) return obj[k] ?? '';
+  const free = host[0] === 'V' || host[0] === 'T' || host[0] === 'D' || NOT_NUMBERS.has(root) || root === 'H0369';
+  if (!free) return own[k] ?? '';
+  // An infinitive ("when he went out", "to kill him") or a word like אֵין or
+  // אַחַר ("he is not", "after him") can take it either way: the verse's own
+  // English says which.
+  const all: Record<string, string[]> = {
+    '1s': ['my', 'me', 'i'], '2s': ['your', 'you'], '3s': f ? ['her', 'she', 'its', 'it'] : ['his', 'him', 'he', 'its', 'it'],
+    '1p': ['our', 'us', 'we'], '2p': ['your', 'you'], '3p': ['their', 'them', 'they'],
+  };
+  const words = gloss.toLowerCase().split(/[^a-z]+/);
+  const said = words.find((w) => all[k]?.includes(w));
+  if (said) return said === 'i' ? 'I' : said;
+  return (all[k] ?? []).filter((w) => w !== 'i' && w !== 'its' && w !== 'it').join('/');
 }
 
 /** Every form the word takes in the Bible, each one tap from lighting its verses.
- *  `hereCode` is the tapped word's grammar code. */
-function EveryForm({ a, r, fm, here, hereCode, total }: { a: Atlas; r: number; fm: Forms; here: number; hereCode: string; total: number }) {
+ *  `hereCode` and `hereGloss` are the tapped word's grammar code and English. */
+function EveryForm({ a, r, fm, here, hereCode, hereGloss, total }: { a: Atlas; r: number; fm: Forms; here: number; hereCode: string; hereGloss: string; total: number }) {
   const [open, setOpen] = useState(false);
   const [all, setAll] = useState(false);
   const list = useRef<HTMLDivElement>(null);
@@ -174,10 +192,18 @@ function EveryForm({ a, r, fm, here, hereCode, total }: { a: Atlas; r: number; f
     });
     added?.focus();
   }, [all]);
+  // "See every form" goes away when pressed, so the list's heading takes the focus.
+  const heading = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    if (open) heading.current?.focus();
+  }, [open]);
   const n = rows.length;
   if (n < 2) {
-    // One form, written more than one way: οὐ and οὐκ.
-    const other = rows[0] ? [rows[0].spelling, ...rows[0].also].filter((x) => x !== L.word[r]) : [];
+    // One form, written more than one way: οὐ and οὐκ. The headword may carry
+    // accents or two spellings (אֲבִיגַ֫יִל, אֲבִיגַ֫ל) that the forms do not.
+    const bare = (x: string) => x.replace(/[\u0591-\u05AF]/g, '').replace(/\u05C7/g, '\u05B8').trim();
+    const head = new Set(L.word[r].split(',').map(bare));
+    const other = rows[0] ? [rows[0].spelling, ...rows[0].also].filter((x) => !head.has(bare(x))) : [];
     if (!other.length || !rows[0].also.length) return null;
     return (
       <p class="muted">
@@ -212,10 +238,12 @@ function EveryForm({ a, r, fm, here, hereCode, total }: { a: Atlas; r: number; f
   }
   const shown = rows.map((x, i) => [x, i] as const).filter(([, i]) => all || i < FIRST_FORMS || i === at);
   // A row gathers a form with and without a pronoun ending; say which the tapped word has.
-  const hereEnding = !greek && at >= 0 && !rows[at].grammar.includes('pronoun suffix') ? ending(hereCode) : '';
+  const hereEnding = !greek && at >= 0 && !rows[at].grammar.includes('pronoun suffix') ? ending(hereCode, L.key[r], hereGloss) : '';
   return (
     <>
-      <h3>Every form ({n})</h3>
+      <h3 ref={heading} tabIndex={-1}>
+        Every form ({n})
+      </h3>
       <p class="muted">{S.TAP} a form to light the verses that use it.</p>
       <div class="forms" ref={list}>
         {shown.map(([row, i]) => {
@@ -300,17 +328,28 @@ function senses(a: Atlas, roots: number[]): number[] {
 const FIRST_SENSES = 3;
 
 /** The studied word's other senses: the label first, then a few chips. */
-function OtherSenses({ a, row }: { a: Atlas; row: KinRow }) {
+function OtherSenses({ a, r, row }: { a: Atlas; r: number; row: KinRow }) {
   const [all, setAll] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  // After "+N more", the first chip it added takes the focus.
+  useEffect(() => {
+    if (all) box.current?.querySelectorAll<HTMLElement>('.chip')[FIRST_SENSES]?.focus();
+  }, [all]);
+  const L = a.lemmas;
   const list = senses(a, row.roots);
   const shown = all ? list : list.slice(0, FIRST_SENSES);
+  const same = (j: number) => L.word[j] === L.word[r] && L.gloss[j].replace(/`/g, '').toLowerCase() === L.gloss[r].replace(/`/g, '').toLowerCase();
   return (
-    <div class="kinrow">
+    <div class="kinrow" ref={box}>
       <span class="muted">
         {list.length === 1 ? 'Same word, another sense' : 'Same word, other senses'} · {row.count.toLocaleString()}×
       </span>
       {shown.map((j) => (
-        <RootChip key={j} a={a} root={j} />
+        <Fragment key={j}>
+          <RootChip a={a} root={j} />
+          {/* A sense glossed just like this one is told apart by its count. */}
+          {same(j) && <span class="muted">{L.count[j].toLocaleString()}×</span>}
+        </Fragment>
       ))}
       {list.length > shown.length && (
         <button class="chip more" onClick={() => setAll(true)}>
@@ -354,7 +393,7 @@ function Family({ a, r, fm }: { a: Atlas; r: number; fm: Forms }) {
             </span>
           </div>
         ))}
-        {sense && <OtherSenses key={r} a={a} row={sense} />}
+        {sense && <OtherSenses key={r} a={a} r={r} row={sense} />}
       </div>
       {words.length > shown.length && (
         <button class="btn more" onClick={() => setAll(true)}>
@@ -515,7 +554,7 @@ export function WordStudy({ a }: { a: Atlas }) {
       <button class="btn more" aria-pressed={onMap} onClick={toggleMap}>
         {onMap ? 'Hide on map' : fm && fm.f.length > 1 ? 'Light up every use, in every form' : 'Light up every use on the map'}
       </button>
-      {fm && <EveryForm a={a} r={r} fm={fm} here={here} hereCode={word?.[4] ?? ''} total={verses.length} />}
+      {fm && <EveryForm a={a} r={r} fm={fm} here={here} hereCode={word?.[4] ?? ''} hereGloss={word?.[2] ?? ''} total={verses.length} />}
       {fm && <Family a={a} r={r} fm={fm} />}
 
       <h3>Definition</h3>

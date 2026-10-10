@@ -88,7 +88,7 @@ const HEAD_REMAP_G: [(&str, &str); 1] = [("G3329", "G0071")];
 const ALIAS_G: [(&str, &str); 3] = [("G0756", "G0757"), ("G5607", "G1510"), ("G0680", "G0681")];
 /// Words whose Strong's derivation is a folk etymology, a merged homonym or a
 /// slip with no right answer: no parent, prefix head or shared root.
-const NO_PARENT_G: [&str; 51] = [
+const NO_PARENT_G: [&str; 58] = [
     "G4983", // σῶμα is not from σῴζω
     "G0740", "G0706", "G0759", "G0741", // ἄρτος, ἀριθμός, ἄρωμα, ἀρτύω are not from αἴρω
     "G1401", "G1218", "G1189", "G1163", // δοῦλος, δῆμος, δέομαι, δεῖ: δέω "bind" and δέω "lack" are merged
@@ -118,6 +118,11 @@ const NO_PARENT_G: [&str; 51] = [
     "G5306", "G5196", // ὕστερος, ὕβρις are not from ὑπό, ὑπέρ
     "G1729", "G2366", "G5448", // ἐνδεής, θύελλα, φυσιόω come from the homonym (δέω lack, θύω rush, φυσάω blow)
     "G2233", "G1188", "G0086", // ἡγέομαι, δεξιός, ᾍδης: disputed
+    "G5501", "G2276", // χείρων, ἥσσων are comparatives from other roots, used for κακός
+    "G4711", // σπυρίς basket ("as woven") belongs to σπεῖρα coil, not σπείρω sow
+    "G5199", // ὑγιής is not from αὐξάνω
+    "G3601", "G3602", // ὀδύνη, ὀδυρμός are not from δύνω
+    "G4807", // συκάμινος is a Hebrew loanword, only "in imitation of" συκομωραία
 ];
 /// Hebrew slips: the number in the line is a typo for the word's real parent.
 const REMAP_H: [(&str, &str); 7] = [
@@ -871,6 +876,51 @@ fn greek_base(c: char) -> char {
 
 /// What tells two spellings of one form apart for the reader: Hebrew
 /// consonants, Greek letters (accents and breathings aside).
+/// Whether a name's spelling is a piece of its main one rather than another
+/// way of writing it: the other half of a name written as two words (Hebrew:
+/// two letters or more cut off one end; Greek: another first letter).
+fn name_half(k: &str, main: &str) -> bool {
+    if main.chars().any(|c| matches!(c, '\u{05D0}'..='\u{05EA}')) {
+        let (short, long) = if k.chars().count() < main.chars().count() { (k, main) } else { (main, k) };
+        long.chars().count() >= short.chars().count() + 2 && (long.starts_with(short) || long.ends_with(short))
+    } else {
+        k.chars().next() != main.chars().next()
+    }
+}
+
+/// A Hebrew or Aramaic grammar code for the form a lexicon headword takes.
+fn dictionary_form(code: &str) -> bool {
+    code.get(1..) == Some("Vqp3ms") || (matches!(code.get(1..2), Some("N" | "A")) && code.ends_with("sa")) || matches!(code.get(1..2), Some("R" | "D" | "T" | "C"))
+}
+
+/// A Hebrew spelling without accents or meteg, qamats qatan as qamats.
+fn unaccented(s: &str) -> String {
+    s.trim().chars().filter(|c| !matches!(c, '\u{0591}'..='\u{05AF}' | '\u{05BD}')).map(|c| if c == '\u{05C7}' { '\u{05B8}' } else { c }).collect()
+}
+
+/// A Hebrew infinitive construct whose stem begins with ה (Hiphil הַ, Niphal
+/// הִ, Hithpael הִתְ, Hophal הָ), which a prefix can swallow.
+fn lost_he(code: &str) -> bool {
+    let c: Vec<char> = code.chars().collect();
+    c.len() >= 5 && c[0] == 'H' && c[1] == 'V' && "hNtHrfzuv".contains(c[2]) && c[3] == 'c' && !c[4].is_ascii_digit()
+}
+
+/// Puts back the ה a prefix swallowed: Hiphil הַ (הָ before a full vowel,
+/// as הָעִיר), Niphal הִ (הֵ before a guttural), others הִ (Hophal הָ).
+fn with_he(s: &str, code: &str) -> String {
+    let cs: Vec<char> = s.chars().collect();
+    let Some(first) = cs.iter().position(|c| matches!(c, '\u{05D0}'..='\u{05EA}')) else { return s.to_string() };
+    let marks: Vec<char> = cs[first + 1..].iter().take_while(|c| !matches!(c, '\u{05D0}'..='\u{05EA}')).copied().collect();
+    let reduced = marks.iter().any(|&c| matches!(c, '\u{05B0}'..='\u{05B3}'));
+    let vowel = match code.chars().nth(2) {
+        Some('h') if reduced => '\u{05B7}',
+        Some('h') | Some('H') => '\u{05B8}',
+        Some('N') if "אהחער".contains(cs[first]) => '\u{05B5}',
+        _ => '\u{05B4}',
+    };
+    format!("ה{vowel}{s}")
+}
+
 fn spelling_key(s: &str) -> String {
     if s.chars().any(|c| matches!(c, '\u{05D0}'..='\u{05EA}')) {
         s.chars().filter(|c| matches!(c, '\u{05D0}'..='\u{05EA}')).collect()
@@ -896,10 +946,24 @@ pub fn build(roots: &[Root], words: &[Vec<Word>], l_off: &[u32], l_verse: &[u32]
             // spelled alike: one code for the root, the one most of its uses have.
             let tagged = |p: &str| uses.iter().filter(|f| f.code.get(1..3) == Some(p)).count();
             let fold = if tagged("Ac") >= tagged("Nc") { ("Nc", "Ac") } else { ("Ac", "Nc") };
+            // A number's gender shows in its spelling (אֶחָד, אַחַת; שָׁלֹשׁ, שְׁלֹשָׁה)
+            // whatever the tag says (the source tags every אֶחָד feminine), where
+            // it has both: not שְׁמֹנֶה, whose two genders both end in ה.
+            let gender = |f: &crate::parse::Form| -> Option<char> {
+                // (Hebrew only: Aramaic תְּלָת ends in a root ת.)
+                let number = fold.1 == "Ac" && f.code.starts_with('H') && matches!(f.code.get(1..3), Some("Ac" | "Nc")) && f.code.get(4..5) == Some("s");
+                let last = f.plain.chars().rev().find(|c| matches!(c, '\u{05D0}'..='\u{05EA}'))?;
+                number.then_some(if last == 'ה' || last == 'ת' { 'f' } else { 'm' })
+            };
+            let by_spelling = uses.iter().filter_map(|f| gender(f)).collect::<HashSet<char>>().len() == 2;
             let code = |f: &crate::parse::Form| -> String {
-                match f.code.get(1..3) {
+                let c = match f.code.get(1..3) {
                     Some(p) if p == fold.0 => format!("{}{}{}", &f.code[..1], fold.1, &f.code[3..]),
                     _ => f.code.clone(),
+                };
+                match gender(f).filter(|_| by_spelling) {
+                    Some(g) => format!("{}{g}{}", &c[..3], &c[4..]),
+                    None => c,
                 }
             };
             // A form never written without a pronoun ending is told apart by
@@ -947,16 +1011,33 @@ pub fn build(roots: &[Root], words: &[Vec<Word>], l_off: &[u32], l_verse: &[u32]
                     // first vowel where a prefix took it (אֱמֹר, not the אמֹר of לֵאמֹר).
                     let (code, uses, alone, with) = &g[x];
                     let m = if alone.is_empty() { with } else { alone };
-                    let spelling = most_used(m, first_vowel).or_else(|| most_used(m, |_| true)).unwrap_or("");
-                    let spelling = restore_vowel(spelling, code, roots[i].word);
-                    // Other spellings a tenth of its uses have (οὐκ, οὐ, οὐχ).
-                    let mut keys = vec![spelling_key(&spelling)];
-                    let mut others: Vec<(&String, &u32)> = m.iter().filter(|(s, c)| **c * 10 >= *uses && first_vowel(s)).collect();
+                    // A Hiphil or Niphal infinitive after ל, ב or כ loses its ה to
+                    // the prefix (לַמְרוֹת for לְהַמְרוֹת): spelled with it.
+                    let he = lost_he(code);
+                    let has_he = |s: &str| !he || letters(s).starts_with('ה');
+                    // In the headword's own form (a noun's absolute singular, a
+                    // particle, a verb's Qal perfect "he"), the headword's spelling
+                    // where a tenth of the uses have it: כֹּל and אֵת, not the כָּל
+                    // and אֶת joined to the next word that most uses have.
+                    let headword = |s: &str| roots[i].key.starts_with('H') && dictionary_form(code) && roots[i].word.split(',').any(|w| unaccented(w) == unaccented(s));
+                    let spelling = most_used(m, |s| headword(s) && m[s] * 10 >= *uses)
+                        .or_else(|| most_used(m, |s| first_vowel(s) && has_he(s)))
+                        .or_else(|| most_used(m, first_vowel))
+                        .or_else(|| most_used(m, |_| true))
+                        .unwrap_or("");
+                    let spelling = if has_he(spelling) { spelling.to_string() } else { with_he(spelling, code) };
+                    let spelling = restore_vowel(&spelling, code, roots[i].word);
+                    // Other spellings a tenth of its uses have (οὐκ, οὐ, οὐχ), but
+                    // not half of a name written as two words (אֵל of עֲשָׂהאֵל,
+                    // Ἄρειον of Ἄρειος Πάγος).
+                    let main = spelling_key(&spelling);
+                    let mut keys = vec![main.clone()];
+                    let mut others: Vec<(&String, &u32)> = m.iter().filter(|(s, c)| **c * 10 >= *uses && first_vowel(s) && has_he(s)).collect();
                     others.sort_by(|a, b| b.1.cmp(a.1).then(a.0.cmp(b.0)));
                     let mut also: Vec<&str> = Vec::new();
                     for (s, _) in others {
                         let k = spelling_key(s);
-                        if !keys.contains(&k) && also.len() < 2 {
+                        if !keys.contains(&k) && also.len() < 2 && !(roots[i].name && name_half(&k, &main)) {
                             keys.push(k);
                             also.push(s);
                         }
@@ -1398,5 +1479,28 @@ mod tests {
         assert_eq!(skeleton("עִיר"), skeleton("עִר"));
         assert_eq!(spelling_key("ἐλέησόν"), spelling_key("ἐλέησον"));
         assert_ne!(spelling_key("οὐκ"), spelling_key("οὐ"));
+    }
+
+    #[test]
+    fn puts_back_a_swallowed_he() {
+        assert!(lost_he("HVhcc") && lost_he("HVNcc"));
+        assert!(!lost_he("HVqcc") && !lost_he("HVhc1cs") && !lost_he("AVhcc"));
+        assert_eq!(with_he("מְרוֹת", "HVhcc"), "הַמְרוֹת");
+        assert_eq!(with_he("עִיר", "HVhcc"), "הָעִיר");
+        assert_eq!(with_he("עָנֹת", "HVNcc"), "הֵעָנֹת");
+        assert_eq!(with_he("כָּשְׁלוֹ", "HVNcc"), "הִכָּשְׁלוֹ");
+    }
+
+    #[test]
+    fn tells_name_halves_from_spellings() {
+        let k = |s: &str| spelling_key(s);
+        assert!(name_half(&k("אֵל"), &k("עֲשָׂהאֵל")));
+        assert!(name_half(&k("כְּדָרְ"), &k("כְּדָרְלָעֹמֶר")));
+        assert!(!name_half(&k("אֲבִיגַל"), &k("אֲבִיגַיִל")));
+        assert!(name_half(&k("Ἄρειον"), &k("πάγον")));
+        assert!(!name_half(&k("Ἀρείου"), &k("Ἄρειος")));
+        assert!(dictionary_form("HNcmsa") && dictionary_form("HR") && dictionary_form("HVqp3ms"));
+        assert!(!dictionary_form("HNcmsc") && !dictionary_form("HVqv2ms"));
+        assert_eq!(unaccented("אֶ֫רֶץ"), "אֶרֶץ");
     }
 }
