@@ -34,8 +34,8 @@
       "chain": [
         {"ref": "Rom 5:12", "words": "sin entered the world through one man, and death through sin, so also death was passed on to all men, because all sinned."},
         {"ref": "Rom 8:20-21"},
+        {"ref": "John 9:3", "words": "Neither this man nor his parents sinned, but this happened so that the works of God would be displayed in him."},
         {"ref": "Lam 3:32-33"},
-        {"ref": "Eccl 7:14", "words": "in the day of adversity, consider this: God has made one of these along with the other"},
         {"ref": "Gen 50:20"},
         {"ref": "Rom 8:28"},
         {"ref": "Rom 5:3-4", "words": "we also rejoice in our sufferings, because we know that suffering produces perseverance; perseverance, character; and character, hope."},
@@ -246,8 +246,8 @@
       "chain": [
         {"ref": "Acts 1:11", "words": "This same Jesus, who has been taken from you into heaven, will come back in the same way you have seen Him go into heaven."},
         {"ref": "John 14:3"},
-        {"ref": "Dan 7:13", "words": "I saw One like the Son of Man coming with the clouds of heaven."},
         {"ref": "Matt 24:30", "words": "They will see the Son of Man coming on the clouds of heaven, with power and great glory."},
+        {"ref": "1 Thess 4:16"},
         {"ref": "Heb 9:28", "words": "He will appear a second time, not to bear sin, but to bring salvation to those who eagerly await Him."},
         {"ref": "Matt 24:36"},
         {"ref": "Matt 24:44"},
@@ -665,7 +665,7 @@
         {"ref": "Mark 3:5", "words": "Jesus looked around at them with anger and sorrow at their hardness of heart."},
         {"ref": "Matt 5:22", "words": "But I tell you that anyone who is angry with his brother will be subject to judgment."},
         {"ref": "Jas 1:19-20", "words": "Everyone should be quick to listen, slow to speak, and slow to anger, for man’s anger does not bring about the righteousness that God desires."},
-        {"ref": "Prov 15:1"},
+        {"ref": "Ps 37:8"},
         {"ref": "Prov 16:32"},
         {"ref": "Eph 4:31-32"}
       ]
@@ -1020,12 +1020,12 @@
       ],
       "chain": [
         {"ref": "Ps 34:19"},
-        {"ref": "Eccl 7:15"},
         {"ref": "John 9:3", "words": "Neither this man nor his parents sinned, but this happened so that the works of God would be displayed in him."},
         {"ref": "Jas 5:11", "words": "You have heard of Job’s perseverance and have seen the outcome from the Lord. The Lord is full of compassion and mercy."},
         {"ref": "John 16:33", "words": "In the world you will have tribulation. But take courage; I have overcome the world!"},
         {"ref": "1 Pet 4:12-13"},
         {"ref": "Heb 12:10", "words": "God disciplines us for our good, so that we may share in His holiness."},
+        {"ref": "Rom 8:28"},
         {"ref": "1 Pet 5:10"}
       ]
     },
@@ -1111,6 +1111,7 @@
         {"ref": "Lam 3:21-23"},
         {"ref": "Ps 40:1-2", "words": "I waited patiently for the LORD; He inclined to me and heard my cry. He lifted me up from the pit of despair, out of the miry clay; He set my feet upon a rock, and made my footsteps firm."},
         {"ref": "2 Cor 1:8-9", "words": "We were under a burden far beyond our ability to endure, so that we despaired even of life. Indeed, we felt we were under the sentence of death, in order that we would not trust in ourselves, but in God, who raises the dead."},
+        {"ref": "2 Cor 4:8-9"},
         {"ref": "Matt 11:28"},
         {"ref": "Rom 15:13"}
       ]
@@ -1508,7 +1509,7 @@
         {"ref": "Col 1:18", "words": "And He is the head of the body, the church"},
         {"ref": "Matt 16:18", "words": "I will build My church, and the gates of Hades will not prevail against it."},
         {"ref": "Acts 20:28"},
-        {"ref": "Exod 19:5-6"},
+        {"ref": "Eph 5:25", "words": "Christ loved the church and gave Himself up for her"},
         {"ref": "1 Pet 2:9"},
         {"ref": "Eph 2:19-20"},
         {"ref": "Acts 2:42"}
@@ -1528,11 +1529,11 @@
         {"ref": "Heb 1:14"},
         {"ref": "Ps 103:20"},
         {"ref": "Ps 34:7"},
+        {"ref": "Ps 91:11"},
         {"ref": "Luke 15:10", "words": "In the same way, I tell you, there is joy in the presence of God’s angels over one sinner who repents."},
         {"ref": "Heb 13:2"},
         {"ref": "Rev 22:8-9", "words": "I fell down to worship at the feet of the angel who had shown me these things. But he said to me, “Do not do that! I am a fellow servant with you and your brothers the prophets, and with those who keep the words of this book. Worship God!”"},
-        {"ref": "Jude 1:6"},
-        {"ref": "Matt 25:31"}
+        {"ref": "Jude 1:6"}
       ]
     },
     {
@@ -1548,9 +1549,9 @@
       "chain": [
         {"ref": "Ps 34:18"},
         {"ref": "Matt 5:4"},
+        {"ref": "2 Cor 1:3-4", "words": "Blessed be the God and Father of our Lord Jesus Christ, the Father of compassion and the God of all comfort, who comforts us in all our troubles"},
         {"ref": "Gen 50:1"},
         {"ref": "Ps 68:5"},
-        {"ref": "John 14:18"},
         {"ref": "Ps 147:3"},
         {"ref": "Ps 73:26"},
         {"ref": "Rev 21:4"}
@@ -1587,13 +1588,14 @@
         {"subject": "CARE", "only": ["WORLDLY", "Martha"]},
         {"subject": "REST", "only": ["Recommended by Jesus", "Days of"]},
         {"subject": "CONTENTMENT", "only": ["General scriptures concerning"]},
-        {"subject": "WISDOM", "only": ["PRAYER FOR SPIRITUAL"]}
+        {"subject": "WISDOM", "only": ["PRAYER FOR SPIRITUAL"]},
+        {"subject": "RICHES", "only": ["General scriptures concerning"]}
       ],
       "chain": [
         {"ref": "Ps 127:2-3"},
         {"ref": "Eccl 4:6"},
+        {"ref": "Prov 23:4"},
         {"ref": "Exod 18:17-18", "words": "What you are doing is not good. Surely you and these people with you will wear yourselves out, because the task is too heavy for you. You cannot handle it alone."},
-        {"ref": "Luke 10:41-42", "words": "you are worried and upset about many things. But only one thing is necessary."},
         {"ref": "Eccl 4:8", "words": "though there is no end to his labor, his eyes are still not content with his wealth: “For whom do I toil and bereave my soul of enjoyment?”"},
         {"ref": "Eccl 9:9", "words": "Enjoy life with your beloved wife all the days of the fleeting life that God has given you under the sun"},
         {"ref": "Mark 6:31"},
@@ -1609,13 +1611,14 @@
       "topics": [
         {"subject": "CHILDREN", "only": ["Blessed by Jesus", "Future state of"]},
         {"subject": "OPPRESSION", "only": ["God is a refuge from", "God's help promised against", "Prayers against"]},
-        {"subject": "TEARS", "only": ["Observed by God"]}
+        {"subject": "TEARS", "only": ["Observed by God"]},
+        {"subject": "FORGIVENESS", "only": ["OF ENEMIES"]}
       ],
       "chain": [
         {"ref": "Matt 18:10"},
-        {"ref": "Mark 10:14", "words": "Let the little children come to Me, and do not hinder them!"},
         {"ref": "Ps 10:17-18"},
         {"ref": "Prov 31:8-9"},
+        {"ref": "Rom 12:21"},
         {"ref": "Ps 142:4-5"},
         {"ref": "Ps 56:8"},
         {"ref": "1 Sam 16:7", "words": "the LORD does not see as man does. For man sees the outward appearance, but the LORD sees the heart."},
@@ -1984,8 +1987,8 @@
       "chain": [
         {"ref": "Rom 9:2-3", "words": "I have deep sorrow and unceasing anguish in my heart. For I could wish that I myself were cursed and cut off from Christ for the sake of my brothers, my own flesh and blood"},
         {"ref": "Gen 18:25", "words": "Will not the Judge of all the earth do what is right?"},
+        {"ref": "Heb 9:27"},
         {"ref": "Luke 23:42-43"},
-        {"ref": "Ps 145:9"},
         {"ref": "1 Tim 2:3-4", "words": "God our Savior, who wants everyone to be saved and to come to the knowledge of the truth"},
         {"ref": "Rom 11:33"},
         {"ref": "Deut 29:29", "words": "The secret things belong to the LORD our God"},
@@ -2048,7 +2051,7 @@
         {"ref": "Ps 139:23"},
         {"ref": "Prov 14:10"},
         {"ref": "Isa 53:3", "words": "a man of sorrows, acquainted with grief"},
-        {"ref": "Ps 68:5", "words": "A father of the fatherless"},
+        {"ref": "Ps 68:5"},
         {"ref": "Ps 147:3"}
       ]
     },
@@ -2146,16 +2149,18 @@
         {"subject": "ORPHAN", "only": ["General scriptures"]},
         {"subject": "BEREAVEMENT", "only": ["RESIGNATION IN"]},
         {"subject": "CHILDREN", "only": ["Blessed by Jesus", "PROMISES AND ASSURANCES"]},
-        {"subject": "DEATH", "only": ["Called SLEEP"]}
+        {"subject": "DEATH", "only": ["Called SLEEP", "UNCLASSIFIED SCRIPTURES"]},
+        {"subject": "WEEPING", "only": ["General scriptures"]}
       ],
       "chain": [
         {"ref": "Mark 10:16"},
+        {"ref": "2 Cor 1:4"},
+        {"ref": "Rom 12:15", "words": "weep with those who weep"},
         {"ref": "Ps 68:5"},
         {"ref": "Isa 40:11"},
-        {"ref": "Gen 21:17", "words": "Do not be afraid, for God has heard the voice of the boy where he lies."},
         {"ref": "Eccl 3:1-2", "words": "To everything there is a season, and a time for every purpose under heaven: a time to be born and a time to die"},
-        {"ref": "Gen 24:67", "words": "Isaac loved her and was comforted after his mother’s death."},
-        {"ref": "1 Thess 4:13-14"}
+        {"ref": "1 Thess 4:13-14"},
+        {"ref": "1 Thess 4:18"}
       ]
     },
     {
@@ -2272,7 +2277,7 @@
       ],
       "chain": [
         {"ref": "2 Sam 12:23", "words": "Can I bring him back again? I will go to him, but he will not return to me."},
-        {"ref": "Luke 16:26"},
+        {"ref": "Job 7:9-10"},
         {"ref": "Isa 8:19"},
         {"ref": "Deut 18:11", "words": "consults a medium or spiritist, or inquires of the dead."},
         {"ref": "Lev 19:31"},
@@ -2377,7 +2382,7 @@
       ],
       "chain": [
         {"ref": "Exod 20:12"},
-        {"ref": "1 Cor 7:39", "words": "But if her husband dies, she is free to marry anyone she wishes"},
+        {"ref": "1 Cor 7:39", "words": "But if her husband dies, she is free to marry anyone she wishes, as long as he belongs to the Lord."},
         {"ref": "Jas 1:19"},
         {"ref": "Rom 12:15"},
         {"ref": "Ruth 1:8-9"},
@@ -2509,7 +2514,7 @@
         {"ref": "Exod 4:11"},
         {"ref": "1 Cor 12:22-23"},
         {"ref": "2 Sam 9:13"},
-        {"ref": "Luke 14:13"},
+        {"ref": "Luke 14:21", "words": "Go out quickly into the streets and alleys of the city, and bring in the poor, the crippled, the blind, and the lame."},
         {"ref": "2 Cor 12:9", "words": "My grace is sufficient for you, for My power is perfected in weakness."}
       ]
     },
@@ -2544,9 +2549,9 @@
       ],
       "chain": [
         {"ref": "Ps 147:3"},
+        {"ref": "Isa 49:15"},
         {"ref": "Ps 103:13-14"},
         {"ref": "Rom 8:38-39"},
-        {"ref": "1 Cor 13:12", "words": "Now I know in part; then I shall know fully, even as I am fully known."},
         {"ref": "Ps 71:9"},
         {"ref": "Prov 23:22", "words": "do not despise your mother when she is old"},
         {"ref": "1 Cor 13:7"},
@@ -2758,10 +2763,10 @@
       "chain": [
         {"ref": "Ps 4:8"},
         {"ref": "Ps 77:4"},
+        {"ref": "Ps 94:19"},
         {"ref": "Ps 3:5"},
         {"ref": "Ps 127:2"},
         {"ref": "Ps 63:6-7"},
-        {"ref": "Ps 121:3-4"},
         {"ref": "Prov 3:24"},
         {"ref": "Ps 42:8"}
       ]
@@ -2802,7 +2807,7 @@
         {"ref": "Isa 50:10"},
         {"ref": "1 Kings 19:4-5", "words": "“I have had enough, LORD,” he said. “Take my life, for I am no better than my fathers.” Then he lay down under the broom tree and fell asleep. Suddenly an angel touched him and said, “Get up and eat.”"},
         {"ref": "Ps 42:5"},
-        {"ref": "Ps 139:12", "words": "even the darkness is not dark to You"},
+        {"ref": "Ps 34:18"},
         {"ref": "Ps 40:1-2"},
         {"ref": "Ps 30:5", "words": "Weeping may stay the night, but joy comes in the morning."},
         {"ref": "Ps 147:3"}
@@ -2880,10 +2885,12 @@
       "signals": ["pure o", "hocd", "pocd", "rocd", "blasphemous thoughts", "blasphemy thoughts", "compulsions", "reassurance seeking", "erp", "exposure therapy", "luvox", "thought spiral", "violent images", "mental images", "knife thoughts", "intrusive images", "sticky thoughts", "obsessive thoughts", "obsessions", "cursing in head", "ego dystonic", "egodystonic", "moral ocd", "what if thoughts", "monster thoughts"],
       "topics": [
         {"subject": "GOD", "only": ["KNOWLEDGE OF"]},
-        {"subject": "JESUS, THE CHRIST", "only": ["COMPASSION OF"]}
+        {"subject": "JESUS, THE CHRIST", "only": ["COMPASSION OF"]},
+        {"subject": "JUSTIFICATION", "only": ["General scriptures"]}
       ],
       "chain": [
         {"ref": "1 John 3:20", "words": "Even if our hearts condemn us, God is greater than our hearts, and He knows all things."},
+        {"ref": "Rom 8:1"},
         {"ref": "Heb 4:15"},
         {"ref": "Ps 103:13-14"},
         {"ref": "Ps 139:23-24"},
@@ -3048,7 +3055,8 @@
       "signals": ["draftkings", "fanduel", "bet365", "betmgm", "prizepicks", "sportsbook", "parlay", "parlays", "bookie", "chasing losses", "losing streak", "gambling debts", "problem gambling", "gambling problem", "gamblers anonymous", "self-exclusion", "online slots", "emptied our savings", "drained our account", "cashed out 401k", "college fund", "mortgage money", "wife found out", "husband found out", "pawn shop", "pawned", "lost 10k", "lost 20k", "lost 50k", "bet the house", "degenerate gambler"],
       "topics": [
         {"subject": "PRODIGAL SON"},
-        {"subject": "SIN", "only": ["CONFESSION OF"]}
+        {"subject": "SIN", "only": ["CONFESSION OF"]},
+        {"subject": "INDUSTRY", "only": ["General scriptures"]}
       ],
       "chain": [
         {"ref": "Prov 28:13"},
@@ -3057,6 +3065,7 @@
         {"ref": "Luke 15:20", "words": "his father saw him and was filled with compassion"},
         {"ref": "Jas 5:16", "words": "confess your sins to each other and pray for each other so that you may be healed"},
         {"ref": "1 Tim 6:9"},
+        {"ref": "Prov 13:11", "words": "what is earned through hard work will be multiplied"},
         {"ref": "Ps 51:10"}
       ]
     },
@@ -3326,7 +3335,7 @@
         {"ref": "Deut 8:17-18", "words": "You might say in your heart, “The power and strength of my hands have made this wealth for me.” But remember that it is the LORD your God who gives you the power to gain wealth"},
         {"ref": "Ps 62:10", "words": "If your riches increase, do not set your heart upon them."},
         {"ref": "Prov 3:9"},
-        {"ref": "Jer 9:23-24", "words": "Let not the wise man boast in his wisdom, nor the strong man in his strength, nor the wealthy man in his riches. But let him who boasts boast in this, that he understands and knows Me"},
+        {"ref": "1 John 3:17"},
         {"ref": "Eccl 5:19"},
         {"ref": "Mark 10:23", "words": "How hard it is for the rich to enter the kingdom of God!"},
         {"ref": "Mark 10:27", "words": "For all things are possible with God."}
@@ -3682,14 +3691,15 @@
       "topics": [
         {"subject": "LABOR", "only": ["General scriptures"]},
         {"subject": "CONTENTMENT", "only": ["General scriptures"]},
-        {"subject": "FAITHFULNESS", "only": ["EXHORTATION TO"]}
+        {"subject": "FAITHFULNESS", "only": ["EXHORTATION TO"]},
+        {"subject": "INDUSTRY", "only": ["General scriptures"]}
       ],
       "chain": [
+        {"ref": "Gen 2:15"},
         {"ref": "Eph 6:7-8"},
         {"ref": "Eccl 2:24"},
         {"ref": "1 Cor 10:31"},
         {"ref": "1 Thess 4:11-12"},
-        {"ref": "Prov 31:27"},
         {"ref": "Luke 16:10", "words": "Whoever is faithful with very little will also be faithful with much"},
         {"ref": "Ps 90:17"}
       ]
@@ -3864,11 +3874,11 @@
         {"ref": "Phil 4:6-7"},
         {"ref": "1 Pet 5:7"},
         {"ref": "Prov 24:16", "words": "though a righteous man may fall seven times, he still gets up"},
-        {"ref": "Prov 2:6"},
         {"ref": "Dan 1:17", "words": "To these four young men God gave knowledge and understanding in every kind of literature and wisdom."},
         {"ref": "Prov 16:3"},
         {"ref": "Ps 73:26"},
-        {"ref": "Matt 6:34"}
+        {"ref": "Matt 6:34"},
+        {"ref": "Col 3:23-24"}
       ]
     },
     {
@@ -4076,6 +4086,7 @@
       ],
       "chain": [
         {"ref": "Hos 3:1", "words": "Go show love to your wife again, though she is loved by another and is an adulteress."},
+        {"ref": "Hos 3:3", "words": "You must live with me for many days; you must not be promiscuous or belong to another, and I will do the same for you."},
         {"ref": "Col 3:13"},
         {"ref": "Matt 18:21-22"},
         {"ref": "Acts 26:20", "words": "they should repent and turn to God, performing deeds worthy of their repentance"},
@@ -4098,10 +4109,10 @@
       "chain": [
         {"ref": "Matt 5:28"},
         {"ref": "Ps 34:18"},
+        {"ref": "Eph 4:26", "words": "“Be angry, yet do not sin.” Do not let the sun set upon your anger"},
         {"ref": "Job 31:1"},
         {"ref": "Matt 18:15"},
         {"ref": "Gal 6:1", "words": "if someone is caught in a trespass, you who are spiritual should restore him with a spirit of gentleness"},
-        {"ref": "1 Sam 16:7", "words": "For man sees the outward appearance, but the LORD sees the heart."},
         {"ref": "Prov 5:18"}
       ]
     },
@@ -4246,9 +4257,9 @@
         {"ref": "Eph 5:25"},
         {"ref": "Eph 5:28", "words": "husbands ought to love their wives as their own bodies. He who loves his wife loves himself."},
         {"ref": "Eph 5:33"},
+        {"ref": "Col 3:18"},
         {"ref": "Col 3:19"},
-        {"ref": "1 Pet 3:7"},
-        {"ref": "Mark 10:42-43", "words": "those regarded as rulers of the Gentiles lord it over them, and their superiors exercise authority over them. But it shall not be this way among you."}
+        {"ref": "1 Pet 3:7"}
       ]
     },
     {
@@ -4350,9 +4361,9 @@
         {"ref": "Prov 13:12"},
         {"ref": "Gen 2:18"},
         {"ref": "Prov 19:14", "words": "a prudent wife is from the LORD"},
-        {"ref": "Ps 68:6", "words": "God settles the lonely in families"},
         {"ref": "Ps 37:4-5"},
         {"ref": "Lam 3:25-26"},
+        {"ref": "1 Cor 7:7", "words": "each man has his own gift from God; one has this gift, another has that."},
         {"ref": "Phil 4:11", "words": "I have learned to be content regardless of my circumstances."}
       ]
     },
@@ -4407,10 +4418,10 @@
       "chain": [
         {"ref": "Heb 13:4"},
         {"ref": "1 Cor 7:2"},
+        {"ref": "John 4:18", "words": "the man you now have is not your husband"},
         {"ref": "1 Cor 6:18"},
         {"ref": "1 Thess 4:3", "words": "For it is God’s will that you should be holy: You must abstain from sexual immorality"},
         {"ref": "1 Cor 7:9", "words": "For it is better to marry than to burn with passion."},
-        {"ref": "Acts 3:19"},
         {"ref": "1 John 1:9"},
         {"ref": "1 Cor 6:11"}
       ]
@@ -4422,13 +4433,12 @@
       "also": ["my boyfriend broke up with me", "my girlfriend broke up with me", "heartbreak", "breakup", "how to get over a breakup", "my fiance called off the engagement", "broken engagement", "i was ghosted", "he ghosted me", "she cheated on me and left", "i miss my ex", "unrequited love", "she doesn't love me back", "heartbroken after a breakup", "dumped"],
       "signals": ["brokenhearted", "broken heart", "heart broken", "heartbrake", "rebound", "closure", "moving on", "he moved on", "she moved on", "replaced me", "returned the ring", "talking stage", "friendzoned", "friend zone", "dumpd", "brokeup", "win her back", "win him back", "ex blocked me", "exgirlfriend", "exboyfriend", "post breakup", "crying over him", "crying over her", "breakup recovery"],
       "topics": [
-        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["OF SAINTS", "CONSOLATION IN"]}
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["OF SAINTS", "CONSOLATION IN", "FORSAKEN BY FRIENDS"]}
       ],
       "chain": [
         {"ref": "Ps 147:3"},
         {"ref": "Ps 34:18"},
         {"ref": "Ps 88:18", "words": "You have removed my beloved and my friend"},
-        {"ref": "Ps 55:12-13", "words": "For it is not an enemy who insults me; that I could endure. It is not a foe who rises against me; from him I could hide. But it is you, a man like myself, my companion and close friend."},
         {"ref": "Ps 73:26"},
         {"ref": "1 Pet 5:7"},
         {"ref": "Ps 30:5", "words": "Weeping may stay the night, but joy comes in the morning."}
@@ -4568,7 +4578,8 @@
       "signals": ["eye roll", "one word answers", "grunts", "grunts at me", "slams the door", "slamming doors", "locks herself in", "locks himself in", "earbuds", "teenage attitude", "sassy", "talks back", "back talk", "mouthy", "sullen", "won't open up", "silent treatment", "cold shoulder", "teenage years", "adolescence", "adolescent", "teen angst", "angsty", "hormonal teenager", "barely speaks", "embarrassed of me", "won't hang out", "tween"],
       "topics": [
         {"subject": "MEEKNESS", "only": ["General scriptures concerning"]},
-        {"subject": "YOUNG MEN"}
+        {"subject": "YOUNG MEN"},
+        {"subject": "PARENTS", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO"]}
       ],
       "chain": [
         {"ref": "Jas 1:19", "words": "Everyone should be quick to listen, slow to speak, and slow to anger,"},
@@ -4576,7 +4587,7 @@
         {"ref": "Prov 18:13"},
         {"ref": "Prov 15:1"},
         {"ref": "Prov 25:15"},
-        {"ref": "Eph 4:2"},
+        {"ref": "Col 3:21"},
         {"ref": "Prov 23:26"},
         {"ref": "1 Cor 13:7"}
       ]
@@ -4596,9 +4607,9 @@
       "chain": [
         {"ref": "1 Cor 6:12"},
         {"ref": "Eph 6:4"},
+        {"ref": "Prov 29:15", "words": "a child left to himself disgraces his mother"},
         {"ref": "Eph 5:15-16"},
         {"ref": "Ps 101:3", "words": "I will set no worthless thing before my eyes."},
-        {"ref": "Ps 11:5", "words": "His soul hates the lover of violence."},
         {"ref": "1 Cor 15:33"},
         {"ref": "Titus 2:6"},
         {"ref": "Ps 119:37"}
@@ -4640,13 +4651,13 @@
       ],
       "chain": [
         {"ref": "Gal 6:1", "words": "if someone is caught in a trespass, you who are spiritual should restore him with a spirit of gentleness."},
+        {"ref": "Eph 6:4"},
         {"ref": "Ps 119:9"},
         {"ref": "2 Tim 2:22"},
         {"ref": "Job 31:1", "words": "I have made a covenant with my eyes."},
         {"ref": "1 Cor 10:13"},
         {"ref": "Prov 28:13"},
-        {"ref": "1 John 1:9"},
-        {"ref": "Ps 9:9"}
+        {"ref": "1 John 1:9"}
       ]
     },
     {
@@ -4790,12 +4801,12 @@
       "chain": [
         {"ref": "Ps 34:18"},
         {"ref": "1 Kgs 19:4-5", "words": "“I have had enough, LORD,” he said. “Take my life, for I am no better than my fathers.” Then he lay down under the broom tree and fell asleep. Suddenly an angel touched him and said, “Get up and eat.”"},
+        {"ref": "Acts 16:28", "words": "Do not harm yourself!"},
         {"ref": "Rom 12:15", "words": "weep with those who weep."},
         {"ref": "Job 2:13"},
         {"ref": "Gal 6:2"},
         {"ref": "1 Thess 5:14", "words": "encourage the fainthearted, help the weak, and be patient with everyone."},
-        {"ref": "Ps 147:3"},
-        {"ref": "Matt 11:28"}
+        {"ref": "Ps 147:3"}
       ]
     },
     {
@@ -4962,7 +4973,7 @@
       "chain": [
         {"ref": "Heb 4:15-16"},
         {"ref": "Ps 62:8", "words": "pour out your hearts before Him. God is our refuge."},
-        {"ref": "Gen 25:22"},
+        {"ref": "Rom 8:1"},
         {"ref": "Ps 103:13-14"},
         {"ref": "Lam 3:22-23"},
         {"ref": "Isa 40:11", "words": "He gently leads the nursing ewes."},
@@ -5400,17 +5411,18 @@
       "also": ["grandparents raising grandkids", "raising my grandson", "raising my granddaughter", "my daughter's addiction left me raising her kids", "my son is in prison and i'm raising his children", "custody of my grandchildren", "raising grandkids after my child died", "too old to be raising kids again", "grandparent caregiver", "parenting my grandchildren"],
       "signals": ["kinship care", "kinship caregiver", "kinship placement", "kinship foster care", "grandfamilies", "grandfamily", "guardianship", "legal guardian", "temporary guardianship", "adopting my grandchild", "adopted my grandson", "grandparents rights", "grandma raising", "grandpa raising", "nana raising", "second time parenting", "parenting at 60", "parenting at 70", "skipped generation", "grandkids moved in", "deadbeat parents", "absent parents", "retirement on hold", "grandparent support group", "tired grandma", "worn out grandpa"],
       "topics": [
-        {"subject": "CHILDREN", "only": ["GOD'S CARE OF", "Nurses for"]}
+        {"subject": "CHILDREN", "only": ["GOD'S CARE OF", "Nurses for"]},
+        {"subject": "LOIS"}
       ],
       "chain": [
         {"ref": "Ruth 4:16"},
-        {"ref": "Ps 10:14", "words": "You are the helper of the fatherless."},
         {"ref": "Ps 68:5"},
         {"ref": "Esth 2:7", "words": "Mordecai had brought up Hadassah (that is, Esther), the daughter of his uncle, because she did not have a father or mother."},
         {"ref": "Isa 40:31"},
         {"ref": "Ps 73:26"},
         {"ref": "Ps 71:18"},
-        {"ref": "Deut 4:9", "words": "Teach them to your children and grandchildren."}
+        {"ref": "Deut 4:9", "words": "Teach them to your children and grandchildren."},
+        {"ref": "2 Tim 1:5"}
       ]
     },
     {
@@ -5611,9 +5623,9 @@
         {"ref": "Prov 13:20"},
         {"ref": "Prov 26:24-25"},
         {"ref": "Prov 14:7"},
-        {"ref": "Prov 4:23"},
         {"ref": "Prov 25:19"},
-        {"ref": "Prov 27:6"}
+        {"ref": "Prov 27:6"},
+        {"ref": "1 Cor 15:33"}
       ]
     },
     {
@@ -5653,6 +5665,7 @@
         {"ref": "Ruth 2:11-12", "words": "how you left your father and mother and the land of your birth, and how you came to a people you did not know before. May the LORD repay your work, and may you receive a rich reward from the LORD, the God of Israel, under whose wings you have taken refuge."},
         {"ref": "Heb 11:16", "words": "they were longing for a better country, a heavenly one. Therefore God is not ashamed to be called their God, for He has prepared a city for them."},
         {"ref": "Prov 27:10", "words": "better a neighbor nearby than a brother far away."},
+        {"ref": "Jer 29:7"},
         {"ref": "Heb 10:24-25"},
         {"ref": "Ps 68:6", "words": "God settles the lonely in families"}
       ]
@@ -5695,7 +5708,8 @@
         {"ref": "Matt 5:23-24"},
         {"ref": "Rom 12:18"},
         {"ref": "Ps 55:22", "words": "Cast your burden upon the LORD and He will sustain you"},
-        {"ref": "Ps 147:3"}
+        {"ref": "Ps 147:3"},
+        {"ref": "Heb 13:5", "words": "Never will I leave you, never will I forsake you."}
       ]
     },
     {
@@ -5706,7 +5720,8 @@
       "signals": ["atheist parents", "atheist friend", "agnostic friend", "unbelieving", "unbelievers", "non-christian friends", "non believer", "nonbeliever", "share my testimony", "testimony", "gospel conversation", "spiritual conversations", "invite to church", "bring up faith", "start the conversation", "lead to christ", "evangelize", "awkward conversation", "religious conversation", "sharing christ", "my roommate", "cousins", "atheist brother", "agnostic parents", "skeptic friend"],
       "topics": [
         {"subject": "TESTIMONY", "only": ["RELIGIOUS"], "skip": ["RELIGIOUS, EXEMPLIFIED"]},
-        {"subject": "ZEAL, RELIGIOUS", "only": ["EXEMPLIFIED"]}
+        {"subject": "ZEAL, RELIGIOUS", "only": ["EXEMPLIFIED"]},
+        {"subject": "GLORIFYING GOD", "only": ["The holy example of the saints"]}
       ],
       "chain": [
         {"ref": "Mark 5:19"},
@@ -5714,9 +5729,9 @@
         {"ref": "Acts 10:24", "words": "Cornelius was expecting them and had called together his relatives and close friends."},
         {"ref": "1 Pet 3:15"},
         {"ref": "Rom 10:1"},
-        {"ref": "Mark 6:4"},
         {"ref": "John 7:5"},
-        {"ref": "Acts 1:14"}
+        {"ref": "Acts 1:14"},
+        {"ref": "Matt 5:16"}
       ]
     },
     {
@@ -5820,9 +5835,9 @@
         {"ref": "1 Cor 4:3-4"},
         {"ref": "Ps 31:13", "words": "For I hear the slander of many"},
         {"ref": "Ps 31:14"},
-        {"ref": "1 Sam 16:7", "words": "the LORD does not see as man does. For man sees the outward appearance, but the LORD sees the heart."},
         {"ref": "1 Pet 2:23"},
         {"ref": "Rom 8:33-34"},
+        {"ref": "Col 3:13"},
         {"ref": "Rom 15:7"}
       ]
     },
@@ -5868,7 +5883,7 @@
         {"ref": "1 Cor 12:22"},
         {"ref": "2 Sam 9:13"},
         {"ref": "Job 29:15"},
-        {"ref": "Gal 6:2"}
+        {"ref": "Prov 31:8", "words": "Open your mouth for those with no voice"}
       ]
     },
     {
@@ -6032,11 +6047,10 @@
       "chain": [
         {"ref": "Jas 4:7"},
         {"ref": "Eph 6:11-12"},
+        {"ref": "1 Pet 5:8-9"},
         {"ref": "2 Thess 3:3"},
-        {"ref": "1 John 4:4"},
+        {"ref": "1 John 4:4", "words": "greater is He who is in you than he who is in the world."},
         {"ref": "Rom 8:38-39"},
-        {"ref": "Prov 26:2"},
-        {"ref": "Ezek 18:20", "words": "A son will not bear the iniquity of his father, and a father will not bear the iniquity of his son."},
         {"ref": "Ps 4:8"}
       ]
     },
@@ -6412,11 +6426,11 @@
         {"ref": "Luke 15:20"},
         {"ref": "Luke 15:24", "words": "For this son of mine was dead and is alive again! He was lost and is found!"},
         {"ref": "Isa 55:7"},
+        {"ref": "Jer 3:22", "words": "Return, O faithless children, and I will heal your faithlessness."},
         {"ref": "Jas 4:8", "words": "Draw near to God, and He will draw near to you."},
         {"ref": "Joel 2:13", "words": "return to the LORD your God. For He is gracious and compassionate, slow to anger, abounding in loving devotion."},
         {"ref": "Luke 22:32"},
-        {"ref": "Ps 51:12"},
-        {"ref": "Luke 23:42-43"}
+        {"ref": "Ps 51:12"}
       ]
     },
     {
@@ -6477,10 +6491,10 @@
         {"ref": "Jas 5:4"},
         {"ref": "Lev 19:13"},
         {"ref": "Exod 22:26-27"},
-        {"ref": "Mic 2:2"},
         {"ref": "Jer 22:13", "words": "who makes his countrymen serve without pay, and fails to pay their wages"},
         {"ref": "Prov 22:22-23"},
         {"ref": "Ps 12:5"},
+        {"ref": "Rom 12:19"},
         {"ref": "Deut 24:14"}
       ]
     },
@@ -6774,12 +6788,12 @@
       ],
       "chain": [
         {"ref": "Ps 10:1"},
+        {"ref": "Ps 46:7", "words": "The LORD of Hosts is with us; the God of Jacob is our fortress."},
         {"ref": "Ps 46:9"},
         {"ref": "Rom 8:35-37"},
         {"ref": "John 16:33"},
         {"ref": "Ps 27:3"},
         {"ref": "Matt 24:6", "words": "You will hear of wars and rumors of wars, but see to it that you are not alarmed."},
-        {"ref": "Ps 55:6-7", "words": "Oh, that I had wings like a dove! I would fly away and find rest. How far away I would flee!"},
         {"ref": "Mic 4:3-4", "words": "Nation will no longer take up the sword against nation, nor will they train anymore for war. And each man will sit under his own vine and under his own fig tree, with no one to frighten him."}
       ]
     },
@@ -6861,10 +6875,10 @@
       ],
       "chain": [
         {"ref": "1 Sam 16:7", "words": "the LORD does not see as man does. For man sees the outward appearance, but the LORD sees the heart."},
+        {"ref": "Gen 1:27"},
         {"ref": "Ps 139:13-14"},
         {"ref": "Isa 53:2", "words": "He had no stately form or majesty to attract us, no beauty that we should desire Him."},
         {"ref": "2 Cor 4:16"},
-        {"ref": "Prov 16:31"},
         {"ref": "1 Pet 3:4", "words": "the unfading beauty of a gentle and quiet spirit, which is precious in God’s sight."},
         {"ref": "1 Cor 6:19-20", "words": "your body is a temple of the Holy Spirit who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore glorify God with your body."},
         {"ref": "Phil 3:21", "words": "will transform our lowly bodies to be like His glorious body."}
@@ -6911,7 +6925,7 @@
         {"ref": "John 17:3"},
         {"ref": "Rom 11:36"},
         {"ref": "1 Cor 10:31"},
-        {"ref": "Rev 4:11"}
+        {"ref": "Eph 2:10"}
       ]
     },
     {
@@ -6922,7 +6936,8 @@
       "signals": ["rap sheet", "stripper", "sex worker", "ex prostitute", "gang member", "too dirty", "lowlife", "scum", "bad reputation", "checkered past", "shady past", "messed up past", "rough past", "baggage", "clean myself up", "zacchaeus", "sordid past", "ugly past", "dirty past", "wild past", "dark history", "not church material", "former stripper"],
       "topics": [
         {"subject": "PUBLICANS", "only": ["Change their ways", "Matthew, the tax collector", "Parable concerning", "Zacchaeus"]},
-        {"subject": "JESUS, THE CHRIST", "only": ["COMPASSION OF"]}
+        {"subject": "JESUS, THE CHRIST", "only": ["COMPASSION OF"]},
+        {"subject": "CREATURE", "only": ["NEW CREATURE"]}
       ],
       "chain": [
         {"ref": "John 6:37", "words": "the one who comes to Me I will never drive away."},
@@ -6931,7 +6946,8 @@
         {"ref": "Luke 7:47-48"},
         {"ref": "Luke 19:9-10"},
         {"ref": "Matt 21:31", "words": "the tax collectors and prostitutes are entering the kingdom of God before you."},
-        {"ref": "John 4:39"}
+        {"ref": "John 4:39"},
+        {"ref": "2 Cor 5:17"}
       ]
     },
     {
@@ -6988,13 +7004,13 @@
       ],
       "chain": [
         {"ref": "Col 3:8"},
+        {"ref": "Jas 1:19-20"},
         {"ref": "Prov 29:11"},
         {"ref": "Prov 12:18"},
         {"ref": "Prov 25:28"},
         {"ref": "Ps 141:3"},
         {"ref": "Gal 5:22-23"},
-        {"ref": "Matt 5:23-24"},
-        {"ref": "Jas 3:2"}
+        {"ref": "Matt 5:23-24"}
       ]
     },
     {
@@ -7012,7 +7028,7 @@
         {"ref": "Eph 4:25", "words": "each of you must put off falsehood and speak truthfully to his neighbor"},
         {"ref": "Ps 51:6"},
         {"ref": "Prov 12:19"},
-        {"ref": "Prov 10:9"},
+        {"ref": "Prov 12:22"},
         {"ref": "Ps 34:13"},
         {"ref": "Prov 28:13"},
         {"ref": "Ps 32:5"}
@@ -7031,6 +7047,7 @@
       ],
       "chain": [
         {"ref": "Prov 11:1"},
+        {"ref": "Lev 19:11"},
         {"ref": "Luke 16:10"},
         {"ref": "Eph 4:25", "words": "each of you must put off falsehood and speak truthfully to his neighbor"},
         {"ref": "Prov 20:17"},
@@ -7292,13 +7309,15 @@
       "also": ["spending christmas alone", "alone on christmas", "lonely at christmas", "holidays alone", "lonely holidays", "christmas without family", "far from family at christmas", "can't go home for christmas", "no family for thanksgiving", "thanksgiving alone", "nobody to celebrate with", "new year's eve alone", "alone on easter", "holiday loneliness"],
       "signals": ["xmas", "xmas alone", "christmas morning", "christmas day", "dinner for one", "friendsgiving", "orphan christmas", "single at christmas", "no presents", "no gifts", "holiday blues", "christmas blues", "seasonal depression", "working on christmas", "nye alone", "midnight kiss", "ball drop", "valentine's day alone", "4th of july", "hanukkah alone", "diwali alone", "eid alone", "hallmark movies", "tv dinner", "festive season", "solo christmas"],
       "topics": [
-        {"subject": "FEASTS", "only": ["Kept with rejoicing"]}
+        {"subject": "FEASTS", "only": ["Kept with rejoicing"]},
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["CONSOLATION IN"]}
       ],
       "chain": [
         {"ref": "Ps 42:4-5"},
         {"ref": "Ps 25:16"},
         {"ref": "Ps 68:6", "words": "God settles the lonely in families"},
         {"ref": "John 16:32", "words": "Yet I am not alone, because the Father is with Me."},
+        {"ref": "Heb 13:5", "words": "Never will I leave you, never will I forsake you."},
         {"ref": "Luke 2:10-11"},
         {"ref": "Neh 8:10"}
       ]
@@ -7482,11 +7501,11 @@
         {"ref": "2 Cor 3:5"},
         {"ref": "2 Cor 12:9", "words": "My grace is sufficient for you, for My power is perfected in weakness."},
         {"ref": "Exod 4:10-11"},
+        {"ref": "Exod 4:12"},
         {"ref": "1 Pet 4:10"},
         {"ref": "1 Pet 4:11", "words": "If anyone speaks, he should speak as one conveying the words of God. If anyone serves, he should serve with the strength God provides"},
         {"ref": "1 Tim 1:12-13"},
-        {"ref": "1 Cor 2:3"},
-        {"ref": "1 Tim 4:12"}
+        {"ref": "1 Cor 2:3"}
       ]
     },
     {
@@ -7769,12 +7788,12 @@
       ],
       "chain": [
         {"ref": "Ps 62:8"},
-        {"ref": "Ps 55:12-13"},
         {"ref": "Ps 147:3"},
         {"ref": "Ps 27:10"},
         {"ref": "Isa 42:3"},
         {"ref": "2 Tim 4:16-17"},
         {"ref": "Eccl 4:9-10"},
+        {"ref": "Prov 12:26"},
         {"ref": "Prov 17:17"}
       ]
     },
@@ -7795,8 +7814,8 @@
         {"ref": "Mark 14:36", "words": "“Abba, Father,” He said"},
         {"ref": "John 1:42", "words": "You will be called Cephas” (which is translated as Peter)"},
         {"ref": "Acts 26:14", "words": "I heard a voice say to me in Hebrew, ‘Saul, Saul, why do you persecute Me?"},
-        {"ref": "Luke 4:16-17"},
-        {"ref": "John 19:20"}
+        {"ref": "John 20:16"},
+        {"ref": "Luke 4:16-17"}
       ]
     },
     {
@@ -7831,12 +7850,12 @@
         {"subject": "VIRGIN", "only": ["Mother of Jesus"]}
       ],
       "chain": [
+        {"ref": "Luke 1:27"},
         {"ref": "Luke 1:28"},
-        {"ref": "Luke 1:30-31"},
+        {"ref": "Luke 1:30-31", "words": "Do not be afraid, Mary, for you have found favor with God. Behold, you will conceive and give birth to a son, and you are to give Him the name Jesus."},
         {"ref": "Luke 1:38"},
-        {"ref": "Luke 1:42-43"},
+        {"ref": "Luke 1:42-43", "words": "Blessed are you among women, and blessed is the fruit of your womb! And why am I so honored, that the mother of my Lord should come to me?"},
         {"ref": "Luke 1:46-48"},
-        {"ref": "Luke 2:19"},
         {"ref": "Acts 1:14"},
         {"ref": "Luke 11:27-28"}
       ]
@@ -8201,7 +8220,7 @@
       "chain": [
         {"ref": "Matt 10:34-36"},
         {"ref": "Luke 12:51-52"},
-        {"ref": "Matt 10:32"},
+        {"ref": "Matt 10:37"},
         {"ref": "Matt 26:52", "words": "For all who draw the sword will die by the sword."},
         {"ref": "John 18:36", "words": "My kingdom is not of this world; if it were, My servants would fight"},
         {"ref": "John 14:27"},
@@ -8510,9 +8529,9 @@
         {"ref": "Mark 8:31"},
         {"ref": "Mark 2:10", "words": "the Son of Man has authority on earth to forgive sins"},
         {"ref": "Luke 19:10"},
-        {"ref": "Matt 16:15-16"},
-        {"ref": "John 1:41"},
-        {"ref": "Luke 1:32"}
+        {"ref": "Mark 10:45"},
+        {"ref": "Matt 16:13", "words": "He questioned His disciples: “Who do people say the Son of Man is?”"},
+        {"ref": "Matt 16:15-16"}
       ]
     },
     {
@@ -8881,10 +8900,10 @@
         {"ref": "Rom 1:18"},
         {"ref": "Ps 7:11"},
         {"ref": "Mark 3:5", "words": "Jesus looked around at them with anger and sorrow at their hardness of heart."},
+        {"ref": "Rom 2:5"},
         {"ref": "Ps 103:8-9"},
-        {"ref": "Ezek 33:11"},
+        {"ref": "Ezek 33:11", "words": "As surely as I live, declares the Lord GOD, I take no pleasure in the death of the wicked, but rather that the wicked should turn from their ways and live."},
         {"ref": "Mic 7:18"},
-        {"ref": "1 John 4:10"},
         {"ref": "Rom 5:8-9"}
       ]
     },
@@ -9069,11 +9088,11 @@
         {"ref": "Isa 45:7"},
         {"ref": "Ps 5:4"},
         {"ref": "1 John 1:5", "words": "God is light, and in Him there is no darkness at all."},
+        {"ref": "Deut 32:4"},
         {"ref": "Gen 1:31", "words": "God looked upon all that He had made, and indeed, it was very good."},
         {"ref": "Eccl 7:29"},
         {"ref": "Rom 5:12"},
-        {"ref": "1 John 3:8"},
-        {"ref": "Rev 20:10", "words": "the devil who had deceived them was thrown into the lake of fire and sulfur"}
+        {"ref": "1 John 3:8"}
       ]
     },
     {
@@ -9301,7 +9320,7 @@
         {"ref": "Rom 2:14-16"},
         {"ref": "Acts 14:17", "words": "Yet He has not left Himself without testimony to His goodness"},
         {"ref": "Acts 17:30"},
-        {"ref": "Luke 12:48", "words": "But the one who unknowingly does things worthy of punishment will be beaten with few blows."},
+        {"ref": "Acts 4:12"},
         {"ref": "Rom 10:14", "words": "how can they believe in the One of whom they have not heard? And how can they hear without someone to preach?"},
         {"ref": "Gen 18:25", "words": "Will not the Judge of all the earth do what is right?"}
       ]
@@ -9423,10 +9442,10 @@
         {"ref": "Acts 2:38", "words": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of your sins"},
         {"ref": "1 Pet 3:21", "words": "this water symbolizes the baptism that now saves you also—not the removal of dirt from the body, but the pledge of a clear conscience toward God—through the resurrection of Jesus Christ"},
         {"ref": "Acts 22:16"},
-        {"ref": "Luke 23:42-43"},
         {"ref": "Acts 10:47"},
         {"ref": "1 Cor 1:17", "words": "For Christ did not send me to baptize, but to preach the gospel"},
-        {"ref": "John 3:18", "words": "Whoever believes in Him is not condemned"}
+        {"ref": "John 3:18", "words": "Whoever believes in Him is not condemned"},
+        {"ref": "Eph 2:8-9"}
       ]
     },
     {
@@ -9544,7 +9563,7 @@
         {"ref": "John 10:10", "words": "I have come that they may have life, and have it in all its fullness."},
         {"ref": "John 11:25-26"},
         {"ref": "Rom 6:23", "words": "the gift of God is eternal life in Christ Jesus our Lord"},
-        {"ref": "1 John 3:2"}
+        {"ref": "Matt 25:46"}
       ]
     },
     {
@@ -9558,7 +9577,7 @@
       ],
       "chain": [
         {"ref": "Eph 1:13"},
-        {"ref": "Acts 2:38", "words": "and you will receive the gift of the Holy Spirit"},
+        {"ref": "Acts 2:38", "words": "Repent and be baptized, every one of you, in the name of Jesus Christ for the forgiveness of your sins, and you will receive the gift of the Holy Spirit"},
         {"ref": "Rom 8:9", "words": "if anyone does not have the Spirit of Christ, he does not belong to Christ"},
         {"ref": "1 Cor 12:13"},
         {"ref": "Acts 10:44"},
@@ -9598,10 +9617,10 @@
       ],
       "chain": [
         {"ref": "Phil 2:12-13"},
+        {"ref": "1 Pet 1:17"},
         {"ref": "Phil 1:6"},
         {"ref": "Eph 2:8-10"},
         {"ref": "1 Cor 15:10"},
-        {"ref": "Col 1:29"},
         {"ref": "2 Pet 1:5", "words": "make every effort to add to your faith virtue"},
         {"ref": "Heb 13:21", "words": "And may He accomplish in us what is pleasing in His sight through Jesus Christ"},
         {"ref": "Phil 3:12", "words": "but I press on to take hold of that for which Christ Jesus took hold of me"}
@@ -9718,17 +9737,18 @@
       "also": ["psalm 46 10 meaning", "cease striving and know that i am god", "stop striving", "resting in god", "quiet my soul", "wait quietly for god", "psalm 46 be still", "stillness before god", "be still before the lord"],
       "signals": ["silence", "quietness", "be silent", "slow down", "busy mind", "surrender control", "release control", "control freak", "cease fighting", "raphah", "be still tattoo", "hush", "mighty fortress", "desist", "let be", "busyness", "hurry", "hurry sickness", "frantic", "rushing", "inner noise", "stop trying", "stop fixing"],
       "topics": [
-        {"subject": "WAITING", "only": ["Exhortations", "With patience", "With resignation", "Should be with"]}
+        {"subject": "WAITING", "only": ["Exhortations", "With patience", "With resignation", "Should be with"]},
+        {"subject": "WAR", "only": ["God in"]}
       ],
       "chain": [
         {"ref": "Ps 46:10"},
         {"ref": "Ps 46:1", "words": "God is our refuge and strength, an ever-present help in times of trouble."},
         {"ref": "Ps 46:9"},
         {"ref": "Ps 46:11"},
+        {"ref": "Exod 14:14"},
         {"ref": "Ps 37:7", "words": "Be still before the LORD and wait patiently for Him"},
         {"ref": "Ps 62:1", "words": "In God alone my soul finds rest; my salvation comes from Him."},
-        {"ref": "Lam 3:26"},
-        {"ref": "Ps 131:2"}
+        {"ref": "Lam 3:26"}
       ]
     },
     {
@@ -9917,9 +9937,9 @@
         {"ref": "Gal 4:10"},
         {"ref": "Luke 2:10-11"},
         {"ref": "1 Cor 15:20", "words": "Christ has indeed been raised from the dead"},
-        {"ref": "1 Cor 5:7-8", "words": "For Christ, our Passover lamb, has been sacrificed. Therefore let us keep the feast"},
         {"ref": "Deut 12:30-31", "words": "Do not inquire about their gods, asking, “How do these nations serve their gods? I will do likewise.” You must not worship the LORD your God in this way"},
-        {"ref": "1 Cor 8:4", "words": "an idol is nothing at all in the world"}
+        {"ref": "1 Cor 8:4", "words": "an idol is nothing at all in the world"},
+        {"ref": "Esth 9:22", "words": "the days on which the Jews gained rest from their enemies and the month in which their sorrow turned to joy and their mourning into a holiday."}
       ]
     },
     {
@@ -10128,9 +10148,9 @@
         {"ref": "Luke 12:6"},
         {"ref": "Deut 22:6-7"},
         {"ref": "Exod 23:12", "words": "on the seventh day you must cease, so that your ox and your donkey may rest"},
+        {"ref": "Deut 25:4"},
         {"ref": "Num 22:32", "words": "Why have you beaten your donkey these three times?"},
-        {"ref": "Gen 9:3"},
-        {"ref": "Lev 17:13"}
+        {"ref": "Gen 9:3"}
       ]
     },
     {
@@ -10184,15 +10204,16 @@
       "topics": [
         {"subject": "MEDITATION", "only": ["General scriptures concerning"]},
         {"subject": "IDOLATRY", "only": ["DENUNCIATIONS AGAINST"]},
-        {"subject": "PRAYER", "only": ["Vain repetitions"]}
+        {"subject": "PRAYER", "only": ["Vain repetitions"]},
+        {"subject": "ASCETICISM", "only": ["Rebuked by Paul"]}
       ],
       "chain": [
         {"ref": "Ps 1:2"},
-        {"ref": "Matt 6:7"},
         {"ref": "Exod 20:3"},
         {"ref": "Deut 12:30", "words": "Do not inquire about their gods, asking, “How do these nations serve their gods? I will do likewise.”"},
         {"ref": "1 Cor 10:19-21"},
         {"ref": "Col 2:8"},
+        {"ref": "1 Tim 4:8"},
         {"ref": "Isa 26:3"},
         {"ref": "Ps 19:14"}
       ]
@@ -10212,7 +10233,7 @@
         {"ref": "Jer 10:2"},
         {"ref": "Isa 47:13-14", "words": "your astrologers who observe the stars, who monthly predict your fate. Surely they are like stubble; the fire will burn them up."},
         {"ref": "Deut 4:19"},
-        {"ref": "Lev 19:31"},
+        {"ref": "Lev 19:26", "words": "You must not practice divination or sorcery."},
         {"ref": "Acts 16:16", "words": "a slave girl with a spirit of divination, who earned a large income for her masters by fortune-telling."},
         {"ref": "Dan 2:27-28", "words": "No wise man, enchanter, medium, or magician can explain to the king the mystery of which he inquires. But there is a God in heaven who reveals mysteries"},
         {"ref": "Ps 147:4"},
@@ -10362,7 +10383,7 @@
         {"ref": "Ps 103:2"},
         {"ref": "2 Cor 9:15"},
         {"ref": "Luke 17:17-18"},
-        {"ref": "Phil 2:14"},
+        {"ref": "Phil 4:6-7"},
         {"ref": "Eph 5:20"}
       ]
     },
@@ -10380,7 +10401,7 @@
         {"ref": "Prov 2:4-6"},
         {"ref": "Prov 9:10"},
         {"ref": "Col 2:3"},
-        {"ref": "Prov 15:22"},
+        {"ref": "Prov 19:20"},
         {"ref": "Prov 13:20"},
         {"ref": "Jas 3:17"},
         {"ref": "Ps 90:12"}
@@ -10419,13 +10440,13 @@
       ],
       "chain": [
         {"ref": "Jas 4:8", "words": "Draw near to God, and He will draw near to you."},
+        {"ref": "1 John 1:9"},
         {"ref": "John 15:4-5"},
         {"ref": "Ps 145:18"},
         {"ref": "John 14:23"},
         {"ref": "1 Pet 2:2"},
         {"ref": "2 Pet 3:18", "words": "But grow in the grace and knowledge of our Lord and Savior Jesus Christ."},
-        {"ref": "Ps 63:1"},
-        {"ref": "Phil 1:6"}
+        {"ref": "Ps 63:1"}
       ]
     },
     {
@@ -10444,7 +10465,8 @@
         {"ref": "Prov 14:12"},
         {"ref": "Eccl 11:9"},
         {"ref": "Prov 4:23"},
-        {"ref": "Ps 139:23-24"}
+        {"ref": "Ps 139:23-24"},
+        {"ref": "Num 15:39"}
       ]
     },
     {
@@ -10583,13 +10605,13 @@
       ],
       "chain": [
         {"ref": "2 Chr 7:14"},
+        {"ref": "2 Chr 6:26"},
         {"ref": "2 Chr 7:12", "words": "I have heard your prayer and have chosen this place for Myself as a house of sacrifice."},
         {"ref": "2 Chr 7:13"},
         {"ref": "Jer 18:7-8"},
         {"ref": "Jonah 3:10"},
         {"ref": "Prov 14:34"},
-        {"ref": "Jas 4:10"},
-        {"ref": "1 Tim 2:1-2"}
+        {"ref": "Jas 4:10"}
       ]
     },
     {
@@ -10691,7 +10713,7 @@
         {"ref": "1 Kgs 19:7"},
         {"ref": "Ps 88:18", "words": "darkness is my closest companion"},
         {"ref": "Matt 26:38", "words": "My soul is consumed with sorrow to the point of death."},
-        {"ref": "Ps 139:12"},
+        {"ref": "2 Cor 7:6"},
         {"ref": "Isa 42:3", "words": "A bruised reed He will not break and a smoldering wick He will not extinguish"}
       ]
     },
@@ -10746,16 +10768,17 @@
       "topics": [
         {"subject": "FRIENDS", "only": ["FALSE FRIENDS"]},
         {"subject": "REVENGE", "only": ["Forbidden"]},
-        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["Results of, good", "Tempered with mercy"]}
+        {"subject": "AFFLICTIONS AND ADVERSITIES", "only": ["Results of, good", "Tempered with mercy"]},
+        {"subject": "FORGIVENESS", "only": ["OF ENEMIES"]}
       ],
       "chain": [
         {"ref": "Ps 55:12-14"},
         {"ref": "Ps 41:9"},
-        {"ref": "John 13:18", "words": "The one who shares My bread has lifted up his heel against Me."},
         {"ref": "Luke 22:48"},
         {"ref": "Mic 7:7"},
         {"ref": "Gen 50:20", "words": "what you intended against me for evil, God intended for good"},
         {"ref": "Rom 12:19", "words": "Do not avenge yourselves, beloved, but leave room for God’s wrath."},
+        {"ref": "Mark 11:25"},
         {"ref": "Ps 55:22"}
       ]
     },
@@ -10774,10 +10797,10 @@
         {"ref": "Rom 8:33-34"},
         {"ref": "1 John 3:20"},
         {"ref": "Ps 32:5"},
+        {"ref": "1 John 1:9"},
         {"ref": "Heb 10:22", "words": "let us draw near with a sincere heart in full assurance of faith, having our hearts sprinkled to cleanse us from a guilty conscience"},
         {"ref": "Ps 34:5"},
-        {"ref": "Rom 10:11"},
-        {"ref": "2 Cor 7:10"}
+        {"ref": "Rom 10:11"}
       ]
     },
     {
@@ -10855,12 +10878,12 @@
       ],
       "chain": [
         {"ref": "Ps 62:8"},
-        {"ref": "Ps 13:1-2", "words": "How long, O LORD? Will You forget me forever? How long will You hide Your face from me? How long must I wrestle in my soul, with sorrow in my heart each day?"},
         {"ref": "Hab 1:2"},
         {"ref": "Ps 22:1", "words": "My God, my God, why have You forsaken me? Why are You so far from saving me, so far from my words of groaning?"},
         {"ref": "Job 7:11"},
         {"ref": "Job 42:7", "words": "you have not spoken about Me accurately, as My servant Job has."},
         {"ref": "Jonah 4:4"},
+        {"ref": "Job 1:22"},
         {"ref": "Ps 73:21-23"}
       ]
     },
@@ -10898,8 +10921,8 @@
       ],
       "chain": [
         {"ref": "Prov 26:2"},
-        {"ref": "Rom 8:31", "words": "If God is for us, who can be against us?"},
         {"ref": "Deut 23:5", "words": "the LORD your God turned the curse into a blessing for you, because the LORD your God loves you."},
+        {"ref": "Num 23:23", "words": "For there is no spell against Jacob and no divination against Israel."},
         {"ref": "Ps 109:28", "words": "Though they curse, You will bless."},
         {"ref": "Rom 8:38-39"},
         {"ref": "Col 2:15"},
@@ -11000,11 +11023,11 @@
       "chain": [
         {"ref": "Rom 12:15"},
         {"ref": "Job 2:13"},
-        {"ref": "Jas 1:19", "words": "Everyone should be quick to listen, slow to speak"},
         {"ref": "Prov 25:20"},
         {"ref": "Job 16:2", "words": "miserable comforters are you all."},
         {"ref": "John 11:33-35"},
         {"ref": "2 Cor 1:4", "words": "so that we can comfort those in any trouble with the comfort we ourselves have received from God."},
+        {"ref": "1 Thess 4:13-14"},
         {"ref": "Eccl 3:7", "words": "a time to be silent and a time to speak"}
       ]
     },
@@ -11063,6 +11086,7 @@
         {"ref": "Prov 23:22"},
         {"ref": "John 19:26-27"},
         {"ref": "Mark 7:10-12"},
+        {"ref": "Mark 7:13", "words": "Thus you nullify the word of God by the tradition you have handed down."},
         {"ref": "Lev 19:32"}
       ]
     },
@@ -11360,11 +11384,11 @@
         {"ref": "Eph 6:4"},
         {"ref": "Deut 6:6-7"},
         {"ref": "Ps 103:13"},
+        {"ref": "Prov 3:12"},
         {"ref": "1 Thess 2:11-12"},
         {"ref": "Luke 11:11-13"},
         {"ref": "2 Cor 12:14", "words": "For children should not have to save up for their parents, but parents for their children."},
-        {"ref": "Prov 20:7"},
-        {"ref": "Ps 68:5"}
+        {"ref": "Prov 20:7"}
       ]
     },
     {
@@ -11442,8 +11466,8 @@
         {"ref": "2 John 1:7"},
         {"ref": "2 Thess 2:3", "words": "the man of lawlessness—the son of destruction—is revealed"},
         {"ref": "2 Thess 2:4"},
-        {"ref": "2 Thess 2:8"},
-        {"ref": "Rev 19:20", "words": "the beast was captured along with the false prophet"}
+        {"ref": "2 Thess 2:9", "words": "The coming of the lawless one will be accompanied by the working of Satan, with every kind of power, sign, and false wonder"},
+        {"ref": "2 Thess 2:8"}
       ]
     },
     {
@@ -11481,11 +11505,10 @@
         {"ref": "Rev 16:14-16"},
         {"ref": "Rev 19:19"},
         {"ref": "Rev 19:20", "words": "the beast was captured along with the false prophet"},
+        {"ref": "Rev 19:21"},
         {"ref": "Rev 17:14"},
         {"ref": "Zech 14:2", "words": "I will gather all the nations for battle against Jerusalem"},
-        {"ref": "Zech 14:3"},
-        {"ref": "Rev 20:8", "words": "to deceive the nations in the four corners of the earth—Gog and Magog—to assemble them for battle"},
-        {"ref": "Rev 20:9", "words": "But fire came down from heaven and consumed them."}
+        {"ref": "Zech 14:3"}
       ]
     },
     {
@@ -11559,10 +11582,10 @@
         {"ref": "Rom 11:1", "words": "did God reject His people? Certainly not!"},
         {"ref": "Rom 11:28-29"},
         {"ref": "Zech 12:10", "words": "they will look on Me, the One they have pierced. They will mourn for Him as one mourns for an only child"},
+        {"ref": "Matt 23:39", "words": "you will not see Me again until you say, ‘Blessed is He who comes in the name of the Lord.’"},
         {"ref": "Luke 21:24"},
         {"ref": "Acts 1:6-7"},
-        {"ref": "Gal 6:16"},
-        {"ref": "2 Thess 2:4", "words": "he will seat himself in the temple of God, proclaiming himself to be God"}
+        {"ref": "Gal 6:16"}
       ]
     },
     {
@@ -11685,7 +11708,7 @@
         {"ref": "Rom 2:6-8"},
         {"ref": "Matt 25:41", "words": "the eternal fire prepared for the devil and his angels."},
         {"ref": "Matt 25:46"},
-        {"ref": "Matt 10:28"}
+        {"ref": "Rom 6:23"}
       ]
     },
     {
@@ -11865,8 +11888,7 @@
         {"ref": "2 Kgs 2:1", "words": "the LORD took Elijah up to heaven in a whirlwind"},
         {"ref": "Matt 17:3"},
         {"ref": "John 3:13"},
-        {"ref": "Mal 4:5"},
-        {"ref": "Rev 11:3"}
+        {"ref": "Mal 4:5"}
       ]
     },
     {
@@ -11876,17 +11898,18 @@
       "also": ["how did the disciples die", "deaths of the apostles", "were the apostles martyred", "how did peter die", "was peter crucified", "how did paul die", "how did james die", "did john die of old age", "which apostles were killed", "martyrdom of the twelve", "did the disciples die for their faith", "how did the apostle john die"],
       "signals": ["crucified upside down", "upside down cross", "beheaded", "beheading", "nero", "boiling oil", "boiled in oil", "thomas india", "speared", "andrew x cross", "saltire", "bartholomew", "flayed", "skinned alive", "zebedee", "herod agrippa", "james the just", "simon the zealot", "sawn in half", "thaddeus", "jude", "stoned to death", "foxe", "book of martyrs", "eusebius", "tertullian", "early church tradition"],
       "topics": [
-        {"subject": "MARTYRDOM", "only": ["General scriptures", "James the apostle"]}
+        {"subject": "MARTYRDOM", "only": ["General scriptures", "James the apostle"]},
+        {"subject": "JUDAS (JUDE)", "only": ["Hangs himself"]}
       ],
       "chain": [
+        {"ref": "Matt 27:5"},
         {"ref": "Acts 12:1-2"},
         {"ref": "John 21:18-19"},
         {"ref": "2 Pet 1:14"},
         {"ref": "2 Tim 4:6"},
         {"ref": "Mark 10:39", "words": "You will drink the cup that I drink"},
         {"ref": "John 21:23", "words": "Jesus did not say that he would not die"},
-        {"ref": "Rev 1:9"},
-        {"ref": "Matt 24:9", "words": "they will deliver you over to be persecuted and killed"}
+        {"ref": "Rev 1:9"}
       ]
     },
     {
@@ -12053,8 +12076,8 @@
         {"ref": "Deut 14:1", "words": "You are sons of the LORD your God"},
         {"ref": "Matt 22:30"},
         {"ref": "Jude 1:6"},
-        {"ref": "Deut 2:10-11"},
-        {"ref": "1 Sam 17:4"}
+        {"ref": "Num 13:33", "words": "We even saw the Nephilim there—the descendants of Anak that come from the Nephilim!"},
+        {"ref": "Deut 2:10-11"}
       ]
     },
     {
@@ -12071,8 +12094,8 @@
         {"ref": "Gen 2:16-17"},
         {"ref": "Gen 2:9", "words": "in the middle of the garden were the tree of life and the tree of the knowledge of good and evil"},
         {"ref": "Gen 3:6"},
+        {"ref": "Gen 3:11"},
         {"ref": "Gen 3:22"},
-        {"ref": "Rev 22:2", "words": "On either side of the river stood a tree of life, bearing twelve kinds of fruit and yielding a fresh crop for each month"},
         {"ref": "Rev 22:14"}
       ]
     },
@@ -12093,8 +12116,8 @@
         {"ref": "Gen 7:2-3"},
         {"ref": "Gen 7:9"},
         {"ref": "Gen 7:13"},
-        {"ref": "1 Pet 3:20", "words": "In the ark a few people, only eight souls, were saved through water."},
-        {"ref": "Gen 8:4"}
+        {"ref": "Gen 7:14"},
+        {"ref": "1 Pet 3:20", "words": "In the ark a few people, only eight souls, were saved through water."}
       ]
     },
     {
@@ -12111,11 +12134,11 @@
         {"ref": "Gen 7:19-20"},
         {"ref": "Gen 7:23"},
         {"ref": "2 Pet 3:6"},
+        {"ref": "2 Pet 2:5"},
         {"ref": "Gen 6:5", "words": "the LORD saw that the wickedness of man was great upon the earth"},
         {"ref": "Gen 6:11"},
         {"ref": "Matt 24:38-39"},
-        {"ref": "Gen 9:11"},
-        {"ref": "Gen 9:13"}
+        {"ref": "Gen 9:11"}
       ]
     },
     {
@@ -12135,8 +12158,8 @@
         {"ref": "Deut 1:2"},
         {"ref": "1 Kgs 19:8", "words": "he walked forty days and forty nights until he reached Horeb, the mountain of God"},
         {"ref": "Exod 13:18"},
-        {"ref": "Exod 14:2"},
-        {"ref": "Num 33:8", "words": "They set out from Pi-hahiroth and crossed through the sea, into the wilderness"}
+        {"ref": "Num 33:8", "words": "They set out from Pi-hahiroth and crossed through the sea, into the wilderness"},
+        {"ref": "Exod 16:1"}
       ]
     },
     {
@@ -12231,7 +12254,7 @@
         {"ref": "Acts 9:15"},
         {"ref": "Acts 13:9", "words": "Saul, who was also called Paul"},
         {"ref": "1 Cor 15:9-10", "words": "I am the least of the apostles and am unworthy to be called an apostle, because I persecuted the church of God. But by the grace of God I am what I am"},
-        {"ref": "2 Thess 3:17"},
+        {"ref": "Rom 1:1", "words": "Paul, a servant of Christ Jesus, called to be an apostle, and set apart for the gospel of God"},
         {"ref": "Acts 13:2", "words": "Set apart for Me Barnabas and Saul for the work to which I have called them."}
       ]
     },
@@ -12251,9 +12274,9 @@
         {"ref": "Matt 19:28"},
         {"ref": "Rev 21:14"},
         {"ref": "Num 14:34"},
+        {"ref": "Deut 8:2", "words": "Remember that these forty years the LORD your God led you all the way in the wilderness, so that He might humble you and test you"},
         {"ref": "Matt 4:2"},
-        {"ref": "Matt 12:40"},
-        {"ref": "2 Pet 3:8"}
+        {"ref": "Matt 12:40"}
       ]
     },
     {
@@ -12314,7 +12337,7 @@
         {"ref": "Matt 23:2-3"},
         {"ref": "Matt 23:23"},
         {"ref": "Matt 16:12"},
-        {"ref": "Mark 3:6"},
+        {"ref": "Mark 7:3"},
         {"ref": "Acts 5:34", "words": "a Pharisee named Gamaliel, a teacher of the law who was honored by all the people, stood up in the Sanhedrin"}
       ]
     },
@@ -12350,10 +12373,9 @@
       "chain": [
         {"ref": "Gen 11:4"},
         {"ref": "Gen 11:1-2"},
+        {"ref": "Gen 11:3"},
         {"ref": "Gen 11:5-7"},
-        {"ref": "Gen 11:8-9"},
-        {"ref": "Gen 10:8"},
-        {"ref": "Gen 10:10"}
+        {"ref": "Gen 11:8-9"}
       ]
     },
     {
@@ -12367,14 +12389,13 @@
         {"subject": "LOT", "only": ["2. The son of Haran"]}
       ],
       "chain": [
+        {"ref": "Gen 13:13"},
         {"ref": "Gen 18:20"},
         {"ref": "Gen 19:4-5"},
         {"ref": "Ezek 16:49-50"},
+        {"ref": "Isa 3:9", "words": "like Sodom they flaunt their sin; they do not conceal it."},
         {"ref": "Jude 1:7"},
-        {"ref": "2 Pet 2:6-7"},
-        {"ref": "Gen 19:26"},
-        {"ref": "Luke 17:32"},
-        {"ref": "Gen 19:36"}
+        {"ref": "2 Pet 2:6-7"}
       ]
     },
     {
@@ -12491,13 +12512,13 @@
       ],
       "chain": [
         {"ref": "Gal 3:7"},
+        {"ref": "Rom 4:11", "words": "So then, he is the father of all who believe but are not circumcised, in order that righteousness might be credited to them."},
         {"ref": "Gen 15:6"},
         {"ref": "Rom 4:18"},
         {"ref": "Gen 12:1-3"},
         {"ref": "Heb 11:8"},
-        {"ref": "Gen 17:5"},
-        {"ref": "Gen 21:12-13", "words": "through Isaac your offspring will be reckoned. But I will also make a nation of the slave woman’s son, because he is your offspring."},
-        {"ref": "Neh 9:7"}
+        {"ref": "Heb 11:17", "words": "By faith Abraham, when he was tested, offered up Isaac on the altar."},
+        {"ref": "Gen 17:5"}
       ]
     },
     {
@@ -12659,10 +12680,10 @@
         {"ref": "Song 1:1-2"},
         {"ref": "Song 2:16"},
         {"ref": "Song 2:7"},
+        {"ref": "Song 4:12"},
         {"ref": "Gen 2:24-25"},
         {"ref": "Eph 5:31-32"},
-        {"ref": "Isa 62:5"},
-        {"ref": "Rev 19:7"}
+        {"ref": "Isa 62:5"}
       ]
     },
     {
@@ -12681,7 +12702,7 @@
         {"ref": "1 Pet 1:10-11", "words": "the prophets who foretold the grace to come to you searched and investigated carefully, trying to determine the time and setting to which the Spirit of Christ in them was pointing when He predicted the sufferings of Christ and the glories to follow"},
         {"ref": "Acts 10:43"},
         {"ref": "2 Pet 1:19", "words": "We also have the word of the prophets as confirmed beyond doubt. And you will do well to pay attention to it, as to a lamp shining in a dark place"},
-        {"ref": "Deut 18:22", "words": "When a prophet speaks in the name of the LORD and the message does not come to pass or come true, that is a message the LORD has not spoken."},
+        {"ref": "2 Pet 1:21"},
         {"ref": "1 John 4:1"}
       ]
     },
@@ -12699,9 +12720,9 @@
         {"ref": "Rev 1:3"},
         {"ref": "Rev 1:1", "words": "This is the revelation of Jesus Christ, which God gave Him to show His servants what must soon come to pass. He made it known by sending His angel to His servant John"},
         {"ref": "Rev 1:17", "words": "Do not be afraid. I am the First and the Last"},
+        {"ref": "Rev 1:19"},
         {"ref": "Rev 1:20"},
         {"ref": "Rev 2:7", "words": "He who has an ear, let him hear what the Spirit says to the churches."},
-        {"ref": "Rev 3:15-16"},
         {"ref": "Rev 3:19-20"},
         {"ref": "Rev 22:7"}
       ]
@@ -12741,8 +12762,8 @@
         {"ref": "1 Cor 14:37"},
         {"ref": "1 Cor 4:17", "words": "which is exactly what I teach everywhere in every church"},
         {"ref": "2 Thess 2:15"},
-        {"ref": "1 Cor 11:1"},
-        {"ref": "1 Cor 10:11"}
+        {"ref": "2 Pet 3:16"},
+        {"ref": "1 Cor 11:1"}
       ]
     },
     {
@@ -12797,11 +12818,11 @@
       ],
       "chain": [
         {"ref": "2 Sam 6:6-7"},
+        {"ref": "1 Chr 13:10"},
         {"ref": "2 Sam 6:3", "words": "They set the ark of God on a new cart"},
         {"ref": "Num 4:15", "words": "But they must not touch the holy objects, or they will die."},
         {"ref": "1 Chr 15:13"},
         {"ref": "1 Chr 15:15"},
-        {"ref": "2 Sam 6:8-9"},
         {"ref": "Lev 10:3", "words": "To those who come near Me I will show My holiness, and in the sight of all the people I will reveal My glory."},
         {"ref": "Heb 12:28-29"}
       ]
@@ -12881,9 +12902,9 @@
         {"ref": "Gen 1:27"},
         {"ref": "Gen 2:7"},
         {"ref": "Gen 2:4-5", "words": "This is the account of the heavens and the earth when they were created, in the day that the LORD God made them. Now no shrub of the field had yet appeared on the earth, nor had any plant of the field sprouted"},
-        {"ref": "Gen 1:11", "words": "Let the earth bring forth vegetation: seed-bearing plants and fruit trees"},
-        {"ref": "Gen 1:25", "words": "God made the beasts of the earth according to their kinds"},
+        {"ref": "Gen 2:18"},
         {"ref": "Gen 2:19", "words": "out of the ground the LORD God formed every beast of the field and every bird of the air, and He brought them to the man"},
+        {"ref": "Gen 2:22", "words": "He made a woman and brought her to him."},
         {"ref": "Gen 5:1-2"}
       ]
     },
@@ -12942,7 +12963,7 @@
       "chain": [
         {"ref": "Judg 11:30-31"},
         {"ref": "Judg 11:35", "words": "“No! Not my daughter! You have brought me to my knees! You have brought great misery upon me, for I have given my word to the LORD and cannot take it back.”"},
-        {"ref": "Judg 11:39", "words": "he did to her as he had vowed"},
+        {"ref": "Judg 11:39", "words": "he did to her as he had vowed. And she had never had relations with a man."},
         {"ref": "Deut 18:10", "words": "Let no one be found among you who sacrifices his son or daughter in the fire"},
         {"ref": "Deut 12:31"},
         {"ref": "Lev 5:4"},
@@ -13028,7 +13049,8 @@
         {"ref": "2 Sam 24:9"},
         {"ref": "1 Chr 21:5-6"},
         {"ref": "2 Sam 24:10", "words": "I have sinned greatly in what I have done."},
-        {"ref": "Jas 1:13"}
+        {"ref": "Jas 1:13"},
+        {"ref": "Jas 1:14"}
       ]
     },
     {
@@ -13249,12 +13271,12 @@
       "chain": [
         {"ref": "Luke 1:3-4"},
         {"ref": "2 Pet 1:16"},
+        {"ref": "Acts 26:25-26", "words": "I am speaking words of truth and sobriety. For the king knows about these matters, and I can speak freely to him. I am confident that none of this has escaped his notice, because it was not done in a corner."},
         {"ref": "2 Kgs 20:20"},
         {"ref": "Luke 3:1", "words": "In the fifteenth year of the reign of Tiberius Caesar, while Pontius Pilate was governor of Judea"},
         {"ref": "John 19:13", "words": "he brought Jesus out and sat on the judgment seat at a place called the Stone Pavement, which in Hebrew is Gabbatha."},
         {"ref": "John 5:2"},
-        {"ref": "John 9:7", "words": "Go, wash in the Pool of Siloam"},
-        {"ref": "Rom 16:23", "words": "Erastus, the city treasurer, sends you greetings"}
+        {"ref": "John 9:7", "words": "Go, wash in the Pool of Siloam"}
       ]
     },
     {
@@ -13437,8 +13459,8 @@
         {"ref": "Ps 34:7"},
         {"ref": "Ps 91:11-12"},
         {"ref": "2 Kgs 6:16-17"},
-        {"ref": "Acts 12:11", "words": "Now I know for sure that the Lord has sent His angel and rescued me from Herod’s grasp"},
-        {"ref": "Heb 13:2"}
+        {"ref": "Dan 6:22", "words": "My God sent His angel and shut the mouths of the lions."},
+        {"ref": "Acts 12:11", "words": "Now I know for sure that the Lord has sent His angel and rescued me from Herod’s grasp"}
       ]
     },
     {
@@ -13479,8 +13501,8 @@
         {"ref": "Gen 3:24"},
         {"ref": "Jude 1:9", "words": "the archangel Michael, when he disputed with the devil over the body of Moses"},
         {"ref": "Dan 10:13", "words": "Michael, one of the chief princes, came to help me"},
+        {"ref": "Rev 12:7"},
         {"ref": "Luke 1:19", "words": "“I am Gabriel,” replied the angel. “I stand in the presence of God"},
-        {"ref": "Matt 28:3"},
         {"ref": "1 Thess 4:16", "words": "the Lord Himself will descend from heaven with a loud command, with the voice of an archangel"}
       ]
     },
@@ -13625,7 +13647,7 @@
         {"ref": "Ps 95:1-2"},
         {"ref": "Ps 95:6"},
         {"ref": "Ps 34:3"},
-        {"ref": "Ps 149:3"},
+        {"ref": "Ps 149:1"},
         {"ref": "Ps 134:2"},
         {"ref": "John 4:23-24"}
       ]
@@ -13649,7 +13671,7 @@
         {"ref": "Esth 4:14"},
         {"ref": "Esth 4:16", "words": "After that, I will go to the king, even though it is against the law. And if I perish, I perish!"},
         {"ref": "Esth 7:3"},
-        {"ref": "Esth 9:26", "words": "Therefore these days are called Purim, from the word Pur."}
+        {"ref": "Esth 9:32", "words": "So Esther’s decree confirmed these regulations about Purim"}
       ]
     },
     {
