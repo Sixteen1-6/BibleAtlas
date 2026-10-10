@@ -62,7 +62,7 @@
     {
       "id": "kjv",
       "title": "King James Version (1769)",
-      "provides": "English text used by search, so a verse typed in King James wording is found, and by the build to tell which Nave's subject headings are names (a word the KJV always capitalizes). Never shown.",
+      "provides": "English text used by search, so a verse typed in King James wording is found, and by the build to tell which Nave's subject headings are names (a word the KJV always capitalizes), to place John Wesley's notes on the verse whose words they explain, and to tell footnote marks from words in the Catena Aurea. Never shown.",
       "license": "Public domain",
       "attribution": "King James Version (1769), public domain",
       "homepage": "https://github.com/scrollmapper/bible_databases",
@@ -422,6 +422,53 @@
         "hebrew": "hebrew/strongs-hebrew-dictionary.js"
       },
       "note": "Only each entry's derivation line is used, to link a word to the word it comes from. Strong's definitions are not shown. Guesses ('perhaps', 'probably', 'apparently', 'akin to'), links that rest on a sense the reader can't see, comparisons and compounds of two words are left out, except a Greek word built on a prefix (as ἐξέρχομαι on ἔρχομαι). 'From the same as' and 'from the base of' a word that is not a verb make two words share a root. Where one number covers words that only look alike, the link goes to the one with nearly all the uses or a sense checked by hand. A short hand-checked list corrects slips in Strong's numbers (see NOTICE.md)."
+    },
+    {
+      "id": "catena-aurea",
+      "title": "Catena Aurea (the Golden Chain) on the four Gospels by Thomas Aquinas, in the Oxford translation edited by John Henry Newman (1841–45), as kept in the Catena corpus",
+      "provides": "What the Church Fathers wrote on each passage of Matthew, Mark, Luke and John, in their own words, each quotation under its writer's name. Shown at Deep, under the verses each passage covers, once a reader chooses to see writers' notes.",
+      "license": "Public domain (Aquinas, 1260s; the Oxford translation, 1841–45); the Catena project's code is MIT and its data files mark the text public domain",
+      "attribution": "St. Thomas Aquinas, Catena Aurea: Commentary on the Four Gospels, Collected out of the Works of the Fathers, Oxford translation edited by John Henry Newman (J. G. F. and J. Rivington, 1841–45), public domain. Text as kept in the Catena corpus, github.com/AlvaroBalbin/catena, transcribed from ecatholic2000.com.",
+      "homepage": "https://github.com/AlvaroBalbin/catena",
+      "repo": "https://github.com/AlvaroBalbin/catena",
+      "commit": "efe1bd084d918a34ca22ffeef2ecf711c593b392",
+      "files": {
+        "matthew": "data/catena/matthew.jsonl",
+        "mark": "data/catena/mark.jsonl",
+        "luke": "data/catena/luke.jsonl",
+        "john": "data/catena/john.jsonl",
+        "sources": "data/SOURCES.md"
+      },
+      "note": "Each passage's verse keys use the Douay-Rheims numbering, which starts every passage on the same verse as the English numbering here; the four chapter-end verses the source leaves out (Matthew 17:27, Mark 4:41, Mark 9:50, John 11:57) are given back to the passage that ends those chapters. Only the Fathers' quotations and their names are shown, not the source's own fields. The source joins Aquinas' few short links between quotations to the quotation before them."
+    },
+    {
+      "id": "henry-concise",
+      "title": "Matthew Henry's Concise Commentary on the Whole Bible, from the CrossWire SWORD module (MHCC), as kept in the Let's Church repository",
+      "provides": "Matthew Henry's short notes on every chapter of the Bible, section by section. Shown at Deep, under the verses each section covers, once a reader chooses to see writers' notes.",
+      "license": "Public domain (Matthew Henry's commentary, 1706–21, in its concise form, which the SWORD module marks public domain); the repository is CC0 1.0",
+      "attribution": "Matthew Henry, Concise Commentary on the Whole Bible, public domain, from the CrossWire Bible Society's SWORD module MHCC (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "mhcc": "packages/lets.bible/seed/commentaries/mhcc.json",
+        "license": "LICENSE"
+      },
+      "note": "Each note is placed by Henry's own headings (\"Verses 1-9\"); a chapter he treats as a whole covers the whole chapter. Book introductions and chapter outlines are left out. The file's verse ranges are not used, because the extractor guesses them."
+    },
+    {
+      "id": "wesley-notes",
+      "title": "John Wesley's Explanatory Notes on the Whole Bible, from the CrossWire SWORD module (Wesley), as kept in the Let's Church repository",
+      "provides": "John Wesley's notes on the verses of the Old and New Testaments. Shown at Deep, under the verse each note is on, once a reader chooses to see writers' notes.",
+      "license": "Public domain (John Wesley, 1755–66); the repository is CC0 1.0",
+      "attribution": "John Wesley, Explanatory Notes upon the Old and New Testaments (1755–66), public domain, from the CrossWire Bible Society's SWORD module Wesley (based on the electronic edition by Sulu Kelley and Bill Brown), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "wesley": "packages/lets.bible/seed/commentaries/wesley.json"
+      },
+      "note": "Each note is placed on the verse the module gives it; the file's verse ranges are not used, because the extractor guesses them. Notes the extractor put on a verse 0 (most belong to the last verse of the book before) are left out."
     }
   ]
 }

@@ -26,6 +26,7 @@ mod family;
 mod fetch;
 mod layers;
 mod extra_notes;
+mod extra_voices;
 mod lexhtml;
 mod extra_wordplay;
 mod loaded;
