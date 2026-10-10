@@ -3,7 +3,8 @@
 //
 // The rule (ported from the planner's prototype, thread_final.py):
 // - The theme's verses are every verse that contains one of its Hebrew,
-//   Aramaic or Greek words.
+//   Aramaic or Greek words (less those holding a skipWith word: Seven and
+//   Forty leave out a digit inside a larger count).
 // - Its links are the cross-references between two of those verses with 3 or
 //   more votes, read from the earlier verse to the later one.
 // - A chain starts at an Old Testament verse and moves forward through the
@@ -62,7 +63,8 @@ function cacheOf(a: Atlas): Cache {
   return c;
 }
 
-/** Every verse that contains one of the theme's words, in canon order. */
+/** Every verse that contains one of the theme's words, in canon order, less
+ *  any verse that holds one of its skipWith words (as the build counts them). */
 export function themeVerses(a: Atlas, theme: Theme): Uint32Array {
   const c = cacheOf(a);
   let out = c.verses.get(theme.id);
@@ -73,6 +75,12 @@ export function themeVerses(a: Atlas, theme: Theme): Uint32Array {
       for (const v of versesWithRoot(a, r)) {
         if (!mask[v]) count++;
         mask[v] = 1;
+      }
+    }
+    for (const r of theme.skipWith ?? []) {
+      for (const v of versesWithRoot(a, r)) {
+        if (mask[v]) count--;
+        mask[v] = 0;
       }
     }
     out = new Uint32Array(count);

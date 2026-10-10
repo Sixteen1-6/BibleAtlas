@@ -1,7 +1,8 @@
-/* Theme journeys: theme cards with small skies, the chosen theme's sky and
-   its gold thread. Every class starts with tj-. Colours come from the page
-   tokens in styles.css, so light and dark both work; the skies themselves are
-   always night, like the map. */
+/* Theme journeys: theme cards with small skies, the list of every theme, the
+   chosen theme's sky and its gold thread (classes starting tj-), and a
+   verse's themes card (vt-). Colours come from the page tokens in styles.css,
+   so light and dark both work; the skies themselves are always night, like
+   the map. */
 
 .tj-head {
   display: flex;
@@ -71,35 +72,11 @@
   line-height: 1.4;
 }
 
-/* Chosen theme: the cards fold into one row that scrolls sideways. */
-.tj-strip {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  margin: 0 -18px;
-  padding: 2px 18px 8px;
-  scroll-snap-type: x proximity;
-  scroll-padding-inline: 18px;
-  scrollbar-width: thin;
-}
-.tj-strip .card.tj-card {
-  flex: 0 0 116px;
-  scroll-snap-align: start;
-}
-.tj-strip .tj-cardtext {
-  padding: 5px 9px 7px;
-}
-.tj-strip .tj-card b {
-  font-size: 13px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 /* ------------------------------------------------------------ hero */
 
-/* The journey takes the focus when a theme is chosen from the keyboard (so
-   the next Tab goes into its steps); the panel needs no ring around it. */
+/* The journey takes the focus when a theme is chosen from a card, chip or
+   list in the panel (so the next Tab goes into its steps); the panel needs no
+   ring around it. */
 .tj-journey:focus {
   outline: none;
 }
@@ -127,6 +104,27 @@
 .tj-intro b {
   font-weight: 600;
   margin-right: 3px;
+}
+.tj-keys {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.panel .tj-keys {
+  margin: 4px 0 0;
+}
+.tj-key {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--link);
+  font-size: 13px;
+}
+.tj-key:hover {
+  text-decoration: underline;
 }
 
 /* ------------------------------------------------------------ the thread */
@@ -372,14 +370,447 @@
   .tj-grid {
     grid-template-columns: 1fr;
   }
-  /* Narrower cards, so part of the next one shows and the strip reads as
-     something to swipe. */
-  .tj-strip .card.tj-card {
-    flex-basis: 104px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   .card.tj-card {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------ the list */
+
+.tj-allbtn {
+  display: block;
+  margin-top: 14px;
+  padding: 8px 14px;
+  font-weight: 600;
+}
+.tj-list {
+  margin-top: 14px;
+}
+.tj-list.is-closed {
+  margin-top: 0;
+}
+.tj-listhead {
+  display: block;
+  border: 0;
+  background: none;
+  padding: 4px 0;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+.tj-hide {
+  margin-left: 6px;
+  font-weight: 400;
+  color: var(--link);
+}
+.tj-find input {
+  width: 100%;
+  margin: 6px 0 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.tj-group {
+  border-top: 1px solid var(--line);
+}
+.tj-group:last-child {
+  border-bottom: 1px solid var(--line);
+}
+/* One closed row per group: its name, how many themes, the first three. */
+.tj-grow {
+  display: grid;
+  /* The arrow, the name, the count and the first three themes. */
+  grid-template-columns: 10px auto auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px;
+  width: 100%;
+  padding: 9px 4px;
+  border: 0;
+  background: none;
+  text-align: left;
+  color: var(--ink);
+}
+.tj-grow:hover {
+  background: var(--surface-2);
+}
+.tj-grow::before {
+  content: '›';
+  display: inline-block;
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+.tj-grow[aria-expanded='true']::before {
+  transform: rotate(90deg);
+}
+.tj-gname {
+  font: 600 15px/1.3 var(--font-read);
+}
+.tj-gcount {
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.tj-gsample {
+  font-size: 12.5px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tj-group .tj-chips {
+  padding: 2px 4px 12px 22px;
+}
+.tj-none {
+  font-size: 13px;
+}
+
+/* Theme names as wrapping chips: the open groups, Often linked with, and
+   the themes named in a line. */
+.tj-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tj-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 11px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 14px/1.3 var(--font-read);
+  text-align: left;
+}
+.tj-chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.tj-broad {
+  font: 11px/1.2 var(--font-ui);
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+.tj-names {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+  vertical-align: baseline;
+}
+.tj-names .tj-chip {
+  padding: 1px 9px;
+  font-size: 13.5px;
+}
+
+/* ------------------------------------------------------------ where a verse fits */
+
+.tj-fit {
+  margin: 0 0 10px;
+  padding: 8px 11px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--accent-soft);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.tj-fit.is-out {
+  border-left-color: var(--line);
+  background: var(--surface-2);
+}
+.panel .tj-fit p {
+  margin: 0;
+}
+.panel .tj-fit p + p {
+  margin-top: 6px;
+}
+.tj-steplink {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--link);
+  text-decoration: underline;
+}
+.tj-backto {
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------ often linked with */
+
+.tj-near {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.tj-near li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 10px;
+}
+.tj-nearn {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.tj-near .tj-link {
+  flex-basis: 100%;
+  text-align: left;
+}
+.tj-near .tj-link[aria-pressed='true'] {
+  font-weight: 600;
+}
+.tj-lxx {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.tj-source code {
+  font-size: 11.5px;
+}
+
+/* ------------------------------------------------------------ a verse's themes */
+
+.vt-card {
+  margin: 10px 0 16px;
+  padding: 10px 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+.panel h3.vt-title {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font: 600 15px/1.3 var(--font-read);
+}
+.vt-chips,
+.vt-thrs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vt-own {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  max-width: 100%;
+}
+/* The verse's own words: solid chips that quote the BSB. */
+.vt-chip {
+  max-width: 100%;
+  border: 1px solid var(--accent);
+  border-radius: 18px;
+  padding: 5px 12px;
+  background: var(--accent-soft);
+  color: var(--ink);
+  text-align: left;
+}
+.vt-chip:hover {
+  background: var(--accent);
+  color: var(--surface);
+}
+.vt-chip:hover .vt-q,
+.vt-chip:hover .vt-gloss {
+  color: inherit;
+}
+/* At most two lines, however long the quoted words. */
+.vt-chiptext {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.35;
+}
+.vt-chip b {
+  font: 600 14.5px/1.35 var(--font-read);
+}
+.vt-q,
+.vt-gloss {
+  margin-left: 6px;
+  font: italic 14px/1.35 var(--font-read);
+  color: var(--muted);
+}
+.vt-gloss::before {
+  content: '(';
+}
+.vt-gloss::after {
+  content: ')';
+}
+.vt-more {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 5px 12px;
+  background: none;
+  color: var(--link);
+  font-size: 13px;
+}
+.vt-share {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.vt-lead,
+.vt-quiet {
+  font: 14px/1.5 var(--font-read);
+  color: var(--muted);
+}
+.panel .vt-quiet,
+.xt-body .vt-quiet {
+  margin: 0;
+}
+.panel .vt-lead {
+  margin: 0 0 6px;
+}
+/* Reached through links: dashed, so never mistaken for the verse's own words. */
+.vt-thrs {
+  display: grid;
+  gap: 6px;
+}
+.vt-thr {
+  padding: 6px 10px;
+  border: 1px dashed var(--muted);
+  border-radius: var(--r-md);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.vt-thrname {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--ink);
+  font: 600 14.5px/1.4 var(--font-read);
+  text-decoration: underline dashed var(--muted);
+  text-underline-offset: 3px;
+}
+.vt-thrname:hover {
+  color: var(--accent);
+}
+.vt-thr .tj-broad {
+  margin-left: 6px;
+}
+.vt-thrref {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--link);
+}
+.vt-thrref:hover {
+  text-decoration: underline;
+}
+.vt-votes {
+  font-variant-numeric: tabular-nums;
+}
+.vt-peek {
+  display: block;
+  margin-top: 4px;
+  font: 14px/1.5 var(--font-read);
+  color: var(--ink);
+}
+.panel h4.vt-sub {
+  margin: 12px 0 6px;
+  font: 600 12.5px var(--font-ui);
+  color: var(--muted);
+}
+.vt-rule {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.panel .vt-rule {
+  margin: 10px 0 0;
+}
+
+/* The one-line form, on the Links tab: phones only, since wider screens show
+   the reader's own line beside it. */
+.vt-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin: 2px 0 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 13.5px;
+  text-align: left;
+}
+.vt-line span:first-child {
+  flex: 1;
+}
+.vt-line:hover {
+  border-color: var(--accent);
+}
+@media (min-width: 901px) {
+  .vt-line.vt-phone {
+    display: none;
+  }
+}
+
+/* Phones: full-width card, chips and rows big enough for a thumb, groups
+   opening downward, nothing wider than the screen. */
+@media (max-width: 900px) {
+  .vt-card {
+    margin-inline: 0;
+  }
+  .vt-own {
+    flex: 1 1 100%;
+  }
+  .vt-chip,
+  .vt-more,
+  .tj-chip,
+  .tj-grow,
+  .tj-allbtn,
+  .vt-line {
+    min-height: 44px;
+  }
+  /* Text-sized buttons, in a sentence or on their own, still get a full
+     thumb's height. */
+  .vt-thrname,
+  .vt-thrref,
+  .tj-steplink,
+  .tj-backto,
+  .tj-key,
+  .tj-link,
+  .tj-all {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .tj-listhead {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .tj-gsample {
+    grid-column: 2 / -1;
+    white-space: normal;
+  }
+  .tj-grow {
+    row-gap: 2px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tj-grow::before {
     transition: none;
   }
 }
