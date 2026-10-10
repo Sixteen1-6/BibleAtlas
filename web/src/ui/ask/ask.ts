@@ -87,8 +87,8 @@ export type Asked =
   /** Someone asking about ending their life: where to find help now, then verses of hope. */
   | { kind: 'care'; text: string };
 
-/** The longest question kept in a link. */
-const LIVE_MAX = 160;
+/** The longest question kept in a link: room for a few sentences of what happened. */
+const LIVE_MAX = 400;
 
 // ------------------------------------------------------------ loading
 
@@ -453,6 +453,22 @@ export function looksLikeQuestion(q: string): boolean {
   return q.trim().endsWith('?') || (ws.length >= 2 && QUESTION_WORDS.has(ws[0]));
 }
 
+/** Words of someone telling what they are going through. */
+const TELLING = new Set(['i', 'im', 'ive', 'id', 'ill', 'me', 'my', 'mine', 'myself', 'we', 'were', 'weve', 'our', 'us', 'husband', 'wife', 'mom', 'mum', 'dad', 'mother', 'father', 'son', 'daughter', 'kids', 'kid', 'child', 'children', 'baby', 'boyfriend', 'girlfriend', 'fiance', 'fiancee', 'brother', 'sister', 'grandma', 'grandpa', 'grandmother', 'grandfather', 'friend', 'friends', 'boss', 'coworker', 'pastor', 'parents', 'family']);
+
+/** True when the reader tells what is happening rather than asking: "husband
+ * deploys in 3 weeks", "my dad has dementia". A line that a verse holds word
+ * for word (`quoted`) is a verse being looked for, as "the LORD is my shepherd". */
+export function looksLikeTelling(q: string, quoted: boolean): boolean {
+  return !quoted && contentWords(q).length >= 3 && words(q).some((w) => TELLING.has(w));
+}
+
+/** True when `text`, a verse, holds the query's words in order: "my grace is sufficient for you". */
+export function holdsWords(text: string, query: string): boolean {
+  const q = words(query);
+  return q.length >= 3 && ` ${words(text).join(' ')} `.includes(` ${q.join(' ')} `);
+}
+
 interface Prepared {
   questions: { q: Question; whole: Set<string>; stems: Set<string>; own: Set<string> }[];
   topics: { title: string; whole: string; words: string[] }[];
@@ -484,16 +500,19 @@ export function isCare(query: string): boolean {
 
 /**
  * What a search for `query` could be asking: questions first, then Nave's
- * subjects. A query that reads as a question gets up to `limit`; any other
- * query only an exact match (a question's own wording, or a subject's name),
- * so a phrase from a verse is not crowded out.
+ * subjects. A query that reads as a question, or tells what someone is going
+ * through, gets up to `limit`; any other query only an exact match (a
+ * question's own wording, or a subject's name), so a phrase from a verse is
+ * not crowded out. `quoted`: the best verse found holds the query word for word.
  */
-export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[] {
+export function matchAsk(ix: AskIndex | null, query: string, limit = 3, quoted = false): Asked[] {
   if (isCare(query)) return [{ kind: 'care', text: query.trim().slice(0, LIVE_MAX) }];
   if (!ix) return [];
   const ws = contentWords(query);
-  if (!ws.length || ws.length > 12) return [];
-  const asking = looksLikeQuestion(query);
+  if (!ws.length) return [];
+  const asking = looksLikeQuestion(query) || looksLikeTelling(query, quoted);
+  // A few sentences of what happened: the verses gathered for them.
+  if (ws.length > 12) return asking ? [{ kind: 'live', text: query.trim().slice(0, LIVE_MAX) }] : [];
   const whole = ws.join(' ');
   const key = askKey(query);
   const stems = ws.map(stem);
