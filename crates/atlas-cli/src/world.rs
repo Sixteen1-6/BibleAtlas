@@ -3446,7 +3446,7 @@ type HebrewMap = HashMap<(u8, u16, u16), u32>;
 /// A TAHOT reference, `Mal.4.1(3.19)`: (book, English chapter, English verse,
 /// Hebrew chapter, Hebrew verse). A single number in the parentheses is a
 /// verse in the same chapter.
-fn tahot_ref(field: &str) -> Option<(u8, u16, u16, u16, u16)> {
+pub(crate) fn tahot_ref(field: &str) -> Option<(u8, u16, u16, u16, u16)> {
     let r = field.split('#').next()?;
     let (eng, alt) = r.split_once('(').unwrap_or((r, ""));
     let mut it = eng.split('.');

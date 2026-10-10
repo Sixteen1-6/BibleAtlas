@@ -1,0 +1,121 @@
+/* Christian writers: each writer's words in the reading font under a quiet
+   heading, the Father's name over each quotation, long notes folded behind a
+   small button, and links to other websites at the end. */
+
+.x-voices-work + .x-voices-work,
+.x-voices-elsewhere {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-voices-h {
+  margin: 0 0 2px;
+  font: 600 14px var(--font-ui);
+  color: var(--ink);
+}
+.xt-body .x-voices-book,
+.xt-body .x-voices-on,
+.xt-body .x-voices-quiet {
+  margin: 0 0 8px;
+  font: 12.5px/1.45 var(--font-ui);
+  color: var(--muted);
+}
+.xt-body .x-voices-on {
+  margin-top: 4px;
+  font-weight: 600;
+}
+.x-voices-note + .x-voices-note {
+  margin-top: 12px;
+}
+.x-voices-voice + .x-voices-voice {
+  margin-top: 10px;
+}
+.xt-body .x-voices-who {
+  margin: 0 0 2px;
+  font: 600 13px var(--font-ui);
+  color: var(--ink);
+}
+.x-voices-cite {
+  font-weight: 400;
+  color: var(--muted);
+}
+.xt-body .x-voices-p {
+  margin: 0 0 8px;
+  font: 15px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.x-voices-ref {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.x-voices-ref:hover {
+  text-decoration-color: currentColor;
+}
+.x-voices-more,
+.x-voices-about,
+.x-voices-hide {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 13px var(--font-ui);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.x-voices-about {
+  font-size: 12.5px;
+}
+.xt-body .x-voices-ask {
+  margin: 12px 0 8px;
+}
+.x-voices-allow {
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  font: 600 14px var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-voices-allow:hover {
+  background: var(--surface-2);
+}
+.x-voices-links {
+  margin: 4px 0 6px;
+  padding-left: 18px;
+  font: 14px/1.5 var(--font-ui);
+}
+.x-voices-links li {
+  margin: 0 0 4px;
+}
+.x-voices-links a {
+  color: var(--link);
+}
+.x-voices-site {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+/* The site's name opens its card on the Sources shelf, so it looks unlike the link to the site. */
+.x-voices-site .x-voices-about {
+  color: inherit;
+  text-decoration-style: dotted;
+}
+.x-voices-top:focus,
+.x-voices-voice:focus {
+  outline: none;
+}
+.x-voices-ref:focus-visible,
+.x-voices-more:focus-visible,
+.x-voices-about:focus-visible,
+.x-voices-hide:focus-visible,
+.x-voices-allow:focus-visible,
+.x-voices-links a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

@@ -1,0 +1,33 @@
+/* Hard passages: the passages, then a plain list of pages elsewhere. Only the
+   app's colour variables, so the paper (light) and dark themes both follow. */
+
+.xt-body .x-hard-passages-h {
+  margin: 18px 0 8px;
+  font: 600 13px var(--font-ui);
+  color: var(--muted);
+}
+.x-hard-passages-links {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  font: 14px/1.5 var(--font-ui);
+}
+.x-hard-passages-links li {
+  margin: 0 0 4px;
+}
+.x-hard-passages-links a {
+  color: var(--link);
+}
+.x-hard-passages-links a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.x-hard-passages-site {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.xt-body .x-hard-passages-quiet {
+  margin: 0 0 8px;
+  font: 12.5px/1.45 var(--font-ui);
+  color: var(--muted);
+}
