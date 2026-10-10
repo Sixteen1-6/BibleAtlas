@@ -61,6 +61,11 @@ function ThemesNote({ a }: { a: Atlas }) {
           Each such theme is shown with the verse it comes through.
         </p>
       )}
+      <p>
+        At Study, a verse no theme reaches shows the subjects Nave’s Topical Bible (1896) lists it under, each opening in Ask the Bible: subjects whose references of 3 verses or fewer cite it,
+        those citing it in the most lines first, then the smaller; else up to two passages of 4 to 60 verses that hold it. Only subjects about a concept are shown, never people, places or
+        other names or those config/naves-display.json leaves out, and none becomes a theme.
+      </p>
       {near && (
         <p>
           Themes are “often linked with” each other when, among the {near.pairs.toLocaleString()} pairs of verses joined by a link with {near.votes} or more votes, {near.minLinks} or more join

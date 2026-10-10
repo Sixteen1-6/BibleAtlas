@@ -737,6 +737,39 @@
 .panel .vt-rule {
   margin: 10px 0 0;
 }
+/* Nave's subjects, where no theme reaches the verse (Study): one plain line,
+   each subject a way into Ask the Bible. Not chips or dashed rows, so never
+   taken for a theme. */
+.vt-naves {
+  font: 14px/1.6 var(--font-read);
+  color: var(--muted);
+}
+.panel .vt-naves,
+.xt-body .vt-naves {
+  margin: 0;
+}
+.vt-nname {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--link);
+  font: 600 14px/1.6 var(--font-read);
+}
+.vt-nname:hover {
+  text-decoration: underline;
+}
+.vt-nmore {
+  padding: 1px 10px;
+}
+.vt-src {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.vt-src .tj-link {
+  font-size: inherit;
+}
 
 /* The one-line form, on the Links tab: phones only, since wider screens show
    the reader's own line beside it. */
@@ -787,6 +820,7 @@
      thumb's height. */
   .vt-thrname,
   .vt-thrref,
+  .vt-nname,
   .tj-steplink,
   .tj-backto,
   .tj-key,
