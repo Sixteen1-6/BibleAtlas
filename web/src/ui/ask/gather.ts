@@ -19,7 +19,7 @@ import type { Atlas } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { loadJson } from '../extras/data';
-import { type AskIndex, type Range, contentWords, loadAsk, stem, topicData } from './ask';
+import { type AskIndex, type Range, contentWords, loadAsk, sameWord, stem, topicData } from './ask';
 
 /** Plain English -> the words the BSB uses for it. Search mechanics only: each
  * entry adds words to look for; every verse found is shown as it stands. */
@@ -159,9 +159,13 @@ function has(words: string[], w: string): boolean {
 /** A word and the other forms of it the BSB uses: "die" -> die, dies, died, dying. */
 function formsOf(words: string[], w: string): string[] {
   const out = new Set<string>();
-  const roots = new Set([w, stem(w)]);
-  if (w.endsWith('ied')) roots.add(`${w.slice(0, -3)}y`);
-  if (w.endsWith('ies')) roots.add(`${w.slice(0, -3)}y`);
+  const roots = new Set([w]);
+  // "babies" -> baby, not "bab" (and so "babes"); and a stem only where an
+  // ending came off, so "here" does not become "her" (and so "herd").
+  const st = stem(w);
+  const cut = w.slice(st.length);
+  if (w.length > 4 && (w.endsWith('ied') || w.endsWith('ies'))) roots.add(`${w.slice(0, -3)}y`);
+  else if (st.length >= 3 && cut !== 'e' && cut !== 'y') roots.add(st);
   for (const r of roots) {
     for (const end of ['', 's', 'es', 'd', 'ed', 'ing', 'e', 'er', 'ers', 'ness', 'ly', 'ful']) {
       const f = r + end;
@@ -230,11 +234,13 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   });
 
   // 2b. Nave's subjects named by the concepts, and 2c. prepared questions with these words.
-  const conceptStems = new Set(concepts.flatMap((c) => [stem(c.word), ...c.forms.map(stem)]));
+  // Each word of the subject's name must be one of the concepts' words or a
+  // form of one: "treat" does not name "Treaty".
+  const conceptWords = [...new Set(concepts.flatMap((c) => [c.word, ...c.forms]))];
   const subjects: { i: number; title: string }[] = [];
   ix.topics.forEach(([title], i) => {
-    const ts = contentWords(title).map(stem);
-    if (ts.length && ts.length <= 2 && ts.every((t) => conceptStems.has(t))) subjects.push({ i, title });
+    const ts = contentWords(title);
+    if (ts.length && ts.length <= 2 && ts.every((t) => conceptWords.some((w) => sameWord(w, t)))) subjects.push({ i, title });
   });
   // Largest first, but a subject as wide as "God" says little about one question.
   subjects.sort((x, y) => ix.topics[y.i][1] - ix.topics[x.i][1]);
