@@ -129,7 +129,7 @@ const REMAP_H: [(&str, &str); 7] = [
     ("H0650", "H0662"), // אָפִיק channel from אָפַק, not "to gather"
     ("H3547", "H3548"), // כָּהַן "used only as denominative from" כֹּהֵן
 ];
-const NO_PARENT_H: [&str; 34] = [
+const NO_PARENT_H: [&str; 44] = [
     "H1992", // הֵם they: "from H1981" is a typo, and the print edition's הוּא is a paradigm
     "H4712", // מֵצַר: the right number is split into homonyms
     "H4480", // מִן from is not from מֵן string
@@ -151,16 +151,28 @@ const NO_PARENT_H: [&str; 34] = [
     "H2770", "H2779", "H5750", "H7454", // sickle, autumn, עוֹד still, thought: Strong's chose the wrong homonym
     "H6499", "H6510", "H8574", "H1257", // bull and heifer from "breaking", oven from "lamp", fowl from "grain"
     "H3599", // כִּיס purse is not a form of כּוֹס cup
+    "H0168", "H6310", "H7794", // tent, mouth, ox are not from "shine", "cleave", "travel"
+    "H3678", "H5785", "H2220", // throne (a loanword), skin, arm are not from "cover", "be bare", "sow"
+    "H5601", // סַפִּיר sapphire is a loanword, not from "to count"
+    "H3915", "H3222", // night is not "a twist", nor hot springs from day's "to be hot"
+    "H3202", // יְכִל is the Aramaic of יָכֹל (Strong's leaves out "corresponding")
 ];
 /// Senses that stay out of every family: names filed as common words, and
 /// homonyms of a word whose derivation is about the other (henna and village
 /// are not "ransom" from כָּפַר).
-const NO_FAMILY: [&str; 13] = ["H3724C", "H3724D", "H3723G", "H4428I", "H4428J", "H4428L", "H1516K", "H1516P", "H6010J", "H4629G", "H6828H", "H7704A", "H6154A"];
+const NO_FAMILY: [&str; 17] =
+    ["H3724C", "H3724D", "H3723G", "H4428I", "H4428J", "H4428L", "H1516K", "H1516P", "H6010J", "H4629G", "H6828H", "H7704A", "H6154A", "H5697B", "H1575", "H5522", "H6713"];
+/// Senses STEPBible files under a number that are other words, with other
+/// roots (קֹל frivolity under קוֹל voice, עוּן dwell under עָנָה answer): not
+/// siblings of the number's words, and not given its parent.
+const SPLIT: [&str; 19] = [
+    "H6963B", "H6030A", "H7311B", "H3559B", "H2491B", "H6869A", "H2342B", "H6211B", "H5606B", "H2529B", "H1933A", "H6979B", "H6979C", "H5132A", "H3856B", "H2256B", "H2256D", "H7771B", "H2131B",
+];
 /// Which of a split parent's words a child comes from, where the numbers alone
 /// can't tell (שָׁלוֹם from שָׁלֵם "to complete", not "to repay").
 const CHILD_SENSE: [(&str, &str); 53] = [
-    // The sword, and the verb "to slay" made from it.
-    ("H2719", "H2717C"),
+    // The sword "from its destructive effect" (BDB: "to slay" is made from the sword).
+    ("H2719", "H2717B"),
     ("H7965", "H7999A"),
     ("H8416", "H1984B"),
     ("H6607", "H6605A"),
@@ -281,8 +293,11 @@ const TWINS: [(&str, &str); 62] = [
     ("H7992", "H8531"),
     ("H8213", "H8215"),
 ];
+/// Pairs TBESH files as twins whose Strong's lines tie them only by a guess
+/// (שְׁמַשׁ "to serve" is not the Aramaic of שֶׁמֶשׁ sun, nor שְׁכַח "find" of שָׁכַח "forget").
+const NOT_TWINS: [(&str, &str); 6] = [("H8121", "H8120"), ("H7911", "H7912"), ("H8199", "H8614"), ("H7364", "H7365"), ("H6760", "H6739"), ("H5362", "H5368")];
 /// More twins from the hand check (kept apart only to keep lines short).
-const TWINS_MORE: [(&str, &str); 3] = [("H8255", "H8625"), ("H8271", "H8281"), ("H0776", "H0778")];
+const TWINS_MORE: [(&str, &str); 4] = [("H8255", "H8625"), ("H8271", "H8281"), ("H0776", "H0778"), ("H3201", "H3202")];
 
 /// What one Strong's derivation line says about its word.
 #[derive(Debug, PartialEq)]
@@ -322,6 +337,8 @@ pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize
     let known: HashSet<String> = dict.keys().filter_map(|k| k.strip_prefix(lang).map(|n| base(lang, n))).collect();
     // Verbs whose line says they are "used only as denominative" from a noun.
     let mut denominative: HashSet<String> = HashSet::new();
+    // ... and the noun, however the rest of the line hedges (עָשַׂר tithe from עֶשֶׂר ten).
+    let mut made_from: Vec<(String, String)> = Vec::new();
     let mut parents: HashMap<String, String> = HashMap::new();
     for (k, e) in &dict {
         let Some(n) = k.strip_prefix(lang) else {
@@ -333,6 +350,13 @@ pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize
         let lower = der.to_ascii_lowercase();
         if ["only as denominative", "only as a denominative", "used as denominative", "used as a denominative"].iter().any(|p| lower.contains(p)) {
             denominative.insert(me.clone());
+        }
+        // Not when the note is an aside about one sense: שָׁעַר "(literally, but only as denominative from H8179)".
+        let bare = strip_parens(der);
+        if let Some(i) = ["only as denominative", "only as a denominative"].iter().filter_map(|p| bare.to_ascii_lowercase().find(p)).min() {
+            if let Some(x) = refs_in(&bare[i..], lang).into_iter().find(|x| *x != me && known.contains(x)) {
+                made_from.push((me.clone(), x));
+            }
         }
         if lang == 'H' {
             d.cites.insert(me.clone(), refs_in(der, 'H'));
@@ -362,6 +386,12 @@ pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize
     // <verb>" would make each the other's parent, so both only share a root.
     let shared: HashSet<(String, String)> = d.same.iter().filter(|(a, _)| a.starts_with(lang)).cloned().collect();
     parents.retain(|c, p| !shared.contains(&(p.clone(), c.clone())));
+    for (verb, noun) in made_from {
+        if parents.get(&noun) == Some(&verb) {
+            parents.remove(&noun);
+        }
+        parents.insert(verb, noun);
+    }
     // Other two-way loops: a verb "used only as denominative" keeps its noun as
     // parent; any other pair says nothing reliable about direction.
     let cycles: Vec<(String, String)> = parents.iter().filter(|(c, p)| parents.get(*p) == Some(*c) && c < p).map(|(c, p)| (c.clone(), p.clone())).collect();
@@ -433,6 +463,10 @@ pub fn classify(lang: char, me: &str, der: &str, def: &str, known: &HashSet<Stri
     if lower.split(|c: char| !c.is_ascii_alphabetic()).any(|w| GUESSES.contains(&w)) || lower.contains("through the idea") {
         return None;
     }
+    // "A presumed derivative" is the Greek formula for a plain one; in Hebrew it is a guess (אוֹ or from "desire").
+    if lang == 'H' && lower.contains("presumed") {
+        return None;
+    }
     // A sense the reader can't see links words that look unrelated (gate from "to calculate").
     const SENSES: [&str; 8] = ["sense of", "original sense", "original meaning", "through the meaning", "second. sense", "secondary sense", "primary sense", "denominative sense"];
     if lang == 'H' && SENSES.iter().any(|p| lower.contains(p)) {
@@ -499,7 +533,8 @@ pub fn classify(lang: char, me: &str, der: &str, def: &str, known: &HashSet<Stri
         }
         return None;
     }
-    if lower.contains("identical with") {
+    // "Identical (in origin and formation) with", or "but really" another word.
+    if lower.contains("identical with") || flat.contains("identical with") || lower.contains("but really") {
         return None;
     }
     if ["the same as", "same root as", "same base as", "same form as"].iter().any(|p| lower.contains(p)) {
@@ -847,7 +882,7 @@ fn spelling_key(s: &str) -> String {
 /// One `forms/<shard>.json` entry per root.
 pub fn build(roots: &[Root], words: &[Vec<Word>], l_off: &[u32], l_verse: &[u32], l_pos: &[u16], d: &Derivations) -> Vec<Value> {
     let n = roots.len();
-    for k in CHILD_SENSE.iter().map(|x| x.1).chain(NO_FAMILY) {
+    for k in CHILD_SENSE.iter().map(|x| x.1).chain(NO_FAMILY).chain(SPLIT) {
         if !roots.iter().any(|r| r.key == k) {
             eprintln!("word families: warning: {k} is not a root");
         }
@@ -1007,7 +1042,8 @@ impl<'a> Families<'a> {
             // not a sense of it. Nor does a name join two words (פָּנָה "to turn"
             // and פִּנָּה "corner" through the Corner Gate).
             if r.relation.contains("Meaning of") || r.relation.contains("Spelling of") {
-                if let Some(&t) = index.get(r.target).filter(|&&t| roots[t].key[..1] == r.key[..1] && !named(r) && !named(&roots[t])) {
+                let same_lang = |t: usize| roots[t].key[..1] == r.key[..1] && roots[t].morph.get(..2) == r.morph.get(..2);
+                if let Some(&t) = index.get(r.target).filter(|&&t| same_lang(t) && !named(r) && !named(&roots[t])) {
                     let (a, b) = (find(&mut uf, i), find(&mut uf, t));
                     uf[a] = b;
                 }
@@ -1119,7 +1155,8 @@ impl<'a> Families<'a> {
         let backed = |a: &str, b: &str| {
             let (a, b) = (number(a), number(b));
             let cites = |x: &str, y: &str| d.cites.get(x).is_some_and(|v| v.iter().any(|z| z == y));
-            cites(a, b) || cites(b, a) || TWINS.iter().chain(&TWINS_MORE).any(|&(x, y)| (x, y) == (a, b) || (x, y) == (b, a))
+            let listed = |l: &[(&str, &str)]| l.iter().any(|&(x, y)| (x, y) == (a, b) || (x, y) == (b, a));
+            !listed(&NOT_TWINS) && (cites(a, b) || cites(b, a) || listed(&TWINS) || listed(&TWINS_MORE))
         };
         for (i, r) in roots.iter().enumerate() {
             let twin = r.relation.contains("in Aramaic of") || r.relation.contains("in Hebrew of");
@@ -1166,11 +1203,16 @@ impl<'a> Families<'a> {
     /// The words a number's Strong's line is about: its main word, and the
     /// others that are not look-alikes of it (another spelling, a participle).
     fn kin(&self, n: &str) -> Vec<usize> {
-        let ws = self.all(n);
+        let ws: Vec<usize> = self.all(n).into_iter().filter(|&w| !self.split(w)).collect();
         let Some(&top) = ws.first() else {
             return Vec::new();
         };
         ws.into_iter().filter(|&w| w == top || !self.look_alike(top, w)).collect()
+    }
+
+    /// Another word filed under its number (SPLIT).
+    fn split(&self, w: usize) -> bool {
+        self.members[w].iter().any(|&j| SPLIT.contains(&self.roots[j as usize].key))
     }
 
     /// The one word a link to number `n` means: its main word, unless a
@@ -1221,7 +1263,9 @@ impl<'a> Families<'a> {
             s.extend(self.down_direct.get(&pw).into_iter().flatten().filter(|&&w| w != me));
         }
         s.extend(get(&self.same));
-        s.extend(self.all(number(self.roots[i].key)).into_iter().filter(|&w| w != me && !self.homonyms(me, w)));
+        if !self.split(me) {
+            s.extend(self.all(number(self.roots[i].key)).into_iter().filter(|&w| w != me && !self.homonyms(me, w) && !self.split(w)));
+        }
         let a = get(&self.twins);
 
         let mut seen: HashSet<usize> = HashSet::from([me]);
@@ -1266,6 +1310,14 @@ mod tests {
         assert_eq!(refs_in("from H157 or H157", 'H'), vec!["H0157"]);
         assert_eq!(number("H7673A"), "H7673");
         assert_eq!(number("G20447"), "G20447");
+    }
+
+    #[test]
+    fn leaves_out_hedged_identities() {
+        let k = known(&["H0784", "H0786", "H0176", "H0185", "H0929", "H0930"]);
+        assert_eq!(classify('H', "H0786", "identical (in origin and formation) with H784 (אֵשׁ);", "", &k), None);
+        assert_eq!(classify('H', "H0176", "presumed to be the 'constructive' or genitival form of אַו ; short for H185 (אַוָּה);", "", &k), None);
+        assert_eq!(classify('H', "H0930", "in form a plural or H929 (בְּהֵמָה), but really a singular of Egyptian derivation;", "", &k), None);
     }
 
     #[test]
