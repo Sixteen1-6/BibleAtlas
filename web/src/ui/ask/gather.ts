@@ -381,8 +381,9 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(doesnt|does not|dont|do not|wont|will not|stopped|refuses to|never) (speak|talk|call|answer)(s|ing)? to me\b|\bestranged\b|\bcut me off\b|\bnot speaking\b|\bstopped talking\b/, ['father compassion saw', 'peace everyone', 'father mother forsake']],
   [/\b(comfort|help|support|encourage|say to|be there for) (a |my )?(friend|someone|person|loved one)\b/, ['weep with', 'god of all comfort', 'seven days nights', 'carry burdens']],
   [/\b(talk|speak) to (him|her|them|my \w+) about (it|this|that)\b|\bconfront(ing)? (him|her|them|my \w+)\b/, ['restore gentleness', 'truth love speaking']],
-  [/\babus(e|ed|es|ive|er|ing)\b|\bdomestic violence\b|\b(hits|beats|hurts) me\b/, ['violence', 'violent', 'harsh', 'oppression']],
-  [/\b(make|makes|made|making) fun of\b|\bmock(s|ed|ing)? me\b|\blaugh(s|ed)? at me\b/, ['insult', 'insulted', 'mock', 'mocked', 'scorn', 'ridicule']],
+  // The one who hurts them is part of what they ask: "husband" alone would find "wives, submit".
+  [/\b((my )?(husband|wife|partner|spouse|boyfriend|girlfriend|dad|father|mom|mother|parents?|stepdad|stepfather) (is |was |has been |keeps )?)?(abus(e|ed|es|ive|er|ing)( me)?|hits me|beats me|hurts me)\b|\bdomestic violence\b/, ['lover violence', 'garment violence', 'love wives harsh', 'violent', 'violence']],
+  [/\b(make|makes|made|making) fun of\b|\bmock(s|ed|ing)? me\b|\blaugh(s|ed)? at me\b/, ['insult persecute', 'insulted name christ', 'suffer as christian', 'insult', 'insulted', 'mock', 'mocked', 'scorn', 'ridicule']],
   [/\b(take care of|taking care of|care for|caring for|look after|looking after) (my |our )?(aging |elderly |old |sick )?(parents|mom|mother|dad|father|grandparents)\b|\b(aging|elderly) parents\b/, ['repay parents', 'provide own household', 'here is your mother']],
   [/\b(getting|growing|grow|get) old(er)?\b|\bold age\b|\baging\b|\bageing\b|\belderly\b/, ['old age', 'gray hair']],
   [/\bin[- ]?laws?\b/, ['mother in law', 'father in law', 'leave father mother']],
@@ -392,6 +393,8 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(passed away|passed on|who passed)\b/, ['died', 'death', 'dead']],
   [/\b(some|most|these|those|every|other|many) (days?|nights?)\b/, []],
   // Questions of faith.
+  [/\b(is )?(anything|nothing) (is )?too (hard|difficult)\b/, ['too difficult', 'possible with god', 'nothing impossible']],
+  [/(?<=\bpray\w*\b.*)\b(really |actually )?(change|changes|work|works|matter|matters|help|helps|make a difference)( anything| things| gods? mind| his mind)?\b/, ['prayer righteous power', 'heard your prayer', 'elijah prayed']],
   [/\bpray(ing|er|ers)? for (other people|others|other|someone|people|each other|one another|my \w+)\b/, ['intercedes', 'intercession', 'pray for each other', 'petitions']],
   [/\b(pray|praying|ask|asking)( in)? (jesus|jesuss|his|christs?) name\b|\bin jesus name\b/, ['ask name whatever', 'name lord jesus']],
   [/\b(child|children|son|sons|daughter|daughters) of god\b/, ['called children god', 'right become children', 'led spirit sons', 'heirs god', 'abba', 'adoption']],
@@ -401,7 +404,7 @@ const PHRASES: [RegExp, string[]][] = [
   [/\bname in vain\b|\b(take|taking|use|using) (gods?|the lords?) name\b/, ['vain name lord', 'profane name']],
   [/\b(made|created) in (gods?|his|the) image\b|\bimage of god\b|\bgods? image\b/, ['likeness god', 'image creator', 'our image']],
   [/\bwho (made|created) god\b|\bwhere did god come from\b|\bhas god always (existed|been)\b/, ['from everlasting', 'alpha omega']],
-  [/\bgod (a |an )?(man|male|woman|female|boy|girl|he or she|gender)\b/, ['not man lie', 'god spirit worship']],
+  [/\bgod (a |an )?(man|male|woman|female|boy|girl|he or she)( or (a |an )?(man|male|woman|female|boy|girl))?\b|\bgods gender\b|\bgender of god\b/, ['man that he should lie', 'god spirit worshipers']],
   [/\b(what|how) did jesus look( like)?\b|\bjesus (looks|appearance|face|skin|hair)\b/, ['form majesty', 'white wool', 'face shone']],
   [/\b(four|4) gospels\b|\b(different|so many) gospels\b/, ['orderly account', 'many other signs']],
   [/\b(which|what|how many) books\b.*\b(bible|scriptures?)\b|\bcanon\b|\bwho (decided|chose|picked)\b.*\b(books|bible|scriptures?)\b/, ['god breathed', 'law prophets psalms', 'scripture broken']],
@@ -409,7 +412,7 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(yahweh|jehovah)\b|\bname of god\b|\bgods? name\b/, ['my name forever', 'name lord known', 'i am sent you israelites']],
   [/\b(book of )?revelation\b/, ['revelation jesus christ', 'words this prophecy']],
   [/\b(some|certain) sins? (worse|greater|bigger)\b|\b(worse|greater|bigger|worst) sins?\b/, ['greater sin', 'blasphemy spirit', 'one point']],
-  [/\bgod (ever )?chang(e|es|ed|ing) (his )?mind\b/, ['relented', 'relent', 'not man lie']],
+  [/\bgod (ever )?chang(e|es|ed|ing) (his )?mind\b/, ['relented', 'relent', 'man that he should lie', 'lord do not change']],
   [/\bgenerational (curses?|sins?)\b|\bsins? of (the |my )?(fathers|parents|ancestors)\b/, ['third fourth', 'sour grapes', 'son not bear']],
   [/\b(read|reads|know|knows) (my |our )?(mind|thoughts)\b/, ['know hearts', 'searches heart', 'understand my thoughts']],
   [/\bunethical\b/, ['fruitless deeds darkness', 'share sins']],
@@ -525,6 +528,8 @@ interface Concept {
   /** Words to highlight. */
   marks: string[];
   found: Set<number>;
+  /** Verses that hold one of its Bible phrases whole: the closest words for it. */
+  close: Set<number>;
 }
 
 /** One thing the question asks about: its own word and the Bible's words for
@@ -543,16 +548,20 @@ function concept(a: Atlas, word: string, bible: string[], own: boolean): Concept
     }
   }
   const found = versesWith(a, [...forms]);
+  const close = new Set<number>();
   const marks = new Set(forms);
   for (const ps of phrases) {
     const sets = ps.map((p) => versesWith(a, [p]));
-    for (const v of sets[0]) if (sets.every((vs) => vs.has(v))) found.add(v);
+    for (const v of sets[0]) if (sets.every((vs) => vs.has(v))) {
+      found.add(v);
+      close.add(v);
+    }
     ps.forEach((p, i) => {
       // "love the LORD your God": "love" marks the verse, "God" says little.
       if (sets[i].size < COMMON && contentWords(p).length) marks.add(p);
     });
   }
-  return { word, forms: [...forms], names: own ? [word, ...ownForms] : [], exact, phrases, marks: [...marks], found };
+  return { word, forms: [...forms], names: own ? [word, ...ownForms] : [], exact, phrases, marks: [...marks], found, close };
 }
 
 /** Does a Nave's subject's name (its words) name this concept? */
@@ -659,7 +668,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // A word the Bible does not use, with only broad words beside it ("is
   // gambling a sin"): verses that hold only "sin" would not answer it.
   if (concepts.some((_, i) => !reach[i].size) && usable.every((i) => reach[i].size > BROAD)) usable.length = 0;
-  const idf = new Map(usable.map((i) => [i, Math.log(1 + n / reach[i].size)]));
+  // A phrase is what the person is going through; the words beside it say where.
+  const idf = new Map(usable.map((i) => [i, Math.log(1 + n / reach[i].size) * (i < phrases.length ? 1.5 : 1)]));
   const mass = [...idf.values()].reduce((x, y) => x + y, 0) || 1;
   const text = new Map<number, number>();
   for (const i of usable) for (const v of reach[i]) text.set(v, (text.get(v) ?? 0) + idf.get(i)! / mass);
@@ -691,8 +701,9 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     const genre = TEACHING[a.books[a.verseBook[v]].genre] ?? 0;
     // "Why" is answered where a verse gives the reason.
     const reason = why && t && REASON.test(t) ? 0.4 : 0;
+    const closest = usable.some((i) => concepts[i].close.has(v)) ? 0.5 : 0;
     // How much of the question a verse holds comes first.
-    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason);
+    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest);
   }
 
   // The Bible pointing to itself: links among the best candidates count.
