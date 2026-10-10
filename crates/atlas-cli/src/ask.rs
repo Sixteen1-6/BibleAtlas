@@ -25,9 +25,11 @@
 //!   text and the cross-references.
 //!
 //! Files, under web/public/data:
-//! - `ask/index.json`: the questions, the groups, and every Nave's subject's
-//!   name and verse count. Loaded when search opens.
-//! - `ask/q/<id>.json`: one question's wider set of verses, as ranges.
+//! - `ask/index.json`: the questions (each with its other phrasings and the
+//!   verses of its chain), the groups, and every Nave's subject's name and
+//!   verse count. Loaded when search opens.
+//! - `ask/q/<id>.json`: one question's chain, and its wider set of verses as
+//!   ranges. Loaded when the question opens.
 //! - `ask/topics/<n>.json`: subjects `n * 250` onward, each its most-cited
 //!   verses and all its verses as ranges.
 
@@ -589,6 +591,7 @@ impl<'a> Check<'a> {
 /// What one question publishes.
 struct Built {
     index: Value,
+    chain: Vec<Value>,
     cluster: Vec<(u32, u32)>,
 }
 
@@ -746,9 +749,9 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
     let index = json!({
         "id": q.id, "g": group, "q": q.question.trim(), "also": q.also, "n": count(&cluster),
         "top": ranges_json(&most_cited(lines.iter().copied(), src.degree)),
-        "chain": chain,
+        "r": ranges_json(&parts),
     });
-    Some(Built { index, cluster })
+    Some(Built { index, chain, cluster })
 }
 
 /// The files to write under web/public/data, as (path, bytes).
@@ -783,7 +786,7 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
         if let Some(b) = question(&mut check, q, src, &mut tally) {
             out.push((
                 format!("ask/q/{}.json", q.id),
-                serde_json::to_vec(&json!({ "v": ranges_json(&b.cluster) }))
+                serde_json::to_vec(&json!({ "chain": b.chain, "v": ranges_json(&b.cluster) }))
                     .map_err(|e| e.to_string())?,
             ));
             questions.push(b.index);
@@ -839,7 +842,7 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
             serde_json::to_vec(shard).map_err(|e| e.to_string())?,
         ));
     }
-    let index = json!({ "format": 1, "groups": GROUPS, "questions": questions, "topics": topics, "shard": TOPIC_SHARD });
+    let index = json!({ "format": 2, "groups": GROUPS, "questions": questions, "topics": topics, "shard": TOPIC_SHARD });
     out.push((
         "ask/index.json".to_string(),
         serde_json::to_vec(&index).map_err(|e| e.to_string())?,
@@ -906,15 +909,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             && in_text(&cluster["v"])
             && cluster["v"].as_array().is_some_and(|v| !v.is_empty())
             && q["top"].as_array().is_some_and(|t| !t.is_empty());
-        q_ok &= in_text(&Value::Array(
-            q["chain"]
-                .as_array()
-                .into_iter()
-                .flatten()
-                .map(|p| p["r"].clone())
-                .collect(),
-        ));
-        let chain = q["chain"].as_array();
+        let chain = cluster["chain"].as_array();
+        let ranges: Vec<Value> = chain.into_iter().flatten().map(|p| p["r"].clone()).collect();
+        q_ok &= in_text(&Value::Array(ranges.clone())) && q["r"].as_array() == Some(&ranges);
         parts += chain.map_or(0, Vec::len);
         tied &= chain.is_some_and(|c| {
             !c.is_empty() && c.iter().all(|p| p["t"].as_object().is_some_and(|t| !t.is_empty()))

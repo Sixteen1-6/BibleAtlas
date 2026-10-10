@@ -24,7 +24,7 @@ import { Passage, SourceNote, refName } from '../extras/kit';
 import { Shell } from '../extras/Sheet';
 import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
-import { type Asked, type Part, type Range, askId, askIndex, askOpen, askVerses, closeAsk, findAsked, lastClose, loadAsk, topicData } from './ask';
+import { type Asked, type Part, type Range, askId, askIndex, askOpen, closeAsk, findAsked, lastClose, loadAsk, questionData, topicData } from './ask';
 import type { Gathered } from './gather';
 import { route } from './route';
 
@@ -268,17 +268,19 @@ const NAVES = 'Nave’s Topical Bible (1896; this edition CC BY 4.0, Brady Steph
  * asked in other words, when this question is the one that answers it. */
 function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'question' }; typed?: string }) {
   const q = asked.q;
-  const rs = useAsync(`q:${q.id}`, () => askVerses(a, asked));
+  const got = useAsync(`q:${q.id}`, () => questionData(a, q));
   const study = atLeast('study');
   useEffect(() => {
-    if (study && rs) void lightOnMap(a, q.id, expand(rs), q.q);
-  }, [q.id, study, rs]);
+    if (study && got) void lightOnMap(a, q.id, expand(got.v), q.q);
+  }, [q.id, study, got]);
+  if (got === undefined) return <p class="xt-wait">…</p>;
+  if (!got) return <p class="xt-lead">Sorry, these verses could not be loaded right now.</p>;
   return (
     <>
-      <Chain a={a} parts={q.chain} />
+      <Chain a={a} parts={got.chain} />
       <SeeAll total={q.n} />
-      {atLeast('deep') && <WhyEach a={a} parts={q.chain} />}
-      {atLeast('deep') && rs && <AllVerses a={a} rs={rs} />}
+      {atLeast('deep') && <WhyEach a={a} parts={got.chain} />}
+      {atLeast('deep') && <AllVerses a={a} rs={got.v} />}
       {atLeast('deep') && typed && <SourceNote>These verses were prepared for the question “{q.q}”.</SourceNote>}
       {atLeast('deep') && <SourceNote>Every word above is the Bible’s (BSB). The wider set of verses was gathered with {NAVES}.</SourceNote>}
     </>

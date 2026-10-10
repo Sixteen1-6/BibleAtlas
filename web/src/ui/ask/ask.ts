@@ -3,8 +3,8 @@
 // The data (crates/atlas-cli/src/ask.rs writes it):
 // - ask/index.json: the questions and every Nave's subject's name, loaded when
 //   search opens;
-// - ask/q/<id>.json and ask/topics/<n>.json: a question's or subject's verses,
-//   loaded when it opens.
+// - ask/q/<id>.json: a question's chain and wider set of verses, and
+//   ask/topics/<n>.json: a subject's verses, loaded when it opens.
 //
 // What is open is part of the link: #...&ask=what-happens-when-we-die for a
 // question, &ask=topic.anger for a subject. Opening adds one history entry, so
@@ -58,12 +58,20 @@ export interface Question {
   n: number;
   /** Its wider set's most-cited verses. */
   top: Range[];
+  /** The verses of its chain. */
+  r: Range[];
+}
+
+/** A prepared question's answer, loaded when it opens. */
+export interface QuestionData {
   /** The answer, in the Bible's own words. */
   chain: Part[];
+  /** Its wider set of verses. */
+  v: Range[];
 }
 
 export interface AskIndex {
-  format: 1;
+  format: 2;
   groups: string[];
   questions: Question[];
   /** [title, verse count], in the order of the topic files. */
@@ -101,10 +109,8 @@ export function loadAsk(a: Atlas): Promise<AskIndex> {
   });
 }
 
-/** All the verses of what was asked, as ranges. */
-export async function askVerses(a: Atlas, asked: Asked & { kind: 'question' | 'topic' }): Promise<Range[]> {
-  if (asked.kind === 'question') return (await loadJson<{ v: Range[] }>(a, `ask/q/${asked.q.id}.json`)).v;
-  return (await topicData(a, asked.i)).v;
+export function questionData(a: Atlas, q: Question): Promise<QuestionData> {
+  return loadJson<QuestionData>(a, `ask/q/${q.id}.json`);
 }
 
 export async function topicData(a: Atlas, i: number): Promise<TopicData> {

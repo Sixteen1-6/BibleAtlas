@@ -40,7 +40,7 @@ export default defineExtra<Data>({
     const byVerse = new Map<VerseRef, Question[]>();
     // The verses of each question's chain, where Scripture answers it.
     for (const q of ix.questions) {
-      for (const [s, e] of q.chain.map((p) => p.r)) {
+      for (const [s, e] of q.r) {
         for (let v = s; v <= e; v++) {
           const list = byVerse.get(v);
           if (list) list.push(q);
