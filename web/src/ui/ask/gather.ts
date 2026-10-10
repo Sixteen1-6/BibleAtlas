@@ -226,12 +226,97 @@ const BIBLE_WORDS: Record<string, string[]> = {
   decisions: ['plans', 'counsel', 'guide'],
   hard: ['hardship', 'hardships', 'trials', 'affliction', 'trouble'],
   calm: ['peace', 'quiet', 'still'],
+  jobs: ['work', 'labor'],
+  career: ['work', 'labor'],
+  jail: ['prison', 'prisoner', 'prisoners'],
+  incarcerated: ['prison', 'prisoner', 'prisoners'],
+  drinks: ['drunk', 'drunkenness', 'drunkard', 'drunkards', 'strong drink'],
+  drinker: ['drunk', 'drunkenness', 'drunkard', 'drunkards', 'strong drink'],
+  alcoholic: ['drunk', 'drunkenness', 'drunkard', 'drunkards', 'strong drink'],
+  medicine: ['physician', 'doctor'],
+  medication: ['physician', 'doctor', 'medicine'],
+  doctors: ['physician', 'doctor'],
+  dinosaurs: ['behemoth', 'leviathan'],
+  dinosaur: ['behemoth', 'leviathan'],
+  reincarnation: ['appointed die once'],
+  promotion: ['exaltation', 'exalts', 'humble exalted'],
+  promoted: ['exaltation', 'exalts', 'humble exalted'],
+  perfectionist: ['already perfect', 'grace sufficient', 'weary burdened'],
+  perfectionism: ['already perfect', 'grace sufficient', 'weary burdened'],
+  criticism: ['correction', 'reproof', 'loves discipline'],
+  criticized: ['correction', 'reproof', 'loves discipline'],
+  feedback: ['correction', 'reproof', 'loves discipline'],
+  defensive: ['correction', 'reproof', 'loves discipline'],
+  leader: ['leaders', 'great among servant', 'shepherd flock'],
+  leaders: ['leader', 'great among servant', 'shepherd flock'],
+  leadership: ['leader', 'leaders', 'great among servant', 'shepherd flock'],
+  insecure: ['outward appearance', 'fearfully wonderfully', 'beauty fleeting'],
+  insecurity: ['outward appearance', 'fearfully wonderfully', 'beauty fleeting'],
+  overeating: ['glutton', 'gluttons', 'gorge', 'belly god', 'self control'],
+  gluttony: ['glutton', 'gluttons', 'gorge', 'belly god', 'self control'],
+  binge: ['glutton', 'gluttons', 'gorge', 'belly god', 'self control'],
+  phone: ['redeeming time', 'number our days', 'worthless thing', 'whatever true'],
+  screen: ['redeeming time', 'number our days', 'worthless thing', 'whatever true'],
+  movies: ['worthless thing', 'whatever true', 'lamp eye'],
+  movie: ['worthless thing', 'whatever true', 'lamp eye'],
+  tv: ['worthless thing', 'whatever true', 'lamp eye'],
+  television: ['worthless thing', 'whatever true', 'lamp eye'],
+  secular: ['whatever true', 'world'],
+  halloween: ['regards day', 'fruitless deeds darkness', 'divination'],
+  stole: ['steal', 'stolen', 'thief', 'four times', 'lost property'],
+  steal: ['stolen', 'thief', 'four times', 'lost property'],
+  stealing: ['steal', 'stolen', 'thief', 'four times', 'lost property'],
+  favored: ['favoritism', 'partiality', 'loved more'],
+  favorite: ['favoritism', 'partiality', 'loved more'],
+  favourite: ['favoritism', 'partiality', 'loved more'],
+  race: ['every nation', 'jew greek', 'one man every nation'],
+  desert: ['wilderness'],
+  psychic: ['mediums', 'spiritists', 'divination'],
+  tarot: ['mediums', 'spiritists', 'divination'],
 };
 
 /** Words whose own sense in the BSB is another thing: only the Bible's words
  * for them are looked for ("worthless" finds worth and precious, not
  * worthless idols). */
-const INSTEAD = new Set(['worthless', 'distant', 'christian', 'christians', 'hard', 'failure', 'problems', 'problem', 'single', 'date', 'dating', 'smoking', 'vaping']);
+const INSTEAD = new Set([
+  'worthless', 'distant', 'christian', 'christians', 'hard', 'failure', 'problems', 'problem', 'single', 'date', 'dating', 'smoking', 'vaping',
+  // The BSB's Job is a man; its race is run.
+  'job', 'jobs', 'race', 'drinks', 'drinker', 'favored', 'favorite', 'favourite',
+]);
+
+/** Words that say how or when, not what: "does praying actually change
+ * anything" is about prayer, not about "actually". */
+const FILLER = new Set([
+  'actually', 'always', 'anymore', 'barely', 'already', 'getting', 'seriously', 'literally', 'basically', 'honestly', 'totally',
+  'completely', 'simply', 'probably', 'maybe', 'perhaps', 'definitely', 'certainly', 'truly', 'constantly', 'often', 'sometimes',
+  'usually', 'lately', 'recently', 'anyway', 'though', 'although', 'yet', 'else', 'every', 'each', 'other', 'others', 'over',
+  'through', 'during', 'after', 'before', 'since', 'ago', 'again', 'such', 'very', 'quite', 'lot', 'lots', 'kind', 'sort', 'stuff',
+  'somebody', 'anyone', 'anybody', 'nobody', 'everyone', 'everybody', 'nothing', 'im', 'ive', 'id', 'youre', 'dont', 'doesnt',
+  'didnt', 'cant', 'cannot', 'wont', 'isnt', 'arent', 'wasnt', 'werent', 'shouldnt', 'wouldnt', 'couldnt', 'havent', 'hasnt',
+  'hadnt', 'weve', 'theyre', 'thats', 'theres', 'whats', 'gonna', 'wanna', 'gotta', 'got', 'going', 'own', 'now', 'back', 'were',
+  'idea', 'today',
+]);
+
+/** When someone speaks of their own life, its numbers and spans of time are
+ * theirs: "for three years", "im 16", "every night". */
+const PERSONAL = /\b(i|im|ive|id|me|my|mine|myself|we|weve|our|us)\b/;
+const SPANS = new Set(['day', 'days', 'night', 'nights', 'week', 'weeks', 'month', 'months', 'year', 'years', 'hour', 'hours', 'morning', 'mornings']);
+
+const ONES = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+const TENS = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+
+/** A number as the BSB writes it in words: 40 is "forty", 700 "seven hundred". */
+function numberWords(n: number): string[] {
+  if (n < 20) return [ONES[n]];
+  if (n < 100) return [TENS[Math.floor(n / 10)], ...(n % 10 ? [ONES[n % 10]] : [])];
+  if (n < 1000) return [ONES[Math.floor(n / 100)], 'hundred', ...(n % 100 ? numberWords(n % 100) : [])];
+  if (n < 1_000_000) return [...numberWords(Math.floor(n / 1000)), 'thousand', ...(n % 1000 ? numberWords(n % 1000) : [])];
+  return [];
+}
+
+/** A "why" question is answered by the verses that give a reason. */
+const WHY = /^\s*why\b|\bwhy (did|does|do|is|was|would|are|were|should|can)\b/;
+const REASON = /\b(because|so that|for this (very )?(purpose|reason)|in order (that|to)|this is why|that is why|for the sake of|that (you|they|all|he) may know)\b/i;
 
 /** Phrases of a question and the Bible's words for them; their words are not
  * then looked for one by one ("share my faith" is not "share" and "faith"). */
@@ -277,6 +362,63 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(people|everyone|men|humans|races|all) (as |are )?equal\b/, ['favoritism', 'partiality', 'every nation', 'jew greek']],
   [/\bhear (from )?god( speak| speaking)?\b|\bgod( voice| speak| speaking| speaks)( to (me|us))?\b/, ['sheep listen voice', 'hears my voice', 'speak servant listening', 'hear word']],
   [/\b(not|never) (good|smart|strong|holy|worthy) enough\b/, ['grace sufficient', 'competent', 'weakness', 'worthy']],
+  // Life as people tell it.
+  [/\b(lost|lose|losing) (my |our |his |her |a )?(job|work|income|business)\b|\blaid off\b|\b(got|been|was|get|getting) fired\b|\bunemploy(ed|ment)\b|\b(pay|afford|paying|make) (the |our |my )?(rent|bills|mortgage)\b|\b(rent|bills|mortgage)\b/, ['supply needs', 'daily bread', 'do not worry', 'shall not want']],
+  [/\b(hate|quit|quitting|leave|leaving|change|changing) (my |a )?(job|work|career)\b|\bstart (my own |my |a )?business\b/, ['find satisfaction', 'whole being work', 'learned content', 'commit works', 'count cost']],
+  [/\blost everything\b|\blose everything\b|\b(house|home) (burned|burnt|burned down|fire)\b|\b(lost|lose|losing) (our|my) (house|home|stuff|things|possessions)\b/, ['lord gave taken', 'confiscation property', 'treasures heaven', 'fig tree bud']],
+  [/\b(trying|try|tried|want|wanting|cant|cannot) (to )?(have|get|conceive)( a)? (baby|child|kids|children|pregnant)\b|\binfertil\w*|\bbarren\b/, ['barren', 'opened womb', 'conceive', 'children heritage', 'hope deferred']],
+  [/\bsingle (mom|mother|parent|dad|father)\b/, ['weary burdened', 'renew strength', 'fatherless']],
+  [/\bspecial needs\b|\bdisabilit(y|ies)\b|\bdisabled\b|\bautis(m|tic)\b|\bdown syndrome\b/, ['gave mouth', 'works god displayed', 'power perfected weakness', 'lame blind']],
+  [/\b(cant|cannot|can not) (do this|do it|go on|keep going|take (it|this))( anymore)?\b|\bgiv(e|ing) up\b/, ['grace sufficient', 'renew strength', 'weary burdened', 'lose heart']],
+  [/\b(the way i look|my looks|my appearance|how i look|my body|my weight|ugly)\b/, ['outward appearance', 'fearfully wonderfully', 'beauty fleeting']],
+  [/\bbr(oke|eak|eaking) up\b|\bbreakup\b|\bheart ?broken\b|\bheartbreak\b/, ['brokenhearted', 'near brokenhearted', 'heals brokenhearted']],
+  [/\b(angry|mad|upset|bitter) (at|with) god\b/, ['how long lord', 'complaint bitter', 'pour hearts']],
+  [/\b(take|taking|handle|accept|receive|receiving)s? (criticism|correction|feedback|rebuke)\b/, ['correction', 'reproof', 'loves discipline']],
+  [/\b(nobody|no one|noone) (appreciates|notices|sees|thanks|values)\b|\b(unappreciated|not appreciated|taken for granted)\b/, ['whole being work', 'sees secret', 'forget your work']],
+  [/\b(cant|cannot|can not|unable to|struggle to|hard to) say no\b|\bpeople pleas(er|ing)\b/, ['let your yes', 'approval men', 'fear man snare']],
+  // Only for a wrong done: "i throw up after i eat and nobody knows" is not one.
+  [/\b(stole|stolen|steal|stealing|cheated|cheating|lied|lying|affair|sinned)\b.*\b((nobody|no one|noone) knows|(she|he|they|nobody|no one) (doesnt|does not|dont|do not) know)\b|\bsecret sins?\b|\bhid(e|den|ing) (my |a )?sins?\b/, ['conceals sins', 'kept silent', 'sin find out', 'nothing concealed']],
+  [/\b(doesnt|does not|dont|do not|wont|will not|stopped|refuses to|never) (speak|talk|call|answer)(s|ing)? to me\b|\bestranged\b|\bcut me off\b|\bnot speaking\b|\bstopped talking\b/, ['father compassion saw', 'peace everyone', 'father mother forsake']],
+  [/\b(comfort|help|support|encourage|say to|be there for) (a |my )?(friend|someone|person|loved one)\b/, ['weep with', 'god of all comfort', 'seven days nights', 'carry burdens']],
+  [/\b(talk|speak) to (him|her|them|my \w+) about (it|this|that)\b|\bconfront(ing)? (him|her|them|my \w+)\b/, ['restore gentleness', 'truth love speaking']],
+  [/\babus(e|ed|es|ive|er|ing)\b|\bdomestic violence\b|\b(hits|beats|hurts) me\b/, ['violence', 'violent', 'harsh', 'oppression']],
+  [/\b(make|makes|made|making) fun of\b|\bmock(s|ed|ing)? me\b|\blaugh(s|ed)? at me\b/, ['insult', 'insulted', 'mock', 'mocked', 'scorn', 'ridicule']],
+  [/\b(take care of|taking care of|care for|caring for|look after|looking after) (my |our )?(aging |elderly |old |sick )?(parents|mom|mother|dad|father|grandparents)\b|\b(aging|elderly) parents\b/, ['repay parents', 'provide own household', 'here is your mother']],
+  [/\b(getting|growing|grow|get) old(er)?\b|\bold age\b|\baging\b|\bageing\b|\belderly\b/, ['old age', 'gray hair']],
+  [/\bin[- ]?laws?\b/, ['mother in law', 'father in law', 'leave father mother']],
+  [/\bstep[- ]?(dad|father|mom|mother|parent|kids|children|son|daughter)s?\b|\bblended family\b/, ['provoke children', 'train child', 'fatherless']],
+  [/\b(exams?|finals|job interview|interview|presentation)\b/, ['anxious', 'anxiety', 'do not worry', 'diligent', 'wisdom lacks']],
+  [/\b(passed over|overlooked)\b/, ['exaltation', 'humble exalted']],
+  [/\b(passed away|passed on|who passed)\b/, ['died', 'death', 'dead']],
+  [/\b(some|most|these|those|every|other|many) (days?|nights?)\b/, []],
+  // Questions of faith.
+  [/\bpray(ing|er|ers)? for (other people|others|other|someone|people|each other|one another|my \w+)\b/, ['intercedes', 'intercession', 'pray for each other', 'petitions']],
+  [/\b(pray|praying|ask|asking)( in)? (jesus|jesuss|his|christs?) name\b|\bin jesus name\b/, ['ask name whatever', 'name lord jesus']],
+  [/\b(child|children|son|sons|daughter|daughters) of god\b/, ['called children god', 'right become children', 'led spirit sons', 'heirs god', 'abba', 'adoption']],
+  [/\b(be|become|being|follow|following) (a |his )?(disciple|follower)s?( of (jesus|christ))?\b|\bdiscipleship\b|\bfollow (jesus|christ)\b/, ['deny himself cross', 'cannot be my disciple', 'love one another disciples', 'continue my word']],
+  [/\babid(e|ing) in (christ|jesus|him|god|me)\b/, ['remain in me', 'vine branches']],
+  [/\bfalse (teachers?|prophets?|preachers?|pastors?)\b/, ['false teachers', 'false prophets', 'test spirits', 'wolves sheep']],
+  [/\bname in vain\b|\b(take|taking|use|using) (gods?|the lords?) name\b/, ['vain name lord', 'profane name']],
+  [/\b(made|created) in (gods?|his|the) image\b|\bimage of god\b|\bgods? image\b/, ['likeness god', 'image creator', 'our image']],
+  [/\bwho (made|created) god\b|\bwhere did god come from\b|\bhas god always (existed|been)\b/, ['from everlasting', 'alpha omega']],
+  [/\bgod (a |an )?(man|male|woman|female|boy|girl|he or she|gender)\b/, ['not man lie', 'god spirit worship']],
+  [/\b(what|how) did jesus look( like)?\b|\bjesus (looks|appearance|face|skin|hair)\b/, ['form majesty', 'white wool', 'face shone']],
+  [/\b(four|4) gospels\b|\b(different|so many) gospels\b/, ['orderly account', 'many other signs']],
+  [/\b(which|what|how many) books\b.*\b(bible|scriptures?)\b|\bcanon\b|\bwho (decided|chose|picked)\b.*\b(books|bible|scriptures?)\b/, ['god breathed', 'law prophets psalms', 'scripture broken']],
+  [/\b(bible|scriptures?|genesis)\b.*\b(literal|literally|myths?|accurate|errors?|contradictions?|contradict)\b|\b(literal|literally|myths?|accurate|errors?|contradictions?)\b.*\b(bible|scriptures?|genesis)\b/, ['god breathed', 'word truth', 'scripture broken']],
+  [/\b(yahweh|jehovah)\b|\bname of god\b|\bgods? name\b/, ['my name forever', 'name lord known', 'i am sent you israelites']],
+  [/\b(book of )?revelation\b/, ['revelation jesus christ', 'words this prophecy']],
+  [/\b(some|certain) sins? (worse|greater|bigger)\b|\b(worse|greater|bigger|worst) sins?\b/, ['greater sin', 'blasphemy spirit', 'one point']],
+  [/\bgod (ever )?chang(e|es|ed|ing) (his )?mind\b/, ['relented', 'relent', 'not man lie']],
+  [/\bgenerational (curses?|sins?)\b|\bsins? of (the |my )?(fathers|parents|ancestors)\b/, ['third fourth', 'sour grapes', 'son not bear']],
+  [/\b(read|reads|know|knows) (my |our )?(mind|thoughts)\b/, ['know hearts', 'searches heart', 'understand my thoughts']],
+  [/\bunethical\b/, ['fruitless deeds darkness', 'share sins']],
+  [/\b(wipe|wiped|destroy|destroyed|kill|killed|slaughter)\w* (out )?(entire |whole |all )?(cities|nations|canaanites|peoples)\b|\bgenocide\b|\bcanaanites\b/, ['wickedness nations', 'amorites iniquity', 'detestable things teach']],
+  [/\bgod (already )?knows\b.*\bpray\b|\bpray\b.*\bgod (already )?knows\b/, ['knows need ask', 'do not have ask', 'ask given']],
+  [/\b(marry|marrying|married|date|dating)\b.*\b(different|another|other) (race|ethnicity|culture|color)\b|\binterracial\b/, ['cushite', 'jew greek', 'belong lord']],
+  [/\bfind(s|ing)? (some )?(money|a wallet|wallet|something)\b|\bfinders keepers\b/, ['lost property', 'return it']],
+  [/\b(hindu|buddhist|sikh|pagan) (temple|ceremony|wedding|festival|shrine)\b|\bmosque\b|\bshrine\b/, ['temple idol', 'table demons', 'food sacrificed idols']],
+  [/\b(called|named)\b(?= (the|a|an)\b)/, []],
   // To raise a child is not to raise the dead.
   [/\b(raise|raising|bring up|bringing up) (my |our |a |the |your )?(kids|children|child|sons?|daughters?|teenagers?|teens?|family)\b/, ['train', 'instruction', 'discipline', 'children']],
 ];
@@ -439,16 +581,24 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   for (const [re, bible] of PHRASES) {
     const m = rest.match(re);
     if (!m) continue;
-    phrases.push({ word: m[0].trim(), bible });
+    // A phrase with no Bible words only says how something is asked.
+    if (bible.length) phrases.push({ word: m[0].trim(), bible });
     rest = rest.replace(re, ' ');
   }
-  const ws = [...new Set(contentWords(rest))].slice(0, Math.max(0, 8 - phrases.length));
+  const personal = PERSONAL.test(question.toLowerCase().replace(/[’‘']/g, ''));
+  const ws = [...new Set(contentWords(rest))]
+    .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))))
+    .slice(0, Math.max(0, 8 - phrases.length));
   const n = a.n;
 
   // 1. Concepts and the BSB words for each.
   const concepts = [
     ...phrases.map((p) => concept(a, p.word, p.bible, false)),
-    ...ws.map((w) => concept(a, w, BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? [], !INSTEAD.has(w))),
+    ...ws.map((w) => {
+      // 40 is "forty" in the BSB's words.
+      const said = /^\d+$/.test(w) ? numberWords(Number(w)).join(' ') : '';
+      return concept(a, w, said ? [said] : (BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? []), !INSTEAD.has(w));
+    }),
   ];
 
   // 2. Nave's subjects named by the concepts: each word of a subject's name is
@@ -527,6 +677,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const marks = new Set<string>();
   for (const i of usable) for (const f of concepts[i].marks) marks.add(f);
   const texts = plainText();
+  const why = WHY.test(question.toLowerCase());
   const score = new Map<number, number>();
   for (const v of cands) {
     // A verse that is about the question, not one that only mentions it in passing.
@@ -538,8 +689,10 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
       dense = toks.length ? Math.min(1, (hits / toks.length) * 6) : 0;
     }
     const genre = TEACHING[a.books[a.verseBook[v]].genre] ?? 0;
+    // "Why" is answered where a verse gives the reason.
+    const reason = why && t && REASON.test(t) ? 0.4 : 0;
     // How much of the question a verse holds comes first.
-    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre);
+    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason);
   }
 
   // The Bible pointing to itself: links among the best candidates count.
