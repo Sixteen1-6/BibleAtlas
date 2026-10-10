@@ -17,6 +17,9 @@
 //! - `lex/<n>.json`: lexicon definitions, 500 roots per shard, as safe segments
 //! - `shelf.json`, `dict/<id>/*.json`: the Sources shelf and the two Bible
 //!   dictionaries the app shows in full (see `shelf.rs`)
+//! - `ask/`: Ask the Bible's questions and Nave's subjects (see `ask.rs`)
+//! - `naves/<Book>.json`: per verse, the Nave's subjects the Themes tab names
+//!   at Study when no theme reaches the verse (see `naves.rs`)
 
 use crate::align;
 use crate::english;
@@ -344,8 +347,10 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
+    let naves = crate::naves::read(&inputs, &vz)?;
     let ask_sources = crate::ask::Sources { text: &bsb.text, vz: &vz, degree: &degree, graph: &graph, words: &words, lemma_index: &lemma_index, lemma_count: &theme_counts, quotes: &quotes };
-    for (rel, bytes) in crate::ask::build(root, &inputs, &ask_sources)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::ask::build(root, &naves, &ask_sources)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::naves::build(root, &inputs, &vz, &naves, &theme_glosses, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
 
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {

@@ -51,7 +51,7 @@
     {
       "id": "naves",
       "title": "Nave's Topical Bible (Orville J. Nave, 1896), as a table",
-      "provides": "About 5,300 subjects, each with the verses Nave listed for it. Ask the Bible uses it as an index only, to gather the verses on a question or subject; none of Nave's own wording is shown.",
+      "provides": "About 5,300 subjects, each with the verses Nave listed for it. Ask the Bible uses it as an index, to gather the verses on a question or subject, and at Study the Themes tab names the subjects about a concept that list a verse no theme reaches. Only its subject headings are shown, never the text of its entries.",
       "license": "CC BY 4.0 (this edition); Nave's Topical Bible itself is public domain",
       "attribution": "Nave's Topical Dictionary from BibleData by Brady Stephenson, github.com/BradyStephenson/bible-data (CC BY 4.0)",
       "homepage": "https://github.com/BradyStephenson/bible-data",
@@ -62,7 +62,7 @@
     {
       "id": "kjv",
       "title": "King James Version (1769)",
-      "provides": "English text used only by search, so a verse typed in King James wording is found. Never shown.",
+      "provides": "English text used by search, so a verse typed in King James wording is found, and by the build to tell which Nave's subject headings are names (a word the KJV always capitalizes). Never shown.",
       "license": "Public domain",
       "attribution": "King James Version (1769), public domain",
       "homepage": "https://github.com/scrollmapper/bible_databases",
@@ -84,7 +84,7 @@
     {
       "id": "openbible-geo",
       "title": "OpenBible.info Bible Geocoding Data",
-      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map.",
+      "provides": "The places the Bible names, the verses that name them, the modern sites proposed for each place and how confident each identification is. Used for the Places line and map, and its place names keep places out of the Themes tab's Nave's subjects.",
       "license": "CC BY 4.0",
       "attribution": "Bible Geocoding Data from OpenBible.info, CC BY 4.0",
       "homepage": "https://www.openbible.info/geo/",
@@ -150,7 +150,7 @@
     {
       "id": "theographic",
       "title": "Theographic Bible Metadata",
-      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep.",
+      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep. Its names of people and places keep them out of the Themes tab's Nave's subjects.",
       "license": "CC BY-SA 4.0",
       "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
       "homepage": "https://github.com/robertrouse/theographic-bible-metadata",

@@ -3,18 +3,26 @@
 //   themes panel). Its own themes as chips quoting the BSB words that carry
 //   them; or, with none, up to two dashed rows reached through its strongest
 //   links; or one quiet line. Study adds the Hebrew or Greek word, the broad
-//   words and a separate "Linked themes" section; Deep adds the rule.
+//   words and a separate "Linked themes" section; Deep adds the rule. Where
+//   no theme reaches the verse, Study names the Nave's subjects that list it
+//   instead of the quiet line (data/naves.ts), each a way into Ask the Bible.
 // - themeLine / VerseThemesLine: one plain line, for the reader's extras and
 //   for the Links tab on phones.
-// Everything comes from data/themes.ts: nothing is chosen by hand.
+// Themes come from data/themes.ts: nothing is chosen by hand. Nave's rows come
+// from data/naves.ts and are never themes.
 
+import type { ComponentChildren } from 'preact';
 import { useMemo, useRef, useState } from 'preact/hooks';
-import { type Atlas, type Theme, label } from '../data/atlas';
+import { type Atlas, type Theme, label, rangeLabel } from '../data/atlas';
+import { type NavesPassage, type NavesTopic, navesRow, navesRowNow } from '../data/naves';
+import { useLoaded } from '../data/shelf';
 import { type OwnTheme, type ThemeLevel, type ThroughTheme, linkRule, strongestLinks, themeWordsIn, themesThroughLinks, verseThemes } from '../data/themes';
 import type { VerseRow } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { openAsk } from './ask/ask';
 import { RootChip, Snippet, useVerseRow } from './common';
+import { showSources } from './extras/kit';
 import { moreLinks, openThemeFromVerse, themeLevel, useHoverPreview } from './ThemeThread';
 import './themes.css';
 
@@ -24,6 +32,8 @@ const OWN_SHOWN = 4;
 const THROUGH_SHOWN = 2;
 /** Themes through links in Study's separate section. */
 const LINKED_SHOWN = 3;
+/** Nave's subjects shown before "+N more". */
+const NAVES_SHOWN = 3;
 
 /** "Genesis 2:6's" */
 function possessive(s: string): string {
@@ -97,6 +107,116 @@ function ThroughRow({ a, t, onOpen, go }: { a: Atlas; t: ThroughTheme; onOpen: (
   );
 }
 
+/** A Nave's subject, opened in Ask the Bible with the verses Nave lists for it. */
+function NavesName({ t }: { t: NavesTopic }) {
+  const [i, title, n] = t;
+  return (
+    <button type="button" class="vt-nname" onClick={(e) => openAsk({ kind: 'topic', i, title, n }, e.currentTarget)} title={`Open ${title} in Ask the Bible (${n.toLocaleString()} verses)`}>
+      {title}
+    </button>
+  );
+}
+
+/** "A, B and C", with JSX in place of the names. */
+function andList(xs: ComponentChildren[], and = ' and ', sep = ', '): ComponentChildren[] {
+  return xs.flatMap((x, k) => (k === 0 ? [x] : [k === xs.length - 1 ? and : sep, x]));
+}
+
+/** Nave's headings side by side. Some hold a comma or "and" ("Intolerance,
+ *  Religious"), so a dot, which none holds, keeps each one whole. */
+const headings = (xs: ComponentChildren[]) => andList(xs, ' · ', ' · ');
+
+const tie = (s: string) => s.replace(/ /g, '\u00a0');
+
+/** "(1 Chronicles 1:1–24)", breaking only before the chapter and verse. */
+function RangeRef({ a, from, to }: { a: Atlas; from: number; to: number }) {
+  const ref = rangeLabel(a, from, to - from + 1);
+  const cut = ref.lastIndexOf(' ');
+  return (
+    <>
+      ({tie(ref.slice(0, cut))} <span class="vt-nref">{ref.slice(cut + 1)})</span>
+    </>
+  );
+}
+
+/** Passages to name: one entry per range, with every subject Nave lists it under. */
+function byRange(ps: NavesPassage[]): { from: number; to: number; topics: NavesTopic[] }[] {
+  const out: { from: number; to: number; topics: NavesTopic[] }[] = [];
+  for (const p of ps) {
+    const same = out.find((r) => r.from === p.from && r.to === p.to);
+    if (same) same.topics.push(p.topic);
+    else out.push({ from: p.from, to: p.to, topics: [p.topic] });
+  }
+  return out;
+}
+
+/** In place of the quiet line, at Study: the Nave's subjects that list the
+ *  verse, or the passages Nave lists it in, or else the quiet line itself. */
+function NavesRows({ a, v, quiet }: { a: Atlas; v: number; quiet: string }) {
+  const deep = atLeast('deep');
+  // At once when the book is loaded; the first verse of a book waits for it.
+  const now = navesRowNow(a, v);
+  const later = useLoaded(now === undefined ? `naves ${a.version} ${v}` : null, () => navesRow(a, v));
+  const got = now !== undefined ? now : later;
+  // "+N more" opens in place, for this verse only, and hands the focus to the
+  // first subject it shows.
+  const [allFor, setAllFor] = useState<number | null>(null);
+  const line = useRef<HTMLParagraphElement>(null);
+  const showAll = () => {
+    setAllFor(v);
+    requestAnimationFrame(() => line.current?.querySelectorAll<HTMLElement>('.vt-nname')[NAVES_SHOWN]?.focus());
+  };
+  // While the book loads, an empty line of the same height.
+  if (got === undefined) return <p class="vt-quiet" aria-hidden="true">&nbsp;</p>;
+  if (!got) return <p class="vt-quiet">{quiet}</p>;
+  let row;
+  if (got.kind === 'direct') {
+    const shown = allFor === v ? got.topics : got.topics.slice(0, NAVES_SHOWN);
+    const more = got.topics.length - shown.length;
+    row = (
+      <p class="vt-naves" ref={line}>
+        Nave’s Topical Bible (1896) lists this verse under {headings(shown.map((t) => <NavesName key={t[0]} t={t} />))}
+        {more > 0 && (
+          <>
+            {' '}
+            <button type="button" class="vt-more vt-nmore" onClick={showAll}>
+              +{more} more
+            </button>
+          </>
+        )}
+      </p>
+    );
+  } else {
+    const ranges = byRange(got.passages);
+    const one = ranges.length === 1;
+    row = (
+      <p class="vt-naves">
+        Part of {one ? 'a passage' : 'passages'} Nave’s lists under{' '}
+        {andList(
+          ranges.map((r) => (
+            <span key={`${r.from}-${r.to}`}>
+              {headings(r.topics.map((t) => <NavesName key={t[0]} t={t} />))} <RangeRef a={a} from={r.from} to={r.to} />
+            </span>
+          )),
+        )}
+      </p>
+    );
+  }
+  return (
+    <>
+      {row}
+      {deep && (
+        <p class="vt-src">
+          From Nave’s Topical Bible (Orville J. Nave, 1896), in Brady Stephenson’s table edition (CC BY 4.0).{' '}
+          <button type="button" class="tj-link" onClick={() => showSources('naves')}>
+            About this source
+          </button>
+        </p>
+      )}
+    </>
+  );
+}
+
 /** The selected verse's themes. `onTheme` opens a theme (by default: lit on
  *  the map with the verse kept); `go` moves to a linked verse; `title` shows
  *  "In Genesis 22:8" (left out where the frame already names the verse). */
@@ -119,6 +239,7 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
   const open = onTheme ?? ((id: string) => openThemeFromVerse(a, id, v));
   const goTo = go ?? ((u: number) => S.selectVerse(u, { openTab: false }));
   const name = label(a, v);
+  const quiet = `No theme runs through ${possessive(name)} words or its strongest links.`;
   const rule = linkRule(a);
   const shownOwn = allFor === v ? own : own.slice(0, OWN_SHOWN);
   const linked = study && own.length ? through.slice(0, LINKED_SHOWN) : [];
@@ -148,8 +269,10 @@ export function VerseThemeCard({ a, v, onTheme, go, title = true }: { a: Atlas; 
             ))}
           </ul>
         </>
+      ) : study ? (
+        <NavesRows a={a} v={v} quiet={quiet} />
       ) : (
-        <p class="vt-quiet">No theme runs through {possessive(name)} words or its strongest links.</p>
+        <p class="vt-quiet">{quiet}</p>
       )}
       {linked.length > 0 && (
         <>
