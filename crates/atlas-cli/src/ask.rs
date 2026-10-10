@@ -25,9 +25,16 @@
 //!   text and the cross-references.
 //!
 //! Files, under web/public/data:
-//! - `ask/index.json`: the questions, the groups, and every Nave's subject's
-//!   name and verse count. Loaded when search opens.
-//! - `ask/q/<id>.json`: one question's wider set of verses, as ranges.
+//! - `ask/index.json`: the questions (each with the verses of its chain), the
+//!   groups, and every Nave's subject's name and verse count. Loaded when
+//!   search opens or a verse is read.
+//! - `ask/also.json`: each question's other phrasings, in the index's order.
+//!   Loaded when search opens.
+//! - `ask/signals.json`: the everyday words that point to each question
+//!   ("layoffs", "severance"), in the index's order, for matching what someone
+//!   typed only; never shown. Loaded with the first question typed.
+//! - `ask/q/<id>.json`: one question's chain, its most-cited verses, and its
+//!   wider set of verses as ranges. Loaded when the question opens.
 //! - `ask/topics/<n>.json`: subjects `n * 250` onward, each its most-cited
 //!   verses and all its verses as ranges.
 
@@ -95,6 +102,8 @@ const PART_WORDS_MIN: usize = 3;
 /// Most characters a chain shows, so it reads at a glance.
 const CHAIN_MAX: usize = 1200;
 const QUESTION_MAX: usize = 90;
+/// Signal words per question, at most.
+const SIGNALS_MAX: usize = 60;
 /// Verses shown first for a topic or an unreviewed question.
 const TOP: usize = 5;
 /// Subjects per `ask/topics/<n>.json` file.
@@ -137,6 +146,9 @@ struct QuestionSpec {
     group: String,
     question: String,
     also: Vec<String>,
+    /// Words people use about it that its phrasings do not hold.
+    #[serde(default)]
+    signals: Vec<String>,
     topics: Vec<TopicSpec>,
     chain: Vec<PartSpec>,
 }
@@ -589,6 +601,8 @@ impl<'a> Check<'a> {
 /// What one question publishes.
 struct Built {
     index: Value,
+    chain: Vec<Value>,
+    top: Vec<(u32, u32)>,
     cluster: Vec<(u32, u32)>,
 }
 
@@ -623,6 +637,19 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
     }
     for a in &q.also {
         c.plain(&at, "also", a, 60);
+    }
+    if q.signals.len() > SIGNALS_MAX {
+        c.fail(&at, format_args!("keep signals to {SIGNALS_MAX}"));
+    }
+    let mut seen = BTreeSet::new();
+    for w in &q.signals {
+        c.plain(&at, "signal", w, 40);
+        if w.split_whitespace().count() > 3 || w.trim() != w || w.to_lowercase() != *w {
+            c.fail(&at, format_args!("signal {w:?} should be 1 to 3 lowercase words"));
+        }
+        if !seen.insert(w.as_str()) {
+            c.fail(&at, format_args!("signal {w:?} is listed twice"));
+        }
     }
 
     // The chain: whole verses, or their exact words.
@@ -744,11 +771,15 @@ fn question(c: &mut Check, q: &QuestionSpec, src: &Sources, tally: &mut Tally) -
 
     let group = group?;
     let index = json!({
-        "id": q.id, "g": group, "q": q.question.trim(), "also": q.also, "n": count(&cluster),
-        "top": ranges_json(&most_cited(lines.iter().copied(), src.degree)),
-        "chain": chain,
+        "id": q.id, "g": group, "q": q.question.trim(), "n": count(&cluster), "r": ranges_json(&parts),
     });
-    Some(Built { index, cluster })
+    // Subjects that cite only whole passages (the parables) give no verse
+    // cited most; the chain's own verses stand in.
+    let mut top = most_cited(lines.iter().copied(), src.degree);
+    if top.is_empty() {
+        top = parts.iter().take(TOP).map(|&(s, _)| (s, s)).collect();
+    }
+    Some(Built { index, chain, top, cluster })
 }
 
 /// The files to write under web/public/data, as (path, bytes).
@@ -772,6 +803,8 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
     };
     let mut ids = BTreeSet::new();
     let mut questions = Vec::new();
+    let mut also: Vec<&Vec<String>> = Vec::new();
+    let mut signals: Vec<&Vec<String>> = Vec::new();
     let mut tally = Tally::default();
     for q in &file.questions {
         if !ids.insert(q.id.as_str()) {
@@ -783,10 +816,12 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
         if let Some(b) = question(&mut check, q, src, &mut tally) {
             out.push((
                 format!("ask/q/{}.json", q.id),
-                serde_json::to_vec(&json!({ "v": ranges_json(&b.cluster) }))
+                serde_json::to_vec(&json!({ "chain": b.chain, "top": ranges_json(&b.top), "v": ranges_json(&b.cluster) }))
                     .map_err(|e| e.to_string())?,
             ));
             questions.push(b.index);
+            also.push(&q.also);
+            signals.push(&q.signals);
         }
     }
     // Every problem is listed, so one run shows all there is to fix.
@@ -839,10 +874,18 @@ pub fn build(root: &Path, naves: &Naves, src: &Sources) -> Result<Vec<(String, V
             serde_json::to_vec(shard).map_err(|e| e.to_string())?,
         ));
     }
-    let index = json!({ "format": 1, "groups": GROUPS, "questions": questions, "topics": topics, "shard": TOPIC_SHARD });
+    let index = json!({ "format": 2, "groups": GROUPS, "questions": questions, "topics": topics, "shard": TOPIC_SHARD });
     out.push((
         "ask/index.json".to_string(),
         serde_json::to_vec(&index).map_err(|e| e.to_string())?,
+    ));
+    out.push((
+        "ask/also.json".to_string(),
+        serde_json::to_vec(&also).map_err(|e| e.to_string())?,
+    ));
+    out.push((
+        "ask/signals.json".to_string(),
+        serde_json::to_vec(&signals).map_err(|e| e.to_string())?,
     ));
 
     eprintln!(
@@ -871,6 +914,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let questions = index["questions"]
         .as_array()
         .ok_or("ask/index.json has no questions")?;
+    let also = read("ask/also.json")?;
+    let also_ok = also.as_array().is_some_and(|a| {
+        a.len() == questions.len() && a.iter().all(|x| x.as_array().is_some_and(|p| !p.is_empty()))
+    });
+    let signals = read("ask/signals.json")?;
+    let signals_ok = signals.as_array().is_some_and(|a| {
+        a.len() == questions.len() && a.iter().all(|x| x.as_array().is_some_and(|w| w.iter().all(Value::is_string)))
+    });
     let n = d.vz.verse_count();
     let in_text = |v: &Value| {
         v.as_array().into_iter().flatten().all(|r| {
@@ -902,19 +953,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     for q in questions {
         let id = q["id"].as_str().unwrap_or_default();
         let cluster = read(&format!("ask/q/{id}.json"))?;
-        q_ok &= in_text(&q["top"])
+        q_ok &= in_text(&cluster["top"])
             && in_text(&cluster["v"])
             && cluster["v"].as_array().is_some_and(|v| !v.is_empty())
-            && q["top"].as_array().is_some_and(|t| !t.is_empty());
-        q_ok &= in_text(&Value::Array(
-            q["chain"]
-                .as_array()
-                .into_iter()
-                .flatten()
-                .map(|p| p["r"].clone())
-                .collect(),
-        ));
-        let chain = q["chain"].as_array();
+            && cluster["top"].as_array().is_some_and(|t| !t.is_empty());
+        let chain = cluster["chain"].as_array();
+        let ranges: Vec<Value> = chain.into_iter().flatten().map(|p| p["r"].clone()).collect();
+        q_ok &= in_text(&Value::Array(ranges.clone())) && q["r"].as_array() == Some(&ranges);
         parts += chain.map_or(0, Vec::len);
         tied &= chain.is_some_and(|c| {
             !c.is_empty() && c.iter().all(|p| p["t"].as_object().is_some_and(|t| !t.is_empty()))
@@ -930,6 +975,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             format!("{} Nave's subjects", topics.len()),
         ),
         (has_eph, "Nave's Anger includes Ephesians 4:26".to_string()),
+        (
+            also_ok,
+            "ask/also.json has every question's other phrasings, in the index's order".to_string(),
+        ),
+        (
+            signals_ok,
+            "ask/signals.json has every question's signal words, in the index's order".to_string(),
+        ),
         (
             q_ok,
             format!(

@@ -7,7 +7,9 @@
 // 2. Three signals point to verses:
 //    - the BSB text: verses that hold the concepts, rare words counting more;
 //    - Nave's Topical Bible, as an index: subjects named by the concepts;
-//    - questions prepared with the same words, and their wider sets.
+//    - questions prepared with the same words, and their wider sets;
+//    - the chains of the prepared questions that come closest to it, when
+//      none plainly answers it (the question box opens one that does).
 // 3. Verses that hold all the concepts, sit in a matching subject, and are
 //    cross-referenced by the other verses found rank first: the Bible
 //    pointing to itself.
@@ -18,8 +20,8 @@
 import { type Atlas, chapterRange } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
-import { loadJson } from '../extras/data';
-import { type AskIndex, type Range, contentWords, loadAsk, sameWord, stem, topicData } from './ask';
+import { type AskIndex, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
+import { loadSignals, routes } from './route';
 
 /** Plain English -> the words the BSB uses for it. Search mechanics only: each
  * entry adds words to look for; every verse found is shown as it stands. */
@@ -288,9 +290,12 @@ const BIBLE_WORDS: Record<string, string[]> = {
  * worthless idols). */
 const INSTEAD = new Set([
   'worthless', 'distant', 'christian', 'christians', 'hard', 'failure', 'problems', 'problem', 'single', 'date', 'dating', 'smoking', 'vaping',
-  // The BSB's Job is a man; its race is run.
-  'job', 'jobs', 'race', 'drinks', 'drinker', 'favored', 'favorite', 'favourite',
+  // The BSB's Job is a man; its race is run; an app is not to apply.
+  'job', 'jobs', 'race', 'drinks', 'drinker', 'favored', 'favorite', 'favourite', 'app', 'apps',
 ]);
+
+/** Two-letter words that are words here. */
+const TWO = new Set(['ox', 'ax']);
 
 /** Words that say how or when, not what: "does praying actually change
  * anything" is about prayer, not about "actually". */
@@ -541,7 +546,7 @@ function meant(a: Atlas, w: string): string | null {
 
 /** Books named for a person: "john" is the book only as "john 3" or "the
  * gospel of john". Books that are also everyday words need the same. */
-const PERSON_BOOKS = new Set(['joshua', 'ruth', 'samuel', 'ezra', 'nehemiah', 'esther', 'job', 'isaiah', 'jeremiah', 'ezekiel', 'daniel', 'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi', 'matthew', 'mark', 'luke', 'john', 'james', 'peter', 'jude', 'timothy', 'titus', 'philemon']);
+const PERSON_BOOKS = new Set(['solomon', 'joshua', 'ruth', 'samuel', 'ezra', 'nehemiah', 'esther', 'job', 'isaiah', 'jeremiah', 'ezekiel', 'daniel', 'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi', 'matthew', 'mark', 'luke', 'john', 'james', 'peter', 'jude', 'timothy', 'titus', 'philemon']);
 const WORD_BOOKS = new Set(['numbers', 'judges', 'kings', 'chronicles', 'psalms', 'psalm', 'proverbs', 'lamentations', 'acts', 'romans', 'song', 'songs']);
 const ORDINALS: Record<string, number> = { '1': 1, '2': 2, '3': 3, first: 1, second: 2, third: 3 };
 
@@ -561,6 +566,13 @@ function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Set<numbe
     const ord = /^\d$/.test(parts[0]) ? +parts[0] : 0;
     const last = parts[parts.length - 1];
     for (const w of last === 'psalms' ? ['psalms', 'psalm'] : [last]) byWord.set(w, [...(byWord.get(w) ?? []), { book, ord }]);
+  });
+  // "philipians 4:13" is Philippians.
+  const keys = [...byWord.keys()];
+  toks = toks.map((w) => {
+    if (byWord.has(w) || w.length < 6) return w;
+    const x = keys.find((k) => k[0] === w[0] && skeleton(k) === skeleton(w) && slips(w, k) <= 2);
+    return x ?? w;
   });
   const isBook = (w: string | undefined) => !!w && byWord.has(w);
   const SAYS = ['says', 'say', 'said', 'writes', 'wrote'];
@@ -688,7 +700,8 @@ function concept(a: Atlas, word: string, bible: string[], own: boolean): Concept
 
 /** Does a Nave's subject's name (its words) name this concept? */
 function names(c: Concept, t: string): boolean {
-  return c.names.some((w) => sameWord(w, t)) || c.exact.includes(t);
+  // "Pul", a king, is not "pulled"; a short name is named only as it is.
+  return c.names.some((w) => (t.length <= 3 ? w === t : sameWord(w, t))) || c.exact.includes(t);
 }
 
 /** Nave's subjects named for an old sense of the word: "Boss" is a shield's
@@ -701,8 +714,13 @@ const COMMON = 2000;
 /** A concept this wide does not answer a question alone. */
 const BROAD = 600;
 
+/** How close a prepared question must come for its chain to count among the
+ * gathered verses ("said" and "score" as the router measures them), how many
+ * may, and how much their verses weigh. */
+export const LEAN = { said: 0.5, score: 0.45, top: 3, weight: 3 };
+
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
-  const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null)]);
+  const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null), loadSignals(a).catch(() => null)]);
   // "God's voice" is God's, not "gods".
   let rest = question
     .toLowerCase()
@@ -723,7 +741,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const { named, used } = namedBooks(a, toks);
   rest = toks.filter((_, i) => !used.has(i)).join(' ');
   const ws = [...new Set(contentWords(rest))]
-    .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))))
+    // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
+    .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
     .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
     .slice(0, Math.max(0, 8 - phrases.length));
   const n = a.n;
@@ -764,9 +783,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   subjects.sort((x, y) => y.covers.length - x.covers.length || ix.topics[y.i][1] - ix.topics[x.i][1]);
   const chosen = subjects.slice(0, 4);
   const qs = matchingQuestions(ix, ws);
-  const [topicSets, questionSets] = await Promise.all([
+  const lean = routes(ix, question, LEAN.top).filter((r) => r.said >= LEAN.said && r.score >= LEAN.score);
+  const [topicSets, questionSets, leanSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
-    Promise.all(qs.map((q) => loadJson<{ v: Range[] }>(a, `ask/q/${q.id}.json`).catch(() => null))),
+    Promise.all(qs.map((q) => questionData(a, q).catch(() => null))),
+    Promise.all(lean.map((r) => questionData(a, r.q).catch(() => null))),
   ]);
 
   // A verse Nave's lists under a subject holds that subject's concepts, as a
@@ -790,8 +811,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   });
   // A prepared question with these words only leans toward its verses: its
   // wider set is about its own question, which may not be the reader's.
-  for (const set of questionSets) if (set) addRanges(inTopic, set.v);
-  for (const q of qs) addRanges(cited, q.top);
+  for (const set of questionSets) {
+    if (!set) continue;
+    addRanges(inTopic, set.v);
+    addRanges(cited, set.top);
+  }
 
   // 3. How much of the question each verse holds, rarer concepts counting more.
   const usable = concepts.map((_, i) => i).filter((i) => reach[i].size > 0 && reach[i].size < n * 0.2);
@@ -830,6 +854,18 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     for (const v of inside) cands.add(v);
   }
 
+  // The chains of the prepared questions that come closest: Scripture already
+  // gathered for what was asked, or for a life like the one told of. Their
+  // first parts, and the closest questions, count most.
+  const leaning = new Map<number, number>();
+  leanSets.forEach((set, k) => {
+    set?.chain.forEach((p, j) => {
+      const s = lean[k].score * (1 - 0.05 * j);
+      for (let v = p.r[0]; v <= Math.min(p.r[1], p.r[0] + 2); v++) if (s > (leaning.get(v) ?? 0)) leaning.set(v, s);
+    });
+  });
+  for (const v of leaning.keys()) cands.add(v);
+
   const marks = new Set<string>();
   for (const i of usable) for (const f of concepts[i].marks) marks.add(f);
   const texts = plainText();
@@ -850,7 +886,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     const closest = usable.some((i) => concepts[i].close.has(v)) ? 0.5 : 0;
     // How much of the question a verse holds comes first.
     const book = within(v, chapters) ? 1.2 : within(v, named) ? 0.8 : 0;
-    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest + book);
+    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest + book + LEAN.weight * (leaning.get(v) ?? 0));
   }
 
   // The Bible pointing to itself: links among the best candidates count.
@@ -872,7 +908,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     marks,
     concepts: concepts.map((c, i) => ({ word: c.word, forms: c.forms, found: reach[i].size })),
     subjects: chosen.map((s) => s.title),
-    questions: qs.map((q) => q.q),
+    questions: [...new Set([...lean.map((r) => r.q.q), ...qs.map((q) => q.q)])],
   };
 }
 

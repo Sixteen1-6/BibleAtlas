@@ -2,9 +2,10 @@
 //
 // The data (crates/atlas-cli/src/ask.rs writes it):
 // - ask/index.json: the questions and every Nave's subject's name, loaded when
-//   search opens;
-// - ask/q/<id>.json and ask/topics/<n>.json: a question's or subject's verses,
-//   loaded when it opens.
+//   search opens or a verse is read;
+// - ask/also.json: each question's other phrasings, loaded when search opens;
+// - ask/q/<id>.json: a question's chain and wider set of verses, and
+//   ask/topics/<n>.json: a subject's verses, loaded when it opens.
 //
 // What is open is part of the link: #...&ask=what-happens-when-we-die for a
 // question, &ask=topic.anger for a subject. Opening adds one history entry, so
@@ -48,24 +49,37 @@ export interface Ties {
   p?: number[];
 }
 
-export interface Question {
+/** A prepared question as a verse's panel lists it. */
+export interface QuestionTitle {
   id: string;
   /** Index into AskIndex.groups. */
   g: number;
   q: string;
-  also: string[];
   /** How many verses its cluster holds. */
   n: number;
-  /** Its wider set's most-cited verses. */
-  top: Range[];
-  /** The answer, in the Bible's own words. */
-  chain: Part[];
+  /** The verses of its chain. */
+  r: Range[];
 }
 
-export interface AskIndex {
-  format: 1;
+/** ...and as search finds it, by its other phrasings too. */
+export interface Question extends QuestionTitle {
+  also: string[];
+}
+
+/** A prepared question's answer, loaded when it opens. */
+export interface QuestionData {
+  /** The answer, in the Bible's own words. */
+  chain: Part[];
+  /** Its wider set's most-cited verses. */
+  top: Range[];
+  /** Its wider set of verses. */
+  v: Range[];
+}
+
+export interface AskIndex<Q = Question> {
+  format: 2;
   groups: string[];
-  questions: Question[];
+  questions: Q[];
   /** [title, verse count], in the order of the topic files. */
   topics: [string, number][];
   /** Subjects per ask/topics/<n>.json. */
@@ -80,31 +94,36 @@ export interface TopicData {
 }
 
 export type Asked =
-  | { kind: 'question'; q: Question }
+  | { kind: 'question'; q: QuestionTitle }
   | { kind: 'topic'; i: number; title: string; n: number }
   /** Any other question, answered with the verses gathered for it. */
   | { kind: 'live'; text: string }
   /** Someone asking about ending their life: where to find help now, then verses of hope. */
   | { kind: 'care'; text: string };
 
-/** The longest question kept in a link. */
-const LIVE_MAX = 160;
+/** The longest question kept in a link: room for a few sentences of what happened. */
+const LIVE_MAX = 400;
 
 // ------------------------------------------------------------ loading
 
 export const askIndex = signal<AskIndex | null>(null);
 
+/** The questions without their other phrasings, for a verse's panel. */
+export function loadAskTitles(a: Atlas): Promise<AskIndex<QuestionTitle>> {
+  return loadJson<AskIndex<QuestionTitle>>(a, 'ask/index.json');
+}
+
 export function loadAsk(a: Atlas): Promise<AskIndex> {
-  return loadJson<AskIndex>(a, 'ask/index.json').then((x) => {
+  return Promise.all([loadAskTitles(a), loadJson<string[][]>(a, 'ask/also.json')]).then(([titles, also]) => {
+    const x = titles as AskIndex;
+    x.questions.forEach((q, i) => (q.also = also[i] ?? []));
     if (askIndex.peek() !== x) askIndex.value = x;
     return x;
   });
 }
 
-/** All the verses of what was asked, as ranges. */
-export async function askVerses(a: Atlas, asked: Asked & { kind: 'question' | 'topic' }): Promise<Range[]> {
-  if (asked.kind === 'question') return (await loadJson<{ v: Range[] }>(a, `ask/q/${asked.q.id}.json`)).v;
-  return (await topicData(a, asked.i)).v;
+export function questionData(a: Atlas, q: QuestionTitle): Promise<QuestionData> {
+  return loadJson<QuestionData>(a, `ask/q/${q.id}.json`);
 }
 
 export async function topicData(a: Atlas, i: number): Promise<TopicData> {
@@ -453,8 +472,28 @@ export function looksLikeQuestion(q: string): boolean {
   return q.trim().endsWith('?') || (ws.length >= 2 && QUESTION_WORDS.has(ws[0]));
 }
 
+/** Words of someone telling what they are going through. */
+const TELLING = new Set(['i', 'im', 'ive', 'id', 'ill', 'me', 'my', 'mine', 'myself', 'we', 'were', 'weve', 'our', 'us', 'husband', 'wife', 'mom', 'mum', 'dad', 'mother', 'father', 'son', 'daughter', 'kids', 'kid', 'child', 'children', 'baby', 'boyfriend', 'girlfriend', 'fiance', 'fiancee', 'brother', 'sister', 'grandma', 'grandpa', 'grandmother', 'grandfather', 'friend', 'friends', 'boss', 'coworker', 'pastor', 'parents', 'family']);
+
+/** True when the reader tells what is happening rather than asking: "husband
+ * deploys in 3 weeks", "my dad has dementia". A line that a verse holds word
+ * for word (`quoted`) is a verse being looked for, as "the LORD is my shepherd". */
+export function looksLikeTelling(q: string, quoted: boolean): boolean {
+  return !quoted && contentWords(q).length >= 2 && words(q).some((w) => TELLING.has(w));
+}
+
+/** True when `text`, a verse, holds the query's words in order: "my grace is sufficient for you". */
+export function holdsWords(text: string, query: string): boolean {
+  const q = words(query);
+  return q.length >= 3 && ` ${words(text).join(' ')} `.includes(` ${q.join(' ')} `);
+}
+
 interface Prepared {
   questions: { q: Question; whole: Set<string>; stems: Set<string>; own: Set<string> }[];
+  /** The question each wording opens: a question's own wording, else a
+   * phrasing only one question uses. "Lying" is said by both "Is it ever right
+   * to lie?" and "I've been falsely accused", so it opens neither. */
+  opens: Map<string, Question>;
   topics: { title: string; whole: string; words: string[] }[];
 }
 
@@ -462,21 +501,45 @@ let prepared: { ix: AskIndex; p: Prepared } | null = null;
 
 function prepare(ix: AskIndex): Prepared {
   if (prepared?.ix === ix) return prepared.p;
+  const questions = ix.questions.map((q) => {
+    const phrases = [q.q, ...q.also];
+    return { q, whole: new Set(phrases.map(askKey)), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
+  });
+  const said = new Map<string, Question[]>();
+  for (const x of questions) for (const k of x.whole) if (k) said.set(k, [...(said.get(k) ?? []), x.q]);
+  const opens = new Map<string, Question>();
+  for (const [k, qs] of said) if (qs.length === 1) opens.set(k, qs[0]);
+  const titles = new Map<string, Question[]>();
+  for (const q of ix.questions) {
+    const k = askKey(q.q);
+    if (k) titles.set(k, [...(titles.get(k) ?? []), q]);
+  }
+  // Of two titles with the same words, "What does the Bible say about work?"
+  // asks about the thing itself; "How should I treat the people who work for me?" does not.
+  for (const [k, qs] of titles) {
+    const about = qs.filter((q) => ABOUT.test(q.q));
+    if (qs.length === 1 || about.length === 1) opens.set(k, qs.length === 1 ? qs[0] : about[0]);
+  }
   const p: Prepared = {
-    questions: ix.questions.map((q) => {
-      const phrases = [q.q, ...q.also];
-      return { q, whole: new Set(phrases.map(askKey)), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
-    }),
+    questions,
+    opens,
     topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), words: contentWords(title) })),
   };
   prepared = { ix, p };
   return p;
 }
 
+/** The prepared question asked in so many words: its own wording, or one of
+ * its phrasings that no other question uses. */
+export function exactQuestion(ix: AskIndex, query: string): Question | null {
+  const key = askKey(query);
+  return (key && prepare(ix).opens.get(key)) || null;
+}
+
 /** Words about ending one's own life. Search then offers help and verses of
  * hope, and not every verse that says "kill" or "die". */
 const CARE =
-  /\b(suicid\w*|kill(ing|ed|s)? (my|our|him|her|them|your)sel(f|ves)|end(ing)? (it all|my (own )?life)|(take|took|taken|taking) (my|his|her|their|your) (own )?life|(want(ed)?|wanna) (to )?die|wish i (was|were|had) (dead|never been born)|(don'?t|do not) want to (live|be alive|be here|wake up|exist)|better off (dead|without me)|(no one|nobody) would (miss|care about|notice) me|no reason to live|not worth living|(can'?t|cannot) go on|self[- ]?harm(ing)?|(hurt|cut)(ting|s)? (my|her|him|them|your)sel(f|ves)|overdos\w*)\b/i;
+  /\b(suicid\w*|kill(ing|ed|s)? (my|our|him|her|them|your)sel(f|ves)|end(ing)? (it all|my (own )?life)|(take|took|taken|taking) (my|his|her|their|your) (own )?life|(wants?|wanted|wanna) (to )?die|wish i (was|were|had) (dead|never been born)|(don'?t|do not) want to (live|be alive|be here|wake up|exist)|better off (dead|without me)|(no one|nobody) would (miss|care about|notice) me|no reason to live|not worth living|(can'?t|cannot) go on|self[- ]?harm(ing)?|(hurt(ing|s)?|cut(ting|s)?) (my|her|him|them|your)sel(f|ves)|overdos\w*)\b/i;
 
 export function isCare(query: string): boolean {
   return CARE.test(query.replace(/[’‘]/g, "'"));
@@ -484,25 +547,29 @@ export function isCare(query: string): boolean {
 
 /**
  * What a search for `query` could be asking: questions first, then Nave's
- * subjects. A query that reads as a question gets up to `limit`; any other
- * query only an exact match (a question's own wording, or a subject's name),
- * so a phrase from a verse is not crowded out.
+ * subjects. A query that reads as a question, or tells what someone is going
+ * through, gets up to `limit`; any other query only an exact match (a
+ * question's own wording, or a subject's name), so a phrase from a verse is
+ * not crowded out. `quoted`: the best verse found holds the query word for word.
  */
-export function matchAsk(ix: AskIndex | null, query: string, limit = 3): Asked[] {
+export function matchAsk(ix: AskIndex | null, query: string, limit = 3, quoted = false): Asked[] {
   if (isCare(query)) return [{ kind: 'care', text: query.trim().slice(0, LIVE_MAX) }];
   if (!ix) return [];
   const ws = contentWords(query);
-  if (!ws.length || ws.length > 12) return [];
-  const asking = looksLikeQuestion(query);
+  if (!ws.length) return [];
+  const asking = looksLikeQuestion(query) || looksLikeTelling(query, quoted);
+  // A few sentences of what happened: the verses gathered for them.
+  if (ws.length > 12) return asking ? [{ kind: 'live', text: query.trim().slice(0, LIVE_MAX) }] : [];
   const whole = ws.join(' ');
   const key = askKey(query);
   const stems = ws.map(stem);
   const p = prepare(ix);
+  const opens = key ? p.opens.get(key) : undefined;
   const scored: { asked: Asked; score: number }[] = [];
   for (const x of p.questions) {
     // Words in the question itself beat words only in its other phrasings.
     const own = (stems.filter((s) => x.own.has(s)).length / stems.length) * 5;
-    if (key && x.whole.has(key)) {
+    if (opens === x.q) {
       scored.push({ asked: { kind: 'question', q: x.q }, score: 100 + own });
       continue;
     }

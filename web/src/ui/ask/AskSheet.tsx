@@ -24,8 +24,9 @@ import { Passage, SourceNote, refName } from '../extras/kit';
 import { Shell } from '../extras/Sheet';
 import { useVerseLoad } from '../common';
 import { PreviewRow } from '../ThemeThread';
-import { type Asked, type Part, type Range, askId, askIndex, askOpen, askVerses, closeAsk, findAsked, lastClose, loadAsk, topicData } from './ask';
+import { type Asked, type Part, type Range, askId, askIndex, askOpen, closeAsk, findAsked, lastClose, loadAsk, questionData, topicData } from './ask';
 import type { Gathered } from './gather';
+import { loadSignals, route } from './route';
 
 const dismiss = () => closeAsk('dismiss');
 
@@ -263,26 +264,41 @@ const NAVES = 'Nave’s Topical Bible (1896; this edition CC BY 4.0, Brady Steph
 
 // ------------------------------------------------------------ bodies
 
-/** A prepared question: its chain, then its wider set. */
-function QuestionBody({ a, asked }: { a: Atlas; asked: Asked & { kind: 'question' } }) {
+/** A prepared question: its chain, then its wider set. `typed`: what was
+ * asked in other words, when this question is the one that answers it. */
+function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'question' }; typed?: string }) {
   const q = asked.q;
-  const rs = useAsync(`q:${q.id}`, () => askVerses(a, asked));
+  const got = useAsync(`q:${q.id}`, () => questionData(a, q));
   const study = atLeast('study');
   useEffect(() => {
-    if (study && rs) void lightOnMap(a, q.id, expand(rs), q.q);
-  }, [q.id, study, rs]);
+    if (study && got) void lightOnMap(a, q.id, expand(got.v), q.q);
+  }, [q.id, study, got]);
+  if (got === undefined) return <p class="xt-wait">…</p>;
+  if (!got) return <p class="xt-lead">Sorry, these verses could not be loaded right now.</p>;
   return (
     <>
-      <Chain a={a} parts={q.chain} />
+      <Chain a={a} parts={got.chain} />
       <SeeAll total={q.n} />
-      {atLeast('deep') && <WhyEach a={a} parts={q.chain} />}
-      {atLeast('deep') && rs && <AllVerses a={a} rs={rs} />}
+      {atLeast('deep') && <WhyEach a={a} parts={got.chain} />}
+      {atLeast('deep') && <AllVerses a={a} rs={got.v} />}
+      {atLeast('deep') && typed && <SourceNote>These verses were prepared for the question “{q.q}”.</SourceNote>}
       {atLeast('deep') && <SourceNote>Every word above is the Bible’s (BSB). The wider set of verses was gathered with {NAVES}.</SourceNote>}
     </>
   );
 }
 
+/** Anything typed: the prepared question that answers it, when one plainly
+ * does, else the verses gathered for its words. */
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
+  const ix = askIndex.value;
+  // The words that point to each prepared question load with the first one typed.
+  const signals = useAsync('signals', () => loadSignals(a));
+  if (signals === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
+  const q = ix ? route(ix, text) : null;
+  return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;
+}
+
+function GatheredBody({ a, text }: { a: Atlas; text: string }) {
   // The word tables load with the first live question, not with the page.
   const got = useAsync<Gathered>(`live:${text}`, () => import('./gather').then((m) => m.gather(a, text)));
   const study = atLeast('study');
@@ -313,7 +329,7 @@ function LiveBody({ a, text }: { a: Atlas; text: string }) {
                 .join('; ') || 'none'}
             </li>
             {got.subjects.length > 0 && <li>Subjects in Nave’s index: {got.subjects.join(', ')}</li>}
-            {got.questions.length > 0 && <li>Prepared questions with these words: {got.questions.join(' · ')}</li>}
+            {got.questions.length > 0 && <li>Prepared questions near these words: {got.questions.join(' · ')}</li>}
             <li>Verses that hold all the words, sit under a matching subject, and are cross-referenced by the others come first.</li>
           </ul>
           <SourceNote>Every verse is the Bible’s own words (BSB), found by words, by {NAVES}, and by cross-references, with nothing written in between.</SourceNote>
