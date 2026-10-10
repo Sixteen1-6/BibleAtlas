@@ -962,8 +962,8 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
     r.push((cites(jesus, "1 Cor 1:24")? && !cites(jesus, "1 Cor 1:10")?, "Nave's Jesus, the Christ includes 1 Corinthians 1:24 but not 1:10 (its cut last line is left out)".to_string()));
 
     // Coverage: of the verses no theme reaches at Study (no theme of their
-    // own, none through links), how many get a Nave's row; and the same for
-    // Simple, where the rows are not shown, for comparison.
+    // own, none through a related word or links), how many get a Nave's row;
+    // and the same for Simple, where the rows are not shown, for comparison.
     let th = crate::themes::read(d)?;
     let rule: crate::themes::LinkRule = serde_json::from_value(d.meta["themeLinks"].clone()).map_err(|e| format!("meta.json themeLinks: {e}"))?;
     let c = d.container();
@@ -973,13 +973,14 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
     let mut study_nothing = Vec::new();
     for (level, shown) in [("Study", vec![true; th.themes.len()]), ("Simple", th.themes.iter().map(crate::themes::ThemeOut::simple).collect())] {
         let links = crate::themes::Links::new(rule, &d.graph, &th.sets, &left, &shown, &l_off, &l_verse);
-        let nothing: Vec<usize> = (0..n).filter(|&v| links.own[v].is_empty() && links.through(v as u32).is_empty()).collect();
+        let related = crate::themes::Related::new(&th.themes, &th.sets, &shown, &l_off, &l_verse, n);
+        let nothing: Vec<usize> = (0..n).filter(|&v| links.own[v].is_empty() && related.by_verse[v].is_empty() && links.through(v as u32).is_empty()).collect();
         let direct = nothing.iter().filter(|&&v| !rows[v].direct.is_empty()).count();
         let passage = nothing.iter().filter(|&&v| !rows[v].passages.is_empty()).count();
         let none = nothing.len() - direct - passage;
         let pct = |k: usize| 100.0 * k as f64 / n as f64;
         eprintln!(
-            "Nave's rows{}: {} verses ({:.1}%) have no theme of their own or through links; a Nave's subject cites {direct} ({:.1}%), {passage} ({:.1}%) are inside a Nave's passage, {none} ({:.1}%) still have nothing",
+            "Nave's rows{}: {} verses ({:.1}%) have no theme of their own, through a related word or through links; a Nave's subject cites {direct} ({:.1}%), {passage} ({:.1}%) are inside a Nave's passage, {none} ({:.1}%) still have nothing",
             if level == "Study" { " at Study" } else { " if shown at Simple (they are not)" },
             nothing.len(),
             pct(nothing.len()),

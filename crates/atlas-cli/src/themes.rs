@@ -10,6 +10,11 @@
 //!   strongest links when its own words carry none. The app runs the same
 //!   rule in the browser from `meta.themeLinks`; `atlas verify` runs this copy
 //!   for its pins.
+//! - [`resolve_related`] checks `config/theme-related.json`, the reviewed list
+//!   of related words (a word of the same family as one of a theme's words),
+//!   and [`Related`] is the rule for reaching a theme through one. A related
+//!   word is only ever a labelled reason on a verse's card: it never adds a
+//!   verse or a root to a theme.
 //! - [`verify`] checks the written data, for `atlas verify`.
 
 use crate::loaded::Loaded;
@@ -24,6 +29,17 @@ use std::path::Path;
 
 pub const OUT: &str = "themes.json";
 const CONFIG: &str = "config/themes.json";
+pub const RELATED: &str = "config/theme-related.json";
+
+/// How a related word may be tied to a theme's word, in the word families
+/// (family.rs): another form of the same word, the word it comes from, a word
+/// that comes from it, a word sharing its root, or the same word in Hebrew or
+/// Aramaic. Never `n`, another sense of the same word: themes choose their
+/// senses on purpose.
+pub const RELATIONS: [char; 5] = ['f', 'p', 'c', 's', 'a'];
+
+/// One tie in a word family: `(root, relation, root)`.
+pub type FamilyLink = (u32, char, u32);
 
 /// The first themes, in order. Shared links name themes by id (#t=lamb), so
 /// these never change and new themes are only ever appended.
@@ -129,6 +145,35 @@ struct ThemeRoot {
     capitalized: bool,
 }
 
+/// One reviewed pair of `config/theme-related.json` (see its `_comment`).
+#[derive(Deserialize, Clone, Debug)]
+#[serde(deny_unknown_fields)]
+pub struct RelatedSpec {
+    pub theme: String,
+    /// The related word's root key.
+    pub root: String,
+    /// The theme's own root it is related to.
+    pub via: String,
+    pub why: String,
+    /// Lowercase BSB words: the root counts only where its English is one of them.
+    #[serde(default)]
+    pub english: Vec<String>,
+    /// Show the word's own gloss, not the English aligned to it.
+    #[serde(default)]
+    pub gloss: bool,
+}
+
+#[derive(Deserialize)]
+struct RelatedFile {
+    related: Vec<RelatedSpec>,
+}
+
+pub fn read_related(root: &Path) -> Result<Vec<RelatedSpec>, String> {
+    let raw = fs::read_to_string(root.join(RELATED)).map_err(|e| format!("reading {RELATED}: {e}"))?;
+    let file: RelatedFile = serde_json::from_str(&raw).map_err(|e| format!("parsing {RELATED}: {e}"))?;
+    Ok(file.related)
+}
+
 // ------------------------------------------------------------------ output
 
 /// One entry of `themes.json`, an array in config order. The first four
@@ -153,6 +198,18 @@ pub struct ThemeOut {
     pub left: Vec<u32>,
     /// Root indices that take a verse out of the theme when present.
     pub skip_with: Vec<u32>,
+    /// Related words (`config/theme-related.json`): `(root, relation, theme
+    /// root)`, the relation being the theme root's tie to the related root as
+    /// forms/*.json gives it ('c': the theme's word comes from it).
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub related: Vec<FamilyLink>,
+    /// A related root that counts only where its BSB English is one of some
+    /// words: `(root, the words, the verses where it is)`.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub related_only: Vec<(u32, Vec<String>, Vec<u32>)>,
+    /// Related roots shown by their gloss, not the English aligned to them.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub related_gloss: Vec<u32>,
 }
 
 impl ThemeOut {
@@ -174,8 +231,13 @@ pub struct Sources<'a> {
     pub counts: &'a [u32],
     pub l_off: &'a [u32],
     pub l_verse: &'a [u32],
+    pub l_pos: &'a [u16],
     pub vz: &'a Versification,
     pub graph: &'a XrefGraph,
+    /// Each root's family as forms/*.json has it: `(relative, relation, head)`.
+    pub family: &'a [Vec<FamilyLink>],
+    /// The lowercase BSB words aligned to word `pos` of verse `v`.
+    pub english: &'a dyn Fn(u32, u16) -> Vec<String>,
 }
 
 /// Root indices whose key is `strong` or `strong` plus one sub-entry letter.
@@ -363,8 +425,26 @@ pub fn build(root: &Path, s: &Sources) -> Result<Built, String> {
             near: Vec::new(),
             left,
             skip_with: skip,
+            related: Vec::new(),
+            related_only: Vec::new(),
+            related_gloss: Vec::new(),
         });
         sets.push(set);
+    }
+
+    // Related words: a separate reason on a verse's card, never in `sets`.
+    let specs = read_related(root)?;
+    let resolved = resolve_related(&specs, &out, s.keys, s.glosses, s.family)?;
+    for (e, (j, row)) in specs.iter().zip(resolved) {
+        let t = &mut out[j];
+        t.related.push(row);
+        if e.gloss {
+            t.related_gloss.push(row.0);
+        }
+        if !e.english.is_empty() {
+            let verses = english_verses(row.0, &e.english, s).map_err(|w| format!("{RELATED}: {} {}: the English word {w:?} is never aligned to it", e.theme, e.root))?;
+            t.related_only.push((row.0, e.english.clone(), verses));
+        }
     }
 
     if let Some(g) = file.groups.iter().find(|g| !out.iter().any(|t| t.group == g.id)) {
@@ -408,6 +488,22 @@ pub fn build(root: &Path, s: &Sources) -> Result<Built, String> {
         let k = lit.iter().filter(|&&x| x).count();
         eprintln!("themes at {level}: {count} themes light {k} of {n} verses ({:.1}%)", 100.0 * k as f64 / n as f64);
     }
+    let pairs: usize = out.iter().map(|t| t.related.len()).sum();
+    let with: usize = out.iter().filter(|t| !t.related.is_empty()).count();
+    for (level, simple_only) in [("Simple", true), ("Study", false)] {
+        let shown: Vec<bool> = out.iter().map(|t| !simple_only || t.simple()).collect();
+        let rel = Related::new(&out, &sets, &shown, s.l_off, s.l_verse, n);
+        let mut own = vec![false; n];
+        for (set, _) in sets.iter().zip(&shown).filter(|(_, &on)| on) {
+            for &v in set {
+                own[v as usize] = true;
+            }
+        }
+        let reached = (0..n).filter(|&v| !rel.by_verse[v].is_empty()).count();
+        let only = (0..n).filter(|&v| !own[v] && !rel.by_verse[v].is_empty()).count();
+        eprintln!("related words at {level}: {reached} verses reach a theme through a related word, {only} of them with no theme of their own");
+    }
+    eprintln!("related words: {pairs} reviewed pairs for {with} themes ({RELATED}); theme verses unchanged");
     let partnered = out.iter().filter(|t| !t.near.is_empty()).count();
     eprintln!("themes: {} in {} groups; often linked with: {} distinct verse pairs with {}+ votes, {partnered} of {} themes have a partner", out.len(), file.groups.len(), near.pairs, nr.votes, out.len());
 
@@ -603,6 +699,132 @@ impl<'a> Links<'a> {
     }
 }
 
+// ------------------------------------------------------------ related words
+
+/// Checks `config/theme-related.json` against the themes and the word
+/// families, entry by entry: the theme exists; root and via are root keys;
+/// via is one of the theme's roots; via is in root's family by one of
+/// [`RELATIONS`]; root is not one of the theme's roots, a left-out sense, a
+/// skip_with root or a name (a gloss that starts with a capital letter); and
+/// no theme lists a root twice. Gives each entry's theme index and
+/// `(root, relation, via)`, or the first problem.
+pub fn resolve_related(specs: &[RelatedSpec], themes: &[ThemeOut], keys: &[&str], glosses: &[&str], family: &[Vec<FamilyLink>]) -> Result<Vec<(usize, FamilyLink)>, String> {
+    let index: HashMap<&str, u32> = keys.iter().enumerate().map(|(i, &k)| (k, i as u32)).collect();
+    let key = |k: &str| index.get(k).copied();
+    let mut seen: HashSet<(usize, u32)> = HashSet::new();
+    let mut out = Vec::new();
+    for e in specs {
+        let at = format!("{RELATED}: {} {}", e.theme, e.root);
+        let j = themes.iter().position(|t| t.id == e.theme).ok_or_else(|| format!("{at}: there is no theme {:?}", e.theme))?;
+        let t = &themes[j];
+        let r = key(&e.root).ok_or_else(|| format!("{at}: {} is not a root key", e.root))?;
+        let via = key(&e.via).ok_or_else(|| format!("{at}: via {} is not a root key", e.via))?;
+        if !t.roots.contains(&via) {
+            return Err(format!("{at}: via {} is not one of the theme's roots", e.via));
+        }
+        if t.roots.contains(&r) {
+            return Err(format!("{at}: {} is already one of the theme's roots", e.root));
+        }
+        if t.left.contains(&r) {
+            return Err(format!("{at}: {} is a sense the theme leaves out", e.root));
+        }
+        if t.skip_with.contains(&r) {
+            return Err(format!("{at}: {} is in the theme's skip_with", e.root));
+        }
+        let gloss = glosses.get(r as usize).copied().unwrap_or("");
+        if gloss.chars().find(|c| c.is_alphabetic()).is_some_and(char::is_uppercase) {
+            return Err(format!("{at}: {} is a name ({gloss:?})", e.root));
+        }
+        let rel = match family.get(r as usize).and_then(|f| f.iter().find(|x| x.0 == via)) {
+            None => return Err(format!("{at}: {} is not in the family of {}", e.via, e.root)),
+            Some(&(_, rel, _)) if !RELATIONS.contains(&rel) => return Err(format!("{at}: {} is tied to {} as {rel:?}, which a theme never uses", e.via, e.root)),
+            Some(&(_, rel, _)) => rel,
+        };
+        if e.why.trim().is_empty() {
+            return Err(format!("{at}: needs a why"));
+        }
+        if let Some(w) = e.english.iter().find(|w| w.is_empty() || w.chars().any(|c| !c.is_lowercase())) {
+            return Err(format!("{at}: english {w:?} must be one lowercase word"));
+        }
+        if !seen.insert((j, r)) {
+            return Err(format!("{at}: listed twice for the theme"));
+        }
+        out.push((j, (r, rel, via)));
+    }
+    Ok(out)
+}
+
+/// The verses where root `r`'s BSB English is one of `words`; or the first
+/// of `words` that never is.
+fn english_verses(r: u32, words: &[String], s: &Sources) -> Result<Vec<u32>, String> {
+    let mut verses = Vec::new();
+    let mut used = vec![false; words.len()];
+    for k in s.l_off[r as usize] as usize..s.l_off[r as usize + 1] as usize {
+        let (v, pos) = (s.l_verse[k], s.l_pos[k]);
+        let mut hit = false;
+        for w in (s.english)(v, pos) {
+            if let Some(i) = words.iter().position(|x| *x == w) {
+                used[i] = true;
+                hit = true;
+            }
+        }
+        if hit && verses.last() != Some(&v) {
+            verses.push(v);
+        }
+    }
+    match used.iter().position(|u| !u) {
+        Some(i) => Err(words[i].clone()),
+        None => Ok(verses),
+    }
+}
+
+/// Themes reached through a related word, at one depth: per verse, the
+/// `(theme, related root)` pairs. A related word never counts on a verse that
+/// is already one of the theme's verses, that holds one of its left-out
+/// senses or skip_with roots, or (for a root with `related_only`) that is not
+/// listed. The app runs the same rule from themes.json.
+pub struct Related {
+    pub by_verse: Vec<Vec<(u32, u32)>>,
+}
+
+impl Related {
+    /// `sets[j]` is theme j's verses and `shown[j]` whether it shows at this depth.
+    pub fn new(themes: &[ThemeOut], sets: &[Vec<u32>], shown: &[bool], l_off: &[u32], l_verse: &[u32], n: usize) -> Self {
+        let posting = |r: u32| &l_verse[l_off[r as usize] as usize..l_off[r as usize + 1] as usize];
+        let mut by_verse: Vec<Vec<(u32, u32)>> = vec![Vec::new(); n];
+        for (j, t) in themes.iter().enumerate() {
+            if !shown[j] || t.related.is_empty() {
+                continue;
+            }
+            let barred: HashSet<u32> = t.left.iter().chain(&t.skip_with).flat_map(|&r| posting(r).iter().copied()).collect();
+            for &(r, _, _) in &t.related {
+                let only = t.related_only.iter().find(|o| o.0 == r).map(|o| &o.2);
+                for &v in posting(r) {
+                    if barred.contains(&v) || sets[j].binary_search(&v).is_ok() || only.is_some_and(|o| o.binary_search(&v).is_err()) {
+                        continue;
+                    }
+                    let list = &mut by_verse[v as usize];
+                    if !list.contains(&(j as u32, r)) {
+                        list.push((j as u32, r));
+                    }
+                }
+            }
+        }
+        Related { by_verse }
+    }
+
+    /// The themes a verse reaches through a related word, each once.
+    pub fn themes(&self, v: u32) -> Vec<u32> {
+        let mut out: Vec<u32> = Vec::new();
+        for &(j, _) in self.by_verse.get(v as usize).map_or(&[][..], Vec::as_slice) {
+            if !out.contains(&j) {
+                out.push(j);
+            }
+        }
+        out
+    }
+}
+
 // ------------------------------------------------------------- reading back
 
 /// `themes.json` as written, plus each theme's verses.
@@ -639,7 +861,30 @@ pub fn testament_counts(vz: &Versification, set: &[u32]) -> (usize, usize) {
 
 // ------------------------------------------------------------------ verify
 
-pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
+/// Per verse, whether naves/<Book>.json gives it a row (subjects or passages).
+fn naves_rows(d: &Loaded, n: usize) -> Result<Vec<bool>, String> {
+    let mut has = vec![false; n];
+    for (b, book) in BOOKS.iter().enumerate() {
+        let rel = format!("naves/{}.json", book.osis);
+        let doc: Value = serde_json::from_str(&fs::read_to_string(d.dir.join(&rel)).map_err(|e| format!("{rel}: {e}"))?).map_err(|e| format!("{rel}: {e}"))?;
+        for (c, ch) in doc["chapters"].as_array().into_iter().flatten().enumerate() {
+            for (v, e) in ch.as_array().into_iter().flatten().enumerate() {
+                if e.as_array().is_some_and(|x| !x.is_empty()) {
+                    if let Some(i) = d.vz.index(b as u8, c as u16 + 1, v as u16 + 1) {
+                        has[i as usize] = true;
+                    }
+                }
+            }
+        }
+    }
+    Ok(has)
+}
+
+/// The Sabbath theme's roots and verse count, which related words never change.
+const SABBATH_ROOTS: [&str; 7] = ["G2663", "G2664", "G4520", "G4521", "H4496H", "H7673B", "H7676"];
+
+/// `root` is the repository, for config/theme-related.json.
+pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
     let mut r: Vec<(bool, String)> = Vec::new();
     let Read { themes, sets, groups } = read(d)?;
     let featured: Vec<String> = serde_json::from_value(d.meta["themeFeatured"].clone()).map_err(|e| format!("meta.json themeFeatured: {e}"))?;
@@ -804,21 +1049,119 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let gen26 = d.resolve("Gen 2:6")?.0;
     let gen26_through = reach(&simple, "Gen 2:6")?;
     r.push((simple.own[gen26 as usize].is_empty() && gen26_through.is_empty(), format!("Genesis 2:6 reaches no theme at Simple: {gen26_through:?}")));
-    let (mut own, mut through) = (0usize, 0usize);
-    for v in 0..n as u32 {
-        if !simple.own[v as usize].is_empty() {
-            own += 1;
-        } else if !simple.through(v).is_empty() {
-            through += 1;
+
+    // Related words: a separate, labelled reason on a verse's card, from the
+    // reviewed list; never a root or a verse of the theme.
+    let specs = read_related(root)?;
+    let keys: Vec<&str> = d.lemmas["key"].as_array().ok_or("lemmas.json has no keys")?.iter().map(|k| k.as_str().unwrap_or("")).collect();
+    let key = |i: u32| keys.get(i as usize).copied().unwrap_or("?");
+    let listed: HashSet<(&str, &str, &str)> = specs.iter().map(|e| (e.theme.as_str(), e.root.as_str(), e.via.as_str())).collect();
+    let shard_size = d.meta["lexShard"].as_u64().ok_or("meta.json has no lexShard")? as u32;
+    let mut shards: HashMap<u32, Value> = HashMap::new();
+    let mut written = 0usize;
+    for t in &themes {
+        for &(w, rel, via) in &t.related {
+            written += 1;
+            let what = format!("theme {} related word {} via {}", t.id, key(w), key(via));
+            r.push((listed.contains(&(t.id.as_str(), key(w), key(via))), format!("{what} is in {RELATED}")));
+            r.push((
+                t.roots.contains(&via) && !t.roots.contains(&w) && !t.left.contains(&w) && !t.skip_with.contains(&w),
+                format!("{what}: via is one of the theme's roots, and the word is not one of them, a left-out sense or a skip_with root"),
+            ));
+            if let std::collections::hash_map::Entry::Vacant(e) = shards.entry(w / shard_size) {
+                let rel = format!("forms/{}.json", w / shard_size);
+                e.insert(serde_json::from_str(&fs::read_to_string(d.dir.join(&rel)).map_err(|e| format!("{rel}: {e}"))?).map_err(|e| format!("{rel}: {e}"))?);
+            }
+            let family = &shards[&(w / shard_size)][(w % shard_size) as usize]["r"];
+            let found = family.as_array().into_iter().flatten().find(|x| x[0].as_u64() == Some(via as u64)).and_then(|x| x[1].as_str());
+            r.push((RELATIONS.contains(&rel) && found == Some(rel.to_string().as_str()), format!("{what}: forms/*.json gives the relation {found:?}, themes.json {rel:?}, and it is one themes may use")));
+        }
+        for (w, words, verses) in &t.related_only {
+            let holds = verses.iter().all(|v| l_verse[l_off[*w as usize] as usize..l_off[*w as usize + 1] as usize].contains(v));
+            r.push((t.related.iter().any(|x| x.0 == *w) && holds && !verses.is_empty(), format!("theme {} related word {} counts only where the BSB has {words:?}: {} verses, each holding it", t.id, key(*w), verses.len())));
         }
     }
-    eprintln!(
-        "themes at Simple: {own} verses ({:.1}%) have their own, {through} ({:.1}%) reach one through links, {} ({:.1}%) none",
-        100.0 * own as f64 / n as f64,
-        100.0 * through as f64 / n as f64,
-        n - own - through,
-        100.0 * (n - own - through) as f64 / n as f64
-    );
+    r.push((written == specs.len(), format!("themes.json has {written} related words; {RELATED} lists {}", specs.len())));
+
+    let rel_simple = Related::new(&themes, &sets, &shown_simple, &l_off, &l_verse, n);
+    let rel_study = Related::new(&themes, &sets, &shown_all, &l_off, &l_verse, n);
+    let sabbath = index("sabbath").ok_or("no theme sabbath")?;
+    let ceased = d.lemma_index("H7673A").ok_or("no root H7673A")? as u32;
+    for verse in ["Gen 2:2", "Gen 2:3"] {
+        let v = d.resolve(verse)?.0;
+        r.push((rel_simple.by_verse[v as usize].contains(&(sabbath as u32, ceased)), format!("{verse} reaches sabbath at Simple through the related word H7673A (rested): {:?}", names(&rel_simple.themes(v)))));
+    }
+    for verse in ["Jer 7:34", "Neh 4:11"] {
+        let v = d.resolve(verse)?.0;
+        r.push((!rel_study.themes(v).contains(&(sabbath as u32)), format!("{verse} (H7673A 'remove', 'put an end') does not reach sabbath through a related word")));
+    }
+    let sabbath_roots: Vec<&str> = themes[sabbath].roots.iter().map(|&i| key(i)).collect();
+    r.push((sabbath_roots == SABBATH_ROOTS, format!("theme sabbath keeps its roots: {sabbath_roots:?}")));
+    r.push((sets[sabbath].len() == 183, format!("theme sabbath lights {} verses, as before related words (183)", sets[sabbath].len())));
+    let seed = index("seed").ok_or("no theme seed")? as u32;
+    let lev = d.resolve("Lev 15:16")?.0;
+    for (level, links, rel) in [("Simple", &simple, &rel_simple), ("Study", &study, &rel_study)] {
+        let routes = (links.own[lev as usize].contains(&seed), links.through(lev).iter().any(|t| t.theme == seed as usize), rel.themes(lev).contains(&seed));
+        r.push((routes == (false, false, false), format!("Leviticus 15:16 never reaches seed at {level}, by its words, its links or a related word: {routes:?}")));
+    }
+
+    // How each verse's card opens, at each depth: its own themes, else themes
+    // through related words, else through links, else (Study) Nave's rows,
+    // else the quiet line; and what related words changed.
+    let naves = naves_rows(d, n)?;
+    for (level, links, rel) in [("Simple", &simple, &rel_simple), ("Study", &study, &rel_study)] {
+        let study_level = level == "Study";
+        let (mut own, mut related, mut through, mut nav, mut quiet) = (0usize, 0usize, 0usize, 0usize, 0usize);
+        let (mut new_own, mut new_links, mut new_naves, mut new_quiet) = (0usize, 0usize, 0usize, 0usize);
+        let (mut links_before, mut naves_before, mut quiet_before) = (0usize, 0usize, 0usize);
+        for v in 0..n as u32 {
+            let has_own = !links.own[v as usize].is_empty();
+            let has_rel = !rel.by_verse[v as usize].is_empty();
+            let has_thr = !has_own && !links.through(v).is_empty();
+            let has_nav = study_level && naves[v as usize];
+            // Before related words.
+            if !has_own {
+                if has_thr {
+                    links_before += 1;
+                } else if has_nav {
+                    naves_before += 1;
+                } else {
+                    quiet_before += 1;
+                }
+            }
+            if has_rel {
+                if has_own {
+                    new_own += 1;
+                } else if has_thr {
+                    new_links += 1;
+                } else if has_nav {
+                    new_naves += 1;
+                } else {
+                    new_quiet += 1;
+                }
+            }
+            match (has_own, has_rel, has_thr, has_nav) {
+                (true, ..) => own += 1,
+                (false, true, ..) => related += 1,
+                (false, false, true, _) => through += 1,
+                (false, false, false, true) => nav += 1,
+                _ => quiet += 1,
+            }
+        }
+        let pct = |k: usize| 100.0 * k as f64 / n as f64;
+        eprintln!(
+            "themes at {level}: {own} verses ({:.1}%) have their own, {related} ({:.1}%) reach one through a related word, {through} ({:.1}%) through links, {nav} show Nave's rows, {quiet} ({:.1}%) the quiet line",
+            pct(own),
+            pct(related),
+            pct(through),
+            pct(quiet)
+        );
+        eprintln!(
+            "related words at {level}: {} verses newly reach a theme through one: {new_own} beside their own themes, {new_links} that had only links, {new_naves} that had Nave's rows, {new_quiet} that had the quiet line; links only {links_before} -> {through}, Nave's {naves_before} -> {nav}, quiet {quiet_before} -> {quiet}",
+            new_own + new_links + new_naves + new_quiet
+        );
+        r.push((related > 0, format!("some verses with no theme of their own reach one through a related word at {level} ({related})")));
+    }
     Ok(r)
 }
 
@@ -887,6 +1230,85 @@ mod tests {
         let got: Vec<(usize, Vec<u32>)> = links.through(0).into_iter().map(|t| (t.theme, t.via.iter().map(|x| x.0).collect())).collect();
         assert_eq!(got, vec![(0, vec![1, 2]), (1, vec![3])]);
         assert!(links.through(4).is_empty());
+    }
+
+    fn theme(roots: Vec<u32>, left: Vec<u32>, skip_with: Vec<u32>) -> ThemeOut {
+        ThemeOut {
+            id: "sabbath".into(),
+            name: "Sabbath rest".into(),
+            blurb: String::new(),
+            roots,
+            group: "times".into(),
+            level: "simple".into(),
+            key_verses: Vec::new(),
+            near: Vec::new(),
+            left,
+            skip_with,
+            related: Vec::new(),
+            related_only: Vec::new(),
+            related_gloss: Vec::new(),
+        }
+    }
+
+    fn spec(theme: &str, root: &str, via: &str) -> RelatedSpec {
+        RelatedSpec { theme: theme.into(), root: root.into(), via: via.into(), why: "a reason".into(), english: Vec::new(), gloss: false }
+    }
+
+    /// Roots: 0 to cease, 1 Sabbath (the theme's), 2 to keep (another sense of
+    /// the Sabbath word), 3 a name, 4 cessation (no family), 5 a left-out
+    /// sense, 6 a skip_with root.
+    const KEYS: [&str; 7] = ["H0001", "H0002", "H0003", "H0004", "H0005", "H0006", "H0007"];
+    const GLOSSES: [&str; 7] = ["to cease", "Sabbath", "to keep", "Shebeth", "cessation", "semen", "thousand"];
+
+    fn resolve(specs: &[RelatedSpec]) -> Result<Vec<(usize, FamilyLink)>, String> {
+        let family = vec![vec![(1, 'c', 1), (4, 'c', 4)], vec![(0, 'p', 0)], vec![(1, 'n', 1)], vec![(1, 's', 1)], vec![], vec![(1, 's', 1)], vec![(1, 's', 1)]];
+        resolve_related(specs, &[theme(vec![1], vec![5], vec![6])], &KEYS, &GLOSSES, &family)
+    }
+
+    fn fails(specs: &[RelatedSpec], why: &str) {
+        match resolve(specs) {
+            Ok(x) => panic!("{specs:?} passed as {x:?}, expected {why:?}"),
+            Err(e) => assert!(e.contains(why), "{e:?} does not say {why:?}"),
+        }
+    }
+
+    #[test]
+    fn related_words_are_checked() {
+        assert_eq!(resolve(&[spec("sabbath", "H0001", "H0002")]), Ok(vec![(0, (0, 'c', 1))]));
+        fails(&[spec("rest", "H0001", "H0002")], "there is no theme");
+        fails(&[spec("sabbath", "H9999", "H0002")], "is not a root key");
+        fails(&[spec("sabbath", "H0001", "H9999")], "is not a root key");
+        fails(&[spec("sabbath", "H0001", "H0005")], "is not one of the theme's roots");
+        fails(&[spec("sabbath", "H0002", "H0002")], "already one of the theme's roots");
+        fails(&[spec("sabbath", "H0006", "H0002")], "leaves out");
+        fails(&[spec("sabbath", "H0007", "H0002")], "skip_with");
+        fails(&[spec("sabbath", "H0004", "H0002")], "is a name");
+        fails(&[spec("sabbath", "H0005", "H0002")], "is not in the family");
+        // Another sense of the same word is never a related word.
+        fails(&[spec("sabbath", "H0003", "H0002")], "never uses");
+        fails(&[spec("sabbath", "H0001", "H0002"), spec("sabbath", "H0001", "H0002")], "listed twice");
+        fails(&[RelatedSpec { why: " ".into(), ..spec("sabbath", "H0001", "H0002") }], "needs a why");
+        fails(&[RelatedSpec { english: vec!["Rest".into()], ..spec("sabbath", "H0001", "H0002") }], "lowercase");
+    }
+
+    #[test]
+    fn related_rule() {
+        // Root 0 (the related word) in verses 0, 1, 2 and 3; root 1 (the
+        // theme's) in verse 1; root 5 (left out) in verse 2.
+        let (l_off, l_verse) = (vec![0, 4, 5, 5, 5, 5, 6, 6], vec![0, 1, 2, 3, 1, 2]);
+        let mut t = theme(vec![1], vec![5], vec![]);
+        t.related = vec![(0, 'c', 1)];
+        let sets = vec![vec![1]];
+        let got = Related::new(std::slice::from_ref(&t), &sets, &[true], &l_off, &l_verse, 4);
+        // Not on the theme's own verse 1, nor verse 2 with the left-out sense.
+        assert_eq!(got.by_verse, vec![vec![(0, 0)], vec![], vec![], vec![(0, 0)]]);
+        assert_eq!(got.themes(3), vec![0]);
+        // Only where the English matched (verse 3), and never at a depth that hides it.
+        t.related_only = vec![(0, vec!["rest".into()], vec![3])];
+        let got = Related::new(std::slice::from_ref(&t), &sets, &[true], &l_off, &l_verse, 4);
+        assert_eq!(got.by_verse, vec![vec![], vec![], vec![], vec![(0, 0)]]);
+        let hidden = Related::new(std::slice::from_ref(&t), &sets, &[false], &l_off, &l_verse, 4);
+        assert!(hidden.by_verse.iter().all(Vec::is_empty));
     }
 
     #[test]

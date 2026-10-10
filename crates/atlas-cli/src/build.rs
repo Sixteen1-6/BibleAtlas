@@ -8,9 +8,10 @@
 //! - `lemmas.json`: one row per Hebrew/Aramaic/Greek root (column-oriented)
 //! - `words.json`: sorted English vocabulary for search
 //! - `themes.json`: themes from `config/themes.json` resolved to root indices,
-//!   with their group, level, key verses, left-out senses and the themes they
-//!   are often linked with (see `themes.rs`); `meta.json` gets the groups, the
-//!   featured list and the rules for theme links
+//!   with their group, level, key verses, left-out senses, the themes they
+//!   are often linked with and the related words of `config/theme-related.json`
+//!   (see `themes.rs`); `meta.json` gets the groups, the featured list and the
+//!   rules for theme links
 //! - `layers.json`: layers of meaning from `config/layers.json`, checked against
 //!   the BSB, the roots and the cross-references (drafts only with ATLAS_LAYER_DRAFTS=1)
 //! - `text/<Book>.json`: per-book verses, English plus original-language words
@@ -268,13 +269,77 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     // --- English search index ------------------------------------------------
     let eng = english::build(&bsb.text);
 
+    // --- Word families (before the themes, whose related words come from them) ---
+    let mut derivations = family::Derivations::default();
+    let ng = family::derivations(&inputs.path("strongs", "greek"), 'G', &mut derivations)?;
+    let nh = family::derivations(&inputs.path("strongs", "hebrew"), 'H', &mut derivations)?;
+    let family_roots: Vec<family::Root> = lemmas
+        .iter()
+        .map(|l| {
+            let e = l.lex.as_ref();
+            // A sense with no entry of its own borrows its number's first entry:
+            // the same dictionary word, but not that entry's links.
+            let own = lex.contains_key(&l.key);
+            let s = |f: fn(&LexEntry) -> &str| e.map_or("", f);
+            family::Root {
+                key: &l.key,
+                count: l.count,
+                // A name, or a sense the lexicon files as a name or a spelling of
+                // one (מֶלֶךְ for Molech, שָׂדַי for Sirion), titles of God aside.
+                name: s(|e| &e.morph).starts_with("N:")
+                    || (own && s(|e| &e.relation).contains("Name of") && s(|e| &e.target) != "H3068G")
+                    || (own && s(|e| &e.relation).contains("Spelling of") && lex.get(s(|e| &e.target)).is_some_and(|t| t.morph.starts_with("N:"))),
+                word: s(|e| &e.word),
+                morph: s(|e| &e.morph),
+                gloss: s(|e| &e.gloss),
+                estrong: s(|e| &e.estrong),
+                relation: if own { s(|e| &e.relation) } else { "" },
+                target: if own { s(|e| &e.target) } else { "" },
+            }
+        })
+        .collect();
+    let forms = family::build(&family_roots, &words, &l_off, &l_verse, &l_pos, &derivations);
+    let related = forms.iter().filter(|f| f.get("r").is_some()).count();
+    eprintln!(
+        "word families: {} derivations ({} prefix compounds, {} shared roots) from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives",
+        derivations.parent.len(),
+        derivations.head.len(),
+        derivations.same.len()
+    );
+
     // --- Themes -----------------------------------------------------------------
     let theme_keys: Vec<&str> = lemmas.iter().map(|l| l.key.as_str()).collect();
     let theme_glosses: Vec<&str> = lemmas.iter().map(|l| l.gloss.as_str()).collect();
     let theme_counts: Vec<u32> = lemmas.iter().map(|l| l.count).collect();
+    // Each root's family (relative, relation, the relative's head), as forms/*.json has it.
+    let theme_family: Vec<Vec<crate::themes::FamilyLink>> = forms
+        .iter()
+        .map(|f| {
+            let row = |x: &Value| Some((x[0].as_u64()? as u32, x[1].as_str()?.chars().next()?, x[2].as_u64()? as u32));
+            f["r"].as_array().map_or_else(Vec::new, |r| r.iter().filter_map(row).collect())
+        })
+        .collect();
+    // The BSB words aligned to one original word, in lowercase.
+    let theme_english = |v: u32, pos: u16| -> Vec<String> {
+        let Some(a) = &aligned[v as usize] else { return Vec::new() };
+        let groups: Vec<i32> = a.words.get(pos as usize).map_or_else(Vec::new, |g| g.iter().copied().filter(|&g| g >= 0).collect());
+        let tokens = align::english_words(&bsb.text[v as usize]);
+        a.english.iter().zip(&tokens).filter(|(g, _)| groups.contains(g)).map(|(_, t)| t.to_lowercase()).collect()
+    };
     let themes = crate::themes::build(
         root,
-        &crate::themes::Sources { keys: &theme_keys, glosses: &theme_glosses, counts: &theme_counts, l_off: &l_off, l_verse: &l_verse, vz: &vz, graph: &graph },
+        &crate::themes::Sources {
+            keys: &theme_keys,
+            glosses: &theme_glosses,
+            counts: &theme_counts,
+            l_off: &l_off,
+            l_verse: &l_verse,
+            l_pos: &l_pos,
+            vz: &vz,
+            graph: &graph,
+            family: &theme_family,
+            english: &theme_english,
+        },
     )?;
 
     // --- Layers of meaning -------------------------------------------------------------
@@ -407,42 +472,6 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
     }
-    let mut derivations = family::Derivations::default();
-    let ng = family::derivations(&inputs.path("strongs", "greek"), 'G', &mut derivations)?;
-    let nh = family::derivations(&inputs.path("strongs", "hebrew"), 'H', &mut derivations)?;
-    let family_roots: Vec<family::Root> = lemmas
-        .iter()
-        .map(|l| {
-            let e = l.lex.as_ref();
-            // A sense with no entry of its own borrows its number's first entry:
-            // the same dictionary word, but not that entry's links.
-            let own = lex.contains_key(&l.key);
-            let s = |f: fn(&LexEntry) -> &str| e.map_or("", f);
-            family::Root {
-                key: &l.key,
-                count: l.count,
-                // A name, or a sense the lexicon files as a name or a spelling of
-                // one (מֶלֶךְ for Molech, שָׂדַי for Sirion), titles of God aside.
-                name: s(|e| &e.morph).starts_with("N:")
-                    || (own && s(|e| &e.relation).contains("Name of") && s(|e| &e.target) != "H3068G")
-                    || (own && s(|e| &e.relation).contains("Spelling of") && lex.get(s(|e| &e.target)).is_some_and(|t| t.morph.starts_with("N:"))),
-                word: s(|e| &e.word),
-                morph: s(|e| &e.morph),
-                gloss: s(|e| &e.gloss),
-                estrong: s(|e| &e.estrong),
-                relation: if own { s(|e| &e.relation) } else { "" },
-                target: if own { s(|e| &e.target) } else { "" },
-            }
-        })
-        .collect();
-    let forms = family::build(&family_roots, &words, &l_off, &l_verse, &l_pos, &derivations);
-    let related = forms.iter().filter(|f| f.get("r").is_some()).count();
-    eprintln!(
-        "word families: {} derivations ({} prefix compounds, {} shared roots) from {nh} Hebrew and {ng} Greek Strong's entries; {related} roots with relatives",
-        derivations.parent.len(),
-        derivations.head.len(),
-        derivations.same.len()
-    );
     for (s, chunk) in forms.chunks(LEX_SHARD).enumerate() {
         write(out, &format!("forms/{s}.json"), serde_json::to_string(chunk).unwrap().as_bytes(), &mut files)?;
     }
