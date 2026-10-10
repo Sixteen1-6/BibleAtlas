@@ -164,6 +164,10 @@ pub struct RelatedSpec {
     /// Reviewed: the root is another sense of one of the theme's words.
     #[serde(default)]
     pub sense: bool,
+    /// Verses ("Exod 18:21") where the alignment gives the root the wrong
+    /// English: it does not count there.
+    #[serde(default)]
+    pub not: Vec<String>,
 }
 
 #[derive(Deserialize)]
@@ -206,8 +210,8 @@ pub struct ThemeOut {
     /// forms/*.json gives it ('c': the theme's word comes from it).
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub related: Vec<FamilyLink>,
-    /// A related root that counts only where its BSB English is one of some
-    /// words: `(root, the words, the verses where it is)`.
+    /// A related root that counts only in some verses: `(root, the words its
+    /// BSB English must be one of (none: any), the verses where it counts)`.
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub related_only: Vec<(u32, Vec<String>, Vec<u32>)>,
     /// Related roots shown by their gloss, not the English aligned to them.
@@ -444,8 +448,16 @@ pub fn build(root: &Path, s: &Sources) -> Result<Built, String> {
         if e.gloss {
             t.related_gloss.push(row.0);
         }
-        if !e.english.is_empty() {
-            let verses = english_verses(row.0, &e.english, s).map_err(|w| format!("{RELATED}: {} {}: the English word {w:?} is never aligned to it", e.theme, e.root))?;
+        if !e.english.is_empty() || !e.not.is_empty() {
+            let at = format!("{RELATED}: {} {}", e.theme, e.root);
+            let verses = if e.english.is_empty() {
+                let mut all = s.l_verse[s.l_off[row.0 as usize] as usize..s.l_off[row.0 as usize + 1] as usize].to_vec();
+                all.dedup();
+                all
+            } else {
+                english_verses(row.0, &e.english, s).map_err(|w| format!("{at}: the English word {w:?} is never aligned to it"))?
+            };
+            let verses = without(verses, &e.not, s.vz).map_err(|v| format!("{at}: not {v:?} is not a verse where it would count"))?;
             t.related_only.push((row.0, e.english.clone(), verses));
         }
     }
@@ -790,6 +802,21 @@ fn english_verses(r: u32, words: &[String], s: &Sources) -> Result<Vec<u32>, Str
     }
 }
 
+/// `verses` without the verses `not` names; or the first of `not` that is not
+/// one of them.
+fn without(verses: Vec<u32>, not: &[String], vz: &Versification) -> Result<Vec<u32>, String> {
+    let mut out = verses;
+    for at in not {
+        match single_verse(at, vz).and_then(|v| out.binary_search(&v).ok()) {
+            Some(i) => {
+                out.remove(i);
+            }
+            None => return Err(at.clone()),
+        }
+    }
+    Ok(out)
+}
+
 /// Themes reached through a related word, at one depth: per verse, the
 /// `(theme, related root)` pairs. A related word never counts on a verse that
 /// is already one of the theme's verses, that holds one of its left-out
@@ -1104,17 +1131,18 @@ pub fn verify(d: &Loaded, root: &Path) -> Result<Vec<(bool, String)>, String> {
             r.push((RELATIONS.contains(&rel) && found == Some(rel.to_string().as_str()), format!("{what}: forms/*.json gives the relation {found:?}, themes.json {rel:?}, and it is one themes may use")));
         }
         for (w, words, verses) in &t.related_only {
+            let not: Vec<u32> = specs.iter().filter(|e| e.theme == t.id && e.root == key(*w)).flat_map(|e| e.not.iter().filter_map(|at| single_verse(at, &d.vz))).collect();
             let holds = verses.iter().all(|v| l_verse[l_off[*w as usize] as usize..l_off[*w as usize + 1] as usize].contains(v));
-            r.push((t.related.iter().any(|x| x.0 == *w) && holds && !verses.is_empty(), format!("theme {} related word {} counts only where the BSB has {words:?}: {} verses, each holding it", t.id, key(*w), verses.len())));
+            r.push((t.related.iter().any(|x| x.0 == *w) && holds && !verses.is_empty(), format!("theme {} related word {} counts only in {} listed verses (English {words:?}), each holding it", t.id, key(*w), verses.len())));
             // The same verses again, from the text and alignment the app reads.
             let mut found: Vec<u32> = Vec::new();
             for k in l_off[*w as usize] as usize..l_off[*w as usize + 1] as usize {
                 let v = l_verse[k];
-                if found.last() != Some(&v) && aligned_english(&d.verse(v)?, l_pos[k] as usize).iter().any(|e| words.contains(e)) {
+                if found.last() != Some(&v) && !not.contains(&v) && (words.is_empty() || aligned_english(&d.verse(v)?, l_pos[k] as usize).iter().any(|e| words.contains(e))) {
                     found.push(v);
                 }
             }
-            r.push((found == *verses, format!("theme {} related word {}: the verses whose aligned BSB words include one of {words:?} are the {} listed ({} in the text)", t.id, key(*w), verses.len(), found.len())));
+            r.push((found == *verses, format!("theme {} related word {}: the verses whose aligned BSB words include one of {words:?}, less {} it leaves out, are the {} listed ({} in the text)", t.id, key(*w), not.len(), verses.len(), found.len())));
         }
     }
     r.push((written == specs.len(), format!("themes.json has {written} related words; {RELATED} lists {}", specs.len())));
@@ -1295,7 +1323,7 @@ mod tests {
     }
 
     fn spec(theme: &str, root: &str, via: &str) -> RelatedSpec {
-        RelatedSpec { theme: theme.into(), root: root.into(), via: via.into(), why: "a reason".into(), english: Vec::new(), gloss: false, sense: false }
+        RelatedSpec { theme: theme.into(), root: root.into(), via: via.into(), why: "a reason".into(), english: Vec::new(), gloss: false, sense: false, not: Vec::new() }
     }
 
     /// Roots: 0 to cease, 1 Sabbath (the theme's), 2 to keep (another sense of
@@ -1383,6 +1411,18 @@ mod tests {
         assert_eq!(blurb_refs("The corner of a garment (Ruth 3:9)."), ["Ruth 3:9"]);
         assert_eq!(blurb_refs("Confessing sin (Leviticus 16:21, Psalm 32:5); a count (2,172)."), ["Leviticus 16:21", "Psalm 32:5"]);
         assert!(blurb_refs("(the Greek word also means week) and (46,500)").is_empty());
+    }
+
+    #[test]
+    fn a_related_word_leaves_out_named_verses() {
+        // Genesis 1 and 2 with 31 and 25 verses: Genesis 2:2 is verse 32.
+        let mut counts = vec![vec![31u16, 25]];
+        counts.extend((1..BOOKS.len()).map(|_| vec![1u16]));
+        let vz = Versification::from_counts(&counts);
+        assert_eq!(without(vec![5, 32, 40], &["Gen 2:2".into()], &vz), Ok(vec![5, 40]));
+        // A verse where it would not count anyway, or no verse at all, is refused.
+        assert_eq!(without(vec![5, 40], &["Gen 2:2".into()], &vz), Err("Gen 2:2".into()));
+        assert_eq!(without(vec![5, 32], &["Gen 2".into()], &vz), Err("Gen 2".into()));
     }
 
     #[test]

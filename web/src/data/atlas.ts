@@ -90,8 +90,8 @@ export interface Theme {
    *  the related root as forms.ts names it ('c': the theme's word comes from
    *  it). A separate reason on a verse's card, never one of the theme's verses. */
   related?: [number, Relation, number][];
-  /** A related root that counts only where its BSB English is one of some
-   *  words: [root, the words, the verses where it is]. */
+  /** A related root that counts only in some verses: [root, the words its
+   *  BSB English must be one of (none: any), the verses where it counts]. */
   relatedOnly?: [number, string[], number[]][];
   /** Related roots shown by their gloss, where the alignment gives the wrong English. */
   relatedGloss?: number[];

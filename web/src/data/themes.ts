@@ -485,7 +485,9 @@ export function relatedWordsIn(a: Atlas, row: VerseRow, theme: Theme, related: R
   const eng = englishTokens(row);
   const name = stemWords(theme.name);
   return related.map((rw) => {
-    const only = theme.relatedOnly?.find((o) => o[0] === rw.root)?.[1];
+    // A listed root with no words counts only in its verses, with any English.
+    const listed = theme.relatedOnly?.find((o) => o[0] === rw.root)?.[1];
+    const only = listed?.length ? listed : undefined;
     const byGloss = theme.relatedGloss?.includes(rw.root) ?? false;
     const runs: { at: number; text: string }[] = [];
     const glosses: string[] = [];
