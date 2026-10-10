@@ -153,7 +153,7 @@ const BIBLE_WORDS: Record<string, string[]> = {
   racism: ['favoritism', 'partiality', 'every nation', 'jew greek', 'one man every nation'],
   prejudice: ['favoritism', 'partiality'],
   sorry: ['repent', 'repents', 'repentance'],
-  apologize: ['first reconciled', 'confess sins one another', 'repents forgive'],
+  apologize: ['first reconciled', 'confess sins each other', 'repents forgive'],
   patient: ['patience', 'patiently', 'perseverance'],
   patience: ['patient', 'patiently', 'perseverance'],
   conflict: ['quarrel', 'quarrels', 'strife', 'dispute'],
@@ -180,10 +180,10 @@ const BIBLE_WORDS: Record<string, string[]> = {
   problem: ['trouble', 'troubles'],
   porn: ['immorality', 'lust', 'lustful', 'impurity'],
   pornography: ['immorality', 'lust', 'lustful', 'impurity'],
-  lazy: ['slacker', 'sluggard', 'idle', 'laziness'],
-  laziness: ['slacker', 'sluggard', 'idle', 'lazy'],
+  lazy: ['slacker', 'idle', 'laziness'],
+  laziness: ['slacker', 'idle', 'lazy'],
   innocent: ['blameless', 'innocent'],
-  failure: ['weakness', 'grace sufficient', 'falls seven', 'flesh heart fail'],
+  failure: ['weakness', 'grace sufficient', 'fall seven times', 'flesh heart fail'],
   worthless: ['worth', 'valuable', 'precious'],
   distant: ['far', 'near'],
   closer: ['draw near', 'come near'],
@@ -197,6 +197,12 @@ const BIBLE_WORDS: Record<string, string[]> = {
   horoscopes: ['astrologers', 'divination', 'diviners', 'sorcery', 'mediums'],
   astrology: ['astrologers', 'divination', 'diviners', 'sorcery', 'mediums'],
   psychics: ['mediums', 'spiritists', 'divination'],
+  witch: ['sorceress', 'sorcery', 'witchcraft', 'mediums', 'spiritists'],
+  witches: ['sorceress', 'sorcery', 'witchcraft', 'mediums', 'spiritists'],
+  wicca: ['sorceress', 'sorcery', 'witchcraft', 'mediums', 'spiritists'],
+  smoking: ['body temple holy spirit', 'not mastered', 'self control'],
+  vaping: ['body temple holy spirit', 'not mastered', 'self control'],
+  cigarettes: ['body temple holy spirit', 'not mastered', 'self control'],
   guilty: ['guilt', 'conscience'],
   guilt: ['guilty', 'conscience'],
   ashamed: ['shame', 'disgrace'],
@@ -218,6 +224,8 @@ const BIBLE_WORDS: Record<string, string[]> = {
   denominations: ['divisions', 'factions', 'follow paul', 'one body'],
   drugs: ['drunk', 'drunkenness', 'sober', 'self control'],
   drug: ['drunk', 'drunkenness', 'sober', 'self control'],
+  pills: ['drunk', 'drunkenness', 'sober', 'self control'],
+  opioids: ['drunk', 'drunkenness', 'sober', 'self control'],
   date: ['marry', 'married', 'yoked'],
   dating: ['marry', 'married', 'yoked'],
   environment: ['earth lords', 'cultivate keep', 'creation groaning'],
@@ -322,7 +330,7 @@ const REASON = /\b(because|so that|for this (very )?(purpose|reason)|in order (t
  * then looked for one by one ("share my faith" is not "share" and "faith"). */
 const PHRASES: [RegExp, string[]][] = [
   [/\bjudg(e|ing) (others|other people|people|anyone|each other|one another|someone)\b|\bjudgmental\b/, ['do not judge', 'passing judgment', 'judge neighbor', 'speck']],
-  [/\b(greatest|most important|first|great) commandments?\b/, ['greatest commandment', 'great commandment', 'most important commandment', 'first commandment']],
+  [/\b(greatest|most important|first|great) commandments?\b/, ['greatest commandment', 'most important commandment', 'first commandment']],
   [/\bten commandments\b/, ['ten commandments', 'no other gods', 'two tablets']],
   [/\bholy spirit (is )?(in|within|living in|lives in|inside) (me|us|you)\b|\b(have|got|received) the holy spirit\b/, ['spirit lives', 'spirit dwells', 'spirit testifies', 'sealed spirit', 'given spirit']],
   [/\b(babies|baby|infants?|little children)\b.*\b(die|died|dies|death)\b/, ['child died', 'stillborn', 'go him return', 'little children kingdom']],
@@ -335,7 +343,7 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(share|sharing|spread|tell (people|others) about) (my |our |your |the )?(faith|gospel|jesus)\b/, ['preach', 'proclaim', 'good news', 'my witnesses', 'reason hope', 'testify']],
   [/\bdifficult (person|people)\b/, ['quarrelsome', 'contentious', 'hot tempered']],
   [/\b((break|breaking|quit|kick|stop|beat) (a |my |the |this )?)?(bad )?habits?\b/, ['mastered', 'old self', 'former way']],
-  [/\bloved ones?\b/, ['fallen asleep jesus', 'asleep grieve hope', 'caught up together', 'go him return']],
+  [/\bloved ones?\b/, ['fallen asleep jesus', 'sleep death grieve hope', 'caught up together', 'go him return']],
   [/\bend times\b/, ['last days', 'end age']],
   [/\b(death penalty|capital punishment)\b/, ['surely put death', 'sheds blood', 'carry sword']],
   [/\bmake peace\b/, ['live peace', 'peacemakers', 'first reconciled', 'brothers live harmony']],
@@ -346,21 +354,25 @@ const PHRASES: [RegExp, string[]][] = [
   [/\bgod (make|made|create|created) (me|us|people|humans|humanity|man|mankind)\b/, ['created', 'formed', 'make man', 'my glory']],
   [/\b(life is|life gets|times are|going through) (so )?(hard|difficult|tough)\b|\b(hard|difficult|tough) times\b/, ['trials', 'affliction', 'hardship', 'hardships', 'trouble', 'troubles', 'distress']],
   [/\blife (begin|begins|start|starts)\b/, ['womb', 'conceived', 'knit']],
-  [/\bnon[- ]?(christians?|believers?)\b|\bunbelievers?\b/, ['unequally yoked', 'only in lord', 'unbeliever', 'unbelievers']],
+  [/\brelaps\w*|\b(fell|falling|fall) off the wagon\b|\bback to (drinking|using)\b/, ['fall seven times', 'though i have fallen', 'keep on doing evil', 'mercies never fail', 'new every morning great faithfulness', 'not mastered']],
+  [/\b(clean|sober) (for )?\d+ (days?|weeks?|months?|years?)\b|\b\d+ (days?|weeks?|months?|years?) (clean|sober)\b|\bstay(ing)? (clean|sober)\b/, ['sober', 'sober minded', 'self control']],
+  [/\babortions?\b/, ['formed you in the womb', 'knit me together', 'unformed body', 'leaped womb', 'pregnant woman born prematurely']],
+  [/\bgambl\w*|\blotter(y|ies)\b|\bcasinos?\b|\bsports betting\b/, ['love of money', 'want to be rich', 'eager to be rich', 'loves money', 'wealth hard work', 'get rich']],
+  [/\bnon[- ]?(christians?|believers?)\b|\bunbelievers?\b/, ['unequally yoked', 'belongs lord marry', 'unbeliever', 'unbelievers']],
   [/\bold testament\b/, ['scripture', 'scriptures', 'law prophets', 'written instruction']],
-  [/\bspiritual (battles?|warfare|war|attacks?)\b/, ['struggle flesh blood', 'full armor', 'weapons warfare', 'strongholds', 'schemes devil']],
+  [/\bspiritual (battles?|warfare|war|attacks?)\b/, ['struggle flesh blood', 'full armor of god', 'weapons warfare', 'demolish strongholds', 'stand against schemes']],
   [/\bfruits? of the spirit\b/, ['fruit spirit']],
   [/\b(speaking|speak|speaks) in tongues\b/, ['speaks tongue', 'speak tongues', 'interpretation tongues', 'other tongues']],
-  [/\b(who wrote|writers? of|authors? of|wrote) (the )?(bible|scriptures?)\b/, ['god breathed', 'carried along', 'prophecy scripture']],
+  [/\b(who wrote|writers? of|authors? of|wrote) (the )?(bible|scriptures?)\b/, ['scripture god breathed', 'carried along holy spirit', 'prophecy scripture']],
   [/\b(hate|loathe|cant stand) myself\b/, ['fearfully wonderfully', 'hated own body', 'precious', 'worth more']],
   [/\b(love|loving) god\b/, ['love lord god', 'love me keep', 'love god']],
   [/\bwhat is love\b|\b(real|true|genuine) love\b/, ['love is', 'love patient', 'greater love', 'this is love']],
   [/\bfind (a |my )?(wife|husband|spouse)\b/, ['finds wife', 'prudent wife']],
   [/\bsave (my |our |a )?marriage\b/, ['one flesh', 'husbands love', 'wives submit', 'forgiving']],
   [/\bwhere is jesus( now)?\b/, ['right hand', 'seated', 'intercede', 'ascended']],
-  [/\b(manage|use|spend|spending|using) (my |our )?time\b/, ['teach number days', 'redeeming time', 'most opportunity']],
+  [/\b(manage|use|spend|spending|using) (my |our )?time\b/, ['teach number days', 'redeeming time']],
   [/\b(people|everyone|men|humans|races|all) (as |are )?equal\b/, ['favoritism', 'partiality', 'every nation', 'jew greek']],
-  [/\bhear (from )?god( speak| speaking)?\b|\bgod( voice| speak| speaking| speaks)( to (me|us))?\b/, ['sheep listen voice', 'hears my voice', 'speak servant listening', 'hear word']],
+  [/\bhear (from )?god( speak| speaking)?\b|\bgod( voice| speak| speaking| speaks)( to (me|us))?\b/, ['sheep listen voice', 'anyone hears my voice', 'speak servant listening', 'today hear his voice', 'this is the way walk in it', 'still small voice']],
   [/\b(not|never) (good|smart|strong|holy|worthy) enough\b/, ['grace sufficient', 'competent', 'weakness', 'worthy']],
   // Life as people tell it.
   [/\b(lost|lose|losing) (my |our |his |her |a )?(job|work|income|business)\b|\blaid off\b|\b(got|been|was|get|getting) fired\b|\bunemploy(ed|ment)\b|\b(pay|afford|paying|make) (the |our |my )?(rent|bills|mortgage)\b|\b(rent|bills|mortgage)\b/, ['supply needs', 'daily bread', 'do not worry', 'shall not want']],
@@ -481,17 +493,25 @@ function formsOf(words: string[], w: string, stems: boolean): string[] {
   return [...out];
 }
 
-/** Edit distance, stopping once it passes `max`. */
-function distance(x: string, y: string, max: number): number {
-  if (Math.abs(x.length - y.length) > max) return max + 1;
-  let prev = Array.from({ length: y.length + 1 }, (_, j) => j);
-  for (let i = 1; i <= x.length; i++) {
-    const row = [i];
-    for (let j = 1; j <= y.length; j++) row[j] = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (x[i - 1] === y[j - 1] ? 0 : 1));
-    if (Math.min(...row) > max) return max + 1;
-    prev = row;
+/** The slips that turn the BSB word `x` into the typed `w`: letters left out
+ * ("intrest"), two neighbours swapped ("freinds") and, in long words, one
+ * vowel for another ("sacrafice"). Other changes make another word
+ * ("quitting" is not "quoting", "witch" not "watch"), so they never count. */
+function slips(w: string, x: string): number {
+  const vowel = (c: string) => 'aeiou'.includes(c);
+  const d = [Array.from({ length: x.length + 1 }, (_, j) => j)];
+  for (let i = 1; i <= w.length; i++) {
+    d[i] = [Infinity];
+    for (let j = 1; j <= x.length; j++) {
+      const [a, b] = [w[i - 1], x[j - 1]];
+      let best = d[i][j - 1] + 1;
+      if (a === b) best = Math.min(best, d[i - 1][j - 1]);
+      else if (w.length >= 8 && vowel(a) && vowel(b)) best = Math.min(best, d[i - 1][j - 1] + 1);
+      if (i > 1 && j > 1 && a === x[j - 2] && w[i - 2] === b) best = Math.min(best, d[i - 2][j - 2] + 1);
+      d[i][j] = best;
+    }
   }
-  return prev[y.length];
+  return d[w.length][x.length];
 }
 
 /** Consonant outline: "zacheus" and "zacchaeus" both read "zchs". */
@@ -500,7 +520,8 @@ function skeleton(w: string): string {
 }
 
 /** The BSB word a misspelt one was meant to be ("methusela", "freinds"), or
- * null. Short words must sound alike, so "anime" does not become "anise". */
+ * null. It must sound alike, so "anime" does not become "anise", nor
+ * "cremation" "creation", nor "pills" "piles". */
 function meant(a: Atlas, w: string): string | null {
   if (w.length < 5 || /\d/.test(w)) return null;
   const max = w.length >= 7 ? 2 : 1;
@@ -510,8 +531,8 @@ function meant(a: Atlas, w: string): string | null {
   let bestN = 0;
   a.englishWords.forEach((x, i) => {
     if (x[0] !== w[0] || Math.abs(x.length - w.length) > max) return;
-    if (w.length < 7 && skeleton(x) !== sk) return;
-    const d = distance(w, x, max) - (skeleton(x) === sk ? 0.5 : 0);
+    if (skeleton(x) !== sk) return;
+    const d = slips(w, x);
     const n = a.eOff[i + 1] - a.eOff[i];
     if (d < bestD || (d === bestD && n > bestN)) [best, bestD, bestN] = [x, d, n];
   });
