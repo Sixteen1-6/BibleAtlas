@@ -15,7 +15,7 @@
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
 
-import type { Atlas } from '../../data/atlas';
+import { type Atlas, chapterRange } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { loadJson } from '../extras/data';
@@ -290,11 +290,11 @@ const FILLER = new Set([
   'actually', 'always', 'anymore', 'barely', 'already', 'getting', 'seriously', 'literally', 'basically', 'honestly', 'totally',
   'completely', 'simply', 'probably', 'maybe', 'perhaps', 'definitely', 'certainly', 'truly', 'constantly', 'often', 'sometimes',
   'usually', 'lately', 'recently', 'anyway', 'though', 'although', 'yet', 'else', 'every', 'each', 'other', 'others', 'over',
-  'through', 'during', 'after', 'before', 'since', 'ago', 'again', 'such', 'very', 'quite', 'lot', 'lots', 'kind', 'sort', 'stuff',
+  'through', 'during', 'after', 'before', 'since', 'ago', 'again', 'such', 'very', 'quite', 'kind', 'sort', 'stuff',
   'somebody', 'anyone', 'anybody', 'nobody', 'everyone', 'everybody', 'nothing', 'im', 'ive', 'id', 'youre', 'dont', 'doesnt',
   'didnt', 'cant', 'cannot', 'wont', 'isnt', 'arent', 'wasnt', 'werent', 'shouldnt', 'wouldnt', 'couldnt', 'havent', 'hasnt',
   'hadnt', 'weve', 'theyre', 'thats', 'theres', 'whats', 'gonna', 'wanna', 'gotta', 'got', 'going', 'own', 'now', 'back', 'were',
-  'idea', 'today',
+  'idea', 'today', 'but', 'just', 'also', 'still',
 ]);
 
 /** When someone speaks of their own life, its numbers and spans of time are
@@ -410,7 +410,6 @@ const PHRASES: [RegExp, string[]][] = [
   [/\b(which|what|how many) books\b.*\b(bible|scriptures?)\b|\bcanon\b|\bwho (decided|chose|picked)\b.*\b(books|bible|scriptures?)\b/, ['god breathed', 'law prophets psalms', 'scripture broken']],
   [/\b(bible|scriptures?|genesis)\b.*\b(literal|literally|myths?|accurate|errors?|contradictions?|contradict)\b|\b(literal|literally|myths?|accurate|errors?|contradictions?)\b.*\b(bible|scriptures?|genesis)\b/, ['god breathed', 'word truth', 'scripture broken']],
   [/\b(yahweh|jehovah)\b|\bname of god\b|\bgods? name\b/, ['my name forever', 'name lord known', 'i am sent you israelites']],
-  [/\b(book of )?revelation\b/, ['revelation jesus christ', 'words this prophecy']],
   [/\b(some|certain) sins? (worse|greater|bigger)\b|\b(worse|greater|bigger|worst) sins?\b/, ['greater sin', 'blasphemy spirit', 'one point']],
   [/\bgod (ever )?chang(e|es|ed|ing) (his )?mind\b/, ['relented', 'relent', 'man that he should lie', 'lord do not change']],
   [/\bgenerational (curses?|sins?)\b|\bsins? of (the |my )?(fathers|parents|ancestors)\b/, ['third fourth', 'sour grapes', 'son not bear']],
@@ -422,6 +421,8 @@ const PHRASES: [RegExp, string[]][] = [
   [/\bfind(s|ing)? (some )?(money|a wallet|wallet|something)\b|\bfinders keepers\b/, ['lost property', 'return it']],
   [/\b(hindu|buddhist|sikh|pagan) (temple|ceremony|wedding|festival|shrine)\b|\bmosque\b|\bshrine\b/, ['temple idol', 'table demons', 'food sacrificed idols']],
   [/\b(called|named)\b(?= (the|a|an)\b)/, []],
+  [/\ba lot( of)?\b|\blots of\b/, []],
+  [/\bfamily trees?\b|\bgenealog(y|ies)\b/, ['genealogy', 'record genealogy']],
   // To raise a child is not to raise the dead.
   [/\b(raise|raising|bring up|bringing up) (my |our |a |the |your )?(kids|children|child|sons?|daughters?|teenagers?|teens?|family)\b/, ['train', 'instruction', 'discipline', 'children']],
 ];
@@ -478,6 +479,106 @@ function formsOf(words: string[], w: string, stems: boolean): string[] {
     if (r.endsWith('ie') && has(words, `${r.slice(0, -2)}ying`)) out.add(`${r.slice(0, -2)}ying`);
   }
   return [...out];
+}
+
+/** Edit distance, stopping once it passes `max`. */
+function distance(x: string, y: string, max: number): number {
+  if (Math.abs(x.length - y.length) > max) return max + 1;
+  let prev = Array.from({ length: y.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= x.length; i++) {
+    const row = [i];
+    for (let j = 1; j <= y.length; j++) row[j] = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (x[i - 1] === y[j - 1] ? 0 : 1));
+    if (Math.min(...row) > max) return max + 1;
+    prev = row;
+  }
+  return prev[y.length];
+}
+
+/** Consonant outline: "zacheus" and "zacchaeus" both read "zchs". */
+function skeleton(w: string): string {
+  return w[0] + w.slice(1).replace(/[aeiouyh]/g, '').replace(/(.)\1+/g, '$1');
+}
+
+/** The BSB word a misspelt one was meant to be ("methusela", "freinds"), or
+ * null. Short words must sound alike, so "anime" does not become "anise". */
+function meant(a: Atlas, w: string): string | null {
+  if (w.length < 5 || /\d/.test(w)) return null;
+  const max = w.length >= 7 ? 2 : 1;
+  const sk = skeleton(w);
+  let best: string | null = null;
+  let bestD = max + 1;
+  let bestN = 0;
+  a.englishWords.forEach((x, i) => {
+    if (x[0] !== w[0] || Math.abs(x.length - w.length) > max) return;
+    if (w.length < 7 && skeleton(x) !== sk) return;
+    const d = distance(w, x, max) - (skeleton(x) === sk ? 0.5 : 0);
+    const n = a.eOff[i + 1] - a.eOff[i];
+    if (d < bestD || (d === bestD && n > bestN)) [best, bestD, bestN] = [x, d, n];
+  });
+  return bestD <= max ? best : null;
+}
+
+/** Books named for a person: "john" is the book only as "john 3" or "the
+ * gospel of john". Books that are also everyday words need the same. */
+const PERSON_BOOKS = new Set(['joshua', 'ruth', 'samuel', 'ezra', 'nehemiah', 'esther', 'job', 'isaiah', 'jeremiah', 'ezekiel', 'daniel', 'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi', 'matthew', 'mark', 'luke', 'john', 'james', 'peter', 'jude', 'timothy', 'titus', 'philemon']);
+const WORD_BOOKS = new Set(['numbers', 'judges', 'kings', 'chronicles', 'psalms', 'psalm', 'proverbs', 'lamentations', 'acts', 'romans', 'song', 'songs']);
+const ORDINALS: Record<string, number> = { '1': 1, '2': 2, '3': 3, first: 1, second: 2, third: 3 };
+
+interface Named {
+  /** Verses of the books or chapters named. */
+  from: number;
+  to: number;
+  chapter: boolean;
+}
+
+/** The Bible books a question names as books ("in john 1", "leviticus",
+ * "matthew says ... but acts says"), and which of its words did. */
+function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Set<number> } {
+  const byWord = new Map<string, { book: number; ord: number }[]>();
+  a.books.forEach((b, book) => {
+    const parts = b.name.toLowerCase().split(' ');
+    const ord = /^\d$/.test(parts[0]) ? +parts[0] : 0;
+    const last = parts[parts.length - 1];
+    for (const w of last === 'psalms' ? ['psalms', 'psalm'] : [last]) byWord.set(w, [...(byWord.get(w) ?? []), { book, ord }]);
+  });
+  const isBook = (w: string | undefined) => !!w && byWord.has(w);
+  const SAYS = ['says', 'say', 'said', 'writes', 'wrote'];
+  // "matthew says ... but acts says": a book that speaks, when another does too.
+  const speaking = toks.filter((w, i) => isBook(w) && SAYS.includes(toks[i + 1])).length;
+  const named: Named[] = [];
+  const used = new Set<number>();
+  toks.forEach((w, i) => {
+    const books = byWord.get(w);
+    if (!books) return;
+    const [prev, next] = [toks[i - 1], toks[i + 1]];
+    const chapter = next && /^\d+$/.test(next) ? +next : 0;
+    const asBook =
+      chapter > 0 ||
+      (!PERSON_BOOKS.has(w) && !WORD_BOOKS.has(w)) ||
+      prev === 'in' ||
+      (prev === 'of' && ['book', 'gospel', 'letter', 'epistle'].includes(toks[i - 2])) ||
+      (SAYS.includes(next) && speaking > 1) ||
+      (prev === 'and' && isBook(toks[i - 2])) ||
+      (next === 'and' && isBook(toks[i + 2]));
+    if (!asBook) return;
+    const ord = ORDINALS[prev] ?? 0;
+    const pick = books.filter((b) => b.ord === ord);
+    for (const { book } of pick.length ? pick : books) {
+      const meta = a.books[book];
+      const end = book + 1 < a.books.length ? a.books[book + 1].start : a.n;
+      if (chapter > 0 && chapter <= meta.chapters.length) {
+        const [from, to] = chapterRange(a, book, chapter);
+        named.push({ from, to, chapter: true });
+      }
+      named.push({ from: meta.start, to: end, chapter: false });
+    }
+    used.add(i);
+    if (chapter > 0) used.add(i + 1);
+    if (ORDINALS[prev]) used.add(i - 1);
+    // "the book of romans", "psalm 23 verse 4": words about the book, not of the question.
+    for (const j of [i - 2, i - 1, i + 1, i + 2]) if (['book', 'books', 'gospel', 'letter', 'epistle', 'chapter', 'verse'].includes(toks[j])) used.add(j);
+  });
+  return { named, used };
 }
 
 /** Verses holding any of these index words. */
@@ -585,6 +686,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   let rest = question
     .toLowerCase()
     .replace(/\bgod['’]s\b/g, 'god')
+    // "Lot's wife" is Lot's, not the lots that were cast.
+    .replace(/\b(\p{L}+)['’]s\b/gu, '$1')
     .replace(/[’‘']/g, '');
   const phrases: { word: string; bible: string[] }[] = [];
   for (const [re, bible] of PHRASES) {
@@ -595,8 +698,12 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     rest = rest.replace(re, ' ');
   }
   const personal = PERSONAL.test(question.toLowerCase().replace(/[’‘']/g, ''));
+  const toks = rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+  const { named, used } = namedBooks(a, toks);
+  rest = toks.filter((_, i) => !used.has(i)).join(' ');
   const ws = [...new Set(contentWords(rest))]
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))))
+    .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
     .slice(0, Math.max(0, 8 - phrases.length));
   const n = a.n;
 
@@ -605,8 +712,10 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     ...phrases.map((p) => concept(a, p.word, p.bible, false)),
     ...ws.map((w) => {
       // 40 is "forty" in the BSB's words.
-      const said = /^\d+$/.test(w) ? numberWords(Number(w)).join(' ') : '';
-      return concept(a, w, said ? [said] : (BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? []), !INSTEAD.has(w));
+      const k = /^\d+$/.test(w) ? Number(w) : -1;
+      // 144000 is also "144,000".
+      const said = k >= 0 ? [numberWords(k).join(' '), ...(k >= 1000 ? [`${Math.floor(k / 1000)} ${String(k % 1000).padStart(3, '0')}`] : [])].filter(Boolean) : [];
+      return concept(a, w, said.length ? said : (BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? []), !INSTEAD.has(w));
     }),
   ];
 
@@ -683,6 +792,22 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     if (cands.size >= 12 || floor < 0.3) break;
     floor -= 0.2;
   }
+  // A book or chapter the question names: its verses come first, and when
+  // little else is asked ("what is leviticus about"), its best-known verses.
+  const chapters = named.filter((b) => b.chapter);
+  const within = (v: number, bs: Named[]) => bs.some((b) => b.from <= v && v < b.to);
+  if (named.length) {
+    const scope = chapters.length ? chapters : named;
+    const inside = new Set([...cands, ...text.keys()].filter((v) => within(v, scope)));
+    if (inside.size < 12) {
+      const pool: number[] = [];
+      for (const b of scope) for (let v = b.from; v < b.to; v++) pool.push(v);
+      pool.sort((x, y) => a.rank[y] - a.rank[x] || x - y);
+      for (const v of pool.slice(0, 40)) inside.add(v);
+    }
+    cands.clear();
+    for (const v of inside) cands.add(v);
+  }
 
   const marks = new Set<string>();
   for (const i of usable) for (const f of concepts[i].marks) marks.add(f);
@@ -703,7 +828,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     const reason = why && t && REASON.test(t) ? 0.4 : 0;
     const closest = usable.some((i) => concepts[i].close.has(v)) ? 0.5 : 0;
     // How much of the question a verse holds comes first.
-    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest);
+    const book = within(v, chapters) ? 1.2 : within(v, named) ? 0.8 : 0;
+    score.set(v, 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest + book);
   }
 
   // The Bible pointing to itself: links among the best candidates count.
