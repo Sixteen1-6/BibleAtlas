@@ -466,7 +466,7 @@ const TELLING = new Set(['i', 'im', 'ive', 'id', 'ill', 'me', 'my', 'mine', 'mys
  * deploys in 3 weeks", "my dad has dementia". A line that a verse holds word
  * for word (`quoted`) is a verse being looked for, as "the LORD is my shepherd". */
 export function looksLikeTelling(q: string, quoted: boolean): boolean {
-  return !quoted && contentWords(q).length >= 3 && words(q).some((w) => TELLING.has(w));
+  return !quoted && contentWords(q).length >= 2 && words(q).some((w) => TELLING.has(w));
 }
 
 /** True when `text`, a verse, holds the query's words in order: "my grace is sufficient for you". */
@@ -477,6 +477,10 @@ export function holdsWords(text: string, query: string): boolean {
 
 interface Prepared {
   questions: { q: Question; whole: Set<string>; stems: Set<string>; own: Set<string> }[];
+  /** The question each wording opens: a question's own wording, else a
+   * phrasing only one question uses. "Lying" is said by both "Is it ever right
+   * to lie?" and "I've been falsely accused", so it opens neither. */
+  opens: Map<string, Question>;
   topics: { title: string; whole: string; words: string[] }[];
 }
 
@@ -484,15 +488,39 @@ let prepared: { ix: AskIndex; p: Prepared } | null = null;
 
 function prepare(ix: AskIndex): Prepared {
   if (prepared?.ix === ix) return prepared.p;
+  const questions = ix.questions.map((q) => {
+    const phrases = [q.q, ...q.also];
+    return { q, whole: new Set(phrases.map(askKey)), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
+  });
+  const said = new Map<string, Question[]>();
+  for (const x of questions) for (const k of x.whole) if (k) said.set(k, [...(said.get(k) ?? []), x.q]);
+  const opens = new Map<string, Question>();
+  for (const [k, qs] of said) if (qs.length === 1) opens.set(k, qs[0]);
+  const titles = new Map<string, Question[]>();
+  for (const q of ix.questions) {
+    const k = askKey(q.q);
+    if (k) titles.set(k, [...(titles.get(k) ?? []), q]);
+  }
+  // Of two titles with the same words, "What does the Bible say about work?"
+  // asks about the thing itself; "How should I treat the people who work for me?" does not.
+  for (const [k, qs] of titles) {
+    const about = qs.filter((q) => ABOUT.test(q.q));
+    if (qs.length === 1 || about.length === 1) opens.set(k, qs.length === 1 ? qs[0] : about[0]);
+  }
   const p: Prepared = {
-    questions: ix.questions.map((q) => {
-      const phrases = [q.q, ...q.also];
-      return { q, whole: new Set(phrases.map(askKey)), stems: new Set(phrases.flatMap((x) => contentWords(x).map(stem))), own: new Set(contentWords(q.q).map(stem)) };
-    }),
+    questions,
+    opens,
     topics: ix.topics.map(([title]) => ({ title, whole: contentWords(title).join(' '), words: contentWords(title) })),
   };
   prepared = { ix, p };
   return p;
+}
+
+/** The prepared question asked in so many words: its own wording, or one of
+ * its phrasings that no other question uses. */
+export function exactQuestion(ix: AskIndex, query: string): Question | null {
+  const key = askKey(query);
+  return (key && prepare(ix).opens.get(key)) || null;
 }
 
 /** Words about ending one's own life. Search then offers help and verses of
@@ -523,11 +551,12 @@ export function matchAsk(ix: AskIndex | null, query: string, limit = 3, quoted =
   const key = askKey(query);
   const stems = ws.map(stem);
   const p = prepare(ix);
+  const opens = key ? p.opens.get(key) : undefined;
   const scored: { asked: Asked; score: number }[] = [];
   for (const x of p.questions) {
     // Words in the question itself beat words only in its other phrasings.
     const own = (stems.filter((s) => x.own.has(s)).length / stems.length) * 5;
-    if (key && x.whole.has(key)) {
+    if (opens === x.q) {
       scored.push({ asked: { kind: 'question', q: x.q }, score: 100 + own });
       continue;
     }

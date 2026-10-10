@@ -7,28 +7,70 @@
 // hooked on pills"), and its question covers most of what they typed. Words
 // that many questions share count for little, rare ones for much.
 
-import { type AskIndex, type Question, askKey, contentWords, stem } from './ask';
+import { type AskIndex, type Question, contentWords, exactQuestion, stem } from './ask';
 
 /** Words too plain to tell one question from another. */
 const PLAIN = new Set(['bible', 'want', 'need', 'feel', 'feeling', 'keep', 'going', 'doing', 'done', 'now', 'got', 'gets', 'getting', 'said', 'told', 'tells', 'every', 'always', 'never', 'today', 'last', 'week', 'year', 'years', 'day', 'days', 'time', 'times', 'good', 'bad', 'okay', 'life', 'lot', 'lots', 'dont', 'doesnt', 'didnt', 'cant', 'wont', 'isnt', 'im', 'ive', 'id', 'ill', 'its', 'thats']);
+
+/** Words that ask the same thing here: "we buried our son" tells of a child
+ * who died, as "my daughter passed" would. Each group counts as its first
+ * word. Words with a second sense stay out ("work", "father", "cheating",
+ * "passed", "pills"). */
+const SAME = new Map<string, string>();
+for (const group of [
+  'die died dies dying dead death deaths buried burial funeral deceased',
+  'child children son sons daughter daughters kid kids baby babies infant infants toddler newborn',
+  'mom mum mother mommy dad daddy parent parents',
+  'spouse husband husbands wife wives hubby',
+  'grandparent grandparents grandma grandpa grandmother grandfather granny nana',
+  'grandchild grandchildren grandson granddaughter grandkids',
+  'sibling siblings brother sister',
+  'drugs meth heroin opioids opioid fentanyl cocaine oxy',
+  'alcohol alcoholic drinking drunk booze',
+  'fired layoff layoffs laidoff',
+  'job jobs career employment',
+  'affair unfaithful adultery',
+  'sick sickness illness disease diagnosis diagnosed',
+  'anxiety anxious worry worried worrying worries panic',
+  'depressed depression',
+  'miscarriage miscarried stillbirth stillborn',
+  'gay lesbian homosexual homosexuality lgbt lgbtq bisexual queer',
+  'transgender trans nonbinary',
+  'porn pornography',
+  'afraid scared fear fears fearful terrified frightened',
+  'lonely loneliness alone isolated',
+  'angry anger mad furious rage',
+  'abuse abused abusive',
+  'marry married marriage',
+  'divorce divorced divorcing',
+  'boyfriend girlfriend fiance fiancee',
+]) {
+  const [head, ...rest] = group.split(' ');
+  for (const w of [head, ...rest]) {
+    SAME.set(w, head);
+    SAME.set(stem(w), head);
+  }
+}
 
 function terms(s: string): Set<string> {
   return new Set(
     contentWords(s)
       .filter((w) => !PLAIN.has(w) && !/^\d+$/.test(w))
-      .map(stem),
+      .map((w) => SAME.get(w) ?? SAME.get(stem(w)) ?? stem(w)),
   );
 }
 
 interface Routing {
   ix: AskIndex;
-  /** Each question's ways of asking, by the words that must match (askKey). */
-  keys: Map<string, Question>;
   /** Each question's ways of asking, as term sets. */
   ways: Set<string>[][];
   /** Each question's terms, all ways together. */
   all: Set<string>[];
+  /** Each question's own title's terms. */
+  title: Set<string>[];
   idf: Map<string, number>;
+  /** How many questions use each term. */
+  df: Map<string, number>;
   /** The weight of a term no question uses. */
   unknown: number;
 }
@@ -43,9 +85,7 @@ function prepare(ix: AskIndex): Routing {
   for (const a of all) for (const t of a) df.set(t, (df.get(t) ?? 0) + 1);
   const n = ix.questions.length;
   const idf = new Map([...df].map(([t, c]) => [t, Math.log(1 + n / c)]));
-  const keys = new Map<string, Question>();
-  for (const q of ix.questions) for (const k of [q.q, ...q.also].map(askKey)) if (k && !keys.has(k)) keys.set(k, q);
-  routing = { ix, keys, ways, all, idf, unknown: Math.log(1 + n) };
+  routing = { ix, ways, all, title: ix.questions.map((q) => terms(q.q)), idf, df, unknown: Math.log(1 + n) };
   return routing;
 }
 
@@ -55,6 +95,8 @@ export interface Route {
   said: number;
   /** How much of what was typed the question covers, by weight (0 to 1). */
   covers: number;
+  /** How much of what was typed its title says, by weight (0 to 1). */
+  own: number;
   score: number;
 }
 
@@ -69,8 +111,10 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
   ix.questions.forEach((q, i) => {
     let said = 0;
     for (const way of r.ways[i]) {
-      // One word says too little: "is God angry with me" is not "is it wrong to be angry".
-      if (way.size < 2) continue;
+      // One word says too little ("is God angry with me" is not "is it wrong to
+      // be angry"), unless it is all that was typed and few questions use it:
+      // "I feel like a failure", but not "God" alone.
+      if (way.size < 2 && (typed.size > 1 || (r.df.get([...way][0]) ?? 0) > 20)) continue;
       let hit = 0;
       let all = 0;
       for (const t of way) {
@@ -81,9 +125,15 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
     }
     if (!said) return;
     let covered = 0;
-    for (const t of typed) if (r.all[i].has(t)) covered += w(t);
+    let own = 0;
+    for (const t of typed) {
+      if (r.all[i].has(t)) covered += w(t);
+      if (r.title[i].has(t)) own += w(t);
+    }
     const covers = covered / total;
-    out.push({ q, said, covers, score: said * (0.4 + 0.6 * covers) });
+    // Of two that say it equally, the one whose title says it: "anxiety" is
+    // "What do I do with worry and anxiety?" before "How do I stop being afraid?".
+    out.push({ q, said, covers, own: own / total, score: said * (0.4 + 0.6 * covers) + 0.1 * (own / total) });
   });
   out.sort((x, y) => y.score - x.score);
   return out.slice(0, limit);
@@ -95,7 +145,7 @@ export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
 /** The prepared question that plainly answers `text`, or null. */
 export function route(ix: AskIndex, text: string): Question | null {
   // Asked as one of its ways, word for word.
-  const exact = prepare(ix).keys.get(askKey(text));
+  const exact = exactQuestion(ix, text);
   if (exact) return exact;
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
