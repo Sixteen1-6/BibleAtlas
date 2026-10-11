@@ -12,7 +12,9 @@
 //      none plainly answers it (the question box opens one that does).
 // 3. Verses that hold all the concepts, sit in a matching subject, and are
 //    cross-referenced by the other verses found rank first: the Bible
-//    pointing to itself.
+//    pointing to itself. Then the best of them and the first parts of the
+//    closest chains are ordered by what, read blind, answered askers most
+//    (SHOW).
 //
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
@@ -722,6 +724,18 @@ const BROAD = 600;
  * with fewer off verses, than weighing each by how sure the matcher was. */
 export const LEAN = { said: 0.5, score: 0.45, top: 3, weight: 3 };
 
+/** Which of the verses found come first. Read blind, 6,134 verses gathered for
+ * 271 never-seen messages answered the asker more often, and were off topic
+ * less often, the surer the meaning matcher was of a prepared question whose
+ * chain holds the verse (meant), the more of the closest questions' chains hold
+ * it (agree), the more of the question's words it holds (words) or the more
+ * whole a Bible phrase for them (phrase), the more of the other verses found
+ * point to it (links), and where it teaches (teaching). The first parts
+ * (`parts`) of the `from` closest chains, beside the `pool` verses that come
+ * first by how they were found, are ordered so; the `top` closest questions
+ * have a say in agree. */
+export const SHOW = { top: 10, from: 5, parts: 3, pool: 10, meant: 5.8, agree: 2.3, words: 1, phrase: 1.2, links: 0.7, teaching: 1.9 };
+
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null), loadSignals(a).catch(() => null), loadMeaning(a).catch(() => null)]);
   // "God's voice" is God's, not "gods".
@@ -790,12 +804,14 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // such words, each once at its higher score.
   const near = new Map<Question, number>();
   for (const r of routes(ix, question, LEAN.top)) if (r.said >= LEAN.said && r.score >= LEAN.score && couldMean(ix, question, r.q)) near.set(r.q, r.score);
-  for (const m of meanings(ix, question, LEAN.top)) near.set(m.q, 1);
+  const nearest = meanings(ix, question, SHOW.top);
+  for (const m of nearest.slice(0, LEAN.top)) near.set(m.q, 1);
   const lean = [...near].map(([q, score]) => ({ q, score }));
-  const [topicSets, questionSets, leanSets] = await Promise.all([
+  const [topicSets, questionSets, leanSets, nearestSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
     Promise.all(qs.map((q) => questionData(a, q).catch(() => null))),
     Promise.all(lean.map((r) => questionData(a, r.q).catch(() => null))),
+    Promise.all(nearest.map((m) => questionData(a, m.q).catch(() => null))),
   ]);
 
   // A verse Nave's lists under a subject holds that subject's concepts, as a
@@ -900,16 +916,56 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // The Bible pointing to itself: links among the best candidates count.
   const best = [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y).slice(0, 200);
   const inBest = new Set(best);
-  for (const v of best) {
+  const linked = (v: number) => {
     let links = 0;
     for (let e = a.xOff[v]; e < a.xOff[v + 1]; e++) if (a.xVotes[e] >= 2 && inBest.has(a.xDst[e])) links++;
     for (let k = a.xInOff[v]; k < a.xInOff[v + 1]; k++) {
       const e = a.xInEdge[k];
       if (a.xVotes[e] >= 2 && inBest.has(a.xSrc[e])) links++;
     }
-    score.set(v, score.get(v)! + 0.15 * Math.min(links, 6));
+    return Math.min(links, 6);
+  };
+  const links = new Map(best.map((v) => [v, linked(v)]));
+  for (const v of best) score.set(v, score.get(v)! + 0.15 * links.get(v)!);
+  const found = [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y);
+
+  // What comes first (SHOW): for each verse in the closest prepared questions'
+  // chains, how sure the matcher is of the surest chain that holds it, how many
+  // hold it, and whether one of the closest holds it among its first parts.
+  const held = new Map<number, { p: number; n: number; first: boolean }>();
+  nearestSets.forEach((set, k) => {
+    const seen = new Set<number>();
+    set?.chain.forEach((p, j) => {
+      for (let v = p.r[0]; v <= Math.min(p.r[1], p.r[0] + 2); v++) {
+        if (seen.has(v)) continue;
+        seen.add(v);
+        const h = held.get(v) ?? { p: 0, n: 0, first: false };
+        h.p = Math.max(h.p, nearest[k].p);
+        h.n++;
+        if (k < SHOW.from && j < SHOW.parts) h.first = true;
+        held.set(v, h);
+      }
+    });
+  });
+  const pool = new Set(found.slice(0, SHOW.pool));
+  for (const [v, h] of held) if (h.first) pool.add(v);
+  const show = new Map<number, number>();
+  for (const v of pool) {
+    const h = held.get(v);
+    show.set(
+      v,
+      SHOW.meant * (h?.p ?? 0) +
+        SHOW.agree * Math.min(h?.n ?? 0, 5) / 5 +
+        SHOW.words * (text.get(v) ?? 0) +
+        SHOW.phrase * (usable.some((i) => concepts[i].close.has(v)) ? 1 : 0) +
+        SHOW.links * (links.get(v) ?? linked(v)) / 6 +
+        SHOW.teaching * (TEACHING[a.books[a.verseBook[v]].genre] ?? 0),
+    );
   }
-  const verses = [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y).slice(0, MAX);
+  // A book or chapter the question names keeps its own verses first.
+  const first = named.length ? [] : [...pool].sort((x, y) => show.get(y)! - show.get(x)! || x - y);
+  const put = new Set(first);
+  const verses = [...first, ...found.filter((v) => !put.has(v))].slice(0, MAX);
 
   return {
     verses,
