@@ -4,9 +4,9 @@
 
 **Every cross-reference in the Bible on one map, with the original Hebrew, Aramaic and Greek under every verse, and a source for every fact.**
 
-[**Open the live atlas**](https://sixteen1-6.github.io/BibleAtlas/) · [What it does](#what-it-does) · [Run it yourself](#quick-start) · [How it is built](#how-it-is-built) · [Ideas](IDEAS.md)
+[**Open the live atlas**](https://everyversemap.com/) · [What it does](#what-it-does) · [Run it yourself](#quick-start) · [How it is built](#how-it-is-built) · [Ideas](IDEAS.md)
 
-[![Live demo](https://img.shields.io/badge/live-demo-f5c26b?style=flat-square)](https://sixteen1-6.github.io/BibleAtlas/)
+[![Live demo](https://img.shields.io/badge/live-demo-f5c26b?style=flat-square)](https://everyversemap.com/)
 [![CI](https://github.com/Sixteen1-6/BibleAtlas/actions/workflows/ci.yml/badge.svg)](https://github.com/Sixteen1-6/BibleAtlas/actions/workflows/ci.yml)
 [![Deploy](https://github.com/Sixteen1-6/BibleAtlas/actions/workflows/pages.yml/badge.svg)](https://github.com/Sixteen1-6/BibleAtlas/actions/workflows/pages.yml)
 ![Rust](https://img.shields.io/badge/engine-Rust%20%E2%86%92%20WebAssembly-b7410e?style=flat-square)
@@ -25,12 +25,12 @@ Every view is a link, so these open straight to the story:
 
 | | |
 | --- | --- |
-| [Isaiah 53:5](https://sixteen1-6.github.io/BibleAtlas/#v=Isa.53.5) | "By His stripes we are healed", and 1 Peter 2:24, which quotes it |
-| [Psalm 22:1](https://sixteen1-6.github.io/BibleAtlas/#v=Ps.22.1) | "My God, my God, why have You forsaken me?", cried from the cross in Mark 15:34 and Matthew 27:46 |
-| [Genesis 3:15 to Revelation 12:9](https://sixteen1-6.github.io/BibleAtlas/#p=Gen.3.15~Rev.12.9&tab=paths) | The chain of cross-references from the first promise to the ancient serpent's defeat |
-| [Agape](https://sixteen1-6.github.io/BibleAtlas/#w=G0026&tab=word) | The Greek word for love: what it means, its grammar and every place it appears |
-| [The Lamb](https://sixteen1-6.github.io/BibleAtlas/#t=lamb&tab=themes) | One theme traced through specific Hebrew and Greek words, from Abel's flock to the throne |
-| [Daniel 7:13](https://sixteen1-6.github.io/BibleAtlas/#v=Dan.7.13) | "One like the Son of Man", and Jesus taking up those words in Matthew 26:64 |
+| [Isaiah 53:5](https://everyversemap.com/#v=Isa.53.5) | "By His stripes we are healed", and 1 Peter 2:24, which quotes it |
+| [Psalm 22:1](https://everyversemap.com/#v=Ps.22.1) | "My God, my God, why have You forsaken me?", cried from the cross in Mark 15:34 and Matthew 27:46 |
+| [Genesis 3:15 to Revelation 12:9](https://everyversemap.com/#p=Gen.3.15~Rev.12.9&tab=paths) | The chain of cross-references from the first promise to the ancient serpent's defeat |
+| [Agape](https://everyversemap.com/#w=G0026&tab=word) | The Greek word for love: what it means, its grammar and every place it appears |
+| [The Lamb](https://everyversemap.com/#t=lamb&tab=themes) | One theme traced through specific Hebrew and Greek words, from Abel's flock to the throne |
+| [Daniel 7:13](https://everyversemap.com/#v=Dan.7.13) | "One like the Son of Man", and Jesus taking up those words in Matthew 26:64 |
 
 <table>
   <tr>
