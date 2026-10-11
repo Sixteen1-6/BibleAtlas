@@ -248,6 +248,20 @@
       "citation": "John Wesley, Explanatory Notes upon the New Testament (London, 1755) and Explanatory Notes upon the Old Testament (Bristol, 1765–66), from the CrossWire Bible Society's SWORD module Wesley, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0)."
     },
     {
+      "id": "keil-delitzsch",
+      "group": "writers",
+      "plain": "Old Testament commentary, 1800s",
+      "title": "Biblical Commentary on the Old Testament",
+      "by": "Carl Friedrich Keil and Franz Delitzsch",
+      "when": "1800s",
+      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word, put into English in Edinburgh. The app links to it on Bible Hub.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://biblehub.com/commentaries/kad/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
+      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century).",
+      "cites": ["C. F. Keil and F. Delitzsch"]
+    },
+    {
       "id": "tyndale-tbd",
       "group": "dictionaries",
       "plain": "Modern Bible dictionary, open edition 2023",
@@ -531,76 +545,6 @@
       "cites": ["Bruce M. Metzger, A Textual Commentary"]
     },
     {
-      "id": "fitzmyer-languages",
-      "group": "scholars",
-      "plain": "Article on the languages of Jesus' land, 1970",
-      "title": "The Languages of Palestine in the First Century A.D.",
-      "by": "Joseph A. Fitzmyer",
-      "when": "1970",
-      "what": "A survey of the languages used in the land of Israel in Jesus' time: Latin, Greek, Aramaic and Hebrew.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=The+Languages+of+Palestine+in+the+First+Century+A.D.+Fitzmyer", "label": "Library catalog"},
-      "citation": "Joseph A. Fitzmyer, \"The Languages of Palestine in the First Century A.D.\", Catholic Biblical Quarterly 32 (1970): 501–531.",
-      "cites": ["The Languages of Palestine in the First Century"]
-    },
-    {
-      "id": "fitzmyer-kepha",
-      "group": "scholars",
-      "plain": "Chapter on Peter's name, Cephas, 1979",
-      "title": "Aramaic Kephaʾ and Peter's Name in the New Testament",
-      "by": "Joseph A. Fitzmyer",
-      "when": "1979",
-      "what": "A study of the Aramaic word kepha, rock, and of how it became Peter's name, Cephas.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=Text+and+Interpretation%3A+Studies+in+the+New+Testament+Presented+to+Matthew+Black", "label": "Library catalog"},
-      "citation": "Joseph A. Fitzmyer, \"Aramaic Kephaʾ and Peter's Name in the New Testament\", in Ernest Best and R. McL. Wilson (eds.), Text and Interpretation: Studies in the New Testament Presented to Matthew Black (Cambridge: Cambridge University Press, 1979), 121–132.",
-      "cites": ["Aramaic Keph"]
-    },
-    {
-      "id": "fitzmyer-kyrios",
-      "group": "scholars",
-      "plain": "Chapter on the prayer Maranatha, 1998",
-      "title": "New Testament Kyrios and Maranatha and Their Aramaic Background",
-      "by": "Joseph A. Fitzmyer",
-      "when": "1998 edition",
-      "what": "Argues from the Aramaic prayer Maranatha that Jesus was called Lord in Aramaic very early.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=To+Advance+the+Gospel%3A+New+Testament+Studies+Fitzmyer", "label": "Library catalog"},
-      "citation": "Joseph A. Fitzmyer, \"New Testament Kyrios and Maranatha and Their Aramaic Background\", in To Advance the Gospel: New Testament Studies, 2nd ed., The Biblical Resource Series (Grand Rapids: Eerdmans, 1998), 218–235.",
-      "cites": ["New Testament Kyrios and Maranatha"]
-    },
-    {
-      "id": "fitzmyer-qorban",
-      "group": "scholars",
-      "plain": "Article on the word qorban, 1959",
-      "title": "The Aramaic Qorbān Inscription from Jebel Ḫallet eṭ-Ṭûri and Mk 7:11/Mt 15:5",
-      "by": "Joseph A. Fitzmyer",
-      "when": "1959",
-      "what": "On an Aramaic inscription from near Jerusalem that uses the word qorban, offering, in the sense Jesus quotes in Mark 7:11.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=The+Aramaic+Qorban+Inscription+from+Jebel+Hallet+et-Turi+Fitzmyer", "label": "Library catalog"},
-      "citation": "Joseph A. Fitzmyer, \"The Aramaic Qorbān Inscription from Jebel Ḫallet eṭ-Ṭûri and Mk 7:11/Mt 15:5\", Journal of Biblical Literature 78 (1959): 60–65; reprinted in The Semitic Background of the New Testament (Grand Rapids: Eerdmans, 1997), 93–100.",
-      "cites": ["The Aramaic Qorb"]
-    },
-    {
-      "id": "barr-abba",
-      "group": "scholars",
-      "plain": "Article on the word Abba, 1988",
-      "title": "ʾAbbā Isn't 'Daddy'",
-      "by": "James Barr",
-      "when": "1988",
-      "what": "Argues that Abba, the Aramaic word Jesus used for God, means father, and not a child's word like Daddy.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://doi.org/10.1093/jts/39.1.28", "label": "the publisher's page (DOI)"},
-      "citation": "James Barr, \"ʾAbbā Isn't 'Daddy'\", Journal of Theological Studies 39.1 (1988): 28–47, https://doi.org/10.1093/jts/39.1.28.",
-      "cites": ["James Barr"]
-    },
-    {
       "id": "brock-barnabas",
       "group": "scholars",
       "plain": "Article on the name Barnabas, 1974",
@@ -655,48 +599,6 @@
       "find": {"url": "https://search.worldcat.org/oclc/865493517", "label": "Library catalog"},
       "citation": "Randall Buth, \"The Riddle of Jesus' Cry from the Cross: The Meaning of ηλι ηλι λαμα σαβαχθανι (Matthew 27:46) and the Literary Function of ελωι ελωι λειμα σαβαχθανι (Mark 15:34)\", in Randall Buth and R. Steven Notley (eds.), The Language Environment of First Century Judaea, Jerusalem Studies in the Synoptic Gospels 2 (Leiden: Brill, 2014), chapter 11.",
       "cites": ["The Riddle of Jesus"]
-    },
-    {
-      "id": "brown-death",
-      "group": "scholars",
-      "plain": "Book on Jesus' death, 1994",
-      "title": "The Death of the Messiah, volume 2",
-      "by": "Raymond E. Brown",
-      "when": "1994",
-      "what": "A detailed commentary on the Gospel accounts of Jesus' arrest, trials, death and burial. Volume 2 includes his cry from the cross.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=The+Death+of+the+Messiah+from+Gethsemane+to+the+Grave+Raymond+E.+Brown", "label": "Library catalog"},
-      "citation": "Raymond E. Brown, The Death of the Messiah: From Gethsemane to the Grave, vol. 2, Anchor Bible Reference Library (New York: Doubleday, 1994).",
-      "cites": ["Raymond E. Brown, The Death of the Messiah"]
-    },
-    {
-      "id": "rabinowitz-ephphatha",
-      "group": "scholars",
-      "plain": "Article on the word Ephphatha, 1971",
-      "title": "Ἐφφαθά (Mark VII.34): Certainly Hebrew, not Aramaic",
-      "by": "Isaac Rabinowitz",
-      "when": "1971",
-      "what": "Argues that Ephphatha, Jesus' word to a deaf man in Mark 7:34, is Hebrew rather than Aramaic.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://search.worldcat.org/search?q=Ephphatha+Mark+VII.34+Certainly+Hebrew%2C+not+Aramaic+Rabinowitz", "label": "Library catalog"},
-      "citation": "Isaac Rabinowitz, \"Ἐφφαθά (Mark VII.34): Certainly Hebrew, not Aramaic\", Journal of Semitic Studies 16.2 (1971): 151–156.",
-      "cites": ["Isaac Rabinowitz"]
-    },
-    {
-      "id": "rosenthal-grammar",
-      "group": "scholars",
-      "plain": "Aramaic grammar, 1961",
-      "title": "A Grammar of Biblical Aramaic",
-      "by": "Franz Rosenthal",
-      "when": "1961; 7th edition 2006",
-      "what": "A standard grammar of the parts of the Old Testament written in Aramaic, in Daniel and Ezra, with a verse of Jeremiah and two words of Genesis.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://www.harrassowitz-verlag.de/titel_3038.ahtml", "label": "Publisher (7th edition)"},
-      "citation": "Franz Rosenthal, A Grammar of Biblical Aramaic, Porta Linguarum Orientalium, n.s. 5 (Wiesbaden: Harrassowitz, 1961).",
-      "cites": ["Franz Rosenthal, A Grammar of Biblical Aramaic"]
     },
     {
       "id": "dalman-words",
@@ -875,6 +777,21 @@
       "onlyWhenCited": true
     },
     {
+      "id": "answers-in-genesis",
+      "group": "answers",
+      "plain": "Ken Ham's creation ministry, since 1994",
+      "title": "Answers in Genesis",
+      "by": "Answers in Genesis; founded by Ken Ham",
+      "when": "since 1994",
+      "what": "Articles and answers defending the Bible's history from Genesis on, from a ministry in Kentucky that also runs the Creation Museum and the Ark Encounter. It holds the Bible to be without error and reads creation as six ordinary days.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://answersingenesis.org/", "label": "answersingenesis.org"},
+      "citation": "Answers in Genesis. Answers in Genesis, 1994–. https://answersingenesis.org/.",
+      "cites": ["Answers in Genesis"],
+      "onlyWhenCited": true
+    },
+    {
       "id": "orthodoxwiki",
       "group": "answers",
       "plain": "Orthodox Christian wiki, since 2004",
@@ -891,36 +808,6 @@
       "onlyWhenCited": true
     },
     {
-      "id": "reasonable-faith",
-      "group": "answers",
-      "plain": "William Lane Craig's ministry, since 2006",
-      "title": "Reasonable Faith",
-      "by": "Reasonable Faith, Inc.; founded by William Lane Craig",
-      "when": "since 2006",
-      "what": "Articles, a weekly question and answer, podcasts and debates giving reasons for the Christian faith, centered on William Lane Craig's work. It names no denomination.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://www.reasonablefaith.org/", "label": "reasonablefaith.org"},
-      "citation": "Reasonable Faith. Reasonable Faith, Inc., 2006–. https://www.reasonablefaith.org/.",
-      "cites": ["Reasonable Faith"],
-      "onlyWhenCited": true
-    },
-    {
-      "id": "biblical-archaeology-society",
-      "group": "answers",
-      "plain": "Bible archaeology publisher, since 1974",
-      "title": "Biblical Archaeology Society",
-      "by": "Biblical Archaeology Society; founded by Hershel Shanks",
-      "when": "since 1974",
-      "what": "Publishes Biblical Archaeology Review, begun in 1975, with articles by archaeologists and other scholars. An educational society, not a church, that calls itself nondenominational.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://www.biblicalarchaeology.org/", "label": "biblicalarchaeology.org"},
-      "citation": "Biblical Archaeology Society. Biblical Archaeology Society, 1974–. https://www.biblicalarchaeology.org/.",
-      "cites": ["Biblical Archaeology Society"],
-      "onlyWhenCited": true
-    },
-    {
       "id": "bibleref",
       "group": "elsewhere",
       "plain": "Verse-by-verse explanations website",
@@ -931,20 +818,8 @@
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://www.bibleref.com/", "label": "bibleref.com"},
-      "citation": "BibleRef.com. Got Questions Ministries. https://www.bibleref.com/."
-    },
-    {
-      "id": "historical-christian-faith",
-      "group": "elsewhere",
-      "plain": "Church Fathers' words by verse, since 2022",
-      "title": "Historical Christian Faith",
-      "by": "Sean Kooyman and volunteers",
-      "when": "since 2022",
-      "what": "A free, volunteer-built collection of what the Church Fathers and later Christian writers said about each verse. Some of its translations are older public-domain ones; some are its own, made with AI.",
-      "license": "copyrighted",
-      "datasets": [],
-      "find": {"url": "https://historicalchristian.faith/", "label": "historicalchristian.faith"},
-      "citation": "Historical Christian Faith. Sean Kooyman, 2022–. https://historicalchristian.faith/."
+      "citation": "BibleRef.com. Got Questions Ministries. https://www.bibleref.com/.",
+      "cites": ["BibleRef"]
     },
     {
       "id": "biblehub",
@@ -953,25 +828,11 @@
       "title": "Bible Hub",
       "by": "the Online Parallel Bible Project",
       "when": "since 2004",
-      "what": "A large free Bible study site. Its page for each verse gathers many older commentaries side by side, such as Matthew Henry, Albert Barnes, John Gill and Ellicott.",
+      "what": "A large free Bible study site with many older commentaries. The app links to two believing ones, chapter by chapter: Jamieson, Fausset and Brown (1871) on the whole Bible, and Keil and Delitzsch on the Old Testament.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://biblehub.com/", "label": "biblehub.com"},
       "citation": "Bible Hub. Online Parallel Bible Project, 2004–. https://biblehub.com/."
-    },
-    {
-      "id": "sefaria",
-      "group": "elsewhere",
-      "plain": "Library of Jewish texts, since 2011",
-      "title": "Sefaria",
-      "by": "Sefaria, a nonprofit founded by Brett Lockspeiser and Joshua Foer",
-      "when": "since 2011",
-      "what": "A free, open library of Jewish texts. Its page for each verse of the Hebrew Bible gathers the Jewish commentaries on it, such as Rashi and Ibn Ezra, in Hebrew and often in English.",
-      "license": "copyrighted",
-      "licenseNote": "Its texts carry their own licenses, many of them free. The app only links to it, by the Hebrew Bible's own verse numbers.",
-      "datasets": [],
-      "find": {"url": "https://www.sefaria.org/", "label": "sefaria.org"},
-      "citation": "Sefaria: A Living Library of Jewish Texts. Sefaria, 2011–. https://www.sefaria.org/."
     }
   ]
 }
