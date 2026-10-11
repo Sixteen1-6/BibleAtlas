@@ -7,12 +7,12 @@
 import '../voices.css';
 import { Fragment } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
-import { type Atlas, locate } from '../../../data/atlas';
+import type { Atlas } from '../../../data/atlas';
 import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, HEBREW_FILE, type HebrewFile, type Item, type PartFile, type Run, type Text, WORKS, listWords, nameFrom, notesOn, partOf, voicesAllowed, worksOn } from './model';
+import { type Data, type Item, type PartFile, type Run, type Text, WORKS, listWords, nameFrom, notesOn, partOf, voicesAllowed, worksOn } from './model';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -165,9 +165,7 @@ function Note({ a, verse, item, navigate }: { a: Atlas; verse: VerseRef; item: I
 }
 
 function Elsewhere({ a, verse }: { a: Atlas; verse: VerseRef }) {
-  const oldTestament = locate(a, verse).book < 39;
-  const hebrew = useJson<HebrewFile>(a, oldTestament ? HEBREW_FILE : null);
-  const links = elsewhere(a, verse, hebrew?.runs);
+  const links = elsewhere(a, verse);
   if (links.length === 0) return null;
   return (
     <section class="x-voices-elsewhere" aria-label="Read more elsewhere">
@@ -187,7 +185,7 @@ function Elsewhere({ a, verse }: { a: Atlas; verse: VerseRef }) {
           </li>
         ))}
       </ul>
-      <p class="x-voices-quiet">Other websites, with their own views. Nothing from them is copied here.</p>
+      <p class="x-voices-quiet">Other websites, by writers who hold the Bible to be God’s true word. Nothing from them is copied here.</p>
     </section>
   );
 }

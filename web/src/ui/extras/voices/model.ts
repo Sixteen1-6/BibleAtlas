@@ -32,13 +32,6 @@ export interface PartFile {
   items: Item[];
 }
 
-/** web/public/data/extras/voices/hebrew.json, for the link to Sefaria. */
-export interface HebrewFile {
-  format: number;
-  runs: [number, number, number, number][];
-}
-
-export const HEBREW_FILE = 'extras/voices/hebrew.json';
 
 export interface Work {
   /** How the line names the work. */

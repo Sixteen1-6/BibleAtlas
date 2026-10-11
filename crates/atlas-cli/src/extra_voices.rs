@@ -56,13 +56,6 @@
 //!   strings and `[from, to, text]` verse links, its paragraphs split by a
 //!   blank line. Items are in order of first verse, then work, and never cross
 //!   a chapter. They load when the panel opens.
-//! - `extras/voices/hebrew.json`: `{format, runs}`, where an Old Testament
-//!   verse has another number in the Hebrew Bible (from TAHOT), as runs
-//!   `[first verse, count, Hebrew chapter, Hebrew verse]` of verses numbered
-//!   on from there. The panel's link to Sefaria, which numbers the Hebrew
-//!   way, uses it: English Joel 2:28 is Joel 3:1 there. Sefaria counts the
-//!   Ten Commandments' last verses, 1 Kings 18:33 and Nehemiah 7:68-73 its own
-//!   way ([`SEFARIA_NUMBERS`]).
 
 use crate::loaded::Loaded;
 use crate::sources::Inputs;
@@ -77,7 +70,6 @@ const HENRY: &str = "henry-concise";
 const WESLEY: &str = "wesley-notes";
 const OUT: &str = "extras/voices.json";
 const DIR: &str = "extras/voices";
-const HEBREW: &str = "extras/voices/hebrew.json";
 /// A book's notes are split into files of about this many bytes, between chapters.
 const PART_BYTES: usize = 500_000;
 
@@ -947,89 +939,6 @@ fn wesley(
     Ok(())
 }
 
-/// Where Sefaria's numbers differ from what TAHOT's words give, as (book,
-/// English chapter, first and last English verse, Sefaria chapter, first
-/// Sefaria verse, all in that one verse), checked on Sefaria: it counts the
-/// Ten Commandments and Nehemiah 7:68-73 its own way (English Exodus 20:13-16
-/// are its Exodus 20:13), and TAHOT's English splits 1 Kings 18:33-34 as the
-/// KJV does, not as the BSB the app shows.
-const SEFARIA_NUMBERS: [(u8, u16, u16, u16, u16, u16, bool); 7] = [
-    (1, 20, 13, 16, 20, 13, true),
-    (1, 20, 17, 26, 20, 14, false),
-    (4, 5, 17, 20, 5, 17, true),
-    (4, 5, 21, 33, 5, 18, false),
-    (15, 7, 68, 69, 7, 68, true),
-    (15, 7, 70, 73, 7, 69, false),
-    (10, 18, 33, 33, 18, 33, true),
-];
-
-/// A verse's chapter and verse in the Hebrew Bible.
-type Hebrew = (u16, u16);
-
-/// Where Old Testament verses have another number in the Hebrew Bible, as
-/// runs `[first verse, count, Hebrew chapter, Hebrew verse]`. TAHOT gives
-/// both numbers for every word; a verse takes the Hebrew verse most of its
-/// words are in (the first, on a tie). A title the English counts as no verse
-/// (`Psa.51.0`) is left out. Then Sefaria's own few differences
-/// ([`SEFARIA_NUMBERS`]).
-fn hebrew_runs(inputs: &Inputs, vz: &Versification) -> Result<Vec<[u32; 4]>, String> {
-    // Each English verse's Hebrew verses, in order, with how many words each.
-    let mut words: BTreeMap<u32, Vec<(Hebrew, usize)>> = BTreeMap::new();
-    for p in inputs.paths("tahot") {
-        let text = fs::read_to_string(&p).map_err(|e| format!("reading {}: {e}", p.display()))?;
-        for line in text.trim_start_matches('\u{feff}').lines() {
-            let first = line.split('\t').next().unwrap_or("");
-            if !first.contains('#') || !first.chars().next().is_some_and(char::is_alphanumeric) {
-                continue;
-            }
-            let Some((b, c, v, hc, hv)) = crate::world::tahot_ref(first) else {
-                continue;
-            };
-            if v == 0 || b > 38 {
-                continue;
-            }
-            if let Some(i) = vz.index(b, c, v) {
-                let list = words.entry(i).or_default();
-                match list.iter_mut().find(|(h, _)| *h == (hc, hv)) {
-                    Some((_, n)) => *n += 1,
-                    None => list.push(((hc, hv), 1)),
-                }
-            }
-        }
-    }
-    let mut at: BTreeMap<u32, Hebrew> = BTreeMap::new();
-    for (&i, list) in &words {
-        // The first of the Hebrew verses with the most words.
-        let most = list.iter().map(|(_, n)| *n).max().unwrap_or(0);
-        if let Some(&(h, _)) = list.iter().find(|(_, n)| *n == most) {
-            at.insert(i, h);
-        }
-    }
-    for &(b, c, from, to, hc, hv, one) in &SEFARIA_NUMBERS {
-        for (k, v) in (from..=to).enumerate() {
-            if let Some(i) = vz.index(b, c, v) {
-                at.insert(i, (hc, if one { hv } else { hv + k as u16 }));
-            }
-        }
-    }
-    let mut runs: Vec<[u32; 4]> = Vec::new();
-    for (&i, &(hc, hv)) in &at {
-        let (_, c, v) = vz.locate(i).ok_or("a TAHOT verse outside the Bible")?;
-        if (hc, hv) == (c, v) {
-            continue;
-        }
-        match runs.last_mut() {
-            Some(r)
-                if r[0] + r[1] == i && r[2] == u32::from(hc) && r[3] + r[1] == u32::from(hv) =>
-            {
-                r[1] += 1
-            }
-            _ => runs.push([i, 1, u32::from(hc), u32::from(hv)]),
-        }
-    }
-    Ok(runs)
-}
-
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>)>, String> {
     let mut report = Report::default();
@@ -1110,17 +1019,6 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     out.push((
         OUT.to_string(),
         serde_json::to_vec(&index).map_err(|e| e.to_string())?,
-    ));
-    let runs = hebrew_runs(inputs, vz)?;
-    eprintln!(
-        "voices: {} Old Testament verses numbered otherwise in the Hebrew Bible, in {} runs",
-        runs.iter().map(|r| r[1]).sum::<u32>(),
-        runs.len()
-    );
-    let hebrew = json!({ "format": 1, "runs": runs });
-    out.push((
-        HEBREW.to_string(),
-        serde_json::to_vec(&hebrew).map_err(|e| e.to_string())?,
     ));
     Ok(out)
 }
@@ -1230,33 +1128,6 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         }
     }
 
-    // The Hebrew numbers, as (verse) -> (Hebrew chapter, Hebrew verse).
-    let hebrew = read_json(&d.dir.join(HEBREW))?;
-    let mut hebrew_ok = true;
-    let mut renumbered: BTreeMap<u32, (u32, u32)> = BTreeMap::new();
-    for r in hebrew["runs"].as_array().into_iter().flatten() {
-        let x: Vec<u32> = r
-            .as_array()
-            .into_iter()
-            .flatten()
-            .map(|x| x.as_u64().unwrap_or(0) as u32)
-            .collect();
-        let ot = |v: u32| d.vz.locate(v).is_some_and(|l| l.0 <= 38);
-        hebrew_ok &=
-            x.len() == 4 && x[1] >= 1 && x[2] >= 1 && x[3] >= 1 && ot(x[0]) && ot(x[0] + x[1] - 1);
-        for k in 0..x.get(1).copied().unwrap_or(0) {
-            hebrew_ok &= renumbered.insert(x[0] + k, (x[2], x[3] + k)).is_none();
-        }
-    }
-    let hebrew_at = |r: &str| -> Result<(u32, u32), String> {
-        let (v, _) = d.resolve(r)?;
-        let (_, c, n) = d.vz.locate(v).ok_or("no such verse")?;
-        Ok(renumbered
-            .get(&v)
-            .copied()
-            .unwrap_or((u32::from(c), u32::from(n))))
-    };
-
     // Wesley notes with the same words as the Wesley note before them.
     let mut wesley: Vec<&(u8, u32, u32, String, String)> =
         notes.iter().filter(|n| n.0 == WESLEY_W).collect();
@@ -1345,26 +1216,6 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 && !note(FATHERS_W, "Matthew 1:1", "", "Hebrewa")?
                 && note(FATHERS_W, "Matthew 1:1", "", "in Hebrew;")?,
             "the Fathers reach Luke 2:27 and Matthew 5:16, without the Gospel's own words or footnote marks (\"in Hebrew;\" on Matthew 1:1)".to_string(),
-        ),
-        (
-            hebrew_ok
-                && (1_500..2_500).contains(&renumbered.len())
-                && hebrew_at("Joel 2:28")? == (3, 1)
-                && hebrew_at("Malachi 4:5")? == (3, 23)
-                && hebrew_at("Psalm 51:1")? == (51, 3)
-                && hebrew_at("Daniel 4:1")? == (3, 31)
-                && hebrew_at("Jonah 1:17")? == (2, 1)
-                && hebrew_at("Exodus 20:15")? == (20, 13)
-                && hebrew_at("Exodus 20:17")? == (20, 14)
-                && hebrew_at("Nehemiah 7:70")? == (7, 69)
-                && hebrew_at("Deuteronomy 5:21")? == (5, 18)
-                && hebrew_at("1 Kings 18:33")? == (18, 33)
-                && hebrew_at("Psalm 23:1")? == (23, 1)
-                && hebrew_at("Genesis 1:1")? == (1, 1),
-            format!(
-                "{} Old Testament verses have their Hebrew Bible number for Sefaria's links (Joel 2:28 is Joel 3:1 there, Malachi 4:5 is 3:23, Psalm 51:1 is 51:3)",
-                renumbered.len()
-            ),
         ),
     ])
 }
