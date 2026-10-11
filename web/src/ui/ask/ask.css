@@ -179,3 +179,14 @@ button.ask-more {
 .ask-care ~ .ask-listen {
   margin: 1.1em 0 0;
 }
+.ask-listen p,
+.ask-listen ul {
+  margin: 0;
+}
+.ask-listen ul {
+  margin: 0.3em 0 0.4em;
+  padding-left: 1.15em;
+}
+.ask-listen li + li {
+  margin-top: 0.15em;
+}

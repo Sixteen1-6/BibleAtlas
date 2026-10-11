@@ -400,13 +400,19 @@ function CareBody({ a }: { a: Atlas }) {
 }
 
 /** With every answer: these verses are a way to bring a question to God, who
- * answers as people gather, pray and read his Word. The author's own words,
- * set apart from the verses. */
+ * answers as people gather, pray and read his Word, and the box is only a tool
+ * for that. The author's own words, set apart from the verses. */
 function Listen() {
   return (
-    <p class="ask-listen" role="note">
-      Ask the Bible is here to help you bring your questions to God. To hear his answer, gather with other believers and let the Holy Spirit speak into your life through them. Keep praying, and you open yourself to hear his voice. Read his Word to learn what he sounds like, for God is always speaking through his Word: his Word is him speaking.
-    </p>
+    <div class="ask-listen" role="note">
+      <p>Ask the Bible is a tool to help you bring your questions to God, but it cannot seek him for you. To hear his answer:</p>
+      <ul>
+        <li>Gather with other believers, and let the Holy Spirit speak into your life through them.</li>
+        <li>Keep praying, and you open yourself to hear his voice.</li>
+        <li>Read his Word to learn what he sounds like. God is always speaking through his Word: his Word is him speaking.</li>
+      </ul>
+      <p>We do not believe this tool has the Holy Spirit. It finds verses by math, by how alike words and meanings are. But we believe God can use anything for his purposes, even AI and algorithms.</p>
+    </div>
   );
 }
 
