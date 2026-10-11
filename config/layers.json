@@ -917,7 +917,10 @@
             { "ref": "Genesis 27:36", "strong": "H1062" },
             { "ref": "Genesis 27:36", "strong": "H1293" }
           ],
-          "evidence": "TAHOT: bekhorati, my birthright (H1062), and birkhati, my blessing (H1293), in the same breath. The consonants are b-k-r and b-r-k.",
+          "evidence": "TAHOT: bekhorati, my birthright (H1062), and birkhati, my blessing (H1293), in the same breath. The consonants are b-k-r and b-r-k. Craig Keener: Esau's complaint plays on the Hebrew words for birthright and blessing.",
+          "cites": [
+            { "source": "keener", "on": "Genesis 27:36", "at": "Craig Keener, Jacob gets Esau's blessing", "url": "https://craigkeener.com/jacob-gets-esaus-blessing-genesis-27/" }
+          ],
           "text": "Esau's complaint holds a second pun: \"He took my birthright, and now he has taken my blessing.\" Birthright is bekhorah and blessing is berakhah: the same three letters, b-k-r and b-r-k, with two swapped. His two losses sound almost alike."
         },
         {
@@ -1392,7 +1395,11 @@
             { "ref": "Genesis 42:7", "strong": "H5234" },
             { "ref": "Genesis 42:8", "strong": "H5234" }
           ],
-          "evidence": "Genesis Rabbah 85:11 (Sefaria) hears God repaying Judah in his own words. In 42:7 treated them as strangers is the same verb, nakar, again. Word data from STEPBible TAHOT and TBESH.",
+          "evidence": "Matthew Henry on Genesis 38:25 sets Tamar's words to Judah beside Judah's words to his father in 37:32, as Genesis Rabbah 85:11 (Sefaria) had. The Pulpit Commentary on 42:7: treated them as strangers is the same root, nakar, that means recognize. Word data from STEPBible TAHOT and TBESH.",
+          "cites": [
+            { "source": "henry", "on": "Genesis 38:25" },
+            { "source": "pulpit", "on": "Genesis 42:7" }
+          ],
           "text": "\"Examine it,\" the brothers tell Jacob, showing him the bloody robe. \"Please examine them,\" Tamar tells Judah, sending his seal and staff. Both are haker-na, and each man \"recognized\" (nakar). Later Joseph \"recognized them,\" but \"they did not recognize him.\""
         },
         {
@@ -2177,8 +2184,11 @@
           "kind": "setting",
           "strength": "widely agreed",
           "refs": ["Leviticus 25:13", "Isaiah 61:1"],
-          "evidence": "11QMelchizedek (11Q13), mid-first century BC, cites Leviticus 25:13 and Isaiah 61:1 and names Melchizedek as the heavenly deliverer",
-          "text": "A Dead Sea Scroll from before Jesus already read Leviticus 25 and Isaiah 61 together about the last days: a heavenly deliverer brings release to the captives on a Day of Atonement at the end of the tenth jubilee."
+          "evidence": "11QMelchizedek (11Q13), mid-first century BC, cites Leviticus 25:13 and Isaiah 61 and names Melchizedek as the heavenly deliverer, as F. F. Bruce describes it (\"The Background to the Son of Man Sayings\", 1982). The scroll sets the release on a Day of Atonement at the end of the tenth jubilee.",
+          "cites": [
+            { "source": "bruce", "on": "Leviticus 25:13", "at": "F. F. Bruce, \"The Background to the Son of Man Sayings,\" in H. H. Rowdon, ed., Christ the Lord (1982), p. 65", "url": "https://gospelstudies.org.uk/biblicalstudies/pdf/christ-the-lord/sonofman_bruce.pdf" }
+          ],
+          "text": "A Dead Sea Scroll read Leviticus 25 and Isaiah 61 together about the last days: Melchizedek, a heavenly deliverer, proclaims liberty and release to the captives in the tenth and last jubilee."
         }
       ]
     },
@@ -2503,8 +2513,12 @@
             { "ref": "Hosea 2:15", "strong": "H8615" },
             { "ref": "Joshua 2:15", "strong": "H2256" }
           ],
-          "evidence": "TAHOT tags Joshua 2:18 and 2:21 as tiqvah, cord, and 31 other verses, Hosea 2:15 among them, as tiqvah, hope; the rope in 2:15 is chevel. Strong's counts one word, TBESH two. Benson and Ellicott on 2:18 note the cord and the rope are different words. The hope reading is a ministry site's (ONE FOR ISRAEL, 2018)",
-          "text": "The cord in the window is not chevel, like her rope, but tiqvah, which means \"cord\" only here and in 2:21. Over 30 other times it means \"hope\" (\"a gateway of hope\"), and some hear that in Rahab's cord. Dictionaries differ on whether it is one word or two."
+          "evidence": "TAHOT tags Joshua 2:18 and 2:21 as tiqvah, cord, and 31 other verses, Hosea 2:15 among them, as tiqvah, hope; the rope in 2:15 is chevel. Strong's counts one word, TBESH two. Benson and Ellicott on 2:18 note the cord and the rope are different words. Clement of Rome (1 Clement 12) sees in the scarlet thread redemption through the Lord's blood for all who believe and hope in God.",
+          "cites": [
+            { "source": "church-fathers", "on": "Joshua 2:18", "at": "Clement of Rome, First Epistle to the Corinthians 12", "url": "https://www.newadvent.org/fathers/1010.htm" },
+            { "source": "benson", "on": "Joshua 2:18" }
+          ],
+          "text": "The cord in the window is not chevel, like her rope, but tiqvah, which means \"cord\" only here and in 2:21. Over 30 other times it means \"hope\" (\"a gateway of hope\"). An early church letter saw in this cord redemption for all who hope in God. Dictionaries differ on whether it is one word or two."
         },
         {
           "kind": "allusion",
@@ -3033,7 +3047,10 @@
             { "ref": "2 Samuel 7:12", "strong": "H6965" },
             { "ref": "Amos 9:11", "strong": "H6965" }
           ],
-          "evidence": "4Q174 (4QFlorilegium) on 2 Samuel 7:11-14, read with Amos 9:11 through the shared verb qum (TAHOT; BSB restore), in the Intertextual Bible translation with a note by Reed Carlson. F. F. Bruce (Encyclopaedia Judaica) on the same text",
+          "evidence": "4Q174 (4QFlorilegium) 1.10-13 on 2 Samuel 7:11-14, read with Amos 9:11 through the shared verb qum (TAHOT; BSB restore), in the Intertextual Bible translation. Herbert Bateman (JETS 38/1, 1995): the shared \"I will raise up\" links the two, and the scroll expects a future Davidic King-Messiah, the shoot of David.",
+          "cites": [
+            { "source": "jets", "on": "2 Samuel 7:12", "at": "Herbert W. Bateman IV, \"Two First-Century Messianic Uses of the OT: Heb 1:5-13 and 4QFlor 1.1-19,\" JETS 38/1 (1995), pp. 15-16", "url": "https://etsjets.org/wp-content/uploads/2010/07/files_JETS-PDFs_38_38-1_JETS_38-1_011-027_Bateman.pdf" }
+          ],
           "text": "The Dead Sea Scrolls show Jews reading this as a promise of a coming king. One scroll applies it to the Branch of David and links \"I will raise up\" to Amos's \"I will restore the fallen tent of David,\" the same verb in Hebrew. Acts 15:16 quotes Amos."
         },
         {
@@ -3043,8 +3060,13 @@
           "words": [
             { "ref": "Hebrews 3:6", "strong": "G3624" }
           ],
-          "evidence": "Numbers 12:7. Mary Rose D'Angelo argues that Hebrews 3 draws on 1 Chronicles 17:14; Erich Grässer disputes it. Septuagint: pistoso auton en oiko mou; pistoo there means establish (Abbott-Smith; Brenton). Ellicott on Hebrews 3:6: Moses faithful as a servant in God's house, Christ as a son over it",
-          "text": "Hebrews sets Moses, faithful \"in all My house,\" beside the Son: \"Christ is faithful as the Son over God’s house.\" Some scholars also hear 1 Chronicles 17:14, where in Greek God establishes David's son in His house with a verb from the root for \"faithful.\""
+          "evidence": "Numbers 12:7. The Reformation Study Bible on Hebrews 3:6: Moses was in the house, Christ is over it, and God's house is His people (2 Samuel 7:16). Keil and Delitzsch and Benson on 1 Chronicles 17:14: spoken only of the Messiah. Ellicott on Hebrews 3:6: Moses faithful as a servant in God's house, Christ as a son over it.",
+          "cites": [
+            { "source": "reformation-sb", "on": "Hebrews 3:6", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Heb.3.6" },
+            { "source": "keil-delitzsch", "on": "1 Chronicles 17:14" },
+            { "source": "benson", "on": "1 Chronicles 17:14" }
+          ],
+          "text": "Hebrews sets Moses, faithful \"in all My house,\" beside the Son: \"Christ is faithful as the Son over God’s house.\" In 1 Chronicles 17:14 God promises to set David's son over His house and His kingdom forever, words that older commentators say fit only the Messiah."
         }
       ]
     },
@@ -4743,7 +4765,11 @@
             { "ref": "Exodus 3:14", "strong": "H1961" },
             { "ref": "Exodus 3:12", "strong": "H1961" }
           ],
-          "evidence": "NET Bible notes on Hosea 1:9: the Hebrew reads lo' 'ehyeh lakhem, I will not be yours; an allusion to Exodus 3:12, 14 and in effect a negation of it. TAHOT: all three are H1961.",
+          "evidence": "NET Bible notes on Hosea 1:9: the Hebrew reads lo' 'ehyeh lakhem, I will not be yours; an allusion to Exodus 3:12, 14 and in effect a negation of it. The Reformation Study Bible: literally \"I am not 'I am' to you,\" a reference to the divine name of Exodus 3:14. TAHOT: all three are H1961.",
+          "cites": [
+            { "source": "net-notes", "on": "Hosea 1:9", "url": "https://classic.net.bible.org/verse.php?book=Hos&chapter=1&verse=9" },
+            { "source": "reformation-sb", "on": "Hosea 1:9", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Hos.1.9" }
+          ],
           "text": "Literally, 1:9 ends with God saying He will not be (ehyeh) theirs. Ehyeh is the word God spoke at the burning bush: \"I will surely be with you\" and \"I AM WHO I AM.\" Hosea's line turns that promise around."
         },
         {
@@ -5537,7 +5563,11 @@
           "kind": "wordplay",
           "strength": "some interpreters",
           "refs": ["Mark 12:6", "Psalms 118:22"],
-          "text": "In Hebrew \"son\" is ben and \"stone\" is even (eben). Some scholars suggest the parable's rejected son and the psalm's rejected stone are tied by this sound."
+          "evidence": "Gregory Lanier (JETS 56/4, 2013) argues that the parable and its quotation of Psalm 118:22 hinge on the son and stone wordplay, lost in the Greek, as a mark that the quotation goes back to Jesus. Hebrew ben (H1121) and eben (H68).",
+          "cites": [
+            { "source": "jets", "on": "Mark 12:10", "at": "Gregory R. Lanier, \"The Rejected Stone in the Parable of the Wicked Tenants: Defending the Authenticity of Jesus' Quotation of Ps 118:22,\" JETS 56/4 (2013), p. 738", "url": "https://etsjets.org/wp-content/uploads/2014/01/files_JETS-PDFs_56_56-4_JETS_56-4_735-51_Lanier.pdf" }
+          ],
+          "text": "In Hebrew \"son\" is ben and \"stone\" is even (eben), a likeness lost in Greek. Some scholars suggest the parable's rejected son and the psalm's rejected stone are tied by this sound."
         },
         {
           "kind": "allusion",
