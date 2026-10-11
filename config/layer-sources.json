@@ -2,7 +2,7 @@
   "_comment": [
     "Who a Layers note may cite. Shubhanshu's rule (2026-10-11): cite Bible-believing people who fully believe the Bible and theologians who love God, not people who liberalize the Bible to mean something else. A note goes live once it cites at least one source from \"cite\" (checked by crates/atlas-cli/src/layers.rs); a note with none stays hidden until a person reviews its passage.",
     "cite: one entry per work a note may cite. id: lowercase letters, digits and hyphens, used in a note's cites. role: \"interpreter\" for a commentary or teacher, \"reference\" for a translation, word book or dictionary; a wordplay, allusion, pattern, irony or fulfillment note needs at least one interpreter. name: as the app shows it (\"Keil and Delitzsch\"). title, by, when: what the work is. biblehub: the work's code on biblehub.com/commentaries, so a cite \"on\" a verse links to that chapter there. url: a page to read the work when it has no Bible Hub code. why: one plain sentence on why it passes the rule.",
-    "avoid: works and writers a note may not cite or name, because they read the Bible along higher-critical lines or because we could not confirm they hold the whole Bible true. match: words that name it, found where a word starts; the build stops on any of them in a note's text or evidence or a passage's source.",
+    "avoid: works and writers a note may not cite or name, because they read the Bible along higher-critical lines, because we could not confirm they hold the whole Bible true, or because they write outside the Christian faith. Shubhanshu chose Christian writers only (2026-10-11): Catholic and Orthodox writers who uphold Scripture may be cited; rabbis' commentaries and Jewish scholars may not. match: words that name it, found where a word starts; the build stops on any of them in a note's text or evidence or a passage's source.",
     "Ancient writings (the Septuagint, Targums, Mishnah, Talmud, Midrash, Josephus, Philo, the Dead Sea Scrolls, the Apocrypha) may be named in evidence as witnesses to what people read or believed, but they are not interpreters and never count as a note's citation."
   ],
   "cite": [
@@ -72,6 +72,8 @@
     { "name": "David Kupp", "match": ["Kupp"], "why": "We could not confirm he holds the whole Bible true." },
     { "name": "Markus Bockmuehl", "match": ["Bockmuehl"], "why": "We could not confirm he holds the whole Bible true." },
     { "name": "Catrin H. Williams", "match": ["Catrin"], "why": "We could not confirm she holds the whole Bible true." },
-    { "name": "Michelle Knight", "match": ["Michelle Knight"], "why": "A blog we could not confirm holds the whole Bible true." }
+    { "name": "Michelle Knight", "match": ["Michelle Knight"], "why": "A blog we could not confirm holds the whole Bible true." },
+    { "name": "medieval and later rabbis' commentaries", "match": ["Rashi", "Rashbam", "Ibn Ezra", "Aben Ezra", "Radak", "Kimchi", "Kimhi", "Ramban", "Nachmanides", "Nahmanides", "Rambam", "Maimonides", "Abarbanel", "Abravanel", "Sforno", "Malbim", "Metzudat"], "why": "Shubhanshu chose Christian writers only: the rabbis love God and the Hebrew Bible but do not accept Jesus or the New Testament. Ancient Jewish writings may still be named in evidence as witnesses." },
+    { "name": "modern Jewish Bible scholars", "match": ["Robert Alter", "Alter's", "Sarna", "Milgrom", "Levenson", "Kugel", "Cassuto", "Garsiel", "Fishbane", "Vermes", "Amy-Jill Levine", "Zakovitch", "Tigay", "Brettler", "Adele Berlin", "Everett Fox", "Boyarin", "Jewish Study Bible", "JPS Torah Commentary"], "why": "Shubhanshu chose Christian writers only, so Jewish scholars are not cited." }
   ]
 }
