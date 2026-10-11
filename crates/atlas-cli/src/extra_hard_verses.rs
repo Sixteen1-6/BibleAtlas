@@ -33,8 +33,9 @@ const CARDS: &str = "extras/hard-verses/cards.json";
 
 const STRENGTHS: [&str; 3] = ["widely held", "commonly held", "some interpreters"];
 /// Sites a card may link to for further reading.
-const HOSTS: [&str; 14] = [
+const HOSTS: [&str; 13] = [
     "gotquestions.org",
+    "bibleref.com",
     "bibleproject.com",
     "thegospelcoalition.org",
     "biblicaltraining.org",
@@ -43,11 +44,9 @@ const HOSTS: [&str; 14] = [
     "desiringgod.org",
     "christianitytoday.com",
     "crossexamined.org",
-    "reasonablefaith.org",
-    "biblicalarchaeology.org",
+    "answersingenesis.org",
     "catholic.com",
     "orthodoxwiki.org",
-    "britannica.com",
 ];
 const QUESTION_MAX: usize = 60;
 const TEXT_MAX: usize = 300;
