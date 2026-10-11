@@ -1,7 +1,8 @@
 // The Layers card: what a passage says plainly, and the meanings stacked on
 // top of it. Simple opens on one note with the rest a tap away; Study shows
-// every layer with its Hebrew or Greek words; Deep adds the evidence, who
-// reviewed it, and a way to suggest a correction.
+// every layer with its Hebrew or Greek words; Deep adds the evidence, the
+// sources each note cites (with a link to read them), who reviewed it, and a
+// way to suggest a correction.
 //
 // A link that quotes the passage, or another passage in the same note, word
 // for word or nearly, carries a quotation mark. That comes from the quotations
@@ -10,7 +11,7 @@
 
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
-import { type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
+import { type Cite, type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { dataState, ensureData } from './extras/data';
@@ -128,6 +129,41 @@ function issueLink(a: Atlas, p: Passage, l: Layer): string {
   return `${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 }
 
+/** "Keil and Delitzsch and the Pulpit Commentary on Zephaniah 2:4; Irenaeus, Against Heresies 4.10.1":
+ * cites that share a verse are named together, each linked to where it can be read. */
+function Sources({ cites }: { cites: Cite[] }) {
+  const groups: Cite[][] = [];
+  for (const c of cites) {
+    const last = groups[groups.length - 1];
+    if (last && c.on && last[0].on === c.on) last.push(c);
+    else groups.push([c]);
+  }
+  return (
+    <>
+      Sources:{' '}
+      {groups.map((g, i) => (
+        <span key={i}>
+          {i > 0 && '; '}
+          {g.map((c, j) => (
+            <span key={j}>
+              {j > 0 && (j === g.length - 1 ? ' and ' : ', ')}
+              {c.url ? (
+                <a href={c.url} target="_blank" rel="noopener">
+                  {c.at ?? c.name}
+                </a>
+              ) : (
+                (c.at ?? c.name)
+              )}
+            </span>
+          ))}
+          {g[0].on && ` on ${g[0].on}`}
+        </span>
+      ))}
+      .{' '}
+    </>
+  );
+}
+
 function LayerItem({ a, p, l, quotes }: { a: Atlas; p: Passage; l: Layer; quotes: Map<string, string> }) {
   const study = atLeast('study');
   const deep = atLeast('deep');
@@ -143,6 +179,11 @@ function LayerItem({ a, p, l, quotes }: { a: Atlas; p: Passage; l: Layer; quotes
           {KIND_LABEL[l.kind] ?? l.kind}
         </span>
         <span class="strength">{l.strength}</span>
+        {l.draft && (
+          <span class="badge draft" title="Neither reviewed by a person nor cited from a listed source. Drafts only appear in preview builds.">
+            Draft
+          </span>
+        )}
       </div>
       <p>{smart(l.text)}</p>
       {(refs.length > 0 || (study && words.length > 0)) && (
@@ -156,6 +197,7 @@ function LayerItem({ a, p, l, quotes }: { a: Atlas; p: Passage; l: Layer; quotes
       {deep && (
         <p class="layerdeep">
           {l.evidence && <>Behind this note: {smart(l.evidence.replace(/\.\s*$/, ''))}. </>}
+          {l.cites && l.cites.length > 0 && <Sources cites={l.cites} />}
           <a href={issueLink(a, p, l)} target="_blank" rel="noopener">
             Suggest a correction
           </a>
@@ -194,7 +236,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       <h3>
         Layers of meaning
         {p.draft && (
-          <span class="badge draft" title="Not yet reviewed by a person. Drafts only appear in preview builds.">
+          <span class="badge draft" title="No note here is reviewed by a person or cited from a listed source yet. Drafts only appear in preview builds.">
             Draft
           </span>
         )}
@@ -212,8 +254,11 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       )}
       {atLeast('deep') && (
         <p class="layerdeep">
-          {p.source} {p.reviewed_by.length ? `Reviewed by ${p.reviewed_by.join(' and ')}.` : 'Not yet reviewed by a person.'} Every quotation of four or more words is checked
-          against the BSB when the data is built.
+          {p.source}{' '}
+          {p.reviewed_by.length
+            ? `Reviewed by ${p.reviewed_by.join(' and ')}.`
+            : `Not yet reviewed by a person${shown.every((l) => l.cites?.length) ? '; each note names the sources it rests on' : ''}.`}{' '}
+          Every quotation of four or more words is checked against the BSB when the data is built.
           {quotes.some((m) => m.size > 0) && ' A “ on a link marks a direct quotation, as the BSB’s own footnotes show it.'}
         </p>
       )}

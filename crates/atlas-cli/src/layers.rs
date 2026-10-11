@@ -15,10 +15,18 @@
 //! 8. every passage names its source and its section; one nobody reviewed is
 //!    a draft,
 //! 9. a layer's text stays short enough to read at a glance; detail and
-//!    sources go in its evidence, which the app shows one level deeper.
+//!    sources go in its evidence, which the app shows one level deeper,
+//! 10. every `cites` entry names a source on the `cite` list of
+//!     `config/layer-sources.json` (the Bible-believing sources the owner's
+//!     rule allows), and no text, evidence or source line names one on its
+//!     `avoid` list.
 //!
-//! Drafts are checked like the rest but published only when
-//! `ATLAS_LAYER_DRAFTS=1` is set.
+//! What goes live: every note of a passage someone reviewed, and in other
+//! passages each note that cites a listed source (a wordplay, allusion,
+//! pattern, irony or fulfillment note needs an interpreter among them, not
+//! only a word book). A passage shows once one of its live notes goes beyond
+//! the plain meaning. The rest are drafts: checked like everything else but
+//! published only when `ATLAS_LAYER_DRAFTS=1` is set.
 //!
 //! Text is compared after [`normalize`], and an ellipsis ("…" or "...")
 //! splits a saying or quotation into parts that must appear in order.
@@ -33,7 +41,13 @@ use std::fs;
 use std::path::Path;
 
 pub const CONFIG: &str = "config/layers.json";
+pub const SOURCES: &str = "config/layer-sources.json";
 pub const DRAFTS_ENV: &str = "ATLAS_LAYER_DRAFTS";
+
+pub const ROLES: [&str; 2] = ["interpreter", "reference"];
+const INTERPRETER: &str = "interpreter";
+/// Kinds whose claim is a reading of the text, so a word book alone cannot carry it.
+const NEEDS_INTERPRETER: [&str; 5] = ["wordplay", "allusion", "pattern", "irony", "fulfillment"];
 
 pub const KINDS: [&str; 9] =
     ["plain meaning", "quotation", "allusion", "wordplay", "name meaning", "pattern", "irony", "fulfillment", "setting"];
@@ -77,6 +91,8 @@ struct LayerSpec {
     words: Vec<WordSpec>,
     #[serde(default)]
     evidence: Option<String>,
+    #[serde(default)]
+    cites: Vec<CiteSpec>,
     text: String,
 }
 
@@ -86,6 +102,55 @@ struct WordSpec {
     #[serde(rename = "ref")]
     reference: String,
     strong: String,
+}
+
+/// One citation in a layer: a source from the list, and where in it.
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct CiteSpec {
+    source: String,
+    /// The verse the source comments on, such as "Genesis 2:7".
+    #[serde(default)]
+    on: Option<String>,
+    /// The writer and work, for a source that is not a commentary on a verse.
+    #[serde(default)]
+    at: Option<String>,
+    /// A page to read it, when the source's own link does not reach it.
+    #[serde(default)]
+    url: Option<String>,
+}
+
+#[derive(Deserialize)]
+struct SourceFile {
+    cite: Vec<CiteSource>,
+    avoid: Vec<Avoid>,
+}
+
+/// A source a layer may cite (`config/layer-sources.json`).
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct CiteSource {
+    id: String,
+    role: String,
+    name: String,
+    title: String,
+    by: String,
+    when: String,
+    #[serde(default)]
+    biblehub: Option<String>,
+    #[serde(default)]
+    url: Option<String>,
+    why: String,
+}
+
+/// A source no layer may cite or name.
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct Avoid {
+    name: String,
+    #[serde(rename = "match")]
+    names: Vec<String>,
+    why: String,
 }
 
 /// What the checks read from the rest of the build.
@@ -105,20 +170,36 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<Value>, String> {
         &fs::read_to_string(root.join(CONFIG)).map_err(|e| format!("reading {CONFIG}: {e}"))?,
     )
     .map_err(|e| format!("parsing {CONFIG}: {e}"))?;
+    let sources: SourceFile = serde_json::from_str(
+        &fs::read_to_string(root.join(SOURCES)).map_err(|e| format!("reading {SOURCES}: {e}"))?,
+    )
+    .map_err(|e| format!("parsing {SOURCES}: {e}"))?;
+    check_sources(&sources)?;
     let include_drafts = std::env::var(DRAFTS_ENV).is_ok_and(|v| v == "1");
 
-    let mut check = Check { src, errors: Vec::new() };
+    let mut check = Check { src, sources: &sources, errors: Vec::new() };
     let mut ids = BTreeSet::new();
     let mut out = Vec::new();
-    let mut drafts = 0;
+    let (mut drafts, mut live_notes, mut cited_notes) = (0, 0, 0);
     for p in &file.passages {
         if !ids.insert(p.id.as_str()) {
             check.fail(&format!("passage {:?}", p.id), "id is used by an earlier passage");
         }
-        let checked = check.passage(p);
-        let draft = p.reviewed_by.is_empty();
+        let Some(mut v) = check.passage(p) else { continue };
+        let draft = v["draft"] == json!(true);
         drafts += draft as usize;
-        if let Some(v) = checked.filter(|_| include_drafts || !draft) {
+        let layers = v["layers"].as_array_mut().expect("layers is an array");
+        if !draft {
+            let live = layers.iter().filter(|l| l["draft"] == json!(false)).count();
+            live_notes += live;
+            if p.reviewed_by.is_empty() {
+                cited_notes += live;
+            }
+        }
+        if include_drafts {
+            out.push(v);
+        } else if !draft {
+            layers.retain(|l| l["draft"] == json!(false));
             out.push(v);
         }
     }
@@ -129,26 +210,136 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<Value>, String> {
     let layer_count: usize = file.passages.iter().map(|p| p.layers.len()).sum();
     let drafts_note = match (drafts, include_drafts) {
         (0, _) => String::from("no drafts"),
-        (d, true) => format!("{d} drafts included ({DRAFTS_ENV}=1)"),
-        (d, false) => format!("{d} drafts left out (set {DRAFTS_ENV}=1 to include them)"),
+        (d, true) => format!("{d} draft passages and every draft note included ({DRAFTS_ENV}=1)"),
+        (d, false) => format!("{d} draft passages and every draft note left out (set {DRAFTS_ENV}=1 to include them)"),
     };
     eprintln!(
-        "layers of meaning: {} passages, {layer_count} layers checked; {} written, {drafts_note}",
+        "layers of meaning: {} passages, {layer_count} layers checked; {} passages live with {live_notes} notes \
+         ({cited_notes} live because they cite a listed source); {drafts_note}",
         file.passages.len(),
-        out.len()
+        file.passages.len() - drafts,
     );
     Ok(out)
+}
+
+/// The source list itself: ids, roles, links, and avoid entries that name something.
+fn check_sources(s: &SourceFile) -> Result<(), String> {
+    let mut ids = BTreeSet::new();
+    for c in &s.cite {
+        let at = format!("{SOURCES}: cite {:?}", c.id);
+        if c.id.is_empty() || !c.id.chars().all(|ch| ch.is_ascii_lowercase() || ch.is_ascii_digit() || ch == '-') {
+            return Err(format!("{at}: id must be lowercase letters, digits and hyphens"));
+        }
+        if !ids.insert(c.id.as_str()) {
+            return Err(format!("{at}: id is used by an earlier source"));
+        }
+        if !ROLES.contains(&c.role.as_str()) {
+            return Err(format!("{at}: role {:?} is not one of: {}", c.role, ROLES.join(", ")));
+        }
+        for (field, v) in [("name", &c.name), ("title", &c.title), ("by", &c.by), ("when", &c.when), ("why", &c.why)] {
+            if v.trim().is_empty() {
+                return Err(format!("{at}: {field} is empty"));
+            }
+        }
+        if c.biblehub.as_deref().is_some_and(|b| b.is_empty() || !b.chars().all(|ch| ch.is_ascii_lowercase() || ch == '-')) {
+            return Err(format!("{at}: biblehub must be the lowercase code in its biblehub.com/commentaries address"));
+        }
+        if c.url.as_deref().is_some_and(|u| !u.starts_with("https://")) {
+            return Err(format!("{at}: url must start with https://"));
+        }
+        if let Some(a) = s.avoid.iter().find(|a| a.names.iter().any(|n| names(&c.name, n))) {
+            return Err(format!("{at}: its name matches the avoid entry {:?}", a.name));
+        }
+    }
+    for a in &s.avoid {
+        let at = format!("{SOURCES}: avoid {:?}", a.name);
+        if a.name.trim().is_empty() || a.why.trim().is_empty() || a.names.is_empty() || a.names.iter().any(|n| n.trim().is_empty()) {
+            return Err(format!("{at}: needs a name, a why and at least one match, none empty"));
+        }
+    }
+    Ok(())
 }
 
 /// Collects every problem in config order; the build reports the first.
 struct Check<'s, 'a> {
     src: &'s Sources<'a>,
+    sources: &'s SourceFile,
     errors: Vec<String>,
 }
 
 impl Check<'_, '_> {
     fn fail(&mut self, at: &str, problem: impl Display) {
         self.errors.push(format!("{CONFIG}: {at}: {problem}"));
+    }
+
+    /// Fail if `s` names a source on the avoid list.
+    fn avoid(&mut self, at: &str, field: &str, s: &str) {
+        let sources = self.sources;
+        for a in &sources.avoid {
+            if let Some(n) = a.names.iter().find(|n| names(s, n)) {
+                self.fail(at, format_args!("{field} names {n:?} ({}), which Layers may not cite: {}", a.name, a.why));
+            }
+        }
+    }
+
+    /// Check a layer's citations; returns them for layers.json, and whether
+    /// they make the layer live on their own.
+    fn cites(&mut self, at: &str, kind: &str, cites: &[CiteSpec]) -> (Vec<Value>, bool) {
+        let sources = self.sources;
+        let mut out = Vec::new();
+        let mut seen: Vec<(&str, Option<&str>, Option<&str>)> = Vec::new();
+        let mut interpreter = false;
+        for (j, c) in cites.iter().enumerate() {
+            let at = format!("{at}, cites[{j}]");
+            let key = (c.source.as_str(), c.on.as_deref(), c.at.as_deref());
+            if seen.contains(&key) {
+                self.fail(&at, "the same citation is listed twice");
+            }
+            seen.push(key);
+            let Some(s) = sources.cite.iter().find(|s| s.id == c.source) else {
+                self.fail(&at, format_args!("source {:?} is not on the cite list in {SOURCES}", c.source));
+                continue;
+            };
+            interpreter |= s.role == INTERPRETER;
+            for (field, v) in [("on", &c.on), ("at", &c.at), ("url", &c.url)] {
+                if let Some(v) = v {
+                    if v.trim().is_empty() {
+                        self.fail(&at, format_args!("{field} is empty"));
+                    }
+                    self.esv(&at, field, v);
+                    self.avoid(&at, field, v);
+                }
+            }
+            if c.url.as_deref().is_some_and(|u| !u.starts_with("https://")) {
+                self.fail(&at, "url must start with https://");
+            }
+            let on = match &c.on {
+                Some(r) => self.range(&at, r),
+                None => {
+                    if s.biblehub.is_some() {
+                        self.fail(&at, format_args!("{} is a commentary: say which verse with \"on\"", s.name));
+                    } else if c.at.is_none() {
+                        self.fail(&at, format_args!("say where in {} with \"on\" or \"at\"", s.name));
+                    }
+                    None
+                }
+            };
+            let url = c.url.clone().or_else(|| {
+                let (code, (start, _)) = (s.biblehub.as_deref()?, on?);
+                let (book, chapter, _) = self.src.vz.locate(start)?;
+                let slug = atlas_core::BOOKS[book as usize].name.to_lowercase().replace(' ', "_");
+                Some(format!("https://biblehub.com/commentaries/{code}/{slug}/{chapter}.htm"))
+            });
+            let mut v = json!({ "name": s.name });
+            for (field, value) in [("on", c.on.clone()), ("at", c.at.clone()), ("url", url.or_else(|| s.url.clone()))] {
+                if let Some(value) = value {
+                    v[field] = json!(value);
+                }
+            }
+            out.push(v);
+        }
+        let live = !out.is_empty() && (interpreter || !NEEDS_INTERPRETER.contains(&kind));
+        (out, live)
     }
 
     /// Resolve a reference to an inclusive range of verse indices.
@@ -192,6 +383,7 @@ impl Check<'_, '_> {
         for (field, s) in [("id", &p.id), ("ref", &p.reference), ("saying", &p.saying), ("source", &p.source)] {
             self.esv(&at, field, s);
         }
+        self.avoid(&at, "source", &p.source);
         for name in &p.reviewed_by {
             self.esv(&at, "reviewed_by", name);
         }
@@ -206,10 +398,18 @@ impl Check<'_, '_> {
             self.fail(&at, format_args!("needs a layer besides the plain meaning that is not {SOME:?}"));
         }
         let (v, end) = range?;
-        let layers: Vec<Value> = layers.into_iter().collect::<Option<_>>()?;
+        let mut layers: Vec<Value> = layers.into_iter().collect::<Option<_>>()?;
+        // Reviewed passages go live whole; otherwise a note goes live on its citations.
+        let reviewed = !p.reviewed_by.is_empty();
+        if reviewed {
+            for l in &mut layers {
+                l["draft"] = json!(false);
+            }
+        }
+        let draft = !layers.iter().any(|l| l["draft"] == json!(false) && l["kind"] != json!(PLAIN));
         Some(json!({
             "id": p.id, "section": p.section, "v": v, "end": end, "saying": p.saying, "source": p.source,
-            "reviewed_by": p.reviewed_by, "draft": p.reviewed_by.is_empty(), "layers": layers,
+            "reviewed_by": p.reviewed_by, "draft": draft, "layers": layers,
         }))
     }
 
@@ -225,12 +425,15 @@ impl Check<'_, '_> {
         if let Some(n) = too_long(&l.text, TEXT_MAX) {
             self.fail(&at, format_args!("text is {n} characters; keep it to {TEXT_MAX} and move detail to evidence"));
         }
+        self.avoid(&at, "text", &l.text);
         if let Some(e) = &l.evidence {
             self.esv(&at, "evidence", e);
+            self.avoid(&at, "evidence", e);
             if let Some(n) = too_long(e, EVIDENCE_MAX) {
                 self.fail(&at, format_args!("evidence is {n} characters; keep it to {EVIDENCE_MAX}"));
             }
         }
+        let (cites, cited) = self.cites(&at, &l.kind, &l.cites);
         for r in &l.refs {
             self.esv(&at, "refs", r);
         }
@@ -291,7 +494,9 @@ impl Check<'_, '_> {
             .into_iter()
             .map(|r| r.map(|(s, e)| json!({ "s": s, "e": e, "arc": within((s, e), pr) || linked(self.src.graph, pr, (s, e)) })))
             .collect::<Option<_>>()?;
-        let mut layer = json!({ "kind": l.kind, "strength": l.strength, "text": l.text, "refs": refs, "words": words });
+        let mut layer = json!({
+            "kind": l.kind, "strength": l.strength, "text": l.text, "refs": refs, "words": words, "cites": cites, "draft": !cited,
+        });
         if let Some(e) = l.evidence.as_deref().filter(|e| !e.trim().is_empty()) {
             layer["evidence"] = json!(e);
         }
@@ -418,6 +623,12 @@ fn mentions_esv(s: &str) -> bool {
     s.split(|c: char| !c.is_alphanumeric()).any(|w| w.eq_ignore_ascii_case("esv"))
 }
 
+/// Does `text` name `part` where a word starts? "Vincent" is found in
+/// "Vincent's Word Studies" but not in "Invincent".
+fn names(text: &str, part: &str) -> bool {
+    text.match_indices(part).any(|(i, _)| !text[..i].chars().next_back().is_some_and(char::is_alphanumeric))
+}
+
 /// Is range `a` equal to or inside range `b`?
 fn within(a: (u32, u32), b: (u32, u32)) -> bool {
     a.0 >= b.0 && a.1 <= b.1
@@ -492,6 +703,25 @@ mod tests {
     fn finds_esv_as_a_word() {
         assert!(mentions_esv("as the ESV puts it") && mentions_esv("(esv)"));
         assert!(!mentions_esv("ESVs") && !mentions_esv("lESV"));
+    }
+
+    #[test]
+    fn names_a_source_where_a_word_starts() {
+        assert!(names("as the Cambridge Bible notes", "Cambridge Bible"));
+        assert!(names("(BDB, s.v.)", "BDB"));
+        assert!(names("Meyer's note", "Meyer"));
+        assert!(!names("STEPBDB", "BDB"));
+        assert!(!names("Invincent", "Vincent"));
+    }
+
+    #[test]
+    fn the_source_list_is_sound() {
+        let s: SourceFile = serde_json::from_str(include_str!("../../../config/layer-sources.json")).unwrap();
+        check_sources(&s).unwrap();
+        for k in NEEDS_INTERPRETER {
+            assert!(KINDS.contains(&k));
+        }
+        assert!(s.cite.iter().any(|c| c.role == INTERPRETER) && s.cite.iter().any(|c| c.role == "reference"));
     }
 
     #[test]

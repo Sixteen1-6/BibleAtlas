@@ -6,8 +6,9 @@
     "strength: widely agreed (the Bible itself, a BSB footnote, or words the build can check), commonly held (an openly licensed source in the repo), or some interpreters.",
     "refs: passages the layer rests on. words: Strong's keys the build looks for in those verses, so readers can tap them.",
     "evidence: where a claim comes from (a lexicon, a manuscript, a commentary) and detail the note has no room for, shown at the Deep level. Keep text to 300 characters and evidence to 400.",
+    "cites: the sources a note rests on, each { \"source\": an id on the cite list of config/layer-sources.json, \"on\": the verse a commentary comments on, \"at\": the writer and work when it is not a commentary on a verse, \"url\": a page to read it when the source's own link does not reach it }. Only Bible-believing sources are on that list (Shubhanshu's rule, 2026-10-11), and no note may name one on its avoid list.",
     "Any quotation of four or more words must match the BSB in one of the layer's refs or the passage itself.",
-    "reviewed_by: the people who checked the entry. Entries nobody has reviewed are drafts and stay out of the published data; ATLAS_LAYER_DRAFTS=1 make data includes them for a local preview.",
+    "reviewed_by: the people who checked the entry. A reviewed passage goes live whole. Otherwise a note goes live once it cites a listed source (a wordplay, allusion, pattern, irony or fulfillment note needs an interpreter, not only a word book), and its passage shows once a live note goes beyond the plain meaning. The rest are drafts and stay out of the published data; ATLAS_LAYER_DRAFTS=1 make data includes them for a local preview.",
     "atlas build checks every rule and stops at the first error."
   ],
   "passages": [
