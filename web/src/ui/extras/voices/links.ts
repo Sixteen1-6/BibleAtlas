@@ -1,9 +1,11 @@
 // Places on other websites to read more about a verse, built from each site's
 // own address pattern. Every book's address was opened on the site and
-// checked to show the right verse (October 2026); where a site has notes on
-// only part of the Bible, the link shows only there. Sefaria numbers the Old
-// Testament as the Hebrew Bible does, so its links use those numbers. Links
-// only: nothing from these sites is copied into the app or fetched by it.
+// checked to show the right verse or chapter (October 2026); where a site has
+// notes on only part of the Bible, the link shows only there. Each comes from
+// writers who hold the whole Bible to be God's true word (October 2026, at
+// Shubhanshu's request): from Bible Hub, one older commentary at a time
+// rather than its page that mixes in critical ones. Links only: nothing from
+// these sites is copied into the app or fetched by it.
 
 import { type Atlas, locate } from '../../../data/atlas';
 import type { VerseRef } from '../types';
@@ -18,7 +20,7 @@ export interface Link {
   shelf: string;
 }
 
-/** biblehub.com/commentaries/<book>/<c>-<v>.htm */
+/** biblehub.com/commentaries/<commentary>/<book>/<c>.htm */
 const BIBLEHUB = [
   'genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth', '1_samuel', '2_samuel', '1_kings', '2_kings',
   '1_chronicles', '2_chronicles', 'ezra', 'nehemiah', 'esther', 'job', 'psalms', 'proverbs', 'ecclesiastes', 'songs', 'isaiah', 'jeremiah',
@@ -34,24 +36,6 @@ const NET = [
   'Ecc', 'Sos', 'Isa', 'Jer', 'Lam', 'Eze', 'Dan', 'Hos', 'Joe', 'Amo', 'Oba', 'Jon', 'Mic', 'Nah', 'Hab', 'Zep', 'Hag', 'Zec', 'Mal', 'Mat',
   'Mar', 'Luk', 'Joh', 'Act', 'Rom', '1Co', '2Co', 'Gal', 'Eph', 'Phi', 'Col', '1Th', '2Th', '1Ti', '2Ti', 'Tit', 'Phm', 'Heb', 'Jam', '1Pe',
   '2Pe', '1Jo', '2Jo', '3Jo', 'Jud', 'Rev',
-];
-
-/** historicalchristian.faith/<book>/<c>/<v> */
-const FATHERS = [
-  'genesis', 'exodus', 'leviticus', 'numbers', 'deuteronomy', 'joshua', 'judges', 'ruth', '1samuel', '2samuel', '1kings', '2kings',
-  '1chronicles', '2chronicles', 'ezra', 'nehemiah', 'esther', 'job', 'psalms', 'proverbs', 'ecclesiastes', 'songofsolomon', 'isaiah',
-  'jeremiah', 'lamentations', 'ezekiel', 'daniel', 'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah',
-  'haggai', 'zechariah', 'malachi', 'matthew', 'mark', 'luke', 'john', 'acts', 'romans', '1corinthians', '2corinthians', 'galatians',
-  'ephesians', 'philippians', 'colossians', '1thessalonians', '2thessalonians', '1timothy', '2timothy', 'titus', 'philemon', 'hebrews',
-  'james', '1peter', '2peter', '1john', '2john', '3john', 'jude', 'revelation',
-];
-
-/** sefaria.org/<book>.<c>.<v>, by the Hebrew Bible's numbers; the Old Testament only. */
-const SEFARIA = [
-  'Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'Ruth', 'I_Samuel', 'II_Samuel', 'I_Kings', 'II_Kings',
-  'I_Chronicles', 'II_Chronicles', 'Ezra', 'Nehemiah', 'Esther', 'Job', 'Psalms', 'Proverbs', 'Ecclesiastes', 'Song_of_Songs', 'Isaiah',
-  'Jeremiah', 'Lamentations', 'Ezekiel', 'Daniel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah',
-  'Haggai', 'Zechariah', 'Malachi',
 ];
 
 /** gotquestions.org/questions-about-<book>.html, and bibleref.com/<book>/<c>/<book>-<c>-<v>.html */
@@ -90,19 +74,8 @@ function inBibleRef(book: number, c: number, v: number): boolean {
   return ranges.some(([c1, v1, c2, v2]) => (c > c1 || (c === c1 && v >= v1)) && (c < c2 || (c === c2 && v <= v2)));
 }
 
-/** Where Old Testament verses have another number in the Hebrew Bible:
- * [first verse, count, Hebrew chapter, Hebrew verse] (extras/voices/hebrew.json). */
-export type HebrewRuns = readonly (readonly [number, number, number, number])[];
-
-/** A verse's chapter and verse in the Hebrew Bible. */
-function hebrewNumber(runs: HebrewRuns, verse: VerseRef, c: number, v: number): [number, number] {
-  const r = runs.find(([first, n]) => first <= verse && verse < first + n);
-  return r ? [r[2], r[3] + verse - r[0]] : [c, v];
-}
-
-/** The places to read more about a verse, most plainly helpful first. The
- * link to Sefaria needs the Hebrew numbers, so it waits for them. */
-export function elsewhere(a: Atlas, verse: VerseRef, hebrew?: HebrewRuns | null): Link[] {
+/** The places to read more about a verse, most plainly helpful first. */
+export function elsewhere(a: Atlas, verse: VerseRef): Link[] {
   if (verse < 0 || verse >= a.n) return [];
   const { book: b, chapter: c, verse: v } = locate(a, verse);
   if (b < 0 || b > 65) return [];
@@ -114,12 +87,10 @@ export function elsewhere(a: Atlas, verse: VerseRef, hebrew?: HebrewRuns | null)
     links.push({ label: 'What this verse means', url: `https://www.bibleref.com/${folder}/${c}/${file}-${c}-${v}.html`, site: 'BibleRef', shelf: 'bibleref' });
   }
   links.push({ label: `Questions about ${name}`, url: `https://www.gotquestions.org/questions-about-${NAMES[b]}.html`, site: 'GotQuestions', shelf: 'gotquestions' });
-  links.push({ label: 'The Church Fathers on this verse', url: `https://historicalchristian.faith/${FATHERS[b]}/${c}/${v}`, site: 'Historical Christian Faith', shelf: 'historical-christian-faith' });
-  links.push({ label: 'Older commentaries on this verse', url: `https://biblehub.com/commentaries/${BIBLEHUB[b]}/${c}-${v}.htm`, site: 'Bible Hub', shelf: 'biblehub' });
-  links.push({ label: 'Translators’ notes on this verse', url: `https://classic.net.bible.org/verse.php?book=${NET[b]}&chapter=${c}&verse=${v}`, site: 'NET Bible (Bible.org)', shelf: 'bible-org' });
-  if (b < SEFARIA.length && hebrew) {
-    const [hc, hv] = hebrewNumber(hebrew, verse, c, v);
-    links.push({ label: 'Jewish commentaries on this verse', url: `https://www.sefaria.org/${SEFARIA[b]}.${hc}.${hv}?with=Commentary`, site: 'Sefaria', shelf: 'sefaria' });
+  if (b < 39) {
+    links.push({ label: 'Keil and Delitzsch on this chapter', url: `https://biblehub.com/commentaries/kad/${BIBLEHUB[b]}/${c}.htm`, site: 'Bible Hub', shelf: 'biblehub' });
   }
+  links.push({ label: 'Jamieson, Fausset and Brown on this chapter', url: `https://biblehub.com/commentaries/jfb/${BIBLEHUB[b]}/${c}.htm`, site: 'Bible Hub', shelf: 'biblehub' });
+  links.push({ label: 'Translators’ notes on this verse', url: `https://classic.net.bible.org/verse.php?book=${NET[b]}&chapter=${c}&verse=${v}`, site: 'NET Bible (Bible.org)', shelf: 'bible-org' });
   return links;
 }

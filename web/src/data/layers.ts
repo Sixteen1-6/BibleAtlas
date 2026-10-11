@@ -1,6 +1,8 @@
 // Layers of meaning: short notes on one passage, from the plain meaning
 // outward. Written in config/layers.json and checked by `atlas build`, which
-// resolves every reference and word and leaves unreviewed drafts out.
+// resolves every reference and word and publishes a note once a person has
+// reviewed its passage or it cites a source from config/layer-sources.json
+// (the Bible-believing sources the owner's rule allows); the rest are drafts.
 
 import { signal } from '@preact/signals';
 import { type Atlas, DATA_BASE } from './atlas';
@@ -24,6 +26,17 @@ export interface LayerRef {
   arc: boolean;
 }
 
+/** A source a note cites: a commentary on a verse, or a writer and work. */
+export interface Cite {
+  name: string;
+  /** The verse it comments on, as written: "Genesis 2:7". */
+  on?: string;
+  /** The writer and work, when it is not a commentary on a verse. */
+  at?: string;
+  /** Where to read it. */
+  url?: string;
+}
+
 export interface Layer {
   kind: string;
   strength: Strength;
@@ -33,6 +46,10 @@ export interface Layer {
   refs: LayerRef[];
   /** [verse, word position, root index] for each Hebrew or Greek word the layer rests on. */
   words: [number, number, number][];
+  /** The sources it rests on (shown at Deep). */
+  cites?: Cite[];
+  /** Neither reviewed nor cited (only present in local preview builds). */
+  draft?: boolean;
 }
 
 export interface Passage {
@@ -43,7 +60,7 @@ export interface Passage {
   saying: string;
   source: string;
   reviewed_by: string[];
-  /** Not yet reviewed by a person (only present in local preview builds). */
+  /** No note beyond the plain meaning is reviewed or cited (only present in local preview builds). */
   draft: boolean;
   layers: Layer[];
 }
