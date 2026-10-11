@@ -141,6 +141,9 @@ struct CiteSource {
     #[serde(default)]
     url: Option<String>,
     why: String,
+    /// Books whose volume of the work is not cited (a commentary set by many hands); `why` says who wrote them.
+    #[serde(default)]
+    not_on: Vec<String>,
 }
 
 /// A source no layer may cite or name.
@@ -247,6 +250,9 @@ fn check_sources(s: &SourceFile) -> Result<(), String> {
         if c.url.as_deref().is_some_and(|u| !u.starts_with("https://")) {
             return Err(format!("{at}: url must start with https://"));
         }
+        if let Some(b) = c.not_on.iter().find(|b| !atlas_core::BOOKS.iter().any(|x| x.name == b.as_str())) {
+            return Err(format!("{at}: not_on names {b:?}, which is not a book of the Bible"));
+        }
         if let Some(a) = s.avoid.iter().find(|a| a.names.iter().any(|n| names(&c.name, n))) {
             return Err(format!("{at}: its name matches the avoid entry {:?}", a.name));
         }
@@ -324,6 +330,12 @@ impl Check<'_, '_> {
                     None
                 }
             };
+            if let Some((book, _, _)) = on.and_then(|(start, _)| self.src.vz.locate(start)) {
+                let book = atlas_core::BOOKS[book as usize].name;
+                if s.not_on.iter().any(|b| b == book) {
+                    self.fail(&at, format_args!("{} is not cited on {book}: {}", s.name, s.why));
+                }
+            }
             let url = c.url.clone().or_else(|| {
                 let (code, (start, _)) = (s.biblehub.as_deref()?, on?);
                 let (book, chapter, _) = self.src.vz.locate(start)?;
