@@ -1,4 +1,5 @@
-// Command palette: a reference, an English phrase, or a Hebrew/Greek word.
+// Command palette: a reference, an English phrase, a Hebrew/Greek word, or a
+// question for Ask the Bible.
 
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { type Atlas, label, langName, rangeLabel } from '../data/atlas';
@@ -7,6 +8,7 @@ import { type Extra, type SearchResult, searchEnglish, searchRoots, markWords } 
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
+import { atLeast } from '../depth';
 import { type Asked, askIndex, askLabel, holdsWords, isCare, loadAsk, matchAsk, openAsk } from './ask/ask';
 
 type Item =
@@ -50,8 +52,14 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
   );
 }
 
+/** Shown before anything is typed, so a first visitor sees they can ask. */
+const EXAMPLES = ['does-god-love-me', 'what-happens-when-we-die', 'what-about-worry', 'what-is-the-purpose-of-my-life'];
+
 function footNote(q: string, res: SearchResult | null, ref: boolean): string {
-  if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a question like “what happens when we die?”, a Strong’s number, or a transliteration like “agape” or “ruach”.';
+  if (!q.trim())
+    return atLeast('study')
+      ? 'Ask any question in your own words, or type a reference, words from a verse (any translation, typos are fine), a Strong’s number, or a transliteration like “agape” or “ruach”.'
+      : 'Ask any question in your own words, or type a verse like John 3:16 or words you remember from one.';
   if (!res) return ref ? 'Press Enter to open it.' : '';
   const notes: string[] = [];
   if (res.guesses.length) notes.push(`Read ${res.guesses.map(([w, as]) => `“${w}” as “${as.join('” or “')}”`).join(', ')}.`);
@@ -69,7 +77,8 @@ export function Palette({ a }: { a: Atlas }) {
   const [res, setRes] = useState<SearchResult | null>(null);
   const [texts, setTexts] = useState<string[] | null>(plainText);
   const [extra, setExtra] = useState<Extra | null>(extraText);
-  const [active, setActive] = useState(0);
+  // Nothing is picked until the arrows or the pointer pick it.
+  const [active, setActive] = useState(-1);
   const input = useRef<HTMLInputElement>(null);
 
   useEffect(() => input.current?.focus(), []);
@@ -87,8 +96,13 @@ export function Palette({ a }: { a: Atlas }) {
       const out: Item[] = [];
       const query = q.trim();
       if (!query) {
-        setItems([]);
+        // A few questions to ask; the first prepared ones if these were renamed.
+        const ex = EXAMPLES.map((id) => asks?.questions.find((x) => x.id === id)).filter((x) => !!x);
+        for (const found of ex.length ? ex : (asks?.questions.slice(0, EXAMPLES.length) ?? [])) out.push({ kind: 'ask', asked: { kind: 'question', q: found } });
+        setItems(out);
         setRes(null);
+        // Data landing later keeps what was picked.
+        setActive((i) => Math.min(i, out.length - 1));
         return;
       }
       const range = /\d/.test(query) || query.length >= 3 ? await S.engine.value?.parseRef(query) : null;
@@ -136,8 +150,19 @@ export function Palette({ a }: { a: Atlas }) {
   return (
     <div class="scrim" onClick={(e) => e.target === e.currentTarget && (S.paletteOpen.value = false)}>
       <div class="palette" role="dialog" aria-label="Search">
-        <input ref={input} value={q} placeholder="John 3:16 · the lord is my shepherd · agape · H7225" onInput={(e) => setQ((e.target as HTMLInputElement).value)} onKeyDown={onKey} aria-label="Search for a verse, an English phrase, or a Hebrew or Greek word" />
-        <ul role="listbox">
+        <input
+          ref={input}
+          value={q}
+          placeholder="Ask a question · John 3:16 · agape"
+          onInput={(e) => {
+            const v = (e.target as HTMLInputElement).value;
+            if (!v.trim()) setActive(-1);
+            setQ(v);
+          }}
+          onKeyDown={onKey}
+          aria-label="Ask the Bible a question, or search for a verse, a phrase, or a Hebrew or Greek word"
+        />
+        <ul role="listbox" aria-label={q.trim() ? 'Results' : 'Questions to ask'}>
           {items.map((it, i) => (
             <li key={i} role="option" aria-selected={i === active} onMouseEnter={() => setActive(i)} onClick={() => choose(it)}>
               {it.kind === 'ref' && (

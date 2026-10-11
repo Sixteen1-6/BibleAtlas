@@ -196,7 +196,7 @@ export function App() {
           Bible Atlas<small>{a.meta.counts.crossReferences.toLocaleString()} links · Hebrew, Aramaic and Greek</small>
         </div>
         <button class="searchbox" onClick={() => (S.paletteOpen.value = true)}>
-          <span class="ph">Search a verse, phrase or Hebrew/Greek word</span> <kbd>/</kbd>
+          <span class="ph">Ask or search the Bible</span> <kbd>/</kbd>
         </button>
         <span class="spacer" />
         <DepthControl />
