@@ -167,3 +167,15 @@ button.ask-more {
 .ask-care a {
   color: var(--link);
 }
+
+/* The note on hearing God: quiet, and set apart from the verses. */
+.ask-listen {
+  margin: 0 0 1.1em;
+  padding: 0.1em 0 0.1em 0.85em;
+  border-left: 3px solid var(--accent-soft);
+  color: var(--muted);
+  font: 14px/1.55 var(--font-ui);
+}
+.ask-care ~ .ask-listen {
+  margin: 1.1em 0 0;
+}

@@ -1,5 +1,7 @@
 // Ask the Bible, the panel: one question at a time, in the same frame as the
-// verse extras' panels. It speaks only in the Bible's words.
+// verse extras' panels. It speaks only in the Bible's words, beside one short
+// note in the author's words on how to hear God, and the help line for
+// someone in danger.
 //
 //   A prepared question: its chain of Scripture, whole verses and parts of
 //   verses set one after another, with nothing of ours between.
@@ -373,7 +375,7 @@ const HOPE: [string, number, number, number][] = [
   ['Matt', 11, 28, 29],
 ];
 
-/** Where to turn now, then the verses. The one place the panel speaks in words not the Bible's. */
+/** Where to turn now, then the verses. With the note on hearing God, the only words in the panel that are not the Bible's. */
 function CareBody({ a }: { a: Atlas }) {
   const passages = HOPE.flatMap(([osis, c, v1, v2]) => {
     const b = a.books.findIndex((x) => x.osis === osis);
@@ -394,6 +396,17 @@ function CareBody({ a }: { a: Atlas }) {
         <Passage key={s} a={a} from={s} to={e} navigate={go} />
       ))}
     </>
+  );
+}
+
+/** With every answer: these verses are a way to bring a question to God, who
+ * answers as people gather, pray and read his Word. The author's own words,
+ * set apart from the verses. */
+function Listen() {
+  return (
+    <p class="ask-listen" role="note">
+      Ask the Bible is here to help you bring your questions to God. To hear his answer, gather with other believers and let the Holy Spirit speak into your life through them. Keep praying, and you open yourself to hear his voice. Read his Word to learn what he sounds like, for God is always speaking through his Word: his Word is him speaking.
+    </p>
   );
 }
 
@@ -419,10 +432,13 @@ export function AskSheet({ a }: { a: Atlas }) {
   const title = asked.kind === 'question' ? asked.q.q : asked.kind === 'topic' ? asked.title : asked.kind === 'care' ? 'Help, and hope' : asked.text;
   return createPortal(
     <Shell key={id} title={title} at="Ask the Bible" onDismiss={dismiss}>
+      {/* Someone in danger reads where to find help first. */}
+      {asked.kind !== 'care' && <Listen />}
       {asked.kind === 'question' && <QuestionBody a={a} asked={asked} />}
       {asked.kind === 'topic' && <TopicBody a={a} asked={asked} />}
       {asked.kind === 'live' && <LiveBody a={a} text={asked.text} />}
       {asked.kind === 'care' && <CareBody a={a} />}
+      {asked.kind === 'care' && <Listen />}
     </Shell>,
     document.body,
   );

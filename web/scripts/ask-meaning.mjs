@@ -8,8 +8,10 @@
 // regression over the words Ask the Bible reads (web/src/ui/ask/words.ts, the
 // same code the page runs), so words like "rehab", "repo" and "chemo" come to
 // weigh toward the questions people use them about. It writes the weights
-// worth keeping to public/data/ask/meaning.json, which the page loads with the
-// first question typed (web/src/ui/ask/meaning.ts).
+// worth keeping to public/data/ask/meaning.json, with the words of every text
+// it learned from, so the page can also find the texts closest to what was
+// typed; the page loads it with the first question typed
+// (web/src/ui/ask/meaning.ts).
 //
 // Runs before `npm run build` and `npm run dev`, after `make data` has written
 // public/data/ask. It is deterministic, and skips training when its inputs
@@ -142,6 +144,20 @@ export function best(w, classes, terms) {
   return top;
 }
 
+/** The words of every training text, for finding the texts closest to what
+ * is typed: the words, the most common first, and for each question its
+ * texts, each as its words' places in base 36 joined by spaces, the texts
+ * joined by "|". */
+export function texts(data, classes) {
+  const df = new Map();
+  for (const [, , ts] of data) for (const t of ts) df.set(t, (df.get(t) ?? 0) + 1);
+  const terms = [...df.keys()].sort((a, b) => df.get(b) - df.get(a) || (a < b ? -1 : 1));
+  const at = new Map(terms.map((t, i) => [t, i.toString(36)]));
+  const rows = Array.from({ length: classes }, () => []);
+  for (const [c, , ts] of data) if (ts.size) rows[c].push([...ts].map((t) => at.get(t)).join(' '));
+  return { terms, rows: rows.map((r) => r.join('|')) };
+}
+
 async function main() {
   if (!existsSync(join(ASK, 'index.json'))) {
     console.log('ask-meaning: no public/data/ask yet (run make data); skipped');
@@ -184,7 +200,7 @@ async function main() {
     if (best(w, C, ts) === c) right++;
   }
   if (all && right / all < 0.7) throw new Error(`ask-meaning: only ${right} of ${all} examples find their own question`);
-  const out = { format: 1, key, ids: idsHash(index.questions.map((q) => q.id)), scale: SCALE, w };
+  const out = { format: 2, key, ids: idsHash(index.questions.map((q) => q.id)), scale: SCALE, w, texts: texts(data, C) };
   writeFileSync(OUT, JSON.stringify(out));
   const entries = Object.values(w).reduce((s, e) => s + e.length / 2, 0);
   console.log(`ask-meaning: ${data.length} texts, ${model.vocab.size} words, ${entries} weights kept; ${right} of ${all} examples find their own question; ${((Date.now() - t0) / 1000).toFixed(1)}s`);
