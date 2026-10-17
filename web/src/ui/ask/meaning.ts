@@ -26,8 +26,9 @@ interface Meaning {
 }
 
 /** How the closest examples count: how many, how much closeness counts
- * (a power), and their share beside the weights. */
-export const NEAR = { k: 30, power: 3, share: 0.5 };
+ * (a power), and their share beside the weights. With 1,584 questions,
+ * fewer and closer examples kept the matcher as sure as it was with 1,224. */
+export const NEAR = { k: 20, power: 4, share: 0.5 };
 
 /** The training texts as weighted words: for each word, the texts holding it
  * and its weight in each (rarer words weigh more; each text's weights have
