@@ -27,6 +27,21 @@ export function loadJson<T>(a: Atlas, file: string): Promise<T> {
   return p;
 }
 
+/** Fetch web/public/data/<file> as bytes, as loadJson fetches JSON. */
+export function loadBytes(a: Atlas, file: string): Promise<ArrayBuffer> {
+  const url = `${DATA_BASE}${file.replace(/^\/+/, '')}?${a.version}`;
+  let p = files.get(url) as Promise<ArrayBuffer> | undefined;
+  if (!p) {
+    p = fetch(url).then((r) => {
+      if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
+      return r.arrayBuffer();
+    });
+    files.set(url, p);
+    p.catch(() => files.delete(url));
+  }
+  return p;
+}
+
 /** For a Panel that needs a heavier file only once it opens: undefined while
  * loading, null if it failed, then the parsed JSON. Pass null to load nothing. */
 export function useJson<T>(a: Atlas, file: string | null): T | null | undefined {
