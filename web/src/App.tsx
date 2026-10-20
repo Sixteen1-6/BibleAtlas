@@ -19,6 +19,14 @@ import { lightTheme } from './ui/ThemeThread';
 import { Wheel } from './ui/Wheel';
 import { WordStudy } from './ui/WordStudy';
 
+/** The English versions on offer: the ESV only where its server runs. */
+const VERSIONS = (ESV_ENABLED ? ['BSB', 'NET', 'ESV'] : ['BSB', 'NET']) as readonly S.Translation[];
+const VERSION_NAME: Record<S.Translation, string> = {
+  BSB: 'Berean Standard Bible',
+  NET: 'NET Bible, with its translators’ notes at Study',
+  ESV: 'English Standard Version',
+};
+
 const TABS: [S.Tab, string][] = [
   ['connections', 'Links'],
   ['word', 'Word'],
@@ -200,15 +208,13 @@ export function App() {
         </button>
         <span class="spacer" />
         <DepthControl />
-        {ESV_ENABLED && (
-          <div class="seg" role="group" aria-label="English translation">
-            {(['BSB', 'ESV'] as const).map((t) => (
-              <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)}>
-                {t}
-              </button>
-            ))}
-          </div>
-        )}
+        <div class="seg trseg" role="group" aria-label="English translation">
+          {VERSIONS.map((t) => (
+            <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)} title={VERSION_NAME[t]}>
+              {t}
+            </button>
+          ))}
+        </div>
         <button
           class="iconbtn"
           onClick={() => (S.pageTheme.value = THEME_NEXT[S.pageTheme.value])}

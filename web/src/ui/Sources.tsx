@@ -190,6 +190,19 @@ function ShelfView({ a, shelf }: { a: Atlas; shelf: Shelf | null | undefined }) 
         </>
       )}
 
+      {study && (
+        <>
+          <h3>NET</h3>
+          <p>
+            The NET Bible is read one chapter at a time from its publisher’s free web service (labs.bible.org) while you read it, and is never stored in the app or on your device. Its{' '}
+            <a href="https://netbible.com/copyright/" target="_blank" rel="noopener">
+              permissions
+            </a>{' '}
+            let free apps quote it when the quotation ends with (NET) linked to netbible.org, which the reader shows under every NET chapter. Its translators’ notes, turned on above the text at Study, show under the selected verse with a link to all of them on netbible.org.
+          </p>
+        </>
+      )}
+
       {study && <ThemesNote a={a} />}
 
       {deep && (

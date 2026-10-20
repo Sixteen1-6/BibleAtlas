@@ -31,13 +31,27 @@
       "title": "Berean Standard Bible (BSB)",
       "by": "The Berean Bible Translation Committee, with Bible Hub, Discovery Bible and OpenBible.com",
       "when": "2016; public domain since 2023",
-      "what": "A modern English translation from the Hebrew, Aramaic and Greek. It is the English you read in this app, with its own footnotes and section headings.",
+      "what": "A modern English translation from the Hebrew, Aramaic and Greek. It is the English the app opens in, with its own footnotes and section headings.",
       "license": "public-domain",
       "licenseNote": "Dedicated to the public domain on 30 April 2023.",
       "datasets": ["bsb", "bsb-usfm"],
       "read": {"app": "bible"},
       "citation": "The Holy Bible, Berean Standard Bible (BSB), produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com and the Berean Bible Translation Committee (2016; dedicated to the public domain 30 April 2023), https://berean.bible/. Text via scrollmapper/bible_databases; footnotes and section headings via the USFM edition in usfm-bible/examples.bsb.",
       "cites": ["Berean Standard Bible footnote"]
+    },
+    {
+      "id": "net-bible",
+      "group": "bible",
+      "plain": "English Bible with translators' notes, 2005",
+      "title": "NET Bible (NET)",
+      "by": "Biblical Studies Press, with more than 25 Bible scholars",
+      "when": "1996 to 2005; second edition 2019",
+      "what": "A modern English translation from the Hebrew, Aramaic and Greek, made with thousands of translators' notes. Choose NET above the reader to read it; it is read live from the publisher and never stored.",
+      "license": "copyrighted",
+      "licenseNote": "Copyright Biblical Studies Press, L.L.C. Free apps and websites may quote it when each quotation ends with (NET) linked to netbible.org. The app reads it one chapter at a time and never stores it.",
+      "datasets": [],
+      "find": {"url": "https://netbible.com/copyright/", "label": "NET Bible copyright and permissions"},
+      "citation": "The NET Bible®, New English Translation, copyright ©1996, 2019 by Biblical Studies Press, L.L.C., https://netbible.org. Scripture quoted by permission. All rights reserved. Read live from the publisher's web service, labs.bible.org."
     },
     {
       "id": "kjv",

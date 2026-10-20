@@ -24,6 +24,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Word alignments to the BSB, with the WLC (Macula) and Berean Greek NT texts they are keyed to | Clear Bible / Biblica, github.com/Clear-Bible/Alignments | CC BY 4.0 (alignments); WLC and BSB public domain |
 | The Greek word the Septuagint uses for each Hebrew word, used to pair the words of New Testament quotations with the Hebrew they stand for | MACULA Hebrew Linguistic Datasets, Biblica, via github.com/Clear-Bible/macula-hebrew | CC BY 4.0 |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
+| NET Bible and its translators' notes (read live, never stored) | Biblical Studies Press, L.L.C., through its web service at labs.bible.org | Copyright Biblical Studies Press; quoted by permission in a free app, each quotation marked (NET) and linked to netbible.org |
 
 Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)", "Cross references from OpenBible.info (CC BY 4.0)", "Word alignments from Clear Bible / Biblica, github.com/Clear-Bible/Alignments (CC BY 4.0)" and "MACULA Hebrew Linguistic Datasets, available at https://github.com/Clear-Bible/macula-hebrew/".
 
@@ -78,6 +79,10 @@ The writers' notes are copied word for word; only their placing and layout are t
 ## ESV
 
 The ESV text is never stored in this repository or in the build. The server-side proxy (`server/esv.mjs`) requests one chapter at a time, keeps at most 500 verses in memory, and the page shows Crossway's copyright notice with a link to esv.org, as the ESV API terms require. Use beyond the free terms needs a license from Crossway: https://www.crossway.org/permissions/digital/
+
+## NET Bible
+
+The NET text and notes are never stored in this repository, in the build or in the service worker. The reader asks the publisher's own web service (https://labs.bible.org/api_web_service) for one chapter at a time while someone reads the NET, keeps at most two chapters in memory, and shows "(NET)" linked to netbible.org with the copyright line and the sentence "To see the NET Bible® study tool go to https://netbible.org", as https://netbible.com/copyright/ asks of free apps. The translators' notes are asked for only when a reader turns them on at Study, and every verse links to its notes on netbible.org. Other uses need permission from Biblical Studies Press.
 
 ## Tyndale Open Bible Dictionary (eras and dates)
 
