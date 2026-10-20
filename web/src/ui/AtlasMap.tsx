@@ -604,6 +604,9 @@ export function AtlasMap({ a }: { a: Atlas }) {
 
   const n = S.visibleEdges.value;
   const group = S.groupEdges.value;
+  // Only links with at least one net vote are ever drawn; the rest were voted down on OpenBible.info.
+  const drawable = a.meta.counts.crossReferencesPositive ?? a.xDst.length;
+  const votedDown = a.xDst.length - drawable;
 
   return (
     <div class="map" ref={wrap} tabIndex={0} aria-label="Cross-reference map. Arrow keys move the selection, plus and minus zoom, 0 resets." onKeyDown={onKey}>
@@ -623,8 +626,9 @@ export function AtlasMap({ a }: { a: Atlas }) {
       {atLeast('study') && (
         <div class="hud">
           <span>
-            <strong>{n.toLocaleString()}</strong> of {a.xDst.length.toLocaleString()} links shown
+            <strong>{n.toLocaleString()}</strong> of {drawable.toLocaleString()} links shown
             {group ? ` · ${group.label}` : ''}
+            {atLeast('deep') && votedDown > 0 && <span class="down"> · {votedDown.toLocaleString()} voted down, not shown</span>}
           </span>
           <div class="votes">
             <span>Show</span>
