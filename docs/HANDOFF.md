@@ -18,7 +18,8 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect 75f6edc05d6d1f3c6e842dff9610ca885b91318a
+#   expect 75f6edc05d6d1f3c6e842dff9610ca885b91318a, or the merge of PR #49 (this handoff,
+#   docs only) directly on top of it: git log --oneline 75f6edc..origin/main shows only that
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
 #   expect no rows
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
