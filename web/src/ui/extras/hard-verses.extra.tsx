@@ -48,6 +48,7 @@ export default defineExtra<Data>({
   id: 'hard-verses',
   order: 11,
   title: 'Often asked',
+  level: 'study',
   async load(a) {
     await readerHere('hard-verses');
     return load(a);

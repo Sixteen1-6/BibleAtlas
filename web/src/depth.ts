@@ -23,7 +23,7 @@ export const DEPTHS: readonly Depth[] = ['simple', 'study', 'deep'];
  *  switch's hint and every "go deeper" link share. */
 export const DEPTH_INFO: Record<Depth, { label: string; about: string }> = {
   simple: { label: 'Simple', about: 'Simple shows the English and its strongest links.' },
-  study: { label: 'Study', about: 'Study adds the Hebrew and Greek, word studies and paths.' },
+  study: { label: 'Study', about: 'Study adds the Hebrew and Greek, word studies, study notes and paths.' },
   deep: { label: 'Deep', about: 'Deep adds manuscripts, every link, the numbers and the sources.' },
 };
 
