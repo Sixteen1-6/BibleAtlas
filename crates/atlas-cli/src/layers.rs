@@ -339,7 +339,11 @@ impl Check<'_, '_> {
             let url = c.url.clone().or_else(|| {
                 let (code, (start, _)) = (s.biblehub.as_deref()?, on?);
                 let (book, chapter, _) = self.src.vz.locate(start)?;
-                let slug = atlas_core::BOOKS[book as usize].name.to_lowercase().replace(' ', "_");
+                // Bible Hub names every book by its name in snake case, except the Song of Solomon ("songs").
+                let slug = match atlas_core::BOOKS[book as usize].name {
+                    "Song of Solomon" => "songs".to_string(),
+                    name => name.to_lowercase().replace(' ', "_"),
+                };
                 Some(format!("https://biblehub.com/commentaries/{code}/{slug}/{chapter}.htm"))
             });
             let mut v = json!({ "name": s.name });

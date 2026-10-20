@@ -1224,7 +1224,8 @@ p .godeeper {
     height: 38vh;
   }
   .map .hud .legend,
-  .map .hud .colors {
+  .map .hud .colors,
+  .map .hud .down {
     display: none;
   }
   /* The caption naming what is lit wraps beside the zoom hint, never under it. */
