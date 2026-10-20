@@ -1,4 +1,4 @@
-// Chapter reader: English (BSB or ESV) with the original-language text under
+// Chapter reader: English (BSB, NET or ESV) with the original-language text under
 // each verse. Every original word opens its word study.
 
 import { Fragment } from 'preact';
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
+import { type NetChapter, NET_COPYRIGHT, NET_HOME, loadNetChapter, netVerseUrl } from '../data/net';
 import { passages } from '../data/layers';
 import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
@@ -28,6 +29,7 @@ export function Reader({ a }: { a: Atlas }) {
   const { book, chapter } = S.reading.value;
   const [loaded, setLoaded] = useState<BookText | null>(null);
   const [esv, setEsv] = useState<{ key: string; data?: EsvChapter; error?: string } | null>(null);
+  const [net, setNet] = useState<{ key: string; data?: NetChapter; error?: string } | null>(null);
   const root = useRef<HTMLDivElement>(null);
   const b = a.books[book];
   // Until the new book arrives, show nothing rather than the last book's text.
@@ -51,6 +53,22 @@ export function Reader({ a }: { a: Atlas }) {
       live = false;
     };
   }, [a, book]);
+
+  useEffect(() => {
+    if (tr !== 'NET') return;
+    const key = `${book}:${chapter}`;
+    let live = true;
+    setNet({ key });
+    loadNetChapter(book, chapter)
+      .then((data) => live && setNet({ key, data }))
+      .catch((e: Error) => live && setNet({ key, error: e.message }));
+    return () => {
+      live = false;
+    };
+  }, [tr, book, chapter]);
+
+  // The translators' notes stay on netbible.org: the selected verse links to them.
+  const notesWanted = tr === 'NET' && orig && S.netNotes.value;
 
   useEffect(() => {
     if (tr !== 'ESV') return;
@@ -123,6 +141,10 @@ export function Reader({ a }: { a: Atlas }) {
   const aramaicRows = isHebrew ? rows.filter((r) => r[1].some((w) => w[5] & FLAG.aramaic)).length : 0; // Daniel 2–7, Ezra 4–7, Jeremiah 10
   const layered = new Set(passages.value.map((p) => p.v));
   const esvReady = tr === 'ESV' && esv?.key === `${book}:${chapter}` ? esv : null;
+  const netReady = tr === 'NET' && net?.key === `${book}:${chapter}` ? net : null;
+  // The verses of the version being read, when it is not the BSB and has arrived.
+  const liveVerses = esvReady?.data?.verses ?? netReady?.data?.verses ?? null;
+  const VERSION_LONG = { BSB: 'Berean Standard Bible', NET: 'NET Bible', ESV: 'English Standard Version' } as const;
 
   return (
     <div class="reader" ref={root}>
@@ -131,7 +153,7 @@ export function Reader({ a }: { a: Atlas }) {
         <h1>
           {chapterName(b)} {chapter}
         </h1>
-        <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${tr}` : tr === 'ESV' ? 'English Standard Version' : 'Berean Standard Bible'}</span>
+        <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${tr}` : VERSION_LONG[tr]}</span>
         <div class="nav">
           <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter">
             ‹ Prev
@@ -151,6 +173,11 @@ export function Reader({ a }: { a: Atlas }) {
               Color pairs
             </button>
           )}
+          {tr === 'NET' && (
+            <button class="btn" aria-pressed={S.netNotes.value} onClick={() => (S.netNotes.value = !S.netNotes.value)} title="A link under the selected verse to the NET translators’ own notes on netbible.org: why they chose their words, and other ways to read the Hebrew and Greek">
+              Translators’ notes
+            </button>
+          )}
           {atLeast('deep') && (
             <button class="btn" aria-pressed={other} onClick={() => (S.showOtherEditions.value = !other)} title="Show words that appear only in other Greek editions or Hebrew manuscripts">
               Words from other editions
@@ -161,25 +188,27 @@ export function Reader({ a }: { a: Atlas }) {
       )}
       {orig && inter && pairsOn.value && <PairsNote hebrew={isHebrew} />}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
+      {tr === 'NET' && netReady?.error && <div class="notice">The NET could not be loaded just now ({netReady.error.replace(/\.$/, '')}). Showing the BSB instead.</div>}
+      {tr === 'NET' && netReady && !netReady.data && !netReady.error && <p class="muted" style="max-width:760px;margin:0 auto">Loading the NET…</p>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
       <ChapterExtras a={a} book={book} chapter={chapter} />
       <div class="verses">
         {rows.map((row, i) => {
           const v = start + i;
-          const english = tr === 'ESV' && esvReady?.data ? esvReady.data.verses[String(i + 1)] ?? '' : row[0];
+          const english = liveVerses ? liveVerses[String(i + 1)] ?? '' : row[0];
           const words = other ? row[1] : row[1].filter((w) => !(w[5] & FLAG.otherEditions));
           const xc = linkCount(a, v);
           const lang = isHebrew ? 'he' : 'gr';
           const indexOf = (w: WordRow) => row[1].indexOf(w);
-          // Pairs follow the BSB, so they are off while the ESV is shown.
-          const al = orig && inter && pairsOn.value && !(tr === 'ESV' && esvReady?.data) ? row[2] : undefined;
+          // Pairs follow the BSB, so they are off while another version is shown.
+          const al = orig && inter && pairsOn.value && !liveVerses ? row[2] : undefined;
           return (
             <div class={`verse${sel.value === v ? ' sel' : ''}`} key={v} data-v={v} data-lv={v}>
               <div class="en" onClick={() => S.selectVerse(v)}>
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{tr === 'ESV' && esvReady?.data ? 'The ESV does not include this verse in its main text.' : ''}</span>}
+                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : ''}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -230,6 +259,7 @@ export function Reader({ a }: { a: Atlas }) {
                   ))}
                 </div>
               )}
+              {sel.value === v && notesWanted && <NetVerseNotes book={book} chapter={chapter} verse={i + 1} />}
               {sel.value === v && <VerseExtras a={a} verse={v} />}
             </div>
           );
@@ -242,12 +272,37 @@ export function Reader({ a }: { a: Atlas }) {
             <>
               {esvReady.data.copyright} Read more at <a href="https://www.esv.org" target="_blank" rel="noopener">esv.org</a>.
             </>
+          ) : tr === 'NET' && netReady?.data ? (
+            <>
+              English: NET Bible (
+              <a href={NET_HOME} target="_blank" rel="noopener">
+                NET
+              </a>
+              ). {NET_COPYRIGHT} To see the NET Bible® study tool go to{' '}
+              <a href={NET_HOME} target="_blank" rel="noopener">
+                https://netbible.org
+              </a>
+              .
+            </>
           ) : (
             'English: Berean Standard Bible (public domain). '
           )}{' '}
           {isHebrew ? 'Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).' : 'Greek: STEPBible TAGNT, all major editions (CC BY 4.0).'}
         </p>
       )}
+    </div>
+  );
+}
+
+/** Where to read the NET translators' notes on one verse. The NET's
+ *  permissions cover its text but not its notes, so the notes are read on
+ *  netbible.org, the publisher's own free study site. */
+function NetVerseNotes({ book, chapter, verse }: { book: number; chapter: number; verse: number }) {
+  return (
+    <div class="netnotes">
+      <a href={netVerseUrl(book, chapter, verse)} target="_blank" rel="noopener">
+        Read the NET translators’ notes on this verse at netbible.org ›
+      </a>
     </div>
   );
 }

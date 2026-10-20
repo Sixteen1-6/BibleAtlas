@@ -813,6 +813,12 @@ p .godeeper {
   font-size: 13px;
 }
 
+/* The link to the NET translators' notes under the selected verse. */
+.netnotes {
+  margin: 8px 0 4px;
+  font-size: 13px;
+}
+
 /* ------------------------------------------------------------ study panels */
 
 .refrow {
