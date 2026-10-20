@@ -23,7 +23,7 @@ import { WordStudy } from './ui/WordStudy';
 const VERSIONS = (ESV_ENABLED ? ['BSB', 'NET', 'ESV'] : ['BSB', 'NET']) as readonly S.Translation[];
 const VERSION_NAME: Record<S.Translation, string> = {
   BSB: 'Berean Standard Bible',
-  NET: 'NET Bible, with its translators’ notes at Study',
+  NET: 'NET Bible',
   ESV: 'English Standard Version',
 };
 

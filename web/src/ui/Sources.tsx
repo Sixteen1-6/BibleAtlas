@@ -198,7 +198,7 @@ function ShelfView({ a, shelf }: { a: Atlas; shelf: Shelf | null | undefined }) 
             <a href="https://netbible.com/copyright/" target="_blank" rel="noopener">
               permissions
             </a>{' '}
-            let free apps quote it when the quotation ends with (NET) linked to netbible.org, which the reader shows under every NET chapter. Its translators’ notes, turned on above the text at Study, show under the selected verse with a link to all of them on netbible.org.
+            let free apps quote it when the quotation ends with (NET) linked to netbible.org, which the reader shows under every NET chapter. Its permissions do not cover the translators’ notes, so at Study the “Translators’ notes” button puts a link under the selected verse to its notes on netbible.org.
           </p>
         </>
       )}

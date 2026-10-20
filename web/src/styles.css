@@ -813,26 +813,10 @@ p .godeeper {
   font-size: 13px;
 }
 
-/* The NET translators' notes under the selected verse. */
+/* The link to the NET translators' notes under the selected verse. */
 .netnotes {
   margin: 8px 0 4px;
-  padding: 8px 12px;
-  border-left: 2px solid var(--line);
   font-size: 13px;
-  line-height: 1.5;
-}
-.netnotes h4 {
-  margin: 0 0 4px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--muted);
-}
-.netnotes ol {
-  margin: 0 0 4px;
-  padding-left: 20px;
-}
-.netnotes p {
-  margin: 0;
 }
 
 /* ------------------------------------------------------------ study panels */

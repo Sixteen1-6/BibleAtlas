@@ -8,9 +8,10 @@
 // websites quote it when each quotation ends with "(NET)" linked to
 // netbible.org; the reader shows that line under every NET chapter.
 //
-// The translators' notes are the NET's own commentary. When the service sends
-// a note's words with the verse they are shown at Study and Deep, held only in
-// memory; every verse also links to its notes on netbible.org.
+// The translators' notes are the NET's own commentary. Its permissions cover
+// the text only ("without the NET Bible notes"), and the web service's terms
+// add nothing, so the app never shows the notes' words: at Study and Deep each
+// verse links to its notes on netbible.org instead.
 
 export const NET_HOME = 'https://netbible.org';
 export const NET_COPYRIGHT =
@@ -36,10 +37,6 @@ export interface NetChapter {
   verses: Record<string, string>;
 }
 
-export interface NetNotes {
-  /** Verse number -> the translators' notes the service sent, in order. */
-  notes: Record<string, string[]>;
-}
 
 /** netbible.org's own page for a verse, where all its notes can be read. */
 export function netVerseUrl(book: number, chapter: number, verse: number): string {
@@ -89,37 +86,11 @@ function decodeEntities(s: string): string {
   });
 }
 
-/** Notes inside the service's full format. A note is any element named like a
- *  note (<n>, <note>, or a class or id with "note" in it) that holds words;
- *  bare markers such as <n id="1" /> hold none and are skipped. The HTML is
- *  parsed inert (DOMParser runs no scripts) and only its text is kept. */
-export function parseNetNotes(data: unknown, chapter: number, parse: (html: string) => ParentNode = defaultParse): NetNotes {
-  const notes: Record<string, string[]> = {};
-  for (const { verse, text } of rowsOf(data, chapter)) {
-    // Self-closing markers (<n id="1" />) are not void in HTML and would
-    // swallow the rest of the verse, so close them first.
-    const doc = parse(text.replace(/<([a-z][\w-]*)([^<>]*?)\/>/gi, '<$1$2></$1>'));
-    const found: string[] = [];
-    for (const el of Array.from(doc.querySelectorAll('n, note, [class*="note" i], [id*="note" i]'))) {
-      // A note nested in another note is read with its parent.
-      if (el.parentElement?.closest('n, note, [class*="note" i], [id*="note" i]')) continue;
-      const t = (el.textContent ?? '').replace(/\s+/g, ' ').trim();
-      if (t.length >= 3 && !found.includes(t)) found.push(t);
-    }
-    if (found.length) notes[verse] = (notes[verse] ?? []).concat(found);
-  }
-  return { notes };
-}
-
-function defaultParse(html: string): ParentNode {
-  return new DOMParser().parseFromString(`<body>${html}</body>`, 'text/html');
-}
-
 /** One request to the service. Tries an ordinary request first; if the service
  *  does not allow it from this site, falls back to its documented JSONP form. */
-async function request(book: number, chapter: number, formatting: 'plain' | 'full'): Promise<unknown> {
+async function request(book: number, chapter: number): Promise<unknown> {
   const passage = `${BOOKS[book]} ${chapter}`;
-  const base = `${ENDPOINT}?passage=${encodeURIComponent(passage)}&type=json&formatting=${formatting}`;
+  const base = `${ENDPOINT}?passage=${encodeURIComponent(passage)}&type=json&formatting=plain`;
   try {
     const ctl = new AbortController();
     const t = window.setTimeout(() => ctl.abort(), TIMEOUT_MS);
@@ -165,37 +136,21 @@ function jsonp(url: string): Promise<unknown> {
   });
 }
 
-function lru<T>(load: (book: number, chapter: number) => Promise<T>) {
-  const cache = new Map<string, Promise<T>>();
-  return (book: number, chapter: number): Promise<T> => {
-    const key = `${book}:${chapter}`;
-    const hit = cache.get(key);
-    if (hit) {
-      cache.delete(key);
-      cache.set(key, hit);
-      return hit;
-    }
-    const p = load(book, chapter);
-    p.catch(() => cache.delete(key));
-    cache.set(key, p);
-    while (cache.size > MAX_CHAPTERS) cache.delete(cache.keys().next().value!);
-    return p;
-  };
-}
+const cache = new Map<string, Promise<NetChapter>>();
 
 /** One chapter of the NET, plain. */
-export const loadNetChapter = lru((book, chapter) => request(book, chapter, 'plain').then((d) => parseNetPlain(d, chapter)));
-
-/** Notes that are not just the verse's own words. A guard in case a marker
- *  the parser did not expect wraps the verse text instead of a note. */
-export function notesBeyondText(notes: readonly string[], verseText: string): string[] {
-  const plain = verseText.replace(/\s+/g, ' ').trim();
-  return notes.filter((n) => {
-    if (plain.includes(n)) return false;
-    const head = n.slice(0, 40);
-    return !(head.length >= 20 && plain.includes(head));
-  });
+export function loadNetChapter(book: number, chapter: number): Promise<NetChapter> {
+  const key = `${book}:${chapter}`;
+  const hit = cache.get(key);
+  if (hit) {
+    cache.delete(key);
+    cache.set(key, hit);
+    return hit;
+  }
+  const p = request(book, chapter).then((d) => parseNetPlain(d, chapter));
+  p.catch(() => cache.delete(key));
+  cache.set(key, p);
+  while (cache.size > MAX_CHAPTERS) cache.delete(cache.keys().next().value!);
+  return p;
 }
 
-/** The translators' notes the service sends for one chapter (often none). */
-export const loadNetNotes = lru((book, chapter) => request(book, chapter, 'full').then((d) => parseNetNotes(d, chapter)));
