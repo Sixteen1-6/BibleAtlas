@@ -1,0 +1,94 @@
+name: Mirror the meaning model
+
+# The build's sources are pinned git commits on github.com (sources.json), and
+# the containers that build the data can only reach github.com. This copies
+# minishlab/potion-base-8M (MIT) from huggingface.co, checks every file against
+# the SHA-256 Hugging Face lists for it, and commits the copy to its own branch,
+# mirror/potion-base-8M, which sources.json can then pin like any other source.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/mirror-meaning-model.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mirror-meaning-model
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    env:
+      MODEL: minishlab/potion-base-8M
+      BRANCH: mirror/potion-base-8M
+      FILES: README.md config.json tokenizer.json model.safetensors
+    steps:
+      - name: Download and check the model files
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/model && cd /tmp/model
+          curl -sSfL "https://huggingface.co/api/models/$MODEL" -o info.json
+          REV=$(python3 -c 'import json; print(json.load(open("info.json"))["sha"])')
+          export REV
+          echo "REV=$REV" >> "$GITHUB_ENV"
+          curl -sSfL "https://huggingface.co/api/models/$MODEL/tree/$REV" -o tree.json
+          python3 -c 'import json; [print(f["path"], f.get("size"), (f.get("lfs") or {}).get("oid", "")) for f in json.load(open("tree.json"))]'
+          mkdir -p out
+          for f in $FILES; do
+            curl -sSfL --retry 3 "https://huggingface.co/$MODEL/resolve/$REV/$f" -o "out/$f"
+          done
+          python3 - <<'EOF'
+          import hashlib, json, os, subprocess
+          tree = {f["path"]: f for f in json.load(open("tree.json"))}
+          lines = []
+          for name in os.environ["FILES"].split():
+              data = open(f"out/{name}", "rb").read()
+              sha = hashlib.sha256(data).hexdigest()
+              t = tree[name]
+              if t.get("lfs"):
+                  # Large files: Hugging Face lists their SHA-256.
+                  assert t["lfs"]["oid"] == sha, f"{name}: sha256 {sha} is not {t['lfs']['oid']}"
+              else:
+                  # Small files: Hugging Face lists their git blob id.
+                  blob = hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+                  assert t["oid"] == blob, f"{name}: git blob {blob} is not {t['oid']}"
+              assert t["size"] == len(data), f"{name}: {len(data)} bytes, expected {t['size']}"
+              lines.append(f"| {name} | {len(data)} | {sha} |")
+          rev = os.environ["REV"]
+          model = os.environ["MODEL"]
+          open("out/SOURCE.md", "w").write(
+              f"# {model}, mirrored\n\n"
+              f"Copied unchanged from https://huggingface.co/{model} at revision {rev}\n"
+              "by .github/workflows/mirror-meaning-model.yml. License: MIT (see README.md).\n\n"
+              "| file | bytes | sha256 |\n|---|---|---|\n" + "\n".join(lines) + "\n")
+          print(open("out/SOURCE.md").read())
+          EOF
+
+      - name: Commit the copy to its own branch
+        run: |
+          set -euo pipefail
+          # The branch keeps its history: a pinned commit must stay fetchable.
+          mkdir /tmp/mirror && cd /tmp/mirror
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code origin "refs/heads/$BRANCH" > /dev/null; then
+            git fetch -q origin "$BRANCH"
+            git checkout -q -b "$BRANCH" FETCH_HEAD
+          else
+            git checkout -q --orphan "$BRANCH"
+          fi
+          cp /tmp/model/out/* .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The branch already holds this copy: $(git rev-parse HEAD)"
+            exit 0
+          fi
+          git commit -q -m "Mirror $MODEL at $REV"
+          git push -q origin "HEAD:refs/heads/$BRANCH"
+          echo "Mirrored to $BRANCH at $(git rev-parse HEAD)"
