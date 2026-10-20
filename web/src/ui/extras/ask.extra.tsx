@@ -1,5 +1,6 @@
 // Ask the Bible, under a verse: "People ask: What happens when we die?" on the
-// verses of each approved question's chain. The panel is the question itself.
+// verses of each approved question's chain, from Study on (Simple keeps to the
+// verse and its strongest links). The panel is the question itself.
 
 import { loadAskTitles, openAsk } from '../ask/ask';
 import { readerHere } from './first-move';
@@ -34,6 +35,7 @@ export default defineExtra<Data>({
   id: 'ask',
   order: 40,
   title: 'Ask the Bible',
+  level: 'study',
   async load(a) {
     await readerHere('ask');
     const ix = await loadAskTitles(a);
