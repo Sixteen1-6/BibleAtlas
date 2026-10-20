@@ -9,7 +9,7 @@ import type { ArcColorMode } from './ui/colors';
 import { deepen } from './depth';
 
 export type Tab = 'connections' | 'word' | 'themes' | 'paths' | 'hubs' | 'sources';
-export type Translation = 'BSB' | 'ESV';
+export type Translation = 'BSB' | 'NET' | 'ESV';
 
 export const atlas = signal<Atlas | null>(null);
 export const engine = signal<Engine | null>(null);
@@ -41,6 +41,8 @@ export const groupEdges = signal<{ edges: Uint32Array; label: string; color?: st
 
 export const minVotes = signal(8);
 export const translation = signal<Translation>('BSB');
+/** Show the NET translators' notes under the selected verse (Study and Deep, while reading the NET). */
+export const netNotes = signal(false);
 export const mapMode = signal<'arcs' | 'wheel'>('arcs');
 
 function stored<T extends string>(key: string, allowed: readonly T[], fallback: T) {

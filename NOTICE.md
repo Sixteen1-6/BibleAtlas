@@ -25,6 +25,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | The Greek word the Septuagint uses for each Hebrew word, used to pair the words of New Testament quotations with the Hebrew they stand for | MACULA Hebrew Linguistic Datasets, Biblica, via github.com/Clear-Bible/macula-hebrew | CC BY 4.0 |
 | Which prepared question in Ask the Bible someone most likely means: a direction for each English word piece, so words that mean alike point alike (web/public/data/ask/model.bin keeps those of the pieces Ask the Bible's examples use, rounded to whole numbers; it never chooses or writes the verses) | potion-base-8M by Minish Lab (Stephan Tulkens and Thomas van Dongen), huggingface.co/minishlab/potion-base-8M, copied unchanged to the mirror/potion-base-8M branch of this repository | MIT (see below) |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
+| NET Bible (read live, never stored; its translators' notes are linked, not shown) | Biblical Studies Press, L.L.C., through its web service at labs.bible.org | Copyright Biblical Studies Press; quoted by permission in a free app, each quotation marked (NET) and linked to netbible.org |
 
 Attribution: "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)", "Cross references from OpenBible.info (CC BY 4.0)", "Word alignments from Clear Bible / Biblica, github.com/Clear-Bible/Alignments (CC BY 4.0)" and "MACULA Hebrew Linguistic Datasets, available at https://github.com/Clear-Bible/macula-hebrew/".
 
@@ -79,6 +80,10 @@ The writers' notes are copied word for word; only their placing and layout are t
 ## ESV
 
 The ESV text is never stored in this repository or in the build. The server-side proxy (`server/esv.mjs`) requests one chapter at a time, keeps at most 500 verses in memory, and the page shows Crossway's copyright notice with a link to esv.org, as the ESV API terms require. Use beyond the free terms needs a license from Crossway: https://www.crossway.org/permissions/digital/
+
+## NET Bible
+
+The NET text and notes are never stored in this repository, in the build or in the service worker. The reader asks the publisher's own web service (https://labs.bible.org/api_web_service) for one chapter at a time while someone reads the NET, keeps at most two chapters in memory, and shows "(NET)" linked to netbible.org with the copyright line and the sentence "To see the NET Bible® study tool go to https://netbible.org", as https://netbible.com/copyright/ asks of free apps. The permissions cover the text only ("without the NET Bible notes"), so the app never shows the translators' notes: at Study a button links the selected verse to its notes on netbible.org. Other uses need permission from Biblical Studies Press.
 
 ## Tyndale Open Bible Dictionary (eras and dates)
 
