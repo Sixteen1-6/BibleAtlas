@@ -1,0 +1,42 @@
+[
+ {
+  "method": "softmax only",
+  "top1": 1037,
+  "top3": 1371,
+  "of": 2000,
+  "opensAt035": 916,
+  "rightOpens": 705
+ },
+ {
+  "method": "shipped (softmax + tf-idf near, half and half)",
+  "top1": 1089,
+  "top3": 1418,
+  "of": 2000,
+  "opensAt035": 804,
+  "rightOpens": 658
+ },
+ {
+  "method": "potion near only",
+  "top1": 1025,
+  "top3": 1367,
+  "of": 2000,
+  "opensAt035": 677,
+  "rightOpens": 558
+ },
+ {
+  "method": "shipped + potion (thirds)",
+  "top1": 1172,
+  "top3": 1534,
+  "of": 2000,
+  "opensAt035": 729,
+  "rightOpens": 634
+ },
+ {
+  "method": "softmax + potion near (halves)",
+  "top1": 1174,
+  "top3": 1501,
+  "of": 2000,
+  "opensAt035": 802,
+  "rightOpens": 677
+ }
+]
