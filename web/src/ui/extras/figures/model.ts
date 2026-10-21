@@ -106,6 +106,8 @@ export interface Note {
   original?: { note: string; strong: string[]; words?: [VerseRef, number, number][] };
   /** When the note was checked against its sources, as 2026-10-21. */
   checked?: string;
+  /** Different interpreters cited, as the build counts them for strength. */
+  writers?: number;
   evidence?: string;
   /** Where the writers part ways, or what the note does not claim. */
   limit?: string;
@@ -254,6 +256,7 @@ export function quoted(n: Note): Cite[] {
 
 /** The number of different writers whose words are shown. */
 export function writerCount(n: Note): number {
+  if (typeof n.writers === 'number') return n.writers;
   return new Set(quoted(n).map((c) => writerOf(c.by ?? c.name))).size;
 }
 
