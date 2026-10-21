@@ -122,11 +122,13 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
   // Commentary opens after the notice, until the reader has finished it once.
   const open = () =>
     isCommentary(x, kind) && !accepted.peek() ? void askNotice().then((ok) => ok && openExtra(x.id, kind, at, btn.current)) : openExtra(x.id, kind, at, btn.current);
+  // Marks the line for the notice's code to be fetched ahead of the tap (commentary/Gate.tsx).
+  const asks = canOpen && isCommentary(x, kind) && !accepted.value ? '' : undefined;
   const words = plain(a, parts);
   if (!parts.some((p) => typeof p !== 'string')) {
     if (!canOpen) return <p class="xt-line" data-x={x.id}>{words}</p>;
     return (
-      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
+      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} data-x={x.id} data-cn-ask={asks} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
         <span class="xt-words">{words}</span>
         <span class="xt-chev" aria-hidden="true">
           ›
@@ -135,7 +137,7 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
     );
   }
   return (
-    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={canOpen ? open : undefined}>
+    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} data-x={x.id} data-cn-ask={asks} onClick={canOpen ? open : undefined}>
       <span class="xt-words">{parts.map((p, i) => (typeof p === 'string' ? p : <VerseA key={i} a={a} link={p} />))}</span>
       {canOpen && (
         <button

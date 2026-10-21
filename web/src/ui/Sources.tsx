@@ -22,7 +22,7 @@ import { ESV_ENABLED } from '../data/esv';
 import { type Cited, type Shelf, type Work, licenseWords, useShelf, workFor } from '../data/shelf';
 import { type Depth, atLeast } from '../depth';
 import * as S from '../state';
-import { useGate } from './commentary/Gate';
+import { ASKS, useGate } from './commentary/Gate';
 import { closeCommentary, reviewNotice } from './commentary/state';
 import { Dictionary, VerseLink, focusView, scrollStudyTo } from './Dictionary';
 import { showSources } from './extras/kit';
@@ -139,7 +139,7 @@ function CommentaryShelf() {
         <>
           <p class="cn-state">Commentary is open on this device.</p>
           <div class="cn-row">
-            <button type="button" class="cn-link" ref={gate.start} onClick={() => void reviewNotice()}>
+            <button type="button" class="cn-link" ref={gate.start} onClick={() => void reviewNotice()} {...ASKS}>
               See the notice again
             </button>
             <button
@@ -156,7 +156,7 @@ function CommentaryShelf() {
         </>
       ) : (
         <div class="cn-row">
-          <button type="button" class="cn-open" ref={see} onClick={gate.ask}>
+          <button type="button" class="cn-open" ref={see} onClick={gate.ask} {...ASKS}>
             See the notice
           </button>
         </div>

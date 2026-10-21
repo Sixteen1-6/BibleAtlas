@@ -3,9 +3,10 @@
 // "More" opens in layers: the timeline and the map button first, then the era
 // and each dating view in a line or two, and one more tap, "Sources and
 // evidence", for every citation, the chart rows and why each chapter sits
-// where it does. The views are commentary, so "More" asks for the
-// commentary notice first, until the reader has finished it once; the line
-// itself always shows.
+// where it does. The dating views are commentary: until the reader has
+// finished the commentary notice once, the Written part only says that
+// scholars date the book, and "More" asks for the notice first. The When
+// part, the era this app places the chapter in, always shows.
 
 import { Fragment } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
@@ -32,7 +33,7 @@ import {
   writtenSummary,
 } from '../data/eras';
 import * as S from '../state';
-import { CommentaryFoot } from './commentary/Gate';
+import { ASKS, CommentaryFoot } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
 import { Provenance } from './common';
 import './when.css';
@@ -41,6 +42,9 @@ const FRAMING = "One reference work's view. Scholars date some books differently
 const DICTIONARY = 'Tyndale Open Bible Dictionary';
 /** Views shown before "Show more". */
 const FEW = 3;
+/** The Written part until the commentary notice is finished: the dates
+ * themselves are the dictionary's views, so they wait behind "More". */
+const WRITTEN_CLOSED = 'when scholars date it';
 
 export function ChapterWhen({ a, book, chapter, ready }: { a: Atlas; book: number; chapter: number; ready: boolean }) {
   const [data, setData] = useState<Eras | null>(null);
@@ -91,8 +95,8 @@ export function ChapterWhen({ a, book, chapter, ready }: { a: Atlas; book: numbe
       <p class="tp-when">
         {placed && <span class="tp-part">When: {eraSummary(placed.era)}</span>}
         {placed && written && <span aria-hidden="true"> · </span>}
-        {written && <span class="tp-part">Written: {written}</span>}
-        <button class="tp-more" aria-expanded={open} aria-controls={`${id}-more`} onClick={more}>
+        {written && <span class="tp-part">Written: {ok ? written : WRITTEN_CLOSED}</span>}
+        <button class="tp-more" aria-expanded={open} aria-controls={`${id}-more`} onClick={more} {...(ok ? {} : ASKS)}>
           {open ? 'Less' : 'More'}
           <span class="sr-only"> about when this chapter happened and was written</span>
         </button>

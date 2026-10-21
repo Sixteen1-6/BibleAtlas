@@ -160,7 +160,8 @@ if (typeof window !== 'undefined') {
   // is open none of them hears a key: Escape does nothing at all (it does not
   // close the notice, an open panel or the selection), and "/" or Ctrl+K do
   // not open search behind it. The browser's own keys (Tab, Enter, Space on
-  // the notice's buttons) still work.
+  // the notice's buttons) still work, once the notice is on screen; while its
+  // code is still on the way, no key acts on the page behind it.
   window.addEventListener(
     'keydown',
     (e) => {
@@ -170,10 +171,17 @@ if (typeof window !== 'undefined') {
         e.preventDefault();
       }
       e.stopImmediatePropagation();
-      if (e.key === 'Tab') keepTabInside(e);
+      if (!document.querySelector('.cn-dialog')) e.preventDefault();
+      else if (e.key === 'Tab') keepTabInside(e);
     },
     true,
   );
+
+  // Another tab finished the notice, or closed commentary again (or cleared
+  // the site's storage, a null key): this tab follows.
+  window.addEventListener('storage', (e) => {
+    if (e.key === KEY || e.key === null) accepted.value = stored();
+  });
 }
 
 /** For a browser without <dialog>: Tab wraps around inside the notice. */

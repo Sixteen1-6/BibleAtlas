@@ -97,14 +97,22 @@
      inside is in em, so it follows the browser's text size and zoom. */
   font-size: medium;
   line-height: 1.45;
+  /* Where the card's top sits: as if page 2, the taller page, were centred.
+     Both pages start there, so the top bar and "Not now" stay still when the
+     page turns. */
+  --cn-at: max(24px, calc((100vh - 37em) / 2));
+  --cn-end: 24px;
   box-sizing: border-box;
-  width: min(640px, calc(100% - 48px));
+  width: min(40em, calc(100% - 48px));
   max-width: none;
-  max-height: calc(100% - 48px);
-  margin: auto;
+  max-height: calc(100% - var(--cn-at) - var(--cn-end));
+  margin: var(--cn-at) auto auto;
   padding: 0;
   flex-direction: column;
-  overflow: hidden;
+  /* One column. When the words do not fit, the whole notice scrolls, and the
+     buttons come after the words. */
+  overflow: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
   color: var(--ink);
   border: 1px solid var(--line);
@@ -126,15 +134,52 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: max(24px, calc((100vh - 37em) / 2)) 24px 24px;
   background: rgba(6, 10, 22, 0.62);
+  font-size: medium;
   animation: cn-fade 0.16s ease-out;
 }
 .cn-veil .cn-dialog {
-  width: min(640px, 100%);
+  width: min(40em, 100%);
   max-height: 100%;
+  margin: 0;
+}
+/* While the notice's code is on the way (the first time only): a clear layer
+   that takes the taps, and after a moment a small "Opening the notice…". */
+.cn-wait {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: progress;
+}
+.cn-wait p:not(:empty),
+.cn-fail {
+  margin: 0;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font: 600 15px/1.4 var(--font-ui);
+  color: var(--ink);
+}
+.cn-fail {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  z-index: 1000;
+  width: fit-content;
+  max-width: 28em;
+  margin: 0 auto;
+  font-weight: 400;
 }
 .cn-dialog :focus-visible {
   outline: 3px solid var(--focus);
@@ -143,6 +188,7 @@
 .cn-top {
   flex: none;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1em;
@@ -186,10 +232,8 @@
   text-underline-offset: 3px;
 }
 .cn-body {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow: auto;
-  overscroll-behavior: contain;
+  /* Grows to keep the buttons at the bottom; never shrinks under the words. */
+  flex: 1 0 auto;
   padding: 1.6em 2em 0.75em;
 }
 .cn-page {
@@ -200,6 +244,7 @@
   font: 600 2.25em/1.15 var(--font-read);
   letter-spacing: -0.005em;
   color: var(--ink);
+  overflow-wrap: break-word;
 }
 .cn-dialog .cn-h:focus {
   outline: none;
@@ -207,13 +252,16 @@
 .cn-dialog .cn-p {
   margin: 0 0 0.8em;
   font: 1.375em/1.5 var(--font-ui);
+  overflow-wrap: break-word;
 }
 .cn-dialog .cn-p.cn-strong {
   font-weight: 600;
 }
 .cn-pair {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Side by side only while both fit at the reader's text size: the width is
+     in em, so a larger text size stacks them. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13em), 1fr));
   gap: 0.75em;
   margin: 0 0 1.1em;
   padding: 0;
@@ -229,6 +277,10 @@
   border-radius: 12px;
   background: var(--surface-2);
 }
+.cn-box > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
 .cn-box svg {
   flex: none;
   width: 1.9em;
@@ -238,12 +290,14 @@
 .cn-box b {
   display: block;
   font: 600 1.375em/1.2 var(--font-read);
+  overflow-wrap: anywhere;
 }
 .cn-box span {
   display: block;
   margin-top: 0.2em;
   font: 1.125em/1.35 var(--font-ui);
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 .cn-box.cn-bible {
   border-left: 4px solid var(--accent);
@@ -269,12 +323,13 @@
   border-radius: 0 10px 10px 0;
   background: var(--surface-2);
 }
-.cn-dialog .cn-verse p {
+.cn-dialog .cn-verse .cn-q {
   margin: 0;
   font: 1.25em/1.6 var(--font-read);
+  overflow-wrap: break-word;
 }
-.cn-verse footer {
-  margin-top: 0.5em;
+.cn-dialog .cn-verse .cn-cite {
+  margin: 0.5em 0 0;
   font: 600 0.9375em var(--font-ui);
   color: var(--accent);
 }
@@ -311,6 +366,58 @@
 .cn-btn.cn-go:hover {
   filter: brightness(1.06);
 }
+/* "More below": a fade at the bottom edge while the words run on past it. */
+.cn-cue {
+  position: sticky;
+  bottom: 0;
+  flex: none;
+  height: 0;
+  pointer-events: none;
+}
+.cn-cue[hidden] {
+  display: none;
+}
+.cn-cue span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 3.2em;
+  padding-bottom: 0.45em;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, transparent, var(--surface) 65%);
+  font: 600 0.9375em var(--font-ui);
+  color: var(--muted);
+}
+
+/* A short screen (zoom, a landscape phone, a large text size): a smaller top
+   bar and foot, and the card nearer the edges. */
+@media (max-height: 36em) {
+  .cn-dialog {
+    --cn-at: 12px;
+    --cn-end: 12px;
+  }
+  .cn-veil {
+    padding: 12px;
+  }
+  .cn-top {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+  .cn-not {
+    min-height: 2.75em;
+  }
+  .cn-body {
+    padding-top: 1em;
+  }
+  .cn-foot {
+    padding-top: 0.75em;
+    padding-bottom: 0.9em;
+  }
+}
 
 /* Phones: the notice fills the screen, the buttons full width at the bottom. */
 @media (max-width: 600px) {
@@ -319,6 +426,7 @@
     width: 100%;
     height: 100%;
     max-height: none;
+    margin: 0;
     border: 0;
     border-radius: 0;
   }
@@ -337,6 +445,9 @@
   .cn-dialog .cn-p {
     font-size: 1.25em;
   }
+  .cn-pair {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5em), 1fr));
+  }
   .cn-box {
     flex-direction: column;
     gap: 0.4em;
@@ -348,7 +459,7 @@
   .cn-box span {
     font-size: 1.0625em;
   }
-  .cn-dialog .cn-verse p {
+  .cn-dialog .cn-verse .cn-q {
     font-size: 1.1875em;
   }
   .cn-foot {
@@ -359,13 +470,6 @@
     width: 100%;
   }
 }
-/* Very narrow (320 px, or large text): the two boxes stack. */
-@media (max-width: 360px) {
-  .cn-pair {
-    grid-template-columns: 1fr;
-  }
-}
-
 @keyframes cn-fade {
   from {
     opacity: 0;
