@@ -24,8 +24,14 @@ export interface Defined {
   /** The work and page: "Figures of Speech Used in the Bible (1898), Antithetic, or Opposite, p. 351". */
   at: string;
   url: string;
-  /** Who wrote it. Bullinger, unless the data names another. */
+  /** Who wrote it, the work, and when it first came out. */
+  name?: string;
   by?: string;
+  work?: string;
+  when?: string;
+  /** The edition or site the words were read from, and the date. */
+  read?: string;
+  retrieved?: string;
 }
 
 export interface Form {
@@ -47,6 +53,8 @@ export interface Line {
   at: number;
   /** A, B, C, C', B', A' for a mirror; A, B, A', B' for lines that take turns. */
   mark?: string;
+  /** One word of the line, for the strip. */
+  key?: string;
 }
 
 export interface Side {
@@ -61,11 +69,19 @@ export interface Side {
 
 export interface Cite {
   name: string;
+  /** The person who wrote it, the work, and when it first came out. */
+  by?: string;
+  work?: string;
+  when?: string;
   on?: string;
+  /** "Work (year), place". */
   at?: string;
   url?: string;
   /** The writer's own words, checked against his text. */
   quote?: string;
+  /** The edition or site the words were read from, and the date. */
+  read?: string;
+  retrieved?: string;
 }
 
 export interface Note {
@@ -86,7 +102,10 @@ export interface Note {
   figure?: { name: string; part?: string; words: string; means: string; v: VerseRef; at: number };
   sides?: Side[];
   defined?: Defined;
-  hebrew?: { note: string; strong: string[] };
+  /** The Hebrew or Greek words: [verse, word position, lemma index]. */
+  original?: { note: string; strong: string[]; words?: [VerseRef, number, number][] };
+  /** When the note was checked against its sources, as 2026-10-21. */
+  checked?: string;
   evidence?: string;
   /** Where the writers part ways, or what the note does not claim. */
   limit?: string;
@@ -235,7 +254,7 @@ export function quoted(n: Note): Cite[] {
 
 /** The number of different writers whose words are shown. */
 export function writerCount(n: Note): number {
-  return new Set(quoted(n).map((c) => writerOf(c.name))).size;
+  return new Set(quoted(n).map((c) => writerOf(c.by ?? c.name))).size;
 }
 
 /** A Strong's number ("H1870", "G3162") to the app's root indices. */

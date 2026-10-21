@@ -191,7 +191,7 @@ function ParallelStrip({ note, form, marks, light }: { note: Note; form: Form; m
   const lines = note.lines ?? [];
   const lp = linePairs(lines);
   if (lp.length) {
-    const ticks: Tick[] = lines.map((l) => ({ label: '', letter: l.mark ? primed(l.mark) : undefined }));
+    const ticks: Tick[] = lines.map((l) => ({ label: l.key ?? '', letter: l.mark ? primed(l.mark) : undefined }));
     const arcs: StripArc[] = lp.map(([i, j], k) => ({ from: i, to: j, style: note.form === 'opposite' ? 'broken' : 'solid', pair: 100 + k }));
     const n = lines.length;
     const centre = note.form === 'mirror' && n % 2 === 0 ? (n - 1) / 2 : note.form === 'mirror' ? (n - 1) / 2 : undefined;
@@ -401,7 +401,8 @@ function Quote({ c }: { c: Cite }) {
     <div class="x-figures-quote">
       <blockquote>“{c.quote}”</blockquote>
       <p class="x-figures-credit">
-        {c.at ? `${c.at}` : c.name}
+        {c.by && `${c.by}, `}
+        {c.at ?? (c.work ? `${c.work}${c.when ? ` (${c.when})` : ''}` : c.name)}
         {c.url && (
           <>
             {' · '}
@@ -411,6 +412,12 @@ function Quote({ c }: { c: Cite }) {
           </>
         )}
       </p>
+      {c.read && (
+        <p class="x-figures-credit">
+          Read in {c.read}
+          {c.retrieved && `, ${c.retrieved}`}.
+        </p>
+      )}
     </div>
   );
 }
@@ -433,6 +440,12 @@ function WhatThisIs({ form, note }: { form: Form; note: Note }) {
               <span class="sr-only"> (opens a new tab)</span> <span aria-hidden="true">↗</span>
             </a>
           </p>
+          {d.read && (
+            <p class="x-figures-credit">
+              Read in {d.read}
+              {d.retrieved && `, ${d.retrieved}`}.
+            </p>
+          )}
         </>
       ) : (
         <p class="x-figures-credit">It rests on the writers named below.</p>
@@ -482,7 +495,8 @@ function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data
   const rows = usePassage(a, note.v);
   const row = rows?.[0];
   // The roots the note names that are in the verse, once per word.
-  const roots = note.hebrew && row ? inVerse(row, rootsFor(a, note.hebrew.strong)) : [];
+  const o = note.original;
+  const roots = !o || !row ? [] : o.words?.length ? [...new Set(o.words.filter((w) => w[0] === note.v).map((w) => w[2]))] : inVerse(row, rootsFor(a, o.strong));
   const n = writerCount(note);
   const one = note.strength === 'some interpreters';
   return (
@@ -508,9 +522,9 @@ function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data
           {note.kind === 'parallelism' && <Ladder a={a} note={note} marks={marks} light={light} navigate={navigate} />}
           {note.kind === 'figure' && <FigureBody a={a} note={note} />}
           {note.kind === 'contrast' && <ReadAcross a={a} note={note} navigate={navigate} />}
-          {note.hebrew && (
+          {o && (
             <div class="x-figures-orig">
-              <p>{smart(note.hebrew.note)}</p>
+              <p>{smart(o.note)}</p>
               {row && row[1].length > 0 && <OrigLine a={a} v={note.v} row={row} mark={new Set(roots)} />}
               {roots.length > 0 && (
                 <div class="chips">
@@ -524,7 +538,7 @@ function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data
           <WhatThisIs form={form} note={note} />
           <Writers note={note} />
           <p class="x-figures-foot">
-            Checked against the source: the BSB words, the Hebrew and Greek, and each writer’s quotation.{' '}
+            Checked against the source{note.checked && ` on ${note.checked}`}: the BSB words, the Hebrew and Greek, and each writer’s quotation.{' '}
             <a href={issueLink(a, note)} target="_blank" rel="noopener noreferrer">
               Suggest a correction<span class="sr-only"> (opens a new tab)</span> <span aria-hidden="true">↗</span>
             </a>
