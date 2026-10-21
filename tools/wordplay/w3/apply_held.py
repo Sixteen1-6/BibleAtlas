@@ -11,7 +11,7 @@ held-back.json (still one writer). Writes quotes.json and report.json too; run f
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lib3
-from lib3 import RANK, NAME, ORDER, STANDALONE, convert, writer_key, report
+from lib3 import RANK, NAME, ORDER, STANDALONE, convert, writer_key, report, barred, count_writers
 
 out_dir, files = sys.argv[1], sys.argv[2:]
 W = '/tmp/claude-0/-home-claude-bibleatlas/8f2fa849-c61c-5244-bf9c-beef3d451f62/scratchpad/wp'
@@ -100,6 +100,10 @@ for pid, h in HELD.items():
                     except (TypeError, IndexError, KeyError):
                         report['dropped_cites'].append({'where': where, 'why': f'no current cite {j}'})
                         continue
+                    why = barred(spec['source'], spec['on'], spec.get('at', ''))
+                    if why:
+                        report['dropped_cites'].append({'where': where, 'source': spec['source'], 'on': spec['on'], 'why': 'left out: ' + why})
+                        continue
                     row = next((x for x in lrows.get(L, []) if x['source'] == spec['source'] and x['on'] == spec['on'] and x.get('at') == spec.get('at')), None)
                     if not row:
                         report['dropped_cites'].append({'where': where, 'why': f'no quote row for {spec}'})
@@ -124,7 +128,7 @@ for pid, h in HELD.items():
             if not specs:
                 report['dropped_layers'].append({'where': where, 'kind': n['kind'], 'why': 'no cite left'})
                 continue
-            nw = max(len({k for k in keys if k}), 1)
+            nw = max(count_writers(list(zip(specs, keys))), 1)
             strength = n['strength']
             if RANK[strength] > min(nw, 3):
                 report['dropped_layers'].append({'where': where, 'kind': n['kind'], 'why': f'strength lowered from {strength} to {NAME[min(nw, 3)]}', 'lowered': True})
