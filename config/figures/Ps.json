@@ -1,0 +1,68 @@
+{
+  "notes": [
+    {
+      "id": "psalm-1-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Psalm 1:6",
+      "strength": "widely agreed",
+      "short": "Two lines, two ways: the righteous and the wicked",
+      "about": "The second line answers the first with its opposite. Both lines speak of a way: the LORD guards one, and the other perishes.",
+      "lines": [
+        {
+          "ref": "Psalm 1:6",
+          "words": "For the LORD guards the path of the righteous,"
+        },
+        {
+          "ref": "Psalm 1:6",
+          "words": "but the way of the wicked will perish."
+        }
+      ],
+      "pairs": [
+        [
+          "the righteous",
+          "the wicked"
+        ],
+        [
+          "guards",
+          "will perish"
+        ],
+        [
+          "path",
+          "way"
+        ]
+      ],
+      "hebrew": {
+        "note": "In Hebrew both lines use the same word, derekh, “way”; the BSB says “path”, then “way”.",
+        "strong": [
+          "H1870",
+          "H6662",
+          "H7563"
+        ]
+      },
+      "evidence": "Keil and Delitzsch set the way of the ungodly against the way of the righteous. Gill says the verse gives the reason for the happiness of one sort of men and the unhappiness of the other. Barnes calls verses 4 to 6 a strong contrast between the unrighteous and the righteous, and the Companion Bible notes how the two clauses answer each other.",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 1:6",
+          "quote": "God knows this way, which on this very account also unfailingly reaches its goal. On the contrary, the way of the ungodly"
+        },
+        {
+          "source": "gill",
+          "on": "Psalm 1:6",
+          "quote": "These last words therefore show the reason of the happiness of one sort of men, and the unhappiness of the other"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 1",
+          "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous"
+        },
+        {
+          "source": "bullinger-cb",
+          "on": "Psalm 1:6",
+          "quote": "Effect latent in first clause: cause latent in second clause."
+        }
+      ]
+    }
+  ]
+}

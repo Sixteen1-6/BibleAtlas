@@ -1,0 +1,79 @@
+{
+  "notes": [
+    {
+      "id": "isaiah-6-10-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Isaiah 6:10",
+      "strength": "widely agreed",
+      "short": "A mirror: hearts, ears, eyes, then eyes, ears, hearts",
+      "about": "Three words go out in one order and come back in the reverse order: hearts, ears, eyes, then eyes, ears, hearts.",
+      "lines": [
+        {
+          "ref": "Isaiah 6:10",
+          "words": "Make the hearts of this people calloused;",
+          "mark": "A"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "deafen their ears",
+          "mark": "B"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "and close their eyes.",
+          "mark": "C"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "Otherwise they might see with their eyes,",
+          "mark": "C'"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "hear with their ears,",
+          "mark": "B'"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "understand with their hearts,",
+          "mark": "A'"
+        }
+      ],
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The Repetition of the same Words in an inverse Order (but same Sense)",
+        "at": "Epanodos, or Inversion, p. 299"
+      },
+      "hebrew": {
+        "note": "In Hebrew the ears and the eyes are the same words both times; the heart is lev, then its fuller form, levav.",
+        "strong": [
+          "H3820",
+          "H3824",
+          "H0241",
+          "H5869"
+        ]
+      },
+      "evidence": "Bullinger lists this verse under Epanodos, the same words repeated in inverse order, and again under introverted parallelism. Jamieson, Fausset and Brown and Keil and Delitzsch both point out the reversed order.",
+      "limit": "What the order means is one reading: Jamieson, Fausset and Brown, following Bengel, say corruption flows from the heart into the ears and eyes, and healing reaches the heart through the eyes and ears.",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Isaiah 6:10",
+          "at": "Epanodos, or Inversion, p. 299",
+          "quote": "a “Make the heart of this people fat, b and make their ears heavy, c and shut their eyes; c lest they see with their eyes, b and hear with their ears, a and understand with their heart.”"
+        },
+        {
+          "source": "jfb",
+          "on": "Isaiah 6:10",
+          "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart."
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Isaiah 6:9-10",
+          "quote": "The three future clauses, with \"lest\" (pen), point back to these three imperatives in inverse order"
+        }
+      ]
+    }
+  ]
+}

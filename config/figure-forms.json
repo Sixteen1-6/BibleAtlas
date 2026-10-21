@@ -1,0 +1,155 @@
+{
+  "_comment": [
+    "The forms that figure, parallelism and contrast notes in config/figures/ may use. Shown only at Deep.",
+    "label is the plain name a reader sees first; term is the usual name for the form; about says what it is in plain words.",
+    "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json, quote its exact words, at where in the book. Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
+    "same_writer lists cite-list ids that count as one writer when a note's strength is counted."
+  ],
+  "forms": [
+    {
+      "id": "same",
+      "kind": "parallelism",
+      "label": "Said twice",
+      "term": "Synonymous parallelism",
+      "about": "The second line says the first again in other words.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This is when the lines are parallel in thought, and in the use of synonymous words.",
+        "at": "Synonymous or Gradational, p. 349"
+      }
+    },
+    {
+      "id": "opposite",
+      "kind": "parallelism",
+      "label": "Opposite lines",
+      "term": "Antithetic parallelism",
+      "about": "The second line answers the first with its opposite.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
+        "at": "Antithetic, or Opposite, p. 351"
+      }
+    },
+    {
+      "id": "building",
+      "kind": "parallelism",
+      "label": "Lines that build",
+      "term": "Synthetic parallelism",
+      "about": "Each line is built the same way, or adds to the line before it.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This is where the parallelism consists only in the similar form of construction",
+        "at": "Synthetic, or Constructive"
+      }
+    },
+    {
+      "id": "mirror",
+      "kind": "parallelism",
+      "label": "Mirror",
+      "term": "Chiasm, or introverted parallelism",
+      "about": "Words or lines go out in one order and come back in the reverse order.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This is when the parallel lines are so placed that if there be six lines, the first corresponds with the sixth, the second with the fifth, and the third with the fourth.",
+        "at": "Introverted Parallelism, p. 356"
+      }
+    },
+    {
+      "id": "turns",
+      "kind": "parallelism",
+      "label": "Lines that take turns",
+      "term": "Alternate parallelism",
+      "about": "The lines take turns: the first answers the third, and the second the fourth.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "it is alternate when, of the four members, the first corresponds with the third, and the second with the fourth.",
+        "at": "Simple Alternation, p. 365"
+      }
+    },
+    {
+      "id": "metonymy",
+      "kind": "figure",
+      "label": "One thing named for another",
+      "term": "Metonymy",
+      "about": "One thing is named in place of another it goes with, such as a cause for its effect.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "Metonymy is a figure by which one name or noun is used instead of another, to which it stands in a certain relation.",
+        "at": "Metonymy"
+      }
+    },
+    {
+      "id": "synecdoche",
+      "kind": "figure",
+      "label": "A part for the whole",
+      "term": "Synecdoche",
+      "about": "A part is named for the whole, or the whole for a part."
+    },
+    {
+      "id": "anthropopatheia",
+      "kind": "figure",
+      "label": "God in human terms",
+      "term": "Anthropopatheia",
+      "about": "Human feelings, actions or parts are spoken of God, so that we can understand Him.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This figure is used of the ascription of human passions, actions, or attributes to God.",
+        "at": "Anthropopatheia, or Condescension, p. 871"
+      }
+    },
+    {
+      "id": "prosopopoeia",
+      "kind": "figure",
+      "label": "Things spoken of as persons",
+      "term": "Personification",
+      "about": "Things or ideas are spoken of, or spoken to, as if they were persons.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "A figure by which things are represented or spoken of as persons",
+        "at": "Prosopopoeia, or Personification, p. 861"
+      }
+    },
+    {
+      "id": "simile",
+      "kind": "figure",
+      "label": "Like this",
+      "term": "Simile",
+      "about": "One thing is said to be like another.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "A Declaration that one Thing resembles another; or, Comparison by Resemblance",
+        "at": "Simile, or Resemblance"
+      }
+    },
+    {
+      "id": "metaphor",
+      "kind": "figure",
+      "label": "This is that",
+      "term": "Metaphor",
+      "about": "One thing is said to be another, to show what it is like.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "A Declaration that one Thing is (or represents) another; or, Comparison by Representation",
+        "at": "Metaphor, or Representation"
+      }
+    },
+    {
+      "id": "contrast",
+      "kind": "contrast",
+      "label": "Set side by side",
+      "term": "Character contrast",
+      "about": "Two people are set side by side, and each shows up the other."
+    },
+    {
+      "id": "likeness",
+      "kind": "contrast",
+      "label": "Alike",
+      "term": "Character parallel",
+      "about": "Two people are set side by side because one is like the other."
+    }
+  ],
+  "same_writer": [
+    ["bullinger-fos", "bullinger-cb"],
+    ["henry", "henry-concise"]
+  ]
+}
