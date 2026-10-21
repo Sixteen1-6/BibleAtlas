@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-10-21 at 16:30 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-10-21 at 21:30 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
@@ -18,10 +18,10 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect 2aabdccb0b897710f180351284b37713f5e9e288, or the merge of the docs-only PR that
-#   wrote this section directly on top of it: git log --oneline 2aabdcc..origin/main shows only that
+#   expect b466ab60ea4280b2270c9b80fa6be543e66e2504 (#52), or the merge of the docs-only PR that
+#   wrote this section directly on top of it: git log --oneline b466ab6..origin/main shows only that
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
-#   expect no rows
+#   expect #53, #54 and #55 (section 0, "Local work after #50"), plus this docs PR until it merges
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
 #   expect "buildId": "6e89a09cfa05"     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
@@ -51,7 +51,7 @@ Terms used throughout:
 
 ## 0. State on 2026-10-21 at 21:30 UTC
 
-**Live.** https://everyversemap.com/ serves `main` at `2aabdcc`, the merge of PR #50 at 02:50:58 UTC on 2026-10-21.
+**Live.** https://everyversemap.com/ serves the data built from `2aabdcc`, the merge of PR #50 at 02:50:58 UTC on 2026-10-21. `main` has since moved to `97861e5` (#51) and then the merge of #52; both are docs only, so the build id below still holds.
 
 - **Data.** Build id `6e89a09cfa05`, from CI's data build on `2aabdcc` ("build 6e89a09cfa05" in the CI log). #50 changed `config/layers.json`, so the id moved from `7bd9f13db417`. This was not checked against the live `meta.json` from the cloud container that wrote this section, which cannot reach everyversemap.com; run the third command above to confirm it.
 - **Deploy.** Pages run 39535290262 succeeded (build 02:51:03 to 02:54:51, deploy to 02:55:03).
@@ -63,8 +63,10 @@ Terms used throughout:
 |---|---|---|---|
 | #49, `handoff-2026-10-20` at `6041f31`, merge `b6d7f1e` | 2026-10-20 23:59:16 | This file, the six maps in `docs/handoff/` and `CLAUDE.md`. Docs only. | CI 39518497229, Deploy 39518497270, both green. |
 | #50, `layers-mend-2026-10-20` at `0da9d1c`, merge `2aabdcc` | 2026-10-21 02:50:58 | The layers-mend job. Round 1 strengths recounted by distinct cite-list writers: 15 lowered, 11 raised, 121 kept. 350 cites added, 22 moved, 10 removed. Of the 4 hidden notes, the chinnam note in `job-19-25` is now cited and live and the other three are dropped. `1-samuel-6-6`, `proverbs-3-20`, `ecclesiastes-3-18` and `ecclesiastes-3-20` are back. `docs/evidence/layers-mend-2026-10-20.json` (7,705 lines) holds a record for every cite added or confirmed. A review commit paraphrases copied NET and R. T. France wording, replaces a modern rabbi's translation, removes an ESV fragment and stops citing Ellicott's Malachi volume on Malachi 3:1. 1,264 passages became 1,268, and 3,095 notes 3,105. | CI 39535290365, Deploy 39535290262, both green. |
+| #51, `claude/project-thread-nvo8rb` at `fc7d12e`, merge `97861e5` | 2026-10-21 16:22:36 | Section 0 of this file rewritten for `2aabdcc`. Docs only. | Data build unchanged. |
+| #52, `layers-evidence-wording` | 2026-10-21 | `docs/evidence/layers-mend-2026-10-20.json`: three source pointers reworded so no translation's wording is quoted (1 Samuel 6:6, Job 2:3, Matthew 28:20), and this section. Docs only; the build does not read `docs/evidence/`. | Data build unchanged. |
 
-Both came from local jobs on the founder's PC and were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by that merge. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
+#49 and #50 came from local jobs on the founder's PC; #51 and #52 from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
 
 **In flight.**
 
@@ -72,7 +74,7 @@ Both came from local jobs on the founder's PC and were merged from the `Sixteen1
 |---|---|---|
 | `claude/ask-the-bible-u6macl` at `2f40b85`, no PR | Unchanged on GitHub since 13:53 UTC on 2026-10-20: only `.github/workflows/mirror-meaning-model.yml`, 1 commit ahead of `main` and now 10 behind. The cloud Ask session (`01F5MX8Zw1CM7AW18hxHzAeP`) went on to build the potion-base-8M model into the matcher in its container, unpushed: its status reports right first picks 396 to 422 of 545 dev messages and a full build passing 5,913 checks, with a blind judging of 305 held-out questions under way. | **Do not merge `2f40b85` on its own.** The next Ask PR from this branch carries the workflow into `main`, and that merge re-runs it against Hugging Face's current revision (the workflow's lines 34-37); pin `bf8b056651a2c21b8d2565580b8569da283cab23` or drop it first (section 8, row 8). That PR must be rebased on `2aabdcc` and must follow `CLAUDE.md`. |
 | `mirror/potion-base-8M` at `dced885`, orphan | The model at Hugging Face revision `bf8b0566...`. | Never merge it. Never delete it: a `sources.json` pin will name this commit. |
-| Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Nothing pushed since #45. Layers is designing three Deep-only note kinds, `figure`, `parallelism` and `contrast`, which may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. Rebase on `2aabdcc` first: #50 rewrote round 1 of `config/layers.json`. |
+| Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Layers pushed only #52 (docs) since #45. Layers is building three Deep-only note kinds, `figure`, `parallelism` and `contrast`, as new files (`config/figures/`, `config/figure-forms.json`, `extras/figures*`), outside the files `true-credits` holds; the cloud thread "Arcs and card design at Deep" builds their display. These notes may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. Rebase on `2aabdcc` first: #50 rewrote round 1 of `config/layers.json`. |
 | All four cloud sessions | Stopped at 23:25 UTC on 2026-10-20 on the account's weekly usage limit, which resets 2026-10-24 06:00 UTC. On 2026-10-21 about 16:20 UTC the project's coordinator asked each to rebase on `2aabdcc`, follow `CLAUDE.md` and resume. | Nothing; they resume by themselves. |
 | Local work after #50 merged (02:51 UTC on 2026-10-21) | Copied to GitHub from the cloud on 2026-10-21 (thread "Local branches and notes"), with the local commits unchanged. Finished branches: `commentary-notice` (PR #53), `af-bt` (PR #54), `no-empty-selections` (PR #55, a draft with three questions for the founder). Uncommitted worktree work, saved as found: `wip/true-credits-2026-10-21` (41 files, the true-credits module) and `wip/af-lx-2026-10-21` (7 files, the lexicon module). The founder's decisions are `docs/FOUNDER-DECISIONS.md`; the work folder's notes are `docs/local-work/2026-10-20/` (README there). | Never merge a `wip/` branch: the local job owns it and may push a finished branch. Merge #53 first; #54 and #55 after it. |
 | `docs/local-work/2026-10-20/voices/` (research only) | Seven reports, written 19:31 to 20:05 UTC on 2026-10-20, on which more Christian writers could be shown word for word at Deep, with the plans, build spec and shortlist drawn from them. **Ready from GitHub with an open license:** Matthew Henry's Complete Commentary and Calvin (Let's Church); Spurgeon's Treasury of David (`lyteword/chspurgeon-tod`, CC0); the Geneva notes; Poole and other Reformers and Puritans (EEBO-TCP, CC0; Poole after a repair pass); church fathers (`HistoricalChristianFaith/Commentaries-Database`, after filtering). **Need a mirror branch:** JFB, Clarke, Barnes (New Testament), Keil-Delitzsch, Robertson's Word Pictures, Scofield, Luther. **Not recommended:** Gill and Alford. | Founder decisions 1 to 8 and 23 answer the plans' questions. Adopting a writer needs a mirror where needed, a `sources.json` pin, a `NOTICE.md` credit, a shelf card and changes to `extra_voices.rs`. |
