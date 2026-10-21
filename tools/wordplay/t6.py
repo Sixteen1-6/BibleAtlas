@@ -1,0 +1,16 @@
+T = {
+"isa48": "Some hear a play in the Hebrew on two words that sound alike: me'eykha, your body, and me'otav, its grains. The children born of Israel's body would be like the sand's grains, and the echo would tie them to the countless sand.",
+"jer8": "The Hebrew for perish there, nidmah (from damam, to be still), can also mean let us be silent there. Some see a play: the people mean to wait quietly behind the walls, but the same root returns in \"the LORD our God has doomed us,\" literally has silenced us, so their hoped-for quiet becomes the silence of death.",
+"jer50": "The words “He will fervently plead their case” use the same Hebrew word three times: riv yariv et rivam, literally pleading He will plead their plea. The repetition may stress how fully the Lord, as Israel's Redeemer, will take up His people's cause.",
+"isa15": "In Hebrew the soldiers cry out, yariu, and their souls tremble, yareah. Some hear a play in these two near-alike words, so that the outward cry and the inner trembling echo each other.",
+"isa24": "The two verbs for laying waste and ruining sound alike in Hebrew: boqeq and bolqah, from baqaq and balaq. Some see this ringing pair as the start of a play on sounds that carries on in the verses that follow.",
+"zep3": "The first word of the charge, mor'ah (rebellious, or filthy in older versions), sounds like Moriah, the hill where the temple stood. Some hear an echo that sets the city's sin beside the holy worship it claimed to share on that very hill.",
+"zec9": "In Hebrew, will see is tere and will fear is tira. The two verbs sound almost alike, and some take the echo to run seeing and fearing together: the moment Ashkelon sees Tyre fall, it is afraid. In English one might say peer and fear.",
+"mat5": "Some see Jesus going up the mountain to teach as pointing back to Sinai, where Moses went up to God and was given words to tell the house of Jacob. On this reading, Jesus Himself now teaches God's people from the mountain.",
+"joh19": "Hyssop was the plant Israel used to brush the blood of the Passover lamb on their doorframes. Some see a link at the cross: the soldiers, meaning nothing by it, lift sour wine to Jesus on a stalk of hyssop as He dies as the true Passover sacrifice.",
+"mat23": "Jesus' words may echo the LORD's in Jeremiah 12:7, \"I have forsaken My house.\" On this reading, God gave up His house once before the Babylonians destroyed the first temple, and now Christ leaves the second temple before its ruin.",
+"co1": "In Paul's Greek, permissible (exestin) and mastered (exousiasthesomai) come from the same root, which has to do with right or power. Some hear a play here: all things may be within Paul's rights, yet he will let nothing gain rights over him.",
+"co2": "In Paul's Greek, simple and pure are two nouns with the same rhyming ending: haplotetos and hagnotetos. Some see the echo as tying together the two marks of the devotion Paul wants for them, single-hearted and pure, like a bride kept for one husband (verse 2).",
+"rev3": "Laodicea's boast may echo Ephraim in Hosea 12:8, who says, \"How rich I have become!\" and claims no one can find sin in him. If so, the church, like Ephraim, takes its wealth as proof that all is well, while Jesus sees how poor it really is.",
+}
+for k,v in T.items(): print(k, len(v))
