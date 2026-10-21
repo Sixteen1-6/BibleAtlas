@@ -15,34 +15,43 @@
         "words": "a sword",
         "means": "strife and division, even inside families"
       },
-      "hebrew": {
+      "original": {
         "note": "In Matthew's Greek the word is machaira, a sword.",
         "strong": [
           "G3162"
         ]
       },
       "evidence": "Bullinger names the figure in Figures of Speech and again in the Companion Bible: the sword is put for war. Barnes says to send a sword is to produce hostility and war, and Jamieson, Fausset and Brown explain it as strife and division.",
+      "checked": "2026-10-21",
       "cites": [
         {
           "source": "bullinger-fos",
           "on": "Matthew 10:34",
           "at": "Metonymy, of the Cause",
-          "quote": "“I came not to send peace, but a sword” (i.e., but for war). That is to say, the object of His coming was peace, but the effect of it was war."
+          "quote": "“I came not to send peace, but a sword” (i.e., but for war). That is to say, the object of His coming was peace, but the effect of it was war.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "bullinger-cb",
           "on": "Matthew 10:34",
-          "quote": "Put by Figure of speech Metonymy (of Cause), App-6, for \"war\" or \"fightings\"."
+          "quote": "Put by Figure of speech Metonymy (of Cause), App-6, for \"war\" or \"fightings\".",
+          "read": "the UniqueBible.app module of the Companion Bible notes, at github.com/otseng/UniqueBible_Commentaries (commit 4b77d86)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "barnes",
           "on": "Matthew 10:34",
-          "quote": "The sword is an instrument of death, and to send a sword is the same as to produce hostility and war."
+          "quote": "The sword is an instrument of death, and to send a sword is the same as to produce hostility and war.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "jfb",
           "on": "Matthew 10:34",
-          "quote": "strife, discord, conflict; deadly opposition between eternally hostile principles, penetrating into and rending asunder the dearest ties."
+          "quote": "strife, discord, conflict; deadly opposition between eternally hostile principles, penetrating into and rending asunder the dearest ties.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         }
       ]
     }

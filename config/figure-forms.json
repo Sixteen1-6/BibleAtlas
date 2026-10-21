@@ -2,8 +2,9 @@
   "_comment": [
     "The forms that figure, parallelism and contrast notes in config/figures/ may use. Shown only at Deep.",
     "label is the plain name a reader sees first; term is the usual name for the form; about says what it is in plain words.",
-    "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json, quote its exact words, at where in the book. Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
-    "same_writer lists cite-list ids that count as one writer when a note's strength is counted."
+    "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json, quote its exact words, at where in the book, read the edition or site the words were read from and retrieved the date (decision 10). Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
+    "same_writer lists cite-list ids that count as one writer when a note's strength is counted.",
+    "quotable lists the cite-list ids whose words may be shown in a figure note: works in the public domain. Others may be linked from Layers but are not quoted here; the NET translators' notes are never shown."
   ],
   "forms": [
     {
@@ -15,7 +16,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This is when the lines are parallel in thought, and in the use of synonymous words.",
-        "at": "Synonymous or Gradational, p. 349"
+        "at": "Synonymous or Gradational, p. 349",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -27,7 +30,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
-        "at": "Antithetic, or Opposite, p. 351"
+        "at": "Antithetic, or Opposite, p. 351",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -39,7 +44,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This is where the parallelism consists only in the similar form of construction",
-        "at": "Synthetic, or Constructive"
+        "at": "Synthetic, or Constructive",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -51,7 +58,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This is when the parallel lines are so placed that if there be six lines, the first corresponds with the sixth, the second with the fifth, and the third with the fourth.",
-        "at": "Introverted Parallelism, p. 356"
+        "at": "Introverted Parallelism, p. 356",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -63,7 +72,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "it is alternate when, of the four members, the first corresponds with the third, and the second with the fourth.",
-        "at": "Simple Alternation, p. 365"
+        "at": "Simple Alternation, p. 365",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -75,7 +86,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "Metonymy is a figure by which one name or noun is used instead of another, to which it stands in a certain relation.",
-        "at": "Metonymy"
+        "at": "Metonymy",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -94,7 +107,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This figure is used of the ascription of human passions, actions, or attributes to God.",
-        "at": "Anthropopatheia, or Condescension, p. 871"
+        "at": "Anthropopatheia, or Condescension, p. 871",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -106,7 +121,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "A figure by which things are represented or spoken of as persons",
-        "at": "Prosopopoeia, or Personification, p. 861"
+        "at": "Prosopopoeia, or Personification, p. 861",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -118,7 +135,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "A Declaration that one Thing resembles another; or, Comparison by Resemblance",
-        "at": "Simile, or Resemblance"
+        "at": "Simile, or Resemblance",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -130,7 +149,9 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "A Declaration that one Thing is (or represents) another; or, Comparison by Representation",
-        "at": "Metaphor, or Representation"
+        "at": "Metaphor, or Representation",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
       }
     },
     {
@@ -149,7 +170,41 @@
     }
   ],
   "same_writer": [
-    ["bullinger-fos", "bullinger-cb"],
-    ["henry", "henry-concise"]
+    [
+      "bullinger-fos",
+      "bullinger-cb"
+    ],
+    [
+      "henry",
+      "henry-concise"
+    ]
+  ],
+  "quotable": [
+    "bsb",
+    "henry",
+    "henry-concise",
+    "gill",
+    "barnes",
+    "jfb",
+    "keil-delitzsch",
+    "pulpit",
+    "ellicott",
+    "benson",
+    "poole",
+    "calvin",
+    "clarke",
+    "wesley",
+    "geneva",
+    "bengel",
+    "maclaren",
+    "spurgeon",
+    "chrysostom",
+    "church-fathers",
+    "catena-aurea",
+    "edersheim",
+    "strongs",
+    "easton",
+    "bullinger-cb",
+    "bullinger-fos"
   ]
 }

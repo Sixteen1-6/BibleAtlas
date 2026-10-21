@@ -22,46 +22,59 @@
           "words": "but Hannah had none"
         }
       ],
-      "hebrew": {
+      "original": {
         "note": "In Hebrew the two names cross as they do in the BSB: Hannah, Peninnah, then Peninnah, Hannah.",
         "strong": [
           "H2584",
           "H6444"
         ]
       },
-      "evidence": "Bullinger lays the verse out so the two names cross, and the Companion Bible names the figure there. Keil and Delitzsch set the fruitful wife against the childless one, Gill sets Peninnah's children against Hannah's none, and Clarke sums up the chapter: Hannah, being barren, is reproached by Peninnah.",
-      "limit": "Setting them side by side does not make Hannah faultless: Henry's Concise Commentary says Hannah could not bear the provocation.",
+      "evidence": "Bullinger lays the verse out so the two names cross, and the Companion Bible names the figure there. Keil and Delitzsch set the fruitful wife against the childless one; Gill takes Hannah's having no children as the reason Elkanah took Peninnah; Clarke: Hannah, being barren, is reproached by Peninnah. Henry's Concise Commentary notes that Hannah could not bear the provocation.",
+      "limit": "Setting them side by side does not make Hannah faultless.",
+      "checked": "2026-10-21",
       "cites": [
         {
           "source": "bullinger-fos",
           "on": "1 Samuel 1:2",
           "at": "Introverted Parallelism, p. 357",
-          "quote": "a “The name of the one was Hannah, b and the name of the other was Peninnah: b And Peninnah had children, a but Hannah had no children.”"
+          "quote": "When Propositions are introverted, it is called Antimetabole",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "bullinger-cb",
           "on": "1 Samuel 1:2",
-          "quote": "Note the Figure of speech Antimetabole."
+          "quote": "Note the Figure of speech Antimetabole.",
+          "read": "the UniqueBible.app module of the Companion Bible notes, at github.com/otseng/UniqueBible_Commentaries (commit 4b77d86)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "keil-delitzsch",
           "on": "1 Samuel 1:2-3",
-          "quote": "Elkanah had two wives, Hannah (grace or gracefulness) and Peninnah (coral), the latter of whom was blessed with children, whereas the first was childless."
+          "quote": "Elkanah had two wives, Hannah (grace or gracefulness) and Peninnah (coral), the latter of whom was blessed with children, whereas the first was childless.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "gill",
           "on": "1 Samuel 1:2",
-          "quote": "Very likely Hannah was his first wife, and having no children by her, he took Peninnah"
+          "quote": "Very likely Hannah was his first wife, and having no children by her, he took Peninnah",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "clarke",
           "on": "1 Samuel 1",
-          "quote": "Hannah, being barren, is reproached by Peninnah, especially in their going up to Shiloh"
+          "quote": "Hannah, being barren, is reproached by Peninnah, especially in their going up to Shiloh",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "henry-concise",
           "on": "1 Samuel 1:1-8",
-          "quote": "Hannah could not bear the provocation."
+          "quote": "Hannah could not bear the provocation. Those who are of a fretful spirit, and are apt to lay provocations too much to heart, are enemies to themselves, and strip themselves of many comforts both of life and godliness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-10-21"
         }
       ]
     }

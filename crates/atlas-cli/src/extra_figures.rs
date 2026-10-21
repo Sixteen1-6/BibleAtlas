@@ -11,12 +11,17 @@
 //! 3. every quotation of four or more words in a note's own words is in the
 //!    BSB text of the verses it names, and every Hebrew or Greek root it names
 //!    is in those verses;
-//! 4. every note cites at least one work on the cite list in
-//!    `config/layer-sources.json`, each citation with the writer's own words,
-//!    and its strength is the number of different writers it cites (3 or more
-//!    "widely agreed", 2 "commonly held", 1 "some interpreters"), works by one
-//!    writer counting once as `same_writer` in the forms file says;
-//! 5. nothing names the ESV or a source Layers may not cite, and no field
+//! 4. every note cites at least one interpreter on the cite list in
+//!    `config/layer-sources.json` (a work whose role is "interpreter"), each
+//!    citation with the writer's own words, and only works listed as
+//!    `quotable` in the forms file (public domain) may be quoted; its strength
+//!    is the number of different interpreters it cites (3 or more "widely
+//!    agreed", 2 "commonly held", 1 "some interpreters"), works by one writer
+//!    counting once as `same_writer` in the forms file says;
+//! 5. a note's own words (`short`, `about`, `limit`, the figure, the sides and
+//!    the `original` note) name no writer: sources and what they say go in
+//!    `evidence` and in the citations;
+//! 6. nothing names the ESV or a source Layers may not cite, and no field
 //!    credits a drafting tool.
 //!
 //! The writers' words are checked against their text before a note is added
@@ -25,16 +30,30 @@
 //!
 //! Output, under `web/public/data/`:
 //! - `extras/figures.json`: `{format, forms, has, parts}`. `forms[id]` is
-//!   `{kind, label, term, about, defined?}`; `has` holds one character per
+//!   `{kind, label, term, about, defined?}`, `defined` being `{name, by, work,
+//!   when, quote, at, url, read, retrieved}`; `has` holds one character per
 //!   verse, '0' plus a bit for each kind with a note on it (1 parallelism,
 //!   2 figure, 4 contrast); `parts[book]` lists the first chapter of each of
 //!   the book's files.
 //! - `extras/figures/<Book>.<k>.json`: `{format, notes}`, the notes on the
 //!   chapters of part k in order of first verse. A note is `{id, kind, form,
 //!   v, end, strength, short, about, refs?, lines?, pairs?, figure?, sides?,
-//!   defined?, hebrew?, evidence, limit?, cites}`: verses are verse indices,
-//!   `at` a UTF-16 offset into the verse's BSB text, `refs` and sides' `s`,
-//!   `e` verse ranges.
+//!   defined?, original?, evidence, limit?, checked, cites}`: verses are verse
+//!   indices, `refs` and sides' `s`, `e` verse ranges, and `checked` the date
+//!   the note was checked against its sources. A line is `{v, t, at, mark?,
+//!   key?}` and a figure `{name, part?, words, means, v, at}`, `at` being a
+//!   UTF-16 offset into verse `v`'s BSB text; a line's key word and each word
+//!   of a pair occur once, as whole words, in the lines, a pair's first word
+//!   in an earlier line than its answer. `original` is `{note, strong, words}`: its
+//!   roots may be Hebrew or Aramaic (H) or Greek (G), the note names the
+//!   language itself ("In Hebrew", "In Matthew's Greek"), and `words` lists
+//!   every place a root occurs as `[verse, word position, lemma index]`. A
+//!   cite is `{name, by, work, when, on, url, quote, read, retrieved, at?}`:
+//!   `name` is the writer or work and is always shown, `by` who wrote it,
+//!   `work` and `when` the work and its first publication, `quote` the
+//!   writer's own words, `read` and `retrieved` the edition or site they were
+//!   read from and the date (decision 10), and `at` reads "Work (year), place
+//!   in it". `defined` carries the same credit fields.
 
 use crate::loaded::Loaded;
 use crate::parse::WordsByVerse;
@@ -55,24 +74,45 @@ const KINDS: [(&str, u8); 3] = [("parallelism", 1), ("figure", 2), ("contrast", 
 const WIDELY: &str = "widely agreed";
 const COMMONLY: &str = "commonly held";
 const SOME: &str = "some interpreters";
-/// Phrases that credit a drafting tool, which no field may carry.
-const CREDITS: [&str; 8] = [
+/// Runs of words, lowercased, that credit a drafting tool, which no field may
+/// carry. "AI" itself is caught only in capitals, so the city of Ai (Joshua 7
+/// and 8) never is.
+const CREDITS: [&str; 15] = [
     "drafted with",
+    "not yet reviewed by a person",
+    "ai drafted",
+    "ai assisted",
+    "ai generated",
+    "ai written",
     "ai help",
-    "claude",
+    "ai helped",
     "ai reviewer",
     "ai session",
-    "with ai",
-    "by ai",
-    "not yet reviewed by a person",
+    "ai model",
+    "ai tool",
+    "language model",
+    "anthropic",
+    "openai",
 ];
-const SHORT_MAX: usize = 70;
+/// The role of a cite-list work that reads the text, as against a word book.
+const INTERPRETER: &str = "interpreter";
+/// Writers whose names a note's own words may not carry, beyond the names on
+/// the cite list: surnames, and writers the church fathers entry covers.
+const WRITERS: [&str; 31] = [
+    "Henry", "Gill", "Barnes", "Jamieson", "Fausset", "Keil", "Delitzsch", "Ellicott", "Benson", "Poole", "Calvin",
+    "Clarke", "Wesley", "Bengel", "Maclaren", "Spurgeon", "Chrysostom", "Edersheim", "Bullinger", "Beale",
+    "Woudstra", "Leithart", "Keener", "Easton", "Strong's", "Augustine", "Jerome", "Irenaeus", "Origen", "Aquinas",
+    "Luther",
+];
+/// Short enough that the display's "…, and 2 more here" fits a 70-character line.
+const SHORT_MAX: usize = 52;
 const TEXT_MAX: usize = 300;
 const EVIDENCE_MAX: usize = 400;
 const QUOTE_MAX: usize = 400;
 const LABEL_MAX: usize = 40;
 const MEANS_MAX: usize = 160;
 const AT_MAX: usize = 120;
+const READ_MAX: usize = 200;
 const QUOTE_MIN_WORDS: usize = 4;
 const PART_BYTES: usize = 500_000;
 
@@ -80,6 +120,8 @@ const PART_BYTES: usize = 500_000;
 struct FormsFile {
     forms: Vec<Form>,
     same_writer: Vec<Vec<String>>,
+    /// Cite-list ids whose words may be shown: works in the public domain.
+    quotable: Vec<String>,
 }
 
 #[derive(Deserialize)]
@@ -101,6 +143,10 @@ struct Defined {
     source: String,
     quote: String,
     at: String,
+    /// The edition or site the words were read from.
+    read: String,
+    /// The date they were read there, as 2026-10-21.
+    retrieved: String,
 }
 
 #[derive(Deserialize)]
@@ -133,10 +179,12 @@ struct Note {
     #[serde(default)]
     defined: Option<Defined>,
     #[serde(default)]
-    hebrew: Option<Hebrew>,
+    original: Option<Original>,
     evidence: String,
     #[serde(default)]
     limit: Option<String>,
+    /// When the note was last checked against its sources, as 2026-10-21.
+    checked: String,
     cites: Vec<Cite>,
 }
 
@@ -148,6 +196,10 @@ struct Line {
     words: String,
     #[serde(default)]
     mark: Option<String>,
+    /// The line's key word, found once as whole words in it, for a display
+    /// that shows a word per line.
+    #[serde(default)]
+    key: Option<String>,
 }
 
 #[derive(Deserialize)]
@@ -172,9 +224,10 @@ struct Side {
     words: String,
 }
 
+/// The Hebrew, Aramaic or Greek behind the English: a plain note and its roots.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Hebrew {
+struct Original {
     note: String,
     strong: Vec<String>,
 }
@@ -187,6 +240,10 @@ struct Cite {
     #[serde(default)]
     at: Option<String>,
     quote: String,
+    /// The edition or site the quote was read from.
+    read: String,
+    /// The date it was read there, as 2026-10-21.
+    retrieved: String,
 }
 
 /// What this module reads from `config/layer-sources.json`; the Layers build
@@ -200,8 +257,10 @@ struct SourceFile {
 #[derive(Deserialize)]
 struct CiteSource {
     id: String,
+    role: String,
     name: String,
     title: String,
+    by: String,
     when: String,
     why: String,
     #[serde(default)]
@@ -226,6 +285,8 @@ pub struct Sources<'a> {
     pub text: &'a [String],
     pub vz: &'a Versification,
     pub words: &'a WordsByVerse,
+    /// Lemma key ("H1870L") to its index in lemmas.json.
+    pub lemma_index: &'a HashMap<&'a str, u32>,
 }
 
 struct Check<'a> {
@@ -234,6 +295,10 @@ struct Check<'a> {
     forms: &'a BTreeMap<String, Form>,
     /// Cite-list id to the id its writer counts as.
     writer: HashMap<&'a str, &'a str>,
+    /// Cite-list ids whose words may be shown.
+    quotable: BTreeSet<&'a str>,
+    /// Names a note's own words may not carry.
+    writer_names: Vec<String>,
     errors: Vec<String>,
 }
 
@@ -279,8 +344,7 @@ impl<'a> Check<'a> {
         if mentions_esv(s) {
             self.fail(at, format_args!("{field} mentions the ESV"));
         }
-        let padded = format!(" {} ", normalize(s));
-        if let Some(p) = CREDITS.iter().find(|p| padded.contains(&format!(" {p} "))) {
+        if let Some(p) = credit(s) {
             self.fail(at, format_args!("{field} says {p:?}: no field credits a drafting tool"));
         }
         let cite = self.cite;
@@ -291,24 +355,58 @@ impl<'a> Check<'a> {
         }
     }
 
+    /// A note's own words: a reader field that also names no writer, since
+    /// sources and what they say go in the evidence and the citations.
+    fn own_words(&mut self, at: &str, field: &str, s: &str, max: usize) {
+        self.text(at, field, s, max);
+        let found = self.writer_names.iter().find(|n| names_word(s, n)).cloned();
+        if let Some(n) = found {
+            self.fail(at, format_args!("{field} names {n:?}; a note's own words name no writer, so say it in evidence"));
+        }
+    }
+
+    /// A cite-list work whose words this note shows: on the list, and quotable.
     fn source(&mut self, at: &str, id: &str) -> Option<&'a CiteSource> {
         let cite = self.cite;
-        let found = cite.cite.iter().find(|s| s.id == id);
-        if found.is_none() {
+        let Some(s) = cite.cite.iter().find(|s| s.id == id) else {
             self.fail(at, format_args!("source {id:?} is not on the cite list in {}", crate::layers::SOURCES));
+            return None;
+        };
+        if s.id == "net-notes" {
+            self.fail(at, "the NET translators' notes are linked from Study, never shown");
+            return None;
         }
-        found
+        if !self.quotable.contains(s.id.as_str()) {
+            self.fail(
+                at,
+                format_args!("{} is not quotable in {FORMS}: only works in the public domain are quoted here; Layers may still link it", s.name),
+            );
+            return None;
+        }
+        Some(s)
+    }
+
+    /// Where a quotation was read and when: decision 10's credit.
+    fn read(&mut self, at: &str, read: &str, retrieved: &str) {
+        self.text(at, "read", read, READ_MAX);
+        if !date_ok(retrieved) {
+            self.fail(at, format_args!("retrieved {retrieved:?} must be a date, as 2026-10-21"));
+        }
     }
 
     fn defined(&mut self, at: &str, d: &Defined) -> Option<Value> {
         self.text(at, "defined quote", &d.quote, QUOTE_MAX);
         self.text(at, "defined at", &d.at, AT_MAX);
+        self.read(at, &d.read, &d.retrieved);
         let s = self.source(at, &d.source)?;
         let Some(url) = s.url.as_deref() else {
             self.fail(at, format_args!("{} has no link of its own for a definition", s.name));
             return None;
         };
-        Some(json!({ "quote": d.quote, "at": format!("{} ({}), {}", s.title, s.when, d.at), "url": url }))
+        Some(json!({
+            "name": s.name, "by": s.by, "work": s.title, "when": s.when, "quote": d.quote, "at": place(s, &d.at),
+            "url": url, "read": d.read, "retrieved": d.retrieved,
+        }))
     }
 
     fn note(&mut self, book: u8, n: &Note) -> Option<Value> {
@@ -328,11 +426,14 @@ impl<'a> Check<'a> {
             }
             Some(_) => {}
         }
-        self.text(&at, "short", &n.short, SHORT_MAX);
-        self.text(&at, "about", &n.about, TEXT_MAX);
+        self.own_words(&at, "short", &n.short, SHORT_MAX);
+        self.own_words(&at, "about", &n.about, TEXT_MAX);
         self.text(&at, "evidence", &n.evidence, EVIDENCE_MAX);
         if let Some(l) = &n.limit {
-            self.text(&at, "limit", l, TEXT_MAX);
+            self.own_words(&at, "limit", l, TEXT_MAX);
+        }
+        if !date_ok(&n.checked) {
+            self.fail(&at, format_args!("checked {:?} must be a date, as 2026-10-21", n.checked));
         }
 
         let own = self.range(&at, &n.reference);
@@ -359,6 +460,12 @@ impl<'a> Check<'a> {
             }
             last = Some((v, off + l.words.len()));
             let mut line = json!({ "v": v, "t": l.words, "at": utf16_len(&self.src.text[v as usize][..off]) });
+            if let Some(k) = &l.key {
+                if pair_line(&[l.words.as_str()], k).is_none() {
+                    self.fail(&lat, format_args!("key {k:?} must occur once, as whole words, in the line"));
+                }
+                line["key"] = json!(k);
+            }
             if let Some(m) = &l.mark {
                 if !mark_ok(m) {
                     self.fail(&lat, format_args!("mark {m:?} must be a capital letter, with ' after it in the second half"));
@@ -380,14 +487,26 @@ impl<'a> Check<'a> {
             }
             _ => {}
         }
+        if !n.pairs.is_empty() && n.kind != "parallelism" {
+            self.fail(&at, "only parallel lines have pairs");
+        }
+        let line_words: Vec<&str> = n.lines.iter().map(|l| l.words.as_str()).collect();
         for (i, p) in n.pairs.iter().enumerate() {
-            let ok = p.len() == 2 && {
-                let a: Vec<usize> = (0..n.lines.len()).filter(|&k| n.lines[k].words.contains(p[0].as_str())).collect();
-                let b: Vec<usize> = (0..n.lines.len()).filter(|&k| n.lines[k].words.contains(p[1].as_str())).collect();
-                !p[0].is_empty() && !p[1].is_empty() && a.iter().any(|x| b.iter().any(|y| x != y))
-            };
-            if !ok {
-                self.fail(&format!("{at}, pairs[{i}]"), "a pair is two words, each in a different line");
+            let pat = format!("{at}, pairs[{i}]");
+            if p.len() != 2 {
+                self.fail(&pat, "a pair is two words, each in a different line");
+                continue;
+            }
+            let found: Vec<Option<usize>> = p.iter().map(|w| pair_line(&line_words, w)).collect();
+            for (w, f) in p.iter().zip(&found) {
+                if f.is_none() {
+                    self.fail(&pat, format_args!("{w:?} must occur once, as whole words, in the lines"));
+                }
+            }
+            if let [Some(a), Some(b)] = found[..] {
+                if a >= b {
+                    self.fail(&pat, "a pair is two words, each in a different line, the first in an earlier line than its answer");
+                }
             }
         }
 
@@ -395,11 +514,11 @@ impl<'a> Check<'a> {
         let figure = match (&n.figure, n.kind == "figure") {
             (Some(f), true) => {
                 let fat = format!("{at}, figure");
-                self.text(&fat, "name", &f.name, LABEL_MAX);
+                self.own_words(&fat, "name", &f.name, LABEL_MAX);
                 if let Some(p) = &f.part {
-                    self.text(&fat, "part", p, 60);
+                    self.own_words(&fat, "part", p, 60);
                 }
-                self.text(&fat, "means", &f.means, MEANS_MAX);
+                self.own_words(&fat, "means", &f.means, MEANS_MAX);
                 own.and_then(|o| self.verse(&fat, &f.reference, Some(o)))
                     .and_then(|v| self.find_once(&fat, v, &f.words).map(|off| (v, off)))
                     .map(|(v, off)| {
@@ -431,8 +550,8 @@ impl<'a> Check<'a> {
         }
         for (i, s) in n.sides.iter().enumerate() {
             let sat = format!("{at}, sides[{i}]");
-            self.text(&sat, "who", &s.who, LABEL_MAX);
-            self.text(&sat, "label", &s.label, LABEL_MAX);
+            self.own_words(&sat, "who", &s.who, LABEL_MAX);
+            self.own_words(&sat, "label", &s.label, LABEL_MAX);
             let Some((a, z)) = self.range(&sat, &s.reference) else { continue };
             side_ranges.push((a, z));
             let verses = &self.src.text[a as usize..=z as usize];
@@ -455,8 +574,8 @@ impl<'a> Check<'a> {
             if let Some(l) = &n.limit {
                 fields.push(("limit", l.as_str()));
             }
-            if let Some(h) = &n.hebrew {
-                fields.push(("hebrew note", h.note.as_str()));
+            if let Some(o) = &n.original {
+                fields.push(("original note", o.note.as_str()));
             }
             for (field, s) in fields {
                 match quotes(s) {
@@ -471,16 +590,26 @@ impl<'a> Check<'a> {
                 }
             }
         }
-        if let Some(h) = &n.hebrew {
-            self.text(&at, "hebrew note", &h.note, TEXT_MAX);
-            if h.strong.is_empty() {
-                self.fail(&at, "hebrew needs at least one root");
+        // The original words: every place each root occurs in the verses the note names.
+        let mut original_words: Vec<[u32; 3]> = Vec::new();
+        if let Some(o) = &n.original {
+            self.own_words(&at, "original note", &o.note, TEXT_MAX);
+            if o.strong.is_empty() {
+                self.fail(&at, "original needs at least one root");
             }
-            for s in &h.strong {
+            for s in &o.strong {
                 if !strong_ok(s) {
                     self.fail(&at, format_args!("root {s:?} must be H or G and four digits, as H1870"));
-                } else if !named.iter().any(|&r| self.has_root(r, s)) {
+                    continue;
+                }
+                let hits: Vec<[u32; 3]> = named.iter().flat_map(|&r| self.root_hits(r, s)).collect();
+                if hits.is_empty() {
                     self.fail(&at, format_args!("root {s} is not in the verses the note names"));
+                }
+                for h in hits {
+                    if !original_words.contains(&h) {
+                        original_words.push(h);
+                    }
                 }
             }
         }
@@ -504,9 +633,12 @@ impl<'a> Check<'a> {
             if let Some(a) = &c.at {
                 self.text(&cat, "at", a, AT_MAX);
             }
+            self.read(&cat, &c.read, &c.retrieved);
             let on = self.range(&cat, &c.on);
             let Some(s) = self.source(&cat, &c.source) else { continue };
-            writers.insert(self.writer.get(s.id.as_str()).copied().unwrap_or(s.id.as_str()));
+            if s.role == INTERPRETER {
+                writers.insert(self.writer.get(s.id.as_str()).copied().unwrap_or(s.id.as_str()));
+            }
             if let Some((b, _, _)) = on.and_then(|(start, _)| self.src.vz.locate(start)) {
                 let book = BOOKS[b as usize].name;
                 if s.not_on.iter().any(|x| x == book) {
@@ -523,24 +655,32 @@ impl<'a> Check<'a> {
                 self.fail(&cat, format_args!("{} has no link", s.name));
                 continue;
             };
-            let mut x = json!({ "name": s.name, "on": c.on, "url": url, "quote": c.quote });
+            let mut x = json!({
+                "name": s.name, "by": s.by, "work": s.title, "when": s.when, "on": c.on, "url": url, "quote": c.quote,
+                "read": c.read, "retrieved": c.retrieved,
+            });
             if let Some(a) = &c.at {
-                x["at"] = json!(a);
+                x["at"] = json!(place(s, a));
             }
             cites.push(x);
         }
         let want = strength_for(writers.len());
-        if !n.cites.is_empty() && n.strength != want {
+        if !n.cites.is_empty() && writers.is_empty() {
             self.fail(
                 &at,
-                format_args!("strength is {:?}, but it cites {} different writers, which is {want:?}", n.strength, writers.len()),
+                format_args!("cites no interpreter; a word book or the BSB alone cannot carry a figure, parallel or contrast (role {INTERPRETER:?} in {})", crate::layers::SOURCES),
+            );
+        } else if !n.cites.is_empty() && n.strength != want {
+            self.fail(
+                &at,
+                format_args!("strength is {:?}, but it cites {} different interpreters, which is {want:?}", n.strength, writers.len()),
             );
         }
 
         let (v, end) = own?;
         let mut out = json!({
             "id": n.id, "kind": n.kind, "form": n.form, "v": v, "end": end, "strength": n.strength,
-            "short": n.short, "about": n.about, "evidence": n.evidence, "cites": cites,
+            "short": n.short, "about": n.about, "evidence": n.evidence, "checked": n.checked, "cites": cites,
         });
         if !refs.is_empty() {
             out["refs"] = json!(refs.iter().map(|r| r.map(|(s, e)| [s, e])).collect::<Option<Vec<_>>>()?);
@@ -560,8 +700,8 @@ impl<'a> Check<'a> {
         if let Some(d) = defined {
             out["defined"] = d;
         }
-        if let Some(h) = &n.hebrew {
-            out["hebrew"] = json!({ "note": h.note, "strong": h.strong });
+        if let Some(o) = &n.original {
+            out["original"] = json!({ "note": o.note, "strong": o.strong, "words": original_words });
         }
         if let Some(l) = &n.limit {
             out["limit"] = json!(l);
@@ -587,13 +727,19 @@ impl<'a> Check<'a> {
         }
     }
 
-    /// Is `strong` the root of a main-text word in the range?
-    fn has_root(&self, (s, e): (u32, u32), strong: &str) -> bool {
-        (s..=e).any(|v| {
-            self.src.words[v as usize]
-                .iter()
-                .any(|w| w.main && w.lemma.as_deref().is_some_and(|k| lemma_matches(k, strong)))
-        })
+    /// Every main-text word in the range whose root is `strong`, as [verse,
+    /// word position, lemma index], as `layers.rs` publishes them.
+    fn root_hits(&self, (s, e): (u32, u32), strong: &str) -> Vec<[u32; 3]> {
+        let mut hits = Vec::new();
+        for v in s..=e {
+            for (pos, w) in self.src.words[v as usize].iter().enumerate() {
+                let Some(key) = w.lemma.as_deref().filter(|k| w.main && lemma_matches(k, strong)) else { continue };
+                if let Some(&li) = self.src.lemma_index.get(key) {
+                    hits.push([v, pos as u32, li]);
+                }
+            }
+        }
+        hits
     }
 }
 
@@ -617,6 +763,26 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
             }
         }
     }
+    let mut quotable = BTreeSet::new();
+    for id in &forms_file.quotable {
+        if id == "net-notes" {
+            errors.push(format!("{FORMS}: quotable lists net-notes, whose notes are linked, never shown"));
+        } else if !cite.cite.iter().any(|s| &s.id == id) {
+            errors.push(format!("{FORMS}: quotable names {id:?}, which is not on the cite list"));
+        }
+        if !quotable.insert(id.as_str()) {
+            errors.push(format!("{FORMS}: quotable lists {id:?} twice"));
+        }
+    }
+    // Every name on the cite list but the BSB's (the app's own text), with
+    // any leading "the", and the surnames in WRITERS.
+    let mut writer_names: Vec<String> = cite
+        .cite
+        .iter()
+        .filter(|s| s.id != "bsb")
+        .map(|s| s.name.strip_prefix("the ").unwrap_or(&s.name).to_string())
+        .collect();
+    writer_names.extend(WRITERS.iter().map(|w| w.to_string()));
     let mut forms: BTreeMap<String, Form> = BTreeMap::new();
     for f in forms_file.forms {
         if forms.contains_key(&f.id) {
@@ -624,7 +790,7 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
         }
         forms.insert(f.id.clone(), f);
     }
-    let mut check = Check { src, cite: &cite, forms: &forms, writer, errors };
+    let mut check = Check { src, cite: &cite, forms: &forms, writer, quotable, writer_names, errors };
     let mut form_index = serde_json::Map::new();
     for f in forms.values() {
         let at = format!("{FORMS}: form {:?}", f.id);
@@ -731,7 +897,7 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
     }
     let written: usize = parts.iter().map(Vec::len).sum();
     eprintln!(
-        "figures: {total} notes checked and written ({} parallel lines, {} figures, {} contrasts) in {written} files; {} forms",
+        "figures: {total} notes checked and written ({} parallelism, {} figure, {} contrast) in {written} files; {} forms",
         counts[0],
         counts[1],
         counts[2],
@@ -770,11 +936,17 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let forms_ok = forms.values().all(|f| {
         KINDS.iter().any(|(k, _)| f["kind"] == *k)
             && ["label", "term", "about"].iter().all(|k| f[k].as_str().is_some_and(|s| !s.is_empty()))
-            && (f.get("defined").is_none() || f["defined"]["url"].as_str().is_some_and(|u| u.starts_with("https://")))
+            && (f.get("defined").is_none()
+                || (["name", "by", "work", "when", "quote", "at", "read"].iter().all(|k| f["defined"][k].as_str().is_some_and(|s| !s.is_empty()))
+                    && f["defined"]["retrieved"].as_str().is_some_and(date_ok)
+                    && f["defined"]["url"].as_str().is_some_and(|u| u.starts_with("https://"))))
     });
+    let lemma_count = d.lemmas["key"].as_array().map_or(0, Vec::len) as u64;
+    let psalm_1_6 = d.resolve("Psalm 1:6")?.0;
 
     let mut seen = vec![b'0'; n as usize];
-    let (mut notes_ok, mut words_ok, mut cites_ok) = (true, true, true);
+    let (mut notes_ok, mut words_ok, mut spans_ok, mut roots_ok, mut cites_ok) = (true, true, true, true, true);
+    let mut known = false;
     let mut count = 0usize;
     let mut largest = 0u64;
     for (b, starts) in parts.iter().enumerate() {
@@ -802,19 +974,21 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     && form_ok
                     && v >= prev
                     && [WIDELY, COMMONLY, SOME].iter().any(|s| x["strength"] == *s)
-                    && ["id", "short", "about", "evidence"].iter().all(|k| x[k].as_str().is_some_and(|s| !s.is_empty()));
+                    && ["id", "short", "about", "evidence"].iter().all(|k| x[k].as_str().is_some_and(|s| !s.is_empty()))
+                    && x["checked"].as_str().is_some_and(date_ok);
                 prev = v;
                 if let (Some(bit), true) = (bit, end < u64::from(n)) {
                     for i in v..=end {
                         seen[i as usize] |= bit;
                     }
                 }
-                // Every marked span is the verse's own words at its offset.
-                let at = |v: &Value, t: &Value, off: &Value| -> bool {
-                    let (Some(v), Some(t), Some(off)) = (v.as_u64(), t.as_str(), off.as_u64()) else { return false };
-                    v < u64::from(n) && utf16_slice(&d.english(v as u32), off as usize, t)
+                // Every marked span is the verse's own words at its offset, inside the note.
+                let at = |lv: &Value, t: &Value, off: &Value| -> bool {
+                    let (Some(lv), Some(t), Some(off)) = (lv.as_u64(), t.as_str(), off.as_u64()) else { return false };
+                    (v..=end).contains(&lv) && end < u64::from(n) && utf16_slice(&d.english(lv as u32), off as usize, t)
                 };
-                for l in x["lines"].as_array().into_iter().flatten() {
+                let lines: Vec<&Value> = x["lines"].as_array().into_iter().flatten().collect();
+                for l in &lines {
                     words_ok &= at(&l["v"], &l["t"], &l["at"]);
                 }
                 if x.get("figure").is_some() {
@@ -822,11 +996,69 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 }
                 words_ok &= (x["kind"] == "figure") == x.get("figure").is_some();
                 words_ok &= (x["kind"] == "contrast") == x["sides"].as_array().is_some_and(|s| s.len() == 2);
+                words_ok &= x["kind"] != "parallelism" || lines.len() >= 2;
+                let marks: Vec<&str> = lines.iter().filter_map(|l| l["mark"].as_str()).collect();
+                words_ok &= match x["form"].as_str() {
+                    Some("mirror") => marks.len() == lines.len() && mirror_ok(&marks),
+                    Some("turns") => marks.len() == lines.len() && turns_ok(&marks),
+                    _ => marks.iter().all(|m| mark_ok(m)),
+                };
+                words_ok &= lines.iter().all(|l| {
+                    l.get("key").is_none() || l["key"].as_str().zip(l["t"].as_str()).is_some_and(|(k, t)| pair_line(&[t], k).is_some())
+                });
+                let texts: Vec<&str> = lines.iter().filter_map(|l| l["t"].as_str()).collect();
+                words_ok &= x["pairs"].as_array().into_iter().flatten().all(|p| {
+                    let w: Vec<Option<usize>> =
+                        p.as_array().into_iter().flatten().map(|w| w.as_str().and_then(|w| pair_line(&texts, w))).collect();
+                    matches!(w[..], [Some(a), Some(b)] if a < b)
+                });
+                // Every range is real verses; each side names its person and quotes its words.
+                let span = |r: &Value| -> Option<(u32, u32)> {
+                    let (s, e) = (r[0].as_u64()?, r[1].as_u64()?);
+                    (s <= e && e < u64::from(n)).then_some((s as u32, e as u32))
+                };
+                spans_ok &= x.get("refs").is_none()
+                    || x["refs"].as_array().is_some_and(|rs| !rs.is_empty() && rs.iter().all(|r| span(r).is_some()));
+                for side in x["sides"].as_array().into_iter().flatten() {
+                    let range = span(&json!([side["s"], side["e"]]));
+                    let (who, t) = (side["who"].as_str().unwrap_or(""), side["t"].as_str().unwrap_or(""));
+                    spans_ok &= range.is_some_and(|(s, e)| {
+                        let verses: Vec<String> = (s..=e).map(|i| d.english(i)).collect();
+                        !who.is_empty()
+                            && !t.is_empty()
+                            && side["label"].as_str().is_some_and(|l| !l.is_empty())
+                            && verses.iter().any(|v| names(v, who))
+                            && verses.iter().any(|v| v.contains(t))
+                    });
+                }
+                // Every original root is that word's root in the verse's own word list.
+                if let Some(o) = x.get("original") {
+                    let words: Vec<&Value> = o["words"].as_array().into_iter().flatten().collect();
+                    roots_ok &= o["note"].as_str().is_some_and(|s| !s.is_empty())
+                        && o["strong"].as_array().is_some_and(|s| !s.is_empty())
+                        && !words.is_empty()
+                        && words.iter().all(|w| {
+                            let (Some(wv), Some(pos), Some(li)) = (w[0].as_u64(), w[1].as_u64(), w[2].as_u64()) else { return false };
+                            wv < u64::from(n)
+                                && li < lemma_count
+                                && d.verse(wv as u32).is_ok_and(|vx| vx[1][pos as usize][3].as_u64() == Some(li))
+                        });
+                }
+                if x["id"] == "psalm-1-6-opposite" {
+                    let ats: Vec<Option<u64>> = lines.iter().map(|l| l["at"].as_u64()).collect();
+                    known = v == u64::from(psalm_1_6)
+                        && end == v
+                        && x["form"] == "opposite"
+                        && ats == [Some(0), Some(47)]
+                        && lines.iter().all(|l| l["v"].as_u64() == Some(v));
+                }
                 cites_ok &= x["cites"].as_array().is_some_and(|cs| {
                     !cs.is_empty()
                         && cs.iter().all(|c| {
-                            ["name", "on", "quote"].iter().all(|k| c[k].as_str().is_some_and(|s| !s.is_empty()))
+                            ["name", "by", "work", "when", "on", "quote", "read"].iter().all(|k| c[k].as_str().is_some_and(|s| !s.is_empty()))
+                                && c["retrieved"].as_str().is_some_and(date_ok)
                                 && c["url"].as_str().is_some_and(|u| u.starts_with("https://"))
+                                && (c.get("at").is_none() || c["at"].as_str().is_some_and(|a| a.contains("), ")))
                         })
                 });
             }
@@ -839,8 +1071,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ),
         (forms_ok, format!("{} figure forms each have a kind, a label, a term and plain words", forms.len())),
         (notes_ok, "every figure note is on real verses in one chapter, in its book's file, in order, with a known form and strength".to_string()),
-        (words_ok, "every line and figure marks the BSB's own words at its offset, every figure note has its figure and every contrast two sides".to_string()),
+        (
+            words_ok,
+            "every line and figure marks the BSB's own words at its offset inside its note, marks nest by form, each pair word is in one line, every figure note has its figure and every contrast two sides".to_string(),
+        ),
+        (spans_ok, "every figure note's other passages are real verses, and each side of a contrast names its person and quotes its verses".to_string()),
+        (roots_ok, "every original-language note points at words whose root it names, in the verses' own word lists".to_string()),
         (cites_ok, "every figure note cites a writer, with his words and a link".to_string()),
+        (known && count >= 5, format!("Psalm 1:6's opposite lines are marked at the BSB's own words, and {count} figure notes were written (at least 5)")),
         (size < 100_000, format!("extras/figures.json is {size} bytes, expected under 100,000")),
         (largest < 1_500_000, format!("the largest file of figure notes is {largest} bytes, expected under 1,500,000")),
     ])
@@ -853,6 +1091,58 @@ fn strength_for(writers: usize) -> &'static str {
         2 => COMMONLY,
         _ => WIDELY,
     }
+}
+
+/// A date as 2026-10-21.
+fn date_ok(s: &str) -> bool {
+    let b = s.as_bytes();
+    b.len() == 10
+        && b.iter().enumerate().all(|(i, c)| if i == 4 || i == 7 { *c == b'-' } else { c.is_ascii_digit() })
+        && (1..=12).contains(&s[5..7].parse::<u8>().unwrap_or(0))
+        && (1..=31).contains(&s[8..10].parse::<u8>().unwrap_or(0))
+}
+
+/// Where in a cited work: "Work (year), place in it", as `defined.at` and
+/// Layers' citations read.
+fn place(s: &CiteSource, at: &str) -> String {
+    format!("{} ({}), {}", s.title, s.when, at)
+}
+
+/// The credit to a drafting tool that `s` carries, if any. Words split at
+/// every mark that is not a letter or digit, so "AI-drafted" and "Claude's"
+/// are caught; "AI" counts only in capitals, so the city of Ai never does.
+fn credit(s: &str) -> Option<String> {
+    let words: Vec<&str> = s.split(|c: char| !c.is_alphanumeric()).filter(|w| !w.is_empty()).collect();
+    if words.contains(&"AI") {
+        return Some("AI".to_string());
+    }
+    let lower: Vec<String> = words.iter().map(|w| w.to_lowercase()).collect();
+    if lower.iter().any(|w| w.starts_with("claude")) {
+        return Some("Claude".to_string());
+    }
+    let run = format!(" {} ", lower.join(" "));
+    CREDITS.iter().find(|p| run.contains(&format!(" {p} "))).map(|p| p.to_string())
+}
+
+/// The index of the one line where `w` occurs, once and as whole words, or
+/// None when it occurs nowhere or more than once.
+fn pair_line(lines: &[&str], w: &str) -> Option<usize> {
+    if w.trim().is_empty() {
+        return None;
+    }
+    let mut found = lines.iter().enumerate().flat_map(|(k, t)| whole_words(t, w).map(move |_| k));
+    match (found.next(), found.next()) {
+        (Some(k), None) => Some(k),
+        _ => None,
+    }
+}
+
+/// Where `w` starts in `t` as whole words: no letter or digit just before or after.
+fn whole_words<'t>(t: &'t str, w: &'t str) -> impl Iterator<Item = usize> + 't {
+    t.match_indices(w).map(|(i, _)| i).filter(move |&i| {
+        !t[..i].chars().next_back().is_some_and(char::is_alphanumeric)
+            && !t[i + w.len()..].chars().next().is_some_and(char::is_alphanumeric)
+    })
 }
 
 /// A capital letter, with ' after it for its partner in the second half.
@@ -994,6 +1284,12 @@ fn names(text: &str, part: &str) -> bool {
     text.match_indices(part).any(|(i, _)| !text[..i].chars().next_back().is_some_and(char::is_alphanumeric))
 }
 
+/// `names`, where the name also ends a word: "Keil" is found in "Keil's" but
+/// not in "Keilah".
+fn names_word(text: &str, part: &str) -> bool {
+    whole_words(text, part).next().is_some()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -1051,5 +1347,26 @@ mod tests {
         assert!(quotes("a “stray").is_err());
         assert!(mentions_esv("the ESV says") && !mentions_esv("ESVs"));
         assert!(names("Gill's Exposition", "Gill") && !names("Magill", "Gill"));
+        assert!(names_word("Keil's note", "Keil") && !names_word("went up to Keilah", "Keil"));
+    }
+
+    #[test]
+    fn catches_credits_but_not_the_city_of_ai() {
+        for ok in ["Israel was turned back by Ai.", "the second battle with Ai", "the men of Ai", "Claudius Lysias wrote"] {
+            assert_eq!(credit(ok), None, "{ok}");
+        }
+        for bad in ["Drafted with AI help", "AI-drafted, checked against the source", "Checked against Claude’s draft", "Claude-assisted", "an ai-generated summary", "written by Anthropic's model"] {
+            assert!(credit(bad).is_some(), "{bad}");
+        }
+    }
+
+    #[test]
+    fn finds_pair_words_once_as_whole_words() {
+        let lines = ["For the LORD guards the path of the righteous,", "but the way of the wicked will perish."];
+        assert_eq!(pair_line(&lines, "the righteous"), Some(0));
+        assert_eq!(pair_line(&lines, "will perish"), Some(1));
+        assert_eq!(pair_line(&lines, "he"), None);
+        assert_eq!(pair_line(&lines, "the"), None);
+        assert_eq!(pair_line(&lines, ""), None);
     }
 }

@@ -32,7 +32,7 @@
           "way"
         ]
       ],
-      "hebrew": {
+      "original": {
         "note": "In Hebrew both lines use the same word, derekh, “way”; the BSB says “path”, then “way”.",
         "strong": [
           "H1870",
@@ -41,26 +41,35 @@
         ]
       },
       "evidence": "Keil and Delitzsch set the way of the ungodly against the way of the righteous. Gill says the verse gives the reason for the happiness of one sort of men and the unhappiness of the other. Barnes calls verses 4 to 6 a strong contrast between the unrighteous and the righteous, and the Companion Bible notes how the two clauses answer each other.",
+      "checked": "2026-10-21",
       "cites": [
         {
           "source": "keil-delitzsch",
           "on": "Psalm 1:6",
-          "quote": "God knows this way, which on this very account also unfailingly reaches its goal. On the contrary, the way of the ungodly"
+          "quote": "God knows this way, which on this very account also unfailingly reaches its goal. On the contrary, the way of the ungodly … perishes, because left to itself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "gill",
           "on": "Psalm 1:6",
-          "quote": "These last words therefore show the reason of the happiness of one sort of men, and the unhappiness of the other"
+          "quote": "These last words therefore show the reason of the happiness of one sort of men, and the unhappiness of the other",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "barnes",
           "on": "Psalm 1",
-          "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous"
+          "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
         },
         {
           "source": "bullinger-cb",
           "on": "Psalm 1:6",
-          "quote": "Effect latent in first clause: cause latent in second clause."
+          "quote": "Effect latent in first clause: cause latent in second clause.",
+          "read": "the UniqueBible.app module of the Companion Bible notes, at github.com/otseng/UniqueBible_Commentaries (commit 4b77d86)",
+          "retrieved": "2026-10-21"
         }
       ]
     }
