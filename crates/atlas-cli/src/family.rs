@@ -42,6 +42,20 @@
 //! another form of the same word (φαγεῖν of ἐσθίω), "p" comes from (parent),
 //! "c" comes from this (child), "s" shares its root, "a" the same word in the
 //! other language (Hebrew and Aramaic), "n" another sense of the same word.
+//!
+//! Three more fields say which links are not Strong's own, so the word study
+//! never credits them to him: "h" lists the `word` of each relative linked
+//! only through a hand-listed correction of a slip in Strong's number
+//! (`REMAP_G`, `REMAP_H`, `HEAD_REMAP_G`), and "t" each Aramaic twin STEPBible
+//! pairs that Strong's does not tie (`TWINS`, `TWINS_MORE`). "x" is 1 on a root
+//! whose own derivation was corrected that way, and 2 on one whose derivation
+//! the hand lists leave out (`NO_PARENT_G`, `NO_PARENT_H`); the themes can read
+//! it too, before they quote a derivation as Strong's.
+//!
+//! Strong's own entry for each number (derivation and definition, without the
+//! King James renderings) is read here as well, by `strongs_line`, and shipped
+//! with the lexicon entry (`lex/<shard>.json`, "k"), where the word study shows
+//! it before the fuller lexicon.
 
 use crate::parse::Word;
 use serde_json::{json, Value};
@@ -332,6 +346,97 @@ pub struct Derivations {
     pub base_of: HashSet<String>,
     /// The Hebrew numbers each Hebrew line mentions, to back Aramaic twins.
     pub cites: HashMap<String, Vec<String>>,
+    /// Strong's own entry for each number, as `strongs_line` reads it.
+    pub strongs: HashMap<String, String>,
+    /// Numbers whose parent or prefix head comes from the hand lists, which
+    /// correct a slip in Strong's number (`REMAP_G`, `REMAP_H`, `HEAD_REMAP_G`).
+    pub remapped: HashSet<String>,
+    /// Numbers whose derivation the hand lists leave out (`NO_PARENT_G`, `NO_PARENT_H`).
+    pub dropped: HashSet<String>,
+}
+
+impl Derivations {
+    /// Strong's own entry for a root ("H7225G" reads H7225's), if he has one.
+    pub fn strongs(&self, key: &str) -> Option<&str> {
+        self.strongs.get(number(key)).map(String::as_str)
+    }
+}
+
+/// The JSON edition's notes on spellings its editors corrected, as
+/// "lemma אי missing vowel, corrected to אִי" or "xlit baqbûk corrected to
+/// baqbuq", which sit inside Strong's text. The corrected form is already in
+/// the text (or, for a transliteration, not shown), so the note goes.
+fn without_notes(s: &str) -> String {
+    let mut s = s.to_string();
+    while let Some(note) = next_note(&s) {
+        s.replace_range(note, " ");
+    }
+    s
+}
+
+/// Where the first such note is.
+fn next_note(s: &str) -> Option<std::ops::Range<usize>> {
+    for (at, _) in s.match_indices(['l', 'x']) {
+        let rest = &s[at..];
+        if !(rest.starts_with("lemma ") || rest.starts_with("xlit ")) {
+            continue;
+        }
+        let Some(c) = rest.find("corrected to ").filter(|&c| c < 120 && !rest[..c].contains(';')) else {
+            continue;
+        };
+        let after = at + c + "corrected to ".len();
+        // The corrected form: as much of what follows as the text just before
+        // the note already reads, else the next word.
+        let before = &s[..at];
+        let tail = &s[after..];
+        let mut take = tail.char_indices().map(|(i, ch)| i + ch.len_utf8()).rfind(|&k| before.ends_with(&tail[..k])).unwrap_or(0);
+        if take == 0 {
+            take = tail.find(|ch: char| ch.is_whitespace() || matches!(ch, ';' | ')' | ',')).unwrap_or(tail.len());
+            for stop in ["xlit", "lemma"] {
+                if let Some(k) = tail[..take].find(stop) {
+                    take = k;
+                }
+            }
+        }
+        return Some(at..after + take);
+    }
+    None
+}
+
+/// Strong's entry in his own words: the derivation, then the definition,
+/// without the King James renderings that follow them. Definitions in braces
+/// are left out: the JSON edition's editors supplied them where Strong gave
+/// none (most repeat the definition of the Hebrew word an Aramaic word
+/// corresponds to). So are their notes on corrected spellings.
+pub fn strongs_line(der: &str, def: &str) -> String {
+    let mut der = without_notes(der);
+    let mut def = without_notes(def);
+    // Braces the edition opens inside the derivation and closes in the
+    // definition (H3969 מְאָה, given H3967's "properly, a primitive numeral; a
+    // hundred ..."): Strong's own words end with the derivation's first clause.
+    if let Some(b) = def.find('}').filter(|&b| !def[..b].contains('{')) {
+        def.replace_range(..=b, " ");
+        if let Some(c) = der.find(';') {
+            der.truncate(c + 1);
+        }
+    }
+    while let (Some(a), Some(b)) = (def.find('{'), def.find('}')) {
+        if b < a {
+            break;
+        }
+        def.replace_range(a..=b, " ");
+    }
+    let tidy = |s: &str| s.split_whitespace().collect::<Vec<_>>().join(" ").replace(" ;", ";").replace(" ,", ",").replace(" )", ")").replace(";;", ";");
+    let der = tidy(&der);
+    let def = tidy(&def);
+    let end = |s: &str| s.trim().trim_end_matches([';', ':', ',']).trim().to_string();
+    let line = match (der.is_empty(), def.is_empty()) {
+        (true, _) => def,
+        (false, true) => der,
+        (false, false) if der.ends_with([';', ',', ':']) => format!("{der} {def}"),
+        (false, false) => format!("{der}; {def}"),
+    };
+    end(&line)
 }
 
 pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize, String> {
@@ -352,6 +457,10 @@ pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize
         let me = base(lang, n);
         let der = e["derivation"].as_str().unwrap_or("");
         let def = e["strongs_def"].as_str().unwrap_or("");
+        let line = strongs_line(der, def);
+        if !line.is_empty() {
+            d.strongs.insert(me.clone(), line);
+        }
         let lower = der.to_ascii_lowercase();
         if ["only as denominative", "only as a denominative", "used as denominative", "used as a denominative"].iter().any(|p| lower.contains(p)) {
             denominative.insert(me.clone());
@@ -422,21 +531,26 @@ pub fn derivations(path: &Path, lang: char, d: &mut Derivations) -> Result<usize
             d.parent.insert(from.to_string(), to.to_string());
             d.plain.remove(from);
             d.base_of.remove(from);
+            d.remapped.insert(from.to_string());
         }
         for (from, to) in HEAD_REMAP_G {
             d.head.insert(from.to_string(), to.to_string());
+            d.remapped.insert(from.to_string());
         }
         for w in NO_PARENT_G {
             unlink(d, w);
+            d.dropped.insert(w.to_string());
         }
     } else {
         // A typo'd number keeps the line's plainness, so a feminine of the
         // word still reaches the right grandparent (צְעָדָה through צַעַד).
         for (from, to) in REMAP_H {
             d.parent.insert(from.to_string(), to.to_string());
+            d.remapped.insert(from.to_string());
         }
         for w in NO_PARENT_H {
             unlink(d, w);
+            d.dropped.insert(w.to_string());
         }
     }
     Ok(dict.len())
@@ -1057,6 +1171,19 @@ pub fn build(roots: &[Root], words: &[Vec<Word>], l_off: &[u32], l_verse: &[u32]
             let rel = families.of(i);
             if !rel.is_empty() {
                 o.insert("r".into(), json!(rel.iter().map(|(j, c, w)| json!([j, c.to_string(), w])).collect::<Vec<_>>()));
+                let (linked, twins) = families.hand_made(i, &rel);
+                if !linked.is_empty() {
+                    o.insert("h".into(), json!(linked));
+                }
+                if !twins.is_empty() {
+                    o.insert("t".into(), json!(twins));
+                }
+            }
+            let n = number(roots[i].key);
+            if d.remapped.contains(n) {
+                o.insert("x".into(), json!(1));
+            } else if d.dropped.contains(n) {
+                o.insert("x".into(), json!(2));
             }
             Value::Object(o)
         })
@@ -1095,6 +1222,15 @@ struct Families<'a> {
     /// The other language's twin, and other forms of one word.
     twins: Links,
     forms_of: Links,
+    /// Links that only the hand lists make, as (smaller word, larger word):
+    /// a parent set where Strong's number is a slip (`REMAP_*`), and an
+    /// Aramaic twin STEPBible pairs that Strong's does not tie (`TWINS`).
+    by_hand: HashSet<(usize, usize)>,
+    twins_by_hand: HashSet<(usize, usize)>,
+}
+
+fn pair(a: usize, b: usize) -> (usize, usize) {
+    (a.min(b), a.max(b))
 }
 
 impl<'a> Families<'a> {
@@ -1171,11 +1307,14 @@ impl<'a> Families<'a> {
             same: Links::new(),
             twins: Links::new(),
             forms_of: Links::new(),
+            by_hand: HashSet::new(),
+            twins_by_hand: HashSet::new(),
         };
 
         // Derivations, decided once per pair of numbers so both pages agree.
         let mut pairs: Vec<(&str, &str)> = d.same.iter().map(|(a, b)| (a.as_str(), b.as_str())).collect();
-        let mut edges: Vec<(usize, usize, bool)> = Vec::new();
+        // (child word, parent word, from "from X" itself, made by the hand lists)
+        let mut edges: Vec<(usize, usize, bool, bool)> = Vec::new();
         for (c, p) in &d.parent {
             // "From the base of" a noun: both come from the root the noun is built on.
             if d.base_of.contains(c) && f.all(p).first().is_some_and(|&w| f.head(w).morph.starts_with("G:") && !f.head(w).morph.starts_with("G:V")) {
@@ -1184,14 +1323,14 @@ impl<'a> Families<'a> {
             }
             for cw in f.kin(c) {
                 for pw in f.parent_words(c, p) {
-                    edges.push((cw, pw, true));
+                    edges.push((cw, pw, true, d.remapped.contains(c)));
                 }
             }
         }
         for (c, h) in &d.head {
             for cw in f.kin(c) {
                 for pw in f.parent_words(c, h) {
-                    edges.push((cw, pw, false));
+                    edges.push((cw, pw, false, d.remapped.contains(c)));
                 }
             }
         }
@@ -1203,18 +1342,26 @@ impl<'a> Families<'a> {
             if let Some(g) = d.parent.get(m) {
                 for cw in f.kin(w) {
                     for pw in f.parent_words(m, g) {
-                        edges.push((cw, pw, false));
+                        edges.push((cw, pw, false, d.remapped.contains(w) || d.remapped.contains(m)));
                     }
                 }
             }
         }
-        for (cw, pw, direct) in edges {
+        let mut from_strongs: HashSet<(usize, usize)> = HashSet::new();
+        for &(cw, pw, direct, hand) in &edges {
             link(if direct { &mut f.up } else { &mut f.up_more }, cw, pw);
             link(&mut f.down, pw, cw);
             if direct {
                 link(&mut f.down_direct, pw, cw);
             }
+            if hand {
+                f.by_hand.insert(pair(cw, pw));
+            } else {
+                from_strongs.insert(pair(cw, pw));
+            }
         }
+        // A link Strong's own line also makes is his, not the hand list's.
+        f.by_hand.retain(|x| !from_strongs.contains(x));
         for (a, b) in pairs {
             for aw in f.pick(a) {
                 for bw in f.pick(b) {
@@ -1233,12 +1380,22 @@ impl<'a> Families<'a> {
         }
         // The lexicons' word-level links. An Aramaic twin counts only where
         // Strong's ties the two numbers or the pair was checked by hand.
-        let backed = |a: &str, b: &str| {
+        // Some(true) where only the hand lists back the pair.
+        let backed = |a: &str, b: &str| -> Option<bool> {
             let (a, b) = (number(a), number(b));
             let cites = |x: &str, y: &str| d.cites.get(x).is_some_and(|v| v.iter().any(|z| z == y));
             let listed = |l: &[(&str, &str)]| l.iter().any(|&(x, y)| (x, y) == (a, b) || (x, y) == (b, a));
-            !listed(&NOT_TWINS) && (cites(a, b) || cites(b, a) || listed(&TWINS) || listed(&TWINS_MORE))
+            if listed(&NOT_TWINS) {
+                None
+            } else if cites(a, b) || cites(b, a) {
+                Some(false)
+            } else if listed(&TWINS) || listed(&TWINS_MORE) {
+                Some(true)
+            } else {
+                None
+            }
         };
+        let mut twins_by_strongs: HashSet<(usize, usize)> = HashSet::new();
         for (i, r) in roots.iter().enumerate() {
             let twin = r.relation.contains("in Aramaic of") || r.relation.contains("in Hebrew of");
             if !twin && !r.relation.contains("Form of") {
@@ -1247,15 +1404,26 @@ impl<'a> Families<'a> {
             let Some(&t) = index.get(r.target).filter(|&&t| roots[t].key[..1] == r.key[..1]) else {
                 continue;
             };
-            if twin && !backed(r.key, r.target) {
-                continue;
-            }
+            let hand = if twin {
+                match backed(r.key, r.target) {
+                    Some(hand) => hand,
+                    None => continue,
+                }
+            } else {
+                false
+            };
             if let (Some(a), Some(b)) = (f.word[i], f.word[t]) {
                 let map = if twin { &mut f.twins } else { &mut f.forms_of };
                 link(map, a, b);
                 link(map, b, a);
+                if twin && hand {
+                    f.twins_by_hand.insert(pair(a, b));
+                } else if twin {
+                    twins_by_strongs.insert(pair(a, b));
+                }
             }
         }
+        f.twins_by_hand.retain(|x| !twins_by_strongs.contains(x));
         f
     }
 
@@ -1368,7 +1536,124 @@ impl<'a> Families<'a> {
         out.extend(self.members[me].iter().filter(|&&j| j as usize != i).map(|&j| (j, 'n', head)));
         out
     }
+
+    /// Of root i's relatives (as `of` gives them), the heads of the words
+    /// that only the hand lists link to it: through a parent that corrects a
+    /// slip in Strong's number, and as an Aramaic twin STEPBible pairs that
+    /// Strong's does not tie.
+    fn hand_made(&self, i: usize, rel: &[(u32, char, u32)]) -> (Vec<u32>, Vec<u32>) {
+        let Some(me) = self.word[i] else {
+            return (Vec::new(), Vec::new());
+        };
+        let hand = |a: usize, b: usize| self.by_hand.contains(&pair(a, b));
+        let up = self.up.get(&me).cloned().unwrap_or_default();
+        let same = self.same.get(&me).cloned().unwrap_or_default();
+        // A sibling is the hand lists' only when every way to it runs through one of their links.
+        let sibling_by_hand = |w: usize| {
+            let by_number = !self.split(me) && number(self.head(w).key) == number(self.roots[i].key);
+            let routes: Vec<bool> = up.iter().filter(|pw| self.down_direct.get(pw).is_some_and(|v| v.contains(&w))).map(|&pw| hand(me, pw) || hand(w, pw)).collect();
+            !by_number && !same.contains(&w) && !routes.is_empty() && routes.iter().all(|&h| h)
+        };
+        let (mut linked, mut twins) = (Vec::new(), Vec::new());
+        let mut seen: HashSet<u32> = HashSet::new();
+        for &(_, how, head) in rel {
+            if !seen.insert(head) {
+                continue;
+            }
+            let Some(w) = self.word[head as usize] else { continue };
+            match how {
+                'p' | 'c' if hand(me, w) => linked.push(head),
+                's' if sibling_by_hand(w) => linked.push(head),
+                'a' if self.twins_by_hand.contains(&pair(me, w)) => twins.push(head),
+                _ => {}
+            }
+        }
+        (linked, twins)
+    }
 }
+
+/// `atlas verify`: the word study's credits. Each shipped definition says
+/// whose words it is, and the counts stay within 1% of those measured when the
+/// credits were first checked against the entries (21 October 2026, STEPBible
+/// at 1f3423d4); the lexicons' end marks are gone from the shown text; Strong's
+/// own lines carry none of the JSON editors' braces or notes; and the roots
+/// whose derivation this app corrected or left out say so.
+pub fn verify(d: &crate::loaded::Loaded) -> Result<Vec<(bool, String)>, String> {
+    use crate::parse::{ORIGIN_ABBOTT_SMITH as AS, ORIGIN_BDB as BDB, ORIGIN_MIDDLE_LIDDELL as ML, ORIGIN_STEP_GREEK as SG, ORIGIN_STEP_HEBREW as SH, ORIGIN_STEP_THEN_BDB as SN};
+    let keys: Vec<&str> = d.lemmas["key"].as_array().ok_or("lemmas.json has no key")?.iter().map(|k| k.as_str().unwrap_or("")).collect();
+    let shard = d.meta["lexShard"].as_u64().ok_or("meta.json has no lexShard")? as usize;
+    let read = |dir: &str, s: usize| -> Result<Vec<Value>, String> {
+        let p = d.dir.join(format!("{dir}/{s}.json"));
+        let t = fs::read_to_string(&p).map_err(|e| format!("reading {}: {e}", p.display()))?;
+        match serde_json::from_str(&t).map_err(|e| format!("parsing {}: {e}", p.display()))? {
+            Value::Array(v) => Ok(v),
+            _ => Err(format!("{} is not a list", p.display())),
+        }
+    };
+    let mut n: HashMap<String, usize> = HashMap::new();
+    let (mut wrong, mut marked, mut strongs, mut edited, mut split) = (0, 0, 0, 0, 0);
+    let mut lines: HashMap<&str, String> = HashMap::new();
+    let mut flags: HashMap<&str, i64> = HashMap::new();
+    let (mut by_hand, mut twins) = (0, 0);
+    for s in 0..keys.len().div_ceil(shard) {
+        let (lex, forms) = (read("lex", s)?, read("forms", s)?);
+        for (i, e) in lex.iter().enumerate() {
+            let key = keys.get(s * shard + i).copied().unwrap_or("");
+            if e.is_null() {
+                continue;
+            }
+            let o = e["o"].as_str().unwrap_or("");
+            let greek = e["s"].as_str() == Some("tbesg");
+            wrong += usize::from(!(if greek { [AS, ML, SG].contains(&o) } else { [BDB, SN, SH].contains(&o) }));
+            *n.entry(o.to_string()).or_default() += 1;
+            let text: String = e["d"].as_array().into_iter().flatten().filter_map(|x| x[0].as_str()).collect();
+            marked += usize::from(text.trim_end().ends_with("(AS)") || text.trim_end().ends_with("(ML)"));
+            split += usize::from(o == SN && !text.contains('§'));
+            if let Some(k) = e["k"].as_str() {
+                strongs += 1;
+                edited += usize::from(k.contains(['{', '}']) || k.contains("corrected to"));
+                if ["H0001G", "G0026", "G2316", "H0002"].contains(&key) {
+                    lines.insert(key, k.to_string());
+                }
+            }
+        }
+        for (i, f) in forms.iter().enumerate() {
+            let key = keys.get(s * shard + i).copied().unwrap_or("");
+            if let Some(x) = f["x"].as_i64() {
+                flags.insert(key, x);
+            }
+            by_hand += usize::from(f.get("h").is_some());
+            twins += usize::from(f.get("t").is_some());
+        }
+    }
+    let c = |o: &str| n.get(o).copied().unwrap_or(0);
+    let near = |got: usize, want: usize| (got as f64 - want as f64).abs() <= (want as f64 * 0.01).max(1.0);
+    Ok(vec![
+        (wrong == 0, format!("{wrong} lexicon entries name a writer from the other language's lexicon")),
+        (near(c(AS), 5_464), format!("{} Greek definitions from Abbott-Smith, expected about 5,464", c(AS))),
+        (near(c(ML), 66), format!("{} Greek definitions from Middle Liddell, expected about 66", c(ML))),
+        (near(c(SG), 20), format!("{} Greek definitions STEPBible's own, expected about 20", c(SG))),
+        (near(c(BDB), BDB_EXPECTED), format!("{} Hebrew definitions abridged from BDB, expected about {BDB_EXPECTED}", c(BDB))),
+        (near(c(SN), SN_EXPECTED), format!("{} Hebrew definitions with STEPBible's note before BDB's, expected about {SN_EXPECTED}", c(SN))),
+        (near(c(SH), SH_EXPECTED), format!("{} Hebrew definitions STEPBible's own, expected about {SH_EXPECTED}", c(SH))),
+        (marked == 0, format!("{marked} shown definitions still end in (AS) or (ML)")),
+        (split == 0, format!("{split} entries with STEPBible's note before BDB's have no § to split at")),
+        (strongs > 16_500, format!("only {strongs} roots have Strong's own line")),
+        (edited == 0, format!("{edited} of Strong's lines keep the JSON editors' braces or notes")),
+        (lines.get("H0001G").is_some_and(|k| k == "a primitive word; father, in a literal and immediate, or figurative and remote application"), "Strong's line for אָב (H1)".to_string()),
+        (lines.get("G0026").is_some_and(|k| k.starts_with("from G25 (ἀγαπάω); love, i.e. affection")), "Strong's line for ἀγάπη (G26)".to_string()),
+        (lines.get("G2316").is_some_and(|k| k.contains("a deity") && k.ends_with("by Hebraism, very")), "Strong's line for θεός (G2316) keeps both halves".to_string()),
+        (lines.get("H0002").is_some_and(|k| k == "(Aramaic) corresponding to H1 (אָב)"), "Strong's line for Aramaic אַב (H2) leaves out the editors' {father}".to_string()),
+        (flags.get("G5043") == Some(&1), "τέκνον (G5043) is marked: its derivation corrects a slip in Strong's".to_string()),
+        (flags.get("G4983") == Some(&2), "σῶμα (G4983) is marked: its derivation is left out".to_string()),
+        (by_hand > 0 && twins > 0, format!("{by_hand} roots name a relative linked only by this app, {twins} an Aramaic twin only STEPBible pairs")),
+    ])
+}
+
+/// The Hebrew counts measured on 21 October 2026 (STEPBible at 1f3423d4).
+const BDB_EXPECTED: usize = 8_147;
+const SN_EXPECTED: usize = 3_190;
+const SH_EXPECTED: usize = 85;
 
 #[cfg(test)]
 mod tests {
@@ -1380,6 +1665,41 @@ mod tests {
 
     fn parent(of: &str) -> Option<Link> {
         Some(Link::Parent { of: of.into(), form_of: false, plain: true })
+    }
+
+    #[test]
+    fn strongs_own_lines() {
+        assert_eq!(strongs_line("a primitive word;", "father, in a literal and immediate, or figurative and remote application"), "a primitive word; father, in a literal and immediate, or figurative and remote application");
+        assert_eq!(strongs_line("from G25 (ἀγαπάω);", " love, i.e. affection or benevolence; specially (plural) a love-feast"), "from G25 (ἀγαπάω); love, i.e. affection or benevolence; specially (plural) a love-feast");
+        // The JSON edition splits θεός's definition across its two fields.
+        assert_eq!(
+            strongs_line("of uncertain affinity; a deity, especially (with G3588 (ὁ)) the supreme Divinity;", " figuratively, a magistrate; by Hebraism, very"),
+            "of uncertain affinity; a deity, especially (with G3588 (ὁ)) the supreme Divinity; figuratively, a magistrate; by Hebraism, very"
+        );
+        // A definition in braces is the editors' (here אָב's), not Strong's.
+        assert_eq!(strongs_line("(Aramaic) corresponding to H1 (אָב)", "{father}"), "(Aramaic) corresponding to H1 (אָב)");
+        assert_eq!(strongs_line("from the plural of H2716 (חֶרֶא); probably a kind of vegetable", "excrements of doves {or a vegetable}"), "from the plural of H2716 (חֶרֶא); probably a kind of vegetable; excrements of doves");
+        // The editors' notes on corrected spellings go.
+        assert_eq!(
+            strongs_line("from H58 (אָבֵל) and H4246 (מְחֹלָה)xlit mᵉchôwlâh corrected to mᵉchôlâh; meadow of dancing;", "Abel-Mecholah, a place in Palestine"),
+            "from H58 (אָבֵל) and H4246 (מְחֹלָה); meadow of dancing; Abel-Mecholah, a place in Palestine"
+        );
+        assert_eq!(strongs_line("from H336 (אִי)lemma אי missing vowel, corrected to אִי and H2083 (זְבֻל);", "Izebel, the wife of king Ahab"), "from H336 (אִי) and H2083 (זְבֻל); Izebel, the wife of king Ahab");
+        assert_eq!(
+            strongs_line("or (shorter) בֵּית מְעוֹןlemma בֵּית מעוֹן missing vowel, corrected to בֵּית מְעוֹן; house of habitation of (Baal);", "Beth-Baal-Meon, a place in Palestine"),
+            "or (shorter) בֵּית מְעוֹן; house of habitation of (Baal); Beth-Baal-Meon, a place in Palestine"
+        );
+        assert_eq!(
+            strongs_line("(Aramaic) from H3321 (יְצַב)lemma יְצב missing vowel, corrected to יְצַבxlit yᵉtsêb corrected to yᵉtsab;", "fixed, sure; concretely, certainty"),
+            "(Aramaic) from H3321 (יְצַב); fixed, sure; concretely, certainty"
+        );
+        // Braces opened in the derivation and closed in the definition (H3969).
+        assert_eq!(
+            strongs_line("(Aramaic) corresponding to H3967 (מֵאָה); properly, a primitive numeral", "a hundred; also as a multiplicative and a fraction}"),
+            "(Aramaic) corresponding to H3967 (מֵאָה)"
+        );
+        assert_eq!(strongs_line("from G1909 (ἐπί) and (to pour);", " "), "from G1909 (ἐπί) and (to pour)");
+        assert_eq!(strongs_line("", ""), "");
     }
 
     #[test]

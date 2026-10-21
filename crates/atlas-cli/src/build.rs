@@ -465,14 +465,15 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             .iter()
             .map(|l| match &l.lex {
                 Some(e) if !e.definition.is_empty() || lex.contains_key(&l.key) => json!({
-                    "w": e.word, "t": e.translit, "m": e.morph, "g": e.gloss, "s": e.source,
-                    "d": lexhtml::segments(&e.definition, &vz),
+                    "w": e.word, "t": e.translit, "m": e.morph, "g": e.gloss, "s": e.source, "o": e.origin, "k": derivations.strongs(&l.key),
+                    "d": lexhtml::segments(parse::shown(&e.definition), &vz),
                 }),
                 _ => Value::Null,
             })
             .collect();
         write(out, &format!("lex/{s}.json"), serde_json::to_string(&rows).unwrap().as_bytes(), &mut files)?;
     }
+    eprintln!("{}", parse::origins_line(lemmas.iter().filter_map(|l| l.lex.as_ref().filter(|e| !e.definition.is_empty() || lex.contains_key(&l.key)).map(|e| (e, derivations.strongs(&l.key).is_some())))));
     for (s, chunk) in forms.chunks(LEX_SHARD).enumerate() {
         write(out, &format!("forms/{s}.json"), serde_json::to_string(chunk).unwrap().as_bytes(), &mut files)?;
     }

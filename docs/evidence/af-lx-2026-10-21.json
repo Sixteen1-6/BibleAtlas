@@ -1,0 +1,326 @@
+{
+ "_comment": [
+  "Evidence for the lexicon credits in the word study (audit items B4, C7, C10 and C11, D1 for names inside Abbott-Smith; founder's decisions 10, 11, 15, 19, 21 and 22), 21 October 2026, branch af-lx off main 2aabdcc.",
+  "Each record gives the page or file that was read, its final address, the HTTP status, the UTC time it was fetched, the SHA-256 of the body as fetched (of the first bytes only where a range is named), and either the exact words (public domain, an openly licensed data file or a catalogue record) or a pointer (copyrighted works, whose words are not copied here).",
+  "pinned: a file of a source pinned in sources.json, read from the verified raw folder of that commit; its hash is the file's, as manifest.lock.json records it.",
+  "Checks are described, never who made them."
+ ],
+ "records": [
+  {
+   "id": "tbesg-marks",
+   "for": "Which Greek definitions are Abbott-Smith's, Liddell and Scott's or STEPBible's own (crates/atlas-cli/src/parse.rs, origin), and the Greek credits in web/src/ui/WordStudy.tsx",
+   "pinned": "STEPBible-Data@1f3423d4, Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt",
+   "sha256": "312f723d7b8ef263bbdfb0451c9b8057125804dfff390b6f8544cff2a84b57f4",
+   "license": "CC BY 4.0 (STEPBible.org, Tyndale House)",
+   "quote": [
+    "The Brief lexicon is based on the Abbott-Smith definitions, and is edited to conform with the extended Strongs. For a few words where Abbott-Smith lacks a definition, one is supplied  from MiddleLiddel (MD) or STEPBible scholars",
+    "Meaning = lexical entry. The Brief lexicon uses Abbot-Smith or MiddleLiddel. The LJS lexicon uses the Full LSJ formatted by Tyndale House, Cambridge. Those without attribution have been added by STEPBible. ",
+    "(AS) = Abbott Smith - from https://github.com/translatable-exegetical-tools/Abbott-Smith, with corrections and adapted by Tyndale Scholars. ",
+    "(ML) = Middle Liddell - from Perseus - used for Meaning in the Brief lexicon when there is no entry by (AS)"
+   ],
+   "note": "The file's header (lines 8 and 77 to 80). The first line names the mark (MD), but every marked entry in the file ends in (ML)."
+  },
+  {
+   "id": "tbesh-source",
+   "for": "Which Hebrew definitions are abridged from Brown-Driver-Briggs and which are STEPBible's own notes on people and places, and the Hebrew credits",
+   "pinned": "STEPBible-Data@1f3423d4, Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt",
+   "sha256": "464dccadd95fd8620dd05fa0d7a4caba58ec3c4d5db3ebf38e43d046ca25b591",
+   "license": "CC BY 4.0 (STEPBible.org, Tyndale House)",
+   "quote": [
+    "The Brief lexicon is based on Abridged BDB by Online Bible, and edited to conform with the extended Strongs. This is provided  for guidence only. Permission should be gained from Online Bible before these definitions are applied in any project. ",
+    "Meaning\tThese are based on the Abridged BDB by Online Bible,  © Larry Pierce of OnlineBible.net [...]. They are for guidance only. Permission should be gained from Online Bible before these are applied in any project. ",
+    "These definitions refer to J. Green's A Concise Lexicon of the Biblical Languages (CLBL) and Harris, Archer, & Waltke's Theological Wordbook of the Old Testament (TWOT),). ",
+    "These have been edited to conform with OpenScripture's extended Strongs by Tyndale House Cambridge. Alignment with dStrongs is not yet completed. "
+   ],
+   "note": "The header (lines 7 to 8 and 48 to 50); '[...]' stands for an email address, left out by rule. STEPBible's own notes on people and places read like entry H0005: 'A man living at the time of Exile and Return, only mentioned at Est.1.10 <BR> § Abagtha = \"God-given\"<br> one of the seven eunuchs in the Persian court of Ahasuerus', where the part after the section mark has the form of BDB's name entries (Name = \"meaning\", then the description). The header's permission sentence is reported to the founder in the PR; this module does not change what is shipped."
+  },
+  {
+   "id": "classifier-counts",
+   "for": "The counts the build prints and atlas verify asserts within 1% (crates/atlas-cli/src/family.rs, verify)",
+   "method": "Each of the 16,972 roots with a shipped definition, read by crates/atlas-cli/src/parse.rs origin from its TBESH or TBESG entry at STEPBible-Data@1f3423d4.",
+   "counts": {
+    "Greek, Abbott-Smith (AS)": 5464,
+    "Greek, Middle Liddell (ML)": 66,
+    "Greek, STEPBible's own (no mark)": 20,
+    "Hebrew, abridged BDB": 8147,
+    "of which numbered outlines": 2738,
+    "Hebrew, STEPBible's note, then BDB's entry after the section mark": 3190,
+    "Hebrew, STEPBible's note alone": 85,
+    "Strong's own line": 16880
+   },
+   "note": "The audit's estimates were 5,464 (AS), 66 (ML), about 2,740 outlines and about 4,250 STEPBible notes on people and places. The first three match. The fourth does not: 4,398 shipped Hebrew entries are coded as names (N:), but about 1,120 of them hold only BDB's name entry (735 put the section mark after nothing but STEPBible's links to other entries, 334 open as BDB's name entries do), while 3,275 entries carry a STEPBible note (3,190 before BDB's entry, 85 alone). The credit follows what each entry holds."
+  },
+  {
+   "id": "abbott-smith-not-abridged",
+   "for": "Why the Greek credit says 'from Abbott-Smith' and not 'abridged from Abbott-Smith'",
+   "url": "https://raw.githubusercontent.com/translatable-exegetical-tools/Abbott-Smith/master/abbott-smith.tei.xml",
+   "status": 200,
+   "final_url": "https://raw.githubusercontent.com/translatable-exegetical-tools/Abbott-Smith/master/abbott-smith.tei.xml",
+   "fetched": "2026-10-21T12:15:03Z",
+   "sha256": "99821bee411626b4aa3e674040297b54b267eff86cb4f9b7ef69a8bdb18b6f90",
+   "method": "TBESG's entry G0026 (ἀγάπη) was compared with the entry for ἀγάπη in the Abbott-Smith project's TEI file: the same text, from 'love, goodwill, esteem. Outside of bibl. and eccl. books, there is no clear instance' to the SYN. note on φιλία, στοργή and ἔρως, with references written out ('Jhn.13:35' for 'Jo 13:35'). TBESG gives Abbott-Smith's entry whole, corrected and adapted, as its own key says; it is not an abridgment.",
+   "license": "public domain (the project's README)"
+  },
+  {
+   "id": "abbott-smith-project",
+   "for": "'Typed from the 1922 printing by the translatable-exegetical-tools project (public domain)'",
+   "url": "https://raw.githubusercontent.com/translatable-exegetical-tools/Abbott-Smith/master/README.md",
+   "status": 200,
+   "final_url": "https://raw.githubusercontent.com/translatable-exegetical-tools/Abbott-Smith/master/README.md",
+   "fetched": "2026-10-21T12:07:39Z",
+   "sha256": "8c67a8c904d8cbf2b66a9a6eaaed19cc5462b24edec3dc07ee689d30140f2c59",
+   "quote": [
+    "Abbott-Smith is a project to mark up the G. Abbott-Smith's *A Manual Greek Lexicon of the New Testament* (New York: Scribner's, 1922) using TEI.",
+    "The lexicon (abbott-smith.tei.xml), including the marked up version in this repository, is in the public domain. "
+   ]
+  },
+  {
+   "id": "abbott-smith-1922",
+   "for": "Abbott-Smith's date, publisher and post in the Deep credit, and 'The book' link",
+   "url": "https://archive.org/metadata/manualgreeklexic00abbo",
+   "status": 200,
+   "final_url": "https://archive.org/metadata/manualgreeklexic00abbo",
+   "fetched": "2026-10-21T12:07:17Z",
+   "sha256": "29981b17790b7d47d45cd6f0dec37f31f1857fb523815c444dce4498b09b97f9",
+   "quote": {
+    "title": "A manual Greek lexicon of the New Testament",
+    "creator": "Abbott-Smith, George",
+    "date": "1922",
+    "publisher": "Edinburgh, Clark"
+   },
+   "page": "https://archive.org/details/manualgreeklexic00abbo",
+   "also": {
+    "url": "https://archive.org/download/manualgreeklexic00abbo/manualgreeklexic00abbo_djvu.txt",
+    "status": 206,
+    "final_url": "https://dn790009.ca.archive.org/0/items/manualgreeklexic00abbo/manualgreeklexic00abbo_djvu.txt",
+    "fetched": "2026-10-21T12:13:49Z",
+    "sha256": "b00122ceddbcbc7b4c53c2a0cb6c8ec372cf66763c7da0903babe38aadfbf99e",
+    "range": "bytes 0-12000",
+    "quote": "MANUAL GREEK LEXICON OF THE NEW TESTAMENT BY G’ ABBOTT-SMITH, D.D., [D.C.L.], PROFESSOR OF NEW TESTAMENT LITERATURE IN THE MONTREAL DIOCESAN THEOLOGICAL COLLEGE AND ASSISTANT PROFESSOR IN THE ORIENTAL DEPARTMENT IN MCGILL UNIVERSITY",
+    "note": "The title page in the scan's text layer (OCR); '[D.C.L.]' stands where the OCR reads three Greek letters."
+   }
+  },
+  {
+   "id": "middle-liddell-1889",
+   "for": "Liddell and Scott's Intermediate Greek-English Lexicon (Oxford: Clarendon Press, 1889), the text STEPBible took from Perseus",
+   "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0058",
+   "status": 200,
+   "final_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0058",
+   "fetched": "2026-10-21T12:07:37Z",
+   "sha256": "1aa162becbf2c7671e9277c7e57cc26f4805bd10fc5d00a33bad2be8e9ddeac1",
+   "quote": "Liddell and Scott. An Intermediate Greek-English Lexicon. Oxford. Clarendon Press. 1889.",
+   "pointer": "The text's footer (div text_desc).",
+   "also": {
+    "url": "https://archive.org/metadata/intermediategree00lidd",
+    "status": 200,
+    "final_url": "https://archive.org/metadata/intermediategree00lidd",
+    "fetched": "2026-10-21T12:07:36Z",
+    "sha256": "aafd5a6dd1d5fc9069f7336c0db5af0c012d942322cf8be02d28e5c653a37efa",
+    "quote": {
+     "title": "An intermediate Greek-English lexicon, founded upon the seventh edition of Liddell and Scott's Greek-English lexicon",
+     "creator": "Liddell, Henry George, 1811-1898",
+     "date": "1889",
+     "publisher": "New York, Harper & Brothers"
+    },
+    "page": "https://archive.org/details/intermediategree00lidd",
+    "note": "The American printing of the same year, linked as 'The book'."
+   }
+  },
+  {
+   "id": "bdb-1906",
+   "for": "Brown, Driver and Briggs' date, publisher and posts in the Hebrew credits (decision 21: 'abridged from Brown-Driver-Briggs (1906)')",
+   "url": "https://archive.org/metadata/hebrewenglishlex00browuoft",
+   "status": 200,
+   "final_url": "https://archive.org/metadata/hebrewenglishlex00browuoft",
+   "fetched": "2026-10-21T12:07:25Z",
+   "sha256": "c22dab06a57d055948089c22e8b1ceae5d7e737239f48af9e8051911afcc8a75",
+   "quote": {
+    "title": "A Hebrew and English lexicon of the Old Testament : with an appendix containing the biblical Aramaic",
+    "creator": [
+     "Brown, Francis, 1849-1916",
+     "Robinson, Edward, 1794-1863",
+     "Driver, S. R. (Samuel Rolles), 1846-1914",
+     "Briggs, Charles A. (Charles Augustus), 1841-1913",
+     "Gesenius, Wilhelm, 1786-1842"
+    ],
+    "date": "1906",
+    "publisher": "Oxford [England] : Clarendon Press",
+    "possible-copyright-status": "NOT_IN_COPYRIGHT"
+   },
+   "page": "https://archive.org/details/hebrewenglishlex00browuoft",
+   "also": {
+    "url": "https://archive.org/download/hebrewenglishlex00browuoft/hebrewenglishlex00browuoft_djvu.txt",
+    "status": 206,
+    "final_url": "https://dn760006.eu.archive.org/0/items/hebrewenglishlex00browuoft/hebrewenglishlex00browuoft_djvu.txt",
+    "fetched": "2026-10-21T12:13:51Z",
+    "sha256": "37c5ed981c02b3a635340afe86f03417d819a8439b469551e9d9c1b10af98ee9",
+    "range": "bytes 0-12000",
+    "quote": "BY FRANCIS BROWN, D.D., D.Litt. DAVENPORT PROFESSOR OF HEBREW AND THE COGNATE LANGUAGES IN THE UNION THEOLOGICAL SEMINARY WITH THE COOPERATION OF S. R. DRIVER, D.D., Litt.D. and CHARLES A. BRIGGS, D.D., D.Litt. REGIUS PROFESSOR OF HEBREW, AND CANON OF CHRIST CHURCH, OXFORD [...] EDWARD ROBINSON PROFESSOR OF BIBLICAL THEOLOGY IN THE UNION THEOLOGICAL SEMINARY [...] FIRST EDITION 1906",
+    "note": "The title page in the scan's text layer (OCR, its two columns run together; this scan is the impression of 1939)."
+   }
+  },
+  {
+   "id": "strong-1890",
+   "for": "'James Strong, professor at Drew Theological Seminary, The Exhaustive Concordance of the Bible (copyright 1890; first printed 1894)'",
+   "url": "https://archive.org/download/exhaustiveconcor0000jame_t4t6/exhaustiveconcor0000jame_t4t6_djvu.txt",
+   "status": 206,
+   "final_url": "https://ia600402.us.archive.org/6/items/exhaustiveconcor0000jame_t4t6/exhaustiveconcor0000jame_t4t6_djvu.txt",
+   "fetched": "2026-10-21T12:14:03Z",
+   "sha256": "ea10952386a0da519cfbca49910c29a152f411d4fe5505f5465bc9ca3092fbea",
+   "range": "bytes 0-12000",
+   "quote": "Copyright, 1890, by JAMES STRONG MADISON, N. J. [...] First Edition Printed April, 1894",
+   "page": "https://archive.org/details/exhaustiveconcor0000jame_t4t6",
+   "also": [
+    {
+     "url": "https://archive.org/metadata/exhaustiveconcor0000jame_t4t6",
+     "status": 200,
+     "final_url": "https://archive.org/metadata/exhaustiveconcor0000jame_t4t6",
+     "fetched": "2026-10-21T12:07:27Z",
+     "sha256": "d84c2d7de912ea40127d556c53b352e84fe842f3d9d290bef64049034f3e367e",
+     "quote": {
+      "title": "THE EXHAUSTIVE CONCORDANCE OF THE BIBLE",
+      "creator": "JAMES STRONG, S.T.D., LL.D.",
+      "date": "1890"
+     }
+    },
+    {
+     "url": "https://id.loc.gov/authorities/names/n79043977.json",
+     "status": 200,
+     "final_url": "https://id.loc.gov/authorities/names/n79043977.json",
+     "fetched": "2026-10-21T12:20:25Z",
+     "sha256": "ee11dcfa644160c2a2b32431eac2cfc890306e29172e1e8f2a126fb052ab76e7",
+     "quote": [
+      "Strong, James, 1822-1894",
+      "title page (James Strong, S.T.D., LL. D., professor in the Drew Theological Seminary)"
+     ],
+     "pointer": "Library of Congress name authority n79043977: its heading and a source note."
+    }
+   ]
+  },
+  {
+   "id": "strongs-json",
+   "for": "Strong's own line in the word study (crates/atlas-cli/src/family.rs, strongs_line) and its credit",
+   "pinned": "strongs@0acd2f25, greek/strongs-greek-dictionary.js and hebrew/strongs-hebrew-dictionary.js",
+   "sha256": {
+    "greek": "7624ee738ae47e80f1a352223e28a26d011c9cd4898822cee52f47a010c04efd",
+    "hebrew": "5ce6aeed551c709f49bcfa341cadf2f34bc7599b85d9de9e6ac2ecbf60fc3739"
+   },
+   "license": "CC BY-SA (JSON edition, no version stated); Strong's text public domain",
+   "quote": [
+    "Dictionary of Greek Words taken from Strong's Exhaustive Concordance by James Strong, S.T.D., LL.D. 1890",
+    "A Concise Dictionary of the Words in the Hebrew Bible with their Renderings in the King James Version by James Strong, LL.D., S.T.D. 1894",
+    "Copyright 2009, Open Scriptures. CC-BY-SA. Derived from XML.",
+    "Copyright 2010, Open Scriptures. CC-BY-SA. Derived from XML."
+   ],
+   "method": "Each entry's 'derivation' and 'strongs_def' fields, in that order: Strong printed the derivation, then the definition, then the King James renderings (left out). The JSON edition sometimes puts the start of the definition in 'derivation' (G2316 θεός: 'of uncertain affinity; a deity, especially (with G3588 (ὁ)) the supreme Divinity;' then 'figuratively, a magistrate; by Hebraism, very'), so both fields are shown.",
+   "checked": [
+    "246 Hebrew definitions are wholly or partly in braces; 222 of them are, word for word, the definition of the Hebrew word the Aramaic one 'corresponds to' (H2 '{father}' beside H1 'father, in a literal and immediate ...'), and 13 more are part of one. The braces mark text the edition's editors supplied where Strong gave none, so braced text is left out. One entry (H3969 מְאָה) opens its braces inside the derivation field and closes them in the definition; its line keeps only the derivation's first clause, '(Aramaic) corresponding to H3967'. The edition's XML (hebrew/StrongHebrewG.xml at the same commit) has the braces too: '<note type=\"explanation\">{<hi>father</hi>}</note>'.",
+    "76 distinct notes by the edition's editors on spellings they corrected sit inside Strong's text (H348 'from H336 (אִי)lemma אי missing vowel, corrected to אִי and H2083 (זְבֻל);'); they are left out.",
+    "16,880 of 16,972 roots get a line; the others have numbers Strong did not give (STEPBible's H9001 to H9049, its Greek G6000 and above) or an empty entry, and show only the fuller lexicon."
+   ],
+   "xml": {
+    "url": "https://raw.githubusercontent.com/openscriptures/strongs/0acd2f251c2d35ff8db2dece4e0593979d3ac223/hebrew/StrongHebrewG.xml",
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/openscriptures/strongs/0acd2f251c2d35ff8db2dece4e0593979d3ac223/hebrew/StrongHebrewG.xml",
+    "fetched": "2026-10-21T12:10:15Z",
+    "sha256": "1f9659ea208f4c498843a0280dacb1448627c33ca77712642d8705793ab66061"
+   }
+  },
+  {
+   "id": "stepbible-code-keys",
+   "for": "'Word type' in words (web/src/data/lex.ts, wordType)",
+   "files": [
+    {
+     "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEHMC%20-%20Translators%20Expansion%20of%20Hebrew%20Morphology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+     "status": 200,
+     "final_url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEHMC%20-%20Translators%20Expansion%20of%20Hebrew%20Morphology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+     "fetched": "2026-10-21T12:17:40Z",
+     "sha256": "78779bea824b31d4467dec0161d547481c86f266bc39def12cd11dc7dcbe6da7"
+    },
+    {
+     "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEGMC%20-%20Translators%20Expansion%20of%20Greek%20Morphhology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+     "status": 200,
+     "final_url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEGMC%20-%20Translators%20Expansion%20of%20Greek%20Morphhology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+     "fetched": "2026-10-21T12:17:38Z",
+     "sha256": "5f0416f7617019a6082285214903bde569a980d5fd3b88b8d7020d944e94de82"
+    }
+   ],
+   "license": "CC BY 4.0, STEPBible.org based on work at Tyndale House Cambridge",
+   "pointer": "Each key's section 'BRIEF LEXICAL MORPHOLOGY CODES' ('These codes are used in the Lexicon'): a code, an English example and its meaning, as 'H:N-M\tman\tHebrew Noun (Masculine)' and 'N:N-M-P \tJudah\tProper Name of a Male Person'. TEHMC's words are used for the Hebrew lexicon's codes and TEGMC's for the Greek's.",
+   "checked": [
+    "Of the 133 distinct codes on the 16,972 shipped entries, 109 (on 16,512 roots) are in the keys as written. The rest are put in words from their parts: Aramaic codes the keys give only for Hebrew ('A:N-M' from 'H:N-M', with 'Aramaic' for 'Hebrew', as the keys write 'A: ... Aramaic word' beside 'H: ... Hebrew word'), a stray space or dash ('G:A/ G:ADV', 'G:C-'), and codes for two uses ('G:N-F / G:V'). Three spellings in the keys are mended: 'Interogative', 'Intjection' and 'DemonstrativePronoun'. 'Prefix' (3 roots) and an empty code (3 roots) have no words in the keys, so their row is not shown."
+   ]
+  },
+  {
+   "id": "twot-clbl",
+   "for": "The works STEPBible marks inside some Hebrew lines, '(CLBL)' (77 entries) and '(TWOT)' (81)",
+   "url": "https://archive.org/metadata/theologicalwordb01harr",
+   "status": 200,
+   "final_url": "https://archive.org/metadata/theologicalwordb01harr",
+   "fetched": "2026-10-21T12:14:30Z",
+   "sha256": "bc2371db2561ed237f0b1806735490fd591a43454489246e98ec34e3a1a91e1d",
+   "quote": {
+    "title": "Theological wordbook of the Old Testament",
+    "creator": [
+     "Harris, R. Laird (Robert Laird), 1911-2008",
+     "Archer, Gleason L. (Gleason Leonard), 1916-2004",
+     "Waltke, Bruce K"
+    ],
+    "date": "1980",
+    "publisher": "Chicago : Moody Press"
+   },
+   "also": {
+    "url": "https://openlibrary.org/search.json?q=concise+lexicon+to+the+biblical+languages+green&fields=title,author_name,first_publish_year,publisher,key&limit=3",
+    "status": 200,
+    "final_url": "https://openlibrary.org/search.json?q=concise+lexicon+to+the+biblical+languages+green&fields=title,author_name,first_publish_year,publisher,key&limit=3",
+    "fetched": "2026-10-21T14:00:01Z",
+    "sha256": "5c2301959b4ecb3e6a6966881ec73778abe423181ae005556f697732f07b472a",
+    "quote": {
+     "title": "Concise Lexicon to the Biblical Languages",
+     "author_name": [
+      "Sr., Jay, P Green",
+      "Maurice, Dr. Robinson"
+     ],
+     "publisher": [
+      "Sovereign Grace Publishers Inc."
+     ],
+     "first_publish_year": 2007
+    },
+    "note": "No earlier record was found, so the credit names the work without a date."
+   },
+   "note": "Both works are copyrighted; nothing of them is copied here. The lines that carry the marks are STEPBible's (record tbesh-source)."
+  },
+  {
+   "id": "aramaic-certainty",
+   "for": "'(scholars differ)' on the word study's language label (web/src/data/lex.ts, langLabel)",
+   "pinned": "config/aramaic.json at 2aabdcc, loanRoots",
+   "quote": [
+    [
+     "G2241",
+     "ἠλί",
+     "Aramaic or Hebrew",
+     "scholars differ"
+    ],
+    [
+     "G0993",
+     "Βοανεργές",
+     "Aramaic or Hebrew",
+     "scholars differ"
+    ],
+    [
+     "G1042",
+     "γαββαθά",
+     "Aramaic",
+     "scholars differ"
+    ],
+    [
+     "G0964",
+     "Βηθζαθά",
+     "Aramaic or Hebrew",
+     "scholars differ"
+    ]
+   ],
+   "note": "The label reads the certainty from extras/aramaic.json's roots, which crates/atlas-cli/src/extra_aramaic.rs builds from these rows."
+  }
+ ]
+}

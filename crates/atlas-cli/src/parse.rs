@@ -672,6 +672,172 @@ pub struct LexEntry {
     /// "a Form of"...), empty for a word's own entry.
     pub relation: String,
     pub target: String,
+    /// Whose words the definition is: one of the `ORIGIN_*` codes, read by
+    /// `origin` from the entry itself.
+    pub origin: &'static str,
+}
+
+/// TBESG, "(AS)": "Abbott Smith - from https://github.com/translatable-exegetical-tools/Abbott-Smith,
+/// with corrections and adapted by Tyndale Scholars" (the file's own key):
+/// G. Abbott-Smith, A Manual Greek Lexicon of the New Testament (1922).
+pub const ORIGIN_ABBOTT_SMITH: &str = "as";
+/// TBESG, "(ML)": "Middle Liddell - from Perseus - used for Meaning in the
+/// Brief lexicon when there is no entry by (AS)": Liddell and Scott, An
+/// Intermediate Greek-English Lexicon (Oxford, 1889).
+pub const ORIGIN_MIDDLE_LIDDELL: &str = "ml";
+/// TBESG with neither mark: "Those without attribution have been added by STEPBible."
+pub const ORIGIN_STEP_GREEK: &str = "sg";
+/// TBESH meanings: "based on the Abridged BDB by Online Bible" (Larry Pierce),
+/// "edited to conform with OpenScripture's extended Strongs by Tyndale House":
+/// Brown, Driver and Briggs, A Hebrew and English Lexicon of the Old Testament (1906).
+pub const ORIGIN_BDB: &str = "bdb";
+/// A TBESH entry that opens with STEPBible's own note on a person or place
+/// ("A man living at the time of United Monarchy, first mentioned at ...")
+/// and gives the abridged BDB entry after a "§".
+pub const ORIGIN_STEP_THEN_BDB: &str = "sn";
+/// A TBESH entry on a person or place that is STEPBible's note alone.
+pub const ORIGIN_STEP_HEBREW: &str = "s";
+
+/// The lines STEPBible adds to a TBESH entry to point at other entries
+/// ("Aramaic of a.dar (אֲדָר "Adar" H0143)", "Another name of ..."). They
+/// link words; they say nothing of whose definition the entry is.
+const STEP_LINKS: [&str; 15] = [
+    "aramaic of",
+    "hebrew of",
+    "also named",
+    "also called",
+    "another name of",
+    "aramaic equivalent",
+    "hebrew equivalent",
+    "also means",
+    "another spelling of",
+    "group of",
+    "combined with",
+    "a sub-meaning of",
+    "a grammatical form of",
+    "a shortened name of",
+    "a name like",
+];
+
+/// STEPBible's own note on a person or place: "A man living at the time of
+/// United Monarchy, first mentioned at 1Ki.7.13".
+fn step_note(line: &str) -> bool {
+    ["living at the time of", "living before", "first mentioned at", "only mentioned at"].iter().any(|p| line.contains(p))
+}
+
+/// BDB's own way of opening a name: `Abel Meholah = "meadow of dancing"`.
+fn bdb_name(line: &str) -> bool {
+    match line.split_once('=') {
+        Some((name, rest)) => !name.trim().is_empty() && name.chars().count() <= 60 && rest.trim_start().starts_with(['"', '\u{201C}']),
+        None => false,
+    }
+}
+
+/// Whose words a lexicon entry's definition is. TBESG marks each entry it
+/// takes from a printed lexicon at its end. TBESH gives the abridged BDB,
+/// except where STEPBible writes its own note on a person or place; after such
+/// a note it marks where BDB's entry begins with "§". STEPBible's lines that
+/// only point at other entries (`STEP_LINKS`) do not count either way.
+pub fn origin(source: &str, morph: &str, definition: &str) -> &'static str {
+    let t = definition.trim_end();
+    if source == "tbesg" {
+        if t.ends_with("(AS)") {
+            return ORIGIN_ABBOTT_SMITH;
+        }
+        if t.ends_with("(ML)") {
+            return ORIGIN_MIDDLE_LIDDELL;
+        }
+        return ORIGIN_STEP_GREEK;
+    }
+    let plain = lexicon_plain(definition);
+    let (before, bdb_after) = match plain.split_once('§') {
+        Some((b, _)) => (b, true),
+        None => (plain.as_str(), false),
+    };
+    let own: Vec<&str> = before
+        .lines()
+        .map(|l| l.trim().trim_start_matches('#').trim_start())
+        .filter(|l| !l.is_empty() && !STEP_LINKS.iter().any(|p| l.to_lowercase().starts_with(p)))
+        .collect();
+    if bdb_after {
+        return if own.is_empty() { ORIGIN_BDB } else { ORIGIN_STEP_THEN_BDB };
+    }
+    let Some(first) = own.first() else {
+        // Only STEPBible's links to other entries.
+        return ORIGIN_STEP_HEBREW;
+    };
+    if step_note(first) {
+        return ORIGIN_STEP_HEBREW;
+    }
+    // A name whose text is neither BDB's opening nor BDB's numbered senses.
+    if morph.starts_with("N:") && !bdb_name(first) && !first.starts_with("1)") {
+        return ORIGIN_STEP_HEBREW;
+    }
+    ORIGIN_BDB
+}
+
+/// A definition's text with its markup taken out and `<br>` as a new line,
+/// for reading what it says (not for showing: `lexhtml::segments` does that).
+fn lexicon_plain(html: &str) -> String {
+    let mut out = String::with_capacity(html.len());
+    let mut rest = html;
+    while let Some(lt) = rest.find('<') {
+        out.push_str(&rest[..lt]);
+        let Some(gt) = rest[lt..].find('>') else {
+            rest = "";
+            break;
+        };
+        if rest[lt + 1..lt + gt].trim_start_matches('/').get(..2).is_some_and(|t| t.eq_ignore_ascii_case("br")) {
+            out.push('\n');
+        }
+        rest = &rest[lt + gt + 1..];
+    }
+    out.push_str(rest);
+    out
+}
+
+/// The definition as the word study shows it: without the "(AS)" or "(ML)"
+/// that ends a TBESG entry (the credit under the entry names the lexicon), nor
+/// the line break before it.
+pub fn shown(definition: &str) -> &str {
+    let mut t = definition.trim_end();
+    for mark in ["(AS)", "(ML)"] {
+        if let Some(s) = t.strip_suffix(mark) {
+            t = s.trim_end();
+            while let Some(n) = ["<br />", "<br/>", "<br>"].iter().find(|b| t.len() >= b.len() && t.get(t.len() - b.len()..).is_some_and(|e| e.eq_ignore_ascii_case(b))).map(|b| b.len()) {
+                t = t[..t.len() - n].trim_end();
+            }
+            break;
+        }
+    }
+    t
+}
+
+/// An outline of numbered senses, as BDB gives most words ("1) perish, vanish ...").
+pub fn is_outline(definition: &str) -> bool {
+    lexicon_plain(definition).trim_start().starts_with("1)")
+}
+
+/// The build's line on whose words the shipped definitions are, from each
+/// root's entry and whether Strong's has a line for its number.
+pub fn origins_line<'a>(entries: impl Iterator<Item = (&'a LexEntry, bool)>) -> String {
+    let mut n: HashMap<&str, usize> = HashMap::new();
+    let (mut outlines, mut strongs) = (0, 0);
+    for (e, k) in entries {
+        *n.entry(e.origin).or_default() += 1;
+        outlines += usize::from(e.origin == ORIGIN_BDB && is_outline(&e.definition));
+        strongs += usize::from(k);
+    }
+    let c = |o: &str| n.get(o).copied().unwrap_or(0);
+    format!(
+        "lexicon credits: Greek {} Abbott-Smith, {} Middle Liddell, {} STEPBible's own; Hebrew {} abridged BDB ({outlines} outlines), {} STEPBible's note then BDB's, {} STEPBible's own; Strong's own line for {strongs} roots",
+        c(ORIGIN_ABBOTT_SMITH),
+        c(ORIGIN_MIDDLE_LIDDELL),
+        c(ORIGIN_STEP_GREEK),
+        c(ORIGIN_BDB),
+        c(ORIGIN_STEP_THEN_BDB),
+        c(ORIGIN_STEP_HEBREW)
+    )
 }
 
 pub fn lexicon(path: &Path, source: &'static str, out: &mut HashMap<String, LexEntry>) -> Result<usize, String> {
@@ -697,6 +863,7 @@ pub fn lexicon(path: &Path, source: &'static str, out: &mut HashMap<String, LexE
             estrong: cols[0].trim().to_string(),
             relation: cols[1].split_once('=').map_or("", |x| x.1).trim().to_string(),
             target: cols[2].split_whitespace().next().unwrap_or("").to_string(),
+            origin: origin(source, cols[5].trim(), cols[7].trim()),
         });
     }
     Ok(n)
@@ -743,6 +910,36 @@ mod tests {
         assert!(hebrew_form("ל֣/וֹ", "H9005/{H8104H}", "HR/Sp3ms").code.is_empty());
         assert_eq!(greek_code("A-ASM-N"), "A-ASM");
         assert_eq!(greek_code("N-NSM-T"), "N-NSM");
+    }
+
+    #[test]
+    fn lexicon_origins() {
+        // TBESH H0001H: STEPBible's own note on a person, though its code is a common noun's.
+        let huram = "A man living at the time of United Monarchy, first mentioned at 1Ki.7.13; also called Huram-abi (KJV: \"Huram my father's\") at 2Ch.2.13; 4.16; <BR>Combined with <i>chi.ram</i> (חִירָם \"Hiram\" H2438H)";
+        assert_eq!(origin("tbesh", "H:N-M", huram), ORIGIN_STEP_HEBREW);
+        // An outline (H0006) and a short meaning (H0008) are the abridged BDB.
+        assert_eq!(origin("tbesh", "H:V", "1) perish, vanish, go astray, be destroyed<br>1a) (Qal)<br>1a1) perish, die, be exterminated"), ORIGIN_BDB);
+        assert_eq!(origin("tbesh", "H:N-M", "destruction"), ORIGIN_BDB);
+        // STEPBible's line pointing at another entry does not make it STEPBible's (H0002).
+        assert_eq!(origin("tbesh", "A:N-M", "father<BR>Aramaic of <i>av</i> (אָב \"father\" H0001)"), ORIGIN_BDB);
+        // STEPBible's note, then BDB's name entry after "§" (H0005).
+        let abagtha = "A man living at the time of Exile and Return, only mentioned at Est.1.10 <BR> § Abagtha = \"God-given\"<br> one of the seven eunuchs in the Persian court of Ahasuerus<br>";
+        assert_eq!(origin("tbesh", "N:N-M-P", abagtha), ORIGIN_STEP_THEN_BDB);
+        // Only STEPBible's link before the "§": BDB's (H0144).
+        assert_eq!(origin("tbesh", "A:N--T", " <BR>Aramaic of <i>a.dar</i> (אֲדָר \"Adar\" H0143) <BR> § Adar = \"glorious\"<br> twelfth month"), ORIGIN_BDB);
+        // BDB's own opening of a name, with STEPBible's link after it (H0063).
+        assert_eq!(origin("tbesh", "N:N--L", "Abel Shittim = \"meadow of acacias\"<br> place in lowlands of Moab<BR>Another name of <i>shit.tim</i> (שִׁטִּים \"Shittim\" H7851G)"), ORIGIN_BDB);
+        // A name STEPBible describes in its own words (H1628).
+        assert_eq!(origin("tbesh", "N:N--L", "This name means  lodging place"), ORIGIN_STEP_HEBREW);
+        // TBESG marks its sources at the end.
+        assert_eq!(origin("tbesg", "N:N--L", " <b>Γαββαθα</b> (Rec. -θᾶ), ἡ, indecl., <BR /> <b>Gabbatha</b>: <ref='Jhn.19.13.'>Jhn.19:13.</ref>†<BR /> (AS)"), ORIGIN_ABBOTT_SMITH);
+        assert_eq!(origin("tbesg", "G:V", "<b>to dwell in the field </b>, (New Testament) (ML)"), ORIGIN_MIDDLE_LIDDELL);
+        assert_eq!(origin("tbesg", "G:V", "refrain, receive/be far, keep away from "), ORIGIN_STEP_GREEK);
+        // The mark leaves the shown text, with the line break before it.
+        assert_eq!(shown(" <b>Gabbatha</b>: Jhn.19:13.†<BR /> (AS)"), " <b>Gabbatha</b>: Jhn.19:13.†");
+        assert_eq!(shown("<b>incorruption </b>, (New Testament) (ML)"), "<b>incorruption </b>, (New Testament)");
+        assert_eq!(shown("ἐν τῇ (AS) of the entry"), "ἐν τῇ (AS) of the entry");
+        assert_eq!(shown("destruction"), "destruction");
     }
 
     #[test]

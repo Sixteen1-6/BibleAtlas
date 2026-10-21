@@ -1,14 +1,16 @@
 // One Hebrew, Aramaic or Greek root: meaning, grammar in this verse,
 // manuscript evidence, and every place it occurs.
 
-import type { ComponentProps, ComponentType } from 'preact';
+import type { ComponentChildren, ComponentProps, ComponentType } from 'preact';
 import { Fragment } from 'preact';
 import { effect } from '@preact/signals';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { WordSky } from './WordSky';
-import { type Atlas, label, langName, versesWithRoot } from '../data/atlas';
+import { type Atlas, label, versesWithRoot } from '../data/atlas';
 import { type Forms, type Relation, formAt, getForms, relation, versesWithForm, versesWithRoots } from '../data/forms';
-import { type LexEntry, getLex } from '../data/lex';
+import { type LexEntry, type Segment, getLex, langLabel, wordType } from '../data/lex';
+import { loadJson } from './extras/data';
+import { openExtra } from './extras/open';
 import { NOT_NUMBERS, describeMorph } from '../data/morph';
 import { FLAG } from '../data/text';
 import { describeVariant, describeVariantNote } from '../data/variants';
@@ -289,6 +291,13 @@ function EveryForm({ a, r, fm, here, hereCode, hereGloss, total }: { a: Atlas; r
   );
 }
 
+/** A root's forms with what crates/atlas-cli/src/family.rs says of who made
+ *  its links: `h` the relatives (by the root heading their word) linked only
+ *  by this app's corrections of slips in Strong's numbers, `t` the Aramaic
+ *  twins STEPBible pairs that Strong's does not tie, and `x` 1 where this
+ *  root's own derivation was corrected, 2 where it is left out. */
+type FormsBy = Forms & { h?: number[]; t?: number[]; x?: 1 | 2 };
+
 /** Rows of the family shown before "Show all". */
 const FIRST_KIN = 6;
 
@@ -380,6 +389,7 @@ function Family({ a, r, fm }: { a: Atlas; r: number; fm: Forms }) {
   const words = rows.filter((x) => x.rel !== 'n');
   const sense = rows.find((x) => x.rel === 'n');
   const shown = all ? words : words.slice(0, FIRST_KIN);
+  const by = fm as FormsBy;
   return (
     <>
       <h3>Words related to {L.word[r]}</h3>
@@ -390,6 +400,8 @@ function Family({ a, r, fm }: { a: Atlas; r: number; fm: Forms }) {
             <RootChip a={a} root={row.head} />
             <span class="muted">
               {relation(row.rel, L.lang[row.head])} · {row.count.toLocaleString()}×{row.roots.length > 1 ? ' in all senses' : ''}
+              {by.h?.includes(row.head) && ' · linked by this app, where Strong’s number is a slip'}
+              {by.t?.includes(row.head) && ' · paired by STEPBible; Strong’s does not tie them'}
             </span>
           </div>
         ))}
@@ -407,10 +419,10 @@ function Family({ a, r, fm }: { a: Atlas; r: number; fm: Forms }) {
   );
 }
 
-function Definition({ entry }: { entry: LexEntry }) {
+function Segments({ d }: { d: Segment[] }) {
   return (
     <div class="def">
-      {entry.d.map(([text, style, ref], i) => {
+      {d.map(([text, style, ref], i) => {
         const body = style & 1 ? <b>{text}</b> : text;
         const el = style & 2 ? <i>{body}</i> : body;
         if (ref >= 0) {
@@ -424,6 +436,301 @@ function Definition({ entry }: { entry: LexEntry }) {
       })}
     </div>
   );
+}
+
+/** A definition's segments split where STEPBible marks, with "§", that
+ *  Brown-Driver-Briggs' entry follows its own note: [note, BDB's entry]. The
+ *  mark itself goes, since a label says the same. */
+function splitAtMark(d: Segment[]): [Segment[], Segment[]] {
+  const at = d.findIndex((s) => s[0].includes('§'));
+  if (at < 0) return [d, []];
+  const [text, style, ref] = d[at];
+  const i = text.indexOf('§');
+  const head = text.slice(0, i).replace(/\s+$/, '');
+  const tail = text.slice(i + 1).replace(/^\s+/, '');
+  const before = [...d.slice(0, at), ...(head ? [[head, style, ref] as Segment] : [])];
+  const after = [...(tail ? [[tail, style, ref] as Segment] : []), ...d.slice(at + 1)];
+  const blank = (x: Segment[]) => x.every((s) => !s[0].trim());
+  return blank(before) ? [after, []] : [before, blank(after) ? [] : after];
+}
+
+/** "§" left in an entry whose whole text is BDB's (only STEPBible's link to
+ *  another entry before it) says nothing a reader needs. */
+function withoutMark(d: Segment[]): Segment[] {
+  return d.map(([t, s, r]) => [t.replace(/\s*§\s*/g, '\n'), s, r] as Segment).filter((x, i) => i > 0 || x[0].trim());
+}
+
+/** Text with Strong's numbers in it ("from G25 (ἀγαπάω)"), each number a link
+ *  to that word's own study. */
+function StrongsText({ a, text }: { a: Atlas; text: string }) {
+  const roots = useMemo(() => strongsRoots(a), [a]);
+  const parts: ComponentChildren[] = [];
+  let last = 0;
+  for (const m of text.matchAll(/\b([HG])0*(\d{1,5})\b(\s\([^()]*\))?/g)) {
+    const j = roots.get(`${m[1]}${m[2]}`);
+    if (j === undefined) continue;
+    parts.push(text.slice(last, m.index));
+    const go = () => S.openRoot(j);
+    parts.push(
+      <span key={m.index} class="r" role="link" tabIndex={0} onClick={go} onKeyDown={(e) => e.key === 'Enter' && go()}>
+        {m[0]}
+      </span>,
+    );
+    last = (m.index ?? 0) + m[0].length;
+  }
+  parts.push(text.slice(last));
+  return <div class="def">{parts}</div>;
+}
+
+const numberRoots = new WeakMap<Atlas, Map<string, number>>();
+
+/** Each Strong's number ("H1", "G26") to its most used root. */
+function strongsRoots(a: Atlas): Map<string, number> {
+  let m = numberRoots.get(a);
+  if (m) return m;
+  m = new Map();
+  const L = a.lemmas;
+  for (let i = 0; i < L.key.length; i++) {
+    const k = /^([HG])0*(\d+)/.exec(L.key[i]);
+    if (!k) continue;
+    const n = `${k[1]}${k[2]}`;
+    const was = m.get(n);
+    if (was === undefined || L.count[i] > L.count[was]) m.set(n, i);
+  }
+  numberRoots.set(a, m);
+  return m;
+}
+
+/** One credit, by level (the shape AF-K's credit line takes): Simple and Study
+ *  show a short line that one tap opens, in place, into the full credit Deep
+ *  shows, with its links; the reader's level does not change. */
+interface Cite {
+  simple: string;
+  study: string;
+  deep: ComponentChildren;
+  links: [string, string][];
+}
+
+const CREDIT_STYLE = 'margin:6px 0 14px;font-size:12.5px;line-height:1.5';
+const CREDIT_BUTTON = 'display:inline;padding:0;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer;text-decoration:underline dotted;text-underline-offset:2px';
+
+function CreditLine({ c }: { c: Cite }) {
+  const [open, setOpen] = useState(false);
+  const full = (
+    <>
+      {c.deep}
+      {c.links.map(([href, text]) => (
+        <Fragment key={href}>
+          {' '}
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {text}
+          </a>
+          .
+        </Fragment>
+      ))}
+    </>
+  );
+  if (atLeast('deep')) {
+    return (
+      <p class="muted" style={CREDIT_STYLE}>
+        {full}
+      </p>
+    );
+  }
+  return (
+    <p class="muted" style={CREDIT_STYLE}>
+      <button type="button" style={CREDIT_BUTTON} aria-expanded={open} onClick={() => setOpen(!open)}>
+        {atLeast('study') ? c.study : c.simple}
+      </button>
+      {open && <span style="display:block;margin-top:4px">{full}</span>}
+    </p>
+  );
+}
+
+/** "2026-10-05" as "5 Oct 2026". */
+function day(iso: unknown): string | null {
+  if (typeof iso !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return null;
+  const [y, m, d] = iso.slice(0, 10).split('-').map(Number);
+  const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][m - 1];
+  return month ? `${d} ${month} ${y}` : null;
+}
+
+/** Where the app read a dataset: its commit, and, once sources.json records
+ *  them (`version`, the upstream commit's date, and `copied`, the day the pin
+ *  was set), both dates. Nothing is said of a date no record gives. */
+function readFrom(a: Atlas, id: string): { commit: string; dates: string; file: (path: string) => string } {
+  const s = a.meta.sources.find((x) => x.id === id) as (Atlas['meta']['sources'][number] & { version?: unknown; copied?: unknown }) | undefined;
+  const commit = s?.commit ?? '';
+  const v = day(s?.version);
+  const c = day(s?.copied);
+  const dates = [v && `version of ${v}`, c && `copied ${c}`].filter(Boolean).join(', ');
+  const repo = (s?.repo ?? '').replace(/\/$/, '');
+  return { commit: commit.slice(0, 8), dates: dates ? `, ${dates}` : '', file: (path) => `${repo}/blob/${commit}/${path.split('/').map(encodeURIComponent).join('/')}` };
+}
+
+const STEP_GREEK = 'Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt';
+const STEP_HEBREW = 'Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt';
+
+/** The works STEPBible's Hebrew lines name in brackets, for the lines that carry them. */
+const MARKED: [string, string][] = [
+  ['(CLBL)', 'J. P. Green, Concise Lexicon to the Biblical Languages'],
+  ['(TWOT)', 'R. Laird Harris, Gleason L. Archer and Bruce K. Waltke, Theological Wordbook of the Old Testament (1980)'],
+  ['(BDB)', 'Brown-Driver-Briggs (1906)'],
+];
+
+/** Who wrote a lexicon entry, from its origin (crates/atlas-cli/src/parse.rs). */
+function lexCite(a: Atlas, e: LexEntry): Cite {
+  const step = readFrom(a, e.s);
+  const file = step.file(e.s === 'tbesg' ? STEP_GREEK : STEP_HEBREW);
+  const at = `read at STEPBible's commit ${step.commit}${step.dates}`;
+  const text = e.d.map((s) => s[0]).join('');
+  const marked = MARKED.filter(([m]) => text.includes(m));
+  const key = marked.length ? ` Lines marked ${marked.map(([m, w]) => `${m} are from ${w}`).join('; ')}.` : '';
+  const bdbBook: [string, string] = ['https://archive.org/details/hebrewenglishlex00browuoft', 'The book (Internet Archive)'];
+  const stepFile: [string, string] = [file, 'STEPBible’s file'];
+  switch (e.o) {
+    case 'as':
+      return {
+        simple: 'From G. Abbott-Smith (1922).',
+        study: 'G. Abbott-Smith, A Manual Greek Lexicon of the New Testament (1922), through STEPBible.',
+        deep: `G. Abbott-Smith, professor of New Testament literature at the Montreal Diocesan Theological College, A Manual Greek Lexicon of the New Testament (Edinburgh: T. & T. Clark, 1922), his entry on ${e.w}. Typed from the 1922 printing by the translatable-exegetical-tools project (public domain), corrected and adapted by Tyndale House scholars as STEPBible’s Greek lexicon (TBESG, CC BY 4.0), ${at}.`,
+        links: [stepFile, ['https://archive.org/details/manualgreeklexic00abbo', 'The book (Internet Archive)']],
+      };
+    case 'ml':
+      return {
+        simple: 'From Liddell and Scott (1889).',
+        study: 'H. G. Liddell and R. Scott, An Intermediate Greek-English Lexicon (1889), through STEPBible.',
+        deep: `Henry George Liddell and Robert Scott, An Intermediate Greek-English Lexicon (Oxford: Clarendon Press, 1889), founded on the seventh edition of their Greek-English Lexicon, its entry on ${e.w}. STEPBible uses it where Abbott-Smith has no entry, from the Perseus Digital Library’s text (Tufts University), in its Greek lexicon (TBESG, CC BY 4.0), ${at}.`,
+        links: [stepFile, ['https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.04.0058', 'Perseus'], ['https://archive.org/details/intermediategree00lidd', 'The book (Internet Archive)']],
+      };
+    case 'sg':
+      return {
+        simple: 'From STEPBible (Tyndale House).',
+        study: 'Written by STEPBible (Tyndale House, Cambridge); no older lexicon is marked for it.',
+        deep: `Written by STEPBible’s scholars at Tyndale House, Cambridge, for its Greek lexicon (TBESG, CC BY 4.0), which marks each entry it takes from an older lexicon and says those without a mark were added by STEPBible; ${at}.`,
+        links: [stepFile],
+      };
+    case 'sn':
+      return {
+        simple: 'STEPBible’s note, then Brown-Driver-Briggs (1906), abridged.',
+        study: `The note on this person or place is STEPBible’s (Tyndale House); the entry after it is abridged from Brown, Driver and Briggs (1906).${key}`,
+        deep: `STEPBible’s scholars at Tyndale House, Cambridge, wrote the note on this person or place. The entry after it is from Francis Brown, with S. R. Driver and Charles A. Briggs, A Hebrew and English Lexicon of the Old Testament (Oxford: Clarendon Press, 1906), abridged by Larry Pierce for the Online Bible and edited by Tyndale House, as STEPBible’s Hebrew lexicon (TBESH, CC BY 4.0), ${at}.${key}`,
+        links: [stepFile, bdbBook],
+      };
+    case 's':
+      return {
+        simple: 'From STEPBible (Tyndale House).',
+        study: `Written by STEPBible (Tyndale House, Cambridge).${key}`,
+        deep: `Written by STEPBible’s scholars at Tyndale House, Cambridge, for its Hebrew lexicon (TBESH, CC BY 4.0), whose other meanings are abridged from Brown-Driver-Briggs (1906); ${at}.${key}`,
+        links: [stepFile],
+      };
+    default:
+      return {
+        simple: 'Abridged from Brown-Driver-Briggs (1906).',
+        study: `Abridged from Brown, Driver and Briggs, A Hebrew and English Lexicon of the Old Testament (1906), through STEPBible.${key}`,
+        deep: `Francis Brown, with S. R. Driver and Charles A. Briggs, A Hebrew and English Lexicon of the Old Testament (Oxford: Clarendon Press, 1906), its entry on ${e.w}, abridged by Larry Pierce for the Online Bible and edited by Tyndale House to fit STEPBible’s numbering, as STEPBible’s Hebrew lexicon (TBESH, CC BY 4.0), ${at}. Brown and Briggs taught at Union Theological Seminary, New York, and Driver at Oxford.${key}`,
+        links: [stepFile, bdbBook],
+      };
+  }
+}
+
+/** James Strong's own entry, credited to him. */
+function strongsCite(a: Atlas, key: string): Cite {
+  const s = readFrom(a, 'strongs');
+  const hebrew = key.startsWith('H');
+  const no = Number(/\d+/.exec(key)?.[0] ?? 0);
+  const book = hebrew ? 'Hebrew' : 'Greek';
+  return {
+    simple: 'From James Strong (1890).',
+    study: `James Strong, The Exhaustive Concordance of the Bible (1890), its ${book} dictionary, no. ${no}.`,
+    deep: `James Strong, professor at Drew Theological Seminary, The Exhaustive Concordance of the Bible (copyright 1890; first printed 1894), its ${book} dictionary, no. ${no}: where the word comes from and what it means, without the King James renderings he lists after them. Read in the JSON edition by Open Scriptures (CC BY-SA), at commit ${s.commit}${s.dates}; meanings its editors supplied in braces, where Strong gave none, are left out.`,
+    links: [
+      [s.file(hebrew ? 'hebrew/strongs-hebrew-dictionary.js' : 'greek/strongs-greek-dictionary.js'), 'The data file'],
+      ['https://archive.org/details/exhaustiveconcor0000jame_t4t6', 'The book (Internet Archive)'],
+    ],
+  };
+}
+
+/** Strong's short definition first, then the fuller lexicon entry, each with
+ *  its credit. Nothing shows for a part that has no text. */
+function Meanings({ a, r, entry, fm }: { a: Atlas; r: number; entry: LexEntry; fm: FormsBy | null }) {
+  const L = a.lemmas;
+  const greek = L.lang[r] === 'G';
+  const [note, bdb] = entry.o === 'sn' ? splitAtMark(entry.d) : [withoutMark(entry.d), []];
+  const fuller = note.some((s) => s[0].trim());
+  return (
+    <>
+      {entry.k && (
+        <>
+          <p class="muted" style="margin:0 0 2px;font-size:12.5px">
+            In Strong’s dictionary
+          </p>
+          <StrongsText a={a} text={entry.k} />
+          {fm?.x === 1 && atLeast('study') && <p class="muted" style="margin:4px 0 0;font-size:12.5px">The word family above links it to another word: the number in this line is a slip, corrected by this app.</p>}
+          {fm?.x === 2 && atLeast('study') && <p class="muted" style="margin:4px 0 0;font-size:12.5px">The word family above leaves this derivation out: it is a slip or an old guess now given up.</p>}
+          <CreditLine c={strongsCite(a, L.key[r])} />
+        </>
+      )}
+      {fuller && (
+        <>
+          {entry.k && (
+            <p class="muted" style="margin:0 0 2px;font-size:12.5px">
+              {entry.o === 'sn' || entry.o === 's' ? 'In STEPBible’s lexicon' : greek ? 'A fuller entry' : 'A fuller entry, abridged'}
+            </p>
+          )}
+          <Segments d={note} />
+          {bdb.length > 0 && (
+            <>
+              <p class="muted" style="margin:8px 0 2px;font-size:12.5px">
+                In Brown-Driver-Briggs, abridged
+              </p>
+              <Segments d={bdb} />
+            </>
+          )}
+          <CreditLine c={lexCite(a, entry)} />
+        </>
+      )}
+      {!entry.k && !fuller && <p class="muted">No lexicon entry for this root.</p>}
+    </>
+  );
+}
+
+/** How sure config/aramaic.json is of a root's language, and the verses whose
+ *  Aramaic panel gives the reasons, from extras/aramaic.json: the file the
+ *  Aramaic line under a verse already loads, asked for only for a root the
+ *  build counts Aramaic or Hebrew. */
+interface LanguageNote {
+  certainty: string;
+  verses: number[];
+}
+
+interface AramaicFile {
+  format: number;
+  verses: { v: number; entries?: number[] }[];
+  entries: { verses: number[]; roots: number[] }[];
+  roots: [number, string, string][];
+}
+
+function useLanguageNote(a: Atlas, root: number): LanguageNote | null {
+  const [got, setGot] = useState<{ root: number; note: LanguageNote | null } | null>(null);
+  useEffect(() => {
+    if (!a.lemmas.origin?.[root]) return;
+    let live = true;
+    loadJson<AramaicFile>(a, 'extras/aramaic.json').then(
+      (f) => {
+        if (!live || f.format !== 1 || !Array.isArray(f.roots)) return;
+        const row = f.roots.find((x) => x[0] === root);
+        const lined = new Set(f.verses.filter((x) => x.entries?.length).map((x) => x.v));
+        const verses = [...new Set(f.entries.filter((e) => e.roots.includes(root)).flatMap((e) => e.verses.filter((v) => lined.has(v))))].sort((x, y) => x - y);
+        setGot({ root, note: row ? { certainty: row[2], verses } : null });
+      },
+      () => {},
+    );
+    return () => {
+      live = false;
+    };
+  }, [a, root]);
+  return got?.root === root ? got.note : null;
 }
 
 function Occurrence({ a, v, root }: { a: Atlas; v: number; root: number }) {
@@ -446,6 +753,7 @@ export function WordStudy({ a }: { a: Atlas }) {
   const verses = useMemo(() => (st ? versesWithRoot(a, st.root) : new Uint32Array()), [a, st?.root]);
   const row = useVerseRow(a, st?.verse);
   const onMap = S.marks.value?.label === `root:${st?.root}`;
+  const langNote = useLanguageNote(a, st?.root ?? -1);
 
   useEffect(() => {
     if (!st) return;
@@ -486,6 +794,16 @@ export function WordStudy({ a }: { a: Atlas }) {
   const here = word && fm && st.verse !== undefined && st.pos !== undefined ? formAt(a, r, fm, st.verse, st.pos) : -1;
 
   const toggleMap = () => lightUp(a, verses, `root:${r}`, `${L.word[r]} in ${verses.length.toLocaleString()} verses`);
+  const language = langLabel(L, r, langNote?.certainty);
+  // A disputed language opens the Aramaic panel, where the reasons are: on this
+  // verse if it has the word's note, else on the first verse that does.
+  const reasons = langNote?.certainty === 'scholars differ' && langNote.verses.length ? (st.verse !== undefined && langNote.verses.includes(st.verse) ? st.verse : langNote.verses[0]) : null;
+  const openReasons = (from: HTMLElement) => {
+    if (reasons === null) return;
+    if (S.selected.peek() !== reasons) S.selectVerse(reasons, { openTab: false });
+    openExtra('aramaic', 'verse', reasons, from);
+  };
+  const type = lex?.m ? wordType(lex.m, lex.s) : null;
 
   return (
     <div class="panel">
@@ -501,16 +819,23 @@ export function WordStudy({ a }: { a: Atlas }) {
       <dl class="facts">
         <dt>Language</dt>
         <dd>
-          {langName(L, r)} · Strong’s {L.key[r]}
+          {reasons !== null ? (
+            <button type="button" class="godeeper" style="display:inline;margin:0;font-size:inherit" title="Why scholars differ: the Aramaic panel" onClick={(e) => openReasons(e.currentTarget)}>
+              {language}
+            </button>
+          ) : (
+            language
+          )}{' '}
+          · Strong’s {L.key[r]}
         </dd>
         <dt>Occurs</dt>
         <dd>
           {count.toLocaleString()} times in {verses.length.toLocaleString()} verses across {books} {books === 1 ? 'book' : 'books'}
         </dd>
-        {lex?.m && (
+        {type && (
           <>
             <dt>Word type</dt>
-            <dd>{lex.m.replace(/^[HAG]:/, '')}</dd>
+            <dd>{type}</dd>
           </>
         )}
       </dl>
@@ -558,7 +883,7 @@ export function WordStudy({ a }: { a: Atlas }) {
       {fm && <Family a={a} r={r} fm={fm} />}
 
       <h3>Definition</h3>
-      {lex === undefined ? <p class="muted">Loading…</p> : lex ? <Definition entry={lex} /> : <p class="muted">No lexicon entry for this root.</p>}
+      {lex === undefined ? <p class="muted">Loading…</p> : lex ? <Meanings a={a} r={r} entry={lex} fm={fm as FormsBy | null} /> : <p class="muted">No lexicon entry for this root.</p>}
       <WordSky a={a} root={r} verse={st.verse} pos={st.pos} />
 
       <h3>Every occurrence ({verses.length.toLocaleString()} verses)</h3>
@@ -571,8 +896,10 @@ export function WordStudy({ a }: { a: Atlas }) {
         </button>
       )}
       <Provenance work={greek ? 'tbesg' : 'tbesh'}>
-        {fm?.r && "Related words: from the derivations in Strong's dictionaries (1890, public domain; JSON by Open Scriptures, CC BY-SA) and the senses, spellings and Aramaic twins in STEPBible's TBESH and TBESG (CC BY 4.0). "}
-        Definition: STEPBible {lex?.s === 'tbesg' ? 'TBESG, abridged from Abbott-Smith' : 'TBESH, abridged from Brown-Driver-Briggs'} (CC BY 4.0). Words, forms and grammar: STEPBible {greek ? 'TAGNT' : 'TAHOT'}. Counts are computed from the base text ({greek ? 'Nestle-Aland family' : 'Leningrad Codex'}).
+        {fm?.r && "Related words: from the derivations in James Strong's dictionaries (1890, public domain; JSON by Open Scriptures, CC BY-SA) and the senses, spellings and Aramaic twins in STEPBible's Hebrew and Greek lexicons (CC BY 4.0); a link marked as this app's corrects a slip in Strong's numbers. "}
+        {lex && 'Each definition names its writer under it. '}
+        {type && "Word type: in STEPBible's own words for its codes. "}
+        Words, forms and grammar: STEPBible {greek ? 'TAGNT' : 'TAHOT'}. Counts are computed from the base text ({greek ? 'Nestle-Aland family' : 'Leningrad Codex'}).
       </Provenance>
     </div>
   );
