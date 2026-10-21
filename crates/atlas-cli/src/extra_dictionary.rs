@@ -23,7 +23,7 @@
 //!   `dict/<id>/<first letter of slug>.json`.
 
 use crate::loaded::Loaded;
-use crate::shelf::Dictionary;
+use crate::shelf::{Dictionary, Piece};
 use atlas_core::Versification;
 use serde_json::{json, Value};
 use std::collections::{BTreeMap, HashMap, HashSet};
@@ -106,6 +106,196 @@ fn named(name: &[String], verse: &[String]) -> bool {
         .any(|n| verse.iter().any(|w| alike(n, w)))
 }
 
+/// An entry with fewer letters of its own than this is not listed under a
+/// verse: it would open as "(Job 30:4)" or "(Genesis 12:6) [Shechem]".
+pub const OWN_LETTERS: usize = 25;
+
+/// An entry's text as the panel shows it, with "#" for each verse link.
+fn shown(text: &[Piece]) -> String {
+    text.iter()
+        .map(|p| match p {
+            Piece::Text(t) => t.as_str(),
+            Piece::Link { .. } => "#",
+        })
+        .collect()
+}
+
+/// The text without its brackets ("[Shechem]") and the parts that only send
+/// the reader to another entry ("See AGRICULTURE; MONTH.", "(See CHITTIM.)").
+fn without_pointers(text: &str) -> String {
+    let mut out = String::with_capacity(text.len());
+    let mut rest = text;
+    while !rest.is_empty() {
+        let see = rest
+            .char_indices()
+            .find(|&(i, _)| {
+                let r = &rest[i..];
+                (r.starts_with("See ") || r.starts_with("SEE ") || r.starts_with("see "))
+                    && !rest[..i].ends_with(|c: char| c.is_alphabetic())
+            })
+            .map(|(i, _)| i);
+        let open = rest.find('[');
+        let (at, close) = match (see, open) {
+            (Some(s), o) if o.is_none_or(|o| s < o) => (s, &['.', ')', ']'][..]),
+            (_, Some(o)) => (o, &[']'][..]),
+            _ => {
+                out.push_str(rest);
+                break;
+            }
+        };
+        out.push_str(&rest[..at]);
+        let after = &rest[at + 1..];
+        rest = match after.find(close) {
+            Some(e) => &after[e + 1..],
+            None => "",
+        };
+    }
+    out
+}
+
+/// The letters of an entry's own words: not its verse links, references in
+/// brackets ("(Gen. 8:22)", "(Joshua 15:15,16)"), pointers to other entries,
+/// or a book named in a reference written out.
+pub fn own_letters(text: &[Piece]) -> usize {
+    let t = without_pointers(&shown(text));
+    // Parentheses that hold a reference.
+    let mut kept = String::with_capacity(t.len());
+    let mut rest = t.as_str();
+    while let Some(o) = rest.find('(') {
+        kept.push_str(&rest[..o]);
+        let inner_end = rest[o..].find(')').map(|e| o + e);
+        match inner_end {
+            Some(e) if rest[o..e].contains(|c: char| c.is_ascii_digit() || c == '#') => {
+                rest = &rest[e + 1..]
+            }
+            _ => {
+                kept.push('(');
+                rest = &rest[o + 1..];
+            }
+        }
+    }
+    kept.push_str(rest);
+    let mut n = 0;
+    let mut rest = kept.as_str();
+    while let Some(start) = rest.find(char::is_alphabetic) {
+        let len = rest[start..]
+            .find(|c: char| !c.is_alphabetic())
+            .unwrap_or(rest.len() - start);
+        let word = &rest[start..start + len];
+        let after = rest[start + len..].trim_start_matches('.').trim_start();
+        let reference = after.starts_with(|c: char| c.is_ascii_digit() || c == '#');
+        if !reference
+            && !matches!(
+                word.to_lowercase().as_str(),
+                "q" | "v" | "marg" | "comp" | "ver" | "etc" | "also"
+            )
+        {
+            n += word.chars().count();
+        }
+        rest = &rest[start + len..];
+    }
+    n
+}
+
+/// The names of the entries a thin entry sends the reader to: "[Shechem]",
+/// "[See Jehosheba]", "See AGRICULTURE; MONTH.", "(See CHITTIM.)".
+fn sent_to(text: &[Piece]) -> Vec<String> {
+    let t = shown(text);
+    let mut out = Vec::new();
+    let mut take = |s: &str| {
+        let s = s.trim();
+        let s = ["See ", "SEE ", "see "]
+            .iter()
+            .find_map(|p| s.strip_prefix(p))
+            .unwrap_or(s);
+        out.extend(
+            s.split(';')
+                .map(|x| x.trim().trim_end_matches('.').trim())
+                .filter(|x| !x.is_empty())
+                .map(str::to_string),
+        );
+    };
+    let mut rest = t.as_str();
+    while let Some(o) = rest.find('[') {
+        let e = rest[o..].find(']').map_or(rest.len(), |e| o + e);
+        take(&rest[o + 1..e]);
+        rest = &rest[(e + 1).min(rest.len())..];
+    }
+    for (i, _) in t.match_indices("See ").chain(t.match_indices("SEE ")) {
+        if t[..i].ends_with('[') {
+            continue;
+        }
+        let tail = &t[i..];
+        let e = tail.find(['.', ')', ']']).unwrap_or(tail.len());
+        take(&tail[..e]);
+    }
+    out
+}
+
+/// A name as letters only, lowercase, to match a pointer to an entry.
+fn name_key(name: &str) -> String {
+    name.chars()
+        .filter(|c| c.is_alphabetic())
+        .flat_map(char::to_lowercase)
+        .collect()
+}
+
+/// What each entry is listed as under the verses it cites: itself, the
+/// entries a thin one sends the reader to (each found by name, only one entry
+/// having it, in the same dictionary), or nothing.
+fn listed_as(dicts: &[Dictionary]) -> Vec<Vec<Vec<usize>>> {
+    dicts
+        .iter()
+        .map(|dict| {
+            let thin: Vec<bool> = dict
+                .entries
+                .iter()
+                .map(|e| own_letters(&e.text) < OWN_LETTERS)
+                .collect();
+            let mut by_name: HashMap<String, Vec<usize>> = HashMap::new();
+            for (i, e) in dict.entries.iter().enumerate() {
+                let full = name_key(&e.name);
+                let head = name_key(e.name.split(',').next().unwrap_or(""));
+                by_name.entry(full.clone()).or_default().push(i);
+                if head != full {
+                    by_name.entry(head).or_default().push(i);
+                }
+            }
+            dict.entries
+                .iter()
+                .enumerate()
+                .map(|(i, e)| {
+                    if !thin[i] {
+                        return vec![i];
+                    }
+                    let mut to: Vec<usize> = Vec::new();
+                    for name in sent_to(&e.text) {
+                        let keys = [
+                            name_key(&name),
+                            name_key(name.split(',').next().unwrap_or("")),
+                        ];
+                        let found = keys.iter().find_map(|k| {
+                            let hits: Vec<usize> = by_name
+                                .get(k)?
+                                .iter()
+                                .copied()
+                                .filter(|&j| j != i && !thin[j])
+                                .collect::<HashSet<_>>()
+                                .into_iter()
+                                .collect();
+                            (hits.len() == 1).then(|| hits[0])
+                        });
+                        if let Some(j) = found.filter(|j| !to.contains(j)) {
+                            to.push(j);
+                        }
+                    }
+                    to
+                })
+                .collect()
+        })
+        .collect()
+}
+
 /// The files to write under web/public/data, as (path, bytes). `text` is the
 /// BSB, one string per verse.
 pub fn build(
@@ -114,18 +304,34 @@ pub fn build(
     text: &[String],
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
     // verse -> (dictionary, entry) -> the length of its narrowest reference there.
+    // A thin entry is listed as the entries it sends the reader to, or not at all.
+    let listed = listed_as(dicts);
+    let (mut thin, mut sent) = (0usize, 0usize);
+    let mut cited: HashSet<u32> = HashSet::new();
     let mut at: BTreeMap<u32, HashMap<(usize, usize), u32>> = BTreeMap::new();
     for (d, dict) in dicts.iter().enumerate() {
         for (e, entry) in dict.entries.iter().enumerate() {
+            let shown = &listed[d][e];
+            if shown.first() != Some(&e) && !entry.refs.is_empty() {
+                thin += 1;
+                sent += usize::from(!shown.is_empty());
+            }
             for &(from, to) in &entry.refs {
                 let last = if to - from < SPREAD { to } else { from };
                 for v in from..=last {
-                    let span = at.entry(v).or_default().entry((d, e)).or_insert(u32::MAX);
-                    *span = (*span).min(to - from);
+                    cited.insert(v);
+                    for &x in shown {
+                        let span = at.entry(v).or_default().entry((d, x)).or_insert(u32::MAX);
+                        *span = (*span).min(to - from);
+                    }
                 }
             }
         }
     }
+    eprintln!(
+        "dictionary extra: {thin} entries with fewer than {OWN_LETTERS} letters of their own not listed ({sent} listed as the entries they send the reader to); {} verses left with none",
+        cited.iter().filter(|v| !at.contains_key(v)).count()
+    );
     let mut books: Vec<serde_json::Map<String, Value>> =
         vec![serde_json::Map::new(); vz.book_count()];
     let mut pairs = 0;
@@ -322,6 +528,62 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         !rows("Gen 1:1")?.is_empty(),
         "Genesis 1:1 has dictionary entries".to_string(),
     ));
+
+    // Every entry listed under a verse has words of its own, so no line opens
+    // an entry that is only "(Job 30:4)" or "(Genesis 12:6) [Shechem]".
+    let mut letters: HashMap<String, Value> = HashMap::new();
+    let mut thin: Vec<String> = Vec::new();
+    let mut checked: HashSet<(String, String)> = HashSet::new();
+    for file in &books {
+        for rows in file.as_object().into_iter().flat_map(|m| m.values()) {
+            for r in rows.as_array().into_iter().flatten() {
+                let (id, slug) = (r[0].as_str().unwrap_or(""), r[1].as_str().unwrap_or(""));
+                if slug.is_empty() || !checked.insert((id.to_string(), slug.to_string())) {
+                    continue;
+                }
+                let key = format!("dict/{id}/{}.json", &slug[..1]);
+                if !letters.contains_key(&key) {
+                    letters.insert(key.clone(), read_json(d, &key)?);
+                }
+                let text = &letters[&key][slug]["text"];
+                let pieces: Vec<Piece> = match text {
+                    Value::String(t) => vec![Piece::Text(t.clone())],
+                    _ => text
+                        .as_array()
+                        .into_iter()
+                        .flatten()
+                        .map(|p| match p.as_str() {
+                            Some(t) => Piece::Text(t.to_string()),
+                            None => Piece::Link {
+                                from: 0,
+                                to: 0,
+                                text: String::new(),
+                            },
+                        })
+                        .collect(),
+                };
+                if own_letters(&pieces) < OWN_LETTERS {
+                    thin.push(format!("{id}/{slug}"));
+                }
+            }
+        }
+    }
+    out.push((
+        thin.is_empty(),
+        format!(
+            "every dictionary entry listed under a verse has at least {OWN_LETTERS} letters of its own; {} do not: {:?}",
+            thin.len(),
+            &thin[..thin.len().min(5)]
+        ),
+    ));
+    let gen = rows("Gen 8:22")?;
+    out.push((
+        !has(&gen, "easton", "seasons")
+            && has(&gen, "easton", "agriculture")
+            && !has(&rows("Acts 27:29")?, "smith", "anchor")
+            && !has(&rows("Job 30:4")?, "smith", "mallows"),
+        "Genesis 8:22 lists Easton's Agriculture, where his Seasons sends the reader, and not Seasons itself; Smith's Anchor (\"(Acts 27:29)\") and Mallows (\"(Job 30:4)\") are not listed".to_string(),
+    ));
     Ok(out)
 }
 
@@ -342,6 +604,39 @@ mod tests {
         );
         assert!(!named(&words("genesis"), &gen) && !named(&words("sea, the"), &gen));
         assert!(alike("israel", "israelites") && !alike("judah", "judas"));
+    }
+
+    #[test]
+    fn tells_a_thin_entry_and_where_it_sends() {
+        let link = || Piece::Link {
+            from: 0,
+            to: 0,
+            text: "Gen. 8:22".into(),
+        };
+        let t = |s: &str| Piece::Text(s.into());
+        let seasons = [t("("), link(), t("). See AGRICULTURE; MONTH.")];
+        assert_eq!(own_letters(&seasons), 0);
+        assert_eq!(sent_to(&seasons), vec!["AGRICULTURE", "MONTH"]);
+        let sichem = [t("("), link(), t(") [Shechem]")];
+        assert_eq!(
+            (own_letters(&sichem), sent_to(&sichem)),
+            (0, vec!["Shechem".to_string()])
+        );
+        assert_eq!(
+            sent_to(&[t("(Ezra 6:2 marg.). (See ACHMETHA.)")]),
+            vec!["ACHMETHA"]
+        );
+        assert_eq!(
+            sent_to(&[t("(1 Chronicles 6:23,37) [See Abiasaph]")]),
+            vec!["Abiasaph"]
+        );
+        assert_eq!(
+            own_letters(&[t("(trodden down). (Joshua 13:18) [Jahaz, Also Jahaza]")]),
+            11
+        );
+        let helpmeet = [t("(Heb. ‘ezer ke-negdo; i.e., “a help as his counterpart” = a help suitable to him), a wife ("), link(), t(").")];
+        assert!(own_letters(&helpmeet) >= OWN_LETTERS);
+        assert_eq!(name_key("Kidron, or Kedron"), name_key("Kidron, Or Kedron"));
     }
 
     #[test]

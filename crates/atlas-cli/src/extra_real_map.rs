@@ -3135,6 +3135,30 @@ fn events(
 
 // ------------------------------------------------------------------ build
 
+/// Whether the panel's map can mark a place, as `real-map/places.ts` decides:
+/// a confident site it can draw, or proposed sites when the strongest is
+/// neither likely and off the map nor most likely not a place at all.
+fn drawn(p: &Place) -> bool {
+    let confident = !p.sites.is_empty() && p.off.is_none() && p.sure >= CONFIDENT;
+    let off_likely = p.off.as_ref().is_some_and(|(_, s)| *s >= CONFIDENT);
+    let not_a_place = matches!(&p.special, Some((k, _, true, _)) if k == "not_a_place" || k == "not_a_proper_name");
+    confident || (!off_likely && !not_a_place && !p.sites.is_empty())
+}
+
+/// The same, for a row of `places.json`.
+fn row_drawn(row: &Value, confident: i64) -> bool {
+    let sites = row[4].as_array().map_or(0, Vec::len);
+    let off = row[10].as_array().and_then(|o| o.get(1)?.as_i64());
+    let sure = row[11].as_i64().unwrap_or(0);
+    let special = row[5].as_array();
+    let not_a_place = special.is_some_and(|r| {
+        r.get(2).and_then(Value::as_u64) == Some(1)
+            && matches!(r[0].as_str(), Some("not_a_place" | "not_a_proper_name"))
+    });
+    (sites > 0 && off.is_none() && sure >= confident)
+        || (off.is_none_or(|s| s < confident) && !not_a_place && sites > 0)
+}
+
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(
     inputs: &Inputs,
@@ -3216,7 +3240,8 @@ pub fn build(
     }
     let mut at: Vec<i64> = Vec::new();
     let mut prev = 0u32;
-    let mut overlapped = 0usize;
+    let (mut overlapped, mut undrawn) = (0usize, 0usize);
+    let drawn: Vec<bool> = kept.iter().map(|(p, _)| drawn(p)).collect();
     for (&v, ps) in by_verse.iter_mut() {
         ps.sort_unstable();
         let mut end = 0usize;
@@ -3227,6 +3252,12 @@ pub fn build(
             overlapped += usize::from(inside);
             !inside && seen.insert(p)
         });
+        // A verse none of whose places the map can draw gets no line: its
+        // panel would open on "The Holy Place is not marked on this map."
+        if !ps.iter().any(|&(_, _, p, _)| drawn[p]) {
+            undrawn += 1;
+            continue;
+        }
         at.extend([i64::from(v - prev), ps.len() as i64]);
         at.extend(ps.iter().map(|&(_, _, _, tok)| tok));
         prev = v;
@@ -3416,7 +3447,7 @@ pub fn build(
         far
     );
     eprintln!(
-        "real-map: dropped {} references not in the BSB numbering, {} where most translations name no place or only its people, {} where the BSB does not name it, {} read as not a place, {} inside a longer name; moved {} to the next or previous verse; {} other names used for a place",
+        "real-map: dropped {} references not in the BSB numbering, {} where most translations name no place or only its people, {} where the BSB does not name it, {} read as not a place, {} inside a longer name; moved {} to the next or previous verse; {} other names used for a place; {undrawn} verses with no line because the map can draw none of their places",
         t.unmapped, t.not_named, t.not_in_bsb, t.not_a_place, overlapped, t.moved, alts.len()
     );
     eprintln!(
@@ -3532,6 +3563,24 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let rows = places["places"]
         .as_array()
         .ok_or("places.json has no places")?;
+    // Every verse with a line names a place the panel's map can mark.
+    let confident = places["confident"].as_i64().unwrap_or(CONFIDENT);
+    let undrawn: Vec<u32> = by_verse
+        .iter()
+        .filter(|(_, ps)| {
+            !ps.iter()
+                .any(|&(p, _)| rows.get(p).is_some_and(|r| row_drawn(r, confident)))
+        })
+        .map(|(&v, _)| v)
+        .collect();
+    let holy = d.resolve("Exod 28:29")?.0;
+    let marks_one = (
+        undrawn.is_empty() && !by_verse.contains_key(&holy),
+        format!(
+            "every verse with a Places line names a place its map can mark (Exodus 28:29, the Holy Place only, has none); {} do not",
+            undrawn.len()
+        ),
+    );
     let best = |p: usize| -> Option<(Pt, i64)> {
         let s = rows.get(p)?.get(4)?.get(0)?;
         Some(((s[0].as_f64()? / 1e4, s[1].as_f64()? / 1e4), s[2].as_i64()?))
@@ -3563,6 +3612,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             "places.json has a row for every place".to_string(),
         ),
     ];
+    out.push(marks_one);
+
     let has = |r: &str, want: &[&str]| -> Result<(bool, String), String> {
         let mut ok = true;
         for w in want {
@@ -3725,12 +3776,16 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         "a town at the site called Tel Azekah",
         "not on this map",
     )?);
-    out.push(line_is(
-        "Exod 26:33",
-        "Most Holy Place",
-        "a room in the Holy Place",
-        "more than one place",
-    )?);
+    // Exodus 26:33 has no line (the map draws neither of its places), so
+    // the tabernacle's Most Holy Place is checked by its name.
+    let most_holy = (0..names.len())
+        .filter(|&p| names[p] == "Most Holy Place")
+        .map(|p| (text_at(Some(p), 3), text_at(Some(p), 9)))
+        .collect::<Vec<_>>();
+    out.push((
+        most_holy.contains(&("a room in the Holy Place".to_string(), "more than one place".to_string())),
+        format!("a Most Holy Place: \"a room in the Holy Place\" [more than one place]; got {most_holy:?}"),
+    ));
     out.push(line_is(
         "Acts 21:1",
         "Rhodes",

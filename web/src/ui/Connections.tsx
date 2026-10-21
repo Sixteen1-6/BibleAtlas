@@ -6,7 +6,7 @@ import { atLeast } from '../depth';
 import * as S from '../state';
 import { GoDeeper } from './Depth';
 import { LayeredPassages, LayersCard } from './Layers';
-import { NOT_LOADED, OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseLoad, useVerseRow } from './common';
+import { NOT_LOADED, OMITTED, OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseLoad, useVerseRow } from './common';
 import { openStarter } from './Welcome';
 import { VerseThemesLine } from './VerseThemes';
 import { WhyLinked } from './WhyLinked';
@@ -112,6 +112,8 @@ export function Connections({ a }: { a: Atlas }) {
   const study = atLeast('study');
   const deep = atLeast('deep');
   const linked = every.length - weak;
+  // A verse with no links shows itself, its words and its themes, never "Linked to 0".
+  const none = linked === 0;
   const max = Math.max(1, list[0]?.votes ?? 1);
   // Simple opens on a verse's few strongest links; the rest are one tap away.
   const shown = all ? list : list.slice(0, study ? 40 : 5);
@@ -128,12 +130,12 @@ export function Connections({ a }: { a: Atlas }) {
   return (
     <div class="panel">
       <h2>{label(a, v)}</h2>
-      {row ? <p style="font:17px/1.6 var(--font-read)">{row[0]}</p> : <p class="muted">{failed ? NOT_LOADED : '…'}</p>}
+      {row ? <p style="font:17px/1.6 var(--font-read)">{row[0] || <span class="muted">{OMITTED}</span>}</p> : <p class="muted">{failed ? NOT_LOADED : '…'}</p>}
       {row && study && <OrigLine a={a} v={v} row={row} />}
       {/* Phones only: the reader's extras line with the themes is on the other pane. */}
       <VerseThemesLine a={a} v={v} class="vt-phone" onOpen={() => (S.tab.value = 'themes')} />
       <LayersCard a={a} v={v} />
-      <p class="muted linkfacts">
+      {!none && <p class="muted linkfacts">
         Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'}
         {study && (
           <>
@@ -142,15 +144,15 @@ export function Connections({ a }: { a: Atlas }) {
             {deep && ` (#${hubRank.toLocaleString()} of ${a.n.toLocaleString()} by PageRank)`}
           </>
         )}
-      </p>
-      {study && (
+      </p>}
+      {study && !none && (
         <button class="btn" onClick={explore}>
           Map its neighborhood, 2 steps out
         </button>
       )}
-      {study && near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length} verses lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
-      <h3>{study ? `Linked passages (${list.length.toLocaleString()}), strongest first` : 'Strongest links'}</h3>
-      {study && <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>}
+      {study && near?.v === v && <p class="muted" style="margin-top:6px">{near.verses.length.toLocaleString()} {near.verses.length === 1 ? 'verse' : 'verses'} lit on the map. {S.TAP} Clear on the map, or another verse, to move on.</p>}
+      {list.length > 0 && <h3>{study ? `Linked passages (${list.length.toLocaleString()}), strongest first` : 'Strongest links'}</h3>}
+      {study && list.length > 0 && <p class="muted votesnote">The number is the net votes OpenBible.info readers gave each link: votes for it, minus votes against.</p>}
       {shown.map((l, i) => (
         <LinkRow key={l.v} a={a} from={v} link={l} max={max} bridge={i < 5} />
       ))}

@@ -391,6 +391,102 @@ fn read_json(path: &std::path::Path) -> Result<Value, String> {
     serde_json::from_str(&text).map_err(|e| format!("parsing {}: {e}", path.display()))
 }
 
+/// The words of a note's blocks (as `blocks_json` writes them) as the panel
+/// shows them, with "#" for each verse link.
+fn shown_text(blocks: &Value) -> String {
+    let run = |r: &Value| match r {
+        Value::String(t) => t.clone(),
+        Value::Array(a) if a.len() == 1 => a[0].as_str().unwrap_or("").to_string(),
+        Value::Array(_) => "#".to_string(),
+        _ => String::new(),
+    };
+    let mut parts = Vec::new();
+    for b in blocks.as_array().into_iter().flatten() {
+        let runs: Vec<&Value> = match b[0].as_str() {
+            Some("p") => b[1].as_array().into_iter().flatten().collect(),
+            _ => b[1]
+                .as_array()
+                .into_iter()
+                .flatten()
+                .flat_map(|i| i.as_array().into_iter().flatten())
+                .collect(),
+        };
+        parts.push(runs.into_iter().map(run).collect::<String>());
+    }
+    parts.join(" ")
+}
+
+/// Words a note uses only to send the reader elsewhere.
+const POINTING: [&str; 22] = [
+    "see",
+    "also",
+    "compare",
+    "with",
+    "refer",
+    "to",
+    "the",
+    "study",
+    "note",
+    "notes",
+    "on",
+    "and",
+    "or",
+    "for",
+    "example",
+    "examples",
+    "a",
+    "similar",
+    "event",
+    "reference",
+    "cf",
+    "in",
+];
+
+/// Whether a note only sends the reader elsewhere, with nothing of its own
+/// to say: "See Exodus 28:1–43.", "Peleg: See the study note on 10:25.",
+/// "See “Hardened Hearts” Theme Note." (the app has no theme notes). `text`
+/// is as `shown_text` gives it.
+fn pointer(text: &str) -> bool {
+    let sends = |t: &str| {
+        let t = t.trim_start().trim_start_matches('(').to_lowercase();
+        ["see", "compare", "refer", "cf"]
+            .iter()
+            .any(|w| t.starts_with(w))
+    };
+    let t = text.trim();
+    // The words it is on ("Peleg: ", "Will I recover? "), when what follows only points.
+    let split = [": ", "? ", "! "]
+        .iter()
+        .filter_map(|s| t.find(s).map(|i| (i, s.len())))
+        .min();
+    let t = match split {
+        Some((i, n))
+            if t[..i].chars().count() <= 80 && !t[..i].contains('.') && sends(&t[i + n..]) =>
+        {
+            &t[i + n..]
+        }
+        _ => t,
+    };
+    if sends(t) && t.chars().count() <= 80 && (t.contains("Theme Note") || t.contains("Profile")) {
+        return true;
+    }
+    let mut rest = t;
+    while let Some(start) = rest.find(char::is_alphabetic) {
+        let len = rest[start..]
+            .find(|c: char| !c.is_alphabetic())
+            .unwrap_or(rest.len() - start);
+        let word = rest[start..start + len].to_lowercase();
+        let after = rest[start + len..].trim_start_matches('.').trim_start();
+        // A book named in a reference written out ("Numbers 13", "1 Kings 2:28").
+        let reference = after.starts_with(|c: char| c.is_ascii_digit() || c == '#');
+        if !reference && !POINTING.contains(&word.as_str()) {
+            return false;
+        }
+        rest = &rest[start + len..];
+    }
+    true
+}
+
 /// The files to write under web/public/data, as (path, bytes).
 pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>)>, String> {
     let meta = read_json(&inputs.path(SOURCE, "metadata"))?;
@@ -406,6 +502,7 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
 
     let mut report = Report::default();
     let (mut entries, mut unplaced, mut empty, mut wrong_book) = (0usize, 0usize, 0usize, 0usize);
+    let mut pointers = 0usize;
     // (first verse, last verse, content id, blocks), by book.
     let mut books: Vec<Vec<(u32, u32, String, Value)>> = vec![Vec::new(); BOOKS.len()];
     for (b, book) in BOOKS.iter().enumerate() {
@@ -425,6 +522,12 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
                 .map(str::to_string)
                 .unwrap_or_else(|| e["content_id"].to_string());
             let body = blocks_json(&blocks);
+            // A note that only sends the reader elsewhere would open as a
+            // panel with nothing in it but "See Exodus 28:1–43.".
+            if pointer(&shown_text(&body)) {
+                pointers += 1;
+                continue;
+            }
             let passages = e["associations"]["passage"]
                 .as_array()
                 .cloned()
@@ -472,7 +575,7 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     }
     let total: usize = per.iter().sum();
     eprintln!(
-        "notes: {total} notes from {entries} entries; {empty} empty, {unplaced} passages not in the BSB, {wrong_book} in another book's file; {} of {} verse references placed",
+        "notes: {total} notes from {entries} entries; {empty} empty, {pointers} that only point elsewhere left out, {unplaced} passages not in the BSB, {wrong_book} in another book's file; {} of {} verse references placed",
         report.refs - report.refs_unplaced,
         report.refs
     );
@@ -605,10 +708,22 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             }
             ok
         });
+    // A verse's line opens its notes: none may only send the reader elsewhere.
+    let pointing = book_notes
+        .iter()
+        .flat_map(|b| b.as_array().cloned().unwrap_or_default())
+        .filter(|x| pointer(&shown_text(&x["b"])))
+        .count();
+    let (ex39, _) = d.resolve("Exodus 39:20")?;
+    let ex39_noted = spans.iter().any(|&(a, z)| a <= ex39 && ex39 <= z);
     Ok(vec![
         (
             total > 15_000,
             format!("{total} study notes, expected more than 15,000"),
+        ),
+        (
+            pointing == 0 && !ex39_noted,
+            format!("no study note only points elsewhere (\"See Exodus 28:1–43.\" alone behind Exodus 39:20's line), so no line opens an empty panel; {pointing} do"),
         ),
         (
             all_real,
@@ -669,6 +784,35 @@ mod tests {
             _ => panic!("second block is a list"),
         }
         assert_eq!(r.tags.get("<script>"), Some(&1));
+    }
+
+    #[test]
+    fn tells_a_pointer_from_a_note() {
+        let vz = vz();
+        let text = |html: &str| shown_text(&blocks_json(&scan(html, &vz, &mut Report::default())));
+        let see = |t: &str| {
+            format!(
+                r#"{t} <data class="bible-ref" data-start-ref="02028001" data-end-ref="02028040">Exodus 28:1–40</data>."#
+            )
+        };
+        assert_eq!(text(&see("See")), "See #.");
+        assert!(pointer(&text(&see("See"))));
+        assert!(pointer(&text(&format!(
+            "<em>be fruitful and multiply</em>: {}",
+            see("See")
+        ))));
+        assert!(pointer("Peleg: See the study note on 10:25."));
+        assert!(pointer("sworn in the name of the LORD: (See #; #; #)."));
+        assert!(pointer("Will I recover? See #."));
+        assert!(!pointer("Why did they ask? They feared the king."));
+        assert!(pointer("I know: See “Hardened Hearts” Theme Note."));
+        assert!(pointer("See also Numbers 13 and # for a similar event."));
+        assert!(!pointer("Asa ruled from 910 to 869 BC."));
+        assert!(!pointer("Uz may have been an ancestor of Job (#)."));
+        assert!(!pointer(
+            "Sarah was 127 years old (compare #). Hebron: See the study note on 13:18."
+        ));
+        assert!(!pointer("Numbers 21:10–20 covers the same time period."));
     }
 
     #[test]

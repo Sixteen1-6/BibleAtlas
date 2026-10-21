@@ -161,6 +161,14 @@ struct Report {
     /// Wesley: notes the module repeats, and notes moved to the verse they quote.
     repeats: usize,
     moved: usize,
+    /// References like "II Kin. 18:17-37" in plain text, linked.
+    numbered: usize,
+    /// Henry's chapter notes that only send the reader to another passage,
+    /// given his notes on it, and those whose passage has none.
+    pointers: usize,
+    pointers_empty: usize,
+    /// Notes left out with fewer than OWN_LETTERS letters of their own, by work.
+    thin: [usize; 3],
 }
 
 fn read_json(path: &std::path::Path) -> Result<Value, String> {
@@ -196,12 +204,19 @@ fn number(b: &[u8], i: &mut usize) -> Option<u16> {
     std::str::from_utf8(&b[start..*i]).ok()?.parse().ok()
 }
 
-/// A book name at `b[*i..]` ("1John", "1 Cor", "Mt"), as its text.
+/// A book name at `b[*i..]` ("1John", "1 Cor", "Mt", and "II Kin" as Henry
+/// writes it in plain text), as its text.
 fn book_token<'a>(s: &'a str, i: &mut usize) -> &'a str {
     let b = s.as_bytes();
     let start = *i;
     let mut j = *i;
-    if j < b.len() && matches!(b[j], b'1'..=b'3') {
+    let roman = b[j..].iter().take_while(|&&c| c == b'I').count();
+    if (1..=3).contains(&roman)
+        && b.get(j + roman) == Some(&b' ')
+        && b.get(j + roman + 1).is_some_and(u8::is_ascii_alphabetic)
+    {
+        j += roman + 1;
+    } else if j < b.len() && matches!(b[j], b'1'..=b'3') {
         j += 1;
         if b.get(j) == Some(&b' ') {
             j += 1;
@@ -383,7 +398,97 @@ fn runs(text: &str, here: u8, vz: &Versification, report: &mut Report) -> Vec<Ru
     if !plain.is_empty() {
         out.push(Run::Text(plain));
     }
+    out.into_iter()
+        .flat_map(|r| match r {
+            Run::Text(t) => numbered_links(&t, here, vz, report),
+            v => vec![v],
+        })
+        .collect()
+}
+
+/// Plain text with its references to a numbered book written in Roman
+/// numerals ("II Kin. 18:17-37", "I Pet. 2:8"), which the modules do not mark,
+/// as links.
+fn numbered_links(text: &str, here: u8, vz: &Versification, report: &mut Report) -> Vec<Run> {
+    let b = text.as_bytes();
+    let mut out = Vec::new();
+    let (mut copied, mut i) = (0usize, 0usize);
+    while i < b.len() {
+        let starts = b[i] == b'I' && (i == 0 || !b[i - 1].is_ascii_alphanumeric());
+        let found = starts
+            .then(|| reference(&text[i..], here, vz))
+            .flatten()
+            .filter(|&(f, _, _)| {
+                vz.locate(f)
+                    .is_some_and(|(bk, _, _)| BOOKS[bk as usize].osis.starts_with(['1', '2', '3']))
+            });
+        match found {
+            Some((f, t, n)) => {
+                let label = text[i..i + n].trim_end();
+                if copied < i {
+                    out.push(Run::Text(text[copied..i].to_string()));
+                }
+                out.push(Run::Verse(f, t, label.to_string()));
+                report.numbered += 1;
+                i += label.len();
+                copied = i;
+            }
+            None => i += 1,
+        }
+    }
+    if copied < b.len() {
+        out.push(Run::Text(text[copied..].to_string()));
+    }
     out
+}
+
+/// Words that only point elsewhere ("See on Mark 4:1", "Compare ver. 3").
+const POINTING: [&str; 14] = [
+    "see", "compare", "cf", "also", "and", "on", "the", "note", "notes", "ver", "verse", "verses",
+    "chap", "chapter",
+];
+
+/// A note with fewer letters of its own than this is left out: it would open
+/// as a writer with next to nothing to say ("Mark 11:25.", "Lightly - Perhaps.").
+const OWN_LETTERS: usize = 25;
+
+/// The letters of a text's own words, leaving out a book named in a
+/// reference written out ("Luke 4:40", "ver. 3"); none at all when every
+/// word left only points elsewhere ("See on Mark 4:1").
+fn own_letters(text: &str) -> usize {
+    let (mut n, mut points) = (0, true);
+    let mut rest = text;
+    while let Some(start) = rest.find(char::is_alphabetic) {
+        let word_len = rest[start..]
+            .find(|c: char| !c.is_alphabetic())
+            .unwrap_or(rest.len() - start);
+        let word = &rest[start..start + word_len];
+        let after = rest[start + word_len..]
+            .trim_start_matches('.')
+            .trim_start();
+        if !after.starts_with(|c: char| c.is_ascii_digit()) {
+            n += word.chars().count();
+            points &= POINTING.contains(&word.to_lowercase().as_str());
+        }
+        rest = &rest[start + word_len..];
+    }
+    if points {
+        0
+    } else {
+        n
+    }
+}
+
+/// The letters of a note's own words, outside its verse links.
+fn note_letters(voices: &[(String, Vec<Run>)]) -> usize {
+    voices
+        .iter()
+        .flat_map(|(_, runs)| runs)
+        .map(|r| match r {
+            Run::Text(t) => own_letters(t),
+            Run::Verse(..) => 0,
+        })
+        .sum()
 }
 
 /// Lines into paragraphs: each run of non-blank lines becomes one paragraph,
@@ -497,12 +602,27 @@ fn henry_sections(body: &str) -> Result<Vec<(u16, u16, String)>, Option<String>>
         if paras.len() > 2 {
             return Err(Some(paragraphs(&paras[2..].join("\n\n"))));
         }
-        // The chapter's number, then his note on it (Ezekiel 41-48).
-        if paras.len() == 2 && paras[1].trim().len() >= 40 {
+        // The chapter's number, then his note on it (Ezekiel 41-48), or only
+        // where to read about it (Isaiah 36, 37 and 39).
+        if paras.len() == 2
+            && (paras[1].trim().len() >= 40 || pointed_to(paras[1].trim()).is_some())
+        {
             return Err(Some(paragraphs(paras[1])));
         }
     }
     Err(None)
+}
+
+/// The passage a chapter note names when the note only sends the reader
+/// there: "See II Kin. 18:17-37, and the commentary thereon.", "This chapter
+/// is the same as II Kin. 19.".
+fn pointed_to(text: &str) -> Option<&str> {
+    let rest = ["See ", "This chapter is the same as "]
+        .iter()
+        .find_map(|lead| text.strip_prefix(lead))?;
+    [", and the commentary thereon.", "."]
+        .iter()
+        .find_map(|tail| rest.strip_suffix(tail))
 }
 
 /// Henry's verse numbers as the module marks them, "ver. #(11-13)", as plain
@@ -805,12 +925,17 @@ fn place(e: &Value) -> Option<(u8, u16, u16)> {
     ))
 }
 
+/// A chapter note of Henry's that only sends the reader elsewhere: its book,
+/// first and last verse, its words, and the verses it names.
+type Pointer = (u8, u32, u32, String, (u32, u32));
+
 fn henry(
     inputs: &Inputs,
     vz: &Versification,
     items: &mut [Vec<Item>],
     report: &mut Report,
 ) -> Result<(), String> {
+    let mut pointers: Vec<Pointer> = Vec::new();
     for e in entries(inputs, HENRY, "mhcc")? {
         let Some((b, c, v)) = place(&e) else {
             report.unplaced += 1;
@@ -849,6 +974,13 @@ fn henry(
                 report.unplaced += 1;
                 continue;
             };
+            let named = pointed_to(&text)
+                .and_then(|r| reference(r, b, vz).filter(|&(_, _, n)| n == r.len()))
+                .filter(|_| (a, z) == (1, last));
+            if let Some((f, t, _)) = named {
+                pointers.push((b, from, to, text, (f, t)));
+                continue;
+            }
             let voices = vec![(String::new(), runs(&verse_marks(&text), b, vz, report))];
             items[b as usize].push(Item {
                 work: HENRY_W,
@@ -857,6 +989,29 @@ fn henry(
                 voices,
             });
         }
+    }
+    // "See II Kin. 18:17-37, and the commentary thereon.": the note, then his
+    // notes on that passage, which tells the same events (Isaiah 36, 37, 39).
+    for (b, from, to, text, (f, t)) in pointers {
+        let there = vz.locate(f).map_or(0, |l| l.0 as usize);
+        let mut on: Vec<&Item> = items[there]
+            .iter()
+            .filter(|x| x.work == HENRY_W && x.from <= t && f <= x.to)
+            .collect();
+        on.sort_by_key(|x| x.from);
+        if on.is_empty() {
+            report.pointers_empty += 1;
+            continue;
+        }
+        let mut voices = vec![(String::new(), runs(&text, b, vz, report))];
+        voices.extend(on.iter().flat_map(|x| x.voices.iter().cloned()));
+        report.pointers += 1;
+        items[b as usize].push(Item {
+            work: HENRY_W,
+            from,
+            to,
+            voices,
+        });
     }
     Ok(())
 }
@@ -954,6 +1109,16 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     catena(inputs, vz, &kjv, &mut books, &mut report)?;
     henry(inputs, vz, &mut books, &mut report)?;
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
+    // A note that is only references ("Mark 11:25.") or a few words
+    // ("Lightly - Perhaps.") would make the line name a writer whose section
+    // opens nearly empty.
+    for items in &mut books {
+        items.retain(|x| {
+            let keep = note_letters(&x.voices) >= OWN_LETTERS;
+            report.thin[x.work as usize] += usize::from(!keep);
+            keep
+        });
+    }
 
     let mut has = vec![b'0'; vz.verse_count() as usize];
     let mut counts = [0usize; 3];
@@ -1011,6 +1176,10 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
         "voices: the Fathers' passages took {} verses before the next passage, {} Gospel paragraphs and {} footnote marks left out; {} repeated Wesley notes left out and {} moved to the verse whose words they explain",
         report.filled, report.lemmas, report.marks, report.repeats, report.moved
     );
+    eprintln!(
+        "voices: {} notes of the Fathers, {} of Henry's and {} of Wesley's left out with fewer than {OWN_LETTERS} letters of their own; {} of Henry's chapter notes that only point to another passage given his notes there ({} with none); {} references to numbered books in Roman numerals linked",
+        report.thin[0], report.thin[1], report.thin[2], report.pointers, report.pointers_empty, report.numbered
+    );
     let index = json!({
         "format": 1,
         "has": String::from_utf8(has).map_err(|e| e.to_string())?,
@@ -1021,6 +1190,15 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
         serde_json::to_vec(&index).map_err(|e| e.to_string())?,
     ));
     Ok(out)
+}
+
+/// The letters of a voice's own words, outside its verse links, for the checks.
+fn json_letters(text: &Value) -> usize {
+    match text {
+        Value::String(s) => own_letters(s),
+        Value::Array(a) => a.iter().filter_map(Value::as_str).map(own_letters).sum(),
+        _ => 0,
+    }
 }
 
 /// All the words of a voice's text, for the checks.
@@ -1069,6 +1247,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let mut largest = 0u64;
     // (work, first verse, last verse, who, words) of every note, for the known cases below.
     let mut notes: Vec<(u8, u32, u32, String, String)> = Vec::new();
+    // Notes with fewer than OWN_LETTERS letters of their own, and every
+    // Henry note's links as (note's first verse, last verse, link's first, last).
+    let mut thin = 0usize;
+    let mut henry_links: Vec<(u32, u32, u64, u64)> = Vec::new();
     for (b, starts) in parts.iter().enumerate() {
         parts_ok &= starts.windows(2).all(|w| w[0] < w[1])
             && starts
@@ -1096,7 +1278,25 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 prev = (from, w, to);
                 let voices = item[3].as_array().cloned().unwrap_or_default();
                 let mut ok = fits && !voices.is_empty();
+                thin += usize::from(
+                    voices.iter().map(|v| json_letters(&v[1])).sum::<usize>() < OWN_LETTERS,
+                );
                 for v in &voices {
+                    if w == u64::from(HENRY_W) {
+                        for r in v[1]
+                            .as_array()
+                            .into_iter()
+                            .flatten()
+                            .filter_map(Value::as_array)
+                        {
+                            henry_links.push((
+                                from,
+                                to,
+                                r[0].as_u64().unwrap_or(0),
+                                r[1].as_u64().unwrap_or(0),
+                            ));
+                        }
+                    }
                     let who = v[0].as_str().unwrap_or("");
                     let words = plain(&v[1]);
                     ok &= !words.trim().is_empty() && (w == FATHERS_W as u64) != who.is_empty();
@@ -1216,6 +1416,29 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 && !note(FATHERS_W, "Matthew 1:1", "", "Hebrewa")?
                 && note(FATHERS_W, "Matthew 1:1", "", "in Hebrew;")?,
             "the Fathers reach Luke 2:27 and Matthew 5:16, without the Gospel's own words or footnote marks (\"in Hebrew;\" on Matthew 1:1)".to_string(),
+        ),
+        (
+            thin == 0,
+            format!("every writer's note has at least {OWN_LETTERS} letters of its own beyond its references, so no writer the line names opens nearly empty; {thin} do not"),
+        ),
+        (
+            !note(WESLEY_W, "Matthew 6:14", "", "")?
+                && !note(WESLEY_W, "Mark 1:3", "", "")?
+                && !note(WESLEY_W, "Genesis 26:10", "", "Lightly - Perhaps")?,
+            "Wesley's notes that are only a reference (Matthew 6:14 \"Mark 11:25.\", Mark 1:3 \"Isa 40:3.\") or a few words (Genesis 26:10 \"Lightly - Perhaps.\") are left out".to_string(),
+        ),
+        (
+            {
+                let (i39, _) = d.resolve("Isaiah 39:4")?;
+                let (k20, _) = d.resolve("2 Kings 20:12")?;
+                let (k20e, _) = d.resolve("2 Kings 20:19")?;
+                note(HENRY_W, "Isaiah 39:4", "", "This chapter is the same as II Kin. 20:12-19.")?
+                    && note(HENRY_W, "Isaiah 39:4", "", "The king of Babylon was at this time independent")?
+                    && note(HENRY_W, "Isaiah 36:5", "", "Rabshakeh tries to convince the Jews")?
+                    && note(HENRY_W, "Isaiah 37:10", "", "Hezekiah discovered deep concern")?
+                    && henry_links.iter().any(|&(a, z, f, t)| a <= i39 && i39 <= z && (f, t) == (u64::from(k20), u64::from(k20e)))
+            },
+            "Henry's notes on Isaiah 36, 37 and 39, which only point to 2 Kings 18-20, carry his notes there, with the pointer as a link".to_string(),
         ),
     ])
 }
@@ -1430,6 +1653,71 @@ mod tests {
             Err(Some("The song of praise in this chapter.".to_string()))
         );
         assert_eq!(henry_sections("Obadiah"), Err(None));
+    }
+
+    #[test]
+    fn links_numbered_books_in_roman_numerals() {
+        let vz = vz();
+        let mut r = Report::default();
+        assert_eq!(
+            runs(
+                "See II Kin. 18:17-37, and the commentary thereon.",
+                22,
+                &vz,
+                &mut r
+            ),
+            vec![
+                Run::Text("See ".into()),
+                Run::Verse(
+                    at(&vz, 11, 18, 17),
+                    at(&vz, 11, 18, 37),
+                    "II Kin. 18:17-37".into()
+                ),
+                Run::Text(", and the commentary thereon.".into()),
+            ]
+        );
+        assert_eq!(
+            runs("the same as II Kin. 19.", 22, &vz, &mut r)[1],
+            Run::Verse(at(&vz, 11, 19, 1), at(&vz, 11, 19, 40), "II Kin. 19".into())
+        );
+        assert_eq!(
+            runs("I will go, Is 40:3. In it.", 22, &vz, &mut r),
+            vec![Run::Text("I will go, Is 40:3. In it.".into())]
+        );
+        assert_eq!(r.numbered, 2);
+        assert_eq!(book_named("II Kin"), Some(11));
+        assert_eq!(book_named("I Pet"), Some(59));
+    }
+
+    #[test]
+    fn tells_a_pointer_from_a_note() {
+        assert_eq!(
+            pointed_to("See II Kin. 18:17-37, and the commentary thereon."),
+            Some("II Kin. 18:17-37")
+        );
+        assert_eq!(
+            pointed_to("This chapter is the same as II Kin. 19."),
+            Some("II Kin. 19")
+        );
+        assert_eq!(
+            henry_sections("Chapter 37\n\nThis chapter is the same as II Kin. 19."),
+            Err(Some("This chapter is the same as II Kin. 19.".to_string()))
+        );
+        assert_eq!(henry_sections("Chapter 9\n\nA short title."), Err(None));
+        assert_eq!(own_letters("; Luke 3:21 Mark 1:9."), 0);
+        assert_eq!(own_letters("See on ver. 3, and compare Psa 110:1."), 0);
+        assert_eq!(own_letters("Lightly - Perhaps."), 14);
+        assert!(own_letters("Rabshakeh tries to convince the Jews") >= OWN_LETTERS);
+        let voices = vec![(
+            String::new(),
+            runs(
+                "{{ref:Mark 11:25|Mark 11:25}}.",
+                39,
+                &vz(),
+                &mut Report::default(),
+            ),
+        )];
+        assert_eq!(note_letters(&voices), 0);
     }
 
     #[test]

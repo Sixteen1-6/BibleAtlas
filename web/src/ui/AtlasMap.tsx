@@ -234,6 +234,21 @@ export function AtlasMap({ a }: { a: Atlas }) {
     return best;
   };
 
+  /** The verse under a point of the baseline, or the nearest one within a few
+   * pixels that has links: a verse with none would open on nothing (Nehemiah
+   * 10:27). Null when there is none that close. */
+  const linkedAt = (x: number, touch: boolean): number | null => {
+    const v = verseAt(xs, x, S.view.value, w);
+    if (linkCount(a, v) > 0) return v;
+    const reach = touch ? 16 : 8;
+    const off = (u: number) => (u >= 0 && u < a.n ? Math.abs(toScreen(xs[u], S.view.value, w) - x) : Infinity);
+    for (let k = 1; off(v - k) <= reach || off(v + k) <= reach; k++) {
+      const found = [v - k, v + k].filter((u) => off(u) <= reach && linkCount(a, u) > 0).sort((p, q) => off(p) - off(q));
+      if (found.length) return found[0];
+    }
+    return null;
+  };
+
   const onPointerDown = (e: PointerEvent) => {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
     const d: Drag = drag.current ?? { x: localX(e), view: S.view.value, moved: false, pointers: new Map() };
@@ -298,7 +313,13 @@ export function AtlasMap({ a }: { a: Atlas }) {
     }
     hoverArc.current = null;
     if (S.pointedVerse.peek() !== null) S.pointedVerse.value = null;
-    const v = verseAt(xs, x, S.view.value, w);
+    const v = linkedAt(x, false);
+    if (v === null) {
+      if (S.hovered.value !== null) S.hovered.value = null;
+      window.clearTimeout(hoverTimer.current);
+      setTip(null);
+      return;
+    }
     if (S.hovered.value !== v) {
       S.hovered.value = v;
       const y = e.clientY - wrap.current!.getBoundingClientRect().top;
@@ -322,12 +343,15 @@ export function AtlasMap({ a }: { a: Atlas }) {
       if (!d.moved) {
         // A tap on one of the selected verse's arcs follows it to the other end.
         const hit = arcAt(localX(e), localY(e), e.pointerType === 'touch');
-        const v = hit ? hit.v : verseAt(xs, localX(e), S.view.value, w);
+        const v = hit ? hit.v : linkedAt(localX(e), e.pointerType === 'touch');
         // On a phone the tap opens the study panel on the verse's links (the
         // Links tab has a line for its themes); beside the map, an open
-        // Themes tab stays and shows the verse's themes.
-        S.selectVerse(v, { openTab: S.phoneLayout() ? true : undefined });
-        S.mobilePane.value = 'study';
+        // Themes tab stays and shows the verse's themes. A tap where no verse
+        // nearby has links keeps the selection as it is.
+        if (v !== null) {
+          S.selectVerse(v, { openTab: S.phoneLayout() ? true : undefined });
+          S.mobilePane.value = 'study';
+        }
         setTip(null);
       }
       drag.current = null;
@@ -671,7 +695,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
             </b>
           ) : (
             <b>
-              {label(a, tip.v)} · {linkCount(a, tip.v).toLocaleString()} links
+              {label(a, tip.v)} · {linkCount(a, tip.v).toLocaleString()} {linkCount(a, tip.v) === 1 ? 'link' : 'links'}
             </b>
           )}
           {tip.text && <p>{tip.text.length > 160 ? tip.text.slice(0, 157) + '…' : tip.text}</p>}
