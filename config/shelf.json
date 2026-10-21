@@ -37,7 +37,8 @@
       "datasets": ["bsb", "bsb-usfm"],
       "read": {"app": "bible"},
       "citation": "The Holy Bible, Berean Standard Bible (BSB), produced in cooperation with Bible Hub, Discovery Bible, OpenBible.com and the Berean Bible Translation Committee (2016; dedicated to the public domain 30 April 2023), https://berean.bible/. Text via scrollmapper/bible_databases; footnotes and section headings via the USFM edition in usfm-bible/examples.bsb.",
-      "cites": ["Berean Standard Bible footnote"]
+      "cites": ["Berean Standard Bible footnote"],
+      "layer": ["bsb"]
     },
     {
       "id": "net-bible",
@@ -51,7 +52,8 @@
       "licenseNote": "Copyright Biblical Studies Press, L.L.C. Free apps and websites may quote it when each quotation ends with (NET) linked to netbible.org. The app reads it one chapter at a time and never stores it.",
       "datasets": [],
       "find": {"url": "https://netbible.com/copyright/", "label": "NET Bible copyright and permissions"},
-      "citation": "The NET Bible®, New English Translation, copyright ©1996, 2019 by Biblical Studies Press, L.L.C., https://netbible.org. Scripture quoted by permission. All rights reserved. Read live from the publisher's web service, labs.bible.org."
+      "citation": "The NET Bible®, New English Translation, copyright ©1996, 2019 by Biblical Studies Press, L.L.C., https://netbible.org. Scripture quoted by permission. All rights reserved. Read live from the publisher's web service, labs.bible.org.",
+      "layer": ["net-notes"]
     },
     {
       "id": "kjv",
@@ -92,7 +94,8 @@
       "datasets": ["tahot"],
       "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc", "label": "the data files (GitHub)"},
       "citation": "STEPBible, TAHOT: Translators Amalgamated Hebrew OT. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: October 2026.",
-      "cites": ["TAHOT, Translators Amalgamated Hebrew OT"]
+      "cites": ["TAHOT, Translators Amalgamated Hebrew OT"],
+      "layer": ["stepbible-data"]
     },
     {
       "id": "tagnt",
@@ -175,7 +178,8 @@
       "licenseNote": "The dictionary is public domain. This copy is the Christian Classics Ethereal Library's transcription, carried by CCEL Paragraphs (CC BY-SA 4.0) and NEUU's Bible Dictionary Dataset (CC BY 4.0).",
       "datasets": ["easton"],
       "read": {"app": "dictionary"},
-      "citation": "M. G. Easton, Illustrated Bible Dictionary, 3rd ed. (Thomas Nelson, 1897), known as Easton's Bible Dictionary. Text from the Christian Classics Ethereal Library's transcription, via CCEL Paragraphs by Jon Craton (CC BY-SA 4.0) and the Bible Dictionary Dataset, Copyright (c) 2026 NEUU, github.com/neuu-org/bible-dictionary-dataset (CC BY 4.0)."
+      "citation": "M. G. Easton, Illustrated Bible Dictionary, 3rd ed. (Thomas Nelson, 1897), known as Easton's Bible Dictionary. Text from the Christian Classics Ethereal Library's transcription, via CCEL Paragraphs by Jon Craton (CC BY-SA 4.0) and the Bible Dictionary Dataset, Copyright (c) 2026 NEUU, github.com/neuu-org/bible-dictionary-dataset (CC BY 4.0).",
+      "layer": ["easton"]
     },
     {
       "id": "smith",
@@ -217,7 +221,36 @@
       "licenseNote": "Aquifer Open Study Notes (C) 2026 Mission Mutual, an adaptation of Tyndale Open Study Notes (C) 2023 Tyndale House Publishers, both CC BY-SA 4.0.",
       "datasets": ["aquifer-osn"],
       "find": {"url": "https://github.com/BibleAquifer/AquiferOpenStudyNotes/tree/bbb3f86016cd20913f410a95af63d9f7ff9a71d6", "label": "the data files (GitHub)"},
-      "citation": "Aquifer Open Study Notes, (C) 2026 Mission Mutual, CC BY-SA 4.0, github.com/BibleAquifer/AquiferOpenStudyNotes; adapted from Tyndale Open Study Notes, (C) 2023 Tyndale House Publishers, CC BY-SA 4.0, https://tyndaleopenresources.com."
+      "citation": "Aquifer Open Study Notes, (C) 2026 Mission Mutual, CC BY-SA 4.0, github.com/BibleAquifer/AquiferOpenStudyNotes; adapted from Tyndale Open Study Notes, (C) 2023 Tyndale House Publishers, CC BY-SA 4.0, https://tyndaleopenresources.com.",
+      "layer": ["tyndale-notes"]
+    },
+    {
+      "id": "companion-bible",
+      "group": "notes",
+      "plain": "Study-Bible notes on the whole Bible",
+      "title": "The Companion Bible",
+      "by": "Printed without a writer's name; generally credited to E. W. Bullinger",
+      "when": "published in six parts; their dates not yet read",
+      "what": "Notes on the King James text marking its figures of speech and the Hebrew and Greek. The edition \"is not associated with the name of any man\"; the notes are generally credited to E. W. Bullinger (died 1913).",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://www.studylight.org/commentaries/eng/bul.html", "label": "StudyLight, book by book"},
+      "citation": "The Companion Bible (London: Oxford University Press, in six parts), read on StudyLight (studylight.org/commentaries/eng/bul).",
+      "layer": ["companion-bible"]
+    },
+    {
+      "id": "reformation-study-bible",
+      "group": "notes",
+      "plain": "Study Bible notes, 2015",
+      "title": "Reformation Study Bible",
+      "by": "Ligonier Ministries; general editor R. C. Sproul",
+      "when": "2015 edition",
+      "what": "Reformed study notes on the whole Bible; each book's notes were written by a scholar named in the printed edition. The app links to them on Bible Gateway.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://www.biblegateway.com/resources/reformation-study-bible/toc", "label": "Bible Gateway"},
+      "citation": "R. C. Sproul, gen. ed., Reformation Study Bible (Ligonier Ministries, 2015), read on Bible Gateway (biblegateway.com/resources/reformation-study-bible).",
+      "layer": ["reformation-study-bible"]
     },
     {
       "id": "catena-aurea",
@@ -231,21 +264,23 @@
       "licenseNote": "The Catena Aurea and its Oxford translation are public domain. This copy is from the Catena corpus, whose code is MIT licensed and whose data files mark the text public domain.",
       "datasets": ["catena-aurea"],
       "find": {"url": "https://github.com/AlvaroBalbin/catena/tree/efe1bd084d918a34ca22ffeef2ecf711c593b392/data/catena", "label": "the data files (GitHub)"},
-      "citation": "Thomas Aquinas, Catena Aurea: Commentary on the Four Gospels, Collected out of the Works of the Fathers, Oxford translation edited by John Henry Newman, 4 vols. (Oxford: John Henry Parker; London: J. G. F. and J. Rivington, 1841–45). Text from the Catena corpus, github.com/AlvaroBalbin/catena."
+      "citation": "Thomas Aquinas, Catena Aurea: Commentary on the Four Gospels, Collected out of the Works of the Fathers, Oxford translation edited by John Henry Newman, 4 vols. (Oxford: John Henry Parker; London: J. G. F. and J. Rivington, 1841–45). Text from the Catena corpus, github.com/AlvaroBalbin/catena.",
+      "layer": ["catena-aurea"]
     },
     {
       "id": "henry-concise",
       "group": "writers",
-      "plain": "Bible commentary, early 1700s, shortened",
+      "plain": "Shortened Bible commentary, date not known",
       "title": "Concise Commentary on the Whole Bible",
-      "by": "Matthew Henry",
-      "when": "early 1700s",
+      "by": "An editor not yet identified, abridging Matthew Henry's Commentary and its continuation",
+      "when": "date not known",
       "what": "A shortened form of the Bible commentary of Matthew Henry, a Welsh-born Nonconformist minister, which others finished after his death in 1714: a short note on each part of every chapter. Shown at Deep once a reader chooses to see it.",
       "license": "public-domain",
       "licenseNote": "Public domain, as the CrossWire SWORD module (MHCC) marks it. This copy is from the Let's Church repository, which is CC0 1.0.",
       "datasets": ["henry-concise"],
       "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhcc.json", "label": "the data file (GitHub)"},
-      "citation": "Matthew Henry, Concise Commentary on the Whole Bible, from the CrossWire Bible Society's SWORD module MHCC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0)."
+      "citation": "Matthew Henry, Concise Commentary on the Whole Bible, from the CrossWire Bible Society's SWORD module MHCC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "layer": ["henry-concise"]
     },
     {
       "id": "wesley-notes",
@@ -259,7 +294,8 @@
       "licenseNote": "Public domain, as the CrossWire SWORD module (Wesley) marks it; based on the electronic edition by Sulu Kelley and Bill Brown. This copy is from the Let's Church repository, which is CC0 1.0.",
       "datasets": ["wesley-notes"],
       "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/wesley.json", "label": "the data file (GitHub)"},
-      "citation": "John Wesley, Explanatory Notes upon the New Testament (London, 1755) and Explanatory Notes upon the Old Testament (Bristol, 1765–66), from the CrossWire Bible Society's SWORD module Wesley, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0)."
+      "citation": "John Wesley, Explanatory Notes upon the New Testament (London, 1755) and Explanatory Notes upon the Old Testament (Bristol, 1765–66), from the CrossWire Bible Society's SWORD module Wesley, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "layer": ["wesley-ot", "wesley-nt"]
     },
     {
       "id": "keil-delitzsch",
@@ -273,7 +309,303 @@
       "datasets": [],
       "read": {"url": "https://biblehub.com/commentaries/kad/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
       "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century).",
-      "cites": ["C. F. Keil and F. Delitzsch"]
+      "cites": ["C. F. Keil and F. Delitzsch"],
+      "layer": ["keil-delitzsch"]
+    },
+    {
+      "id": "barnes-nt",
+      "group": "writers",
+      "plain": "Notes on the New Testament, from 1832",
+      "title": "Notes, Explanatory and Practical, on the New Testament",
+      "by": "Albert Barnes, Presbyterian minister, Philadelphia",
+      "when": "1832 (the Gospels) to 1851 (Revelation, its copyright year)",
+      "what": "Verse-by-verse notes on the New Testament, written for Sunday-school teachers and Bible classes. Bible Hub shows them as \"Barnes' Notes\"; the app links there.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/notesexplanatory01inbarn", "label": "archive.org, the Gospels volume"},
+      "citation": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (New York, 1832 onward), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "layer": ["barnes-nt"]
+    },
+    {
+      "id": "barnes-ot",
+      "group": "writers",
+      "plain": "Notes on Job, the Psalms, Isaiah and Daniel",
+      "title": "Notes, Critical, Explanatory, and Practical, on Job, the Psalms, Isaiah and Daniel",
+      "by": "Albert Barnes, Presbyterian minister, Philadelphia",
+      "when": "Isaiah 1840; Job 1844; Daniel 1853; the Psalms 1867 (copyright years)",
+      "what": "Albert Barnes's notes on the four Old Testament books he wrote on. On every other Old Testament book, Bible Hub's \"Barnes' Notes\" are other men's words: see Murphy, Pusey and the Speaker's Commentary.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/notescriticalexp18471barn", "label": "archive.org, Isaiah"},
+      "citation": "Albert Barnes, Notes, Critical, Explanatory, and Practical, on the Book of the Prophet Isaiah (1840), the Book of Job (1844), the Book of Daniel (1853) and the Book of Psalms (1867 onward), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "layer": ["barnes-job", "barnes-psalms", "barnes-isaiah", "barnes-daniel"]
+    },
+    {
+      "id": "murphy-genesis",
+      "group": "writers",
+      "plain": "Commentary on Genesis, 1866 edition",
+      "title": "A Critical and Exegetical Commentary on the Book of Genesis, with a New Translation",
+      "by": "James G. Murphy, Presbyterian minister and Professor of Hebrew at the Assembly's College, Belfast",
+      "when": "Andover edition 1866 (the Edinburgh first edition is not yet dated here)",
+      "what": "Bible Hub shows these Genesis notes under “Barnes’ Notes”, but the words are Murphy's: every Genesis comment the app cites is in his printed book.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/criticalexeg00murp", "label": "archive.org, Andover edition 1866"},
+      "citation": "J. G. Murphy, A Critical and Exegetical Commentary on the Book of Genesis, with a New Translation (Andover: Warren F. Draper, 1866), read on Bible Hub (biblehub.com/commentaries/barnes/genesis).",
+      "layer": ["murphy-genesis"]
+    },
+    {
+      "id": "pusey-minor-prophets",
+      "group": "writers",
+      "plain": "Commentary on the Minor Prophets, from 1860",
+      "title": "The Minor Prophets, with a Commentary Explanatory and Practical",
+      "by": "E. B. Pusey, Regius Professor of Hebrew and Canon of Christ Church, Oxford",
+      "when": "published in parts from 1860; London edition 1883 read",
+      "what": "Bible Hub shows these notes on Hosea to Malachi under “Barnes’ Notes”, but the words are Pusey's: every cited comment is in his printed book.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/minorprophetswit00puserich", "label": "archive.org, London edition 1883"},
+      "citation": "E. B. Pusey, The Minor Prophets, with a Commentary Explanatory and Practical (Oxford, from 1860; London: Walter Smith, 1883), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "layer": ["pusey-minor-prophets"]
+    },
+    {
+      "id": "speakers-commentary",
+      "group": "writers",
+      "plain": "Bible commentary by Anglican clergy, 1870s",
+      "title": "The Holy Bible, with an Explanatory and Critical Commentary (the Speaker's Commentary)",
+      "by": "Bishops and other clergy of the Church of England; edited by F. C. Cook, Canon of Exeter",
+      "when": "volumes of 1873 to 1876 read, and 1877 and 1886 printings of vols. I and II",
+      "what": "A commentary on the whole Bible, each book by its own writer. Bible Hub shows its notes on Exodus to the Song of Solomon, Jeremiah and Ezekiel under “Barnes’ Notes”; the writers are listed below.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/holybibleaccordi0004unse", "label": "archive.org, vol. IV, 1873"},
+      "citation": "The Holy Bible according to the Authorized Version (A.D. 1611), with an Explanatory and Critical Commentary and a Revision of the Translation, by Bishops and other Clergy of the Anglican Church, edited by F. C. Cook (London: John Murray), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "layer": ["speakers-commentary"]
+    },
+    {
+      "id": "ellicott",
+      "group": "writers",
+      "plain": "Bible commentary, 1878 to 1884",
+      "title": "Ellicott's Commentary for English Readers",
+      "by": "Various writers, edited by Charles John Ellicott, Bishop of Gloucester and Bristol",
+      "when": "Old Testament 1882 to 1884; New Testament from 1878",
+      "what": "A commentary on the whole Bible for readers without Greek or Hebrew, each book by its own writer. The writers the app cites are listed below; A. S. Aglen's books are no longer cited.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/oldtestamentcomm01elli", "label": "archive.org, Old Testament vol. I"},
+      "citation": "Charles John Ellicott, ed., An Old Testament Commentary for English Readers, 5 vols. (London: Cassell, 1882 to 1884), and A New Testament Commentary for English Readers, 3 vols. (from 1878), read on Bible Hub (biblehub.com/commentaries/ellicott).",
+      "layer": ["ellicott"]
+    },
+    {
+      "id": "pulpit",
+      "group": "writers",
+      "plain": "Commentary for preachers, 1880 to 1897",
+      "title": "The Pulpit Commentary",
+      "by": "Various writers, edited by H. D. M. Spence and Joseph S. Exell",
+      "when": "1880 to 1897",
+      "what": "A commentary on the whole Bible with an exposition, homiletics and homilies for each book. Bible Hub shows only the exposition, whose writers are listed below. Its volume on Jeremiah and Lamentations is not cited.",
+      "license": "public-domain",
+      "licenseNote": "The printed volumes are public domain. Bible Hub's electronic text says \"Copyright (c) 2001, 2003, 2005, 2006, 2010 by BibleSoft, inc.\"; the app links to it and copies none of it.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/cu31924098499522", "label": "archive.org, Genesis"},
+      "citation": "H. D. M. Spence and Joseph S. Exell, eds., The Pulpit Commentary (London: Kegan Paul, Trench and Co., 1880 to 1897), read on Bible Hub (biblehub.com/commentaries/pulpit).",
+      "layer": ["pulpit"]
+    },
+    {
+      "id": "jfb",
+      "group": "writers",
+      "plain": "Bible commentary, 1873 printing",
+      "title": "A Commentary, Critical and Explanatory, on the Old and New Testaments",
+      "by": "Robert Jamieson, A. R. Fausset and David Brown",
+      "when": "New York reprints of 1873 and 1878 of the English edition",
+      "what": "A short commentary on the whole Bible. Its title page divides it: Genesis to Esther by Jamieson, Job to Malachi and 1 Corinthians to Revelation by Fausset, Matthew to Romans by Brown.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/commentarycritic00jami", "label": "archive.org, 1873"},
+      "citation": "Robert Jamieson, A. R. Fausset and David Brown, A Commentary, Critical and Explanatory, on the Old and New Testaments (New York: S. S. Scranton, 1873), read on Bible Hub (biblehub.com/commentaries/jfb).",
+      "layer": ["jfb"]
+    },
+    {
+      "id": "henry-complete",
+      "group": "writers",
+      "plain": "Bible commentary, 1828 edition",
+      "title": "An Exposition of the Old and New Testament",
+      "by": "Matthew Henry; Romans to Revelation completed after his death by other ministers",
+      "when": "1828 edition read",
+      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, named in the edition's preface.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/expositionofoldn06henr", "label": "archive.org, vol. VI, 1828"},
+      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw).",
+      "layer": ["henry-complete"]
+    },
+    {
+      "id": "poole",
+      "group": "writers",
+      "plain": "Bible annotations, 1683 and 1685",
+      "title": "Annotations upon the Holy Bible",
+      "by": "Matthew Poole (to Isaiah 58), then other ministers not named in print",
+      "when": "vol. I 1683; vol. II 1685",
+      "what": "Short notes on the whole Bible. Poole wrote the first volume to Isaiah 58; the second volume is \"a Continuation of Mr. Pool's Work by certain Judicious and Learned Divines\", not named.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/bim_early-english-books-1641-1700_annotations-upon-the-hol_poole-matthew_1685", "label": "archive.org, vol. II, 1685"},
+      "citation": "Matthew Poole, Annotations upon the Holy Bible, 2 vols. (London, 1683 and 1685), read on Bible Hub (biblehub.com/commentaries/poole).",
+      "layer": ["poole"]
+    },
+    {
+      "id": "gill",
+      "group": "writers",
+      "plain": "Bible exposition, 1746 to 1765",
+      "title": "An Exposition of the Old and New Testament",
+      "by": "John Gill, English Particular Baptist minister",
+      "when": "volumes dated 1746 to 1765",
+      "what": "A verse-by-verse exposition of the whole Bible, often citing old Jewish writings as witnesses.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/expositionofoldt0002gill", "label": "archive.org, a volume of 1764"},
+      "citation": "John Gill, An Exposition of the New Testament and An Exposition of the Old Testament (London, 1746 to 1765), read on Bible Hub (biblehub.com/commentaries/gill).",
+      "layer": ["gill"]
+    },
+    {
+      "id": "clarke",
+      "group": "writers",
+      "plain": "Bible commentary, 1817 printing",
+      "title": "The Holy Bible, with a Commentary and Critical Notes",
+      "by": "Adam Clarke, Methodist preacher and scholar",
+      "when": "London printing of 1817 read",
+      "what": "A commentary on the whole Bible by a Methodist scholar, with notes on the Hebrew and Greek.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/holybiblecontain01clar", "label": "archive.org, 1817"},
+      "citation": "Adam Clarke, The Holy Bible ... with a Commentary and Critical Notes (London: Butterworth, 1817 printing), read on Bible Hub (biblehub.com/commentaries/clarke).",
+      "layer": ["clarke"]
+    },
+    {
+      "id": "benson",
+      "group": "writers",
+      "plain": "Methodist Bible commentary",
+      "title": "The Holy Bible, with Notes, Critical, Explanatory, and Practical",
+      "by": "Joseph Benson, English Methodist minister",
+      "when": "date not yet read from a dated copy",
+      "what": "A commentary on the whole Bible by an early Methodist minister. The app links to it on Bible Hub.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://biblehub.com/commentaries/benson/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
+      "citation": "Joseph Benson, The Holy Bible ... with Notes, Critical, Explanatory, and Practical, read on Bible Hub (biblehub.com/commentaries/benson).",
+      "layer": ["benson"]
+    },
+    {
+      "id": "bengel-gnomon",
+      "group": "writers",
+      "plain": "Notes on the New Testament, English 1857",
+      "title": "Gnomon of the New Testament",
+      "by": "J. A. Bengel, Lutheran clergyman and Greek scholar",
+      "when": "English edition from 1857 (Edinburgh: T. and T. Clark)",
+      "what": "Brief notes on the Greek words of the New Testament, in the English translation published in Edinburgh. John Wesley drew on them for his own notes.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/gnomonofthenewte01benguoft", "label": "archive.org, vol. I, 1857"},
+      "citation": "J. A. Bengel, Gnomon of the New Testament, English translation (Edinburgh: T. and T. Clark, from 1857), read on Bible Hub (biblehub.com/commentaries/bengel).",
+      "layer": ["bengel-gnomon"]
+    },
+    {
+      "id": "calvin-commentaries",
+      "group": "writers",
+      "plain": "Bible commentaries, English from 1844",
+      "title": "Commentaries",
+      "by": "John Calvin, Reformer and pastor in Geneva",
+      "when": "Calvin Translation Society edition, from 1844",
+      "what": "Calvin's commentaries on most books of the Bible, in the English translation of the Calvin Translation Society. The app links to them on Bible Hub.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/commentariesontw01calvuoft", "label": "archive.org, the Minor Prophets, vol. I"},
+      "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), read on Bible Hub (biblehub.com/commentaries/calvin).",
+      "layer": ["calvin-commentaries"]
+    },
+    {
+      "id": "maclaren-expositions",
+      "group": "writers",
+      "plain": "Sermons on the Bible, 1906 printing",
+      "title": "Expositions of Holy Scripture",
+      "by": "Alexander Maclaren, Scottish Baptist minister",
+      "when": "1906 printing read",
+      "what": "Expository sermons on passages through the whole Bible.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/expositionsofhol01macl", "label": "archive.org, vol. I"},
+      "citation": "Alexander Maclaren, Expositions of Holy Scripture (London: Hodder and Stoughton, 1906 printing), read on Bible Hub (biblehub.com/commentaries/maclaren).",
+      "layer": ["maclaren-expositions"]
+    },
+    {
+      "id": "spurgeon-treasury",
+      "group": "writers",
+      "plain": "Commentary on the Psalms, 1869 to 1885",
+      "title": "The Treasury of David",
+      "by": "C. H. Spurgeon, English Particular Baptist preacher",
+      "when": "vol. V, 1878 (the volume cited)",
+      "what": "Spurgeon's exposition of the Psalms, with notes gathered from other writers.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/treasuryofdavid0005chsp", "label": "archive.org, vol. V, 1878"},
+      "citation": "C. H. Spurgeon, The Treasury of David, vol. V (1878), read on Bible Hub (biblehub.com/commentaries/tod).",
+      "layer": ["spurgeon-treasury"]
+    },
+    {
+      "id": "geneva-notes",
+      "group": "writers",
+      "plain": "Study notes of the Geneva Bible, 1599",
+      "title": "The Geneva Bible notes",
+      "by": "English Protestant exiles at Geneva; Laurence Tomson (New Testament); Franciscus Junius (Revelation)",
+      "when": "1599 edition",
+      "what": "The study notes printed in the Geneva Bible, read by the Puritans. The Old Testament notes are the exiles'; the New Testament notes are Tomson's, after Beza, and those on Revelation are Junius's.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://biblehub.com/commentaries/gsb/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
+      "citation": "The Geneva Bible notes, 1599 edition, read on Bible Hub (biblehub.com/commentaries/gsb).",
+      "layer": ["geneva-notes"]
+    },
+    {
+      "id": "figures-of-speech",
+      "group": "writers",
+      "plain": "Catalogue of figures of speech, 1898",
+      "title": "Figures of Speech Used in the Bible, Explained and Illustrated",
+      "by": "E. W. Bullinger, Anglican clergyman",
+      "when": "1898",
+      "what": "A catalogue of the figures of speech used in the Bible, plays on words included, each with verses that show it.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/figuresofspeechu00bull", "label": "archive.org, 1898"},
+      "citation": "E. W. Bullinger, Figures of Speech Used in the Bible, Explained and Illustrated (London: Eyre and Spottiswoode, 1898).",
+      "layer": ["figures-of-speech"]
+    },
+    {
+      "id": "church-fathers",
+      "group": "writers",
+      "plain": "Writings of the early church, in translation",
+      "title": "The church fathers, as New Advent gives them",
+      "by": "Justin Martyr, Irenaeus, Clement of Rome, Gregory of Nazianzus, Jerome, Athanasius, Augustine, John Chrysostom, and the unknown writer of the Epistle of Barnabas",
+      "when": "first to fifth centuries; English translations of 1885 to 1896",
+      "what": "Early Christian writings the Layers notes cite, each in the English of the Ante-Nicene and Nicene and Post-Nicene Fathers. Each cite names the writer, the work and its translator.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://www.newadvent.org/fathers/", "label": "New Advent"},
+      "citation": "The Ante-Nicene Fathers (1885 to 1896) and the Nicene and Post-Nicene Fathers (1888 to 1894), read on New Advent (newadvent.org/fathers), revised and edited there by Kevin Knight.",
+      "layer": ["justin-dialogue", "justin-first-apology", "irenaeus-against-heresies", "barnabas", "first-clement", "gregory-oration-41", "jerome-apology", "athanasius-arians", "augustine-tractates-john", "chrysostom-galatians"]
+    },
+    {
+      "id": "edersheim-life",
+      "group": "writers",
+      "plain": "Life of Jesus, 1884 edition",
+      "title": "The Life and Times of Jesus the Messiah",
+      "by": "Alfred Edersheim, Jewish-born Christian biblical scholar",
+      "when": "second edition, 1884",
+      "what": "A life of Jesus set against the Jewish world of his day.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {"url": "https://www.ccel.org/ccel/edersheim/lifetimes.html", "label": "Christian Classics Ethereal Library"},
+      "citation": "Alfred Edersheim, The Life and Times of Jesus the Messiah, 2nd ed. (London: Longmans, 1884), read on the Christian Classics Ethereal Library (ccel.org).",
+      "layer": ["edersheim-life"]
     },
     {
       "id": "tyndale-tbd",
@@ -355,7 +687,8 @@
       "licenseNote": "Strong's dictionaries are public domain; the JSON edition by Open Scriptures is CC BY-SA.",
       "datasets": ["strongs"],
       "find": {"url": "https://github.com/openscriptures/strongs/tree/0acd2f251c2d35ff8db2dece4e0593979d3ac223", "label": "the data files (GitHub)"},
-      "citation": "James Strong, A Concise Dictionary of the Words in the Hebrew Bible and Dictionary of Greek Words, from The Exhaustive Concordance of the Bible (1890). JSON edition: Open Scriptures, github.com/openscriptures/strongs (CC BY-SA). This copy: October 2026."
+      "citation": "James Strong, A Concise Dictionary of the Words in the Hebrew Bible and Dictionary of Greek Words, from The Exhaustive Concordance of the Bible (1890). JSON edition: Open Scriptures, github.com/openscriptures/strongs (CC BY-SA). This copy: October 2026.",
+      "layer": ["strongs"]
     },
     {
       "id": "thayer",
@@ -383,7 +716,8 @@
       "datasets": [],
       "read": {"url": "https://archive.org/details/cu31924021607464", "label": "Internet Archive"},
       "citation": "G. Abbott-Smith, A Manual Greek Lexicon of the New Testament (Edinburgh: T. & T. Clark, 1922).",
-      "cites": ["G. Abbott-Smith, A Manual Greek Lexicon"]
+      "cites": ["G. Abbott-Smith, A Manual Greek Lexicon"],
+      "layer": ["abbott-smith"]
     },
     {
       "id": "openbible-geo",
@@ -498,7 +832,8 @@
       "datasets": [],
       "read": {"url": "https://ccel.org/ccel/lightfoot/fathers.ii.xii.html", "label": "Christian Classics Ethereal Library"},
       "citation": "The Didache, or Teaching of the Twelve Apostles (Greek, 1st century AD), cited by chapter and verse. Known from a Greek manuscript of 1056 published by Philotheos Bryennios in 1883. English translation in J. B. Lightfoot, The Apostolic Fathers.",
-      "cites": ["Didache"]
+      "cites": ["Didache"],
+      "layer": ["didache"]
     },
     {
       "id": "4-ezra",
@@ -643,6 +978,132 @@
       "cites": ["Gustaf Dalman, Grammatik"]
     },
     {
+      "id": "themelios",
+      "group": "scholars",
+      "plain": "Articles in an evangelical journal, 1989 to 2023",
+      "title": "Themelios",
+      "by": "The Gospel Coalition's journal; articles by Torleif Elgvin, Jey J. Kanagaraj, David L. Baker, Walter Riggans, R. T. France, Matt Champlin, Bruce Reichenbach and David V. Christensen",
+      "when": "articles of 1989 to 2023",
+      "what": "An international evangelical journal for students of theology. The app cites the articles named here, each linked.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://www.thegospelcoalition.org/themelios/", "label": "thegospelcoalition.org/themelios"},
+      "citation": "Themelios (The Gospel Coalition), thegospelcoalition.org/themelios.",
+      "layer": ["elgvin-cursed-on-the-tree", "kanagaraj-poor-in-the-gospels", "baker-jubilee-and-millennium", "riggans-parousia", "france-matthews-gospel", "champlin-blessing-in-genesis", "reichenbach-soteriology-john", "christensen-lamblike-servant"]
+    },
+    {
+      "id": "jets",
+      "group": "scholars",
+      "plain": "Journal articles, 1995 to 2020",
+      "title": "Journal of the Evangelical Theological Society",
+      "by": "The Evangelical Theological Society; articles by Herbert W. Bateman IV, Paul M. Hoskins, Gary Yates, Gregory R. Lanier and Jeannine K. Brown",
+      "when": "articles of 1995 to 2020",
+      "what": "The journal of a society whose members affirm that the Bible is without error. The app cites the articles named here, each linked.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://www.etsjets.org/JETS", "label": "etsjets.org"},
+      "citation": "Journal of the Evangelical Theological Society, etsjets.org/JETS.",
+      "layer": ["bateman-heb-1-and-4qflor", "hoskins-true-passover-lamb", "yates-weeping-and-pouting-prophet", "lanier-rejected-stone", "brown-isaiahs-servant"]
+    },
+    {
+      "id": "beale",
+      "group": "scholars",
+      "plain": "Journal article, 2005",
+      "title": "Eden, the Temple, and the Church's Mission in the New Creation",
+      "by": "G. K. Beale, Reformed New Testament scholar",
+      "when": "2005",
+      "what": "An article in the Journal of the Evangelical Theological Society 48/1 on the garden and the temple, from Genesis to Revelation 21 and 22.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://etsjets.org/wp-content/uploads/2010/06/files_JETS-PDFs_48_48-1_48-1-pp005-031_JETS.pdf", "label": "etsjets.org (PDF)"},
+      "citation": "G. K. Beale, \"Eden, the Temple, and the Church's Mission in the New Creation,\" Journal of the Evangelical Theological Society 48/1 (2005): 5-31.",
+      "layer": ["beale-eden-temple"]
+    },
+    {
+      "id": "bruce",
+      "group": "scholars",
+      "plain": "Two essays on Jesus and Paul",
+      "title": "Essays by F. F. Bruce",
+      "by": "F. F. Bruce, evangelical scholar",
+      "when": "1982 (the Son of Man essay); the year of the other is not printed in the copy read",
+      "what": "The Background to the Son of Man Sayings (in Christ the Lord) and The Curse of the Law (in Paul and Paulinism).",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://gospelstudies.org.uk/biblicalstudies/pdf/christ-the-lord/sonofman_bruce.pdf", "label": "gospelstudies.org.uk (PDF)"},
+      "citation": "F. F. Bruce, \"The Background to the Son of Man Sayings,\" in H. H. Rowdon, ed., Christ the Lord (Leicester: Inter-Varsity Press, 1982), 50-70; \"The Curse of the Law,\" in M. D. Hooker and S. G. Wilson, eds., Paul and Paulinism (London: SPCK), 27-36.",
+      "layer": ["bruce-son-of-man", "bruce-curse-of-the-law"]
+    },
+    {
+      "id": "woudstra",
+      "group": "scholars",
+      "plain": "Journal article, 1971",
+      "title": "Recent Translations of Genesis 3:15",
+      "by": "M. H. Woudstra, Old Testament scholar, Calvin Theological Seminary",
+      "when": "1971",
+      "what": "An article in the Calvin Theological Journal 6 on how Genesis 3:15 is translated.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://biblicalelearning.org/wp-content/uploads/2022/01/Woudstra_Gen3_15_CTJ.htm", "label": "biblicalelearning.org"},
+      "citation": "M. H. Woudstra, \"Recent Translations of Genesis 3:15,\" Calvin Theological Journal 6 (1971): 194-203.",
+      "layer": ["woudstra-genesis-3-15"]
+    },
+    {
+      "id": "leithart",
+      "group": "scholars",
+      "plain": "Essays, 2011 and 2014",
+      "title": "Essays at the Theopolis Institute",
+      "by": "Peter J. Leithart, President of the Theopolis Institute",
+      "when": "2011 and 2014",
+      "what": "Short essays by a Reformed theologian on reading the Bible: Firstborn (2011) and What's in a Name? (2014).",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://theopolisinstitute.com/", "label": "theopolisinstitute.com"},
+      "citation": "Peter J. Leithart, \"Firstborn\" (2011) and \"What's in a Name?\" (2014), Theopolis Institute, theopolisinstitute.com.",
+      "layer": ["leithart-whats-in-a-name", "leithart-firstborn"]
+    },
+    {
+      "id": "keener",
+      "group": "scholars",
+      "plain": "Bible background articles, 2016",
+      "title": "Bible Backgrounds",
+      "by": "Craig S. Keener, New Testament scholar, Asbury Theological Seminary",
+      "when": "2016",
+      "what": "Short articles on the setting of passages in Genesis.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://craigkeener.com/", "label": "craigkeener.com"},
+      "citation": "Craig S. Keener, \"Jacob gets Esau's blessing\" and \"Sleeping with a prostitute part 2\" (2016), Bible Backgrounds, craigkeener.com.",
+      "layer": ["keener-esaus-blessing", "keener-genesis-38"]
+    },
+    {
+      "id": "bird",
+      "group": "scholars",
+      "plain": "Article, 2024",
+      "title": "Maranatha and the Identity of Jesus",
+      "by": "Michael F. Bird, evangelical Anglican scholar",
+      "when": "2024",
+      "what": "An article on the Aramaic prayer in 1 Corinthians 16:22.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://michaelfbird.substack.com/p/maranatha-and-the-identity-of-jesus", "label": "michaelfbird.substack.com"},
+      "citation": "Michael F. Bird, \"Maranatha and the Identity of Jesus,\" Word from the Bird (2024), michaelfbird.substack.com.",
+      "layer": ["bird-maranatha"]
+    },
+    {
+      "id": "capes",
+      "group": "scholars",
+      "plain": "Article, 2020",
+      "title": "One God, One Lord (Part 8)",
+      "by": "David B. Capes, Baptist New Testament scholar",
+      "when": "2020",
+      "what": "An article on 1 Corinthians 16:22 and early worship of Jesus.",
+      "license": "copyrighted",
+      "datasets": [],
+      "find": {"url": "https://davidbcapes.com/2020/02/11/one-god-one-lord-part-8/", "label": "davidbcapes.com"},
+      "citation": "David B. Capes, \"One God, One Lord (Part 8),\" A Word in Edgewise (2020), davidbcapes.com.",
+      "layer": ["capes-one-god-one-lord-8"]
+    },
+    {
       "id": "gotquestions",
       "group": "elsewhere",
       "plain": "Question-and-answer website, since 2002",
@@ -669,7 +1130,8 @@
       "find": {"url": "https://www.thegospelcoalition.org/", "label": "thegospelcoalition.org"},
       "citation": "The Gospel Coalition. The Gospel Coalition, Inc., 2007–. https://www.thegospelcoalition.org/.",
       "cites": ["The Gospel Coalition"],
-      "onlyWhenCited": true
+      "onlyWhenCited": true,
+      "layer": ["currid-ruth", "fix-vannoy-1-samuel", "kostenberger-john", "roh-lifted-up", "crowe-walking-on-water", "thornton-ruth-foreshadows-christ"]
     },
     {
       "id": "bible-org",
@@ -713,7 +1175,8 @@
       "find": {"url": "https://www.ligonier.org/", "label": "ligonier.org"},
       "citation": "Ligonier Ministries. Ligonier Ministries, Inc., 1971–. https://www.ligonier.org/.",
       "cites": ["Ligonier"],
-      "onlyWhenCited": true
+      "onlyWhenCited": true,
+      "layer": ["thomas-snakes-and-ladders", "inconsolable-father", "risky-proposal", "bilkes-immanuel", "dawson-with-you-always"]
     },
     {
       "id": "christianity-today",
@@ -743,7 +1206,8 @@
       "find": {"url": "https://bibleproject.com/", "label": "bibleproject.com"},
       "citation": "BibleProject. BibleProject, 2014–. https://bibleproject.com/.",
       "cites": ["BibleProject"],
-      "onlyWhenCited": true
+      "onlyWhenCited": true,
+      "layer": ["bibleproject-babel", "bibleproject-jubilee", "bibleproject-jonah-guide", "quinn-woman-at-the-well"]
     },
     {
       "id": "desiring-god",

@@ -129,6 +129,10 @@ struct Work {
     /// On the shelf only while the app cites it.
     #[serde(default, skip_serializing)]
     only_when_cited: bool,
+    /// The works of config/layer-sources.json this card presents, for the
+    /// Layers notes that cite them; the build adds who wrote each part.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    layer: Vec<String>,
 }
 
 /// Where to read a work: in the app (`app`), or at a free full copy (`url`, `label`).
@@ -1156,7 +1160,8 @@ pub fn build(
 ) -> Result<Vec<(String, Vec<u8>)>, String> {
     let config = read_config(root)?;
     let cites = citations(root, vz)?;
-    let (shelf, warnings) = assemble(config, &inputs.spec.sources, dicts, &cites)?;
+    let (mut shelf, warnings) = assemble(config, &inputs.spec.sources, dicts, &cites)?;
+    attach_layer_writers(&mut shelf, &crate::layers::shelf_works(root)?)?;
     for w in &warnings {
         eprintln!("warning: {w}");
     }
@@ -1215,7 +1220,13 @@ fn read_config(root: &Path) -> Result<Option<Config>, String> {
             "{CONFIG} mentions the ESV, which this project never quotes"
         ));
     }
-    serde_json::from_str(&text)
+    let v: Value = serde_json::from_str(&text).map_err(|e| format!("parsing {CONFIG}: {e}"))?;
+    if let Some((path, phrase)) = crate::layers::ai_credit_in(&v, "") {
+        return Err(format!(
+            "{CONFIG}: {path} says {phrase:?}; the shelf credits the original sources, never AI"
+        ));
+    }
+    serde_json::from_value(v)
         .map(Some)
         .map_err(|e| format!("parsing {CONFIG}: {e}"))
 }
@@ -1330,7 +1341,7 @@ fn assemble(
     let (works, cited): (Vec<Work>, Vec<_>) = works
         .into_iter()
         .zip(cited)
-        .filter(|(w, places)| !w.only_when_cited || !places.is_empty())
+        .filter(|(w, places)| !w.only_when_cited || !places.is_empty() || !w.layer.is_empty())
         .unzip();
     let waiting = shown - works.len();
     groups.retain(|g| works.iter().any(|w| w.group == g.id));
@@ -1377,6 +1388,52 @@ fn assemble(
         json!({ "format": 1, "groups": groups, "works": works_json, "dictionaries": dictionaries }),
         warnings,
     ))
+}
+
+/// Each card that presents Layers works gets `writers`: one row per part of
+/// those works, saying who wrote the words of which books and how we know.
+/// Every Layers work is on exactly one card, the one its `shelf` names.
+fn attach_layer_writers(shelf: &mut Value, layer: &[crate::layers::ShelfWork]) -> Result<(), String> {
+    let mut on_card: HashSet<&str> = HashSet::new();
+    for w in shelf["works"].as_array_mut().into_iter().flatten() {
+        let card = w["id"].as_str().unwrap_or("").to_string();
+        let ids: Vec<String> = w["layer"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|x| x.as_str().map(str::to_string))
+            .collect();
+        let mut rows = Vec::new();
+        for id in &ids {
+            let Some(lw) = layer.iter().find(|x| &x.id == id) else {
+                return Err(format!(
+                    "{CONFIG}: work {card:?}: layer names {id:?}, which is not a work in config/layer-sources.json"
+                ));
+            };
+            if lw.card != card {
+                return Err(format!(
+                    "{CONFIG}: work {card:?}: layer names {id:?}, whose shelf in config/layer-sources.json is {:?}",
+                    lw.card
+                ));
+            }
+            if !on_card.insert(lw.id.as_str()) {
+                return Err(format!(
+                    "{CONFIG}: work {card:?}: layer names {id:?}, which another card already presents"
+                ));
+            }
+            rows.extend(lw.rows.iter().cloned());
+        }
+        if !rows.is_empty() {
+            w["writers"] = json!(rows);
+        }
+    }
+    if let Some(lw) = layer.iter().find(|x| !on_card.contains(x.id.as_str())) {
+        return Err(format!(
+            "{CONFIG}: no card presents the Layers work {:?}; add it to the layer list of the card {:?}",
+            lw.id, lw.card
+        ));
+    }
+    Ok(())
 }
 
 /// Checks config/shelf.json; the first problem fails the build.
@@ -1539,6 +1596,7 @@ fn fallback(s: &Source) -> Work {
         citation: s.attribution.clone(),
         cites: Vec::new(),
         only_when_cited: false,
+        layer: Vec::new(),
     }
 }
 
@@ -2225,6 +2283,7 @@ mod tests {
             citation: "A citation.".into(),
             cites: Vec::new(),
             only_when_cited: false,
+            layer: Vec::new(),
         }
     }
 

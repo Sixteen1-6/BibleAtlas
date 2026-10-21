@@ -17,7 +17,7 @@ import './shelf.css';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Atlas, SourceMeta } from '../data/atlas';
 import { ESV_ENABLED } from '../data/esv';
-import { type Cited, type Shelf, type Work, licenseWords, useShelf, workFor } from '../data/shelf';
+import { type Cited, type Shelf, type Work, type WriterRow, licenseWords, useShelf, workFor } from '../data/shelf';
 import { type Depth, atLeast } from '../depth';
 import * as S from '../state';
 import { Dictionary, VerseLink, focusView, scrollStudyTo } from './Dictionary';
@@ -276,6 +276,7 @@ function Card({ a, shelf, w, open, study, deep }: { a: Atlas; shelf: Shelf; w: W
           {w.license === 'copyrighted' && w.licenseNote && <p class="muted shelf-note">{w.licenseNote}</p>}
           <Actions w={w} canRead={!!dict || w.read?.app !== 'dictionary'} />
           <CitedIn a={a} w={w} />
+          {study && w.writers && w.writers.length > 0 && <Writers w={w} />}
           {study &&
             datasets.map((s) => (
               <p key={s.id} class="shelf-provides">
@@ -380,6 +381,81 @@ function CitedIn({ a, w }: { a: Atlas; w: Work }) {
         );
       })}
     </>
+  );
+}
+
+/** How we know who wrote a part: where the writer is named, how the site's
+ * text was matched to the printed book, one example to search for, and what
+ * is still weaker or missing. */
+function HowWeKnowLine({ row }: { row: WriterRow }) {
+  const h = row.how;
+  if (!h) return null;
+  const n = h.named_by;
+  const where = n.scan ? `the ${n.leaf ?? 'title page'} of the printed volume` : n.page ? 'the page itself' : n.source ? n.source.replace(/^config\/shelf\.json card /, 'this shelf') : '';
+  const named =
+    row.named === 'unnamed'
+      ? ''
+      : h.level === 'site credit'
+        ? `The site's own credit line names him: “${n.words}”. `
+        : where
+          ? `${row.writer.includes(' and ') ? 'Their names are' : 'The name is'} on ${where} (“${n.words}”). `
+          : '';
+  const m = h.matched;
+  let matched = '';
+  if (m?.cites && m.matched !== undefined) {
+    const all = m.matched === m.cites;
+    matched = `${all ? `All ${m.cites}` : `${m.matched} of the ${m.cites}`} comments the app cites from ${row.books || 'it'} ${m.cites === 1 ? 'was' : 'were'} found in the printed book${m.chapter_level ? ` (${m.chapter_level} only at chapter level)` : ''}`;
+  } else if (h.level === 'volume' || h.level === 'chapter') {
+    matched = `The site's text was matched to the printed ${h.level === 'volume' ? 'volume' : 'book'}`;
+  }
+  return (
+    <p class="shelf-how">
+      <b>How we know: </b>
+      {named}
+      {matched}
+      {h.example ? (
+        <>
+          {matched ? '; for example ' : 'For example, '}“{h.example.words}” ({h.example.on}).{' '}
+          <a href={h.example.check} target="_blank" rel="noopener">
+            Search the printed book for those words ›
+          </a>
+        </>
+      ) : (
+        matched && '.'
+      )}
+      {h.note && ` ${h.note}`}
+    </p>
+  );
+}
+
+/** Who wrote the words of each part of a work the Layers notes cite. */
+function Writers({ w }: { w: Work }) {
+  const rows = w.writers ?? [];
+  const says = [...new Map(rows.filter((r) => r.site_says).map((r) => [r.site_says!, r.site!])).entries()];
+  return (
+    <div class="shelf-writers">
+      <h4>Who wrote it</h4>
+      {says.map(([s, site]) => (
+        <p key={s} class="muted">
+          The app reads it on a site that files it as “{site}”, with the credit line “{s}”. Each part below names who wrote the words.
+        </p>
+      ))}
+      <ul>
+        {rows.map((r, i) => (
+          <li key={i}>
+            {(w.layer?.length ?? 0) > 1 && r.work && !r.books && <i>{r.work}: </i>}
+            {r.books && <b>{r.books}: </b>}
+            {r.named === 'unnamed' ? r.writer[0].toUpperCase() + r.writer.slice(1) : r.writer}
+            {r.about && ` (${r.about})`}
+            {r.volume && `, ${r.volume}`}
+            {r.edition && `, ${r.edition}`}
+            {`, ${r.written}.`}
+            {r.excluded && ' No longer cited.'}
+            <HowWeKnowLine row={r} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

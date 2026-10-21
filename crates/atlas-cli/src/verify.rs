@@ -136,6 +136,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     for (ok, what) in crate::extra_parallels::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_aramaic::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::shelf::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::layers::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_dictionary::verify(&d)? { r.check(ok, what); }
     let elohim = d.lemma_index("H0430G").ok_or("no root H0430G (Elohim)")?;
     r.check(counts[elohim] > 2_000, format!("אֱלֹהִים occurs {} times", counts[elohim]));

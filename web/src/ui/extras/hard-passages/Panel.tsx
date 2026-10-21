@@ -38,7 +38,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
         ))}
       </ul>
       <p class="x-hard-passages-quiet">Each website answers from its own point of view. Nothing from them is copied here.</p>
-      <SourceNote>The passages are from the Berean Standard Bible. The pages on other websites were found with AI help.</SourceNote>
+      <SourceNote>The passages are from the Berean Standard Bible.</SourceNote>
     </>
   );
 }

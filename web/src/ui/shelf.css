@@ -128,6 +128,28 @@
   color: var(--muted);
   margin: 0 0 8px;
 }
+.shelf-writers {
+  margin: 4px 0 10px;
+  font-size: 13px;
+}
+.panel .shelf-writers h4 {
+  margin: 0 0 4px;
+}
+.panel .shelf-writers p {
+  margin: 0 0 6px;
+}
+.shelf-writers ul {
+  margin: 0;
+  padding-left: 16px;
+}
+.shelf-writers li + li {
+  margin-top: 6px;
+}
+.panel .shelf-writers .shelf-how {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
 .shelf-ref,
 .dict-ref {
   color: var(--accent);
