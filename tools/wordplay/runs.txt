@@ -92,3 +92,5 @@ held (task -> run): wkl1if4bv 0ccd65bf, we4x6pdr6 33b00d96, wv0q5b1yb feeefd30, 
 r3: wpj1z89bt 0cfaf1a6, w2to263jx dd5b528b, wx3hk8zzd 2fb775a9, wic00d5uy 6659aaad, wksdwmyml 5a21398b, w65r25m5r 4efc8b42, wt0w8wber b633cc15, w9rlz3qdc b6509a8d
 Judges sweep: w40cgl0ly 2dd9b233 [0-5]
 next wave (when these finish): bcon1c-4c (+bcon5 from the Judges sweep) with write4.js, then fig shards 0-23 with write4.js.
+21:21Z Judges sweep done (w40cgl0ly, 6/6 spans, 143 contrasts). r3/bcon5-all.json (contrast_batches.py, skip bcon1-4: 78 contrasts, 77 anchors) -> r3/bcon5.json keeps only person pairs not already in bcon1-4 (52 verses, 13 batches, key con5-*; the 26 same-pair ones in r3/bcon5-dropped-same-pair.json) -> add_catalogue_leads -> r3/bcon5c.json (6 catalogue leads, rows 2 and 6).
+Contrast write wave (write4.js, mode fig): bcon1c (70 batches), bcon2c (50), bcon3c (22), bcon4c (30), bcon5c (13) = 185 batches; launch when the held/r3 wave finishes.
