@@ -24,6 +24,8 @@ export interface Defined {
   /** The work and page: "Figures of Speech Used in the Bible (1898), Antithetic, or Opposite, p. 351". */
   at: string;
   url: string;
+  /** Who wrote it. Bullinger, unless the data names another. */
+  by?: string;
 }
 
 export interface Form {
@@ -140,6 +142,9 @@ function partOf(d: Data, verse: VerseRef): string | null {
   return k < 0 ? null : `extras/figures/${d.a.books[l.book].osis}.${k}.json`;
 }
 
+/** When each failed part was last tried. */
+const failedAt = new Map<string, number>();
+
 function fetchPart(d: Data, name: string): void {
   const put = (p: Part) => {
     const next = new Map(d.files.peek());
@@ -149,7 +154,10 @@ function fetchPart(d: Data, name: string): void {
   put('loading');
   loadJson<PartFile>(d.a, name).then(
     (f) => put(f && Array.isArray(f.notes) ? f : 'failed'),
-    () => put('failed'),
+    () => {
+      if (!failedAt.has(name)) failedAt.set(name, Date.now());
+      put('failed');
+    },
   );
 }
 
@@ -168,7 +176,15 @@ export function notesAt(d: Data, verse: VerseRef): Note[] | null {
     return null;
   }
   if (got === 'loading') return null;
-  if (got === 'failed') return [];
+  if (got === 'failed') {
+    // Try again when the verse is shown later, at most twice a minute.
+    const t = failedAt.get(name) ?? 0;
+    if (Date.now() - t > 30_000) {
+      failedAt.set(name, Date.now());
+      queueMicrotask(() => d.files.peek().get(name) === 'failed' && fetchPart(d, name));
+    }
+    return [];
+  }
   return got.notes
     .filter((n) => n.v <= verse && verse <= n.end && usable(d, n))
     .sort((x, y) => KIND_ORDER[x.kind] - KIND_ORDER[y.kind]);
@@ -184,12 +200,24 @@ function usable(d: Data, n: Note): boolean {
   return (n.sides?.length ?? 0) === 2;
 }
 
+/** Plain words for a verse whose notes are still on their way, from the
+ * index alone, so a link to the panel does not close while they load. */
+function waiting(d: Data, verse: VerseRef): string | null {
+  const bits = (d.has.charCodeAt(verse) || 48) - 48;
+  if (bits & 4) return 'Two people set side by side';
+  if (bits & 1) return 'Lines set side by side';
+  if (bits & 2) return 'A figure of speech';
+  return null;
+}
+
 /** The line under a verse: the first note's own line, and how many more. */
 export function lineAt(d: Data, verse: VerseRef): string | null {
   const ns = notesAt(d, verse);
-  if (!ns || !ns.length) return null;
+  if (ns === null) return waiting(d, verse);
+  if (!ns.length) return null;
   const more = ns.length - 1;
-  return more ? `${ns[0].short}, and ${more} more here` : ns[0].short;
+  const line = more ? `${ns[0].short}, and ${more} more here` : ns[0].short;
+  return line.length <= 70 ? line : ns[0].short;
 }
 
 /** The same writer under two works counts once: Bullinger's two books, and
@@ -200,9 +228,14 @@ function writerOf(name: string): string {
   return name.toLowerCase();
 }
 
-/** The number of different writers a note cites. */
+/** The cites whose own words are shown: the writers who name the form. */
+export function quoted(n: Note): Cite[] {
+  return n.cites.filter((c) => c.quote);
+}
+
+/** The number of different writers whose words are shown. */
 export function writerCount(n: Note): number {
-  return new Set(n.cites.map((c) => writerOf(c.name))).size;
+  return new Set(quoted(n).map((c) => writerOf(c.name))).size;
 }
 
 /** A Strong's number ("H1870", "G3162") to the app's root indices. */

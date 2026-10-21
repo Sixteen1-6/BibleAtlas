@@ -66,6 +66,9 @@ export function Strip({ ticks, arcs, stair, spans, centre, label, lit, onLight }
   const n = ticks.length;
   const x = (i: number) => PAD + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw);
   const base = H * BASELINE;
+  const below = spans?.length ? spans.length * 26 + 2 : 0;
+  // Steps that fit under the top of the strip, however many lines build.
+  const step = Math.min(16, (base - 22) / Math.max(1, n - 1));
   // Words under the ticks in one row, in two staggered rows, or letters only.
   const room = n <= 1 ? iw : iw / (n - 1);
   const need = Math.max(0, ...ticks.map((t) => t.label.length * 6.6 + (t.letter ? 14 : 0)));
@@ -73,15 +76,18 @@ export function Strip({ ticks, arcs, stair, spans, centre, label, lit, onLight }
   return (
     <div class="x-figures-sky" ref={box} style={`background:linear-gradient(180deg, ${SKY.top}, ${SKY.horizon} 64%, ${SKY.glow} ${(BASELINE * 100).toFixed(0)}%, ${SKY.top})`}>
       {w > 0 && (
-        <svg width={w} height={H + 46} viewBox={`0 0 ${w} ${H + 46}`} role="img" aria-label={label}>
+        <svg width={w} height={H + 46 + below} viewBox={`0 0 ${w} ${H + 46 + below}`} role="img" aria-label={label}>
           <path class="x-figures-base" d={`M${PAD - 8},${base.toFixed(1)}H${w - PAD + 8}`} />
           {spans?.map((s, i) => {
-            const y = base + 7 + i * 5;
-            const x1 = Math.max(x(s.to), x(s.from) + 3);
+            const y = base + 10 + i * 26;
+            const x0 = x(s.from);
+            const x1 = Math.max(x(s.to), x0 + 3);
+            // The name under its bar, from where the bar starts, kept inside the strip.
+            const lx = Math.max(4, Math.min(x0, w - 4 - s.label.length * 6.6));
             return (
               <g key={`s${i}`}>
-                <path class="x-figures-span" d={`M${x(s.from).toFixed(1)},${y}H${x1.toFixed(1)}`} />
-                <text class="x-figures-label" x={x1 + 6} y={y + 4}>
+                <path class="x-figures-span" d={`M${x0.toFixed(1)},${y}H${x1.toFixed(1)}`} />
+                <text class="x-figures-label" x={lx} y={y + 15}>
                   {s.label}
                 </text>
               </g>
@@ -91,8 +97,8 @@ export function Strip({ ticks, arcs, stair, spans, centre, label, lit, onLight }
             ticks.slice(1).map((_, i) => {
               const x0 = x(i);
               const x1 = x(i + 1);
-              const y0 = base - 14 - i * 16;
-              const y1 = base - 14 - (i + 1) * 16;
+              const y0 = base - 14 - i * step;
+              const y1 = base - 14 - (i + 1) * step;
               return <path key={`st${i}`} class={`x-figures-arc${lit === null || lit === i ? '' : ' dim'}`} d={`M${x0.toFixed(1)},${(i === 0 ? base : y0).toFixed(1)}V${y0.toFixed(1)}H${x1.toFixed(1)}V${y1.toFixed(1)}`} />;
             })}
           {arcs.map((a, i) => {
@@ -123,16 +129,17 @@ export function Strip({ ticks, arcs, stair, spans, centre, label, lit, onLight }
           {centre !== undefined && (
             <g class="x-figures-turn">
               <path d={`M${x(centre).toFixed(1)},${(base - 4).toFixed(1)}v-10`} />
-              <text x={x(centre)} y={base + 22} text-anchor="middle">
+              <text x={x(centre)} y={base + 22 + below} text-anchor="middle">
                 turn
               </text>
             </g>
           )}
           {ticks.map((t, i) => {
             const fits = fit === 'one' || fit === 'two';
-            const y = base + 22 + (fit === 'two' && i % 2 ? 15 : 0);
+            const y = base + 22 + below + (fit === 'two' && i % 2 ? 15 : 0);
             return (
             <g key={`t${i}`}>
+              {t.here && <circle cx={x(i)} cy={base} r={7} class="x-figures-here" />}
               <circle cx={x(i)} cy={base} r={t.here ? 3.6 : 2.8} fill={t.here ? ARC.lamp : undefined} class={t.here ? '' : 'x-figures-dot'} />
               <text class="x-figures-label" x={x(i)} y={y} text-anchor={n > 1 && i === 0 ? 'start' : n > 1 && i === n - 1 ? 'end' : 'middle'} dx={n > 1 && i === 0 ? -6 : n > 1 && i === n - 1 ? 6 : 0}>
                 {fits || !t.letter ? t.label : ''}

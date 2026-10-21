@@ -14,7 +14,7 @@ import { CommentaryFoot } from '../../commentary/Gate';
 import { OrigLine, RootChip } from '../../common';
 import { Lead, SourceNote, Unsure, refName, usePassage } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
-import { type Cite, type Data, type Form, type Line, type Note, SOURCE, notesAt, rootsFor, writerCount } from './model';
+import { type Cite, type Data, type Form, type Line, type Note, SOURCE, notesAt, quoted, rootsFor, writerCount } from './model';
 import { type StripArc, type Tick, Strip } from './Strip';
 
 const REPO = 'https://github.com/Sixteen1-6/BibleAtlas';
@@ -69,6 +69,18 @@ function marksOf(lines: Line[], pairs: [string, string][]): Mark[][] {
         return;
       }
     }
+    // The answer may come first in the verse ("perish ... guards").
+    for (let i = 0; i < lines.length; i++) {
+      const b = find(lines[i].t, q);
+      if (b < 0) continue;
+      for (let j = i + 1; j < lines.length; j++) {
+        const a = find(lines[j].t, p);
+        if (a < 0) continue;
+        out[i].push({ at: b, len: q.length, pair: k, second: false });
+        out[j].push({ at: a, len: p.length, pair: k, second: true });
+        return;
+      }
+    }
   });
   for (const ms of out) ms.sort((x, y) => x.at - y.at);
   // Letter the pairs in reading order: A is the first word marked.
@@ -89,27 +101,39 @@ function linePairs(lines: Line[]): [number, number][] {
   return out;
 }
 
-function Marked({ t, marks, lit, onLight }: { t: string; marks: Mark[]; lit: number | null; onLight: (p: number | null) => void }) {
+interface Light {
+  /** The pair shown now: pointed at, else pinned. */
+  lit: number | null;
+  /** The pair a tap or click pinned. */
+  pin: number | null;
+  onLight: (p: number | null) => void;
+  onPin: (p: number | null) => void;
+}
+
+function Marked({ t, marks, light }: { t: string; marks: Mark[]; light: Light }) {
+  const { lit, pin, onLight, onPin } = light;
   const parts: ComponentChildren[] = [];
   let at = 0;
   for (const m of marks) {
     if (m.at < at) continue;
     parts.push(smart(t.slice(at, m.at)));
     const on = lit === m.pair;
+    const pinned = pin === m.pair;
     parts.push(
       <button
         type="button"
         class={`x-figures-w${on ? ' lit' : ''}`}
-        onPointerEnter={() => onLight(m.pair)}
-        onPointerLeave={() => onLight(null)}
+        onPointerEnter={(e) => e.pointerType === 'mouse' && onLight(m.pair)}
+        onPointerLeave={(e) => e.pointerType === 'mouse' && onLight(null)}
         onFocus={() => onLight(m.pair)}
         onBlur={() => onLight(null)}
-        onClick={() => onLight(on ? null : m.pair)}
-        aria-pressed={on}
+        onClick={() => onPin(pinned ? null : m.pair)}
+        aria-pressed={pinned}
         title={m.second ? 'Answers the word marked with the same letter' : 'Answered by the word marked with the same letter'}
       >
         {smart(t.slice(m.at, m.at + m.len))}
-        <sup>{letter(m.pair, m.second)}</sup>
+        <sup aria-hidden="true">{letter(m.pair, m.second)}</sup>
+        <span class="sr-only">, {m.second ? 'answers' : 'answered by'} the word marked {letter(m.pair, !m.second)}</span>
       </button>,
     );
     at = m.at + m.len;
@@ -126,7 +150,8 @@ function indent(form: string, i: number, n: number): number {
   return i % 2;
 }
 
-function Ladder({ a, note, marks, lit, onLight, navigate }: { a: Atlas; note: Note; marks: Mark[][]; lit: number | null; onLight: (p: number | null) => void; navigate: (v: VerseRef) => void }) {
+function Ladder({ a, note, marks, light, navigate }: { a: Atlas; note: Note; marks: Mark[][]; light: Light; navigate: (v: VerseRef) => void }) {
+  const { lit, onLight } = light;
   const lines = note.lines ?? [];
   const pairs = linePairs(lines);
   const pairOf = (i: number) => pairs.findIndex(([p, q]) => p === i || q === i);
@@ -140,17 +165,18 @@ function Ladder({ a, note, marks, lit, onLight, navigate }: { a: Atlas; note: No
         const on = lp >= 0 && lit === 100 + lp;
         return (
           <p key={i} class={`x-figures-line${on ? ' lit' : ''}`} style={`--step:${indent(note.form, i, lines.length)}`}>
-            {l.mark && (
-              <button type="button" class="x-figures-mark" onPointerEnter={() => lp >= 0 && onLight(100 + lp)} onPointerLeave={() => onLight(null)} onFocus={() => lp >= 0 && onLight(100 + lp)} onBlur={() => onLight(null)} aria-label={`Line ${primed(l.mark)}`}>
-                {primed(l.mark)}
-              </button>
-            )}
             {showV && (
-              <button type="button" class="x-figures-v" onClick={() => navigate(l.v)} title={`Read ${label(a, l.v)} in its chapter`}>
+              <button type="button" class="x-figures-v" onClick={() => navigate(l.v)} title={`Read ${label(a, l.v)} in its chapter`} aria-label={`Read ${label(a, l.v)} in its chapter`}>
                 {locate(a, l.v).verse}
               </button>
             )}
-            <Marked t={l.t} marks={marks[i] ?? []} lit={lit} onLight={onLight} />
+            {l.mark && (
+              <span class="x-figures-mark" onPointerEnter={() => lp >= 0 && onLight(100 + lp)} onPointerLeave={() => onLight(null)}>
+                <span class="sr-only">Line </span>
+                {primed(l.mark)}
+              </span>
+            )}
+            <Marked t={l.t} marks={marks[i] ?? []} light={light} />
           </p>
         );
       })}
@@ -160,7 +186,8 @@ function Ladder({ a, note, marks, lit, onLight, navigate }: { a: Atlas; note: No
 
 /** The strip for parallel lines: one tick per marked word (or per line, for
  * lines marked A, B, B′, A′), and an arc for each pair. */
-function ParallelStrip({ note, form, marks, lit, onLight }: { note: Note; form: Form; marks: Mark[][]; lit: number | null; onLight: (p: number | null) => void }) {
+function ParallelStrip({ note, form, marks, light }: { note: Note; form: Form; marks: Mark[][]; light: Light }) {
+  const { lit, onLight } = light;
   const lines = note.lines ?? [];
   const lp = linePairs(lines);
   if (lp.length) {
@@ -175,6 +202,19 @@ function ParallelStrip({ note, form, marks, lit, onLight }: { note: Note; form: 
     const ticks = lines.map((l, i) => ({ label: firstWords(l.t), letter: String(i + 1) }));
     const arcs: StripArc[] = note.form === 'building' ? [] : lines.slice(1).map((_, i) => ({ from: i, to: i + 1, style: 'solid', pair: 200 + i }));
     return <Strip ticks={ticks} arcs={arcs} stair={note.form === 'building'} label={`${form.label}: ${lines.length} lines`} lit={lit} onLight={onLight} />;
+  }
+  if (note.form === 'opposite') {
+    // Each pair on its own, side by side, so they never nest like a mirror.
+    const byPair = [...new Set(flat.map((f) => f.m.pair))].sort((p, q) => p - q);
+    const ticks: Tick[] = [];
+    const arcs: StripArc[] = [];
+    for (const p of byPair) {
+      const two = flat.filter((f) => f.m.pair === p).sort((x, y) => Number(x.m.second) - Number(y.m.second));
+      if (two.length < 2) continue;
+      arcs.push({ from: ticks.length, to: ticks.length + 1, style: 'broken', pair: p });
+      for (const f of two.slice(0, 2)) ticks.push({ label: f.t, letter: letter(f.m.pair, f.m.second) });
+    }
+    return <Strip ticks={ticks} arcs={arcs} label={`${form.label}: ${byPair.map((p) => flat.filter((f) => f.m.pair === p).map((f) => f.t).join(' against ')).join('; ')}`} lit={light.lit} onLight={light.onLight} />;
   }
   const ticks: Tick[] = flat.map(({ m, t }) => ({ label: t, letter: letter(m.pair, m.second) }));
   const arcs: StripArc[] = [];
@@ -264,8 +304,11 @@ function ContrastStrip({ a, note, verse, lit, onLight }: { a: Atlas; note: Note;
     const first = i === 0 || i === n - 1;
     return { label: first ? String(locate(a, v).verse) : '', here: v === verse };
   });
-  const mid = (i: number) => (pos(sides[i].s) + pos(sides[i].e)) / 2;
-  const arcs: StripArc[] = sides.length === 2 ? [{ from: Math.min(mid(0), mid(1)), to: Math.max(mid(0), mid(1)) + (mid(0) === mid(1) ? 1 : 0), style: 'dashed', pair: 0 }] : [];
+  // From where one side starts to where the other does; if both start
+  // together, across the whole passage.
+  const s0 = sides.length === 2 ? Math.min(pos(sides[0].s), pos(sides[1].s)) : 0;
+  const s1 = sides.length === 2 ? Math.max(pos(sides[0].s), pos(sides[1].s)) : 0;
+  const arcs: StripArc[] = sides.length !== 2 ? [] : s1 > s0 ? [{ from: s0, to: s1, style: 'dashed', pair: 0 }] : [{ from: 0, to: n - 1, style: 'dashed', pair: 0 }];
   return (
     <Strip
       ticks={ticks}
@@ -299,7 +342,7 @@ function saveOpen(s: Set<string>): void {
 
 function Writers({ note }: { note: Note }) {
   const [open, setOpen] = useState<Set<string>>(openSet);
-  const with_ = note.cites.filter((c) => c.quote);
+  const with_ = quoted(note);
   const toggle = (k: string) => {
     const next = new Set(open);
     if (next.has(k)) next.delete(k);
@@ -310,15 +353,25 @@ function Writers({ note }: { note: Note }) {
   return (
     <div class="x-figures-writers">
       <h4>Who says so</h4>
-      <p class="x-figures-named">Named by {list(note.cites.map((c) => c.name))}.</p>
+      <p class="x-figures-named">Named by {list(with_.map((c) => c.name))}.</p>
       <ul>
         {with_.map((c, i) => {
           const k = `${note.id}:${c.name}`;
-          const on = open.has(k) || with_.length === 1;
+          if (with_.length === 1)
+            return (
+              <li key={i}>
+                <p class="x-figures-who">
+                  {c.name}
+                  {c.on && <span class="x-figures-on"> on {c.on}</span>}
+                </p>
+                <Quote c={c} />
+              </li>
+            );
+          const on = open.has(k);
           return (
             <li key={i}>
               <button type="button" class="x-figures-who" aria-expanded={on} onClick={() => toggle(k)}>
-                {c.name}
+                {on ? 'Hide' : 'Show'} what {c.name} wrote
                 {c.on && <span class="x-figures-on"> on {c.on}</span>}
                 <span aria-hidden="true">{on ? ' ‹' : ' ›'}</span>
               </button>
@@ -327,6 +380,12 @@ function Writers({ note }: { note: Note }) {
           );
         })}
       </ul>
+      {note.limit && (
+        <>
+          <h4>Where writers weigh it differently</h4>
+          <p class="x-figures-limit">{smart(note.limit)}</p>
+        </>
+      )}
       {note.evidence && (
         <details class="x-figures-evidence">
           <summary>How the writers were read</summary>
@@ -346,8 +405,8 @@ function Quote({ c }: { c: Cite }) {
         {c.url && (
           <>
             {' · '}
-            <a href={c.url} target="_blank" rel="noopener noreferrer" aria-label={`Read ${c.name} (opens a new tab)`}>
-              Read it ↗
+            <a href={c.url} target="_blank" rel="noopener noreferrer">
+              Read it<span class="sr-only"> in {c.name} (opens a new tab)</span> <span aria-hidden="true">↗</span>
             </a>
           </>
         )}
@@ -364,21 +423,35 @@ function WhatThisIs({ form, note }: { form: Form; note: Note }) {
         <b>{note.kind === 'figure' && note.figure ? `${note.figure.name}${note.figure.part ? `, ${note.figure.part}` : ''}` : form.label}</b>
         {note.kind !== 'figure' && form.term && <span> · {form.term}</span>}
       </p>
-      <p>{smart(form.about)}</p>
       {d ? (
         <>
           <blockquote>“{d.quote}”</blockquote>
           <p class="x-figures-credit">
-            E. W. Bullinger,{' '}
+            {d.by ?? 'E. W. Bullinger'},{' '}
             <a href={d.url} target="_blank" rel="noopener noreferrer">
-              {d.at} ↗
+              {d.at}
+              <span class="sr-only"> (opens a new tab)</span> <span aria-hidden="true">↗</span>
             </a>
           </p>
         </>
       ) : (
-        <p class="x-figures-credit">No book of figures from 1930 or earlier names this as a figure; it rests on the writers named below.</p>
+        <p class="x-figures-credit">It rests on the writers named below.</p>
       )}
     </div>
+  );
+}
+
+/** How to read the strip, one tap away. */
+function ReadArcs({ kind }: { kind: Note['kind'] }) {
+  return (
+    <details class="x-figures-evidence x-figures-key">
+      <summary>How to read the arcs</summary>
+      {kind === 'contrast' ? (
+        <p>Each dot is a verse. The bars under the line are where each person is told of, and the dashed arc joins the two.</p>
+      ) : (
+        <p>Each arc joins words or lines that answer each other, lettered A and A′. Side by side: said again. Broken at the top: set opposite. Inside each other: a mirror, turning at the centre. Steps: each line builds on the last.</p>
+      )}
+    </details>
   );
 }
 
@@ -400,8 +473,11 @@ function inVerse(row: VerseRow, roots: number[]): number[] {
 
 function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data; note: Note; verse: VerseRef; first: boolean; navigate: (v: VerseRef) => void }) {
   const form = data.forms[note.form];
-  const [lit, setLit] = useState<number | null>(null);
+  const [hover, setHover] = useState<number | null>(null);
+  const [pin, setPin] = useState<number | null>(null);
+  const light: Light = { lit: hover ?? pin, pin, onLight: setHover, onPin: setPin };
   const [opened, setOpened] = useState(first);
+  const body = `fx-${note.id}-body`;
   const marks = note.kind === 'parallelism' ? marksOf(note.lines ?? [], note.pairs ?? []) : [];
   const rows = usePassage(a, note.v);
   const row = rows?.[0];
@@ -419,15 +495,17 @@ function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data
         {one && note.kind !== 'figure' && <Unsure>a pattern some readers see</Unsure>}
       </h3>
       <Lead>{smart(note.about)}</Lead>
-      {note.kind === 'parallelism' && <ParallelStrip note={note} form={form} marks={marks} lit={lit} onLight={setLit} />}
-      {note.kind === 'contrast' && <ContrastStrip a={a} note={note} verse={verse} lit={lit} onLight={setLit} />}
-      {!opened ? (
-        <button type="button" class="x-figures-more" aria-expanded="false" onClick={() => setOpened(true)}>
-          See the lines <span aria-hidden="true">›</span>
+      {note.kind === 'parallelism' && <ParallelStrip note={note} form={form} marks={marks} light={light} />}
+      {note.kind === 'contrast' && <ContrastStrip a={a} note={note} verse={verse} lit={light.lit} onLight={setHover} />}
+      {note.kind !== 'figure' && <ReadArcs kind={note.kind} />}
+      {!first && (
+        <button type="button" class="x-figures-more" aria-expanded={opened} aria-controls={body} onClick={() => setOpened(!opened)}>
+          {opened ? 'Hide the lines' : 'See the lines'} <span aria-hidden="true">{opened ? '‹' : '›'}</span>
         </button>
-      ) : (
-        <>
-          {note.kind === 'parallelism' && <Ladder a={a} note={note} marks={marks} lit={lit} onLight={setLit} navigate={navigate} />}
+      )}
+      {opened && (
+        <div id={body}>
+          {note.kind === 'parallelism' && <Ladder a={a} note={note} marks={marks} light={light} navigate={navigate} />}
           {note.kind === 'figure' && <FigureBody a={a} note={note} />}
           {note.kind === 'contrast' && <ReadAcross a={a} note={note} navigate={navigate} />}
           {note.hebrew && (
@@ -443,18 +521,15 @@ function Entry({ a, data, note, verse, first, navigate }: { a: Atlas; data: Data
               )}
             </div>
           )}
-          {note.limit && (
-            <p class="x-figures-limit">{smart(note.limit)}</p>
-          )}
           <WhatThisIs form={form} note={note} />
           <Writers note={note} />
           <p class="x-figures-foot">
             Checked against the source: the BSB words, the Hebrew and Greek, and each writer’s quotation.{' '}
             <a href={issueLink(a, note)} target="_blank" rel="noopener noreferrer">
-              Suggest a correction ↗
+              Suggest a correction<span class="sr-only"> (opens a new tab)</span> <span aria-hidden="true">↗</span>
             </a>
           </p>
-        </>
+        </div>
       )}
     </section>
   );
