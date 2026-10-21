@@ -1,0 +1,438 @@
+/* How it is written. Every class starts with x-figures-. One violet marks this
+   extra (the map already uses pink for quotations, blue for parallels and gold
+   for the selected verse), defined here three times as the README asks: ink
+   for paper and page, and a bright one for the night strip, the same in both
+   themes as the map is. Letters, a dotted underline, broken, nested and dashed
+   arcs carry the meaning too, so it never rests on colour alone. */
+
+:root {
+  --x-figures-ink: #7d3c98;
+  --x-figures-tint: rgba(125, 60, 152, 0.12);
+  --x-figures-arc: #d7a0ff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --x-figures-ink: #d7a0ff;
+    --x-figures-tint: rgba(215, 160, 255, 0.16);
+  }
+}
+:root[data-theme='dark'] {
+  --x-figures-ink: #d7a0ff;
+  --x-figures-tint: rgba(215, 160, 255, 0.16);
+}
+
+/* ------------------------------------------------------------ the line */
+
+.xt-line[data-x='figures'] .xt-words::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--x-figures-ink);
+  vertical-align: 1px;
+}
+
+/* ------------------------------------------------------------ sections */
+
+.x-figures-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.x-figures-jump button {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.x-figures-entry + .x-figures-entry {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.x-figures-entry h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.x-figures-entry h3::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--x-figures-ink);
+  align-self: center;
+}
+.x-figures-strength {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--muted);
+}
+.x-figures-entry h4 {
+  margin: 14px 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.x-figures-more {
+  min-height: 36px;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------ the night strip */
+
+.x-figures-sky {
+  margin: 10px 0 12px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  line-height: 0;
+}
+.x-figures-base {
+  stroke: rgba(160, 172, 235, 0.35);
+  stroke-width: 1;
+  fill: none;
+}
+.x-figures-span {
+  stroke: var(--x-figures-arc);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+.x-figures-dot {
+  fill: var(--x-figures-arc);
+}
+.x-figures-arc {
+  fill: none;
+  stroke: var(--x-figures-arc);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px rgba(215, 160, 255, 0.55));
+  transition: opacity 0.15s, stroke-width 0.15s;
+  cursor: default;
+}
+.x-figures-arc path {
+  fill: none;
+  stroke: inherit;
+}
+.x-figures-arc.dashed {
+  stroke-dasharray: 5 4;
+}
+.x-figures-arc.lit {
+  stroke-width: 2.8;
+}
+.x-figures-arc.dim {
+  opacity: 0.3;
+}
+.x-figures-gap {
+  stroke-width: 1.2;
+}
+.x-figures-turn path {
+  stroke: var(--x-figures-arc);
+  stroke-width: 1;
+  stroke-dasharray: 2 2;
+}
+.x-figures-turn text,
+.x-figures-label {
+  fill: rgba(243, 238, 226, 0.88);
+  font: 500 12px var(--font-ui);
+}
+.x-figures-turn text {
+  fill: var(--x-figures-arc);
+  font-size: 11px;
+}
+.x-figures-letter {
+  fill: var(--x-figures-arc);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .x-figures-arc {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------ lines */
+
+.x-figures-ladder {
+  margin: 4px 0 10px;
+  font-family: var(--font-read);
+  font-size: 16px;
+  line-height: 1.75;
+}
+.x-figures-line {
+  position: relative;
+  margin: 0;
+  padding: 1px 6px 1px calc(34px + var(--step, 0) * 18px);
+  border-radius: var(--r-sm);
+}
+.x-figures-line.lit {
+  background: var(--x-figures-tint);
+}
+.x-figures-v {
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 11px var(--font-ui);
+  color: var(--muted);
+  cursor: pointer;
+}
+.x-figures-mark {
+  position: absolute;
+  left: 13px;
+  top: 0.45em;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 12px var(--font-ui);
+  color: var(--x-figures-ink);
+  cursor: default;
+}
+.x-figures-w {
+  padding: 0 1px;
+  border: 0;
+  border-radius: 3px;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline dotted var(--x-figures-ink) 2px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.x-figures-w sup {
+  margin-left: 1px;
+  font: 600 10.5px var(--font-ui);
+  color: var(--x-figures-ink);
+}
+.x-figures-w.lit,
+.x-figures-w:hover {
+  background: var(--x-figures-tint);
+  outline: 1px solid var(--x-figures-ink);
+}
+
+/* ------------------------------------------------------------ a figure */
+
+.x-figures-verse {
+  margin: 4px 0 8px;
+  font-family: var(--font-read);
+  font-size: 16px;
+  line-height: 1.7;
+}
+mark.x-figures-fw,
+.x-figures-means .x-figures-fw {
+  background: var(--x-figures-tint);
+  color: inherit;
+  text-decoration: underline dotted var(--x-figures-ink) 2px;
+  text-underline-offset: 4px;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.x-figures-means {
+  margin: 0 0 10px;
+  font-size: 14.5px;
+}
+.x-figures-means [aria-hidden] {
+  color: var(--x-figures-ink);
+  padding: 0 4px;
+}
+
+/* ------------------------------------------------------------ two people */
+
+.x-figures-across {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 6px 0 10px;
+}
+.x-figures-side {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.x-figures-side h4 {
+  margin: 0 0 2px;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+.x-figures-sidelabel {
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.x-figures-sidewords {
+  margin: 0 0 6px;
+  font-family: var(--font-read);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.x-figures-ref {
+  min-height: 28px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 13px;
+  color: var(--accent);
+  cursor: pointer;
+}
+.x-figures-bar {
+  position: relative;
+  display: block;
+  height: 3px;
+  margin-top: 6px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.x-figures-bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 2px;
+  background: var(--x-figures-ink);
+}
+
+/* ------------------------------------------------------------ words, sources */
+
+.x-figures-orig {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.x-figures-orig p {
+  margin: 0 0 6px;
+}
+.x-figures-orig .chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+.x-figures-limit {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.x-figures-what {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--x-figures-ink);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  background: var(--surface-2);
+  font-size: 14px;
+}
+.x-figures-what p {
+  margin: 0 0 6px;
+}
+.x-figures-term span {
+  color: var(--muted);
+}
+.x-figures-what blockquote,
+.x-figures-quote blockquote {
+  margin: 6px 0;
+  font-family: var(--font-read);
+  font-size: 15px;
+  line-height: 1.55;
+}
+.x-figures-credit {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.x-figures-credit a,
+.x-figures-foot a {
+  color: var(--link);
+}
+.x-figures-named {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+.x-figures-writers ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.x-figures-writers li + li {
+  border-top: 1px solid var(--line);
+}
+.x-figures-who {
+  width: 100%;
+  min-height: 36px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--ink);
+  cursor: pointer;
+}
+.x-figures-on {
+  font-weight: 400;
+  color: var(--muted);
+}
+.x-figures-quote {
+  padding: 0 0 10px 10px;
+  border-left: 2px solid var(--line);
+}
+.x-figures-evidence {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.x-figures-evidence summary {
+  min-height: 32px;
+  cursor: pointer;
+  color: var(--accent);
+}
+.x-figures-foot {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .x-figures-ladder {
+    font-size: 15.5px;
+  }
+  .x-figures-line {
+    padding-left: calc(30px + var(--step, 0) * 14px);
+  }
+}
+@media (max-width: 420px) {
+  .x-figures-across {
+    grid-template-columns: 1fr;
+  }
+}
+@media (pointer: coarse) {
+  .x-figures-who,
+  .x-figures-more,
+  .x-figures-jump button {
+    min-height: 44px;
+  }
+}
