@@ -51,8 +51,10 @@ type Model = ModelFile;
 
 /** How the model's texts count: how many are compared in full (those whose
  * codes are nearest), how many of the closest have a say, how much closeness
- * counts (a power), and their share beside the words. */
-export const MODEL = { rerank: 300, k: 20, power: 8, share: 0.5 };
+ * counts (a power), and their share beside the words. Comparing 1,000 rather
+ * than 300 made the model's own first pick right for 783 of 1,493 labelled
+ * messages rather than 766, for about 8 ms more a question. */
+export const MODEL = { rerank: 1000, k: 20, power: 8, share: 0.5 };
 
 let meaning: Meaning | null = null;
 let near: Words | null = null;
