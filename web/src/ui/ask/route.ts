@@ -152,7 +152,7 @@ export function route(ix: AskIndex, text: string): Question | null {
   // Plainly what people mean by such words ("they took my car because I
   // missed payments": debt).
   const [sense] = meanings(ix, text, 1);
-  if (sense && sense.p >= (usesModel() ? MEANT.model : MEANT.words)) return sense.q;
+  if (sense && sense.p >= (usesModel(ix, text) ? MEANT.model : MEANT.words)) return sense.q;
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
   if (next && best.score - next.score < OPEN.margin && next.said >= OPEN.said) return null;
