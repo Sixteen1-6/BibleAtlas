@@ -5,6 +5,7 @@ Standing instructions for any Claude session working in this repository. They co
 ## Start here
 
 - Read [docs/HANDOFF.md](docs/HANDOFF.md) first. Run its "Check the current state first" commands before acting: section 0 is true only while they give the values shown.
+- Read [docs/FOUNDER-DECISIONS.md](docs/FOUNDER-DECISIONS.md) next: the founder's 23 decisions of 2026-10-20 and 21 override this file where they differ (for example decision 15, no AI credit anywhere, replaces "Disclose AI drafting" below).
 - Rewrite section 0 of `docs/HANDOFF.md` after every merge to `main` and every finished job, in the same sitting. The PR that changes `main` should update it.
 - If it's not local, it should all be pushed to GitHub. Anything kept only in a session's container or a local folder (evaluation sets, drafts, tools) is lost with it. The licensing rules below still decide what may enter this public repository.
 - Every important task runs as its own reviewed workflow when one is available.

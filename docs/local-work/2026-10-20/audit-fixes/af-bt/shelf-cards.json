@@ -1,0 +1,93 @@
+{
+  "_comment": [
+    "AF-BT's shelf fragment for AF-INT (AUDIT-FIXES-PLAN.md section 2). Whole card objects for config/shelf.json, with the fields AF-BT changes; every other field is as on main at 2aabdcc.",
+    "bsb, tahot and clear-align are held for PR H (the first PR after true-credits merges). esv is applied in AF-SH's PR, which brings the filter that hides it on Pages builds. net-bible is offered as well, because its licenseNote and citation repeat the NET line this module fixes (B12); apply it with the others in PR H.",
+    "'This copy: ...' sentences and 'kept up to date' are AF-DT's (dataset dates) and are left as they are here, except on clear-align, whose dates this module was asked for; AF-DT's fragment should use the same dates (version of 11 May 2026, commit c99bd0ae; read 8 October 2026).",
+    "Every fact is checked in docs/evidence/af-bt-2026-10-21.json on branch af-bt (records bsb-terms, bsb-first-printed, leningrad-codex-date, clear-alignment-makers, clear-version, esv-notice, net-copyright), so AF-SH need not check them again.",
+    "FIELD NAME TO SETTLE: the plan gives the esv card the filter as \"when\": \"esv\", but every card already uses 'when' for its date (shelf.rs reads it as the date shown). This fragment keeps 'when' for the date and puts the filter in \"onlyWhen\": \"esv\"; AF-SH names the field when it builds the filter in Sources.tsx (and shelf.rs, whose Work struct denies unknown fields)."
+  ],
+  "cards": [
+    {
+      "id": "bsb",
+      "_change": "None needed: checked. 'by' names the translators and 'when' is '2016; public domain since 2023', both as the publisher's pages give them (Bible Hub: printed 2016, 2020, 2022 and 2025; berean.bible terms: dedicated to the public domain 30 April 2023). Bible Hub's line today also names unfoldingWord and Bible Aquifer among the partners; the card keeps the 2023 terms page's list.",
+      "group": "bible",
+      "plain": "English Bible, 2016",
+      "title": "Berean Standard Bible (BSB)",
+      "by": "The Berean Bible Translation Committee, with Bible Hub, Discovery Bible and OpenBible.com",
+      "when": "2016; public domain since 2023"
+    },
+    {
+      "id": "tahot",
+      "_change": "by and what name the manuscript and its date; citation names the manuscript. The 'This copy' sentence is left for AF-DT.",
+      "group": "languages",
+      "plain": "Hebrew Old Testament, word by word",
+      "title": "Translators Amalgamated Hebrew OT (TAHOT)",
+      "by": "The Leningrad Codex (about AD 1008), tagged by STEPBible.org, based on work at Tyndale House, Cambridge",
+      "when": "kept up to date",
+      "what": "Every Hebrew and Aramaic word of the Old Testament, from the Leningrad Codex (about AD 1008), with its root, its grammar and an English meaning.",
+      "license": "cc-by-4.0",
+      "datasets": ["tahot"],
+      "find": {
+        "url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+        "label": "the data files (GitHub)"
+      },
+      "citation": "STEPBible, TAHOT: Translators Amalgamated Hebrew OT, from the Leningrad Codex (St Petersburg, National Library of Russia, Firkovich Evr. I B 19a; about AD 1008). Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: October 2026.",
+      "cites": ["TAHOT, Translators Amalgamated Hebrew OT"]
+    },
+    {
+      "id": "clear-align",
+      "_change": "by names who made each set of links and who publishes them; when and citation give the version's date and the date it was read.",
+      "group": "languages",
+      "plain": "Word links from Hebrew and Greek to English",
+      "title": "Clear Bible word alignments for the BSB",
+      "by": "The Berean Bible team (the Greek links) and BiblioNexus (the Hebrew links), published by Clear Bible (Biblica)",
+      "when": "version of 11 May 2026",
+      "what": "Links from each Hebrew, Aramaic and Greek word to the words of the BSB that translate it, made by hand. They let the app color matching words.",
+      "license": "cc-by-4.0",
+      "licenseNote": "The alignments are CC BY 4.0; the Hebrew (WLC) and BSB texts they link are public domain.",
+      "datasets": ["clear-align"],
+      "find": {
+        "url": "https://github.com/Clear-Bible/Alignments/tree/c99bd0ae6946775f932517656308ca19fc706921",
+        "label": "the data files (GitHub)"
+      },
+      "citation": "Clear Bible / Biblica, Alignments: BSB manual alignments BGNT-BSB (made by the Berean Bible team) and WLCM-BSB (made by BiblioNexus), github.com/Clear-Bible/Alignments (CC BY 4.0). Version of 11 May 2026 (commit c99bd0ae), read 8 October 2026."
+    },
+    {
+      "id": "esv",
+      "_change": "New card, for deploys with the server only (B12; audit A17 'No ESV card for server deploys'). It holds no ESV text.",
+      "onlyWhen": "esv",
+      "group": "bible",
+      "plain": "English Bible, 2001",
+      "title": "English Standard Version (ESV)",
+      "by": "Crossway, a publishing ministry of Good News Publishers",
+      "when": "2001",
+      "what": "A modern English translation from the Hebrew, Aramaic and Greek. Where the app runs on its own server, choose ESV above the reader to read it; it is read one chapter at a time through the server and never stored.",
+      "license": "copyrighted",
+      "licenseNote": "Scripture quotations marked “ESV” are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved. The ESV text may not be quoted in any publication made available to the public by a Creative Commons license. The ESV may not be translated into any other language.",
+      "datasets": [],
+      "find": {
+        "url": "https://www.crossway.org/permissions/",
+        "label": "ESV copyright and permissions (Crossway)"
+      },
+      "citation": "The Holy Bible, English Standard Version (ESV), © 2001 by Crossway, a publishing ministry of Good News Publishers. Read live through the ESV API (api.esv.org), one chapter at a time, and never stored."
+    },
+    {
+      "id": "net-bible",
+      "_change": "licenseNote and citation carry the publisher's acknowledgment word for word (with http://netbible.com, which the old line left out) and the rule as the copyright page states it.",
+      "group": "bible",
+      "plain": "English Bible with translators' notes, 2005",
+      "title": "NET Bible (NET)",
+      "by": "Biblical Studies Press, with more than 25 Bible scholars",
+      "when": "1996 to 2005; second edition 2019",
+      "what": "A modern English translation from the Hebrew, Aramaic and Greek, made with thousands of translators' notes. Choose NET above the reader to read it; it is read live from the publisher and never stored.",
+      "license": "copyrighted",
+      "licenseNote": "Copyright Biblical Studies Press, L.L.C. Free apps and websites may quote the text (without the notes) when it is followed by (NET), with NET linked to netbible.org, and by the publisher's acknowledgment. The app reads it one chapter at a time and never stores it.",
+      "datasets": [],
+      "find": {
+        "url": "https://netbible.com/copyright/",
+        "label": "NET Bible copyright and permissions"
+      },
+      "citation": "The NET Bible®, New English Translation. Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from the publisher's web service, labs.bible.org."
+    }
+  ]
+}

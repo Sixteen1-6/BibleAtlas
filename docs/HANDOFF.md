@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-10-21 at 16:45 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-10-21 at 21:30 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
@@ -18,10 +18,10 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect 97861e545f0a0f1a4e940066c7ee32983c7e7886, or the merge of the docs-only PR that
-#   wrote this section directly on top of it: git log --oneline 97861e5..origin/main shows only that
+#   expect b466ab60ea4280b2270c9b80fa6be543e66e2504 (#52), or the merge of the docs-only PR that
+#   wrote this section directly on top of it: git log --oneline b466ab6..origin/main shows only that
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
-#   expect no rows
+#   expect #53, #54 and #55 (section 0, "Local work after #50"), plus this docs PR until it merges
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
 #   expect "buildId": "6e89a09cfa05"     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
@@ -49,7 +49,7 @@ Terms used throughout:
 - **Layers** means the "Layers of meaning" notes on wordplay, names, allusions and so on.
 - **Ask** means "Ask the Bible".
 
-## 0. State on 2026-10-21 at 16:45 UTC
+## 0. State on 2026-10-21 at 21:30 UTC
 
 **Live.** https://everyversemap.com/ serves the data built from `2aabdcc`, the merge of PR #50 at 02:50:58 UTC on 2026-10-21. `main` has since moved to `97861e5` (#51) and then the merge of #52; both are docs only, so the build id below still holds.
 
@@ -76,10 +76,10 @@ Terms used throughout:
 | `mirror/potion-base-8M` at `dced885`, orphan | The model at Hugging Face revision `bf8b0566...`. | Never merge it. Never delete it: a `sources.json` pin will name this commit. |
 | Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Layers pushed only #52 (docs) since #45. Layers is building three Deep-only note kinds, `figure`, `parallelism` and `contrast`, as new files (`config/figures/`, `config/figure-forms.json`, `extras/figures*`), outside the files `true-credits` holds; the cloud thread "Arcs and card design at Deep" builds their display. These notes may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. Rebase on `2aabdcc` first: #50 rewrote round 1 of `config/layers.json`. |
 | All four cloud sessions | Stopped at 23:25 UTC on 2026-10-20 on the account's weekly usage limit, which resets 2026-10-24 06:00 UTC. On 2026-10-21 about 16:20 UTC the project's coordinator asked each to rebase on `2aabdcc`, follow `CLAUDE.md` and resume. | Nothing; they resume by themselves. |
-| Local work after #50 merged (02:51 UTC on 2026-10-21) | Whatever the founder's local Claude Code did after that is not on GitHub. | Push it to GitHub (`CLAUDE.md`: "If it's not local, it should all be pushed"). |
-| `voices` in the work folder (research only) | Seven reports, written 19:31 to 20:05 UTC on 2026-10-20, on which more Christian writers could be shown word for word at Deep. **Ready from GitHub with an open license:** Matthew Henry's Complete Commentary and Calvin (Let's Church); Spurgeon's Treasury of David (`lyteword/chspurgeon-tod`, CC0); the Geneva notes; Poole and other Reformers and Puritans (EEBO-TCP, CC0; Poole after a repair pass); church fathers (`HistoricalChristianFaith/Commentaries-Database`, after filtering). **Need a mirror branch:** JFB, Clarke, Barnes (New Testament), Keil-Delitzsch, Robertson's Word Pictures, Scofield, Luther. **Not recommended:** Gill and Alford. Files `group-1.md` to `group-4.md`, `group-fathers.md`, `group-luther.md`, `group-reformers.md`. | Not on any branch. Adopting a writer needs the founder's choice (section 8, row 13), a mirror where needed, a `sources.json` pin, a `NOTICE.md` credit, a shelf card and changes to `extra_voices.rs`. |
-| `literary/fit.md` in the work folder (design only) | A literary-devices design: the BSB's own poetry lines (`\q1`, `\q2`; 8,180 of 31,084 verses carry poetry marks), the Layers kinds `figure` and `parallelism`, and a `structure` extra for chiasm, inclusio and foils. The cloud Layers session is building `figure`, `parallelism` and `contrast` at the founder's request of 2026-10-20 13:56 UTC. | Not on any branch. The two designs should agree on kind names before either merges (section 8, row 14). |
-| A potion-base-8M held-out check (founder's PC) | A local check of the meaning model. | Not on GitHub; push it beside the Ask evaluation sets once section 8, row 9 is decided. |
+| Local work after #50 merged (02:51 UTC on 2026-10-21) | Copied to GitHub from the cloud on 2026-10-21 (thread "Local branches and notes"), with the local commits unchanged. Finished branches: `commentary-notice` (PR #53), `af-bt` (PR #54), `no-empty-selections` (PR #55, a draft with three questions for the founder). Uncommitted worktree work, saved as found: `wip/true-credits-2026-10-21` (41 files, the true-credits module) and `wip/af-lx-2026-10-21` (7 files, the lexicon module). The founder's decisions are `docs/FOUNDER-DECISIONS.md`; the work folder's notes are `docs/local-work/2026-10-20/` (README there). | Never merge a `wip/` branch: the local job owns it and may push a finished branch. Merge #53 first; #54 and #55 after it. |
+| `docs/local-work/2026-10-20/voices/` (research only) | Seven reports, written 19:31 to 20:05 UTC on 2026-10-20, on which more Christian writers could be shown word for word at Deep, with the plans, build spec and shortlist drawn from them. **Ready from GitHub with an open license:** Matthew Henry's Complete Commentary and Calvin (Let's Church); Spurgeon's Treasury of David (`lyteword/chspurgeon-tod`, CC0); the Geneva notes; Poole and other Reformers and Puritans (EEBO-TCP, CC0; Poole after a repair pass); church fathers (`HistoricalChristianFaith/Commentaries-Database`, after filtering). **Need a mirror branch:** JFB, Clarke, Barnes (New Testament), Keil-Delitzsch, Robertson's Word Pictures, Scofield, Luther. **Not recommended:** Gill and Alford. | Founder decisions 1 to 8 and 23 answer the plans' questions. Adopting a writer needs a mirror where needed, a `sources.json` pin, a `NOTICE.md` credit, a shelf card and changes to `extra_voices.rs`. |
+| `docs/local-work/2026-10-20/literary/` (design only) | `fit.md`, a literary-devices design: the BSB's own poetry lines (`\q1`, `\q2`; 8,180 of 31,084 verses carry poetry marks), the Layers kinds `figure` and `parallelism`, and a `structure` extra for chiasm, inclusio and foils; `catalogue.md` and `sources.md`; and the founder's mockups `mock-arcs.html`, `mock-card.html` and `mock-reader.html`. The cloud Layers and "Arcs and card design at Deep" sessions are building `figure`, `parallelism` and `contrast` and the Deep display from them. | The designs should agree on kind names before either merges (section 8, row 14). The Deep display sits behind the commentary notice (#53). |
+| `docs/local-work/2026-10-20/meaning/` | The local potion-base-8M held-out checks: scripts, word list and logs (the 3.9 MB vector file was left on the PC). | Read beside the Ask session's evaluation sets before the meaning-model decision (section 8, rows 7 to 9). |
 
 **Next, in order** (section 9 has the evidence):
 
@@ -128,7 +128,7 @@ The founder's main point for the app (PR #4): simple for anyone who walks in, wi
 | Turn on the ESV on a server | a Crossway ESV API key | Who holds a key, if anyone, is not recorded. The repository has 0 secrets, and Pages runs with `VITE_ESV=off`. |
 | Work on the founder's PC (his clones, the scratch and work folders, the worktrees) | the founder's machine | Only through him. |
 
-**Founder decisions: how to ask and where to record them.** Ask the founder on GitHub (mention `@Sixteen1-6` on the PR or an issue) or in a thread of his claude.ai project. Until now his decisions are recorded in PR bodies, commit messages (for example `1096bcb`) and the `_comment` fields of `config/*.json`, and some only in claude.ai threads that a successor cannot read. Record each new decision where everyone can see it: a comment on the PR it affects, or a dated line in a decisions file in the repository (for example `docs/decisions.md`, which does not exist yet). No other contact details are given here, by rule (section 6).
+**Founder decisions: how to ask and where to record them.** Ask the founder on GitHub (mention `@Sixteen1-6` on the PR or an issue) or in a thread of his claude.ai project. Until now his decisions are recorded in PR bodies, commit messages (for example `1096bcb`) and the `_comment` fields of `config/*.json`, and some only in claude.ai threads that a successor cannot read. Record each new decision where everyone can see it: a comment on the PR it affects, or a dated line in `docs/FOUNDER-DECISIONS.md`, which holds the 23 decisions of 2026-10-20 and 21 and overrides `CLAUDE.md` where they differ. No other contact details are given here, by rule (section 6).
 
 ## 2. Read in this order
 
