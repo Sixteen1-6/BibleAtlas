@@ -94,9 +94,11 @@
             { "ref": "Genesis 2:5", "strong": "H0127" },
             { "ref": "Genesis 3:19", "strong": "H0127" }
           ],
+          "evidence": "TAHOT has adam (H0120) and adamah (H0127) side by side in 2:5 and 2:7, and adamah again in 3:19. Barnes and Keil and Delitzsch on 2:7 and the Pulpit Commentary on 1:26 tie the name Adam to the ground he was made from. Barnes adds that in 2:7 the man to till the ground, lacking in 2:5, is supplied.",
           "cites": [
             { "source": "barnes", "on": "Genesis 2:7" },
-            { "source": "keil-delitzsch", "on": "Genesis 2:7" }
+            { "source": "keil-delitzsch", "on": "Genesis 2:7" },
+            { "source": "pulpit", "on": "Genesis 1:26" }
           ],
           "text": "In Hebrew the man is adam and the ground is adamah: the earthling is named after the earth he came from. The pun runs through the story: there was no adam to work the adamah (2:5), and after the fall he will return to the adamah he was taken from (3:19)."
         },
@@ -106,7 +108,9 @@
           "refs": ["Genesis 2:7", "1 Corinthians 15:45"],
           "cites": [
             { "source": "ellicott", "on": "1 Corinthians 15:45" },
-            { "source": "bengel", "on": "1 Corinthians 15:45" }
+            { "source": "bengel", "on": "1 Corinthians 15:45" },
+            { "source": "jfb", "on": "1 Corinthians 15:45" },
+            { "source": "pulpit", "on": "1 Corinthians 15:45" }
           ],
           "text": "Paul quotes this verse, \"The first man Adam became a living being,\" and sets beside it \"the last Adam,\" Christ, who does not only receive life but gives it."
         },
@@ -119,7 +123,9 @@
           ],
           "cites": [
             { "source": "ellicott", "on": "Romans 5:14" },
-            { "source": "poole", "on": "Romans 5:14" }
+            { "source": "poole", "on": "Romans 5:14" },
+            { "source": "clarke", "on": "Romans 5:14" },
+            { "source": "pulpit", "on": "Romans 5:14" }
           ],
           "text": "Paul calls Adam \"a pattern of the One to come\" (the Greek word is typos, a type). As one man brought death to all, one man brings life to all."
         },
@@ -224,11 +230,14 @@
             { "ref": "Genesis 3:1", "strong": "H6175" },
             { "ref": "Genesis 3:7", "strong": "H5903" }
           ],
-          "evidence": "TAHOT: arummim, naked (H6174), in 2:25; arum, crafty (H6175), in 3:1; eirummim, naked (H5903), in 3:7. Lexicons list the words separately, but they sound almost the same, and the chapter break hides how closely they sit. Ellicott sets naked (arumim) and subtil (arum) side by side to show the intended contrast.",
+          "evidence": "TAHOT: arummim, naked (H6174), in 2:25; arum, crafty (H6175), in 3:1; eirummim, naked (H5903), in 3:7. Lexicons list the words separately, but they sound almost the same, and the chapter break hides how closely they sit. Ellicott calls it a play upon words; the Companion Bible and Gill say the word for naked in 2:25 is the word rendered subtil in 3:1.",
           "cites": [
-            { "source": "ellicott", "on": "Genesis 3:1" }
+            { "source": "ellicott", "on": "Genesis 3:1" },
+            { "source": "bullinger-cb", "on": "Genesis 3:1" },
+            { "source": "gill", "on": "Genesis 2:25" },
+            { "source": "pulpit", "on": "Genesis 3:1" }
           ],
-          "text": "Just before the serpent appears, the couple are arummim, \"naked,\" and not ashamed. The next line calls the serpent arum, \"crafty.\" After they listen to him, \"they knew that they were naked.\" The crafty one leaves them naked."
+          "text": "Just before the serpent appears, the couple are arummim, \"naked,\" and not ashamed. The next line calls the serpent arum, \"crafty,\" almost the same word. After they listen to him, \"they knew that they were naked.\""
         }
       ]
     },
@@ -672,7 +681,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["Genesis 4:7", "Genesis 3:16", "Song of Solomon 7:10"],
           "words": [
             { "ref": "Genesis 4:7", "strong": "H8669" },
@@ -726,7 +735,9 @@
           "refs": ["Genesis 4:8", "Matthew 23:35", "Luke 11:51", "1 John 3:12"],
           "cites": [
             { "source": "pulpit", "on": "Matthew 23:35" },
-            { "source": "gill", "on": "1 John 3:12" }
+            { "source": "gill", "on": "1 John 3:12" },
+            { "source": "henry", "on": "Matthew 23:35" },
+            { "source": "poole", "on": "Matthew 23:35" }
           ],
           "text": "Jesus names Abel first in a long line of murdered righteous people, \"from the blood of righteous Abel to the blood of Zechariah,\" and John holds Cain up as a warning: \"Do not be like Cain, who belonged to the evil one and murdered his brother.\""
         }
@@ -912,7 +923,10 @@
           "evidence": "TBESH glosses Noah as rest. Barnes on Genesis 5:29: nuach (rest) and nacham (comfort) are stems not immediately connected, but both point back to a common root. Itstsavon occurs only in Genesis 3:16, 3:17 and 5:29 (STEPBible TAHOT).",
           "cites": [
             { "source": "keil-delitzsch", "on": "Genesis 5:29" },
-            { "source": "barnes", "on": "Genesis 5:29" }
+            { "source": "barnes", "on": "Genesis 5:29" },
+            { "source": "pulpit", "on": "Genesis 5:29" },
+            { "source": "ellicott", "on": "Genesis 5:29" },
+            { "source": "net-notes", "on": "Genesis 5:29", "url": "https://www.biblegateway.com/passage/?version=NET&search=Genesis+5" }
           ],
           "text": "Noah (noach) means \"rest,\" and Lamech explains the name with nacham, \"comfort,\" a word that sounds like it. His word for \"toil,\" itstsavon, appears only here and in the curse on Eve and Adam (3:16-17)."
         },
@@ -927,13 +941,14 @@
           ],
           "evidence": "The Pulpit Commentary on Genesis 6:8 notes that chen reverses the letters of Noah's name. Word meanings from TBESH.",
           "cites": [
-            { "source": "pulpit", "on": "Genesis 6:8" }
+            { "source": "pulpit", "on": "Genesis 6:8" },
+            { "source": "leithart", "on": "Genesis 6:8", "at": "Peter Leithart, 'What's in a Name?', Theopolis Institute (2014)", "url": "https://theopolisinstitute.com/leithart_post/whats-in-a-name" }
           ],
           "text": "The comfort verb turns to grief: \"the LORD regretted that He had made man\" (nacham again). Then the story turns on one line: \"Noah, however, found favor in the eyes of the LORD.\" Favor is chen, Noah's two Hebrew letters reversed (נח, חן)."
         },
         {
           "kind": "wordplay",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Genesis 8:21", "Genesis 5:29", "Genesis 8:4", "Genesis 8:9"],
           "words": [
             { "ref": "Genesis 8:4", "strong": "H5117" },
@@ -943,13 +958,16 @@
           ],
           "evidence": "The dove's rest is manoach. TBESH glosses nichoach as soothing. The Pulpit Commentary on Genesis 8:21 hears in it an allusion to Noah's name.",
           "cites": [
-            { "source": "pulpit", "on": "Genesis 8:21" }
+            { "source": "pulpit", "on": "Genesis 8:21" },
+            { "source": "reformation-sb", "on": "Genesis 8:21", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Gen.8.21" },
+            { "source": "clarke", "on": "Genesis 5:29" },
+            { "source": "leithart", "on": "Genesis 8:21", "at": "Peter Leithart, 'What's in a Name?', Theopolis Institute (2014)", "url": "https://theopolisinstitute.com/leithart_post/whats-in-a-name" }
           ],
           "text": "The flood ends in rest-words: the ark \"came to rest\" (nuach), the dove \"found no place to rest,\" and Noah's offering is a \"pleasing aroma,\" literally a soothing one (nichoach), perhaps a play on his name. Then God says, \"Never again will I curse the ground.\""
         },
         {
           "kind": "pattern",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Genesis 6:14", "Exodus 2:3", "Exodus 2:5", "Exodus 1:22"],
           "words": [
             { "ref": "Genesis 6:14", "strong": "H8392" },
@@ -958,9 +976,11 @@
           ],
           "evidence": "TBESH: tevah is used only of Noah's ark and Moses' basket. Keil and Delitzsch on Exodus 2:3 think the word was probably chosen to call Noah's ark to mind.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Exodus 2:3" }
+            { "source": "keil-delitzsch", "on": "Exodus 2:3" },
+            { "source": "reformation-sb", "on": "Exodus 2:3", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Exod.2.3" },
+            { "source": "bullinger-cb", "on": "Exodus 2:3" }
           ],
-          "text": "The word for the ark, tevah, is used only for Noah's ark and for baby Moses' basket. His mother \"coated it with tar and pitch\" and set it in the Nile, where Pharaoh had ordered Hebrew sons thrown. Some think the word was chosen to recall Noah's ark."
+          "text": "The word for the ark, tevah, is used only for Noah's ark and for baby Moses' basket. His mother \"coated it with tar and pitch\" and set it in the Nile, where Pharaoh had ordered Hebrew sons thrown. Commentators think the word was chosen to recall Noah's ark."
         },
         {
           "kind": "pattern",
@@ -972,7 +992,9 @@
           "evidence": "Abbott-Smith's lexicon (in TBESG) explains antitypos in 1 Peter 3:21 as the reality of which the type is the copy.",
           "cites": [
             { "source": "pulpit", "on": "1 Peter 3:21" },
-            { "source": "ellicott", "on": "1 Peter 3:21" }
+            { "source": "ellicott", "on": "1 Peter 3:21" },
+            { "source": "jfb", "on": "1 Peter 3:21" },
+            { "source": "gill", "on": "1 Peter 3:21" }
           ],
           "text": "Jesus says the Son of Man will come \"as it was in the days of Noah.\" Peter says eight souls \"were saved through water,\" and \"this water symbolizes the baptism that now saves you.\" \"Symbolizes\" is antitypos: baptism is the reality the flood pictured."
         }
@@ -1461,7 +1483,10 @@
           ],
           "evidence": "The NET Bible note on Genesis 11:9 gives the Babylonian meaning, gate of God. TBESH glosses Babel as confusion by mixing.",
           "cites": [
-            { "source": "ellicott", "on": "Genesis 11:9" }
+            { "source": "ellicott", "on": "Genesis 11:9" },
+            { "source": "net-notes", "on": "Genesis 11:9", "url": "https://www.biblegateway.com/passage/?version=NET&search=Genesis+11" },
+            { "source": "reformation-sb", "on": "Genesis 11:9", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Gen.11.9" },
+            { "source": "bullinger-fos", "on": "Genesis 11:9", "at": "E. W. Bullinger, Figures of Speech Used in the Bible (1898), Paronomasia (Rhyming-Words)" }
           ],
           "text": "The text explains the name by a pun on balal, \"confused.\" In Babylonian, bab-ili meant \"gate of God,\" but in Hebrew Babel sounds like confusion. The city that called itself God's gate is remembered for scrambled speech."
         },
@@ -1492,7 +1517,8 @@
           ],
           "evidence": "BibleProject (What's So Bad About Babel?) sets the builders' bid to make a name for themselves against God's promise to make Abram's name great.",
           "cites": [
-            { "source": "bibleproject", "on": "Genesis 12:2", "at": "BibleProject podcast, What's So Bad About Babel?", "url": "https://bibleproject.com/podcasts/whats-so-bad-about-babel/" }
+            { "source": "bibleproject", "on": "Genesis 12:2", "at": "BibleProject podcast, What's So Bad About Babel?", "url": "https://bibleproject.com/podcasts/whats-so-bad-about-babel/" },
+            { "source": "reformation-sb", "on": "Genesis 12:2", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Gen.12.2" }
           ],
           "text": "Babel's builders want to \"make a name for ourselves\"; one chapter later God promises Abram, \"I will make your name great.\" A great name is given, not seized."
         },
@@ -1581,7 +1607,9 @@
           "evidence": "Name meanings from TBESH. Paul quotes Genesis 17:5 in Romans 4:17; the father of us all is his own line in 4:16.",
           "cites": [
             { "source": "henry-concise", "on": "Genesis 17:5" },
-            { "source": "barnes", "on": "Genesis 17:5" }
+            { "source": "barnes", "on": "Genesis 17:5" },
+            { "source": "gill", "on": "Genesis 17:5" },
+            { "source": "reformation-sb", "on": "Genesis 17:5", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Gen.17.5" }
           ],
           "text": "Later God renames him. Abram, \"exalted father,\" becomes Abraham, father of a multitude, \"for I have made you a father of many nations.\" Paul quotes the line and calls Abraham \"the father of us all,\" of everyone who shares his faith."
         },
@@ -2366,7 +2394,10 @@
           ],
           "cites": [
             { "source": "ellicott", "on": "Genesis 22:14" },
-            { "source": "maclaren", "on": "Genesis 22:14" }
+            { "source": "maclaren", "on": "Genesis 22:14" },
+            { "source": "clarke", "on": "Genesis 22:14" },
+            { "source": "keil-delitzsch", "on": "Genesis 22:14" },
+            { "source": "reformation-sb", "on": "Genesis 22:14", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Gen.22.14" }
           ],
           "text": "\"Provide\" is the Hebrew verb ra'ah, \"to see.\" Abraham names the place \"The LORD Will Provide\" (literally \"will see\"), and the saying grows: \"On the mountain of the LORD it will be provided,\" or more literally, it will be seen. God sees the need and meets it."
         },
@@ -2779,7 +2810,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "some interpreters",
           "refs": ["Genesis 27:36"],
           "words": [
             { "ref": "Genesis 27:36", "strong": "H1062" },
@@ -2876,7 +2907,10 @@
           ],
           "evidence": "Name meaning from TBESH.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Genesis 28:19" }
+            { "source": "keil-delitzsch", "on": "Genesis 28:18" },
+            { "source": "pulpit", "on": "Genesis 28:19" },
+            { "source": "clarke", "on": "Genesis 28:19" },
+            { "source": "benson", "on": "Genesis 28:19" }
           ],
           "text": "Jacob wakes afraid: \"This is none other than the house of God; this is the gate of heaven!\" So he names the place Bethel, \"house of God,\" though until then the town had been called Luz."
         },
@@ -2924,13 +2958,16 @@
           "evidence": "Jamieson-Fausset-Brown on John 1:51 calls Christ the real ladder, and Ellicott notes that ascending comes before descending, as in Jacob's vision. OpenBible.info cross-references link the verses.",
           "cites": [
             { "source": "jfb", "on": "John 1:51" },
-            { "source": "ellicott", "on": "John 1:51" }
+            { "source": "ellicott", "on": "John 1:51" },
+            { "source": "bengel", "on": "John 1:51" },
+            { "source": "reformation-sb", "on": "John 1:51", "url": "https://www.biblegateway.com/resources/reformation-study-bible/John.1.51" },
+            { "source": "barnes", "on": "John 1:51" }
           ],
           "text": "Jesus tells Nathanael, \"you will all see heaven open and the angels of God ascending and descending on the Son of Man,\" in the dream's own order: up first, then down. Jesus Himself is now the stairway between heaven and earth."
         },
         {
           "kind": "name meaning",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Genesis 27:36", "John 1:47", "Genesis 27:35", "Genesis 25:26", "Genesis 32:28"],
           "words": [
             { "ref": "Genesis 25:26", "strong": "H6119" },
@@ -2942,7 +2979,9 @@
           ],
           "evidence": "Name meaning from TBESH. Dolos in the Septuagint of Genesis 27:35, where the Hebrew has mirmah, deceit (TAHOT). Ellicott on John 1:47 hears the contrast: Nathanael lives up to the name Israel and has none of Jacob's guile.",
           "cites": [
-            { "source": "ellicott", "on": "John 1:47" }
+            { "source": "ellicott", "on": "John 1:47" },
+            { "source": "maclaren", "on": "John 1:45" },
+            { "source": "pulpit", "on": "John 1:47" }
           ],
           "text": "Jacob means \"heel holder\" or \"supplanter\"; Esau says, \"he has cheated me twice.\" Jesus calls Nathanael \"a true Israelite, in whom there is no deceit,\" nothing of the old Jacob. John's Greek even uses dolos, the Greek Old Testament's word for Jacob's deceit."
         },
@@ -2959,7 +2998,10 @@
           "evidence": "Under Strong's numbering, Genesis 32:28 and Hosea 12:3 are the verb's only two uses (STEPBible TAHOT). Jamieson, Fausset and Brown tie Hosea's power with God to the name Israel.",
           "cites": [
             { "source": "jfb", "on": "Hosea 12:3" },
-            { "source": "keil-delitzsch", "on": "Hosea 12:3" }
+            { "source": "keil-delitzsch", "on": "Hosea 12:3" },
+            { "source": "pulpit", "on": "Hosea 12:3" },
+            { "source": "gill", "on": "Hosea 12:3" },
+            { "source": "reformation-sb", "on": "Hosea 12:4", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Hos.12.4" }
           ],
           "text": "Hosea retells Jacob's life: \"In the womb he grasped his brother’s heel, and in his vigor he wrestled with God,\" and \"he found Him at Bethel.\" \"Wrestled\" is sarah, the verb inside the name Israel (32:28). The heel-grabber who met God at Bethel became Israel."
         }
@@ -3173,9 +3215,12 @@
           ],
           "evidence": "Name meanings from the NET Bible notes and TBESH. The NET notes call Leah's explanation of Reuben a popular etymology, not an exact one, and say the meaning of Levi is debated.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Genesis 29:32" },
+            { "source": "keil-delitzsch", "on": "Genesis 29:31" },
             { "source": "pulpit", "on": "Genesis 29:32" },
-            { "source": "keil-delitzsch", "on": "Genesis 29:34" }
+            { "source": "clarke", "on": "Genesis 29:32" },
+            { "source": "gill", "on": "Genesis 29:33" },
+            { "source": "calvin", "on": "Genesis 29:32" },
+            { "source": "net-notes", "on": "Genesis 29:32", "url": "https://classic.net.bible.org/verse.php?book=Gen&chapter=29&verse=32" }
           ],
           "text": "Each name echoes her words. Reuben, \"look, a son\": \"The LORD has seen my affliction.\" Simeon, \"heard\": \"the LORD has heard that I am unloved.\" Levi sounds like lavah, \"to join\": \"my husband will become attached to me.\" Some are puns, not exact meanings."
         },
@@ -3191,8 +3236,10 @@
           ],
           "evidence": "Both verses have happa'am (STEPBible TAHOT). The NET Bible notes gloss Judah as he will be praised; Keil and Delitzsch, as the one for whom the LORD is praised.",
           "cites": [
-            { "source": "henry-concise", "on": "Genesis 29:35" },
-            { "source": "keil-delitzsch", "on": "Genesis 29:35" }
+            { "source": "henry-concise", "on": "Genesis 29:31" },
+            { "source": "keil-delitzsch", "on": "Genesis 29:31" },
+            { "source": "ellicott", "on": "Genesis 29:32" },
+            { "source": "calvin", "on": "Genesis 29:32" }
           ],
           "text": "Her third and fourth sayings share a Hebrew word, happa'am, \"this time\" (in 29:34 the BSB has \"Now at last\"). The third hopes Jacob will be joined to her. The fourth does not mention him: \"This time I will praise the LORD.\" Judah means \"praised.\""
         },
@@ -3209,7 +3256,11 @@
           "evidence": "The NET Bible note on Numbers 18:2 calls yillavu a wordplay with Levi and links it to Leah's hope in Genesis 29:34.",
           "cites": [
             { "source": "ellicott", "on": "Numbers 18:2" },
-            { "source": "pulpit", "on": "Numbers 18:2" }
+            { "source": "pulpit", "on": "Numbers 18:2" },
+            { "source": "clarke", "on": "Numbers 18:2" },
+            { "source": "gill", "on": "Numbers 18:2" },
+            { "source": "henry", "on": "Numbers 18:1" },
+            { "source": "net-notes", "on": "Numbers 18:2", "url": "https://classic.net.bible.org/verse.php?book=Num&chapter=18&verse=2" }
           ],
           "text": "The pun on Levi returns when God gives the Levites their work: they are to \"join you and assist you\" (join is yillavu). Leah hoped her husband would be joined to her; her son's tribe is joined to the priests to serve at God's tent."
         },
@@ -3865,7 +3916,10 @@
           "evidence": "TAHOT: Hosea 12:3 has aqav (H6117), the verb Esau uses in Genesis 27:36, and sarah (H8280), the verb of Israel's name in Genesis 32:28; 12:4 adds bakhah, he wept (H1058), and vayyitchannen, he sought favor (H2603). Hosea 12:2 frames the retelling as a charge, and 12:6 calls the people back. Most read Jacob as the one who wept; some take it to be the angel.",
           "cites": [
             { "source": "barnes", "on": "Hosea 12:4" },
-            { "source": "henry-concise", "on": "Hosea 12:4" }
+            { "source": "henry-concise", "on": "Hosea 12:1" },
+            { "source": "clarke", "on": "Hosea 12:4" },
+            { "source": "gill", "on": "Hosea 12:4" },
+            { "source": "ellicott", "on": "Hosea 12:6" }
           ],
           "text": "Hosea retells the story in a charge against Jacob's descendants. Jacob \"struggled with the angel and prevailed; he wept and sought His favor.\" Genesis never mentions the tears. Then Hosea calls them, \"you must return to your God.\""
         }
@@ -4716,7 +4770,11 @@
           "evidence": "Name meaning from TBESH. Keil and Delitzsch and the Pulpit Commentary on Genesis 49:8 note the play on yadah, to praise.",
           "cites": [
             { "source": "keil-delitzsch", "on": "Genesis 49:8" },
-            { "source": "pulpit", "on": "Genesis 49:8" }
+            { "source": "pulpit", "on": "Genesis 49:8" },
+            { "source": "barnes", "on": "Genesis 49:8" },
+            { "source": "ellicott", "on": "Genesis 49:8" },
+            { "source": "calvin", "on": "Genesis 49:8" },
+            { "source": "bullinger-cb", "on": "Genesis 49:8" }
           ],
           "text": "\"Judah, your brothers shall praise you\" plays on his name, which means \"praised.\" At his birth Leah said, \"This time I will praise the LORD,\" and named him Judah. The verb is yadah both times."
         },
@@ -4725,8 +4783,11 @@
           "strength": "widely agreed",
           "refs": ["Genesis 49:10", "1 Chronicles 5:2", "2 Samuel 7:16"],
           "cites": [
-            { "source": "keil-delitzsch", "on": "Genesis 49:10" },
-            { "source": "poole", "on": "Genesis 49:10" }
+            { "source": "keil-delitzsch", "on": "Genesis 49:9" },
+            { "source": "poole", "on": "Genesis 49:10" },
+            { "source": "henry", "on": "Genesis 49:8" },
+            { "source": "calvin", "on": "Genesis 49:8" },
+            { "source": "wesley", "on": "Genesis 49:10" }
           ],
           "text": "The near fulfillment came with David, of the tribe of Judah: \"Judah prevailed over his brothers and a ruler came from him,\" and God promised David, \"your throne will be established forever.\""
         },
@@ -4770,7 +4831,10 @@
           "evidence": "Poole, Barnes and Gill on Revelation 5:5 link it to Genesis 49:9, as do OpenBible.info cross-references.",
           "cites": [
             { "source": "poole", "on": "Revelation 5:5" },
-            { "source": "henry-concise", "on": "Revelation 5:5" }
+            { "source": "barnes", "on": "Revelation 5:5" },
+            { "source": "gill", "on": "Revelation 5:5" },
+            { "source": "pulpit", "on": "Revelation 5:5" },
+            { "source": "henry", "on": "Revelation 5:1" }
           ],
           "text": "Revelation takes up Jacob's lion: \"Behold, the Lion of the tribe of Judah, the Root of David, has triumphed.\" Then John sees \"a Lamb who appeared to have been slain.\" The King from Judah wins by being slain; as Hebrews says, \"our Lord descended from Judah.\""
         },
@@ -4967,10 +5031,11 @@
             { "ref": "Genesis 50:20", "strong": "H7451" },
             { "ref": "Genesis 50:20", "strong": "H2896" }
           ],
-          "evidence": "Ellicott on Genesis 50:20 notes that the same verb is used for both, contrasting the two purposes. Chashav from TBESH.",
+          "evidence": "Ellicott on Genesis 50:20 notes that the same verb is used for both, contrasting the two purposes. The Pulpit Commentary renders both clauses literally with the same verb, thinking or meditating, and Bullinger's Figures of Speech, under Psalm 32:1-2, says Genesis 50:20 has the same word twice. Chashav from TBESH.",
           "cites": [
             { "source": "ellicott", "on": "Genesis 50:20" },
-            { "source": "pulpit", "on": "Genesis 50:20" }
+            { "source": "pulpit", "on": "Genesis 50:20" },
+            { "source": "bullinger-fos", "on": "Genesis 50:20", "at": "E. W. Bullinger, Figures of Speech Used in the Bible (1898), Synonymia (Synonymous Words), in its entry on Psalm 32:1-2" }
           ],
           "text": "\"You intended\" and \"God intended\" are one Hebrew verb, chashav, to plan. The repetition sets human purpose against God's: one event had two authors with opposite aims, and God's aim stood."
         },
@@ -4987,7 +5052,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "some interpreters",
           "refs": ["Genesis 37:32", "Genesis 38:25", "Genesis 37:33", "Genesis 38:26", "Genesis 42:7-8"],
           "words": [
             { "ref": "Genesis 37:32", "strong": "H5234" },
@@ -4997,25 +5062,27 @@
             { "ref": "Genesis 42:7", "strong": "H5234" },
             { "ref": "Genesis 42:8", "strong": "H5234" }
           ],
-          "evidence": "Matthew Henry on Genesis 38:25 sets Tamar's words to Judah beside Judah's words to his father in 37:32, as Genesis Rabbah 85:11 (Sefaria) had. The Pulpit Commentary on 42:7: treated them as strangers is the same root, nakar, that means recognize. Word data from STEPBible TAHOT and TBESH.",
+          "evidence": "Craig Keener on Genesis 38:25 says Tamar's call to examine the tokens may recall the brothers' call to examine Joseph's robe in 37:32; Genesis Rabbah 85:11 already paired the two. The Pulpit Commentary on 42:7: treated them as strangers is the same root, nakar, that means recognize. Word data from STEPBible TAHOT and TBESH.",
           "cites": [
-            { "source": "henry", "on": "Genesis 38:25" },
+            { "source": "keener", "on": "Genesis 38:25", "at": "Craig Keener, Sleeping with a prostitute part 2: Genesis 38:15-26, Bible Backgrounds", "url": "https://craigkeener.com/sleeping-with-a-prostitute-part-2-genesis-3815-26/" },
             { "source": "pulpit", "on": "Genesis 42:7" }
           ],
           "text": "\"Examine it,\" the brothers tell Jacob, showing him the bloody robe. \"Please examine them,\" Tamar tells Judah, sending his seal and staff. Both are haker-na, and each man \"recognized\" (nakar). Later Joseph \"recognized them,\" but \"they did not recognize him.\""
         },
         {
           "kind": "pattern",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Genesis 37:31", "Genesis 27:16", "Genesis 27:9"],
           "words": [
             { "ref": "Genesis 37:31", "strong": "H5795" },
             { "ref": "Genesis 27:9", "strong": "H5795" },
             { "ref": "Genesis 27:16", "strong": "H5795" }
           ],
-          "evidence": "The NET Bible note on Genesis 37:31 points out that Jacob had deceived his own father with two young goats.",
+          "evidence": "Poole on Genesis 27:9, the NET Bible note on Genesis 37:31 and a Ligonier devotional on Genesis 37 all point out that Jacob, who deceived his father with young goats, is now deceived by his sons with a goat.",
           "cites": [
-            { "source": "ligonier", "on": "Genesis 37:31", "at": "An Inconsolable Father, Tabletalk devotional (Ligonier), no writer named", "url": "https://learn.ligonier.org/devotionals/inconsolable-father" }
+            { "source": "ligonier", "on": "Genesis 37:31", "at": "An Inconsolable Father, Tabletalk devotional (Ligonier), no writer named", "url": "https://learn.ligonier.org/devotionals/inconsolable-father" },
+            { "source": "poole", "on": "Genesis 27:9" },
+            { "source": "net-notes", "on": "Genesis 37:31", "url": "https://classic.net.bible.org/verse.php?book=Gen&chapter=37&verse=31" }
           ],
           "text": "The deceiver is deceived the same way. Jacob once fooled his blind father with goat skins; now his sons fool him with Joseph's robe dipped in a goat's blood."
         },
@@ -5032,13 +5099,16 @@
         },
         {
           "kind": "fulfillment",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Genesis 50:20", "Acts 2:23"],
-          "evidence": "Gill on Genesis 50:20 draws the comparison with the cross.",
+          "evidence": "Gill and Matthew Henry on Genesis 50:20 compare the crucifixion, Henry citing Acts 2:23. The Pulpit Commentary and Bengel on Acts 2:23 set beside it Joseph's words to his brothers in Genesis 45:5.",
           "cites": [
-            { "source": "gill", "on": "Genesis 50:20" }
+            { "source": "gill", "on": "Genesis 50:20" },
+            { "source": "henry", "on": "Genesis 50:20" },
+            { "source": "pulpit", "on": "Acts 2:23" },
+            { "source": "bengel", "on": "Acts 2:23" }
           ],
-          "text": "The cross has the same shape. Peter says Jesus \"was delivered up by God’s set plan and foreknowledge, and you, by the hands of the lawless, put Him to death.\" Human evil and God's saving purpose meet in one event, though Acts does not mention Joseph."
+          "text": "The cross has the same shape. Peter says Jesus \"was delivered up by God’s set plan and foreknowledge, and you, by the hands of the lawless, put Him to death.\" Human evil and God's saving purpose meet in one event, though Peter does not mention Joseph."
         }
       ]
     },
@@ -5122,7 +5192,8 @@
           ],
           "evidence": "The NET Bible notes on Exodus 2:10 read Mosheh as an active form, the one who draws out, and cite Isaiah 63:11. The TBESH gloss, drawn, gives the sense of the pun, not the form. Keil and Delitzsch, quoting Kurtz, call the name an unintended prophecy: the one drawn out became the drawer out.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Exodus 2:10" }
+            { "source": "keil-delitzsch", "on": "Exodus 2:10" },
+            { "source": "net-notes", "on": "Exodus 2:10", "url": "https://classic.net.bible.org/verse.php?book=Exo&chapter=2&verse=10" }
           ],
           "text": "The Hebrew form is active: Mosheh means one who draws out, not one drawn out. The name became an unintended prophecy: the baby drawn from the Nile led Israel through the sea. Isaiah remembers \"the days of Moses\" and \"He who brought them through the sea.\""
         },
@@ -5149,7 +5220,10 @@
           "evidence": "Matthew Henry, Gill, Poole and the Pulpit Commentary on Acts 7:35 see Stephen setting Moses beside Jesus as a type of Christ.",
           "cites": [
             { "source": "henry-concise", "on": "Acts 7:35" },
-            { "source": "pulpit", "on": "Acts 7:35" }
+            { "source": "pulpit", "on": "Acts 7:35" },
+            { "source": "gill", "on": "Acts 7:35" },
+            { "source": "ellicott", "on": "Acts 7:35" },
+            { "source": "poole", "on": "Acts 7:35" }
           ],
           "text": "Stephen retells this life as a pattern. The man Israel rejected with \"Who made you ruler and judge over us?\" is \"the one whom God sent to be their ruler and redeemer.\" Commentators see Stephen setting Moses beside Jesus, whom his hearers had also rejected."
         },
@@ -5157,10 +5231,12 @@
           "kind": "allusion",
           "strength": "widely agreed",
           "refs": ["Hebrews 11:24", "Exodus 2:10", "Hebrews 11:25-26"],
-          "evidence": "Barnes on Hebrews 11:24 ties it to Moses' adoption by Pharaoh's daughter (Exodus 2:10); Acts 7:21-25 also recalls it.",
+          "evidence": "Barnes, Gill and Poole on Hebrews 11:24 tie it to Moses' adoption by Pharaoh's daughter (Exodus 2:10); Gill recalls that she took him up out of the water and named him. Acts 7:21-25 also recalls it.",
           "cites": [
             { "source": "barnes", "on": "Hebrews 11:24" },
-            { "source": "pulpit", "on": "Hebrews 11:24" }
+            { "source": "pulpit", "on": "Hebrews 11:24" },
+            { "source": "gill", "on": "Hebrews 11:24" },
+            { "source": "poole", "on": "Hebrews 11:24" }
           ],
           "text": "Hebrews recalls the adoption: \"By faith Moses, when he was grown, refused to be called the son of Pharaoh’s daughter.\" The prince drawn from the river \"chose to suffer oppression with God’s people\" and \"valued disgrace for Christ above the treasures of Egypt.\""
         }
@@ -5299,10 +5375,11 @@
             { "ref": "Exodus 3:14", "strong": "H1961" },
             { "ref": "Exodus 3:15", "strong": "H3068" }
           ],
-          "evidence": "TAHOT tags ehyeh as hayah, to be. Poole calls Jehovah a word of the same root and meaning as I am; the Pulpit Commentary derives it from hava, to be, and renders it The Existent. Strong's: the self-existent or eternal One. The gloss the existing One is TBESH's.",
+          "evidence": "TAHOT tags ehyeh as hayah, to be. Poole calls Jehovah a word of the same root and meaning as I am; Ellicott says ehyeh becomes Jahveh by putting the third person for the first; the Pulpit Commentary derives it from hava, to be, and renders it The Existent. Strong's: the self-existent or eternal One. The gloss the existing One is TBESH's.",
           "cites": [
             { "source": "poole", "on": "Exodus 3:15" },
-            { "source": "pulpit", "on": "Exodus 3:15" }
+            { "source": "pulpit", "on": "Exodus 3:15" },
+            { "source": "ellicott", "on": "Exodus 3:15" }
           ],
           "text": "The answer plays on the name. \"I AM\" is ehyeh, from hayah, \"to be.\" The next verse gives the name YHWH, \"the LORD,\" which most scholars derive from the same verb, with a sense like \"the existing One.\""
         },
@@ -5344,7 +5421,9 @@
           "refs": ["Mark 12:26", "Exodus 3:6", "Mark 12:27", "Luke 20:37-38"],
           "cites": [
             { "source": "gill", "on": "Mark 12:26" },
-            { "source": "pulpit", "on": "Mark 12:26" }
+            { "source": "pulpit", "on": "Mark 12:26" },
+            { "source": "jfb", "on": "Mark 12:27" },
+            { "source": "wesley", "on": "Mark 12:27" }
           ],
           "text": "Jesus finds the resurrection in this same scene. At the bush God called Himself \"the God of Abraham, the God of Isaac, and the God of Jacob,\" long after they had died, and Jesus concludes: \"He is not the God of the dead, but of the living.\""
         },
@@ -5391,10 +5470,13 @@
             { "ref": "Hosea 11:1", "strong": "H1121" },
             { "ref": "Matthew 2:15", "strong": "G5207" }
           ],
-          "evidence": "Pulpit on Matthew 2:15: Hosea's words rest on Exodus 4:22, and the Messiah's experience parallels the nation's. Ellicott: they refer to the history of Israel. Poole: Israel's going out was a type of Christ's going into Egypt.",
+          "evidence": "Pulpit on Matthew 2:15: Hosea's words rest on Exodus 4:22, and the Messiah's experience parallels the nation's. Ellicott: they refer to the history of Israel. Jamieson-Fausset-Brown also traces them to Exodus 4:22-23. Poole thinks those possibly judge best who see Israel's going into and out of Egypt as a type of Christ's. Wesley: fulfilled anew in Christ, Son in a far higher sense than Israel.",
           "cites": [
             { "source": "pulpit", "on": "Matthew 2:15" },
-            { "source": "ellicott", "on": "Matthew 2:15" }
+            { "source": "ellicott", "on": "Matthew 2:15" },
+            { "source": "poole", "on": "Matthew 2:15" },
+            { "source": "jfb", "on": "Matthew 2:15" },
+            { "source": "wesley", "on": "Matthew 2:15" }
           ],
           "text": "Hosea looks back on the exodus: \"out of Egypt I called My son.\" Matthew sets this beside the child Jesus' stay in Egypt and calls it \"fulfilled.\" It first meant Israel's past; commentators see Matthew reading Israel's story as a pattern for the Messiah's."
         },
@@ -5446,10 +5528,11 @@
           "words": [
             { "ref": "Exodus 13:2", "strong": "H1060" }
           ],
-          "evidence": "Exodus 13:2 and 13:15. Gill and Jamieson-Fausset-Brown on Luke 2:23 tie the law to the sparing of Israel's firstborn in Egypt.",
+          "evidence": "Exodus 13:2 and 13:15. Gill on Luke 2:23, and Jamieson-Fausset-Brown and Poole on Luke 2:22, tie the law to the sparing of Israel's firstborn in Egypt; Gill and Poole add the five shekels of redemption.",
           "cites": [
             { "source": "gill", "on": "Luke 2:23" },
-            { "source": "henry-concise", "on": "Luke 2:23" }
+            { "source": "jfb", "on": "Luke 2:22" },
+            { "source": "poole", "on": "Luke 2:22" }
           ],
           "text": "Because God spared Israel's firstborn when Egypt's died, every firstborn son belonged to the LORD and had to be redeemed. Luke quotes this law when Mary's firstborn is presented at the temple: \"Every firstborn male shall be consecrated to the Lord.\""
         }
@@ -5484,8 +5567,10 @@
             { "ref": "Exodus 12:27", "strong": "H6452" }
           ],
           "cites": [
-            { "source": "henry-concise", "on": "Exodus 12:11" },
-            { "source": "jfb", "on": "Exodus 12:11" }
+            { "source": "henry-concise", "on": "Exodus 12:1" },
+            { "source": "jfb", "on": "Exodus 12:11" },
+            { "source": "clarke", "on": "Exodus 12:11" },
+            { "source": "gill", "on": "Exodus 12:11" }
           ],
           "text": "The feast is named for the act: pesach (Passover) comes from pasach, \"to pass over.\" The text explains the name itself: \"It is the Passover sacrifice to the LORD, who passed over the houses.\""
         },
@@ -5494,8 +5579,10 @@
           "strength": "widely agreed",
           "refs": ["Exodus 12:5", "1 Corinthians 5:7", "1 Peter 1:19"],
           "cites": [
-            { "source": "henry-concise", "on": "Exodus 12:13" },
-            { "source": "gill", "on": "1 Peter 1:19" }
+            { "source": "henry-concise", "on": "Exodus 12:1" },
+            { "source": "gill", "on": "1 Peter 1:19" },
+            { "source": "jfb", "on": "1 Peter 1:19" },
+            { "source": "poole", "on": "Exodus 12:5" }
           ],
           "text": "Paul writes, \"Christ, our Passover lamb, has been sacrificed,\" and Peter calls Him \"a lamb without blemish or spot,\" like the unblemished lamb the law required."
         },
@@ -5505,7 +5592,10 @@
           "refs": ["Exodus 12:46", "John 19:36", "Numbers 9:12", "Psalms 34:20"],
           "cites": [
             { "source": "ellicott", "on": "John 19:36" },
-            { "source": "bengel", "on": "John 19:36" }
+            { "source": "bengel", "on": "John 19:36" },
+            { "source": "gill", "on": "John 19:36" },
+            { "source": "barnes", "on": "John 19:36" },
+            { "source": "jfb", "on": "John 19:36" }
           ],
           "text": "When the soldiers do not break Jesus' legs, John says Scripture was fulfilled: \"Not one of His bones will be broken.\" The words fit the Passover rule and also Psalm 34:20; commentators discuss which John means, and some think both."
         },
@@ -5514,7 +5604,11 @@
           "strength": "commonly held",
           "refs": ["Exodus 12:6", "John 19:14", "Exodus 12:22", "John 19:29"],
           "cites": [
-            { "source": "pulpit", "on": "John 19:14" }
+            { "source": "pulpit", "on": "John 19:14" },
+            { "source": "clarke", "on": "John 19:14" },
+            { "source": "net-notes", "on": "John 19:14", "url": "https://classic.net.bible.org/verse.php?book=Joh&chapter=19&verse=14" },
+            { "source": "themelios", "on": "John 19:29", "at": "David V. Christensen, The Lamblike Servant, Themelios 48.3", "url": "https://www.thegospelcoalition.org/themelios/article/the-lamblike-servant/" },
+            { "source": "jets", "on": "John 19:29", "at": "Paul M. Hoskins, \"Deliverance from Death by the True Passover Lamb,\" JETS 52/2 (2009), p. 296", "url": "https://etsjets.org/wp-content/uploads/2010/06/files_JETS-PDFs_52_52-2_JETS-52-2-285-299-Hoskins.pdf" }
           ],
           "text": "In John, Jesus is sentenced on \"the day of Preparation for the Passover,\" when the lambs were slaughtered, and at the cross a sponge is lifted to Him on hyssop, the plant used to put the blood on the doorframes."
         },
@@ -5630,7 +5724,12 @@
           ],
           "evidence": "TAHOT: man, what? (H4478B), in 16:15, found only here, and man, manna (H4478A), in 16:31. The same verse then uses the ordinary Hebrew word for what, mah, in \"they did not know what it was.\" The naming story is the Bible's own explanation.",
           "cites": [
-            { "source": "poole", "on": "Exodus 16:15" }
+            { "source": "poole", "on": "Exodus 16:15" },
+            { "source": "clarke", "on": "Exodus 16:15" },
+            { "source": "keil-delitzsch", "on": "Exodus 16:13" },
+            { "source": "bullinger-cb", "on": "Exodus 16:15" },
+            { "source": "bullinger-cb", "on": "Exodus 16:31" },
+            { "source": "henry", "on": "Exodus 16:13" }
           ],
           "text": "When they first see it they ask, man hu (said mahn hoo), \"What is it?\" And the food keeps the question as its name: they \"called the bread manna,\" man in Hebrew. For forty years Israel's daily bread was called What-is-it."
         }
@@ -5880,13 +5979,16 @@
           "refs": ["Hebrews 8:5", "Exodus 25:40", "Hebrews 9:24", "Acts 7:44"],
           "cites": [
             { "source": "pulpit", "on": "Hebrews 8:5" },
-            { "source": "barnes", "on": "Hebrews 8:5" }
+            { "source": "barnes", "on": "Hebrews 8:5" },
+            { "source": "ellicott", "on": "Hebrews 8:5" },
+            { "source": "jfb", "on": "Hebrews 8:5" },
+            { "source": "bengel", "on": "Hebrews 8:5" }
           ],
           "text": "Hebrews quotes this verse and draws the conclusion: the earthly sanctuary \"is a copy and shadow of what is in heaven.\" So Christ \"did not enter a man-made copy of the true sanctuary, but He entered heaven itself.\""
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["Exodus 25:40", "Hebrews 8:5", "Romans 5:14"],
           "words": [
             { "ref": "Exodus 25:40", "strong": "H8403" },
@@ -5896,7 +5998,11 @@
           "evidence": "TBESH: tavnit, pattern, plan, form. Abbott-Smith (in TBESG) lists typos for tavnit in the Septuagint of Exodus 25:40 (in 25:9 the Septuagint has paradeigma). TAGNT: typos in Hebrews 8:5 and Romans 5:14",
           "cites": [
             { "source": "barnes", "on": "Hebrews 8:5" },
-            { "source": "ellicott", "on": "Romans 5:14" }
+            { "source": "bullinger-cb", "on": "Hebrews 8:5" },
+            { "source": "bullinger-cb", "on": "Romans 5:14" },
+            { "source": "clarke", "on": "Exodus 25:40" },
+            { "source": "clarke", "on": "Hebrews 8:5" },
+            { "source": "clarke", "on": "Romans 5:14" }
           ],
           "text": "\"Pattern\" is tavnit, a plan or form. The Greek Old Testament renders it typos here, and Hebrews keeps that word when it quotes the verse. Paul uses the same typos when he calls Adam \"a pattern of the One to come.\""
         },
@@ -5939,7 +6045,10 @@
           "refs": ["Hebrews 9:8", "Exodus 26:33", "Hebrews 9:12"],
           "cites": [
             { "source": "ellicott", "on": "Hebrews 9:8" },
-            { "source": "benson", "on": "Hebrews 9:8" }
+            { "source": "benson", "on": "Hebrews 9:8" },
+            { "source": "barnes", "on": "Hebrews 9:8" },
+            { "source": "jfb", "on": "Hebrews 9:8" },
+            { "source": "bengel", "on": "Hebrews 9:8" }
           ],
           "text": "Hebrews says the floor plan itself carried a message: \"the way into the Most Holy Place had not yet been disclosed as long as the first tabernacle was still standing.\" Christ \"entered the Most Holy Place once for all by His own blood.\""
         },
@@ -6168,7 +6277,11 @@
           "evidence": "Pulpit and Gill on Hebrews 13:11: the allusion is to the sin offerings of the Day of Atonement",
           "cites": [
             { "source": "pulpit", "on": "Hebrews 13:11" },
-            { "source": "barnes", "on": "Hebrews 13:11" }
+            { "source": "barnes", "on": "Hebrews 13:11" },
+            { "source": "gill", "on": "Hebrews 13:11" },
+            { "source": "jfb", "on": "Hebrews 13:11" },
+            { "source": "benson", "on": "Hebrews 13:12" },
+            { "source": "poole", "on": "Hebrews 13:12" }
           ],
           "text": "On that day the bodies of the sin offerings whose blood went into the Most Holy Place were burned \"outside the camp.\" Hebrews draws the line to the cross: \"Jesus also suffered outside the city gate,\" so \"let us go to Him outside the camp.\""
         },
@@ -6289,7 +6402,10 @@
           "evidence": "TBESG (Abbott-Smith): pentekostos, fiftieth, the fiftieth day after Passover. TAHOT: chamishim, fifty, in Leviticus 23:16. Barnes on Acts 2:1 calls it a harvest festival, the Feast of Harvest and the Feast of Weeks",
           "cites": [
             { "source": "barnes", "on": "Acts 2:1" },
-            { "source": "benson", "on": "Acts 2:1" }
+            { "source": "benson", "on": "Acts 2:1" },
+            { "source": "clarke", "on": "Acts 2:1" },
+            { "source": "poole", "on": "Acts 2:1" },
+            { "source": "bullinger-cb", "on": "Acts 2:1" }
           ],
           "text": "Pentecost is Greek for \"fiftieth\": the Feast of Weeks at the end of the fifty-day count, the feast of \"the firstfruits of the wheat harvest.\" On that day the Spirit came, and \"about three thousand were added to the believers.\""
         },
@@ -6306,10 +6422,13 @@
         },
         {
           "kind": "allusion",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Acts 2:3", "Exodus 19:18", "Acts 2:6", "Exodus 19:16"],
-          "evidence": "Philo, On the Decalogue 46 (Yonge translation), paraphrased. Barnes on Acts 2:3 ties Pentecost to the fire at Sinai; Ellicott ties it to Sinai's thunders and the Law.",
+          "evidence": "Philo, On the Decalogue 46 (Yonge translation), paraphrased. Ellicott on Acts 2:2 hears Sinai's trumpet in the sound from heaven; Matthew Henry and Clarke on Acts 2:1 set the fire and thunder of Sinai beside Pentecost's wind and tongues of fire; Barnes on Acts 2:3 names Sinai's fire among signs of God's presence.",
           "cites": [
+            { "source": "ellicott", "on": "Acts 2:2" },
+            { "source": "henry", "on": "Acts 2:1" },
+            { "source": "clarke", "on": "Acts 2:1" },
             { "source": "barnes", "on": "Acts 2:3" }
           ],
           "text": "Sinai came with fire and a ram's-horn blast; Pentecost brings \"tongues like flames of fire,\" and each hears \"his own language.\" A Jewish writer of Jesus' own day pictured the voice at Sinai as a flame that spoke in a language its hearers knew."
@@ -6393,10 +6512,12 @@
             { "ref": "Leviticus 25:10", "strong": "H3104" },
             { "ref": "Leviticus 25:9", "strong": "H3725" }
           ],
-          "evidence": "TBESH: yovel, ram's horn, and the jubilee year marked by its blowing. Poole on Leviticus 25:10 takes the name from the ram's horn. Keil and Delitzsch on Leviticus 25:9: liberty could begin only with the full forgiveness of sins.",
+          "evidence": "TBESH: yovel, ram's horn, and the jubilee year marked by its blowing. Ellicott on Leviticus 25:10: yobel signifies both ram's horn and the sound emitted from it. Poole and Benson give the ram's horn as one of two derivations of the name (the other is Jubal). Keil and Delitzsch on Leviticus 25:9: liberty could begin only with the full forgiveness of sins.",
           "cites": [
             { "source": "poole", "on": "Leviticus 25:10" },
-            { "source": "keil-delitzsch", "on": "Leviticus 25:9" }
+            { "source": "keil-delitzsch", "on": "Leviticus 25:9" },
+            { "source": "ellicott", "on": "Leviticus 25:10" },
+            { "source": "benson", "on": "Leviticus 25:9" }
           ],
           "text": "Jubilee is yovel, \"ram's horn\": the year is named for the horn that announced it. The horn sounded \"on the tenth day of the seventh month, the Day of Atonement,\" so liberty began on the day Israel's sins were atoned for."
         },
@@ -6438,7 +6559,9 @@
           ],
           "evidence": "Abbott-Smith (in TBESG): aphesis stands for yovel and deror in the Septuagint; release in Luke 4:18, and pardon of sins. TAGNT: 17 uses in the New Testament, two in Luke 4:18 and 15 of sins, as in Luke 24:47",
           "cites": [
-            { "source": "themelios", "on": "Leviticus 25:10", "at": "David L. Baker, The Jubilee and the Millennium, Themelios 24.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-jubilee-and-the-millennium-holy-years-in-the-bible-and-their-relevance-today/" }
+            { "source": "themelios", "on": "Leviticus 25:10", "at": "David L. Baker, The Jubilee and the Millennium, Themelios 24.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-jubilee-and-the-millennium-holy-years-in-the-bible-and-their-relevance-today/" },
+            { "source": "themelios", "on": "Luke 4:18", "at": "Jey J. Kanagaraj, The Poor in the Gospels and the Good News Proclaimed to Them, Themelios 23.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-poor-in-the-gospels-and-the-good-news-proclaimed-to-them/" },
+            { "source": "bengel", "on": "Luke 4:18" }
           ],
           "text": "Luke's word for \"liberty\" is aphesis, which the Greek Old Testament uses for the Jubilee and its liberty. In the New Testament it usually means \"forgiveness,\" as in \"repentance and forgiveness of sins.\" Release and forgiveness are one word."
         },
@@ -6456,11 +6579,12 @@
         },
         {
           "kind": "setting",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["Leviticus 25:13", "Isaiah 61:1"],
-          "evidence": "11QMelchizedek (11Q13), mid-first century BC, cites Leviticus 25:13 and Isaiah 61 and names Melchizedek as the heavenly deliverer, as F. F. Bruce describes it (\"The Background to the Son of Man Sayings\", 1982). The scroll sets the release on a Day of Atonement at the end of the tenth jubilee.",
+          "evidence": "11QMelchizedek (11Q13), first century BC, cites Leviticus 25:13 and Isaiah 61 and names Melchizedek as the heavenly deliverer, as F. F. Bruce describes it (\"The Background to the Son of Man Sayings\", 1982). The scroll sets the release on a Day of Atonement at the end of the tenth jubilee.",
           "cites": [
-            { "source": "bruce", "on": "Leviticus 25:13", "at": "F. F. Bruce, \"The Background to the Son of Man Sayings,\" in H. H. Rowdon, ed., Christ the Lord (1982), p. 65", "url": "https://gospelstudies.org.uk/biblicalstudies/pdf/christ-the-lord/sonofman_bruce.pdf" }
+            { "source": "bruce", "on": "Leviticus 25:13", "at": "F. F. Bruce, \"The Background to the Son of Man Sayings,\" in H. H. Rowdon, ed., Christ the Lord (1982), p. 65", "url": "https://gospelstudies.org.uk/biblicalstudies/pdf/christ-the-lord/sonofman_bruce.pdf" },
+            { "source": "themelios", "on": "Luke 4:18", "at": "Jey J. Kanagaraj, The Poor in the Gospels and the Good News Proclaimed to Them, Themelios 23.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-poor-in-the-gospels-and-the-good-news-proclaimed-to-them/" }
           ],
           "text": "A Dead Sea Scroll read Leviticus 25 and Isaiah 61 together about the last days: Melchizedek, a heavenly deliverer, proclaims liberty and release to the captives in the tenth and last jubilee."
         }
@@ -6604,7 +6728,9 @@
           "evidence": "TBESH: Hoshea, salvation; Joshua, Jehovah is salvation. Strong's: from the LORD's name and yasha, to save. Ellicott on Numbers 13:16: Hoshea means help, or salvation; Joshua, Jehovah is help, or salvation",
           "cites": [
             { "source": "ellicott", "on": "Numbers 13:16" },
-            { "source": "benson", "on": "Numbers 13:16" }
+            { "source": "pulpit", "on": "Numbers 13:16" },
+            { "source": "clarke", "on": "Numbers 13:16" },
+            { "source": "jfb", "on": "Numbers 13:16" }
           ],
           "text": "Hoshea means \"salvation.\" Moses adds Yeho-, a short form of God's name, and makes Yehoshua, which means that the LORD is salvation. The new name says who saves."
         },
@@ -7614,10 +7740,12 @@
           "kind": "setting",
           "strength": "widely agreed",
           "refs": ["John 1:21", "John 6:14", "John 7:40"],
-          "evidence": "4QTestimonia, mid-first century BC, quotes Deuteronomy 18:18-19 beside Numbers 24:15-17 (a king) and Deuteronomy 33:8-11 (a priest). Gill on Deuteronomy 18:15 cites John 6:14 for the expectation",
+          "evidence": "4QTestimonia, first century BC, quotes Deuteronomy 18:18-19 beside Numbers 24:15-17 (a king) and Deuteronomy 33:8-11 (a priest). Gill on Deuteronomy 18:15 cites John 6:14 for the expectation",
           "cites": [
             { "source": "gill", "on": "Deuteronomy 18:15" },
-            { "source": "barnes", "on": "Deuteronomy 18:15" }
+            { "source": "barnes", "on": "Deuteronomy 18:15" },
+            { "source": "pulpit", "on": "Deuteronomy 18:18" },
+            { "source": "henry", "on": "Deuteronomy 18:15" }
           ],
           "text": "By Jesus' day people expected \"the Prophet.\" John the Baptist is asked, \"Are you the Prophet?\" and after the loaves the crowd says, \"Truly this is the Prophet.\" A Dead Sea Scroll had already set this promise beside texts about a coming king and priest."
         },
@@ -7627,7 +7755,9 @@
           "refs": ["Acts 3:22-23", "Deuteronomy 18:15", "Acts 7:37"],
           "cites": [
             { "source": "jfb", "on": "Deuteronomy 18:15" },
-            { "source": "gill", "on": "Deuteronomy 18:15" }
+            { "source": "gill", "on": "Deuteronomy 18:15" },
+            { "source": "keil-delitzsch", "on": "Deuteronomy 18:15" },
+            { "source": "poole", "on": "Deuteronomy 18:15" }
           ],
           "text": "Peter quotes the promise at the temple and applies it to Jesus, with Moses' warning about anyone who will not listen (Acts 3:22-23). Stephen quotes it again before the council: \"God will raise up for you a prophet like me from among your brothers.\""
         },
@@ -7742,7 +7872,8 @@
           "refs": ["Deuteronomy 21:22", "1 Corinthians 1:23"],
           "evidence": "The Temple Scroll (11QTemple 64), second century BC, as translated in Torleif Elgvin, The Messiah Who Was Cursed on the Tree, Themelios 22.3",
           "cites": [
-            { "source": "themelios", "on": "Deuteronomy 21:22", "at": "Torleif Elgvin, The Messiah Who Was Cursed on the Tree, Themelios 22.3", "url": "https://thegospelcoalition.org/themelios/article/the-messiah-who-was-cursed-on-the-tree" }
+            { "source": "themelios", "on": "Deuteronomy 21:22", "at": "Torleif Elgvin, The Messiah Who Was Cursed on the Tree, Themelios 22.3", "url": "https://thegospelcoalition.org/themelios/article/the-messiah-who-was-cursed-on-the-tree" },
+            { "source": "bruce", "on": "Deuteronomy 21:23", "at": "F. F. Bruce, \"The Curse of the Law,\" in M. D. Hooker and S. G. Wilson, eds., Paul and Paulinism (1982), p. 31", "url": "https://gospelstudies.org.uk/biblicalstudies/pdf/ffb/law_bruce.pdf" }
           ],
           "text": "Before Jesus, a Dead Sea Scroll already applied this law to men hanged alive, calling those who hang on the tree cursed by God and by men. A crucified Messiah was, as Paul says, \"a stumbling block to Jews.\""
         },
@@ -7754,7 +7885,8 @@
           "cites": [
             { "source": "church-fathers", "on": "Deuteronomy 21:23", "at": "Justin Martyr, Dialogue with Trypho 89", "url": "https://www.newadvent.org/fathers/01287.htm" },
             { "source": "church-fathers", "on": "Deuteronomy 21:23", "at": "Justin Martyr, Dialogue with Trypho 96", "url": "https://www.newadvent.org/fathers/01287.htm" },
-            { "source": "themelios", "on": "Deuteronomy 21:23", "at": "Torleif Elgvin, The Messiah Who Was Cursed on the Tree, Themelios 22.3", "url": "https://thegospelcoalition.org/themelios/article/the-messiah-who-was-cursed-on-the-tree" }
+            { "source": "themelios", "on": "Deuteronomy 21:23", "at": "Torleif Elgvin, The Messiah Who Was Cursed on the Tree, Themelios 22.3", "url": "https://thegospelcoalition.org/themelios/article/the-messiah-who-was-cursed-on-the-tree" },
+            { "source": "jfb", "on": "Galatians 3:13" }
           ],
           "text": "In Justin Martyr's second-century Dialogue, Trypho, a Jew, names this verse as his great objection: the law calls anyone crucified accursed. Justin answers that the same verse confirms the hope that rests on the crucified Christ."
         }
@@ -10066,7 +10198,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "commonly held",
+          "strength": "some interpreters",
           "refs": ["Ruth 1:21", "Ruth 3:17"],
           "words": [
             { "ref": "Ruth 1:21", "strong": "H7387" },
@@ -10074,7 +10206,7 @@
           ],
           "evidence": "TAHOT: reqam, empty (H7387), in Ruth 1:21 and 3:17, the only two places the word occurs in Ruth. John Currid (The Gospel Coalition) on 3:16-18: the same word Naomi used in 1:21; now she will no longer be empty",
           "cites": [
-            { "source": "gospel-coalition", "on": "Ruth 3:17", "at": "John Currid, Ruth commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/ruth/" }
+            { "source": "gospel-coalition", "on": "Ruth 3:16-18", "at": "John Currid, Ruth commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/ruth/" }
           ],
           "text": "\"I went away full, but the LORD has brought me back empty,\" she says; empty is reqam. Later Ruth brings home barley and says Boaz told her, \"Do not go back to your mother-in-law empty-handed.\" The same word, reqam. Her emptiness is starting to be filled."
         },
@@ -10135,12 +10267,14 @@
             { "ref": "Ruth 1:20", "strong": "H4755" },
             { "ref": "Ruth 1:20", "strong": "H4843" }
           ],
-          "evidence": "Name meanings from TBESH",
+          "evidence": "Name meanings from TBESH, which gives my delight for Naomi. Ellicott, Gill, Clarke and Matthew Henry on 1:20 give pleasant and bitter.",
           "cites": [
             { "source": "ellicott", "on": "Ruth 1:20" },
-            { "source": "henry-concise", "on": "Ruth 1:20" }
+            { "source": "henry-concise", "on": "Ruth 1:19-22" },
+            { "source": "gill", "on": "Ruth 1:20" },
+            { "source": "clarke", "on": "Ruth 1:20" }
           ],
-          "text": "Naomi means \"my delight\" and Mara \"bitterness.\" Back in Bethlehem she tells the women, \"Call me Mara, because the Almighty has dealt quite bitterly with me.\" The book ends with the LORD giving her a redeemer who \"will renew your life.\""
+          "text": "Naomi means \"pleasant\" and Mara \"bitterness.\" Back in Bethlehem she tells the women, \"Call me Mara, because the Almighty has dealt quite bitterly with me.\" The book ends with the LORD giving her a redeemer who \"will renew your life.\""
         },
         {
           "kind": "setting",
@@ -10536,11 +10670,15 @@
         },
         {
           "kind": "pattern",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["1 Samuel 2:26", "Luke 2:52"],
-          "evidence": "Ellicott and Barnes on 1 Samuel 2:26 compare Luke 2:52",
+          "evidence": "Ellicott, Barnes, Keil and Delitzsch, the Pulpit Commentary and the Reformation Study Bible on 1 Samuel 2:26 compare Luke 2:52; Ellicott says Luke adopted the very expressions used of Samuel.",
           "cites": [
-            { "source": "ellicott", "on": "1 Samuel 2:26" }
+            { "source": "ellicott", "on": "1 Samuel 2:26" },
+            { "source": "barnes", "on": "1 Samuel 2:26" },
+            { "source": "keil-delitzsch", "on": "1 Samuel 2:26" },
+            { "source": "pulpit", "on": "1 Samuel 2:22-26" },
+            { "source": "reformation-sb", "on": "1 Samuel 2:26", "url": "https://www.biblegateway.com/resources/reformation-study-bible/1Sam.2.26" }
           ],
           "text": "Luke describes the boy Jesus in words close to those used of the boy Samuel. Samuel \"continued to grow in stature and in favor with the LORD and with man\"; Jesus \"grew in wisdom and stature, and in favor with God and man.\""
         },
@@ -10673,7 +10811,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "commonly held",
+          "strength": "some interpreters",
           "refs": ["1 Samuel 4:18", "1 Samuel 2:27-30"],
           "words": [
             { "ref": "1 Samuel 4:18", "strong": "H3515" },
@@ -10681,12 +10819,14 @@
             { "ref": "1 Samuel 2:30", "strong": "H3513" },
             { "ref": "1 Samuel 4:21", "strong": "H3519" }
           ],
-          "evidence": "TAHOT: kaved, heavy (H3515), in 4:18; kavad, honor (H3513), in 2:29-30; kavod, glory (H3519), in 4:21-22. All share the root k-b-d, which has to do with weight. The warning in 2:27-30 comes through a man of God. Fix and Vannoy (The Gospel Coalition) trace this thread from 2:30 through chapters 4 to 6.",
+          "evidence": "TAHOT: kaved, heavy (H3515), in 4:18; kavad, honor (H3513), in 2:29-30; kavod, glory (H3519), in 4:21-22, all from the root k-b-d. The warning comes through a man of God. Fix and Vannoy (The Gospel Coalition) on 2:27-36 and 4:12-22 trace the glory theme and Eli's heaviness. The Reformation Study Bible on 2:29 and 6:6: honor, glory and harden are forms of one Hebrew word.",
           "cites": [
-            { "source": "gospel-coalition", "on": "1 Samuel 4:18", "at": "S. A. Fix and J. Robert Vannoy, 1 Samuel commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/1-samuel/" },
-            { "source": "gospel-coalition", "on": "1 Samuel 2:30", "at": "S. A. Fix and J. Robert Vannoy, 1 Samuel commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/1-samuel/" }
+            { "source": "gospel-coalition", "on": "1 Samuel 4:12-22", "at": "S. A. Fix and J. Robert Vannoy, 1 Samuel commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/1-samuel/" },
+            { "source": "gospel-coalition", "on": "1 Samuel 2:27-36", "at": "S. A. Fix and J. Robert Vannoy, 1 Samuel commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/1-samuel/" },
+            { "source": "reformation-sb", "on": "1 Samuel 2:29", "url": "https://www.biblegateway.com/resources/reformation-study-bible/1Sam.2.29" },
+            { "source": "reformation-sb", "on": "1 Samuel 6:6", "url": "https://www.biblegateway.com/resources/reformation-study-bible/1Sam.6.6" }
           ],
-          "text": "Glory, kavod, comes from a root meaning heavy. Eli died because he was \"old and heavy\" (kaved). Through a prophet God had warned him, \"You have honored your sons more than Me,\" and \"I will honor those who honor Me.\" Honor, too, comes from the \"heavy\" root."
+          "text": "Glory, kavod, comes from a root meaning heavy, and the root runs through Eli's fall. Through a prophet God had warned him, \"You have honored your sons more than Me,\" and \"I will honor those who honor Me\": honor is the same root. Eli died \"old and heavy\" (kaved), and the glory departed."
         },
         {
           "kind": "allusion",
@@ -10699,6 +10839,41 @@
             { "source": "keil-delitzsch", "on": "Psalm 78:61" }
           ],
           "text": "A psalm looks back on this day: God \"abandoned the tabernacle of Shiloh\" and \"delivered His strength to captivity, and His splendor to the hand of the adversary.\" The same psalm ends with God choosing David to shepherd His people."
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-6-6",
+      "section": "law-history",
+      "ref": "1 Samuel 6:6",
+      "saying": "Why harden your hearts as the Egyptians and Pharaoh hardened theirs?",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TAGNT, and the commentaries named under each note.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["1 Samuel 6:6"],
+          "evidence": "Rests on the Philistine priests' advice about returning the ark.",
+          "cites": [
+            { "source": "clarke", "on": "1 Samuel 6:6" }
+          ],
+          "text": "The Philistine priests warn their leaders not to be stubborn as Pharaoh was. When God struck Egypt, the Egyptians finally let Israel go, so the Philistines should send the ark back."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["1 Samuel 6:6", "Exodus 10:2"],
+          "words": [
+            { "ref": "1 Samuel 6:6", "strong": "H5953A" },
+            { "ref": "Exodus 10:2", "strong": "H5953A" }
+          ],
+          "evidence": "Keil and Delitzsch note that the verb here (hit'allel) is used as in Exodus 10:2. The Reformation Study Bible says the same expression is used in Exodus 10:2, as well as in 1 Samuel 31:4 and Jeremiah 38:19.",
+          "cites": [
+            { "source": "keil-delitzsch", "on": "1 Samuel 6:6" },
+            { "source": "reformation-sb", "on": "1 Samuel 6:6", "at": "Reformation Study Bible (2015), note on 1 Samuel 6:6", "url": "https://www.biblegateway.com/resources/reformation-study-bible/1Sam.6.6" }
+          ],
+          "text": "The priests describe the Exodus in the language of Exodus itself. Their verb for how God afflicted Egypt (hit'allel) is the one God used in Exodus 10:2, how severely I dealt with the Egyptians. Even Israel's enemies remembered what God did to Pharaoh."
         }
       ]
     },
@@ -11035,17 +11210,6 @@
             { "source": "pulpit", "on": "1 Samuel 25:3" }
           ],
           "text": "His own wife says it: Nabal means \"fool,\" and folly, nevalah, goes with him. In Hebrew a nabal is not slow-witted but someone who lives as if God and others do not count: \"The fool says in his heart, ‘There is no God.’\""
-        },
-        {
-          "kind": "wordplay",
-          "strength": "some interpreters",
-          "refs": ["1 Samuel 25:18", "1 Samuel 25:37"],
-          "words": [
-            { "ref": "1 Samuel 25:18", "strong": "H5035" },
-            { "ref": "1 Samuel 25:37", "strong": "H5037" }
-          ],
-          "evidence": "TAHOT: nivlei, skins of (H5035), in 25:18; betset hayyayin mi-Naval, when the wine had gone out from Nabal, in 25:37. Some commentators see a play between nevel and Naval; the text does not point it out.",
-          "text": "Some hear a second pun. Abigail packs \"two skins of wine,\" and a skin or jar is nevel, close to Nabal. Where our English says \"when Nabal was sober,\" the Hebrew says the wine had gone out of Nabal. On this reading the fool ends as an emptied wineskin."
         }
       ]
     },
@@ -11273,10 +11437,12 @@
             { "ref": "2 Samuel 7:13", "strong": "H1004" },
             { "ref": "2 Samuel 7:16", "strong": "H1004" }
           ],
-          "evidence": "TAHOT: bayit (H1004) 15 times in 2 Samuel 7. TBESH: house, also household, family. The closing lesson is Keil and Delitzsch's on 7:11; Gill and Benson make the same turn",
+          "evidence": "TAHOT: bayit (H1004) 15 times in 2 Samuel 7. TBESH: house, also household, family. The closing lesson is Keil and Delitzsch's on 7:8-11; Benson, Gill and Clarke on 7:11 make the same turn",
           "cites": [
-            { "source": "keil-delitzsch", "on": "2 Samuel 7:11" },
-            { "source": "benson", "on": "2 Samuel 7:11" }
+            { "source": "keil-delitzsch", "on": "2 Samuel 7:8-11" },
+            { "source": "benson", "on": "2 Samuel 7:11" },
+            { "source": "gill", "on": "2 Samuel 7:11" },
+            { "source": "clarke", "on": "2 Samuel 7:11" }
           ],
           "text": "The chapter turns on bayit, \"house,\" used 15 times. David offers God a house, a temple; God answers, \"He Himself will establish a house for you,\" a dynasty. One commentator draws the lesson: God must build a man's house before the man can build God's."
         },
@@ -11284,10 +11450,13 @@
           "kind": "fulfillment",
           "strength": "widely agreed",
           "refs": ["2 Samuel 7:13", "1 Kings 8:20", "2 Samuel 7:14"],
-          "evidence": "Solomon adds: I have built the house for the Name of the LORD (1 Kings 8:20). Benson and Gill on 2 Samuel 7:14: the discipline clause fits Solomon, not Christ",
+          "evidence": "Solomon adds: I have built the house for the Name of the LORD (1 Kings 8:20). Keil and Delitzsch on 2 Samuel 7:14 cite that verse and Barnes on 7:13 points to 1 Kings 8:16-20. Benson and Gill on 7:14: the discipline clause fits Solomon, not Christ",
           "cites": [
             { "source": "benson", "on": "2 Samuel 7:14" },
-            { "source": "keil-delitzsch", "on": "2 Samuel 7:14" }
+            { "source": "keil-delitzsch", "on": "2 Samuel 7:14" },
+            { "source": "barnes", "on": "2 Samuel 7:13" },
+            { "source": "gill", "on": "2 Samuel 7:13" },
+            { "source": "poole", "on": "2 Samuel 7:14" }
           ],
           "text": "The first fulfillment is Solomon, who dedicated the temple saying, \"Now the LORD has fulfilled the word that He spoke.\" The promise even allows for his failures: \"When he does wrong, I will discipline him.\""
         },
@@ -11322,7 +11491,7 @@
         },
         {
           "kind": "setting",
-          "strength": "widely agreed",
+          "strength": "some interpreters",
           "refs": ["2 Samuel 7:12", "Amos 9:11", "Acts 15:16"],
           "words": [
             { "ref": "2 Samuel 7:12", "strong": "H6965" },
@@ -11917,7 +12086,7 @@
         },
         {
           "kind": "allusion",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["1 Kings 17:23", "Luke 7:15", "1 Kings 17:10", "Luke 7:12"],
           "words": [
             { "ref": "1 Kings 17:23", "strong": "H5414" },
@@ -14111,14 +14280,17 @@
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "some interpreters",
           "refs": ["Job 1:9", "Job 2:3"],
           "words": [
             { "ref": "Job 1:9", "strong": "H2600" },
             { "ref": "Job 2:3", "strong": "H2600" }
           ],
-          "evidence": "NET Bible notes on Job 1:9 and 2:3: chinnam means gratis, from the verb chanan (to be gracious) or the noun chen (grace). TBESH H2600: freely, for nothing, without cause.",
-          "text": "The accuser asks, \"Does Job fear God for nothing?\" Later God says, \"you incited Me against him to ruin him without cause.\" Both are one Hebrew word, chinnam, related to the word for grace. Will Job fear God for nothing while he suffers for nothing?"
+          "evidence": "NET Bible notes on Job 1:9 and 2:3: chinnam comes from the root for grace or favor, and its return in 2:3 marks Job's suffering as undeserved. TBESH H2600: freely, for nothing, without cause.",
+          "cites": [
+            { "source": "net-notes", "on": "Job 2:3", "url": "https://www.biblegateway.com/passage/?search=Job+2&version=NET" }
+          ],
+          "text": "The accuser asks, \"Does Job fear God for nothing?\" Later God says, \"you incited Me against him to ruin him without cause.\" Both are one Hebrew word, chinnam, related to the word for grace. The word ties the accuser's question to Job's undeserved suffering."
         },
         {
           "kind": "name meaning",
@@ -14162,10 +14334,11 @@
             { "ref": "Numbers 35:19", "strong": "H1350" },
             { "ref": "Proverbs 23:11", "strong": "H1350" }
           ],
-          "evidence": "NET Bible notes on Job 19:25: go'el, from ga'al (to redeem, protect, vindicate); here Job thinks of God as his vindicator. NET on Proverbs 23:11: the LORD is probably the protector there. Ellicott and the Pulpit Commentary: Job here names God his Goel. TBESH H1350.",
+          "evidence": "NET Bible notes on Job 19:25: go'el, from ga'al (to redeem, protect, vindicate); here Job thinks of God as his vindicator. NET on Proverbs 23:11: the LORD is probably the protector there. Ellicott and the Pulpit Commentary: Job here names God his Goel. Barnes: the go'el could redeem a mortgaged field and was the blood-avenger; here God or the Messiah. TBESH H1350.",
           "cites": [
             { "source": "ellicott", "on": "Job 19:25" },
-            { "source": "pulpit", "on": "Job 19:25" }
+            { "source": "pulpit", "on": "Job 19:25" },
+            { "source": "barnes", "on": "Job 19:25" }
           ],
           "text": "\"Redeemer\" is go'el, the next of kin who could \"redeem what his brother has sold\" and was \"the avenger of blood.\" Proverbs probably gives the title to God as defender of orphans: \"their Redeemer is strong.\" Job, too, surely means God Himself."
         },
@@ -14931,10 +15104,13 @@
             { "ref": "Psalms 2:7", "strong": "H3117" },
             { "ref": "Acts 13:33", "strong": "G4594" }
           ],
-          "evidence": "Pulpit Commentary on Acts 13:33: this use of the psalm is best explained by Romans 1:4. Poole: Christ did not begin to be Son at the resurrection but was then shown to be.",
+          "evidence": "Pulpit Commentary on Acts 13:33: this use of the psalm is best explained by Romans 1:4. Poole: Christ did not begin to be Son at the resurrection but was then shown to be. JFB and Wesley, also by Romans 1:4: declared Son, not begun to be Son. Ellicott: the Resurrection manifested a pre-existing sonship.",
           "cites": [
             { "source": "pulpit", "on": "Acts 13:33" },
-            { "source": "poole", "on": "Acts 13:33" }
+            { "source": "poole", "on": "Acts 13:33" },
+            { "source": "jfb", "on": "Acts 13:33" },
+            { "source": "wesley", "on": "Acts 13:33" },
+            { "source": "ellicott", "on": "Acts 13:33" }
           ],
           "text": "Paul hears the king's \"today\" as resurrection day: God kept His promise \"by raising up Jesus.\" In Romans, Jesus is \"declared with power to be the Son of God by His resurrection,\" shown to be Son then, not made Son. Hebrews quotes it too."
         },
@@ -14964,10 +15140,13 @@
             { "ref": "Revelation 19:15", "strong": "G4165" },
             { "ref": "Revelation 7:17", "strong": "G4165" }
           ],
-          "evidence": "NET Bible notes on Psalm 2:9: the Septuagint reads the consonants as ra'ah (shepherd) rather than ra'a' (break); nafats (smash) in the next line favors break. TAGNT: poimainō in Revelation 2:27, 12:5, 19:15 and 7:17.",
+          "evidence": "NET Bible notes on Psalm 2:9: the Septuagint reads the consonants as ra'ah (shepherd) rather than ra'a' (break); nafats (smash) in the next line favors break. TAGNT: poimainō in Revelation 2:27, 12:5, 19:15 and 7:17. Pulpit, JFB and Bengel on Revelation 2:27: the Septuagint read the letters as shepherd; Pulpit and JFB: the next line requires break.",
           "cites": [
             { "source": "barnes", "on": "Psalm 2:9" },
-            { "source": "gill", "on": "Psalm 2:9" }
+            { "source": "gill", "on": "Psalm 2:9" },
+            { "source": "pulpit", "on": "Revelation 2:27" },
+            { "source": "jfb", "on": "Revelation 2:27" },
+            { "source": "bengel", "on": "Revelation 2:27" }
           ],
           "text": "The Hebrew letters of \"You will break them with an iron scepter\" can also read \"you will shepherd,\" as the Greek Old Testament took it. Revelation quotes it so (BSB \"rule\"), and the Lamb \"will be their shepherd.\" But \"shatter them like pottery\" favors \"break.\""
         },
@@ -15105,10 +15284,12 @@
             { "ref": "Psalms 8:6", "strong": "H7272" },
             { "ref": "1 Corinthians 15:27", "strong": "G4228" }
           ],
-          "evidence": "Pulpit Commentary on 1 Corinthians 15:27: words spoken of man in general are transferred to the federal Head of humanity. Ellicott: all things are put under man, and in a higher sense under the Son of Man.",
+          "evidence": "Pulpit Commentary on 1 Corinthians 15:27: words spoken of man in general are transferred to the federal Head of humanity. Ellicott: all things are put under man, and in a higher sense under the Son of Man. Barnes: more eminently true of the Messiah than of any other man. Poole: under Christ in a much larger sense.",
           "cites": [
             { "source": "ellicott", "on": "1 Corinthians 15:27" },
-            { "source": "pulpit", "on": "1 Corinthians 15:27" }
+            { "source": "pulpit", "on": "1 Corinthians 15:27" },
+            { "source": "barnes", "on": "1 Corinthians 15:27" },
+            { "source": "poole", "on": "1 Corinthians 15:27" }
           ],
           "text": "Paul joins \"You have placed everything under his feet\" to Christ's reign: \"He must reign until He has put all His enemies under His feet. The last enemy to be destroyed is death.\" The rule given to humanity belongs, in a higher sense, to Christ, the new Adam."
         },
@@ -15320,10 +15501,12 @@
             { "ref": "Acts 2:29", "strong": "G3418" },
             { "ref": "Nehemiah 3:16", "strong": "H6913" }
           ],
-          "evidence": "Josephus, Antiquities 7.15.3 (Whiston): Hyrcanus the high priest opened one room of David's tomb and took out three thousand talents; many years later King Herod opened another.",
+          "evidence": "Josephus, Antiquities 7.15.3 (Whiston): Hyrcanus the high priest opened one room of David's tomb and took out three thousand talents; many years later King Herod opened another. Barnes on Acts 2:29: the tomb was well known and honored. Gill: it was still standing when Peter spoke.",
           "cites": [
             { "source": "pulpit", "on": "Acts 2:29" },
-            { "source": "ellicott", "on": "Acts 2:29" }
+            { "source": "ellicott", "on": "Acts 2:29" },
+            { "source": "barnes", "on": "Acts 2:29" },
+            { "source": "gill", "on": "Acts 2:29" }
           ],
           "text": "David's tomb was a landmark. Nehemiah marks repairs \"opposite the tombs of David,\" and an ancient historian says a high priest and later King Herod each took treasure from a room of it. Everyone knew where David lay. But \"God has raised this Jesus to life.\""
         },
@@ -15504,10 +15687,12 @@
           "kind": "wordplay",
           "strength": "widely agreed",
           "refs": ["Mark 15:34", "Mark 15:35"],
-          "evidence": "On Matthew 27:47, Ellicott and Benson lean to a mishearing; Barnes, Gill and Matthew Henry to mockery; the Pulpit Commentary calls it an undecided question.",
+          "evidence": "On Matthew 27:47, Ellicott and Benson lean to a mishearing; Barnes and Gill to mockery, as does Matthew Henry on Mark 15; the Pulpit Commentary calls it an undecided question.",
           "cites": [
             { "source": "ellicott", "on": "Matthew 27:47" },
-            { "source": "barnes", "on": "Matthew 27:47" }
+            { "source": "barnes", "on": "Matthew 27:47" },
+            { "source": "gill", "on": "Matthew 27:47" },
+            { "source": "pulpit", "on": "Matthew 27:47" }
           ],
           "text": "Some bystanders say He is calling Elijah. Commentators differ on whether they misheard \"Eloi\" (my God) or mocked Him. Either way, the cry was the opening line of a psalm."
         },
@@ -15517,7 +15702,10 @@
           "refs": ["Psalms 22:18", "John 19:24", "Psalms 22:7-8", "Matthew 27:39", "Matthew 27:43"],
           "cites": [
             { "source": "gill", "on": "John 19:24" },
-            { "source": "jfb", "on": "John 19:24" }
+            { "source": "jfb", "on": "John 19:24" },
+            { "source": "pulpit", "on": "Matthew 27:39" },
+            { "source": "ellicott", "on": "Matthew 27:43" },
+            { "source": "poole", "on": "John 19:24" }
           ],
           "text": "The psalm's details return at the cross: mockers shake their heads and say God should deliver Him, and soldiers divide His garments and cast lots, which John says fulfilled Scripture."
         },
@@ -15872,13 +16060,15 @@
           ],
           "cites": [
             { "source": "jfb", "on": "Psalm 41:9" },
-            { "source": "gill", "on": "John 13:18" }
+            { "source": "gill", "on": "John 13:18" },
+            { "source": "clarke", "on": "John 13:18" },
+            { "source": "ellicott", "on": "John 13:18" }
           ],
           "text": "At the Last Supper Jesus applies the verse to Judas: \"The one who shares My bread has lifted up his heel against Me.\" Soon after, \"He dipped the morsel and gave it to Judas.\" The friend who shared the psalmist's bread now sits at Jesus' own table."
         },
         {
           "kind": "wordplay",
-          "strength": "commonly held",
+          "strength": "some interpreters",
           "refs": ["John 13:18", "John 6:54", "John 6:58"],
           "words": [
             { "ref": "John 13:18", "strong": "G5176" },
@@ -15933,7 +16123,9 @@
           "evidence": "Pulpit Commentary on John 13:19: instead of shaking their faith, it will prove He was taken by no surprise. Ellicott: they will find in it confirmation of their faith in Him as the Messiah.",
           "cites": [
             { "source": "ellicott", "on": "John 13:19" },
-            { "source": "pulpit", "on": "John 13:19" }
+            { "source": "pulpit", "on": "John 13:19" },
+            { "source": "poole", "on": "John 13:19" },
+            { "source": "barnes", "on": "John 13:19" }
           ],
           "text": "Jesus names the betrayal in advance on purpose: \"I am telling you now before it happens, so that when it comes to pass, you will believe that I am He.\" What could have shaken their faith becomes a reason for it."
         },
@@ -16465,7 +16657,9 @@
           "evidence": "TAHOT: chinnam (H2600) in Psalm 69:4, Psalm 35:19 and Job 2:3; John 15:25 has dōrean (G1432). NET Bible notes on Job 2:3: chinnam means gratis, without cause.",
           "cites": [
             { "source": "ellicott", "on": "John 15:25" },
-            { "source": "pulpit", "on": "John 15:25" }
+            { "source": "pulpit", "on": "John 15:25" },
+            { "source": "gill", "on": "John 15:25" },
+            { "source": "jfb", "on": "John 15:25" }
           ],
           "text": "Jesus applies the psalm's \"Those who hate me without cause\" to His own enemies: \"They hated Me without reason.\" Psalm 35:19 has the same Hebrew. The key word is chinnam, \"for nothing,\" the word God uses of Job's undeserved suffering."
         },
@@ -17962,6 +18156,43 @@
       ]
     },
     {
+      "id": "proverbs-3-20",
+      "section": "prophets-poetry",
+      "ref": "Proverbs 3:20",
+      "saying": "By His knowledge the watery depths were broken open",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TAGNT, and the commentaries named under each note.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Proverbs 3:20"],
+          "evidence": "Rests on the verse's two pictures of water from below and from above.",
+          "cites": [
+            { "source": "wesley", "on": "Proverbs 3:20" }
+          ],
+          "text": "God's knowledge is seen in the waters of the earth. By it the deep waters below burst out as springs and rivers, and the skies above drip with dew."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Proverbs 3:20", "Genesis 7:11"],
+          "words": [
+            { "ref": "Proverbs 3:20", "strong": "H8415" },
+            { "ref": "Proverbs 3:20", "strong": "H1234" },
+            { "ref": "Genesis 7:11", "strong": "H8415" },
+            { "ref": "Genesis 7:11", "strong": "H1234" }
+          ],
+          "evidence": "Clarke reads the line of God breaking up the fountains of the great deep to bring the Flood, as well as of the springs He opens; Ellicott notes the verb is the word used in Genesis 7:11 of the waters bursting out at the Flood. Both verses pair tehom (the deep) with baqa (to break open). The Pulpit Commentary sees no allusion to the Flood here.",
+          "cites": [
+            { "source": "clarke", "on": "Proverbs 3:20" },
+            { "source": "ellicott", "on": "Proverbs 3:20" }
+          ],
+          "text": "The Hebrew words for the depths being broken open are the same ones used at the Flood, when \"all the fountains of the great deep burst forth\" (Genesis 7:11). The wisdom that broke open the deep in Noah's day also opens the springs that water the earth."
+        }
+      ]
+    },
+    {
       "id": "proverbs-6-21",
       "section": "prophets-poetry",
       "ref": "Proverbs 6:21",
@@ -18641,6 +18872,91 @@
       ]
     },
     {
+      "id": "ecclesiastes-3-18",
+      "section": "prophets-poetry",
+      "ref": "Ecclesiastes 3:18",
+      "saying": "they may see for themselves that they are but beasts",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TAGNT, and the commentaries named under each note.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Ecclesiastes 3:18"],
+          "evidence": "Rests on the verse's statement that God tests people to show them their state.",
+          "cites": [
+            { "source": "jfb", "on": "Ecclesiastes 3:18" }
+          ],
+          "text": "Solomon reflects that God lets wrongs go on for a time in order to test people, so that they will see that, as mortal creatures, they are frail and die just like the animals."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "commonly held",
+          "refs": ["Ecclesiastes 3:18"],
+          "words": [
+            { "ref": "Ecclesiastes 3:18", "strong": "H1992" }
+          ],
+          "evidence": "Bullinger lists this verse under Epizeuxis (duplication), rendering it they, even they are like beasts, and says the figure increases the emphasis. The Pulpit Commentary says the pronoun is repeated emphatically: they themselves are like beasts, they in themselves.",
+          "cites": [
+            { "source": "bullinger-fos", "on": "Ecclesiastes 3:18", "at": "E. W. Bullinger, Figures of Speech Used in the Bible (1898), Epizeuxis (Duplication)" },
+            { "source": "pulpit", "on": "Ecclesiastes 3:18" }
+          ],
+          "text": "The Hebrew behind they are but beasts says they twice (shehem behemah hemmah, that they are beasts, they). Repeating the pronoun is a figure of emphasis: they, even they, mortal people, are like the animals."
+        },
+        {
+          "kind": "wordplay",
+          "strength": "some interpreters",
+          "refs": ["Ecclesiastes 3:18"],
+          "words": [
+            { "ref": "Ecclesiastes 3:18", "strong": "H0929" },
+            { "ref": "Ecclesiastes 3:18", "strong": "H1992" }
+          ],
+          "evidence": "Keil and Delitzsch say hemmah takes up behemah as an echo and completes the comparison, a play upon words that accompanies the thought.",
+          "cites": [
+            { "source": "keil-delitzsch", "on": "Ecclesiastes 3:18" }
+          ],
+          "text": "The second they (hemmah) also echoes the sound of the word for beasts (behemah), a play on words that rounds off the comparison of people with animals."
+        }
+      ]
+    },
+    {
+      "id": "ecclesiastes-3-20",
+      "section": "prophets-poetry",
+      "ref": "Ecclesiastes 3:20",
+      "saying": "all come from dust, and all return to dust",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TAGNT, and the commentaries named under each note.",
+      "reviewed_by": [],
+      "layers": [
+        {
+          "kind": "plain meaning",
+          "strength": "widely agreed",
+          "refs": ["Ecclesiastes 3:20"],
+          "evidence": "Rests on the verse's plain words about the grave and the dust.",
+          "cites": [
+            { "source": "keil-delitzsch", "on": "Ecclesiastes 3:20" }
+          ],
+          "text": "People and animals end up in the same place, the grave. All were formed from the dust, and at death all their bodies go back to the dust."
+        },
+        {
+          "kind": "allusion",
+          "strength": "commonly held",
+          "refs": ["Ecclesiastes 3:20", "Genesis 3:19"],
+          "words": [
+            { "ref": "Ecclesiastes 3:20", "strong": "H6083" },
+            { "ref": "Ecclesiastes 3:20", "strong": "H7725G" },
+            { "ref": "Genesis 3:19", "strong": "H6083" },
+            { "ref": "Genesis 3:19", "strong": "H7725G" }
+          ],
+          "evidence": "The Companion Bible points the phrase turn to dust again first to Genesis 3:19, and the Pulpit Commentary sets Genesis 3:19 first beside all are of the dust. Both verses use afar (dust) and shuv (return).",
+          "cites": [
+            { "source": "bullinger-cb", "on": "Ecclesiastes 3:20" },
+            { "source": "pulpit", "on": "Ecclesiastes 3:20" }
+          ],
+          "text": "The words all come from dust, and all return to dust echo God's sentence on Adam after the first sin: For dust you are, and to dust you shall return (Genesis 3:19). The same Hebrew words for dust (afar) and return (shuv) are used."
+        }
+      ]
+    },
+    {
       "id": "ecclesiastes-5-4",
       "section": "prophets-poetry",
       "ref": "Ecclesiastes 5:4",
@@ -18807,7 +19123,8 @@
           "cites": [
             { "source": "ellicott", "on": "Song of Solomon 1:3" },
             { "source": "keil-delitzsch", "on": "Song of Solomon 1:3" },
-            { "source": "ellicott", "on": "Ecclesiastes 7:1" }
+            { "source": "ellicott", "on": "Ecclesiastes 7:1" },
+            { "source": "pulpit", "on": "Ecclesiastes 7:1" }
           ],
           "text": "The Song of Solomon makes the same pun as praise: \"your name is like perfume poured out.\" In Hebrew it is shemen, then shemekha, \"your name.\" The two words sound so alike that Scripture pairs them twice, here and in Ecclesiastes 7:1."
         }
@@ -19214,7 +19531,7 @@
       "section": "prophets-poetry",
       "ref": "Song of Solomon 8:6",
       "saying": "Set me as a seal over your heart, as a seal upon your arm. For love is as strong as death",
-      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TBESH, OpenBible.info cross-references, the NET Bible notes, the Mishnah (Joshua Kulp's translation), and older commentaries named under each note.",
+      "source": "Drafted with AI help (Claude) from the BSB, STEPBible TAHOT and TBESH, OpenBible.info cross-references, the NET Bible notes, the Mishnah as older commentaries quote it, and older commentaries named under each note.",
       "reviewed_by": [],
       "layers": [
         {
@@ -19249,12 +19566,14 @@
           "kind": "setting",
           "strength": "widely agreed",
           "refs": ["Song of Solomon 1:1", "Song of Solomon 8:6"],
-          "evidence": "Jamieson, Fausset and Brown: the Jews explain the Song of the union of Jehovah and ancient Israel; the Targum on the Song reads it that way. Gill: the ancient Jews called it the Holy of Holies, citing Mishnah Yadayim 3:5, Rabbi Akiva (trans. Joshua Kulp, CC BY).",
+          "evidence": "Jamieson, Fausset and Brown: the Jews explain the Song of the union of Jehovah and ancient Israel. Keil and Delitzsch: the Jewish schools read it allegorically, and the Targum makes the bride the congregation of Israel. Gill: the ancient Jews called it the Holy of Holies. Keil and Delitzsch and Ellicott give Rabbi Akiva's saying from the Mishnah (Yadayim 3:5).",
           "cites": [
             { "source": "jfb", "on": "Song of Solomon 1:1" },
-            { "source": "gill", "on": "Song of Solomon 1:1" }
+            { "source": "gill", "on": "Song of Solomon 1:1" },
+            { "source": "keil-delitzsch", "on": "Song of Solomon 1:1" },
+            { "source": "ellicott", "on": "Song of Solomon 1:1" }
           ],
-          "text": "Jewish readers long heard more than a love poem: the oldest readings take it as a picture of God and Israel. When rabbis debated which books were holy, Rabbi Akiva answered that all the writings are holy, but the Song of Songs is the holy of holies."
+          "text": "Jewish readers long heard more than a love poem: the oldest readings take it as a picture of God and Israel. When rabbis debated which books were holy, Rabbi Akiva answered that all the Writings are holy, but the Song of Songs is the most holy."
         },
         {
           "kind": "pattern",
@@ -19264,9 +19583,12 @@
             { "ref": "Hosea 2:19", "strong": "H0781" },
             { "ref": "Hosea 2:19", "strong": "H2617" }
           ],
+          "evidence": "Keil and Delitzsch on Hosea 2:19: the Lord makes a new covenant of marriage with His church. Poole: an everlasting marriage between Israel and their God. Clarke: the people are always considered under the emblem of a wife, and God calls Himself her husband. The Pulpit Commentary: Israel is to be betrothed unto the Lord as a chaste virgin.",
           "cites": [
             { "source": "keil-delitzsch", "on": "Hosea 2:19" },
-            { "source": "poole", "on": "Hosea 2:19" }
+            { "source": "poole", "on": "Hosea 2:19" },
+            { "source": "clarke", "on": "Hosea 2:19" },
+            { "source": "pulpit", "on": "Hosea 2:19" }
           ],
           "text": "The prophets already picture God as Israel's husband: \"I will betroth you to Me forever,\" in \"loving devotion\"; \"as a bridegroom rejoices over his bride, so your God will rejoice over you\"; \"I remember the devotion of your youth, your love as a bride.\""
         },
@@ -19830,21 +20152,16 @@
           "text": "The punchline is two pairs of sound-alike words: God looked for mishpat (justice) and found mispach (bloodshed), for tsedaqah (righteousness) and heard tse'aqah (a cry). Mispach occurs nowhere else in the Hebrew Bible, so its exact sense is not certain."
         },
         {
-          "kind": "allusion",
-          "strength": "some interpreters",
-          "refs": ["Isaiah 5:7", "Exodus 3:7", "Genesis 18:21", "Isaiah 1:10"],
-          "words": [
-            { "ref": "Exodus 3:7", "strong": "H6818" },
-            { "ref": "Genesis 18:21", "strong": "H6818" }
-          ],
-          "text": "Tse'aqah is the cry God heard from the slaves in Egypt and the outcry against Sodom, and Isaiah has already called Jerusalem's rulers \"rulers of Sodom.\" God's own people now cause the cry He once rescued them from."
-        },
-        {
           "kind": "pattern",
           "strength": "widely agreed",
           "refs": ["Isaiah 5:7", "Psalms 80:8", "Psalms 80:14-15"],
+          "evidence": "Keil and Delitzsch on Isaiah 5:7: the nation is pictured elsewhere under the same figure of a vineyard (Isaiah 27:2; Psalm 80). Barnes on 5:1: the Jewish people are often represented as a vineyard planted by God (Psalm 80; Jeremiah 2:21). The Pulpit Commentary compares Psalm 80:8-16. Calvin: the metaphor is frequently employed by the prophets. The Companion Bible adds Hosea 10:1.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Isaiah 5:7" }
+            { "source": "keil-delitzsch", "on": "Isaiah 5:7" },
+            { "source": "barnes", "on": "Isaiah 5:1" },
+            { "source": "pulpit", "on": "Isaiah 5:1" },
+            { "source": "calvin", "on": "Isaiah 5:1" },
+            { "source": "bullinger-cb", "on": "Isaiah 5:2" }
           ],
           "text": "Israel as God's vine is a running picture: \"You uprooted a vine from Egypt; You drove out the nations and transplanted it.\""
         },
@@ -19852,9 +20169,13 @@
           "kind": "allusion",
           "strength": "widely agreed",
           "refs": ["Isaiah 5:2", "Mark 12:1", "Isaiah 5:5", "Mark 12:6", "Mark 12:12"],
+          "evidence": "Maclaren on Mark 12:1: the picture is based upon Isaiah's song, and our Lord follows the original passage. The Pulpit Commentary: the imagery would be familiar from Isaiah 5:1. Jamieson, Fausset and Brown on Matthew 21:33: the details, and the basis of the parable, are taken from Isaiah 5:1-7. Ellicott: its opening points to Isaiah 5:1. Gill: the vineyard is Isaiah's.",
           "cites": [
             { "source": "maclaren", "on": "Mark 12:1" },
-            { "source": "pulpit", "on": "Mark 12:1" }
+            { "source": "pulpit", "on": "Mark 12:1" },
+            { "source": "jfb", "on": "Matthew 21:33" },
+            { "source": "ellicott", "on": "Matthew 21:33" },
+            { "source": "gill", "on": "Mark 12:1" }
           ],
           "text": "Jesus retells this song as the parable of the tenants, with Isaiah's details: a planted vineyard, a wall, a wine vat, a watchtower. This time the owner sends his beloved son, and the leaders know the story is about them."
         },
@@ -19946,10 +20267,13 @@
           "words": [
             { "ref": "Isaiah 7:9", "strong": "H0539" }
           ],
-          "evidence": "NET Bible notes on Isaiah 7:9: a wordplay designed to draw attention to the alternatives set before the king; ta'aminu is the Hiphil and te'amenu the Niphal of aman. TBESH H0539: Niphal made firm, sure; Hiphil to trust, believe.",
+          "evidence": "NET Bible notes on Isaiah 7:9: a wordplay designed to draw attention to the alternatives set before the king; ta'aminu is the Hiphil and te'amenu the Niphal of aman. TBESH H0539: Niphal made firm, sure; Hiphil to trust, believe. Jamieson, Fausset and Brown and Bullinger call it a paronomasia; Keil and Delitzsch find the same play in 2 Chronicles 20:20.",
           "cites": [
             { "source": "jfb", "on": "Isaiah 7:9" },
-            { "source": "keil-delitzsch", "on": "Isaiah 7:9" }
+            { "source": "keil-delitzsch", "on": "Isaiah 7:8" },
+            { "source": "bullinger-cb", "on": "Isaiah 7:9" },
+            { "source": "bullinger-fos", "on": "Isaiah 7:9", "at": "E. W. Bullinger, Figures of Speech Used in the Bible (1898), Paronomasia (Rhyming-Words)" },
+            { "source": "net-notes", "on": "Isaiah 7:9", "url": "https://classic.net.bible.org/verse.php?book=Isa&chapter=7&verse=9" }
           ],
           "text": "The warning uses one Hebrew verb twice: im lo ta'aminu ki lo te'amenu. Ta'aminu, \"believe,\" and te'amenu, \"be made firm,\" are two forms of aman. The pun sets the king's two choices side by side, and the BSB keeps the echo: \"stand firm\" and \"stand at all.\""
         },
@@ -19962,7 +20286,7 @@
           ],
           "evidence": "Keil and Delitzsch on Isaiah 7:9: the same play upon words is in 2 Chronicles 20:20. Ellicott: an affirmative way of putting Isaiah's words to Ahaz. Maclaren: believing and being established are two forms of the same root-word.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Isaiah 7:9" },
+            { "source": "keil-delitzsch", "on": "Isaiah 7:8" },
             { "source": "ellicott", "on": "2 Chronicles 20:20" },
             { "source": "maclaren", "on": "2 Chronicles 20:20" }
           ],
@@ -19990,10 +20314,11 @@
           "words": [
             { "ref": "Isaiah 28:16", "strong": "H0539" }
           ],
-          "evidence": "Septuagint of Isaiah 28:16: ho pisteuōn ep' autō ou mē kataischynthē. TAHOT: ha-ma'amin is H0539.",
+          "evidence": "Septuagint of Isaiah 28:16: ho pisteuōn ep' autō ou mē kataischynthē. TAHOT: ha-ma'amin is H0539. Barnes, Poole and Ellicott on Romans 9:33: Paul applies Isaiah 28:16 to Christ, and Peter uses it too (1 Peter 2:6). Barnes and Ellicott: \"shall not be ashamed\" follows the Septuagint; the Hebrew reads \"shall not make haste.\"",
           "cites": [
             { "source": "barnes", "on": "Romans 9:33" },
-            { "source": "poole", "on": "Romans 9:33" }
+            { "source": "poole", "on": "Romans 9:33" },
+            { "source": "ellicott", "on": "Romans 9:33" }
           ],
           "text": "Isaiah's stone in Zion uses the word again: ha-ma'amin, \"the one who believes will never be shaken.\" The Greek Old Testament reads \"put to shame,\" and Paul and Peter quote it of Christ: \"the one who believes in Him will never be put to shame.\""
         },
@@ -20103,10 +20428,11 @@
           "kind": "pattern",
           "strength": "commonly held",
           "refs": ["Matthew 1:23", "Matthew 28:20", "Matthew 18:20"],
-          "evidence": "Gerald Bilkes and Gerrit Scott Dawson (Ligonier) tie Jesus' closing promise in Matthew 28:20, \"I am with you always,\" to His name Immanuel, God with us (Matthew 1:23).",
+          "evidence": "Gerald Bilkes and Gerrit Scott Dawson (Ligonier) tie Jesus' closing promise in Matthew 28:20, \"I am with you always,\" to His name Immanuel, God with us (Matthew 1:23). R. T. France (Themelios) traces \"God with us\" (1:23) through the Gospel to \"I am with you always\" (28:20).",
           "cites": [
             { "source": "ligonier", "on": "Matthew 28:20", "at": "Gerald Bilkes, Immanuel (Ligonier)", "url": "https://learn.ligonier.org/articles/immanuel" },
-            { "source": "ligonier", "on": "Matthew 28:20", "at": "Gerrit Scott Dawson, I Am with You Always (Ligonier)", "url": "https://learn.ligonier.org/articles/i-am-you-always" }
+            { "source": "ligonier", "on": "Matthew 28:20", "at": "Gerrit Scott Dawson, I Am with You Always (Ligonier)", "url": "https://learn.ligonier.org/articles/i-am-you-always" },
+            { "source": "themelios", "on": "Matthew 28:20", "at": "R. T. France, Matthew's Gospel in Recent Study, Themelios 14.2", "url": "https://www.thegospelcoalition.org/themelios/article/matthews-gospel-in-recent-study/" }
           ],
           "text": "Matthew gives the name near his start, \"God with us,\" and Jesus' last words echo it: \"surely I am with you always, even to the end of the age.\" In between He promises, \"where two or three gather together in My name, there am I with them.\""
         },
@@ -22484,10 +22810,12 @@
             { "ref": "Isaiah 53:5", "strong": "H2250" },
             { "ref": "1 Peter 2:24", "strong": "G3468" }
           ],
-          "evidence": "Peter's word is molops, a bruise or wound left by a blow (TBESG, from Abbott-Smith). It is the word the Greek Old Testament uses here, and it appears nowhere else in the New Testament. Isaiah's chabburah is a bruise or welt (TBESH). Ellicott on Isaiah 53:5 links Peter's use to the slaves he addressed, who were scourged.",
+          "evidence": "Peter's word is molops, a bruise or wound left by a blow (TBESG, from Abbott-Smith). It is the word the Greek Old Testament uses here, and it appears nowhere else in the New Testament. Isaiah's chabburah is a bruise or welt (TBESH). Ellicott on Isaiah 53:5, and the Pulpit Commentary, Clarke and Poole on 1 Peter 2:24, tie Peter's use to the servants he addressed, who might be scourged.",
           "cites": [
             { "source": "ellicott", "on": "Isaiah 53:5" },
-            { "source": "pulpit", "on": "Isaiah 53:5" }
+            { "source": "pulpit", "on": "1 Peter 2:24" },
+            { "source": "clarke", "on": "1 Peter 2:24" },
+            { "source": "poole", "on": "1 Peter 2:24" }
           ],
           "text": "Peter quotes this line to household servants who could be beaten even for doing good: \"By His stripes you are healed.\" Isaiah's \"we\" becomes \"you,\" and Peter's word for stripes means a welt, a mark many of his readers knew on their own backs."
         },
@@ -22501,23 +22829,30 @@
             { "ref": "Matthew 8:17", "strong": "G0769" },
             { "ref": "1 Peter 2:24", "strong": "G0266" }
           ],
-          "evidence": "Isaiah 53:4 has choli, sickness, and makob, pain (TBESH); the Greek Old Testament renders the first as sins. Barnes and the Pulpit Commentary on Matthew 8:17: Matthew follows the Hebrew; Barnes: the word for griefs properly means diseases of the body.",
+          "evidence": "Isaiah 53:4 has choli, sickness, and makob, pain (TBESH); the Greek Old Testament renders the first as sins. Barnes and the Pulpit Commentary on Matthew 8:17: Matthew follows the Hebrew. Gill and Matthew Henry on Isaiah 53:4: Matthew applies it to bodily healing, while the Greek Old Testament and Peter read sins. Poole on Matthew 8:17: the verse was twice fulfilled in Christ.",
           "cites": [
             { "source": "barnes", "on": "Matthew 8:17" },
-            { "source": "pulpit", "on": "Matthew 8:17" }
+            { "source": "pulpit", "on": "Matthew 8:17" },
+            { "source": "gill", "on": "Isaiah 53:4" },
+            { "source": "henry", "on": "Isaiah 53:4" },
+            { "source": "poole", "on": "Matthew 8:17" }
           ],
           "text": "The New Testament reads this song two ways at once. Matthew quotes 53:4 of Jesus' healings, where the Hebrew speaks of sickness. The Greek Old Testament made it sins, and Peter writes, \"He Himself bore our sins.\" The Servant carries both."
         },
         {
           "kind": "pattern",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Isaiah 53:5", "Isaiah 53:10", "Isaiah 53:4"],
           "words": [
             { "ref": "Isaiah 53:5", "strong": "H1792" },
             { "ref": "Isaiah 53:10", "strong": "H1792" }
           ],
+          "evidence": "TAHOT: the same verb, daka (H1792), in 53:5 and 53:10. Jamieson, Fausset and Brown, Barnes and Gill tie the bruising of 53:10 back to 53:5 and to the LORD's purpose. Matthew Henry on 53:10: men thought Him smitten of God for some sin of His own (53:4); He was smitten of God, but for our sin.",
           "cites": [
-            { "source": "jfb", "on": "Isaiah 53:5" }
+            { "source": "jfb", "on": "Isaiah 53:5" },
+            { "source": "barnes", "on": "Isaiah 53:10" },
+            { "source": "gill", "on": "Isaiah 53:10" },
+            { "source": "henry", "on": "Isaiah 53:10" }
           ],
           "text": "\"Crushed\" is the Hebrew daka, and it returns five verses later: \"it was the LORD’s will to crush Him.\" Onlookers thought God was striking Him (53:4). The chapter answers that He was crushed for our iniquities, and that even this served God's purpose."
         },
@@ -22537,10 +22872,11 @@
           "kind": "quotation",
           "strength": "widely agreed",
           "refs": ["Acts 8:32-35", "Isaiah 53:7-8", "Isaiah 49:3"],
-          "evidence": "Gill on Acts 8:34 reports Jews who apply the passage to the people of Israel in general. See also Barnes and the Pulpit Commentary on Acts 8:34.",
+          "evidence": "Gill on Acts 8:34: some apply it to the people of Israel, wrongly, since the Servant is set apart from the people for whose transgressions he was stricken. Jamieson, Fausset and Brown on Isaiah 52:13: an individual is plainly described. The Pulpit Commentary on 52:13 parts the individual Servant from Israel, the collective one.",
           "cites": [
             { "source": "gill", "on": "Acts 8:34" },
-            { "source": "pulpit", "on": "Acts 8:34" }
+            { "source": "jfb", "on": "Isaiah 52:13" },
+            { "source": "pulpit", "on": "Isaiah 52:13" }
           ],
           "text": "An Ethiopian official asked, \"who is the prophet talking about, himself or someone else?\" Isaiah calls Israel God's servant (49:3), and medieval Jewish commentators read the song that way. Yet this Servant is \"stricken for the transgression of My people.\" Philip answered with Jesus."
         },
@@ -23292,16 +23628,17 @@
         },
         {
           "kind": "pattern",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["Amos 8:2", "Jeremiah 1:11", "Amos 8:1"],
           "words": [
             { "ref": "Amos 8:2", "strong": "H7019" },
             { "ref": "Amos 8:2", "strong": "H7093" }
           ],
-          "evidence": "NET Bible notes on Amos 8:2: qets (end) sounds like qayits (summer fruit). Keil and Delitzsch on Amos 8:2: qets is chosen to form a paronomasia with qayits. Poole on Jeremiah 1:11 links the almond rod to Amos's summer fruit.",
+          "evidence": "NET Bible notes on Amos 8:2: qets (end) sounds like qayits (summer fruit). Benson on Amos 8:1-2 names Jeremiah 1:11 as the same kind of play. Keil and Delitzsch on Jeremiah 1:13: Jeremiah's second vision, the boiling pot, turns on a like-sounding word, just as Amos 8:2 does. Poole on Jeremiah 1:11 links the almond rod to Amos's summer fruit as a sign of God's readiness to smite.",
           "cites": [
             { "source": "poole", "on": "Jeremiah 1:11" },
-            { "source": "keil-delitzsch", "on": "Amos 8:2" }
+            { "source": "keil-delitzsch", "on": "Jeremiah 1:13" },
+            { "source": "benson", "on": "Amos 8:1" }
           ],
           "text": "Amos had a vision built the same way: \"Amos, what do you see?\" \"A basket of summer fruit,\" qayits. Then God says the end, qets, \"has come for My people Israel.\" Both visions turn an everyday object into a message through the sound of its name."
         },
@@ -23313,9 +23650,11 @@
             { "ref": "Jeremiah 31:28", "strong": "H8245" },
             { "ref": "Jeremiah 1:12", "strong": "H8245" }
           ],
-          "evidence": "Ellicott on Jeremiah 31:28 recalls the wakeful or watching tree. TAHOT: all three forms are H8245.",
+          "evidence": "Ellicott on Jeremiah 31:28 recalls the wakeful or watching tree and the two-fold work of the call. Keil and Delitzsch and Jamieson, Fausset and Brown on Jeremiah 1:10: what is said there of Jeremiah's word is said of the LORD Himself in 31:28. TAHOT: all three forms are H8245.",
           "cites": [
-            { "source": "ellicott", "on": "Jeremiah 31:28" }
+            { "source": "ellicott", "on": "Jeremiah 31:28" },
+            { "source": "jfb", "on": "Jeremiah 31:28" },
+            { "source": "keil-delitzsch", "on": "Jeremiah 1:10" }
           ],
           "text": "The almond's verb returns beside the new-covenant promise: \"Just as I watched over them to uproot and tear down,\" so \"I will watch over them to build and to plant,\" the two tasks of Jeremiah's call. God watches over rebuilding as He watched over judgment."
         },
@@ -23323,10 +23662,12 @@
           "kind": "quotation",
           "strength": "widely agreed",
           "refs": ["Jeremiah 31:31", "Hebrews 8:8", "Jeremiah 31:33", "Hebrews 8:6"],
-          "evidence": "Ellicott, Barnes and Gill on Hebrews 8:8: the quotation in Hebrews 8:8-12 is from Jeremiah 31:31-34.",
+          "evidence": "Ellicott, Barnes, Gill and Jamieson, Fausset and Brown on Hebrews 8:8: the quotation in Hebrews 8:8-12 is from Jeremiah 31:31-34.",
           "cites": [
             { "source": "ellicott", "on": "Hebrews 8:8" },
-            { "source": "gill", "on": "Hebrews 8:8" }
+            { "source": "gill", "on": "Hebrews 8:8" },
+            { "source": "barnes", "on": "Hebrews 8:8" },
+            { "source": "jfb", "on": "Hebrews 8:8" }
           ],
           "text": "Three verses later comes what He is watching to build, \"a new covenant\": \"I will put My law in their minds and inscribe it on their hearts.\" Hebrews quotes the whole passage and says of Jesus, \"the covenant He mediates is better.\""
         }
@@ -24525,15 +24866,19 @@
         },
         {
           "kind": "wordplay",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Jeremiah 23:6", "2 Kings 24:17", "2 Kings 24:19"],
           "words": [
             { "ref": "Jeremiah 23:6", "strong": "H6664" },
             { "ref": "2 Kings 24:17", "strong": "H6667" }
           ],
-          "evidence": "TBESH H6667: Zedekiah, Jehovah is righteous, the last king of Judah, renamed from Mattaniah by Nebuchadnezzar. Ellicott: the reigning king's name implied the same thought, and his reign was a miserable failure.",
+          "evidence": "TBESH H6667: Zedekiah, Jehovah is righteous, renamed from Mattaniah by Nebuchadnezzar. Ellicott on Jeremiah 23:6 and 2 Kings 24:17, and Barnes on 2 Kings 24:17, tie the name to the King promised in Jeremiah 23. Keil and Delitzsch: probably chosen in hope of the righteousness promised to God's people. The Pulpit Commentary offers it as one possibility. Ellicott: his reign was a miserable failure.",
           "cites": [
-            { "source": "ellicott", "on": "Jeremiah 23:6" }
+            { "source": "ellicott", "on": "Jeremiah 23:6" },
+            { "source": "ellicott", "on": "2 Kings 24:17" },
+            { "source": "barnes", "on": "2 Kings 24:17" },
+            { "source": "keil-delitzsch", "on": "2 Kings 24:17" },
+            { "source": "pulpit", "on": "2 Kings 24:17" }
           ],
           "text": "Judah's last king was Zedekiah, a name the king of Babylon gave him, meaning the LORD is righteous. Yet \"Zedekiah did evil in the sight of the LORD.\" He bore a name close to the promised one and failed it; the true King will be \"The LORD Our Righteousness.\""
         },
@@ -27074,7 +27419,10 @@
           "evidence": "Gill, Barnes and Poole on Revelation 1:14: the description matches the Ancient of Days in Daniel 7:9.",
           "cites": [
             { "source": "gill", "on": "Revelation 1:14" },
-            { "source": "poole", "on": "Revelation 1:14" }
+            { "source": "poole", "on": "Revelation 1:14" },
+            { "source": "barnes", "on": "Revelation 1:14" },
+            { "source": "pulpit", "on": "Revelation 1:14" },
+            { "source": "wesley", "on": "Revelation 1:14" }
           ],
           "text": "John sees \"One like the Son of Man\" whose hair is \"white like wool, as white as snow,\" as Daniel described the Ancient of Days. The one who came to the throne shares the look of the One on it. And \"He is coming with the clouds.\""
         }
@@ -27696,11 +28044,15 @@
             { "ref": "Hosea 2:23", "strong": "H2232" },
             { "ref": "Hosea 1:4", "strong": "H3157" }
           ],
-          "evidence": "TBESH H3157: Jezreel, God sows. Barnes: God changes the name's meaning to God shall sow. Jamieson, Fausset and Brown: no longer God will scatter but God will plant. Ellicott: the word sow alludes to and explains Jezreel.",
+          "evidence": "TBESH H3157: Jezreel, God sows. Ellicott on Hosea 1:4: Jezreel means God shall sow; on 2:21-23, the name is to represent a Divine seed. Barnes: God changes the name's meaning to God shall sow. Jamieson, Fausset and Brown: no longer God will scatter but God will plant. Benson: the word sow alludes to and explains Jezreel. Clarke and Keil and Delitzsch read the name the same way.",
           "cites": [
-            { "source": "ellicott", "on": "Hosea 2:23" },
+            { "source": "ellicott", "on": "Hosea 2:21" },
             { "source": "jfb", "on": "Hosea 2:23" },
-            { "source": "ellicott", "on": "Hosea 1:4" }
+            { "source": "ellicott", "on": "Hosea 1:4" },
+            { "source": "barnes", "on": "Hosea 2:21" },
+            { "source": "benson", "on": "Hosea 2:23" },
+            { "source": "clarke", "on": "Hosea 2:23" },
+            { "source": "keil-delitzsch", "on": "Hosea 2:21" }
           ],
           "text": "Then God turns the names inside out. Jezreel means \"God sows,\" so the name of judgment becomes a harvest: the grain, wine and oil \"will respond to Jezreel,\" and God says, \"I will sow her as My own in the land.\" The God who scattered now plants."
         },
@@ -27716,7 +28068,9 @@
           ],
           "evidence": "Keil and Delitzsch: salvation is announced by simply turning the names into their opposites, dropping the lo (not). TAHOT: ammi (H5971) and ruhamah (H7355) in 2:1 and 2:23.",
           "cites": [
-            { "source": "keil-delitzsch", "on": "Hosea 2:1" }
+            { "source": "keil-delitzsch", "on": "Hosea 2:1" },
+            { "source": "ellicott", "on": "Hosea 2:2" },
+            { "source": "henry", "on": "Hosea 2:23" }
           ],
           "text": "The other two names simply lose their \"not\": \"Say of your brothers, ‘My people,’ and of your sisters, ‘My loved one,’\" in Hebrew ammi and ruhamah. Where they were told \"You are not My people,\" \"they will be called ‘sons of the living God.’\""
         },
@@ -27745,7 +28099,10 @@
           "evidence": "Jamieson, Fausset and Brown and the Pulpit Commentary on Romans 9:25: first said of the ten tribes; the apostle legitimately applies it to the Gentiles. Ellicott: typically and prophetically applied to the Gentiles.",
           "cites": [
             { "source": "jfb", "on": "Romans 9:25" },
-            { "source": "ellicott", "on": "Romans 9:25" }
+            { "source": "ellicott", "on": "Romans 9:25" },
+            { "source": "pulpit", "on": "Romans 9:25" },
+            { "source": "calvin", "on": "Romans 9:25" },
+            { "source": "barnes", "on": "Romans 9:26" }
           ],
           "text": "Hosea spoke of the northern tribes coming back to God. Paul applies his words to those God called \"not only from the Jews, but also from the Gentiles,\" and Peter tells his readers, \"Once you were not a people, but now you are the people of God.\""
         }
@@ -29932,7 +30289,10 @@
           "evidence": "TAHOT: Gilgal (H1537) and galoh yigleh, it will surely go into exile (H1540, twice), in Amos 5:5. Gilgal and galah come from different roots, so the link is one of sound, not word history. Joshua 5:9 gives the Bible's own account of the name: there God rolled away (galal) the reproach of Egypt.",
           "cites": [
             { "source": "pulpit", "on": "Amos 5:5" },
-            { "source": "jfb", "on": "Amos 5:5" }
+            { "source": "jfb", "on": "Amos 5:5" },
+            { "source": "barnes", "on": "Amos 5:5" },
+            { "source": "keil-delitzsch", "on": "Amos 5:4" },
+            { "source": "ellicott", "on": "Amos 5:5" }
           ],
           "text": "In Hebrew the line is a run of matching sounds: ha-gilgal galoh yigleh, \"Gilgal will surely go into exile.\" The name Gilgal and galah, the verb for going into exile, share the sounds g and l, so the town's name rings with its fate."
         },
@@ -30183,7 +30543,11 @@
           ],
           "cites": [
             { "source": "poole", "on": "Jeremiah 1:11" },
-            { "source": "ellicott", "on": "Jeremiah 1:12" }
+            { "source": "ellicott", "on": "Jeremiah 1:12" },
+            { "source": "benson", "on": "Amos 8:1" },
+            { "source": "keil-delitzsch", "on": "Jeremiah 1:11" },
+            { "source": "gill", "on": "Jeremiah 1:12" },
+            { "source": "clarke", "on": "Jeremiah 1:12" }
           ],
           "text": "Jeremiah's first vision is built the same way: \"Jeremiah, what do you see?\" An almond branch, shaqed, and God is shoqed, \"watching over My word.\" The prophets heard God's message in the names of ordinary things."
         }
@@ -30837,7 +31201,8 @@
           ],
           "evidence": "Gary Yates (JETS 2016) notes Jonah goes down (yarad) in 1:3, 1:5 and 2:6, a downward descent of disobedience to the brink of Sheol.",
           "cites": [
-            { "source": "jets", "on": "Jonah 1:3", "at": "Gary Yates, The \"Weeping Prophet\" and \"Pouting Prophet\" in Dialogue, JETS 59/2 (2016)", "url": "https://etsjets.org/wp-content/uploads/2016/06/files_JETS-PDFs_59_59-2_JETS_59-2_223-239_Yates.pdf" }
+            { "source": "jets", "on": "Jonah 1:3", "at": "Gary Yates, The \"Weeping Prophet\" and \"Pouting Prophet\" in Dialogue, JETS 59/2 (2016)", "url": "https://etsjets.org/wp-content/uploads/2016/06/files_JETS-PDFs_59_59-2_JETS_59-2_223-239_Yates.pdf" },
+            { "source": "net-notes", "on": "Jonah 1:3", "url": "https://classic.net.bible.org/verse.php?book=Jon&chapter=1&verse=3" }
           ],
           "text": "The story moves step by step downward: Jonah goes down to Joppa, down into the ship, down into its hold, and down to the roots of the mountains, the same verb (yarad) each time, until God raises his life from the pit."
         },
@@ -30862,7 +31227,10 @@
           "refs": ["Jonah 1:17", "Matthew 12:39-41", "Jonah 3:5"],
           "cites": [
             { "source": "gill", "on": "Matthew 12:40" },
-            { "source": "henry-concise", "on": "Matthew 12:40" }
+            { "source": "henry-concise", "on": "Matthew 12:38" },
+            { "source": "poole", "on": "Matthew 12:40" },
+            { "source": "barnes", "on": "Matthew 12:39" },
+            { "source": "wesley", "on": "Matthew 12:39" }
           ],
           "text": "Jesus names \"the sign of the prophet Jonah\": as Jonah was three days and three nights in the fish, so the Son of Man will be in the heart of the earth. Nineveh repented, \"and now One greater than Jonah is here.\""
         },
@@ -31102,7 +31470,12 @@
           "evidence": "TAHOT: Micah 1:10 begat al-taggidu and 2 Samuel 1:20 al-taggidu begat use the same words, Gath (H1661) and tell (H5046), in reverse order. Some also hear a sound-play between gat and taggidu.",
           "cites": [
             { "source": "barnes", "on": "Micah 1:10" },
-            { "source": "pulpit", "on": "Micah 1:10" }
+            { "source": "pulpit", "on": "Micah 1:10" },
+            { "source": "ellicott", "on": "Micah 1:10" },
+            { "source": "keil-delitzsch", "on": "Micah 1:10" },
+            { "source": "gill", "on": "Micah 1:10" },
+            { "source": "henry", "on": "Micah 1:8" },
+            { "source": "benson", "on": "Micah 1:10" }
           ],
           "text": "Micah's lament for the towns opens, \"Do not tell it in Gath,\" the words of David's lament for Saul and Jonathan: \"Tell it not in Gath.\" Micah borrows David's famous funeral song to grieve for his own neighbors."
         }
@@ -35544,10 +35917,12 @@
             { "ref": "Malachi 3:1", "strong": "H4397" },
             { "ref": "Malachi 2:7", "strong": "H4397" }
           ],
-          "evidence": "TBESH H4401: Malachi, My messenger. JFB (Fausset) takes it as the name of an office, as the Septuagint of 1:1 (by the hand of his messenger) suggests; the Pulpit Commentary holds it is a proper name. Ellicott: the prophet chose the word with his own name in mind.",
+          "evidence": "TBESH H4401: Malachi, My messenger. JFB (Fausset) takes it as the name of an office, as the Septuagint of 1:1 (by the hand of his messenger) suggests; the Pulpit Commentary holds it is a proper name.",
           "cites": [
-            { "source": "ellicott", "on": "Malachi 3:1" },
-            { "source": "maclaren", "on": "Malachi 3:1" }
+            { "source": "maclaren", "on": "Malachi 3:1" },
+            { "source": "clarke", "on": "Malachi 3:1" },
+            { "source": "henry", "on": "Malachi 3:1" },
+            { "source": "jfb", "on": "Malachi 1:1" }
           ],
           "text": "The prophet's name, Malachi, means \"My messenger,\" the very words of this verse. The word recurs: a priest \"is the messenger of the LORD of Hosts.\" Some think Malachi is a title rather than a name; the Greek Old Testament of 1:1 has \"his messenger.\""
         },
@@ -35558,9 +35933,8 @@
           "words": [
             { "ref": "Malachi 3:1", "strong": "H4397" }
           ],
-          "evidence": "TBESH H4397: messenger, angel; TAHOT tags both messengers in 3:1 H4397. Ellicott: it must mean God Himself, since He comes to His temple; Jamieson, Fausset and Brown and the Pulpit Commentary agree.",
+          "evidence": "TBESH H4397: messenger, angel; TAHOT tags both messengers in 3:1 H4397. Jamieson, Fausset and Brown and the Pulpit Commentary: it must mean God Himself, since He comes to His temple.",
           "cites": [
-            { "source": "ellicott", "on": "Malachi 3:1" },
             { "source": "jfb", "on": "Malachi 3:1" },
             { "source": "pulpit", "on": "Malachi 3:1" }
           ],
@@ -35577,7 +35951,10 @@
           "evidence": "Pulpit, Bengel and Ellicott on Matthew 11:10: Christ applies to Himself a prophecy of God's coming. The Septuagint of Exodus 23:20 and TAGNT of Matthew 11:10 share idou egō apostellō ton angelon mou pro prosōpou sou. NET Bible notes on Mark 1:2. TAHOT: in Hebrew both verses open with sholeach (sending) and mal'akh (messenger or angel).",
           "cites": [
             { "source": "pulpit", "on": "Matthew 11:10" },
-            { "source": "ellicott", "on": "Matthew 11:10" }
+            { "source": "ellicott", "on": "Matthew 11:10" },
+            { "source": "bengel", "on": "Matthew 11:10" },
+            { "source": "benson", "on": "Malachi 3:1" },
+            { "source": "net-notes", "on": "Mark 1:2", "url": "https://classic.net.bible.org/verse.php?book=Mar&chapter=1&verse=2" }
           ],
           "text": "Jesus applies the verse to John the Baptist, changing \"before Me\" to \"before You\": the messenger prepares for God, and Jesus takes that place. Matthew's Greek matches Exodus 23:20, \"I am sending an angel before you,\" and so do the Hebrew openings."
         },
@@ -38234,7 +38611,7 @@
           "strength": "widely agreed",
           "refs": ["Mark 12:6-8", "Mark 12:10-12"],
           "cites": [
-            { "source": "henry-concise", "on": "Mark 12:10" },
+            { "source": "henry-concise", "on": "Mark 12:1" },
             { "source": "gill", "on": "Mark 12:10" }
           ],
           "text": "Jesus ends His parable of the tenants, who kill the owner's beloved son, by quoting Psalm 118. The leaders understand that He told the parable against them."
@@ -38248,7 +38625,10 @@
           ],
           "cites": [
             { "source": "pulpit", "on": "Mark 12:10" },
-            { "source": "henry-concise", "on": "Mark 12:10" }
+            { "source": "henry-concise", "on": "Mark 12:1" },
+            { "source": "gill", "on": "Mark 12:11" },
+            { "source": "barnes", "on": "Matthew 21:42" },
+            { "source": "clarke", "on": "Matthew 21:42" }
           ],
           "text": "In the psalm the rejected stone becomes the head of the corner: \"This is from the LORD, and it is marvelous in our eyes.\" The rejection is not the end; God reverses it."
         },
@@ -38274,10 +38654,13 @@
         },
         {
           "kind": "allusion",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["Luke 20:18", "Isaiah 8:14-15", "Daniel 2:34-35", "Daniel 2:44-45"],
           "cites": [
-            { "source": "jfb", "on": "Luke 20:18" }
+            { "source": "jfb", "on": "Luke 20:17" },
+            { "source": "ellicott", "on": "Matthew 21:44" },
+            { "source": "pulpit", "on": "Matthew 21:44" },
+            { "source": "gill", "on": "Matthew 21:44" }
           ],
           "text": "In Luke, Jesus adds that whoever falls on this stone will be broken and whoever it falls on will be crushed, drawing on Isaiah's \"stone of stumbling\" and Daniel's stone, cut without hands, that crushes the kingdoms and fills the earth."
         },
@@ -38324,7 +38707,13 @@
           "evidence": "Gill and Poole on Exodus 24:8 tie Moses' words to Christ's at the Supper, and Ellicott on Matthew 26:28 traces the phrase to Exodus 24:4-8. TBESG: diatheke nearly always renders berit in the Greek Old Testament.",
           "cites": [
             { "source": "gill", "on": "Exodus 24:8" },
-            { "source": "poole", "on": "Exodus 24:8" }
+            { "source": "poole", "on": "Exodus 24:8" },
+            { "source": "ellicott", "on": "Matthew 26:28" },
+            { "source": "barnes", "on": "Matthew 26:28" },
+            { "source": "bengel", "on": "Matthew 26:28" },
+            { "source": "clarke", "on": "Hebrews 9:20" },
+            { "source": "jfb", "on": "Hebrews 9:20" },
+            { "source": "reformation-sb", "on": "Mark 14:24", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Mark.14.24" }
           ],
           "text": "Jesus takes up Moses' words at Sinai. Moses sprinkled blood on the people and said, \"This is the blood of the covenant that the LORD has made with you.\" The first covenant was sealed in blood, and Hebrews quotes Moses' words as it explains the death of Christ."
         },
@@ -38350,7 +38739,11 @@
           ],
           "evidence": "In Mark 14:24 the most reliable manuscripts lack new (kaines), which other copies likely took from Luke 22:20 (NET Bible note; TAGNT). The NET Bible note: Jesus' death established the forgiveness promised in Jeremiah 31:31. Ellicott on Matthew 26:28 points to Jeremiah 31:31-34.",
           "cites": [
-            { "source": "ellicott", "on": "Matthew 26:28" }
+            { "source": "ellicott", "on": "Matthew 26:28" },
+            { "source": "net-notes", "on": "Mark 14:24", "url": "https://classic.net.bible.org/verse.php?book=Mar&chapter=14&verse=24" },
+            { "source": "reformation-sb", "on": "Luke 22:20", "url": "https://www.biblegateway.com/resources/reformation-study-bible/Luke.22.20" },
+            { "source": "gill", "on": "Jeremiah 31:31" },
+            { "source": "benson", "on": "Jeremiah 31:31" }
           ],
           "text": "Luke and Paul record \"the new covenant in My blood,\" and Matthew adds \"for the forgiveness of sins.\" Jeremiah had promised a new covenant written on the heart: \"I will forgive their iniquities and will remember their sins no more.\""
         },
@@ -39189,7 +39582,11 @@
           ],
           "evidence": "Ellicott on Leviticus 19:34: the command to love your neighbor as yourself is here enacted for the stranger. Both verses use ve'ahavta (you shall love) and kamokha (as yourself) (TAHOT); a ger is a foreigner living in Israel (TBESH).",
           "cites": [
-            { "source": "ellicott", "on": "Leviticus 19:34" }
+            { "source": "ellicott", "on": "Leviticus 19:34" },
+            { "source": "pulpit", "on": "Leviticus 19:33" },
+            { "source": "poole", "on": "Leviticus 19:18" },
+            { "source": "benson", "on": "Leviticus 19:18" },
+            { "source": "henry", "on": "Leviticus 19:33" }
           ],
           "text": "The lawyer quotes Leviticus: \"Love your neighbor as yourself,\" said there of \"any of your people.\" Sixteen verses on it says of the foreigner living in Israel, \"love him as yourself,\" in the same Hebrew. The law's love already reached past Israel's own people."
         },
@@ -39211,7 +39608,11 @@
           "evidence": "Barnes on Luke 10:33: the Samaritans were the Jews' most inveterate foes, with no dealings between them (compare John 4:9). Gill: above all men hated by the Jews.",
           "cites": [
             { "source": "barnes", "on": "Luke 10:33" },
-            { "source": "gill", "on": "Luke 10:33" }
+            { "source": "gill", "on": "Luke 10:33" },
+            { "source": "clarke", "on": "Luke 10:33" },
+            { "source": "jfb", "on": "Luke 10:33" },
+            { "source": "ellicott", "on": "Luke 9:52" },
+            { "source": "henry", "on": "Luke 10:33" }
           ],
           "text": "Jews and Samaritans were bitter neighbors: \"Jews do not associate with Samaritans.\" A chapter earlier a Samaritan village refused Jesus, and James and John wanted to \"call down fire from heaven.\" Jesus rebuked them, then made a Samaritan the hero of His story."
         },
@@ -40020,7 +40421,7 @@
         },
         {
           "kind": "wordplay",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["John 2:19", "John 2:21", "John 2:22"],
           "words": [
             { "ref": "John 2:19", "strong": "G1453" },
@@ -40029,7 +40430,8 @@
           ],
           "evidence": "Abbott-Smith's lexicon (in TBESG) cites this passage for both senses of egeiro",
           "cites": [
-            { "source": "bengel", "on": "John 2:19" }
+            { "source": "bengel", "on": "John 2:19" },
+            { "source": "gospel-coalition", "on": "John 2:19", "at": "Andreas Köstenberger, John commentary, The Gospel Coalition", "url": "https://www.thegospelcoalition.org/commentary/john/" }
           ],
           "text": "John explains: \"Jesus was speaking about the temple of His body.\" The verb egeiro means both to raise a building and to raise the dead. The disciples understood only after the resurrection."
         },
@@ -40155,9 +40557,11 @@
           "evidence": "The NET Bible note on John 3:8 points out the wordplay on wind and spirit. TBESG: pneuma is wind, breath or spirit. TBESH: Aramaic ruach (rucha with the article) is wind or spirit; TAHOT has it as wind in Daniel 2:35 and 7:2 and as spirit in Daniel 5:12 and 7:15.",
           "cites": [
             { "source": "henry-concise", "on": "John 3:8" },
-            { "source": "gill", "on": "John 3:8" }
+            { "source": "gill", "on": "John 3:8" },
+            { "source": "jfb", "on": "John 3:8" },
+            { "source": "poole", "on": "John 3:8" }
           ],
-          "text": "\"The wind blows where it wishes,\" and \"So it is with everyone born of the Spirit.\" Wind and Spirit are one word in John's Greek, pneuma, and in Aramaic, rucha, so the saying works just as well in the language Jesus likely spoke."
+          "text": "\"The wind blows where it wishes,\" and \"So it is with everyone born of the Spirit.\" Wind and Spirit are one word in John's Greek, pneuma, and in Hebrew and Aramaic, so the saying is not a pun of the Greek alone."
         },
         {
           "kind": "allusion",
@@ -40261,7 +40665,10 @@
           "refs": ["John 3:14", "Numbers 21:8-9", "Numbers 21:5-6"],
           "cites": [
             { "source": "henry-concise", "on": "Numbers 21:9" },
-            { "source": "jfb", "on": "Numbers 21:9" }
+            { "source": "jfb", "on": "Numbers 21:9" },
+            { "source": "barnes", "on": "John 3:14" },
+            { "source": "clarke", "on": "John 3:14" },
+            { "source": "ellicott", "on": "John 3:14" }
           ],
           "text": "In Numbers the people speak against God, venomous snakes bite them, and God tells Moses to make a snake and set it on a pole. Moses makes it of bronze, and whoever is bitten and looks at it lives."
         },
@@ -40292,17 +40699,23 @@
           "evidence": "TBESG (Abbott-Smith): hypsoo is to lift up (John 3:14, 12:32) and to exalt (Acts 2:33). The Aramaic behind it is debated; some propose a pun on zeqaph, used of a man lifted onto a beam in Ezra 6:11 (TAHOT).",
           "cites": [
             { "source": "maclaren", "on": "John 12:32" },
-            { "source": "poole", "on": "John 12:32" }
+            { "source": "poole", "on": "John 12:32" },
+            { "source": "ellicott", "on": "John 12:33" },
+            { "source": "bruce", "on": "John 12:32", "at": "F. F. Bruce, \"The Background to the Son of Man Sayings,\" in H. H. Rowdon, ed., Christ the Lord (1982), p. 51", "url": "https://gospelstudies.org.uk/biblicalstudies/pdf/christ-the-lord/sonofman_bruce.pdf" },
+            { "source": "net-notes", "on": "John 3:14", "url": "https://classic.net.bible.org/verse.php?book=Joh&chapter=3&verse=14" }
           ],
           "text": "In John's Greek, \"lifted up\" (hypsoo) means raised up and also exalted. When Jesus says it again, John adds that it showed \"the kind of death He was going to die,\" and Acts uses the verb for His exaltation to God's right hand. The cross is His lifting up."
         },
         {
           "kind": "allusion",
-          "strength": "commonly held",
+          "strength": "widely agreed",
           "refs": ["John 3:14", "Isaiah 52:13", "John 12:32"],
           "evidence": "Ellicott on Isaiah 52:13: the phrase impressed itself, through the Greek Old Testament, on Christ's mind in reference to His crucifixion, citing John 3:14, 8:28 and 12:32.",
           "cites": [
-            { "source": "ellicott", "on": "Isaiah 52:13" }
+            { "source": "ellicott", "on": "Isaiah 52:13" },
+            { "source": "gospel-coalition", "on": "John 3:14", "at": "Jimmy Roh, Lifted Up: Discover John's View of the Cross, The Gospel Coalition (2026)", "url": "https://www.thegospelcoalition.org/article/lifted-up-cross-john/" },
+            { "source": "themelios", "on": "John 12:32", "at": "Bruce Reichenbach, Soteriology in the Gospel of John, Themelios 46.3", "url": "https://www.thegospelcoalition.org/themelios/article/soteriology-in-the-gospel-of-john/" },
+            { "source": "themelios", "on": "John 3:14", "at": "David V. Christensen, The Lamblike Servant, Themelios 48.3", "url": "https://www.thegospelcoalition.org/themelios/article/the-lamblike-servant/" }
           ],
           "text": "Isaiah's suffering servant \"will be raised and lifted up and highly exalted,\" just before the description of His suffering. The Greek Old Testament uses the same verb there, and many scholars think John's \"lifted up\" draws on this verse."
         },
@@ -40435,7 +40848,9 @@
           "evidence": "NET Bible note: the word translated living is used in Greek of flowing water. Abbott-Smith (TBESG): springing as opposed to still water. Barnes and Benson: living water meant spring or running water.",
           "cites": [
             { "source": "barnes", "on": "John 4:10" },
-            { "source": "benson", "on": "John 4:10" }
+            { "source": "benson", "on": "John 4:10" },
+            { "source": "clarke", "on": "John 4:10" },
+            { "source": "wesley", "on": "John 4:10" }
           ],
           "text": "In Greek, \"living water\" meant flowing water, from a spring rather than a cistern. So she asks how He will draw it, since \"the well is deep.\" She hears spring water; Jesus means water that wells up to eternal life."
         },
@@ -40451,7 +40866,10 @@
           ],
           "evidence": "TAHOT: mayim chayyim in Genesis 26:19 and Jeremiah 2:13, and the same chayyim in the cleansing law of Leviticus 14:5 (BSB fresh water there too). TBESH: chay is living, and of water, flowing or fresh. The Pulpit Commentary on John 4:10 cites Genesis 26:19 and Jeremiah 2:13.",
           "cites": [
-            { "source": "pulpit", "on": "John 4:10" }
+            { "source": "pulpit", "on": "John 4:10" },
+            { "source": "poole", "on": "Jeremiah 2:13" },
+            { "source": "gill", "on": "John 4:10" },
+            { "source": "ellicott", "on": "John 4:11" }
           ],
           "text": "Hebrew says the same, mayim chayyim. Isaac's servants find \"a well of fresh water\" (literally living water), and Jeremiah gives the phrase to God: \"They have forsaken Me, the fountain of living water, and they have dug their own cisterns.\""
         },
@@ -40461,7 +40879,8 @@
           "refs": ["John 4:6", "Genesis 29:10", "Genesis 24:17", "Exodus 2:15-21", "John 3:29", "John 4:39"],
           "evidence": "Carissa Quinn (BibleProject): when the biblical authors portray a man meeting his future bride, the setting is often a well (Rebekah, Rachel, Zipporah); calling it Jacob's well links the scene with Jacob and Rachel, and Jesus is called the groom in the chapter before.",
           "cites": [
-            { "source": "bibleproject", "on": "John 4:6", "at": "Carissa Quinn, BibleProject, 'Woman at the Well: What Jesus' Offer of Living Water Means' (2020)", "url": "https://bibleproject.com/articles/jesus-offers-living-water-and-marriage/" }
+            { "source": "bibleproject", "on": "John 4:6", "at": "Carissa Quinn, BibleProject, 'Woman at the Well: What Jesus' Offer of Living Water Means' (2020)", "url": "https://bibleproject.com/articles/jesus-offers-living-water-and-marriage/" },
+            { "source": "henry", "on": "John 4:4" }
           ],
           "text": "A man meets a woman at a well, and a marriage follows: Abraham's servant finds Rebekah, Jacob meets Rachel, Moses meets Zipporah. This is \"Jacob’s well,\" a chapter after John the Baptist calls Jesus \"the bridegroom.\" This time many in her town believe."
         },
@@ -40662,7 +41081,9 @@
           "refs": ["John 6:31-33", "Exodus 16:4", "Psalms 78:24", "John 6:49-51"],
           "cites": [
             { "source": "barnes", "on": "John 6:31" },
-            { "source": "gill", "on": "John 6:31" }
+            { "source": "gill", "on": "John 6:31" },
+            { "source": "ellicott", "on": "John 6:31" },
+            { "source": "pulpit", "on": "John 6:31" }
           ],
           "text": "The crowd asks for a sign like the manna and quotes Scripture: \"He gave them bread from heaven to eat,\" words close to Exodus 16:4 and Psalm 78:24. Jesus answers that the true bread from heaven comes from His Father, and unlike the manna, whoever eats it will not die."
         },
@@ -40675,8 +41096,9 @@
             { "ref": "Exodus 16:31", "strong": "H4478" }
           ],
           "cites": [
-            { "source": "keil-delitzsch", "on": "Exodus 16:15" },
-            { "source": "henry-concise", "on": "Exodus 16:15" }
+            { "source": "keil-delitzsch", "on": "Exodus 16:13" },
+            { "source": "henry-concise", "on": "Exodus 16:13" },
+            { "source": "clarke", "on": "Exodus 16:15" }
           ],
           "text": "Manna is named after a question. When Israel first saw it they asked one another, \"What is it?\" (man hu), and they called it man. Moses answered, \"It is the bread that the LORD has given you to eat.\""
         },
@@ -40873,10 +41295,11 @@
             { "ref": "John 17:3", "strong": "G0649" },
             { "ref": "John 20:21", "strong": "G0649" }
           ],
-          "evidence": "NET Bible note: the Hebrew name shiloah comes from the verb to send. Augustine, Ellicott and the Pulpit Commentary see Jesus as the one Sent; Gill reports that reading, and Barnes doubts a link to Shiloh. John's word for Sent is a form of apostello, the verb of John 17:3 and 20:21 (TAGNT).",
+          "evidence": "NET Bible note: the Hebrew name shiloah comes from the verb to send. Augustine, Ellicott and the Pulpit Commentary see Jesus as the one Sent; Gill only reports that reading, and Barnes rejects it. John's word for Sent is a form of apostello, the verb of John 17:3 and 20:21 (TAGNT).",
           "cites": [
             { "source": "ellicott", "on": "John 9:7" },
-            { "source": "pulpit", "on": "John 9:7" }
+            { "source": "pulpit", "on": "John 9:7" },
+            { "source": "jfb", "on": "John 9:7" }
           ],
           "text": "John stops to translate the pool's name: Siloam, Isaiah's \"Shiloah,\" means \"Sent.\" In John, Jesus is the Sent One, doing \"the works of Him who sent Me.\" So a man sent to the pool called Sent is healed by the One sent from God."
         },
@@ -41178,7 +41601,9 @@
           "evidence": "NET Bible note: Caiaphas meant political expediency, and John reads his words in a sense Caiaphas could not have imagined.",
           "cites": [
             { "source": "poole", "on": "John 11:51" },
-            { "source": "jfb", "on": "John 11:51" }
+            { "source": "jfb", "on": "John 11:51" },
+            { "source": "bengel", "on": "John 11:50" },
+            { "source": "barnes", "on": "John 11:50" }
           ],
           "text": "Caiaphas argues, \"it is better for you that one man die for the people.\" He means politics, but John says that as high priest he \"was prophesying\" that Jesus would die for the nation and for \"the scattered children of God.\" One sentence, two meanings."
         },
@@ -43629,7 +44054,9 @@
           "refs": ["1 Corinthians 10:4", "Exodus 17:6", "Numbers 20:8-12"],
           "cites": [
             { "source": "barnes", "on": "1 Corinthians 10:4" },
-            { "source": "benson", "on": "1 Corinthians 10:4" }
+            { "source": "benson", "on": "1 Corinthians 10:4" },
+            { "source": "poole", "on": "1 Corinthians 10:4" },
+            { "source": "gill", "on": "1 Corinthians 10:4" }
           ],
           "text": "Twice God gave water from a rock. At Horeb Moses was told to strike it; years later he was told to speak to it, struck it twice instead, and was barred from the land."
         },
@@ -43643,7 +44070,9 @@
           ],
           "cites": [
             { "source": "poole", "on": "Hebrews 3:8" },
-            { "source": "ellicott", "on": "Hebrews 3:8" }
+            { "source": "ellicott", "on": "Hebrews 3:8" },
+            { "source": "pulpit", "on": "Hebrews 3:7" },
+            { "source": "jfb", "on": "Hebrews 3:8" }
           ],
           "text": "Moses named the place Massah (testing) and Meribah (quarreling) because the people asked, \"Is the LORD among us or not?\" Psalm 95 keeps the names as a warning, and Hebrews, quoting the psalm in Greek, gives their meanings: \"in the rebellion, in the day of testing.\""
         },
@@ -43671,7 +44100,10 @@
           ],
           "cites": [
             { "source": "barnes", "on": "1 Corinthians 10:11" },
-            { "source": "ellicott", "on": "1 Corinthians 10:11" }
+            { "source": "ellicott", "on": "1 Corinthians 10:11" },
+            { "source": "pulpit", "on": "1 Corinthians 10:11" },
+            { "source": "poole", "on": "1 Corinthians 10:6" },
+            { "source": "henry", "on": "1 Corinthians 10:6" }
           ],
           "text": "Paul names his way of reading: these things happened \"as examples\" and \"were written down as warnings for us.\" The Greek words are typoi and typikos, where the word \"type\" comes from."
         },
@@ -44080,7 +44512,9 @@
           "evidence": "NET Bible note on Isaiah 25:8: in Canaanite thought death was a hungry enemy swallowing its victims. The Pulpit Commentary calls Paul's words a free citation from the Hebrew; Bengel gives the Septuagint's wording, in which death prevails and swallows. TBESG: katapino renders bala.",
           "cites": [
             { "source": "barnes", "on": "1 Corinthians 15:54" },
-            { "source": "pulpit", "on": "1 Corinthians 15:54" }
+            { "source": "pulpit", "on": "1 Corinthians 15:54" },
+            { "source": "clarke", "on": "1 Corinthians 15:54" },
+            { "source": "jfb", "on": "1 Corinthians 15:54" }
           ],
           "text": "Paul quotes Isaiah's promise of a banquet \"for all the peoples,\" where \"He will swallow up death forever.\" Death was pictured as a hungry enemy swallowing its victims; here God swallows death. The common Greek version reversed it, so Paul follows the Hebrew."
         },
@@ -44182,7 +44616,10 @@
           ],
           "evidence": "The NET Bible note gives both readings; David Capes: an acclamation, Our Lord comes, or an invocation, Come, our Lord. TAGNT: NA28, NA27 and SBL print marana tha; Tyndale House, Westcott-Hort, Tregelles, the Textus Receptus and the Byzantine text print maran atha.",
           "cites": [
-            { "source": "capes", "on": "1 Corinthians 16:22", "at": "David B. Capes, 'One God, One Lord (Part 8)' (2020)", "url": "https://davidbcapes.com/2020/02/11/one-god-one-lord-part-8/" }
+            { "source": "capes", "on": "1 Corinthians 16:22", "at": "David B. Capes, 'One God, One Lord (Part 8)' (2020)", "url": "https://davidbcapes.com/2020/02/11/one-god-one-lord-part-8/" },
+            { "source": "net-notes", "on": "1 Corinthians 16:22", "url": "https://classic.net.bible.org/verse.php?book=1Co&chapter=16&verse=22" },
+            { "source": "reformation-sb", "on": "1 Corinthians 16:22", "url": "https://www.biblegateway.com/resources/reformation-study-bible/1Cor.16.22" },
+            { "source": "themelios", "on": "1 Corinthians 16:22", "at": "Walter Riggans, The Parousia: Getting our Terms Right, Themelios 21.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-parousia-getting-our-terms-right/" }
           ],
           "text": "The Aramaic divides two ways. Marana tha (Our Lord, come!) is a prayer; maran atha (our Lord has come, or is coming) is a confession. Printed Greek texts divide it both ways. Both are true of Jesus: He came, and He is coming."
         },
@@ -44199,12 +44636,13 @@
         },
         {
           "kind": "setting",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["1 Corinthians 16:22", "1 Corinthians 11:26"],
-          "evidence": "Didache 10.6, in J. B. Lightfoot's translation; New Advent's reads: Let grace come, and let this world pass away, and later Maran atha. Michael Bird notes the same language in Revelation and the Didache and reads the prayer as looking to Jesus' return.",
+          "evidence": "Didache 10.6, in J. B. Lightfoot's translation; New Advent's reads: Let grace come, and let this world pass away, and later Maran atha. Michael Bird notes the same language in Revelation and the Didache and reads the prayer as looking to Jesus' return. Walter Riggans (Themelios) ties it to 1 Corinthians 11:26.",
           "cites": [
             { "source": "church-fathers", "on": "1 Corinthians 16:22", "at": "Didache 10.6", "url": "https://www.newadvent.org/fathers/0714.htm" },
-            { "source": "bird", "on": "1 Corinthians 16:22", "at": "Michael F. Bird, 'Maranatha and the Identity of Jesus', Word from the Bird (2024)", "url": "https://michaelfbird.substack.com/p/maranatha-and-the-identity-of-jesus" }
+            { "source": "bird", "on": "1 Corinthians 16:22", "at": "Michael F. Bird, 'Maranatha and the Identity of Jesus', Word from the Bird (2024)", "url": "https://michaelfbird.substack.com/p/maranatha-and-the-identity-of-jesus" },
+            { "source": "themelios", "on": "1 Corinthians 16:22", "at": "Walter Riggans, The Parousia: Getting our Terms Right, Themelios 21.1", "url": "https://www.thegospelcoalition.org/themelios/article/the-parousia-getting-our-terms-right/" }
           ],
           "text": "The Didache, an early Christian writing, ends its prayer after the Lord's Supper the same way, asking for grace to come and this world to pass away, then maran atha. Paul ties the Supper to the same hope: \"you proclaim the Lord’s death until He comes.\""
         },
@@ -44518,7 +44956,9 @@
           "evidence": "Bengel calls the verse a paraphrase on Exodus 34:34, and Jamieson-Fausset-Brown hears the same allusion. The Septuagint of Exodus 34:34 and Paul's verse share henika (whenever), periaireo (remove) and kalymma (veil).",
           "cites": [
             { "source": "bengel", "on": "2 Corinthians 3:16" },
-            { "source": "jfb", "on": "2 Corinthians 3:16" }
+            { "source": "jfb", "on": "2 Corinthians 3:16" },
+            { "source": "clarke", "on": "2 Corinthians 3:16" },
+            { "source": "ellicott", "on": "2 Corinthians 3:16" }
           ],
           "text": "Exodus says that whenever Moses went in before the LORD, \"he would remove the veil.\" Paul reworks it, keeping its Greek words for whenever, remove and veil: \"whenever anyone turns to the Lord, the veil is taken away.\" What Moses alone did, anyone may now do."
         },
@@ -44534,7 +44974,9 @@
           ],
           "evidence": "Ellicott and MacLaren: the same verb as the Transfiguration. It occurs only in Matthew 17:2, Mark 9:2, Romans 12:2 and here (TAGNT; TBESG).",
           "cites": [
-            { "source": "ellicott", "on": "2 Corinthians 3:18" }
+            { "source": "ellicott", "on": "2 Corinthians 3:18" },
+            { "source": "maclaren", "on": "2 Corinthians 3:18" },
+            { "source": "bullinger-cb", "on": "2 Corinthians 3:18" }
           ],
           "text": "The word for \"transformed\" is metamorphoo, used when Jesus \"was transfigured\" and \"His face shone like the sun.\" Its only other use is \"be transformed by the renewing of your mind.\" Moses' face shone, Jesus' face shone, and now believers are being changed."
         },
@@ -45625,7 +46067,8 @@
           "evidence": "Barnes, Jamieson-Fausset-Brown and the Pulpit Commentary hear Isaiah 45:23, which the Pulpit Commentary notes are the words of Jehovah.",
           "cites": [
             { "source": "pulpit", "on": "Philippians 2:10" },
-            { "source": "barnes", "on": "Philippians 2:10" }
+            { "source": "barnes", "on": "Philippians 2:10" },
+            { "source": "calvin", "on": "Philippians 2:10" }
           ],
           "text": "Paul's words come from Isaiah 45, where the LORD swears by Himself: \"Every knee will bow before Me, every tongue will swear allegiance.\" He has just said, \"I am God, and there is no other.\" Paul applies the LORD's own oath to Jesus."
         },
@@ -45641,7 +46084,8 @@
           "evidence": "TBESG: kampto (bow) and exomologeo (confess) in Romans 14:11 and Philippians 2:10-11, from the Septuagint of Isaiah 45:23, whose printed editions vary between confess and swear. Barnes, Jamieson-Fausset-Brown and the Pulpit Commentary note Romans 14:11.",
           "cites": [
             { "source": "jfb", "on": "Philippians 2:10" },
-            { "source": "pulpit", "on": "Philippians 2:10" }
+            { "source": "pulpit", "on": "Philippians 2:10" },
+            { "source": "calvin", "on": "Philippians 2:10" }
           ],
           "text": "In Romans Paul quotes the same verse about God's judgment: \"every knee will bow before Me; every tongue will confess to God.\" In Philippians the same bowing and confessing, in the same Greek verbs, happen at the name of Jesus, \"to the glory of God the Father.\""
         },
@@ -45671,7 +46115,8 @@
           "evidence": "Ellicott: the Lord in Joel means Jehovah, and here it is applied to our Lord; Barnes, Poole and Jamieson-Fausset-Brown also apply it to Christ.",
           "cites": [
             { "source": "ellicott", "on": "Romans 10:13" },
-            { "source": "barnes", "on": "Romans 10:13" }
+            { "source": "barnes", "on": "Romans 10:13" },
+            { "source": "clarke", "on": "Romans 10:13" }
           ],
           "text": "Paul does the same with Joel. Joel's promise, \"everyone who calls on the name of the LORD will be saved,\" uses God's own name, YHWH. Romans quotes it soon after \"if you confess with your mouth\" that \"Jesus is Lord,\" so the Lord to call on is Jesus."
         },
@@ -45831,7 +46276,9 @@
           "evidence": "TAGNT: katatomen (G2699) in 3:2, peritome (G4061) in 3:3. Abbott-Smith's lexicon (in TBESG) says katatome is used here in sarcasm, by paronomasia (wordplay), in contrast to true peritome. Katatome occurs nowhere else in the New Testament.",
           "cites": [
             { "source": "ellicott", "on": "Philippians 3:2" },
-            { "source": "barnes", "on": "Philippians 3:2" }
+            { "source": "barnes", "on": "Philippians 3:2" },
+            { "source": "pulpit", "on": "Philippians 3:2" },
+            { "source": "bengel", "on": "Philippians 3:2" }
           ],
           "text": "Paul's Greek has a sharp pun. Circumcision is peritome, \"a cutting around.\" He calls these teachers the katatome, \"a cutting up,\" in English \"mutilators of the flesh.\" Then: \"it is we who are the circumcision,\" meaning all who trust Christ, Jew or Gentile."
         },
@@ -46539,13 +46986,6 @@
             { "source": "bengel", "on": "Philemon 1:20" }
           ],
           "text": "Near the end Paul does it again: \"let me have some benefit from you in the Lord.\" Benefit is onaimen, from the verb behind the name Onesimus. Many read it as a gentle hint: the benefit Paul hopes for may be Onesimus himself."
-        },
-        {
-          "kind": "wordplay",
-          "strength": "some interpreters",
-          "refs": ["Philemon 1:11"],
-          "evidence": "Christos and chrestos often sounded alike in the everyday Greek of the time, because the vowel eta was coming to be pronounced like iota; the Roman writer Suetonius (Life of Claudius 25) speaks of a Chrestus, often taken to mean Christ. The play is a suggestion some commentators make; Paul does not mention it.",
-          "text": "Some hear a third play. In the Greek of the day, chrestos, \"useful,\" sounded much like Christos, Christ. Useless, a-chrestos, has become useful, eu-chrestos, through the Christ he met. The letter itself does not point this out."
         }
       ]
     },
@@ -46770,10 +47210,12 @@
             { "ref": "Hebrews 5:8", "strong": "G3129" },
             { "ref": "Hebrews 5:8", "strong": "G3958" }
           ],
-          "evidence": "TAGNT: emathen (G3129) and epathen (G3958). Learning by suffering, pathei mathos, is a famous phrase in the Agamemnon of the Greek playwright Aeschylus, and the pairing became proverbial. Hebrews is written in polished Greek and uses the familiar jingle.",
+          "evidence": "TAGNT: emathen (G3129) and epathen (G3958). Bengel and the NET Bible notes call it a play on words, and Figures of Speech lists it under paronomasia. Bengel and Jamieson-Fausset-Brown cite the Greek adage pathemata mathemata, sufferings are the means of learning. Aeschylus has a like phrase, pathei mathos (learning by suffering), in his Agamemnon.",
           "cites": [
             { "source": "bengel", "on": "Hebrews 5:8" },
-            { "source": "jfb", "on": "Hebrews 5:8" }
+            { "source": "jfb", "on": "Hebrews 5:8" },
+            { "source": "net-notes", "on": "Hebrews 5:8", "url": "https://classic.net.bible.org/verse.php?book=Heb&chapter=5&verse=8" },
+            { "source": "bullinger-fos", "on": "Hebrews 5:8", "at": "E. W. Bullinger, Figures of Speech Used in the Bible (1898), Paronomasia (Rhyming-Words)" }
           ],
           "text": "The Greek rhymes: emathen, \"He learned,\" and epathen, \"He suffered,\" differ by a single letter. Learning and suffering, mathein and pathein, were a famous pair in Greek wisdom. Hebrews applies the old saying to the Son of God."
         },
@@ -46888,7 +47330,9 @@
           ],
           "cites": [
             { "source": "benson", "on": "Genesis 14:18" },
-            { "source": "henry-concise", "on": "Genesis 14:18" }
+            { "source": "henry-concise", "on": "Genesis 14:18" },
+            { "source": "gill", "on": "Psalm 110:4" },
+            { "source": "poole", "on": "Hebrews 7:1" }
           ],
           "text": "Genesis gives Melchizedek three verses: king of Salem and \"priest of God Most High,\" he brings out bread and wine, blesses Abram, and receives a tenth from him. The only other Old Testament verse to name him is Psalm 110:4."
         },
@@ -46898,7 +47342,9 @@
           "refs": ["Psalms 110:4", "Hebrews 7:17", "Hebrews 5:6"],
           "cites": [
             { "source": "gill", "on": "Psalm 110:4" },
-            { "source": "spurgeon", "on": "Psalm 110:4" }
+            { "source": "spurgeon", "on": "Psalm 110:4" },
+            { "source": "benson", "on": "Psalm 110:4" },
+            { "source": "jfb", "on": "Psalm 110:4" }
           ],
           "text": "Later, in Psalm 110, God swears to David's Lord: \"You are a priest forever in the order of Melchizedek.\" Hebrews builds its argument on this oath."
         },
@@ -46925,7 +47371,9 @@
           "refs": ["Psalms 110:1", "Mark 12:35-37", "Psalms 110:4"],
           "cites": [
             { "source": "gill", "on": "Mark 12:36" },
-            { "source": "pulpit", "on": "Psalm 110:4" }
+            { "source": "pulpit", "on": "Psalm 110:4" },
+            { "source": "jfb", "on": "Psalm 110:1" },
+            { "source": "keil-delitzsch", "on": "Psalm 110:1" }
           ],
           "text": "Jesus Himself raised Psalm 110 in the temple: David calls the Messiah \"my Lord.\" The psalm that seats the Messiah at God's right hand also makes Him a priest forever."
         },
@@ -46935,7 +47383,9 @@
           "refs": ["Genesis 14:18", "Hebrews 7:3", "Hebrews 7:24"],
           "cites": [
             { "source": "henry-concise", "on": "Genesis 14:18" },
-            { "source": "poole", "on": "Genesis 14:18" }
+            { "source": "poole", "on": "Genesis 14:18" },
+            { "source": "benson", "on": "Genesis 14:18" },
+            { "source": "jfb", "on": "Hebrews 7:3" }
           ],
           "text": "Genesis records no father, mother, birth or death for Melchizedek, and Hebrews makes the silence part of the picture: \"like the Son of God, he remains a priest for all time.\""
         },
@@ -47028,11 +47478,13 @@
           "words": [
             { "ref": "2 Corinthians 3:14", "strong": "G1242" }
           ],
-          "evidence": "Easton's Bible Dictionary: the Vulgate renders diatheke by testamentum, whence the names Old and New Testament. Barnes: the only place Scripture calls the Jewish books the Old Testament; Gill and the Pulpit Commentary: the books read in the synagogue, Moses being read.",
+          "evidence": "Easton's Bible Dictionary: the Vulgate renders diatheke by testamentum, whence the names Old and New Testament; so the Pulpit Commentary on 1 Corinthians 11:25. Clarke on Matthew 26:28: the two covenants named the two sets of books. Barnes: the only place Scripture calls the Jewish books the Old Testament; Gill: the books read in the synagogue; the Pulpit Commentary: Moses being read.",
           "cites": [
             { "source": "easton", "on": "Hebrews 9:15", "url": "https://biblehub.com/topical/t/testament.htm" },
             { "source": "barnes", "on": "2 Corinthians 3:14" },
-            { "source": "gill", "on": "2 Corinthians 3:14" }
+            { "source": "gill", "on": "2 Corinthians 3:14" },
+            { "source": "clarke", "on": "Matthew 26:28" },
+            { "source": "pulpit", "on": "1 Corinthians 11:25" }
           ],
           "text": "This double word named the Bible's two halves. Latin rendered diatheke as testamentum, a will, even where it meant covenant, so the covenants became the Old and New Testaments. Paul once says \"the old covenant,\" for the books of Moses read in the synagogue."
         },
@@ -49015,7 +49467,7 @@
         },
         {
           "kind": "allusion",
-          "strength": "widely agreed",
+          "strength": "commonly held",
           "refs": ["Revelation 1:5", "Psalms 89:27", "Psalms 89:37"],
           "words": [
             { "ref": "Psalms 89:27", "strong": "H1060" },
@@ -49051,7 +49503,11 @@
           "evidence": "NET Bible note: the word can mean both witness and martyr. Easton's Bible Dictionary: a martyr bears witness and suffers death for Christ, and the Greek word is elsewhere rendered witness. Abbott-Smith (TBESG): the sense martyr belongs to later Christian writing. The Pulpit Commentary: the same Greek phrase is used of Antipas and of Christ.",
           "cites": [
             { "source": "pulpit", "on": "Revelation 2:13" },
-            { "source": "easton", "on": "Revelation 2:13", "url": "https://biblehub.com/topical/m/martyr.htm" }
+            { "source": "easton", "on": "Revelation 2:13", "url": "https://biblehub.com/topical/m/martyr.htm" },
+            { "source": "net-notes", "on": "Revelation 1:5", "url": "https://classic.net.bible.org/verse.php?book=Rev&chapter=1&verse=5" },
+            { "source": "bullinger-cb", "on": "Revelation 2:13" },
+            { "source": "wesley", "on": "Revelation 2:13" },
+            { "source": "benson", "on": "Revelation 2:13" }
           ],
           "text": "The Greek for \"witness,\" martys, later came to mean martyr, and gave English that word. Jesus gives His own title to a believer who died for Him: \"My faithful witness Antipas was killed among you.\" Antipas shares his Lord's title, and his Lord's death."
         },
@@ -49065,7 +49521,11 @@
           "evidence": "Jamieson-Fausset-Brown: the two oldest manuscripts read freed; the NET Bible note gives it better manuscript support. TAGNT: lousanti in the Textus Receptus and the Byzantine text. MacLaren: washed pictures sin as a stain, loosed as a chain.",
           "cites": [
             { "source": "jfb", "on": "Revelation 1:5" },
-            { "source": "pulpit", "on": "Revelation 1:5" }
+            { "source": "pulpit", "on": "Revelation 1:5" },
+            { "source": "maclaren", "on": "Revelation 1:5" },
+            { "source": "ellicott", "on": "Revelation 1:5" },
+            { "source": "net-notes", "on": "Revelation 1:5", "url": "https://classic.net.bible.org/verse.php?book=Rev&chapter=1&verse=5" },
+            { "source": "gill", "on": "Revelation 1:5" }
           ],
           "text": "Copies differ here by one letter. The oldest read lysanti, \"released\"; others read lousanti, \"washed.\" One pictures sin as a chain, the other as a stain. Revelation knows both: the saints \"have washed their robes and made them white in the blood of the Lamb.\""
         },
@@ -49081,7 +49541,10 @@
           "evidence": "MacLaren calls Exodus 19:6 the charter of Israel's national life, given right after the exodus. Jamieson-Fausset-Brown, Barnes and Gill on Revelation 1:6 cite Exodus 19:6, and the Pulpit Commentary notes that Peter's royal priesthood (1 Peter 2:9) follows the Septuagint of that verse.",
           "cites": [
             { "source": "maclaren", "on": "Revelation 1:5" },
-            { "source": "jfb", "on": "Revelation 1:6" }
+            { "source": "jfb", "on": "Revelation 1:6" },
+            { "source": "barnes", "on": "Revelation 1:6" },
+            { "source": "pulpit", "on": "Revelation 1:6" },
+            { "source": "gill", "on": "Revelation 1:6" }
           ],
           "text": "The words \"a kingdom, priests\" come from Sinai, just after the exodus: \"you shall be a kingdom of priests and a holy nation.\" John keeps Israel's order: first freed, then made priests. Heaven sings, \"You have made them to be a kingdom and priests.\""
         }
@@ -53773,7 +54236,11 @@
           "refs": ["Revelation 22:2", "Genesis 2:9-10", "Genesis 3:22-24", "Revelation 22:14", "Revelation 2:7"],
           "cites": [
             { "source": "ellicott", "on": "Revelation 22:2" },
-            { "source": "jfb", "on": "Revelation 22:2" }
+            { "source": "jfb", "on": "Revelation 22:2" },
+            { "source": "maclaren", "on": "Revelation 22:14" },
+            { "source": "barnes", "on": "Revelation 22:14" },
+            { "source": "wesley", "on": "Revelation 22:14" },
+            { "source": "henry", "on": "Revelation 22:1" }
           ],
           "text": "The Bible ends where it began. Eden had a river and the tree of life; after the fall the way to that tree was guarded. Now it stands open: \"Blessed are those who wash their robes, so that they may have the right to the tree of life.\""
         },
@@ -53783,7 +54250,11 @@
           "refs": ["Revelation 22:1-2", "Ezekiel 47:1", "Ezekiel 47:12"],
           "cites": [
             { "source": "ellicott", "on": "Revelation 22:2" },
-            { "source": "barnes", "on": "Revelation 22:2" }
+            { "source": "barnes", "on": "Revelation 22:2" },
+            { "source": "pulpit", "on": "Revelation 22:2" },
+            { "source": "gill", "on": "Revelation 22:2" },
+            { "source": "wesley", "on": "Revelation 22:1" },
+            { "source": "jfb", "on": "Revelation 22:2" }
           ],
           "text": "The picture also comes from Ezekiel's vision of water flowing from the temple, with fruit trees on both banks that bear every month and leaves for healing."
         },
@@ -53819,7 +54290,10 @@
           "refs": ["Revelation 22:5", "Isaiah 60:19"],
           "cites": [
             { "source": "barnes", "on": "Isaiah 60:19" },
-            { "source": "ellicott", "on": "Isaiah 60:19" }
+            { "source": "ellicott", "on": "Isaiah 60:19" },
+            { "source": "pulpit", "on": "Isaiah 60:19" },
+            { "source": "maclaren", "on": "Revelation 22:1" },
+            { "source": "gill", "on": "Isaiah 60:19" }
           ],
           "text": "\"The Lord God will shine on them\" takes up Isaiah's promise: \"the LORD will be your everlasting light.\""
         }
