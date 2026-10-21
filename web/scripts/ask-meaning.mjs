@@ -180,13 +180,17 @@ export function modelFiles(lock = LOCK) {
   const src = JSON.parse(readFileSync(lock, 'utf8')).sources.find((s) => s.id === 'potion-base-8m');
   if (!src) return null;
   const at = (k) => join(dirname(lock), src.files[k].path);
-  const files = { tokenizer: at('tokenizer'), embeddings: at('embeddings'), sha: `${src.files.tokenizer.sha256} ${src.files.embeddings.sha256}` };
+  const files = { tokenizer: at('tokenizer'), embeddings: at('embeddings'), want: { tokenizer: src.files.tokenizer.sha256, embeddings: src.files.embeddings.sha256 }, sha: `${src.files.tokenizer.sha256} ${src.files.embeddings.sha256}` };
   return existsSync(files.tokenizer) && existsSync(files.embeddings) ? files : null;
 }
 
 /** The model's vocabulary and vectors. Its tokenizer must be the lowercased
  * WordPiece that web/src/ui/ask/pieces.ts reads. */
 export function readModel(files) {
+  // atlas build checks these against the lock too; this holds if only the web build runs.
+  for (const k of ['tokenizer', 'embeddings']) {
+    if (createHash('sha256').update(readFileSync(files[k])).digest('hex') !== files.want[k]) throw new Error(`ask-meaning: ${files[k]} does not match the SHA-256 in the lock; run atlas fetch again`);
+  }
   const tok = JSON.parse(readFileSync(files.tokenizer, 'utf8'));
   const m = tok.model ?? {};
   const n = tok.normalizer ?? {};

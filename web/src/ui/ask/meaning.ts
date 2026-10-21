@@ -68,8 +68,14 @@ let model: Model | null = null;
 
 /** Loads the weights, and the model when the build wrote it, with the first
  * question typed. */
+/** The trainer's key, which vite.config.ts reads from ask/meaning.json as the
+ * site is built. Both files carry it in their address, so a deploy that
+ * retrains the matcher without changing the data build is never served the
+ * old weights from a cache that keys data by the build id alone. */
+const KEY = __ASK_KEY__ ? `?k=${__ASK_KEY__}` : '';
+
 export function loadMeaning(a: Atlas): Promise<Meaning> {
-  return Promise.all([loadJson<Meaning>(a, 'ask/meaning.json'), loadBytes(a, 'ask/model.bin').then(readModel).catch(() => null)]).then(([m, mm]) => {
+  return Promise.all([loadJson<Meaning>(a, `ask/meaning.json${KEY}`), loadBytes(a, `ask/model.bin${KEY}`).then(readModel).catch(() => null)]).then(([m, mm]) => {
     near = null;
     last = null;
     model = mm;

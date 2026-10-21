@@ -99,6 +99,8 @@ Changes: short quotations are taken word for word from the dictionary's articles
 
 Ask the Bible uses potion-base-8M, a Model2Vec model by Minish Lab, only to tell which prepared question someone means. Hugging Face is not reachable from where the data is built, so `.github/workflows/mirror-meaning-model.yml` copies its files unchanged from revision bf8b056651a2c21b8d2565580b8569da283cab23 to the `mirror/potion-base-8M` branch, checking each against the SHA-256 Hugging Face lists for it. The build (`web/scripts/ask-meaning.mjs`) keeps the vectors of the word pieces its examples use, each rounded to whole multiples of its own scale, and writes them to web/public/data/ask/model.bin.
 
+How it was made, as its model card and training-set card say: Minish Lab distilled it from BAAI's bge-base-en-v1.5 (MIT License; Shitao Xiao, Zheng Liu, Peitian Zhang and Niklas Muennighoff, "C-Pack: Packaged Resources To Advance General Chinese Embedding", 2023), using the training set minishlab/tokenlearn-c4-en-bge-base-v1.5: 10 million passages from the train split of AllenAI's C4 web corpus (allenai/c4, released under ODC-BY and bound by Common Crawl's terms of use), each with bge-base-en-v1.5's vector for it. That training set's card names no license of its own. Nothing of bge-base-en-v1.5 or of the training text is used or shipped here, only potion-base-8M's own vectors.
+
 Its model card gives its license as MIT. The license text, as in Minish Lab's model2vec repository:
 
 > MIT License

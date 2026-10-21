@@ -5,6 +5,11 @@ name: Mirror the meaning model
 # minishlab/potion-base-8M (MIT) from huggingface.co, checks every file against
 # the SHA-256 Hugging Face lists for it, and commits the copy to its own branch,
 # mirror/potion-base-8M, which sources.json can then pin like any other source.
+#
+# The revision is pinned, so a re-run (any push of this file, such as its merge
+# into main) copies the same files, finds the branch already holds them and
+# stops without a commit. The branch's commit dced885 stays what sources.json
+# pins. Change REVISION only on purpose, then pin the new mirror commit.
 
 on:
   workflow_dispatch:
@@ -26,13 +31,13 @@ jobs:
       MODEL: minishlab/potion-base-8M
       BRANCH: mirror/potion-base-8M
       FILES: README.md config.json tokenizer.json model.safetensors
+      REVISION: bf8b056651a2c21b8d2565580b8569da283cab23
     steps:
       - name: Download and check the model files
         run: |
           set -euo pipefail
           mkdir -p /tmp/model && cd /tmp/model
-          curl -sSfL "https://huggingface.co/api/models/$MODEL" -o info.json
-          REV=$(python3 -c 'import json; print(json.load(open("info.json"))["sha"])')
+          REV="$REVISION"
           export REV
           echo "REV=$REV" >> "$GITHUB_ENV"
           curl -sSfL "https://huggingface.co/api/models/$MODEL/tree/$REV" -o tree.json
