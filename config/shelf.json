@@ -861,7 +861,7 @@
       "licenseNote": "MIT License, as its model card states. The app keeps the vectors of the word pieces its examples use, rounded to whole numbers. Minish Lab distilled it from BAAI's bge-base-en-v1.5 (MIT) with passages of the C4 web corpus (ODC-BY); no text of either is used here.",
       "datasets": ["potion-base-8m"],
       "find": {"url": "https://huggingface.co/minishlab/potion-base-8M", "label": "the model (Hugging Face)"},
-      "citation": "Stephan Tulkens and Thomas van Dongen, Model2Vec: Fast State-of-the-Art Static Embeddings (Minish Lab, 2024), https://doi.org/10.5281/zenodo.17270888; model potion-base-8M, https://huggingface.co/minishlab/potion-base-8M (revision bf8b056651a2c21b8d2565580b8569da283cab23), MIT License."
+      "citation": "Stephan Tulkens and Thomas van Dongen, Model2Vec: Fast State-of-the-Art Static Embeddings (Minish Lab, 2024), https://doi.org/10.5281/zenodo.17270888; model potion-base-8M, https://huggingface.co/minishlab/potion-base-8M (revision bf8b056651a2c21b8d2565580b8569da283cab23, copied from Hugging Face on 20 October 2026), MIT License."
     }
   ]
 }
