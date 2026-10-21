@@ -164,8 +164,11 @@ pub fn own_letters(text: &[Piece]) -> usize {
     while let Some(o) = rest.find('(') {
         kept.push_str(&rest[..o]);
         let inner_end = rest[o..].find(')').map(|e| o + e);
+        // Only an innermost pair can be a reference: "(a fortress ... (#)--ED.)"
+        // keeps its words, and its "(#)" is dropped on a later turn.
+        let innermost = inner_end.is_some_and(|e| !rest[o + 1..e].contains('('));
         match inner_end {
-            Some(e) if rest[o..e].contains(|c: char| c.is_ascii_digit() || c == '#') => {
+            Some(e) if innermost && rest[o..e].contains(|c: char| c.is_ascii_digit() || c == '#') => {
                 rest = &rest[e + 1..]
             }
             _ => {
@@ -636,6 +639,13 @@ mod tests {
         );
         let helpmeet = [t("(Heb. ‘ezer ke-negdo; i.e., “a help as his counterpart” = a help suitable to him), a wife ("), link(), t(").")];
         assert!(own_letters(&helpmeet) >= OWN_LETTERS);
+        // Smith's Antonia: a long article in brackets that ends on a verse link.
+        let antonia = [
+            t("(from Marc Antony) (a square stone fortress adjoining the temple area at Jerusalem ("),
+            link(),
+            t(")\u{2014}ED.)"),
+        ];
+        assert!(own_letters(&antonia) >= OWN_LETTERS);
         assert_eq!(name_key("Kidron, or Kedron"), name_key("Kidron, Or Kedron"));
     }
 
