@@ -21,7 +21,7 @@ import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
 import { type ChapterPanelProps, type PanelProps, defineExtra } from './types';
-import { type Data, chapterKey, load } from './wordplay/model';
+import { type Data, SOURCE, chapterKey, load } from './wordplay/model';
 
 interface Panels {
   Panel: ComponentType<PanelProps<Data>>;
@@ -80,4 +80,13 @@ export default defineExtra<Data>({
   },
   Panel,
   ChapterPanel,
+  // The notes on plays and names come from Layers of meaning; the alphabet
+  // poems are checked letter by letter, so their chapter panel stays open.
+  commentary: 'verse',
+  closed(verse, d) {
+    const ps = d.plays.get(verse) ?? [];
+    if (!ps.length) return null;
+    const names = ps.every((p) => p.layer.kind === 'name meaning');
+    return { line: names ? 'Writers note what a name here means.' : 'Writers note a play on words here.', button: ps.length > 1 ? 'Show the notes' : 'Show the note', source: SOURCE };
+  },
 });

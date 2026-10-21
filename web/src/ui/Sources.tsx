@@ -12,14 +12,18 @@
 // The works come from shelf.json (config/shelf.json, built by
 // crates/atlas-cli/src/shelf.rs), loaded the first time the shelf opens.
 // "Read it" on a dictionary opens it here (Dictionary.tsx).
+// Under the opening line, a short Commentary section: see the notice again,
+// or close commentary again on this device (ui/commentary).
 
 import './shelf.css';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { Atlas, SourceMeta } from '../data/atlas';
 import { ESV_ENABLED } from '../data/esv';
 import { type Cited, type Shelf, type Work, licenseWords, useShelf, workFor } from '../data/shelf';
 import { type Depth, atLeast } from '../depth';
 import * as S from '../state';
+import { useGate } from './commentary/Gate';
+import { closeCommentary, reviewNotice } from './commentary/state';
 import { Dictionary, VerseLink, focusView, scrollStudyTo } from './Dictionary';
 import { showSources } from './extras/kit';
 
@@ -117,6 +121,50 @@ export function Sources({ a }: { a: Atlas }) {
   return <ShelfView a={a} shelf={shelf} />;
 }
 
+/** What commentary is, with the notice again, or commentary closed again. */
+function CommentaryShelf() {
+  const gate = useGate<HTMLButtonElement>();
+  const see = useRef<HTMLButtonElement>(null);
+  /** Set when the reader closes commentary here: the focus goes to "See the notice". */
+  const shut = useRef(false);
+  useLayoutEffect(() => {
+    if (!gate.open && shut.current) see.current?.focus();
+    shut.current = false;
+  }, [gate.open]);
+  return (
+    <section class="cn-shelf" aria-label="Commentary">
+      <h3>Commentary</h3>
+      <p>Some parts of this app show commentary: people’s words about the Bible, not God’s Word. They open after a short notice.</p>
+      {gate.open ? (
+        <>
+          <p class="cn-state">Commentary is open on this device.</p>
+          <div class="cn-row">
+            <button type="button" class="cn-link" ref={gate.start} onClick={() => void reviewNotice()}>
+              See the notice again
+            </button>
+            <button
+              type="button"
+              class="cn-link"
+              onClick={() => {
+                shut.current = true;
+                closeCommentary();
+              }}
+            >
+              Close commentary again
+            </button>
+          </div>
+        </>
+      ) : (
+        <div class="cn-row">
+          <button type="button" class="cn-open" ref={see} onClick={gate.ask}>
+            See the notice
+          </button>
+        </div>
+      )}
+    </section>
+  );
+}
+
 /** The last request to bring a card into view that the shelf has followed. */
 let followed = 0;
 
@@ -151,6 +199,7 @@ function ShelfView({ a, shelf }: { a: Atlas; shelf: Shelf | null | undefined }) 
     <div class="panel shelf" ref={box}>
       <h2 tabIndex={-1}>Sources</h2>
       <p class="shelf-lead">Everything in this app comes from the works below. {S.TAP} one to see what it is, who made it and where to read it.</p>
+      <CommentaryShelf />
       {shelf === undefined && <p class="muted">…</p>}
       {shelf === null && <p class="muted">Couldn’t load the list of sources. Check your connection.</p>}
       {shelf &&

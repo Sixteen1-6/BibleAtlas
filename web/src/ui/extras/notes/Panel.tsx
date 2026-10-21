@@ -7,11 +7,12 @@
 import '../notes.css';
 import type { ComponentChildren } from 'preact';
 import { locate } from '../../../data/atlas';
+import { CommentaryFoot } from '../../commentary/Gate';
 import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, verseHash } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
-import { type Block, type BookFile, type Data, type Hit, type Run, hits, nameFrom } from './model';
+import { type Block, type BookFile, type Data, type Hit, type Run, SOURCE, hits, nameFrom } from './model';
 
 function Runs({ runs, a, navigate }: { runs: Run[]; a: PanelProps<Data>['a']; navigate: (v: VerseRef) => void }) {
   return (
@@ -125,7 +126,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           />
         </>
       )}
-      <SourceNote>Study notes from the Aquifer Open Study Notes by Mission Mutual, adapted from the Tyndale Open Study Notes by Tyndale House Publishers, CC BY-SA 4.0.</SourceNote>
+      <CommentaryFoot />
+      <SourceNote>{SOURCE}</SourceNote>
     </>
   );
 }

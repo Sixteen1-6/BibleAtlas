@@ -10,6 +10,10 @@ import * as S from '../../../state';
 import { loadJson } from '../data';
 import type { VerseRef } from '../types';
 
+/** The panel's source line. */
+export const SOURCE =
+  'Easton’s Bible Dictionary (1897) and Smith’s Bible Dictionary (1884), both public domain, in the Christian Classics Ethereal Library’s transcription, by way of Jon Craton’s CCEL Paragraphs (CC BY-SA 4.0) and NEUU’s Bible Dictionary Dataset (CC BY 4.0).';
+
 /** An entry that cites a verse: [dictionary id, slug, entry name]. */
 export type Listing = [string, string, string];
 

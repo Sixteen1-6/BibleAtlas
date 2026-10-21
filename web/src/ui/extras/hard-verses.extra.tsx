@@ -57,4 +57,13 @@ export default defineExtra<Data>({
     return d.lines.get(verse) ?? null;
   },
   Panel,
+  commentary: true,
+  closed(verse, d) {
+    const qs = d.at.get(verse) ?? [];
+    if (!qs.length) return null;
+    const more = qs.length - 1;
+    const line = `People often ask: ${d.questions[qs[0]].q}${more ? ` And ${more} more ${more === 1 ? 'question' : 'questions'}.` : ''}`;
+    // No source line while closed: it credits the answers, which are not shown yet.
+    return { line, button: more ? 'Show the answers' : 'Show the answer' };
+  },
 });

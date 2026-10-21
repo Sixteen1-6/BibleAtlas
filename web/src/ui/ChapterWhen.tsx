@@ -3,7 +3,9 @@
 // "More" opens in layers: the timeline and the map button first, then the era
 // and each dating view in a line or two, and one more tap, "Sources and
 // evidence", for every citation, the chart rows and why each chapter sits
-// where it does.
+// where it does. The views are commentary, so "More" asks for the
+// commentary notice first, until the reader has finished it once; the line
+// itself always shows.
 
 import { Fragment } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
@@ -30,6 +32,8 @@ import {
   writtenSummary,
 } from '../data/eras';
 import * as S from '../state';
+import { CommentaryFoot } from './commentary/Gate';
+import { accepted, askNotice } from './commentary/state';
 import { Provenance } from './common';
 import './when.css';
 
@@ -43,6 +47,9 @@ export function ChapterWhen({ a, book, chapter, ready }: { a: Atlas; book: numbe
   const [openAt, setOpenAt] = useState<string | null>(null);
   const id = useId();
   const here = `${book}:${chapter}`;
+  const ok = accepted.value;
+  /** Set when the panel opens after the notice: the focus goes to it. */
+  const toPanel = useRef(false);
 
   useEffect(() => {
     if (!ready || data) return;
@@ -57,14 +64,27 @@ export function ChapterWhen({ a, book, chapter, ready }: { a: Atlas; book: numbe
     };
   }, [a, ready, data, book, chapter]);
   // Leaving a chapter closes its panel, so it is closed again on coming back.
-  useEffect(() => setOpenAt((o) => (o === here ? o : null)), [here]);
+  // Closing commentary again (on the Sources shelf) closes it too.
+  useEffect(() => setOpenAt((o) => (o === here && ok ? o : null)), [here, ok]);
+  useEffect(() => {
+    if (openAt !== here || !toPanel.current) return;
+    toPanel.current = false;
+    document.getElementById(`${id}-more`)?.focus({ preventScroll: true });
+  }, [openAt]);
 
   if (!ready || !data) return null;
   const dates = bookDates(data, book);
   const placed = chapterEra(a, data, book, chapter);
   const written = dates ? writtenSummary(dates, chapter) : '';
   if (!placed && !written) return null;
-  const open = openAt === here;
+  const open = openAt === here && ok;
+  const more = () => {
+    if (open || ok) return setOpenAt(open ? null : here);
+    void askNotice().then((yes) => {
+      toPanel.current = yes;
+      if (yes) setOpenAt(here);
+    });
+  };
 
   return (
     <>
@@ -72,7 +92,7 @@ export function ChapterWhen({ a, book, chapter, ready }: { a: Atlas; book: numbe
         {placed && <span class="tp-part">When: {eraSummary(placed.era)}</span>}
         {placed && written && <span aria-hidden="true"> · </span>}
         {written && <span class="tp-part">Written: {written}</span>}
-        <button class="tp-more" aria-expanded={open} aria-controls={`${id}-more`} onClick={() => setOpenAt(open ? null : here)}>
+        <button class="tp-more" aria-expanded={open} aria-controls={`${id}-more`} onClick={more}>
           {open ? 'Less' : 'More'}
           <span class="sr-only"> about when this chapter happened and was written</span>
         </button>
@@ -89,7 +109,7 @@ function More({ id, a, data, book, chapter, placed, dates }: { id: string; a: At
   // The views about this chapter first, then those the dictionary gives other chapters.
   const written = groups([...here, ...elsewhere]);
   return (
-    <div class="tp-panel" id={id}>
+    <div class="tp-panel cn-start" id={id} tabIndex={-1}>
       <p class="tp-frame">{FRAMING}</p>
       <Timeline a={a} data={data} book={book} current={placed?.index ?? -1} written={here} />
       {placed && <MapButton a={a} data={data} era={placed.era} index={placed.index} />}
@@ -106,6 +126,7 @@ function More({ id, a, data, book, chapter, placed, dates }: { id: string; a: At
         </section>
       )}
       <Evidence a={a} placed={placed} written={written} />
+      <CommentaryFoot />
       {/* On a phone the sources list lives in the study pane: show it there. */}
       <div onClick={(e) => (e.target as HTMLElement).closest('.provenance button') && (S.mobilePane.value = 'study')}>
         <Provenance work="tyndale-tbd">Adapted from the Tyndale Open Bible Dictionary (Tyndale House Publishers, CC BY-SA 4.0). Quotations are word for word; the choice of era for each chapter is this app's.</Provenance>

@@ -83,6 +83,15 @@ export interface Extra<D> {
   /** Optional: the panel behind the chapter line. Without it, the chapter line
    * cannot be tapped and only its verse links work. */
   ChapterPanel?: ComponentType<ChapterPanelProps<D>>;
+  /** Optional: the panel shows commentary, people's words about the Bible
+   * (notes, answers, interpretations), not the Bible's own words. Until the
+   * reader finishes the commentary notice once, tapping the line opens the
+   * notice first (ui/commentary), and a panel opened by a link shows its
+   * closed state. 'verse': the verse panel only; the chapter panel stays open. */
+  commentary?: true | 'verse';
+  /** Optional, with commentary: the verse panel's closed state, as one plain
+   * sentence and its button's words, and the panel's source line. */
+  closed?(verse: VerseRef, data: D, a: Atlas): { line: string; button: string; source?: string } | null;
 }
 
 /** Wrap your extra in this so TypeScript checks that load(), note() and Panel
