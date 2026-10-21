@@ -1,0 +1,37 @@
+diff --git a/crates/atlas-cli/src/layers.rs b/crates/atlas-cli/src/layers.rs
+index 9d50ce5..2b04964 100644
+--- a/crates/atlas-cli/src/layers.rs
++++ b/crates/atlas-cli/src/layers.rs
+@@ -49,8 +49,10 @@ const INTERPRETER: &str = "interpreter";
+ /// Kinds whose claim is a reading of the text, so a word book alone cannot carry it.
+ const NEEDS_INTERPRETER: [&str; 5] = ["wordplay", "allusion", "pattern", "irony", "fulfillment"];
+ 
+-pub const KINDS: [&str; 9] =
+-    ["plain meaning", "quotation", "allusion", "wordplay", "name meaning", "pattern", "irony", "fulfillment", "setting"];
++pub const KINDS: [&str; 12] = [
++    "plain meaning", "quotation", "allusion", "wordplay", "name meaning", "pattern", "irony", "fulfillment", "setting",
++    "figure", "parallelism", "contrast",
++];
+ pub const STRENGTHS: [&str; 3] = ["widely agreed", "commonly held", "some interpreters"];
+ pub const SECTIONS: [&str; 4] = ["law-history", "prophets-poetry", "jesus", "letters-revelation"];
+ const PLAIN: &str = "plain meaning";
+@@ -206,8 +208,8 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<Value>, String> {
+             out.push(v);
+         }
+     }
+-    if let Some(e) = check.errors.into_iter().next() {
+-        return Err(e);
++    if !check.errors.is_empty() {
++        return Err(check.errors.join("\n"));
+     }
+ 
+     let layer_count: usize = file.passages.iter().map(|p| p.layers.len()).sum();
+@@ -406,7 +408,7 @@ impl Check<'_, '_> {
+             }
+         }
+         let layers: Vec<Option<Value>> = p.layers.iter().enumerate().map(|(i, l)| self.layer(p, range, i, l)).collect();
+-        if !p.layers.iter().any(|l| l.kind != PLAIN && l.strength != SOME) {
++        if !p.layers.iter().any(|l| l.kind != PLAIN && (l.strength != SOME || ["figure", "parallelism", "contrast"].contains(&l.kind.as_str()))) {
+             self.fail(&at, format_args!("needs a layer besides the plain meaning that is not {SOME:?}"));
+         }
+         let (v, end) = range?;

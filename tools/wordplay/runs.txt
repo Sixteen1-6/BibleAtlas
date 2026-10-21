@@ -1,0 +1,79 @@
+# writer+verifier workflow runs (journals under /root/.claude/projects/-home-claude-bibleatlas/8f2fa849-c61c-5244-bf9c-beef3d451f62/subagents/workflows/<run>/journal.jsonl)
+wf_3cf604d1-8a1 ot1a (32 batches, Genesis-2 Samuel)
+wf_c9df60ec-6e1 ot1b (31 batches, 2 Samuel-Song)
+wf_d28df03f-bfe rest0 (30 batches, OT extras + Isaiah-Hosea 4)
+wf_735e7a84-812 rest1 (30 batches, Hosea 4-Matthew 10)
+wf_f23e9270-f00 rest2 (30 batches, Matthew 10-Galatians 5)
+wf_984d31e8-4a7 rest3 (29 batches, Ephesians-Revelation)
+# post: python3 -I post.py <outdir> <journals...>; then validate by merging into a copy of lw/config/layers.json and building
+# Pipeline per part: post.py <out> <journals> -> audit sample (strength often overclaimed when one writer) ->
+#   recal_pick.py <out>/new-passages.json recal_X.json 6 -> Workflow recal.js {file, groups:6, name} ->
+#   apply_recal.py <out> <recal journal> [fixes.json] (moves passages with no firm note to held-back.json) ->
+#   merge_into.py ../lw/config/layers.json <out dirs> ; build in lw with CARGO_TARGET_DIR=../lw-target ; restore lw file with git show HEAD:config/layers.json
+# Part 1 (Gen-Song): out_ot1 (431 passages), audit wf_bb88bbbb-4f2 (45 sampled: 38 sound, 7 minor, 0 wrong), recal wf_cf7aeb78-86f (110 notes), fixes_ot1.json
+recal p2: wf_86d0159c-163 (recal.js, recal_p2.json, 10 groups)
+audit p2 sample: wf_7481c95b-329 (60 notes not in recal: 43 sound, 17 minor, 0 wrong) -> fixes_p2_audit.json (pass to apply_recal)
+fix_p2.py out_p2: Malachi intro cites -> 1:1 + at, acts-8-30 -> cite-additions.json, drop dup additions, 2 word lists; apply_fos.py fixed fos figure names
+tighten p2a: wf_f4837b2b-90e (tighten.js, tighten_p2a.json: 795 non-recal non-audit notes, 32 groups) -> apply_tighten.py (to write)
+out_p2r = out_p2 + apply_recal(wf_86d0159c-163, fixes_p2_audit.json): 745 kept, 122 held (strength 177 changed, 46 cites added, 156 texts)
+second p2: wf_4df779f9-82a (second.js, second_p2.json: 125 notes of the 122 held passages, 16 groups) -> confirmed json -> apply_second.py out_p2r
+TODO after: tighten p2b on the recal notes that ship; apply_tighten p2a+p2b; build; handoff part2
+cq.check now strict: quote parts must sit in ONE section (fos mention / cb note). fix_quotes_p2.py out_p2r trimmed 3 fos quotes (John 10:1, Rom 12:15, 1 Cor 9:17); then apply_fos.py. Re-run strict check on final quotes before handoff.
+Layers thread lessons (from-layers/README.md): on = commentator's own heading (vault link-only <p><a>Deu 28:62</a></p>; cb note label bcv); reported views don't count; one quote row per note.
+  -> cq.cb now keyed by bcv label; finalize.py <out> (note index on quote rows, heading relabel, strict check, fos at) — run LAST before handoff.
+  -> reported-view scan candidates to verify after tighten: Isaiah 19:18 clarke, Obadiah 1:3 clarke, Philippians 4:3 gill, Revelation 22:4 gill
+tighten p2b: wf_2fb58421-b92 (tighten2.js with reported-view rule, tighten_p2b.json: 81 recal notes in kept passages, 4 groups)
+part1-returned.json: 10 part-1 passages back from Layers, need second writer -> run second.js with held p2 tighten holds
+BUG: tighten pickers used the FIRST quote row for a (ref,kind,source,on) key, so the 2nd note sharing a key saw the 1st note's quote. shared_quote_notes.json lists affected (passage,layer,source); review tighten decisions on them (remove_cites / strength drops) before applying. finalize.py assigns rows by order, which is right.
+second p2 done: second_p2_confirmed.json (78 cites: 71 confirmed + 7 quote-fixed; 8 rejected). apply_second now raises only notes that gained a writer. ORDER: apply_second out_p2r second_p2_confirmed.json -> apply_tighten out_p2r <p2a journal> <p2b journal> --protect=second_p2_confirmed.json -> (p2c tighten for rejoined recal notes + returned part1) -> finalize -> build -> handoff
+cq.fos windows now run to the end of the remark (fos_end), fosfig too; no part-2 changes. out_r1 = 10 returned part-1 passages (held-back.json + quotes.json). second r1: wf_7ff85f1a-a87 (second_r1.json, 2 groups)
+second r1 done: second_r1_confirmed.json (8 cites); out_r1s = out_r1 + apply_second + fix_r1.py + finalize: 6 rejoined (genesis-31-20, numbers-6-7, numbers-22-2, psalm-10-18, psalm-127-2, proverbs-8-27), 4 still held
+tighten p2a done (wf_f4837b2b-90e): 795 checked; p2b done (wf_2fb58421-b92). override_p2.json fixes 4 decisions made on the wrong quote/reported view + 1 unconfirmed.
+build_p2f.sh: out_p2r -> apply_second(second_p2_confirmed) -> apply_tighten(p2a,p2b,--protect,--override) = out_p2f: 734 kept, 133 held
+second p2b: wf_6633a74d-1a5 (second_p2b.json: 76 newly held notes, 10 groups)
+tighten p2c: wf_dbdc6dbb-040 (tighten2.js, tighten_p2c.json: 57 recal notes in rejoined passages, built from finalized tmp_c)
+tighten p2c done (wf_dbdc6dbb-040): 57 checked, 32 ok, 25 fixes all confirmed (1 amended twice); added to build_p2f.sh
+apply_tighten: --fresh=<journal> for checks that already saw the second writers (p2c); protect skipped for them. p2c lowered amos-4-3, 1-corinthians-9-17, matthew-27-45 (now held; matthew-27-45 drops gill+pulpit via drop_cites.py)
+second p2c: wf_18c793f6-913 (second_p2c.json: those 3 notes, 1 group). join_second.py <journal> <confirmed.json> joins find+verify (reproduces second_p2_confirmed exactly)
+PLAN: build_p2f.sh then apply_second out_p2f second_p2b_confirmed.json and second_p2c_confirmed.json AFTER tighten -> finalize -> build check -> handoff2.py
+second p2c done: verifier confirmed Poole/Wesley (only the without-pay half, not the sound play) and Gill/Pulpit on Amos 8:9 (only report the Fathers) -> all rejected by hand; nothing applied; the 3 stay held
+second p2b split (stopped wqqvwiys3 after 2 finds; load ~0, agents are network-bound): A resume wf_6633a74d-1a5 only [0,1,2]; B wf_407cc2ec-e91 [3,4,5]; C wf_bfdd997c-b62 [6,7]; D wf_954a0123-d57 [8,9]. second.js takes args.only.
+NEXT: join_second.py <4 journals> second_p2b_confirmed.json; then fresh check p2d (tighten2.js) on every note that gained a writer without a fresh check: p2b gains + isaiah-56-10 L1, revelation-14-5 L2, revelation-22-4 L2 + the 6 r1 notes (tighten_pick2.py, keys_p2d_*.json); apply with --fresh
+second p2b A/C/D joined: second_p2b_acd.json (64 cites, 41 notes; 11 rejected). tmp_d = out_p2f + that + finalize: 39 rejoined. tighten_p2d.json (50 notes, 10 groups: acd gains + keys_p2d_a + r1 gains); tighten2.js takes args.only
+tighten p2d: wf_33d31151-658 [0-3], wf_246ffb55-5f8 [4-6], wf_60293381-09f [7-9]; apply with --fresh to out_p2f (after apply_second p2b) and to out_r1s copy
+p2e: wf_710a5763-395 [0,1], wf_13599aa4-b78 [2,3], wf_b9cc03ac-5ed [4,5] (21 B-gained notes). build_p2f.sh now ends: apply_second p2b -> finalize -> apply_tighten --fresh p2d+p2e -> finalize. build_r1t.sh: out_r1s + fresh p2d -> out_r1t
+2026-10-17 14:20 UTC: HANDED OFF part2 (788 passages, 977 notes, 3370 quote rows, additions zephaniah-2-4, cite-additions acts-8-30) + part1c (6) to coordinator cse_017XPZA6RjyGp7LmkYKQ9wBS for the Layers thread; build on a80fb00: 1264 live / 3093 notes; held/ has 79 + 4. README updated. Memory updated.
+2026-10-17 16:25 part 2 LIVE (PR #44, eb257af, 791 of 794). 3 returned (from-layers/part2-returned.json): matthew-11-23 (Pulpit is first writer), ephesians-4-30 (Clarke only), jeremiah-48-47 (Bullinger only; same play already live at jeremiah-29-14). returned.js (3 finders: Bible Hub, url works, alternative note; verify; refute): wf_3590d8c6-bc5 mt11, wf_ee968de6-263 eph4, wf_44b9c62c-870 jer48
+eph4 (wf_ee968de6-263): Reformation Study Bible note on Eph 4:30 (biblegateway) calls it Paul's quotation of Isa 63:10 (confirmed; refuter: backs only the allusion half, not 'Israel's history is a caution'). Plan: trim note text to the allusion, cite clarke + reformation-sb, commonly held.
+mt11 (wf_3590d8c6-bc5): Pulpit confirmed (allusion stays some interpreters, hedged); Keener rejected (comparison only); fulfillment note Barnes+Clarke+Ellicott (widely agreed). build_ret.py (+build_ret_mt.py) -> out_ret: 3 passages; build on eb257af: 1264 live / 3095 notes. handoff part2r-* written. last check tighten_ret wf_8f71bdf8-32b (5 notes)
+2026-10-17 ~17:05 UTC: tighten_ret (wf_8f71bdf8-32b) applied with --fresh (1 text changed, 1 rejected); rebuild on eb257af OK (1264 live / 3095 notes); part2r-new-passages.json + part2r-quotes.json (3 passages, 21 rows) + README "Part 2r" written; hand-off sent to coordinator cse_017XPZA6RjyGp7LmkYKQ9wBS with citation ask + ultracode message ids.
+
+== Round 3 (2026-10-20, after Shubhanshu's "continue ... making it better") ==
+h3/held.json: the 83 held passages (79 part 2 + 4 part 1) with their quote rows. New tools osn.py (Aquifer/Tyndale study notes) and cat.py (Catena Aurea).
+held-second-writer script: /root/.claude/projects/-home-claude-bibleatlas/8f2fa849-c61c-5244-bf9c-beef3d451f62/workflows/scripts/held-second-writer-wf_6a7e5612-13a.js (find x3 -> verify -> refute -> compose -> check -> confirm)
+shards (h3/shards.json) 0..11: wf_0ccd65bf-192 wf_33b00d96-b2d wf_feeefd30-3f9 wf_39df8968-40c wf_dabc0e03-8e0 wf_dfc828a9-501 wf_9b74e222-4fb wf_1741a49c-131 wf_27d7d81c-c5f wf_29bdf5ac-911 wf_5c5f5dd6-7cf wf_1056fa44-10c
+r3 leads: mine3.py -> r3/cands.json (596); triage wf_1f97cae9-15f. figures: r3/fos_index.json, r3/figscan.py -> figleads.json, r3/figcands.py -> figcands.json (3026 over 2829 verses), r3/bfig.json (531 batches; Job 6:4 added to 151). figname.py tool.
+Layers thread (via coordinator 13:55Z): kinds figure/parallelism/contrast OK, Deep only; one-writer figure/parallelism/contrast passages may stand alone; keep fields figure_name/figure_words/stands_for, lines/relation, people.
+w3/write3.js (v2 with fields; v1 pilot runs wf_d0a0b9c9-a9a and wf_83f9d5e5-30c stopped). contrast sweep wf_2dd9b233-04f (27 spans).
+triage done: 314 of 596 kept (164 allusion, 133 name meaning, 17 wordplay) -> r3/cands_kept.json -> r3/b3.json (70 batches, 308 verses).
+r3 writer shards (write3 v2, mode r3): wf_0cfaf1a6-f67 wf_dd5b528b-48b wf_2fb775a9-260 wf_6659aaad-bda wf_5a21398b-cb3 wf_4efc8b42-3ae wf_b633cc15-466 wf_b6509a8d-5e1
+fig pilot (write3 v2): wf_5ad563db-ad1 (151,186,235) wf_91cf3338-75f (415,472)
+fig pilot 2 done (wf_91cf3338-75f): post3 -> w3/out_pilot2: 13 new + 1 addition (romans-3-20), 12 figure + 3 parallelism; quality good. w3/show.py <outdir> prints notes.
+fig sweep shards (r3/fig_shards.json, 24 interleaved shards of bfig, pilots skipped): 0-11 launched 14:40Z: wf_d35a978b-086 wf_6463be27-de9 wf_38e56146-ba5 wf_3a58a958-cc5 wf_2e6a008d-d27 wf_02537fa3-295 wf_481b0a8f-343 wf_45b05a17-4a9 wf_1ae78ca9-175 wf_93afd7a4-355 wf_16636b9e-a34 wf_5971db89-93b ; 12-23 to launch when held/r3 shards finish
+contrast sweep split (w3/contrast.js takes args.only = SPANS indexes): resume wf_2dd9b233-04f [0-5]; wf_9b1963b2-0b5 [6-9]; wf_d91b88a1-87b [10-13]; wf_9fb95368-9f3 [14-17]; wf_324481e8-71c [18-21]; wf_fe44c10d-7b2 [22-24]; wf_36db699c-d2b [25,26]
+2026-10-20 14:43-18:20 UTC: usage limit stopped every workflow (agents failed "session limit"); fig shards 0-11 made no progress (all write agents failed).
+18:27Z resumed (task id -> run): held wp6nt7ie7 0ccd65bf, wl8pw2mtn 33b00d96, w405hv9q1 feeefd30, wxuzbgu3x 39df8968, wjdvpwcdq dabc0e03, w5asg19yd dfc828a9, wrww7uk7w 9b74e222, wgf7b0p6e 1741a49c, wnzohxqsy 27d7d81c, wm77l6ezt 29bdf5ac, wx8spk721 5c5f5dd6, wm7hzyedl 1056fa44
+  r3: woqy3uzsu 0cfaf1a6, wdinq1lhw dd5b528b, wvta7sluc 2fb775a9, wcs58pgof 6659aaad, wzjuts3cw 5a21398b, wscdk2ddl 4efc8b42, wzf676n8k b633cc15, wpscmczmf b6509a8d
+  contrast: wmqb1x5e3 2dd9b233, wwbttcwco 9b1963b2, w2fjhbtl7 d91b88a1, wvkast02g 9fb95368, wg6h3ruvk 324481e8, wpt2jl9mn fe44c10d, ws8lyxevw 36db699c
+  fig sweep: NOT resumed yet (wait for these, then run in waves to spare the shared usage limit); resume each fig run id with the same args.
+contrast write wave 1: r3/bcon1.json (70 batches from Gen-Num, Ruth-2 Sam, Kings-Esther sweep outputs w1k4yaxvf, w2fjhbtl7, wwbttcwco; contrast_batches.py <out> 4 <prefix> <outputs> --skip=<earlier batches>) -> write3 fig mode, 4 shards j::4: wf_92606544-18e (wq86ibv5e) wf_9e3403b2-a5f (wfh1p00nv) wf_d7e193f7-687 (wg85x8lp8) wf_99b8f226-e63 (wn4vq5744)
+contrast sweep done so far: w2fjhbtl7 [10-13], wwbttcwco [6-9], wpt2jl9mn [22-24 John 12-21, Acts]
+contrast sweep done: wg6h3ruvk [18-21 Mark, Luke, John 1-11]; r3/bcon2.json built from wpt2jl9mn + wg6h3ruvk (not launched yet)
+19:15Z contrast sweep done: wvkast02g [14-17 Daniel, Jonah, Matthew] 97 contrasts -> r3/bcon3.json (85 anchors, 22 batches, 5 live; --skip bcon1,bcon2). Not launched: waiting for held shards to free capacity (usage limit hit 14:43 after ~80 min of a similar load).
+
+== 2026-10-21 16:20Z resume (after the 19:17Z session limit and the 23:25Z weekly limit) ==
+main is now 2aabdcc (#47-#50 merged by Shubhanshu from his PC: CLAUDE.md, docs/HANDOFF.md, round 1 mend). lw moved to 2aabdcc + local-build.patch (1268 passages, 3105 notes).
+#50 brought back 1-samuel-6-6, proverbs-3-20, ecclesiastes-3-18, ecclesiastes-3-20: dropped from held (79 left).
+held resumed (task -> run): w6ifg2fo3 0ccd65bf, w4oyfyaq8 33b00d96, wq8qdhx19 feeefd30, wqaicn99c 39df8968, w85semhh6 dabc0e03, wh8a7hve0 dfc828a9, wh29oo9xg 9b74e222, wlfqr80rk 1741a49c (-1sam6:6), wwq60yzxv 27d7d81c (-prov3:20), wscmhy8vj 29bdf5ac (-eccl3:18), wqws9fn46 5c5f5dd6 (-eccl3:20), wwjkgdo42 1056fa44
+r3 resumed: w0syvbysg 0cfaf1a6, wqafa90kz dd5b528b, wo5r2kopr 2fb775a9, wh00nahtt 6659aaad, wyrtxzol8 5a21398b, wr117aybz 4efc8b42, ws7fztrkp b633cc15, wejuig5np b6509a8d
+waiting: con1 (4 runs, all writes failed), Judges sweep (wf_2dd9b233-04f [0-5], 1 span failed), bcon2/bcon3 + bcon4 (Isaiah-Rev from ws8lyxevw), fig shards 0-23.
