@@ -37,10 +37,11 @@
 //!   the book's files.
 //! - `extras/figures/<Book>.<k>.json`: `{format, notes}`, the notes on the
 //!   chapters of part k in order of first verse. A note is `{id, kind, form,
-//!   v, end, strength, short, about, refs?, lines?, pairs?, figure?, sides?,
-//!   defined?, original?, evidence, limit?, checked, cites}`: verses are verse
-//!   indices, `refs` and sides' `s`, `e` verse ranges, and `checked` the date
-//!   the note was checked against its sources. A line is `{v, t, at, mark?,
+//!   v, end, strength, writers, short, about, refs?, lines?, pairs?, figure?,
+//!   sides?, defined?, original?, evidence, limit?, checked, cites}`: verses are verse
+//!   indices, `refs` and sides' `s`, `e` verse ranges, `writers` the number of
+//!   different interpreters cited (the count `strength` comes from), and
+//!   `checked` the date the note was checked against its sources. A line is `{v, t, at, mark?,
 //!   key?}` and a figure `{name, part?, words, means, v, at}`, `at` being a
 //!   UTF-16 offset into verse `v`'s BSB text; a line's key word and each word
 //!   of a pair occur once, as whole words, in the lines, a pair's first word
@@ -679,7 +680,7 @@ impl<'a> Check<'a> {
 
         let (v, end) = own?;
         let mut out = json!({
-            "id": n.id, "kind": n.kind, "form": n.form, "v": v, "end": end, "strength": n.strength,
+            "id": n.id, "kind": n.kind, "form": n.form, "v": v, "end": end, "strength": n.strength, "writers": writers.len(),
             "short": n.short, "about": n.about, "evidence": n.evidence, "checked": n.checked, "cites": cites,
         });
         if !refs.is_empty() {
@@ -974,6 +975,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     && form_ok
                     && v >= prev
                     && [WIDELY, COMMONLY, SOME].iter().any(|s| x["strength"] == *s)
+                    && x["writers"].as_u64().is_some_and(|w| w >= 1 && x["strength"] == strength_for(w as usize))
                     && ["id", "short", "about", "evidence"].iter().all(|k| x[k].as_str().is_some_and(|s| !s.is_empty()))
                     && x["checked"].as_str().is_some_and(date_ok);
                 prev = v;
