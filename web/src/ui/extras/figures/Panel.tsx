@@ -382,7 +382,7 @@ function Writers({ note }: { note: Note }) {
       </ul>
       {note.limit && (
         <>
-          <h4>Where writers weigh it differently</h4>
+          <h4>Where writers differ, or what this does not claim</h4>
           <p class="x-figures-limit">{smart(note.limit)}</p>
         </>
       )}
