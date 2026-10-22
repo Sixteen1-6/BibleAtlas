@@ -101,7 +101,7 @@ export type Asked =
   | { kind: 'topic'; i: number; title: string; n: number }
   /** Any other question, answered with the verses gathered for it. */
   | { kind: 'live'; text: string }
-  /** Someone asking about ending their life: where to find help now, then verses of hope. */
+  /** Someone asking about ending their life: whole verses of hope, and nothing else of ours. */
   | { kind: 'care'; text: string };
 
 /** The longest question kept in a link: room for a few sentences of what happened. */
@@ -171,7 +171,7 @@ export function findAsked(ix: AskIndex, id: string): Asked | null {
 export function askLabel(asked: Asked): [string, string] {
   if (asked.kind === 'question') return [asked.q.q, `${asked.q.n.toLocaleString()} verses`];
   if (asked.kind === 'topic') return [asked.title, `${asked.n.toLocaleString()} verses`];
-  if (asked.kind === 'care') return ['Help, and hope', 'where to turn now, and verses for this'];
+  if (asked.kind === 'care') return ['Help, and hope', 'verses for this'];
   return [asked.text, 'the verses on it'];
 }
 

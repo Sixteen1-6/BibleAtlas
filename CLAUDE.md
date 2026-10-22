@@ -12,7 +12,7 @@ Standing instructions for any Claude session working in this repository. They co
 
 ## Scripture and citation (the founder's rules)
 
-- **Ask answers only in the Bible's words.** "The framework for interpreting the Bible is the Bible." Answers are chains of whole verses or exact BSB words, 3 to 8 parts, with nothing written in between. No scholars or church views in questions, phrasings, signals or examples. Every chain part must be tied by the Bible's own data, or the build fails. The only two exceptions are the self-harm help line and the founder's own note.
+- **Ask answers only in the Bible's words.** "The framework for interpreting the Bible is the Bible." Answers are chains of whole verses or exact BSB words, 3 to 8 parts, with nothing written in between. No scholars or church views in questions, phrasings, signals or examples. Every chain part must be tied by the Bible's own data, or the build fails. The only exception is the founder's own note. The page for someone asking about ending their life shows only its seven whole verses, then that note: Shubhanshu asked for "Scripture only" there on 2026-10-22, so the help line is gone.
 - **Cite only Bible-believing Christian writers.** The founder's words, 2026-10-11: "cite ... bible believing people who fully believe the bible and theologians that love God, not people who are liberalizing the bible".
   - Catholic and Orthodox writers who uphold Scripture may be cited. Rabbis' commentaries and Jewish scholars may not.
   - Ancient texts (Targums, Mishnah, Josephus and so on) may be named in evidence only as witnesses, never as a citation.
