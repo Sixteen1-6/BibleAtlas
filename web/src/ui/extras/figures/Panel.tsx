@@ -427,7 +427,7 @@ function WhatThisIs({ form, note }: { form: Form; note: Note }) {
   return (
     <div class="x-figures-what">
       <p class="x-figures-term">
-        <b>{note.kind === 'figure' && note.figure ? `${note.figure.name}${note.figure.part ? `, ${note.figure.part}` : ''}` : form.label}</b>
+        <b>{note.kind === 'figure' && note.figure ? `${note.figure.name}${note.figure.part ? `${/^of\b/i.test(note.figure.part) ? ' ' : ', '}${note.figure.part}` : ''}` : form.label}</b>
         {note.kind !== 'figure' && form.term && <span> · {form.term}</span>}
       </p>
       {d ? (
