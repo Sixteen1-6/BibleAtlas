@@ -94,3 +94,25 @@ Judges sweep: w40cgl0ly 2dd9b233 [0-5]
 next wave (when these finish): bcon1c-4c (+bcon5 from the Judges sweep) with write4.js, then fig shards 0-23 with write4.js.
 21:21Z Judges sweep done (w40cgl0ly, 6/6 spans, 143 contrasts). r3/bcon5-all.json (contrast_batches.py, skip bcon1-4: 78 contrasts, 77 anchors) -> r3/bcon5.json keeps only person pairs not already in bcon1-4 (52 verses, 13 batches, key con5-*; the 26 same-pair ones in r3/bcon5-dropped-same-pair.json) -> add_catalogue_leads -> r3/bcon5c.json (6 catalogue leads, rows 2 and 6).
 Contrast write wave (write4.js, mode fig): bcon1c (70 batches), bcon2c (50), bcon3c (22), bcon4c (30), bcon5c (13) = 185 batches; launch when the held/r3 wave finishes.
+21:35Z r3 shard wic00d5uy (6659aaad) done: 31/31 agents, 20 passages + 3 additions.
+Contrast wave, one shard per freed slot (keep about 20 running). Plan: bcon1c 4 shards (j::4 of 70), bcon2c 3 (j::3 of 50), bcon3c 1, bcon4c 2 (j::2 of 30), bcon5c 1.
+  con5 (bcon5c [0-12], write4 fig): winnfz2sm wf_69e9a0bc-553
+21:40Z r3 shard wksdwmyml (5a21398b) done: 31/31, 34 passages + 2 additions.
+  con3 (bcon3c [0-21], write4 fig): wkqg5gn3d wf_155766d4-1d1
+21:45Z r3 shard wt0w8wber (b633cc15) done: 30/30, 22 passages + 2 additions.
+  con4a (bcon4c even [0..28], write4 fig): w596ego33 wf_545beaa7-ae1
+21:50Z r3 shard wpj1z89bt (0cfaf1a6) done: 33/33, 30 passages + 1 addition.
+  con4b (bcon4c odd [1..29], write4 fig): w7zd47d1q wf_691cea2a-e0e
+21:55Z r3 shard w9rlz3qdc (b6509a8d) done: 28/28, 24 passages + 1 addition.
+  con2a (bcon2c j%3==0, write4 fig): wvsdgceyd wf_9b73f10d-fee
+22:00Z r3 shard wx3hk8zzd (2fb775a9) done: 30/30, 28 passages (batch 18 wrote none).
+  con2b (bcon2c j%3==1, write4 fig): wuavpnkt5 wf_aa7bde70-c0b
+22:00Z 2026-10-21: session limit again (resets 01:50Z) failed agents in every running run. Done before it: r3 shards 6659aaad, 5a21398b, b633cc15, 0cfaf1a6, b6509a8d, 2fb775a9 (complete). Partly failed: r3 dd5b528b (4 checks), 4efc8b42 (7 checks); all 12 held shards; contrast con5 wf_69e9a0bc-553, con3 wf_155766d4-1d1, con4a wf_545beaa7-ae1, con4b wf_691cea2a-e0e, con2a wf_9b73f10d-fee, con2b wf_aa7bde70-c0b (most writes failed).
+== 2026-10-22 01:53Z resume (limit reset 01:50Z) ==
+held: wi85ifw2f 0ccd65bf, w5ukggrc8 33b00d96, w828xlzn3 feeefd30, wcje3peyb 39df8968, w7o9n2qgf dabc0e03, wi1y96app dfc828a9, wtm5qdxpr 9b74e222, wowqdjb5v 1741a49c, wgw1dpkxh 27d7d81c, wtmpi8ius 29bdf5ac, wud5ko05m 5c5f5dd6, w3gw713ac 1056fa44
+r3: wn0qbvyd7 dd5b528b, wwkt6caiy 4efc8b42
+contrast runs: resume one per freed slot (same args as logged above).
+02:00Z disk full (the session allowance): Rust target dirs and 596 throwaway per-agent download folders older than 3 hours deleted from the scratchpad (kept wp, lw, tools, repos, dl, mt14, m39, bh1416, m2546b, d122, v).
+2026-10-22 02:05Z Layers relay: new figure/parallelism/contrast notes use /mnt/project-files/bible-atlas/figures/README.md (config/figures/<OSIS>.json); quotable works only; read + retrieved on every cite; no writer names in own words; Barnes on Genesis is Murphy's; check Wesley OT quotes are not Henry's.
+2026-10-22 02:40Z new pipeline in wp/fig: figcheck.py (Python port of extra_figures.rs checks + thread rules: no Wesley, no Barnes on Genesis, barred books/verses/fathers; --quotes checks local quotes), figwrite.js (write -> skeptic -> second reader, each runs figcheck), figpost.py (journals -> config/figures/<OSIS>.json + quote-checks.json + report.json; web cites need a logged fetch). Seeds pass with 0 problems.
+2026-10-22 02:45Z pilot: wzcjqorix (wf_063cf1e3-745) bfig [0,242,454]; wfmj0nc00 (wf_d928fd3c-be6) bcon5c [0,1]. Old write4 contrast runs (Layers format) dropped; all contrast and figure batches rerun in the new format after the pilot.
