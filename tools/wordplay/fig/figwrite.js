@@ -89,7 +89,7 @@ Fields, and how to fill them:
 - checked: "${TODAY}".
 - cites: one per work (a work is never cited twice in a note). source, on, optional at, quote, read, retrieved "${TODAY}", plus found and context for the record. read is, by source and copy:
   * gill, barnes, jfb, keil-delitzsch, clarke read with cq.py: "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)"
-  * henry-concise read with cq.py mhcc: "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)"
+  * henry-concise, henry, calvin, geneva read with cq.py mhcc, mhc, calvin, geneva: "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)"
   * bullinger-fos: "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)"
   * bullinger-cb: "the UniqueBible.app module of the Companion Bible notes, at github.com/otseng/UniqueBible_Commentaries (commit 4b77d86)"
   * catena-aurea read with cat.py: "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)"
@@ -112,9 +112,10 @@ const RULE = `Who may be cited, and when a writer counts (all strict; earlier ch
 const TOOLS = `Tools (run with python3 -I). Do not download, clone or install anything, and write files only in your folder ${F}/work/<batch key>/:
 - ${W}/vw.py "<ref>" prints the BSB verse word for word with its Hebrew or Greek words and Strong's keys ("Psalm 1:6", "Micah 1:10-15"). Copy lines, figure words and side words from its "==" line.
 - ${W}/figname.py "<ref>" prints every place Bullinger's Figures of Speech uses the verse, with the figure and the chain of headings above it and his remark.
-- ${W}/cq.py all "<ref>" prints the local commentaries on a verse (gill, clarke, barnes, jfb, kad = keil-delitzsch, mhcc = henry-concise, cb = bullinger-cb, fos = bullinger-fos; ignore wesley), cut at 2500 characters; "cq.py <work> <ref>" prints one in full. A heading like "section psa 1:4" means the remark covers verses from there.
+- ${W}/cq.py all "<ref>" prints the local commentaries on a verse (gill, clarke, barnes, jfb, kad = keil-delitzsch, mhcc = henry-concise, mhc = henry, Matthew Henry's complete commentary, calvin, geneva, cb = bullinger-cb, fos = bullinger-fos; ignore wesley), cut at 2500 characters; "cq.py <work> <ref>" prints one in full. A heading like "section psa 1:4" means the remark covers verses from there. Prefer these local copies to the web for Henry, Calvin and the Geneva notes.
 - ${W}/cat.py "<ref>" prints the Catena Aurea on a Gospel verse, under each Father's name; "cat.py check <ref> <quote>".
-- Bible Hub chapter pages, with the WebFetch tool only (never curl): https://biblehub.com/commentaries/<code>/<book>/<chapter>.htm, <code> one of mhcw (henry, Matthew Henry's complete commentary), pulpit, ellicott, benson, poole, calvin, gsb (geneva), bengel, maclaren, chrysostom, treasury (spurgeon), and <book> lowercase with underscores (1_samuel, song_of_solomon; Psalms is psalms). Ask WebFetch for the remark on your verse word for word. The Fathers: newadvent.org/fathers or ccel.org pages.
+- Use only these tools and pages. Never read other folders in the scratchpad: their copies are not pinned, and a cite read there is dropped.
+- Bible Hub chapter pages, with the WebFetch tool only (never curl): https://biblehub.com/commentaries/<code>/<book>/<chapter>.htm, <code> one of pulpit, ellicott, benson, poole, calvin, gsb (geneva), bengel, maclaren, chrysostom, treasury (spurgeon), and <book> lowercase with underscores (1_samuel, song_of_solomon; Psalms is psalms). Ask WebFetch for the remark on your verse word for word. The Fathers: newadvent.org/fathers or ccel.org pages.
 - ${F}/figcheck.py --quotes <file> runs the build's checks on a file holding {"notes": [...]}, and checks every quote from a local copy word for word. Every note you return must pass it.
 - The live Layers notes on a chapter, so you do not repeat one: python3 -I -c "import json; [print(json.dumps(p, ensure_ascii=False)[:2000]) for p in json.load(open('${LW}/config/layers.json'))['passages'] if p['ref'].startswith('<Book> <chapter>:')]"`
 
