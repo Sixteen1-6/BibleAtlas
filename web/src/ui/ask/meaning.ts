@@ -238,6 +238,14 @@ function weigh(ix: AskIndex, m: Meaning, mm: Model | null, text: string): Weighe
   return { z, meant: meant !== null };
 }
 
+/** The word-meaning model's direction for `text` (length 1), as it reads
+ * the messages it matches; null before the model loads, or when it knows
+ * none of the text's pieces. */
+export function meaningOf(text: string): Float64Array | null {
+  const mm = model;
+  return mm ? embed(mm.texts.v, pieces(mm.vocab, text, mm.unk)) : null;
+}
+
 /** The prepared questions `text` most likely means, likeliest first; none
  * before the weights load, or when none of its words is known. */
 export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
