@@ -6,7 +6,8 @@
   python3 cq.py check <work> "<ref>" "<quote>"   is the quote verbatim there? (exit 0/1)
 
 Works: gill, clarke, barnes, jfb, kad (Keil and Delitzsch, Old Testament only),
-mhcc (Matthew Henry's Concise), wesley (Wesley's Notes), cb (Bullinger's
+mhcc (Matthew Henry's Concise), mhc (Matthew Henry's complete commentary), calvin (Calvin's
+commentaries), geneva (the Geneva Bible notes), wesley (Wesley's Notes), cb (Bullinger's
 Companion Bible notes), fos (Bullinger's Figures of Speech). SOURCE maps each
 to its id on the Layers cite list (config/layer-sources.json).
 gill, clarke, barnes, jfb and kad come from sacred-texts.com's copies as kept in
@@ -38,13 +39,18 @@ FOS = ['Gen', 'Exo', 'Lev', 'Num', 'Deu', 'Jos', 'Jdg', 'Rut', '1Sa', '2Sa', '1K
        'Hab', 'Zep', 'Hag', 'Zec', 'Mal', 'Mat', 'Mar', 'Luk', 'Joh', 'Act', 'Rom', '1Co', '2Co', 'Gal', 'Eph', 'Phi', 'Col',
        '1Th', '2Th', '1Ti', '2Ti', 'Tit', 'Phm', 'Heb', 'Jas', '1Pe', '2Pe', '1Jo', '2Jo', '3Jo', 'Jud', 'Rev']
 VAULT_WORKS = ['gill', 'clarke', 'barnes', 'jfb', 'kad']
-LC_WORKS = ['mhcc', 'wesley']
+LC_WORKS = ['mhcc', 'wesley', 'mhc', 'calvin', 'geneva']
 WORKS = VAULT_WORKS + LC_WORKS + ['cb', 'fos']
 SOURCE = {'gill': 'gill', 'clarke': 'clarke', 'barnes': 'barnes', 'jfb': 'jfb', 'kad': 'keil-delitzsch',
-          'mhcc': 'henry-concise', 'wesley': 'wesley', 'cb': 'companion-bible', 'fos': 'bullinger-fos'}
+          'mhcc': 'henry-concise', 'wesley': 'wesley', 'cb': 'companion-bible', 'fos': 'bullinger-fos',
+          'mhc': 'henry', 'calvin': 'calvin', 'geneva': 'geneva'}
 LC_BOOKS = ['GEN', 'EXO', 'LEV', 'NUM', 'DEU', 'JOS', 'JDG', 'RUT', '1SA', '2SA', '1KI', '2KI', '1CH', '2CH', 'EZR', 'NEH', 'EST', 'JOB', 'PSA', 'PRO', 'ECC', 'SNG', 'ISA', 'JER', 'LAM', 'EZK', 'DAN', 'HOS', 'JOL', 'AMO', 'OBA', 'JON', 'MIC', 'NAM', 'HAB', 'ZEP', 'HAG', 'ZEC', 'MAL', 'MAT', 'MRK', 'LUK', 'JHN', 'ACT', 'ROM', '1CO', '2CO', 'GAL', 'EPH', 'PHP', 'COL', '1TH', '2TH', '1TI', '2TI', 'TIT', 'PHM', 'HEB', 'JAS', '1PE', '2PE', '1JN', '2JN', '3JN', 'JUD', 'REV']
 LC_SHA = '71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239'
 LC_DIR = '/home/claude/bibleatlas/data/raw/lets.church@71f6f0fc8f/packages/lets.bible/seed/commentaries'
+# Henry's complete commentary, Calvin's commentaries and the Geneva notes: the same Let's Church folder at the same
+# commit (byte-identical to the files there, checked 2026-10-22), kept beside these tools.
+LC_EXTRA = {'mhc', 'calvin', 'geneva'}
+LC_EXTRA_DIR = f'{ROOT}/src/lc'
 
 
 def parse(ref):
@@ -139,7 +145,7 @@ _lc = {}
 
 def lc(work, b, c, v):
     if work not in _lc:
-        d = json.load(open(f'{LC_DIR}/{work}.json', encoding='utf-8'))['entries']
+        d = json.load(open(f'{LC_EXTRA_DIR if work in LC_EXTRA else LC_DIR}/{work}.json', encoding='utf-8'))['entries']
         _lc[work] = (LC_BOOKS, d)
     order, d = _lc[work]
     if len(order) != 66:
@@ -170,7 +176,7 @@ def url(work, ref):
     if work in VAULT_WORKS:
         return f'https://raw.githubusercontent.com/jonnyg23/mahabrain/{MB_SHA}/sacred_obsidian_vault/bib/cmt/{work}/{ST[b]}{c:03d}.md'
     if work in LC_WORKS:
-        name = 'mhcc' if work == 'mhcc' else 'wesley'
+        name = work
         return f'https://raw.githubusercontent.com/LetsChurch/lets.church/{LC_SHA}/packages/lets.bible/seed/commentaries/{name}.json'
     return CB_URL if work == 'cb' else FOS_URL
 

@@ -93,7 +93,7 @@ def local_source(c):
             hay = ' '.join(' '.join(t) for (bb, cc, vv), t in cq._cb.items() if bb == b)
         else:
             hay = cq.clean(open(f'{cq.VAULT}/{work}/{cq.ST[b]}{ch:03d}.md', encoding='utf-8', errors='replace').read())
-    read = READ['vault'] if work in cq.VAULT_WORKS else READ[work] if work in READ else None
+    read = READ['vault'] if work in cq.VAULT_WORKS else READ['mhcc'] if work in cq.LC_WORKS else READ[work]
     return read, cq.url(work, ref), context(hay, quote)
 
 

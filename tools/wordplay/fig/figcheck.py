@@ -585,7 +585,8 @@ class Check:
 
 # --- local quote checks -----------------------------------------------------------------------------------------
 LOCAL = {'gill': 'gill', 'clarke': 'clarke', 'barnes': 'barnes', 'jfb': 'jfb', 'keil-delitzsch': 'kad',
-         'henry-concise': 'mhcc', 'bullinger-cb': 'cb', 'bullinger-fos': 'fos'}
+         'henry-concise': 'mhcc', 'henry': 'mhc', 'calvin': 'calvin', 'geneva': 'geneva', 'bullinger-cb': 'cb',
+         'bullinger-fos': 'fos'}
 _cq = None
 _whole = {}
 

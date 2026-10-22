@@ -11,6 +11,8 @@ CITE = {c['id']: c for c in SRC['cite']}
 LOCAL = {'gill': 'gill', 'clarke': 'clarke', 'barnes': 'barnes', 'jfb': 'jfb', 'keil-delitzsch': 'kad',
          'henry-concise': 'mhcc', 'wesley': 'wesley', 'bullinger-cb': 'cb', 'bullinger-fos': 'fos'}
 FOS_T = 'E. W. Bullinger, Figures of Speech Used in the Bible (1898)'
+# Read either locally (Let's Church's files at the pinned commit, via cq.py) or on Bible Hub: the cite's url says which.
+LOCAL_OPT = {'henry': 'mhc', 'calvin': 'calvin', 'geneva': 'geneva'}
 STANDALONE = {'figure', 'parallelism', 'contrast'}
 EXTRA = ['figure_name', 'figure_words', 'stands_for', 'lines', 'relation', 'people']
 ORDER = ['plain meaning', 'quotation', 'allusion', 'wordplay', 'name meaning', 'pattern', 'irony', 'fulfillment', 'setting', 'figure', 'parallelism', 'contrast']
@@ -140,7 +142,22 @@ def convert(where, l):
         elif b is not None and barred(s, on, c.get('at', '')):
             why = 'left out: ' + barred(s, on, c.get('at', ''))
         spec, read_in = {'source': s, 'on': on}, c.get('url', '')
-        if not why and s in LOCAL:
+        local_opt = False
+        if not why and s in LOCAL_OPT and not read_in.startswith('http'):
+            w = LOCAL_OPT[s]
+            try:
+                ok = cq.check(w, on, q)
+            except SystemExit:
+                ok = False
+            if not ok:
+                why = f'quote not found in {w} on {on}'
+            else:
+                spec['on'] = cq.get(w, on)[0]
+                read_in = cq.url(w, spec['on'])
+                local_opt = True
+        if why or local_opt:
+            pass
+        elif s in LOCAL:
             w = LOCAL[s]
             if w == 'kad' and b > 38:
                 why = 'kad has no New Testament'
@@ -193,7 +210,7 @@ def convert(where, l):
         if any(x['source'] == spec['source'] and x['on'] == spec['on'] and x.get('at') == spec.get('at') for x, _ in cites):
             continue
         cites.append((spec, writer_key({**c, **spec})))
-        local = s in LOCAL or s in ('tyndale-notes', 'catena-aurea')
+        local = s in LOCAL or s in ('tyndale-notes', 'catena-aurea') or local_opt
         row = {'where': where, 'kind': l['kind'], **spec, 'quote': q, 'read_in': read_in,
                'fetched': TODAY if local else fetched_on(read_in),
                'fetched_how': 'quote re-found in the pinned copy' if local else 'page fetched during the checks'}
