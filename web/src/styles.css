@@ -1435,6 +1435,38 @@ p .godeeper {
   font: 12px/1.5 var(--font-ui);
   color: var(--muted);
 }
+.panel .layercredits {
+  margin-top: 6px;
+  font: 12px/1.5 var(--font-ui);
+  color: var(--muted);
+}
+.panel .layercredits h4 {
+  margin: 0;
+  font: 600 11px var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.layercredits ul {
+  margin: 2px 0 0;
+  padding-left: 16px;
+}
+.layercredits li + li {
+  margin-top: 3px;
+}
+.layercredits a {
+  color: var(--link);
+}
+.credit-writer {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: underline dotted var(--link);
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
 .layerlinks {
   display: flex;
   flex-wrap: wrap;

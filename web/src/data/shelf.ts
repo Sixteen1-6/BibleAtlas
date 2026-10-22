@@ -64,6 +64,40 @@ export interface Work {
   /** Where the app cites it (at most 100), and how many places in all. */
   cited: Cited[];
   citedCount: number;
+  /** The works of config/layer-sources.json this card presents for the Layers notes. */
+  layer?: string[];
+  /** Who wrote the words of which books, from config/layer-sources.json and the attribution evidence. */
+  writers?: WriterRow[];
+}
+
+/** One part of a Layers work: whose words the books are, and how we know. */
+export interface WriterRow {
+  /** "Genesis", "Exodus 1 to 19", "Matthew to John"; empty for a work cited whole. */
+  books: string;
+  /** The work's short name. */
+  work?: string;
+  writer: string;
+  about?: string;
+  named: 'named' | 'attributed' | 'unnamed';
+  volume?: string;
+  written: string;
+  edition?: string;
+  /** The name the site gives the set, and its own credit line, word for word. */
+  site?: string;
+  site_says?: string;
+  /** A writer the founder's rule drops: his words are no longer cited. */
+  excluded?: boolean;
+  how: HowWeKnow | null;
+}
+
+/** The attribution evidence for a part (docs/evidence/credits-2026-10-21.json). */
+export interface HowWeKnow {
+  named_by: { scan?: string; page?: string; source?: string; leaf?: string; words: string };
+  matched?: { cites?: number; matched?: number; chapter_level?: number; method?: string; fetched?: string };
+  example?: { on: string; page: string; words: string; check: string; read?: string };
+  /** verse, chapter, volume, title page, site credit, byline or none. */
+  level?: string;
+  note?: string;
 }
 
 export interface Shelf {

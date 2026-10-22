@@ -134,38 +134,102 @@ function issueLink(a: Atlas, p: Passage, l: Layer): string {
   return `${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
 }
 
-/** "Keil and Delitzsch and the Pulpit Commentary on Zephaniah 2:4; Irenaeus, Against Heresies 4.10.1":
- * cites that share a verse are named together, each linked to where it can be read. */
-function Sources({ cites }: { cites: Cite[] }) {
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+/** "2026-10-20" as "20 October 2026". */
+function longDate(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+/** When the app read the page, or, where no reading was recorded, when it was checked. */
+function dateWords(c: Cite): string {
+  if (c.read_on) return `retrieved ${longDate(c.read_on)}`;
+  return `checked against the source by ${longDate(c.checked ?? '')}; the date it was read was not recorded`;
+}
+
+/** "Genesis 2:7", "2:7" when the book is the one before. */
+function shortRef(on: string, first: string): string {
+  const book = (r: string) => r.replace(/\s+\d+(:[\d-]+)?(-[\d:]+)?$/, '');
+  return book(on) === book(first) ? on.slice(book(on).length + 1) : on;
+}
+
+/** One writer's credit in a note: who wrote the words and who he was, the
+ * work and its date, the place cited, where the app read it and when, and a
+ * link to read it there. Cites of one writer, work and date are one line. */
+function CreditLine({ g }: { g: Cite[] }) {
+  const c = g[0];
+  const name = (
+    <button type="button" class="credit-writer" onClick={() => S.openSources(c.shelf)} title={`About ${c.work}, on the Sources shelf`}>
+      {c.named === 'unnamed' ? c.writer[0].toUpperCase() + c.writer.slice(1) : c.writer}
+    </button>
+  );
+  const about = c.about ? ` (${c.about})` : '';
+  const ons = g.map((x) => x.on ?? '').filter(Boolean);
+  const place = g.length > 1 ? `on ${ons[0]}${ons.slice(1).map((o, i) => (i === ons.length - 2 ? ' and ' : ', ') + shortRef(o, ons[0])).join('')}` : c.part;
+  const tail = `${c.edition ? `, ${c.edition}` : ''}, ${c.written}, ${place}. Read on ${c.read_from}`;
+  return (
+    <li>
+      {c.named === 'unnamed' ? (
+        <>
+          {name}
+          {`, ${c.work}`}
+        </>
+      ) : c.named === 'attributed' ? (
+        <>
+          {`${c.work}, printed without a writer's name and generally credited to `}
+          {name}
+          {about}
+        </>
+      ) : (
+        <>
+          {name}
+          {`${about}, ${c.work}`}
+        </>
+      )}
+      {tail}
+      {c.label && <>, which labels it “{c.label}”</>}
+      {`; ${dateWords(c)}. `}
+      {g.length === 1 ? (
+        <a href={c.url} target="_blank" rel="noopener">
+          Read it there ›
+        </a>
+      ) : (
+        <>
+          Read them there:{' '}
+          {g.map((x, i) => (
+            <span key={i}>
+              {i > 0 && ', '}
+              <a href={x.url} target="_blank" rel="noopener">
+                {shortRef(x.on ?? '', ons[0])} ›
+              </a>
+            </span>
+          ))}
+        </>
+      )}
+    </li>
+  );
+}
+
+/** A note's sources, one line per writer, in the order the note cites them. */
+function Credits({ cites }: { cites: Cite[] }) {
   const groups: Cite[][] = [];
+  const same = (a: Cite, b: Cite) =>
+    a.writer === b.writer && a.work === b.work && a.written === b.written && a.read_from === b.read_from && a.label === b.label && dateWords(a) === dateWords(b) && !a.at && !b.at && !!a.on && !!b.on;
   for (const c of cites) {
-    const last = groups[groups.length - 1];
-    if (last && c.on && last[0].on === c.on) last.push(c);
+    const g = groups.find((x) => same(x[0], c));
+    if (g) g.push(c);
     else groups.push([c]);
   }
   return (
-    <>
-      Sources:{' '}
-      {groups.map((g, i) => (
-        <span key={i}>
-          {i > 0 && '; '}
-          {g.map((c, j) => (
-            <span key={j}>
-              {j > 0 && (j === g.length - 1 ? ' and ' : ', ')}
-              {c.url ? (
-                <a href={c.url} target="_blank" rel="noopener">
-                  {c.at ?? c.name}
-                </a>
-              ) : (
-                (c.at ?? c.name)
-              )}
-            </span>
-          ))}
-          {g[0].on && ` on ${g[0].on}`}
-        </span>
-      ))}
-      .{' '}
-    </>
+    <div class="layercredits">
+      <h4>Sources</h4>
+      <ul>
+        {groups.map((g, i) => (
+          <CreditLine key={i} g={g} />
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -200,13 +264,15 @@ function LayerItem({ a, p, l, quotes }: { a: Atlas; p: Passage; l: Layer; quotes
         </div>
       )}
       {deep && (
-        <p class="layerdeep">
-          {l.evidence && <>Behind this note: {smart(l.evidence.replace(/\.\s*$/, ''))}. </>}
-          {l.cites && l.cites.length > 0 && <Sources cites={l.cites} />}
-          <a href={issueLink(a, p, l)} target="_blank" rel="noopener">
-            Suggest a correction
-          </a>
-        </p>
+        <>
+          {l.evidence && <p class="layerdeep">Behind this note: {smart(l.evidence.replace(/\.\s*$/, ''))}.</p>}
+          {l.cites && l.cites.length > 0 && <Credits cites={l.cites} />}
+          <p class="layerdeep">
+            <a href={issueLink(a, p, l)} target="_blank" rel="noopener">
+              Suggest a correction
+            </a>
+          </p>
+        </>
       )}
     </li>
   );
@@ -269,10 +335,8 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       <CommentaryFoot />
       {atLeast('deep') && (
         <p class="layerdeep">
-          {p.source}{' '}
-          {p.reviewed_by.length
-            ? `Reviewed by ${p.reviewed_by.join(' and ')}.`
-            : `Not yet reviewed by a person${shown.every((l) => l.cites?.length) ? '; each note names the sources it rests on' : ''}.`}{' '}
+          {p.source} Each note names the writers it rests on, with a link to read each one.{' '}
+          {p.reviewed_by.length > 0 && `Reviewed by ${p.reviewed_by.join(' and ')}. `}
           Every quotation of four or more words is checked against the BSB when the data is built.
           {quotes.some((m) => m.size > 0) && ' A “ on a link marks a direct quotation, as the BSB’s own footnotes show it.'}
         </p>

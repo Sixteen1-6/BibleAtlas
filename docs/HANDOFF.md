@@ -534,9 +534,10 @@ These are standing instructions from the founder, or legal limits. Each says whe
   - Rabbis' commentaries and Jewish scholars may not; the Sefaria link was dropped.
   - Ancient texts (Targums, Mishnah, Josephus and so on) may be named in evidence only as witnesses, never as a citation.
   - Stated in `config/layer-sources.json:3-6` and PR #37. Enforced by `layers.rs:24-29, 50 and 357`: a note goes live only by the cite list, and any avoid-list name in the text, evidence or cite fails the build. CI caught one such note on 2026-10-11.
-  - The Pulpit Commentary is never cited on Jeremiah or Lamentations (`not_on`, `layer-sources.json:16`).
+  - The Pulpit Commentary is never cited on Jeremiah or Lamentations (`not_on` in `config/layer-sources.json`).
+  - A contributor's cited passages are judged on their own words: keep those that respect Scripture, leave out those that deny it, and drop a contributor entirely only when he denies Scripture in the passages we'd cite (decision 20 in `docs/FOUNDER-DECISIONS.md`, given 2026-10-21; A. S. Aglen, who calls Jonah possibly "the creation of fiction"). Left-out passages are listed in `denies` and excluded writers are marked `excluded` in `writers`, both in `config/layer-sources.json`; `layers.rs` refuses a cite of either. The readings behind them are in `docs/evidence/layers-credits-reads-2026-10-21.json`.
 - **Strength labels count writers.**
-  - A "writer" is a distinct cited work (`source` id) whose role in `config/layer-sources.json` is "interpreter": 38 of the 43 citable works. The 5 "reference" works (bsb, tyndale-house, strongs, abbott-smith, easton) do not count. This is how the round 2 PRs (#42, #44) and the layers-mend plan count.
+  - A "writer" is a person who wrote the cited words (the cite's `key`, resolved by book from `config/layer-sources.json`), not a work, and only cites whose source role is "interpreter" count. The 5 "reference" works (bsb, tyndale-house, strongs, abbott-smith, easton) do not count. One man's words in two sets count once (Ellicott's and the Pulpit Commentary's Exodus are both George Rawlinson's); an abridgment counts as the writer it abridges (`counts_as`: the Concise Commentary and Wesley's Old Testament notes count as Matthew Henry); a cite marked `counts: false` does not count. The round 2 PRs (#42, #44) and the layers-mend plan counted distinct works; the true-credits batch recounted by person.
   - 3 or more writers: "widely agreed"; 2: "commonly held"; 1: "some interpreters".
   - **The build does not check the count.** It is a convention. The build checks only that some note beyond the plain meaning, live or not, is stronger than "some interpreters" (`layers.rs:413-415`), and that the kinds in `NEEDS_INTERPRETER` (line 50) cite an interpreter before they go live (line 357).
   - The two interact: lowering a strength honestly can make the build refuse a passage whose remaining notes are all "some interpreters". Then either find a second interpreter who states the point (record the fetched URL and the exact quote, as #38 and #42 did), or drop the passage, as #42 did with the 4 passages it sent back. The layers-mend plan names `genesis-3-1` and `exodus-16-15` as at risk.
@@ -555,9 +556,11 @@ These are standing instructions from the founder, or legal limits. Each says whe
   - Finishing page 2 stores `atlas.commentary`; "Not now", Escape or a click outside never opens anything. The Sources shelf can close commentary again.
   - Never gated: Scripture in any translation, the original words, Ask's chains of verses, cross-references, quotations, parallels, themes. The notice never opens on arrival.
   - Code: `web/src/ui/commentary/` (`state.ts`, `Gate.tsx`, `Notice.tsx`); an extra opts in with `commentary: true` or `'verse'` (`extras/types.ts`).
-- **AI drafting is disclosed.**
-  - Every AI-drafted passage and card says "Drafted with AI help (Claude) ...".
-  - At Deep the UI says "Not yet reviewed by a person" (`Layers.tsx:255-263`).
+- **Credit the original source, never AI.**
+  - The founder's words, 2026-10-20: "Just credit original source. The whole point is for us to be looking at original sources and this helps just compile them better. No crediting of AI." (decisions 13, 15 and 19 in `docs/FOUNDER-DECISIONS.md`).
+  - Every credit names the person who wrote the words, the work and its original date, where the app read it, and the date it was truly read, from a record in `docs/evidence/` (or "checked against the source by <date>; the date it was read was not recorded"). Who wrote a Layers cite is resolved from `config/layer-sources.json` by book; never credit a set's figurehead for another man's words.
+  - No string a reader sees mentions AI or names who or what checked something: say "checked against the source", and "reviewed" only for a named person. Passage source lines read "Sources: ...".
+  - Enforced by `layers.rs`: `AI_CREDIT` is refused in passage sources, cites, writers and works, and in hard-verse sources (`extra_hard_verses.rs`); every cite needs a reads record of the very page it links to, or a checks record; `layers::verify` checks the built credits.
 - **Drafts never publish by accident.**
   - Unreviewed hard-verse cards publish only with `ATLAS_HARD_VERSE_DRAFTS=1` (`extra_hard_verses.rs:30`).
   - Layers drafts publish only with `ATLAS_LAYER_DRAFTS=1` (`layers.rs:45`).
