@@ -1,7 +1,6 @@
 // Ask the Bible, the panel: one question at a time, in the same frame as the
 // verse extras' panels. It speaks only in the Bible's words, beside one short
-// note in the author's words on how to hear God, and the help line for
-// someone in danger.
+// note in the author's words on how to hear God.
 //
 //   A prepared question: its chain of Scripture, whole verses and parts of
 //   verses set one after another, with nothing of ours between.
@@ -375,7 +374,7 @@ const HOPE: [string, number, number, number][] = [
   ['Matt', 11, 28, 29],
 ];
 
-/** Where to turn now, then the verses. With the note on hearing God, the only words in the panel that are not the Bible's. */
+/** Only the verses, whole: "Scripture only", as Shubhanshu asked on 2026-10-22. The note on hearing God after them is the only other text. */
 function CareBody({ a }: { a: Atlas }) {
   const passages = HOPE.flatMap(([osis, c, v1, v2]) => {
     const b = a.books.findIndex((x) => x.osis === osis);
@@ -383,15 +382,6 @@ function CareBody({ a }: { a: Atlas }) {
   });
   return (
     <>
-      <div class="ask-care" role="note">
-        <p>
-          <b>If you are thinking about ending your life, please talk to someone today.</b> In the US, call or text 988. In the UK and Ireland, call Samaritans on 116 123. Anywhere else,{' '}
-          <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">
-            find a helpline near you
-          </a>{' '}
-          or call your local emergency number.
-        </p>
-      </div>
       {passages.map(([s, e]) => (
         <Passage key={s} a={a} from={s} to={e} navigate={go} />
       ))}
@@ -402,9 +392,9 @@ function CareBody({ a }: { a: Atlas }) {
 /** With every answer: these verses are a way to bring a question to God, who
  * answers as people gather, pray and read his Word, and the box is only a tool
  * for that. The author's own words, set apart from the verses. */
-function Listen() {
+function Listen({ after = false }: { after?: boolean }) {
   return (
-    <div class="ask-listen" role="note">
+    <div class={after ? 'ask-listen ask-listen-after' : 'ask-listen'} role="note">
       <p>Ask the Bible is a tool to help you bring your questions to God, but it cannot seek him for you. To hear his answer:</p>
       <ul>
         <li>Gather with other believers, and let the Holy Spirit speak into your life through them.</li>
@@ -438,13 +428,13 @@ export function AskSheet({ a }: { a: Atlas }) {
   const title = asked.kind === 'question' ? asked.q.q : asked.kind === 'topic' ? asked.title : asked.kind === 'care' ? 'Help, and hope' : asked.text;
   return createPortal(
     <Shell key={id} title={title} at="Ask the Bible" onDismiss={dismiss}>
-      {/* Someone in danger reads where to find help first. */}
+      {/* Someone in danger reads the verses first. */}
       {asked.kind !== 'care' && <Listen />}
       {asked.kind === 'question' && <QuestionBody a={a} asked={asked} />}
       {asked.kind === 'topic' && <TopicBody a={a} asked={asked} />}
       {asked.kind === 'live' && <LiveBody a={a} text={asked.text} />}
       {asked.kind === 'care' && <CareBody a={a} />}
-      {asked.kind === 'care' && <Listen />}
+      {asked.kind === 'care' && <Listen after />}
     </Shell>,
     document.body,
   );

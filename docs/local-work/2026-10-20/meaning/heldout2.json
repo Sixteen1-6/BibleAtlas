@@ -1,0 +1,42 @@
+[
+ {
+  "method": "softmax only",
+  "top1": 0,
+  "top3": 0,
+  "of": 2000,
+  "opensAt035": 0,
+  "rightOpens": 0
+ },
+ {
+  "method": "shipped (softmax + tf-idf near, half and half)",
+  "top1": 0,
+  "top3": 0,
+  "of": 2000,
+  "opensAt035": 0,
+  "rightOpens": 0
+ },
+ {
+  "method": "potion near only",
+  "top1": 0,
+  "top3": 0,
+  "of": 2000,
+  "opensAt035": 0,
+  "rightOpens": 0
+ },
+ {
+  "method": "shipped + potion (thirds)",
+  "top1": 0,
+  "top3": 0,
+  "of": 2000,
+  "opensAt035": 0,
+  "rightOpens": 0
+ },
+ {
+  "method": "softmax + potion near (halves)",
+  "top1": 0,
+  "top3": 0,
+  "of": 2000,
+  "opensAt035": 0,
+  "rightOpens": 0
+ }
+]

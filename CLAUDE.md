@@ -5,13 +5,14 @@ Standing instructions for any Claude session working in this repository. They co
 ## Start here
 
 - Read [docs/HANDOFF.md](docs/HANDOFF.md) first. Run its "Check the current state first" commands before acting: section 0 is true only while they give the values shown.
+- Read [docs/FOUNDER-DECISIONS.md](docs/FOUNDER-DECISIONS.md) next: the founder's 23 decisions of 2026-10-20 and 21 override this file where they differ (for example decision 15, no AI credit anywhere, replaces "Disclose AI drafting" below).
 - Rewrite section 0 of `docs/HANDOFF.md` after every merge to `main` and every finished job, in the same sitting. The PR that changes `main` should update it.
 - If it's not local, it should all be pushed to GitHub. Anything kept only in a session's container or a local folder (evaluation sets, drafts, tools) is lost with it. The licensing rules below still decide what may enter this public repository.
 - Every important task runs as its own reviewed workflow when one is available.
 
 ## Scripture and citation (the founder's rules)
 
-- **Ask answers only in the Bible's words.** "The framework for interpreting the Bible is the Bible." Answers are chains of whole verses or exact BSB words, 3 to 8 parts, with nothing written in between. No scholars or church views in questions, phrasings, signals or examples. Every chain part must be tied by the Bible's own data, or the build fails. The only two exceptions are the self-harm help line and the founder's own note.
+- **Ask answers only in the Bible's words.** "The framework for interpreting the Bible is the Bible." Answers are chains of whole verses or exact BSB words, 3 to 8 parts, with nothing written in between. No scholars or church views in questions, phrasings, signals or examples. Every chain part must be tied by the Bible's own data, or the build fails. The only exception is the founder's own note. The page for someone asking about ending their life shows only its seven whole verses, then that note: Shubhanshu asked for "Scripture only" there on 2026-10-22, so the help line is gone.
 - **Cite only Bible-believing Christian writers.** The founder's words, 2026-10-11: "cite ... bible believing people who fully believe the bible and theologians that love God, not people who are liberalizing the bible".
   - Catholic and Orthodox writers who uphold Scripture may be cited. Rabbis' commentaries and Jewish scholars may not.
   - Ancient texts (Targums, Mishnah, Josephus and so on) may be named in evidence only as witnesses, never as a citation.

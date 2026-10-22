@@ -154,20 +154,6 @@ button.ask-more {
 .ask-how li {
   margin: 0.2em 0;
 }
-.ask-care {
-  background: var(--accent-soft);
-  border-radius: var(--r-md);
-  padding: 0.7em 0.9em;
-  margin: 0 0 1em;
-}
-.ask-care p {
-  margin: 0;
-  line-height: 1.5;
-}
-.ask-care a {
-  color: var(--link);
-}
-
 /* The note on hearing God: quiet, and set apart from the verses. */
 .ask-listen {
   margin: 0 0 1.1em;
@@ -176,7 +162,7 @@ button.ask-more {
   color: var(--muted);
   font: 14px/1.55 var(--font-ui);
 }
-.ask-care ~ .ask-listen {
+.ask-listen-after {
   margin: 1.1em 0 0;
 }
 .ask-listen p,

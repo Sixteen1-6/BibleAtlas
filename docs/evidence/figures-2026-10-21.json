@@ -1,0 +1,250 @@
+{
+  "_comment": [
+    "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21; the Henry quotes on Genesis 6:6, Psalm 1:6 and 1 Samuel 1:2 and the Isaiah 6:10 Bengel credit on 2026-10-22. Records for a form's definition carry \"form\" in place of \"note\".",
+    "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, and Bullinger's Figures of Speech as a UniqueBible module. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
+    "The notes link each writer at Bible Hub (commentaries) or at the work's own page; those pages carry the same public-domain text."
+  ],
+  "checked": [
+    {
+      "note": "1-samuel-1-2-contrast",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "1 Samuel 1:2",
+      "quote": "When Propositions are introverted, it is called Antimetabole",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "is introversion consists only of words and of the same words it is called epanodos qv note which see when propositions are introverted it is called antimetabole qv note which see when subjects are introverted it is called chiasmus see under correspondence gen"
+    },
+    {
+      "note": "1-samuel-1-2-contrast",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "1 Samuel 1:2-3",
+      "quote": "Elkanah had two wives, Hannah (grace or gracefulness) and Peninnah (coral), the latter of whom was blessed with children, whereas the first was childless.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/sa1001.md",
+      "context": "ote the first born of egypt num 3 13 num 3 44 see hengstenberg ut sup sa1 1 2 3 elkanah had two wives hannah grace or gracefulness and peninnah coral the latter of whom was blessed with children whereas the first was childless he went with his wives year by year ימימה מי מים as in exo 13 10 jdg 11 40 acco"
+    },
+    {
+      "note": "1-samuel-1-2-contrast",
+      "field": "cites",
+      "source": "clarke",
+      "on": "1 Samuel 1",
+      "quote": "Hannah, being barren, is reproached by Peninnah, especially in their going up to Shiloh",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/clarke/sa1001.md",
+      "context": "worship at shiloh and the portions he gave at such times to his wives sa1 1 3 5 hannah being barren is reproached by peninnah especially in their going up to shiloh at which she is sorely grieved sa1 1 6 sa1 1 7 elkanah comforts her sa1 1 8 her"
+    },
+    {
+      "note": "1-samuel-1-2-contrast",
+      "field": "cites",
+      "source": "henry",
+      "on": "1 Samuel 1:1-8",
+      "quote": "Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/sa1001.md",
+      "context": "e gave her sa1 15 and this should have made her easy and thankful but they were of different tempers peninnah could not bear the blessing of fruitfulness but she grew haughty and insolent hannah could not bear the affliction of barrenness but she grew melancholy and discontented and elkanah had a difficult part to act between them 1 elkanah kept up his attendance at gods altar"
+    },
+    {
+      "note": "genesis-6-6-anthropopatheia",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Genesis 6:6",
+      "quote": "not that He has such feelings; but, in infinite condescension, He is thus spoken of in order to enable us to comprehend Him.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "lings are attributed to god human affections and feelings are attributed to god not that he has such feelings but in infinite condescension he is thus spoken of in order to enable us to comprehend him rejoicing is attributed to god psa 104 31 the lord shall rejoice in his works s"
+    },
+    {
+      "note": "genesis-6-6-anthropopatheia",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Genesis 6:5-8",
+      "quote": "The repentance of God is an anthropomorphic expression for the pain of the divine love at the sin of man",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/gen006.md",
+      "context": " anything sa1 15 29 quia nihil illi inopinatum vel non praevisum accidit calvin the repentance of god is an anthropomorphic expression for the pain of the divine love at the sin of man and signifies that god is hurt no less by the atrocious sins of men than if the"
+    },
+    {
+      "note": "genesis-6-6-anthropopatheia",
+      "field": "cites",
+      "source": "henry",
+      "on": "Genesis 6:6",
+      "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon the honour of God's immutability or felicity. … This language does not imply any passion or uneasiness in God (nothing can create disturbance to the Eternal Mind), but it expresses his just and holy displeasure against sin and sinners",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/gen006.md",
+      "context": "rnished on purpose to be a convenient comfortable habitation for him and it grieved him at his heart these are expressions after the manner of men and must be understood so as not to reflect upon the honour of gods immutability or felicity 1 this language does not imply any passion or uneasiness in god nothing can create disturbance to the eternal mind but it expresses his just and holy displeasure against sin and sinners against sin as odious to his holiness and against sinners as obnoxious to his justice he is pressed"
+    },
+    {
+      "note": "genesis-6-6-anthropopatheia",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Genesis 6:5-7",
+      "quote": "by language suited to our nature and experience, He is described as about to alter His visible procedure towards mankind",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/gen006.md",
+      "context": " 6 5 gen 6 5 god saw it repented grieved god cannot change mal 3 6 jam 1 17 but by language suited to our nature and experience he is described as about to alter his visible procedure towards mankind from being merciful and long suffering he was about to show himself a god of ju"
+    },
+    {
+      "note": "isaiah-6-10-mirror",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Isaiah 6:10",
+      "quote": "After two, three, or more words have been mentioned, they are repeated, not in the same order again, but backward.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "om ἐπί epi upon ἀνα ana back and ὁδός hodos a way and means a way back again or more simply a return after two three or more words have been mentioned they are repeated not in the same order again but backward the latins called it regressio ie regression and inversio ie inversion when propositions are invert"
+    },
+    {
+      "note": "isaiah-6-10-mirror",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Isaiah 6:10",
+      "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart. It is from the heart that corruption flows into the ears and eyes (Mar 7:21-22); but through the eyes and ears healing reaches the heart (Rom 10:17), [BENGEL]",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/isa006.md",
+      "context": "ll as the former set forth god as designedly giving up sinners to judicial hardening rom 118 th2 211 in the first member of the sentence the order is the heart ears eyes in the latter the reverse order the eyes ears heart it is from the heart that corruption flows into the ears and eyes mar 721 22 but through the eyes and ears healing reaches the heart rom 1017 bengel jer 521 eze 122 zac 711 act 757 ti2 44 in mat 1315 the words are quoted in the indicative is waxed"
+    },
+    {
+      "note": "isaiah-6-10-mirror",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Isaiah 6:9-10",
+      "quote": "The three future clauses, with \"lest\" (pen), point back to these three imperatives in inverse order",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/isa006.md",
+      "context": " firmly closed by the hardening of the adhesive substance secreted in the night the three future clauses with lest pen point back to these three imperatives in inverse order their spiritual sight spiritual hearing and spiritual feeling were to be taken "
+    },
+    {
+      "note": "isaiah-6-10-mirror",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "The Repetition of the same Words in an inverse Order (but same Sense)",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "olysyndeton combined with epistrophe b in a different order but the same sense epanodos or inversion the repetition of the same words in an inverse order but same sense e pan o dos is from ἐπί epi upon ἀνα ana back and ὁδός hodos a way and means a way back again or mo"
+    },
+    {
+      "note": "matthew-10-34-metonymy",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Matthew 10:34",
+      "quote": "“I came not to send peace, but a sword” (i.e., but for war). That is to say, the object of His coming was peace, but the effect of it was war.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "5 16 jer 43 11 psa 144 10 psa 144 10 rom 8 35 and many other passages mat 10 34 i came not to send peace but a sword i e but for war that is to say the object of his coming was peace but the effect of it was war 4 a line is used for the territory divided up or marked out by it amo 7 17 thy "
+    },
+    {
+      "note": "matthew-10-34-metonymy",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Matthew 10:34",
+      "quote": "The sword is an instrument of death, and to send a sword is the same as to produce hostility and war.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/mat010.md",
+      "context": "eligion will produce universal peace compare the notes at mat 10 21 but a sword the sword is an instrument of death and to send a sword is the same as to produce hostility and war matthew 10 37 mat 10 37 he that loveth father or mother the meaning of this is "
+    },
+    {
+      "note": "matthew-10-34-metonymy",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Matthew 10:34",
+      "quote": "strife, discord, conflict; deadly opposition between eternally hostile principles, penetrating into and rending asunder the dearest ties.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/mat010.md",
+      "context": " not that i am come to send peace on earth i came not to send peace but a sword strife discord conflict deadly opposition between eternally hostile principles penetrating into and rending asunder the dearest ties matthew 10 35 mat 10 35 for i am come to set a man at variance against his fath"
+    },
+    {
+      "note": "psalm-1-6-opposite",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Psalm 1:6",
+      "quote": "God knows this way, which on this very account also unfailingly reaches its goal. On the contrary, the way of the ungodly … perishes, because left to itself",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/psa001.md",
+      "context": "lined to it and bound to it by love the way ie the lifes course of the righteous has god as its goal god knows this way which on this very account also unfailingly reaches its goal on the contrary the way of the ungodly תאבד perishes because left to itself goes down to אבדון loses itself without reaching the goal set before it in darkest night the way of"
+    },
+    {
+      "note": "psalm-1-6-opposite",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Psalm 1",
+      "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/psa001.md",
+      "context": "e always green and whose fruit never fails so whatever he does shall prosper ii the condition of the unrighteous or the strong contrast between the unrighteous and the righteous psa 1 4 6 their condition and destiny are expressed in three forms 1 they are l"
+    },
+    {
+      "note": "psalm-1-6-opposite",
+      "field": "cites",
+      "source": "henry",
+      "on": "Psalm 1:6",
+      "quote": "The Lord approves and is well pleased with the way of the righteous, and therefore, under the influence of his gracious smiles, it shall prosper and end well; but he is angry at the way of the wicked, all they do is offensive to him, and therefore it shall perish, and they in it.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/psa001.md",
+      "context": "tion it naturally tends towards ruin and therefore must necessarily end in it or we may take it thus the lord approves and is well pleased with the way of the righteous and therefore under the influence of his gracious smiles it shall prosper and end well but he is angry at the way of the wicked all they do is offensive to him and therefore it shall perish and they in it it is certain that every mans judgment proceeds from the lord and it is well or ill with us and is"
+    },
+    {
+      "form": "same",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "This is when the lines are parallel in thought, and in the use of synonymous words.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "extended alternation three or more lines repeated 4 introverted i simple 1 synonymous or gradational this is when the lines are parallel in thought and in the use of synonymous words the oldest example and the first in the bible is in gen 423 24 in these oldest human poetic lines l"
+    },
+    {
+      "form": "opposite",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "t see joh 1011 joh 141 31 and so too is he the model man and the model king 2 antithetic or opposite this is when the words are contrasted in the two or more lines being opposed in sense the one to the other pro 101 a wise son maketh a glad father but a foolish son is the heaviness of his mother pro 276 fa"
+    },
+    {
+      "form": "building",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "This is where the parallelism consists only in the similar form of construction",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "hful are the wounds of a friend but deceitful are the kisses of an enemy 3 synthetic or constructive this is where the parallelism consists only in the similar form of construction psa 197 9 the law of the lord is perfect converting the soul the testimony of the lord is sure maki"
+    },
+    {
+      "form": "mirror",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "This is when the parallel lines are so placed that if there be six lines, the first corresponds with the sixth, the second with the fifth, and the third with the fourth.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "rupt c and where thieves do not break through nor steal see under epibole 4 introverted parallelisms this is when the parallel lines are so placed that if there be six lines the first corresponds with the sixth the second with the fifth and the third with the fourth when this introversion consists only of words and of the same words it is called epanodos qv note w"
+    },
+    {
+      "form": "turns",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "it is alternate when, of the four members, the first corresponds with the third, and the second with the fourth.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "nd member of the first series corresponds with the second member of the second series in other words it is alternate when of the four members the first corresponds with the third and the second with the fourth jos 922 25 a 22 the question of joshua and joshua called b 23 the sentence of joshua now therefore"
+    },
+    {
+      "form": "metonymy",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "Metonymy is a figure by which one name or noun is used instead of another, to which it stands in a certain relation.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "o nym y greek μετωνυμία from μετά meta indicating change and ὄνομα onoma a name or in grammar a noun metonymy is a figure by which one name or noun is used instead of another to which it stands in a certain relation the change is in the noun and only in a verb as connected with the action proceeding from it the na"
+    },
+    {
+      "form": "anthropopatheia",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "This figure is used of the ascription of human passions, actions, or attributes to God.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "ἄνθρωπος anthropos man and πάθος pathos affections and feelings etc from πάσχειν paschein to suffer this figure is used of the ascription of human passions actions or attributes to god the hebrews had a name for this figure and called it דרך בני אדם derech benai adam the way of the s"
+    },
+    {
+      "form": "prosopopoeia",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "A figure by which things are represented or spoken of as persons",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "pros o po peé ya greek προσωποποιΐα from πρόσωπον prosopon face or person and ποιεῖν poiein to make a figure by which things are represented or spoken of as persons or by which we attribute intelligence by words or actions to inanimate objects or abstract ideas th"
+    },
+    {
+      "form": "simile",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "A Declaration that one Thing resembles another; or, Comparison by Resemblance",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "he lines we have laid down and consider the application of words 1 as to sense simile or resemblance a declaration that one thing resembles another or comparison by resemblance sim i le this is the latin name of the figure from similis like similar resembling closely or in ma"
+    },
+    {
+      "form": "metaphor",
+      "field": "defined",
+      "source": "bullinger-fos",
+      "quote": "A Declaration that one Thing is (or represents) another; or, Comparison by Representation",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "e to her like a river and the glory of the gentiles like a flowing stream metaphor or representation a declaration that one thing is or represents another or comparison by representation met a phor greek μεταθορά metaphora a transference or carrying over or across from μετά meta beyond"
+    }
+  ]
+}

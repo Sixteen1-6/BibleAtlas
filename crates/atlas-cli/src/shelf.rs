@@ -72,7 +72,7 @@ const SMALL_WORDS: [&str; 15] = [
     "A", "Also", "An", "And", "At", "By", "For", "From", "In", "Of", "On", "Or", "The", "To", "With",
 ];
 
-pub const LICENSES: [&str; 4] = ["public-domain", "cc-by-4.0", "cc-by-sa-4.0", "copyrighted"];
+pub const LICENSES: [&str; 5] = ["public-domain", "cc-by-4.0", "cc-by-sa-4.0", "mit", "copyrighted"];
 /// What `read.app` may open: a book of the Bible, or a dictionary.
 const APPS: [&str; 2] = ["bible", "dictionary"];
 /// The longest Simple label and plain description, in characters.

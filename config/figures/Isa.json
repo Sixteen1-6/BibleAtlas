@@ -1,0 +1,96 @@
+{
+  "notes": [
+    {
+      "id": "isaiah-6-10-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Isaiah 6:10",
+      "strength": "widely agreed",
+      "short": "Hearts, ears, eyes, then eyes, ears, hearts",
+      "about": "Three words go out in one order and come back in the reverse order: hearts, ears, eyes, then eyes, ears, hearts.",
+      "lines": [
+        {
+          "ref": "Isaiah 6:10",
+          "words": "Make the hearts of this people calloused;",
+          "mark": "A",
+          "key": "hearts"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "deafen their ears",
+          "mark": "B",
+          "key": "ears"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "and close their eyes.",
+          "mark": "C",
+          "key": "eyes"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "Otherwise they might see with their eyes,",
+          "mark": "C'",
+          "key": "eyes"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "hear with their ears,",
+          "mark": "B'",
+          "key": "ears"
+        },
+        {
+          "ref": "Isaiah 6:10",
+          "words": "understand with their hearts,",
+          "mark": "A'",
+          "key": "hearts"
+        }
+      ],
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The Repetition of the same Words in an inverse Order (but same Sense)",
+        "at": "Epanodos, or Inversion, p. 299",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-10-21"
+      },
+      "original": {
+        "note": "In Hebrew the ears and the eyes are the same words both times; the heart is lev, then its fuller form, levav.",
+        "strong": [
+          "H3820",
+          "H3824",
+          "H0241",
+          "H5869"
+        ]
+      },
+      "evidence": "Bullinger lists this verse under Epanodos, the same words repeated in inverse order, and again under introverted parallelism. Fausset (Jamieson, Fausset and Brown) and Delitzsch (Keil and Delitzsch) both point out the reversed order. Fausset, following Bengel, reads it as corruption flowing from the heart into the ears and eyes, and healing reaching the heart through them.",
+      "limit": "Writers agree the order is reversed; what the reversal means is one reading, not a settled one.",
+      "checked": "2026-10-22",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Isaiah 6:10",
+          "at": "Epanodos, or Inversion, p. 299",
+          "quote": "After two, three, or more words have been mentioned, they are repeated, not in the same order again, but backward.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "jfb",
+          "by": "A. R. Fausset, Church of England clergyman",
+          "on": "Isaiah 6:10",
+          "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart. It is from the heart that corruption flows into the ears and eyes (Mar 7:21-22); but through the eyes and ears healing reaches the heart (Rom 10:17), [BENGEL]",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "keil-delitzsch",
+          "by": "Franz Delitzsch, Lutheran scholar",
+          "on": "Isaiah 6:9-10",
+          "quote": "The three future clauses, with \"lest\" (pen), point back to these three imperatives in inverse order",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        }
+      ]
+    }
+  ]
+}

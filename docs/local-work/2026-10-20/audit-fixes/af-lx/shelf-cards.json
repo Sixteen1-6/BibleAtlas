@@ -1,0 +1,75 @@
+{
+  "_comment": [
+    "AF-LX shelf fragments for AF-INT, held for PR H (AF-LX merges before TC; AUDIT-FIXES-PLAN.md section 2). Whole card objects for config/shelf.json, replacing the cards of the same id. Every fact is in docs/evidence/af-lx-2026-10-21.json on branch af-lx (records tbesg-marks, tbesh-source, classifier-counts, abbott-smith-1922, abbott-smith-not-abridged, middle-liddell-1889, bdb-1906, strong-1890, strongs-json).",
+    "'when' gives the three dates AF-DT defines (written; this version, the upstream commit's date; copied, the day the pin was set in sources.json): STEPBible 1f3423d4 is of 5 Oct 2026 and was pinned in a59dfb2 on 7 Oct 2026; Strong's 0acd2f25 is of 15 Jul 2021 and was pinned in 1af6e7d on 9 Oct 2026. AF-DT's own 'kept up to date' fragment covers the same two STEPBible cards with the same dates; AF-INT applies one of them.",
+    "'cites' is kept as it is on main, so shelf.rs matching does not change.",
+    "Decision 21: Brown-Driver-Briggs is credited for its word meanings; the avoid list keeps governing whom the app cites as an authority (AF-CK records the named exemption)."
+  ],
+  "cards": [
+    {
+      "id": "tbesg",
+      "group": "word-books",
+      "plain": "Greek word list, from a 1922 dictionary",
+      "title": "Translators Brief lexicon of Extended Strongs for Greek (TBESG)",
+      "by": "George Abbott-Smith (1922), with a few entries from Liddell and Scott (1889) and from STEPBible's own scholars; adapted and tagged by STEPBible, Tyndale House, Cambridge",
+      "when": "1922; this version 5 Oct 2026; copied 7 Oct 2026",
+      "what": "A definition for every Greek word root of the New Testament. 5,464 of the app's roots carry G. Abbott-Smith's whole entry from his Manual Greek Lexicon of the New Testament, corrected and adapted; 66 carry Liddell and Scott's Intermediate Greek-English Lexicon where Abbott-Smith has none; 20 were written by STEPBible.",
+      "license": "cc-by-4.0",
+      "licenseNote": "STEPBible's file is CC BY 4.0; Abbott-Smith's lexicon, as typed by the translatable-exegetical-tools project, is public domain.",
+      "datasets": ["tbesg"],
+      "find": {
+        "url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+        "label": "the data files (GitHub)"
+      },
+      "read": {
+        "url": "https://archive.org/details/manualgreeklexic00abbo",
+        "label": "Abbott-Smith, 1922 (Internet Archive)"
+      },
+      "citation": "G. Abbott-Smith, A Manual Greek Lexicon of the New Testament (Edinburgh: T. & T. Clark, 1922), typed in TEI by the translatable-exegetical-tools project (public domain), corrected and adapted by Tyndale House scholars as STEPBible TBESG: Translators Brief lexicon of Extended Strongs for Greek; with entries from H. G. Liddell and R. Scott, An Intermediate Greek-English Lexicon (Oxford: Clarendon Press, 1889), from the Perseus Digital Library. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data, commit 1f3423d4 of 5 Oct 2026, copied 7 Oct 2026.",
+      "cites": ["TBESG, Translators Brief lexicon"]
+    },
+    {
+      "id": "tbesh",
+      "group": "word-books",
+      "plain": "Hebrew word list, from a 1906 dictionary",
+      "title": "Translators Brief lexicon of Extended Strongs for Hebrew (TBESH)",
+      "by": "Francis Brown, S. R. Driver and Charles A. Briggs (1906), abridged by Larry Pierce for the Online Bible; edited, with notes on people and places, by STEPBible, Tyndale House, Cambridge",
+      "when": "1906; this version 5 Oct 2026; copied 7 Oct 2026",
+      "what": "A short definition for every Hebrew and Aramaic word root of the Old Testament. 8,147 of the app's roots carry Brown-Driver-Briggs' entry as the Online Bible abridged it; 3,275 carry STEPBible's own note on a person or place, 3,190 of them followed by Brown-Driver-Briggs' entry.",
+      "license": "cc-by-4.0",
+      "licenseNote": "STEPBible's file is CC BY 4.0. Its header adds of the abridged meanings: 'They are for guidance only. Permission should be gained from Online Bible before these are applied in any project.'",
+      "datasets": ["tbesh"],
+      "find": {
+        "url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+        "label": "the data files (GitHub)"
+      },
+      "read": {
+        "url": "https://archive.org/details/hebrewenglishlex00browuoft",
+        "label": "Brown, Driver and Briggs, 1906 (Internet Archive)"
+      },
+      "citation": "Francis Brown, with S. R. Driver and Charles A. Briggs, A Hebrew and English Lexicon of the Old Testament (Oxford: Clarendon Press, 1906), as abridged by Larry Pierce for the Online Bible and edited by Tyndale House, Cambridge, with STEPBible's own notes on people and places, as STEPBible TBESH: Translators Brief lexicon of Extended Strongs for Hebrew. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data, commit 1f3423d4 of 5 Oct 2026, copied 7 Oct 2026.",
+      "cites": ["TBESH (STEPBible.org"]
+    },
+    {
+      "id": "strongs",
+      "group": "word-books",
+      "plain": "Hebrew and Greek word lists, 1890",
+      "title": "Strong's Hebrew and Greek dictionaries",
+      "by": "James Strong, professor at Drew Theological Seminary; JSON edition by Open Scriptures (Greek from Ulrik Petersen's XML, Hebrew edited by David Troidl)",
+      "when": "copyright 1890, first printed 1894; this version 15 Jul 2021; copied 9 Oct 2026",
+      "what": "The short dictionaries in Strong's Exhaustive Concordance, which gave every Hebrew and Greek word a number. The word study shows each word's entry first (where the word comes from and what it means, without the King James renderings), and uses its notes on which word comes from which for each word's family.",
+      "license": "public-domain",
+      "licenseNote": "Strong's dictionaries are public domain; the JSON edition by Open Scriptures is CC BY-SA (no version stated), so its entries shown in the word study are shared under the same license.",
+      "datasets": ["strongs"],
+      "find": {
+        "url": "https://github.com/openscriptures/strongs/tree/0acd2f251c2d35ff8db2dece4e0593979d3ac223",
+        "label": "the data files (GitHub)"
+      },
+      "read": {
+        "url": "https://archive.org/details/exhaustiveconcor0000jame_t4t6",
+        "label": "The Exhaustive Concordance (Internet Archive)"
+      },
+      "citation": "James Strong, A Concise Dictionary of the Words in the Hebrew Bible and Dictionary of Greek Words, from The Exhaustive Concordance of the Bible (copyright 1890; first printed 1894). JSON edition: Open Scriptures, github.com/openscriptures/strongs (CC BY-SA), commit 0acd2f25 of 15 Jul 2021, copied 9 Oct 2026."
+    }
+  ]
+}
