@@ -20,6 +20,7 @@ import './figures.css';
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
+import { startMapArcs } from './figures/MapArcs';
 import { type Data, SOURCE, lineAt, load, notesAt } from './figures/model';
 import { type PanelProps, defineExtra } from './types';
 
@@ -75,7 +76,9 @@ export default defineExtra<Data>({
   level: 'deep',
   async load(a) {
     await readerHere('figures');
-    return load(a);
+    const d = await load(a);
+    startMapArcs(a, d);
+    return d;
   },
   note(verse, d) {
     return lineAt(d, verse);

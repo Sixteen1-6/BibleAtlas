@@ -479,3 +479,15 @@ p.x-figures-who {
   align-items: center;
   cursor: auto;
 }
+
+/* ------------------------------------------------------------ on the map */
+
+/* The selected verse's notes, drawn over the arc map (figures/MapArcs.ts). */
+.x-figures-mapsky {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
