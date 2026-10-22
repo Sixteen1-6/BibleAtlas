@@ -23,6 +23,14 @@ for group, items, where_key in ((new, new['passages'], 'ref'), (held, held['pass
                 if q['where'] == p['ref'] and isinstance(q.get('note'), int) and q['note'] > i:
                     q['note'] -= 1
             del p['layers'][i]
+EXTRA = ['figure_name', 'figure_words', 'stands_for', 'lines', 'relation', 'people']
+stray = 0
+for p in new['passages'] + held['passages'] + adds:
+    for l in p['layers']:
+        for k in EXTRA:
+            if k in l:
+                del l[k]
+                stray += 1
 kept, demoted = [], []
 for p in new['passages']:
     if any(l['kind'] != 'plain meaning' and l['strength'] != 'some interpreters' for l in p['layers']):
@@ -39,4 +47,4 @@ json.dump(held, open(f'{out}/held-back.json', 'w'), ensure_ascii=False, indent=1
 json.dump(adds, open(f'{out}/additions.json', 'w'), ensure_ascii=False, indent=1)
 json.dump(quotes, open(f'{out}/quotes.json', 'w'), ensure_ascii=False, indent=1)
 json.dump(moved, open(f'{out}/moved-to-figures.json', 'w'), ensure_ascii=False, indent=1)
-print(f'{len(moved)} layers moved to moved-to-figures.json; {len(demoted)} passages moved to held; {len(kept)} new passages, {len(quotes)} quote rows')
+print(f'{stray} stray figure fields removed; {len(moved)} layers moved to moved-to-figures.json; {len(demoted)} passages moved to held; {len(kept)} new passages, {len(quotes)} quote rows')
