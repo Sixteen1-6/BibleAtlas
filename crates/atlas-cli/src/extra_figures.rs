@@ -43,9 +43,9 @@
 //!   different interpreters cited (the count `strength` comes from), and
 //!   `checked` the date the note was checked against its sources. A line is `{v, t, at, mark?,
 //!   key?}` and a figure `{name, part?, words, means, v, at}`, `at` being a
-//!   UTF-16 offset into verse `v`'s BSB text; a line's key word and each word
-//!   of a pair occur once, as whole words, in the lines, a pair's first word
-//!   in an earlier line than its answer. `original` is `{note, strong, words}`: its
+//!   UTF-16 offset into verse `v`'s BSB text; a line's key word occurs once,
+//!   as whole words, in its own line, and each word of a pair once in the
+//!   lines, a pair's first word in an earlier line than its answer. `original` is `{note, strong, words}`: its
 //!   roots may be Hebrew or Aramaic (H) or Greek (G), the note names the
 //!   language itself ("In Hebrew", "In Matthew's Greek"), and `words` lists
 //!   every place a root occurs as `[verse, word position, lemma index]`. A

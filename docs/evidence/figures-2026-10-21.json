@@ -1,7 +1,7 @@
 {
   "_comment": [
-    "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21. Records for a form's definition carry \"form\" in place of \"note\".",
-    "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, Bullinger's Figures of Speech and the Companion Bible notes as UniqueBible modules, and Wesley and Henry's Concise from Let's Church. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
+    "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21 (the Genesis 6:6 Henry quote and the Isaiah 6:10 Bengel credit on 2026-10-22). Records for a form's definition carry \"form\" in place of \"note\".",
+    "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, Bullinger's Figures of Speech and the Companion Bible notes as UniqueBible modules, and Henry's Concise from Let's Church. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
     "The notes link each writer at Bible Hub (commentaries) or at the work's own page; those pages carry the same public-domain text."
   ],
   "checked": [
@@ -89,11 +89,11 @@
     {
       "note": "genesis-6-6-anthropopatheia",
       "field": "cites",
-      "source": "wesley",
+      "source": "henry",
       "on": "Genesis 6:6",
-      "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon God's immutability or felicity.",
-      "found_in": "https://raw.githubusercontent.com/LetsChurch/lets.church/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/wesley.json",
-      "context": " purpose to be a comfortable habitation for him and it grieved him at his heart these are expressions after the manner of men and must be understood so as not to reflect upon god s immutability or felicity it doth not speak any passion or uneasiness in god nothing can create disturban"
+      "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon the honour of God's immutability or felicity.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/gen006.md",
+      "context": "rnished on purpose to be a convenient comfortable habitation for him and it grieved him at his heart these are expressions after the manner of men and must be understood so as not to reflect upon the honour of gods immutability or felicity 1 this language does not imply any passion or uneasiness in god nothing can create disturbance to t"
     },
     {
       "note": "genesis-6-6-anthropopatheia",
@@ -118,9 +118,9 @@
       "field": "cites",
       "source": "jfb",
       "on": "Isaiah 6:10",
-      "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart. It is from the heart that corruption flows into the ears and eyes (Mar 7:21-22); but through the eyes and ears healing reaches the heart (Rom 10:17)",
+      "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart. It is from the heart that corruption flows into the ears and eyes (Mar 7:21-22); but through the eyes and ears healing reaches the heart (Rom 10:17), [BENGEL]",
       "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/isa006.md",
-      "context": "ll as the former set forth god as designedly giving up sinners to judicial hardening rom 118 th2 211 in the first member of the sentence the order is the heart ears eyes in the latter the reverse order the eyes ears heart it is from the heart that corruption flows into the ears and eyes mar 721 22 but through the eyes and ears healing reaches the heart rom 1017 bengel jer 521 eze 122 zac 711 act 757 ti2 44 in mat 1315 the words are quoted in the indicative is"
+      "context": "ll as the former set forth god as designedly giving up sinners to judicial hardening rom 118 th2 211 in the first member of the sentence the order is the heart ears eyes in the latter the reverse order the eyes ears heart it is from the heart that corruption flows into the ears and eyes mar 721 22 but through the eyes and ears healing reaches the heart rom 1017 bengel jer 521 eze 122 zac 711 act 757 ti2 44 in mat 1315 the words are quoted in the indicative is waxed"
     },
     {
       "note": "isaiah-6-10-mirror",
