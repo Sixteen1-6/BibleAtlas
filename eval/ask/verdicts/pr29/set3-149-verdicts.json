@@ -1,0 +1,9273 @@
+[
+ {
+  "q": "grandma has alzheimers and keeps asking where grandpa is. he died six years ago and every time we tell her she cries like its the first time",
+  "kind": "live",
+  "note": "Only matches on 'six years' and 'died'; nothing on grief or caring for an aging parent (e.g. Ps 34:18, 1 Thess 4:13).",
+  "verses": [
+   {
+    "ref": "Genesis 5:5",
+    "verdict": "off",
+    "why": "genealogy, matched 'died'"
+   },
+   {
+    "ref": "Genesis 9:29",
+    "verdict": "off",
+    "why": "Noah's age at death"
+   },
+   {
+    "ref": "Exodus 21:2",
+    "verdict": "off",
+    "why": "servant law, 'six years'"
+   },
+   {
+    "ref": "Exodus 23:10",
+    "verdict": "off",
+    "why": "sabbath-year farming"
+   },
+   {
+    "ref": "Deuteronomy 15:12",
+    "verdict": "off",
+    "why": "releasing servants"
+   },
+   {
+    "ref": "Judges 12:7",
+    "verdict": "off",
+    "why": "Jephthah's six years"
+   },
+   {
+    "ref": "2 Samuel 10:1",
+    "verdict": "off",
+    "why": "political condolence story"
+   },
+   {
+    "ref": "1 Chronicles 3:4",
+    "verdict": "off",
+    "why": "David's sons list"
+   },
+   {
+    "ref": "1 Chronicles 19:1",
+    "verdict": "off",
+    "why": "political condolence story"
+   },
+   {
+    "ref": "Ecclesiastes 3:6",
+    "verdict": "related",
+    "why": "time to weep/mourn, no comfort"
+   },
+   {
+    "ref": "Jeremiah 34:14",
+    "verdict": "off",
+    "why": "freeing slaves"
+   },
+   {
+    "ref": "Matthew 26:40",
+    "verdict": "off",
+    "why": "Gethsemane, 'keep watch'"
+   },
+   {
+    "ref": "Mark 14:37",
+    "verdict": "off",
+    "why": "Gethsemane, 'keep watch'"
+   },
+   {
+    "ref": "Mark 15:8",
+    "verdict": "off",
+    "why": "crowd asking Pilate"
+   },
+   {
+    "ref": "Romans 5:6",
+    "verdict": "off",
+    "why": "atonement, matched 'died'"
+   }
+  ]
+ },
+ {
+  "q": "relapsed after two years clean. feel like a total fraud",
+  "kind": "live",
+  "note": "Good hits are mixed in with noise from 'two years' and lifespan numbers (Gen 5, 2 Kgs 21:19, Num 28).",
+  "verses": [
+   {
+    "ref": "Genesis 5:4",
+    "verdict": "off",
+    "why": "genealogy"
+   },
+   {
+    "ref": "Genesis 5:5",
+    "verdict": "off",
+    "why": "genealogy"
+   },
+   {
+    "ref": "Genesis 9:29",
+    "verdict": "off",
+    "why": "Noah's lifespan"
+   },
+   {
+    "ref": "Genesis 25:7",
+    "verdict": "off",
+    "why": "Abraham's lifespan"
+   },
+   {
+    "ref": "Numbers 28:11",
+    "verdict": "off",
+    "why": "monthly offerings"
+   },
+   {
+    "ref": "2 Kings 21:19",
+    "verdict": "off",
+    "why": "Amon reigned two years"
+   },
+   {
+    "ref": "Psalm 51:7",
+    "verdict": "answers",
+    "why": "prayer for cleansing after sin"
+   },
+   {
+    "ref": "Proverbs 24:16",
+    "verdict": "answers",
+    "why": "righteous fall and get up"
+   },
+   {
+    "ref": "Lamentations 3:22",
+    "verdict": "answers",
+    "why": "mercies never fail"
+   },
+   {
+    "ref": "Lamentations 3:23",
+    "verdict": "answers",
+    "why": "mercies new every morning"
+   },
+   {
+    "ref": "Ezekiel 36:25",
+    "verdict": "answers",
+    "why": "God cleanses, new heart"
+   },
+   {
+    "ref": "Micah 7:8",
+    "verdict": "answers",
+    "why": "though fallen, I will arise"
+   },
+   {
+    "ref": "Romans 7:19",
+    "verdict": "answers",
+    "why": "doing what I hate"
+   },
+   {
+    "ref": "1 Corinthians 6:12",
+    "verdict": "related",
+    "why": "not mastered by anything"
+   }
+  ]
+ },
+ {
+  "q": "new job schedules me every sunday morning so i keep missing church",
+  "kind": "live",
+  "note": "Matched on 'morning', 'new' and 'church'; missed gathering texts such as Heb 10:24-25 and Acts 2:42.",
+  "verses": [
+   {
+    "ref": "Job 1:5",
+    "verdict": "off",
+    "why": "Job's morning offerings"
+   },
+   {
+    "ref": "Job 7:18",
+    "verdict": "off",
+    "why": "'every morning' lament"
+   },
+   {
+    "ref": "Job 14:16",
+    "verdict": "off",
+    "why": "counting steps"
+   },
+   {
+    "ref": "Job 31:4",
+    "verdict": "off",
+    "why": "God counts steps"
+   },
+   {
+    "ref": "Lamentations 3:23",
+    "verdict": "off",
+    "why": "matched 'morning'"
+   },
+   {
+    "ref": "Acts 20:28",
+    "verdict": "off",
+    "why": "charge to elders"
+   },
+   {
+    "ref": "1 Corinthians 10:32",
+    "verdict": "off",
+    "why": "stumbling block, 'church'"
+   },
+   {
+    "ref": "2 Corinthians 5:17",
+    "verdict": "off",
+    "why": "new creation, 'new'"
+   },
+   {
+    "ref": "2 Corinthians 8:18",
+    "verdict": "off",
+    "why": "brother sent by churches"
+   },
+   {
+    "ref": "Galatians 6:15",
+    "verdict": "off",
+    "why": "new creation"
+   },
+   {
+    "ref": "Ephesians 1:22",
+    "verdict": "off",
+    "why": "Christ head of church"
+   },
+   {
+    "ref": "Colossians 1:18",
+    "verdict": "off",
+    "why": "Christ head of church"
+   },
+   {
+    "ref": "2 Timothy 3:17",
+    "verdict": "off",
+    "why": "equipped for good work"
+   },
+   {
+    "ref": "Titus 3:1",
+    "verdict": "off",
+    "why": "submit to rulers"
+   },
+   {
+    "ref": "2 Peter 3:13",
+    "verdict": "off",
+    "why": "new heavens, 'new'"
+   },
+   {
+    "ref": "Revelation 5:9",
+    "verdict": "off",
+    "why": "new song"
+   }
+  ]
+ },
+ {
+  "q": "husband got hooked on oxy after his back surgery and lies to me about it",
+  "kind": "live",
+  "note": "'hooked' matched literal hooks, and 'wives, submit' verses were shown to a wife whose husband is lying to her about an addiction.",
+  "verses": [
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "related",
+    "why": "marriage one flesh"
+   },
+   {
+    "ref": "Exodus 27:10",
+    "verdict": "off",
+    "why": "tabernacle hooks"
+   },
+   {
+    "ref": "Job 41:2",
+    "verdict": "off",
+    "why": "Leviathan hook"
+   },
+   {
+    "ref": "Isaiah 2:4",
+    "verdict": "off",
+    "why": "pruning hooks"
+   },
+   {
+    "ref": "Isaiah 18:5",
+    "verdict": "off",
+    "why": "pruning knife"
+   },
+   {
+    "ref": "Ezekiel 29:4",
+    "verdict": "off",
+    "why": "hooks in Pharaoh's jaws"
+   },
+   {
+    "ref": "Joel 3:10",
+    "verdict": "off",
+    "why": "pruning hooks"
+   },
+   {
+    "ref": "Amos 4:2",
+    "verdict": "off",
+    "why": "exile with hooks"
+   },
+   {
+    "ref": "Habakkuk 1:15",
+    "verdict": "off",
+    "why": "fishing hook"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "related",
+    "why": "husbands breaking faith"
+   },
+   {
+    "ref": "Malachi 2:15",
+    "verdict": "related",
+    "why": "do not break faith"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship, head coverings; wounding"
+   },
+   {
+    "ref": "Ephesians 5:22",
+    "verdict": "off",
+    "why": "'wives submit' to deceived wife"
+   },
+   {
+    "ref": "Colossians 3:18",
+    "verdict": "off",
+    "why": "'wives submit' to deceived wife"
+   },
+   {
+    "ref": "Colossians 3:19",
+    "verdict": "related",
+    "why": "husbands love, not harsh"
+   }
+  ]
+ },
+ {
+  "q": "lost my leg in a motorcycle accident last year and i feel useless to my family",
+  "kind": "live",
+  "note": "Only matches on 'lost', 'last' and 'legs'; nothing on worth in weakness (2 Cor 12:9, 1 Cor 12:22).",
+  "verses": [
+   {
+    "ref": "Genesis 47:9",
+    "verdict": "off",
+    "why": "Jacob's years"
+   },
+   {
+    "ref": "Matthew 10:6",
+    "verdict": "off",
+    "why": "'lost sheep' of Israel"
+   },
+   {
+    "ref": "Matthew 19:30",
+    "verdict": "off",
+    "why": "matched 'last'"
+   },
+   {
+    "ref": "Matthew 20:16",
+    "verdict": "off",
+    "why": "matched 'last'"
+   },
+   {
+    "ref": "Mark 10:31",
+    "verdict": "off",
+    "why": "matched 'last'"
+   },
+   {
+    "ref": "Luke 19:10",
+    "verdict": "off",
+    "why": "'lost' in spiritual sense"
+   },
+   {
+    "ref": "John 19:31",
+    "verdict": "off",
+    "why": "crucifixion legs broken"
+   },
+   {
+    "ref": "John 19:32",
+    "verdict": "off",
+    "why": "crucifixion legs broken"
+   },
+   {
+    "ref": "2 Timothy 3:1",
+    "verdict": "off",
+    "why": "last days"
+   }
+  ]
+ },
+ {
+  "q": "im deaf and church feels like it wasnt built for people like me",
+  "kind": "live",
+  "note": "Mark 9:25 ('deaf and mute spirit') could wound a deaf reader; missed 1 Cor 12:12-26 on the weaker members being indispensable.",
+  "verses": [
+   {
+    "ref": "Exodus 4:11",
+    "verdict": "answers",
+    "why": "God made the deaf, uses them"
+   },
+   {
+    "ref": "Leviticus 19:14",
+    "verdict": "related",
+    "why": "law protecting the deaf"
+   },
+   {
+    "ref": "Isaiah 35:5",
+    "verdict": "related",
+    "why": "future healing promise"
+   },
+   {
+    "ref": "Isaiah 42:18",
+    "verdict": "off",
+    "why": "spiritual deafness metaphor"
+   },
+   {
+    "ref": "Matthew 11:5",
+    "verdict": "related",
+    "why": "deaf hear, healing sign"
+   },
+   {
+    "ref": "Mark 7:32",
+    "verdict": "related",
+    "why": "Jesus heals deaf man"
+   },
+   {
+    "ref": "Mark 9:25",
+    "verdict": "off",
+    "why": "deaf spirit; would wound"
+   },
+   {
+    "ref": "Ephesians 1:22",
+    "verdict": "off",
+    "why": "Christ head of church"
+   },
+   {
+    "ref": "Ephesians 2:20",
+    "verdict": "related",
+    "why": "belonging in God's household"
+   },
+   {
+    "ref": "Philippians 3:6",
+    "verdict": "off",
+    "why": "persecuting the church"
+   }
+  ]
+ },
+ {
+  "q": "im 82 and all my friends are gone. outlived every one of them",
+  "kind": "live",
+  "note": "Matched 'outlived', 'gone' and 'friend' (several are about betrayal); missed promises for old age (Isa 46:4, Ps 71:9,18).",
+  "verses": [
+   {
+    "ref": "Deuteronomy 32:36",
+    "verdict": "related",
+    "why": "compassion when no one remains"
+   },
+   {
+    "ref": "Joshua 24:31",
+    "verdict": "off",
+    "why": "elders outlived Joshua"
+   },
+   {
+    "ref": "Judges 2:7",
+    "verdict": "off",
+    "why": "elders outlived Joshua"
+   },
+   {
+    "ref": "1 Kings 14:10",
+    "verdict": "off",
+    "why": "judgment on Jeroboam"
+   },
+   {
+    "ref": "Psalm 41:9",
+    "verdict": "off",
+    "why": "friend's betrayal"
+   },
+   {
+    "ref": "Psalm 55:13",
+    "verdict": "off",
+    "why": "friend's betrayal"
+   },
+   {
+    "ref": "Psalm 55:20",
+    "verdict": "off",
+    "why": "companion's betrayal"
+   },
+   {
+    "ref": "Psalm 88:18",
+    "verdict": "related",
+    "why": "lament: friends removed"
+   },
+   {
+    "ref": "Jeremiah 20:10",
+    "verdict": "off",
+    "why": "friends watching for fall"
+   },
+   {
+    "ref": "Matthew 26:56",
+    "verdict": "off",
+    "why": "disciples deserted Jesus"
+   },
+   {
+    "ref": "Luke 11:14",
+    "verdict": "off",
+    "why": "demon gone"
+   },
+   {
+    "ref": "Luke 16:9",
+    "verdict": "off",
+    "why": "shrewd manager"
+   },
+   {
+    "ref": "John 7:50",
+    "verdict": "off",
+    "why": "Nicodemus speaks"
+   },
+   {
+    "ref": "John 12:19",
+    "verdict": "off",
+    "why": "Pharisees' complaint"
+   },
+   {
+    "ref": "John 15:14",
+    "verdict": "related",
+    "why": "Jesus' friends, conditional"
+   },
+   {
+    "ref": "John 15:15",
+    "verdict": "related",
+    "why": "Jesus calls us friends"
+   }
+  ]
+ },
+ {
+  "q": "got robbed at gunpoint in july and i still have flashbacks every time someone walks up behind me",
+  "kind": "live",
+  "note": "Matched 'robbed' (bear robbed of cubs) and 'walk'; nothing on fear or trauma (Ps 56:3-4, Ps 91, Isa 41:10).",
+  "verses": [
+   {
+    "ref": "2 Samuel 17:8",
+    "verdict": "off",
+    "why": "bear robbed of cubs"
+   },
+   {
+    "ref": "Psalm 1:1",
+    "verdict": "off",
+    "why": "matched 'walk'"
+   },
+   {
+    "ref": "Proverbs 9:6",
+    "verdict": "off",
+    "why": "wisdom's invitation"
+   },
+   {
+    "ref": "Proverbs 17:12",
+    "verdict": "off",
+    "why": "bear robbed of cubs"
+   },
+   {
+    "ref": "Ecclesiastes 3:1",
+    "verdict": "off",
+    "why": "seasons"
+   },
+   {
+    "ref": "Isaiah 30:21",
+    "verdict": "off",
+    "why": "voice behind you, guidance"
+   },
+   {
+    "ref": "Hosea 13:8",
+    "verdict": "off",
+    "why": "God as robbed bear"
+   },
+   {
+    "ref": "Matthew 14:25",
+    "verdict": "related",
+    "why": "terror, 'do not be afraid'"
+   },
+   {
+    "ref": "Mark 6:48",
+    "verdict": "related",
+    "why": "terror, 'do not be afraid'"
+   },
+   {
+    "ref": "John 6:66",
+    "verdict": "off",
+    "why": "disciples no longer walked"
+   },
+   {
+    "ref": "Romans 13:13",
+    "verdict": "off",
+    "why": "behave decently"
+   },
+   {
+    "ref": "Galatians 5:16",
+    "verdict": "off",
+    "why": "walk by Spirit"
+   },
+   {
+    "ref": "Ephesians 5:2",
+    "verdict": "off",
+    "why": "walk in love"
+   },
+   {
+    "ref": "Colossians 1:10",
+    "verdict": "off",
+    "why": "walk worthily"
+   },
+   {
+    "ref": "Colossians 2:6",
+    "verdict": "off",
+    "why": "walk in Christ"
+   },
+   {
+    "ref": "1 John 1:7",
+    "verdict": "off",
+    "why": "walk in light"
+   }
+  ]
+ },
+ {
+  "q": "i have to lay off a guy tommorow and he has three kids",
+  "kind": "live",
+  "note": "Every verse is a word match ('lay', 'three', 'children'); missed texts on treating workers justly (Col 4:1, Lev 19:13, Matt 7:12).",
+  "verses": [
+   {
+    "ref": "Job 21:19",
+    "verdict": "off",
+    "why": "punishment laid on children"
+   },
+   {
+    "ref": "Job 30:12",
+    "verdict": "off",
+    "why": "lay snares"
+   },
+   {
+    "ref": "Job 32:5",
+    "verdict": "off",
+    "why": "three friends"
+   },
+   {
+    "ref": "Proverbs 4:4",
+    "verdict": "off",
+    "why": "lay hold of words"
+   },
+   {
+    "ref": "John 4:46",
+    "verdict": "off",
+    "why": "official's son"
+   },
+   {
+    "ref": "Acts 2:39",
+    "verdict": "off",
+    "why": "promise to children"
+   },
+   {
+    "ref": "Acts 7:20",
+    "verdict": "off",
+    "why": "Moses three months"
+   },
+   {
+    "ref": "Hebrews 11:23",
+    "verdict": "off",
+    "why": "Moses hidden three months"
+   }
+  ]
+ },
+ {
+  "q": "what town was jesus born in",
+  "kind": "live",
+  "note": "No Bethlehem verse at all; missed Mic 5:2, Matt 2:1, Luke 2:4-7.",
+  "verses": [
+   {
+    "ref": "Matthew 9:35",
+    "verdict": "off",
+    "why": "preaching in towns"
+   },
+   {
+    "ref": "Mark 1:38",
+    "verdict": "off",
+    "why": "neighboring towns"
+   },
+   {
+    "ref": "Luke 4:43",
+    "verdict": "off",
+    "why": "other towns"
+   },
+   {
+    "ref": "Luke 8:1",
+    "verdict": "off",
+    "why": "town to town"
+   },
+   {
+    "ref": "Luke 9:10",
+    "verdict": "off",
+    "why": "withdrew to Bethsaida"
+   },
+   {
+    "ref": "Luke 13:22",
+    "verdict": "off",
+    "why": "towns and villages"
+   },
+   {
+    "ref": "John 3:3",
+    "verdict": "off",
+    "why": "born again"
+   },
+   {
+    "ref": "1 John 5:1",
+    "verdict": "off",
+    "why": "born of God"
+   }
+  ]
+ },
+ {
+  "q": "what is a nazarite vow",
+  "kind": "live",
+  "note": "Numbers 6 is found; general 'vow' verses add noise.",
+  "verses": [
+   {
+    "ref": "Genesis 28:20",
+    "verdict": "off",
+    "why": "Jacob's vow, not Nazirite"
+   },
+   {
+    "ref": "Numbers 6:2",
+    "verdict": "answers",
+    "why": "defines Nazirite vow"
+   },
+   {
+    "ref": "Numbers 6:5",
+    "verdict": "answers",
+    "why": "no razor, holy"
+   },
+   {
+    "ref": "Numbers 6:21",
+    "verdict": "answers",
+    "why": "law of the Nazirite"
+   },
+   {
+    "ref": "Deuteronomy 12:11",
+    "verdict": "off",
+    "why": "vowed offerings generally"
+   },
+   {
+    "ref": "Judges 13:5",
+    "verdict": "related",
+    "why": "Samson a Nazirite"
+   },
+   {
+    "ref": "1 Samuel 1:11",
+    "verdict": "related",
+    "why": "Hannah's no-razor vow"
+   },
+   {
+    "ref": "Psalm 50:14",
+    "verdict": "off",
+    "why": "fulfill vows generally"
+   },
+   {
+    "ref": "Psalm 56:12",
+    "verdict": "off",
+    "why": "vows generally"
+   },
+   {
+    "ref": "Psalm 66:13",
+    "verdict": "off",
+    "why": "vows generally"
+   },
+   {
+    "ref": "Ecclesiastes 5:4",
+    "verdict": "related",
+    "why": "keep vows you make"
+   },
+   {
+    "ref": "Amos 2:11",
+    "verdict": "related",
+    "why": "mentions Nazirites"
+   },
+   {
+    "ref": "Luke 1:15",
+    "verdict": "related",
+    "why": "John abstains from wine"
+   }
+  ]
+ },
+ {
+  "q": "micah 6 8 meaning",
+  "kind": "live",
+  "note": "'Micah' also matched the Micah of Judges 17-18; missed parallels such as Deut 10:12, Hos 6:6, Matt 23:23.",
+  "verses": [
+   {
+    "ref": "Judges 17:5",
+    "verdict": "off",
+    "why": "different Micah, idols"
+   },
+   {
+    "ref": "Judges 17:10",
+    "verdict": "off",
+    "why": "different Micah"
+   },
+   {
+    "ref": "Judges 18:2",
+    "verdict": "off",
+    "why": "different Micah"
+   },
+   {
+    "ref": "Judges 18:14",
+    "verdict": "off",
+    "why": "different Micah"
+   },
+   {
+    "ref": "Jeremiah 26:18",
+    "verdict": "off",
+    "why": "cites another Micah prophecy"
+   },
+   {
+    "ref": "Micah 1:1",
+    "verdict": "related",
+    "why": "book's setting"
+   },
+   {
+    "ref": "Micah 2:12",
+    "verdict": "off",
+    "why": "remnant gathered"
+   },
+   {
+    "ref": "Micah 3:12",
+    "verdict": "off",
+    "why": "Zion plowed"
+   },
+   {
+    "ref": "Micah 6:2",
+    "verdict": "related",
+    "why": "LORD's case, sets scene"
+   },
+   {
+    "ref": "Micah 6:3",
+    "verdict": "related",
+    "why": "lawsuit setup"
+   },
+   {
+    "ref": "Micah 6:4",
+    "verdict": "related",
+    "why": "redemption recalled"
+   },
+   {
+    "ref": "Micah 6:5",
+    "verdict": "related",
+    "why": "remember righteousness"
+   },
+   {
+    "ref": "Micah 6:6",
+    "verdict": "answers",
+    "why": "question 6:8 answers"
+   },
+   {
+    "ref": "Micah 6:8",
+    "verdict": "answers",
+    "why": "the verse itself"
+   },
+   {
+    "ref": "Micah 6:15",
+    "verdict": "related",
+    "why": "judgment that follows"
+   },
+   {
+    "ref": "Micah 6:16",
+    "verdict": "related",
+    "why": "judgment that follows"
+   }
+  ]
+ },
+ {
+  "q": "who are the 144000 in revelaton",
+  "kind": "live",
+  "note": "The Revelation hits are right; the Exodus and Matthew verses look like matches on 'who' and 'forty'.",
+  "verses": [
+   {
+    "ref": "Exodus 3:14",
+    "verdict": "off",
+    "why": "I AM"
+   },
+   {
+    "ref": "Exodus 24:18",
+    "verdict": "off",
+    "why": "forty days"
+   },
+   {
+    "ref": "Exodus 34:28",
+    "verdict": "off",
+    "why": "forty days"
+   },
+   {
+    "ref": "Matthew 3:17",
+    "verdict": "off",
+    "why": "baptism voice"
+   },
+   {
+    "ref": "Matthew 17:5",
+    "verdict": "off",
+    "why": "transfiguration"
+   },
+   {
+    "ref": "Revelation 7:4",
+    "verdict": "answers",
+    "why": "144,000 sealed from Israel"
+   },
+   {
+    "ref": "Revelation 14:1",
+    "verdict": "answers",
+    "why": "144,000 with the Lamb"
+   },
+   {
+    "ref": "Revelation 14:3",
+    "verdict": "answers",
+    "why": "redeemed, firstfruits"
+   }
+  ]
+ },
+ {
+  "q": "god struck uzzah dead just for trying to steady the ark?? that seems so unfair",
+  "kind": "live",
+  "note": "Missed the Bible's own explanation in 1 Chr 15:13-15 and Num 4:15.",
+  "verses": [
+   {
+    "ref": "1 Samuel 6:19",
+    "verdict": "related",
+    "why": "ark's holiness, parallel"
+   },
+   {
+    "ref": "1 Samuel 25:38",
+    "verdict": "off",
+    "why": "Nabal struck dead"
+   },
+   {
+    "ref": "2 Samuel 6:6",
+    "verdict": "related",
+    "why": "narrates the act"
+   },
+   {
+    "ref": "2 Samuel 6:7",
+    "verdict": "answers",
+    "why": "gives reason: irreverence"
+   },
+   {
+    "ref": "2 Samuel 7:2",
+    "verdict": "off",
+    "why": "temple plans"
+   },
+   {
+    "ref": "1 Chronicles 13:7",
+    "verdict": "related",
+    "why": "ark on new cart"
+   },
+   {
+    "ref": "1 Chronicles 13:10",
+    "verdict": "related",
+    "why": "restates cause"
+   },
+   {
+    "ref": "1 Chronicles 13:11",
+    "verdict": "related",
+    "why": "David also angry"
+   }
+  ]
+ },
+ {
+  "q": "explain the lords prayer line by line",
+  "kind": "live",
+  "note": "'line' matched 'measuring line' and 'explain' matched parables; the prayer itself (Matt 6:9-13, Luke 11:2-4) is missing.",
+  "verses": [
+   {
+    "ref": "Isaiah 28:17",
+    "verdict": "off",
+    "why": "measuring line"
+   },
+   {
+    "ref": "Isaiah 34:11",
+    "verdict": "off",
+    "why": "measuring line"
+   },
+   {
+    "ref": "Lamentations 2:8",
+    "verdict": "off",
+    "why": "measuring line"
+   },
+   {
+    "ref": "Amos 7:7",
+    "verdict": "off",
+    "why": "plumb line"
+   },
+   {
+    "ref": "Zechariah 1:16",
+    "verdict": "off",
+    "why": "measuring line"
+   },
+   {
+    "ref": "Zechariah 2:1",
+    "verdict": "off",
+    "why": "measuring line"
+   },
+   {
+    "ref": "Matthew 15:15",
+    "verdict": "off",
+    "why": "'explain this parable'"
+   },
+   {
+    "ref": "Mark 4:34",
+    "verdict": "off",
+    "why": "explained parables"
+   }
+  ]
+ },
+ {
+  "q": "jesus said eat my flesh and drink my blood which sounds like cannibalism lol what did he mean",
+  "kind": "live",
+  "note": "Curse verses about cannibalism in siege surfaced; missed John 6:35, 47 and 63, which explain the saying.",
+  "verses": [
+   {
+    "ref": "Leviticus 26:29",
+    "verdict": "off",
+    "why": "siege-cannibalism curse"
+   },
+   {
+    "ref": "Deuteronomy 28:53",
+    "verdict": "off",
+    "why": "siege-cannibalism curse"
+   },
+   {
+    "ref": "Psalm 50:13",
+    "verdict": "off",
+    "why": "God needs no sacrifices"
+   },
+   {
+    "ref": "Jeremiah 19:9",
+    "verdict": "off",
+    "why": "siege-cannibalism judgment"
+   },
+   {
+    "ref": "John 6:53",
+    "verdict": "related",
+    "why": "the saying itself"
+   },
+   {
+    "ref": "John 6:54",
+    "verdict": "answers",
+    "why": "means eternal life"
+   },
+   {
+    "ref": "John 6:55",
+    "verdict": "related",
+    "why": "restates the saying"
+   },
+   {
+    "ref": "John 6:56",
+    "verdict": "answers",
+    "why": "abiding; feeds on Me"
+   }
+  ]
+ },
+ {
+  "q": "can i marry my second cousin",
+  "kind": "live",
+  "note": "Missed the forbidden-relations law in Lev 18:6-18, which does not list cousins.",
+  "verses": [
+   {
+    "ref": "Numbers 36:11",
+    "verdict": "related",
+    "why": "cousin marriage, by command"
+   },
+   {
+    "ref": "Deuteronomy 24:3",
+    "verdict": "off",
+    "why": "'second man' divorce"
+   },
+   {
+    "ref": "1 Samuel 18:21",
+    "verdict": "off",
+    "why": "'second time' son-in-law"
+   },
+   {
+    "ref": "1 Chronicles 23:22",
+    "verdict": "related",
+    "why": "cousins married"
+   },
+   {
+    "ref": "Esther 2:14",
+    "verdict": "off",
+    "why": "second harem"
+   },
+   {
+    "ref": "Jeremiah 32:9",
+    "verdict": "off",
+    "why": "bought from cousin"
+   },
+   {
+    "ref": "Mark 12:21",
+    "verdict": "off",
+    "why": "levirate riddle"
+   },
+   {
+    "ref": "Colossians 4:10",
+    "verdict": "off",
+    "why": "Mark the cousin"
+   }
+  ]
+ },
+ {
+  "q": "did the sun really stand still for joshua, wouldnt that wreck the whole planet",
+  "kind": "live",
+  "note": "'Joshua' also matched Joshua the high priest in Zechariah 3, and 'stand' and 'sun' added noise.",
+  "verses": [
+   {
+    "ref": "Numbers 27:19",
+    "verdict": "off",
+    "why": "Joshua commissioned, 'stand'"
+   },
+   {
+    "ref": "Numbers 27:22",
+    "verdict": "off",
+    "why": "Joshua commissioned"
+   },
+   {
+    "ref": "Deuteronomy 4:19",
+    "verdict": "off",
+    "why": "don't worship sun"
+   },
+   {
+    "ref": "Joshua 1:5",
+    "verdict": "off",
+    "why": "no one shall stand"
+   },
+   {
+    "ref": "Joshua 10:7",
+    "verdict": "related",
+    "why": "lead-up to the battle"
+   },
+   {
+    "ref": "Joshua 10:12",
+    "verdict": "answers",
+    "why": "sun, stand still"
+   },
+   {
+    "ref": "Joshua 10:13",
+    "verdict": "answers",
+    "why": "sun stopped a day"
+   },
+   {
+    "ref": "Jeremiah 31:35",
+    "verdict": "related",
+    "why": "LORD orders sun and moon"
+   },
+   {
+    "ref": "Zechariah 3:1",
+    "verdict": "off",
+    "why": "different Joshua"
+   },
+   {
+    "ref": "Zechariah 3:4",
+    "verdict": "off",
+    "why": "different Joshua"
+   },
+   {
+    "ref": "Luke 21:25",
+    "verdict": "off",
+    "why": "end-time signs"
+   },
+   {
+    "ref": "Revelation 6:12",
+    "verdict": "off",
+    "why": "sixth seal"
+   },
+   {
+    "ref": "Revelation 21:23",
+    "verdict": "off",
+    "why": "no need of sun"
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about abortion",
+  "kind": "live",
+  "note": "Finds the womb texts; missed Ex 21:22-25.",
+  "verses": [
+   {
+    "ref": "Job 10:11",
+    "verdict": "related",
+    "why": "God forms the body"
+   },
+   {
+    "ref": "Psalm 139:13",
+    "verdict": "answers",
+    "why": "knit together in womb"
+   },
+   {
+    "ref": "Psalm 139:16",
+    "verdict": "answers",
+    "why": "God saw unformed body"
+   },
+   {
+    "ref": "Ecclesiastes 11:5",
+    "verdict": "related",
+    "why": "bones formed in womb"
+   },
+   {
+    "ref": "Jeremiah 1:5",
+    "verdict": "answers",
+    "why": "known before formed in womb"
+   },
+   {
+    "ref": "Luke 1:41",
+    "verdict": "related",
+    "why": "unborn John leaps"
+   },
+   {
+    "ref": "Luke 1:44",
+    "verdict": "related",
+    "why": "unborn John leaps for joy"
+   }
+  ]
+ },
+ {
+  "q": "how do i fight spiritual battles",
+  "kind": "live",
+  "note": "Only one verse returned; Eph 6:10-18 and 2 Cor 10:3-5 are missing.",
+  "verses": [
+   {
+    "ref": "Psalm 35:1",
+    "verdict": "related",
+    "why": "pray LORD fights opponents"
+   }
+  ]
+ },
+ {
+  "q": "is using chatgpt to write my essays cheating if i change some of it",
+  "kind": "live",
+  "note": "Matched 'cheated/change/write' in other senses; nothing on honesty or deceit in one's own work.",
+  "verses": [
+   {
+    "ref": "Genesis 31:7",
+    "verdict": "off",
+    "why": "Laban cheating Jacob of wages"
+   },
+   {
+    "ref": "Numbers 23:19",
+    "verdict": "off",
+    "why": "God does not change His mind"
+   },
+   {
+    "ref": "Daniel 2:21",
+    "verdict": "off",
+    "why": "God changes times"
+   },
+   {
+    "ref": "Malachi 3:6",
+    "verdict": "off",
+    "why": "God does not change"
+   },
+   {
+    "ref": "Galatians 6:11",
+    "verdict": "off",
+    "why": "Paul writing in large letters"
+   },
+   {
+    "ref": "James 1:17",
+    "verdict": "off",
+    "why": "God has no change"
+   },
+   {
+    "ref": "1 John 2:12",
+    "verdict": "off",
+    "why": "'I am writing to you'"
+   },
+   {
+    "ref": "2 John 1:12",
+    "verdict": "off",
+    "why": "prefers not to write"
+   }
+  ]
+ },
+ {
+  "q": "my 15 yr old games like 8 hours a day and screams at me if i unplug the xbox",
+  "kind": "live",
+  "note": "Matched 'hours' and 'games'/race only; nothing on parenting, discipline or anger.",
+  "verses": [
+   {
+    "ref": "Matthew 20:5",
+    "verdict": "off",
+    "why": "hours in vineyard parable"
+   },
+   {
+    "ref": "Matthew 27:45",
+    "verdict": "off",
+    "why": "hour of crucifixion darkness"
+   },
+   {
+    "ref": "John 11:9",
+    "verdict": "off",
+    "why": "twelve hours of daylight"
+   },
+   {
+    "ref": "John 19:14",
+    "verdict": "off",
+    "why": "sixth hour, Pilate"
+   },
+   {
+    "ref": "1 Corinthians 1:9",
+    "verdict": "off",
+    "why": "God is faithful"
+   },
+   {
+    "ref": "1 Corinthians 9:24",
+    "verdict": "off",
+    "why": "athletic race metaphor"
+   },
+   {
+    "ref": "1 Corinthians 9:26",
+    "verdict": "off",
+    "why": "Paul's race metaphor"
+   },
+   {
+    "ref": "1 Corinthians 15:32",
+    "verdict": "off",
+    "why": "resurrection argument"
+   },
+   {
+    "ref": "Galatians 2:2",
+    "verdict": "off",
+    "why": "Paul running in vain"
+   },
+   {
+    "ref": "Philippians 2:16",
+    "verdict": "off",
+    "why": "Paul's labor not in vain"
+   },
+   {
+    "ref": "2 Timothy 4:7",
+    "verdict": "off",
+    "why": "Paul finished the race"
+   },
+   {
+    "ref": "Hebrews 12:1",
+    "verdict": "off",
+    "why": "Christian race metaphor"
+   }
+  ]
+ },
+ {
+  "q": "just found out my 14 year old has been sending pics to some guy on snapchat. im shaking",
+  "kind": "live",
+  "note": "Every hit is an age number or 'shake'; nothing for a frightened parent or protecting a child.",
+  "verses": [
+   {
+    "ref": "Genesis 17:24",
+    "verdict": "off",
+    "why": "Abraham's age at circumcision"
+   },
+   {
+    "ref": "Genesis 18:11",
+    "verdict": "off",
+    "why": "Sarah's old age"
+   },
+   {
+    "ref": "Numbers 4:35",
+    "verdict": "off",
+    "why": "Levite census ages"
+   },
+   {
+    "ref": "Numbers 28:11",
+    "verdict": "off",
+    "why": "year-old lambs offering"
+   },
+   {
+    "ref": "2 Kings 24:18",
+    "verdict": "off",
+    "why": "Zedekiah's age"
+   },
+   {
+    "ref": "2 Chronicles 34:1",
+    "verdict": "off",
+    "why": "Josiah's age"
+   },
+   {
+    "ref": "Job 9:6",
+    "verdict": "off",
+    "why": "God shakes the earth"
+   },
+   {
+    "ref": "Psalm 22:7",
+    "verdict": "off",
+    "why": "mockers shake heads"
+   },
+   {
+    "ref": "Psalm 29:8",
+    "verdict": "off",
+    "why": "voice shakes wilderness"
+   },
+   {
+    "ref": "Psalm 109:25",
+    "verdict": "off",
+    "why": "accusers shake heads"
+   },
+   {
+    "ref": "Jeremiah 48:27",
+    "verdict": "off",
+    "why": "Moab shook head at Israel"
+   },
+   {
+    "ref": "Matthew 27:39",
+    "verdict": "off",
+    "why": "passersby shake heads at Jesus"
+   },
+   {
+    "ref": "Luke 3:23",
+    "verdict": "off",
+    "why": "Jesus' age"
+   },
+   {
+    "ref": "Romans 4:19",
+    "verdict": "off",
+    "why": "Abraham's age"
+   },
+   {
+    "ref": "2 Corinthians 13:13",
+    "verdict": "off",
+    "why": "greetings"
+   },
+   {
+    "ref": "Hebrews 12:26",
+    "verdict": "off",
+    "why": "God shaking heaven and earth"
+   }
+  ]
+ },
+ {
+  "q": "got a job offer in dubai for double the pay and we could finally get out of debt, but my parents are getting older and my mom already cries when i talk about it and id be 14 hours away. how do i even decide something like that",
+  "kind": "live",
+  "note": "Matched 'old/double/debt'; nothing on honoring parents or seeking wisdom for a decision.",
+  "verses": [
+   {
+    "ref": "Genesis 15:15",
+    "verdict": "off",
+    "why": "Abram's peaceful death"
+   },
+   {
+    "ref": "Exodus 22:26",
+    "verdict": "off",
+    "why": "law on cloak as collateral"
+   },
+   {
+    "ref": "Nehemiah 5:4",
+    "verdict": "off",
+    "why": "famine debts, not the decision"
+   },
+   {
+    "ref": "Job 1:5",
+    "verdict": "off",
+    "why": "Job's offerings for children"
+   },
+   {
+    "ref": "Job 22:6",
+    "verdict": "off",
+    "why": "Eliphaz's false accusation"
+   },
+   {
+    "ref": "Job 42:10",
+    "verdict": "off",
+    "why": "Job's possessions doubled"
+   },
+   {
+    "ref": "Psalm 71:9",
+    "verdict": "related",
+    "why": "plea not to be forsaken in old age"
+   },
+   {
+    "ref": "Psalm 71:18",
+    "verdict": "off",
+    "why": "old psalmist's prayer to proclaim"
+   },
+   {
+    "ref": "Psalm 90:10",
+    "verdict": "off",
+    "why": "brevity of life"
+   },
+   {
+    "ref": "Psalm 92:14",
+    "verdict": "off",
+    "why": "righteous fruitful in old age"
+   },
+   {
+    "ref": "Proverbs 16:31",
+    "verdict": "off",
+    "why": "gray hair a crown"
+   },
+   {
+    "ref": "Isaiah 46:4",
+    "verdict": "related",
+    "why": "God carries the aged"
+   },
+   {
+    "ref": "Amos 2:8",
+    "verdict": "off",
+    "why": "garments taken in pledge"
+   },
+   {
+    "ref": "1 Timothy 5:17",
+    "verdict": "off",
+    "why": "double honor for church elders"
+   },
+   {
+    "ref": "Titus 2:2",
+    "verdict": "off",
+    "why": "conduct of older men"
+   },
+   {
+    "ref": "Revelation 18:6",
+    "verdict": "off",
+    "why": "Babylon paid back double"
+   }
+  ]
+ },
+ {
+  "q": "been in a situationship for 8 months, i want more and he says hes \"not into labels\"",
+  "kind": "live",
+  "note": "All hits match 'want'/'8'; nothing on commitment, marriage or relationships.",
+  "verses": [
+   {
+    "ref": "Numbers 3:28",
+    "verdict": "off",
+    "why": "census number"
+   },
+   {
+    "ref": "1 Kings 4:10",
+    "verdict": "off",
+    "why": "list of officials"
+   },
+   {
+    "ref": "1 Chronicles 3:20",
+    "verdict": "off",
+    "why": "genealogy"
+   },
+   {
+    "ref": "Matthew 8:29",
+    "verdict": "off",
+    "why": "demons: what do You want"
+   },
+   {
+    "ref": "Matthew 26:17",
+    "verdict": "off",
+    "why": "where do You want Passover"
+   },
+   {
+    "ref": "Matthew 27:17",
+    "verdict": "off",
+    "why": "Pilate: which do you want"
+   },
+   {
+    "ref": "Matthew 27:21",
+    "verdict": "off",
+    "why": "crowd wants Barabbas"
+   },
+   {
+    "ref": "Matthew 27:43",
+    "verdict": "off",
+    "why": "mockers at the cross"
+   },
+   {
+    "ref": "Mark 1:24",
+    "verdict": "off",
+    "why": "demon's cry"
+   },
+   {
+    "ref": "Mark 5:7",
+    "verdict": "off",
+    "why": "demon's cry"
+   },
+   {
+    "ref": "Mark 8:34",
+    "verdict": "off",
+    "why": "discipleship, 'wants' match"
+   },
+   {
+    "ref": "Luke 4:34",
+    "verdict": "off",
+    "why": "demon's cry"
+   },
+   {
+    "ref": "Romans 1:13",
+    "verdict": "off",
+    "why": "Paul's travel plans"
+   }
+  ]
+ },
+ {
+  "q": "i drive doordash like 70 hours a week and barely see my kids",
+  "kind": "live",
+  "note": "Matched 'drive' (driving out demons) and 'hour'; nothing on work, rest or fathering.",
+  "verses": [
+   {
+    "ref": "2 Kings 4:24",
+    "verdict": "off",
+    "why": "Shunammite driving donkey"
+   },
+   {
+    "ref": "2 Kings 9:20",
+    "verdict": "off",
+    "why": "Jehu drives like a madman"
+   },
+   {
+    "ref": "Proverbs 22:15",
+    "verdict": "off",
+    "why": "rod drives out folly"
+   },
+   {
+    "ref": "Micah 2:9",
+    "verdict": "off",
+    "why": "driving women from homes"
+   },
+   {
+    "ref": "Matthew 9:34",
+    "verdict": "off",
+    "why": "drives out demons"
+   },
+   {
+    "ref": "Matthew 15:28",
+    "verdict": "off",
+    "why": "daughter healed that hour"
+   },
+   {
+    "ref": "Matthew 20:5",
+    "verdict": "off",
+    "why": "hours in vineyard parable"
+   },
+   {
+    "ref": "Matthew 27:45",
+    "verdict": "off",
+    "why": "crucifixion hour"
+   },
+   {
+    "ref": "Matthew 27:46",
+    "verdict": "off",
+    "why": "cry from the cross"
+   },
+   {
+    "ref": "Mark 3:22",
+    "verdict": "off",
+    "why": "drives out demons"
+   },
+   {
+    "ref": "Mark 15:33",
+    "verdict": "off",
+    "why": "crucifixion hour"
+   },
+   {
+    "ref": "Luke 9:40",
+    "verdict": "off",
+    "why": "drive out spirit"
+   },
+   {
+    "ref": "Luke 11:15",
+    "verdict": "off",
+    "why": "drives out demons"
+   },
+   {
+    "ref": "John 4:52",
+    "verdict": "off",
+    "why": "hour of healing"
+   },
+   {
+    "ref": "John 4:53",
+    "verdict": "off",
+    "why": "hour of healing"
+   },
+   {
+    "ref": "John 11:9",
+    "verdict": "off",
+    "why": "twelve hours of daylight"
+   }
+  ]
+ },
+ {
+  "q": "too soon to start dating a year after my husband passed? my kids are upset",
+  "kind": "live",
+  "note": "1 Corinthians 7:39 found; Romans 7:2-3 not shown.",
+  "verses": [
+   {
+    "ref": "Genesis 24:67",
+    "verdict": "related",
+    "why": "Isaac comforted by marriage after loss"
+   },
+   {
+    "ref": "Deuteronomy 24:5",
+    "verdict": "off",
+    "why": "newlywed's year off war"
+   },
+   {
+    "ref": "Deuteronomy 25:5",
+    "verdict": "related",
+    "why": "narrow levirate law for widows"
+   },
+   {
+    "ref": "2 Samuel 15:7",
+    "verdict": "off",
+    "why": "Absalom's vow"
+   },
+   {
+    "ref": "Psalm 90:4",
+    "verdict": "off",
+    "why": "thousand years as a day"
+   },
+   {
+    "ref": "Proverbs 13:22",
+    "verdict": "off",
+    "why": "inheritance for grandchildren"
+   },
+   {
+    "ref": "Proverbs 20:7",
+    "verdict": "off",
+    "why": "righteous man's children blessed"
+   },
+   {
+    "ref": "Isaiah 54:1",
+    "verdict": "off",
+    "why": "barren woman, Zion"
+   },
+   {
+    "ref": "1 Corinthians 7:14",
+    "verdict": "off",
+    "why": "unbelieving spouse sanctified"
+   },
+   {
+    "ref": "1 Corinthians 7:33",
+    "verdict": "related",
+    "why": "married vs unmarried concerns"
+   },
+   {
+    "ref": "1 Corinthians 7:39",
+    "verdict": "answers",
+    "why": "widow free to remarry in the Lord"
+   },
+   {
+    "ref": "Titus 1:6",
+    "verdict": "off",
+    "why": "elder qualifications"
+   }
+  ]
+ },
+ {
+  "q": "something happened to me at a party freshman year and i never told anyone. i still feel dirty",
+  "kind": "live",
+  "note": "Matched 'never/told/happened'; nothing on God's care for the wronged or being made clean; sensitive query needs prepared answer.",
+  "verses": [
+   {
+    "ref": "Proverbs 17:13",
+    "verdict": "off",
+    "why": "returning evil for good"
+   },
+   {
+    "ref": "Habakkuk 1:5",
+    "verdict": "off",
+    "why": "'would not believe if told'"
+   },
+   {
+    "ref": "Matthew 16:22",
+    "verdict": "off",
+    "why": "Peter rebukes Jesus"
+   },
+   {
+    "ref": "Matthew 16:24",
+    "verdict": "off",
+    "why": "take up cross"
+   },
+   {
+    "ref": "Mark 5:33",
+    "verdict": "related",
+    "why": "unclean woman tells all, receives peace"
+   },
+   {
+    "ref": "Mark 10:15",
+    "verdict": "off",
+    "why": "receive kingdom like child"
+   },
+   {
+    "ref": "Luke 18:17",
+    "verdict": "off",
+    "why": "receive kingdom like child"
+   },
+   {
+    "ref": "Luke 20:16",
+    "verdict": "off",
+    "why": "tenants parable"
+   },
+   {
+    "ref": "Luke 24:35",
+    "verdict": "off",
+    "why": "Emmaus report"
+   },
+   {
+    "ref": "John 7:46",
+    "verdict": "off",
+    "why": "no one spoke like Him"
+   },
+   {
+    "ref": "John 8:51",
+    "verdict": "off",
+    "why": "never see death"
+   },
+   {
+    "ref": "John 13:8",
+    "verdict": "related",
+    "why": "Jesus washes, 'you are clean'"
+   },
+   {
+    "ref": "John 14:29",
+    "verdict": "off",
+    "why": "told before it happens"
+   },
+   {
+    "ref": "Romans 10:11",
+    "verdict": "related",
+    "why": "believer never put to shame"
+   },
+   {
+    "ref": "Galatians 3:20",
+    "verdict": "off",
+    "why": "mediator argument"
+   }
+  ]
+ },
+ {
+  "q": "my buisness partner drained our acount and dissapeared",
+  "kind": "live",
+  "note": "Misspelled 'account' still matched 'account'/'partner' in other senses; nothing on fraud, justice or forgiveness.",
+  "verses": [
+   {
+    "ref": "Genesis 2:4",
+    "verdict": "off",
+    "why": "'account' of creation"
+   },
+   {
+    "ref": "Psalm 32:4",
+    "verdict": "off",
+    "why": "strength drained, unconfessed sin"
+   },
+   {
+    "ref": "Proverbs 2:17",
+    "verdict": "off",
+    "why": "adulteress leaves partner"
+   },
+   {
+    "ref": "Luke 5:7",
+    "verdict": "off",
+    "why": "fishing partners"
+   },
+   {
+    "ref": "Luke 5:10",
+    "verdict": "off",
+    "why": "fishing partners"
+   },
+   {
+    "ref": "Luke 16:2",
+    "verdict": "related",
+    "why": "manager wasting master's goods"
+   },
+   {
+    "ref": "Romans 14:12",
+    "verdict": "off",
+    "why": "account to God, don't judge"
+   },
+   {
+    "ref": "2 Corinthians 8:23",
+    "verdict": "off",
+    "why": "Titus as partner"
+   },
+   {
+    "ref": "Philippians 1:7",
+    "verdict": "off",
+    "why": "partners in grace"
+   },
+   {
+    "ref": "Philemon 1:17",
+    "verdict": "off",
+    "why": "receive Onesimus"
+   },
+   {
+    "ref": "Hebrews 10:33",
+    "verdict": "off",
+    "why": "partners in persecution"
+   },
+   {
+    "ref": "1 Peter 4:5",
+    "verdict": "related",
+    "why": "wrongdoers give account to God"
+   }
+  ]
+ },
+ {
+  "q": "what language did jesus speak",
+  "kind": "live",
+  "note": "'speak' pulled in tongues passages; Aramaic words of Jesus (Mark 5:41, 15:34) not shown.",
+  "verses": [
+   {
+    "ref": "Mark 16:17",
+    "verdict": "off",
+    "why": "new tongues sign"
+   },
+   {
+    "ref": "Acts 10:46",
+    "verdict": "off",
+    "why": "Gentiles speak in tongues"
+   },
+   {
+    "ref": "1 Corinthians 12:10",
+    "verdict": "off",
+    "why": "gift of tongues"
+   },
+   {
+    "ref": "1 Corinthians 14:2",
+    "verdict": "off",
+    "why": "gift of tongues"
+   },
+   {
+    "ref": "1 Corinthians 14:3",
+    "verdict": "off",
+    "why": "prophecy vs tongues"
+   },
+   {
+    "ref": "1 Corinthians 14:4",
+    "verdict": "off",
+    "why": "gift of tongues"
+   },
+   {
+    "ref": "1 Corinthians 14:5",
+    "verdict": "off",
+    "why": "gift of tongues"
+   },
+   {
+    "ref": "1 Corinthians 14:39",
+    "verdict": "off",
+    "why": "gift of tongues"
+   }
+  ]
+ },
+ {
+  "q": "did god change sauls name to paul on the road to damascus",
+  "kind": "live",
+  "note": "Acts 13:9 (Saul also called Paul) not shown; hits only show he stayed 'Saul' after Damascus.",
+  "verses": [
+   {
+    "ref": "Acts 9:1",
+    "verdict": "related",
+    "why": "Saul before conversion"
+   },
+   {
+    "ref": "Acts 9:3",
+    "verdict": "related",
+    "why": "road to Damascus"
+   },
+   {
+    "ref": "Acts 9:4",
+    "verdict": "related",
+    "why": "Jesus calls him 'Saul'"
+   },
+   {
+    "ref": "Acts 9:11",
+    "verdict": "related",
+    "why": "still named Saul"
+   },
+   {
+    "ref": "Acts 9:17",
+    "verdict": "related",
+    "why": "'Brother Saul' after road"
+   },
+   {
+    "ref": "Acts 9:20",
+    "verdict": "related",
+    "why": "Saul preaching"
+   },
+   {
+    "ref": "Acts 9:27",
+    "verdict": "related",
+    "why": "Saul in Jerusalem"
+   },
+   {
+    "ref": "Acts 26:14",
+    "verdict": "related",
+    "why": "'Saul, Saul' on road"
+   }
+  ]
+ },
+ {
+  "q": "honestly i always felt bad for the older brother in the prodigal son story. he stayed home and worked and did everything right and the dad throws a party for the one who blew all the money. what is that parable even supposed to teach",
+  "kind": "live",
+  "note": "Good hits; Luke 15:1-2 (grumbling Pharisees, the parable's audience) not shown.",
+  "verses": [
+   {
+    "ref": "Luke 15:18",
+    "verdict": "related",
+    "why": "younger son's repentance"
+   },
+   {
+    "ref": "Luke 15:21",
+    "verdict": "related",
+    "why": "younger son's confession"
+   },
+   {
+    "ref": "Luke 15:24",
+    "verdict": "answers",
+    "why": "why the father celebrates"
+   },
+   {
+    "ref": "Luke 15:25",
+    "verdict": "related",
+    "why": "older son arrives"
+   },
+   {
+    "ref": "Luke 15:27",
+    "verdict": "related",
+    "why": "servant explains feast"
+   },
+   {
+    "ref": "Luke 15:28",
+    "verdict": "related",
+    "why": "father pleads with older son"
+   },
+   {
+    "ref": "Luke 15:30",
+    "verdict": "related",
+    "why": "older son's complaint"
+   },
+   {
+    "ref": "Luke 15:31",
+    "verdict": "answers",
+    "why": "father's word to older son"
+   },
+   {
+    "ref": "Luke 15:32",
+    "verdict": "answers",
+    "why": "fitting to celebrate the lost found"
+   }
+  ]
+ },
+ {
+  "q": "did we all inherit adams sin",
+  "kind": "live",
+  "note": "Romans 5:12 and 5:19 appear only as context, not as hits; 1 Corinthians 15:22 not shown.",
+  "verses": [
+   {
+    "ref": "Genesis 2:7",
+    "verdict": "off",
+    "why": "creation of man"
+   },
+   {
+    "ref": "Job 31:33",
+    "verdict": "off",
+    "why": "Job hiding guilt"
+   },
+   {
+    "ref": "Romans 5:14",
+    "verdict": "answers",
+    "why": "death reigned from Adam"
+   },
+   {
+    "ref": "Romans 5:16",
+    "verdict": "answers",
+    "why": "one sin brought condemnation"
+   },
+   {
+    "ref": "Romans 5:20",
+    "verdict": "related",
+    "why": "law and grace"
+   },
+   {
+    "ref": "Romans 5:21",
+    "verdict": "related",
+    "why": "sin reigned, grace reigns"
+   },
+   {
+    "ref": "1 Corinthians 15:45",
+    "verdict": "related",
+    "why": "first and last Adam, bodies"
+   },
+   {
+    "ref": "1 Timothy 2:14",
+    "verdict": "related",
+    "why": "the fall, church order context"
+   }
+  ]
+ },
+ {
+  "q": "bears mauled 42 kids for making fun of elisha being bald, how is that ok",
+  "kind": "live",
+  "note": "Story found; rest matched 'bald' in mourning rites; nothing on God's justice or mocking His prophets.",
+  "verses": [
+   {
+    "ref": "Leviticus 21:5",
+    "verdict": "off",
+    "why": "priests' baldness law"
+   },
+   {
+    "ref": "2 Kings 2:23",
+    "verdict": "related",
+    "why": "the story, no explanation"
+   },
+   {
+    "ref": "2 Kings 2:24",
+    "verdict": "related",
+    "why": "the story, no explanation"
+   },
+   {
+    "ref": "Job 30:1",
+    "verdict": "off",
+    "why": "Job mocked by young men"
+   },
+   {
+    "ref": "Isaiah 3:24",
+    "verdict": "off",
+    "why": "baldness as judgment"
+   },
+   {
+    "ref": "Isaiah 22:12",
+    "verdict": "off",
+    "why": "shaven heads mourning"
+   },
+   {
+    "ref": "Jeremiah 48:37",
+    "verdict": "off",
+    "why": "Moab's mourning"
+   },
+   {
+    "ref": "Amos 8:10",
+    "verdict": "off",
+    "why": "shaved heads mourning"
+   },
+   {
+    "ref": "Micah 1:16",
+    "verdict": "off",
+    "why": "bald in mourning"
+   },
+   {
+    "ref": "1 Peter 4:14",
+    "verdict": "off",
+    "why": "believers insulted for Christ"
+   }
+  ]
+ },
+ {
+  "q": "is it ok to put out a fleece like gideon and ask god for a sign",
+  "kind": "live",
+  "note": "Only the Gideon story itself; no verse that weighs asking for signs (e.g. Matthew 12:39, Deuteronomy 6:16).",
+  "verses": [
+   {
+    "ref": "Judges 6:17",
+    "verdict": "related",
+    "why": "Gideon asks a sign"
+   },
+   {
+    "ref": "Judges 6:36",
+    "verdict": "related",
+    "why": "fleece story"
+   },
+   {
+    "ref": "Judges 6:37",
+    "verdict": "related",
+    "why": "fleece story"
+   },
+   {
+    "ref": "Judges 6:38",
+    "verdict": "related",
+    "why": "fleece story"
+   },
+   {
+    "ref": "Judges 6:39",
+    "verdict": "related",
+    "why": "Gideon fears God's anger"
+   },
+   {
+    "ref": "Judges 6:40",
+    "verdict": "related",
+    "why": "God grants sign"
+   },
+   {
+    "ref": "John 3:2",
+    "verdict": "off",
+    "why": "Nicodemus on Jesus' signs"
+   },
+   {
+    "ref": "John 4:48",
+    "verdict": "related",
+    "why": "Jesus on needing signs"
+   }
+  ]
+ },
+ {
+  "q": "jesus called peter satan?? why",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 4:18",
+    "verdict": "off",
+    "why": "calling of Peter"
+   },
+   {
+    "ref": "Matthew 4:19",
+    "verdict": "off",
+    "why": "fishers of men"
+   },
+   {
+    "ref": "Matthew 16:18",
+    "verdict": "related",
+    "why": "praise just before rebuke"
+   },
+   {
+    "ref": "Matthew 16:23",
+    "verdict": "answers",
+    "why": "the rebuke and its reason"
+   },
+   {
+    "ref": "Mark 1:16",
+    "verdict": "off",
+    "why": "calling of Peter"
+   },
+   {
+    "ref": "Mark 1:17",
+    "verdict": "off",
+    "why": "fishers of men"
+   },
+   {
+    "ref": "Mark 3:23",
+    "verdict": "off",
+    "why": "Satan cannot cast out Satan"
+   },
+   {
+    "ref": "Mark 8:33",
+    "verdict": "answers",
+    "why": "the rebuke and its reason"
+   }
+  ]
+ },
+ {
+  "q": "does the bible say the earth is flat",
+  "kind": "live",
+  "note": "'flat' matched salt flats; Isaiah 40:22 and Job 26:7 not shown.",
+  "verses": [
+   {
+    "ref": "Job 39:6",
+    "verdict": "off",
+    "why": "salt flats for donkey"
+   },
+   {
+    "ref": "Psalm 102:25",
+    "verdict": "related",
+    "why": "foundations of the earth"
+   },
+   {
+    "ref": "Isaiah 24:19",
+    "verdict": "off",
+    "why": "earth shaken in judgment"
+   },
+   {
+    "ref": "Isaiah 45:18",
+    "verdict": "off",
+    "why": "earth made to be inhabited"
+   },
+   {
+    "ref": "Matthew 24:35",
+    "verdict": "off",
+    "why": "heaven and earth pass away"
+   },
+   {
+    "ref": "Hebrews 1:10",
+    "verdict": "related",
+    "why": "foundations of the earth"
+   },
+   {
+    "ref": "Revelation 20:11",
+    "verdict": "off",
+    "why": "earth flees the throne"
+   },
+   {
+    "ref": "Revelation 21:1",
+    "verdict": "off",
+    "why": "new heaven and earth"
+   }
+  ]
+ },
+ {
+  "q": "my grandpa always says god helps those who help themselves, is that actually a verse",
+  "kind": "live",
+  "note": "Helpful 'help' hits mixed with off ones (Daniel 11:39, 1 Corinthians 12:28, Thessalonians thanksgivings).",
+  "verses": [
+   {
+    "ref": "2 Chronicles 14:11",
+    "verdict": "answers",
+    "why": "God helps the powerless who rely on Him"
+   },
+   {
+    "ref": "2 Chronicles 26:7",
+    "verdict": "related",
+    "why": "God helped Uzziah who sought Him"
+   },
+   {
+    "ref": "Psalm 18:6",
+    "verdict": "related",
+    "why": "cried for help, God heard"
+   },
+   {
+    "ref": "Psalm 46:1",
+    "verdict": "related",
+    "why": "God our help in trouble"
+   },
+   {
+    "ref": "Psalm 70:4",
+    "verdict": "related",
+    "why": "near 'poor and needy, You are my help'"
+   },
+   {
+    "ref": "Psalm 71:12",
+    "verdict": "related",
+    "why": "prayer for God's help"
+   },
+   {
+    "ref": "Psalm 146:5",
+    "verdict": "answers",
+    "why": "help is God, not man"
+   },
+   {
+    "ref": "Isaiah 41:10",
+    "verdict": "related",
+    "why": "God will surely help"
+   },
+   {
+    "ref": "Daniel 11:39",
+    "verdict": "off",
+    "why": "help of a foreign god"
+   },
+   {
+    "ref": "Mark 14:7",
+    "verdict": "off",
+    "why": "helping the poor"
+   },
+   {
+    "ref": "Romans 8:28",
+    "verdict": "related",
+    "why": "God works for good; Spirit helps weakness"
+   },
+   {
+    "ref": "1 Corinthians 12:28",
+    "verdict": "off",
+    "why": "gift of helping"
+   },
+   {
+    "ref": "1 Thessalonians 1:2",
+    "verdict": "off",
+    "why": "Paul's thanksgiving"
+   },
+   {
+    "ref": "2 Thessalonians 2:13",
+    "verdict": "off",
+    "why": "Paul's thanksgiving"
+   },
+   {
+    "ref": "Hebrews 7:25",
+    "verdict": "off",
+    "why": "Christ's intercession"
+   }
+  ]
+ },
+ {
+  "q": "how do i hear god's voice",
+  "kind": "live",
+  "note": "Four copies of one quotation; John 10:27 and Hebrews 1:1-2 not shown.",
+  "verses": [
+   {
+    "ref": "Psalm 95:7",
+    "verdict": "answers",
+    "why": "His sheep; hear, don't harden"
+   },
+   {
+    "ref": "Hebrews 3:7",
+    "verdict": "answers",
+    "why": "Spirit says: hear, don't harden"
+   },
+   {
+    "ref": "Hebrews 3:15",
+    "verdict": "answers",
+    "why": "hear, don't harden"
+   },
+   {
+    "ref": "Hebrews 4:7",
+    "verdict": "related",
+    "why": "same quote, about God's rest"
+   }
+  ]
+ },
+ {
+  "q": "23k on credit cards and my husband has no clue",
+  "kind": "live",
+  "note": "Only marriage-role verses come up, wives-submit among them; nothing on debt or honesty (Prov 22:7, Rom 13:8, Eph 4:25).",
+  "verses": [
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "related",
+    "why": "one flesh; not debt or honesty"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "related",
+    "why": "breaking faith with a spouse; about divorce"
+   },
+   {
+    "ref": "Malachi 2:15",
+    "verdict": "related",
+    "why": "do not break faith; about divorce"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship/head coverings"
+   },
+   {
+    "ref": "Ephesians 5:22",
+    "verdict": "off",
+    "why": "wives submit; not debt"
+   },
+   {
+    "ref": "Ephesians 5:25",
+    "verdict": "off",
+    "why": "addressed to husbands"
+   },
+   {
+    "ref": "Colossians 3:18",
+    "verdict": "off",
+    "why": "wives submit; not debt"
+   },
+   {
+    "ref": "Colossians 3:19",
+    "verdict": "off",
+    "why": "addressed to husbands"
+   }
+  ]
+ },
+ {
+  "q": "my brother died in a wreck in march and the last thing i ever said to him was something awful",
+  "kind": "live",
+  "note": "Matches on the words 'brother', 'died' and 'last'; nothing on regret, guilt or forgiveness.",
+  "verses": [
+   {
+    "ref": "Genesis 25:17",
+    "verdict": "off",
+    "why": "Ishmael's death notice"
+   },
+   {
+    "ref": "Matthew 22:27",
+    "verdict": "off",
+    "why": "Sadducees' riddle"
+   },
+   {
+    "ref": "Mark 12:20",
+    "verdict": "off",
+    "why": "Sadducees' riddle"
+   },
+   {
+    "ref": "Luke 20:29",
+    "verdict": "off",
+    "why": "Sadducees' riddle"
+   },
+   {
+    "ref": "Luke 20:32",
+    "verdict": "off",
+    "why": "Sadducees' riddle"
+   },
+   {
+    "ref": "John 11:21",
+    "verdict": "related",
+    "why": "sister grieving brother; not regret"
+   },
+   {
+    "ref": "Romans 14:15",
+    "verdict": "off",
+    "why": "food and stumbling"
+   },
+   {
+    "ref": "1 Corinthians 8:11",
+    "verdict": "off",
+    "why": "idol food and weak brother"
+   }
+  ]
+ },
+ {
+  "q": "34 and every friend i have is married with kids. still waiting on god over here",
+  "kind": "live",
+  "note": "Matches on 'companion', 'married' and 'children'; 1 Tim 5:14 and Titus 1:6 could sting a single person; nothing from 1 Cor 7 or Ps 27:14.",
+  "verses": [
+   {
+    "ref": "Genesis 3:16",
+    "verdict": "off",
+    "why": "curse on childbirth"
+   },
+   {
+    "ref": "Deuteronomy 13:6",
+    "verdict": "off",
+    "why": "friend enticing to idolatry"
+   },
+   {
+    "ref": "Proverbs 28:7",
+    "verdict": "off",
+    "why": "companion of gluttons"
+   },
+   {
+    "ref": "Proverbs 28:24",
+    "verdict": "off",
+    "why": "robbing parents"
+   },
+   {
+    "ref": "Proverbs 29:3",
+    "verdict": "off",
+    "why": "companion of prostitutes"
+   },
+   {
+    "ref": "Micah 7:7",
+    "verdict": "answers",
+    "why": "I will wait for God; He will hear"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "off",
+    "why": "husbands breaking faith"
+   },
+   {
+    "ref": "Malachi 2:15",
+    "verdict": "off",
+    "why": "marital faithfulness"
+   },
+   {
+    "ref": "Mark 5:40",
+    "verdict": "off",
+    "why": "Jairus' daughter; 'companions'"
+   },
+   {
+    "ref": "Luke 2:38",
+    "verdict": "related",
+    "why": "Anna, long-widowed, waiting on God"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship"
+   },
+   {
+    "ref": "1 Timothy 5:10",
+    "verdict": "off",
+    "why": "widow enrolment rules"
+   },
+   {
+    "ref": "1 Timothy 5:14",
+    "verdict": "off",
+    "why": "widows told to marry; may sting"
+   },
+   {
+    "ref": "Titus 1:6",
+    "verdict": "off",
+    "why": "elder qualifications"
+   },
+   {
+    "ref": "Hebrews 13:4",
+    "verdict": "related",
+    "why": "honour marriage; v5 contentment"
+   }
+  ]
+ },
+ {
+  "q": "yelled at my kids again before school this morning and i saw my daughters face fall",
+  "kind": "live",
+  "note": "Matches on 'children', 'sons' and 'feet'; nothing on anger with children (Eph 6:4, Col 3:21, Jas 1:19-20).",
+  "verses": [
+   {
+    "ref": "Deuteronomy 4:9",
+    "verdict": "related",
+    "why": "teach children; not anger"
+   },
+   {
+    "ref": "Deuteronomy 6:7",
+    "verdict": "related",
+    "why": "teach children; not anger"
+   },
+   {
+    "ref": "Deuteronomy 11:19",
+    "verdict": "related",
+    "why": "teach children; not anger"
+   },
+   {
+    "ref": "2 Kings 2:15",
+    "verdict": "off",
+    "why": "sons of the prophets"
+   },
+   {
+    "ref": "2 Kings 4:38",
+    "verdict": "off",
+    "why": "stew for prophets"
+   },
+   {
+    "ref": "Psalm 78:5",
+    "verdict": "related",
+    "why": "teach children; not anger"
+   },
+   {
+    "ref": "Matthew 21:15",
+    "verdict": "off",
+    "why": "children shouting hosanna"
+   },
+   {
+    "ref": "Acts 22:3",
+    "verdict": "off",
+    "why": "Paul's schooling"
+   }
+  ]
+ },
+ {
+  "q": "our pastor got caught having an affair and the whole church is falling apart",
+  "kind": "live",
+  "note": "Mostly stories and word matches; misses 1 Tim 3:2, 1 Tim 5:19-20 and Gal 6:1.",
+  "verses": [
+   {
+    "ref": "2 Samuel 11:2",
+    "verdict": "related",
+    "why": "a leader's adultery begins"
+   },
+   {
+    "ref": "Matthew 24:48",
+    "verdict": "related",
+    "why": "servant in charge turns wicked"
+   },
+   {
+    "ref": "Matthew 24:49",
+    "verdict": "related",
+    "why": "servant in charge abuses"
+   },
+   {
+    "ref": "John 8:4",
+    "verdict": "related",
+    "why": "adultery story; not leaders"
+   },
+   {
+    "ref": "Acts 20:28",
+    "verdict": "related",
+    "why": "overseers watch yourselves"
+   },
+   {
+    "ref": "1 Corinthians 5:2",
+    "verdict": "related",
+    "why": "church to grieve sexual sin"
+   },
+   {
+    "ref": "1 Corinthians 5:12",
+    "verdict": "related",
+    "why": "judge those inside church"
+   },
+   {
+    "ref": "1 Peter 2:25",
+    "verdict": "related",
+    "why": "Christ the true Shepherd"
+   },
+   {
+    "ref": "1 Peter 4:3",
+    "verdict": "off",
+    "why": "past pagan vices"
+   }
+  ]
+ },
+ {
+  "q": "landlord is keeping my whole deposit and lying about damage that was already there when we moved in",
+  "kind": "live",
+  "note": "Misses Lev 19:13 and Rom 12:17-19; 1 John 2:4 only matched 'liar'.",
+  "verses": [
+   {
+    "ref": "Job 24:2",
+    "verdict": "related",
+    "why": "Job's complaint about oppressors"
+   },
+   {
+    "ref": "Psalm 26:4",
+    "verdict": "off",
+    "why": "psalmist's own company"
+   },
+   {
+    "ref": "Psalm 34:13",
+    "verdict": "related",
+    "why": "against lying; seek peace"
+   },
+   {
+    "ref": "Psalm 119:69",
+    "verdict": "answers",
+    "why": "smeared with lies, keep God's way"
+   },
+   {
+    "ref": "Proverbs 22:28",
+    "verdict": "related",
+    "why": "boundary-stone law"
+   },
+   {
+    "ref": "Proverbs 23:10",
+    "verdict": "related",
+    "why": "God defends the wronged"
+   },
+   {
+    "ref": "Ecclesiastes 4:11",
+    "verdict": "off",
+    "why": "two keep warm"
+   },
+   {
+    "ref": "Ecclesiastes 12:13",
+    "verdict": "off",
+    "why": "general duty"
+   },
+   {
+    "ref": "James 2:10",
+    "verdict": "off",
+    "why": "law as a whole"
+   },
+   {
+    "ref": "1 Peter 3:10",
+    "verdict": "related",
+    "why": "v9 do not repay evil"
+   },
+   {
+    "ref": "1 John 2:4",
+    "verdict": "off",
+    "why": "'liar' word match"
+   }
+  ]
+ },
+ {
+  "q": "politics is tearing my family apart, my dad and i cant be in the same room anymore",
+  "kind": "live",
+  "note": "'tearing' matched 'tears/weeping' and politics matched Pilate; misses Rom 12:18 and Eph 4:31-32.",
+  "verses": [
+   {
+    "ref": "Genesis 27:34",
+    "verdict": "off",
+    "why": "Esau's lost blessing"
+   },
+   {
+    "ref": "Genesis 27:38",
+    "verdict": "off",
+    "why": "Esau's lost blessing"
+   },
+   {
+    "ref": "Joshua 24:15",
+    "verdict": "off",
+    "why": "choose whom to serve"
+   },
+   {
+    "ref": "Psalm 6:6",
+    "verdict": "off",
+    "why": "'tears' not 'tearing'"
+   },
+   {
+    "ref": "Psalm 39:12",
+    "verdict": "off",
+    "why": "'tears' not 'tearing'"
+   },
+   {
+    "ref": "Psalm 42:3",
+    "verdict": "off",
+    "why": "'tears' not 'tearing'"
+   },
+   {
+    "ref": "Psalm 56:8",
+    "verdict": "off",
+    "why": "'tears' not 'tearing'"
+   },
+   {
+    "ref": "Proverbs 14:1",
+    "verdict": "related",
+    "why": "tearing down one's house"
+   },
+   {
+    "ref": "Proverbs 19:13",
+    "verdict": "related",
+    "why": "father-son ruin; v11 overlook"
+   },
+   {
+    "ref": "Isaiah 38:5",
+    "verdict": "off",
+    "why": "Hezekiah's tears"
+   },
+   {
+    "ref": "Mark 15:15",
+    "verdict": "off",
+    "why": "Pilate and crowd"
+   },
+   {
+    "ref": "John 18:38",
+    "verdict": "off",
+    "why": "Pilate's question"
+   },
+   {
+    "ref": "John 18:39",
+    "verdict": "off",
+    "why": "Barabbas custom"
+   },
+   {
+    "ref": "1 Peter 3:1",
+    "verdict": "off",
+    "why": "wives submit"
+   },
+   {
+    "ref": "Revelation 7:17",
+    "verdict": "off",
+    "why": "'tears' not 'tearing'"
+   }
+  ]
+ },
+ {
+  "q": "first christmas without my dad is coming up and i just want to skip it",
+  "kind": "live",
+  "note": "Only 1 Thess 4:13 fits; the rest match 'want' or 'come'.",
+  "verses": [
+   {
+    "ref": "Matthew 16:24",
+    "verdict": "off",
+    "why": "take up your cross"
+   },
+   {
+    "ref": "Mark 8:34",
+    "verdict": "off",
+    "why": "take up your cross"
+   },
+   {
+    "ref": "John 6:37",
+    "verdict": "off",
+    "why": "coming to Christ"
+   },
+   {
+    "ref": "Romans 1:13",
+    "verdict": "off",
+    "why": "Paul's travel plans"
+   },
+   {
+    "ref": "1 Thessalonians 4:13",
+    "verdict": "answers",
+    "why": "grieve with hope for the dead"
+   },
+   {
+    "ref": "1 Timothy 2:4",
+    "verdict": "off",
+    "why": "God wants all saved"
+   },
+   {
+    "ref": "1 Timothy 2:8",
+    "verdict": "off",
+    "why": "men praying"
+   },
+   {
+    "ref": "James 2:20",
+    "verdict": "off",
+    "why": "faith and deeds"
+   }
+  ]
+ },
+ {
+  "q": "is it ok to cut off a toxic friend",
+  "kind": "live",
+  "note": "'cut off' matched literal cutting and judgment every time; nothing on friendship (Prov 13:20, 22:24-25, 1 Cor 15:33).",
+  "verses": [
+   {
+    "ref": "Leviticus 18:29",
+    "verdict": "off",
+    "why": "'cut off' as penalty"
+   },
+   {
+    "ref": "Leviticus 19:27",
+    "verdict": "off",
+    "why": "cutting hair"
+   },
+   {
+    "ref": "Leviticus 21:5",
+    "verdict": "off",
+    "why": "priests' cuts"
+   },
+   {
+    "ref": "Psalm 75:10",
+    "verdict": "off",
+    "why": "horns of wicked"
+   },
+   {
+    "ref": "Psalm 105:16",
+    "verdict": "off",
+    "why": "famine"
+   },
+   {
+    "ref": "Psalm 109:13",
+    "verdict": "off",
+    "why": "imprecation"
+   },
+   {
+    "ref": "Jeremiah 48:25",
+    "verdict": "off",
+    "why": "Moab's horn"
+   },
+   {
+    "ref": "Ezekiel 14:13",
+    "verdict": "off",
+    "why": "famine judgment"
+   }
+  ]
+ },
+ {
+  "q": "names of all 12 apostles",
+  "kind": "live",
+  "note": "Acts 1:13 and the second half of each list (Matt 10:3-4, Mark 3:17-19, Luke 6:15-16) are missing.",
+  "verses": [
+   {
+    "ref": "Matthew 10:1",
+    "verdict": "related",
+    "why": "calls the Twelve; names follow"
+   },
+   {
+    "ref": "Matthew 10:2",
+    "verdict": "answers",
+    "why": "names of the twelve apostles"
+   },
+   {
+    "ref": "Matthew 10:22",
+    "verdict": "off",
+    "why": "persecution"
+   },
+   {
+    "ref": "Matthew 19:28",
+    "verdict": "related",
+    "why": "twelve thrones"
+   },
+   {
+    "ref": "Matthew 28:19",
+    "verdict": "off",
+    "why": "Great Commission"
+   },
+   {
+    "ref": "Mark 3:16",
+    "verdict": "answers",
+    "why": "begins list of the twelve"
+   },
+   {
+    "ref": "Mark 6:7",
+    "verdict": "related",
+    "why": "Twelve sent out"
+   },
+   {
+    "ref": "Mark 16:17",
+    "verdict": "off",
+    "why": "signs of believers"
+   },
+   {
+    "ref": "Luke 6:13",
+    "verdict": "answers",
+    "why": "introduces the list"
+   },
+   {
+    "ref": "Luke 6:14",
+    "verdict": "answers",
+    "why": "names apostles"
+   },
+   {
+    "ref": "Luke 9:1",
+    "verdict": "related",
+    "why": "Twelve given power"
+   },
+   {
+    "ref": "Luke 10:17",
+    "verdict": "off",
+    "why": "the seventy-two"
+   },
+   {
+    "ref": "Acts 2:38",
+    "verdict": "off",
+    "why": "Peter's call to repent"
+   },
+   {
+    "ref": "Revelation 21:14",
+    "verdict": "related",
+    "why": "their names on foundations"
+   }
+  ]
+ },
+ {
+  "q": "sodom and gamorrah why did god destroy them",
+  "kind": "live",
+  "note": "Gen 18:20-21 and Ezek 16:49-50, the verses that give the reason, are missing.",
+  "verses": [
+   {
+    "ref": "Genesis 13:10",
+    "verdict": "related",
+    "why": "mentions destruction; no reason"
+   },
+   {
+    "ref": "Genesis 19:13",
+    "verdict": "answers",
+    "why": "great outcry against its people"
+   },
+   {
+    "ref": "Genesis 19:25",
+    "verdict": "related",
+    "why": "describes destruction"
+   },
+   {
+    "ref": "Genesis 19:29",
+    "verdict": "related",
+    "why": "Lot rescued"
+   },
+   {
+    "ref": "Deuteronomy 29:23",
+    "verdict": "related",
+    "why": "used as comparison"
+   },
+   {
+    "ref": "Isaiah 1:9",
+    "verdict": "related",
+    "why": "used as comparison"
+   },
+   {
+    "ref": "Isaiah 1:10",
+    "verdict": "related",
+    "why": "Judah called Sodom"
+   },
+   {
+    "ref": "Isaiah 13:19",
+    "verdict": "related",
+    "why": "used as comparison"
+   },
+   {
+    "ref": "Jeremiah 23:14",
+    "verdict": "related",
+    "why": "adultery, lies likened to Sodom"
+   },
+   {
+    "ref": "Jeremiah 50:40",
+    "verdict": "related",
+    "why": "used as comparison"
+   },
+   {
+    "ref": "Zephaniah 2:9",
+    "verdict": "related",
+    "why": "used as comparison"
+   },
+   {
+    "ref": "Luke 17:29",
+    "verdict": "related",
+    "why": "destruction recalled"
+   },
+   {
+    "ref": "Jude 1:7",
+    "verdict": "answers",
+    "why": "sexual immorality given as cause"
+   }
+  ]
+ },
+ {
+  "q": "difference between justification and sanctification",
+  "kind": "live",
+  "note": "Rom 10:12 matched 'difference'; misses Rom 3:24-28, Rom 6:22, 1 Thess 4:3 and Heb 10:10-14.",
+  "verses": [
+   {
+    "ref": "Exodus 31:13",
+    "verdict": "related",
+    "why": "LORD who sanctifies"
+   },
+   {
+    "ref": "Romans 5:1",
+    "verdict": "answers",
+    "why": "justified by faith, peace with God"
+   },
+   {
+    "ref": "Romans 10:12",
+    "verdict": "off",
+    "why": "'difference' word match"
+   },
+   {
+    "ref": "1 Corinthians 1:30",
+    "verdict": "answers",
+    "why": "Christ our righteousness and holiness"
+   },
+   {
+    "ref": "1 Corinthians 6:11",
+    "verdict": "answers",
+    "why": "sanctified and justified named"
+   },
+   {
+    "ref": "2 Corinthians 5:21",
+    "verdict": "related",
+    "why": "righteousness in Christ"
+   },
+   {
+    "ref": "Galatians 2:20",
+    "verdict": "related",
+    "why": "Christ lives in me"
+   },
+   {
+    "ref": "Hebrews 9:14",
+    "verdict": "related",
+    "why": "conscience purified"
+   }
+  ]
+ },
+ {
+  "q": "was satan an angel before he fell? where does the name lucifer even come from",
+  "kind": "live",
+  "note": "Ezek 28:14-17, Luke 10:18 and Rev 12:7-9 are missing.",
+  "verses": [
+   {
+    "ref": "Isaiah 14:12",
+    "verdict": "answers",
+    "why": "'day star' fallen: source of the name"
+   },
+   {
+    "ref": "Zechariah 3:1",
+    "verdict": "related",
+    "why": "Satan as accuser"
+   },
+   {
+    "ref": "Matthew 4:11",
+    "verdict": "off",
+    "why": "angels minister to Jesus"
+   },
+   {
+    "ref": "Matthew 13:39",
+    "verdict": "off",
+    "why": "parable explanation"
+   },
+   {
+    "ref": "Matthew 25:41",
+    "verdict": "related",
+    "why": "devil and his angels"
+   },
+   {
+    "ref": "2 Corinthians 11:14",
+    "verdict": "related",
+    "why": "masquerades as angel"
+   },
+   {
+    "ref": "Revelation 9:11",
+    "verdict": "related",
+    "why": "angel of the Abyss"
+   },
+   {
+    "ref": "Revelation 20:1",
+    "verdict": "off",
+    "why": "another angel"
+   },
+   {
+    "ref": "Revelation 20:2",
+    "verdict": "related",
+    "why": "serpent = devil = Satan"
+   }
+  ]
+ },
+ {
+  "q": "psalm 137 says happy is the one who dashes babies against the rocks. why is that in scripture",
+  "kind": "live",
+  "note": "'Rock' and 'psalm' word matches crept in; Ps 137:8 and Isa 13:16 give the Bible's own context; Rom 12:19 and Jer 51:24 are missing.",
+  "verses": [
+   {
+    "ref": "1 Samuel 2:2",
+    "verdict": "off",
+    "why": "'Rock' word match"
+   },
+   {
+    "ref": "Psalm 100:1",
+    "verdict": "off",
+    "why": "praise psalm"
+   },
+   {
+    "ref": "Psalm 137:1",
+    "verdict": "related",
+    "why": "exiles' grief setting"
+   },
+   {
+    "ref": "Psalm 137:2",
+    "verdict": "related",
+    "why": "exiles' grief setting"
+   },
+   {
+    "ref": "Psalm 137:3",
+    "verdict": "related",
+    "why": "captors' taunts"
+   },
+   {
+    "ref": "Psalm 137:5",
+    "verdict": "related",
+    "why": "vow to Jerusalem"
+   },
+   {
+    "ref": "Psalm 137:6",
+    "verdict": "related",
+    "why": "vow to Jerusalem"
+   },
+   {
+    "ref": "Psalm 137:7",
+    "verdict": "related",
+    "why": "Edom's cruelty recalled"
+   },
+   {
+    "ref": "Psalm 137:8",
+    "verdict": "answers",
+    "why": "repay as you have done to us"
+   },
+   {
+    "ref": "Psalm 137:9",
+    "verdict": "related",
+    "why": "the verse itself"
+   },
+   {
+    "ref": "Isaiah 13:16",
+    "verdict": "related",
+    "why": "God's foretold judgment on Babylon"
+   },
+   {
+    "ref": "Isaiah 30:29",
+    "verdict": "off",
+    "why": "'Rock' word match"
+   },
+   {
+    "ref": "Hosea 13:16",
+    "verdict": "related",
+    "why": "same war horror"
+   },
+   {
+    "ref": "Nahum 3:10",
+    "verdict": "related",
+    "why": "same war horror"
+   },
+   {
+    "ref": "Ephesians 5:19",
+    "verdict": "off",
+    "why": "'psalms' word match"
+   }
+  ]
+ },
+ {
+  "q": "i had a super vivid dream last week that felt like it was from god. does god still speak to people through dreams like he did with joseph and daniel or am i reading too much into it",
+  "kind": "live",
+  "note": "A strong set; Deut 13:1-3 (testing a dreamer) would round it out.",
+  "verses": [
+   {
+    "ref": "Genesis 28:12",
+    "verdict": "related",
+    "why": "Jacob's dream story"
+   },
+   {
+    "ref": "Genesis 31:24",
+    "verdict": "related",
+    "why": "God warns Laban in dream"
+   },
+   {
+    "ref": "Genesis 40:8",
+    "verdict": "related",
+    "why": "interpretations belong to God"
+   },
+   {
+    "ref": "Numbers 12:6",
+    "verdict": "answers",
+    "why": "God speaks in dreams"
+   },
+   {
+    "ref": "Ecclesiastes 5:7",
+    "verdict": "answers",
+    "why": "many dreams bring futility"
+   },
+   {
+    "ref": "Jeremiah 23:28",
+    "verdict": "answers",
+    "why": "dream versus God's word"
+   },
+   {
+    "ref": "Daniel 2:28",
+    "verdict": "related",
+    "why": "God reveals mysteries in dream"
+   },
+   {
+    "ref": "Daniel 4:8",
+    "verdict": "related",
+    "why": "Daniel told the dream"
+   },
+   {
+    "ref": "Joel 2:28",
+    "verdict": "answers",
+    "why": "old men will dream dreams"
+   },
+   {
+    "ref": "Acts 2:17",
+    "verdict": "answers",
+    "why": "last days: dreams"
+   }
+  ]
+ },
+ {
+  "q": "is using chatgpt to write my essays a sin, literally everyone in my class does it",
+  "kind": "live",
+  "note": "Matched 'write' and 'everyone'; every verse is off; misses Ex 23:2, Col 3:23, Prov 12:22 and Eph 4:28.",
+  "verses": [
+   {
+    "ref": "John 3:15",
+    "verdict": "off",
+    "why": "'everyone' word match"
+   },
+   {
+    "ref": "1 Corinthians 4:14",
+    "verdict": "off",
+    "why": "'writing' word match"
+   },
+   {
+    "ref": "Galatians 6:11",
+    "verdict": "off",
+    "why": "'write' word match"
+   },
+   {
+    "ref": "1 Timothy 2:4",
+    "verdict": "off",
+    "why": "'everyone' word match"
+   },
+   {
+    "ref": "Titus 2:11",
+    "verdict": "off",
+    "why": "grace for everyone"
+   },
+   {
+    "ref": "1 John 2:1",
+    "verdict": "off",
+    "why": "'writing' word match"
+   },
+   {
+    "ref": "1 John 2:12",
+    "verdict": "off",
+    "why": "'writing' word match"
+   },
+   {
+    "ref": "1 John 5:1",
+    "verdict": "off",
+    "why": "'everyone' word match"
+   },
+   {
+    "ref": "2 John 1:12",
+    "verdict": "off",
+    "why": "'write' word match"
+   },
+   {
+    "ref": "Revelation 1:11",
+    "verdict": "off",
+    "why": "'write' word match"
+   },
+   {
+    "ref": "Revelation 3:7",
+    "verdict": "off",
+    "why": "'write' word match"
+   },
+   {
+    "ref": "Revelation 3:14",
+    "verdict": "off",
+    "why": "'write' word match"
+   },
+   {
+    "ref": "Revelation 10:4",
+    "verdict": "off",
+    "why": "'write' word match"
+   }
+  ]
+ },
+ {
+  "q": "my bio teacher says humans evolved over millions of years so were adam and eve even real people",
+  "kind": "live",
+  "note": "The woe and false-prophet verses imply the teacher is a false prophet; misses Matt 19:4, Rom 5:12-14, 1 Cor 15:45 and Acts 17:26.",
+  "verses": [
+   {
+    "ref": "Genesis 1:26",
+    "verdict": "answers",
+    "why": "God made man in His image"
+   },
+   {
+    "ref": "Genesis 1:28",
+    "verdict": "related",
+    "why": "blessing on first humans"
+   },
+   {
+    "ref": "Genesis 3:5",
+    "verdict": "off",
+    "why": "serpent's lie"
+   },
+   {
+    "ref": "Genesis 3:15",
+    "verdict": "related",
+    "why": "curse; Eve as person"
+   },
+   {
+    "ref": "Genesis 4:1",
+    "verdict": "related",
+    "why": "Adam and Eve's son"
+   },
+   {
+    "ref": "Genesis 4:25",
+    "verdict": "related",
+    "why": "Adam's son Seth"
+   },
+   {
+    "ref": "Deuteronomy 13:1",
+    "verdict": "off",
+    "why": "false dreamer"
+   },
+   {
+    "ref": "2 Kings 4:38",
+    "verdict": "off",
+    "why": "stew story"
+   },
+   {
+    "ref": "Matthew 5:19",
+    "verdict": "off",
+    "why": "commandments"
+   },
+   {
+    "ref": "Matthew 7:15",
+    "verdict": "off",
+    "why": "brands teacher false prophet"
+   },
+   {
+    "ref": "Matthew 23:13",
+    "verdict": "off",
+    "why": "woe to Pharisees"
+   },
+   {
+    "ref": "Matthew 23:23",
+    "verdict": "off",
+    "why": "woe to Pharisees"
+   },
+   {
+    "ref": "Luke 11:52",
+    "verdict": "off",
+    "why": "woe to lawyers"
+   },
+   {
+    "ref": "1 Timothy 2:13",
+    "verdict": "related",
+    "why": "Adam formed first; women's roles"
+   },
+   {
+    "ref": "1 Timothy 2:14",
+    "verdict": "related",
+    "why": "Eve deceived; women's roles"
+   },
+   {
+    "ref": "2 Peter 2:1",
+    "verdict": "off",
+    "why": "false teachers"
+   }
+  ]
+ },
+ {
+  "q": "people keep telling me god wont give me more than i can handle, is that in the bible because it sure feels like he is",
+  "kind": "live",
+  "note": "Every verse is off; 1 Cor 10:13 and 2 Cor 1:8-9 are the missing answers.",
+  "verses": [
+   {
+    "ref": "Deuteronomy 13:18",
+    "verdict": "off",
+    "why": "obedience"
+   },
+   {
+    "ref": "Deuteronomy 23:21",
+    "verdict": "off",
+    "why": "vows"
+   },
+   {
+    "ref": "2 Chronicles 18:13",
+    "verdict": "off",
+    "why": "Micaiah's oath"
+   },
+   {
+    "ref": "Ecclesiastes 12:13",
+    "verdict": "off",
+    "why": "duty of man"
+   },
+   {
+    "ref": "Ezekiel 33:27",
+    "verdict": "off",
+    "why": "judgment"
+   },
+   {
+    "ref": "Matthew 10:42",
+    "verdict": "off",
+    "why": "cup of water"
+   },
+   {
+    "ref": "Mark 9:41",
+    "verdict": "off",
+    "why": "cup of water"
+   },
+   {
+    "ref": "Luke 11:8",
+    "verdict": "off",
+    "why": "persistent friend"
+   },
+   {
+    "ref": "Luke 18:5",
+    "verdict": "off",
+    "why": "unjust judge"
+   },
+   {
+    "ref": "John 3:3",
+    "verdict": "off",
+    "why": "born again"
+   },
+   {
+    "ref": "2 Corinthians 9:7",
+    "verdict": "off",
+    "why": "cheerful giving"
+   },
+   {
+    "ref": "Ephesians 5:20",
+    "verdict": "off",
+    "why": "thanksgiving"
+   },
+   {
+    "ref": "1 John 2:3",
+    "verdict": "off",
+    "why": "keep commandments"
+   },
+   {
+    "ref": "1 John 3:22",
+    "verdict": "off",
+    "why": "answered prayer"
+   },
+   {
+    "ref": "1 John 5:2",
+    "verdict": "off",
+    "why": "keep commandments"
+   },
+   {
+    "ref": "1 John 5:3",
+    "verdict": "off",
+    "why": "commands not burdensome"
+   }
+  ]
+ },
+ {
+  "q": "i feel like a failure",
+  "kind": "live",
+  "note": "Only one verse returned.",
+  "verses": [
+   {
+    "ref": "Proverbs 24:16",
+    "verdict": "answers",
+    "why": "righteous fall seven times, rise"
+   }
+  ]
+ },
+ {
+  "q": "husband deploys in 3 weeks",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "related",
+    "why": "marriage bond, not separation"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "off",
+    "why": "rebuke for breaking faith"
+   },
+   {
+    "ref": "Malachi 2:15",
+    "verdict": "off",
+    "why": "rebuke for breaking faith"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship, unrelated"
+   },
+   {
+    "ref": "Ephesians 5:22",
+    "verdict": "off",
+    "why": "submission, not deployment"
+   },
+   {
+    "ref": "Ephesians 5:25",
+    "verdict": "off",
+    "why": "general husband duty"
+   },
+   {
+    "ref": "Colossians 3:18",
+    "verdict": "off",
+    "why": "submission, not deployment"
+   },
+   {
+    "ref": "Colossians 3:19",
+    "verdict": "off",
+    "why": "general husband duty"
+   }
+  ],
+  "note": "Only marriage-role verses; nothing on separation, fear or God's protection."
+ },
+ {
+  "q": "are dating apps ok for christians",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Proverbs 22:17",
+    "verdict": "off",
+    "why": "matched 'apply'"
+   },
+   {
+    "ref": "Proverbs 23:12",
+    "verdict": "off",
+    "why": "matched 'apply'"
+   },
+   {
+    "ref": "Ezekiel 44:22",
+    "verdict": "related",
+    "why": "narrow priestly marriage law"
+   },
+   {
+    "ref": "1 Corinthians 7:9",
+    "verdict": "related",
+    "why": "better to marry than burn"
+   },
+   {
+    "ref": "1 Corinthians 7:39",
+    "verdict": "related",
+    "why": "free to marry, in the Lord"
+   },
+   {
+    "ref": "2 Corinthians 6:14",
+    "verdict": "related",
+    "why": "unequal yoke, broader context"
+   },
+   {
+    "ref": "1 Timothy 5:11",
+    "verdict": "off",
+    "why": "enrolling widows"
+   },
+   {
+    "ref": "Titus 1:6",
+    "verdict": "off",
+    "why": "elder qualifications"
+   }
+  ]
+ },
+ {
+  "q": "i google every symptom i get and convince myself its cancer, my anxeity is out of control",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Romans 8:38",
+    "verdict": "related",
+    "why": "death cannot separate from God's love"
+   },
+   {
+    "ref": "Romans 14:5",
+    "verdict": "off",
+    "why": "matched 'convinced', days"
+   },
+   {
+    "ref": "Romans 14:14",
+    "verdict": "off",
+    "why": "matched 'convinced', food"
+   },
+   {
+    "ref": "Romans 15:14",
+    "verdict": "off",
+    "why": "matched 'convinced'"
+   },
+   {
+    "ref": "2 Corinthians 5:14",
+    "verdict": "off",
+    "why": "matched 'convinced'"
+   },
+   {
+    "ref": "Galatians 5:23",
+    "verdict": "off",
+    "why": "matched 'control'"
+   },
+   {
+    "ref": "2 Timothy 1:5",
+    "verdict": "off",
+    "why": "matched 'convinced'"
+   },
+   {
+    "ref": "2 Timothy 1:12",
+    "verdict": "related",
+    "why": "trust in God amid suffering"
+   },
+   {
+    "ref": "2 Timothy 3:3",
+    "verdict": "off",
+    "why": "vice list, matched 'control'"
+   },
+   {
+    "ref": "Hebrews 6:9",
+    "verdict": "off",
+    "why": "matched 'convinced'"
+   },
+   {
+    "ref": "Hebrews 13:18",
+    "verdict": "off",
+    "why": "matched 'convinced'"
+   },
+   {
+    "ref": "2 Peter 1:6",
+    "verdict": "off",
+    "why": "matched 'self-control'"
+   }
+  ],
+  "note": "Keyed on 'convince'/'control'; no anxiety verses (Phil 4:6-7, Matt 6:34, 1 Pet 5:7)."
+ },
+ {
+  "q": "calling off the engagement 2 months before the wedding, deposits already paid, everyone is going to hate me",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 36:39",
+    "verdict": "off",
+    "why": "genealogy"
+   },
+   {
+    "ref": "Exodus 12:15",
+    "verdict": "off",
+    "why": "matched 'cut off'"
+   },
+   {
+    "ref": "Exodus 12:19",
+    "verdict": "off",
+    "why": "matched 'cut off'"
+   },
+   {
+    "ref": "1 Chronicles 1:50",
+    "verdict": "off",
+    "why": "genealogy"
+   },
+   {
+    "ref": "Esther 3:7",
+    "verdict": "off",
+    "why": "matched 'month'"
+   },
+   {
+    "ref": "Psalm 105:16",
+    "verdict": "off",
+    "why": "matched 'called', 'cut off'"
+   },
+   {
+    "ref": "Jeremiah 36:22",
+    "verdict": "off",
+    "why": "matched 'month'"
+   },
+   {
+    "ref": "Matthew 22:2",
+    "verdict": "off",
+    "why": "kingdom parable, 'wedding'"
+   },
+   {
+    "ref": "Matthew 22:10",
+    "verdict": "off",
+    "why": "kingdom parable, 'wedding'"
+   },
+   {
+    "ref": "Matthew 25:10",
+    "verdict": "off",
+    "why": "kingdom parable, 'wedding'"
+   },
+   {
+    "ref": "Matthew 26:34",
+    "verdict": "off",
+    "why": "Peter's denial"
+   },
+   {
+    "ref": "Matthew 26:70",
+    "verdict": "off",
+    "why": "Peter's denial"
+   },
+   {
+    "ref": "Matthew 26:75",
+    "verdict": "off",
+    "why": "Peter's denial"
+   },
+   {
+    "ref": "Luke 19:22",
+    "verdict": "off",
+    "why": "matched 'deposit'"
+   },
+   {
+    "ref": "Acts 13:3",
+    "verdict": "off",
+    "why": "matched 'sent off'"
+   },
+   {
+    "ref": "2 Timothy 1:9",
+    "verdict": "off",
+    "why": "matched 'called'"
+   }
+  ],
+  "note": "Pure word-matching noise; nothing on fear of others, honesty or vows."
+ },
+ {
+  "q": "dad is 87 and refuses to give up the car keys, he hit the mailbox twice this month",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 22:17",
+    "verdict": "off",
+    "why": "matched 'father refuses'"
+   },
+   {
+    "ref": "Isaiah 22:22",
+    "verdict": "off",
+    "why": "matched 'key'"
+   },
+   {
+    "ref": "Isaiah 40:31",
+    "verdict": "off",
+    "why": "strength renewal, not the issue"
+   },
+   {
+    "ref": "Matthew 16:19",
+    "verdict": "off",
+    "why": "matched 'keys'"
+   },
+   {
+    "ref": "Matthew 26:68",
+    "verdict": "off",
+    "why": "matched 'hit'"
+   },
+   {
+    "ref": "2 Corinthians 4:1",
+    "verdict": "off",
+    "why": "matched 'lose heart'"
+   },
+   {
+    "ref": "Hebrews 12:3",
+    "verdict": "off",
+    "why": "matched 'lose heart'"
+   },
+   {
+    "ref": "Revelation 1:18",
+    "verdict": "off",
+    "why": "matched 'keys'"
+   },
+   {
+    "ref": "Revelation 3:7",
+    "verdict": "off",
+    "why": "matched 'key'"
+   },
+   {
+    "ref": "Revelation 9:1",
+    "verdict": "off",
+    "why": "matched 'key'"
+   },
+   {
+    "ref": "Revelation 20:1",
+    "verdict": "off",
+    "why": "matched 'key'"
+   }
+  ],
+  "note": "Keyed on 'keys'; nothing on honoring/caring for aging parents."
+ },
+ {
+  "q": "is it bad that i muted my own mom on facebook",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Leviticus 20:19",
+    "verdict": "off",
+    "why": "incest law, matched 'own mother'"
+   },
+   {
+    "ref": "Numbers 24:13",
+    "verdict": "off",
+    "why": "matched 'own', 'bad'"
+   },
+   {
+    "ref": "Deuteronomy 33:9",
+    "verdict": "off",
+    "why": "Levi's zeal, easily misread"
+   },
+   {
+    "ref": "Psalm 38:13",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Psalm 39:9",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Psalm 50:20",
+    "verdict": "off",
+    "why": "slander rebuke"
+   },
+   {
+    "ref": "Song of Solomon 1:6",
+    "verdict": "off",
+    "why": "matched 'mother'"
+   },
+   {
+    "ref": "Isaiah 35:6",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Micah 7:6",
+    "verdict": "related",
+    "why": "family dishonor lament"
+   },
+   {
+    "ref": "Matthew 9:32",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Matthew 12:22",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Mark 5:40",
+    "verdict": "off",
+    "why": "matched 'mother'"
+   },
+   {
+    "ref": "Mark 9:17",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Mark 9:25",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Luke 11:14",
+    "verdict": "off",
+    "why": "matched 'mute'"
+   },
+   {
+    "ref": "Luke 14:26",
+    "verdict": "off",
+    "why": "discipleship cost, misapplied"
+   }
+  ],
+  "note": "'mute' matched in physical sense; no honor-parents verses."
+ },
+ {
+  "q": "boss texts me at 11pm and expects an answer right away",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Job 31:13",
+    "verdict": "related",
+    "why": "master's duty to servants"
+   },
+   {
+    "ref": "Job 31:14",
+    "verdict": "related",
+    "why": "master accountable to God"
+   },
+   {
+    "ref": "Malachi 3:5",
+    "verdict": "related",
+    "why": "against oppressing laborers"
+   },
+   {
+    "ref": "Matthew 23:8",
+    "verdict": "off",
+    "why": "title 'Rabbi'"
+   },
+   {
+    "ref": "Matthew 24:48",
+    "verdict": "off",
+    "why": "parable of absent master"
+   },
+   {
+    "ref": "Ephesians 6:9",
+    "verdict": "related",
+    "why": "addressed to masters"
+   },
+   {
+    "ref": "Colossians 4:1",
+    "verdict": "related",
+    "why": "masters treat fairly"
+   },
+   {
+    "ref": "James 5:4",
+    "verdict": "related",
+    "why": "withheld wages"
+   }
+  ]
+ },
+ {
+  "q": "am i a bad person for feeling relieved when my grandma finally died, she suffered so long",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Romans 5:6",
+    "verdict": "off",
+    "why": "matched 'died', atonement"
+   },
+   {
+    "ref": "Romans 5:8",
+    "verdict": "off",
+    "why": "matched 'died', atonement"
+   },
+   {
+    "ref": "Romans 14:15",
+    "verdict": "off",
+    "why": "food and weak brother"
+   },
+   {
+    "ref": "1 Corinthians 8:11",
+    "verdict": "off",
+    "why": "idol food"
+   },
+   {
+    "ref": "2 Corinthians 5:14",
+    "verdict": "off",
+    "why": "matched 'died'"
+   },
+   {
+    "ref": "2 Corinthians 5:15",
+    "verdict": "off",
+    "why": "matched 'died'"
+   },
+   {
+    "ref": "1 Thessalonians 5:10",
+    "verdict": "related",
+    "why": "living with Him, awake or asleep"
+   },
+   {
+    "ref": "Hebrews 9:15",
+    "verdict": "off",
+    "why": "matched 'died'"
+   }
+  ],
+  "note": "All keyed on 'died'; nothing on end of suffering (Rev 21:4, Phil 1:23)."
+ },
+ {
+  "q": "raising my grandson because my daughter is on meth",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 11:31",
+    "verdict": "related",
+    "why": "Terah took orphaned grandson"
+   },
+   {
+    "ref": "Genesis 46:7",
+    "verdict": "off",
+    "why": "list of descendants"
+   },
+   {
+    "ref": "Numbers 27:3",
+    "verdict": "off",
+    "why": "inheritance case"
+   },
+   {
+    "ref": "Numbers 27:4",
+    "verdict": "off",
+    "why": "inheritance case"
+   },
+   {
+    "ref": "Numbers 36:7",
+    "verdict": "off",
+    "why": "inheritance law"
+   },
+   {
+    "ref": "Joshua 17:6",
+    "verdict": "off",
+    "why": "land allotment"
+   },
+   {
+    "ref": "Jeremiah 29:15",
+    "verdict": "off",
+    "why": "matched 'raised up'"
+   },
+   {
+    "ref": "Lamentations 3:51",
+    "verdict": "off",
+    "why": "daughters of city"
+   }
+  ],
+  "note": "Keyed on 'grandson'/'daughter'; nothing on strength for caregivers or prodigals."
+ },
+ {
+  "q": "what was the mark of cain",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 4:15",
+    "verdict": "answers",
+    "why": "the mark itself and its purpose"
+   },
+   {
+    "ref": "Acts 12:12",
+    "verdict": "off",
+    "why": "John Mark name"
+   },
+   {
+    "ref": "Acts 13:5",
+    "verdict": "off",
+    "why": "John Mark"
+   },
+   {
+    "ref": "Colossians 4:10",
+    "verdict": "off",
+    "why": "Mark name"
+   },
+   {
+    "ref": "Philemon 1:24",
+    "verdict": "off",
+    "why": "Mark name"
+   },
+   {
+    "ref": "Hebrews 11:4",
+    "verdict": "related",
+    "why": "Cain and Abel"
+   },
+   {
+    "ref": "1 John 3:12",
+    "verdict": "related",
+    "why": "Cain's murder"
+   },
+   {
+    "ref": "Jude 1:11",
+    "verdict": "related",
+    "why": "way of Cain"
+   }
+  ]
+ },
+ {
+  "q": "whats the point of ecclesiastes, it just keeps saying everything is meaningless",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Proverbs 3:1",
+    "verdict": "off",
+    "why": "matched 'keep'"
+   },
+   {
+    "ref": "Ecclesiastes 1:2",
+    "verdict": "related",
+    "why": "the futility refrain"
+   },
+   {
+    "ref": "Ecclesiastes 3:6",
+    "verdict": "off",
+    "why": "matched 'keep'"
+   },
+   {
+    "ref": "Ecclesiastes 4:11",
+    "verdict": "off",
+    "why": "matched 'keep warm'"
+   },
+   {
+    "ref": "Ecclesiastes 5:20",
+    "verdict": "related",
+    "why": "joy as God's gift"
+   },
+   {
+    "ref": "Ecclesiastes 8:2",
+    "verdict": "off",
+    "why": "matched 'keep'"
+   },
+   {
+    "ref": "Ecclesiastes 8:5",
+    "verdict": "off",
+    "why": "matched 'keeps'"
+   },
+   {
+    "ref": "Ecclesiastes 12:8",
+    "verdict": "related",
+    "why": "the futility refrain"
+   },
+   {
+    "ref": "Ecclesiastes 12:13",
+    "verdict": "answers",
+    "why": "the book's conclusion"
+   },
+   {
+    "ref": "Isaiah 37:3",
+    "verdict": "off",
+    "why": "matched 'point'"
+   },
+   {
+    "ref": "Isaiah 66:9",
+    "verdict": "off",
+    "why": "matched 'point'"
+   },
+   {
+    "ref": "Matthew 26:38",
+    "verdict": "off",
+    "why": "matched 'point'"
+   },
+   {
+    "ref": "Mark 14:34",
+    "verdict": "off",
+    "why": "matched 'point'"
+   },
+   {
+    "ref": "John 14:15",
+    "verdict": "off",
+    "why": "matched 'keep'"
+   },
+   {
+    "ref": "James 2:10",
+    "verdict": "off",
+    "why": "matched 'point'"
+   },
+   {
+    "ref": "Jude 1:24",
+    "verdict": "off",
+    "why": "matched 'keep'"
+   }
+  ],
+  "note": "Keyed on 'keep'/'point'; Eccl 12:13 is the one real answer."
+ },
+ {
+  "q": "do people become angels when they die",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Job 14:11",
+    "verdict": "off",
+    "why": "matched 'becomes'"
+   },
+   {
+    "ref": "Jeremiah 16:4",
+    "verdict": "off",
+    "why": "judgment, matched 'die'"
+   },
+   {
+    "ref": "Matthew 25:41",
+    "verdict": "off",
+    "why": "devil's angels"
+   },
+   {
+    "ref": "Luke 16:22",
+    "verdict": "related",
+    "why": "angels carry the dead, distinct"
+   },
+   {
+    "ref": "Luke 20:36",
+    "verdict": "answers",
+    "why": "like angels, sons of resurrection"
+   },
+   {
+    "ref": "1 Corinthians 4:9",
+    "verdict": "off",
+    "why": "apostles as spectacle"
+   },
+   {
+    "ref": "Hebrews 1:5",
+    "verdict": "off",
+    "why": "Son above angels"
+   },
+   {
+    "ref": "Revelation 11:15",
+    "verdict": "off",
+    "why": "matched 'become'"
+   }
+  ]
+ },
+ {
+  "q": "how did judas die, matthew says he hanged himself but acts says he fell and his guts burst out",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Deuteronomy 21:22",
+    "verdict": "off",
+    "why": "matched 'hang'"
+   },
+   {
+    "ref": "Matthew 9:9",
+    "verdict": "off",
+    "why": "matched 'Matthew'"
+   },
+   {
+    "ref": "Matthew 10:3",
+    "verdict": "off",
+    "why": "matched 'Matthew'"
+   },
+   {
+    "ref": "Matthew 10:4",
+    "verdict": "related",
+    "why": "Judas in apostle list"
+   },
+   {
+    "ref": "Matthew 10:28",
+    "verdict": "off",
+    "why": "fear of killing"
+   },
+   {
+    "ref": "Matthew 27:5",
+    "verdict": "answers",
+    "why": "Judas hanged himself"
+   },
+   {
+    "ref": "Mark 3:18",
+    "verdict": "off",
+    "why": "name list"
+   },
+   {
+    "ref": "Luke 5:27",
+    "verdict": "off",
+    "why": "Levi called"
+   },
+   {
+    "ref": "Acts 1:13",
+    "verdict": "off",
+    "why": "different Judas"
+   },
+   {
+    "ref": "Acts 1:18",
+    "verdict": "answers",
+    "why": "Judas fell, burst open"
+   },
+   {
+    "ref": "Acts 5:10",
+    "verdict": "off",
+    "why": "Sapphira fell"
+   },
+   {
+    "ref": "Acts 7:60",
+    "verdict": "off",
+    "why": "Stephen"
+   },
+   {
+    "ref": "Acts 10:39",
+    "verdict": "off",
+    "why": "Christ hanged on tree"
+   },
+   {
+    "ref": "Acts 13:36",
+    "verdict": "off",
+    "why": "David fell asleep"
+   },
+   {
+    "ref": "Galatians 3:13",
+    "verdict": "off",
+    "why": "hung on tree"
+   }
+  ]
+ },
+ {
+  "q": "paul says we're saved by faith not works but james says faith without works is dead so which is it",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "John 6:29",
+    "verdict": "related",
+    "why": "believing is God's work"
+   },
+   {
+    "ref": "Romans 3:28",
+    "verdict": "answers",
+    "why": "justified by faith apart from law"
+   },
+   {
+    "ref": "Romans 4:5",
+    "verdict": "answers",
+    "why": "faith credited, not working"
+   },
+   {
+    "ref": "Romans 4:11",
+    "verdict": "related",
+    "why": "Abraham's faith righteousness"
+   },
+   {
+    "ref": "Romans 9:32",
+    "verdict": "related",
+    "why": "pursued by works not faith"
+   },
+   {
+    "ref": "2 Corinthians 7:10",
+    "verdict": "off",
+    "why": "godly sorrow"
+   },
+   {
+    "ref": "2 Corinthians 11:27",
+    "verdict": "off",
+    "why": "Paul's labors"
+   },
+   {
+    "ref": "Galatians 2:16",
+    "verdict": "answers",
+    "why": "not by works of law"
+   },
+   {
+    "ref": "Galatians 3:10",
+    "verdict": "related",
+    "why": "works of law curse"
+   },
+   {
+    "ref": "Galatians 3:16",
+    "verdict": "off",
+    "why": "seed is Christ"
+   },
+   {
+    "ref": "Galatians 3:22",
+    "verdict": "related",
+    "why": "promise by faith"
+   },
+   {
+    "ref": "Philippians 3:9",
+    "verdict": "answers",
+    "why": "righteousness through faith"
+   },
+   {
+    "ref": "2 Thessalonians 3:8",
+    "verdict": "off",
+    "why": "Paul worked for food"
+   },
+   {
+    "ref": "James 2:18",
+    "verdict": "answers",
+    "why": "faith shown by deeds"
+   }
+  ],
+  "note": "Misses the bridge verses Eph 2:8-10 and James 2:21-24, 2:26."
+ },
+ {
+  "q": "what did jesus do between age 12 and 30",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 10:1",
+    "verdict": "off",
+    "why": "matched 'twelve'"
+   },
+   {
+    "ref": "Matthew 13:39",
+    "verdict": "off",
+    "why": "matched 'age'"
+   },
+   {
+    "ref": "Matthew 20:5",
+    "verdict": "off",
+    "why": "parable hours"
+   },
+   {
+    "ref": "Matthew 20:6",
+    "verdict": "off",
+    "why": "parable hours"
+   },
+   {
+    "ref": "Matthew 24:3",
+    "verdict": "off",
+    "why": "end of the age"
+   },
+   {
+    "ref": "Matthew 27:3",
+    "verdict": "off",
+    "why": "thirty silver pieces"
+   },
+   {
+    "ref": "Matthew 28:20",
+    "verdict": "off",
+    "why": "end of the age"
+   },
+   {
+    "ref": "Mark 6:7",
+    "verdict": "off",
+    "why": "the Twelve"
+   },
+   {
+    "ref": "Mark 14:10",
+    "verdict": "off",
+    "why": "the Twelve"
+   },
+   {
+    "ref": "Luke 9:1",
+    "verdict": "off",
+    "why": "the Twelve"
+   },
+   {
+    "ref": "Luke 20:34",
+    "verdict": "off",
+    "why": "sons of this age"
+   },
+   {
+    "ref": "Luke 22:47",
+    "verdict": "off",
+    "why": "the Twelve"
+   },
+   {
+    "ref": "John 6:70",
+    "verdict": "off",
+    "why": "the Twelve"
+   },
+   {
+    "ref": "Romans 16:25",
+    "verdict": "off",
+    "why": "ages past"
+   },
+   {
+    "ref": "1 Timothy 2:5",
+    "verdict": "off",
+    "why": "mediator"
+   }
+  ],
+  "note": "All number/word noise; misses Luke 2:51-52, Luke 3:23, Mark 6:3."
+ },
+ {
+  "q": "is pirating movies lowkey stealing",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 20:15",
+    "verdict": "answers",
+    "why": "do not steal"
+   },
+   {
+    "ref": "Leviticus 19:11",
+    "verdict": "answers",
+    "why": "do not steal or deceive"
+   },
+   {
+    "ref": "Deuteronomy 5:19",
+    "verdict": "answers",
+    "why": "do not steal"
+   },
+   {
+    "ref": "Psalm 101:3",
+    "verdict": "off",
+    "why": "what you watch, not theft"
+   },
+   {
+    "ref": "Matthew 6:22",
+    "verdict": "off",
+    "why": "eye as lamp"
+   },
+   {
+    "ref": "Matthew 19:18",
+    "verdict": "related",
+    "why": "commandment list"
+   },
+   {
+    "ref": "Mark 10:19",
+    "verdict": "related",
+    "why": "commandment list, do not cheat"
+   },
+   {
+    "ref": "Luke 11:34",
+    "verdict": "off",
+    "why": "eye as lamp"
+   },
+   {
+    "ref": "Luke 18:20",
+    "verdict": "related",
+    "why": "commandment list"
+   },
+   {
+    "ref": "Romans 13:9",
+    "verdict": "related",
+    "why": "law summed in love"
+   },
+   {
+    "ref": "Ephesians 4:28",
+    "verdict": "answers",
+    "why": "steal no longer, work"
+   },
+   {
+    "ref": "Philippians 4:8",
+    "verdict": "off",
+    "why": "think on good things"
+   },
+   {
+    "ref": "1 Thessalonians 5:2",
+    "verdict": "off",
+    "why": "thief in the night"
+   },
+   {
+    "ref": "2 Peter 3:10",
+    "verdict": "off",
+    "why": "thief in the night"
+   }
+  ]
+ },
+ {
+  "q": "is there any archaeological evidence for the exodus",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 11:2",
+    "verdict": "off",
+    "why": "Babel journey"
+   },
+   {
+    "ref": "Exodus 12:29",
+    "verdict": "related",
+    "why": "exodus narrative"
+   },
+   {
+    "ref": "Exodus 13:21",
+    "verdict": "related",
+    "why": "exodus narrative"
+   },
+   {
+    "ref": "Exodus 19:16",
+    "verdict": "related",
+    "why": "Sinai narrative"
+   },
+   {
+    "ref": "Exodus 20:16",
+    "verdict": "off",
+    "why": "false witness law"
+   },
+   {
+    "ref": "Exodus 22:13",
+    "verdict": "off",
+    "why": "matched 'evidence', livestock"
+   },
+   {
+    "ref": "Exodus 23:1",
+    "verdict": "off",
+    "why": "false report law"
+   },
+   {
+    "ref": "Exodus 23:7",
+    "verdict": "off",
+    "why": "false accusation law"
+   },
+   {
+    "ref": "Exodus 40:34",
+    "verdict": "related",
+    "why": "tabernacle glory"
+   },
+   {
+    "ref": "Numbers 35:30",
+    "verdict": "off",
+    "why": "witness law"
+   },
+   {
+    "ref": "Deuteronomy 17:6",
+    "verdict": "off",
+    "why": "witness law"
+   },
+   {
+    "ref": "Deuteronomy 19:15",
+    "verdict": "off",
+    "why": "witness law"
+   },
+   {
+    "ref": "Matthew 18:16",
+    "verdict": "off",
+    "why": "witness rule"
+   },
+   {
+    "ref": "Hebrews 10:28",
+    "verdict": "off",
+    "why": "witness rule"
+   }
+  ],
+  "note": "'evidence' matched courtroom witness laws."
+ },
+ {
+  "q": "doing a read through the bible in a year plan and im stuck in leviticus, why are there whole chapters about mold and skin diseases",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Leviticus 4:13",
+    "verdict": "off",
+    "why": "sin offering"
+   },
+   {
+    "ref": "Leviticus 13:2",
+    "verdict": "related",
+    "why": "skin law itself, no why"
+   },
+   {
+    "ref": "Leviticus 13:3",
+    "verdict": "related",
+    "why": "skin law itself, no why"
+   },
+   {
+    "ref": "Leviticus 13:35",
+    "verdict": "related",
+    "why": "skin law itself"
+   },
+   {
+    "ref": "Leviticus 13:38",
+    "verdict": "related",
+    "why": "skin law itself"
+   },
+   {
+    "ref": "Leviticus 13:39",
+    "verdict": "related",
+    "why": "skin law itself"
+   },
+   {
+    "ref": "Leviticus 14:54",
+    "verdict": "related",
+    "why": "summary of skin/mildew laws"
+   },
+   {
+    "ref": "Leviticus 19:4",
+    "verdict": "off",
+    "why": "matched 'molten'"
+   },
+   {
+    "ref": "Deuteronomy 6:9",
+    "verdict": "off",
+    "why": "doorposts"
+   },
+   {
+    "ref": "Deuteronomy 11:20",
+    "verdict": "off",
+    "why": "doorposts"
+   },
+   {
+    "ref": "Job 17:11",
+    "verdict": "off",
+    "why": "matched 'plans'"
+   },
+   {
+    "ref": "Psalm 33:10",
+    "verdict": "off",
+    "why": "matched 'plans'"
+   },
+   {
+    "ref": "Proverbs 16:9",
+    "verdict": "off",
+    "why": "matched 'plans'"
+   },
+   {
+    "ref": "Proverbs 19:21",
+    "verdict": "off",
+    "why": "matched 'plans'"
+   },
+   {
+    "ref": "Mark 12:10",
+    "verdict": "off",
+    "why": "matched 'read'"
+   },
+   {
+    "ref": "Ephesians 1:11",
+    "verdict": "off",
+    "why": "matched 'plan'"
+   }
+  ],
+  "note": "No purpose verses (Lev 10:10, 11:44-45, 14:57, 15:31)."
+ },
+ {
+  "q": "is smoking a sin",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "1 Samuel 24:11",
+    "verdict": "off",
+    "why": "David spares Saul"
+   },
+   {
+    "ref": "Matthew 26:62",
+    "verdict": "off",
+    "why": "Jesus' trial"
+   },
+   {
+    "ref": "Matthew 26:63",
+    "verdict": "off",
+    "why": "Jesus' trial"
+   },
+   {
+    "ref": "Matthew 27:12",
+    "verdict": "off",
+    "why": "Jesus' trial"
+   },
+   {
+    "ref": "Matthew 27:14",
+    "verdict": "off",
+    "why": "Jesus' trial"
+   },
+   {
+    "ref": "Galatians 5:23",
+    "verdict": "related",
+    "why": "self-control fruit"
+   },
+   {
+    "ref": "2 Timothy 3:3",
+    "verdict": "related",
+    "why": "vice list, no self-control"
+   },
+   {
+    "ref": "2 Peter 1:6",
+    "verdict": "related",
+    "why": "add self-control"
+   }
+  ],
+  "note": "Misses body-as-temple and not mastered verses (1 Cor 6:12, 6:19-20)."
+ },
+ {
+  "q": "promised my mom id never put her in a nursing home and now i think i have to",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 21:17",
+    "verdict": "off",
+    "why": "death for cursing parents; wounds"
+   },
+   {
+    "ref": "Leviticus 20:9",
+    "verdict": "off",
+    "why": "death for cursing parents; wounds"
+   },
+   {
+    "ref": "Isaiah 49:23",
+    "verdict": "off",
+    "why": "'nursing mothers' word match"
+   },
+   {
+    "ref": "Matthew 15:4",
+    "verdict": "related",
+    "why": "providing for parents, Corban rebuke"
+   },
+   {
+    "ref": "Matthew 24:19",
+    "verdict": "off",
+    "why": "'nursing' word match"
+   },
+   {
+    "ref": "Mark 7:10",
+    "verdict": "related",
+    "why": "providing for parents, Corban rebuke"
+   },
+   {
+    "ref": "Mark 13:17",
+    "verdict": "off",
+    "why": "'nursing' word match"
+   },
+   {
+    "ref": "1 Thessalonians 2:7",
+    "verdict": "off",
+    "why": "'nursing mother' simile"
+   }
+  ],
+  "note": "'nursing' matched nursing mothers; nothing on caring for aging parents (1 Tim 5:4, 5:8)"
+ },
+ {
+  "q": "coworker presented my whole project as hers in the meeting and the boss loved it",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Leviticus 1:3",
+    "verdict": "off",
+    "why": "'present' offering"
+   },
+   {
+    "ref": "Romans 16:2",
+    "verdict": "off",
+    "why": "greeting Phoebe"
+   },
+   {
+    "ref": "Romans 16:5",
+    "verdict": "off",
+    "why": "'meets' house church"
+   },
+   {
+    "ref": "2 Corinthians 11:2",
+    "verdict": "off",
+    "why": "'present' as bride"
+   },
+   {
+    "ref": "Ephesians 5:25",
+    "verdict": "off",
+    "why": "marriage, not work"
+   },
+   {
+    "ref": "Ephesians 5:27",
+    "verdict": "off",
+    "why": "'present' the church"
+   },
+   {
+    "ref": "Colossians 1:28",
+    "verdict": "off",
+    "why": "'present' everyone perfect"
+   },
+   {
+    "ref": "1 Timothy 6:2",
+    "verdict": "off",
+    "why": "slaves serve masters"
+   }
+  ],
+  "note": "'present'/'meeting' word senses only; nothing on wrong done or credit"
+ },
+ {
+  "q": "our son is 28, lives in the basement, and wont even look for a job",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "1 Kings 17:12",
+    "verdict": "off",
+    "why": "widow and son"
+   },
+   {
+    "ref": "Job 1:13",
+    "verdict": "off",
+    "why": "sons eating"
+   },
+   {
+    "ref": "Job 14:6",
+    "verdict": "off",
+    "why": "'hired hand' lament"
+   },
+   {
+    "ref": "Job 14:14",
+    "verdict": "off",
+    "why": "death and renewal"
+   },
+   {
+    "ref": "Job 27:14",
+    "verdict": "off",
+    "why": "wicked man's sons"
+   },
+   {
+    "ref": "Job 40:11",
+    "verdict": "off",
+    "why": "God humbles the proud"
+   },
+   {
+    "ref": "Psalm 14:2",
+    "verdict": "off",
+    "why": "'look' word match"
+   },
+   {
+    "ref": "Psalm 33:13",
+    "verdict": "off",
+    "why": "'look' word match"
+   },
+   {
+    "ref": "Matthew 16:16",
+    "verdict": "off",
+    "why": "Peter's confession"
+   },
+   {
+    "ref": "1 Thessalonians 4:11",
+    "verdict": "answers",
+    "why": "work, not dependent on anyone"
+   },
+   {
+    "ref": "2 Thessalonians 3:11",
+    "verdict": "answers",
+    "why": "idleness rebuked, v10"
+   },
+   {
+    "ref": "2 Thessalonians 3:12",
+    "verdict": "answers",
+    "why": "urged to earn own living"
+   },
+   {
+    "ref": "James 5:4",
+    "verdict": "off",
+    "why": "withheld wages"
+   }
+  ]
+ },
+ {
+  "q": "mom went on hospice today. they said maybe a week",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 34:22",
+    "verdict": "off",
+    "why": "Feast of Weeks"
+   },
+   {
+    "ref": "Deuteronomy 16:9",
+    "verdict": "off",
+    "why": "counting weeks"
+   },
+   {
+    "ref": "Matthew 2:21",
+    "verdict": "off",
+    "why": "'mother' word match"
+   },
+   {
+    "ref": "Matthew 21:28",
+    "verdict": "off",
+    "why": "parable of two sons"
+   },
+   {
+    "ref": "Matthew 28:1",
+    "verdict": "off",
+    "why": "'first day of week'"
+   },
+   {
+    "ref": "Mark 6:24",
+    "verdict": "off",
+    "why": "Herodias' request"
+   },
+   {
+    "ref": "Mark 16:2",
+    "verdict": "off",
+    "why": "'first day of week'"
+   },
+   {
+    "ref": "Luke 2:51",
+    "verdict": "off",
+    "why": "Jesus' mother"
+   },
+   {
+    "ref": "Luke 24:1",
+    "verdict": "off",
+    "why": "'first day of week'"
+   },
+   {
+    "ref": "John 2:12",
+    "verdict": "off",
+    "why": "'mother' word match"
+   },
+   {
+    "ref": "John 20:1",
+    "verdict": "off",
+    "why": "'first day of week'"
+   },
+   {
+    "ref": "1 Corinthians 16:2",
+    "verdict": "off",
+    "why": "weekly collection"
+   }
+  ],
+  "note": "only 'week'/'mother' word matches; nothing on dying, grief or hope"
+ },
+ {
+  "q": "is it a sin to start an onlyfans if im way behind on bills",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Leviticus 16:15",
+    "verdict": "off",
+    "why": "'sin offering' ritual"
+   },
+   {
+    "ref": "1 Kings 14:9",
+    "verdict": "off",
+    "why": "'behind your back'"
+   },
+   {
+    "ref": "Psalm 50:17",
+    "verdict": "off",
+    "why": "'behind you'"
+   },
+   {
+    "ref": "Song of Solomon 6:7",
+    "verdict": "off",
+    "why": "'behind your veil'"
+   },
+   {
+    "ref": "Matthew 6:11",
+    "verdict": "related",
+    "why": "daily provision prayer"
+   },
+   {
+    "ref": "Matthew 6:25",
+    "verdict": "related",
+    "why": "do not worry about needs"
+   },
+   {
+    "ref": "Matthew 6:31",
+    "verdict": "related",
+    "why": "do not worry; seek kingdom"
+   },
+   {
+    "ref": "Matthew 6:34",
+    "verdict": "related",
+    "why": "do not worry about tomorrow"
+   },
+   {
+    "ref": "Matthew 10:19",
+    "verdict": "off",
+    "why": "worry before councils"
+   },
+   {
+    "ref": "Luke 11:3",
+    "verdict": "related",
+    "why": "daily provision prayer"
+   },
+   {
+    "ref": "Luke 12:22",
+    "verdict": "related",
+    "why": "do not worry about needs"
+   },
+   {
+    "ref": "Luke 16:6",
+    "verdict": "off",
+    "why": "'bill' in parable"
+   },
+   {
+    "ref": "Philippians 4:19",
+    "verdict": "related",
+    "why": "God supplies needs"
+   },
+   {
+    "ref": "Hebrews 6:19",
+    "verdict": "off",
+    "why": "'behind the curtain'"
+   },
+   {
+    "ref": "Hebrews 9:3",
+    "verdict": "off",
+    "why": "'behind' curtain"
+   },
+   {
+    "ref": "1 John 3:8",
+    "verdict": "off",
+    "why": "generic 'sin' match"
+   }
+  ],
+  "note": "'behind' matched curtains/veils; nothing on sexual immorality (1 Thess 4:3, 1 Cor 6:18)"
+ },
+ {
+  "q": "can i quit without giving two weeks notice? my boss is awful",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "2 Kings 18:23",
+    "verdict": "off",
+    "why": "'two thousand' taunt"
+   },
+   {
+    "ref": "Proverbs 22:16",
+    "verdict": "off",
+    "why": "oppressing poor"
+   },
+   {
+    "ref": "Isaiah 36:8",
+    "verdict": "off",
+    "why": "'two thousand' taunt"
+   },
+   {
+    "ref": "Jeremiah 22:13",
+    "verdict": "related",
+    "why": "unjust employer; not quitting"
+   },
+   {
+    "ref": "Mark 13:36",
+    "verdict": "off",
+    "why": "'without notice' return"
+   },
+   {
+    "ref": "Luke 18:12",
+    "verdict": "off",
+    "why": "Pharisee's 'twice a week'"
+   },
+   {
+    "ref": "1 Corinthians 16:2",
+    "verdict": "off",
+    "why": "weekly collection"
+   },
+   {
+    "ref": "Ephesians 6:9",
+    "verdict": "related",
+    "why": "masters not to threaten"
+   },
+   {
+    "ref": "Philemon 1:14",
+    "verdict": "off",
+    "why": "'consent' word match"
+   },
+   {
+    "ref": "James 1:5",
+    "verdict": "related",
+    "why": "ask God for wisdom"
+   }
+  ],
+  "note": "'two'/'week'/'notice' matched literally"
+ },
+ {
+  "q": "i have adhd and my life feels like a mess no matter how hard i try",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 17:2",
+    "verdict": "off",
+    "why": "Israel contending"
+   },
+   {
+    "ref": "Job 14:1",
+    "verdict": "related",
+    "why": "life full of trouble lament"
+   },
+   {
+    "ref": "Matthew 6:25",
+    "verdict": "related",
+    "why": "do not worry"
+   },
+   {
+    "ref": "Matthew 6:27",
+    "verdict": "related",
+    "why": "worry adds nothing"
+   },
+   {
+    "ref": "John 14:1",
+    "verdict": "related",
+    "why": "hearts not troubled"
+   },
+   {
+    "ref": "Galatians 1:7",
+    "verdict": "off",
+    "why": "'troubling' false gospel"
+   },
+   {
+    "ref": "Philippians 4:6",
+    "verdict": "related",
+    "why": "bring anxiety to God"
+   },
+   {
+    "ref": "1 Peter 5:7",
+    "verdict": "answers",
+    "why": "He cares for you"
+   }
+  ]
+ },
+ {
+  "q": "last kid left for college and the house is so quiet",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "2 Kings 22:14",
+    "verdict": "off",
+    "why": "'Second District' (college)"
+   },
+   {
+    "ref": "2 Chronicles 34:22",
+    "verdict": "off",
+    "why": "'Second District' (college)"
+   },
+   {
+    "ref": "Proverbs 17:1",
+    "verdict": "off",
+    "why": "'quietness' other sense"
+   },
+   {
+    "ref": "Isaiah 2:2",
+    "verdict": "off",
+    "why": "'last days' house of LORD"
+   },
+   {
+    "ref": "Micah 4:1",
+    "verdict": "off",
+    "why": "'last days' house of LORD"
+   },
+   {
+    "ref": "Matthew 19:30",
+    "verdict": "off",
+    "why": "last will be first"
+   },
+   {
+    "ref": "Matthew 20:16",
+    "verdict": "off",
+    "why": "last will be first"
+   },
+   {
+    "ref": "Mark 10:31",
+    "verdict": "off",
+    "why": "last will be first"
+   }
+  ],
+  "note": "'college'/'last'/'house'/'quiet' word matches; nothing on loneliness or a new season"
+ },
+ {
+  "q": "dad left my mom for a 30 year old and now he keeps asking me to come to dinner and meet her like its no big deal",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 11:14",
+    "verdict": "off",
+    "why": "'30 years old' genealogy"
+   },
+   {
+    "ref": "Genesis 11:18",
+    "verdict": "off",
+    "why": "'30 years old' genealogy"
+   },
+   {
+    "ref": "Genesis 11:22",
+    "verdict": "off",
+    "why": "'30 years old' genealogy"
+   },
+   {
+    "ref": "Exodus 20:12",
+    "verdict": "related",
+    "why": "honor parents; adultery v14"
+   },
+   {
+    "ref": "Leviticus 19:3",
+    "verdict": "related",
+    "why": "respect mother and father"
+   },
+   {
+    "ref": "1 Kings 1:1",
+    "verdict": "off",
+    "why": "David and young virgin"
+   },
+   {
+    "ref": "2 Kings 24:18",
+    "verdict": "off",
+    "why": "king's age, mother's name"
+   },
+   {
+    "ref": "2 Chronicles 22:2",
+    "verdict": "off",
+    "why": "king's age, mother's name"
+   },
+   {
+    "ref": "2 Chronicles 26:3",
+    "verdict": "off",
+    "why": "king's age, mother's name"
+   },
+   {
+    "ref": "Proverbs 6:20",
+    "verdict": "related",
+    "why": "heed parents' teaching"
+   },
+   {
+    "ref": "Proverbs 23:22",
+    "verdict": "related",
+    "why": "honor parents"
+   },
+   {
+    "ref": "Proverbs 30:17",
+    "verdict": "off",
+    "why": "curse on mocker; wounds"
+   },
+   {
+    "ref": "Jeremiah 52:1",
+    "verdict": "off",
+    "why": "king's age, mother's name"
+   },
+   {
+    "ref": "Matthew 10:37",
+    "verdict": "related",
+    "why": "family divided, Christ first"
+   },
+   {
+    "ref": "Matthew 15:4",
+    "verdict": "related",
+    "why": "honor parents"
+   },
+   {
+    "ref": "Mark 7:10",
+    "verdict": "related",
+    "why": "honor parents"
+   }
+  ],
+  "note": "'30 years old' and 'mother' matched genealogies; nothing on adultery's hurt or reconciliation"
+ },
+ {
+  "q": "what did john the baptist eat",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 3:1",
+    "verdict": "related",
+    "why": "John intro; food is v4"
+   },
+   {
+    "ref": "Matthew 14:2",
+    "verdict": "off",
+    "why": "Herod fears John risen"
+   },
+   {
+    "ref": "Matthew 14:8",
+    "verdict": "off",
+    "why": "'platter' with John's head"
+   },
+   {
+    "ref": "Matthew 16:14",
+    "verdict": "off",
+    "why": "who people say Jesus is"
+   },
+   {
+    "ref": "Mark 1:4",
+    "verdict": "related",
+    "why": "answer is v6, just after"
+   },
+   {
+    "ref": "Mark 6:14",
+    "verdict": "off",
+    "why": "Herod fears John risen"
+   },
+   {
+    "ref": "Mark 8:28",
+    "verdict": "off",
+    "why": "who people say Jesus is"
+   },
+   {
+    "ref": "Luke 7:33",
+    "verdict": "answers",
+    "why": "no bread nor wine"
+   }
+  ],
+  "note": "Matthew 3:4 and Mark 1:6 (locusts and wild honey) sit right next to hits but were not shown"
+ },
+ {
+  "q": "romans 8:28 does that mean everything that happens to me is good",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Numbers 4:48",
+    "verdict": "off",
+    "why": "number '8' match"
+   },
+   {
+    "ref": "1 Chronicles 12:35",
+    "verdict": "off",
+    "why": "number '28' match"
+   },
+   {
+    "ref": "Ezra 8:11",
+    "verdict": "off",
+    "why": "number '28' match"
+   },
+   {
+    "ref": "Acts 16:38",
+    "verdict": "off",
+    "why": "'Romans' citizens"
+   },
+   {
+    "ref": "Acts 22:25",
+    "verdict": "off",
+    "why": "'Roman' citizen"
+   },
+   {
+    "ref": "Acts 22:26",
+    "verdict": "off",
+    "why": "'Roman' citizen"
+   },
+   {
+    "ref": "Acts 22:29",
+    "verdict": "off",
+    "why": "'Roman' citizen"
+   },
+   {
+    "ref": "Acts 23:27",
+    "verdict": "off",
+    "why": "'Roman' citizen"
+   },
+   {
+    "ref": "Romans 8:1",
+    "verdict": "related",
+    "why": "chapter frame, no condemnation"
+   },
+   {
+    "ref": "Romans 8:3",
+    "verdict": "off",
+    "why": "law's weakness, not suffering"
+   },
+   {
+    "ref": "Romans 8:17",
+    "verdict": "answers",
+    "why": "suffer now, glory later (v18)"
+   },
+   {
+    "ref": "Romans 8:19",
+    "verdict": "related",
+    "why": "creation waits, futility"
+   },
+   {
+    "ref": "Romans 8:23",
+    "verdict": "related",
+    "why": "believers still groan"
+   },
+   {
+    "ref": "Romans 8:28",
+    "verdict": "answers",
+    "why": "the verse itself"
+   },
+   {
+    "ref": "Romans 8:30",
+    "verdict": "related",
+    "why": "purpose chain after v29"
+   },
+   {
+    "ref": "Romans 8:34",
+    "verdict": "related",
+    "why": "nothing separates, v35"
+   }
+  ],
+  "note": "reference '8:28' matched numbers and 'Romans' citizens; Romans 8:18 and 8:29 missing"
+ },
+ {
+  "q": "my wife grew up catholic and i grew up baptist and now both our families are fighting over whether to baptize our newborn or wait until shes old enough to decide for herself. does the bible actually say anything about baptizing babies",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 2:23",
+    "verdict": "off",
+    "why": "woman made; not baptism"
+   },
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "off",
+    "why": "marriage; not baptism"
+   },
+   {
+    "ref": "Genesis 3:16",
+    "verdict": "off",
+    "why": "curse on woman"
+   },
+   {
+    "ref": "Proverbs 12:4",
+    "verdict": "off",
+    "why": "'wife' word match"
+   },
+   {
+    "ref": "Proverbs 19:13",
+    "verdict": "off",
+    "why": "quarrelsome wife; wounds"
+   },
+   {
+    "ref": "Proverbs 21:9",
+    "verdict": "off",
+    "why": "quarrelsome wife; wounds"
+   },
+   {
+    "ref": "Proverbs 21:19",
+    "verdict": "off",
+    "why": "contentious wife; wounds"
+   },
+   {
+    "ref": "1 Corinthians 7:16",
+    "verdict": "off",
+    "why": "unbelieving spouse; not baptism"
+   },
+   {
+    "ref": "1 Peter 3:1",
+    "verdict": "off",
+    "why": "wives submit; not baptism"
+   }
+  ],
+  "note": "nothing on baptism at all (Acts 2:38-39, 16:15, 16:33, Col 2:11-12); 'wife' dominated"
+ },
+ {
+  "q": "genesis 1 and 2 seem like two different creation stories that dont match up",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 1:1",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:5",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:16",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:20",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:22",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:27",
+    "verdict": "related",
+    "why": "male and female created"
+   },
+   {
+    "ref": "Genesis 1:28",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Genesis 1:31",
+    "verdict": "related",
+    "why": "Genesis 1 account"
+   },
+   {
+    "ref": "Ezra 2:3",
+    "verdict": "off",
+    "why": "census numbers"
+   },
+   {
+    "ref": "Ezra 2:14",
+    "verdict": "off",
+    "why": "census numbers"
+   },
+   {
+    "ref": "Nehemiah 7:19",
+    "verdict": "off",
+    "why": "census numbers"
+   },
+   {
+    "ref": "Daniel 7:7",
+    "verdict": "off",
+    "why": "'different' beast"
+   },
+   {
+    "ref": "Mark 16:12",
+    "verdict": "off",
+    "why": "'different form'"
+   },
+   {
+    "ref": "Romans 12:6",
+    "verdict": "off",
+    "why": "'different gifts'"
+   },
+   {
+    "ref": "1 Corinthians 12:4",
+    "verdict": "off",
+    "why": "'different gifts'"
+   },
+   {
+    "ref": "2 Corinthians 11:4",
+    "verdict": "off",
+    "why": "'different gospel'"
+   }
+  ],
+  "note": "no Genesis 2 verse shown (2:4-7, 2:18-22) nor Matthew 19:4-5 joining 1:27 and 2:24"
+ },
+ {
+  "q": "why did jesus curse a fig tree when it wasnt even fig season",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 3:17",
+    "verdict": "off",
+    "why": "cursed ground"
+   },
+   {
+    "ref": "Deuteronomy 8:8",
+    "verdict": "off",
+    "why": "land of fig trees"
+   },
+   {
+    "ref": "Psalm 105:33",
+    "verdict": "off",
+    "why": "plague on fig trees"
+   },
+   {
+    "ref": "Jeremiah 24:2",
+    "verdict": "related",
+    "why": "figs picture the people"
+   },
+   {
+    "ref": "Jeremiah 24:3",
+    "verdict": "related",
+    "why": "figs picture the people"
+   },
+   {
+    "ref": "Hosea 9:10",
+    "verdict": "related",
+    "why": "Israel as fig firstfruits"
+   },
+   {
+    "ref": "Mark 11:13",
+    "verdict": "answers",
+    "why": "the event; temple follows"
+   },
+   {
+    "ref": "Luke 13:6",
+    "verdict": "answers",
+    "why": "fruitless fig tree parable"
+   },
+   {
+    "ref": "Luke 21:29",
+    "verdict": "related",
+    "why": "fig tree, other lesson"
+   }
+  ]
+ },
+ {
+  "q": "was jesus married? ngl the da vinci code got me wondering",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "off",
+    "why": "marriage in general"
+   },
+   {
+    "ref": "Job 5:9",
+    "verdict": "off",
+    "why": "'wonders' word match"
+   },
+   {
+    "ref": "Psalm 86:10",
+    "verdict": "off",
+    "why": "'wonders' word match"
+   },
+   {
+    "ref": "Psalm 136:4",
+    "verdict": "off",
+    "why": "'wonders' word match"
+   },
+   {
+    "ref": "Isaiah 9:6",
+    "verdict": "off",
+    "why": "'Wonderful' word match"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "off",
+    "why": "broken faith with wife"
+   },
+   {
+    "ref": "Matthew 9:1",
+    "verdict": "off",
+    "why": "Jesus crosses by boat"
+   },
+   {
+    "ref": "John 4:48",
+    "verdict": "off",
+    "why": "'signs and wonders'"
+   },
+   {
+    "ref": "Acts 2:22",
+    "verdict": "off",
+    "why": "'wonders' word match"
+   },
+   {
+    "ref": "Acts 4:30",
+    "verdict": "off",
+    "why": "'wonders' word match"
+   },
+   {
+    "ref": "1 Corinthians 7:4",
+    "verdict": "off",
+    "why": "marital duty"
+   },
+   {
+    "ref": "1 Corinthians 7:10",
+    "verdict": "off",
+    "why": "divorce command"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship"
+   },
+   {
+    "ref": "Ephesians 5:33",
+    "verdict": "related",
+    "why": "Christ's bride is the church"
+   }
+  ],
+  "note": "'wondering' matched 'wonders'; nothing on Christ's bride (Rev 19:7, Eph 5:25-32) or family lists (Mark 6:3)"
+ },
+ {
+  "q": "can christians play d&d or is that demonic",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "1 Samuel 18:10",
+    "verdict": "off",
+    "why": "'played' harp"
+   },
+   {
+    "ref": "Psalm 68:25",
+    "verdict": "off",
+    "why": "'playing' tambourines"
+   },
+   {
+    "ref": "Jeremiah 3:1",
+    "verdict": "off",
+    "why": "'played the harlot'"
+   },
+   {
+    "ref": "Hosea 2:5",
+    "verdict": "off",
+    "why": "'played the harlot'"
+   },
+   {
+    "ref": "Hosea 4:12",
+    "verdict": "related",
+    "why": "divination condemned"
+   },
+   {
+    "ref": "Acts 4:32",
+    "verdict": "off",
+    "why": "believers share goods"
+   },
+   {
+    "ref": "James 3:15",
+    "verdict": "off",
+    "why": "'demonic' jealousy"
+   },
+   {
+    "ref": "Revelation 16:14",
+    "verdict": "off",
+    "why": "demonic spirits at Armageddon"
+   }
+  ],
+  "note": "'play' matched 'played the harlot'; nothing on sorcery (Deut 18:10-12) or conscience (Rom 14, 1 Cor 10:31)"
+ },
+ {
+  "q": "do muslims and christians worship the same god",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Deuteronomy 16:6",
+    "verdict": "off",
+    "why": "'same time' Passover"
+   },
+   {
+    "ref": "Acts 4:32",
+    "verdict": "off",
+    "why": "believers share goods"
+   },
+   {
+    "ref": "2 Timothy 2:14",
+    "verdict": "off",
+    "why": "quarreling over words"
+   },
+   {
+    "ref": "Titus 1:6",
+    "verdict": "off",
+    "why": "elder qualifications"
+   },
+   {
+    "ref": "Hebrews 9:21",
+    "verdict": "off",
+    "why": "tabernacle worship vessels"
+   },
+   {
+    "ref": "Hebrews 10:1",
+    "verdict": "off",
+    "why": "law a shadow"
+   },
+   {
+    "ref": "1 Peter 2:17",
+    "verdict": "off",
+    "why": "honor everyone"
+   },
+   {
+    "ref": "1 Peter 5:5",
+    "verdict": "off",
+    "why": "humility to elders"
+   }
+  ],
+  "note": "nothing on Father and Son (1 John 2:23, John 14:6, John 5:23)"
+ },
+ {
+  "q": "relapsed on pills after 8 months clean",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Galatians 5:23",
+    "verdict": "related",
+    "why": "self-control as Spirit fruit"
+   },
+   {
+    "ref": "1 Timothy 2:9",
+    "verdict": "off",
+    "why": "women's modest dress"
+   },
+   {
+    "ref": "1 Timothy 2:15",
+    "verdict": "off",
+    "why": "saved through childbearing"
+   },
+   {
+    "ref": "2 Timothy 3:3",
+    "verdict": "off",
+    "why": "vice list; wounds"
+   },
+   {
+    "ref": "1 Peter 1:13",
+    "verdict": "related",
+    "why": "sober, hope on grace"
+   },
+   {
+    "ref": "1 Peter 4:7",
+    "verdict": "related",
+    "why": "be clear-minded, sober"
+   },
+   {
+    "ref": "1 Peter 5:8",
+    "verdict": "related",
+    "why": "sober; restore in v10"
+   },
+   {
+    "ref": "2 Peter 1:6",
+    "verdict": "related",
+    "why": "self-control, perseverance"
+   }
+  ],
+  "note": "'self-control' dominated; nothing on rising after a fall (Prov 24:16, Micah 7:8, 1 John 1:9)"
+ },
+ {
+  "q": "is gambling a sin",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Proverbs 13:11",
+    "verdict": "related",
+    "why": "dishonest vs earned wealth"
+   },
+   {
+    "ref": "Proverbs 23:4",
+    "verdict": "related",
+    "why": "do not toil to get rich"
+   },
+   {
+    "ref": "Proverbs 28:20",
+    "verdict": "answers",
+    "why": "eager to be rich punished"
+   },
+   {
+    "ref": "Ecclesiastes 5:10",
+    "verdict": "related",
+    "why": "love of money unsatisfied"
+   },
+   {
+    "ref": "1 Timothy 3:3",
+    "verdict": "related",
+    "why": "overseer list"
+   },
+   {
+    "ref": "1 Timothy 6:9",
+    "verdict": "answers",
+    "why": "wanting riches ensnares"
+   },
+   {
+    "ref": "1 Timothy 6:10",
+    "verdict": "answers",
+    "why": "love of money, root of evil"
+   },
+   {
+    "ref": "Hebrews 13:5",
+    "verdict": "related",
+    "why": "be content, free of money love"
+   }
+  ]
+ },
+ {
+  "q": "my manager asked me to backdate some invoices and said everybody does it",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 7:7",
+    "verdict": "off",
+    "why": "'ask' in prayer sense"
+   },
+   {
+    "ref": "Matthew 21:22",
+    "verdict": "off",
+    "why": "prayer, word match"
+   },
+   {
+    "ref": "Luke 8:3",
+    "verdict": "off",
+    "why": "Herod's household manager"
+   },
+   {
+    "ref": "Luke 12:42",
+    "verdict": "off",
+    "why": "readiness parable, word 'manager'"
+   },
+   {
+    "ref": "Luke 16:1",
+    "verdict": "related",
+    "why": "parable of dishonest manager begins"
+   },
+   {
+    "ref": "Luke 16:2",
+    "verdict": "related",
+    "why": "manager called to account"
+   },
+   {
+    "ref": "Luke 16:6",
+    "verdict": "related",
+    "why": "falsified bills in parable"
+   },
+   {
+    "ref": "Luke 16:8",
+    "verdict": "off",
+    "why": "reads as praising dishonesty"
+   },
+   {
+    "ref": "Romans 12:17",
+    "verdict": "related",
+    "why": "do right in everyone's sight"
+   },
+   {
+    "ref": "1 Timothy 3:12",
+    "verdict": "off",
+    "why": "deacon household manager"
+   },
+   {
+    "ref": "Titus 2:5",
+    "verdict": "off",
+    "why": "household managers"
+   },
+   {
+    "ref": "James 1:5",
+    "verdict": "related",
+    "why": "ask God for wisdom in dilemma"
+   },
+   {
+    "ref": "James 4:3",
+    "verdict": "off",
+    "why": "asking with wrong motives"
+   }
+  ],
+  "note": "'manager'/'ask' word matches dominate; Luke 16:10, Prov 11:1 or Eph 4:25 would answer."
+ },
+ {
+  "q": "had my baby 6 weeks ago and i dont feel bonded to her at all. what kind of mother am i",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 2:8",
+    "verdict": "off",
+    "why": "Moses' mother story"
+   },
+   {
+    "ref": "Exodus 20:12",
+    "verdict": "off",
+    "why": "honor parents command"
+   },
+   {
+    "ref": "Leviticus 19:3",
+    "verdict": "off",
+    "why": "respect parents"
+   },
+   {
+    "ref": "Joshua 2:13",
+    "verdict": "off",
+    "why": "Rahab's family"
+   },
+   {
+    "ref": "Esther 2:7",
+    "verdict": "off",
+    "why": "orphan Esther"
+   },
+   {
+    "ref": "Job 12:18",
+    "verdict": "off",
+    "why": "'bonds' of kings"
+   },
+   {
+    "ref": "Proverbs 6:20",
+    "verdict": "off",
+    "why": "mother's teaching"
+   },
+   {
+    "ref": "Proverbs 30:17",
+    "verdict": "off",
+    "why": "curse on mocking child; harsh"
+   },
+   {
+    "ref": "Matthew 10:37",
+    "verdict": "off",
+    "why": "loving family more than Christ"
+   },
+   {
+    "ref": "Matthew 15:4",
+    "verdict": "off",
+    "why": "honor parents"
+   },
+   {
+    "ref": "John 19:27",
+    "verdict": "off",
+    "why": "Mary given to John"
+   },
+   {
+    "ref": "Acts 17:9",
+    "verdict": "off",
+    "why": "legal bond posted"
+   },
+   {
+    "ref": "Ephesians 4:3",
+    "verdict": "off",
+    "why": "bond of peace, other sense"
+   },
+   {
+    "ref": "Colossians 3:14",
+    "verdict": "off",
+    "why": "bond of unity, other sense"
+   },
+   {
+    "ref": "2 Timothy 1:5",
+    "verdict": "off",
+    "why": "Timothy's mother's faith"
+   }
+  ],
+  "note": "'bonded' matched rope/peace senses and 'mother' pulled honor-parent laws; nothing for a struggling new mother (e.g. Isa 49:15, 40:11)."
+ },
+ {
+  "q": "had an abortion at 19. im 31 now with two kids and i still think about it every day",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 29:16",
+    "verdict": "off",
+    "why": "Laban's two daughters"
+   },
+   {
+    "ref": "Exodus 21:22",
+    "verdict": "related",
+    "why": "law on harm to unborn"
+   },
+   {
+    "ref": "Exodus 21:23",
+    "verdict": "off",
+    "why": "'life for a life' wounds her"
+   },
+   {
+    "ref": "2 Kings 4:1",
+    "verdict": "off",
+    "why": "widow's two children"
+   },
+   {
+    "ref": "Job 10:11",
+    "verdict": "related",
+    "why": "formed in womb"
+   },
+   {
+    "ref": "Psalm 29:9",
+    "verdict": "off",
+    "why": "oaks twisted, no link"
+   },
+   {
+    "ref": "Psalm 139:13",
+    "verdict": "related",
+    "why": "God forms in womb"
+   },
+   {
+    "ref": "Psalm 139:16",
+    "verdict": "related",
+    "why": "God saw unformed body"
+   },
+   {
+    "ref": "Ecclesiastes 11:5",
+    "verdict": "related",
+    "why": "formation in womb"
+   },
+   {
+    "ref": "Jeremiah 1:5",
+    "verdict": "related",
+    "why": "known before birth"
+   },
+   {
+    "ref": "Hosea 9:14",
+    "verdict": "off",
+    "why": "judgment of miscarriage; wounds"
+   },
+   {
+    "ref": "Luke 1:41",
+    "verdict": "related",
+    "why": "unborn John leaps"
+   },
+   {
+    "ref": "Luke 1:44",
+    "verdict": "related",
+    "why": "baby in womb leaps"
+   },
+   {
+    "ref": "1 Corinthians 14:20",
+    "verdict": "off",
+    "why": "'thinking' word match"
+   },
+   {
+    "ref": "2 Peter 3:1",
+    "verdict": "off",
+    "why": "'thinking' word match"
+   }
+  ],
+  "note": "No forgiveness verses (Ps 103:12, 1 John 1:9, Rom 8:1); womb and law verses can deepen her guilt."
+ },
+ {
+  "q": "my son told us at dinner last night he doesnt believe in god anymore",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 14:33",
+    "verdict": "off",
+    "why": "disciples' confession"
+   },
+   {
+    "ref": "Matthew 16:16",
+    "verdict": "off",
+    "why": "Peter's confession"
+   },
+   {
+    "ref": "Luke 7:50",
+    "verdict": "off",
+    "why": "forgiven woman"
+   },
+   {
+    "ref": "John 1:49",
+    "verdict": "off",
+    "why": "Nathanael's confession"
+   },
+   {
+    "ref": "John 3:16",
+    "verdict": "related",
+    "why": "gospel of belief, God's love"
+   },
+   {
+    "ref": "John 3:18",
+    "verdict": "related",
+    "why": "on unbelief; v17 hope"
+   },
+   {
+    "ref": "John 3:36",
+    "verdict": "off",
+    "why": "wrath on unbeliever wounds parent"
+   },
+   {
+    "ref": "John 20:31",
+    "verdict": "related",
+    "why": "written so you may believe"
+   },
+   {
+    "ref": "1 Peter 1:5",
+    "verdict": "off",
+    "why": "believers shielded"
+   },
+   {
+    "ref": "1 John 5:10",
+    "verdict": "off",
+    "why": "unbelief calls God liar; wounds"
+   }
+  ],
+  "note": "Mostly confessions and condemnation verses; nothing for a grieving parent (Luke 15:20, 2 Tim 2:25)."
+ },
+ {
+  "q": "my wife and i havent been intimate in over a year and she wont talk about it",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 3:16",
+    "verdict": "off",
+    "why": "curse; misapplied to marriage"
+   },
+   {
+    "ref": "Genesis 29:18",
+    "verdict": "off",
+    "why": "Jacob loves Rachel"
+   },
+   {
+    "ref": "Genesis 29:30",
+    "verdict": "off",
+    "why": "Jacob favors Rachel"
+   },
+   {
+    "ref": "Ecclesiastes 10:13",
+    "verdict": "off",
+    "why": "fool's talk"
+   },
+   {
+    "ref": "Matthew 17:3",
+    "verdict": "off",
+    "why": "'talking' at transfiguration"
+   },
+   {
+    "ref": "Mark 9:4",
+    "verdict": "off",
+    "why": "'talking' at transfiguration"
+   },
+   {
+    "ref": "Luke 9:30",
+    "verdict": "off",
+    "why": "'talking' at transfiguration"
+   },
+   {
+    "ref": "Romans 16:18",
+    "verdict": "off",
+    "why": "smooth talk deceivers"
+   },
+   {
+    "ref": "1 Corinthians 7:4",
+    "verdict": "answers",
+    "why": "marital intimacy; do not deprive"
+   },
+   {
+    "ref": "Ephesians 5:4",
+    "verdict": "off",
+    "why": "crude talk"
+   },
+   {
+    "ref": "1 Timothy 1:6",
+    "verdict": "off",
+    "why": "empty talk"
+   },
+   {
+    "ref": "1 Timothy 5:9",
+    "verdict": "off",
+    "why": "widow enrollment"
+   },
+   {
+    "ref": "Titus 1:10",
+    "verdict": "off",
+    "why": "empty talk deceivers"
+   },
+   {
+    "ref": "1 Peter 3:1",
+    "verdict": "off",
+    "why": "'wives submit' misapplied"
+   }
+  ],
+  "note": "'talk' matched transfiguration and empty-talk verses; only 1 Cor 7:4 (with 7:3-5) answers."
+ },
+ {
+  "q": "my friends planned a whole beach trip without me and posted it all over their stories, ngl it really hurt",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "2 Samuel 11:1",
+    "verdict": "off",
+    "why": "David stays home, no link"
+   },
+   {
+    "ref": "Job 9:25",
+    "verdict": "off",
+    "why": "days swift"
+   },
+   {
+    "ref": "Job 18:7",
+    "verdict": "off",
+    "why": "wicked tripped"
+   },
+   {
+    "ref": "Job 34:13",
+    "verdict": "off",
+    "why": "God's charge over earth"
+   },
+   {
+    "ref": "Psalm 35:15",
+    "verdict": "related",
+    "why": "hurt by those he cared for"
+   },
+   {
+    "ref": "Psalm 35:19",
+    "verdict": "related",
+    "why": "plea against gloating foes"
+   },
+   {
+    "ref": "Ecclesiastes 4:10",
+    "verdict": "related",
+    "why": "pity one without companion"
+   },
+   {
+    "ref": "Lamentations 2:17",
+    "verdict": "off",
+    "why": "judgment on Jerusalem"
+   },
+   {
+    "ref": "Daniel 6:3",
+    "verdict": "off",
+    "why": "Daniel's promotion"
+   },
+   {
+    "ref": "Matthew 22:12",
+    "verdict": "off",
+    "why": "'friend' in parable"
+   },
+   {
+    "ref": "James 2:13",
+    "verdict": "off",
+    "why": "mercy over judgment, other topic"
+   }
+  ],
+  "note": "Nothing on being left out by friends (Ps 55:12-14, Ps 27:10, Prov 18:24)."
+ },
+ {
+  "q": "i work in the er and i think im just numb now",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 38:6",
+    "verdict": "off",
+    "why": "Er the person"
+   },
+   {
+    "ref": "Genesis 38:7",
+    "verdict": "off",
+    "why": "Er the person"
+   },
+   {
+    "ref": "Genesis 46:12",
+    "verdict": "off",
+    "why": "Er in genealogy"
+   },
+   {
+    "ref": "Numbers 26:19",
+    "verdict": "off",
+    "why": "Er in genealogy"
+   },
+   {
+    "ref": "1 Chronicles 2:3",
+    "verdict": "off",
+    "why": "Er in genealogy"
+   },
+   {
+    "ref": "1 Chronicles 4:21",
+    "verdict": "off",
+    "why": "Er in genealogy"
+   },
+   {
+    "ref": "Matthew 21:28",
+    "verdict": "off",
+    "why": "'what do you think'"
+   },
+   {
+    "ref": "Galatians 6:3",
+    "verdict": "off",
+    "why": "'thinks he is something'"
+   },
+   {
+    "ref": "Philippians 3:4",
+    "verdict": "off",
+    "why": "'thinks' confidence in flesh"
+   }
+  ],
+  "note": "'ER' matched the man Er, Judah's son; abbreviation treated as a name."
+ },
+ {
+  "q": "19 and pregnant and my parents dont know yet",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 19:36",
+    "verdict": "off",
+    "why": "incest story; wounds"
+   },
+   {
+    "ref": "Genesis 38:25",
+    "verdict": "off",
+    "why": "Tamar threatened with burning"
+   },
+   {
+    "ref": "1 Samuel 4:19",
+    "verdict": "off",
+    "why": "death in childbirth"
+   },
+   {
+    "ref": "2 Kings 8:12",
+    "verdict": "off",
+    "why": "violence on pregnant women"
+   },
+   {
+    "ref": "Hosea 13:16",
+    "verdict": "off",
+    "why": "violence on pregnant women"
+   },
+   {
+    "ref": "Matthew 8:4",
+    "verdict": "off",
+    "why": "'tell no one', other sense"
+   },
+   {
+    "ref": "Matthew 24:19",
+    "verdict": "off",
+    "why": "woe to pregnant; frightening"
+   },
+   {
+    "ref": "Mark 13:17",
+    "verdict": "off",
+    "why": "woe to pregnant; frightening"
+   },
+   {
+    "ref": "Luke 12:57",
+    "verdict": "off",
+    "why": "judge what is right, no link"
+   },
+   {
+    "ref": "Luke 21:23",
+    "verdict": "off",
+    "why": "woe to pregnant; frightening"
+   },
+   {
+    "ref": "James 4:1",
+    "verdict": "off",
+    "why": "quarrels"
+   }
+  ],
+  "note": "'pregnant' pulled incest, violence and woe verses; a harmful set for a frightened 19-year-old."
+ },
+ {
+  "q": "do i have to tell my boyfriend about my past",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Deuteronomy 32:7",
+    "verdict": "off",
+    "why": "'days of old'"
+   },
+   {
+    "ref": "Job 8:8",
+    "verdict": "off",
+    "why": "past generations"
+   },
+   {
+    "ref": "Psalm 77:5",
+    "verdict": "off",
+    "why": "years long past"
+   },
+   {
+    "ref": "Luke 1:70",
+    "verdict": "off",
+    "why": "prophets of ages past"
+   },
+   {
+    "ref": "Romans 15:4",
+    "verdict": "off",
+    "why": "Scripture written in past"
+   },
+   {
+    "ref": "Romans 16:25",
+    "verdict": "off",
+    "why": "mystery of ages past"
+   },
+   {
+    "ref": "Ephesians 3:9",
+    "verdict": "off",
+    "why": "mystery of ages past"
+   },
+   {
+    "ref": "1 Peter 4:3",
+    "verdict": "related",
+    "why": "past sins left behind"
+   }
+  ],
+  "note": "'past' matched 'ages past'; truthfulness and new-creation verses absent."
+ },
+ {
+  "q": "who wrote hebrews",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 14:13",
+    "verdict": "off",
+    "why": "Abram the Hebrew"
+   },
+   {
+    "ref": "Genesis 40:15",
+    "verdict": "off",
+    "why": "land of the Hebrews"
+   },
+   {
+    "ref": "Jonah 1:9",
+    "verdict": "off",
+    "why": "'I am a Hebrew'"
+   },
+   {
+    "ref": "John 19:20",
+    "verdict": "off",
+    "why": "Hebrew language"
+   },
+   {
+    "ref": "Acts 6:1",
+    "verdict": "off",
+    "why": "Hebraic Jews"
+   },
+   {
+    "ref": "Acts 21:40",
+    "verdict": "off",
+    "why": "Hebrew language"
+   },
+   {
+    "ref": "2 Corinthians 11:22",
+    "verdict": "off",
+    "why": "Paul a Hebrew"
+   },
+   {
+    "ref": "Philippians 3:5",
+    "verdict": "off",
+    "why": "Paul a Hebrew"
+   },
+   {
+    "ref": "Hebrews 1:3",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 7:25",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 9:12",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 9:14",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 9:15",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 9:26",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 10:22",
+    "verdict": "off",
+    "why": "in Hebrews, nothing on author"
+   },
+   {
+    "ref": "Hebrews 12:2",
+    "verdict": "off",
+    "why": "'author' of faith, other sense"
+   }
+  ],
+  "note": "'Hebrews' matched the ethnic term; Heb 2:3 and 13:22-24 (internal clues) absent."
+ },
+ {
+  "q": "jeremiah 29:11 is on every coffee mug but was that promise even for me or just for israel back then",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Jeremiah 1:19",
+    "verdict": "off",
+    "why": "promise to Jeremiah personally"
+   },
+   {
+    "ref": "Jeremiah 17:18",
+    "verdict": "off",
+    "why": "Jeremiah's prayer"
+   },
+   {
+    "ref": "Jeremiah 21:1",
+    "verdict": "off",
+    "why": "Zedekiah's inquiry"
+   },
+   {
+    "ref": "Jeremiah 29:4",
+    "verdict": "related",
+    "why": "letter addressed to exiles"
+   },
+   {
+    "ref": "Jeremiah 29:8",
+    "verdict": "related",
+    "why": "letter's setting, false prophets"
+   },
+   {
+    "ref": "Jeremiah 29:10",
+    "verdict": "answers",
+    "why": "promise tied to 70-year return"
+   },
+   {
+    "ref": "Jeremiah 29:21",
+    "verdict": "off",
+    "why": "judgment on false prophets"
+   },
+   {
+    "ref": "Jeremiah 29:23",
+    "verdict": "off",
+    "why": "false prophets' sins"
+   },
+   {
+    "ref": "Jeremiah 29:25",
+    "verdict": "off",
+    "why": "Shemaiah's letter"
+   },
+   {
+    "ref": "Jeremiah 29:28",
+    "verdict": "related",
+    "why": "restates letter to exiles"
+   },
+   {
+    "ref": "Jeremiah 29:31",
+    "verdict": "off",
+    "why": "Shemaiah judged"
+   },
+   {
+    "ref": "Jeremiah 36:26",
+    "verdict": "off",
+    "why": "scroll narrative"
+   },
+   {
+    "ref": "Jeremiah 37:3",
+    "verdict": "off",
+    "why": "Zedekiah asks prayer"
+   },
+   {
+    "ref": "Jeremiah 38:6",
+    "verdict": "off",
+    "why": "Jeremiah in cistern"
+   },
+   {
+    "ref": "Jeremiah 45:1",
+    "verdict": "off",
+    "why": "word to Baruch"
+   }
+  ],
+  "note": "'Jeremiah' pulled unrelated Jeremiah narratives; 2 Cor 1:20 and Rom 15:4 absent."
+ },
+ {
+  "q": "what is the unforgivable sin, im scared i might have done it",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Joshua 22:24",
+    "verdict": "off",
+    "why": "'for fear', other topic"
+   },
+   {
+    "ref": "1 Samuel 12:24",
+    "verdict": "off",
+    "why": "fear the LORD"
+   },
+   {
+    "ref": "1 Kings 8:47",
+    "verdict": "related",
+    "why": "repentant sinners heard"
+   },
+   {
+    "ref": "Psalm 66:16",
+    "verdict": "off",
+    "why": "'who fear God'"
+   },
+   {
+    "ref": "Psalm 106:6",
+    "verdict": "related",
+    "why": "we sinned, yet He saved"
+   },
+   {
+    "ref": "Proverbs 16:6",
+    "verdict": "related",
+    "why": "iniquity atoned for"
+   },
+   {
+    "ref": "Isaiah 33:13",
+    "verdict": "off",
+    "why": "God's might proclaimed"
+   },
+   {
+    "ref": "2 Corinthians 5:10",
+    "verdict": "off",
+    "why": "judgment seat; adds fear"
+   },
+   {
+    "ref": "1 Peter 2:24",
+    "verdict": "related",
+    "why": "Christ bore our sins"
+   }
+  ],
+  "note": "Matt 12:31-32 / Mark 3:28-30 absent."
+ },
+ {
+  "q": "where did cain get his wife if adam and eve were the only people",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 2:23",
+    "verdict": "off",
+    "why": "woman from man"
+   },
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "off",
+    "why": "marriage principle"
+   },
+   {
+    "ref": "Genesis 3:7",
+    "verdict": "off",
+    "why": "eyes opened, nakedness"
+   },
+   {
+    "ref": "Genesis 3:20",
+    "verdict": "related",
+    "why": "Eve mother of all living"
+   },
+   {
+    "ref": "Genesis 4:1",
+    "verdict": "related",
+    "why": "Cain's birth"
+   },
+   {
+    "ref": "Genesis 4:2",
+    "verdict": "related",
+    "why": "Abel's birth"
+   },
+   {
+    "ref": "Genesis 4:25",
+    "verdict": "related",
+    "why": "Adam and Eve had more sons"
+   },
+   {
+    "ref": "1 Timothy 2:13",
+    "verdict": "off",
+    "why": "order of creation, other point"
+   },
+   {
+    "ref": "1 Timothy 2:14",
+    "verdict": "off",
+    "why": "Eve deceived, other point"
+   }
+  ],
+  "note": "Gen 4:17 and Gen 5:4 (sons and daughters) absent."
+ },
+ {
+  "q": "how do you meditate on scripture, is it like buddhist meditation",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 24:63",
+    "verdict": "related",
+    "why": "Isaac meditates in field"
+   },
+   {
+    "ref": "Joshua 1:8",
+    "verdict": "answers",
+    "why": "meditate on the Book to obey"
+   },
+   {
+    "ref": "Psalm 1:2",
+    "verdict": "answers",
+    "why": "delight, meditate on law"
+   },
+   {
+    "ref": "Psalm 119:15",
+    "verdict": "answers",
+    "why": "meditate on precepts"
+   },
+   {
+    "ref": "Psalm 119:23",
+    "verdict": "related",
+    "why": "meditates under slander"
+   },
+   {
+    "ref": "Psalm 119:48",
+    "verdict": "answers",
+    "why": "love and meditate on statutes"
+   },
+   {
+    "ref": "Psalm 119:148",
+    "verdict": "answers",
+    "why": "meditate on word at night"
+   },
+   {
+    "ref": "Psalm 143:5",
+    "verdict": "answers",
+    "why": "meditate on God's works"
+   }
+  ]
+ },
+ {
+  "q": "what was jesus actually charged with when they crucified him",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 27:26",
+    "verdict": "related",
+    "why": "handed over, no charge named"
+   },
+   {
+    "ref": "Mark 15:15",
+    "verdict": "related",
+    "why": "'what evil has He done?'"
+   },
+   {
+    "ref": "John 19:6",
+    "verdict": "answers",
+    "why": "no charge; v7 Son of God claim"
+   },
+   {
+    "ref": "John 19:16",
+    "verdict": "related",
+    "why": "handed over to crucify"
+   },
+   {
+    "ref": "1 Corinthians 2:2",
+    "verdict": "off",
+    "why": "Christ crucified preached"
+   },
+   {
+    "ref": "Galatians 3:1",
+    "verdict": "off",
+    "why": "crucified portrayed"
+   },
+   {
+    "ref": "Galatians 5:24",
+    "verdict": "off",
+    "why": "crucified flesh, other sense"
+   },
+   {
+    "ref": "Galatians 6:14",
+    "verdict": "off",
+    "why": "crucified to world"
+   }
+  ],
+  "note": "Mark 15:26, Matt 27:37, Luke 23:2 (the actual charges) absent."
+ },
+ {
+  "q": "should christians vote or stay out of politics",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Matthew 14:9",
+    "verdict": "off",
+    "why": "Herod's oath"
+   },
+   {
+    "ref": "Matthew 27:24",
+    "verdict": "off",
+    "why": "Pilate washes hands"
+   },
+   {
+    "ref": "Matthew 27:26",
+    "verdict": "off",
+    "why": "crucifixion narrative"
+   },
+   {
+    "ref": "Mark 15:15",
+    "verdict": "off",
+    "why": "crucifixion narrative"
+   },
+   {
+    "ref": "Luke 23:16",
+    "verdict": "off",
+    "why": "Pilate's verdict"
+   },
+   {
+    "ref": "John 18:38",
+    "verdict": "off",
+    "why": "Pilate's question"
+   },
+   {
+    "ref": "John 18:39",
+    "verdict": "off",
+    "why": "Barabbas custom"
+   },
+   {
+    "ref": "John 19:4",
+    "verdict": "off",
+    "why": "Pilate finds no charge"
+   }
+  ],
+  "note": "'should... or stay out' pulled Pilate trial verses; Rom 13:1-7, Matt 22:21, 1 Tim 2:1-2 absent."
+ },
+ {
+  "q": "didnt the bible just copy the flood story from the epic of gilgamesh",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 6:17",
+    "verdict": "related",
+    "why": "flood account"
+   },
+   {
+    "ref": "Genesis 8:21",
+    "verdict": "related",
+    "why": "flood account"
+   },
+   {
+    "ref": "Job 22:16",
+    "verdict": "off",
+    "why": "Eliphaz's speech"
+   },
+   {
+    "ref": "Matthew 24:38",
+    "verdict": "related",
+    "why": "Jesus treats flood as real"
+   },
+   {
+    "ref": "Luke 17:27",
+    "verdict": "related",
+    "why": "Jesus treats flood as real"
+   },
+   {
+    "ref": "Hebrews 11:7",
+    "verdict": "related",
+    "why": "Noah's faith"
+   },
+   {
+    "ref": "1 Peter 3:20",
+    "verdict": "related",
+    "why": "eight saved in ark"
+   },
+   {
+    "ref": "2 Peter 2:5",
+    "verdict": "related",
+    "why": "flood as past judgment"
+   }
+  ],
+  "note": "2 Pet 1:16 (not cleverly devised myths) absent."
+ },
+ {
+  "q": "what happened when saul went to the witch of endor",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Exodus 22:18",
+    "verdict": "related",
+    "why": "law against sorceress"
+   },
+   {
+    "ref": "Leviticus 19:31",
+    "verdict": "related",
+    "why": "law against mediums"
+   },
+   {
+    "ref": "Leviticus 20:6",
+    "verdict": "related",
+    "why": "law against mediums"
+   },
+   {
+    "ref": "1 Samuel 28:3",
+    "verdict": "answers",
+    "why": "opens the Endor account"
+   },
+   {
+    "ref": "1 Chronicles 10:13",
+    "verdict": "answers",
+    "why": "Saul died for consulting medium"
+   },
+   {
+    "ref": "Isaiah 8:19",
+    "verdict": "related",
+    "why": "consult God, not the dead"
+   },
+   {
+    "ref": "Isaiah 19:3",
+    "verdict": "off",
+    "why": "Egypt's mediums"
+   }
+  ],
+  "note": "The core narrative 1 Sam 28:7-19 is absent."
+ },
+ {
+  "q": "is abortion murder",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Job 10:11",
+    "verdict": "related",
+    "why": "formed in womb"
+   },
+   {
+    "ref": "Psalm 139:13",
+    "verdict": "answers",
+    "why": "God knits child in womb"
+   },
+   {
+    "ref": "Psalm 139:16",
+    "verdict": "answers",
+    "why": "God saw unformed body"
+   },
+   {
+    "ref": "Ecclesiastes 11:5",
+    "verdict": "related",
+    "why": "formation in womb"
+   },
+   {
+    "ref": "Jeremiah 1:5",
+    "verdict": "answers",
+    "why": "known before formed in womb"
+   },
+   {
+    "ref": "Luke 1:41",
+    "verdict": "related",
+    "why": "unborn baby leaps"
+   },
+   {
+    "ref": "Luke 1:44",
+    "verdict": "related",
+    "why": "unborn baby leaps"
+   }
+  ],
+  "note": "Exod 20:13 and Exod 21:22-23 absent."
+ },
+ {
+  "q": "dad was a mean drunk my whole childhood and now hes dead and i dont even know what im supposed to feel",
+  "kind": "live",
+  "note": "Mostly 'drink/wine' matches from the crucifixion and Last Supper; nothing on grief or a hurtful parent.",
+  "verses": [
+   {
+    "ref": "Genesis 15:15",
+    "verdict": "off",
+    "why": "Abram's peaceful death promise"
+   },
+   {
+    "ref": "Genesis 27:28",
+    "verdict": "off",
+    "why": "Isaac's blessing, wine"
+   },
+   {
+    "ref": "Ezekiel 18:4",
+    "verdict": "related",
+    "why": "son not bound by father's sin; 'sinner dies' line is risky here"
+   },
+   {
+    "ref": "Matthew 26:29",
+    "verdict": "off",
+    "why": "'drink' match, Last Supper"
+   },
+   {
+    "ref": "Matthew 27:34",
+    "verdict": "off",
+    "why": "wine at crucifixion"
+   },
+   {
+    "ref": "Matthew 27:48",
+    "verdict": "off",
+    "why": "sour wine at cross"
+   },
+   {
+    "ref": "Mark 15:23",
+    "verdict": "off",
+    "why": "wine at crucifixion"
+   },
+   {
+    "ref": "Mark 15:36",
+    "verdict": "off",
+    "why": "sour wine at cross"
+   },
+   {
+    "ref": "Luke 22:18",
+    "verdict": "off",
+    "why": "'drink' match, Last Supper"
+   },
+   {
+    "ref": "Luke 23:36",
+    "verdict": "off",
+    "why": "soldiers offer sour wine"
+   },
+   {
+    "ref": "John 19:29",
+    "verdict": "off",
+    "why": "sour wine at cross"
+   }
+  ]
+ },
+ {
+  "q": "brother wants me to cosign on his truck",
+  "kind": "live",
+  "note": "All 'want/brothers' matches; the Proverbs passages on guaranteeing debts (6:1-5, 11:15, 17:18, 22:26) are missing.",
+  "verses": [
+   {
+    "ref": "Deuteronomy 25:7",
+    "verdict": "off",
+    "why": "levirate marriage duty"
+   },
+   {
+    "ref": "Luke 8:20",
+    "verdict": "off",
+    "why": "Jesus' brothers want to see Him"
+   },
+   {
+    "ref": "Romans 1:13",
+    "verdict": "off",
+    "why": "'not want... brothers' phrase"
+   },
+   {
+    "ref": "Romans 11:25",
+    "verdict": "off",
+    "why": "Israel's hardening"
+   },
+   {
+    "ref": "1 Corinthians 10:1",
+    "verdict": "off",
+    "why": "forefathers under the cloud"
+   },
+   {
+    "ref": "1 Corinthians 12:1",
+    "verdict": "off",
+    "why": "spiritual gifts"
+   },
+   {
+    "ref": "2 Corinthians 1:8",
+    "verdict": "off",
+    "why": "Paul's hardships in Asia"
+   },
+   {
+    "ref": "1 Thessalonians 4:13",
+    "verdict": "off",
+    "why": "grief over the dead"
+   }
+  ]
+ },
+ {
+  "q": "been texting a coworker every day and its starting to feel like more than friends. im married. nothing physical has happened",
+  "kind": "live",
+  "note": "Only Malachi on faithfulness lands; the rest are 'friend/happened' matches. Matt 5:28 and Prov 4:23 are missing.",
+  "verses": [
+   {
+    "ref": "Deuteronomy 13:6",
+    "verdict": "off",
+    "why": "enticement to idolatry"
+   },
+   {
+    "ref": "Judges 21:3",
+    "verdict": "off",
+    "why": "'happened' match, missing tribe"
+   },
+   {
+    "ref": "2 Samuel 11:26",
+    "verdict": "related",
+    "why": "David and Bathsheba story"
+   },
+   {
+    "ref": "1 Kings 21:1",
+    "verdict": "off",
+    "why": "Naboth's vineyard"
+   },
+   {
+    "ref": "Esther 3:14",
+    "verdict": "off",
+    "why": "edict copy"
+   },
+   {
+    "ref": "Esther 6:13",
+    "verdict": "off",
+    "why": "Haman's wife and friends"
+   },
+   {
+    "ref": "Psalm 41:9",
+    "verdict": "off",
+    "why": "betrayal by a friend"
+   },
+   {
+    "ref": "Psalm 55:13",
+    "verdict": "off",
+    "why": "betrayal by a companion"
+   },
+   {
+    "ref": "Psalm 55:20",
+    "verdict": "off",
+    "why": "treacherous companion"
+   },
+   {
+    "ref": "Psalm 88:18",
+    "verdict": "off",
+    "why": "loss of friends in lament"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "answers",
+    "why": "do not break faith with your spouse"
+   },
+   {
+    "ref": "Matthew 22:12",
+    "verdict": "off",
+    "why": "'Friend' in parable"
+   },
+   {
+    "ref": "Matthew 26:56",
+    "verdict": "off",
+    "why": "disciples desert Jesus"
+   },
+   {
+    "ref": "John 15:14",
+    "verdict": "off",
+    "why": "friends of Jesus"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship, head coverings"
+   }
+  ]
+ },
+ {
+  "q": "me and my husband fight about money constantly",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Genesis 2:24",
+    "verdict": "related",
+    "why": "one flesh in marriage"
+   },
+   {
+    "ref": "Jeremiah 9:23",
+    "verdict": "related",
+    "why": "don't boast in riches"
+   },
+   {
+    "ref": "Malachi 2:14",
+    "verdict": "related",
+    "why": "marriage covenant, not money"
+   },
+   {
+    "ref": "Malachi 2:15",
+    "verdict": "related",
+    "why": "marriage covenant, not money"
+   },
+   {
+    "ref": "Luke 12:15",
+    "verdict": "answers",
+    "why": "money dispute; guard against greed"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "headship, head coverings"
+   },
+   {
+    "ref": "Ephesians 5:22",
+    "verdict": "related",
+    "why": "marriage roles, not money"
+   },
+   {
+    "ref": "Ephesians 5:25",
+    "verdict": "related",
+    "why": "husbands love wives"
+   },
+   {
+    "ref": "Colossians 3:18",
+    "verdict": "related",
+    "why": "marriage roles"
+   },
+   {
+    "ref": "Colossians 3:19",
+    "verdict": "related",
+    "why": "husbands not harsh"
+   },
+   {
+    "ref": "1 Timothy 6:5",
+    "verdict": "off",
+    "why": "false teachers' friction"
+   },
+   {
+    "ref": "1 Timothy 6:17",
+    "verdict": "related",
+    "why": "hope not in wealth"
+   },
+   {
+    "ref": "James 2:6",
+    "verdict": "off",
+    "why": "rich oppressing the poor"
+   },
+   {
+    "ref": "James 5:1",
+    "verdict": "off",
+    "why": "woe to the rich"
+   }
+  ]
+ },
+ {
+  "q": "the man who killed my sister got 4 years. FOUR YEARS",
+  "kind": "live",
+  "note": "Mostly 'kill/sister/four/years' word matches; nothing on God's justice or vengeance (Rom 12:19, Ps 37, Ps 94).",
+  "verses": [
+   {
+    "ref": "Exodus 21:12",
+    "verdict": "related",
+    "why": "law: murder's penalty"
+   },
+   {
+    "ref": "2 Kings 11:2",
+    "verdict": "off",
+    "why": "Joash hidden by aunt"
+   },
+   {
+    "ref": "2 Chronicles 22:11",
+    "verdict": "off",
+    "why": "Joash hidden by aunt"
+   },
+   {
+    "ref": "Song of Solomon 4:9",
+    "verdict": "off",
+    "why": "'my sister, my bride'"
+   },
+   {
+    "ref": "Matthew 10:28",
+    "verdict": "off",
+    "why": "fear under persecution"
+   },
+   {
+    "ref": "Matthew 12:50",
+    "verdict": "off",
+    "why": "spiritual family"
+   },
+   {
+    "ref": "Mark 8:31",
+    "verdict": "off",
+    "why": "passion prediction"
+   },
+   {
+    "ref": "Mark 9:31",
+    "verdict": "off",
+    "why": "passion prediction"
+   },
+   {
+    "ref": "Luke 9:22",
+    "verdict": "off",
+    "why": "passion prediction"
+   },
+   {
+    "ref": "John 5:5",
+    "verdict": "off",
+    "why": "'years' match, invalid"
+   },
+   {
+    "ref": "John 11:39",
+    "verdict": "off",
+    "why": "Lazarus 'four days'"
+   },
+   {
+    "ref": "Acts 4:22",
+    "verdict": "off",
+    "why": "healed man's age"
+   },
+   {
+    "ref": "Romans 16:1",
+    "verdict": "off",
+    "why": "sister Phoebe greeting"
+   },
+   {
+    "ref": "Revelation 9:15",
+    "verdict": "off",
+    "why": "four angels kill"
+   }
+  ]
+ },
+ {
+  "q": "get paid cash at my side job, do i really have to report it on my taxes",
+  "kind": "live",
+  "note": "Many 'forced labor' matches; only Romans 13 answers (Matt 22:21 missing).",
+  "verses": [
+   {
+    "ref": "2 Samuel 20:24",
+    "verdict": "off",
+    "why": "forced labor official"
+   },
+   {
+    "ref": "1 Kings 4:6",
+    "verdict": "off",
+    "why": "forced labor official"
+   },
+   {
+    "ref": "1 Kings 4:24",
+    "verdict": "off",
+    "why": "Solomon's dominion"
+   },
+   {
+    "ref": "1 Kings 9:15",
+    "verdict": "off",
+    "why": "Solomon's forced labor"
+   },
+   {
+    "ref": "1 Kings 12:18",
+    "verdict": "off",
+    "why": "Adoram stoned"
+   },
+   {
+    "ref": "2 Kings 23:35",
+    "verdict": "related",
+    "why": "story of taxing the land"
+   },
+   {
+    "ref": "2 Chronicles 10:18",
+    "verdict": "off",
+    "why": "Hadoram stoned"
+   },
+   {
+    "ref": "Ezra 6:8",
+    "verdict": "related",
+    "why": "taxes fund temple, story"
+   },
+   {
+    "ref": "Matthew 5:46",
+    "verdict": "off",
+    "why": "tax collectors as example"
+   },
+   {
+    "ref": "Matthew 21:31",
+    "verdict": "off",
+    "why": "tax collectors enter kingdom"
+   },
+   {
+    "ref": "Romans 13:6",
+    "verdict": "answers",
+    "why": "pay taxes as conscience"
+   }
+  ]
+ },
+ {
+  "q": "dad left the house to all four of us and my siblings and i are fighting over it, its getting ugly",
+  "kind": "live",
+  "note": "All 'left/four/fight' matches (feeding miracles, 'fight the good fight'); Luke 12:13-15 and Ps 133:1 are missing.",
+  "verses": [
+   {
+    "ref": "Judges 19:2",
+    "verdict": "off",
+    "why": "concubine left"
+   },
+   {
+    "ref": "1 Samuel 16:7",
+    "verdict": "off",
+    "why": "God sees the heart"
+   },
+   {
+    "ref": "2 Kings 10:3",
+    "verdict": "off",
+    "why": "'fight for master's house'"
+   },
+   {
+    "ref": "Psalm 45:10",
+    "verdict": "off",
+    "why": "forget father's house"
+   },
+   {
+    "ref": "Psalm 139:14",
+    "verdict": "off",
+    "why": "wonderfully made"
+   },
+   {
+    "ref": "Proverbs 31:30",
+    "verdict": "off",
+    "why": "charm deceptive"
+   },
+   {
+    "ref": "Matthew 14:20",
+    "verdict": "off",
+    "why": "leftovers, feeding"
+   },
+   {
+    "ref": "Matthew 15:37",
+    "verdict": "off",
+    "why": "leftovers, four thousand"
+   },
+   {
+    "ref": "Matthew 19:29",
+    "verdict": "off",
+    "why": "leaving houses for Christ"
+   },
+   {
+    "ref": "Mark 8:8",
+    "verdict": "off",
+    "why": "leftovers, feeding"
+   },
+   {
+    "ref": "Luke 9:17",
+    "verdict": "off",
+    "why": "leftovers, feeding"
+   },
+   {
+    "ref": "John 6:12",
+    "verdict": "off",
+    "why": "leftovers, feeding"
+   },
+   {
+    "ref": "1 Timothy 6:12",
+    "verdict": "off",
+    "why": "fight of faith"
+   },
+   {
+    "ref": "2 Timothy 4:7",
+    "verdict": "off",
+    "why": "fought the good fight"
+   }
+  ]
+ },
+ {
+  "q": "my wife is depressed and nothing i do helps",
+  "kind": "live",
+  "note": "'nothing' matches dominate; includes hell verses (Matt 8:12, 13:42) that could wound; 1 Kings 19 and Ps 42 would serve better.",
+  "verses": [
+   {
+    "ref": "Genesis 29:15",
+    "verdict": "off",
+    "why": "'work for nothing'"
+   },
+   {
+    "ref": "Numbers 30:14",
+    "verdict": "off",
+    "why": "husband silent on vows"
+   },
+   {
+    "ref": "1 Samuel 25:15",
+    "verdict": "off",
+    "why": "'nothing went missing'"
+   },
+   {
+    "ref": "1 Samuel 25:21",
+    "verdict": "off",
+    "why": "David's anger at Nabal"
+   },
+   {
+    "ref": "2 Samuel 19:6",
+    "verdict": "off",
+    "why": "Joab rebukes David"
+   },
+   {
+    "ref": "Proverbs 31:11",
+    "verdict": "off",
+    "why": "husband lacks nothing"
+   },
+   {
+    "ref": "Isaiah 35:10",
+    "verdict": "related",
+    "why": "sorrow will flee, hope"
+   },
+   {
+    "ref": "Isaiah 53:11",
+    "verdict": "off",
+    "why": "Servant's anguish"
+   },
+   {
+    "ref": "Lamentations 1:12",
+    "verdict": "related",
+    "why": "lament of deep sorrow"
+   },
+   {
+    "ref": "Matthew 8:12",
+    "verdict": "off",
+    "why": "weeping in outer darkness"
+   },
+   {
+    "ref": "Matthew 13:42",
+    "verdict": "off",
+    "why": "fiery furnace judgment"
+   },
+   {
+    "ref": "Matthew 26:38",
+    "verdict": "related",
+    "why": "Jesus' sorrow; 'stay with Me'"
+   },
+   {
+    "ref": "Matthew 26:39",
+    "verdict": "related",
+    "why": "prayer in anguish"
+   },
+   {
+    "ref": "2 Corinthians 6:10",
+    "verdict": "related",
+    "why": "sorrowful yet rejoicing"
+   },
+   {
+    "ref": "2 Corinthians 7:10",
+    "verdict": "off",
+    "why": "repentance sorrow; could wound"
+   },
+   {
+    "ref": "Revelation 21:4",
+    "verdict": "related",
+    "why": "no more tears, future hope"
+   }
+  ]
+ },
+ {
+  "q": "dna test says my dad isnt my biological dad",
+  "kind": "live",
+  "note": "'test/fathers' matches dominate; the Joseph-as-father passages are the only thread.",
+  "verses": [
+   {
+    "ref": "Deuteronomy 8:16",
+    "verdict": "off",
+    "why": "God tests in wilderness"
+   },
+   {
+    "ref": "Judges 2:22",
+    "verdict": "off",
+    "why": "nations left to test"
+   },
+   {
+    "ref": "Judges 3:4",
+    "verdict": "off",
+    "why": "nations left to test"
+   },
+   {
+    "ref": "Psalm 95:9",
+    "verdict": "off",
+    "why": "fathers tested God"
+   },
+   {
+    "ref": "Matthew 13:55",
+    "verdict": "related",
+    "why": "Jesus called carpenter's son"
+   },
+   {
+    "ref": "Mark 6:3",
+    "verdict": "related",
+    "why": "Jesus' family named"
+   },
+   {
+    "ref": "Luke 4:22",
+    "verdict": "related",
+    "why": "'son of Joseph?'"
+   },
+   {
+    "ref": "Acts 15:10",
+    "verdict": "off",
+    "why": "testing God with yoke"
+   },
+   {
+    "ref": "1 Thessalonians 5:21",
+    "verdict": "off",
+    "why": "test all things"
+   },
+   {
+    "ref": "Hebrews 3:9",
+    "verdict": "off",
+    "why": "fathers tested God"
+   },
+   {
+    "ref": "James 1:12",
+    "verdict": "off",
+    "why": "persevere under trial"
+   }
+  ]
+ },
+ {
+  "q": "what does selah mean in the psalms",
+  "kind": "live",
+  "note": "Scripture never defines Selah; half the hits are psalm headings with no Selah at all.",
+  "verses": [
+   {
+    "ref": "Psalm 3:2",
+    "verdict": "related",
+    "why": "Selah used, not explained"
+   },
+   {
+    "ref": "Psalm 48:1",
+    "verdict": "off",
+    "why": "heading, no Selah"
+   },
+   {
+    "ref": "Psalm 50:1",
+    "verdict": "off",
+    "why": "heading, no Selah"
+   },
+   {
+    "ref": "Psalm 62:1",
+    "verdict": "off",
+    "why": "heading, no Selah"
+   },
+   {
+    "ref": "Psalm 67:1",
+    "verdict": "related",
+    "why": "Selah used, not explained"
+   },
+   {
+    "ref": "Psalm 100:1",
+    "verdict": "off",
+    "why": "heading, no Selah"
+   },
+   {
+    "ref": "Psalm 145:1",
+    "verdict": "off",
+    "why": "heading, no Selah"
+   },
+   {
+    "ref": "Ephesians 5:19",
+    "verdict": "off",
+    "why": "sing psalms generally"
+   }
+  ]
+ },
+ {
+  "q": "why is song of solomon in the bible its basically erotic poetry",
+  "kind": "live",
+  "note": "Moses' 'song' passages are word matches; Gen 2:24-25 and Song 8:6-7 would answer better.",
+  "verses": [
+   {
+    "ref": "Exodus 15:1",
+    "verdict": "off",
+    "why": "Song of Moses"
+   },
+   {
+    "ref": "Exodus 15:21",
+    "verdict": "off",
+    "why": "Miriam's song"
+   },
+   {
+    "ref": "Deuteronomy 32:4",
+    "verdict": "off",
+    "why": "Song of Moses"
+   },
+   {
+    "ref": "Deuteronomy 32:6",
+    "verdict": "off",
+    "why": "Song of Moses"
+   },
+   {
+    "ref": "Deuteronomy 32:15",
+    "verdict": "off",
+    "why": "Song of Moses"
+   },
+   {
+    "ref": "Song of Solomon 1:1",
+    "verdict": "related",
+    "why": "book's title"
+   },
+   {
+    "ref": "Song of Solomon 1:4",
+    "verdict": "related",
+    "why": "sample of the poetry"
+   },
+   {
+    "ref": "Song of Solomon 1:5",
+    "verdict": "related",
+    "why": "sample of the poetry"
+   },
+   {
+    "ref": "Song of Solomon 1:6",
+    "verdict": "related",
+    "why": "sample of the poetry"
+   },
+   {
+    "ref": "Song of Solomon 2:7",
+    "verdict": "answers",
+    "why": "Song's own charge: love in its time"
+   },
+   {
+    "ref": "Song of Solomon 3:5",
+    "verdict": "answers",
+    "why": "repeated charge on love's timing"
+   },
+   {
+    "ref": "Song of Solomon 3:7",
+    "verdict": "related",
+    "why": "Solomon's carriage"
+   },
+   {
+    "ref": "Song of Solomon 3:9",
+    "verdict": "related",
+    "why": "Solomon's carriage"
+   },
+   {
+    "ref": "Song of Solomon 5:1",
+    "verdict": "related",
+    "why": "'my bride': marital love"
+   },
+   {
+    "ref": "Song of Solomon 5:2",
+    "verdict": "related",
+    "why": "sample of the poetry"
+   },
+   {
+    "ref": "Song of Solomon 5:8",
+    "verdict": "related",
+    "why": "lovesick refrain"
+   }
+  ]
+ },
+ {
+  "q": "is hell forever or do the wicked eventually just get destroyed",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "Psalm 9:5",
+    "verdict": "related",
+    "why": "wicked nations destroyed"
+   },
+   {
+    "ref": "Psalm 9:17",
+    "verdict": "related",
+    "why": "wicked return to Sheol"
+   },
+   {
+    "ref": "Psalm 79:5",
+    "verdict": "off",
+    "why": "lament: God angry forever?"
+   },
+   {
+    "ref": "Psalm 92:7",
+    "verdict": "answers",
+    "why": "wicked forever destroyed"
+   },
+   {
+    "ref": "Matthew 10:28",
+    "verdict": "answers",
+    "why": "destroy soul and body in hell"
+   },
+   {
+    "ref": "James 3:6",
+    "verdict": "off",
+    "why": "tongue set on fire"
+   },
+   {
+    "ref": "Revelation 1:18",
+    "verdict": "related",
+    "why": "keys of Death and Hades"
+   },
+   {
+    "ref": "Revelation 20:10",
+    "verdict": "answers",
+    "why": "tormented forever and ever"
+   }
+  ]
+ },
+ {
+  "q": "why does the god of the old testament seem so angry compared to jesus",
+  "kind": "live",
+  "note": "Hits are on 'Law and Prophets' and 'wrath', with nothing on the same God shown in Christ (Heb 1:1-3, John 14:9, Ex 34:6-7).",
+  "verses": [
+   {
+    "ref": "Jeremiah 10:10",
+    "verdict": "related",
+    "why": "God's wrath in OT"
+   },
+   {
+    "ref": "Matthew 22:29",
+    "verdict": "off",
+    "why": "resurrection debate"
+   },
+   {
+    "ref": "Mark 12:24",
+    "verdict": "off",
+    "why": "resurrection debate"
+   },
+   {
+    "ref": "Luke 24:44",
+    "verdict": "related",
+    "why": "OT written about Jesus"
+   },
+   {
+    "ref": "John 1:45",
+    "verdict": "related",
+    "why": "Moses wrote of Jesus"
+   },
+   {
+    "ref": "Acts 24:14",
+    "verdict": "off",
+    "why": "Paul's defense"
+   },
+   {
+    "ref": "Acts 28:23",
+    "verdict": "related",
+    "why": "Jesus preached from the Law"
+   },
+   {
+    "ref": "Romans 2:5",
+    "verdict": "related",
+    "why": "kindness and wrath, same God"
+   },
+   {
+    "ref": "Romans 3:21",
+    "verdict": "related",
+    "why": "righteousness attested by Law"
+   },
+   {
+    "ref": "Ephesians 5:6",
+    "verdict": "related",
+    "why": "wrath in NT too"
+   },
+   {
+    "ref": "Colossians 3:6",
+    "verdict": "related",
+    "why": "wrath in NT too"
+   },
+   {
+    "ref": "1 Thessalonians 5:9",
+    "verdict": "related",
+    "why": "not appointed to wrath"
+   },
+   {
+    "ref": "2 Timothy 3:16",
+    "verdict": "related",
+    "why": "all Scripture God-breathed"
+   }
+  ]
+ },
+ {
+  "q": "does it count if i only pray in my head",
+  "kind": "live",
+  "note": "Hannah (1 Sam 1:11-13) is the right passage, but the rest are 'count/head' matches.",
+  "verses": [
+   {
+    "ref": "Genesis 15:5",
+    "verdict": "off",
+    "why": "'count the stars'"
+   },
+   {
+    "ref": "Genesis 16:10",
+    "verdict": "off",
+    "why": "'too numerous to count'"
+   },
+   {
+    "ref": "1 Samuel 1:11",
+    "verdict": "answers",
+    "why": "Hannah's silent prayer heard"
+   },
+   {
+    "ref": "Ezra 9:6",
+    "verdict": "off",
+    "why": "'higher than our heads'"
+   },
+   {
+    "ref": "Psalm 109:25",
+    "verdict": "off",
+    "why": "'shake their heads'"
+   },
+   {
+    "ref": "Zechariah 12:10",
+    "verdict": "off",
+    "why": "spirit of grace, prophecy"
+   },
+   {
+    "ref": "Matthew 15:24",
+    "verdict": "off",
+    "why": "lost sheep of Israel"
+   },
+   {
+    "ref": "Matthew 27:39",
+    "verdict": "off",
+    "why": "'shaking their heads'"
+   }
+  ]
+ },
+ {
+  "q": "who was responsible for jesus death, the jews or the romans",
+  "kind": "live",
+  "note": "Only crucifixion-scene verses; Acts 2:23, 4:27-28 and John 10:18 are missing.",
+  "verses": [
+   {
+    "ref": "Matthew 27:37",
+    "verdict": "related",
+    "why": "charge posted on cross"
+   },
+   {
+    "ref": "Matthew 27:50",
+    "verdict": "related",
+    "why": "Jesus yields His spirit"
+   },
+   {
+    "ref": "Mark 15:26",
+    "verdict": "related",
+    "why": "charge inscribed"
+   },
+   {
+    "ref": "Mark 15:37",
+    "verdict": "related",
+    "why": "Jesus breathes His last"
+   },
+   {
+    "ref": "Luke 23:38",
+    "verdict": "related",
+    "why": "inscription on cross"
+   },
+   {
+    "ref": "John 11:25",
+    "verdict": "off",
+    "why": "resurrection and life"
+   },
+   {
+    "ref": "John 19:19",
+    "verdict": "related",
+    "why": "Pilate's notice"
+   },
+   {
+    "ref": "Romans 6:23",
+    "verdict": "off",
+    "why": "wages of sin"
+   }
+  ]
+ },
+ {
+  "q": "christmas has pagan roots so should we even celebrate it",
+  "kind": "live",
+  "note": "All 'root' word matches; Rom 14:5-6 and Col 2:16 are missing.",
+  "verses": [
+   {
+    "ref": "Job 18:16",
+    "verdict": "off",
+    "why": "'roots' dry up"
+   },
+   {
+    "ref": "Job 29:19",
+    "verdict": "off",
+    "why": "'roots' spread"
+   },
+   {
+    "ref": "Isaiah 11:1",
+    "verdict": "off",
+    "why": "Branch from Jesse's roots"
+   },
+   {
+    "ref": "Matthew 13:6",
+    "verdict": "off",
+    "why": "seed with no root"
+   },
+   {
+    "ref": "Matthew 13:21",
+    "verdict": "off",
+    "why": "no root, falls away"
+   },
+   {
+    "ref": "Romans 15:12",
+    "verdict": "off",
+    "why": "Root of Jesse"
+   },
+   {
+    "ref": "Ephesians 3:17",
+    "verdict": "off",
+    "why": "rooted in love"
+   },
+   {
+    "ref": "Colossians 2:7",
+    "verdict": "off",
+    "why": "'rooted' match; 2:8 tradition nearby"
+   }
+  ]
+ },
+ {
+  "q": "my brother keeps sending me videos saying jesus is just a copy of horus and mithras, virgin birth on dec 25, 12 followers, rose after 3 days etc. is any of that actually true",
+  "kind": "live",
+  "note": "Entirely 'hour/brother/twelve' matches; 2 Pet 1:16, Luke 1:1-4 and 1 Cor 15:3-8 are missing.",
+  "verses": [
+   {
+    "ref": "Matthew 20:5",
+    "verdict": "off",
+    "why": "'hour' in parable"
+   },
+   {
+    "ref": "Matthew 26:40",
+    "verdict": "off",
+    "why": "'one hour' Gethsemane"
+   },
+   {
+    "ref": "Matthew 27:45",
+    "verdict": "off",
+    "why": "darkness sixth hour"
+   },
+   {
+    "ref": "Matthew 27:46",
+    "verdict": "off",
+    "why": "'ninth hour' cry"
+   },
+   {
+    "ref": "Mark 14:37",
+    "verdict": "off",
+    "why": "'one hour' Gethsemane"
+   },
+   {
+    "ref": "John 1:40",
+    "verdict": "off",
+    "why": "Andrew, brother"
+   },
+   {
+    "ref": "John 11:9",
+    "verdict": "off",
+    "why": "twelve hours of daylight"
+   },
+   {
+    "ref": "John 12:23",
+    "verdict": "off",
+    "why": "'hour has come'"
+   },
+   {
+    "ref": "Romans 16:23",
+    "verdict": "off",
+    "why": "greetings, brother"
+   },
+   {
+    "ref": "Philippians 4:21",
+    "verdict": "off",
+    "why": "greetings, brothers"
+   },
+   {
+    "ref": "Colossians 1:1",
+    "verdict": "off",
+    "why": "Timothy our brother"
+   },
+   {
+    "ref": "2 Thessalonians 3:6",
+    "verdict": "off",
+    "why": "shun idle brother; could wound"
+   },
+   {
+    "ref": "Philemon 1:1",
+    "verdict": "off",
+    "why": "Timothy our brother"
+   },
+   {
+    "ref": "Philemon 1:23",
+    "verdict": "off",
+    "why": "greetings"
+   },
+   {
+    "ref": "Hebrews 2:11",
+    "verdict": "off",
+    "why": "Jesus calls us brothers"
+   }
+  ]
+ },
+ {
+  "q": "i'm thinking about quitting my stable job to start my own business but my wife is nervous, is that foolish or is that faith?",
+  "kind": "live",
+  "note": "Single 'foolish' match; nothing on planning or counsel (Prov 15:22, Luke 14:28, James 4:13-15).",
+  "verses": [
+   {
+    "ref": "Romans 1:21",
+    "verdict": "off",
+    "why": "'foolish hearts' of idolaters"
+   }
+  ]
+ },
+ {
+  "q": "how do i apologize",
+  "kind": "live",
+  "verses": [
+   {
+    "ref": "James 5:16",
+    "verdict": "answers",
+    "why": "confess sins to each other"
+   }
+  ]
+ },
+ {
+  "q": "should i put our emergency fund in crypto?? my cousin swears its gonna 10x",
+  "kind": "live",
+  "note": "Matched 'swears' (oaths); nothing on money, risk or get-rich-quick.",
+  "verses": [
+   {
+    "ref": "Exodus 14:15",
+    "verdict": "off",
+    "why": "Red Sea, go forward"
+   },
+   {
+    "ref": "Joshua 7:11",
+    "verdict": "off",
+    "why": "Achan's theft"
+   },
+   {
+    "ref": "Psalm 63:11",
+    "verdict": "off",
+    "why": "'swear' by God"
+   },
+   {
+    "ref": "Jeremiah 5:2",
+    "verdict": "off",
+    "why": "swearing falsely"
+   },
+   {
+    "ref": "Zephaniah 1:5",
+    "verdict": "off",
+    "why": "swearing by idols"
+   },
+   {
+    "ref": "Matthew 23:16",
+    "verdict": "off",
+    "why": "oaths by temple"
+   },
+   {
+    "ref": "Hebrews 6:13",
+    "verdict": "off",
+    "why": "God's oath to Abraham"
+   },
+   {
+    "ref": "Hebrews 6:16",
+    "verdict": "off",
+    "why": "oaths confirm"
+   }
+  ]
+ },
+ {
+  "q": "i caused a car accident last week and the other driver is still in icu",
+  "kind": "live",
+  "note": "Matched 'last' and 'week'; nothing on guilt for harm caused or praying for the injured.",
+  "verses": [
+   {
+    "ref": "Psalm 109:3",
+    "verdict": "off",
+    "why": "attacked without cause"
+   },
+   {
+    "ref": "Matthew 19:30",
+    "verdict": "off",
+    "why": "'last' first"
+   },
+   {
+    "ref": "Matthew 20:16",
+    "verdict": "off",
+    "why": "'last' first"
+   },
+   {
+    "ref": "Matthew 28:1",
+    "verdict": "off",
+    "why": "'first day of the week'"
+   },
+   {
+    "ref": "Mark 10:31",
+    "verdict": "off",
+    "why": "'last' first"
+   },
+   {
+    "ref": "1 Corinthians 16:2",
+    "verdict": "off",
+    "why": "weekly collection"
+   },
+   {
+    "ref": "2 Timothy 3:1",
+    "verdict": "off",
+    "why": "'last days'"
+   },
+   {
+    "ref": "Hebrews 1:2",
+    "verdict": "off",
+    "why": "'last days'"
+   },
+   {
+    "ref": "2 Peter 3:3",
+    "verdict": "off",
+    "why": "'last days' scoffers"
+   },
+   {
+    "ref": "1 John 2:18",
+    "verdict": "off",
+    "why": "'last hour'"
+   }
+  ]
+ },
+ {
+  "q": "moved to denver for work and dont know one single person here",
+  "kind": "live",
+  "note": "Matched 'single' (as unmarried), 'work', 'one'; nothing on loneliness or a new place.",
+  "verses": [
+   {
+    "ref": "Ezekiel 1:9",
+    "verdict": "off",
+    "why": "living creatures' wings"
+   },
+   {
+    "ref": "Matthew 20:8",
+    "verdict": "off",
+    "why": "vineyard workers' wages"
+   },
+   {
+    "ref": "Luke 10:7",
+    "verdict": "off",
+    "why": "'move' from house to house"
+   },
+   {
+    "ref": "Acts 21:9",
+    "verdict": "off",
+    "why": "unmarried daughters"
+   },
+   {
+    "ref": "Romans 3:30",
+    "verdict": "off",
+    "why": "'one God'"
+   },
+   {
+    "ref": "Romans 4:5",
+    "verdict": "off",
+    "why": "justification, 'work'"
+   },
+   {
+    "ref": "1 Corinthians 7:8",
+    "verdict": "off",
+    "why": "'single' as unmarried"
+   },
+   {
+    "ref": "1 Corinthians 7:32",
+    "verdict": "off",
+    "why": "unmarried man"
+   },
+   {
+    "ref": "1 Corinthians 7:34",
+    "verdict": "off",
+    "why": "unmarried woman"
+   },
+   {
+    "ref": "1 Corinthians 13:2",
+    "verdict": "off",
+    "why": "love chapter, 'know'"
+   },
+   {
+    "ref": "Galatians 2:16",
+    "verdict": "off",
+    "why": "justified by faith"
+   },
+   {
+    "ref": "Galatians 3:20",
+    "verdict": "off",
+    "why": "'God is one'"
+   },
+   {
+    "ref": "Ephesians 4:28",
+    "verdict": "off",
+    "why": "thief must work"
+   }
+  ]
+ },
+ {
+  "q": "everyone at church knows about my dui now",
+  "kind": "live",
+  "note": "Matched 'church' and 'know'; nothing on public shame, confession or restoration.",
+  "verses": [
+   {
+    "ref": "John 17:3",
+    "verdict": "off",
+    "why": "'know' God"
+   },
+   {
+    "ref": "2 Corinthians 8:1",
+    "verdict": "off",
+    "why": "Macedonian churches' giving"
+   },
+   {
+    "ref": "Ephesians 1:22",
+    "verdict": "off",
+    "why": "Christ head of church"
+   },
+   {
+    "ref": "Philippians 3:6",
+    "verdict": "off",
+    "why": "Paul's credentials"
+   },
+   {
+    "ref": "Philippians 4:15",
+    "verdict": "off",
+    "why": "church partnership"
+   },
+   {
+    "ref": "1 Timothy 3:5",
+    "verdict": "off",
+    "why": "overseer qualifications"
+   },
+   {
+    "ref": "1 Timothy 3:15",
+    "verdict": "off",
+    "why": "conduct in church"
+   },
+   {
+    "ref": "2 Timothy 2:19",
+    "verdict": "related",
+    "why": "turn from iniquity; not shame"
+   },
+   {
+    "ref": "1 John 2:29",
+    "verdict": "off",
+    "why": "'know' He is righteous"
+   },
+   {
+    "ref": "1 John 4:7",
+    "verdict": "off",
+    "why": "'knows' God"
+   },
+   {
+    "ref": "Revelation 2:23",
+    "verdict": "off",
+    "why": "Jezebel judgment; wounding"
+   },
+   {
+    "ref": "Revelation 3:1",
+    "verdict": "off",
+    "why": "Sardis reputation"
+   }
+  ]
+ },
+ {
+  "q": "failed out of nursing school in the spring and my family still thinks im enrolled",
+  "kind": "live",
+  "note": "Matched 'nurse' only; nothing on hiding the truth or telling family.",
+  "verses": [
+   {
+    "ref": "Genesis 24:59",
+    "verdict": "off",
+    "why": "Rebekah's nurse"
+   },
+   {
+    "ref": "Deuteronomy 4:9",
+    "verdict": "off",
+    "why": "remember, teach children"
+   },
+   {
+    "ref": "2 Samuel 4:4",
+    "verdict": "off",
+    "why": "Mephibosheth's nurse"
+   },
+   {
+    "ref": "2 Kings 11:2",
+    "verdict": "off",
+    "why": "Joash's nurse"
+   },
+   {
+    "ref": "Isaiah 60:4",
+    "verdict": "off",
+    "why": "daughters carried"
+   },
+   {
+    "ref": "Matthew 24:19",
+    "verdict": "off",
+    "why": "nursing mothers"
+   },
+   {
+    "ref": "Mark 13:17",
+    "verdict": "off",
+    "why": "nursing mothers"
+   },
+   {
+    "ref": "1 Thessalonians 2:7",
+    "verdict": "off",
+    "why": "like a nursing mother"
+   }
+  ]
+ },
+ {
+  "q": "wife makes more money than me and lowkey it messes with my head",
+  "kind": "live",
+  "note": "Matched 'head' (as mind) and 'money'; nothing on pride, envy or contentment in marriage.",
+  "verses": [
+   {
+    "ref": "Genesis 2:18",
+    "verdict": "related",
+    "why": "wife as helper; not money"
+   },
+   {
+    "ref": "Proverbs 19:14",
+    "verdict": "related",
+    "why": "prudent wife from LORD"
+   },
+   {
+    "ref": "Proverbs 21:6",
+    "verdict": "off",
+    "why": "fortune by lying"
+   },
+   {
+    "ref": "Proverbs 23:5",
+    "verdict": "related",
+    "why": "wealth fleeting; not marriage"
+   },
+   {
+    "ref": "Jeremiah 17:11",
+    "verdict": "off",
+    "why": "unjust fortune"
+   },
+   {
+    "ref": "1 Corinthians 11:3",
+    "verdict": "off",
+    "why": "matched 'head'"
+   },
+   {
+    "ref": "1 Corinthians 11:4",
+    "verdict": "off",
+    "why": "head coverings"
+   },
+   {
+    "ref": "Ephesians 5:23",
+    "verdict": "off",
+    "why": "matched 'head'; not income"
+   }
+  ]
+ },
+ {
+  "q": "my 6 year old asked where grandpa went and i froze",
+  "kind": "live",
+  "note": "Matched 'years old', 'asked', 'went'; nothing on death or the hope of resurrection for a child.",
+  "verses": [
+   {
+    "ref": "Genesis 12:4",
+    "verdict": "off",
+    "why": "Abram's age"
+   },
+   {
+    "ref": "Genesis 17:24",
+    "verdict": "off",
+    "why": "Abraham's age"
+   },
+   {
+    "ref": "Genesis 47:9",
+    "verdict": "off",
+    "why": "Jacob's years"
+   },
+   {
+    "ref": "2 Kings 5:25",
+    "verdict": "off",
+    "why": "'where have you been'"
+   },
+   {
+    "ref": "2 Chronicles 34:1",
+    "verdict": "off",
+    "why": "Josiah's age"
+   },
+   {
+    "ref": "Ecclesiastes 7:10",
+    "verdict": "off",
+    "why": "old days better"
+   },
+   {
+    "ref": "Luke 1:18",
+    "verdict": "off",
+    "why": "Zechariah old"
+   },
+   {
+    "ref": "Luke 2:42",
+    "verdict": "off",
+    "why": "Jesus twelve years old"
+   },
+   {
+    "ref": "Luke 3:23",
+    "verdict": "off",
+    "why": "Jesus thirty"
+   },
+   {
+    "ref": "Luke 23:52",
+    "verdict": "off",
+    "why": "Joseph asks for body"
+   },
+   {
+    "ref": "John 9:21",
+    "verdict": "off",
+    "why": "'old enough, ask him'"
+   },
+   {
+    "ref": "John 9:23",
+    "verdict": "off",
+    "why": "'old enough, ask him'"
+   },
+   {
+    "ref": "John 18:33",
+    "verdict": "off",
+    "why": "Pilate asked"
+   },
+   {
+    "ref": "John 19:9",
+    "verdict": "off",
+    "why": "'where are You from'"
+   },
+   {
+    "ref": "Romans 4:19",
+    "verdict": "off",
+    "why": "Abraham a hundred"
+   }
+  ]
+ },
+ {
+  "q": "we're seperated and have to tell the kids were getting a divorce, how do we even say it",
+  "kind": "live",
+  "note": "Matched 'separate' and 'children'; Ezra 10 sending away wives and children would wound.",
+  "verses": [
+   {
+    "ref": "Exodus 21:7",
+    "verdict": "off",
+    "why": "daughter sold as servant"
+   },
+   {
+    "ref": "Ruth 1:17",
+    "verdict": "off",
+    "why": "death 'separates'"
+   },
+   {
+    "ref": "1 Kings 20:16",
+    "verdict": "off",
+    "why": "battle"
+   },
+   {
+    "ref": "Ezra 10:1",
+    "verdict": "off",
+    "why": "foreign wives; wounding"
+   },
+   {
+    "ref": "Ezra 10:3",
+    "verdict": "off",
+    "why": "send away wives, children"
+   },
+   {
+    "ref": "Ezra 10:11",
+    "verdict": "off",
+    "why": "'separate' from wives"
+   },
+   {
+    "ref": "Nehemiah 13:24",
+    "verdict": "off",
+    "why": "children's language"
+   },
+   {
+    "ref": "Esther 1:21",
+    "verdict": "off",
+    "why": "Vashti decree"
+   },
+   {
+    "ref": "Micah 2:9",
+    "verdict": "off",
+    "why": "women driven out; wounding"
+   },
+   {
+    "ref": "Matthew 19:6",
+    "verdict": "related",
+    "why": "on divorce, not telling kids"
+   },
+   {
+    "ref": "Matthew 19:12",
+    "verdict": "off",
+    "why": "eunuchs"
+   },
+   {
+    "ref": "1 Corinthians 7:10",
+    "verdict": "related",
+    "why": "on separation, not telling kids"
+   },
+   {
+    "ref": "1 Corinthians 7:14",
+    "verdict": "related",
+    "why": "children in mixed marriage"
+   }
+  ]
+ },
+ {
+  "q": "should christians have life insurance or is that not trusting god",
+  "kind": "live",
+  "note": "Matched 'life' as eternal life; nothing on provision, prudence or trusting God for tomorrow.",
+  "verses": [
+   {
+    "ref": "John 3:16",
+    "verdict": "off",
+    "why": "eternal life"
+   },
+   {
+    "ref": "John 3:36",
+    "verdict": "off",
+    "why": "eternal life"
+   },
+   {
+    "ref": "John 5:24",
+    "verdict": "off",
+    "why": "eternal life"
+   },
+   {
+    "ref": "John 11:25",
+    "verdict": "off",
+    "why": "resurrection and life"
+   },
+   {
+    "ref": "John 17:3",
+    "verdict": "off",
+    "why": "eternal life"
+   },
+   {
+    "ref": "John 20:31",
+    "verdict": "off",
+    "why": "life in His name"
+   },
+   {
+    "ref": "Romans 6:23",
+    "verdict": "off",
+    "why": "gift of eternal life"
+   },
+   {
+    "ref": "Galatians 2:20",
+    "verdict": "off",
+    "why": "life by faith"
+   }
+  ]
+ },
+ {
+  "q": "how did the apostles die, were they all martyred",
+  "kind": "live",
+  "note": "Misses Acts 12:2 (James killed) and John 21:18-19 (Peter's death); many hits are about Jesus' resurrection.",
+  "verses": [
+   {
+    "ref": "Matthew 10:21",
+    "verdict": "related",
+    "why": "persecution foretold to Twelve"
+   },
+   {
+    "ref": "Matthew 10:28",
+    "verdict": "related",
+    "why": "those who kill the body"
+   },
+   {
+    "ref": "Mark 6:51",
+    "verdict": "off",
+    "why": "wind died down"
+   },
+   {
+    "ref": "Mark 9:9",
+    "verdict": "off",
+    "why": "risen from the dead"
+   },
+   {
+    "ref": "John 20:9",
+    "verdict": "off",
+    "why": "Jesus must rise"
+   },
+   {
+    "ref": "Acts 2:24",
+    "verdict": "off",
+    "why": "Jesus raised"
+   },
+   {
+    "ref": "Acts 3:15",
+    "verdict": "off",
+    "why": "Jesus killed, raised"
+   },
+   {
+    "ref": "Acts 5:33",
+    "verdict": "related",
+    "why": "plot to kill apostles"
+   },
+   {
+    "ref": "Acts 8:1",
+    "verdict": "related",
+    "why": "Stephen's death, not apostle"
+   },
+   {
+    "ref": "Acts 10:39",
+    "verdict": "off",
+    "why": "Jesus put to death"
+   },
+   {
+    "ref": "Galatians 1:1",
+    "verdict": "off",
+    "why": "Paul's apostleship"
+   },
+   {
+    "ref": "Ephesians 2:1",
+    "verdict": "off",
+    "why": "dead in sins"
+   },
+   {
+    "ref": "Ephesians 2:5",
+    "verdict": "off",
+    "why": "dead in trespasses"
+   }
+  ]
+ },
+ {
+  "q": "who is isaiah 53 talking about",
+  "kind": "live",
+  "note": "Matched 'Isaiah'; misses the New Testament identifications (Acts 8:32-35, 1 Peter 2:22-25, Matthew 8:17, Luke 22:37).",
+  "verses": [
+   {
+    "ref": "Isaiah 1:1",
+    "verdict": "off",
+    "why": "book heading"
+   },
+   {
+    "ref": "Isaiah 6:1",
+    "verdict": "off",
+    "why": "Isaiah's call"
+   },
+   {
+    "ref": "Isaiah 9:6",
+    "verdict": "off",
+    "why": "different prophecy"
+   },
+   {
+    "ref": "Isaiah 13:1",
+    "verdict": "off",
+    "why": "oracle on Babylon"
+   },
+   {
+    "ref": "Isaiah 48:20",
+    "verdict": "related",
+    "why": "servant called Jacob"
+   },
+   {
+    "ref": "Isaiah 53:3",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:4",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:5",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:6",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:8",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:10",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 53:11",
+    "verdict": "related",
+    "why": "'My righteous Servant'"
+   },
+   {
+    "ref": "Isaiah 53:12",
+    "verdict": "related",
+    "why": "the passage, not who"
+   },
+   {
+    "ref": "Isaiah 58:9",
+    "verdict": "off",
+    "why": "true fasting"
+   },
+   {
+    "ref": "Matthew 17:3",
+    "verdict": "off",
+    "why": "transfiguration"
+   },
+   {
+    "ref": "Luke 9:30",
+    "verdict": "off",
+    "why": "transfiguration"
+   }
+  ]
+ },
+ {
+  "q": "is the mark of the beast going to be a microchip",
+  "kind": "live",
+  "note": "Matched 'Mark' the person in five epistle/Acts verses; the Revelation hits are right.",
+  "verses": [
+   {
+    "ref": "Acts 12:12",
+    "verdict": "off",
+    "why": "John Mark"
+   },
+   {
+    "ref": "Acts 13:5",
+    "verdict": "off",
+    "why": "John helper"
+   },
+   {
+    "ref": "Colossians 4:10",
+    "verdict": "off",
+    "why": "Mark the cousin"
+   },
+   {
+    "ref": "2 Timothy 4:11",
+    "verdict": "off",
+    "why": "Mark useful"
+   },
+   {
+    "ref": "Philemon 1:24",
+    "verdict": "off",
+    "why": "Mark greets"
+   },
+   {
+    "ref": "Revelation 13:16",
+    "verdict": "answers",
+    "why": "mark on hand or forehead"
+   },
+   {
+    "ref": "Revelation 13:17",
+    "verdict": "answers",
+    "why": "name or number, buy/sell"
+   },
+   {
+    "ref": "Revelation 14:9",
+    "verdict": "answers",
+    "why": "mark tied to worship"
+   },
+   {
+    "ref": "Revelation 14:11",
+    "verdict": "related",
+    "why": "judgment on mark-bearers"
+   },
+   {
+    "ref": "Revelation 16:2",
+    "verdict": "related",
+    "why": "bowl on mark-bearers"
+   },
+   {
+    "ref": "Revelation 19:20",
+    "verdict": "related",
+    "why": "deceived mark-bearers"
+   },
+   {
+    "ref": "Revelation 20:4",
+    "verdict": "related",
+    "why": "those who refused mark"
+   }
+  ]
+ },
+ {
+  "q": "eye for an eye or turn the other cheek, which one is it",
+  "kind": "live",
+  "note": "Matched 'cheek'/'eye'; misses Exodus 21:24, Leviticus 24:20, Deuteronomy 19:21 (the judicial setting) and Romans 12:17-19.",
+  "verses": [
+   {
+    "ref": "Job 16:10",
+    "verdict": "off",
+    "why": "Job struck on cheek"
+   },
+   {
+    "ref": "Isaiah 6:10",
+    "verdict": "off",
+    "why": "close their eyes"
+   },
+   {
+    "ref": "Isaiah 17:7",
+    "verdict": "off",
+    "why": "turn their eyes"
+   },
+   {
+    "ref": "Isaiah 50:6",
+    "verdict": "related",
+    "why": "Servant offers cheeks"
+   },
+   {
+    "ref": "Lamentations 1:2",
+    "verdict": "off",
+    "why": "tears on cheeks"
+   },
+   {
+    "ref": "Lamentations 3:30",
+    "verdict": "related",
+    "why": "offer cheek to striker"
+   },
+   {
+    "ref": "Micah 5:1",
+    "verdict": "off",
+    "why": "judge struck on cheek"
+   },
+   {
+    "ref": "Matthew 5:39",
+    "verdict": "answers",
+    "why": "eye for eye, turn cheek"
+   },
+   {
+    "ref": "Luke 6:29",
+    "verdict": "answers",
+    "why": "turn the other cheek"
+   }
+  ]
+ },
+ {
+  "q": "pray without ceasing, how is that even possible with a full time job and two toddlers",
+  "kind": "live",
+  "note": "Job 'words without knowledge' matched 'without'; 1 Thessalonians 5:17 itself and its neighbours are the core.",
+  "verses": [
+   {
+    "ref": "Job 34:35",
+    "verdict": "off",
+    "why": "Elihu on Job's words"
+   },
+   {
+    "ref": "Job 35:16",
+    "verdict": "off",
+    "why": "words without knowledge"
+   },
+   {
+    "ref": "Job 38:2",
+    "verdict": "off",
+    "why": "words without knowledge"
+   },
+   {
+    "ref": "Matthew 6:5",
+    "verdict": "related",
+    "why": "prayer, not constancy"
+   },
+   {
+    "ref": "Luke 18:1",
+    "verdict": "answers",
+    "why": "pray at all times"
+   },
+   {
+    "ref": "Luke 21:36",
+    "verdict": "related",
+    "why": "watch and pray; end times"
+   },
+   {
+    "ref": "Ephesians 1:10",
+    "verdict": "off",
+    "why": "fullness of time"
+   },
+   {
+    "ref": "Ephesians 6:18",
+    "verdict": "answers",
+    "why": "pray at all times"
+   },
+   {
+    "ref": "1 Thessalonians 5:17",
+    "verdict": "answers",
+    "why": "the verse asked about"
+   },
+   {
+    "ref": "1 Timothy 2:8",
+    "verdict": "related",
+    "why": "pray everywhere"
+   },
+   {
+    "ref": "Hebrews 4:16",
+    "verdict": "related",
+    "why": "grace in time of need"
+   }
+  ]
+ },
+ {
+  "q": "what did jesus write in the dirt when they brought him the woman caught in adultery",
+  "kind": "live",
+  "note": "Matched 'adultery' and 'write'; misses John 8:6-8, which shows the text does not say what He wrote.",
+  "verses": [
+   {
+    "ref": "Proverbs 2:16",
+    "verdict": "off",
+    "why": "forbidden woman"
+   },
+   {
+    "ref": "Proverbs 6:24",
+    "verdict": "off",
+    "why": "adulteress warning"
+   },
+   {
+    "ref": "Matthew 19:9",
+    "verdict": "off",
+    "why": "divorce and adultery"
+   },
+   {
+    "ref": "Mark 10:11",
+    "verdict": "off",
+    "why": "divorce and adultery"
+   },
+   {
+    "ref": "Luke 16:18",
+    "verdict": "off",
+    "why": "divorce and adultery"
+   },
+   {
+    "ref": "John 8:3",
+    "verdict": "related",
+    "why": "the scene, not the writing"
+   },
+   {
+    "ref": "John 8:4",
+    "verdict": "related",
+    "why": "the scene; 8:6 next"
+   },
+   {
+    "ref": "Acts 15:20",
+    "verdict": "off",
+    "why": "'write' to Gentiles"
+   }
+  ]
+ },
+ {
+  "q": "is ghosting someone a sin fr",
+  "kind": "live",
+  "note": "Matched 'ghost' (Jesus on the water) and generic 'sin'; nothing on how to treat people or honest speech.",
+  "verses": [
+   {
+    "ref": "Psalm 38:18",
+    "verdict": "off",
+    "why": "confessing sin"
+   },
+   {
+    "ref": "Psalm 51:3",
+    "verdict": "off",
+    "why": "David's sin"
+   },
+   {
+    "ref": "Psalm 85:2",
+    "verdict": "off",
+    "why": "sin forgiven"
+   },
+   {
+    "ref": "Matthew 14:26",
+    "verdict": "off",
+    "why": "'ghost' on water"
+   },
+   {
+    "ref": "Mark 6:49",
+    "verdict": "off",
+    "why": "'ghost' on water"
+   },
+   {
+    "ref": "2 Corinthians 5:21",
+    "verdict": "off",
+    "why": "Christ made sin"
+   },
+   {
+    "ref": "1 Peter 2:24",
+    "verdict": "off",
+    "why": "bore our sins"
+   },
+   {
+    "ref": "1 John 3:4",
+    "verdict": "off",
+    "why": "sin defined; generic"
+   }
+  ]
+ },
+ {
+  "q": "could an ai ever have a soul",
+  "kind": "live",
+  "note": "Matched the place name 'Ai'; nothing on the soul or what makes a living being.",
+  "verses": [
+   {
+    "ref": "Joshua 7:8",
+    "verdict": "off",
+    "why": "defeat at Ai"
+   },
+   {
+    "ref": "Joshua 8:9",
+    "verdict": "off",
+    "why": "ambush at Ai"
+   },
+   {
+    "ref": "Ezra 2:28",
+    "verdict": "off",
+    "why": "men of Ai"
+   },
+   {
+    "ref": "Nehemiah 7:32",
+    "verdict": "off",
+    "why": "men of Ai"
+   },
+   {
+    "ref": "Nehemiah 11:31",
+    "verdict": "off",
+    "why": "Aija town"
+   },
+   {
+    "ref": "Isaiah 10:28",
+    "verdict": "off",
+    "why": "Aiath town"
+   },
+   {
+    "ref": "Jeremiah 49:3",
+    "verdict": "off",
+    "why": "Ai destroyed"
+   },
+   {
+    "ref": "Luke 1:46",
+    "verdict": "off",
+    "why": "Mary's soul magnifies"
+   }
+  ]
+ },
+ {
+  "q": "will i see my loved ones in heaven",
+  "kind": "live",
+  "note": "Only one verse; 1 Thessalonians 4:14-17 around it carries the answer.",
+  "verses": [
+   {
+    "ref": "1 Thessalonians 4:13",
+    "verdict": "answers",
+    "why": "hope for the dead in Christ"
+   }
+  ]
+ },
+ {
+  "q": "can i date a non christian",
+  "kind": "live",
+  "note": "Four hits matched 'unbeliever' only.",
+  "verses": [
+   {
+    "ref": "1 Corinthians 6:6",
+    "verdict": "off",
+    "why": "lawsuits before unbelievers"
+   },
+   {
+    "ref": "1 Corinthians 7:15",
+    "verdict": "related",
+    "why": "existing mixed marriage"
+   },
+   {
+    "ref": "1 Corinthians 7:39",
+    "verdict": "answers",
+    "why": "marry one in the Lord"
+   },
+   {
+    "ref": "1 Corinthians 14:22",
+    "verdict": "off",
+    "why": "tongues sign"
+   },
+   {
+    "ref": "2 Corinthians 4:4",
+    "verdict": "off",
+    "why": "unbelievers blinded"
+   },
+   {
+    "ref": "2 Corinthians 6:15",
+    "verdict": "answers",
+    "why": "unequally yoked"
+   },
+   {
+    "ref": "1 Timothy 5:8",
+    "verdict": "off",
+    "why": "provide for household"
+   }
+  ]
+ }
+]
