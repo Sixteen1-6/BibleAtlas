@@ -14,8 +14,8 @@
 import type { Atlas } from '../../data/atlas';
 import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
-import { likelihood, meanings } from './meaning';
-import { terms } from './words';
+import { likelihood, meanings, usesModel } from './meaning';
+import { isAsking, terms } from './words';
 
 /** The everyday words that point to each question ("layoffs", "chemo"), in
  * the index's order, once loaded. */
@@ -79,6 +79,8 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
   if (!typed.size) return [];
   const w = (t: string) => r.idf.get(t) ?? r.unknown;
   const total = [...typed].reduce((s, t) => s + w(t), 0);
+  const typedWords = [...typed].filter((t) => !isAsking(t)).length;
+  if (!typedWords) return [];
   const out: Route[] = [];
   ix.questions.forEach((q, i) => {
     let said = 0;
@@ -89,8 +91,11 @@ export function routes(ix: AskIndex, text: string, limit = 3): Route[] {
       // be angry"), unless it is all that was typed and few questions use it:
       // "I feel like a failure", but not "God" alone. A signal word counts
       // alone when it points to this question only: "severance".
-      const df = way.size < 2 ? (r.df.get([...way][0]) ?? 0) : 0;
-      if (way.size < 2 && (k < n ? typed.size > 1 || df > 20 : df > 1)) continue;
+      // What a way asks for ("?where") is not a word it says.
+      const spoken = [...way].filter((t) => !isAsking(t));
+      if (!spoken.length) continue;
+      const df = spoken.length < 2 ? (r.df.get(spoken[0]) ?? 0) : 0;
+      if (spoken.length < 2 && (k < n ? typedWords > 1 || df > 20 : df > 1)) continue;
       let hit = 0;
       let all = 0;
       for (const t of way) {
@@ -123,8 +128,10 @@ export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
 
 /** How sure the meaning matcher must be to open its question: read against
  * 545 never-seen messages, nine in ten of its opens at this level were the
- * very answer people needed, and most others the one beside it. */
-export const MEANT = 0.35;
+ * very answer people needed, and most others the one beside it. (0.35 before
+ * the word-meaning model: with two kinds of evidence to agree, its scores
+ * run lower and its opens are surer.) Without the model, as before. */
+export const MEANT = { model: 0.25, words: 0.35 };
 
 /** A question the router picks by its words opens only if the meaning
  * matcher finds it at least this likely meant: "did Jesus have a beard"
@@ -145,7 +152,7 @@ export function route(ix: AskIndex, text: string): Question | null {
   // Plainly what people mean by such words ("they took my car because I
   // missed payments": debt).
   const [sense] = meanings(ix, text, 1);
-  if (sense && sense.p >= MEANT) return sense.q;
+  if (sense && sense.p >= (usesModel(ix, text) ? MEANT.model : MEANT.words)) return sense.q;
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
   if (next && best.score - next.score < OPEN.margin && next.said >= OPEN.said) return null;

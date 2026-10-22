@@ -1,0 +1,2258 @@
+[
+ {
+  "q": "my best friend told my crush that i like him and now he wont even look at me in spanish class",
+  "care": false,
+  "exact": null,
+  "open": "is-it-wrong-to-have-a-crush",
+  "used": false,
+  "meant": [
+   {
+    "id": "is-it-wrong-to-have-a-crush",
+    "p": 0.418
+   },
+   {
+    "id": "was-jesus-real-name-yeshua",
+    "p": 0.086
+   },
+   {
+    "id": "feelings-for-my-friends-boyfriend-or-girlfriend",
+    "p": 0.063
+   }
+  ],
+  "top": [
+   {
+    "id": "emotionally-attached-to-someone-not-my-spouse",
+    "said": 0.66,
+    "covers": 0.53,
+    "score": 0.47,
+    "own": 0,
+    "weight": 4.25
+   },
+   {
+    "id": "is-it-wrong-to-have-a-crush",
+    "said": 0.68,
+    "covers": 0.35,
+    "score": 0.44,
+    "own": 0.22,
+    "weight": 4.25
+   },
+   {
+    "id": "feelings-for-my-friends-boyfriend-or-girlfriend",
+    "said": 0.69,
+    "covers": 0.35,
+    "score": 0.43,
+    "own": 0.13,
+    "weight": 6.61
+   }
+  ]
+ },
+ {
+  "q": "my girlfriend miscarried in september and everybody asks how shes doing but nobody ever asks me",
+  "care": false,
+  "exact": null,
+  "open": "lost-my-baby-in-pregnancy",
+  "used": false,
+  "meant": [
+   {
+    "id": "lost-my-baby-in-pregnancy",
+    "p": 0.413
+   },
+   {
+    "id": "everyone-abandoned-me",
+    "p": 0.144
+   },
+   {
+    "id": "what-happens-to-babies-who-die",
+    "p": 0.065
+   }
+  ],
+  "top": [
+   {
+    "id": "why-do-we-have-to-die",
+    "said": 0.77,
+    "covers": 0.19,
+    "score": 0.4,
+    "own": 0,
+    "weight": 6.27
+   },
+   {
+    "id": "lost-my-baby-in-pregnancy",
+    "said": 0.78,
+    "covers": 0.16,
+    "score": 0.39,
+    "own": 0,
+    "weight": 5.29
+   },
+   {
+    "id": "what-happens-to-babies-who-die",
+    "said": 0.78,
+    "covers": 0.16,
+    "score": 0.39,
+    "own": 0,
+    "weight": 5.29
+   }
+  ]
+ },
+ {
+  "q": "grandma moved into a nursing home in june and i havent visited once bc seeing her there makes me too sad. i know thats selfish",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "moving-my-parent-into-a-nursing-home",
+    "p": 0.315
+   },
+   {
+    "id": "never-married-no-children-getting-older",
+    "p": 0.052
+   },
+   {
+    "id": "when-and-where-was-jesus-born",
+    "p": 0.039
+   }
+  ],
+  "top": [
+   {
+    "id": "we-move-so-often-where-is-home",
+    "said": 1,
+    "covers": 0.18,
+    "score": 0.52,
+    "own": 0.1,
+    "weight": 5.39
+   },
+   {
+    "id": "moving-my-parent-into-a-nursing-home",
+    "said": 0.84,
+    "covers": 0.24,
+    "score": 0.48,
+    "own": 0.18,
+    "weight": 9.52
+   },
+   {
+    "id": "my-children-rarely-visit-me",
+    "said": 0.72,
+    "covers": 0.25,
+    "score": 0.4,
+    "own": 0.07,
+    "weight": 10.25
+   }
+  ]
+ },
+ {
+  "q": "christmas is split between moms new house and dads apartment again this year so i spend half the day in the car with my little brothers, open presents twice, eat 2 dinners, and nobody ever asks what i actually want",
+  "care": false,
+  "exact": null,
+  "open": "my-parents-are-divorcing",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-parents-are-divorcing",
+    "p": 0.411
+   },
+   {
+    "id": "new-baby-in-the-family-and-i-feel-left-out",
+    "p": 0.125
+   },
+   {
+    "id": "my-kids-are-spoiled-and-ungrateful",
+    "p": 0.08
+   }
+  ],
+  "top": [
+   {
+    "id": "my-parents-are-divorcing",
+    "said": 1,
+    "covers": 0.33,
+    "score": 0.6,
+    "own": 0.03,
+    "weight": 6.16
+   },
+   {
+    "id": "new-baby-in-the-family-and-i-feel-left-out",
+    "said": 1,
+    "covers": 0.29,
+    "score": 0.58,
+    "own": 0.06,
+    "weight": 8.25
+   },
+   {
+    "id": "i-only-see-my-kids-every-other-weekend",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.56,
+    "own": 0,
+    "weight": 4.32
+   }
+  ]
+ },
+ {
+  "q": "every time i come home from college me and my mom are fighting by day 2",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "my-parent-and-i-fight-all-the-time",
+    "p": 0.262
+   },
+   {
+    "id": "moving-my-parent-into-a-nursing-home",
+    "p": 0.07
+   },
+   {
+    "id": "my-parents-are-divorcing",
+    "p": 0.066
+   }
+  ],
+  "top": [
+   {
+    "id": "my-parent-and-i-fight-all-the-time",
+    "said": 1,
+    "covers": 0.55,
+    "score": 0.76,
+    "own": 0.37,
+    "weight": 5.08
+   },
+   {
+    "id": "my-parents-are-divorcing",
+    "said": 1,
+    "covers": 0.55,
+    "score": 0.74,
+    "own": 0.13,
+    "weight": 5.08
+   },
+   {
+    "id": "moving-my-parent-into-a-nursing-home",
+    "said": 1,
+    "covers": 0.3,
+    "score": 0.61,
+    "own": 0.3,
+    "weight": 4.19
+   }
+  ]
+ },
+ {
+  "q": "didnt get cast in the spring musical and my best friend got the lead. i said congrats and then cried the whole bus ride home",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "i-didnt-make-the-team-or-lost-the-big-game",
+    "p": 0.108
+   },
+   {
+    "id": "can-a-christian-be-an-actor",
+    "p": 0.103
+   },
+   {
+    "id": "betrayed-by-a-friend",
+    "p": 0.056
+   }
+  ],
+  "top": [
+   {
+    "id": "an-older-person-says-im-mature-for-my-age",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.51,
+    "own": 0,
+    "weight": 6.75
+   },
+   {
+    "id": "my-partner-is-more-spiritual-than-me",
+    "said": 1,
+    "covers": 0.13,
+    "score": 0.48,
+    "own": 0,
+    "weight": 6.47
+   },
+   {
+    "id": "my-children-rarely-visit-me",
+    "said": 0.75,
+    "covers": 0.14,
+    "score": 0.36,
+    "own": 0,
+    "weight": 4.38
+   }
+  ]
+ },
+ {
+  "q": "so my college roommate and my cousin are both getting married on may 17, one in tampa and one in spokane, and im a bridesmaid in both. whoever i pick the other is gonna be hurt and my mom is already taking my cousins side",
+  "care": false,
+  "exact": null,
+  "open": "my-family-wants-me-to-pick-a-side",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-family-wants-me-to-pick-a-side",
+    "p": 0.36
+   },
+   {
+    "id": "my-parents-are-divorcing",
+    "p": 0.058
+   },
+   {
+    "id": "i-want-to-be-married-but-im-single",
+    "p": 0.054
+   }
+  ],
+  "top": [
+   {
+    "id": "my-family-wants-me-to-pick-a-side",
+    "said": 1,
+    "covers": 0.29,
+    "score": 0.58,
+    "own": 0.1,
+    "weight": 5.82
+   },
+   {
+    "id": "my-parent-vents-to-me-about-their-marriage",
+    "said": 1,
+    "covers": 0.23,
+    "score": 0.54,
+    "own": 0.06,
+    "weight": 7.08
+   },
+   {
+    "id": "my-adult-child-is-getting-divorced",
+    "said": 1,
+    "covers": 0.2,
+    "score": 0.53,
+    "own": 0.08,
+    "weight": 7.76
+   }
+  ]
+ },
+ {
+  "q": "grandma moved in and i had to give her my room so now i sleep on the living room couch. im 16 and have zero privacy",
+  "care": false,
+  "exact": null,
+  "open": "should-i-move-in-with-my-grown-children",
+  "used": false,
+  "meant": [
+   {
+    "id": "should-i-move-in-with-my-grown-children",
+    "p": 0.424
+   },
+   {
+    "id": "does-god-see-everything-i-do-and-think",
+    "p": 0.114
+   },
+   {
+    "id": "my-spouse-and-i-fight-all-the-time",
+    "p": 0.05
+   }
+  ],
+  "top": [
+   {
+    "id": "should-i-move-in-with-my-grown-children",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.62,
+    "own": 0.09,
+    "weight": 5.47
+   },
+   {
+    "id": "my-spouse-and-i-fight-all-the-time",
+    "said": 1,
+    "covers": 0.32,
+    "score": 0.59,
+    "own": 0,
+    "weight": 7.87
+   },
+   {
+    "id": "the-unknown-god-paul-found-in-athens",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.5,
+    "own": 0,
+    "weight": 5.27
+   }
+  ]
+ },
+ {
+  "q": "lost 400 followers after i posted my testimony on tiktok and the comments are brutal",
+  "care": false,
+  "exact": null,
+  "open": "how-should-i-use-social-media",
+  "used": false,
+  "meant": [
+   {
+    "id": "how-should-i-use-social-media",
+    "p": 0.448
+   },
+   {
+    "id": "is-it-wrong-to-buy-followers-or-fake-reviews",
+    "p": 0.063
+   },
+   {
+    "id": "is-it-okay-to-post-photos-of-my-kids-online",
+    "p": 0.049
+   }
+  ],
+  "top": [
+   {
+    "id": "how-should-i-use-social-media",
+    "said": 0.72,
+    "covers": 0.52,
+    "score": 0.52,
+    "own": 0,
+    "weight": 3.78
+   },
+   {
+    "id": "is-it-okay-to-post-photos-of-my-kids-online",
+    "said": 0.85,
+    "covers": 0.25,
+    "score": 0.48,
+    "own": 0.12,
+    "weight": 7.98
+   },
+   {
+    "id": "would-jesus-use-social-media",
+    "said": 0.69,
+    "covers": 0.38,
+    "score": 0.45,
+    "own": 0.13,
+    "weight": 4.2
+   }
+  ]
+ },
+ {
+  "q": "coworker at the front desk tells me every detail of her divorce every shift. im 20, i have no idea what to say to her",
+  "care": false,
+  "exact": null,
+  "open": "coworker-i-cant-stand",
+  "used": false,
+  "meant": [
+   {
+    "id": "coworker-i-cant-stand",
+    "p": 0.388
+   },
+   {
+    "id": "how-should-i-treat-service-workers",
+    "p": 0.154
+   },
+   {
+    "id": "does-god-care-about-little-things",
+    "p": 0.097
+   }
+  ],
+  "top": [
+   {
+    "id": "how-should-i-treat-service-workers",
+    "said": 1,
+    "covers": 0.31,
+    "score": 0.59,
+    "own": 0,
+    "weight": 10.36
+   },
+   {
+    "id": "coworker-i-cant-stand",
+    "said": 0.61,
+    "covers": 0.43,
+    "score": 0.42,
+    "own": 0.11,
+    "weight": 4.25
+   },
+   {
+    "id": "coworker-took-credit-for-my-work",
+    "said": 0.69,
+    "covers": 0.28,
+    "score": 0.4,
+    "own": 0.11,
+    "weight": 9.36
+   }
+  ]
+ },
+ {
+  "q": "spotify wrapped says i listened to sad songs for like 900 hours this year lol",
+  "care": false,
+  "exact": null,
+  "open": "what-music-is-okay-for-a-christian",
+  "used": false,
+  "meant": [
+   {
+    "id": "what-music-is-okay-for-a-christian",
+    "p": 0.414
+   },
+   {
+    "id": "singing-songs-from-churches-i-disagree-with",
+    "p": 0.119
+   },
+   {
+    "id": "does-an-audio-bible-count-as-reading",
+    "p": 0.117
+   }
+  ],
+  "top": [
+   {
+    "id": "does-an-audio-bible-count-as-reading",
+    "said": 1,
+    "covers": 0.34,
+    "score": 0.62,
+    "own": 0.15,
+    "weight": 9.63
+   },
+   {
+    "id": "what-music-is-okay-for-a-christian",
+    "said": 0.8,
+    "covers": 0.47,
+    "score": 0.54,
+    "own": 0,
+    "weight": 7.91
+   },
+   {
+    "id": "does-god-have-feelings",
+    "said": 0.76,
+    "covers": 0.15,
+    "score": 0.39,
+    "own": 0.15,
+    "weight": 4.29
+   }
+  ]
+ },
+ {
+  "q": "failed a drug test at my new job bc of cbd gummies from the gas station i take for my back. let go before i even finished training",
+  "care": false,
+  "exact": null,
+  "open": "is-smoking-vaping-or-marijuana-wrong",
+  "used": false,
+  "meant": [
+   {
+    "id": "is-smoking-vaping-or-marijuana-wrong",
+    "p": 0.385
+   },
+   {
+    "id": "should-i-give-money-to-someone-begging",
+    "p": 0.122
+   },
+   {
+    "id": "taking-someone-elses-prescription-to-perform",
+    "p": 0.093
+   }
+  ],
+  "top": [
+   {
+    "id": "should-i-give-money-to-someone-begging",
+    "said": 1,
+    "covers": 0.31,
+    "score": 0.58,
+    "own": 0,
+    "weight": 9.88
+   },
+   {
+    "id": "is-smoking-vaping-or-marijuana-wrong",
+    "said": 1,
+    "covers": 0.3,
+    "score": 0.58,
+    "own": 0,
+    "weight": 7.37
+   },
+   {
+    "id": "taking-someone-elses-prescription-to-perform",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.51,
+    "own": 0.11,
+    "weight": 7.51
+   }
+  ]
+ },
+ {
+  "q": "she broke up with me and kept my grandmothers engagement ring. says a gift is a gift",
+  "care": false,
+  "exact": null,
+  "open": "my-boyfriend-or-girlfriend-broke-up-with-me",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-boyfriend-or-girlfriend-broke-up-with-me",
+    "p": 0.392
+   },
+   {
+    "id": "the-person-im-seeing-wont-commit",
+    "p": 0.086
+   },
+   {
+    "id": "tell-my-fiance-about-my-past",
+    "p": 0.079
+   }
+  ],
+  "top": [
+   {
+    "id": "building-a-strong-marriage",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.62,
+    "own": 0,
+    "weight": 8.57
+   },
+   {
+    "id": "tell-my-fiance-about-my-past",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.62,
+    "own": 0,
+    "weight": 8.57
+   },
+   {
+    "id": "the-person-im-seeing-wont-commit",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.62,
+    "own": 0,
+    "weight": 8.57
+   }
+  ]
+ },
+ {
+  "q": "facebook memories keeps showing my wife pictures of our son around the anniversary of his accident. she sees them every morning with her coffee",
+  "care": false,
+  "exact": null,
+  "open": "afraid-ill-forget-my-loved-ones-face-and-voice",
+  "used": false,
+  "meant": [
+   {
+    "id": "afraid-ill-forget-my-loved-ones-face-and-voice",
+    "p": 0.533
+   },
+   {
+    "id": "i-keep-comparing-myself-to-others",
+    "p": 0.091
+   },
+   {
+    "id": "grief-during-the-holidays",
+    "p": 0.06
+   }
+  ],
+  "top": [
+   {
+    "id": "afraid-ill-forget-my-loved-ones-face-and-voice",
+    "said": 1,
+    "covers": 0.47,
+    "score": 0.68,
+    "own": 0,
+    "weight": 8.58
+   },
+   {
+    "id": "my-spouse-doesnt-help-at-home",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.5,
+    "own": 0.05,
+    "weight": 3.54
+   },
+   {
+    "id": "is-jesus-the-morning-star-or-is-lucifer",
+    "said": 1,
+    "covers": 0.13,
+    "score": 0.48,
+    "own": 0.09,
+    "weight": 5.67
+   }
+  ]
+ },
+ {
+  "q": "put on my bursary form that my dad isnt working. he does piece jobs for cash so technically?? got the bursary. was that lying",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "cant-pay-school-fees-or-tuition-will-god-provide",
+    "p": 0.186
+   },
+   {
+    "id": "should-a-wife-and-mother-work",
+    "p": 0.102
+   },
+   {
+    "id": "i-lie-all-the-time",
+    "p": 0.063
+   }
+  ],
+  "top": [
+   {
+    "id": "cant-pay-school-fees-or-tuition-will-god-provide",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.56,
+    "own": 0,
+    "weight": 7.37
+   },
+   {
+    "id": "should-a-wife-and-mother-work",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.51,
+    "own": 0.1,
+    "weight": 4.47
+   },
+   {
+    "id": "my-parent-is-always-working-and-i-never-see-them",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.51,
+    "own": 0.1,
+    "weight": 4.2
+   }
+  ]
+ },
+ {
+  "q": "set my hinge to christians only and theres like 4 guys in all of tokyo. widen it or wait",
+  "care": false,
+  "exact": null,
+  "open": "wait-for-god-to-bring-a-spouse-or-look",
+  "used": false,
+  "meant": [
+   {
+    "id": "wait-for-god-to-bring-a-spouse-or-look",
+    "p": 0.437
+   },
+   {
+    "id": "what-is-the-prayer-of-jabez",
+    "p": 0.079
+   },
+   {
+    "id": "i-want-to-be-married-but-im-single",
+    "p": 0.046
+   }
+  ],
+  "top": [
+   {
+    "id": "wait-for-god-to-bring-a-spouse-or-look",
+    "said": 0.63,
+    "covers": 0.37,
+    "score": 0.4,
+    "own": 0.09,
+    "weight": 3.99
+   },
+   {
+    "id": "i-want-to-be-married-but-im-single",
+    "said": 0.62,
+    "covers": 0.27,
+    "score": 0.35,
+    "own": 0,
+    "weight": 3.43
+   },
+   {
+    "id": "is-casual-dating-or-dating-apps-wrong",
+    "said": 0.66,
+    "covers": 0.18,
+    "score": 0.34,
+    "own": 0,
+    "weight": 5.18
+   }
+  ]
+ },
+ {
+  "q": "share a hostel room at knust with 3 guys and theres nowhere private to pray. i feel stupid kneeling with them watching me",
+  "care": false,
+  "exact": null,
+  "open": "how-should-i-pray",
+  "used": false,
+  "meant": [
+   {
+    "id": "how-should-i-pray",
+    "p": 0.45
+   },
+   {
+    "id": "mansions-or-rooms-in-my-fathers-house",
+    "p": 0.046
+   },
+   {
+    "id": "im-homeless-does-god-see-me",
+    "p": 0.046
+   }
+  ],
+  "top": [
+   {
+    "id": "mansions-or-rooms-in-my-fathers-house",
+    "said": 1,
+    "covers": 0.12,
+    "score": 0.48,
+    "own": 0.06,
+    "weight": 6.62
+   },
+   {
+    "id": "my-roommate-and-i-keep-clashing",
+    "said": 1,
+    "covers": 0.12,
+    "score": 0.47,
+    "own": 0,
+    "weight": 6.62
+   },
+   {
+    "id": "i-struggle-in-school-does-god-think-im-dumb",
+    "said": 0.8,
+    "covers": 0.16,
+    "score": 0.41,
+    "own": 0.1,
+    "weight": 5.43
+   }
+  ]
+ },
+ {
+  "q": "knocked over a display at the phone shop and cracked 3 screens. no camera on that side and my manager blamed the night guy. i just stood there",
+  "care": false,
+  "exact": null,
+  "open": "hooked-on-my-phone",
+  "used": false,
+  "meant": [
+   {
+    "id": "hooked-on-my-phone",
+    "p": 0.429
+   },
+   {
+    "id": "must-i-tell-buyers-about-flaws",
+    "p": 0.085
+   },
+   {
+    "id": "someone-broke-or-stole-my-stuff-on-purpose",
+    "p": 0.084
+   }
+  ],
+  "top": [
+   {
+    "id": "someone-broke-or-stole-my-stuff-on-purpose",
+    "said": 1,
+    "covers": 0.23,
+    "score": 0.54,
+    "own": 0,
+    "weight": 9.25
+   },
+   {
+    "id": "i-messed-up-and-im-scared-to-tell-my-parents",
+    "said": 1,
+    "covers": 0.23,
+    "score": 0.54,
+    "own": 0,
+    "weight": 9.25
+   },
+   {
+    "id": "must-i-tell-buyers-about-flaws",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.5,
+    "own": 0,
+    "weight": 9.25
+   }
+  ]
+ },
+ {
+  "q": "cousins marry each other in my family and my aunt keeps saying her son is for me. hes sweet but he feels like my brother. how do i say no in amman without starting a war",
+  "care": false,
+  "exact": null,
+  "open": "my-family-wants-me-to-pick-a-side",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-family-wants-me-to-pick-a-side",
+    "p": 0.372
+   },
+   {
+    "id": "is-it-wrong-to-marry-a-cousin",
+    "p": 0.104
+   },
+   {
+    "id": "my-kids-fight-with-each-other",
+    "p": 0.097
+   }
+  ],
+  "top": [
+   {
+    "id": "never-married-no-children-getting-older",
+    "said": 1,
+    "covers": 0.25,
+    "score": 0.56,
+    "own": 0.12,
+    "weight": 6.32
+   },
+   {
+    "id": "did-jesus-have-brothers-and-sisters",
+    "said": 1,
+    "covers": 0.24,
+    "score": 0.55,
+    "own": 0.05,
+    "weight": 6.91
+   },
+   {
+    "id": "is-it-wrong-to-marry-a-cousin",
+    "said": 1,
+    "covers": 0.17,
+    "score": 0.51,
+    "own": 0.13,
+    "weight": 6.96
+   }
+  ]
+ },
+ {
+  "q": "i do data labeling for an ai company from home in kisumu, paid per task, and honestly i guess on half of them to go faster. nobody checks. is that cheating them",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "is-it-cheating-to-use-ai-for-schoolwork",
+    "p": 0.203
+   },
+   {
+    "id": "handwriting-on-the-wall-in-daniel",
+    "p": 0.088
+   },
+   {
+    "id": "should-i-report-wrongdoing-at-work",
+    "p": 0.061
+   }
+  ],
+  "top": [
+   {
+    "id": "is-it-wrong-to-use-ai",
+    "said": 1,
+    "covers": 0.11,
+    "score": 0.47,
+    "own": 0.06,
+    "weight": 8.09
+   },
+   {
+    "id": "everyone-abandoned-me",
+    "said": 1,
+    "covers": 0.1,
+    "score": 0.46,
+    "own": 0,
+    "weight": 7.37
+   },
+   {
+    "id": "everyone-leans-on-me-and-i-have-nothing-left",
+    "said": 1,
+    "covers": 0.1,
+    "score": 0.46,
+    "own": 0,
+    "weight": 7.37
+   }
+  ]
+ },
+ {
+  "q": "tithe twice? i work in qatar and both my church in kerala and my fellowship here expect it. split it or pay both",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "does-my-tithe-have-to-go-to-my-church",
+    "p": 0.21
+   },
+   {
+    "id": "why-so-many-churches",
+    "p": 0.068
+   },
+   {
+    "id": "working-far-away-and-missing-my-kids",
+    "p": 0.067
+   }
+  ],
+  "top": [
+   {
+    "id": "does-my-tithe-have-to-go-to-my-church",
+    "said": 1,
+    "covers": 0.23,
+    "score": 0.55,
+    "own": 0.14,
+    "weight": 9
+   },
+   {
+    "id": "jesus-paid-for-all-sin-why-is-anyone-in-hell",
+    "said": 1,
+    "covers": 0.15,
+    "score": 0.49,
+    "own": 0,
+    "weight": 7.44
+   },
+   {
+    "id": "my-parents-want-to-arrange-my-marriage",
+    "said": 1,
+    "covers": 0.15,
+    "score": 0.49,
+    "own": 0,
+    "weight": 7.37
+   }
+  ]
+ },
+ {
+  "q": "half my rugby team in pretoria is on steroids and coach looks the other way. im 19 and keep getting benched for guys who juice. do i just do it too",
+  "care": false,
+  "exact": null,
+  "open": "i-didnt-make-the-team-or-lost-the-big-game",
+  "used": false,
+  "meant": [
+   {
+    "id": "i-didnt-make-the-team-or-lost-the-big-game",
+    "p": 0.428
+   },
+   {
+    "id": "is-it-okay-to-pray-for-my-team-to-win",
+    "p": 0.096
+   },
+   {
+    "id": "taking-someone-elses-prescription-to-perform",
+    "p": 0.075
+   }
+  ],
+  "top": [
+   {
+    "id": "is-it-okay-to-pray-for-my-team-to-win",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.63,
+    "own": 0.08,
+    "weight": 7.37
+   },
+   {
+    "id": "my-spouse-died",
+    "said": 1,
+    "covers": 0.12,
+    "score": 0.47,
+    "own": 0,
+    "weight": 5.92
+   },
+   {
+    "id": "i-didnt-make-the-team-or-lost-the-big-game",
+    "said": 0.52,
+    "covers": 0.3,
+    "score": 0.31,
+    "own": 0.08,
+    "weight": 3.89
+   }
+  ]
+ },
+ {
+  "q": "my brother and his wife have not hosted one holiday in 15 years. always our house, our groceries, our dishes. say something or just keep serving",
+  "care": false,
+  "exact": null,
+  "open": "my-spouse-doesnt-help-at-home",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-spouse-doesnt-help-at-home",
+    "p": 0.394
+   },
+   {
+    "id": "my-parents-put-too-much-on-me-at-home",
+    "p": 0.13
+   },
+   {
+    "id": "what-does-the-bible-say-about-hospitality",
+    "p": 0.086
+   }
+  ],
+  "top": [
+   {
+    "id": "my-spouse-wont-work-or-provide",
+    "said": 1,
+    "covers": 0.2,
+    "score": 0.53,
+    "own": 0.06,
+    "weight": 4.63
+   },
+   {
+    "id": "why-did-god-allow-polygamy",
+    "said": 1,
+    "covers": 0.2,
+    "score": 0.52,
+    "own": 0,
+    "weight": 4.6
+   },
+   {
+    "id": "someone-i-love-is-being-abused",
+    "said": 1,
+    "covers": 0.14,
+    "score": 0.48,
+    "own": 0,
+    "weight": 4.6
+   }
+  ]
+ },
+ {
+  "q": "my ex husbands mother passed. honestly she was kinder to me than he ever was. would it be strange for me to show up at the funeral",
+  "care": false,
+  "exact": null,
+  "open": "grieving-a-painful-parent-or-spouse",
+  "used": false,
+  "meant": [
+   {
+    "id": "grieving-a-painful-parent-or-spouse",
+    "p": 0.424
+   },
+   {
+    "id": "my-parent-died",
+    "p": 0.153
+   },
+   {
+    "id": "i-cant-forgive-myself",
+    "p": 0.08
+   }
+  ],
+  "top": [
+   {
+    "id": "grieving-a-painful-parent-or-spouse",
+    "said": 1,
+    "covers": 0.45,
+    "score": 0.69,
+    "own": 0.2,
+    "weight": 7.24
+   },
+   {
+    "id": "who-was-lilith-adams-first-wife",
+    "said": 1,
+    "covers": 0.38,
+    "score": 0.64,
+    "own": 0.07,
+    "weight": 5.39
+   },
+   {
+    "id": "my-spouse-died",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.58,
+    "own": 0.14,
+    "weight": 3.93
+   }
+  ]
+ },
+ {
+  "q": "son in law asked to borrow $2,000 and said please dont tell my daughter. now i dont know what to do",
+  "care": false,
+  "exact": null,
+  "open": "lend-money-to-family-or-friends",
+  "used": false,
+  "meant": [
+   {
+    "id": "lend-money-to-family-or-friends",
+    "p": 0.421
+   },
+   {
+    "id": "i-care-too-much-what-people-think",
+    "p": 0.073
+   },
+   {
+    "id": "will-someone-pray-for-me",
+    "p": 0.052
+   }
+  ],
+  "top": [
+   {
+    "id": "why-did-david-bring-saul-philistine-foreskins",
+    "said": 1,
+    "covers": 0.43,
+    "score": 0.66,
+    "own": 0,
+    "weight": 4.24
+   },
+   {
+    "id": "lend-money-to-family-or-friends",
+    "said": 0.71,
+    "covers": 0.7,
+    "score": 0.59,
+    "own": 0,
+    "weight": 4.44
+   },
+   {
+    "id": "what-to-tell-kids-about-an-absent-parent",
+    "said": 1,
+    "covers": 0.26,
+    "score": 0.57,
+    "own": 0.09,
+    "weight": 4.3
+   }
+  ]
+ },
+ {
+  "q": "here in america church people call the pastor just mike. in my country this is big disrespect, i cannot do it. is ok i keep calling him pastor",
+  "care": false,
+  "exact": null,
+  "open": "is-america-a-christian-nation",
+  "used": false,
+  "meant": [
+   {
+    "id": "is-america-a-christian-nation",
+    "p": 0.428
+   },
+   {
+    "id": "call-no-man-father",
+    "p": 0.133
+   },
+   {
+    "id": "is-my-country-in-bible-prophecy",
+    "p": 0.09
+   }
+  ],
+  "top": [
+   {
+    "id": "is-america-a-christian-nation",
+    "said": 0.87,
+    "covers": 0.45,
+    "score": 0.6,
+    "own": 0.16,
+    "weight": 9.23
+   },
+   {
+    "id": "our-church-is-shrinking-should-we-close",
+    "said": 1,
+    "covers": 0.28,
+    "score": 0.58,
+    "own": 0.07,
+    "weight": 6
+   },
+   {
+    "id": "is-god-calling-me-into-ministry",
+    "said": 1,
+    "covers": 0.23,
+    "score": 0.55,
+    "own": 0.07,
+    "weight": 5.55
+   }
+  ]
+ },
+ {
+  "q": "my parents want me and my wife live with them after the wedding, for oldest son in our culture this is normal. my fiancee grow up here and say absolutely not. who i should listen",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "living-with-my-parents-after-marriage",
+    "p": 0.341
+   },
+   {
+    "id": "abraham-and-sarah-baby-at-100-and-90",
+    "p": 0.146
+   },
+   {
+    "id": "my-parents-put-too-much-on-me-at-home",
+    "p": 0.066
+   }
+  ],
+  "top": [
+   {
+    "id": "living-with-my-parents-after-marriage",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.64,
+    "own": 0.22,
+    "weight": 6.15
+   },
+   {
+    "id": "my-parents-put-too-much-on-me-at-home",
+    "said": 1,
+    "covers": 0.29,
+    "score": 0.58,
+    "own": 0.04,
+    "weight": 6.27
+   },
+   {
+    "id": "my-widowed-parent-is-remarrying",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.56,
+    "own": 0.04,
+    "weight": 4.99
+   }
+  ]
+ },
+ {
+  "q": "im widowed and want to marry a good man from church but if i remarry i lose my late husbands pension. could we do a church wedding and just not file the license with the state",
+  "care": false,
+  "exact": null,
+  "open": "can-i-remarry-after-my-spouse-died",
+  "used": false,
+  "meant": [
+   {
+    "id": "can-i-remarry-after-my-spouse-died",
+    "p": 0.469
+   },
+   {
+    "id": "married-in-gods-eyes-without-a-license",
+    "p": 0.409
+   },
+   {
+    "id": "what-is-marriage",
+    "p": 0.018
+   }
+  ],
+  "top": [
+   {
+    "id": "married-in-gods-eyes-without-a-license",
+    "said": 1,
+    "covers": 0.65,
+    "score": 0.8,
+    "own": 0.13,
+    "weight": 8.93
+   },
+   {
+    "id": "can-i-remarry-after-my-spouse-died",
+    "said": 1,
+    "covers": 0.55,
+    "score": 0.74,
+    "own": 0.1,
+    "weight": 9.05
+   },
+   {
+    "id": "dating-again-after-divorce-or-loss",
+    "said": 1,
+    "covers": 0.39,
+    "score": 0.64,
+    "own": 0.05,
+    "weight": 5.48
+   }
+  ]
+ },
+ {
+  "q": "we can save for the kids college or catch up on our retirement, not both. we're 48. which one would god want",
+  "care": false,
+  "exact": null,
+  "open": "is-it-wrong-to-save-money",
+  "used": false,
+  "meant": [
+   {
+    "id": "is-it-wrong-to-save-money",
+    "p": 0.394
+   },
+   {
+    "id": "retired-and-feel-lost",
+    "p": 0.11
+   },
+   {
+    "id": "can-i-stay-friends-with-my-ex",
+    "p": 0.039
+   }
+  ],
+  "top": [
+   {
+    "id": "why-is-lot-called-righteous",
+    "said": 1,
+    "covers": 0.22,
+    "score": 0.53,
+    "own": 0,
+    "weight": 4.19
+   },
+   {
+    "id": "unmarried-child-and-partner-visiting-share-room",
+    "said": 1,
+    "covers": 0.21,
+    "score": 0.53,
+    "own": 0.06,
+    "weight": 5.3
+   },
+   {
+    "id": "father-son-spirit",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.52,
+    "own": 0.06,
+    "weight": 3.34
+   }
+  ]
+ },
+ {
+  "q": "got offered a manager spot but its 55 hours a week and i'd miss most of my daughters softball games. do i turn it down",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "kids-sports-on-sunday-should-we-skip-church",
+    "p": 0.182
+   },
+   {
+    "id": "asked-someone-out-and-got-turned-down",
+    "p": 0.083
+   },
+   {
+    "id": "my-kid-plays-video-games-all-day",
+    "p": 0.065
+   }
+  ],
+  "top": [
+   {
+    "id": "kids-sports-on-sunday-should-we-skip-church",
+    "said": 1,
+    "covers": 0.39,
+    "score": 0.64,
+    "own": 0.03,
+    "weight": 7.37
+   },
+   {
+    "id": "should-i-take-this-job-offer",
+    "said": 1,
+    "covers": 0.33,
+    "score": 0.61,
+    "own": 0.08,
+    "weight": 5.48
+   },
+   {
+    "id": "i-regret-a-big-decision",
+    "said": 1,
+    "covers": 0.31,
+    "score": 0.59,
+    "own": 0,
+    "weight": 9.01
+   }
+  ]
+ },
+ {
+  "q": "grandson brings his switch and plays it the whole visit, i only see him twice a year. take it away or let the boy be",
+  "care": false,
+  "exact": null,
+  "open": "my-children-rarely-visit-me",
+  "used": false,
+  "meant": [
+   {
+    "id": "my-children-rarely-visit-me",
+    "p": 0.421
+   },
+   {
+    "id": "passing-on-my-faith-to-my-grandchildren",
+    "p": 0.118
+   },
+   {
+    "id": "should-i-leave-my-church",
+    "p": 0.045
+   }
+  ],
+  "top": [
+   {
+    "id": "my-child-died",
+    "said": 0.69,
+    "covers": 0.32,
+    "score": 0.41,
+    "own": 0,
+    "weight": 4.2
+   },
+   {
+    "id": "my-children-rarely-visit-me",
+    "said": 0.72,
+    "covers": 0.27,
+    "score": 0.41,
+    "own": 0.09,
+    "weight": 3.7
+   },
+   {
+    "id": "my-adult-child-cut-me-off",
+    "said": 0.74,
+    "covers": 0.17,
+    "score": 0.37,
+    "own": 0,
+    "weight": 4.2
+   }
+  ]
+ },
+ {
+  "q": "2 samuel 6 says michal had no children to the day of her death but then 2 samuel 21 says the king took the five sons of michal. so did she have kids or not",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "why-did-israel-ask-for-a-king",
+    "p": 0.264
+   },
+   {
+    "id": "who-was-samuel-and-how-did-god-call-him",
+    "p": 0.238
+   },
+   {
+    "id": "why-did-david-dance-and-michal-despise-him",
+    "p": 0.163
+   }
+  ],
+  "top": [
+   {
+    "id": "why-did-david-dance-and-michal-despise-him",
+    "said": 1,
+    "covers": 0.43,
+    "score": 0.68,
+    "own": 0.25,
+    "weight": 7.45
+   },
+   {
+    "id": "why-did-israel-ask-for-a-king",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.64,
+    "own": 0.12,
+    "weight": 6.07
+   },
+   {
+    "id": "kings-who-began-to-reign-as-children",
+    "said": 1,
+    "covers": 0.18,
+    "score": 0.53,
+    "own": 0.18,
+    "weight": 4.29
+   }
+  ]
+ },
+ {
+  "q": "jesus says the son of man has nowhere to lay his head but mark 2 says he was at home in capernaum. so did jesus have a house or not",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "about-to-lose-our-home",
+    "p": 0.201
+   },
+   {
+    "id": "was-jesus-poor-did-he-have-a-home",
+    "p": 0.16
+   },
+   {
+    "id": "why-jesus-called-himself-the-son-of-man",
+    "p": 0.048
+   }
+  ],
+  "top": [
+   {
+    "id": "was-jesus-poor-did-he-have-a-home",
+    "said": 0.76,
+    "covers": 0.61,
+    "score": 0.6,
+    "own": 0.13,
+    "weight": 7.32
+   },
+   {
+    "id": "my-adult-child-wont-take-responsibility",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.53,
+    "own": 0.12,
+    "weight": 3.88
+   },
+   {
+    "id": "why-jesus-called-himself-the-son-of-man",
+    "said": 1,
+    "covers": 0.17,
+    "score": 0.52,
+    "own": 0.17,
+    "weight": 3.77
+   }
+  ]
+ },
+ {
+  "q": "who paid for everything while jesus and 12 guys walked around for 3 years with no jobs. did they just get free food wherever they went",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "p": 0.141
+   },
+   {
+    "id": "foreknowledge-and-free-will",
+    "p": 0.069
+   },
+   {
+    "id": "was-jesus-poor-did-he-have-a-home",
+    "p": 0.068
+   }
+  ],
+  "top": [
+   {
+    "id": "loved-one-was-killed",
+    "said": 1,
+    "covers": 0.18,
+    "score": 0.51,
+    "own": 0,
+    "weight": 6.79
+   },
+   {
+    "id": "is-it-wrong-to-want-revenge",
+    "said": 1,
+    "covers": 0.18,
+    "score": 0.51,
+    "own": 0,
+    "weight": 6.79
+   },
+   {
+    "id": "how-do-i-thank-god",
+    "said": 0.63,
+    "covers": 0.37,
+    "score": 0.39,
+    "own": 0,
+    "weight": 3.92
+   }
+  ]
+ },
+ {
+  "q": "are vampires from the bible? leviticus is super intense about not drinking blood and my friend swears thats where dracula came from",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "eat-my-flesh-and-drink-my-blood",
+    "p": 0.201
+   },
+   {
+    "id": "should-i-end-a-toxic-friendship",
+    "p": 0.067
+   },
+   {
+    "id": "can-i-take-an-oath-or-swear-on-the-bible",
+    "p": 0.066
+   }
+  ],
+  "top": [
+   {
+    "id": "eat-my-flesh-and-drink-my-blood",
+    "said": 1,
+    "covers": 0.25,
+    "score": 0.57,
+    "own": 0.13,
+    "weight": 6.42
+   },
+   {
+    "id": "my-friend-came-out-as-gay",
+    "said": 1,
+    "covers": 0.12,
+    "score": 0.48,
+    "own": 0.12,
+    "weight": 5.76
+   },
+   {
+    "id": "my-friend-is-drinking-or-using-too-much",
+    "said": 1,
+    "covers": 0.12,
+    "score": 0.48,
+    "own": 0.12,
+    "weight": 5.54
+   }
+  ]
+ },
+ {
+  "q": "did adam and eve end up in heaven or nah? they literally started the whole sin thing",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "are-adam-samson-solomon-and-judas-in-heaven",
+    "p": 0.274
+   },
+   {
+    "id": "were-adam-and-eve-real-people",
+    "p": 0.194
+   },
+   {
+    "id": "how-did-god-make-adam-and-eve",
+    "p": 0.171
+   }
+  ],
+  "top": [
+   {
+    "id": "are-adam-samson-solomon-and-judas-in-heaven",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.64,
+    "own": 0.22,
+    "weight": 6.82
+   },
+   {
+    "id": "were-adam-and-eve-real-people",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.59,
+    "own": 0.27,
+    "weight": 8.22
+   },
+   {
+    "id": "how-did-god-make-adam-and-eve",
+    "said": 1,
+    "covers": 0.27,
+    "score": 0.59,
+    "own": 0.27,
+    "weight": 8.22
+   }
+  ]
+ },
+ {
+  "q": "saw a tiktok saying most of the disciples were teenagers bc only peter paid the temple tax with jesus. were they really like 16",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "what-was-the-temple-and-why-was-it-destroyed",
+    "p": 0.241
+   },
+   {
+    "id": "who-was-the-apostle-peter",
+    "p": 0.081
+   },
+   {
+    "id": "why-risen-jesus-appeared-only-to-followers",
+    "p": 0.075
+   }
+  ],
+  "top": [
+   {
+    "id": "strangest-miracles-in-the-bible",
+    "said": 1,
+    "covers": 0.31,
+    "score": 0.59,
+    "own": 0,
+    "weight": 7.48
+   },
+   {
+    "id": "why-jesus-drove-out-the-money-changers",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.53,
+    "own": 0.11,
+    "weight": 7.48
+   },
+   {
+    "id": "who-was-the-apostle-peter",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.52,
+    "own": 0.07,
+    "weight": 9.01
+   }
+  ]
+ },
+ {
+  "q": "leviticus 11 talks about flying insects that walk on all fours. bro bugs have 6 legs, i have an arthropod quiz friday",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "does-the-bible-teach-a-flat-earth",
+    "p": 0.232
+   },
+   {
+    "id": "did-snakes-have-legs-before-the-curse",
+    "p": 0.119
+   },
+   {
+    "id": "why-did-god-make-mosquitoes-and-pests",
+    "p": 0.08
+   }
+  ],
+  "top": [
+   {
+    "id": "did-snakes-have-legs-before-the-curse",
+    "said": 1,
+    "covers": 0.21,
+    "score": 0.53,
+    "own": 0.09,
+    "weight": 8.7
+   },
+   {
+    "id": "why-should-i-obey-god",
+    "said": 1,
+    "covers": 0.1,
+    "score": 0.46,
+    "own": 0,
+    "weight": 6.04
+   },
+   {
+    "id": "who-is-beelzebul",
+    "said": 0.76,
+    "covers": 0.08,
+    "score": 0.34,
+    "own": 0,
+    "weight": 4.38
+   }
+  ]
+ },
+ {
+  "q": "lds friend says jesus and lucifer are spirit brothers. is that anywhere in the actual bible",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "did-jesus-have-brothers-and-sisters",
+    "p": 0.197
+   },
+   {
+    "id": "are-mormons-and-jehovahs-witnesses-christians",
+    "p": 0.074
+   },
+   {
+    "id": "is-jesus-the-morning-star-or-is-lucifer",
+    "p": 0.062
+   }
+  ],
+  "top": [
+   {
+    "id": "are-mormons-and-jehovahs-witnesses-christians",
+    "said": 1,
+    "covers": 0.45,
+    "score": 0.67,
+    "own": 0,
+    "weight": 7.6
+   },
+   {
+    "id": "did-jesus-have-brothers-and-sisters",
+    "said": 1,
+    "covers": 0.13,
+    "score": 0.49,
+    "own": 0.13,
+    "weight": 4.42
+   },
+   {
+    "id": "consider-it-pure-joy-meaning",
+    "said": 1,
+    "covers": 0.13,
+    "score": 0.48,
+    "own": 0,
+    "weight": 4.42
+   }
+  ]
+ },
+ {
+  "q": "jonah ran away to tarshish, where even is that. my study bible map puts it in spain?? thats a crazy distance for a boat back then",
+  "care": false,
+  "exact": null,
+  "open": "did-jonah-really-live-inside-a-fish",
+  "used": false,
+  "meant": [
+   {
+    "id": "did-jonah-really-live-inside-a-fish",
+    "p": 0.354
+   },
+   {
+    "id": "stay-close-to-loved-ones-far-away",
+    "p": 0.075
+   },
+   {
+    "id": "loved-one-is-missing",
+    "p": 0.055
+   }
+  ],
+  "top": [
+   {
+    "id": "did-jonah-really-live-inside-a-fish",
+    "said": 1,
+    "covers": 0.34,
+    "score": 0.62,
+    "own": 0.1,
+    "weight": 12.63
+   },
+   {
+    "id": "sibling-in-trouble-family-falling-apart",
+    "said": 1,
+    "covers": 0.13,
+    "score": 0.48,
+    "own": 0,
+    "weight": 7.05
+   },
+   {
+    "id": "loved-one-is-missing",
+    "said": 0.83,
+    "covers": 0.13,
+    "score": 0.39,
+    "own": 0,
+    "weight": 7.05
+   }
+  ]
+ },
+ {
+  "q": "how many years did it take to write the whole bible, first book to last",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "why-didnt-jesus-write-a-book",
+    "p": 0.216
+   },
+   {
+    "id": "who-wrote-the-bible",
+    "p": 0.132
+   },
+   {
+    "id": "where-do-i-start-reading-the-bible",
+    "p": 0.063
+   }
+  ],
+  "top": [
+   {
+    "id": "who-wrote-the-bible",
+    "said": 0.73,
+    "covers": 0.75,
+    "score": 0.62,
+    "own": 0,
+    "weight": 3.66
+   },
+   {
+    "id": "why-didnt-jesus-write-a-book",
+    "said": 0.78,
+    "covers": 0.44,
+    "score": 0.56,
+    "own": 0.44,
+    "weight": 6.69
+   },
+   {
+    "id": "who-was-the-apostle-peter",
+    "said": 0.66,
+    "covers": 0.59,
+    "score": 0.49,
+    "own": 0,
+    "weight": 6.69
+   }
+  ]
+ },
+ {
+  "q": "he who sings prays twice, is that a bible verse? my choir director says it at literally every rehearsal",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "why-sing-and-worship-together",
+    "p": 0.303
+   },
+   {
+    "id": "my-teacher-doesnt-like-me-and-treats-me-unfairly",
+    "p": 0.119
+   },
+   {
+    "id": "how-many-psalms-did-david-write",
+    "p": 0.09
+   }
+  ],
+  "top": [
+   {
+    "id": "my-teacher-doesnt-like-me-and-treats-me-unfairly",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.62,
+    "own": 0,
+    "weight": 10.72
+   },
+   {
+    "id": "how-many-psalms-did-david-write",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.62,
+    "own": 0,
+    "weight": 10.72
+   },
+   {
+    "id": "why-sing-and-worship-together",
+    "said": 0.71,
+    "covers": 0.34,
+    "score": 0.44,
+    "own": 0.16,
+    "weight": 5.29
+   }
+  ]
+ },
+ {
+  "q": "who was huldah? king josiah sent the priests to her when they found the book of the law in the temple. 40 years in church and i never heard her name till last sunday",
+  "care": false,
+  "exact": null,
+  "open": "kings-who-began-to-reign-as-children",
+  "used": false,
+  "meant": [
+   {
+    "id": "kings-who-began-to-reign-as-children",
+    "p": 0.478
+   },
+   {
+    "id": "what-is-the-book-of-life",
+    "p": 0.121
+   },
+   {
+    "id": "can-women-be-pastors-or-teach-men",
+    "p": 0.096
+   }
+  ],
+  "top": [
+   {
+    "id": "can-women-be-pastors-or-teach-men",
+    "said": 1,
+    "covers": 0.24,
+    "score": 0.54,
+    "own": 0,
+    "weight": 7.37
+   },
+   {
+    "id": "who-were-the-pharisees-and-sadducees",
+    "said": 1,
+    "covers": 0.17,
+    "score": 0.5,
+    "own": 0,
+    "weight": 6.84
+   },
+   {
+    "id": "someone-close-became-christian-now-a-stranger",
+    "said": 1,
+    "covers": 0.17,
+    "score": 0.5,
+    "own": 0,
+    "weight": 5.76
+   }
+  ]
+ },
+ {
+  "q": "how many wives did king david have? our bible study in cebu counted last night and everybody got a different number",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "who-was-king-david",
+    "p": 0.298
+   },
+   {
+    "id": "did-god-or-satan-move-david-to-take-the-census",
+    "p": 0.166
+   },
+   {
+    "id": "samuel-kings-chronicles-different-numbers",
+    "p": 0.14
+   }
+  ],
+  "top": [
+   {
+    "id": "who-was-king-david",
+    "said": 1,
+    "covers": 0.16,
+    "score": 0.51,
+    "own": 0.16,
+    "weight": 6.33
+   },
+   {
+    "id": "what-are-the-ten-commandments",
+    "said": 1,
+    "covers": 0.17,
+    "score": 0.5,
+    "own": 0,
+    "weight": 6.61
+   },
+   {
+    "id": "why-did-god-allow-polygamy",
+    "said": 1,
+    "covers": 0.14,
+    "score": 0.49,
+    "own": 0,
+    "weight": 5.59
+   }
+  ]
+ },
+ {
+  "q": "paul says he was caught up to the third heaven in 2 corinthians 12. so whats the first and second heaven, are there like levels up there",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "can-people-visit-heaven-and-come-back",
+    "p": 0.3
+   },
+   {
+    "id": "where-is-heaven",
+    "p": 0.217
+   },
+   {
+    "id": "where-is-god",
+    "p": 0.053
+   }
+  ],
+  "top": [
+   {
+    "id": "can-people-visit-heaven-and-come-back",
+    "said": 1,
+    "covers": 0.48,
+    "score": 0.7,
+    "own": 0.09,
+    "weight": 6.2
+   },
+   {
+    "id": "where-is-heaven",
+    "said": 1,
+    "covers": 0.4,
+    "score": 0.65,
+    "own": 0.09,
+    "weight": 6.2
+   },
+   {
+    "id": "will-there-be-rewards-in-heaven",
+    "said": 1,
+    "covers": 0.25,
+    "score": 0.56,
+    "own": 0.09,
+    "weight": 7.09
+   }
+  ]
+ },
+ {
+  "q": "which old testament book did jesus quote the most",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "how-were-the-books-of-the-bible-chosen",
+    "p": 0.224
+   },
+   {
+    "id": "difference-between-the-old-and-new-testaments",
+    "p": 0.193
+   },
+   {
+    "id": "who-was-the-prophet-isaiah",
+    "p": 0.088
+   }
+  ],
+  "top": [
+   {
+    "id": "who-was-the-prophet-isaiah",
+    "said": 1,
+    "covers": 0.72,
+    "score": 0.83,
+    "own": 0,
+    "weight": 8.3
+   },
+   {
+    "id": "difference-between-the-old-and-new-testaments",
+    "said": 1,
+    "covers": 0.47,
+    "score": 0.71,
+    "own": 0.31,
+    "weight": 6
+   },
+   {
+    "id": "plans-to-prosper-you",
+    "said": 1,
+    "covers": 0.43,
+    "score": 0.66,
+    "own": 0,
+    "weight": 8.3
+   }
+  ]
+ },
+ {
+  "q": "red letter bible, who decided which words were jesus? in john 3 my red letters stop at verse 15 and in my wifes bible they keep going all the way to 21",
+  "care": false,
+  "exact": null,
+  "open": "in-the-beginning-was-the-word",
+  "used": false,
+  "meant": [
+   {
+    "id": "in-the-beginning-was-the-word",
+    "p": 0.512
+   },
+   {
+    "id": "jesus-the-alpha-and-the-omega",
+    "p": 0.078
+   },
+   {
+    "id": "who-added-chapter-and-verse-numbers-to-the-bible",
+    "p": 0.052
+   }
+  ],
+  "top": [
+   {
+    "id": "jesus-the-alpha-and-the-omega",
+    "said": 1,
+    "covers": 0.53,
+    "score": 0.72,
+    "own": 0.09,
+    "weight": 6.47
+   },
+   {
+    "id": "in-the-beginning-was-the-word",
+    "said": 1,
+    "covers": 0.37,
+    "score": 0.64,
+    "own": 0.13,
+    "weight": 5.93
+   },
+   {
+    "id": "was-jesus-married",
+    "said": 1,
+    "covers": 0.19,
+    "score": 0.52,
+    "own": 0.09,
+    "weight": 3.98
+   }
+  ]
+ },
+ {
+  "q": "my oga says i drive like jehu lol. who was jehu and why does the bible say he drove furiously",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "who-was-jezebel",
+    "p": 0.129
+   },
+   {
+    "id": "is-it-wrong-to-be-angry",
+    "p": 0.12
+   },
+   {
+    "id": "does-the-bible-mention-going-to-the-bathroom",
+    "p": 0.096
+   }
+  ],
+  "top": [
+   {
+    "id": "why-does-god-get-angry",
+    "said": 0.7,
+    "covers": 0.12,
+    "score": 0.34,
+    "own": 0.12,
+    "weight": 3.1
+   },
+   {
+    "id": "is-it-okay-to-be-angry-at-god",
+    "said": 0.7,
+    "covers": 0.12,
+    "score": 0.34,
+    "own": 0.12,
+    "weight": 3.1
+   },
+   {
+    "id": "i-keep-yelling-at-my-kids",
+    "said": 0.68,
+    "covers": 0.12,
+    "score": 0.32,
+    "own": 0,
+    "weight": 3.1
+   }
+  ]
+ }
+]

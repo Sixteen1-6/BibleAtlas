@@ -1,0 +1,237 @@
+[
+ {
+  "q": "how old was jesus when he died",
+  "care": false,
+  "exact": "how-old-was-jesus-when-he-died",
+  "open": "how-old-was-jesus-when-he-died",
+  "used": true,
+  "meant": [
+   {
+    "id": "how-old-was-jesus-when-he-died",
+    "p": 0.431
+   },
+   {
+    "id": "what-did-jesus-say-from-the-cross",
+    "p": 0.062
+   },
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.057
+   }
+  ],
+  "top": [
+   {
+    "id": "how-old-was-jesus-when-he-died",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 11.03
+   },
+   {
+    "id": "how-old-will-we-be-in-heaven",
+    "said": 0.73,
+    "covers": 0.83,
+    "score": 0.72,
+    "own": 0.66,
+    "weight": 7.28
+   },
+   {
+    "id": "who-created-god",
+    "said": 0.84,
+    "covers": 0.66,
+    "score": 0.67,
+    "own": 0,
+    "weight": 7.28
+   }
+  ]
+ },
+ {
+  "q": "where was jesus born",
+  "care": false,
+  "exact": "when-and-where-was-jesus-born",
+  "open": "when-and-where-was-jesus-born",
+  "used": true,
+  "meant": [
+   {
+    "id": "when-and-where-was-jesus-born",
+    "p": 0.587
+   },
+   {
+    "id": "why-did-jesus-come-when-he-did",
+    "p": 0.053
+   },
+   {
+    "id": "why-did-jesus-come",
+    "p": 0.04
+   }
+  ],
+  "top": [
+   {
+    "id": "when-and-where-was-jesus-born",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 8.26
+   },
+   {
+    "id": "why-did-jesus-come-when-he-did",
+    "said": 0.77,
+    "covers": 0.67,
+    "score": 0.64,
+    "own": 0.23,
+    "weight": 5.53
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "said": 0.71,
+    "covers": 0.56,
+    "score": 0.58,
+    "own": 0.56,
+    "weight": 4.63
+   }
+  ]
+ },
+ {
+  "q": "where did jesus die",
+  "care": false,
+  "exact": "golgotha-and-where-jesus-was-crucified",
+  "open": "golgotha-and-where-jesus-was-crucified",
+  "used": true,
+  "meant": [
+   {
+    "id": "golgotha-and-where-jesus-was-crucified",
+    "p": 0.157
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "p": 0.156
+   },
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.127
+   }
+  ],
+  "top": [
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 6.48
+   },
+   {
+    "id": "where-was-jesus-buried-joseph-of-arimathea",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   },
+   {
+    "id": "golgotha-and-where-jesus-was-crucified",
+    "said": 1,
+    "covers": 1,
+    "score": 1.07,
+    "own": 0.71,
+    "weight": 6.48
+   }
+  ]
+ },
+ {
+  "q": "who killed jesus",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": true,
+  "meant": [
+   {
+    "id": "who-is-jesus",
+    "p": 0.214
+   },
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.129
+   },
+   {
+    "id": "what-happened-at-jesus-trial",
+    "p": 0.078
+   }
+  ],
+  "top": [
+   {
+    "id": "why-didnt-jesus-save-himself-from-the-cross",
+    "said": 0.75,
+    "covers": 0.69,
+    "score": 0.64,
+    "own": 0.27,
+    "weight": 4.81
+   },
+   {
+    "id": "were-the-crusades-biblical",
+    "said": 0.68,
+    "covers": 0.69,
+    "score": 0.63,
+    "own": 0.69,
+    "weight": 2.91
+   },
+   {
+    "id": "what-happened-at-jesus-trial",
+    "said": 0.55,
+    "covers": 1,
+    "score": 0.58,
+    "own": 0.27,
+    "weight": 6.93
+   }
+  ]
+ },
+ {
+  "q": "when did jesus die",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": true,
+  "meant": [
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.126
+   },
+   {
+    "id": "what-time-was-jesus-crucified",
+    "p": 0.103
+   },
+   {
+    "id": "if-jesus-is-god-how-could-he-pray-or-die",
+    "p": 0.074
+   }
+  ],
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 1,
+    "covers": 0.48,
+    "score": 0.73,
+    "own": 0.48,
+    "weight": 3.75
+   },
+   {
+    "id": "did-jesus-really-die-on-the-cross",
+    "said": 1,
+    "covers": 0.48,
+    "score": 0.73,
+    "own": 0.48,
+    "weight": 3.75
+   },
+   {
+    "id": "where-was-jesus-buried-joseph-of-arimathea",
+    "said": 1,
+    "covers": 0.48,
+    "score": 0.73,
+    "own": 0.48,
+    "weight": 3.75
+   }
+  ]
+ }
+]

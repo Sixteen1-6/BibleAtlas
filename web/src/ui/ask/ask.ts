@@ -251,10 +251,13 @@ if (typeof window !== 'undefined') {
 
 // ------------------------------------------------------------ matching
 
+/** Words that tell what is asked for: "where did Jesus die" is not "why did Jesus die". */
+const ASKS = ['where', 'when', 'who', 'why'];
+
 /** Words search leaves out that still change what is asked: "why did God
  * make me" is not "is there a God", and "what did Jesus teach" is not "who is
  * Jesus". A prepared question opens only when these match too. */
-const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real']);
+const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real', ...ASKS]);
 
 /** "What does the Bible say about X" asks about X. */
 const ABOUT = /^\s*(what|how)\s+(does|do|did)\s+(the\s+)?(bible|scriptures?|god|jesus|lord)\s+(say|says|teach|teaches|tell|tells)\s+(us\s+)?(about|of|on)\s+/i;

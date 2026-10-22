@@ -1,0 +1,237 @@
+[
+ {
+  "q": "how old was jesus when he died",
+  "care": false,
+  "exact": "how-old-was-jesus-when-he-died",
+  "open": "how-old-was-jesus-when-he-died",
+  "used": false,
+  "meant": [
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.157
+   },
+   {
+    "id": "how-old-was-jesus-when-he-died",
+    "p": 0.12
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "p": 0.092
+   }
+  ],
+  "top": [
+   {
+    "id": "how-old-was-jesus-when-he-died",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 6.14
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 1,
+    "covers": 0.61,
+    "score": 0.83,
+    "own": 0.61,
+    "weight": 3.75
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "said": 1,
+    "covers": 0.61,
+    "score": 0.83,
+    "own": 0.61,
+    "weight": 3.75
+   }
+  ]
+ },
+ {
+  "q": "where was jesus born",
+  "care": false,
+  "exact": "when-and-where-was-jesus-born",
+  "open": "when-and-where-was-jesus-born",
+  "used": false,
+  "meant": [
+   {
+    "id": "when-and-where-was-jesus-born",
+    "p": 0.354
+   },
+   {
+    "id": "are-we-born-sinners",
+    "p": 0.073
+   },
+   {
+    "id": "why-did-jesus-come-when-he-did",
+    "p": 0.043
+   }
+  ],
+  "top": [
+   {
+    "id": "when-and-where-was-jesus-born",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 5.53
+   },
+   {
+    "id": "why-did-jesus-come-when-he-did",
+    "said": 1,
+    "covers": 1,
+    "score": 1.03,
+    "own": 0.34,
+    "weight": 5.53
+   },
+   {
+    "id": "in-the-beginning-was-the-word",
+    "said": 0.69,
+    "covers": 1,
+    "score": 0.69,
+    "own": 0,
+    "weight": 5.53
+   }
+  ]
+ },
+ {
+  "q": "where did jesus die",
+  "care": false,
+  "exact": "why-did-jesus-die",
+  "open": "why-did-jesus-die",
+  "used": false,
+  "meant": [
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.195
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "p": 0.115
+   },
+   {
+    "id": "where-was-jesus-buried-joseph-of-arimathea",
+    "p": 0.087
+   }
+  ],
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   },
+   {
+    "id": "did-jesus-really-die-on-the-cross",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   }
+  ]
+ },
+ {
+  "q": "who killed jesus",
+  "care": false,
+  "exact": null,
+  "open": null,
+  "used": false,
+  "meant": [
+   {
+    "id": "why-didnt-jesus-save-himself-from-the-cross",
+    "p": 0.069
+   },
+   {
+    "id": "thinking-about-ending-my-life",
+    "p": 0.066
+   },
+   {
+    "id": "did-god-kill-more-people-than-satan",
+    "p": 0.062
+   }
+  ],
+  "top": [
+   {
+    "id": "why-didnt-jesus-save-himself-from-the-cross",
+    "said": 1,
+    "covers": 1,
+    "score": 1.04,
+    "own": 0.39,
+    "weight": 4.82
+   },
+   {
+    "id": "were-the-crusades-biblical",
+    "said": 0.68,
+    "covers": 1,
+    "score": 0.78,
+    "own": 1,
+    "weight": 2.92
+   },
+   {
+    "id": "did-god-kill-more-people-than-satan",
+    "said": 0.68,
+    "covers": 0.61,
+    "score": 0.58,
+    "own": 0.61,
+    "weight": 2.92
+   }
+  ]
+ },
+ {
+  "q": "when did jesus die",
+  "care": false,
+  "exact": "why-did-jesus-die",
+  "open": "why-did-jesus-die",
+  "used": false,
+  "meant": [
+   {
+    "id": "why-did-jesus-die",
+    "p": 0.195
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "p": 0.115
+   },
+   {
+    "id": "where-was-jesus-buried-joseph-of-arimathea",
+    "p": 0.087
+   }
+  ],
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   },
+   {
+    "id": "where-was-jesus-before-he-rose",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   },
+   {
+    "id": "did-jesus-really-die-on-the-cross",
+    "said": 1,
+    "covers": 1,
+    "score": 1.1,
+    "own": 1,
+    "weight": 3.75
+   }
+  ]
+ }
+]
