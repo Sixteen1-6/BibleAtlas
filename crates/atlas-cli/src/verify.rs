@@ -70,6 +70,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
     for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_figures::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;
