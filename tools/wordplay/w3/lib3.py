@@ -234,7 +234,7 @@ def convert(where, l):
     if l.get('evidence'):
         out['evidence'] = l['evidence']
     for k in EXTRA:
-        if l.get(k):
+        if l.get(k) and l['kind'] in STANDALONE:  # figure fields only on figure kinds (Layers refuses them elsewhere)
             out[k] = l[k]
     out['cites'] = [x for x, _ in cites]
     out['text'] = l['text']
