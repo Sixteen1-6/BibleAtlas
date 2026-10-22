@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-10-21 at 21:30 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-10-22 at 03:15 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
@@ -18,17 +18,19 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect b466ab60ea4280b2270c9b80fa6be543e66e2504 (#52), or the merge of the docs-only PR that
-#   wrote this section directly on top of it: git log --oneline b466ab6..origin/main shows only that
+#   expect the merge of #58 (figures-at-deep) on top of 85f0994abcdb19a888d7235e0d086dd4aa46e28b (#56), or the
+#   merge of a docs-only PR that rewrote this section on top of that: git log --oneline 85f0994..origin/main shows only those
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
-#   expect #53, #54 and #55 (section 0, "Local work after #50"), plus this docs PR until it merges
+#   expect #53, #54 and #55 (section 0, "Local work after #50") and the draft #57 (the Deep display, section 0, "In flight"),
+#   plus any docs PR that rewrites this section until it merges
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
-#   expect "buildId": "6e89a09cfa05"     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
+#   expect the id in CI's "build …" line on #58's merge; a full local build of #58's last head gave "buildId": "9dda295d6650",
+#   and the id is a hash of the outputs, so they should match     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
 
 If any value differs, read what changed before acting: `gh pr list --repo Sixteen1-6/BibleAtlas --state all --limit 5` and `git log origin/main`. Then rewrite section 0.
 
-A docs-only merge moves `main` without changing code or data, so the build id stays `6e89a09cfa05`; record the new `main` in section 0 when it merges.
+A docs-only merge moves `main` without changing code or data, so the build id stays the one #58's merge produced (`9dda295d6650` in the local build); record the new `main` in section 0 when it merges.
 
 **Who keeps section 0 current.** Whoever merges a PR or finishes a job re-runs the three commands and rewrites section 0 in the same sitting, and the PR that changes `main` should update section 0 itself (`CLAUDE.md`, "Start here"). Cloud sessions in the founder's claude.ai project also keep a living summary of the whole project, cloud and local, in a Claude Doc that is refreshed every three hours: https://claude.ai/code/artifact/852a3499-e493-45f8-96e2-ffa4cc3d3332. This file stays the source of record for the repository; the doc is the plain-words overview.
 
@@ -49,14 +51,14 @@ Terms used throughout:
 - **Layers** means the "Layers of meaning" notes on wordplay, names, allusions and so on.
 - **Ask** means "Ask the Bible".
 
-## 0. State on 2026-10-22 at 02:15 UTC
+## 0. State on 2026-10-22 at 03:15 UTC
 
-**Live.** https://everyversemap.com/ serves the data built from `2aabdcc`, the merge of PR #50 at 02:50:58 UTC on 2026-10-21. `main` has since moved through `97861e5` (#51), `b466ab6` (#52) and `85f0994` (#56), all docs only, and then the merge of #58, which adds the figures extras and so moves the build id (below).
+**Live.** Before #58, https://everyversemap.com/ served the Pages deploy of `85f0994` (#56, run 39678704553, 21:25:44 to 21:30:08 UTC on 2026-10-21). Its data is `2aabdcc`'s (the merge of PR #50 at 02:50:58 UTC on 2026-10-21), build id `6e89a09cfa05`, because #51, #52 and #56 are docs only. Pages rebuilds and redeploys on every push to `main`, so the merge of #58 deploys the figures extras with a new build id (below).
 
-- **Data after #58.** #58 writes `extras/figures.json` and `extras/figures/<book>.<k>.json`, so the id moves from `6e89a09cfa05`. A full local build of #58's head on `85f0994` gave `a1aad7a21307` and "5925 checks passed"; take the live id from CI's data build on the merge.
+- **Data after #58.** #58 writes `extras/figures.json` and `extras/figures/<book>.<k>.json`, so the id moves from `6e89a09cfa05`. A full local build of #58's last head on `85f0994` gave `9dda295d6650` and "5925 checks passed"; take the live id from CI's data build on the merge.
 - **Data before #58.** Build id `6e89a09cfa05`, from CI's data build on `2aabdcc` ("build 6e89a09cfa05" in the CI log). #50 changed `config/layers.json`, so the id moved from `7bd9f13db417`. This was not checked against the live `meta.json` from the cloud container that wrote this section, which cannot reach everyversemap.com; run the third command above to confirm it.
-- **Deploy.** Pages run 39535290262 succeeded (build 02:51:03 to 02:54:51, deploy to 02:55:03).
-- **CI.** Run 39535290365 is green on `2aabdcc`: lint and unit tests pass, "5909 checks passed", "shelf: 58 works", and "layers of meaning: 1268 passages, 3105 layers checked; 1268 passages live with 3105 notes (3105 live because they cite a listed source); no drafts".
+- **Deploy.** Pages succeeded on each merge: 39535290262 (`2aabdcc`; build 02:51:03 to 02:54:51, deploy to 02:55:03), 39634211056 (`97861e5`), 39637776561 (`b466ab6`) and 39678704553 (`85f0994`, the one live before #58).
+- **CI.** Run 39535290365 is green on `2aabdcc`, the last data change before #58: lint and unit tests pass, "5909 checks passed", "shelf: 58 works", and "layers of meaning: 1268 passages, 3105 layers checked; 1268 passages live with 3105 notes (3105 live because they cite a listed source); no drafts".
 
 **Merged after `75f6edc`:**
 
@@ -64,10 +66,10 @@ Terms used throughout:
 |---|---|---|---|
 | #49, `handoff-2026-10-20` at `6041f31`, merge `b6d7f1e` | 2026-10-20 23:59:16 | This file, the six maps in `docs/handoff/` and `CLAUDE.md`. Docs only. | CI 39518497229, Deploy 39518497270, both green. |
 | #50, `layers-mend-2026-10-20` at `0da9d1c`, merge `2aabdcc` | 2026-10-21 02:50:58 | The layers-mend job. Round 1 strengths recounted by distinct cite-list writers: 15 lowered, 11 raised, 121 kept. 350 cites added, 22 moved, 10 removed. Of the 4 hidden notes, the chinnam note in `job-19-25` is now cited and live and the other three are dropped. `1-samuel-6-6`, `proverbs-3-20`, `ecclesiastes-3-18` and `ecclesiastes-3-20` are back. `docs/evidence/layers-mend-2026-10-20.json` (7,705 lines) holds a record for every cite added or confirmed. A review commit paraphrases copied NET and R. T. France wording, replaces a modern rabbi's translation, removes an ESV fragment and stops citing Ellicott's Malachi volume on Malachi 3:1. 1,264 passages became 1,268, and 3,095 notes 3,105. | CI 39535290365, Deploy 39535290262, both green. |
-| #51, `claude/project-thread-nvo8rb` at `fc7d12e`, merge `97861e5` | 2026-10-21 16:22:36 | Section 0 of this file rewritten for `2aabdcc`. Docs only. | Data build unchanged. |
-| #52, `layers-evidence-wording`, merge `b466ab6` | 2026-10-21 16:46:22 | `docs/evidence/layers-mend-2026-10-20.json`: three source pointers reworded so no translation's wording is quoted (1 Samuel 6:6, Job 2:3, Matthew 28:20), and this section. Docs only; the build does not read `docs/evidence/`. | Data build unchanged. |
-| #56, `claude/project-thread-f8krzu`, squashed as `85f0994` | 2026-10-21 21:25:41 | `docs/FOUNDER-DECISIONS.md` (the founder's 23 decisions), `docs/local-work/2026-10-20/` (the local jobs' notes, audits, Voices reports and mockups), a line in `CLAUDE.md` and this section. Docs only. | Data build unchanged. |
-| #58, `figures-at-deep` | 2026-10-22 | Figures at Deep, data only: `crates/atlas-cli/src/extra_figures.rs` builds three Deep-only note kinds, `parallelism`, `figure` and `contrast`, from `config/figures/<book>.json` and the 13 forms in `config/figure-forms.json`, into `extras/figures*`. Five seed notes (Psalm 1:6, Isaiah 6:10, Matthew 10:34, Genesis 6:6, 1 Samuel 1:2), each citing three to five interpreters word for word; `docs/evidence/figures-2026-10-21.json` records where each quote was found. Only works on the file's `quotable` list may be quoted; strength counts interpreters only. Touches none of the files `true-credits` holds. Nothing shows until the display (#57) lands. | Build id moves (above). |
+| #51, `claude/project-thread-nvo8rb` at `fc7d12e`, merge `97861e5` | 2026-10-21 16:22:36 | Section 0 of this file rewritten for `2aabdcc`. Docs only. | CI 39634210902, Deploy 39634211056, both green; data unchanged. |
+| #52, `layers-evidence-wording`, merge `b466ab6` | 2026-10-21 16:46:22 | `docs/evidence/layers-mend-2026-10-20.json`: three source pointers reworded so no translation's wording is quoted (1 Samuel 6:6, Job 2:3, Matthew 28:20), and this section. Docs only; the build does not read `docs/evidence/`. | CI 39637776575, Deploy 39637776561, both green; data unchanged. |
+| #56, `claude/project-thread-f8krzu`, squashed as `85f0994` | 2026-10-21 21:25:41 | `docs/FOUNDER-DECISIONS.md` (the founder's 23 decisions), `docs/local-work/2026-10-20/` (the local jobs' notes, audits, Voices reports and mockups), a line in `CLAUDE.md` and this section. Docs only. | CI 39678704638, Deploy 39678704553, both green; data unchanged. |
+| #58, `figures-at-deep` | 2026-10-22 | Figures at Deep, data only: `crates/atlas-cli/src/extra_figures.rs` builds three Deep-only note kinds, `parallelism`, `figure` and `contrast`, from `config/figures/<book>.json` and the 13 forms in `config/figure-forms.json`, into `extras/figures*`. Five seed notes (Psalm 1:6, Isaiah 6:10, Matthew 10:34, Genesis 6:6, 1 Samuel 1:2), each citing three or four interpreters word for word; `docs/evidence/figures-2026-10-21.json` records where each quote was found. Only works on the file's `quotable` list may be quoted: Gill, Spurgeon, the Geneva notes, the Companion Bible, Henry's Concise, Wesley and the church fathers are left off, per the approved Voices shortlist and decision 10. A cite of Keil and Delitzsch, JFB, the Pulpit Commentary, Ellicott or the Catena names the writer of its volume in its own `by` (`multi_writer`), and Barnes, Henry and the Catena are quoted only on the books their named writer wrote (`only_on`). Strength counts interpreters only. Touches none of the files `true-credits` holds. Nothing shows until the display (#57) lands. | Build id moves (above). |
 
 #49 and #50 came from local jobs on the founder's PC; #51, #52, #56 and #58 from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
 
@@ -667,7 +669,7 @@ $env:GIT_CONFIG_KEY_2='core.longpaths'; $env:GIT_CONFIG_VALUE_2='true'
 cargo build --release -p atlas-cli
 cargo run --release -q -p atlas-cli -- fetch                    # or skip it and use --raw below
 cargo run --release -q -p atlas-cli -- build                    # with a verified raw folder: ... -- build --raw <dir>
-cargo run --release -q -p atlas-cli -- verify                   # expect 5909 checks passed (verify reads web\public\data, not --raw)
+cargo run --release -q -p atlas-cli -- verify                   # expect 5925 checks passed (verify reads web\public\data, not --raw)
 Remove-Item Env:GIT_CONFIG_*                                    # do not leave these set in a shell used on the CRLF clone
 cargo build -q -p atlas-wasm --lib --target wasm32-unknown-unknown --profile wasm
 Copy-Item target\wasm32-unknown-unknown\wasm\atlas_wasm.wasm web\src\engine\atlas.wasm

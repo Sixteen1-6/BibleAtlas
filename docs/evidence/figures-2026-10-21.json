@@ -1,7 +1,7 @@
 {
   "_comment": [
-    "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21 (the Genesis 6:6 Henry quote and the Isaiah 6:10 Bengel credit on 2026-10-22). Records for a form's definition carry \"form\" in place of \"note\".",
-    "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, Bullinger's Figures of Speech and the Companion Bible notes as UniqueBible modules, and Henry's Concise from Let's Church. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
+    "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21; the Henry quotes on Genesis 6:6, Psalm 1:6 and 1 Samuel 1:2 and the Isaiah 6:10 Bengel credit on 2026-10-22. Records for a form's definition carry \"form\" in place of \"note\".",
+    "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, and Bullinger's Figures of Speech as a UniqueBible module. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
     "The notes link each writer at Bible Hub (commentaries) or at the work's own page; those pages carry the same public-domain text."
   ],
   "checked": [
@@ -17,29 +17,11 @@
     {
       "note": "1-samuel-1-2-contrast",
       "field": "cites",
-      "source": "bullinger-cb",
-      "on": "1 Samuel 1:2",
-      "quote": "Note the Figure of speech Antimetabole.",
-      "found_in": "https://raw.githubusercontent.com/otseng/UniqueBible_Commentaries/4b77d8610928e2451101331ed46465088678a655/cCBNotes%20-%20The%20Companion%20Bible%20Notes.commentary.zip",
-      "context": "orn num 3 13 num 3 45 son of korah see exo 6 24 1 2 hannah grace peninnah pearl note the figure of speech antimetabole app 6 children offspring hebrew yalad 1 3 yearly hebrew from days to days figur"
-    },
-    {
-      "note": "1-samuel-1-2-contrast",
-      "field": "cites",
       "source": "keil-delitzsch",
       "on": "1 Samuel 1:2-3",
       "quote": "Elkanah had two wives, Hannah (grace or gracefulness) and Peninnah (coral), the latter of whom was blessed with children, whereas the first was childless.",
       "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/sa1001.md",
       "context": "ote the first born of egypt num 3 13 num 3 44 see hengstenberg ut sup sa1 1 2 3 elkanah had two wives hannah grace or gracefulness and peninnah coral the latter of whom was blessed with children whereas the first was childless he went with his wives year by year ימימה מי מים as in exo 13 10 jdg 11 40 acco"
-    },
-    {
-      "note": "1-samuel-1-2-contrast",
-      "field": "cites",
-      "source": "gill",
-      "on": "1 Samuel 1:2",
-      "quote": "Very likely Hannah was his first wife, and having no children by her, he took Peninnah",
-      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/gill/sa1001.md",
-      "context": "signifies a cornered gem a precious stone or jewel as the pearl ruby amethyst c very likely hannah was his first wife and having no children by her he took peninnah who proved to be a rough diamond and peninnah had children but hannah had no ch"
     },
     {
       "note": "1-samuel-1-2-contrast",
@@ -53,11 +35,11 @@
     {
       "note": "1-samuel-1-2-contrast",
       "field": "cites",
-      "source": "henry-concise",
+      "source": "henry",
       "on": "1 Samuel 1:1-8",
-      "quote": "Hannah could not bear the provocation. Those who are of a fretful spirit, and are apt to lay provocations too much to heart, are enemies to themselves, and strip themselves of many comforts both of life and godliness.",
-      "found_in": "https://raw.githubusercontent.com/LetsChurch/lets.church/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhcc.json",
-      "context": "ut of humour who are apt to fret and be uneasy we ought to bear one anothers burdens not add to them hannah could not bear the provocation those who are of a fretful spirit and are apt to lay provocations too much to heart are enemies to themselves and strip themselves of many comforts both of life and godliness we ought to notice comforts to keep us from grieving for crosses we should look at that which is fo"
+      "quote": "Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/sa1001.md",
+      "context": "e gave her sa1 15 and this should have made her easy and thankful but they were of different tempers peninnah could not bear the blessing of fruitfulness but she grew haughty and insolent hannah could not bear the affliction of barrenness but she grew melancholy and discontented and elkanah had a difficult part to act between them 1 elkanah kept up his attendance at gods altar"
     },
     {
       "note": "genesis-6-6-anthropopatheia",
@@ -67,15 +49,6 @@
       "quote": "not that He has such feelings; but, in infinite condescension, He is thus spoken of in order to enable us to comprehend Him.",
       "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
       "context": "lings are attributed to god human affections and feelings are attributed to god not that he has such feelings but in infinite condescension he is thus spoken of in order to enable us to comprehend him rejoicing is attributed to god psa 104 31 the lord shall rejoice in his works s"
-    },
-    {
-      "note": "genesis-6-6-anthropopatheia",
-      "field": "cites",
-      "source": "gill",
-      "on": "Genesis 6:6",
-      "quote": "This is speaking by an anthropopathy, after the manner of men … there can, no more be any uneasiness in his mind than a change in it; for God is a simple Being, uncompounded, and not subject to any passions and affections.",
-      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/gill/gen006.md",
-      "context": "nd or alters his purposes though he sometimes changes the course and dispensations of his providence this is speaking by an anthropopathy after the manner of men because god determined to do and did something similar to men when they repent of anything as a potter when he has formed a vessel that does not please him and he repents that he has made it he takes it and breaks it in pieces and so god because of mans wickedness and to show his aversion to it and displicency at it repented of his making him that is he resolved within himself to destroy him as in the next verse which explains this and it grieved him at his heart this is to be understood by the same figure as before for there can no more be any uneasiness in his mind than a change in it for god is a simple being uncompounded and not subject to any passions and affections this is said to observe his great hatred to sin and abhorrence of it genesis 67 gen 67 and the lord"
     },
     {
       "note": "genesis-6-6-anthropopatheia",
@@ -91,9 +64,9 @@
       "field": "cites",
       "source": "henry",
       "on": "Genesis 6:6",
-      "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon the honour of God's immutability or felicity.",
+      "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon the honour of God's immutability or felicity. … This language does not imply any passion or uneasiness in God (nothing can create disturbance to the Eternal Mind), but it expresses his just and holy displeasure against sin and sinners",
       "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/gen006.md",
-      "context": "rnished on purpose to be a convenient comfortable habitation for him and it grieved him at his heart these are expressions after the manner of men and must be understood so as not to reflect upon the honour of gods immutability or felicity 1 this language does not imply any passion or uneasiness in god nothing can create disturbance to t"
+      "context": "rnished on purpose to be a convenient comfortable habitation for him and it grieved him at his heart these are expressions after the manner of men and must be understood so as not to reflect upon the honour of gods immutability or felicity 1 this language does not imply any passion or uneasiness in god nothing can create disturbance to the eternal mind but it expresses his just and holy displeasure against sin and sinners against sin as odious to his holiness and against sinners as obnoxious to his justice he is pressed"
     },
     {
       "note": "genesis-6-6-anthropopatheia",
@@ -136,7 +109,8 @@
       "field": "defined",
       "source": "bullinger-fos",
       "quote": "The Repetition of the same Words in an inverse Order (but same Sense)",
-      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip"
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "olysyndeton combined with epistrophe b in a different order but the same sense epanodos or inversion the repetition of the same words in an inverse order but same sense e pan o dos is from ἐπί epi upon ἀνα ana back and ὁδός hodos a way and means a way back again or mo"
     },
     {
       "note": "matthew-10-34-metonymy",
@@ -146,15 +120,6 @@
       "quote": "“I came not to send peace, but a sword” (i.e., but for war). That is to say, the object of His coming was peace, but the effect of it was war.",
       "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
       "context": "5 16 jer 43 11 psa 144 10 psa 144 10 rom 8 35 and many other passages mat 10 34 i came not to send peace but a sword i e but for war that is to say the object of his coming was peace but the effect of it was war 4 a line is used for the territory divided up or marked out by it amo 7 17 thy "
-    },
-    {
-      "note": "matthew-10-34-metonymy",
-      "field": "cites",
-      "source": "bullinger-cb",
-      "on": "Matthew 10:34",
-      "quote": "Put by Figure of speech Metonymy (of Cause), App-6, for \"war\" or \"fightings\".",
-      "found_in": "https://raw.githubusercontent.com/otseng/UniqueBible_Commentaries/4b77d8610928e2451101331ed46465088678a655/cCBNotes%20-%20The%20Companion%20Bible%20Notes.commentary.zip",
-      "context": "d mat 15 24 send cast as seed compare mar 4 26 earth greek ge see app 129 sword put by figure of speech metonymy of cause app 6 for war or fightings 10 35 set at variance greek dichazo occurs only here quoted from mic 7 6 the da"
     },
     {
       "note": "matthew-10-34-metonymy",
@@ -186,15 +151,6 @@
     {
       "note": "psalm-1-6-opposite",
       "field": "cites",
-      "source": "gill",
-      "on": "Psalm 1:6",
-      "quote": "These last words therefore show the reason of the happiness of one sort of men, and the unhappiness of the other",
-      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/gill/psa001.md",
-      "context": "man that continues in it will be unhappy wretched and miserable to all eternity these last words therefore show the reason of the happiness of one sort of men and the unhappiness of the other and prove and confirm the same the lord knows approves of loves and delights in"
-    },
-    {
-      "note": "psalm-1-6-opposite",
-      "field": "cites",
       "source": "barnes",
       "on": "Psalm 1",
       "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous",
@@ -204,11 +160,11 @@
     {
       "note": "psalm-1-6-opposite",
       "field": "cites",
-      "source": "bullinger-cb",
+      "source": "henry",
       "on": "Psalm 1:6",
-      "quote": "Effect latent in first clause: cause latent in second clause.",
-      "found_in": "https://raw.githubusercontent.com/otseng/UniqueBible_Commentaries/4b77d8610928e2451101331ed46465088678a655/cCBNotes%20-%20The%20Companion%20Bible%20Notes.commentary.zip",
-      "context": " 5 rev 20 6 compare psa 49 14 congregation assembly righteous justified 1 6 for effect latent in first clause cause latent in second clause knoweth approveth or acknowledged figure of speech metonymy of cause compare na"
+      "quote": "The Lord approves and is well pleased with the way of the righteous, and therefore, under the influence of his gracious smiles, it shall prosper and end well; but he is angry at the way of the wicked, all they do is offensive to him, and therefore it shall perish, and they in it.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/psa001.md",
+      "context": "tion it naturally tends towards ruin and therefore must necessarily end in it or we may take it thus the lord approves and is well pleased with the way of the righteous and therefore under the influence of his gracious smiles it shall prosper and end well but he is angry at the way of the wicked all they do is offensive to him and therefore it shall perish and they in it it is certain that every mans judgment proceeds from the lord and it is well or ill with us and is"
     },
     {
       "form": "same",
