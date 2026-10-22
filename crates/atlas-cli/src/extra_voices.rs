@@ -167,7 +167,7 @@ struct Report {
     /// given his notes on it, and those whose passage has none.
     pointers: usize,
     pointers_empty: usize,
-    /// Notes left out with fewer than OWN_LETTERS letters of their own, by work.
+    /// Notes left out with no words of their own, only pointers, by work.
     thin: [usize; 3],
 }
 
@@ -448,9 +448,10 @@ const POINTING: [&str; 14] = [
     "chap", "chapter",
 ];
 
-/// A note with fewer letters of its own than this is left out: it would open
-/// as a writer with next to nothing to say ("Mark 11:25.", "Lightly - Perhaps.").
-const OWN_LETTERS: usize = 25;
+/// A note with fewer letters of its own than this is left out: it only sends
+/// the reader elsewhere ("Mark 11:25.", "See on Mark 4:1"). Short notes with
+/// words of their own stay ("Lightly - Perhaps.", "Edom - That is, red.").
+const OWN_LETTERS: usize = 1;
 
 /// The letters of a text's own words, leaving out a book named in a
 /// reference written out ("Luke 4:40", "ver. 3"); none at all when every
@@ -623,6 +624,23 @@ fn pointed_to(text: &str) -> Option<&str> {
     [", and the commentary thereon.", "."]
         .iter()
         .find_map(|tail| rest.strip_suffix(tail))
+}
+
+/// A passage as "2 Kings 18:17-37", "2 Kings 18:13-19:37" or "2 Kings 20".
+fn passage_name(vz: &Versification, f: u32, t: u32) -> String {
+    let (Some((b, c, v)), Some((_, c2, v2))) = (vz.locate(f), vz.locate(t)) else {
+        return String::new();
+    };
+    let name = BOOKS[b as usize].name;
+    let last = vz.locate(t + 1).is_none_or(|(b2, c3, _)| b2 != b || c3 != c2);
+    if v == 1 && last {
+        return if c == c2 { format!("{name} {c}") } else { format!("{name} {c}-{c2}") };
+    }
+    match (c == c2, v == v2) {
+        (true, true) => format!("{name} {c}:{v}"),
+        (true, false) => format!("{name} {c}:{v}-{v2}"),
+        _ => format!("{name} {c}:{v}-{c2}:{v2}"),
+    }
 }
 
 /// Henry's verse numbers as the module marks them, "ver. #(11-13)", as plain
@@ -1004,7 +1022,10 @@ fn henry(
             continue;
         }
         let mut voices = vec![(String::new(), runs(&text, b, vz, report))];
+        let first = voices.len();
         voices.extend(on.iter().flat_map(|x| x.voices.iter().cloned()));
+        // Says whose notes follow and on which passage: "Henry's notes on 2 Kings 18:17-37".
+        voices[first].0 = format!("Henry's notes on {}", passage_name(vz, f, t));
         report.pointers += 1;
         items[b as usize].push(Item {
             work: HENRY_W,
@@ -1109,9 +1130,8 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     catena(inputs, vz, &kjv, &mut books, &mut report)?;
     henry(inputs, vz, &mut books, &mut report)?;
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
-    // A note that is only references ("Mark 11:25.") or a few words
-    // ("Lightly - Perhaps.") would make the line name a writer whose section
-    // opens nearly empty.
+    // A note that is only references ("Mark 11:25.") would make the line name
+    // a writer whose section only points elsewhere.
     for items in &mut books {
         items.retain(|x| {
             let keep = note_letters(&x.voices) >= OWN_LETTERS;
@@ -1177,7 +1197,7 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
         report.filled, report.lemmas, report.marks, report.repeats, report.moved
     );
     eprintln!(
-        "voices: {} notes of the Fathers, {} of Henry's and {} of Wesley's left out with fewer than {OWN_LETTERS} letters of their own; {} of Henry's chapter notes that only point to another passage given his notes there ({} with none); {} references to numbered books in Roman numerals linked",
+        "voices: {} notes of the Fathers, {} of Henry's and {} of Wesley's left out as only pointers elsewhere; {} of Henry's chapter notes that only point to another passage given his notes there ({} with none); {} references to numbered books in Roman numerals linked",
         report.thin[0], report.thin[1], report.thin[2], report.pointers, report.pointers_empty, report.numbered
     );
     let index = json!({
@@ -1247,7 +1267,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let mut largest = 0u64;
     // (work, first verse, last verse, who, words) of every note, for the known cases below.
     let mut notes: Vec<(u8, u32, u32, String, String)> = Vec::new();
-    // Notes with fewer than OWN_LETTERS letters of their own, and every
+    // Notes with no words of their own, only pointers, and every
     // Henry note's links as (note's first verse, last verse, link's first, last).
     let mut thin = 0usize;
     let mut henry_links: Vec<(u32, u32, u64, u64)> = Vec::new();
@@ -1299,7 +1319,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     }
                     let who = v[0].as_str().unwrap_or("");
                     let words = plain(&v[1]);
-                    ok &= !words.trim().is_empty() && (w == FATHERS_W as u64) != who.is_empty();
+                    let named = w == FATHERS_W as u64 || (w == u64::from(HENRY_W) && who.starts_with("Henry's notes on "));
+                    ok &= !words.trim().is_empty() && (named || who.is_empty()) && (w != FATHERS_W as u64 || !who.is_empty());
                     clean &= !words.contains("{{")
                         && !words.contains("}}")
                         && !words.contains("#(")
@@ -1419,13 +1440,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ),
         (
             thin == 0,
-            format!("every writer's note has at least {OWN_LETTERS} letters of its own beyond its references, so no writer the line names opens nearly empty; {thin} do not"),
+            format!("every writer's note has words of its own beyond its references, so no writer the line names only points elsewhere; {thin} do not"),
         ),
         (
             !note(WESLEY_W, "Matthew 6:14", "", "")?
                 && !note(WESLEY_W, "Mark 1:3", "", "")?
-                && !note(WESLEY_W, "Genesis 26:10", "", "Lightly - Perhaps")?,
-            "Wesley's notes that are only a reference (Matthew 6:14 \"Mark 11:25.\", Mark 1:3 \"Isa 40:3.\") or a few words (Genesis 26:10 \"Lightly - Perhaps.\") are left out".to_string(),
+                && note(WESLEY_W, "Genesis 26:10", "", "Lightly - Perhaps")?,
+            "Wesley's notes that are only a reference (Matthew 6:14 \"Mark 11:25.\", Mark 1:3 \"Isa 40:3.\") are left out, and short ones with words of their own (Genesis 26:10 \"Lightly - Perhaps.\") stay".to_string(),
         ),
         (
             {
@@ -1434,11 +1455,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 let (k20e, _) = d.resolve("2 Kings 20:19")?;
                 note(HENRY_W, "Isaiah 39:4", "", "This chapter is the same as II Kin. 20:12-19.")?
                     && note(HENRY_W, "Isaiah 39:4", "", "The king of Babylon was at this time independent")?
+                    && note(HENRY_W, "Isaiah 39:4", "Henry's notes on 2 Kings 20:12-19", "")?
+                    && note(HENRY_W, "Isaiah 36:5", "Henry's notes on 2 Kings 18:17-37", "")?
                     && note(HENRY_W, "Isaiah 36:5", "", "Rabshakeh tries to convince the Jews")?
                     && note(HENRY_W, "Isaiah 37:10", "", "Hezekiah discovered deep concern")?
                     && henry_links.iter().any(|&(a, z, f, t)| a <= i39 && i39 <= z && (f, t) == (u64::from(k20), u64::from(k20e)))
             },
-            "Henry's notes on Isaiah 36, 37 and 39, which only point to 2 Kings 18-20, carry his notes there, with the pointer as a link".to_string(),
+            "Henry's notes on Isaiah 36, 37 and 39, which only point to 2 Kings 18-20, carry his notes there under \"Henry's notes on 2 Kings ...\", with the pointer as a link".to_string(),
         ),
     ])
 }

@@ -107,8 +107,9 @@ fn named(name: &[String], verse: &[String]) -> bool {
 }
 
 /// An entry with fewer letters of its own than this is not listed under a
-/// verse: it would open as "(Job 30:4)" or "(Genesis 12:6) [Shechem]".
-pub const OWN_LETTERS: usize = 25;
+/// verse: it only points elsewhere, "(Job 30:4)" or "(Genesis 12:6) [Shechem]".
+/// A short definition of its own stays ("(trodden down)").
+pub const OWN_LETTERS: usize = 1;
 
 /// An entry's text as the panel shows it, with "#" for each verse link.
 fn shown(text: &[Piece]) -> String {
@@ -332,7 +333,7 @@ pub fn build(
         }
     }
     eprintln!(
-        "dictionary extra: {thin} entries with fewer than {OWN_LETTERS} letters of their own not listed ({sent} listed as the entries they send the reader to); {} verses left with none",
+        "dictionary extra: {thin} entries that only point elsewhere not listed ({sent} listed as the entries they send the reader to); {} verses left with none",
         cited.iter().filter(|v| !at.contains_key(v)).count()
     );
     let mut books: Vec<serde_json::Map<String, Value>> =
@@ -574,7 +575,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     out.push((
         thin.is_empty(),
         format!(
-            "every dictionary entry listed under a verse has at least {OWN_LETTERS} letters of its own; {} do not: {:?}",
+            "every dictionary entry listed under a verse has words of its own, not only pointers; {} do not: {:?}",
             thin.len(),
             &thin[..thin.len().min(5)]
         ),

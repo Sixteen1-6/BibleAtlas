@@ -23,7 +23,8 @@ export type Run = string | [number, number, string];
  * split by a blank line. */
 export type Text = string | Run[];
 /** One note: [work, first verse, last verse, voices], each voice [who, text];
- * `who` is a Father's name in the Catena, else "". */
+ * `who` is a Father's name in the Catena, a heading such as "Henry's notes on
+ * 2 Kings 18:17-37" where Henry sends the reader to another passage, else "". */
 export type Item = [number, number, number, [string, Text][]];
 
 /** web/public/data/extras/voices/<Book>.<k>.json. */

@@ -111,13 +111,13 @@ function Runs({ a, runs, navigate }: { a: Atlas; runs: Run[]; navigate: (v: Vers
   );
 }
 
-function Voice({ a, who, text, navigate, focus }: { a: Atlas; who: string; text: Text; navigate: (v: VerseRef) => void; focus?: boolean }) {
+function Voice({ a, who, text, navigate, focus, father }: { a: Atlas; who: string; text: Text; navigate: (v: VerseRef) => void; focus?: boolean; father: boolean }) {
   const [open, setOpen] = useState(false);
   const here = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (focus) here.current?.focus();
   }, [focus]);
-  const [cite, ps] = who ? leadingCite(paragraphs(text)) : ['', paragraphs(text)];
+  const [cite, ps] = father ? leadingCite(paragraphs(text)) : ['', paragraphs(text)];
   const long = ps.reduce((n, p) => n + p.reduce((m, r) => m + runLength(r), 0), 0) > FOLD * 1.25;
   const shown = long && !open ? clip(ps, FOLD) : ps;
   return (
@@ -153,7 +153,7 @@ function Note({ a, verse, item, navigate }: { a: Atlas; verse: VerseRef; item: I
     <div class="x-voices-note">
       {(from !== verse || to !== verse) && <p class="x-voices-on">On {nameFrom(a, verse, from, to)}</p>}
       {shown.map(([who, text], k) => (
-        <Voice key={k} a={a} who={who} text={text} navigate={navigate} focus={all && k === FIRST_FATHERS} />
+        <Voice key={k} a={a} who={who} text={text} navigate={navigate} focus={all && k === FIRST_FATHERS} father={work === 0} />
       ))}
       {more > 0 && (
         <button type="button" class="x-voices-more" onClick={() => setAll(true)}>
