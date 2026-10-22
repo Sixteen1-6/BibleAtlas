@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-10-22 at 12:40 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-10-22 at 12:55 UTC. The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
@@ -18,19 +18,19 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect the merge of #59 (Ask's word-meaning model) on top of 71e8f48 (the merge of #58), or the merge of a
-#   docs-only PR that rewrote this section on top of that: git log --oneline 71e8f48..origin/main shows only those
+#   expect the merge of #60 (Ask's page for someone in danger shows Scripture only) on top of 20869ea (the merge of #59),
+#   or the merge of a docs-only PR that rewrote this section on top of that: git log --oneline 20869ea..origin/main shows only those
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
 #   expect #53, #54 and #55 (section 0, "Local work after #50") and the draft #57 (the Deep display, section 0, "In flight"),
-#   plus the next Ask PR and any docs PR that rewrites this section until they merge
+#   plus the next Ask PR (gathering, section 0, "In flight") and any docs PR that rewrites this section until they merge
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
-#   expect the id in CI's "build …" line on #59's merge; a full local build of #59's last head on 71e8f48 gave "buildId": "592b8c4dc0b3",
-#   and the id is a hash of the outputs, so they should match     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
+#   expect "buildId": "592b8c4dc0b3", the id in the Pages build of #59's merge (run 39779724695) and of a full local build;
+#   #60 changes only the site's code, so the data and its id stay the same     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
 
 If any value differs, read what changed before acting: `gh pr list --repo Sixteen1-6/BibleAtlas --state all --limit 5` and `git log origin/main`. Then rewrite section 0.
 
-A docs-only merge moves `main` without changing code or data, so the build id stays the one #59's merge produced (`592b8c4dc0b3` in the local build); record the new `main` in section 0 when it merges.
+A docs-only or site-code-only merge moves `main` without changing the data, so the build id stays the one #59's merge produced (`592b8c4dc0b3`); record the new `main` in section 0 when it merges.
 
 **Who keeps section 0 current.** Whoever merges a PR or finishes a job re-runs the three commands and rewrites section 0 in the same sitting, and the PR that changes `main` should update section 0 itself (`CLAUDE.md`, "Start here"). Cloud sessions in the founder's claude.ai project also keep a living summary of the whole project, cloud and local, in a Claude Doc that is refreshed every three hours: https://claude.ai/code/artifact/852a3499-e493-45f8-96e2-ffa4cc3d3332. This file stays the source of record for the repository; the doc is the plain-words overview.
 
@@ -51,11 +51,11 @@ Terms used throughout:
 - **Layers** means the "Layers of meaning" notes on wordplay, names, allusions and so on.
 - **Ask** means "Ask the Bible".
 
-## 0. State on 2026-10-22 at 12:40 UTC
+## 0. State on 2026-10-22 at 12:55 UTC
 
-**Live.** Before #58, https://everyversemap.com/ served the Pages deploy of `85f0994` (#56, run 39678704553, 21:25:44 to 21:30:08 UTC on 2026-10-21). Its data is `2aabdcc`'s (the merge of PR #50 at 02:50:58 UTC on 2026-10-21), build id `6e89a09cfa05`, because #51, #52 and #56 are docs only. Pages rebuilds and redeploys on every push to `main`, so the merge of #58 deployed the figures extras with a new build id, and the merge of #59 Ask's word-meaning model with another (below).
+**Live.** Before #58, https://everyversemap.com/ served the Pages deploy of `85f0994` (#56, run 39678704553, 21:25:44 to 21:30:08 UTC on 2026-10-21). Its data is `2aabdcc`'s (the merge of PR #50 at 02:50:58 UTC on 2026-10-21), build id `6e89a09cfa05`, because #51, #52 and #56 are docs only. Pages rebuilds and redeploys on every push to `main`: the merge of #58 deployed the figures extras with a new build id, and the merge of #59 (`20869ea`, 12:36:21 UTC on 2026-10-22) deployed Ask's word-meaning model with another, `592b8c4dc0b3` (Pages run 39779724695, 12:36:24 to 12:40:37; its log shows "build 592b8c4dc0b3", "5929 checks passed", `assets/index-CZf7Iw2s.js` and "model.bin 7.87 MB, 87408 texts, 29528 word pieces at 4 bits"). The merge of #60 redeploys the site's code with the same data and id.
 
-- **Data after #59.** #59 changes `config/questions.json` and `config/shelf.json`, so the id moves again. A full local build of #59's last head merged with `71e8f48` gave `592b8c4dc0b3` and "5929 checks passed"; take the live id from CI's data build on the merge.
+- **Data after #59.** #59 changes `config/questions.json` and `config/shelf.json`, so the id moved to `592b8c4dc0b3`: the same in a full local build of #59's last head merged with `71e8f48`, in CI on that head (run 39778790473) and in the Pages build of the merge. The live `meta.json` was not read from the cloud container that wrote this, which cannot reach everyversemap.com; run the third command above to confirm it.
 - **Data after #58.** #58 writes `extras/figures.json` and `extras/figures/<book>.<k>.json`, so the id moves from `6e89a09cfa05`. A full local build of #58's last head on `85f0994` gave `9dda295d6650` and "5925 checks passed"; take the live id from CI's data build on the merge.
 - **Data before #58.** Build id `6e89a09cfa05`, from CI's data build on `2aabdcc` ("build 6e89a09cfa05" in the CI log). #50 changed `config/layers.json`, so the id moved from `7bd9f13db417`. This was not checked against the live `meta.json` from the cloud container that wrote this section, which cannot reach everyversemap.com; run the third command above to confirm it.
 - **Deploy.** Pages succeeded on each merge: 39535290262 (`2aabdcc`; build 02:51:03 to 02:54:51, deploy to 02:55:03), 39634211056 (`97861e5`), 39637776561 (`b466ab6`) and 39678704553 (`85f0994`, the one live before #58).
@@ -71,15 +71,16 @@ Terms used throughout:
 | #52, `layers-evidence-wording`, merge `b466ab6` | 2026-10-21 16:46:22 | `docs/evidence/layers-mend-2026-10-20.json`: three source pointers reworded so no translation's wording is quoted (1 Samuel 6:6, Job 2:3, Matthew 28:20), and this section. Docs only; the build does not read `docs/evidence/`. | CI 39637776575, Deploy 39637776561, both green; data unchanged. |
 | #56, `claude/project-thread-f8krzu`, squashed as `85f0994` | 2026-10-21 21:25:41 | `docs/FOUNDER-DECISIONS.md` (the founder's 23 decisions), `docs/local-work/2026-10-20/` (the local jobs' notes, audits, Voices reports and mockups), a line in `CLAUDE.md` and this section. Docs only. | CI 39678704638, Deploy 39678704553, both green; data unchanged. |
 | #58, `figures-at-deep` | 2026-10-22 | Figures at Deep, data only: `crates/atlas-cli/src/extra_figures.rs` builds three Deep-only note kinds, `parallelism`, `figure` and `contrast`, from `config/figures/<book>.json` and the 13 forms in `config/figure-forms.json`, into `extras/figures*`. Five seed notes (Psalm 1:6, Isaiah 6:10, Matthew 10:34, Genesis 6:6, 1 Samuel 1:2), each citing three or four interpreters word for word; `docs/evidence/figures-2026-10-21.json` records where each quote was found. Only works on the file's `quotable` list may be quoted: Gill, Spurgeon, the Geneva notes, the Companion Bible, Henry's Concise, Wesley and the church fathers are left off, per the approved Voices shortlist and decision 10. A cite of Keil and Delitzsch, JFB, the Pulpit Commentary, Ellicott or the Catena names the writer of its volume in its own `by` (`multi_writer`), and Barnes, Henry and the Catena are quoted only on the books their named writer wrote (`only_on`). Strength counts interpreters only. Touches none of the files `true-credits` holds. Nothing shows until the display (#57) lands. | Build id moves (above). |
-| #59, `claude/ask-the-bible-u6macl` | 2026-10-22 | Ask's word-meaning model, matching only: potion-base-8M (MIT), mirrored on `mirror/potion-base-8M` and pinned in `sources.json`, helps the matcher tell which prepared answer a message means, question words count, and `ask/meaning.json` and the new `ask/model.bin` (6.19 MB gzipped, loaded with the first question) carry the trainer's key in their address. The founder allowed it under decision 16 on 2026-10-22 at 12:16 UTC ("yes it should get better"). On 312 never-seen messages judged blind against `main`: 164 answered against 163, off verses 683 of 1,869 against 737 of 1,871. Adds the Ask evaluation sets as `eval/ask/`, a shelf card and a `NOTICE.md` credit for the model, and five matching phrasings in `config/questions.json`. | Build id moves (above). |
+| #59, `claude/ask-the-bible-u6macl` at `56eb207`, merge `20869ea` | 2026-10-22 12:36:21 | Ask's word-meaning model, matching only: potion-base-8M (MIT), mirrored on `mirror/potion-base-8M` and pinned in `sources.json`, helps the matcher tell which prepared answer a message means, question words count, and `ask/meaning.json` and the new `ask/model.bin` (6.19 MB gzipped, loaded with the first question) carry the trainer's key in their address. The founder allowed it under decision 16 on 2026-10-22 at 12:16 UTC ("yes it should get better"). On 312 never-seen messages judged blind against `main`: 164 answered against 163, off verses 683 of 1,869 against 737 of 1,871. Adds the Ask evaluation sets as `eval/ask/`, a shelf card and a `NOTICE.md` credit for the model, and five matching phrasings in `config/questions.json`. | CI 39778790473 green on the head; Deploy 39779724695 green (build `592b8c4dc0b3`); the mirror workflow's run 39779724612 found the same files and left `mirror/potion-base-8M` at `dced885`. |
+| #60, `claude/ask-the-bible-u6macl` | 2026-10-22 | Ask's page for someone asking about ending their life shows only its seven whole verses, then the founder's note: the help line (988, Samaritans and a helpline finder, PR #16) is removed, as the founder asked at 12:16 UTC ("Scripture only"). `CLAUDE.md` and section 6 now name the founder's note as the only exception to answers in the Bible's words. Site code only (`web/src/ui/ask/`). | Data and build id unchanged. |
 
-#49 and #50 came from local jobs on the founder's PC; #51, #52, #56, #58 and #59 from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
+#49 and #50 came from local jobs on the founder's PC; #51, #52, #56, #58, #59 and #60 from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
 
 **In flight.**
 
 | Branch, session or folder | What it is | What to do |
 |---|---|---|
-| `claude/ask-the-bible-u6macl`, restarted from `main` after #59 merged | The cloud Ask session (`01F5MX8Zw1CM7AW18hxHzAeP`) works here on the founder's two asks of 2026-10-22: the help page shows Scripture only (12:16 UTC: "Scripture only for crisi page"), and when no prepared answer fits, Ask connects the question to verses through themes, word choices, links and the word-meaning model's guess of the theme, never interpreting (12:18 UTC). | Each arrives as its own PR; the gathering change is judged blind against `main` on fresh messages first. The `true-credits` work (`wip/true-credits-2026-10-21`) must take in #59's `config/shelf.json` card and `NOTICE.md` section for the model. |
+| `claude/ask-the-bible-u6macl`, restarted from `main` after #60 merges | The cloud Ask session (`01F5MX8Zw1CM7AW18hxHzAeP`) works here on the founder's ask of 12:18 UTC on 2026-10-22: when no prepared answer fits, Ask connects the question to verses through themes, word choices, links and the word-meaning model's guess of the theme, never interpreting. | It arrives as its own PR, judged blind against `main` on fresh messages first. The `true-credits` work (`wip/true-credits-2026-10-21`) must take in #59's `config/shelf.json` card and `NOTICE.md` section for the model. |
 | `mirror/potion-base-8M` at `dced885`, orphan | The model at Hugging Face revision `bf8b0566...`. | Never merge it. Never delete it: a `sources.json` pin will name this commit. |
 | Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Since #45 Layers merged #52 (docs) and #58, the data for three Deep-only note kinds, `figure`, `parallelism` and `contrast`, in new files (`config/figures/`, `config/figure-forms.json`, `extras/figures*`) outside the files `true-credits` holds. Their display is #57 (cloud thread "Arcs and card design at Deep"), which waits for the commentary notice (#53). These notes may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. New `config/layers.json` passages wait for the `true-credits` module; new figure notes go in `config/figures/` and must pass `extra_figures.rs`. |
 | All four cloud sessions | Stopped at 23:25 UTC on 2026-10-20 on the account's usage limit and resumed at 16:13 UTC on 2026-10-21, when the project's coordinator asked each to rebase on `2aabdcc`, follow `CLAUDE.md` and resume. Usage limits have paused them again since, for hours at a time. | Nothing; they resume by themselves. |
@@ -91,7 +92,7 @@ Terms used throughout:
 **Next, in order** (section 9 has the evidence):
 
 1. Merge #53 (the commentary notice), then #54; #55 waits on its three questions to the founder, and #57 on #53 and its own checks.
-2. The two Ask asks of 2026-10-22 (section 0, "In flight").
+2. The Ask gathering ask of 2026-10-22 (section 0, "In flight"); its first ask, Scripture only on the page for someone in danger, is #60.
 3. Make the build safe on Windows and pinned everywhere.
 
 Of the previous list, item 2 is done (the local work after #50 is on GitHub as #53 to #56 and two `wip/` branches), and items 1 and 4 are done by #59: it gives `ask/meaning.json` a key in its address, and it settles section 8 rows 7 to 9. The Ask evaluation sets (section 9, item 8) were in the Ask session's container after all, not only in the founder's claude.ai account, and #59 adds them as `eval/ask/`.
@@ -430,7 +431,7 @@ No web code imports `config/` directly. Everything reaches the page through the 
    2. the meaning matcher, at `MEANT = 0.35` (line 127);
    3. a word router, which the matcher can veto below `UNMEANT = 0.15` (line 133).
 3. **Gathering.** If nothing opens, `gather()` in `gather.ts` (986 lines) ranks every verse it finds by `SHOW` weights (line 737) fitted on 6,134 blind-judged verses. The sheet shows the first 6, or 12 at Study (`FIRST` and `MORE`, `AskSheet.tsx:37-38`, applied at line 315); at Deep it also shows all of them and "How these verses were found" (lines 323 to 341).
-4. **The founder's note** (`Listen`, `AskSheet.tsx:402-417`) sits above every panel; on the care path it comes after the help text instead (lines 442 and 447).
+4. **The founder's note** (`Listen`, `AskSheet.tsx:402-417`) sits above every panel; on the care path it comes after the verses instead (lines 442 and 447; since 2026-10-22 that path shows no help line, only the seven verses).
 
 The matcher is trained at prebuild (and at predev) by `web/scripts/ask-meaning.mjs`:
 
@@ -522,7 +523,7 @@ These are standing instructions from the founder, or legal limits. Each says whe
   - No scholars or church views appear in questions, phrasings, signals or examples.
   - Every chain part must be tied by the Bible's own data, or the build fails.
   - Stated in `ask.rs:1-25`, the `config/questions.json` `_comment` and PR #16. Enforced by `ask.rs:94-104`, `:562-579`, `:761-780` and `:836-838`.
-  - There are only two exceptions: the self-harm help line (PR #16) and the founder's own note (PR #34, reworded by him in PR #35). The note says the tool cannot seek God for you and does not have the Holy Spirit.
+  - The only exception is the founder's own note (PR #34, reworded by him in PR #35). The note says the tool cannot seek God for you and does not have the Holy Spirit. The self-harm help line (PR #16) was removed on 2026-10-22, when the founder asked for "Scripture only" on the page for someone asking about ending their life. That page now shows only its seven whole verses, then the note.
 - **Keep the search box as it is.** PR #36 was closed, and `1096bcb` reverted it: "Shubhanshu asked to keep the box as it is". The header still reads "Search a verse, phrase or Hebrew/Greek word" (`web/src/App.tsx:207`).
 - **Cite only Bible-believing Christian writers.** The founder's words, 2026-10-11: "cite ... bible believing people who fully believe the bible and theologians that love God, not people who are liberalizing the bible".
   - Catholic and Orthodox writers who uphold Scripture may be cited.
