@@ -1,0 +1,11 @@
+energy kept by first dims {"32":0.323,"64":0.538,"96":0.695,"128":0.804,"160":0.88,"192":0.932,"256":1} roughly sorted true
+texts 87408 pieces used 15287 of 29528
+f32 all (11.6+ MB ref)   dev2 top1 367 top3 434 none 0 of 530 | dev3 top1 162 top3 192 none 0 of 295 | dev4 top1 244 top3 337 none 0 of 668
+i8 256 kept (now)        dev2 top1 368 top3 437 none 0 of 530 | dev3 top1 162 top3 191 none 0 of 295 | dev4 top1 242 top3 337 none 0 of 668
+i8 256 all (+3.6 MB)     dev2 top1 366 top3 434 none 0 of 530 | dev3 top1 162 top3 192 none 0 of 295 | dev4 top1 243 top3 338 none 0 of 668
+i4 256 all               dev2 top1 368 top3 429 none 0 of 530 | dev3 top1 160 top3 192 none 0 of 295 | dev4 top1 239 top3 339 none 0 of 668
+i4 256 all rms3          dev2 top1 377 top3 434 none 0 of 530 | dev3 top1 166 top3 191 none 0 of 295 | dev4 top1 242 top3 341 none 0 of 668
+i4 256 all rms2.5        dev2 top1 377 top3 437 none 0 of 530 | dev3 top1 165 top3 191 none 0 of 295 | dev4 top1 234 top3 338 none 0 of 668
+i8 128 all               dev2 top1 349 top3 418 none 0 of 530 | dev3 top1 152 top3 176 none 0 of 295 | dev4 top1 207 top3 304 none 0 of 668
+
+[exited with code 0]

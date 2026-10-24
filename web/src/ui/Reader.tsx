@@ -13,6 +13,8 @@ import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { ASKS } from './commentary/Gate';
+import { accepted, askNotice } from './commentary/state';
 import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
 
@@ -68,7 +70,14 @@ export function Reader({ a }: { a: Atlas }) {
   }, [tr, book, chapter]);
 
   // The translators' notes stay on netbible.org: the selected verse links to them.
-  const notesWanted = tr === 'NET' && orig && S.netNotes.value;
+  // They are the NET's own commentary, so the link waits for the commentary notice.
+  const notesOn = S.netNotes.value && accepted.value;
+  const notesWanted = tr === 'NET' && orig && notesOn;
+  const toggleNotes = () => {
+    if (notesOn) S.netNotes.value = false;
+    else if (accepted.peek()) S.netNotes.value = true;
+    else void askNotice().then((ok) => ok && (S.netNotes.value = true));
+  };
 
   useEffect(() => {
     if (tr !== 'ESV') return;
@@ -178,7 +187,7 @@ export function Reader({ a }: { a: Atlas }) {
             </button>
           )}
           {tr === 'NET' && (
-            <button class="btn" aria-pressed={S.netNotes.value} onClick={() => (S.netNotes.value = !S.netNotes.value)} title="A link under the selected verse to the NET translators’ own notes on netbible.org: why they chose their words, and other ways to read the Hebrew and Greek">
+            <button class="btn" aria-pressed={notesOn} onClick={toggleNotes} {...(accepted.value ? {} : ASKS)} title="A link under the selected verse to the NET translators’ own notes on netbible.org: why they chose their words, and other ways to read the Hebrew and Greek">
               Translators’ notes
             </button>
           )}

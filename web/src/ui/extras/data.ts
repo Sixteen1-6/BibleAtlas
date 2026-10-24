@@ -8,18 +8,40 @@ import type { AnyExtra } from './registry';
 
 const files = new Map<string, Promise<unknown>>();
 
+/** The address of web/public/data/<file> for this build. A query the file
+ * names itself, as in 'ask/meaning.json?k=<key>', goes after the build id. */
+function dataUrl(a: Atlas, file: string): string {
+  const [path, own] = file.replace(/^\/+/, '').split('?', 2);
+  return `${DATA_BASE}${path}?${a.version}${own ? `&${own}` : ''}`;
+}
+
 /** Fetch web/public/data/<file> as JSON, e.g. loadJson(a, 'extras/quotes.json').
  * The site's base path (/BibleAtlas/ on GitHub Pages) and the build id are
  * added for you, so a new build is never served from a stale cache. Cached:
  * asking twice fetches once. Rejects if the file is missing or broken, and a
  * later call tries again. */
 export function loadJson<T>(a: Atlas, file: string): Promise<T> {
-  const url = `${DATA_BASE}${file.replace(/^\/+/, '')}?${a.version}`;
+  const url = dataUrl(a, file);
   let p = files.get(url) as Promise<T> | undefined;
   if (!p) {
     p = fetch(url).then((r) => {
       if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
       return r.json() as Promise<T>;
+    });
+    files.set(url, p);
+    p.catch(() => files.delete(url));
+  }
+  return p;
+}
+
+/** Fetch web/public/data/<file> as bytes, as loadJson fetches JSON. */
+export function loadBytes(a: Atlas, file: string): Promise<ArrayBuffer> {
+  const url = dataUrl(a, file);
+  let p = files.get(url) as Promise<ArrayBuffer> | undefined;
+  if (!p) {
+    p = fetch(url).then((r) => {
+      if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
+      return r.arrayBuffer();
     });
     files.set(url, p);
     p.catch(() => files.delete(url));

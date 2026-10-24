@@ -10,6 +10,7 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import * as S from '../../state';
+import { noticeOpen } from '../commentary/state';
 import { openerElement } from './open';
 
 const PHONE = '(max-width: 900px)';
@@ -101,10 +102,11 @@ export function Shell({ title, at, onDismiss, tall = false, children }: { title:
   }, [phone]);
 
   // Escape closes the panel before anything else hears it (the app would
-  // otherwise clear the selection). Search, when open, keeps its own Escape.
+  // otherwise clear the selection). Search, when open, keeps its own Escape,
+  // and the commentary notice, when open, ignores it.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape' || S.paletteOpen.peek()) return;
+      if (e.key !== 'Escape' || S.paletteOpen.peek() || noticeOpen.peek()) return;
       e.preventDefault();
       e.stopPropagation();
       dismiss.current();

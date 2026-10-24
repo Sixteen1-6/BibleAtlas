@@ -31,6 +31,7 @@ mod lexhtml;
 mod extra_wordplay;
 mod loaded;
 mod extra_hard_verses;
+mod extra_figures;
 mod lxx;
 mod naves;
 mod parse;

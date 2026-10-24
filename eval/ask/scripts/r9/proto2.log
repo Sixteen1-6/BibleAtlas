@@ -1,0 +1,16 @@
+dev2 256 float, all texts               model 366/434  blend .5 415/475  of 545
+dev3 256 float, all texts               model 152/186  blend .5 178/215  of 298
+dev2 256 int8, all texts                model 365/434  blend .5 415/474  of 545
+dev3 256 int8, all texts                model 152/186  blend .5 178/214  of 298
+dev2 pca 128 float, all texts           model 348/421  blend .5 417/471  of 545
+dev3 pca 128 float, all texts           model 143/173  blend .5 175/214  of 298
+dev2 pca 128 int8, all texts            model 348/420  blend .5 416/471  of 545
+dev3 pca 128 int8, all texts            model 143/173  blend .5 175/214  of 298
+dev2 pca 64 int8, all texts             model 303/367  blend .5 410/461  of 545
+dev3 pca 64 int8, all texts             model 129/148  blend .5 175/209  of 298
+dev2 256 int8, 8 prototypes             model 323/409  blend .5 402/466  of 545
+dev3 256 int8, 8 prototypes             model 148/182  blend .5 178/218  of 298
+dev2 256 int8, 4 prototypes             model 310/403  blend .5 397/471  of 545
+dev3 256 int8, 4 prototypes             model 158/188  blend .5 174/219  of 298
+dev2 256 int8, centroid                 model 306/377  blend .5 396/459  of 545
+dev3 256 int8, centroid                 model 142/178  blend .5 175/213  of 298

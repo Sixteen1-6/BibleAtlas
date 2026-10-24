@@ -1,18 +1,18 @@
-// The panel behind the "Christian writers" line. Until the reader chooses to
-// see them, it says who wrote about the verse and what these notes are, with
-// one button to show them. Then each writer's own words, oldest first, long
-// ones folded, with places elsewhere to read more on the verse, and a button
-// to hide them again. Never presented as the app's own claim, or as Scripture.
+// The panel behind the "Christian writers" line: each writer's own words,
+// oldest first, long ones folded, with places elsewhere to read more on the
+// verse. It shows only once the reader has finished the commentary notice
+// (VerseExtras.tsx shows its closed state until then). Never presented as the
+// app's own claim, or as Scripture.
 
 import '../voices.css';
-import { Fragment } from 'preact';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Atlas } from '../../../data/atlas';
+import { CommentaryFoot } from '../../commentary/Gate';
 import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, type Item, type PartFile, type Run, type Text, WORKS, listWords, nameFrom, notesOn, partOf, voicesAllowed, worksOn } from './model';
+import { type Data, type Item, type PartFile, type Run, type Text, SOURCE, WORKS, nameFrom, notesOn, partOf } from './model';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -190,60 +190,15 @@ function Elsewhere({ a, verse }: { a: Atlas; verse: VerseRef }) {
   );
 }
 
-const SOURCES = (
-  <SourceNote>
-    Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s Concise Commentary and John Wesley’s Notes, from the CrossWire SWORD modules via Let’s Church.
-  </SourceNote>
-);
-
 export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
-  const allowed = voicesAllowed.value;
-  const file = useJson<PartFile>(a, allowed ? partOf(data, verse) : null);
+  const file = useJson<PartFile>(a, partOf(data, verse));
   const where = refName(a, verse);
-  const names = worksOn(data, verse).map((w) => WORKS[w].short);
-  // After the reader shows or hides the notes, focus goes to what replaced the button.
-  const moved = useRef(false);
-  const top = useRef<HTMLDivElement>(null);
-  const ask = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    if (!moved.current) return;
-    moved.current = false;
-    (allowed ? top.current : ask.current)?.focus();
-  }, [allowed]);
-  const choose = (show: boolean) => {
-    moved.current = true;
-    voicesAllowed.value = show;
-  };
-
-  if (!allowed) {
-    const who = listWords(names);
-    return (
-      <Fragment key="ask">
-        <Lead>
-          {who.charAt(0).toUpperCase() + who.slice(1)} wrote about {where}.
-        </Lead>
-        <p class="x-voices-p">
-          These are Christian writers of the past, in their own words. They wrote to help readers understand the Bible, but what they wrote is not Scripture, and they do not always agree with each other.
-        </p>
-        <p class="x-voices-ask">
-          <button type="button" class="x-voices-allow" ref={ask} onClick={() => choose(true)}>
-            Show what they wrote
-          </button>
-        </p>
-        <p class="x-voices-quiet">Your choice is remembered on this device. You can hide them again at the end of this panel.</p>
-        <Elsewhere a={a} verse={verse} />
-        {SOURCES}
-      </Fragment>
-    );
-  }
 
   if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
   const notes = file ? notesOn(file, verse) : [];
   return (
-    <Fragment key="shown">
-      <div ref={top} tabIndex={-1} class="x-voices-top">
-        <Lead>What Christian writers of the past wrote about {where}, in their own words. They are not Scripture, and they do not always agree.</Lead>
-      </div>
+    <>
+      <Lead>What Christian writers of the past wrote about {where}, in their own words. They are not Scripture, and they do not always agree.</Lead>
       {file === undefined ? (
         <p class="x-voices-p xt-wait">…</p>
       ) : (
@@ -276,12 +231,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           ['Verse numbers', 'The notes are placed by the King James Version’s verse numbers, which match the Berean Standard Bible’s almost everywhere.'],
         ]}
       />
-      <p class="x-voices-ask">
-        <button type="button" class="x-voices-hide" onClick={() => choose(false)}>
-          Hide writers’ notes
-        </button>
-      </p>
-      {SOURCES}
-    </Fragment>
+      <CommentaryFoot />
+      <SourceNote>{SOURCE}</SourceNote>
+    </>
   );
 }

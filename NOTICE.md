@@ -23,6 +23,7 @@ The repository does not contain Bible text or source data. `atlas fetch` downloa
 | Which Hebrew and Greek words come from which (each word's family in the word study, and the check behind the reviewed related words the Themes tab names for a verse, config/theme-related.json; only root numbers are kept, in web/public/data/forms/ and the `related` lists of themes.json, shared under the same license) | James Strong's Hebrew and Greek dictionaries (1890), in the JSON edition by Open Scriptures, github.com/openscriptures/strongs | Public domain (dictionaries); CC BY-SA (JSON edition) |
 | Word alignments to the BSB, with the WLC (Macula) and Berean Greek NT texts they are keyed to | Clear Bible / Biblica, github.com/Clear-Bible/Alignments | CC BY 4.0 (alignments); WLC and BSB public domain |
 | The Greek word the Septuagint uses for each Hebrew word, used to pair the words of New Testament quotations with the Hebrew they stand for | MACULA Hebrew Linguistic Datasets, Biblica, via github.com/Clear-Bible/macula-hebrew | CC BY 4.0 |
+| Which prepared question in Ask the Bible someone most likely means: a direction for each English word piece, so words that mean alike point alike (web/public/data/ask/model.bin keeps every piece's direction, each number rounded to one of 15 levels; it never chooses or writes the verses) | potion-base-8M by Minish Lab (Stephan Tulkens and Thomas van Dongen), huggingface.co/minishlab/potion-base-8M, copied unchanged to the mirror/potion-base-8M branch of this repository | MIT (see below) |
 | English Standard Version (optional) | Crossway, through the ESV API | Copyright Crossway; free non-commercial use under the API terms |
 | NET Bible (read live, never stored; its translators' notes are linked, not shown) | Biblical Studies Press, L.L.C., through its web service at labs.bible.org | Copyright Biblical Studies Press; quoted by permission in a free app, each quotation marked (NET) and linked to netbible.org |
 
@@ -93,3 +94,21 @@ The NET text and notes are never stored in this repository, in the build or in t
 Attribution: "Adapted from Tyndale Open Bible Dictionary. The original work by Tyndale House Publishers is available for free at http://www.tyndaleopenresources.com." Copyright (C) 2023 by Tyndale House Publishers.
 
 Changes: short quotations are taken word for word from the dictionary's articles; date labels are cut from those quotations; years are read from the labels and from the charts "Significant Old Testament Events and Dates" and "Significant New Testament Events and Dates"; the chart's reference for Abraham's birth is corrected from Gn 26:5 to Gen 21:5; chapters are assigned to the dictionary's eras by hand in config/eras.json, each assignment backed by a quotation or by a row of the chart "Books of Postexilic Times"; where the dictionary dates parts of a book separately, each dating view is tied by hand to the chapters it is about. config/eras.json, which holds the quotations, and the eras.json built from it are adaptations of the dictionary and are shared under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Unlike the other sources, these quotations are stored in this repository. The rest of this project keeps its own license.
+
+## The word-meaning model (potion-base-8M)
+
+Ask the Bible uses potion-base-8M, a Model2Vec model by Minish Lab, only to tell which prepared question someone means. Hugging Face is not reachable from where the data is built, so `.github/workflows/mirror-meaning-model.yml` copies its files unchanged from revision bf8b056651a2c21b8d2565580b8569da283cab23 to the `mirror/potion-base-8M` branch, checking each against the SHA-256 Hugging Face lists for it. The build (`web/scripts/ask-meaning.mjs`) keeps the vector of every one of its 29,528 word pieces, each number rounded to one of 15 levels of that piece's own scale, and writes them to web/public/data/ask/model.bin.
+
+How it was made, as its model card and training-set card say: Minish Lab distilled it from BAAI's bge-base-en-v1.5 (MIT License; Shitao Xiao, Zheng Liu, Peitian Zhang and Niklas Muennighoff, "C-Pack: Packaged Resources To Advance General Chinese Embedding", 2023), using the training set minishlab/tokenlearn-c4-en-bge-base-v1.5: 10 million passages from the train split of AllenAI's C4 web corpus (allenai/c4, released under ODC-BY and bound by Common Crawl's terms of use), each with bge-base-en-v1.5's vector for it. That training set's card names no license of its own. Nothing of bge-base-en-v1.5 or of the training text is used or shipped here, only potion-base-8M's own vectors.
+
+Its model card gives its license as MIT. The license text, as in Minish Lab's model2vec repository:
+
+> MIT License
+>
+> Copyright (c) 2024 Thomas van Dongen
+>
+> Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+>
+> The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+>
+> THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

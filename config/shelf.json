@@ -3,7 +3,7 @@
     "The Sources shelf: every work the app draws on or cites, one card each, so anyone can see what a source is, who made it, when, its license, and where to read or find it. atlas build reads this file (crates/atlas-cli/src/shelf.rs) with sources.json, the sources config/aramaic.json cites and the sites the questions in config/hard-verses.json link to (shown at Deep), and writes shelf.json for the Sources tab.",
     "groups: the shelves, in the order shown. id: lowercase letters and hyphens, named by a work's group. name: the plain heading.",
     "works: one card per work. id: unique, lowercase letters, digits and hyphens; a work that is a dataset uses its sources.json id. group: a groups id. plain: what the Simple level shows, the kind of work and when, in words anyone understands (48 characters at most), such as \"Bible dictionary, 1897\", or for a book or article what it is about, such as \"Article on the word Abba, 1988\". title. by: who wrote or made it. when: as shown, such as \"1897\" or \"around AD 200\". what: one or two plain, modest sentences (240 characters at most).",
-    "license: public-domain, cc-by-4.0, cc-by-sa-4.0 or copyrighted; licenseNote (optional) says more, such as a dataset's license beside its text's. The app ships only public domain, CC BY 4.0 and CC BY-SA 4.0 material. A copyrighted work is cited and linked, never quoted at length or stored.",
+    "license: public-domain, cc-by-4.0, cc-by-sa-4.0, mit or copyrighted; licenseNote (optional) says more, such as a dataset's license beside its text's. The app ships only public domain, CC BY 4.0 and CC BY-SA 4.0 material, and the MIT-licensed word-meaning model Ask the Bible uses to tell which prepared question someone means. A copyrighted work is cited and linked, never quoted at length or stored.",
     "datasets: the sources.json ids whose pinned files are this work; [] for a work the app only cites. Each sources.json id belongs to exactly one work. A dataset no work claims still gets a plain card made from sources.json, with a build warning.",
     "read: where to read the whole work free, either {\"app\": \"bible\"} or {\"app\": \"dictionary\"} inside the app, or {\"url\", \"label\"} for a free full copy of that very work, checked by opening it. Never for a copyrighted work. find: {\"url\", \"label\"}, a link for the citation: https://doi.org/ and the DOI when there is one, else a publisher or library catalog page, else a WorldCat search. Required for a copyrighted work. Links are https only.",
     "citation: the full bibliographic citation, shown at Deep. cites: parts of the source strings the app shows (config/aramaic.json sources, and the site of each read_more link in config/hard-verses.json) that name this work, each found where a word starts (\"Bible.org\" is not found in \"STEPBible.org\"). The build records where the app cites each work and warns about any source string no work matches. Keep each one long enough to match only this work's strings; plain ASCII is safest. onlyWhenCited: true for a work shown only while the app cites it, such as a website that only the hard passages at Deep and the \"Often asked\" answers link to. It needs cites and no datasets.",
@@ -21,7 +21,8 @@
     {"id": "ancient", "name": "Other ancient writings"},
     {"id": "scholars", "name": "Books and articles by scholars"},
     {"id": "answers", "name": "Websites that answer hard passages"},
-    {"id": "elsewhere", "name": "Websites to read more on a verse"}
+    {"id": "elsewhere", "name": "Websites to read more on a verse"},
+    {"id": "tools", "name": "Tools the app uses"}
   ],
   "works": [
     {
@@ -847,6 +848,20 @@
       "datasets": [],
       "find": {"url": "https://biblehub.com/", "label": "biblehub.com"},
       "citation": "Bible Hub. Online Parallel Bible Project, 2004–. https://biblehub.com/."
+    },
+    {
+      "id": "potion-base-8m",
+      "group": "tools",
+      "plain": "Word-meaning model, 2024",
+      "title": "potion-base-8M (Model2Vec)",
+      "by": "Minish Lab: Stephan Tulkens and Thomas van Dongen",
+      "when": "2024",
+      "what": "A small model that gives each English word piece a direction, so words that mean alike point alike. Ask the Bible uses it only to tell which prepared question someone means; every answer is still the Bible's own verses.",
+      "license": "mit",
+      "licenseNote": "MIT License, as its model card states. The app keeps every word piece's vector, each number rounded to one of 15 levels. Minish Lab distilled it from BAAI's bge-base-en-v1.5 (MIT) with passages of the C4 web corpus (ODC-BY); no text of either is used here.",
+      "datasets": ["potion-base-8m"],
+      "find": {"url": "https://huggingface.co/minishlab/potion-base-8M", "label": "the model (Hugging Face)"},
+      "citation": "Stephan Tulkens and Thomas van Dongen, Model2Vec: Fast State-of-the-Art Static Embeddings (Minish Lab, 2024), https://doi.org/10.5281/zenodo.17270888; model potion-base-8M, https://huggingface.co/minishlab/potion-base-8M (revision bf8b056651a2c21b8d2565580b8569da283cab23, copied from Hugging Face on 20 October 2026), MIT License."
     }
   ]
 }

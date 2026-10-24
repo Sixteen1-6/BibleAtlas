@@ -5,14 +5,22 @@
 // each prepared question, over the same words the router reads (./words). The
 // examples closest to what was typed have an equal say: "he left me for his
 // secretary" is nearest to things people say of a spouse who cheated.
+//
+// When the build had the word-meaning model (potion-base-8M, see
+// web/scripts/ask-meaning.mjs), the texts it finds closest in meaning have as
+// much say as those two together, though they may share no word with what
+// was typed: "my mom passed in her sleep" is near "my mother died".
 
 import type { Atlas } from '../../data/atlas';
-import { loadJson } from '../extras/data';
+import { loadBytes, loadJson } from '../extras/data';
 import type { AskIndex, Question } from './ask';
+import { type ModelFile, embed, nearestTexts, pieces, readModelFile } from './pieces';
 import { terms } from './words';
 
 interface Meaning {
   format: 2;
+  /** The trainer's key (web/scripts/ask-meaning.mjs). */
+  key: string;
   /** The fingerprint of the question ids the weights were learned for. */
   ids: string;
   scale: number;
@@ -33,24 +41,70 @@ export const NEAR = { k: 20, power: 4, share: 0.5 };
 /** The training texts as weighted words: for each word, the texts holding it
  * and its weight in each (rarer words weigh more; each text's weights have
  * length 1). */
-interface Texts {
+interface Words {
   of: Int32Array;
   idf: Map<string, number>;
   holding: Map<string, [number, number][]>;
 }
 
+type Model = ModelFile;
+
+/** How the model's texts count: how many are compared in full (those whose
+ * codes are nearest), how many of the closest have a say, how much closeness
+ * counts (a power), and their share beside the words. Comparing 1,000 rather
+ * than 300 made the model's own first pick right for 783 of 1,493 labelled
+ * messages rather than 766, for about 8 ms more a question. */
+export const MODEL = { rerank: 1000, k: 20, power: 8, share: 0.5 };
+
 let meaning: Meaning | null = null;
-let near: Texts | null = null;
+let near: Words | null = null;
+let model: Model | null = null;
 
-/** Loads the weights, with the first question typed. */
+/** The trainer's key, which vite.config.ts reads from ask/meaning.json as the
+ * site is built. Both files carry it in their address, so a deploy that
+ * retrains the matcher without changing the data build is never served the
+ * old weights from a cache that keys data by the build id alone. */
+const KEY = __ASK_KEY__ ? `?k=${__ASK_KEY__}` : '';
+
+/** How long the first answer waits for the model once the weights are in,
+ * in milliseconds. On a slow line it answers by the words alone, and the
+ * model joins in for the questions after, once it has come. */
+export const MODEL_WAIT = 4000;
+
+let loading: { a: Atlas; p: Promise<Meaning> } | null = null;
+
+/** Loads the weights, and the model when the build wrote it, with the first
+ * question typed. */
 export function loadMeaning(a: Atlas): Promise<Meaning> {
-  return loadJson<Meaning>(a, 'ask/meaning.json').then((m) => {
+  if (loading?.a === a) return loading.p;
+  const words = loadJson<Meaning>(a, `ask/meaning.json${KEY}`);
+  const meant = loadBytes(a, `ask/model.bin${KEY}`)
+    .then(readModelFile)
+    .catch((e) => {
+      if (import.meta.env.DEV) console.warn('Ask: the word-meaning model did not load;', e);
+      return null;
+    });
+  const p = words.then((m) => {
     near = null;
-    return (meaning = m);
+    last = null;
+    meaning = m;
+    model = null;
+    void meant.then((mm) => {
+      // A model trained beside other weights would not fit them.
+      if (!mm || mm.key !== m.key || meaning !== m) return;
+      model = mm;
+      last = null;
+    });
+    return Promise.race([meant, new Promise((done) => setTimeout(done, MODEL_WAIT))]).then(() => m);
   });
+  const entry = { a, p };
+  loading = entry;
+  p.catch(() => {
+    if (loading === entry) loading = null;
+  });
+  return p;
 }
-
-function index(m: Meaning): Texts {
+function index(m: Meaning): Words {
   const of: number[] = [];
   const rows: string[][] = [];
   m.texts.rows.forEach((r, c) => {
@@ -96,6 +150,23 @@ function closest(m: Meaning, words: Set<string>, n: number): Float64Array {
   return z;
 }
 
+/** How much each question's texts the model finds closest to `text` resemble
+ * it, summing to 1; null when the model knows none of its pieces. */
+function closestMeant(mm: Model, text: string, n: number): Float64Array | null {
+  const vec = embed(mm.texts.v, pieces(mm.vocab, text, mm.unk));
+  if (!vec) return null;
+  const z = new Float64Array(n);
+  let sum = 0;
+  for (const [t, s] of nearestTexts(mm.texts, vec, MODEL.k, MODEL.rerank)) {
+    const v = Math.max(0, s) ** MODEL.power;
+    z[mm.of[t]] += v;
+    sum += v;
+  }
+  if (!sum) return null;
+  for (let k = 0; k < n; k++) z[k] /= sum;
+  return z;
+}
+
 /** FNV-1a over the ids, one per line, as the build writes it. */
 function idsHash(ids: string[]): string {
   let h = 0x811c9dc5;
@@ -106,7 +177,7 @@ function idsHash(ids: string[]): string {
   return h.toString(16);
 }
 
-let fits: { ix: AskIndex; m: Meaning; ok: boolean } | null = null;
+let fits: { ix: AskIndex; m: Meaning; mm: Model | null; ok: boolean; modelOk: boolean } | null = null;
 
 export interface Sense {
   q: Question;
@@ -114,22 +185,37 @@ export interface Sense {
   p: number;
 }
 
+/** What weighing a text found: each question's likelihood, and whether the
+ * model's closest texts had their say. */
+interface Weighed {
+  z: Float64Array;
+  meant: boolean;
+}
+
 /** The last text weighed: a question is weighed several times as it is routed and gathered. */
-let last: { ix: AskIndex; m: Meaning; text: string; z: Float64Array | null } | null = null;
+let last: { ix: AskIndex; m: Meaning; mm: Model | null; text: string; w: Weighed | null } | null = null;
 
 /** How likely each prepared question is what `text` means, by its place in
  * the index; null before the weights load, or when none of its words is known. */
-function likelihoods(ix: AskIndex, text: string): Float64Array | null {
+function likelihoods(ix: AskIndex, text: string): Weighed | null {
   const m = meaning;
   if (!m) return null;
-  if (last?.ix === ix && last.m === m && last.text === text) return last.z;
-  const z = weigh(ix, m, text);
-  last = { ix, m, text, z };
-  return z;
+  if (last?.ix === ix && last.m === m && last.mm === model && last.text === text) return last.w;
+  const w = weigh(ix, m, model, text);
+  last = { ix, m, mm: model, text, w };
+  return w;
 }
 
-function weigh(ix: AskIndex, m: Meaning, text: string): Float64Array | null {
-  if (fits?.ix !== ix || fits.m !== m) fits = { ix, m, ok: m.ids === idsHash(ix.questions.map((q) => q.id)) };
+/** Whether the word-meaning model had a say in how `text` was weighed (it
+ * loaded, its texts belong to these questions, and it knows some of the
+ * text's pieces), so the likelihoods are the blend MEANT.model was set for. */
+export const usesModel = (ix: AskIndex, text: string): boolean => likelihoods(ix, text)?.meant ?? false;
+
+function weigh(ix: AskIndex, m: Meaning, mm: Model | null, text: string): Weighed | null {
+  if (fits?.ix !== ix || fits.m !== m || fits.mm !== mm) {
+    const ids = idsHash(ix.questions.map((q) => q.id));
+    fits = { ix, m, mm, ok: m.ids === ids, modelOk: mm?.ids === ids };
+  }
   // Weights learned for another list of questions would point to the wrong ones.
   if (!fits.ok) return null;
   const z = new Float64Array(ix.questions.length);
@@ -147,13 +233,15 @@ function weigh(ix: AskIndex, m: Meaning, text: string): Float64Array | null {
   for (let k = 0; k < z.length; k++) sum += z[k] = Math.exp(z[k] - max);
   const c = closest(m, words, z.length);
   for (let k = 0; k < z.length; k++) z[k] = (1 - NEAR.share) * (z[k] / sum) + NEAR.share * c[k];
-  return z;
+  const meant = mm && fits.modelOk ? closestMeant(mm, text, z.length) : null;
+  if (meant) for (let k = 0; k < z.length; k++) z[k] = (1 - MODEL.share) * z[k] + MODEL.share * meant[k];
+  return { z, meant: meant !== null };
 }
 
 /** The prepared questions `text` most likely means, likeliest first; none
  * before the weights load, or when none of its words is known. */
 export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
-  const z = likelihoods(ix, text);
+  const z = likelihoods(ix, text)?.z;
   if (!z) return [];
   return [...z.keys()]
     .sort((x, y) => z[y] - z[x])
@@ -163,7 +251,7 @@ export function meanings(ix: AskIndex, text: string, limit = 3): Sense[] {
 
 /** How likely `text` means question `q`; null when the matcher cannot tell. */
 export function likelihood(ix: AskIndex, text: string, q: Question): number | null {
-  const z = likelihoods(ix, text);
+  const z = likelihoods(ix, text)?.z;
   const k = ix.questions.indexOf(q);
   return z && k >= 0 ? z[k] : null;
 }
