@@ -17,6 +17,7 @@ import { ASKS } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
 import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
+import { OMITTED } from './common';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
   let c = 'w';
@@ -222,7 +223,7 @@ export function Reader({ a }: { a: Atlas }) {
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : ''}</span>}
+                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
