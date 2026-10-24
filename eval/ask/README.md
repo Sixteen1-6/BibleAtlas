@@ -15,8 +15,8 @@ Where a message quotes a Bible saying word for word, the wording is the KJV's or
 - A blind set is used for one yes or no only. Main and the branch run it on the same day. The verses both versions show are mixed into batches with no mark of which version showed which. The verses are judged once, then scored.
 - Once its verdicts have been read, a blind set is seen. After that it may be used for tuning, never for a claim.
 - Only PR #34 reused a blind set (`set97-270`, from PR #32).
-- **Every set in this folder is now seen.** The blind sets, in order: `heldout-120` (PR #28), `set3-149` (PR #29), `set4-150` (PR #31 work, not reported in the PR), `set6-150` (PR #31), `set97-270` (PR #32 and #34), `blind-269` (PR #40), `blind-fresh-299` (PR #41), `blind-fresh9-300` (PR #43), `blind-fresh10-305` (r9) and `blind-fresh11-312` (r11, the newest).
-- The next yes or no needs a fresh set. It must avoid every line of `sets/seen12-5374.txt`, every example in `config/ask-examples.json` and every phrasing in `config/questions.json`. `scripts/pr34/prep.py` does that check (the steps are under "A blind yes or no" below).
+- **Every set in this folder is now seen.** The blind sets, in order: `heldout-120` (PR #28), `set3-149` (PR #29), `set4-150` (PR #31 work, not reported in the PR), `set6-150` (PR #31), `set97-270` (PR #32 and #34), `blind-269` (PR #40), `blind-fresh-299` (PR #41), `blind-fresh9-300` (PR #43), `blind-fresh10-305` (r9), `blind-fresh11-312` (r11) and `blind-fresh12-769` (r12, the newest; 529 of its messages gather on `main`, and only those were judged).
+- The next yes or no needs a fresh set. It must avoid every line of `sets/seen13-6145.txt`, every example in `config/ask-examples.json` and every phrasing in `config/questions.json`. `scripts/pr34/prep.py` does that check (the steps are under "A blind yes or no" below).
 - Some sets became training examples. On `main` at `b466ab6`, and still at `f5a0f44`, `config/ask-examples.json` holds, word for word, 1,043 of the 1,096 pool messages, 85 of `blind-fresh-299`, 82 of `crazy-177`, 66 of `dev-268`, 11 of `heldout-120`, 7 of `heldout2-149`, 5 of `set3-149`, and 1 each of `blind-269`, `set4-150`, `set5-225` and `set9-120` (so 89 of `dev-682`, 66 of `devq-813` and 1 of `set97-270`). It holds none of `set6-150`, `set7-150`, `dev2-545`, `dev4-594`, `blind-fresh9-300`, `blind-fresh10-305` or `blind-fresh11-312`.
 
 ## Words used here
@@ -30,7 +30,8 @@ Where a message quotes a Bible saying word for word, the wording is the KJV's or
 - **r9**: the word-meaning model (potion-base-8M) work from commit `16d39f7` on branch `claude/ask-the-bible-u6macl`. Its model tuning was done in a folder called r8, so both names appear in the scripts.
 - **r10**: the review fixes on the same branch: `0ecdeb5` (every word piece's vector kept, in 4 bits) and `7d1c403` (the model compares 1,000 texts in full, not 300).
 - **r11**: the blind round of the branch at `7d1c403` against `main` at `b466ab6`, on `blind-fresh11-312`, run on 2026-10-21.
-- None of r9, r10 or r11 was merged when this folder was last brought up to date.
+- r9, r10 and r11 were merged together as PR #59 on 2026-10-22.
+- **r12**: the gathering round on branch `claude/ask-the-bible-u6macl` after PR #60, on 2026-10-24: a question that cites a verse shows it first, then the chapter it names, and FIT orders the gathered verses of every other question. Tuned on the 2,844 dev messages (`dev12-2844`), judged blind on `blind-fresh12-769` against `main` at `a855d07` the same day.
 
 ## Layout
 
@@ -73,6 +74,12 @@ Counts are messages unless they say otherwise. "Each" means every file in the ro
 | `sets/dev4-594.json` | Dev messages with kind, voice and angle fields (`scripts/r9/fresh10.js`). Labels are in `labels/r9/`. | r9 dev, r10 | 594 |
 | `sets/blind-fresh10-305.json` | Never-seen set with kind, voice and angle fields (`fresh10.js`: 900 written, 594 kept as dev4 and 305 as this set) | r9 blind | 305 |
 | `sets/blind-fresh11-312.json` | Never-seen set with kind, voice and angle fields (`scripts/r11/fresh11.js`) | r11 blind | 312 |
+| `sets/dev12-2844.json` | Every earlier message with verdicts for gathered verses, as tuning messages: FIT was fitted on their judged verses | r12 | 2,844 |
+| `sets/dev12-live-1172.json` | The dev12 messages that gather on `main` (no prepared answer opens) | r12 | 1,172 |
+| `sets/dev12-400.json` | 400 of dev12-live, on which the five switches were tried | r12 | 400 |
+| `sets/dev12-named-237.json` | The dev12 messages that name a book (237; 44 of them cite a verse) | r12 | 237 |
+| `sets/blind-fresh12-769.json` | Never-seen set with kind, voice and angle fields (`scripts/r12/fresh12.js`, 12 writers, one failed; 770 written, one dropped as a near repeat). One message quoted Romans 16:22 in a modern translation's words; it was changed to the BSB's words ("i, tertius, who wrote down this letter, greet you") in every file that carries it, before this folder was written. | r12 blind | 769 |
+| `sets/seen13-6145.txt` | seen12 with blind-fresh12's 769 messages and 2 messages typed while checking the page in a browser | r12 | 6,145 lines |
 | `sets/seen12-5374.txt` | Every message of every set in this folder (5,370) and 4 messages typed while checking the page in a browser, sorted, one per line, so a new set repeats none. It was made here and replaces `seen11-4615.txt`, the r9 list (`fresh11.js` was given it with the same 4 extra lines), which left out crazy-177, set7-150 and set9-120. | r11 | 5,374 lines |
 
 Kind, voice and angle, in `dev4-594`, `blind-fresh10-305` and `blind-fresh11-312` (kind alone in `blind-fresh9-300`):
@@ -162,6 +169,13 @@ Kind, voice and angle, in `dev4-594`, `blind-fresh10-305` and `blind-fresh11-312
 | `verdicts/r11/blind-fresh11-312-verdicts.json`, `blind-fresh11-312-batches/batch-1.json` to `batch-8.json` | Blind, first 6 shown of base and branch (`judge10.js`). One of the 2,547 pairs in the batches has no verdict. | r11 | 312; 2,546 verdicts (468 answers, 1,027 related, 1,051 off) |
 | `verdicts/r11/blind-fresh11-312-base.json`, `blind-fresh11-312-new.json` | Main `b466ab6` and the branch at `7d1c403` | r11 | 312 each |
 | `verdicts/r11/blind-fresh11-312-diff-48.json`, `-diff-rt-base.json`, `-diff-rt-new.json` | The messages where what opens differs (24 open a prepared answer only on main, 22 only on the branch, 2 open different answers), and the router view of each side for them (`rt10.cjs`) | r11 | 48 each |
+| `verdicts/r12/dev1-verdicts.json` to `dev4-verdicts.json`, `dev1-batches/` to `dev4-batches/` | The dev rounds of r12, each judging only verses not judged before (`scripts/r12/judge12.js`): 1, the verses the five switches showed on dev12-400; 2, those three cross-validated FIT orders showed on dev12-live; 3, those the cited-verse change showed on dev12-named; 4, those the refitted orders, `main` and `main` on dev12-named showed | r12 | 1,971, 2,987, 813 and 1,442 verdicts |
+| `verdicts/r12/dev12-400-base.json`, `-vshow3`, `-verse2s3`, `-links2`, `-wider3`, `-words`, `-combo` | dev12-400 gathered (`run12.cjs` with `LIVEONLY=1`) by the switches of commit `536db45`: none, `{"verseShow": 3}`, `{"verse": 2, "verseShow": 3}`, `{"links": 2}`, `{"wider": 3}`, `{"words": 1}`, `{"verseShow": 3, "links": 1, "wider": 3, "words": 1}`. Scored with every verse judged (`score12.py`), none beat the base. | r12 | 400 each |
+| `verdicts/r12/dev12-named-237-main.json`, `-cite.json`, `-final.json` | dev12-named gathered by `main`, by the cited-verse change alone, and by the final branch | r12 | 237 each |
+| `verdicts/r12/dev12-live-1172-final.json.gz` | dev12-live gathered by the final branch. It orders all 1,114 that name no book exactly as `fit12c.py` predicts from the traces. | r12 | 1,172 |
+| `verdicts/r12/fit-rows-31904.json.gz`, `fit-weights.json` | Every judged verse among the 80 best found and SHOW's verses of the dev12 messages, with its 30 inputs as FIT reads them (`fitrows12.py` refits the weights from it), and the weights in `gather.ts` | r12 | 31,904 rows |
+| `verdicts/r12/blind-fresh12-529-verdicts.json`, `blind-fresh12-529-batches/batch-1.json` to `batch-24.json` | Blind, the first 6 shown by `main` and the branch mixed (`judge12.js` with `{"n": 24}`) | r12 | 529; 4,385 verdicts (732 answers, 1,713 related, 1,940 off) |
+| `verdicts/r12/blind-fresh12-529-base.json`, `-new.json`, `blind-fresh12-769-main-all.json`, `-branch-all.json` | `main` at `a855d07` and the branch, on the 529 that gather and on the whole set (where the same 239 open a prepared answer and 1 the help page on both) | r12 | 529 and 769 each |
 
 ### scripts/
 
@@ -225,6 +239,10 @@ Kind, voice and angle, in `dev4-594`, `blind-fresh10-305` and `blind-fresh11-312
 | `scripts/r10/score10b.py`, `rt10.log`, `rt1000.log` | `score10.py` with the 4-bit run added; the routed counts of the two sets of router views | r10 |
 | `scripts/r11/fresh11.js` | Writer Workflow (`ask-fresh-questions-11`) for blind-fresh11-312: six writers, 52 messages each | r11 |
 | `scripts/r11/score11.py` | The blind-fresh11 scorer: `score10.py` with the r11 names, and how many differing messages each side won | r11 |
+| `scripts/r12/run12.cjs`, `trace12.cjs`, `runvars.sh` | `run2.cjs` with gather's switches (`MORE`, JSON) and `LIVEONLY=1` to gather every message; the same that also records what FIT weighs for each verse (`TRACE=1`); several switches 3 at a time | r12 |
+| `scripts/r12/cache.py`, `score12.py`, `batch12.py`, `judge12.js` | Every verdict of every round in one cache (majority, ties to the lower verdict); a run's first 6 scored from it; blind batches of the first 6 not yet judged; the judging Workflow (`{"dir", "n", "tools"}`) | r12 |
+| `scripts/r12/fit12.py`, `fit12b.py`, `fit12c.py`, `fitfinal.py`, `fitrows12.py` | Traces joined to the cache; FIT's two logistic fits with 5-fold cross-validation by message (`fit12c.py` holds the 30 inputs); the final fit; the same from `fit-rows-31904.json.gz` alone | r12 |
+| `scripts/r12/fresh12.js`, `blind12.py`, `copy12.py` | Writer Workflow (`ask-fresh-questions-12`) for blind-fresh12; the blind scorer; the copy into this folder | r12 |
 | `scripts/tools/verse.py`, `bible.py`, `find.py`, `naves.py` | Print the BSB text of references; find BSB verses by word; look up Nave's Topical Bible subjects (from the pinned `bible-data` copy that `make data` fetches). The judging Workflows call them. | PR #28 to r11 |
 | `scripts/tools/workdir.py` | Rebuilds the working folder the scripts were written in (next section) | none |
 
@@ -319,6 +337,7 @@ From `docs/handoff/map-ask.md` section 4 and the notes kept with these files. "A
 | r10, not merged | 1,493 labelled messages with a fitting answer (530 dev2, 295 blind-fresh, 668 dev4 and blind-fresh9) | 4 bits for every piece: the model's own first pick right for 785, against 773 with full 32-bit vectors (`bench.log`); rerank 1,000: first pick 766 to 783, top three 929 to 952 (`rerank.log`); routing at 0.25 (`pol10.py`), rerank 300 to 1,000: dev2 364 right and 19 wrong both times (408 and 409 opens), blind-fresh 154 to 156 right and 4 to 3 wrong, dev4 and blind-fresh9 202 to 207 right and 46 to 43 wrong |
 | r11, not merged | blind-fresh11, 312 never-seen, blind, main `b466ab6` against the branch at `7d1c403` the same day | answered 163 to 164 of 312, off 737 of 1,871 to 683 of 1,869, answering verses 365 to 386; routed 113 to 111 (off 23% to 24%), gathered 199 to 201 (off 48% to 44%); of the messages where the two differ, the branch did better on 88 and main on 55 |
 | r11 dev, not merged | The three labelled dev lists (545 dev2, 298 blind-fresh, 894 dev4 and blind-fresh9; seen, so tuning only), main `b466ab6` against the branch at `f5a0f44` on 2026-10-22 (`pol10.py`, `HM=0.25`) | right opens 308 to 363, 141 to 156 and 189 to 207 (638 to 726 in all); wrong opens 15 to 19, 8 to 3 and 70 to 42 (93 to 64); opens 343 to 408, 177 to 177 and 330 to 320; the matcher's first pick fits 390 to 422, 171 to 183 and 281 to 318 |
+| r12 | blind-fresh12, 769 never-seen messages, 529 of which gather; blind, `main` `a855d07` against the branch the same day (2026-10-24) | of the 529: answered 242 to 254, answering verses 531 to 605, off 1,443 to 1,274 of 3,174 (45.5% to 40.1%); the branch had more answering verses on 96 and fewer on 61, fewer off on 177 and more on 97. On the 1,172 dev12-live messages (tuning, every verse judged, FIT cross-validated): answered 690 to 711, off 2,528 to 2,342 |
 
 Notes on the rounds:
 
