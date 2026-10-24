@@ -9,6 +9,8 @@ Prints each problem as "<note id>: <problem>" and exits 1 when there is any. A n
 ref (the build takes it from the file name, config/figures/<OSIS>.json).
 """
 import json, os, re, sys, unicodedata
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import byw
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WP = os.path.dirname(HERE)
@@ -24,7 +26,8 @@ CREDITS = ['drafted with', 'not yet reviewed by a person', 'ai drafted', 'ai ass
 WRITERS = ['Henry', 'Gill', 'Barnes', 'Jamieson', 'Fausset', 'Keil', 'Delitzsch', 'Ellicott', 'Benson', 'Poole',
            'Calvin', 'Clarke', 'Wesley', 'Bengel', 'Maclaren', 'Spurgeon', 'Chrysostom', 'Edersheim', 'Bullinger',
            'Beale', 'Woudstra', 'Leithart', 'Keener', 'Easton', "Strong's", 'Augustine', 'Jerome', 'Irenaeus',
-           'Origen', 'Aquinas', 'Luther']
+           'Origen', 'Aquinas', 'Luther', 'Justin', 'JFB', 'Gospel Coalition', 'Tyndale', 'Ligonier', 'Murphy',
+           'Spence', 'Exell']
 SHORT_MAX, TEXT_MAX, EVIDENCE_MAX, QUOTE_MAX, LABEL_MAX, MEANS_MAX, AT_MAX, READ_MAX = 52, 300, 400, 400, 40, 160, 120, 200
 QUOTE_MIN_WORDS = 4
 
@@ -262,6 +265,25 @@ def credit(s):
     return next((p for p in CREDITS if f' {p} ' in run), None)
 
 
+def writer_named(s, names_):
+    s = s.replace('\u2019', "'")
+    lower = s.lower()
+    return next((n for n in names_ if (names_word(lower, n.lower()) if ' ' in n else names_word(s, n))), None)
+
+
+def language_missing(note, strong, osis):
+    note = (note or '').replace('\u2019', "'")
+    if any(x.startswith('H') for x in strong) and 'Hebrew' not in note and 'Aramaic' not in note:
+        return 'In Hebrew'
+    if any(x.startswith('G') for x in strong):
+        w = {'Matt': 'Matthew', 'Mark': 'Mark', 'Luke': 'Luke', 'John': 'John'}.get(osis)
+        if w and f"{w}'s Greek" not in note:
+            return f"In {w}'s Greek"
+        if not w and 'Greek' not in note:
+            return 'In Greek'
+    return None
+
+
 def mentions_esv(s):
     return any(w.lower() == 'esv' for w in re.split(r'[^\w]|_', s))
 
@@ -283,7 +305,20 @@ for group in FORMS['same_writer']:
         WRITER[i] = group[0]
 QUOTABLE = set(FORMS['quotable'])
 FORM = {f['id']: f for f in FORMS['forms']}
-WRITER_NAMES = [(s['name'][4:] if s['name'].startswith('the ') else s['name']) for s in SOURCES['cite'] if s['id'] != 'bsb']
+WRITER_NAMES = [(s['name'][4:] if s['name'][:4].lower() == 'the ' else s['name']).replace('\u2019', "'") for s in SOURCES['cite'] if s['id'] != 'bsb']
+MULTI = set(FORMS.get('multi_writer', []))
+BOOK_INDEX = {b['name']: i for i, b in enumerate(BOOKS)}
+
+
+def _runs(books):
+    out = []
+    for x in books:
+        a, _, z = x.partition(' to ')
+        out.append((BOOK_INDEX[a], BOOK_INDEX[z or a]))
+    return out
+
+
+ONLY_ON = {k: _runs(v) for k, v in FORMS.get('only_on', {}).items()}
 WRITER_NAMES += WRITERS
 
 
@@ -316,6 +351,29 @@ class Check:
             self.fail(at, f'{field} has an em dash (house style)')
         self.clean(at, field, s)
 
+    def quoted(self, at, field, s, mx):
+        """A writer's own words, as the build checks them: present, short enough, no ESV, no credit to a drafting
+        tool. The avoid list is not scanned (it governs whom the app cites, not names in an old writer's words)."""
+        if not isinstance(s, str) or not s.strip():
+            self.fail(at, f'{field} is empty')
+            return
+        if len(s) > mx:
+            self.fail(at, f'{field} is {len(s)} characters; keep it to {mx}')
+        if mentions_esv(s):
+            self.fail(at, f'{field} mentions the ESV')
+        p = credit(s)
+        if p:
+            self.fail(at, f'{field} says {p!r}: no field credits a drafting tool')
+
+    def by(self, at, src, book, by, cite_at=None):
+        if by is not None:
+            self.text(at, 'by', by, AT_MAX)
+            want = byw.by(src, book, cite_at) if book else None
+            if src in MULTI and want and by != want:
+                self.fail(at, f'by {by!r} should be {want!r} (the writer of that volume)')
+        elif src in MULTI:
+            self.fail(at, f"{CITE.get(src, {}).get('name', src)} was written by several hands; name the writer of the quoted part in by (decision 10)")
+
     def dash(self, at, field, s):
         try:
             outside = re.sub(r'["\u201c][^"\u201d]*["\u201d]', '', s or '')
@@ -327,7 +385,7 @@ class Check:
     def own_words(self, at, field, s, mx):
         self.text(at, field, s, mx)
         self.dash(at, field, s)
-        n = next((n for n in WRITER_NAMES if isinstance(s, str) and names_word(s, n)), None)
+        n = writer_named(s, WRITER_NAMES) if isinstance(s, str) else None
         if n:
             self.fail(at, f"{field} names {n!r}; a note's own words name no writer, so say it in evidence")
 
@@ -498,6 +556,10 @@ class Check:
         if 'original' in n:
             o = n['original']
             self.own_words(at, 'original note', o.get('note'), TEXT_MAX)
+            if own:
+                want = language_missing(o.get('note'), o.get('strong') or [], BOOKS[locate(own[0])[0]]['osis'])
+                if want:
+                    self.fail(at, f'the original note must name its language, as {want!r}')
             if not o.get('strong'):
                 self.fail(at, 'original needs at least one root')
             for s in o.get('strong', []):
@@ -509,7 +571,12 @@ class Check:
                     self.fail(at, f'root {s} is not in the verses the note names')
         if 'defined' in n:
             d, dat = n['defined'], f'{at}, defined'
-            self.text(dat, 'defined quote', d.get('quote'), QUOTE_MAX)
+            self.quoted(dat, 'defined quote', d.get('quote'), QUOTE_MAX)
+            for k in d:
+                if k not in ('source', 'by', 'quote', 'at', 'read', 'retrieved'):
+                    self.fail(dat, f'unknown field {k!r}')
+            if d.get('source') in MULTI and not d.get('by'):
+                self.fail(dat, 'a work by several hands names the writer in by')
             self.text(dat, 'defined at', d.get('at'), AT_MAX)
             self.text(dat, 'read', d.get('read'), READ_MAX)
             if not date_ok(d.get('retrieved')):
@@ -524,13 +591,13 @@ class Check:
         for i, c in enumerate(cites):
             cat = f'{at}, cites[{i}]'
             for k in c:
-                if k not in ('source', 'on', 'at', 'quote', 'read', 'retrieved', 'found', 'context'):  # found, context: working fields, moved to the quote checks
+                if k not in ('source', 'by', 'on', 'at', 'quote', 'read', 'retrieved', 'found', 'context'):  # found, context: working fields, moved to the quote checks
                     self.fail(cat, f'unknown field {k!r}')
             src = c.get('source')
             if src in seen:
                 self.fail(cat, f'{src!r} is cited twice; quote it once')
             seen.add(src)
-            self.text(cat, 'quote', c.get('quote'), QUOTE_MAX)
+            self.quoted(cat, 'quote', c.get('quote'), QUOTE_MAX)
             if isinstance(c.get('quote'), str) and len(c['quote'].strip()) < 15:
                 self.fail(cat, 'quote is too short to show the writer saying it')
             self.text(cat, 'on', c.get('on'), AT_MAX)
@@ -554,9 +621,15 @@ class Check:
                 self.fail(cat, "Wesley's notes abridge Henry (Old Testament) and Bengel (New Testament): cite Henry or Bengel in his own words instead")
             if s['role'] == 'interpreter':
                 writers.add(WRITER.get(src, src))
+            self.by(cat, src, BOOKS[locate(on[0])[0]]['name'] if on else None, c.get('by'), c.get('at'))
             if on:
                 b, ch, v = locate(on[0])
                 book = BOOKS[b]['name']
+                if src in ONLY_ON and not any(f <= b <= l for f, l in ONLY_ON[src]):
+                    self.fail(cat, f"{s['name']} is quoted only on the books its named writer wrote (only_on), not on {book}")
+                why2 = byw.quotable_here(src, book, ch)
+                if why2:
+                    self.fail(cat, f'{src} is not quoted here: {why2}')
                 if book in s.get('not_on', []):
                     self.fail(cat, f"{s['name']} is not cited on {book}")
                 why = BARRED_BOOKS.get((src, book)) or BARRED_VERSES.get((src, book, ch, v))
@@ -615,6 +688,13 @@ def local_quote(src, on, quote):
     """True when found word for word in the local copy, False when the work is local and the quote is not there,
     None when the work has no local copy."""
     global _cq
+    if src in ('pulpit', 'ellicott', 'benson'):
+        import bmod
+        r = resolve(on)
+        if not r:
+            return False
+        b, c, v = locate(r[0])
+        return any(_in_order(_norm(u), quote) for u in bmod.units(src, b, c))
     work = LOCAL.get(src)
     if not work:
         return None
