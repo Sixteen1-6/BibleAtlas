@@ -1456,7 +1456,7 @@ p .godeeper {
 .layercredits a {
   color: var(--link);
 }
-.credit-writer {
+.layercredits .credit-writer {
   padding: 0;
   border: 0;
   background: none;

@@ -159,10 +159,20 @@ function shortRef(on: string, first: string): string {
  * link to read it there. Cites of one writer, work and date are one line. */
 function CreditLine({ g }: { g: Cite[] }) {
   const c = g[0];
+  // A link, not a button: a button wraps as one box, so a long name would
+  // push the bullet down and start the next words on a line of their own.
   const name = (
-    <button type="button" class="credit-writer" onClick={() => S.openSources(c.shelf)} title={`About ${c.work}, on the Sources shelf`}>
+    <a
+      class="credit-writer"
+      href={`#tab=sources&src=${c.shelf}`}
+      onClick={(e) => {
+        e.preventDefault();
+        S.openSources(c.shelf);
+      }}
+      title={`About ${c.work}, on the Sources shelf`}
+    >
       {c.named === 'unnamed' ? c.writer[0].toUpperCase() + c.writer.slice(1) : c.writer}
-    </button>
+    </a>
   );
   const about = c.about ? ` (${c.about})` : '';
   const ons = g.map((x) => x.on ?? '').filter(Boolean);
@@ -201,7 +211,7 @@ function CreditLine({ g }: { g: Cite[] }) {
             <span key={i}>
               {i > 0 && ', '}
               <a href={x.url} target="_blank" rel="noopener">
-                {shortRef(x.on ?? '', ons[0])} ›
+                {i === 0 ? x.on : shortRef(x.on ?? '', ons[0])} ›
               </a>
             </span>
           ))}

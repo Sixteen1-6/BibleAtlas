@@ -87,15 +87,32 @@ export interface WriterRow {
   site_says?: string;
   /** A writer the founder's rule drops: his words are no longer cited. */
   excluded?: boolean;
+  /** What `denies` leaves out of the part ("Psalm 86", "Ecclesiastes"), marked with decision 23(5)'s words. */
+  left_out?: string[];
+  /** Every book of the part is left out, so the notes cite none of its words now. */
+  left_out_all?: boolean;
   how: HowWeKnow | null;
 }
 
-/** The attribution evidence for a part (docs/evidence/credits-2026-10-21.json). */
+/** The attribution evidence for a part (docs/evidence/credits-2026-10-21.json),
+ * as the build gives it for that row only (crates/atlas-cli/src/layers.rs, shelf_works). */
 export interface HowWeKnow {
-  named_by: { scan?: string; page?: string; source?: string; leaf?: string; words: string };
-  matched?: { cites?: number; matched?: number; chapter_level?: number; method?: string; fetched?: string };
-  example?: { on: string; page: string; words: string; check: string; read?: string };
-  /** verse, chapter, volume, title page, site credit, byline or none. */
+  /** Where the writer is named: a scan or a page, the place on it as a bare
+   * noun, what that place belongs to when it is not the printed volume or the
+   * page, the words, the day they were read, and whether the words name the
+   * row's writer. No leaf: nothing names him. */
+  named_by: { scan?: string; page?: string; leaf?: string; of?: string; words: string; read?: string; names: boolean };
+  /** For a part checked one comment at a time: the comments the notes cite now
+   * from its books (each once, however many notes cite it), how many of them
+   * the check on `on` covered, how many it found in the printed book, and how
+   * many only as part of the whole chapter. */
+  count?: { comments: number; checked: number; found: number; chapter: number; on: string; of: 'book' | 'books' | 'chapters' };
+  /** For a part matched a volume or a chapter at a time: the day, and which
+   * printing when the writer is named in another. */
+  matched?: { on: string; of?: string };
+  /** One comment the notes cite now, on the part's own books; `words` and `check` are left out where the printed volume could not confirm the words. */
+  example?: { on: string; page: string; words?: string; check?: string; read?: string };
+  /** verse, chapter, volume, title page, attributed, site credit, byline or none. */
   level?: string;
   note?: string;
 }

@@ -6,7 +6,7 @@ Downloaded pages and results go in a cache folder, `cache/` beside these scripts
 
 ## When each citation was checked (`layers-checks-2026-10-11-to-17.json`)
 
-- `checks_from_git.py [REPO] [COMMIT]`: for every cite of `config/layers.json` at `COMMIT` (default `2aabdcc`), the first commit of the latest unbroken run in which the cite is present, mapped to its pull request through the first-parent merges of main. Run on `2aabdcc` it gives the file's 5,751 rows (PR #38 823, #39 1, #42 1,533, #44 3,373, #45 21). The file names the cites as `config/layers.json` gives them after the true-credits batch, which changed only the `at` of cites to works cited directly and removed 13 cites under decision 20; 11 of those had a row here, so the file now holds 5,740.
+- `checks_from_git.py [REPO] [COMMIT]`: for every cite of `config/layers.json` at `COMMIT` (default `2aabdcc`), the first commit of the latest unbroken run in which the cite is present, mapped to its pull request through the first-parent merges of main. Run on `2aabdcc` it gives the file's 5,751 rows (PR #38 823, #39 1, #42 1,533, #44 3,373, #45 21). The file names the cites as `config/layers.json` gave them on 2026-10-21, after the true-credits batch had changed the `at` of cites to works cited directly and removed 13 cites under decision 20; 11 of those had a row here, so the file holds 5,740. 18 of its rows name cites removed on 2026-10-24 (the `left_out` records of `docs/evidence/layers-reads-2026-10-24.json`; 3 of them are in `proverbs-1-27`, now in `docs/held/`); they match no live cite.
 
 ## Who wrote the words (`credits-2026-10-21.json`)
 

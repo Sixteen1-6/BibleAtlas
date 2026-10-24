@@ -3,7 +3,7 @@
     "Pages read on 2026-10-21 for the true-credits batch: one record per citation read. passage and note: the passage id and the 0-based index of the note in its layers list in config/layers.json; kind: the note's kind; source, on and at: the citation as config/layers.json gives it; url: the page the citation links to, fetched on the date and at the UTC time given, with the final URL, the HTTP status and the SHA-256 of the body received.",
     "status: \"confirmed\" (already cited, read again and found to state the point) or \"added\" (cited from this batch, as a further writer where a note lost one or where counting writers by person showed fewer than its label claims; read_for says which). left out: the reading behind a removal.",
     "quote: the writer's words as found on the page, only for public-domain writers; '...' joins parts that appear in that order on the page, and a bracketed verse such as [Genesis 32:31] marks a part under a neighbouring heading. Spelling and misprints are the page's own. pointer: for the NET Bible notes and for the Pulpit Commentary (Bible Hub's digital text says \"Copyright (c) 2001, 2003, 2005, 2006, 2010 by BibleSoft, inc.\"), where on the page the point is made, never its words.",
-    "verdict (founder's decision 20, 2026-10-21): whether the cited comment respects or denies Scripture, judged on its own words by the test of the spec's section 4.2 (an event Scripture reports as history called fiction or legend; a book or passage given to another writer or time than Scripture names; Scripture said to err; a book's place in Scripture questioned). Reporting another man's view in order to answer it is not a denial. The authorship, canon, error and myth word lists of the Voices build were run over each comment (and over the book's introduction when the link opens a chapter 1 page) to find what to read closely; decided says what they turned up. scripture_check names the group of spec section 4.4 a reading belongs to.",
+    "verdict (founder's decision 20, 2026-10-21): whether the cited comment respects or denies Scripture, judged on its own words by this test (an event Scripture reports as history called fiction or legend; a book or passage given to another writer or time than Scripture names; Scripture said to err; a book's place in Scripture questioned). Reporting another man's view in order to answer it is not a denial. The authorship, canon, error and myth word lists of the Voices build were run over each comment (and over the book's introduction when the link opens a chapter 1 page) to find what to read closely; decided says what they turned up. scripture_check names the group of readings it was read in (one writer, a writer on some chapters, or one book whose introductions were read first).",
     "fetched_again: the page fetched a second time later the same day, with its UTC time, HTTP status and SHA-256, and words_found: whether the record's quoted words were found again on it (null for a record that gives a pointer instead of words). Done for every \"denies\" reading, for the introduction behind A. S. Aglen's removal and for 1 in 5 of the \"respects\" readings. It confirms the words are there; each verdict was reached once, by reading.",
     "left_out records what decision 20 removed: A. S. Aglen's 12 citations (his introduction to Jonah, read again on this date, with its words) and one passage of F. W. Farrar's; set_aside lists passages set aside for want of a writer (none). A record above whose citation has since been removed matches no live citation, and the build counts it as such."
   ],
@@ -839,7 +839,7 @@
       "sha256": "a95ff23fa904db8cc3a1829867935a55e8cce07a6f9659ad4aeea735a435ac19",
       "status": "added",
       "read_for": "Counted by person, Wesley and the Concise Commentary are both Matthew Henry here, so the note had 2 writers; Thomas Whitelaw states the point.",
-      "pointer": "the comment on verse 25, its second sentence: Leah put in Rachel's place as divine retribution for the deceit Jacob practised on his father.",
+      "pointer": "the comment on verse 25, its second sentence, which reads Leah's substitution as God paying Jacob back for deceiving Isaac.",
       "verdict": "respects"
     },
     {
@@ -970,7 +970,7 @@
       "sha256": "55dd148c519f8c82284c1d4fe7ad9e1ffe46955020767190b9a7eca32aff851f",
       "status": "added",
       "read_for": "A. S. Aglen's cite was removed (decision 20); George Rawlinson states the point on bar and Proverbs 31:2.",
-      "pointer": "the comment on verse 12, Kiss the Son: a different word for son from verse 7's, shown to be Hebrew by Proverbs 31:2, where it occurs three times.",
+      "pointer": "the comment on verse 12, Kiss the Son: the word for son here (bar) is not the one in verse 7, and Proverbs 31:2, which uses it three times, shows it is Hebrew as well as Aramaic.",
       "verdict": "respects"
     },
     {
@@ -1021,7 +1021,7 @@
       "sha256": "47a864d58816ccd6d2ea2f87a1cd14d0976df63df19e4292edc2f522fa320dd0",
       "status": "added",
       "read_for": "A. S. Aglen's cite was removed (decision 20), leaving only Franz Delitzsch for \"commonly held\"; the Pulpit Commentary's Proverbs states the point.",
-      "pointer": "the comment on verse 5: every word of God is pure, as if refined in the fire, with Psalm 18:30 given beside it.",
+      "pointer": "the comment on verse 5, which says God's word is pure like metal tried in a furnace and gives Psalm 18:30 beside it.",
       "verdict": "respects"
     },
     {
@@ -1130,8 +1130,8 @@
       "status": "left out",
       "scripture_check": "F. W. Farrar",
       "verdict": "denies",
-      "words": "That they could not \"behold\" the face of Moses is the hagadah, or traditional legend, derived from Exodus 34:30",
-      "decided": "Test 1 of the spec's section 4.2: the comment calls a thing Paul states as fact (Israel could not look steadily at the face of Moses) a traditional legend. The cite is removed and listed in denies in config/layer-sources.json; Farrar's other cited comments were read and stay.",
+      "pointer": "his note on verse 7, where he calls the Israelites' not being able to look at Moses' face a legend handed down from Exodus 34:30 (the words, read on 2026-10-21, were taken out on 2026-10-24: Bible Hub's Pulpit text carries BibleSoft's copyright notice)",
+      "decided": "The first test of the verdict (an event Scripture reports as history called fiction or legend): the comment calls a thing Paul states as fact (Israel could not look steadily at the face of Moses) a traditional legend. The cite is removed and listed in denies in config/layer-sources.json; Farrar's other cited comments were read and stay.",
       "fetched_again": {
         "time": "2026-10-21T14:45:24Z",
         "http": 200,
@@ -1248,7 +1248,7 @@
         "source": "pulpit",
         "on": "2 Corinthians 3:7",
         "writer": "f-w-farrar",
-        "words": "That they could not \"behold\" the face of Moses is the hagadah, or traditional legend, derived from Exodus 34:30",
+        "pointer": "his note on verse 7, where he calls the Israelites' not being able to look at Moses' face a legend handed down from Exodus 34:30 (the words, read on 2026-10-21, were taken out on 2026-10-24: Bible Hub's Pulpit text carries BibleSoft's copyright notice)",
         "decided": "founder's decision 20 (2026-10-21); the page read on 2026-10-21",
         "cites_removed": [
           {

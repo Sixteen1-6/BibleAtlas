@@ -1,0 +1,1242 @@
+{
+  "_comment": [
+    "Pages read on 2026-10-24 for the true-credits batch: one record per citation added. passage and note: the passage id and the 0-based index of the note in its layers list in config/layers.json; kind: the note's kind; source and on: the citation as config/layers.json gives it; url: the page the citation links to, read on the date and at the UTC time given. These pages were read with a text reader that returns the page's text but no HTTP status, final URL or SHA-256, so the records give none; time is the UTC time taken right after the read.",
+    "status: \"added\" (cited from this batch; read_for says why). quote: the writer's words as found on the page, only for public-domain writers; spelling, misprints and abbreviations are the page's own. pointer: for the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice), where on the page the point is made, never its words.",
+    "verdict (founder's decision 20): whether the cited comment respects or denies Scripture, judged on its own words. decided: for a chapter 1 page, what its introduction says on who wrote the book (decision 23(3)).",
+    "left_out: the readings behind the cites removed on this date. denies: the page behind each entry added to denies in config/layer-sources.json on this date, with the cites it removed (passages moved to docs/held are listed there instead); not_stating: a cite read again that does not state its note's point (removed, or kept with counts: false for what else it supports); held: the passages set aside; held_reads: each page read on this date in looking for a second writer for a held passage, one record per source, verse and note (Bullinger has two on Ecclesiastes 3:18, the Companion Bible and Figures of Speech; note is the index in the passage as docs/held/layers-2026-10-24.json keeps it). writer: the cite list's writer for that book (unnamed when the part names none); states: whether he states the note's point in his own words; quote: his words, for public-domain writers, where he states it or comes nearest; pointer: for the Pulpit Commentary, where on the page; finding: what he says on the point."
+  ],
+  "kind": "reads",
+  "batch": "true-credits, 2026-10-24",
+  "fetched": "2026-10-24",
+  "records": [
+    {
+      "passage": "ecclesiastes-5-4",
+      "note": 1,
+      "kind": "allusion",
+      "source": "poole",
+      "on": "Ecclesiastes 5:4",
+      "url": "https://biblehub.com/commentaries/poole/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:14:34Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Matthew Poole points this verse to Deuteronomy 23:21.",
+      "quote": "See Numbers 30:2 Deu 23:21 Psalm 66:13,14 66:11.",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-5-4",
+      "note": 1,
+      "kind": "allusion",
+      "source": "poole",
+      "on": "Ecclesiastes 5:5",
+      "url": "https://biblehub.com/commentaries/poole/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:14:43Z",
+      "status": "added",
+      "read_for": "The note adds that the Law also says choosing not to vow is no sin; on the next verse Poole points to Deuteronomy 23:22, which says it. He counts once with his cite on 5:4.",
+      "quote": "See Numbers 30:3, &c.; Deu 23:22 Acts 5:4.",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-5-4",
+      "note": 1,
+      "kind": "allusion",
+      "source": "jfb",
+      "on": "Ecclesiastes 5:5",
+      "url": "https://biblehub.com/commentaries/jfb/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:15:09Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; A. R. Fausset points verse 5 to Deuteronomy 23:21 and 23.",
+      "quote": "5. (De 23:21, 23).",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-5-15",
+      "note": 1,
+      "kind": "allusion",
+      "source": "gill",
+      "on": "Ecclesiastes 5:15",
+      "url": "https://biblehub.com/commentaries/gill/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:16:55Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Gill ties the verse to Job 1:21.",
+      "quote": "be as naked as they were when they came into the world; and which is indeed the case of every man, Job 1:21;",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-5-15",
+      "note": 1,
+      "kind": "allusion",
+      "source": "henry",
+      "on": "Ecclesiastes 5:15",
+      "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:17:41Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Matthew Henry sends the reader to Job 1:21 on these words.",
+      "quote": "so, when he goes out, they help him with grave-clothes, and that is all. See Job 1:21; Ps. 49:17",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-5-15",
+      "note": 1,
+      "kind": "allusion",
+      "source": "poole",
+      "on": "Ecclesiastes 5:15",
+      "url": "https://biblehub.com/commentaries/poole/ecclesiastes/5.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:17:11Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Poole refers to his note on Job 1:21.",
+      "quote": "Return to go into the womb or belly of the earth, the common mother of all mankind. See Poole \"Job 1:21\"",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-6-10",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "henry",
+      "on": "Ecclesiastes 6:10",
+      "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/6.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:17:57Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; its only cite was Keil and Delitzsch.",
+      "quote": "it is already determined in the divine foreknowledge",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-6-10",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "gill",
+      "on": "Ecclesiastes 6:10",
+      "url": "https://biblehub.com/commentaries/gill/ecclesiastes/6.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:16:46Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; its only cite was Keil and Delitzsch.",
+      "quote": "all that has been, is, or shall be, has been already named of God, determined and appointed by him",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-6-10",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "poole",
+      "on": "Ecclesiastes 6:10",
+      "url": "https://biblehub.com/commentaries/poole/ecclesiastes/6.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:17:28Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; its only cite was Keil and Delitzsch.",
+      "quote": "is named already, to wit, by God, who, presently after his creation, gave him the following name",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-7-1",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "gill",
+      "on": "Ecclesiastes 7:1",
+      "url": "https://biblehub.com/commentaries/gill/ecclesiastes/7.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:22:47Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Gill ties the second half to the good name of the first.",
+      "quote": "this is only true of good men, that have a good name living and dying",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-7-1",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "poole",
+      "on": "Ecclesiastes 7:1",
+      "url": "https://biblehub.com/commentaries/poole/ecclesiastes/7.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:22:47Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Poole gives the second reading the evidence names, of this life alone.",
+      "quote": "it is a more desirable thing for a man to go out of it, than to come into it",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-7-20",
+      "note": 1,
+      "kind": "allusion",
+      "source": "henry",
+      "on": "Ecclesiastes 7:20",
+      "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/7.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:21:06Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Matthew Henry names Solomon's prayer of 1 Kings 8:46.",
+      "quote": "Solomon had this in his prayer (1 Ki. 8:46), in his proverbs (Prov. 20:9), and here in his preaching.",
+      "verdict": "respects"
+    },
+    {
+      "passage": "ecclesiastes-7-20",
+      "note": 1,
+      "kind": "allusion",
+      "source": "gill",
+      "on": "Ecclesiastes 7:20",
+      "url": "https://biblehub.com/commentaries/gill/ecclesiastes/7.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T13:21:06Z",
+      "status": "added",
+      "read_for": "Keil and Delitzsch, the Pulpit Commentary and Ellicott's volume are left out on Ecclesiastes (denies in config/layer-sources.json), so the note needed writers of its own; Gill points to 1 Kings 8:46.",
+      "quote": "no man, though ever so good, is perfect on earth, or free from sin; see 1 Kings 8:46",
+      "verdict": "respects"
+    },
+    {
+      "passage": "revelation-15-4",
+      "note": 1,
+      "kind": "allusion",
+      "source": "bullinger-cb",
+      "on": "Revelation 15:3",
+      "url": "https://www.studylight.org/commentaries/eng/bul/revelation-15.html",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T14:00:02Z",
+      "status": "added",
+      "read_for": "Franz Delitzsch's Psalm 86 page is left out (denies), so the note had one writer; on the song of the Lamb (verses 3 and 4) the Companion Bible points to Psalm 86:9-12.",
+      "quote": "In connection with this \"song of the Lamb\" compare Psalms 86:9-12.",
+      "verdict": "respects"
+    },
+    {
+      "passage": "proverbs-1-12",
+      "note": 1,
+      "kind": "allusion",
+      "source": "pulpit",
+      "on": "Proverbs 1:12",
+      "url": "https://biblehub.com/commentaries/pulpit/proverbs/1.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T14:00:18Z",
+      "status": "added",
+      "read_for": "Franz Delitzsch's Proverbs 1 page is left out (denies), so the note had one writer.",
+      "pointer": "the comment on verse 12, which ties the robbers' boast of swallowing their victims alive to the earth swallowing Korah's rebels (Numbers 16:30-33)",
+      "verdict": "respects",
+      "decided": "This chapter 1 page carries the volume's note on 1:1, which reports that most modern commentators read Solomon's name in the title as making him the chief of the sages whose sayings the book gathers with his own; the writer reports that view without taking it as his own and names no other writer, so the cited comment is judged on its own words."
+    },
+    {
+      "passage": "proverbs-1-12",
+      "note": 1,
+      "kind": "allusion",
+      "source": "ellicott",
+      "on": "Proverbs 1:12",
+      "url": "https://biblehub.com/commentaries/ellicott/proverbs/1.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T14:00:09Z",
+      "status": "added",
+      "read_for": "Franz Delitzsch's Proverbs 1 page is left out (denies), so the note had one writer.",
+      "quote": "Alive.—Comp. the death of Dathan and Abiram (Numbers 16:30)",
+      "verdict": "respects",
+      "decided": "This chapter 1 page carries J. W. Nutt's introduction, which says the book was gathered at various times and by various persons and upholds the tradition that gives chapters 1 to 29 to Solomon."
+    },
+    {
+      "passage": "ecclesiastes-7-1",
+      "note": 1,
+      "kind": "wordplay",
+      "source": "bullinger-cb",
+      "on": "Ecclesiastes 7:1",
+      "url": "https://www.studylight.org/commentaries/eng/bul/ecclesiastes-7.html",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T15:48:28Z",
+      "status": "added",
+      "read_for": "A second writer for the sound-play, since John Gill's comment on the verse does not state it (his cite stays for the lasting name and no longer counts toward the note's strength).",
+      "quote": "name . . . ointment. Note the Figure of speech Paronomasia ( App-6 ), \" shem mishshemen\".",
+      "verdict": "respects"
+    },
+    {
+      "passage": "hosea-2-23",
+      "note": 1,
+      "kind": "name meaning",
+      "source": "barnes",
+      "on": "Hosea 1:4",
+      "url": "https://biblehub.com/commentaries/barnes/hosea/1.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T22:01:40Z",
+      "status": "added",
+      "read_for": "Joseph Benson's comment on the verse places Jehu's massacre at Jezreel but reads the blood to be avenged otherwise, so E. B. Pusey, already named in the note's evidence, is cited for the reading in his place.",
+      "quote": "Yet Jehu shed this blood, the blood of the house of Ahab, of Joram and Jezebel and the seventy sons of Ahab,",
+      "verdict": "respects",
+      "decided": "This chapter 1 page carries E. B. Pusey's Introduction to the Minor Prophets, and chiefly to Hosea, which says Hosea's prophecies \"(as he himself collected them) form one whole\" and takes his ministry from the book's title, from Uzziah and Jeroboam II to Hezekiah; it calls no part of the book a later addition."
+    },
+    {
+      "passage": "job-19-25",
+      "note": 3,
+      "kind": "pattern",
+      "source": "gill",
+      "on": "Job 16:19",
+      "url": "https://biblehub.com/commentaries/gill/job/16.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T22:00:10Z",
+      "status": "added",
+      "read_for": "The NET Bible's words on Job 16:19 were taken out of the note's evidence (its notes are never shown), leaving the note's third reference with no writer; John Gill names the witness in heaven as God.",
+      "quote": "That is, God, who dwells in the heavens, where his throne is",
+      "verdict": "respects"
+    },
+    {
+      "passage": "matthew-16-18",
+      "note": 2,
+      "kind": "name meaning",
+      "source": "ellicott",
+      "on": "Matthew 16:18",
+      "url": "https://biblehub.com/commentaries/ellicott/matthew/16.htm",
+      "fetched": "2026-10-24",
+      "time": "2026-10-24T21:59:40Z",
+      "status": "added",
+      "read_for": "The note's text and evidence name Ellicott for the one Aramaic word, but the note did not cite him.",
+      "quote": "the words in the Greek differ in gender, πέτρος and πέτρα, but were identical in the Aramaic",
+      "verdict": "respects"
+    }
+  ],
+  "left_out": {
+    "denies": [
+      {
+        "source": "keil-delitzsch",
+        "on": "Ecclesiastes",
+        "writer": "franz-delitzsch",
+        "read": {
+          "url": "https://biblehub.com/commentaries/kad/ecclesiastes/1.htm",
+          "fetched": "2026-10-24",
+          "time": "2026-10-24T13:04:37Z",
+          "where": "the end of his introduction to Ecclesiastes, and his note on 1:1",
+          "words": [
+            "by a Jewish thinker of a much later age, who sought to conceive of himself as in Solomon's position",
+            "Koheleth is Solomon, but he who calls him"
+          ]
+        },
+        "cites_removed": [
+          {
+            "passage": "ecclesiastes-5-15",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 5:15"
+          },
+          {
+            "passage": "ecclesiastes-5-4",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 5:4"
+          },
+          {
+            "passage": "ecclesiastes-6-10",
+            "note": 0,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 6:10"
+          },
+          {
+            "passage": "ecclesiastes-7-1",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 7:1"
+          },
+          {
+            "passage": "ecclesiastes-7-20",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 7:20"
+          },
+          {
+            "passage": "ecclesiastes-7-6",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Ecclesiastes 7:5"
+          }
+        ]
+      },
+      {
+        "source": "pulpit",
+        "on": "Ecclesiastes",
+        "writer": "w-j-deane",
+        "read": {
+          "url": "https://biblehub.com/commentaries/pulpit/ecclesiastes/1.htm",
+          "fetched": "2026-10-24",
+          "time": "2026-10-24T13:04:37Z",
+          "pointer": "his notes on 1:1, 1:12 and 1:16, where he calls the use of Solomon's name a literary device, takes \"I was king\" as evidence against Solomon writing it, and calls the mention of earlier rulers in Jerusalem a slip of the assumed persona"
+        },
+        "cites_removed": [
+          {
+            "passage": "ecclesiastes-5-15",
+            "note": 1,
+            "source": "pulpit",
+            "on": "Ecclesiastes 5:15"
+          },
+          {
+            "passage": "ecclesiastes-5-4",
+            "note": 1,
+            "source": "pulpit",
+            "on": "Ecclesiastes 5:4"
+          },
+          {
+            "passage": "ecclesiastes-7-1",
+            "note": 0,
+            "source": "pulpit",
+            "on": "Ecclesiastes 7:1"
+          },
+          {
+            "passage": "ecclesiastes-7-1",
+            "note": 2,
+            "source": "pulpit",
+            "on": "Ecclesiastes 7:1"
+          }
+        ]
+      },
+      {
+        "source": "ellicott",
+        "on": "Ecclesiastes",
+        "writer": "george-salmon",
+        "read": {
+          "url": "https://biblehub.com/commentaries/ellicott/ecclesiastes/1.htm",
+          "fetched": "2026-10-24",
+          "time": "2026-10-24T13:04:37Z",
+          "where": "the section of his introduction on who wrote the book",
+          "words": [
+            "I find myself unable to assert Solomon's authorship."
+          ]
+        },
+        "cites_removed": [
+          {
+            "passage": "ecclesiastes-5-15",
+            "note": 1,
+            "source": "ellicott",
+            "on": "Ecclesiastes 5:15"
+          },
+          {
+            "passage": "ecclesiastes-5-4",
+            "note": 1,
+            "source": "ellicott",
+            "on": "Ecclesiastes 5:4"
+          },
+          {
+            "passage": "ecclesiastes-7-1",
+            "note": 2,
+            "source": "ellicott",
+            "on": "Ecclesiastes 7:1"
+          }
+        ]
+      },
+      {
+        "source": "keil-delitzsch",
+        "on": "Psalms 86",
+        "writer": "franz-delitzsch",
+        "read": {
+          "url": "https://biblehub.com/commentaries/kad/psalms/86.htm",
+          "fetched": "2026-10-24",
+          "time": "2026-10-24T13:21:58Z",
+          "where": "his opening remarks on the psalm",
+          "words": [
+            "it can only be called a Psalm by David as having grown out of Davidic and other model passages",
+            "The writer cannot be compared for poetical capability either with David or with the authors"
+          ]
+        },
+        "cites_removed": [
+          {
+            "passage": "psalm-86-15",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Psalms 86:14"
+          },
+          {
+            "passage": "revelation-15-4",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Psalm 86:6"
+          }
+        ]
+      },
+      {
+        "source": "keil-delitzsch",
+        "on": "Proverbs 1",
+        "writer": "franz-delitzsch",
+        "read": {
+          "url": "https://biblehub.com/commentaries/kad/proverbs/1.htm",
+          "fetched": "2026-10-24",
+          "time": "2026-10-24T13:27:48Z",
+          "where": "his introduction to Proverbs, in the part on who wrote 1:7 to 9:18 (the reader returned the page's first 89,930 characters, which end inside the introduction; the cited comments on 1:12 and 1:27 were read in the Keil and Delitzsch part of Bible Hub's verse pages)",
+          "words": [
+            "it is possible, yea, not improbable, that he, or, as Ewald thinks, another somewhat older poet",
+            "We do not, however, maintain that the book has this origin, but only this"
+          ]
+        },
+        "cites_removed": [
+          {
+            "passage": "proverbs-1-12",
+            "note": 1,
+            "source": "keil-delitzsch",
+            "on": "Proverbs 1:12"
+          }
+        ]
+      }
+    ],
+    "not_stating": [
+      {
+        "passage": "proverbs-6-21",
+        "note": 1,
+        "kind": "allusion",
+        "source": "keil-delitzsch",
+        "on": "Proverbs 6:20",
+        "url": "https://biblehub.com/commentaries/kad/proverbs/6.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:28:34Z",
+        "quote": "Regarding the figure, reminding us of the Tefillin and of Amuletes for perpetual representation,",
+        "why": "He says the binding recalls the tefillin and amulets, but names neither Deuteronomy 6 nor the shared verb, so the comment does not state the note's point; Gill and Clarke, who do, stay."
+      },
+      {
+        "passage": "ecclesiastes-7-1",
+        "note": 1,
+        "kind": "wordplay",
+        "source": "gill",
+        "on": "Ecclesiastes 7:1",
+        "url": "https://biblehub.com/commentaries/gill/ecclesiastes/7.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:49:19Z",
+        "quote": "and for the fragrancy of it, emitting a greater; and for the continuance of it, being more lasting",
+        "why": "He says a good name is better than precious ointment for its value, its fragrance and its being more lasting, and links Messiah (anointed) to ointment by meaning, not by sound; he does not state the sound-play. His cite stays for the lasting name with counts: false, and E. W. Bullinger, who states the play, is cited beside A. R. Fausset."
+      },
+      {
+        "passage": "hosea-2-23",
+        "note": 1,
+        "kind": "name meaning",
+        "source": "benson",
+        "on": "Hosea 1:4",
+        "url": "https://biblehub.com/commentaries/benson/hosea/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T22:01:40Z",
+        "quote": "As it was here that Jehu shed the blood of Ahab’s family with unsparing hand",
+        "why": "He places the massacre at Jezreel but, quoting Bishop Horsley, reads the blood to be avenged as that of God's servants, shed by Jehu's line, not Ahab's family; so he does not state the note's reading. E. B. Pusey (Barnes' Notes), who does, is cited in his place."
+      }
+    ],
+    "held": "ecclesiastes-3-18, ecclesiastes-3-20 and proverbs-1-27 were moved to docs/held/layers-2026-10-24.json: with the cites above left out, none of their notes went beyond \"some interpreters\".",
+    "held_reads": [
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "barnes",
+        "writer": "w-t-bullock",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/barnes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:15Z",
+        "states": false,
+        "finding": "Bullock gives a literal rendering ending \"that they are beasts, they themselves\" and a note on the Septuagint and Syriac reading showing for seeing, but he never says the pronoun is doubled or that the doubling is a figure of emphasis, so his rendering alone does not state the point."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "benson",
+        "writer": "joseph-benson",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/benson/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:06Z",
+        "states": false,
+        "finding": "He says men have made themselves beasts by brutish ways; no Hebrew and nothing on the pronoun."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "bullinger-cb",
+        "writer": "e-w-bullinger",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://www.studylight.org/commentaries/eng/bul/ecclesiastes-3.html",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:15Z",
+        "states": false,
+        "finding": "The Companion Bible's notes on this verse gloss God might manifest them as God having chosen to show them that even they are beasts and define beasts as living creatures, but name no figure (its only Epizeuxis note in the chapter is on iniquity in verse 16) and do not say the Hebrew says they twice."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "clarke",
+        "writer": "adam-clarke",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/clarke/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:41Z",
+        "states": false,
+        "finding": "He quotes another author's translation and applies it to corrupt magistrates; no remark on the repeated pronoun."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "geneva",
+        "writer": "unnamed",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/gsb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:33Z",
+        "states": false,
+        "finding": "The Geneva notes give only note (h) on this verse, \"And made them pure in their first creation\", and say nothing about the Hebrew saying they twice."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/gill/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:27Z",
+        "states": false,
+        "finding": "He says men see they are beasts through the fall and gives Broughton's rendering, but says nothing of the doubled pronoun or its emphasis (read again at 13:12:50Z)."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:29Z",
+        "states": false,
+        "finding": "He treats 3:16 to 22 together as humbling proud men; nothing on the Hebrew wording."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "jfb",
+        "writer": "a-r-fausset",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/jfb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:17Z",
+        "states": false,
+        "finding": "He says God proves men so they see their mortal frailty like the beasts; nothing on the pronoun."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/poole/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:54Z",
+        "states": false,
+        "finding": "He notes the Hebrew reads that they are beasts to themselves and gives two senses; nothing on the repetition or its emphasis (read again at 13:12:58Z)."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 1,
+        "source": "wesley",
+        "writer": "john-wesley",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/wes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:33Z",
+        "states": false,
+        "finding": "Wesley says God suffers these disorders so that he might discover men to themselves, who by their brutish practices have made themselves like beasts; he says nothing about the Hebrew saying they twice or about emphasis."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "barnes",
+        "writer": "w-t-bullock",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/barnes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:15Z",
+        "states": false,
+        "finding": "Bullock explains that the long delay of God's judgment shows people that their short lives leave them unable to follow His justice, and says nothing about hemmah echoing the sound of behemah."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "benson",
+        "writer": "joseph-benson",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/benson/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:06Z",
+        "states": false,
+        "finding": "No Hebrew for this verse."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "bullinger-cb",
+        "writer": "e-w-bullinger",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://www.studylight.org/commentaries/eng/bul/ecclesiastes-3.html",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:15Z",
+        "states": false,
+        "finding": "The Companion Bible's notes on this verse (God, God might manifest them, beasts) mark no play on words and do not mention hemmah echoing behemah."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "bullinger-fos",
+        "writer": "e-w-bullinger",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/n248/mode/1up",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:36:17Z",
+        "states": false,
+        "finding": "A search of Figures of Speech finds Ecclesiastes 3:18 only under Epizeuxis (scan page 248) and Pleonasm (scan page 462), and the word behemah does not occur, so he does not state the sound echo. Read through archive.org's full-text search of the same scan."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "clarke",
+        "writer": "adam-clarke",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/clarke/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:41Z",
+        "states": false,
+        "finding": "He does not mention behemah or hemmah; his only Hebrew in this section is ruach, on verse 21."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "geneva",
+        "writer": "unnamed",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/gsb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:33Z",
+        "states": false,
+        "finding": "The Geneva notes on this verse (note h, on God making man pure at creation) do not mention the Hebrew words or any echo of behemah in hemmah."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/gill/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:27Z",
+        "states": false,
+        "finding": "No Hebrew in his note and no play on words or likeness of sound."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:29Z",
+        "states": false,
+        "finding": "No discussion of the Hebrew words."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "jfb",
+        "writer": "a-r-fausset",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/jfb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:17Z",
+        "states": false,
+        "finding": "No Hebrew play on beasts or they."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/poole/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:11:54Z",
+        "states": false,
+        "finding": "Only a gloss that the Hebrew reads beasts to themselves; no play on words."
+      },
+      {
+        "passage": "ecclesiastes-3-18",
+        "note": 2,
+        "source": "wesley",
+        "writer": "john-wesley",
+        "on": "Ecclesiastes 3:18",
+        "url": "https://biblehub.com/commentaries/wes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:33Z",
+        "states": false,
+        "finding": "Wesley's note on this verse is about God showing people their own state and does not mention the sound of hemmah echoing behemah or any play on words."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 0,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/gill/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:27Z",
+        "states": true,
+        "quote": "in which they agree with beasts, who are made of the dust also; and, when they die, return to it;",
+        "finding": "He says men share with beasts their making from dust and their return to it at death (checked again at 13:32:20Z)."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 0,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:06Z",
+        "states": true,
+        "quote": "And Solomon here observes that all go unto one place; the dead bodies of men and beasts putrefy alike",
+        "finding": "He says men and beasts go to one place and their bodies decay alike, all of the dust and all turning to dust again (checked again at 13:32:33Z)."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 0,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/poole/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:06Z",
+        "states": true,
+        "quote": "All go unto one place; to the earth, as it is expressed, Ecclesiastes 3:21, out of which they were both taken.",
+        "finding": "He says man and beast both go to the earth they were taken from, and that the dust is meant of their bodies (checked again at 13:32:54Z)."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "barnes",
+        "writer": "w-t-bullock",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/barnes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:36Z",
+        "states": false,
+        "quote": "which reduces to its original form all that was made of the dust of the ground",
+        "finding": "Bullock has no separate note on verse 20; his summary of verses 16 to 22 says death returns to its first form all that was made of the dust of the ground, without pointing to Genesis 3:19 or Adam."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "benson",
+        "writer": "joseph-benson",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/benson/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:27Z",
+        "states": false,
+        "finding": "He cites only Ecclesiastes 3:21 and 12:7; no Genesis 3:19 on the page."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "bullinger-cb",
+        "writer": "e-w-bullinger",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://www.studylight.org/commentaries/eng/bul/ecclesiastes-3.html",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:46:08Z",
+        "states": true,
+        "quote": "turn to dust again. See Genesis 3:19 . Psalms 22:15 ; Psalms 104:29 ; Psalms 146:4 .",
+        "finding": "Bullinger points \"turn to dust again\" in Ecclesiastes 3:20 first to Genesis 3:19, which states the note's point; his note on \"of the dust\" lists Genesis 1:24, 2:7 and 2:19 before Genesis 3:19."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "clarke",
+        "writer": "adam-clarke",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/clarke/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:27Z",
+        "states": false,
+        "finding": "His verse 20 note is only a paraphrase of the verse signed C., not his own words; no Genesis 3:19."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "geneva",
+        "writer": "unnamed",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/gsb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:04Z",
+        "states": false,
+        "finding": "The Geneva notes have no note on verse 20; the notes on verses 19 and 21 speak of reason and faith telling man from beast and cite only Ecclesiastes 3:21, with nothing on Genesis 3:19."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/gill/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:27Z",
+        "states": false,
+        "finding": "He cites only Genesis 2:7 (Adam's body made of dust), not God's sentence in Genesis 3:19."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/mhcw/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:06Z",
+        "states": false,
+        "finding": "He speaks of bodies turning to dust but does not cite Genesis 3:19 or the sentence on Adam anywhere on the page."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "jfb",
+        "writer": "a-r-fausset",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/jfb/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:12:27Z",
+        "states": false,
+        "finding": "No note on verse 20 and no Genesis 3:19 on the page."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/poole/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T13:13:06Z",
+        "states": false,
+        "finding": "His verse 20 note cites only Ecclesiastes 3:21 and 12:7; no Genesis 3:19 on the page."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "wesley",
+        "writer": "john-wesley",
+        "on": "Ecclesiastes 3:20",
+        "url": "https://biblehub.com/commentaries/wes/ecclesiastes/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:47Z",
+        "states": false,
+        "quote": "One place - To the earth, out of which they were taken. All turn - All their bodies.",
+        "finding": "Wesley says the one place is the earth the bodies were taken from, which borrows the wording of Genesis 3:19 but does not name Genesis 3:19, Adam or God's sentence, so he does not state the echo (and the cite list counts his notes as Matthew Henry's)."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "barnes",
+        "writer": "james-g-murphy",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/barnes/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:44Z",
+        "states": false,
+        "quote": "And he had the dreary prospect before him of returning at length to the ground whence he was taken.",
+        "finding": "Murphy, in his note on verses 17 to 19, speaks of man returning to the ground he was taken from but cites no verse of Ecclesiastes."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "benson",
+        "writer": "joseph-benson",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/benson/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:35Z",
+        "states": false,
+        "quote": "Thy body shall be forsaken by thy soul, and become itself a lump of dust, and then it shall be lodged in the grave, and mingle with the dust of the earth.",
+        "finding": "Benson describes the body going back to dust in the grave and cites no Bible reference anywhere in his notes on verses 17 to 19, so nothing points to Ecclesiastes."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "bullinger-cb",
+        "writer": "e-w-bullinger",
+        "on": "Genesis 3:19",
+        "url": "https://archive.org/download/CompanionBibleOT/Companion%20Bible%20OT_djvu.txt",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:46:47Z",
+        "states": false,
+        "quote": "dust. This is literal. See Gen. 2. 7. Ps. 103. 14. Ecc. 12. t. l Cor. 15. 47.",
+        "finding": "The Companion Bible's note on dust in Genesis 3:19 points to Genesis 2:7, Psalm 103:14, Ecclesiastes 12:7 (the scan's text reads \"12. t\") and 1 Corinthians 15:47, but not to Ecclesiastes 3:20; the studylight Genesis 3 page failed twice with a client error, so this is archive.org's text of the printed volume (the link redirects to ia600805.us.archive.org)."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "clarke",
+        "writer": "adam-clarke",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/clarke/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:20Z",
+        "states": false,
+        "quote": "the spirit, finding its earthly house no longer tenable, should return to God who gave it; and the body, being decomposed, should be reduced to its primitive dust.",
+        "finding": "Clarke borrows the words of Ecclesiastes 12:7 without naming it and cites no Bible reference in his note, so he does not point Genesis 3:19 to Ecclesiastes 3:20."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "geneva",
+        "writer": "unnamed",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/gsb/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:45:29Z",
+        "states": false,
+        "finding": "The Geneva notes have no note on Genesis 3:19, and Ecclesiastes is not cited anywhere on the Genesis 3 page."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/gill/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:42:55Z",
+        "states": false,
+        "quote": "when he reflects from whence he came and whither he must go; see Ecclesiastes 12:7.",
+        "finding": "Gill points Genesis 3:19 to Ecclesiastes 12:7 only, as a lesson in man's frailty, and does not cite Ecclesiastes 3:20."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/mhcw/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:11Z",
+        "states": false,
+        "quote": "thy body, that part of thee which was taken out of the ground, shall return to it again; for dust thou art.",
+        "finding": "Henry explains the return of the body to the ground and cites Job, Psalms, Proverbs, Isaiah, 2 Peter and Romans on verses 17 to 19, but never Ecclesiastes 3:20 or 12:7."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "jfb",
+        "writer": "robert-jamieson",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/jfb/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:06Z",
+        "states": false,
+        "finding": "Jamieson reads the return to the ground as the point where man became mortal and cites only Romans 5:12 and 1 Timothy 2:15, with no reference to Ecclesiastes."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "keil-delitzsch",
+        "writer": "c-f-keil",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/kad/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:45:11Z",
+        "states": false,
+        "quote": "Formed out of the dust, he shall return to dust again.",
+        "finding": "Keil explains that man, formed from dust, returns to dust, and cites Genesis, Isaiah, Job, Psalm 104 and Romans 8 on verses 17 to 19, but not Ecclesiastes."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/poole/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:27Z",
+        "states": false,
+        "quote": "thou shalt return unto dust in thy body, whilst the immortal spirit shall return unto God who gave it, Ecclesiastes 12:7.",
+        "finding": "Poole points Genesis 3:19 to Ecclesiastes 12:7 (and 1:13 on toil) but not to Ecclesiastes 3:20."
+      },
+      {
+        "passage": "ecclesiastes-3-20",
+        "note": 1,
+        "source": "wesley",
+        "writer": "john-wesley",
+        "on": "Genesis 3:19",
+        "url": "https://biblehub.com/commentaries/wes/genesis/3.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:45:00Z",
+        "states": false,
+        "quote": "Unto dust shalt thou return - Thy body shall be forsaken by thy soul, and become itself a lump of dust,",
+        "finding": "Wesley's note (the same words Benson later used) describes the body becoming dust in the grave and cites no Bible reference, so it does not point to Ecclesiastes 3:20."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "barnes",
+        "writer": "e-h-plumptre",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/barnes/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:19Z",
+        "states": false,
+        "finding": "Plumptre renders desolation as tempest and makes the storm a type of the suddenness of God's judgment, and says nothing about the Hebrew words for distress and anguish."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "benson",
+        "writer": "joseph-benson",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/benson/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:54Z",
+        "states": false,
+        "finding": "Benson covers the verse in his note on 1:24 to 28, taking desolation as a sudden judgment over a whole country and the whirlwind as swift ruin, and says nothing about the Hebrew words for distress and anguish."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "bullinger-cb",
+        "writer": "e-w-bullinger",
+        "on": "Proverbs 1:27",
+        "url": "https://studylight.org/commentaries/eng/bul/proverbs-1.html",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:45:54Z",
+        "states": false,
+        "finding": "Bullinger glosses desolation as tempest and destruction as calamity, and his note on verse 26 marks an Introversion (a reversed order of fear, desolation, destruction and anguish across verses 26 and 27), which is a word-order figure, not a sound-play; the www form of the link in the cite list failed to load three times, so the page was read at this address without www."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "clarke",
+        "writer": "adam-clarke",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/clarke/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:45:16Z",
+        "states": false,
+        "finding": "Clarke's only note on the verse is on the whirlwind (kesuphah), where he says sense and sound are well expressed in that one word; he says nothing on distress and anguish or on their sounding alike."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "ellicott",
+        "writer": "j-w-nutt",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/ellicott/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:41Z",
+        "states": false,
+        "finding": "Ellicott's volume has no note on verse 27 (its notes go from verse 26 to 28, and Bible Hub's verse page shows no Ellicott text for 1:27), so J. W. Nutt says nothing on the point."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "geneva",
+        "writer": "unnamed",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/gsb/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:19Z",
+        "states": false,
+        "finding": "The Geneva note on the verse only explains fear as the destruction they feared, and says nothing about distress and anguish or their sound."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "gill",
+        "writer": "john-gill",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/gill/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:54Z",
+        "states": false,
+        "finding": "Gill reads the verse as foretelling the Roman ruin of Jerusalem and Judea, with distress and anguish as the sword and famine of the siege, and says nothing about the two Hebrew words sounding alike."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "henry",
+        "writer": "matthew-henry",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/mhcw/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:54Z",
+        "states": false,
+        "finding": "Matthew Henry says the sinners' fright will turn to despair as distress and anguish come on them like a deluge and a whirlwind, with cross references on anguish, but says nothing about the Hebrew words sounding alike."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "henry-concise",
+        "writer": "unnamed",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/mhc/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:54Z",
+        "states": false,
+        "finding": "The Concise Commentary treats the verse only within its note on 1:20 to 33, saying sinners' calamity will come, and does not mention distress and anguish or any sound-play."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "jfb",
+        "writer": "a-r-fausset",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/jfb/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:19Z",
+        "states": false,
+        "finding": "Fausset glosses each word (distress with cross references to Psalm 4:1 and 44:11, anguish as inextricable oppression and deepest despair) but never mentions the Hebrew words or their sound."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "keil-delitzsch",
+        "writer": "franz-delitzsch",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/proverbs/1-27.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:47:00Z",
+        "states": true,
+        "quote": "The alliterating words צרה וצוּקה, cf. Isaiah 30:6; Zephaniah 1:15,",
+        "finding": "Delitzsch states the sound-play, calling the two words alliterating and saying Proverbs is fond of such rhymes, but his Proverbs 1 comments are left out by denies in config/layer-sources.json, so he cannot be cited; this was read on Bible Hub's 1:27 verse page while checking the Ellicott gap, not on his chapter page."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "poole",
+        "writer": "matthew-poole",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/poole/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:43:54Z",
+        "states": false,
+        "finding": "Poole comments only on desolation (a desolating sword or judgment) and the whirlwind, and says nothing about the Hebrew words for distress and anguish."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "pulpit",
+        "writer": "w-j-deane+s-t-taylor-taswell",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/pulpit/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:46:39Z",
+        "states": true,
+        "pointer": "In the Exposition note on verse 27, in the part on distress and anguish that follows the remark on the whirlwind and comes before the closing remark on a clause the Septuagint adds: it names the Hebrew pair, says they alliterate, points to Isaiah 30:6 and Zephaniah 1:15, and explains the roots of both words.",
+        "finding": "The Pulpit Commentary's exposition on 1:27 states that the Hebrew words for distress and anguish alliterate, comparing Isaiah 30:6 and Zephaniah 1:15, and explains what each word's root means."
+      },
+      {
+        "passage": "proverbs-1-27",
+        "note": 1,
+        "source": "wesley",
+        "writer": "john-wesley",
+        "on": "Proverbs 1:27",
+        "url": "https://biblehub.com/commentaries/wes/proverbs/1.htm",
+        "fetched": "2026-10-24",
+        "time": "2026-10-24T15:44:19Z",
+        "states": false,
+        "finding": "Wesley has no note on verse 27 (his notes on the chapter skip from verse 26 to 28), so he says nothing on the point."
+      }
+    ]
+  }
+}
