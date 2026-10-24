@@ -14,7 +14,8 @@
 //    cross-referenced by the other verses found rank first: the Bible
 //    pointing to itself. Then the best of them and the first parts of the
 //    closest chains are ordered by what, read blind, answered askers most
-//    (SHOW).
+//    and was off topic least (SHOW, then FIT). A verse the question cites
+//    ("proverbs 16:31") comes first, then the chapter it names.
 //
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
@@ -553,11 +554,19 @@ const PERSON_BOOKS = new Set(['solomon', 'joshua', 'ruth', 'samuel', 'ezra', 'ne
 const WORD_BOOKS = new Set(['numbers', 'judges', 'kings', 'chronicles', 'psalms', 'psalm', 'proverbs', 'lamentations', 'acts', 'romans', 'song', 'songs']);
 const ORDINALS: Record<string, number> = { '1': 1, '2': 2, '3': 3, first: 1, second: 2, third: 3 };
 
+/** "16:31" and "16:31-33" after a word are marked as a verse ("16 v31 w33")
+ * so the book named before them can take them; marks no book takes are dropped. */
+const CITE = /\b(\p{L}+)\s+(\d{1,3})\s*[:.]\s*(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?/gu;
+const VERSE_AT = /^v(\d{1,3})$/;
+const VERSE_TILL = /^w(\d{1,3})$/;
+
 interface Named {
   /** Verses of the books or chapters named. */
   from: number;
   to: number;
   chapter: boolean;
+  /** The verses themselves, as in "proverbs 16:31". */
+  verse?: boolean;
 }
 
 /** The Bible books a question names as books ("in john 1", "leviticus",
@@ -604,12 +613,22 @@ function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Set<numbe
       const end = book + 1 < a.books.length ? a.books[book + 1].start : a.n;
       if (chapter > 0 && chapter <= meta.chapters.length) {
         const [from, to] = chapterRange(a, book, chapter);
+        // "16:31", "16:31-33": the verses asked about.
+        const at = VERSE_AT.exec(toks[i + 2] ?? '');
+        const till = VERSE_TILL.exec(toks[i + 3] ?? '');
+        if (at && +at[1] >= 1 && from + +at[1] - 1 < to) {
+          const first = from + +at[1] - 1;
+          const last = till ? Math.min(to - 1, from + +till[1] - 1, first + 5) : first;
+          if (last >= first) named.push({ from: first, to: last + 1, chapter: false, verse: true });
+        }
         named.push({ from, to, chapter: true });
       }
       named.push({ from: meta.start, to: end, chapter: false });
     }
     used.add(i);
     if (chapter > 0) used.add(i + 1);
+    if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '')) used.add(i + 2);
+    if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '') && VERSE_TILL.test(toks[i + 3] ?? '')) used.add(i + 3);
     if (ORDINALS[prev]) used.add(i - 1);
     // "the book of romans", "psalm 23 verse 4": words about the book, not of the question.
     for (const j of [i - 2, i - 1, i + 1, i + 2]) if (['book', 'books', 'gospel', 'letter', 'epistle', 'chapter', 'verse'].includes(toks[j])) used.add(j);
@@ -736,110 +755,45 @@ export const LEAN = { said: 0.5, score: 0.45, top: 3, weight: 3 };
  * have a say in agree. */
 export const SHOW = { top: 10, from: 5, parts: 3, pool: 10, meant: 5.8, agree: 2.3, words: 1, phrase: 1.2, links: 0.7, teaching: 1.9 };
 
-/** Further ways to connect a question to verses when no prepared answer fits,
- * each off at 0 (being measured):
- * - subjects: the Nave's subjects whose names the word-meaning model finds
- *   nearest the question (at least subjectMin, the subjectTop nearest) lend
- *   their most-cited verses, weighted by how near;
- * - links: verses that linkMin or more of the linkSeeds best verses found
- *   point to, by cross-references with linkVotes or more votes;
- * - verse, verseShow: how near in meaning a verse's words are to the
- *   question's, as the model reads both, among the best and in SHOW;
- * - words: for a word the BSB never uses, the wordTop BSB words the model
- *   reads as nearest it (at least wordMin), not names or lookalikes;
- * - wider, widerW: the most-cited verses of the wider sets of the `wider`
- *   prepared questions the matcher finds nearest. */
-export const MORE = { subjects: 0, subjectTop: 3, subjectMin: 0.45, subjectWide: 0, links: 0, linkSeeds: 12, linkVotes: 2, linkMin: 2, verse: 0, verseShow: 0, words: 0, wordMin: 0.5, wordTop: 3, wider: 0, widerW: 1 };
+/** Verses to weigh beside those found (FIT weighs them like the rest): those
+ * that `min` or more of the `seeds` best verses found point to, by
+ * cross-references with `votes` or more votes, and the most-cited verses of
+ * the wider sets of the `wider` prepared questions the matcher finds closest. */
+const POINT = { seeds: 12, votes: 2, min: 2, wider: 3 };
 
-/** Endings that make another form of the same word. */
-const FORM_ENDS = new Set(['', 's', 'es', 'd', 'ed', 'ing', 'e', 'er', 'ers', 'ion', 'ions', 'ment', 'ly', 'y', 'ies', 'ied', 'ness', 'ful', 'al']);
-/** A word that only looks like another, as the model's word pieces can make
- * them seem alike: "chemo" and "Chemosh", "bully" and "bull". */
-function lookalike(w: string, x: string): boolean {
-  let p = 0;
-  while (p < w.length && p < x.length && w[p] === x[p]) p++;
-  if (p < 2) return false;
-  return !(p >= 5 && FORM_ENDS.has(w.slice(p)) && FORM_ENDS.has(x.slice(p)));
-}
-/** Whether the BSB writes this word as a name: capitalised where it is not
- * first in its verse, in most of the verses that hold it. */
-function isName(a: Atlas, x: string): boolean {
-  const texts = plainText();
-  const i = lowerBound(a.englishWords, x);
-  if (!texts || a.englishWords[i] !== x) return false;
-  const re = new RegExp(`(^|[^\\p{L}])(${x})(?![\\p{L}])`, 'giu');
-  let big = 0;
-  let all = 0;
-  for (let p = a.eOff[i]; p < Math.min(a.eOff[i + 1], a.eOff[i] + 12); p++) {
-    for (const m of texts[a.eVerse[p]].matchAll(re)) {
-      if (m.index === 0) continue;
-      all++;
-      if (m[2][0] !== m[2][0].toLowerCase()) big++;
-    }
-  }
-  return all > 0 && big >= 0.8 * all;
-}
-/** The BSB's everyday words as the model reads them, once per Bible and model. */
-let bibleWords: { a: Atlas; words: string[]; v: Float32Array; D: number } | null = null;
-function modelWords(a: Atlas, w: string): string[] {
-  const q = meaningOf(w);
-  if (!q) return [];
-  const D = q.length;
-  if (bibleWords?.a !== a || bibleWords.D !== D) {
-    const words: string[] = [];
-    const rows: Float64Array[] = [];
-    a.englishWords.forEach((x, i) => {
-      const n = a.eOff[i + 1] - a.eOff[i];
-      if (n < 3 || n >= COMMON || x.length < 3 || !/^[a-z]+$/.test(x) || !contentWords(x).length) return;
-      const e = meaningOf(x);
-      if (!e) return;
-      words.push(x);
-      rows.push(e);
-    });
-    const v = new Float32Array(words.length * D);
-    rows.forEach((e, k) => v.set(e, k * D));
-    bibleWords = { a, words, v, D };
-  }
-  const { words, v } = bibleWords;
-  const sims: [string, number][] = [];
-  for (let k = 0; k < words.length; k++) {
-    let s = 0;
-    for (let d = 0, o = k * D; d < D; d++) s += q[d] * v[o + d];
-    if (s >= MORE.wordMin) sims.push([words[k], s]);
-  }
-  sims.sort((x, y) => y[1] - x[1]);
-  const out: string[] = [];
-  for (const [x] of sims) {
-    if (out.length >= MORE.wordTop) break;
-    if (!lookalike(w, x) && !isName(a, x)) out.push(x);
-  }
-  return out;
-}
+/** What comes first, for a question that names no book: the verses ordered by
+ * how likely they are to answer the asker, less half how likely they are to be
+ * off topic. Each likelihood weighs what is known of a verse, in this order:
+ * 1; whether SHOW ranks it; how much of the question it holds; whether in a
+ * matching subject, and among a subject's most cited; its rank; how dense the
+ * question's words are in it; where it teaches; whether it gives a reason for
+ * a "why"; whether it holds a whole Bible phrase for the question; how close
+ * the closest prepared question whose chain holds it comes; how many of the
+ * others it is linked to; how sure the matcher is of the surest chain holding
+ * it; how many of the closest chains hold it; whether among their first parts;
+ * how near in meaning its words are to the question's; whether a close
+ * question's wider set cites it most; how many of the best found point to it;
+ * its score; its SHOW score; whether among the first ten found. Then, for a
+ * question whose words the Bible hardly holds (`weak`), the surest chain,
+ * nearness and words again; the surest chain times how sure the matcher is of
+ * the closest question; that sureness; `weak`; the surest chain among first
+ * parts; nearness times chains; words times a whole phrase. Fitted on 31,904
+ * verses gathered for 2,844 messages and read blind (eval/ask/scripts/r12/). */
+const FIT = {
+  answers: [-3.9886, 0.0707, -0.0657, -0.0805, -0.1683, 0.2566, -0.167, 1.8585, 0.0289, 0.5772, -0.8008, 0.0337, 4.7109, 3.2868, 0.1092, 2.0765, -0.1532, 0.7969, 1.3943, -0.0666, -0.0421, 0.7006, -0.1282, -1.3385, -2.6002, -0.9967, -0.0431, 0.8873, -4.3064, 0.3518],
+  off: [2.5309, 0.1788, 1.4186, -0.2159, 0.4284, -0.0726, 0.691, -0.509, 0.1317, -0.8813, 2.098, 0.3535, -5.6172, -4.2553, -0.2062, -2.909, 0.097, -1.5313, -3.0359, -0.653, 0.2165, -0.6521, 0.6945, 0.997, 3.1599, -0.1379, -0.2309, -0.5591, 4.3938, -0.1605],
+  offWeight: 0.5,
+  rows: 80,
+};
 
-/** Each Nave's subject's name as the model reads it, once per index and model. */
-let subjectNames: { ix: AskIndex; v: Float32Array; ok: Uint8Array; D: number } | null = null;
-function subjectsMeant(ix: AskIndex, qv: Float64Array): { i: number; s: number }[] {
-  if (subjectNames?.ix !== ix || subjectNames.D !== qv.length) {
-    const D = qv.length;
-    const v = new Float32Array(ix.topics.length * D);
-    const ok = new Uint8Array(ix.topics.length);
-    ix.topics.forEach(([t], i) => {
-      const e = meaningOf(t);
-      if (!e) return;
-      ok[i] = 1;
-      v.set(e, i * D);
-    });
-    subjectNames = { ix, v, ok, D };
-  }
-  const { v, ok, D } = subjectNames;
-  const out: { i: number; s: number }[] = [];
-  for (let i = 0; i < ok.length; i++) {
-    if (!ok[i] || OLD_SENSE.has(ix.topics[i][0])) continue;
-    let s = 0;
-    for (let d = 0, o = i * D; d < D; d++) s += qv[d] * v[o + d];
-    if (s >= MORE.subjectMin) out.push({ i, s });
-  }
-  return out.sort((x, y) => y.s - x.s).slice(0, MORE.subjectTop);
+/** For the eval scripts (eval/ask/scripts/r12/): what FIT weighed for each
+ * verse of the last question gathered. Off in the app. */
+export const TRACE: { on: boolean; rows: unknown[] } = { on: false, rows: [] };
+
+function logistic(w: number[], x: number[]): number {
+  let z = 0;
+  for (let k = 0; k < w.length; k++) z += w[k] * x[k];
+  return 1 / (1 + Math.exp(-z));
 }
 
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
@@ -860,9 +814,10 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     rest = rest.replace(re, ' ');
   }
   const personal = PERSONAL.test(question.toLowerCase().replace(/[’‘']/g, ''));
+  rest = rest.replace(CITE, (_, w: string, c: string, v: string, t?: string) => `${w} ${c} v${v}${t ? ` w${t}` : ''}`);
   const toks = rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   const { named, used } = namedBooks(a, toks);
-  rest = toks.filter((_, i) => !used.has(i)).join(' ');
+  rest = toks.filter((w, i) => !used.has(i) && !VERSE_AT.test(w) && !VERSE_TILL.test(w)).join(' ');
   const ws = [...new Set(contentWords(rest))]
     // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
@@ -878,9 +833,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
       const k = /^\d+$/.test(w) ? Number(w) : -1;
       // 144000 is also "144,000".
       const said = k >= 0 ? [numberWords(k).join(' '), ...(k >= 1000 ? [`${Math.floor(k / 1000)} ${String(k % 1000).padStart(3, '0')}`] : [])].filter(Boolean) : [];
-      const own = !INSTEAD.has(w);
-      const bible = said.length ? said : (BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? (MORE.words && own && !formsOf(a.englishWords, w, true).length ? modelWords(a, w) : []));
-      return concept(a, w, bible, own);
+      return concept(a, w, said.length ? said : (BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? []), !INSTEAD.has(w));
     }),
   ];
 
@@ -907,10 +860,8 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // Those that cover most of the question, then the largest.
   subjects.sort((x, y) => y.covers.length - x.covers.length || ix.topics[y.i][1] - ix.topics[x.i][1]);
   const chosen = subjects.slice(0, 4);
-  // Subjects the question means, though it may not name them.
-  const qv = MORE.subjects || MORE.verse || MORE.verseShow ? meaningOf(question) : null;
-  const picked = new Set(chosen.map((c) => c.i));
-  const meantSubjects = qv && MORE.subjects ? subjectsMeant(ix, qv).filter((m) => !picked.has(m.i)) : [];
+  // The question as the word-meaning model reads it.
+  const qv = meaningOf(question);
   const qs = matchingQuestions(ix, ws);
   // The closest prepared questions, by their words and by what people mean by
   // such words, each once at its higher score.
@@ -919,12 +870,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const nearest = meanings(ix, question, SHOW.top);
   for (const m of nearest.slice(0, LEAN.top)) near.set(m.q, 1);
   const lean = [...near].map(([q, score]) => ({ q, score }));
-  const [topicSets, questionSets, leanSets, nearestSets, meantSets] = await Promise.all([
+  const [topicSets, questionSets, leanSets, nearestSets] = await Promise.all([
     Promise.all(chosen.map((s) => topicData(a, s.i).catch(() => null))),
     Promise.all(qs.map((q) => questionData(a, q).catch(() => null))),
     Promise.all(lean.map((r) => questionData(a, r.q).catch(() => null))),
     Promise.all(nearest.map((m) => questionData(a, m.q).catch(() => null))),
-    Promise.all(meantSubjects.map((m) => topicData(a, m.i).catch(() => null))),
   ]);
 
   // A verse Nave's lists under a subject holds that subject's concepts, as a
@@ -1002,21 +952,9 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     });
   });
   for (const v of leaning.keys()) cands.add(v);
-  // The most-cited verses of the subjects the question means; a narrow
-  // subject's other verses count as in a matching subject.
-  const meantTop = new Map<number, number>();
-  meantSets.forEach((t, k) => {
-    if (!t) return;
-    const s = meantSubjects[k].s;
-    const top = new Set<number>();
-    addRanges(top, t.top);
-    for (const v of top) if (s > (meantTop.get(v) ?? 0)) meantTop.set(v, s);
-    if (MORE.subjectWide || ix.topics[meantSubjects[k].i][1] <= WIDE_SUBJECT) addRanges(inTopic, t.v);
-  });
-  for (const v of meantTop.keys()) cands.add(v);
   // The most-cited verses of the wider sets of the prepared questions it most likely means.
   const widerTop = new Set<number>();
-  nearestSets.slice(0, MORE.wider).forEach((set) => set && addRanges(widerTop, set.top));
+  nearestSets.slice(0, POINT.wider).forEach((set) => set && addRanges(widerTop, set.top));
   for (const v of widerTop) cands.add(v);
 
   const marks = new Set<string>();
@@ -1024,46 +962,42 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const texts = plainText();
   const why = WHY.test(question.toLowerCase());
   const score = new Map<number, number>();
-  const scoreOf = (v: number) => {
-    // A verse that is about the question, not one that only mentions it in passing.
-    let dense = 0;
+  // A verse that is about the question, not one that only mentions it in passing.
+  const denseOf = (v: number) => {
     const t = texts?.[v];
-    if (t) {
-      const toks = tokens(t);
-      const hits = toks.filter((w) => marks.has(w)).length;
-      dense = toks.length ? Math.min(1, (hits / toks.length) * 6) : 0;
-    }
+    if (!t) return 0;
+    const toks = tokens(t);
+    const hits = toks.filter((w) => marks.has(w)).length;
+    return toks.length ? Math.min(1, (hits / toks.length) * 6) : 0;
+  };
+  const scoreOf = (v: number) => {
+    const t = texts?.[v];
+    const dense = denseOf(v);
     const genre = TEACHING[a.books[a.verseBook[v]].genre] ?? 0;
     // "Why" is answered where a verse gives the reason.
     const reason = why && t && REASON.test(t) ? 0.4 : 0;
     const closest = usable.some((i) => concepts[i].close.has(v)) ? 0.5 : 0;
     // How much of the question a verse holds comes first.
     const book = within(v, chapters) ? 1.2 : within(v, named) ? 0.8 : 0;
-    return 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest + book + LEAN.weight * (leaning.get(v) ?? 0) + MORE.subjects * (meantTop.get(v) ?? 0) + (widerTop.has(v) ? MORE.widerW : 0);
+    return 3.5 * (text.get(v) ?? 0) + (inTopic.has(v) ? 0.6 : 0) + (cited.has(v) ? 0.6 : 0) + 0.5 * a.rank[v] + 0.6 * dense + genre + reason + closest + book + LEAN.weight * (leaning.get(v) ?? 0);
   };
   for (const v of cands) score.set(v, scoreOf(v));
 
   // Verses the best found point to, by the Bible's own cross-references.
-  if (MORE.links) {
-    const seeds = [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y).slice(0, MORE.linkSeeds);
-    const pointed = new Map<number, number>();
-    for (const u of seeds) {
-      const to = new Set<number>();
-      for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xVotes[e] >= MORE.linkVotes) to.add(a.xDst[e]);
-      for (let k = a.xInOff[u]; k < a.xInOff[u + 1]; k++) {
-        const e = a.xInEdge[k];
-        if (a.xVotes[e] >= MORE.linkVotes) to.add(a.xSrc[e]);
-      }
-      for (const v of to) if (v !== u) pointed.set(v, (pointed.get(v) ?? 0) + 1);
+  const pointed = new Map<number, number>();
+  for (const u of [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y).slice(0, POINT.seeds)) {
+    const to = new Set<number>();
+    for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) if (a.xVotes[e] >= POINT.votes) to.add(a.xDst[e]);
+    for (let k = a.xInOff[u]; k < a.xInOff[u + 1]; k++) {
+      const e = a.xInEdge[k];
+      if (a.xVotes[e] >= POINT.votes) to.add(a.xSrc[e]);
     }
-    for (const [v, c] of pointed) {
-      if (c < MORE.linkMin) continue;
-      if (!cands.has(v)) {
-        cands.add(v);
-        score.set(v, scoreOf(v));
-      }
-      score.set(v, score.get(v)! + MORE.links * Math.min(c, 5) / 5);
-    }
+    for (const v of to) if (v !== u) pointed.set(v, (pointed.get(v) ?? 0) + 1);
+  }
+  for (const [v, c] of pointed) {
+    if (c < POINT.min || cands.has(v)) continue;
+    cands.add(v);
+    score.set(v, scoreOf(v));
   }
 
   // The Bible pointing to itself: links among the best candidates count.
@@ -1091,7 +1025,6 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     closeness.set(v, s);
     return s;
   };
-  if (MORE.verse && qv) for (const v of best) score.set(v, score.get(v)! + MORE.verse * nearOf(v));
   const found = [...cands].sort((x, y) => score.get(y)! - score.get(x)! || x - y);
 
   // What comes first (SHOW): for each verse in the closest prepared questions'
@@ -1124,20 +1057,52 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
         SHOW.words * (text.get(v) ?? 0) +
         SHOW.phrase * (usable.some((i) => concepts[i].close.has(v)) ? 1 : 0) +
         SHOW.links * (links.get(v) ?? linked(v)) / 6 +
-        SHOW.teaching * (TEACHING[a.books[a.verseBook[v]].genre] ?? 0) +
-        (MORE.verseShow && qv ? MORE.verseShow * nearOf(v) : 0),
+        SHOW.teaching * (TEACHING[a.books[a.verseBook[v]].genre] ?? 0),
     );
   }
-  // A book or chapter the question names keeps its own verses first.
-  const first = named.length ? [] : [...pool].sort((x, y) => show.get(y)! - show.get(x)! || x - y);
+  // A book or chapter the question names keeps its own verses first: the
+  // verses it cites, then the chapter's, then those outside the book. Other
+  // chapters of a named book come last, as most were about something else.
+  const cites: number[] = [];
+  for (const b of named) if (b.verse) for (let v = b.from; v < b.to; v++) if (!texts || texts[v]) cites.push(v);
+  const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
+  // Otherwise FIT orders those SHOW ranks and the best found.
+  const rows = [...new Set([...pool, ...found.slice(0, FIT.rows)])];
+  const firstTen = new Set(found.slice(0, 10));
+  const weak = !usable.length || Math.max(0, ...rows.map((v) => text.get(v) ?? 0)) < 0.5 ? 1 : 0;
+  const sure = nearest[0]?.p ?? 0;
+  const known = (v: number) => {
+    const h = held.get(v);
+    const hp = h?.p ?? 0;
+    const words = text.get(v) ?? 0;
+    const phrase = usable.some((i) => concepts[i].close.has(v)) ? 1 : 0;
+    const t = texts?.[v];
+    const near = nearOf(v);
+    return [
+      1, pool.has(v) ? 1 : 0, words, inTopic.has(v) ? 1 : 0, cited.has(v) ? 1 : 0, a.rank[v], denseOf(v),
+      TEACHING[a.books[a.verseBook[v]].genre] ?? 0, why && t && REASON.test(t) ? 1 : 0, phrase, leaning.get(v) ?? 0,
+      (links.get(v) ?? linked(v)) / 6, hp, Math.min(h?.n ?? 0, 5) / 5, h?.first ? 1 : 0, near, widerTop.has(v) ? 1 : 0,
+      Math.min(pointed.get(v) ?? 0, 5) / 5, (score.get(v) ?? 0) / 5, (show.get(v) ?? 0) / 5, firstTen.has(v) ? 1 : 0,
+      weak * hp, weak * near, weak * words, sure * hp, sure, weak, h?.first ? hp : 0, (near * (h?.n ?? 0)) / 5, words * phrase,
+    ];
+  };
+  const xs = named.length ? [] : rows.map(known);
+  const fit = xs.map((x) => logistic(FIT.answers, x) - FIT.offWeight * logistic(FIT.off, x));
+  const first = named.length
+    ? [...cites, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
+    : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
   const put = new Set(first);
-  const verses = [...first, ...found.filter((v) => !put.has(v))].slice(0, MAX);
+  const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);
+  if (TRACE.on) {
+    const pos = new Map(verses.map((v, k) => [v, k]));
+    TRACE.rows = [{ named: named.length, usable: usable.length, nearP: nearest.map((m) => m.p), rows: rows.map((v, k) => ({ v, pos: pos.get(v) ?? -1, x: xs[k] ?? null, fit: fit[k] ?? null })) }];
+  }
 
   return {
     verses,
     marks,
     concepts: concepts.map((c, i) => ({ word: c.word, forms: c.forms, found: reach[i].size })),
-    subjects: [...chosen.map((s) => s.title), ...meantSubjects.map((m) => ix.topics[m.i][0])],
+    subjects: chosen.map((s) => s.title),
     questions: [...new Set([...lean.map((r) => r.q.q), ...qs.map((q) => q.q)])],
   };
 }
