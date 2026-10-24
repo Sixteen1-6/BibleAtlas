@@ -9,6 +9,7 @@
 
 import { type Atlas } from '../../../data/atlas';
 import { GoDeeper } from '../../Depth';
+import { CommentaryFoot } from '../../commentary/Gate';
 import { CitedSource } from '../../Sources';
 import { useJson } from '../data';
 import { Lead, Passage, SideBySide, SourceNote, Unsure, refName } from '../kit';
@@ -129,6 +130,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
         <CardView key={c.id} a={a} c={c} verse={verse} navigate={navigate} />
       ))}
       <GoDeeper to="study">How Christians explain it</GoDeeper>
+      <CommentaryFoot />
       <SourceNote>Answers written for this app with AI help, from the Bible (BSB), and reviewed by a person before they are shown.</SourceNote>
     </>
   );

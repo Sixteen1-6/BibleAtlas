@@ -1,8 +1,8 @@
 // The data behind the "Christian writers" extra, as
-// crates/atlas-cli/src/extra_voices.rs writes it, the works it comes from, and
-// the reader's choice to see what they wrote.
+// crates/atlas-cli/src/extra_voices.rs writes it, and the works it comes from.
+// Whether the reader sees what they wrote is the commentary notice's to say
+// (ui/commentary/state.ts).
 
-import { signal } from '@preact/signals';
 import { type Atlas, locate } from '../../../data/atlas';
 import { loadJson } from '../data';
 import { refName } from '../kit';
@@ -43,6 +43,10 @@ export interface Work {
   /** Its card on the Sources shelf (config/shelf.json). */
   shelf: string;
 }
+
+/** The panel's source line. */
+export const SOURCE =
+  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s Concise Commentary and John Wesley’s Notes, from the CrossWire SWORD modules via Let’s Church.';
 
 /** The works, oldest first, in the order the build numbers them. */
 export const WORKS: readonly Work[] = [
@@ -115,24 +119,3 @@ export function nameFrom(a: Atlas, verse: VerseRef, from: VerseRef, to: VerseRef
 export function listWords(xs: readonly string[]): string {
   return xs.length < 2 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
 }
-
-/** Whether the reader has chosen to see the writers' notes. Off until they
- * do; remembered per browser. */
-export const voicesAllowed = (() => {
-  const key = 'atlas.voices';
-  let initial = false;
-  try {
-    initial = localStorage.getItem(key) === '1';
-  } catch {
-    // Storage blocked (private window): ask again next time.
-  }
-  const s = signal(initial);
-  s.subscribe((v) => {
-    try {
-      localStorage.setItem(key, v ? '1' : '0');
-    } catch {
-      // Ignore: the choice just won't be remembered.
-    }
-  });
-  return s;
-})();

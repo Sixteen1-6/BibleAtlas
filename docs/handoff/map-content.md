@@ -24,7 +24,7 @@ Angle: CONTENT AND SOURCES. Repository github.com/Sixteen1-6/BibleAtlas, main at
 | Nave's headings on the Themes tab | 146 hidden, 28 let through, 14 reference fixes | | | config/naves-display.json |
 | Eras and dates | 17 eras, 71 chapter ranges in 45 books, 134 dating views for 66 books | all | James, 2 Timothy, 1 and 2 Peter deliberately get no era (eras.rs 2075 to 2085) | quotes checked word for word at build |
 | Sources shelf | 58 works in 12 groups | 58 (the 10 `onlyWhenCited` website cards all show, because hard-verse pointers count as citations) | 0 | build checks |
-| Christian writers ("voices") | Catena Aurea on 3,774 verses, Matthew Henry on 31,055, Wesley on 16,704; 43 verses have none | all, at Deep only, after the reader taps "Show what they wrote" | | PR #33 |
+| Christian writers ("voices") | Catena Aurea on 3,774 verses, Matthew Henry on 31,055, Wesley on 16,704; 43 verses have none | all, at Deep only, after the reader finishes the two-page commentary notice (it replaced "Show what they wrote") | | PR #33 |
 | Study notes (Aquifer) | 16,923 notes on 28,938 verses (PR #13) | all | | |
 | Easton's and Smith's dictionaries | 3,962 and 4,561 entries (live shelf.json) | all | | |
 | Ask the Bible questions | 1,584 (config/questions.json has no `reviewed_by` field since PR #26) | all | | build ties every chain part to the Bible's own data |

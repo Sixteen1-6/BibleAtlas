@@ -545,7 +545,12 @@ These are standing instructions from the founder, or legal limits. Each says whe
   - Disputed readings say "scholars differ" (the `config/aramaic.json` `_comment`).
 - **Other people's words stay theirs.**
   - Christian writers and study notes are shown as their own words, never as the app's claim.
-  - Writers appear only at Deep, after "Show what they wrote" (`extra_voices.rs:1-10`, `extra_notes.rs:1-10`, PR #33).
+  - Writers appear only at Deep (`extra_voices.rs:1-10`, `extra_notes.rs:1-10`, PR #33).
+- **Commentary opens only after the commentary notice** (the founder, 2026-10-20: "the first time viewers look at commentary, any commentary, just give a disclaimer that it's a commentary and not God's word ... make sure they have to click like 2 pages, not just click okay once").
+  - Gated: the Layers notes, wordplay and name notes, study notes, Often asked, the old dictionaries (under a verse and on the shelf), the Christian writers (this replaced their one-click "Show what they wrote" and `atlas.voices`), the answers linked from Hard passages, the dating views on the "Written" line, and the NET translators' notes link.
+  - Finishing page 2 stores `atlas.commentary`; "Not now", Escape or a click outside never opens anything. The Sources shelf can close commentary again.
+  - Never gated: Scripture in any translation, the original words, Ask's chains of verses, cross-references, quotations, parallels, themes. The notice never opens on arrival.
+  - Code: `web/src/ui/commentary/` (`state.ts`, `Gate.tsx`, `Notice.tsx`); an extra opts in with `commentary: true` or `'verse'` (`extras/types.ts`).
 - **AI drafting is disclosed.**
   - Every AI-drafted passage and card says "Drafted with AI help (Claude) ...".
   - At Deep the UI says "Not yet reviewed by a person" (`Layers.tsx:255-263`).

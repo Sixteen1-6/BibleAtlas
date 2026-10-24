@@ -12,8 +12,10 @@ import type { ComponentChildren } from 'preact';
 import { type Atlas, chapterName, label } from '../../data/atlas';
 import { deepen } from '../../depth';
 import * as S from '../../state';
+import { Commentary } from '../commentary/Gate';
+import { accepted, askNotice } from '../commentary/state';
 import { dataState, ensureData } from './data';
-import { refName, verseHash } from './kit';
+import { SourceNote, refName, verseHash } from './kit';
 import { levelAtLeast } from './level';
 import { closeExtra, openExtra, openPanel } from './open';
 import { type AnyExtra, EXTRAS, extraById } from './registry';
@@ -70,6 +72,22 @@ interface Item {
   line: NoteLine;
 }
 
+/** Whether an extra's panel of this kind shows commentary (types.ts). */
+function isCommentary(x: AnyExtra, kind: 'verse' | 'chapter'): boolean {
+  return x.commentary === true || (x.commentary === 'verse' && kind === 'verse');
+}
+
+/** A commentary panel's closed state: its own words, or plain ones. */
+function closedState(a: Atlas, x: AnyExtra, o: { kind: 'verse' | 'chapter'; verse: VerseRef | null }, data: unknown): { line: string; button: string; source?: string } {
+  try {
+    const c = o.kind === 'verse' && o.verse !== null ? x.closed?.(o.verse, data, a) : null;
+    if (c) return c;
+  } catch (e) {
+    warnOnce(`${x.id}:closed`, `${x.id}: its closed() threw.`, e);
+  }
+  return { line: 'People wrote notes about this passage.', button: 'Show the notes' };
+}
+
 /** Move the reader to a verse from a note's link. */
 function goTo(v: VerseRef): void {
   if (openPanel.peek()) closeExtra('navigate');
@@ -101,12 +119,16 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
   const parts = typeof line === 'string' ? [line] : line;
   const btn = useRef<HTMLButtonElement>(null);
   const canOpen = kind === 'verse' || !!x.ChapterPanel;
-  const open = () => openExtra(x.id, kind, at, btn.current);
+  // Commentary opens after the notice, until the reader has finished it once.
+  const open = () =>
+    isCommentary(x, kind) && !accepted.peek() ? void askNotice().then((ok) => ok && openExtra(x.id, kind, at, btn.current)) : openExtra(x.id, kind, at, btn.current);
+  // Marks the line for the notice's code to be fetched ahead of the tap (commentary/Gate.tsx).
+  const asks = canOpen && isCommentary(x, kind) && !accepted.value ? '' : undefined;
   const words = plain(a, parts);
   if (!parts.some((p) => typeof p !== 'string')) {
     if (!canOpen) return <p class="xt-line" data-x={x.id}>{words}</p>;
     return (
-      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
+      <button ref={btn} type="button" class={`xt-line xt-tap${isOpen ? ' xt-on' : ''}`} data-x={x.id} data-cn-ask={asks} onClick={open} aria-haspopup="dialog" aria-expanded={isOpen}>
         <span class="xt-words">{words}</span>
         <span class="xt-chev" aria-hidden="true">
           ›
@@ -115,7 +137,7 @@ function Line({ a, item, kind, at, isOpen }: { a: Atlas; item: Item; kind: 'vers
     );
   }
   return (
-    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} data-x={x.id} onClick={canOpen ? open : undefined}>
+    <div class={`xt-line${canOpen ? ' xt-tap' : ''}${isOpen ? ' xt-on' : ''}`} data-x={x.id} data-cn-ask={asks} onClick={canOpen ? open : undefined}>
       <span class="xt-words">{parts.map((p, i) => (typeof p === 'string' ? p : <VerseA key={i} a={a} link={p} />))}</span>
       {canOpen && (
         <button
@@ -235,14 +257,26 @@ function PanelHost({ a }: { a: Atlas }) {
   const at = o.kind === 'verse' ? label(a, o.verse!) : `${chapterName(a.books[o.chapter!.book])} ${o.chapter!.chapter}`;
   const P = x.Panel;
   const C = x.ChapterPanel;
+  const body =
+    o.kind === 'verse' ? (
+      <P a={a} data={s.data} verse={o.verse!} close={dismiss} navigate={navigate} />
+    ) : (
+      C && <C a={a} data={s.data} chapter={o.chapter!} close={dismiss} navigate={navigate} />
+    );
+  // Commentary opened by a link (or brought back by Back) waits, closed, for
+  // the reader to ask: one line and a button that opens the notice.
+  const gate = isCommentary(x, o.kind) ? closedState(a, x, o, s.data) : null;
   return createPortal(
     <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss} tall={x.tall}>
       <Guard id={x.id}>
-        {o.kind === 'verse' ? (
-          <P a={a} data={s.data} verse={o.verse!} close={dismiss} navigate={navigate} />
+        {gate ? (
+          <Commentary line={gate.line} button={gate.button}>
+            {body}
+          </Commentary>
         ) : (
-          C && <C a={a} data={s.data} chapter={o.chapter!} close={dismiss} navigate={navigate} />
+          body
         )}
+        {gate?.source && !accepted.value && <SourceNote>{gate.source}</SourceNote>}
       </Guard>
     </Shell>,
     document.body,
