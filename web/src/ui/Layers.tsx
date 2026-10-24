@@ -4,6 +4,10 @@
 // sources each note cites (with a link to read them), who reviewed it, and a
 // way to suggest a correction.
 //
+// The notes are drawn from Christian writers, so the card stays closed (its
+// heading, one line and "Read the notes") until the reader finishes the
+// commentary notice (ui/commentary).
+//
 // A link that quotes the passage, or another passage in the same note, word
 // for word or nearly, carries a quotation mark. That comes from the quotations
 // extra's data (the BSB's own footnotes, crates/atlas-cli/src/extra_quotes.rs),
@@ -14,6 +18,7 @@ import { type Atlas, label, rangeLabel } from '../data/atlas';
 import { type Cite, type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { Closed, CommentaryFoot, useGate } from './commentary/Gate';
 import { dataState, ensureData } from './extras/data';
 import { type Data as Quotes, isNt } from './extras/quotes/model';
 import { extraById } from './extras/registry';
@@ -212,6 +217,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   const list = passages.value;
   const [openFor, setOpenFor] = useState<string | null>(null);
   const q = useQuotes(a);
+  const gate = useGate<HTMLHeadingElement>();
   const p = passageAt(list, v);
   if (!p) {
     const from = pointingAt(list, v);
@@ -226,6 +232,14 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       </div>
     );
   }
+  if (!gate.open) {
+    return (
+      <section class="layers" aria-label="Layers of meaning">
+        <h3>Layers of meaning</h3>
+        <Closed line="Notes on what this passage means, drawn from Christian writers." button="Read the notes" onAsk={gate.ask} />
+      </section>
+    );
+  }
   const study = atLeast('study');
   const open = study || openFor === p.id;
   const lead = leadLayer(p);
@@ -233,7 +247,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   const quotes = shown.map((l) => (q ? quotedLinks(a, q, p, l) : new Map<string, string>()));
   return (
     <section class="layers" aria-label="Layers of meaning">
-      <h3>
+      <h3 class="cn-start" ref={gate.start} tabIndex={-1}>
         Layers of meaning
         {p.draft && (
           <span class="badge draft" title="No note here is reviewed by a person or cited from a listed source yet. Drafts only appear in preview builds.">
@@ -252,6 +266,7 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
           {' ›'}
         </button>
       )}
+      <CommentaryFoot />
       {atLeast('deep') && (
         <p class="layerdeep">
           {p.source}{' '}

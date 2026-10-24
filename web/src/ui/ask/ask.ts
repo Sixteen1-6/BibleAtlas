@@ -101,7 +101,7 @@ export type Asked =
   | { kind: 'topic'; i: number; title: string; n: number }
   /** Any other question, answered with the verses gathered for it. */
   | { kind: 'live'; text: string }
-  /** Someone asking about ending their life: where to find help now, then verses of hope. */
+  /** Someone asking about ending their life: whole verses of hope, and nothing else of ours. */
   | { kind: 'care'; text: string };
 
 /** The longest question kept in a link: room for a few sentences of what happened. */
@@ -171,7 +171,7 @@ export function findAsked(ix: AskIndex, id: string): Asked | null {
 export function askLabel(asked: Asked): [string, string] {
   if (asked.kind === 'question') return [asked.q.q, `${asked.q.n.toLocaleString()} verses`];
   if (asked.kind === 'topic') return [asked.title, `${asked.n.toLocaleString()} verses`];
-  if (asked.kind === 'care') return ['Help, and hope', 'where to turn now, and verses for this'];
+  if (asked.kind === 'care') return ['Help, and hope', 'verses for this'];
   return [asked.text, 'the verses on it'];
 }
 
@@ -251,10 +251,13 @@ if (typeof window !== 'undefined') {
 
 // ------------------------------------------------------------ matching
 
+/** Words that tell what is asked for: "where did Jesus die" is not "why did Jesus die". */
+const ASKS = ['where', 'when', 'who', 'why'];
+
 /** Words search leaves out that still change what is asked: "why did God
  * make me" is not "is there a God", and "what did Jesus teach" is not "who is
  * Jesus". A prepared question opens only when these match too. */
-const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real']);
+const KEEP = new Set(['make', 'made', 'teach', 'know', 'find', 'stop', 'get', 'go', 'have', 'use', 'not', 'no', 'let', 'see', 'care', 'real', ...ASKS]);
 
 /** "What does the Bible say about X" asks about X. */
 const ABOUT = /^\s*(what|how)\s+(does|do|did)\s+(the\s+)?(bible|scriptures?|god|jesus|lord)\s+(say|says|teach|teaches|tell|tells)\s+(us\s+)?(about|of|on)\s+/i;

@@ -12,6 +12,7 @@ import '@fontsource/noto-serif/greek-ext-400.css';
 import './styles.css';
 import { App } from './App';
 import { ErrorBoundary } from './boot/ErrorBoundary';
+import { NoticeHost } from './ui/commentary/Gate';
 
 render(
   <ErrorBoundary>
@@ -19,3 +20,6 @@ render(
   </ErrorBoundary>,
   document.getElementById('app')!,
 );
+
+// The commentary notice, outside #app: the phone panel sets #app inert.
+render(<NoticeHost />, document.body.appendChild(document.createElement('div')));

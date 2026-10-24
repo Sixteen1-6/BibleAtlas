@@ -59,8 +59,12 @@ export default defineExtra<Data>({
   // chapterNote(chapter, data) { ... },  optional: a line under the chapter heading
   // ChapterPanel,                        optional: its panel
   // tall: true,                          optional: on wider screens the panel reaches up over the map of links
+  // commentary: true,                    optional: the panel shows commentary (see below)
+  // closed(verse, data, a) { ... },      optional, with commentary: its closed state, { line, button, source }
 });
 ```
+
+Commentary is what people wrote about what the Bible means: notes, answers, interpretations, dating views. A panel that shows any sets `commentary: true` (or `'verse'` when only the verse panel does). Until the reader has finished the commentary notice once (`web/src/ui/commentary/`), tapping its line opens the notice first, and a panel opened by a link shows its closed state: one plain sentence from `closed()` and a button. End such a panel with `<CommentaryFoot />` just above its `<SourceNote>`. The Bible's own words, the original words, links, quotations, parallels and places are never commentary.
 
 A complete example, in the shape the real `quotes.extra.tsx` takes. The data format and the words are yours to choose.
 

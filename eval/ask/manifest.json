@@ -1,0 +1,4552 @@
+{
+ "note": "Every file in eval/ask but README.md, manifest.json, .gitignore and scripts/tools/workdir.py: its sha256 as stored, the sha256 of its source, the name or names it had in the working folder (old; empty for a Workflow script kept only in the record of its run, and for files no script reads by name), and how it was changed (gzip, from_task_output, path_edits). sets/seen12-5374.txt was made here, not copied; made_here says how. scripts/tools/workdir.py reads this.",
+ "files": [
+  {
+   "path": "labels/pr31/dev-268-rt.json",
+   "old": [
+    "scratchpad/eval2/rt-all.json"
+   ],
+   "source_sha256": "9952c2e5cc6b8300e10c397fe0a5f8b676911bcdd95366bd4a42fcaf1a78e625",
+   "bytes": 64831,
+   "sha256": "9952c2e5cc6b8300e10c397fe0a5f8b676911bcdd95366bd4a42fcaf1a78e625"
+  },
+  {
+   "path": "labels/pr31/dev-682-and-set5-225-labels.json",
+   "old": [
+    "scratchpad/eval2/labels-all.json"
+   ],
+   "source_sha256": "88b22a1555ea49f4d59882a232f5ec8400cb774fc1a82eb32f2ee148d783a1f1",
+   "bytes": 298376,
+   "sha256": "88b22a1555ea49f4d59882a232f5ec8400cb774fc1a82eb32f2ee148d783a1f1"
+  },
+  {
+   "path": "labels/pr31/dev-682-rt-sig.json",
+   "old": [
+    "scratchpad/eval2/rt-dev-sig.json"
+   ],
+   "source_sha256": "cf9c15dca76cf839de45320840f2e0da640b8b36a39c02fc3c4b488fc8c1b6ac",
+   "bytes": 284635,
+   "sha256": "cf9c15dca76cf839de45320840f2e0da640b8b36a39c02fc3c4b488fc8c1b6ac"
+  },
+  {
+   "path": "labels/pr31/router-terms-sig.json",
+   "old": [
+    "scratchpad/eval2/tt-sig.json"
+   ],
+   "source_sha256": "457b434ca6c23d52a34f62b9e10476d5972653eeac6b8e8278074496f437137d",
+   "bytes": 986578,
+   "sha256": "457b434ca6c23d52a34f62b9e10476d5972653eeac6b8e8278074496f437137d"
+  },
+  {
+   "path": "labels/pr31/set5-225-oracle-labels.json",
+   "old": [
+    "scratchpad/eval2/oracle-s5.json"
+   ],
+   "source_sha256": "9a08a4b56a122665f3660c50f907b4fc217bceaaa0b3a71fc737a2b7355687b0",
+   "bytes": 46590,
+   "sha256": "9a08a4b56a122665f3660c50f907b4fc217bceaaa0b3a71fc737a2b7355687b0"
+  },
+  {
+   "path": "labels/pr31/set5-225-rt-sig.json",
+   "old": [
+    "scratchpad/eval2/rt-s5-sig.json"
+   ],
+   "source_sha256": "5dd57b1034a4b9a175727163add9ed9234802d4686f2a932dabdedc91bdfedb9",
+   "bytes": 227804,
+   "sha256": "5dd57b1034a4b9a175727163add9ed9234802d4686f2a932dabdedc91bdfedb9"
+  },
+  {
+   "path": "labels/pr32/dev-682-rt-m.json",
+   "old": [
+    "scratchpad/eval2/rt-dev-m.json"
+   ],
+   "source_sha256": "a500e1c436dfa1897091a31194b45f34da18643f05f75699c3ba2fa80bf00b57",
+   "bytes": 521668,
+   "sha256": "a500e1c436dfa1897091a31194b45f34da18643f05f75699c3ba2fa80bf00b57"
+  },
+  {
+   "path": "labels/pr32/set5-225-rt-m.json",
+   "old": [
+    "scratchpad/eval2/rt-s5-m.json"
+   ],
+   "source_sha256": "e0ef399ae0db898d45d237ff7c92d0ecae843bb7434aab9a629c92e77043c987",
+   "bytes": 182188,
+   "sha256": "e0ef399ae0db898d45d237ff7c92d0ecae843bb7434aab9a629c92e77043c987"
+  },
+  {
+   "path": "labels/pr34/pool-1096-labels.json",
+   "old": [
+    "scratchpad/r6/picks.json"
+   ],
+   "source_sha256": "674bbf6ec919231641adbdda8792ad921fd9782b1f365674e1a346960667a30c",
+   "bytes": 389470,
+   "sha256": "674bbf6ec919231641adbdda8792ad921fd9782b1f365674e1a346960667a30c"
+  },
+  {
+   "path": "labels/pr34/pool-1096-rt-nn.json",
+   "old": [
+    "scratchpad/r6/rt-pool-nn.json"
+   ],
+   "source_sha256": "f90d47ca2a29b820b866fb0500751acc1944ca6f4abc67f9be09c8236b90d04b",
+   "bytes": 900182,
+   "sha256": "f90d47ca2a29b820b866fb0500751acc1944ca6f4abc67f9be09c8236b90d04b"
+  },
+  {
+   "path": "labels/pr34/pool-1096-rt.json",
+   "old": [
+    "scratchpad/r6/rt-pool.json"
+   ],
+   "source_sha256": "a1db6aa98885f9f9ffbb0cf8bfd971381eb5d879cd95d2c382e723116fc87319",
+   "bytes": 1275539,
+   "sha256": "a1db6aa98885f9f9ffbb0cf8bfd971381eb5d879cd95d2c382e723116fc87319"
+  },
+  {
+   "path": "labels/pr40/dev2-545-labels.json",
+   "old": [
+    "scratchpad/r6/dev2/picks.json"
+   ],
+   "source_sha256": "8d7586a36a7a3893f6cc0a07f313851bc198bcbd183ce78b8670ecda8807e4dc",
+   "bytes": 204999,
+   "sha256": "8d7586a36a7a3893f6cc0a07f313851bc198bcbd183ce78b8670ecda8807e4dc"
+  },
+  {
+   "path": "labels/pr40/dev2-545-rt-base.json",
+   "old": [
+    "scratchpad/r6/dev2/rt-base.json"
+   ],
+   "source_sha256": "d43ef033770f46792739dc99413a3366df53ba99ff4da3645a5e01a804ce8a25",
+   "bytes": 1247434,
+   "sha256": "d43ef033770f46792739dc99413a3366df53ba99ff4da3645a5e01a804ce8a25"
+  },
+  {
+   "path": "labels/pr40/dev2-545-rt-new.json",
+   "old": [
+    "scratchpad/r6/dev2/rt-new.json"
+   ],
+   "source_sha256": "c23e6749fdd169004af2a12e49f98cc23d1ed9773d39ddb367fac401bd6bf7c2",
+   "bytes": 1269914,
+   "sha256": "c23e6749fdd169004af2a12e49f98cc23d1ed9773d39ddb367fac401bd6bf7c2"
+  },
+  {
+   "path": "labels/pr43/blind-fresh-299-labels.json",
+   "old": [
+    "scratchpad/g7/dev3/labels.json",
+    "scratchpad/g7/dev3/picks.json"
+   ],
+   "source_sha256": "ee2f75df9b14ae01dbefd4b1f043a53be64982ebf4f7091207e25e74b7870ead",
+   "bytes": 135709,
+   "sha256": "ee2f75df9b14ae01dbefd4b1f043a53be64982ebf4f7091207e25e74b7870ead"
+  },
+  {
+   "path": "labels/pr43/blind-fresh-299-nr-base.json",
+   "old": [
+    "scratchpad/g7/nr-f-base.json"
+   ],
+   "source_sha256": "ae3ed8a2fa94222162f4b5cad0b9d539f90a12a3dbb9abe560369fb418155fb5",
+   "bytes": 454147,
+   "sha256": "ae3ed8a2fa94222162f4b5cad0b9d539f90a12a3dbb9abe560369fb418155fb5"
+  },
+  {
+   "path": "labels/pr43/blind-fresh-299-nr-new-k20p3.json",
+   "old": [
+    "scratchpad/g7/nr-f-new-k20p3.json"
+   ],
+   "source_sha256": "dea84851df3c678466f05f0874176faed554f7e3b6beabe0def3c7e64aa44ae3",
+   "bytes": 462780,
+   "sha256": "dea84851df3c678466f05f0874176faed554f7e3b6beabe0def3c7e64aa44ae3"
+  },
+  {
+   "path": "labels/pr43/blind-fresh-299-nr-new-k20p4.json",
+   "old": [
+    "scratchpad/g7/nr-f-new-k20p4.json"
+   ],
+   "source_sha256": "f79f4424bf2381368d7fcf394e78737f1c6e70a5ca1dbb356635a0c06821e1e0",
+   "bytes": 462997,
+   "sha256": "f79f4424bf2381368d7fcf394e78737f1c6e70a5ca1dbb356635a0c06821e1e0"
+  },
+  {
+   "path": "labels/pr43/blind-fresh-299-nr-new.json",
+   "old": [
+    "scratchpad/g7/nr-f-new.json"
+   ],
+   "source_sha256": "1a2bc063d224560f46e5ebd16569b7a4785accc6dd3d018ed0380c1afed1b485",
+   "bytes": 462823,
+   "sha256": "1a2bc063d224560f46e5ebd16569b7a4785accc6dd3d018ed0380c1afed1b485"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-base.json",
+   "old": [
+    "scratchpad/g7/nr-d-base.json"
+   ],
+   "source_sha256": "9d048ae08953cbff0b536c08fe24c132b4649bb1dcb057981c9c0e1867ce150a",
+   "bytes": 809073,
+   "sha256": "9d048ae08953cbff0b536c08fe24c132b4649bb1dcb057981c9c0e1867ce150a"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-built.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-built.json"
+   ],
+   "source_sha256": "4ac0a4d26a70861ae36d104664fdf7c937c163cef5b8e545b402c0cb1e86f34c",
+   "bytes": 817438,
+   "sha256": "4ac0a4d26a70861ae36d104664fdf7c937c163cef5b8e545b402c0cb1e86f34c"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k15p3.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k15p3.json"
+   ],
+   "source_sha256": "ab53c39c3976c7e5646a43cb371da86673f88e610a83cd8aca5eed76004e265b",
+   "bytes": 817448,
+   "sha256": "ab53c39c3976c7e5646a43cb371da86673f88e610a83cd8aca5eed76004e265b"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k20p2.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k20p2.json"
+   ],
+   "source_sha256": "79c727799ecdd94f178977aa78013917169407a9bd175bb2efbfb6ffc3179cf6",
+   "bytes": 817018,
+   "sha256": "79c727799ecdd94f178977aa78013917169407a9bd175bb2efbfb6ffc3179cf6"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k20p3.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k20p3.json"
+   ],
+   "source_sha256": "a444efdbfa197a6e6e0a0a8fa8cda16249e0fe3d72f19ed5f6827f2df2f4e44a",
+   "bytes": 817183,
+   "sha256": "a444efdbfa197a6e6e0a0a8fa8cda16249e0fe3d72f19ed5f6827f2df2f4e44a"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k20p4.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k20p4.json"
+   ],
+   "source_sha256": "4ac0a4d26a70861ae36d104664fdf7c937c163cef5b8e545b402c0cb1e86f34c",
+   "bytes": 817438,
+   "sha256": "4ac0a4d26a70861ae36d104664fdf7c937c163cef5b8e545b402c0cb1e86f34c"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k25p3.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k25p3.json"
+   ],
+   "source_sha256": "bdda2fb3dd4e3af99517eff63333418cb38727700108733819c4428cce7f3d33",
+   "bytes": 817152,
+   "sha256": "bdda2fb3dd4e3af99517eff63333418cb38727700108733819c4428cce7f3d33"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k30p3s4.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k30p3s4.json"
+   ],
+   "source_sha256": "caf88d7c96af605ae26998c318a0358bb3e5380e77b554242c41e1affad57663",
+   "bytes": 817316,
+   "sha256": "caf88d7c96af605ae26998c318a0358bb3e5380e77b554242c41e1affad57663"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k30p3s6.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k30p3s6.json"
+   ],
+   "source_sha256": "5fc4e7521cee52b76a79bb33c35060c14bf9b5261f26238bd08e2a21755d8b26",
+   "bytes": 816592,
+   "sha256": "5fc4e7521cee52b76a79bb33c35060c14bf9b5261f26238bd08e2a21755d8b26"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new-k30p4.json",
+   "old": [
+    "scratchpad/g7/nr-d-new-k30p4.json"
+   ],
+   "source_sha256": "a8eb84ddaeba818377ba6d3129cf80cc6dfb9f8e51c5e30753c3b8f2d626482c",
+   "bytes": 817333,
+   "sha256": "a8eb84ddaeba818377ba6d3129cf80cc6dfb9f8e51c5e30753c3b8f2d626482c"
+  },
+  {
+   "path": "labels/pr43/dev2-545-nr-new.json",
+   "old": [
+    "scratchpad/g7/nr-d-new.json"
+   ],
+   "source_sha256": "8cc1c7b9386043b8fea795942760e88676d3ba1ab44253b0cc9c4e9a23a92081",
+   "bytes": 816905,
+   "sha256": "8cc1c7b9386043b8fea795942760e88676d3ba1ab44253b0cc9c4e9a23a92081"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-1.json",
+   "old": [
+    "scratchpad/r7/relabel/out-1.json"
+   ],
+   "source_sha256": "61dff4c6513734a00917224be6086d913912dbde7a1432004518bd741b0cd2ff",
+   "bytes": 10225,
+   "sha256": "61dff4c6513734a00917224be6086d913912dbde7a1432004518bd741b0cd2ff"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-10.json",
+   "old": [
+    "scratchpad/r7/relabel/out-10.json"
+   ],
+   "source_sha256": "58094d1254c97f68bfe9bbbe03df135aa102aaa7c00adf3e249be718fc0d76ff",
+   "bytes": 11495,
+   "sha256": "58094d1254c97f68bfe9bbbe03df135aa102aaa7c00adf3e249be718fc0d76ff"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-11.json",
+   "old": [
+    "scratchpad/r7/relabel/out-11.json"
+   ],
+   "source_sha256": "61697336fb9e132cb312e32948567f936e897eab5b3ef2509bc95f006e566fa9",
+   "bytes": 11063,
+   "sha256": "61697336fb9e132cb312e32948567f936e897eab5b3ef2509bc95f006e566fa9"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-12.json",
+   "old": [
+    "scratchpad/r7/relabel/out-12.json"
+   ],
+   "source_sha256": "534ba12cd2d07fa6411274d2ae26c053dc53cdd79269c51d6a609adf911d4a69",
+   "bytes": 10469,
+   "sha256": "534ba12cd2d07fa6411274d2ae26c053dc53cdd79269c51d6a609adf911d4a69"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-13.json",
+   "old": [
+    "scratchpad/r7/relabel/out-13.json"
+   ],
+   "source_sha256": "21ecf273d0f98737c475f4cfafd19c66988efef1d4b2909b21fa820c9fd91fae",
+   "bytes": 10561,
+   "sha256": "21ecf273d0f98737c475f4cfafd19c66988efef1d4b2909b21fa820c9fd91fae"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-14.json",
+   "old": [
+    "scratchpad/r7/relabel/out-14.json"
+   ],
+   "source_sha256": "ede641e2b0d5dc85bfd560454b7d217f16d1ef920840437e7b6d35dfe225c8b4",
+   "bytes": 11417,
+   "sha256": "ede641e2b0d5dc85bfd560454b7d217f16d1ef920840437e7b6d35dfe225c8b4"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-15.json",
+   "old": [
+    "scratchpad/r7/relabel/out-15.json"
+   ],
+   "source_sha256": "0e963f645caaae12094cbc9a4821ef86537f176cff8e7d9a8166f92519029e83",
+   "bytes": 10777,
+   "sha256": "0e963f645caaae12094cbc9a4821ef86537f176cff8e7d9a8166f92519029e83"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-16.json",
+   "old": [
+    "scratchpad/r7/relabel/out-16.json"
+   ],
+   "source_sha256": "26b0bdadefd64297ccd430e6d335537bc5305c91fe9ec8bad7286a8f80cc2415",
+   "bytes": 10357,
+   "sha256": "26b0bdadefd64297ccd430e6d335537bc5305c91fe9ec8bad7286a8f80cc2415"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-17.json",
+   "old": [
+    "scratchpad/r7/relabel/out-17.json"
+   ],
+   "source_sha256": "9b0b3fbbc20350aac7cb335d0824207e8b779ab147fa7f578abe456a0b7516d9",
+   "bytes": 10709,
+   "sha256": "9b0b3fbbc20350aac7cb335d0824207e8b779ab147fa7f578abe456a0b7516d9"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-2.json",
+   "old": [
+    "scratchpad/r7/relabel/out-2.json"
+   ],
+   "source_sha256": "6e66dc1c74ce69819e705447b690faefc689ab6beb81cd3d6c735a5689f9e51e",
+   "bytes": 11418,
+   "sha256": "6e66dc1c74ce69819e705447b690faefc689ab6beb81cd3d6c735a5689f9e51e"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-3.json",
+   "old": [
+    "scratchpad/r7/relabel/out-3.json"
+   ],
+   "source_sha256": "87b7131ff9a2445dd69a833438f4efd861bd996cf80ff93d175ef48f26bb8fac",
+   "bytes": 10738,
+   "sha256": "87b7131ff9a2445dd69a833438f4efd861bd996cf80ff93d175ef48f26bb8fac"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-4.json",
+   "old": [
+    "scratchpad/r7/relabel/out-4.json"
+   ],
+   "source_sha256": "5bf59d00ad3b175d114729d8e9d98d74c5f7d190198490fb46efd19e9993923b",
+   "bytes": 10924,
+   "sha256": "5bf59d00ad3b175d114729d8e9d98d74c5f7d190198490fb46efd19e9993923b"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-5.json",
+   "old": [
+    "scratchpad/r7/relabel/out-5.json"
+   ],
+   "source_sha256": "f631ef960182cd2353ff99aa7d68a53b9cd72d7b3a4899946dc68fa9cc562cf2",
+   "bytes": 10890,
+   "sha256": "f631ef960182cd2353ff99aa7d68a53b9cd72d7b3a4899946dc68fa9cc562cf2"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-6.json",
+   "old": [
+    "scratchpad/r7/relabel/out-6.json"
+   ],
+   "source_sha256": "63172f8c7caaa3c269340c05e42a83df8ef4551b13d9afe6dc605489051d26d7",
+   "bytes": 11059,
+   "sha256": "63172f8c7caaa3c269340c05e42a83df8ef4551b13d9afe6dc605489051d26d7"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-7.json",
+   "old": [
+    "scratchpad/r7/relabel/out-7.json"
+   ],
+   "source_sha256": "a77cdb3ad45f4a9884cf09670853ccfe566d8dac75c4ff960e39dc75a8e8ddb1",
+   "bytes": 10845,
+   "sha256": "a77cdb3ad45f4a9884cf09670853ccfe566d8dac75c4ff960e39dc75a8e8ddb1"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-8.json",
+   "old": [
+    "scratchpad/r7/relabel/out-8.json"
+   ],
+   "source_sha256": "1c294e9c8b8f9b1fa475b89748727d3c7a8200f1852971a76303288631315433",
+   "bytes": 11597,
+   "sha256": "1c294e9c8b8f9b1fa475b89748727d3c7a8200f1852971a76303288631315433"
+  },
+  {
+   "path": "labels/pr43/new-answers-relabel/out-9.json",
+   "old": [
+    "scratchpad/r7/relabel/out-9.json"
+   ],
+   "source_sha256": "2f4aa7927fd0069f32495490019ba49de55d1945e029f45a750fea69eeabfe64",
+   "bytes": 11221,
+   "sha256": "2f4aa7927fd0069f32495490019ba49de55d1945e029f45a750fea69eeabfe64"
+  },
+  {
+   "path": "labels/r10/blind-fresh-299-questions.json",
+   "old": [
+    "scratchpad/r10/dev3.json"
+   ],
+   "source_sha256": "dc7c19c2cbc288abf10944ff2020c7e2b7c495050fd1d33f35fe673bfb0c8885",
+   "bytes": 37004,
+   "sha256": "dc7c19c2cbc288abf10944ff2020c7e2b7c495050fd1d33f35fe673bfb0c8885"
+  },
+  {
+   "path": "labels/r10/blind-fresh-299-rt-4bit.json",
+   "old": [
+    "scratchpad/r10/rt-dev3.json"
+   ],
+   "source_sha256": "c2e5278c5b8f7cc3b634b5f3bb351ae8bd1b67234b6ea56edeecc20a68dbdf56",
+   "bytes": 268423,
+   "sha256": "c2e5278c5b8f7cc3b634b5f3bb351ae8bd1b67234b6ea56edeecc20a68dbdf56"
+  },
+  {
+   "path": "labels/r10/blind-fresh-299-rt-rerank1000.json",
+   "old": [
+    "scratchpad/r10/rt1000-dev3.json"
+   ],
+   "source_sha256": "c0199e3fbcba301ad22e4f31b9322de60401e2e8ea9d4205db28579d69eaf541",
+   "bytes": 271412,
+   "sha256": "c0199e3fbcba301ad22e4f31b9322de60401e2e8ea9d4205db28579d69eaf541"
+  },
+  {
+   "path": "labels/r10/dev2-545-questions.json",
+   "old": [
+    "scratchpad/r10/dev2.json"
+   ],
+   "source_sha256": "c68c4e6131ca563fec8208c5cbfc882513ed87da6417ba5a08fbf7cd916c4181",
+   "bytes": 53692,
+   "sha256": "c68c4e6131ca563fec8208c5cbfc882513ed87da6417ba5a08fbf7cd916c4181"
+  },
+  {
+   "path": "labels/r10/dev2-545-rt-4bit.json",
+   "old": [
+    "scratchpad/r10/rt-dev2.json"
+   ],
+   "source_sha256": "29c80c210321fb15060abf6f7af43343090f2996b53e0f91612bc041d61b42a6",
+   "bytes": 477134,
+   "sha256": "29c80c210321fb15060abf6f7af43343090f2996b53e0f91612bc041d61b42a6"
+  },
+  {
+   "path": "labels/r10/dev2-545-rt-rerank1000.json",
+   "old": [
+    "scratchpad/r10/rt1000-dev2.json"
+   ],
+   "source_sha256": "1980046bafb0e10d767dd56c99f3a8907e216f01d4f454e5c3d45773b74bdd8a",
+   "bytes": 477172,
+   "sha256": "1980046bafb0e10d767dd56c99f3a8907e216f01d4f454e5c3d45773b74bdd8a"
+  },
+  {
+   "path": "labels/r10/dev4-594-and-blind-fresh9-300-questions.json",
+   "old": [
+    "scratchpad/r10/dev4.json"
+   ],
+   "source_sha256": "ed45b34dd52afa5dbcb835ef33da3d9efa80c274d6c41e27f880bc78c7c5c43e",
+   "bytes": 123952,
+   "sha256": "ed45b34dd52afa5dbcb835ef33da3d9efa80c274d6c41e27f880bc78c7c5c43e"
+  },
+  {
+   "path": "labels/r10/dev4-594-and-blind-fresh9-300-rt-4bit.json",
+   "old": [
+    "scratchpad/r10/rt-dev4.json"
+   ],
+   "source_sha256": "d8a68780ef30bf2a7319fd3027362dc7a445d3f96717dba7a97761e704fd7e71",
+   "bytes": 808526,
+   "sha256": "d8a68780ef30bf2a7319fd3027362dc7a445d3f96717dba7a97761e704fd7e71"
+  },
+  {
+   "path": "labels/r10/dev4-594-and-blind-fresh9-300-rt-rerank1000.json",
+   "old": [
+    "scratchpad/r10/rt1000-dev4.json"
+   ],
+   "source_sha256": "7372725f442c1bb6ea35c2d3f95dc5bcc5655275a0e91259b2ac138bbc2ae520",
+   "bytes": 816011,
+   "sha256": "7372725f442c1bb6ea35c2d3f95dc5bcc5655275a0e91259b2ac138bbc2ae520"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-base.json",
+   "old": [
+    "scratchpad/r8/g-d3-base.json"
+   ],
+   "source_sha256": "0acc6e9a4389f23dbef748c100b1c96969d4152d0bebf0d78f9dfe8e6f140ece",
+   "bytes": 462701,
+   "sha256": "0acc6e9a4389f23dbef748c100b1c96969d4152d0bebf0d78f9dfe8e6f140ece"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-k30.json",
+   "old": [
+    "scratchpad/r8/g-d3-k30.json"
+   ],
+   "source_sha256": "9a0dde57458d1fedf2461eead3d6e9d5c27e4e54a5608f4299ee501a70b76775",
+   "bytes": 462551,
+   "sha256": "9a0dde57458d1fedf2461eead3d6e9d5c27e4e54a5608f4299ee501a70b76775"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-p4.json",
+   "old": [
+    "scratchpad/r8/g-d3-p4.json"
+   ],
+   "source_sha256": "7acfeb7a4b3231e9b6f667008107ddb39911a492129e73719bcdaea107db7a00",
+   "bytes": 462290,
+   "sha256": "7acfeb7a4b3231e9b6f667008107ddb39911a492129e73719bcdaea107db7a00"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-r1000.json",
+   "old": [
+    "scratchpad/r8/g-d3-r1000.json"
+   ],
+   "source_sha256": "6d2415f816c9b603d500bb931bc95fa92582f01f0724e1c92fff08b8e258a7bd",
+   "bytes": 462611,
+   "sha256": "6d2415f816c9b603d500bb931bc95fa92582f01f0724e1c92fff08b8e258a7bd"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-s4.json",
+   "old": [
+    "scratchpad/r8/g-d3-s4.json"
+   ],
+   "source_sha256": "e78f79dc284f4561be9a2ed5c4e5c26a8c38a6f21455cc67dc09ecf9eac6df94",
+   "bytes": 463024,
+   "sha256": "e78f79dc284f4561be9a2ed5c4e5c26a8c38a6f21455cc67dc09ecf9eac6df94"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-model-s6.json",
+   "old": [
+    "scratchpad/r8/g-d3-s6.json"
+   ],
+   "source_sha256": "9426ffd846e99e145b0afb43cd511a2be1c9e827b7f4493793f9decd7d32d710",
+   "bytes": 462227,
+   "sha256": "9426ffd846e99e145b0afb43cd511a2be1c9e827b7f4493793f9decd7d32d710"
+  },
+  {
+   "path": "labels/r9/blind-fresh-299-rt-words.json",
+   "old": [
+    "scratchpad/r8/rt-d3-ask.json"
+   ],
+   "source_sha256": "8922035d70043bbc6fae528b74f6bc2fdd33984067a407309fb085cab911c356",
+   "bytes": 463141,
+   "sha256": "8922035d70043bbc6fae528b74f6bc2fdd33984067a407309fb085cab911c356"
+  },
+  {
+   "path": "labels/r9/blind-fresh9-300-rt.json",
+   "old": [
+    "scratchpad/r9/rt-bf9.json"
+   ],
+   "source_sha256": "aa8fea09f14265b38bb054f939becb6ddfefe6191fe3800a3e85d5f06ab0894d",
+   "bytes": 464495,
+   "sha256": "aa8fea09f14265b38bb054f939becb6ddfefe6191fe3800a3e85d5f06ab0894d"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-base.json",
+   "old": [
+    "scratchpad/r8/g-d2-base.json"
+   ],
+   "source_sha256": "58a146031359189c998230f1199e215098a2150ec765e9adb612ea1f1161e59f",
+   "bytes": 818682,
+   "sha256": "58a146031359189c998230f1199e215098a2150ec765e9adb612ea1f1161e59f"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-k30.json",
+   "old": [
+    "scratchpad/r8/g-d2-k30.json"
+   ],
+   "source_sha256": "506a17228537abe860ed72066c1a2643cdcfb861cd7f4743b76fe32d0bc660bc",
+   "bytes": 818566,
+   "sha256": "506a17228537abe860ed72066c1a2643cdcfb861cd7f4743b76fe32d0bc660bc"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-p4.json",
+   "old": [
+    "scratchpad/r8/g-d2-p4.json"
+   ],
+   "source_sha256": "5f4da8e584f67f6ae6ebca528f7f918995a370e8a57b0683ce627a120fc18a00",
+   "bytes": 817948,
+   "sha256": "5f4da8e584f67f6ae6ebca528f7f918995a370e8a57b0683ce627a120fc18a00"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-r1000.json",
+   "old": [
+    "scratchpad/r8/g-d2-r1000.json"
+   ],
+   "source_sha256": "7ec6dceb91617fb7dd81c12d30ed414db9320fb5d6c4afb3853bb989c8c76680",
+   "bytes": 818993,
+   "sha256": "7ec6dceb91617fb7dd81c12d30ed414db9320fb5d6c4afb3853bb989c8c76680"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-s4.json",
+   "old": [
+    "scratchpad/r8/g-d2-s4.json"
+   ],
+   "source_sha256": "1b40cbe493da0c7e9b7f427c612a2a9803d5ff5f4475f75721871e3a59bb41d1",
+   "bytes": 818866,
+   "sha256": "1b40cbe493da0c7e9b7f427c612a2a9803d5ff5f4475f75721871e3a59bb41d1"
+  },
+  {
+   "path": "labels/r9/dev2-545-model-s6.json",
+   "old": [
+    "scratchpad/r8/g-d2-s6.json"
+   ],
+   "source_sha256": "5f90e078d3089bd3c395634300df8fab8a9e3eea8de7b78869027949218c1014",
+   "bytes": 818364,
+   "sha256": "5f90e078d3089bd3c395634300df8fab8a9e3eea8de7b78869027949218c1014"
+  },
+  {
+   "path": "labels/r9/dev2-545-rt-words.json",
+   "old": [
+    "scratchpad/r8/rt-d2-ask.json"
+   ],
+   "source_sha256": "f3eb85269883f6e858bea425cd1cc483fa6ea1400ace8d61241ef70a98c8bdc2",
+   "bytes": 818220,
+   "sha256": "f3eb85269883f6e858bea425cd1cc483fa6ea1400ace8d61241ef70a98c8bdc2"
+  },
+  {
+   "path": "labels/r9/dev4-594-and-blind-fresh9-300-labels.json",
+   "old": [
+    "scratchpad/r9/lab/picks.json"
+   ],
+   "source_sha256": "726a729a46b12ccd72416f72ad1d1f84a033cd9d5cd6fa3726519c767dc736bf",
+   "bytes": 294952,
+   "sha256": "726a729a46b12ccd72416f72ad1d1f84a033cd9d5cd6fa3726519c767dc736bf"
+  },
+  {
+   "path": "labels/r9/dev4-594-rt.json",
+   "old": [
+    "scratchpad/r9/rt-dev4.json"
+   ],
+   "source_sha256": "c0051cc70628c2c5df256181287e49aa35e026898ac6b2f498d675b19bd832ff",
+   "bytes": 915619,
+   "sha256": "c0051cc70628c2c5df256181287e49aa35e026898ac6b2f498d675b19bd832ff"
+  },
+  {
+   "path": "scripts/pr28/batches.py",
+   "old": [
+    "scratchpad/eval2/batches.py"
+   ],
+   "source_sha256": "3c66275f999e2ab192fdcb3b98842b1054724a4bdd70f1fa44bc32a04b0a0ad9",
+   "bytes": 1228,
+   "sha256": "3c66275f999e2ab192fdcb3b98842b1054724a4bdd70f1fa44bc32a04b0a0ad9"
+  },
+  {
+   "path": "scripts/pr28/heldout-judge.js",
+   "old": [
+    "scratchpad/eval2/heldout-judge.js"
+   ],
+   "source_sha256": "c94ce9783680e5a2424a9fe1aee7a59a9254d77db79f94191a7b67296b792fff",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 2911,
+   "sha256": "5e9b49f88f3cefd5dba99077e8ad60b80c3a9345f8783f784747459b4b8d3745"
+  },
+  {
+   "path": "scripts/pr28/live-judge-2.js",
+   "old": [],
+   "source_sha256": "8a6a2fc7be47bd5cd7fa50c126920e5ba192998304af8abb70349e5a024148b4",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 2887,
+   "sha256": "8c5bd57b2ff77f2885217d7b4e7438a4de8b537eece3becd0c757e20b4efb456"
+  },
+  {
+   "path": "scripts/pr28/live-judge.js",
+   "old": [],
+   "source_sha256": "960deebf02a5ed8a1cdd7d95ce8160ef9e893e1714d4225f02da14ea5c6f5099",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'",
+    "the container clone of the repository -> ${args.repo}"
+   ],
+   "bytes": 5504,
+   "sha256": "8610e3cbc9ac943e7d4b612b3f5a89be540c349da1c3177a77a1d1a417f86126"
+  },
+  {
+   "path": "scripts/pr28/run.cjs",
+   "old": [
+    "scratchpad/eval2/run.cjs"
+   ],
+   "source_sha256": "0eab21022ee414f7e971e9157b220cb850abd3180e8d81d805f09715f99a611b",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 3132,
+   "sha256": "bcc645435e1175339114bd7ea812ac2cfe4598957c89b82ceb72e00c445fef70"
+  },
+  {
+   "path": "scripts/pr28/score.py",
+   "old": [
+    "scratchpad/eval2/score.py"
+   ],
+   "source_sha256": "f3c225f80d5ee8b89106333d3318a25dc5eadf2f62679b580f2d0e6deccbe555",
+   "bytes": 2478,
+   "sha256": "f3c225f80d5ee8b89106333d3318a25dc5eadf2f62679b580f2d0e6deccbe555"
+  },
+  {
+   "path": "scripts/pr29/cmp.py",
+   "old": [
+    "scratchpad/eval2/cmp.py"
+   ],
+   "source_sha256": "b82a777d391c26eaf38d35472fbeb193724f518cc58c898dcc441942f9b263f5",
+   "bytes": 1018,
+   "sha256": "b82a777d391c26eaf38d35472fbeb193724f518cc58c898dcc441942f9b263f5"
+  },
+  {
+   "path": "scripts/pr29/fresh.js",
+   "old": [],
+   "source_sha256": "3f27e39557fba01622ff838d54b12acb15d0aba24e591d080c80389f227e8ff8",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2016,
+   "sha256": "cd37cee1940df086155fa18207ce6141ee1b4ae5cfb79a476b9420bed26d3ae9"
+  },
+  {
+   "path": "scripts/pr29/fresh3.js",
+   "old": [],
+   "source_sha256": "344208b0dd14b37938958b00f2572fb3d0676ffc2f98af45fd90f3e0bd7de4c9",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2781,
+   "sha256": "08d0d9671505ba20d4fec9a3d83c3fca9ba8e1a9bed1031a730bac886b62f1ee"
+  },
+  {
+   "path": "scripts/pr29/judge-round2-b.js",
+   "old": [],
+   "source_sha256": "baaab8550af89ae404f32a0ef45a15a29445076b323dc1e3a84a3ff703b292e3",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3080,
+   "sha256": "3881cb3fa9d0948fa53d1c3c1f550bca00001477cd6915bae9cb69a271d8eb8b"
+  },
+  {
+   "path": "scripts/pr29/judge-round2.js",
+   "old": [],
+   "source_sha256": "e4831db3ad2abca815772321b67983dc6783a11c369c06604aaecdacc6e92935",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3013,
+   "sha256": "ee05fad9d0857b202cb6422587cdafefb09c068919710e74535f93ee3cc9ec7a"
+  },
+  {
+   "path": "scripts/pr31/batches4.py",
+   "old": [
+    "scratchpad/eval2/batches4.py"
+   ],
+   "source_sha256": "9161ab9a6528c0cf0f1dce47fa46ab2af410dd7780bb68545dfc71b05e4fd381",
+   "bytes": 951,
+   "sha256": "9161ab9a6528c0cf0f1dce47fa46ab2af410dd7780bb68545dfc71b05e4fd381"
+  },
+  {
+   "path": "scripts/pr31/blind-judge-4.js",
+   "old": [],
+   "source_sha256": "4aa09a27e62820f2ea014ce43fd5e6a5ad8ec6564a616ea2fabdb0e94d877646",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3163,
+   "sha256": "085f308ee3a03a13e05142a0aa66a46c4feb236ed08e5758a7558ea876d18aff"
+  },
+  {
+   "path": "scripts/pr31/blind-judge-6.js",
+   "old": [
+    "scratchpad/eval2/judge6.js"
+   ],
+   "source_sha256": "1b2978b4bfc7edc9696469ebbeca9b6a5a0b343b760a518b37fead0e25e2dd1c",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3163,
+   "sha256": "81e41081a306b52ee569f23c860d589f9c55793b809fa59de85294594c45a05f"
+  },
+  {
+   "path": "scripts/pr31/bm.py",
+   "old": [
+    "scratchpad/eval2/bm.py"
+   ],
+   "source_sha256": "77d0bafa4ab3b7a402fe33ab9c66fb422dd1dc7a09264cc5f8d44a4d97add9ae",
+   "bytes": 1758,
+   "sha256": "77d0bafa4ab3b7a402fe33ab9c66fb422dd1dc7a09264cc5f8d44a4d97add9ae"
+  },
+  {
+   "path": "scripts/pr31/evalr.py",
+   "old": [
+    "scratchpad/eval2/evalr.py"
+   ],
+   "source_sha256": "6ae496f1ca8840bf5fc80f6d0ea16162e5a985b55c999b1e8d9283d0e852236d",
+   "bytes": 913,
+   "sha256": "6ae496f1ca8840bf5fc80f6d0ea16162e5a985b55c999b1e8d9283d0e852236d"
+  },
+  {
+   "path": "scripts/pr31/feats.py",
+   "old": [
+    "scratchpad/eval2/feats.py"
+   ],
+   "source_sha256": "0ed319780f3d412ba76636f0ad994a5bb03b1bc59cdace5663ce010a7eb9c9d5",
+   "bytes": 587,
+   "sha256": "0ed319780f3d412ba76636f0ad994a5bb03b1bc59cdace5663ce010a7eb9c9d5"
+  },
+  {
+   "path": "scripts/pr31/fit.py",
+   "old": [
+    "scratchpad/eval2/fit.py"
+   ],
+   "source_sha256": "90b6b128d4c41b615b87d09c1be252e56464e7eda2f30c88bec9caacdec245c4",
+   "bytes": 1458,
+   "sha256": "90b6b128d4c41b615b87d09c1be252e56464e7eda2f30c88bec9caacdec245c4"
+  },
+  {
+   "path": "scripts/pr31/fresh5.js",
+   "old": [],
+   "source_sha256": "e66755041e5982e2fa43939a18cce6aad89f49a08dd6d4c4690d4b6402fdd33d",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3335,
+   "sha256": "8e1c04739d40efe037210ea545f1860194f7a655d3773449ce21b5170d9ac11a"
+  },
+  {
+   "path": "scripts/pr31/fresh6.js",
+   "old": [
+    "scratchpad/eval2/fresh6.js"
+   ],
+   "source_sha256": "68d2336546d54d3af50aa676da7a4f9898bb8da7e318f414c7ec086cde157676",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3335,
+   "sha256": "4093e06e5c2eb88c14f883cfa4e4f3881c7f99f22f124463759f69f5f65f00f9"
+  },
+  {
+   "path": "scripts/pr31/oracle-pick.js",
+   "old": [],
+   "source_sha256": "58c8f2672281ac65ee59298e50f426c3c26444ee27f896479e7fec17d9be5738",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2116,
+   "sha256": "ac46b54b4f319028296474a3ea1212c47286be1a1b54ed0eb4cc7f192178a17f"
+  },
+  {
+   "path": "scripts/pr31/route-labels-2.js",
+   "old": [],
+   "source_sha256": "9bc800b3444ebce3ae86018d4da9cf81f60f97dd61a21470ed020d70e03e4fca",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2412,
+   "sha256": "aaa3a55c9ede1b1854825281d3699b1d96cd257a8cc96cf57b15996ebed5ae4a"
+  },
+  {
+   "path": "scripts/pr31/route-labels.js",
+   "old": [],
+   "source_sha256": "b1ce7eb57ad21216f5da725621825bbe6c8dbf99ceb131a026f693ebd18c4fd4",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2372,
+   "sha256": "531fc3212811f324b5f64ea9cbb0b449aeb737f9fa28fd2b726f22ec6a20166b"
+  },
+  {
+   "path": "scripts/pr31/router.py",
+   "old": [
+    "scratchpad/eval2/router.py"
+   ],
+   "source_sha256": "0c4cbefa4714e6e9deae68205e0e64889bb94dbecd29d46f9da5de39c1b55edb",
+   "bytes": 3003,
+   "sha256": "0c4cbefa4714e6e9deae68205e0e64889bb94dbecd29d46f9da5de39c1b55edb"
+  },
+  {
+   "path": "scripts/pr31/rt.cjs",
+   "old": [
+    "scratchpad/eval2/rt.cjs"
+   ],
+   "source_sha256": "213a2e06697667e7a4c6e6451009473d82fcbd25ea92dbb3c1ef3130865d9e9f",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 1877,
+   "sha256": "c91d7e4675ecdfaaadeb9d29f09d4457b3d0bcc4b8d8692a521092878f255ca1"
+  },
+  {
+   "path": "scripts/pr31/rtscore.py",
+   "old": [
+    "scratchpad/eval2/rtscore.py"
+   ],
+   "source_sha256": "8693ddd01400030db0921dfda3fb72c33508f8e017e8ec61a65f4819e5e306f8",
+   "bytes": 701,
+   "sha256": "8693ddd01400030db0921dfda3fb72c33508f8e017e8ec61a65f4819e5e306f8"
+  },
+  {
+   "path": "scripts/pr31/score9.py",
+   "old": [
+    "scratchpad/eval2/score9.py"
+   ],
+   "source_sha256": "b2ebb41d4247ce72823490cfd7f05fb58d9cb62e58190b295c30ef7e57b0689a",
+   "bytes": 1261,
+   "sha256": "b2ebb41d4247ce72823490cfd7f05fb58d9cb62e58190b295c30ef7e57b0689a"
+  },
+  {
+   "path": "scripts/pr31/tt.cjs",
+   "old": [
+    "scratchpad/eval2/tt.cjs"
+   ],
+   "source_sha256": "6d7d6bff1e3cd94b32054fb395ef630f4e6ab66287ca424937b719db06af2bf6",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 1581,
+   "sha256": "9dc74bb14625282df1cbf41c359a92c2bb6b63033918ca30fce8aba4dc93f499"
+  },
+  {
+   "path": "scripts/pr31/tune.py",
+   "old": [
+    "scratchpad/eval2/tune.py"
+   ],
+   "source_sha256": "c86401a4bd7d8e2763958d23a2caca1e0292a8c2c35b912319cdd9b248e0246d",
+   "bytes": 1020,
+   "sha256": "c86401a4bd7d8e2763958d23a2caca1e0292a8c2c35b912319cdd9b248e0246d"
+  },
+  {
+   "path": "scripts/pr31/tune2.py",
+   "old": [
+    "scratchpad/eval2/tune2.py"
+   ],
+   "source_sha256": "65d5fec9373cd88cf88fe32e06ebad453b097ad44553a9d12a78a6ab89db833b",
+   "bytes": 1124,
+   "sha256": "65d5fec9373cd88cf88fe32e06ebad453b097ad44553a9d12a78a6ab89db833b"
+  },
+  {
+   "path": "scripts/pr32/batches5.py",
+   "old": [
+    "scratchpad/eval2/batches5.py"
+   ],
+   "source_sha256": "1edf14565dc218efec57be14790a4b53f6f8ba94ecd8e5ad2ddb0c487a0ecdb3",
+   "bytes": 1227,
+   "sha256": "1edf14565dc218efec57be14790a4b53f6f8ba94ecd8e5ad2ddb0c487a0ecdb3"
+  },
+  {
+   "path": "scripts/pr32/blind-judge-9.js",
+   "old": [
+    "scratchpad/eval2/judge9.js"
+   ],
+   "source_sha256": "84c93696d0a4737737d7ba1035f3b7d078761f457bf872bbc5604549484a5ac6",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3156,
+   "sha256": "a7d467b82df88506d5b7ebef00674858c589c40973b4050d585c1f14f2f346b6"
+  },
+  {
+   "path": "scripts/pr32/cls.py",
+   "old": [
+    "scratchpad/eval2/cls.py"
+   ],
+   "source_sha256": "39c46dd5e0e6b7b1d18cbde59b147a7eef17dc8749ae1de4e82683b415e08ecc",
+   "bytes": 3512,
+   "sha256": "39c46dd5e0e6b7b1d18cbde59b147a7eef17dc8749ae1de4e82683b415e08ecc"
+  },
+  {
+   "path": "scripts/pr32/cls_prep.py",
+   "old": [
+    "scratchpad/eval2/cls_prep.py"
+   ],
+   "source_sha256": "84170cd84aaa72cabc0132d0bb06a177c74939a190b19951b1f8a43b97944736",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad",
+    "the container clone of the repository -> __import__('os').environ['ATLAS_REPO'] + '"
+   ],
+   "bytes": 1443,
+   "sha256": "42cc547aad9892a9ab4d9df7e2bf90ccf09259453f27d5e2782e95ba89780029"
+  },
+  {
+   "path": "scripts/pr32/combo.py",
+   "old": [
+    "scratchpad/eval2/combo.py"
+   ],
+   "source_sha256": "0f2bc551d6d145db6964085ed01f8b94325b25829d33b29e2681509d45b09d4a",
+   "bytes": 1462,
+   "sha256": "0f2bc551d6d145db6964085ed01f8b94325b25829d33b29e2681509d45b09d4a"
+  },
+  {
+   "path": "scripts/pr32/combo2.py",
+   "old": [
+    "scratchpad/eval2/combo2.py"
+   ],
+   "source_sha256": "f367b90b811a0e1b16e50d4bdd0ac1d89283869487552cb3cb6b90d7cc445ada",
+   "bytes": 2329,
+   "sha256": "f367b90b811a0e1b16e50d4bdd0ac1d89283869487552cb3cb6b90d7cc445ada"
+  },
+  {
+   "path": "scripts/pr32/combo3.py",
+   "old": [
+    "scratchpad/eval2/combo3.py"
+   ],
+   "source_sha256": "c83ee1335d9e53ba721fb49f84ef04c3de15363c51c7c6bce0fdb1629cda17f0",
+   "bytes": 2339,
+   "sha256": "c83ee1335d9e53ba721fb49f84ef04c3de15363c51c7c6bce0fdb1629cda17f0"
+  },
+  {
+   "path": "scripts/pr32/combo4.py",
+   "old": [
+    "scratchpad/eval2/combo4.py"
+   ],
+   "source_sha256": "775a31caa96286d05f648cfcf97e69f15d707761c3b9832ebe5ec1bbf4107721",
+   "bytes": 2310,
+   "sha256": "775a31caa96286d05f648cfcf97e69f15d707761c3b9832ebe5ec1bbf4107721"
+  },
+  {
+   "path": "scripts/pr32/crazy-score.py",
+   "old": [
+    "scratchpad/crazy/score.py"
+   ],
+   "source_sha256": "03b98603075a98725faeeec7cbd78aa33779500bb92d921a0dae4dae346ed746",
+   "bytes": 1135,
+   "sha256": "03b98603075a98725faeeec7cbd78aa33779500bb92d921a0dae4dae346ed746"
+  },
+  {
+   "path": "scripts/pr32/crazy.js",
+   "old": [
+    "scratchpad/crazy/crazy.js"
+   ],
+   "source_sha256": "6e4c512983ce04593689fb632ad9bf4137232fe0e33db3a15448f3f662acbab0",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3485,
+   "sha256": "052285047df6e1cf59c3ba67fe01deb02798cbbf3e982acaa7b45582c90e11a3"
+  },
+  {
+   "path": "scripts/pr32/crazy2.js",
+   "old": [
+    "scratchpad/crazy9/crazy.js"
+   ],
+   "source_sha256": "94ecaa242d96749c4dbbee20f9e64194ebf86f73e1ccbff5e255b238fb9eb135",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3488,
+   "sha256": "a79966721e410b9e2584c191fc23a7e94cebcc7e1fc873fac5c4f9de748738d0"
+  },
+  {
+   "path": "scripts/pr32/fresh7.js",
+   "old": [
+    "scratchpad/eval2/fresh7.js"
+   ],
+   "source_sha256": "5532520c97f68ae877c274f1ad6e79f4a0b59ab5e72e93e770c5e616c1db64b9",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3335,
+   "sha256": "688c1d8e54974e221df6886bb69a5b0b6067453a130c41913fce1d8dc106d5be"
+  },
+  {
+   "path": "scripts/pr32/judge10.js",
+   "old": [
+    "scratchpad/eval2/judge10.js"
+   ],
+   "source_sha256": "16541a36fc25a8be4f8432d0114725b06b48a00aacace6e6277e644baebc17ea",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the old tools folder (scratchpad/ask/tools) -> args.repo + '/eval/ask/scripts/tools'"
+   ],
+   "bytes": 3185,
+   "sha256": "269400c3f8ccfb99fe1568186c5295e483dfb2a2f3180b2dd5030c6178b464f6"
+  },
+  {
+   "path": "scripts/pr32/keep.mjs",
+   "old": [
+    "scratchpad/keep/keep.mjs"
+   ],
+   "source_sha256": "afd3d8d64b119bda40e5e62c6802cb22efb62067b89b4a5fbac5ae02ac125f68",
+   "path_edits": [
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 2722,
+   "sha256": "81609ecca3040d5acc85eb433048e4f031b87eb3119064a9f1c4c6aaf70a2c73"
+  },
+  {
+   "path": "scripts/pr32/knn.py",
+   "old": [
+    "scratchpad/eval2/knn.py"
+   ],
+   "source_sha256": "1c2d08e92a6f461cc15d87b4829da89dee2ac1509e1590ec088f32e9808cf2ba",
+   "bytes": 1459,
+   "sha256": "1c2d08e92a6f461cc15d87b4829da89dee2ac1509e1590ec088f32e9808cf2ba"
+  },
+  {
+   "path": "scripts/pr32/lr.py",
+   "old": [
+    "scratchpad/eval2/lr.py"
+   ],
+   "source_sha256": "10d828c4ffa242560c599bfdce44fb9e4e93df3d45cdf48af72ff9880aee9aea",
+   "bytes": 3761,
+   "sha256": "10d828c4ffa242560c599bfdce44fb9e4e93df3d45cdf48af72ff9880aee9aea"
+  },
+  {
+   "path": "scripts/pr32/mev.py",
+   "old": [
+    "scratchpad/eval2/mev.py"
+   ],
+   "source_sha256": "b30dfa80eb0a36f86f3962104a4f112cf7521e0677d05f3668ede4760f53ddab",
+   "bytes": 1304,
+   "sha256": "b30dfa80eb0a36f86f3962104a4f112cf7521e0677d05f3668ede4760f53ddab"
+  },
+  {
+   "path": "scripts/pr32/mx.mjs",
+   "old": [
+    "scratchpad/eval2/mx.mjs"
+   ],
+   "source_sha256": "a76717fb3628489965702db6cb1b3487a8b5c644b1b2824577e5ec4afb852281",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 1104,
+   "sha256": "a2c89aee829e3350554a36777d88fb0ac637a80323bb60e004877c98eebf07ec"
+  },
+  {
+   "path": "scripts/pr32/offwhy.py",
+   "old": [
+    "scratchpad/eval2/offwhy.py"
+   ],
+   "source_sha256": "e7c54212289c0b4e126eb9553b6ba4368dcdbf47d9929f5fa41859dedf3c03c8",
+   "bytes": 861,
+   "sha256": "e7c54212289c0b4e126eb9553b6ba4368dcdbf47d9929f5fa41859dedf3c03c8"
+  },
+  {
+   "path": "scripts/pr32/run2.cjs",
+   "old": [
+    "scratchpad/eval2/run2.cjs"
+   ],
+   "source_sha256": "943f0a29c0dc4d806fddf296893101802109def867652e9121e1a148f9ea5da4",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 3687,
+   "sha256": "ca78f4039553d42488b4e6be6fc0adca08bedf9f2fbea62c4c528d89e56b918b"
+  },
+  {
+   "path": "scripts/pr32/run3.cjs",
+   "old": [
+    "scratchpad/eval2/run3.cjs"
+   ],
+   "source_sha256": "1c1209f276c5e16b488298bec269b74fd6427a4f8def7c90c6e83f17c2ea8a6e",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')",
+    "shell-expanded `id` output in the header comment -> `id`"
+   ],
+   "bytes": 3388,
+   "sha256": "d6e052ffbdf9dfb34be4e9bda278b9e5a223e3e11789b41c676f168628eedb1d"
+  },
+  {
+   "path": "scripts/pr32/run4.cjs",
+   "old": [
+    "scratchpad/eval2/run4.cjs"
+   ],
+   "source_sha256": "ab4dfea2bbc8298775cd01eb46ad98752935b6d91ea6de5616ffbb6c6ebca811",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 3654,
+   "sha256": "6243e082275a97e8f26dc9afaa0b499980b412f189ef2e4ca6b32801dbcffc09"
+  },
+  {
+   "path": "scripts/pr32/thr.py",
+   "old": [
+    "scratchpad/eval2/thr.py"
+   ],
+   "source_sha256": "0a0d2e6beab819644e1ea616a6cf9de3941cfe6c4d39dc037c5690ec9b69355c",
+   "bytes": 1298,
+   "sha256": "0a0d2e6beab819644e1ea616a6cf9de3941cfe6c4d39dc037c5690ec9b69355c"
+  },
+  {
+   "path": "scripts/pr32/tok.cjs",
+   "old": [
+    "scratchpad/eval2/tok.cjs"
+   ],
+   "source_sha256": "d37f191281124f75af778dd908fb39e62079150121c64a64a6ba33e01f67ad56",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 804,
+   "sha256": "d687fb88f3a0ac35519796845b162f5b66793fa18932701a2691c8d2fa02dd0a"
+  },
+  {
+   "path": "scripts/pr34/cal2-a.log",
+   "old": [
+    "scratchpad/keep/cal2-a.log"
+   ],
+   "source_sha256": "fe99c666488c99f7194f2f8c55a7f7e1283a7ed871797aa0415f1cbf7b2c454a",
+   "bytes": 415,
+   "sha256": "fe99c666488c99f7194f2f8c55a7f7e1283a7ed871797aa0415f1cbf7b2c454a"
+  },
+  {
+   "path": "scripts/pr34/cal2.mjs",
+   "old": [
+    "scratchpad/keep/cal2.mjs"
+   ],
+   "source_sha256": "5f82b9066474033907c9324925a4485772d7ceafb89cff57a051fba23aa18c9f",
+   "path_edits": [
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 2883,
+   "sha256": "c850ae2db3d8b499a57a4f57cb72b0a41d36bce9dd615cfae90de70f69137179"
+  },
+  {
+   "path": "scripts/pr34/gen.js",
+   "old": [
+    "scratchpad/r6/gen.js"
+   ],
+   "source_sha256": "b66e226273a581ce76fbe05821dbe81ce86bf4ba85a046fcbc81e841355ce6b2",
+   "bytes": 6439,
+   "sha256": "b66e226273a581ce76fbe05821dbe81ce86bf4ba85a046fcbc81e841355ce6b2"
+  },
+  {
+   "path": "scripts/pr34/knn-b.log",
+   "old": [
+    "scratchpad/keep/knn-b.log"
+   ],
+   "source_sha256": "a2436b1774a986305b9ee128d09ef36b13d56fdda17416c8ea8a0e07fb21556b",
+   "bytes": 485,
+   "sha256": "a2436b1774a986305b9ee128d09ef36b13d56fdda17416c8ea8a0e07fb21556b"
+  },
+  {
+   "path": "scripts/pr34/knn.mjs",
+   "old": [
+    "scratchpad/keep/knn.mjs"
+   ],
+   "source_sha256": "2432db6a0f192376835a095e11cd9bbd95ec9b2ad563420e569e9ee679231589",
+   "path_edits": [
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 3557,
+   "sha256": "ba6eb796d65ec9e1a23ea45b6c2dead35959b1322041ba270c524adfb5dd07f4"
+  },
+  {
+   "path": "scripts/pr34/obatch.py",
+   "old": [
+    "scratchpad/r6/obatch.py"
+   ],
+   "source_sha256": "470b372d039d539961dc0e649fa731d6cf806a71888bbd5099ced0238d1398f7",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 794,
+   "sha256": "315d7aabd46b6ba31db8912578e7fb58e10423e9374cd716337d87d1c717a650"
+  },
+  {
+   "path": "scripts/pr34/oracle.js",
+   "old": [
+    "scratchpad/r6/oracle.js"
+   ],
+   "source_sha256": "890eaf86466e7b9a2bb625bcd910c0558fc363cd637063d801ada52b40e25e70",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 2659,
+   "sha256": "47c0e6f85fe4288ed338da007f46498422b1567878988a2f89d64c4aced84675"
+  },
+  {
+   "path": "scripts/pr34/policy2.py",
+   "old": [
+    "scratchpad/r6/policy2.py"
+   ],
+   "source_sha256": "a6d561c05688ae3bfd0e5ac29fc7e63567ac59387304d0a01e324a1fbc08c195",
+   "bytes": 1039,
+   "sha256": "a6d561c05688ae3bfd0e5ac29fc7e63567ac59387304d0a01e324a1fbc08c195"
+  },
+  {
+   "path": "scripts/pr34/prep.py",
+   "old": [
+    "scratchpad/r6/prep.py"
+   ],
+   "source_sha256": "efbbe703afee8c2d0516f01ce396b5a2abc425ceca4588ea86ba389c2e0d94b3",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad",
+    "the container clone of the repository -> __import__('os').environ['ATLAS_REPO'] + '"
+   ],
+   "bytes": 1318,
+   "sha256": "f46b527f6627abad104e506db7650b9da87456e40481607d63cbebae32b2abb4"
+  },
+  {
+   "path": "scripts/pr34/score.mjs",
+   "old": [
+    "scratchpad/keep/score.mjs"
+   ],
+   "source_sha256": "d22809d737ed743ea08d828479702c1fe62eca82c4865098bac9b5934d829699",
+   "path_edits": [
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 3387,
+   "sha256": "d35b567a3ad5f30d5dcc0217068d700a70aab2df1b89e5a1e3544f00410a30a8"
+  },
+  {
+   "path": "scripts/pr40/diffq.py",
+   "old": [
+    "scratchpad/r6/diffq.py"
+   ],
+   "source_sha256": "1916038b74dda460430c227f3ff12e4a47cb9cb41e8498090487b218ac2f02fa",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 933,
+   "sha256": "c0df0654217e292a2a3db5a91174885b269b074b1b185dce8a5f6cfd2289d040"
+  },
+  {
+   "path": "scripts/pr40/oracle2.js",
+   "old": [
+    "scratchpad/r6/dev2/oracle2.js"
+   ],
+   "source_sha256": "52aee144c2f869230305360fa08b71d82d0df62f967b3984d539b073529d8bc9",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the container clone of the repository -> ${args.repo}/config/questions.json"
+   ],
+   "bytes": 2727,
+   "sha256": "4d095489eb51b35e505c0fbe7a53951b2fe767690a32179acb533a938483ee55"
+  },
+  {
+   "path": "scripts/pr40/pol.py",
+   "old": [
+    "scratchpad/r6/dev2/pol.py",
+    "scratchpad/g7/dev3/pol.py"
+   ],
+   "source_sha256": "a78d0529c9d2c0892fc3ecfb9643488a85850ffd451def21b44fee700095fc97",
+   "bytes": 1662,
+   "sha256": "a78d0529c9d2c0892fc3ecfb9643488a85850ffd451def21b44fee700095fc97"
+  },
+  {
+   "path": "scripts/pr40/rt6.cjs",
+   "old": [
+    "scratchpad/r6/rt6.cjs"
+   ],
+   "source_sha256": "c19393a4ffe5f41a98e0fe9185a3604dbc6f8c4b2e88ac49af9dd20a71b0f055",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 1917,
+   "sha256": "91da58d6c5d72f5045c936b7349386fd0d49b6f0c1329298ca92512388c809e3"
+  },
+  {
+   "path": "scripts/pr40/score.py",
+   "old": [
+    "scratchpad/r6/score.py"
+   ],
+   "source_sha256": "8ee4f8f0ee0c530b7715e3c195775b030c9383147a0b7a6b0026945dea426f5b",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1105,
+   "sha256": "27fa38afaaa1b1c48d3318724a3405dc1e80a4708d1aeaa23b6c8e430202f758"
+  },
+  {
+   "path": "scripts/pr41/batches6.py",
+   "old": [
+    "scratchpad/g7/batches6.py"
+   ],
+   "source_sha256": "91a77af026587741c96fc118e66bee6e54310337a058ed4ed44f6cc46ca55807",
+   "bytes": 1227,
+   "sha256": "91a77af026587741c96fc118e66bee6e54310337a058ed4ed44f6cc46ca55807"
+  },
+  {
+   "path": "scripts/pr41/coef.py",
+   "old": [
+    "scratchpad/g7/coef.py"
+   ],
+   "source_sha256": "544a6c3c9b207b75bab9576c024bf59cdd868a99c1fd87bb93852ba18c9c1ded",
+   "bytes": 1155,
+   "sha256": "544a6c3c9b207b75bab9576c024bf59cdd868a99c1fd87bb93852ba18c9c1ded"
+  },
+  {
+   "path": "scripts/pr41/cut.py",
+   "old": [
+    "scratchpad/g7/cut.py"
+   ],
+   "source_sha256": "4313afd732f8c4660abd87ba6f2db892b903f61220eef98ee5cc0e7a71a1bc8d",
+   "bytes": 654,
+   "sha256": "4313afd732f8c4660abd87ba6f2db892b903f61220eef98ee5cc0e7a71a1bc8d"
+  },
+  {
+   "path": "scripts/pr41/div.py",
+   "old": [
+    "scratchpad/g7/div.py"
+   ],
+   "source_sha256": "c404cdc0740b3e10ace9a32ee97e5c713e98f3a19804789159e52cd442096efa",
+   "bytes": 561,
+   "sha256": "c404cdc0740b3e10ace9a32ee97e5c713e98f3a19804789159e52cd442096efa"
+  },
+  {
+   "path": "scripts/pr41/err.py",
+   "old": [
+    "scratchpad/g7/err.py"
+   ],
+   "source_sha256": "7b084a7f0a2b48261a9246b72281708bfbc0bcd38a8e65627f247b7e85b3a484",
+   "bytes": 831,
+   "sha256": "7b084a7f0a2b48261a9246b72281708bfbc0bcd38a8e65627f247b7e85b3a484"
+  },
+  {
+   "path": "scripts/pr41/fit.py",
+   "old": [
+    "scratchpad/g7/fit.py"
+   ],
+   "source_sha256": "bfda372a094cc07e683d27646d2f22ff3c4871453d5f37dd2cbe2f1116219993",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 5110,
+   "sha256": "a44a30ebe372e93c75794038a7ba83e311bed4b63fbb4e06219e08c082412158"
+  },
+  {
+   "path": "scripts/pr41/fit2.py",
+   "old": [
+    "scratchpad/g7/fit2.py"
+   ],
+   "source_sha256": "1ec422feeed1dbb2ee99a526be71717a91d094522282cfc32d6c23314801dfbc",
+   "bytes": 1328,
+   "sha256": "1ec422feeed1dbb2ee99a526be71717a91d094522282cfc32d6c23314801dfbc"
+  },
+  {
+   "path": "scripts/pr41/fit3.py",
+   "old": [
+    "scratchpad/g7/fit3.py"
+   ],
+   "source_sha256": "f5381eb461ddc45c352551cfbe16a5f1b5d47216b1a98622733a1c8adbc566f3",
+   "bytes": 1006,
+   "sha256": "f5381eb461ddc45c352551cfbe16a5f1b5d47216b1a98622733a1c8adbc566f3"
+  },
+  {
+   "path": "scripts/pr41/fresh8.js",
+   "old": [
+    "scratchpad/g7/fresh8.js"
+   ],
+   "source_sha256": "ab33fe0085accb53073f28dd26609cdae3b883e0b16126e0d30127c64b557891",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3600,
+   "sha256": "52a40654d4ae52810c4ad7b9f907f8ce30fa48c6a0d3458cab8f9e1e86d3812f"
+  },
+  {
+   "path": "scripts/pr41/fx.cjs",
+   "old": [
+    "scratchpad/g7/fx.cjs"
+   ],
+   "source_sha256": "9ba55e892ee8d9507a6061d15e67a120764e74cdf2a508b7be59dee053aca086",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 2605,
+   "sha256": "66789132f05f5306c2bd1da54cc62481de9379f0877678ac3b503128c1a7d372"
+  },
+  {
+   "path": "scripts/pr41/gather_x.ts",
+   "old": [],
+   "source_sha256": "fb7c63b863ad36f214e2ac2de713d2f202eeb1e55279aa5c5e88cd20542854c8",
+   "bytes": 56603,
+   "sha256": "fb7c63b863ad36f214e2ac2de713d2f202eeb1e55279aa5c5e88cd20542854c8"
+  },
+  {
+   "path": "scripts/pr41/mix.py",
+   "old": [
+    "scratchpad/g7/mix.py"
+   ],
+   "source_sha256": "4667511c0203f0c16a2f5fc50c2ef299329e3e129ea712f40302abaf57b66445",
+   "bytes": 436,
+   "sha256": "4667511c0203f0c16a2f5fc50c2ef299329e3e129ea712f40302abaf57b66445"
+  },
+  {
+   "path": "scripts/pr41/score.py",
+   "old": [
+    "scratchpad/g7/score.py"
+   ],
+   "source_sha256": "7171e1662e7925f8005c0f3ca37f20c9c02d053dbdf2567db6ef371df96a82ca",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1099,
+   "sha256": "aabc996a50c4d46cce70ebbea3398805ff32b1f6c4eff91085c85927fe6053c3"
+  },
+  {
+   "path": "scripts/pr43/both.sh",
+   "old": [
+    "scratchpad/g7/both.sh"
+   ],
+   "source_sha256": "31d5e09dc101d1f9ce5f01cf0322a788456759f6a18cd1274dafedccad071953",
+   "path_edits": [
+    "the old scratchpad folder -> $ASK_WORK/scratchpad",
+    "the container clone of the repository -> cd \"$ATLAS_REPO/web\""
+   ],
+   "bytes": 550,
+   "sha256": "9b417428dc1577179daf9003ba8726c87ef2f92f2eb2ea8f600649785094fbe6"
+  },
+  {
+   "path": "scripts/pr43/fresh9.js",
+   "old": [
+    "scratchpad/g7/fresh9.js"
+   ],
+   "source_sha256": "332d7955fdd73939f71ca6fc1850b4a903558ac382d2361b9045144a4e09071a",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 3600,
+   "sha256": "e205a4d59e3d243ff48829ff3795e9cd70ad9e55bb3470617f2d4ccb39926a9d"
+  },
+  {
+   "path": "scripts/pr43/oracle3.js",
+   "old": [
+    "scratchpad/g7/dev3/oracle3.js"
+   ],
+   "source_sha256": "a7ef1a8abfddc91f32ab2b891f35ed909c236f2da5a980ea75b49addedfb7dc5",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the container clone of the repository -> ${args.repo}/config/questions.json"
+   ],
+   "bytes": 2724,
+   "sha256": "a5106f205a00afdf86ea1676ab5521c95e7030e747a0fe7363548ac554cb1cb3"
+  },
+  {
+   "path": "scripts/pr43/pol8.py",
+   "old": [
+    "scratchpad/r7/relabel/pol8.py"
+   ],
+   "source_sha256": "579defb60cdd12de0c4e69c1c18857fcddb2c41b71e1d607133bc78537c56030",
+   "bytes": 2598,
+   "sha256": "579defb60cdd12de0c4e69c1c18857fcddb2c41b71e1d607133bc78537c56030"
+  },
+  {
+   "path": "scripts/pr43/relabel.js",
+   "old": [],
+   "source_sha256": "d973e747b2326b4eb1413c95e9c3611750e76e4049204001fff981186dfffef7",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the container clone of the repository -> ${args.repo}/config/questions.json"
+   ],
+   "bytes": 2860,
+   "sha256": "e157d2e9da045d0c6706152516a62f7f78c55db540c18226b0d08ea65fd10817"
+  },
+  {
+   "path": "scripts/pr43/rt7.cjs",
+   "old": [
+    "scratchpad/g7/rt7.cjs"
+   ],
+   "source_sha256": "58c97fffd57c4a34255a7b4a1c0776752c5c0e48db9eb548cc53d2ca12866171",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 2018,
+   "sha256": "e5e8a93099ac7c416fd53d674618d1819e3dd677f46e86335cc3cde8a0296e79"
+  },
+  {
+   "path": "scripts/pr43/score9.py",
+   "old": [
+    "scratchpad/g7/score9.py"
+   ],
+   "source_sha256": "6f1e96d2af3a11fb416a944d60614d38ee71b82b333822d90e39fe5ab6afb974",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1099,
+   "sha256": "a157490245d09e8da011bcd39049da0f4fd9370f4a43ba75127c5b4c45552566"
+  },
+  {
+   "path": "scripts/r10/bench.log",
+   "old": [
+    "tasks/bolf3ygnv.output"
+   ],
+   "source_sha256": "516f58a16267832315bc7081d1461bea70efa7f3cd8fdf0c6ad9106856f827d5",
+   "bytes": 1165,
+   "sha256": "516f58a16267832315bc7081d1461bea70efa7f3cd8fdf0c6ad9106856f827d5"
+  },
+  {
+   "path": "scripts/r10/bench.mjs",
+   "old": [
+    "scratchpad/r10/bench.mjs"
+   ],
+   "source_sha256": "b66f716214154dcc0d8e9f346d998c7f1adc1dc6647b8ee87304d1e27d81d31b",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 6057,
+   "sha256": "e387d59aece9e0f0f25389be2b9126780090655380ac5c0920a980f042961e1b"
+  },
+  {
+   "path": "scripts/r10/pol10.py",
+   "old": [
+    "scratchpad/r10/pol10.py"
+   ],
+   "source_sha256": "bb93705c9dd2f98abc3a25ea3fa958150ce07fc5691ac38cd3f51d8c5c6134eb",
+   "bytes": 2995,
+   "sha256": "bb93705c9dd2f98abc3a25ea3fa958150ce07fc5691ac38cd3f51d8c5c6134eb"
+  },
+  {
+   "path": "scripts/r10/rerank.log",
+   "old": [
+    "tasks/b30x46rk1.output"
+   ],
+   "source_sha256": "2f9965bc3ae6da3f46708e419f949f043a5bb5a9eab9f429a52fa82eab38f5fe",
+   "bytes": 278,
+   "sha256": "2f9965bc3ae6da3f46708e419f949f043a5bb5a9eab9f429a52fa82eab38f5fe"
+  },
+  {
+   "path": "scripts/r10/rerank.mjs",
+   "old": [
+    "scratchpad/r10/rerank.mjs"
+   ],
+   "source_sha256": "80c76a66728057bdc2c4e33f744f0ac0fed36b83a64725d26abe218a92f27e8b",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 2513,
+   "sha256": "09eae97a9d3352716b45844bbf7ba589bd63d1bfee30f3024698230cecbbc1ee"
+  },
+  {
+   "path": "scripts/r10/rt10.cjs",
+   "old": [
+    "scratchpad/r10/rt10.cjs"
+   ],
+   "source_sha256": "683229bf3106108a5513234a5d8a483bb77d838561c79b8244ac023cded5f8e6",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 2182,
+   "sha256": "89ba885a73ac036aef8f809dfa6e21f66c7fef1e3f40cf29c1ca40a9f09ba298"
+  },
+  {
+   "path": "scripts/r10/rt10.log",
+   "old": [
+    "scratchpad/r10/rt10.log"
+   ],
+   "source_sha256": "4097b9a36f0483bc79a937d0c78483ec9d75dd11d5719b68c865a30e0ed0de56",
+   "bytes": 52,
+   "sha256": "4097b9a36f0483bc79a937d0c78483ec9d75dd11d5719b68c865a30e0ed0de56"
+  },
+  {
+   "path": "scripts/r10/rt1000.log",
+   "old": [
+    "scratchpad/r10/rt1000.log"
+   ],
+   "source_sha256": "cc83a94687ed50c556561ad6fe6a65f00c7f4623a65434b4c2f20d93387533e1",
+   "bytes": 54,
+   "sha256": "cc83a94687ed50c556561ad6fe6a65f00c7f4623a65434b4c2f20d93387533e1"
+  },
+  {
+   "path": "scripts/r10/score10b.py",
+   "old": [
+    "scratchpad/r10/score10b.py"
+   ],
+   "source_sha256": "7cb8b5fc9a371871bbed9daeb679abc95af76e00d127fe3c7e370466c06452a5",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1120,
+   "sha256": "eef47620a6fd8a3dbd81ffebf021888ffe24a0835b7d64f6b222cef1d319d864"
+  },
+  {
+   "path": "scripts/r11/fresh11.js",
+   "old": [],
+   "source_sha256": "9ccdc91280479e594a57393fafed9f919e70db14e71b47fd6b6e4fa8f96e4e4e",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 4522,
+   "sha256": "cc5c0b4afe33634bd5c896f6bb216d99fddee5f66af6222c7c7ce59c58ea6bf6"
+  },
+  {
+   "path": "scripts/r11/score11.py",
+   "old": [
+    "scratchpad/r11/score11.py"
+   ],
+   "source_sha256": "0bfa22886450c6e8e7b19b72cf900c8021d6e2e320722edd819894c07cdc5982",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1590,
+   "sha256": "6c765775c627dd4f11db50e85e7641115283283e21875f04797e0e2e72f9c0bb"
+  },
+  {
+   "path": "scripts/r9/emb.mjs",
+   "old": [
+    "scratchpad/r8/mm/emb.mjs"
+   ],
+   "source_sha256": "9975bc800858faa2dca22e192b0398d9df2a63b5386b534262148c03ebfa3863",
+   "bytes": 3379,
+   "sha256": "9975bc800858faa2dca22e192b0398d9df2a63b5386b534262148c03ebfa3863"
+  },
+  {
+   "path": "scripts/r9/fresh10.js",
+   "old": [],
+   "source_sha256": "0944806c646f0d9fb6daa11c3e92ff76e18aa440f4ce7eb754f55e8b83c2a179",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad"
+   ],
+   "bytes": 4412,
+   "sha256": "9cb242f7b1dc728f249fb62b4accf21b4d489f321193efe369fb3aa0b65dbe1d"
+  },
+  {
+   "path": "scripts/r9/grid.sh",
+   "old": [
+    "scratchpad/r8/grid.sh"
+   ],
+   "source_sha256": "4f48bca4abffd3a4ddac42eddf09f80332676f18e424b7c9c66dc4b79d072d97",
+   "path_edits": [
+    "the old scratchpad folder -> $ASK_WORK/scratchpad",
+    "the container clone of the repository -> cd \"$ATLAS_REPO/web\""
+   ],
+   "bytes": 542,
+   "sha256": "54888889a6ce897e37ebde991fe0851a00e6162ae73960d8c682003186080417"
+  },
+  {
+   "path": "scripts/r9/oracle.js",
+   "old": [
+    "scratchpad/r9/lab/oracle.js"
+   ],
+   "source_sha256": "7da15c40ee64e86d99ddfdb3f8b449c3cb4235b3e600c7a13717618107f75f42",
+   "path_edits": [
+    "the old scratchpad folder -> args.work + '/scratchpad",
+    "the container clone of the repository -> ${args.repo}/config/questions.json"
+   ],
+   "bytes": 2721,
+   "sha256": "2b741bf5336e72786d77eaef6c70801024960af530e6aec7a20695932a7e7ca1"
+  },
+  {
+   "path": "scripts/r9/pol9.py",
+   "old": [
+    "scratchpad/r8/pol9.py"
+   ],
+   "source_sha256": "cf18fa98f019f3723c13b17a3c5850a041da8392fb8b44af81dacb66a8100db0",
+   "bytes": 2751,
+   "sha256": "cf18fa98f019f3723c13b17a3c5850a041da8392fb8b44af81dacb66a8100db0"
+  },
+  {
+   "path": "scripts/r9/proto.mjs",
+   "old": [
+    "scratchpad/r8/mm/proto.mjs"
+   ],
+   "source_sha256": "2a833195dc3db6fe4d83125c852d7303279e20847535850bbb62d0949c66d3ae",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 3958,
+   "sha256": "79ae75bf6dc28d9c68ef4f531cd8158b477089d3813e0a54768564883dd121e0"
+  },
+  {
+   "path": "scripts/r9/proto1.log",
+   "old": [
+    "scratchpad/r8/mm/proto1.log"
+   ],
+   "source_sha256": "a5ee77293ccd272914b5132d2a94bec7860352c7642c682cb36f80158670fcfc",
+   "bytes": 3007,
+   "sha256": "a5ee77293ccd272914b5132d2a94bec7860352c7642c682cb36f80158670fcfc"
+  },
+  {
+   "path": "scripts/r9/proto2.log",
+   "old": [
+    "scratchpad/r8/mm/proto2.log"
+   ],
+   "source_sha256": "abaa7fce15001c35d569dcad0a990314b82b786447a731e5c4bbdeb911a5a91a",
+   "bytes": 1280,
+   "sha256": "abaa7fce15001c35d569dcad0a990314b82b786447a731e5c4bbdeb911a5a91a"
+  },
+  {
+   "path": "scripts/r9/proto2.mjs",
+   "old": [
+    "scratchpad/r8/mm/proto2.mjs"
+   ],
+   "source_sha256": "4a08a81fbaeb371634cbd0fbed298312f28844cf49c252e7e585c7b545885d37",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 7897,
+   "sha256": "2fafc1f33126a4f0dc60511fde96e5204ec1a86beab474ae9aeff26f4803da7c"
+  },
+  {
+   "path": "scripts/r9/proto3.log",
+   "old": [
+    "scratchpad/r8/mm/proto3.log"
+   ],
+   "source_sha256": "f25ec23bc76fedf6df83f10d0c60b69b44ddb6e2ca3f7ced56195af9e8075a64",
+   "bytes": 331,
+   "sha256": "f25ec23bc76fedf6df83f10d0c60b69b44ddb6e2ca3f7ced56195af9e8075a64"
+  },
+  {
+   "path": "scripts/r9/proto3.mjs",
+   "old": [
+    "scratchpad/r8/mm/proto3.mjs"
+   ],
+   "source_sha256": "70e3530e81b723e7f79570b2893121e58c8f4ed687a7d60dcd0374b0f502237a",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 8291,
+   "sha256": "d5f4a8605b15a321e2250d7c8d0b3489e9fe95006dbf471ad60b39959caf38df"
+  },
+  {
+   "path": "scripts/r9/proto4.log",
+   "old": [
+    "scratchpad/r8/mm/proto4.log"
+   ],
+   "source_sha256": "1490fae90127ad151275d4228eb9c0f8ac06917c26731f1586b522f599ddb67d",
+   "bytes": 640,
+   "sha256": "1490fae90127ad151275d4228eb9c0f8ac06917c26731f1586b522f599ddb67d"
+  },
+  {
+   "path": "scripts/r9/proto4.mjs",
+   "old": [
+    "scratchpad/r8/mm/proto4.mjs"
+   ],
+   "source_sha256": "66ff1f453bea8c0d654551a0dd2ad94be141cab22fd34882e75eb561b316a6dd",
+   "path_edits": [
+    "the old scratchpad folder -> process.env.ASK_WORK + '/scratchpad",
+    "the container clone of the repository -> process.env.ATLAS_REPO + '"
+   ],
+   "bytes": 5575,
+   "sha256": "9491085c23d6b2afdc389d4a720c3b7511e2a20f05cff39e935a80e3bd4d1660"
+  },
+  {
+   "path": "scripts/r9/rt8.cjs",
+   "old": [
+    "scratchpad/r8/rt8.cjs"
+   ],
+   "source_sha256": "011a2e048cbee00464529e101f79935eb69dfe23131462dde034093f7bec58ad",
+   "path_edits": [
+    "the container copy of Playwright -> require(process.env.PLAYWRIGHT || 'playwright')"
+   ],
+   "bytes": 2129,
+   "sha256": "d54c75b12e5b4e2a510efcccfeea7ec55e1c3c4f7c1df35312d0846e2b3bfb6f"
+  },
+  {
+   "path": "scripts/r9/score10.py",
+   "old": [
+    "scratchpad/r9/score10.py"
+   ],
+   "source_sha256": "05d44ae7c0444e3785e6ed3421a68aa387a8ba513b2197e088ce37a21ed5bbd0",
+   "path_edits": [
+    "the old scratchpad folder -> __import__('os').environ['ASK_WORK'] + '/scratchpad"
+   ],
+   "bytes": 1103,
+   "sha256": "2a548118352a3650d12843ef7f624b2c396c10940fd65f53d2cebc6fc3106716"
+  },
+  {
+   "path": "scripts/tools/bible.py",
+   "old": [
+    "scratchpad/ask/tools/bible.py"
+   ],
+   "source_sha256": "661f1c5cf117431658ffd4053a463557ba1c13372ad6049eb9de23ca5274a18e",
+   "path_edits": [
+    "the container clone of the repository -> REPO = os.environ.get('ATLAS_REPO', os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..')))",
+    "a scratchpad copy of the app text -> TEXT = os.environ.get('BSB_TEXT', os.path.join(REPO, 'web/public/data/text'))",
+    "a scratchpad copy of Nave's -> glob.glob(os.path.join(os.environ.get('ASK_WORK', '.'), 'scratchpad/dl/BradyStephenson_bible-data/NavesTopicalDictionary.csv'))"
+   ],
+   "bytes": 7085,
+   "sha256": "109221ae47e08fa7d569cad7971b2ebc07d4bf97f9db7ca50042aee31d4930ca"
+  },
+  {
+   "path": "scripts/tools/find.py",
+   "old": [
+    "scratchpad/ask/tools/find.py"
+   ],
+   "source_sha256": "b858b27aab16bfaaaec4c737274814bd89cc9e0325a3325ea54bb6e6fdfe57c4",
+   "bytes": 891,
+   "sha256": "b858b27aab16bfaaaec4c737274814bd89cc9e0325a3325ea54bb6e6fdfe57c4"
+  },
+  {
+   "path": "scripts/tools/naves.py",
+   "old": [
+    "scratchpad/ask/tools/naves.py"
+   ],
+   "source_sha256": "1a107adeda487c648f3c079910bcc0eaf849438ef3d17d730d2828737c3040ab",
+   "bytes": 2415,
+   "sha256": "1a107adeda487c648f3c079910bcc0eaf849438ef3d17d730d2828737c3040ab"
+  },
+  {
+   "path": "scripts/tools/verse.py",
+   "old": [
+    "scratchpad/ask/tools/verse.py"
+   ],
+   "source_sha256": "1f9303e09461ec8b7193ade01fc48e626c4eba10c2d5300559859dce3d02a95d",
+   "bytes": 533,
+   "sha256": "1f9303e09461ec8b7193ade01fc48e626c4eba10c2d5300559859dce3d02a95d"
+  },
+  {
+   "path": "sets/blind-269.json",
+   "old": [
+    "scratchpad/r6/blind.json"
+   ],
+   "source_sha256": "cd6e2e1ef167df886021a586ecdac02b23f8576c18fa2be6b65e708110454824",
+   "bytes": 23404,
+   "sha256": "cd6e2e1ef167df886021a586ecdac02b23f8576c18fa2be6b65e708110454824"
+  },
+  {
+   "path": "sets/blind-fresh-299.json",
+   "old": [
+    "scratchpad/g7/blind-fresh.json"
+   ],
+   "source_sha256": "04f77737bc980d8b1ab0b3a9e08f2f877d37c6bf7fa6dec8e5e33c896f91377c",
+   "bytes": 44967,
+   "sha256": "04f77737bc980d8b1ab0b3a9e08f2f877d37c6bf7fa6dec8e5e33c896f91377c"
+  },
+  {
+   "path": "sets/blind-fresh10-305.json",
+   "old": [
+    "scratchpad/r9/blind-fresh10.json"
+   ],
+   "source_sha256": "0ffcb3de41be21979186b681b033c37da2549769bc3e1dbfe111f9a490f20905",
+   "bytes": 56734,
+   "sha256": "0ffcb3de41be21979186b681b033c37da2549769bc3e1dbfe111f9a490f20905"
+  },
+  {
+   "path": "sets/blind-fresh11-312.json",
+   "old": [
+    "scratchpad/r11/blind-fresh11.json"
+   ],
+   "source_sha256": "346b0a3d2fd804b003de36728c5012b78a9f467c5a8900d255c08c0c2134c797",
+   "bytes": 55895,
+   "sha256": "346b0a3d2fd804b003de36728c5012b78a9f467c5a8900d255c08c0c2134c797"
+  },
+  {
+   "path": "sets/blind-fresh9-300.json",
+   "old": [
+    "scratchpad/g7/blind-fresh9.json"
+   ],
+   "source_sha256": "02989f06b87e23731f66d788212263a5c36a6fa2743bf2efdb779629b8884d72",
+   "bytes": 49684,
+   "sha256": "02989f06b87e23731f66d788212263a5c36a6fa2743bf2efdb779629b8884d72"
+  },
+  {
+   "path": "sets/crazy-177.json",
+   "old": [
+    "scratchpad/crazy/crazy.json"
+   ],
+   "source_sha256": "7b66996ef240e54f56e6f3b7b677686cd311d9c51343d269514881ae1ee671cc",
+   "bytes": 13663,
+   "sha256": "7b66996ef240e54f56e6f3b7b677686cd311d9c51343d269514881ae1ee671cc"
+  },
+  {
+   "path": "sets/dev-268.json",
+   "old": [
+    "scratchpad/eval2/all.json"
+   ],
+   "source_sha256": "4cbcb63334cf1556b4a497c0610a6d15e227cc7e9aa0a44aee67d66ca2d121e4",
+   "bytes": 10362,
+   "sha256": "4cbcb63334cf1556b4a497c0610a6d15e227cc7e9aa0a44aee67d66ca2d121e4"
+  },
+  {
+   "path": "sets/dev-682.json",
+   "old": [
+    "scratchpad/eval2/dev.json"
+   ],
+   "source_sha256": "30c3a0b6a60e16bacc640e9e9ef940377232b7393167b8daaf1fa8f2a9926f0c",
+   "bytes": 51746,
+   "sha256": "30c3a0b6a60e16bacc640e9e9ef940377232b7393167b8daaf1fa8f2a9926f0c"
+  },
+  {
+   "path": "sets/dev2-545.json",
+   "old": [
+    "scratchpad/r6/dev2/dev2.json"
+   ],
+   "source_sha256": "b35576e4ebb674aa47aeb6d8b71c9b4af6efb9426155e8ee1f8847d6b3366f92",
+   "bytes": 64688,
+   "sha256": "b35576e4ebb674aa47aeb6d8b71c9b4af6efb9426155e8ee1f8847d6b3366f92"
+  },
+  {
+   "path": "sets/dev4-594.json",
+   "old": [
+    "scratchpad/r9/dev4.json"
+   ],
+   "source_sha256": "c5fb43869174d67fcacea6a8a8016a0a60edb094bdad58cbbd369a4cfd7900a8",
+   "bytes": 108204,
+   "sha256": "c5fb43869174d67fcacea6a8a8016a0a60edb094bdad58cbbd369a4cfd7900a8"
+  },
+  {
+   "path": "sets/devq-813.json",
+   "old": [
+    "scratchpad/g7/devq.json"
+   ],
+   "source_sha256": "2153800adc230d41f678ef8540abf7c0aca09acc2a645915498b9e52d38d9888",
+   "bytes": 61640,
+   "sha256": "2153800adc230d41f678ef8540abf7c0aca09acc2a645915498b9e52d38d9888"
+  },
+  {
+   "path": "sets/heldout-120.json",
+   "old": [
+    "scratchpad/eval2/heldout.json"
+   ],
+   "source_sha256": "c559b8f1f2ec6f42a43aa80a869f282f580e5b64efe01e33fc630d7df8db9ac2",
+   "bytes": 6675,
+   "sha256": "c559b8f1f2ec6f42a43aa80a869f282f580e5b64efe01e33fc630d7df8db9ac2"
+  },
+  {
+   "path": "sets/heldout2-149.json",
+   "old": [
+    "scratchpad/eval2/heldout2.json"
+   ],
+   "source_sha256": "c53c3c00e65c57dbac4980a5b83ba3190c76d0ee7fd0c2ec11005ea231f01376",
+   "bytes": 9141,
+   "sha256": "c53c3c00e65c57dbac4980a5b83ba3190c76d0ee7fd0c2ec11005ea231f01376"
+  },
+  {
+   "path": "sets/pool-1096.json",
+   "old": [
+    "scratchpad/r6/pool.json"
+   ],
+   "source_sha256": "5e968b6a398df7f295a14a0819f22b8a293ef620548f0f4d8da00d52807e3703",
+   "bytes": 124996,
+   "sha256": "5e968b6a398df7f295a14a0819f22b8a293ef620548f0f4d8da00d52807e3703"
+  },
+  {
+   "path": "sets/seen12-5374.txt",
+   "old": [],
+   "source_sha256": "0049182cb17b3b184028c518e536be18a632fb44d381e3cbf6e30fd13aaaa0b1",
+   "bytes": 514200,
+   "sha256": "fa7f547d41b5bd5f00f883d895df158154c9d31fc4890438c2015a2280e20b85",
+   "made_here": "the sorted union of the q of every sets/*.json and every line of scratchpad/r11/seen11.txt (the list ask-fresh-questions-11 avoided); it replaces sets/seen11-4615.txt (scratchpad/r9/seen11.txt), which left out crazy-177, set7-150 and set9-120",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "sets/set3-149.json",
+   "old": [
+    "scratchpad/eval2/set3.json"
+   ],
+   "source_sha256": "d12ac59fbe8110041ad245897baecbfd9316db2e6e3c74744d4abc93565346a0",
+   "bytes": 12538,
+   "sha256": "d12ac59fbe8110041ad245897baecbfd9316db2e6e3c74744d4abc93565346a0"
+  },
+  {
+   "path": "sets/set4-150.json",
+   "old": [
+    "scratchpad/eval2/set4.json"
+   ],
+   "source_sha256": "763304e0f7fa76180e3f2075266a5928670d57508d6703b42239231aeb26c0b2",
+   "bytes": 14222,
+   "sha256": "763304e0f7fa76180e3f2075266a5928670d57508d6703b42239231aeb26c0b2"
+  },
+  {
+   "path": "sets/set5-225.json",
+   "old": [
+    "scratchpad/eval2/set5.json"
+   ],
+   "source_sha256": "5bb2832b14562f111e25fa495dc95b4deea4584d6e4859ba28392eda2cfa7ca5",
+   "bytes": 22990,
+   "sha256": "5bb2832b14562f111e25fa495dc95b4deea4584d6e4859ba28392eda2cfa7ca5"
+  },
+  {
+   "path": "sets/set6-150.json",
+   "old": [
+    "scratchpad/eval2/set6.json"
+   ],
+   "source_sha256": "0ad4df9bd534025b08ec9ada1c9c5e303fa5ed05fdca2a16951fc5d4fdad16b6",
+   "bytes": 17837,
+   "sha256": "0ad4df9bd534025b08ec9ada1c9c5e303fa5ed05fdca2a16951fc5d4fdad16b6"
+  },
+  {
+   "path": "sets/set7-150.json",
+   "old": [
+    "scratchpad/eval2/set7.json"
+   ],
+   "source_sha256": "07c3483bf6fe0d03fd9e6200520bc6e1d4c3792f8b108591dbc520d89c0947d7",
+   "bytes": 19530,
+   "sha256": "3ab2ebda4a33fe8eb65c9ddd3150ac51cb5e1eeab371d468037a12e29cce51e9",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "sets/set9-120.json",
+   "old": [
+    "scratchpad/crazy9/set9.json"
+   ],
+   "source_sha256": "359baeb09262b295365addb0186114e403df0c9e345f896cdfc8134d445767d8",
+   "bytes": 10877,
+   "sha256": "590566a7fcc865355f240a32ba17447b7a45e55f961d012d41fb9797e785025d",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "sets/set97-270.json",
+   "old": [
+    "scratchpad/eval2/set97.json"
+   ],
+   "source_sha256": "7f620d112598845ffb72acd9c151a2f629c4815d266c07575058fc0574496d36",
+   "bytes": 28243,
+   "sha256": "90672584fbed6cac8bff0e05caa16a298978018a4b747dbf9784ed7fa26327d7",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr28/dev-268-base.json",
+   "old": [
+    "scratchpad/eval2/base.json"
+   ],
+   "source_sha256": "09384a461c84ed52ec591299be2370e079de821996ddddf3f015572996069934",
+   "bytes": 1567357,
+   "sha256": "09384a461c84ed52ec591299be2370e079de821996ddddf3f015572996069934"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-1.json"
+   ],
+   "source_sha256": "db07efc39840ccec903ea1bb09b1fb468dc68bd7030df796e5a62ebc7e98ff52",
+   "bytes": 122208,
+   "sha256": "db07efc39840ccec903ea1bb09b1fb468dc68bd7030df796e5a62ebc7e98ff52"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-2.json"
+   ],
+   "source_sha256": "2195484d948308712d9d2a6cf982e1ad2b73ff7a4c240e9b13d474e2e5326484",
+   "bytes": 129329,
+   "sha256": "2195484d948308712d9d2a6cf982e1ad2b73ff7a4c240e9b13d474e2e5326484"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-3.json"
+   ],
+   "source_sha256": "6030289723b6be3510f32a934b58b4c6ffc9e1eb1246c3375e69e5be4cc2cd5a",
+   "bytes": 140154,
+   "sha256": "6030289723b6be3510f32a934b58b4c6ffc9e1eb1246c3375e69e5be4cc2cd5a"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-4.json"
+   ],
+   "source_sha256": "cc6057ac67941a7e8840b9cf9c99cbca1e36d7dc1ab4f80cffbd7a7838e85277",
+   "bytes": 131060,
+   "sha256": "cc6057ac67941a7e8840b9cf9c99cbca1e36d7dc1ab4f80cffbd7a7838e85277"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-5.json"
+   ],
+   "source_sha256": "0987aa84aad691d29879f0d2c092b1743cc65565bb2313399118c8e735debb2b",
+   "bytes": 142485,
+   "sha256": "0987aa84aad691d29879f0d2c092b1743cc65565bb2313399118c8e735debb2b"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-6.json"
+   ],
+   "source_sha256": "4b46a2e1a7fc7cda54555b3393977087906389edafb1a67f357d37d72f8fb1b9",
+   "bytes": 138111,
+   "sha256": "4b46a2e1a7fc7cda54555b3393977087906389edafb1a67f357d37d72f8fb1b9"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-7.json"
+   ],
+   "source_sha256": "440cae97c9d1acd7a68e352ffb261eee6767cbf30abec02c7866a141bc5eaf6d",
+   "bytes": 139378,
+   "sha256": "440cae97c9d1acd7a68e352ffb261eee6767cbf30abec02c7866a141bc5eaf6d"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j1/batch-8.json"
+   ],
+   "source_sha256": "c5e5b0cfd1eac8c60da5a70bc036dcc91e0f4423f1f7cbc0e718b62bf4afce2b",
+   "bytes": 129774,
+   "sha256": "c5e5b0cfd1eac8c60da5a70bc036dcc91e0f4423f1f7cbc0e718b62bf4afce2b"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-1.json"
+   ],
+   "source_sha256": "2a3a91ef4da545633398d48da8494b303acb815f70c5f86ae711432fc0533d9d",
+   "bytes": 88272,
+   "sha256": "2a3a91ef4da545633398d48da8494b303acb815f70c5f86ae711432fc0533d9d"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-2.json"
+   ],
+   "source_sha256": "5bca99e5462bb7c08ddee932f4714636aeed72bbfa192bb6677a3e20ae7b811b",
+   "bytes": 67780,
+   "sha256": "5bca99e5462bb7c08ddee932f4714636aeed72bbfa192bb6677a3e20ae7b811b"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-3.json"
+   ],
+   "source_sha256": "4b2c65bbbfc7d55daff7f001cbc39469fa45168b1a288956ed57e0396f68cd6d",
+   "bytes": 69110,
+   "sha256": "4b2c65bbbfc7d55daff7f001cbc39469fa45168b1a288956ed57e0396f68cd6d"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-4.json"
+   ],
+   "source_sha256": "a314dde83e5ec78779166530b4ec994242f14973008f9988a256b0bd9b394fe3",
+   "bytes": 72864,
+   "sha256": "a314dde83e5ec78779166530b4ec994242f14973008f9988a256b0bd9b394fe3"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-5.json"
+   ],
+   "source_sha256": "d2a1702cca1620e352d76261badc08f507803672e3ea4708ce036d864548b8b2",
+   "bytes": 72502,
+   "sha256": "d2a1702cca1620e352d76261badc08f507803672e3ea4708ce036d864548b8b2"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j2/batch-6.json"
+   ],
+   "source_sha256": "ea53623e6575237e08670dbfcb346c1b0a2ca531dc92a5d2d1c3ca440f071dd3",
+   "bytes": 81813,
+   "sha256": "ea53623e6575237e08670dbfcb346c1b0a2ca531dc92a5d2d1c3ca440f071dd3"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-new-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j2/verdicts.json"
+   ],
+   "source_sha256": "22659d992e0a381e805e54072999744c90917480d257458944c1867426b20345",
+   "bytes": 80756,
+   "sha256": "22659d992e0a381e805e54072999744c90917480d257458944c1867426b20345"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-v6.json",
+   "old": [
+    "scratchpad/eval2/v6.json"
+   ],
+   "source_sha256": "32228f6b7e1359158ee761a5cbf1685a9ab878a8a7f4b33ca034434140aff0fa",
+   "bytes": 1163101,
+   "sha256": "32228f6b7e1359158ee761a5cbf1685a9ab878a8a7f4b33ca034434140aff0fa"
+  },
+  {
+   "path": "verdicts/pr28/dev-268-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j1/verdicts.json"
+   ],
+   "source_sha256": "6209ea8be43f257a3ec25780a7b944756863b7e3c3bed07312d165610d9f25cd",
+   "bytes": 249092,
+   "sha256": "6209ea8be43f257a3ec25780a7b944756863b7e3c3bed07312d165610d9f25cd"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-base.json",
+   "old": [
+    "scratchpad/eval2/ho-base.json"
+   ],
+   "source_sha256": "550f41b459f540af01a6edfb67a055a03b3d9900edbeaa488925165af00263eb",
+   "bytes": 1024059,
+   "sha256": "550f41b459f540af01a6edfb67a055a03b3d9900edbeaa488925165af00263eb"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-1.json"
+   ],
+   "source_sha256": "62e8e42ba26512cb83dda2da6d0642bfd212b0cfc62145dd517dda4f8dea8643",
+   "bytes": 164270,
+   "sha256": "62e8e42ba26512cb83dda2da6d0642bfd212b0cfc62145dd517dda4f8dea8643"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-2.json"
+   ],
+   "source_sha256": "e0cb9e6e046ba2fff292b1b8f8d7ee8842c7ed2709ae94e382eb47debee637fb",
+   "bytes": 168243,
+   "sha256": "e0cb9e6e046ba2fff292b1b8f8d7ee8842c7ed2709ae94e382eb47debee637fb"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-3.json"
+   ],
+   "source_sha256": "78d00eeff93d55266ca6a2840ad0efcc5b8e8cd23b10c8e000f5314b56a05551",
+   "bytes": 177749,
+   "sha256": "78d00eeff93d55266ca6a2840ad0efcc5b8e8cd23b10c8e000f5314b56a05551"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-4.json"
+   ],
+   "source_sha256": "9c28b391c6c364dd54e791cf215cc6ecd3f4a2086fc77b4c13031ea8a70f2785",
+   "bytes": 179311,
+   "sha256": "9c28b391c6c364dd54e791cf215cc6ecd3f4a2086fc77b4c13031ea8a70f2785"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-5.json"
+   ],
+   "source_sha256": "0e60167c79e6a0d5aac78d5678ad48d1495a83f0d080d0ce09f51e775f8ac855",
+   "bytes": 161502,
+   "sha256": "0e60167c79e6a0d5aac78d5678ad48d1495a83f0d080d0ce09f51e775f8ac855"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j3/batch-6.json"
+   ],
+   "source_sha256": "8c34b6c0acb776651ba32338fdd2ad515eac37330fe483fc365b40f424b2035f",
+   "bytes": 145154,
+   "sha256": "8c34b6c0acb776651ba32338fdd2ad515eac37330fe483fc365b40f424b2035f"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-new.json",
+   "old": [
+    "scratchpad/eval2/ho-new.json"
+   ],
+   "source_sha256": "585aefaead0bb320b8d62106c0dc8fbb5d2b8797b6053f7bb9e452bf7224f325",
+   "bytes": 969589,
+   "sha256": "585aefaead0bb320b8d62106c0dc8fbb5d2b8797b6053f7bb9e452bf7224f325"
+  },
+  {
+   "path": "verdicts/pr28/heldout-120-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j3/verdicts.json"
+   ],
+   "source_sha256": "1f6469f15d8ad5d347b65afc2ef086f9ed9dbdfa487ecdc399551692bfeabecd",
+   "bytes": 129198,
+   "sha256": "1f6469f15d8ad5d347b65afc2ef086f9ed9dbdfa487ecdc399551692bfeabecd"
+  },
+  {
+   "path": "verdicts/pr29/dev-268-r5.json",
+   "old": [
+    "scratchpad/eval2/r5-all.json"
+   ],
+   "source_sha256": "4ef54e6e07359fc6886773ba8b3ca9978d7a72b53ea801cb94bb5def027d3bc1",
+   "bytes": 1443988,
+   "sha256": "4ef54e6e07359fc6886773ba8b3ca9978d7a72b53ea801cb94bb5def027d3bc1"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-1.json"
+   ],
+   "source_sha256": "34020a3ad726abb997f7e402d07d1e27f5d51916ed943696a9307f67d5b84a79",
+   "bytes": 150786,
+   "sha256": "34020a3ad726abb997f7e402d07d1e27f5d51916ed943696a9307f67d5b84a79"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-10.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-10.json"
+   ],
+   "source_sha256": "f12fe403e63183ad11ae261b4b42a971ebb1907dfaf74096eb6f70602c07ac9e",
+   "bytes": 176364,
+   "sha256": "f12fe403e63183ad11ae261b4b42a971ebb1907dfaf74096eb6f70602c07ac9e"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-11.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-11.json"
+   ],
+   "source_sha256": "e337e5babc9f21ec3778c334efa7557c4e8e856e287761e95399767970ddb612",
+   "bytes": 149362,
+   "sha256": "e337e5babc9f21ec3778c334efa7557c4e8e856e287761e95399767970ddb612"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-2.json"
+   ],
+   "source_sha256": "6c9de4a88db2bb8eaaa2dcea4d80f94d4d35c9f7d388d277a9d4a1e77f29a950",
+   "bytes": 167928,
+   "sha256": "6c9de4a88db2bb8eaaa2dcea4d80f94d4d35c9f7d388d277a9d4a1e77f29a950"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-3.json"
+   ],
+   "source_sha256": "0b09826ebc53407c0ad0b9df714dddde66dc515f06dc17d5ce79db4f8656096b",
+   "bytes": 166954,
+   "sha256": "0b09826ebc53407c0ad0b9df714dddde66dc515f06dc17d5ce79db4f8656096b"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-4.json"
+   ],
+   "source_sha256": "88b89ac4c7b66341042a33db300177282b28b1ac36a2332bb379a95fd65194e3",
+   "bytes": 163838,
+   "sha256": "88b89ac4c7b66341042a33db300177282b28b1ac36a2332bb379a95fd65194e3"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-5.json"
+   ],
+   "source_sha256": "6b0021eafe885270276a069ddb7c1a3ca51170036f506e48aecfd983743238e3",
+   "bytes": 157169,
+   "sha256": "6b0021eafe885270276a069ddb7c1a3ca51170036f506e48aecfd983743238e3"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-6.json"
+   ],
+   "source_sha256": "e7132ff680b5eddbde2a4d8548af3ecaaaa66735b155ec74629180c10a934eb7",
+   "bytes": 161830,
+   "sha256": "e7132ff680b5eddbde2a4d8548af3ecaaaa66735b155ec74629180c10a934eb7"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-7.json"
+   ],
+   "source_sha256": "c70df6e8438483694e4ec74242c29028303c871cc4fa654e246e45ce8b2f07a3",
+   "bytes": 166177,
+   "sha256": "c70df6e8438483694e4ec74242c29028303c871cc4fa654e246e45ce8b2f07a3"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-8.json"
+   ],
+   "source_sha256": "b71113f20847dae9e76294bbb8252c7c90ad9448b9d15fbf41d6eb0506120a99",
+   "bytes": 158595,
+   "sha256": "b71113f20847dae9e76294bbb8252c7c90ad9448b9d15fbf41d6eb0506120a99"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-batches/batch-9.json",
+   "old": [
+    "scratchpad/eval2/j4/batch-9.json"
+   ],
+   "source_sha256": "39e061e17d76430f060e1377fbdca141e8c543fdc5d34225b0525f8d713b7b29",
+   "bytes": 166370,
+   "sha256": "39e061e17d76430f060e1377fbdca141e8c543fdc5d34225b0525f8d713b7b29"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-live.json",
+   "old": [
+    "scratchpad/eval2/h2-pr.json"
+   ],
+   "source_sha256": "a95b8e65faf3501fa4d5ac3ae7e73ee6e131ebff661c568b0b693eb169293c67",
+   "bytes": 1760964,
+   "sha256": "a95b8e65faf3501fa4d5ac3ae7e73ee6e131ebff661c568b0b693eb169293c67"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-new-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j5/batch-1.json"
+   ],
+   "source_sha256": "6cd74f3e6de7ef061f2ae18afe13c7eb33b7cda4c741ba87549dc6f1cc9d360f",
+   "bytes": 158414,
+   "sha256": "6cd74f3e6de7ef061f2ae18afe13c7eb33b7cda4c741ba87549dc6f1cc9d360f"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-new-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j5/batch-2.json"
+   ],
+   "source_sha256": "bfc74a81dc9fd2b95cefd651a9a8e8c14c3c5c7facc3b632af644cadb5a63511",
+   "bytes": 158917,
+   "sha256": "bfc74a81dc9fd2b95cefd651a9a8e8c14c3c5c7facc3b632af644cadb5a63511"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-new-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j5/verdicts.json"
+   ],
+   "source_sha256": "525bfec115bb7f2195c1cbb2c72dfa93ced9d712e2b45015f2246e92ced36bcb",
+   "bytes": 57385,
+   "sha256": "525bfec115bb7f2195c1cbb2c72dfa93ced9d712e2b45015f2246e92ced36bcb"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-new.json",
+   "old": [
+    "scratchpad/eval2/r5-h2.json"
+   ],
+   "source_sha256": "01a5180800205de7a232b1a078d1a67d2cf11ef727812d3077bbfb3683fa9072",
+   "bytes": 1675354,
+   "sha256": "01a5180800205de7a232b1a078d1a67d2cf11ef727812d3077bbfb3683fa9072"
+  },
+  {
+   "path": "verdicts/pr29/heldout2-149-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j4/verdicts.json"
+   ],
+   "source_sha256": "f58f216d95b7f9b53a0709354f5feff860bf4b5078fd562d1f111ee17f931730",
+   "bytes": 231649,
+   "sha256": "f58f216d95b7f9b53a0709354f5feff860bf4b5078fd562d1f111ee17f931730"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-base.json",
+   "old": [
+    "scratchpad/eval2/s3-base.json"
+   ],
+   "source_sha256": "e8079e369c8346da7c97b809f2e6eea1518576383bd27e9ba11ab248416c4eb3",
+   "bytes": 1758422,
+   "sha256": "e8079e369c8346da7c97b809f2e6eea1518576383bd27e9ba11ab248416c4eb3"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-1.json"
+   ],
+   "source_sha256": "e82a3c53ba44e0cf377462a8d6d0e4ee7367153ea7de1880ee63c8a5bcaf64a4",
+   "bytes": 160672,
+   "sha256": "e82a3c53ba44e0cf377462a8d6d0e4ee7367153ea7de1880ee63c8a5bcaf64a4"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-2.json"
+   ],
+   "source_sha256": "1b206c5340b04b899d8335423c6759898b7ac45158dd87052ecbb5a63ac28699",
+   "bytes": 149478,
+   "sha256": "1b206c5340b04b899d8335423c6759898b7ac45158dd87052ecbb5a63ac28699"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-3.json"
+   ],
+   "source_sha256": "9eafd7048afe1c2719e662078f94dcbbd29c29d22e00e806c8274bb90378d055",
+   "bytes": 148407,
+   "sha256": "9eafd7048afe1c2719e662078f94dcbbd29c29d22e00e806c8274bb90378d055"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-4.json"
+   ],
+   "source_sha256": "90604e02f5a66b04cd3844bc6502a104c173ba27b1225be808a3dd87c7caaa31",
+   "bytes": 163585,
+   "sha256": "90604e02f5a66b04cd3844bc6502a104c173ba27b1225be808a3dd87c7caaa31"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-5.json"
+   ],
+   "source_sha256": "d3f3aa26522767011735e3d173abbb80cf5b7aca9f740cf212166576fcd70fe4",
+   "bytes": 144365,
+   "sha256": "d3f3aa26522767011735e3d173abbb80cf5b7aca9f740cf212166576fcd70fe4"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-6.json"
+   ],
+   "source_sha256": "5314303b37e2c1282d4a0a82299971827c7c070e9bab66649e2bf319bccbe448",
+   "bytes": 144394,
+   "sha256": "5314303b37e2c1282d4a0a82299971827c7c070e9bab66649e2bf319bccbe448"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-7.json"
+   ],
+   "source_sha256": "e8ca9e2ed1d1eb55d49f6b378ac2005e1faa37f3533f2bdde60de62b75c6a17a",
+   "bytes": 145430,
+   "sha256": "e8ca9e2ed1d1eb55d49f6b378ac2005e1faa37f3533f2bdde60de62b75c6a17a"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j6/batch-8.json"
+   ],
+   "source_sha256": "060e156618525d7cb433cbdf8458abae3ff9dfc6815eaf415ac1b2ffbf1b8743",
+   "bytes": 136176,
+   "sha256": "060e156618525d7cb433cbdf8458abae3ff9dfc6815eaf415ac1b2ffbf1b8743"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-new.json",
+   "old": [
+    "scratchpad/eval2/s3-new.json"
+   ],
+   "source_sha256": "eeb153da2d964b4c8aa4bd90c9c903757bd26d652a5efff1f96f1b456b21f941",
+   "bytes": 1752911,
+   "sha256": "eeb153da2d964b4c8aa4bd90c9c903757bd26d652a5efff1f96f1b456b21f941"
+  },
+  {
+   "path": "verdicts/pr29/set3-149-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j6/verdicts.json"
+   ],
+   "source_sha256": "21edf7c3067a83ba7dd516e7dcdde47e2efbc37e7c22f28f9678ec495682aaee",
+   "bytes": 188807,
+   "sha256": "21edf7c3067a83ba7dd516e7dcdde47e2efbc37e7c22f28f9678ec495682aaee"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-base.json",
+   "old": [
+    "scratchpad/eval2/s4-base.json"
+   ],
+   "source_sha256": "7bf4e3ddd0007c5d141e1d932093423efb8c65792e75ba24b56df026af6655b3",
+   "bytes": 1044689,
+   "sha256": "7bf4e3ddd0007c5d141e1d932093423efb8c65792e75ba24b56df026af6655b3"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-1.json"
+   ],
+   "source_sha256": "fbe73af14d27d3f0190f28eeda91fc33a979fe3b00371b8b29db33004bd61b06",
+   "bytes": 145172,
+   "sha256": "fbe73af14d27d3f0190f28eeda91fc33a979fe3b00371b8b29db33004bd61b06"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-2.json"
+   ],
+   "source_sha256": "86c15c0e4883091ace3223ab4c66aae1cf188336607c6a49a8f69d6040dd548c",
+   "bytes": 152751,
+   "sha256": "86c15c0e4883091ace3223ab4c66aae1cf188336607c6a49a8f69d6040dd548c"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-3.json"
+   ],
+   "source_sha256": "e7401af664ccab76c9f1e22213565af21dc9e522099e07f31c6b8076fa00fe2f",
+   "bytes": 143003,
+   "sha256": "e7401af664ccab76c9f1e22213565af21dc9e522099e07f31c6b8076fa00fe2f"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-4.json"
+   ],
+   "source_sha256": "005e2877206a21b67bd6f69a3af1bfbaae724683c23b612c4dac9d0b6a2c3eba",
+   "bytes": 159527,
+   "sha256": "005e2877206a21b67bd6f69a3af1bfbaae724683c23b612c4dac9d0b6a2c3eba"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-5.json"
+   ],
+   "source_sha256": "77b8e85caf865ea38492cca27d5d8fbdc361126eac562e9baae79b6774a544ea",
+   "bytes": 150319,
+   "sha256": "77b8e85caf865ea38492cca27d5d8fbdc361126eac562e9baae79b6774a544ea"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-6.json"
+   ],
+   "source_sha256": "55ba9d5832c4f06c4760d6efa90143cda268c79cce0c134fe8a5ac214c7337ec",
+   "bytes": 154960,
+   "sha256": "55ba9d5832c4f06c4760d6efa90143cda268c79cce0c134fe8a5ac214c7337ec"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-7.json"
+   ],
+   "source_sha256": "2108657679ecf98c7425ec9f33f417c4ff287ffc939da5cd3d439b9b1227c94b",
+   "bytes": 150911,
+   "sha256": "2108657679ecf98c7425ec9f33f417c4ff287ffc939da5cd3d439b9b1227c94b"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j7/batch-8.json"
+   ],
+   "source_sha256": "4e93865c0bc21fb0b824873669a797444a8faf92b5786ffaf07f433baa08a97c",
+   "bytes": 141036,
+   "sha256": "4e93865c0bc21fb0b824873669a797444a8faf92b5786ffaf07f433baa08a97c"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-new.json",
+   "old": [
+    "scratchpad/eval2/s4-new.json"
+   ],
+   "source_sha256": "ab4f79e16e1b9076c6c1b5b3f53629d9bb4d4327ebf3419710e93cc95068755a",
+   "bytes": 1054889,
+   "sha256": "ab4f79e16e1b9076c6c1b5b3f53629d9bb4d4327ebf3419710e93cc95068755a"
+  },
+  {
+   "path": "verdicts/pr31/set4-150-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j7/verdicts.json"
+   ],
+   "source_sha256": "adad2d9cc2d759a53213bdc9f9ffc0aaa3db3f2c996f49f59de0ca7d038f800b",
+   "bytes": 130196,
+   "sha256": "adad2d9cc2d759a53213bdc9f9ffc0aaa3db3f2c996f49f59de0ca7d038f800b"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-base.json",
+   "old": [
+    "scratchpad/eval2/s6-base.json"
+   ],
+   "source_sha256": "4b95f6ffe611454dfd5daa8d510ebbde11c72cdafe04ac8f92972da14885fc30",
+   "bytes": 1029501,
+   "sha256": "4b95f6ffe611454dfd5daa8d510ebbde11c72cdafe04ac8f92972da14885fc30"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-1.json"
+   ],
+   "source_sha256": "fb73544e0ce1b9c6163292df1ec8cd64f552c6e732dcfdae893ed06feae3f4b9",
+   "bytes": 202370,
+   "sha256": "fb73544e0ce1b9c6163292df1ec8cd64f552c6e732dcfdae893ed06feae3f4b9"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-2.json"
+   ],
+   "source_sha256": "3395d7e7090a6359c14fd359238798f1f30838430c3ba6742ecf6100cd287e17",
+   "bytes": 181743,
+   "sha256": "3395d7e7090a6359c14fd359238798f1f30838430c3ba6742ecf6100cd287e17"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-3.json"
+   ],
+   "source_sha256": "4aff26b09b7d9a3c9acd639dfa826c948d7f391000c5c8ca579913c87d98201b",
+   "bytes": 187420,
+   "sha256": "4aff26b09b7d9a3c9acd639dfa826c948d7f391000c5c8ca579913c87d98201b"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-4.json"
+   ],
+   "source_sha256": "5058163b8781c1c4e25f6d420d4238a60e8e6dfabed660fac53798d44e590a33",
+   "bytes": 187630,
+   "sha256": "5058163b8781c1c4e25f6d420d4238a60e8e6dfabed660fac53798d44e590a33"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-5.json"
+   ],
+   "source_sha256": "b50dea89867be0f3af85168ba169ae7ebad1f62010d6bc37e0d330ee06da52e3",
+   "bytes": 194124,
+   "sha256": "b50dea89867be0f3af85168ba169ae7ebad1f62010d6bc37e0d330ee06da52e3"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-6.json"
+   ],
+   "source_sha256": "460d39cc31cfd9a8bb56aef6e56bd56fb4247c06685ad7feb7a9a6ce6c7e9f4b",
+   "bytes": 178149,
+   "sha256": "460d39cc31cfd9a8bb56aef6e56bd56fb4247c06685ad7feb7a9a6ce6c7e9f4b"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-7.json"
+   ],
+   "source_sha256": "f9f3d4893154665b205b659c30b37e18714cc2b31bcf24bb7c15acaa602a1070",
+   "bytes": 185107,
+   "sha256": "f9f3d4893154665b205b659c30b37e18714cc2b31bcf24bb7c15acaa602a1070"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j8/batch-8.json"
+   ],
+   "source_sha256": "da396df9e27a36e15ac574741f5c68026cdae0610d28cdf8dc9113f3bb0bb10d",
+   "bytes": 175589,
+   "sha256": "da396df9e27a36e15ac574741f5c68026cdae0610d28cdf8dc9113f3bb0bb10d"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-new.json",
+   "old": [
+    "scratchpad/eval2/s6-new.json"
+   ],
+   "source_sha256": "7aecdba9a62e4f0d9c0f768527d5e2684b1a1ab4dacdb4831fb4274bcf3902bc",
+   "bytes": 1042258,
+   "sha256": "7aecdba9a62e4f0d9c0f768527d5e2684b1a1ab4dacdb4831fb4274bcf3902bc"
+  },
+  {
+   "path": "verdicts/pr31/set6-150-verdicts.json",
+   "old": [
+    "scratchpad/eval2/j8/verdicts.json"
+   ],
+   "source_sha256": "97ee50b8eee2344d34a3fa7a9aa1be7445bc925f63d39d5e4887010f7c52388b",
+   "bytes": 168973,
+   "sha256": "97ee50b8eee2344d34a3fa7a9aa1be7445bc925f63d39d5e4887010f7c52388b"
+  },
+  {
+   "path": "verdicts/pr32/chains-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/ju/batch-1.json"
+   ],
+   "source_sha256": "55b921e3a2609fbca71ca70b3f5f37639738690ac3e4b6f70f40597a2deff7a1",
+   "bytes": 53985,
+   "sha256": "55b921e3a2609fbca71ca70b3f5f37639738690ac3e4b6f70f40597a2deff7a1"
+  },
+  {
+   "path": "verdicts/pr32/chains-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/ju/batch-2.json"
+   ],
+   "source_sha256": "a71d3956686a06c788512928620cce904163a590227cdabd6c09575f8c5f00df",
+   "bytes": 56149,
+   "sha256": "a71d3956686a06c788512928620cce904163a590227cdabd6c09575f8c5f00df"
+  },
+  {
+   "path": "verdicts/pr32/chains-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/ju/batch-3.json"
+   ],
+   "source_sha256": "c91106d711a993515cbdea22b1f8c62229ef2bc61aaae0ddfa7103ecb961ce2d",
+   "bytes": 31797,
+   "sha256": "c91106d711a993515cbdea22b1f8c62229ef2bc61aaae0ddfa7103ecb961ce2d"
+  },
+  {
+   "path": "verdicts/pr32/chains-run.json",
+   "old": [
+    "scratchpad/eval2/unk-run.json"
+   ],
+   "source_sha256": "451bad97ff3bee1af8d6bff7bb013cdfd706c60e03b1a3822aa93605acc6cd3e",
+   "bytes": 194512,
+   "sha256": "451bad97ff3bee1af8d6bff7bb013cdfd706c60e03b1a3822aa93605acc6cd3e"
+  },
+  {
+   "path": "verdicts/pr32/chains-verdicts.json",
+   "old": [
+    "tasks/wq431efei.output"
+   ],
+   "source_sha256": "8724bad546aca237abcfa952169a66a4e7d27a29c8ab772b38eb9fcc2d1b2bdd",
+   "from_task_output": true,
+   "bytes": 23931,
+   "sha256": "7590cbdc8699a89193906de19a6e4bede6394204b93f41757c69c8e00dfd8ad9"
+  },
+  {
+   "path": "verdicts/pr32/crazy-177-live.json",
+   "old": [
+    "scratchpad/crazy/live.json"
+   ],
+   "source_sha256": "fa09c0dc6a772b59d0e9d558c587c6450e0e299379c8aec54b35689728595a17",
+   "bytes": 1163490,
+   "sha256": "fa09c0dc6a772b59d0e9d558c587c6450e0e299379c8aec54b35689728595a17"
+  },
+  {
+   "path": "verdicts/pr32/crazy-177-new.json",
+   "old": [
+    "scratchpad/crazy/new.json"
+   ],
+   "source_sha256": "1b3f08ca4b8140f16fc7e0985d4ee00d645e0524fef888a8f9c5ae6b6df61321",
+   "bytes": 1163987,
+   "sha256": "1b3f08ca4b8140f16fc7e0985d4ee00d645e0524fef888a8f9c5ae6b6df61321"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-1.json"
+   ],
+   "source_sha256": "fb46b4587b4093c920597f7985f6b4e72c213e1c45af36750676388aa64373d3",
+   "bytes": 110229,
+   "sha256": "fb46b4587b4093c920597f7985f6b4e72c213e1c45af36750676388aa64373d3"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-10.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-10.json"
+   ],
+   "source_sha256": "44c62ef4e77485ce275d422dd781551d2a195bbcd319275de4b52a165b8ebeb2",
+   "bytes": 108700,
+   "sha256": "88ece43bcc35ad5cfcc425e91ea2f4dadfc633616d02c2e41bfee38794f75935",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-11.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-11.json"
+   ],
+   "source_sha256": "8088dc0c9bb87c52b9cfb67740a18d49204d22e1d49dd31334da9d9a048439df",
+   "bytes": 109005,
+   "sha256": "8088dc0c9bb87c52b9cfb67740a18d49204d22e1d49dd31334da9d9a048439df"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-12.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-12.json"
+   ],
+   "source_sha256": "67834af1efa79869fdf678a135cd90f90761616118a88b50ff827842e4cad0a6",
+   "bytes": 107000,
+   "sha256": "67834af1efa79869fdf678a135cd90f90761616118a88b50ff827842e4cad0a6"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-2.json"
+   ],
+   "source_sha256": "42962d52c993aae2a8c1adf319402c7b635aaf7467bed26a6adfdf6910b24324",
+   "bytes": 119927,
+   "sha256": "42962d52c993aae2a8c1adf319402c7b635aaf7467bed26a6adfdf6910b24324"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-3.json"
+   ],
+   "source_sha256": "60b5afe6e00606268322f421ae2f3947c272a047e5a9a7640818c7124c4412fe",
+   "bytes": 105375,
+   "sha256": "60b5afe6e00606268322f421ae2f3947c272a047e5a9a7640818c7124c4412fe"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-4.json"
+   ],
+   "source_sha256": "e7f9d257244cc1abfee7af6e52805129f9f8f94897ec65be4ecff14eddeebcf5",
+   "bytes": 117015,
+   "sha256": "e7f9d257244cc1abfee7af6e52805129f9f8f94897ec65be4ecff14eddeebcf5"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-5.json"
+   ],
+   "source_sha256": "0785017dde153cd7669c06e7f4a3edb1a80f6d73d240df4a1d64def3181706ed",
+   "bytes": 125556,
+   "sha256": "98eb0a60bc3fc412eb36ad59decf280d672dd701ff49ff2d61d2c575b2011e34",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-6.json"
+   ],
+   "source_sha256": "a7a5118ba213565c97b85a334cc20f8535e181a89459d369171b8808290cd688",
+   "bytes": 110668,
+   "sha256": "a7a5118ba213565c97b85a334cc20f8535e181a89459d369171b8808290cd688"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-7.json"
+   ],
+   "source_sha256": "5e2466b3e8aabd4d43858923cf8a7ab96e878971418b9e395eea1c76899d8aa4",
+   "bytes": 103514,
+   "sha256": "5e2466b3e8aabd4d43858923cf8a7ab96e878971418b9e395eea1c76899d8aa4"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-8.json"
+   ],
+   "source_sha256": "8c749385db6b9df9179a56f386f00920bbc49eff4e360cf56f4e23c235feb328",
+   "bytes": 135112,
+   "sha256": "8c749385db6b9df9179a56f386f00920bbc49eff4e360cf56f4e23c235feb328"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-batches/batch-9.json",
+   "old": [
+    "scratchpad/eval2/jg/batch-9.json"
+   ],
+   "source_sha256": "7a8a1e1cf9f9774e87aa39b838ff0680d36333ad3ff9b24e5a43bbbece5c6183",
+   "bytes": 100711,
+   "sha256": "7a8a1e1cf9f9774e87aa39b838ff0680d36333ad3ff9b24e5a43bbbece5c6183"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-1.json"
+   ],
+   "source_sha256": "de7c4f37acbe80b4b0c7e50bb9d276a8a26126631469e2dd55eed473d078695c",
+   "bytes": 64855,
+   "sha256": "de7c4f37acbe80b4b0c7e50bb9d276a8a26126631469e2dd55eed473d078695c"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-10.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-10.json"
+   ],
+   "source_sha256": "ceef9a2a4a8ca102d9e1b0fd7c675ddf102ebcc25ece87414c2f336172da8233",
+   "bytes": 67805,
+   "sha256": "ceef9a2a4a8ca102d9e1b0fd7c675ddf102ebcc25ece87414c2f336172da8233"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-2.json"
+   ],
+   "source_sha256": "052854139c86a140d6b5f8de016cda3bbd6c729e1d6ffcbb8e8609e47f3fa074",
+   "bytes": 68450,
+   "sha256": "052854139c86a140d6b5f8de016cda3bbd6c729e1d6ffcbb8e8609e47f3fa074"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-3.json"
+   ],
+   "source_sha256": "cec91cfcf13dd4c5ba253fd7d5f7d394d9cd5d462c7f561f899b063088a65552",
+   "bytes": 63185,
+   "sha256": "cec91cfcf13dd4c5ba253fd7d5f7d394d9cd5d462c7f561f899b063088a65552"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-4.json"
+   ],
+   "source_sha256": "8c7d7dbda28b2c09dceb9883f39834a0a23b3ab6787dfdadfa23e3c453ef72df",
+   "bytes": 66685,
+   "sha256": "4fbef3233e2ab063a42104a42cacc885f8c57d944a525db72602dd1b5dc63532",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-5.json"
+   ],
+   "source_sha256": "3f8510b855e1c19fd629ef0e60f95fc78e1293ead4286c729b8ae13e018420a6",
+   "bytes": 65827,
+   "sha256": "3f8510b855e1c19fd629ef0e60f95fc78e1293ead4286c729b8ae13e018420a6"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-6.json"
+   ],
+   "source_sha256": "7128f8a909cc5313b5a91c927eecbf30fd6179a95d32dfdeb5e08c05e5611585",
+   "bytes": 91777,
+   "sha256": "7128f8a909cc5313b5a91c927eecbf30fd6179a95d32dfdeb5e08c05e5611585"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-7.json"
+   ],
+   "source_sha256": "d293480386621b4682c21c9d37d26aa7d57c1f2a6ef2cfb0108c1cc5780e185c",
+   "bytes": 80400,
+   "sha256": "5d9a4f849ce4e08cc2b9c0f5fc5cf2837ec252b0e6f87e1bfe575b11eac2a2a8",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-8.json"
+   ],
+   "source_sha256": "bbb720d0e1c914220cc15837adb003ad6c36903d97a67f9cc60804b172b89bf6",
+   "bytes": 69834,
+   "sha256": "bbb720d0e1c914220cc15837adb003ad6c36903d97a67f9cc60804b172b89bf6"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-batches/batch-9.json",
+   "old": [
+    "scratchpad/eval2/jh/batch-9.json"
+   ],
+   "source_sha256": "cccf1ac6bdbfc23db96ff47610daf3b6a423f8eec095f9a76808fcb7e308ef96",
+   "bytes": 74498,
+   "sha256": "cccf1ac6bdbfc23db96ff47610daf3b6a423f8eec095f9a76808fcb7e308ef96"
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-new-verdicts.json",
+   "old": [
+    "tasks/wmm2tlp1g.output"
+   ],
+   "source_sha256": "8a306481b411f55d37055a8b92884f26690831bf90ebec84fbed5127296ac244",
+   "from_task_output": true,
+   "bytes": 125922,
+   "sha256": "2256e609937b21012ec0edd2a51bfff06550962e446167fde9c4695ddf55f59c",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/gather-variants-verdicts.json",
+   "old": [
+    "tasks/wai1qr5hd.output"
+   ],
+   "source_sha256": "a0036d286da5e49724e425488960d8c0785c2abbb51fa42fcdc271bb624d1e83",
+   "from_task_output": true,
+   "bytes": 214106,
+   "sha256": "cffba5b1ea988a016a9b2727673d369abfee3c913635f7312458b2ec82fe18f2",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-1.json"
+   ],
+   "source_sha256": "5b4498ec73e198a975a660abe01b23198a5f16da10f66d821786ced585997003",
+   "bytes": 168388,
+   "sha256": "2e09477ee44e5c632a2da2b241895c2c341d0871851a424b6677bff877055ef5",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-2.json"
+   ],
+   "source_sha256": "22840ca93a1eaf94106ba0a3302169632b9b24eb5f23f4371c383dbb000b2849",
+   "bytes": 154921,
+   "sha256": "22840ca93a1eaf94106ba0a3302169632b9b24eb5f23f4371c383dbb000b2849"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-3.json"
+   ],
+   "source_sha256": "cfa733a332c936eb84938c8df94e91beb4db88bbef517d7c4fda41b28cea0d90",
+   "bytes": 195173,
+   "sha256": "cfa733a332c936eb84938c8df94e91beb4db88bbef517d7c4fda41b28cea0d90"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-4.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-4.json"
+   ],
+   "source_sha256": "dec1363099eaa2ff693c45265947788da6aea313ee42cdb9f6ac9fe9bffb054f",
+   "bytes": 181662,
+   "sha256": "dec1363099eaa2ff693c45265947788da6aea313ee42cdb9f6ac9fe9bffb054f"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-5.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-5.json"
+   ],
+   "source_sha256": "fd030cba789fa3131579fc950950c8513fcb735a201c23f3dfe817cd3b00dcd1",
+   "bytes": 154699,
+   "sha256": "fd030cba789fa3131579fc950950c8513fcb735a201c23f3dfe817cd3b00dcd1"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-6.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-6.json"
+   ],
+   "source_sha256": "637766e9f98f4f6fc2e341b9a1f3557a92e278888a3df88d45ca3da4bcd65354",
+   "bytes": 182691,
+   "sha256": "637766e9f98f4f6fc2e341b9a1f3557a92e278888a3df88d45ca3da4bcd65354"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-7.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-7.json"
+   ],
+   "source_sha256": "90320d9e291533782f8f7503848090ec0830a152b5c6b44d3a4b3af3119d3cbe",
+   "bytes": 173047,
+   "sha256": "90320d9e291533782f8f7503848090ec0830a152b5c6b44d3a4b3af3119d3cbe"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-batches/batch-8.json",
+   "old": [
+    "scratchpad/eval2/j9/batch-8.json"
+   ],
+   "source_sha256": "a5859da9085a1045d9f60166dd11c07e0eb25894dd9f9d2355b091ca1d8a6390",
+   "bytes": 166885,
+   "sha256": "a5859da9085a1045d9f60166dd11c07e0eb25894dd9f9d2355b091ca1d8a6390"
+  },
+  {
+   "path": "verdicts/pr32/set7-150-live.json",
+   "old": [
+    "scratchpad/eval2/live7.json"
+   ],
+   "source_sha256": "0becfaee6cb194687b41b3564e9f3b88827e6cca8ddf694372d9a173d9a098d9",
+   "bytes": 1047245,
+   "sha256": "44b273502ab832e63fc1b61c148e097efb6a6f81409c8146048228c052c98659",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-new-w.json",
+   "old": [
+    "scratchpad/eval2/new7w.json"
+   ],
+   "source_sha256": "3a2cea522f2587c5b1da826afe4acaf0a97dc715e5695f5014889831ff6d4af0",
+   "bytes": 1044972,
+   "sha256": "8ac44efc038fb84c3433868e43e5efd69510767b7b58a207fd46ceb5fb34a079",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-new-x.json",
+   "old": [
+    "scratchpad/eval2/new7x.json"
+   ],
+   "source_sha256": "4ea0c4fcef92b613ea2f0b12cd38cb4077cf4748da235db6244050549727ec4d",
+   "bytes": 1043834,
+   "sha256": "0108bc50c50089a0c060bb8e1ea9b73c471a079e4bd77ca65b1f31f3f19436ac",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-new.json",
+   "old": [
+    "scratchpad/eval2/new7.json"
+   ],
+   "source_sha256": "fc4be692a9142c2e63673775c4f77deb3b0334f017bf1ecfac1b4b05fbc7a85e",
+   "bytes": 1044793,
+   "sha256": "013e84e5d8ded0657e5df6ee9eb809bc3585ac0961e3aed9cc501396e1348aa2",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set7-150-verdicts.json",
+   "old": [
+    "tasks/wf94mdke9.output"
+   ],
+   "source_sha256": "c09806f2f125761992948db43a473b65ad1f5c45c769e46ba7224aa24e6c3559",
+   "from_task_output": true,
+   "bytes": 197587,
+   "sha256": "b2eff1e43f3b3c32108378f180f93a42331f387803c20e859c171f43ae765b88",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-1.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-1.json"
+   ],
+   "source_sha256": "165b0809b5eb6c33a5835c973066be3171efd50fe44fec6c1e6b61d0c44a415c",
+   "bytes": 148528,
+   "sha256": "165b0809b5eb6c33a5835c973066be3171efd50fe44fec6c1e6b61d0c44a415c"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-2.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-2.json"
+   ],
+   "source_sha256": "d9839dc1d404bd4bc4dcc98ca3b137b9bb3d1e64a20a65fc8f6d6bcc67ce1d4c",
+   "bytes": 154487,
+   "sha256": "d9839dc1d404bd4bc4dcc98ca3b137b9bb3d1e64a20a65fc8f6d6bcc67ce1d4c"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-3.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-3.json"
+   ],
+   "source_sha256": "9defd66794b65a8be58faca929f2ecbc972543300e82d0b548e98d9172d0f28a",
+   "bytes": 156150,
+   "sha256": "9defd66794b65a8be58faca929f2ecbc972543300e82d0b548e98d9172d0f28a"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-4.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-4.json"
+   ],
+   "source_sha256": "af19e69b74740a1a2f25f64b6c8502707cbf9a0ee634dbdb7b97eb1054424f77",
+   "bytes": 143430,
+   "sha256": "af19e69b74740a1a2f25f64b6c8502707cbf9a0ee634dbdb7b97eb1054424f77"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-5.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-5.json"
+   ],
+   "source_sha256": "1e74c91b6a53c8f9e5895839f9956fbd49b29f59951c07419ce48c69cbe8998c",
+   "bytes": 141648,
+   "sha256": "1e74c91b6a53c8f9e5895839f9956fbd49b29f59951c07419ce48c69cbe8998c"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-6.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-6.json"
+   ],
+   "source_sha256": "8060c9c16ef9ca616541c8baeea881b3557bb76ceee23193fc78310f783ce09d",
+   "bytes": 135831,
+   "sha256": "181b73d79e7dc709f647f5fb4e6d274ae71aac7505cbb4ffe33984c54e5e6132",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-7.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-7.json"
+   ],
+   "source_sha256": "ca2449c8f702dde6f701139b3b828bcc27bad30aaceea65c289f383dd9a5e05c",
+   "bytes": 121650,
+   "sha256": "ca2449c8f702dde6f701139b3b828bcc27bad30aaceea65c289f383dd9a5e05c"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-batches/batch-8.json",
+   "old": [
+    "scratchpad/crazy9/j/batch-8.json"
+   ],
+   "source_sha256": "d44914e44dfca104f8bef732c2e32465662039c33fa917f159a537e10ab8683e",
+   "bytes": 125328,
+   "sha256": "d44914e44dfca104f8bef732c2e32465662039c33fa917f159a537e10ab8683e"
+  },
+  {
+   "path": "verdicts/pr32/set9-120-live.json",
+   "old": [
+    "scratchpad/crazy9/live9.json"
+   ],
+   "source_sha256": "3fde273d78865d1500a887acc478e8ae0125c55e50ff14c44b9ac4d215d6dea3",
+   "bytes": 825661,
+   "sha256": "dee83aac29247c24daede4a4a471385a2a49dcca52598f245d338faa6458697a",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-new-w.json",
+   "old": [
+    "scratchpad/crazy9/new9w.json"
+   ],
+   "source_sha256": "b68e3fa0dd5c39bdc24b0fef59ee17bb7fd234921981f367ed443c10d9a019a3",
+   "bytes": 818991,
+   "sha256": "69cb6f43d3388d5bbb32a0046c2e2924d728a5f2f42b8ae434ce757b48c3e445",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-new-x.json",
+   "old": [
+    "scratchpad/crazy9/new9x.json"
+   ],
+   "source_sha256": "639f2870090ffda4401e283ab1cf8e3194f34c0e4f5d49f17a00ae11405cac77",
+   "bytes": 829351,
+   "sha256": "e31be9f2f256f8e7bc04c5cc6b4ae0ed0facc57563c3122dd96490d91152783a",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-new.json",
+   "old": [
+    "scratchpad/crazy9/new9.json"
+   ],
+   "source_sha256": "72faa0742ef8877626d919c64e88661600cc0098ccc8a4e06614698ebc50ac25",
+   "bytes": 839504,
+   "sha256": "e5999770123d3dec0c3e0983a9a88b24d10b66086683852864f66aa6fc122811",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set9-120-verdicts.json",
+   "old": [
+    "tasks/wlar9hr36.output"
+   ],
+   "source_sha256": "4a0a2b482aaecd676b9c5b2748835ac3b4a20bdfafbc9624aaa1b5c0d97ca83d",
+   "from_task_output": true,
+   "bytes": 151322,
+   "sha256": "e58211d807cc0c9bac1b7cdb2294ab54b0cb9fbb0e47d0cc4e8c904594367509",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-final.json",
+   "old": [
+    "scratchpad/eval2/final-out.json"
+   ],
+   "source_sha256": "3a743cbce7ae8a0aaa880d0e279d97328ca5849f2830dc36a5644bb78137f249",
+   "bytes": 1874594,
+   "sha256": "ebca8f9a35713a684d05d5109a81111bdc13ab9f7fee0448e3eac007f53d3604",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-A.json",
+   "old": [
+    "scratchpad/eval2/g-A.json"
+   ],
+   "source_sha256": "28a8455894c3e536aa1860ad926a837b5c7d1d00ab58c2a69c7b57044a58e6ba",
+   "bytes": 1871761,
+   "sha256": "1b822d80bee6c2b52163559964373a4b76e359ea4ae4e1748e66bb2fb3fc10d6",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-B.json",
+   "old": [
+    "scratchpad/eval2/g-B.json"
+   ],
+   "source_sha256": "ff24662f25525182f0aa85613f51eae04e4a7e005609cc4b19199a2cad9e2303",
+   "bytes": 1904660,
+   "sha256": "f90d4abf9ee4a3d36b60a1a32afd1fee4d71cecd5b0b6a86d715d8b2f02b9f7b",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-C.json",
+   "old": [
+    "scratchpad/eval2/g-C.json"
+   ],
+   "source_sha256": "c6c6be099e83113d4672784be54179af1d4585f02efbb1081cd4feb28c03432f",
+   "bytes": 1867572,
+   "sha256": "c6b15a3459695aed3fec6b11f3693adfd7e627e1d8269a47659a0bd9683ca53c",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-E.json",
+   "old": [
+    "scratchpad/eval2/g-E.json"
+   ],
+   "source_sha256": "dcc8215845f11f77c4a51f1af9c9f2fa946b9b56048af0d676c1a8c5d56e7b33",
+   "bytes": 1864752,
+   "sha256": "9c2ef5889fb6ffaa18be42e735ec86ccfeb55925473a1ca48e8f3c249e19b86f",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-F.json",
+   "old": [
+    "scratchpad/eval2/g-F.json"
+   ],
+   "source_sha256": "e646157d9d3a9584ba13f7d0ece9d3d5f4e54f554c9385f9b1c31c5cf53fa42a",
+   "bytes": 1888144,
+   "sha256": "9ca9a624181f9510b2f52e291cbfbb311a07806fb6b406551bb2516a88fc3b93",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-gather-G.json",
+   "old": [
+    "scratchpad/eval2/g-G.json"
+   ],
+   "source_sha256": "175983620d1623198cdcfffdb11b4d709b217488dea6a036907eccfb6c1496ce",
+   "bytes": 1840833,
+   "sha256": "698b10e2a004c6c487dd3faf2b3015f377d75cab089f58367cbd7eef6aab1c98",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-rt-w.json",
+   "old": [
+    "scratchpad/eval2/rt-97w-out.json"
+   ],
+   "source_sha256": "e7a2b6287dcff0ffa3d4ea522a40898c5b8e2528ef3cf8a71229618eb0c68d8d",
+   "bytes": 219133,
+   "sha256": "133481335fb71764574090b7e97e04b116e4cd81046e06f1e17302c7e98c5ec0",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-rt-x.json",
+   "old": [
+    "scratchpad/eval2/rt-97x-out.json"
+   ],
+   "source_sha256": "977031961c67183015bba7c29e9a23bb3b3b614432141ad961bf0b1325a658a1",
+   "bytes": 219013,
+   "sha256": "45d6adddb4015836f5157fa76c5c027bd06683afad08a54d0273e00ec7642262",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr32/set97-rt.json",
+   "old": [
+    "scratchpad/eval2/rt-97-out.json"
+   ],
+   "source_sha256": "d9d70347e17843f2607dee935570d98f8618f3027874b654e4a03374470e4f65",
+   "bytes": 219370,
+   "sha256": "1c6fea0df53346c6896fc6a0a12917fde906bd4a8c8e28623def9faf2b4e117d",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr34/set97-nn-batches/batch-1.json",
+   "old": [
+    "scratchpad/eval2/jk/batch-1.json"
+   ],
+   "source_sha256": "1adf3295abd9653440f6377ef9668175beedb9f8901fd00378aa2bf57a707d17",
+   "bytes": 73002,
+   "sha256": "1adf3295abd9653440f6377ef9668175beedb9f8901fd00378aa2bf57a707d17"
+  },
+  {
+   "path": "verdicts/pr34/set97-nn-batches/batch-2.json",
+   "old": [
+    "scratchpad/eval2/jk/batch-2.json"
+   ],
+   "source_sha256": "96acb092ddba87e787919eed35285cf87d28f04f4d8193cf3143f21621aa46e9",
+   "bytes": 77500,
+   "sha256": "244c5e06b1fbb3c72036c67a725cebd58ddec83f4a9511c9c59aaa29d0f68491",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr34/set97-nn-batches/batch-3.json",
+   "old": [
+    "scratchpad/eval2/jk/batch-3.json"
+   ],
+   "source_sha256": "4b4d9a1029ca663a12672aace999e21aab92d109420b17fe2b5853f15296208a",
+   "bytes": 66166,
+   "sha256": "f4ae3583da809b542d768957fda1fe7f49662520657ceb498440f144f9f76498",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr34/set97-nn-verdicts.json",
+   "old": [
+    "tasks/wuz8rlmxs.output"
+   ],
+   "source_sha256": "e046a4dae12ddd579af9ee36a60e38715cbe1ade5e86328423fce57d1b9dae10",
+   "from_task_output": true,
+   "bytes": 41164,
+   "sha256": "8426017f913a8475bfdf7ad9b3a0bc83cc4f8ddd53b584896e5803be322a53e7",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr34/set97-nn.json",
+   "old": [
+    "scratchpad/eval2/nn-out.json"
+   ],
+   "source_sha256": "1a372e97d78bda82e3fa44f16bdec4e4609e44eb274e660ce2d96328cfcea8af",
+   "bytes": 1872617,
+   "sha256": "46fbe2c32f63054acb627f23d64895fd379d1eefa2c64e018f070522868b1446",
+   "path_edits": [
+    "two sayings quoted in test messages put in KJV or BSB wording (Matthew 18:20 and 12:30)"
+   ]
+  },
+  {
+   "path": "verdicts/pr40/blind-269-base.json",
+   "old": [
+    "scratchpad/r6/blind-base.json"
+   ],
+   "source_sha256": "2957981a74e5d24bb7aefcdd3ad3ef0afc393da41209896c8d581b38c7c574a2",
+   "bytes": 1808751,
+   "sha256": "2957981a74e5d24bb7aefcdd3ad3ef0afc393da41209896c8d581b38c7c574a2"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-1/batch-1.json",
+   "old": [
+    "scratchpad/r6/jb1/batch-1.json",
+    "scratchpad/r6/jb/batch-1.json"
+   ],
+   "source_sha256": "6c49d4acd8a54ad970615bbb63e417c0fa37c48fec35fcb60973def6387f59a5",
+   "bytes": 229815,
+   "sha256": "6c49d4acd8a54ad970615bbb63e417c0fa37c48fec35fcb60973def6387f59a5"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-1/batch-2.json",
+   "old": [
+    "scratchpad/r6/jb1/batch-2.json",
+    "scratchpad/r6/jb/batch-2.json"
+   ],
+   "source_sha256": "b1e2ad98bc05eb5b05bf7147bea2083449701ae65d11598fc75929c35301307c",
+   "bytes": 208277,
+   "sha256": "b1e2ad98bc05eb5b05bf7147bea2083449701ae65d11598fc75929c35301307c"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-1/batch-3.json",
+   "old": [
+    "scratchpad/r6/jb1/batch-3.json",
+    "scratchpad/r6/jb/batch-3.json"
+   ],
+   "source_sha256": "eb5e1579c08deac9ecb7350427e9f29a4bc127b201cef1a9c2df8515f4cb9159",
+   "bytes": 210736,
+   "sha256": "eb5e1579c08deac9ecb7350427e9f29a4bc127b201cef1a9c2df8515f4cb9159"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-1/batch-4.json",
+   "old": [
+    "scratchpad/r6/jb1/batch-4.json",
+    "scratchpad/r6/jb/batch-4.json"
+   ],
+   "source_sha256": "d887d94849bfa796c210b1b884aa94673369a9ab8e7fbf08d849406467967d40",
+   "bytes": 197127,
+   "sha256": "d887d94849bfa796c210b1b884aa94673369a9ab8e7fbf08d849406467967d40"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-1/batch-5.json",
+   "old": [
+    "scratchpad/r6/jb1/batch-5.json",
+    "scratchpad/r6/jb/batch-5.json"
+   ],
+   "source_sha256": "a48fd63df8abbb3a76f4419b31da0fae10d4e9b8aba52b89b6a6b169cfea1cb6",
+   "bytes": 211035,
+   "sha256": "a48fd63df8abbb3a76f4419b31da0fae10d4e9b8aba52b89b6a6b169cfea1cb6"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-2/batch-1.json",
+   "old": [
+    "scratchpad/r6/jb2/batch-1.json",
+    "scratchpad/r6/jb/batch-6.json"
+   ],
+   "source_sha256": "6a496da82e525a6731353b57406b6080f1ae88aa2bac8117181e6e2e4ebec669",
+   "bytes": 205945,
+   "sha256": "6a496da82e525a6731353b57406b6080f1ae88aa2bac8117181e6e2e4ebec669"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-2/batch-2.json",
+   "old": [
+    "scratchpad/r6/jb2/batch-2.json",
+    "scratchpad/r6/jb/batch-7.json"
+   ],
+   "source_sha256": "edc45074427383c3addaf81e28626bf37785d88b19eafaa848b84324ebed34c3",
+   "bytes": 199476,
+   "sha256": "edc45074427383c3addaf81e28626bf37785d88b19eafaa848b84324ebed34c3"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-2/batch-3.json",
+   "old": [
+    "scratchpad/r6/jb2/batch-3.json",
+    "scratchpad/r6/jb/batch-8.json"
+   ],
+   "source_sha256": "44852667efa10f606479703a01a57eb5e63d23acc03d78a0baab29f37d0b57c1",
+   "bytes": 187459,
+   "sha256": "44852667efa10f606479703a01a57eb5e63d23acc03d78a0baab29f37d0b57c1"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-2/batch-4.json",
+   "old": [
+    "scratchpad/r6/jb2/batch-4.json",
+    "scratchpad/r6/jb/batch-9.json"
+   ],
+   "source_sha256": "355c143d6cf7156f8e2e4d6ee847c166980e0b987b47dda9e154f287a8a7ee05",
+   "bytes": 206954,
+   "sha256": "355c143d6cf7156f8e2e4d6ee847c166980e0b987b47dda9e154f287a8a7ee05"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-batches-2/batch-5.json",
+   "old": [
+    "scratchpad/r6/jb2/batch-5.json",
+    "scratchpad/r6/jb/batch-10.json"
+   ],
+   "source_sha256": "cc6d1d0bd4b0543127a214d3b0632787d5b98666478a809c9c93fd49e1984e2e",
+   "bytes": 207445,
+   "sha256": "cc6d1d0bd4b0543127a214d3b0632787d5b98666478a809c9c93fd49e1984e2e"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-new.json",
+   "old": [
+    "scratchpad/r6/blind-new.json"
+   ],
+   "source_sha256": "4eb5c38207da5790378f9df0ead9e89db3332334a94c733b34f6e0efbc4e4a49",
+   "bytes": 1816286,
+   "sha256": "4eb5c38207da5790378f9df0ead9e89db3332334a94c733b34f6e0efbc4e4a49"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-verdicts-1.json",
+   "old": [
+    "tasks/wt2390w91.output"
+   ],
+   "source_sha256": "8c2393bc976f432ca88276a81a3235a7df98bc2ef52b7040f6a04c78ec2aece8",
+   "from_task_output": true,
+   "bytes": 151506,
+   "sha256": "74b12025fb5e3c7e070e26005b4c6297490aa5a483f5395a468df2116944b4a2"
+  },
+  {
+   "path": "verdicts/pr40/blind-269-verdicts-2.json",
+   "old": [
+    "tasks/whi3fohmz.output"
+   ],
+   "source_sha256": "b1bd70224e23875c14ea8f6c1b551d43a74993c86ddbafa278ab1aed2d171e8f",
+   "from_task_output": true,
+   "bytes": 144389,
+   "sha256": "fb79f01b1df3bcb571a4927262e525723c466b8ccb7e2b33f1c5f017f3f7b448"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-base.json",
+   "old": [
+    "scratchpad/g7/bf-base.json"
+   ],
+   "source_sha256": "fe4bd7db804626cb2fde4b11dfb1bd0131252b8952d6f0ac626ba3c627797411",
+   "bytes": 2058080,
+   "sha256": "fe4bd7db804626cb2fde4b11dfb1bd0131252b8952d6f0ac626ba3c627797411"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-1.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-1.json"
+   ],
+   "source_sha256": "448eb500a3685721ecc87eae2aff23e5fff203a035f5ed3e3def5306ad50e2b7",
+   "bytes": 233963,
+   "sha256": "448eb500a3685721ecc87eae2aff23e5fff203a035f5ed3e3def5306ad50e2b7"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-2.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-2.json"
+   ],
+   "source_sha256": "e85c455244c362c3d1770de2c67f0bb5688f68f94d33c24b20f18b11aede367d",
+   "bytes": 234003,
+   "sha256": "e85c455244c362c3d1770de2c67f0bb5688f68f94d33c24b20f18b11aede367d"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-3.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-3.json"
+   ],
+   "source_sha256": "ad1d41c3d1006a5580697392e800386bc81c80204a0a4ae8410cbf8c45f48d63",
+   "bytes": 237886,
+   "sha256": "ad1d41c3d1006a5580697392e800386bc81c80204a0a4ae8410cbf8c45f48d63"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-4.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-4.json"
+   ],
+   "source_sha256": "92f1fc04295764fd3d45d17e8d439e6c4ef46fdd062a8461db49e73642395257",
+   "bytes": 223671,
+   "sha256": "92f1fc04295764fd3d45d17e8d439e6c4ef46fdd062a8461db49e73642395257"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-5.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-5.json"
+   ],
+   "source_sha256": "19a8b930a3d85cef16ceca8d67be2e176bef48d39bdd294daf599a03623b00ef",
+   "bytes": 228823,
+   "sha256": "19a8b930a3d85cef16ceca8d67be2e176bef48d39bdd294daf599a03623b00ef"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-6.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-6.json"
+   ],
+   "source_sha256": "43517dd32f52bb6c282912672f81471c9f94f1e84194d86cf9063565678b0bd9",
+   "bytes": 240638,
+   "sha256": "43517dd32f52bb6c282912672f81471c9f94f1e84194d86cf9063565678b0bd9"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-7.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-7.json"
+   ],
+   "source_sha256": "269903047412652bf0d16865f11d0ac2c3a0aef106ae0f56414f636ed5904359",
+   "bytes": 247518,
+   "sha256": "269903047412652bf0d16865f11d0ac2c3a0aef106ae0f56414f636ed5904359"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-batches/batch-8.json",
+   "old": [
+    "scratchpad/g7/jbf/batch-8.json"
+   ],
+   "source_sha256": "d4a7e2898683bc2be4970ed64ce2e3e54f23a2138122a7559fede945efdf11e7",
+   "bytes": 234047,
+   "sha256": "d4a7e2898683bc2be4970ed64ce2e3e54f23a2138122a7559fede945efdf11e7"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-new.json",
+   "old": [
+    "scratchpad/g7/bf-new.json"
+   ],
+   "source_sha256": "2e5d70623f8ff8368a8715cfd1249c5326580d34d0778b8e212611538c5614f7",
+   "bytes": 2025034,
+   "sha256": "2e5d70623f8ff8368a8715cfd1249c5326580d34d0778b8e212611538c5614f7"
+  },
+  {
+   "path": "verdicts/pr41/blind-fresh-299-verdicts.json",
+   "old": [
+    "tasks/wcvrmrcle.output"
+   ],
+   "source_sha256": "c5291487db5ef3985f68504b4b94be8da61dc63869271d2ef94e4c0875fa976a",
+   "from_task_output": true,
+   "bytes": 287165,
+   "sha256": "c2b0469b37fbe2c20a9b6935de9564b99aa63789bb52c40e9e0fdce94da4ed2f"
+  },
+  {
+   "path": "verdicts/pr41/dev-271-features.json.gz",
+   "old": [],
+   "source_sha256": "70ae1e2f5f58564217d9a6e6b12b313a43f7796f398c5ba7998751a8c005e8a9",
+   "gzip": true,
+   "bytes": 1314021,
+   "sha256": "6fdaaf2c230b8922a772c7dc5820442b0f5ec616f97e2a6aa8f0a2e8e6aef562"
+  },
+  {
+   "path": "verdicts/pr41/devq-813-features.json.gz",
+   "old": [
+    "scratchpad/g7/fx-dev.json"
+   ],
+   "source_sha256": "c53a6c236c210e4122a2083a9e7606c717ca39af8fe8a800f1d16c3c268fc1d3",
+   "gzip": true,
+   "bytes": 7135332,
+   "sha256": "843eacfa1304a4f5a495f207625fa4e24dc1cbd0556c590f64a4e84f67de1e24"
+  },
+  {
+   "path": "verdicts/pr41/devq-813-new.json.gz",
+   "old": [
+    "scratchpad/g7/dev-new.json"
+   ],
+   "source_sha256": "4633d5b8e492ddf7e73e5e6d49a312ccf3bb6dee2646c081886072f1fa826497",
+   "gzip": true,
+   "bytes": 1402081,
+   "sha256": "14f98093084d34ec4e7a0b6707dd4ee4307a697657c4d6a89e9807236610e265"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-1.json",
+   "old": [
+    "scratchpad/g7/jd/batch-1.json"
+   ],
+   "source_sha256": "0a460af689955349d64ee631fd8f993d2fe1c16b0b0f27242c21906aa2de42dd",
+   "bytes": 196891,
+   "sha256": "0a460af689955349d64ee631fd8f993d2fe1c16b0b0f27242c21906aa2de42dd"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-10.json",
+   "old": [
+    "scratchpad/g7/jd/batch-10.json"
+   ],
+   "source_sha256": "30e08da724718b1dd7785d5dfd884d5948c623f27c7a0024f5f3b4dc21310561",
+   "bytes": 218733,
+   "sha256": "30e08da724718b1dd7785d5dfd884d5948c623f27c7a0024f5f3b4dc21310561"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-11.json",
+   "old": [
+    "scratchpad/g7/jd/batch-11.json"
+   ],
+   "source_sha256": "6470c10a6e00099b8528fbb33d627351af2c1997bb8b5967ffa0c5f8b5dab6bf",
+   "bytes": 189676,
+   "sha256": "6470c10a6e00099b8528fbb33d627351af2c1997bb8b5967ffa0c5f8b5dab6bf"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-12.json",
+   "old": [
+    "scratchpad/g7/jd/batch-12.json"
+   ],
+   "source_sha256": "dcfed6e7d33709fa7911a8af313a884602a8b88596027dcab5138b51f0ef88c0",
+   "bytes": 214464,
+   "sha256": "dcfed6e7d33709fa7911a8af313a884602a8b88596027dcab5138b51f0ef88c0"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-13.json",
+   "old": [
+    "scratchpad/g7/jd/batch-13.json"
+   ],
+   "source_sha256": "2f3ef38bb720b59535d7779dbaeae404352c4f7d4c96a384e5a3179708e46480",
+   "bytes": 195256,
+   "sha256": "2f3ef38bb720b59535d7779dbaeae404352c4f7d4c96a384e5a3179708e46480"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-14.json",
+   "old": [
+    "scratchpad/g7/jd/batch-14.json"
+   ],
+   "source_sha256": "3a8b01c241834cffa813979c91f00bfa08805813e65f79fdc254c969b24a4f46",
+   "bytes": 216283,
+   "sha256": "3a8b01c241834cffa813979c91f00bfa08805813e65f79fdc254c969b24a4f46"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-15.json",
+   "old": [
+    "scratchpad/g7/jd/batch-15.json"
+   ],
+   "source_sha256": "51dac0b43abb2ebadc82eeca5198a82d142878580a4dbcadfa0d287a4169406f",
+   "bytes": 185495,
+   "sha256": "51dac0b43abb2ebadc82eeca5198a82d142878580a4dbcadfa0d287a4169406f"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-16.json",
+   "old": [
+    "scratchpad/g7/jd/batch-16.json"
+   ],
+   "source_sha256": "f7ec58baab5a824d66ad8011d1b0cc355c5b1714b9c745b98563a6cd5a0ee84a",
+   "bytes": 205178,
+   "sha256": "f7ec58baab5a824d66ad8011d1b0cc355c5b1714b9c745b98563a6cd5a0ee84a"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-17.json",
+   "old": [
+    "scratchpad/g7/jd/batch-17.json"
+   ],
+   "source_sha256": "ca8aacf7e4d79fd958f9e1587e75d44ee1538f2a1dd94161f6cd23e4bb01bce3",
+   "bytes": 183362,
+   "sha256": "ca8aacf7e4d79fd958f9e1587e75d44ee1538f2a1dd94161f6cd23e4bb01bce3"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-18.json",
+   "old": [
+    "scratchpad/g7/jd/batch-18.json"
+   ],
+   "source_sha256": "caa6dc63cfcfc36dbe8690c672d50ca6eb4e9a091933d2c2dd5df68c4b8e836f",
+   "bytes": 197092,
+   "sha256": "caa6dc63cfcfc36dbe8690c672d50ca6eb4e9a091933d2c2dd5df68c4b8e836f"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-19.json",
+   "old": [
+    "scratchpad/g7/jd/batch-19.json"
+   ],
+   "source_sha256": "5af343bb379facb3b1e34aff9ecf284d90a053db10bbb2d5a5fc52a73991696f",
+   "bytes": 178861,
+   "sha256": "5af343bb379facb3b1e34aff9ecf284d90a053db10bbb2d5a5fc52a73991696f"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-2.json",
+   "old": [
+    "scratchpad/g7/jd/batch-2.json"
+   ],
+   "source_sha256": "93f062e737c8274b93d7a86a559d27a167a07e9349f67e82b81a5d5ded324eb7",
+   "bytes": 188485,
+   "sha256": "93f062e737c8274b93d7a86a559d27a167a07e9349f67e82b81a5d5ded324eb7"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-20.json",
+   "old": [
+    "scratchpad/g7/jd/batch-20.json"
+   ],
+   "source_sha256": "b9965523be2533c34d496f5063e8961183b4fd4f2816701c451a3b593f7010f7",
+   "bytes": 203675,
+   "sha256": "b9965523be2533c34d496f5063e8961183b4fd4f2816701c451a3b593f7010f7"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-21.json",
+   "old": [
+    "scratchpad/g7/jd/batch-21.json"
+   ],
+   "source_sha256": "663cd92a3b64afe52e9f2d990e6b1c2485b4789c4831b220cf07d0fecb100a26",
+   "bytes": 207993,
+   "sha256": "663cd92a3b64afe52e9f2d990e6b1c2485b4789c4831b220cf07d0fecb100a26"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-22.json",
+   "old": [
+    "scratchpad/g7/jd/batch-22.json"
+   ],
+   "source_sha256": "c21a74ed12df32f980fad766672863accf6e0058e8c4f0df1eefe3ee59602c52",
+   "bytes": 180286,
+   "sha256": "c21a74ed12df32f980fad766672863accf6e0058e8c4f0df1eefe3ee59602c52"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-23.json",
+   "old": [
+    "scratchpad/g7/jd/batch-23.json"
+   ],
+   "source_sha256": "7baf2b21063d0a7baccb393026e61cd71645bd1cea1e49b88de288d4f5d726d1",
+   "bytes": 182350,
+   "sha256": "7baf2b21063d0a7baccb393026e61cd71645bd1cea1e49b88de288d4f5d726d1"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-24.json",
+   "old": [
+    "scratchpad/g7/jd/batch-24.json"
+   ],
+   "source_sha256": "5edc0b7e4a3d8ba62f6a925a04d3213eb12c608eae8285a3457ff3e856fffd83",
+   "bytes": 186260,
+   "sha256": "5edc0b7e4a3d8ba62f6a925a04d3213eb12c608eae8285a3457ff3e856fffd83"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-25.json",
+   "old": [
+    "scratchpad/g7/jd/batch-25.json"
+   ],
+   "source_sha256": "4e207a162bab93e007458bb604513ab93673436035178feda1e3cdba3660e4cc",
+   "bytes": 200939,
+   "sha256": "4e207a162bab93e007458bb604513ab93673436035178feda1e3cdba3660e4cc"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-3.json",
+   "old": [
+    "scratchpad/g7/jd/batch-3.json"
+   ],
+   "source_sha256": "f4a05207590098a5953f3687bdc6fcfb80f4893f16b30a615053629726229bb9",
+   "bytes": 189925,
+   "sha256": "f4a05207590098a5953f3687bdc6fcfb80f4893f16b30a615053629726229bb9"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-4.json",
+   "old": [
+    "scratchpad/g7/jd/batch-4.json"
+   ],
+   "source_sha256": "075f6802bc5f62d42a6d7808b7d186388f991eee0312351a5b7593b8a3cfc78a",
+   "bytes": 190033,
+   "sha256": "075f6802bc5f62d42a6d7808b7d186388f991eee0312351a5b7593b8a3cfc78a"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-5.json",
+   "old": [
+    "scratchpad/g7/jd/batch-5.json"
+   ],
+   "source_sha256": "dfc773b8e2cb9e296d2662a3cdd425941435fa2d0051abc0495939152749116e",
+   "bytes": 207839,
+   "sha256": "dfc773b8e2cb9e296d2662a3cdd425941435fa2d0051abc0495939152749116e"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-6.json",
+   "old": [
+    "scratchpad/g7/jd/batch-6.json"
+   ],
+   "source_sha256": "d1739eb0305701691f3e81d8aa69bc0ade2a1cf645bc586e82d131dd97bba1ee",
+   "bytes": 210872,
+   "sha256": "d1739eb0305701691f3e81d8aa69bc0ade2a1cf645bc586e82d131dd97bba1ee"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-7.json",
+   "old": [
+    "scratchpad/g7/jd/batch-7.json"
+   ],
+   "source_sha256": "f0934adfd95209967aa09a16a9b91b9382f42610055c37e19067c0822e317b9d",
+   "bytes": 204566,
+   "sha256": "f0934adfd95209967aa09a16a9b91b9382f42610055c37e19067c0822e317b9d"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-8.json",
+   "old": [
+    "scratchpad/g7/jd/batch-8.json"
+   ],
+   "source_sha256": "9aa11c300ae47c18ab7e2ef635eaf2673f999b8bd03b3eaadc4797e5d2d492d3",
+   "bytes": 214404,
+   "sha256": "9aa11c300ae47c18ab7e2ef635eaf2673f999b8bd03b3eaadc4797e5d2d492d3"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-batches/batch-9.json",
+   "old": [
+    "scratchpad/g7/jd/batch-9.json"
+   ],
+   "source_sha256": "dd88131020e3e4dbc1ce66f85e76177dd0907d82c29a12cc1581a30018dea35f",
+   "bytes": 214769,
+   "sha256": "dd88131020e3e4dbc1ce66f85e76177dd0907d82c29a12cc1581a30018dea35f"
+  },
+  {
+   "path": "verdicts/pr41/show-fit-verdicts.json",
+   "old": [
+    "tasks/wiff4kl0s.output"
+   ],
+   "source_sha256": "e9b9f3d63ae78da119cd99e5856917dc7f497303839984b84a7a405edc1f20ac",
+   "from_task_output": true,
+   "bytes": 675144,
+   "sha256": "3dbf6bb09c760da9615292e1a3a10e66f6c706f7fd8ccca1924613259560d1be"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-base.json",
+   "old": [
+    "scratchpad/g7/b9-base.json"
+   ],
+   "source_sha256": "c8f575757c9707a15669e3e9bec3dfceebf658ed5e36078900533ce987ca485b",
+   "bytes": 2069330,
+   "sha256": "c8f575757c9707a15669e3e9bec3dfceebf658ed5e36078900533ce987ca485b"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-1.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-1.json"
+   ],
+   "source_sha256": "b0281548c130e7f1c9c5e0fd395a40d2dfa362c16b7fd665f75b207169e2e569",
+   "bytes": 166776,
+   "sha256": "b0281548c130e7f1c9c5e0fd395a40d2dfa362c16b7fd665f75b207169e2e569"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-10.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-10.json"
+   ],
+   "source_sha256": "b23e0802a7bab117de55d572f5a0fbb875b27c6c0a7ef393718d4234cc7378b7",
+   "bytes": 167778,
+   "sha256": "b23e0802a7bab117de55d572f5a0fbb875b27c6c0a7ef393718d4234cc7378b7"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-11.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-11.json"
+   ],
+   "source_sha256": "bf0e14282a27ac67e0ada7c5478fe32407e81daa4c4e9312884990db8bf629d3",
+   "bytes": 171582,
+   "sha256": "bf0e14282a27ac67e0ada7c5478fe32407e81daa4c4e9312884990db8bf629d3"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-12.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-12.json"
+   ],
+   "source_sha256": "c15f9d3872d325fad79481946f326b6032a2d5f7c13fba3f629ad9d142db8460",
+   "bytes": 166459,
+   "sha256": "c15f9d3872d325fad79481946f326b6032a2d5f7c13fba3f629ad9d142db8460"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-2.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-2.json"
+   ],
+   "source_sha256": "72cb22fd6da49a1a04dcdf543dde525285fe20db96c71045c9f28ccb0961dcf0",
+   "bytes": 181251,
+   "sha256": "72cb22fd6da49a1a04dcdf543dde525285fe20db96c71045c9f28ccb0961dcf0"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-3.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-3.json"
+   ],
+   "source_sha256": "74f8d0b7c42980022c9e4d39b0c489e549cd28a03567ba32f235f2c9c1d02e56",
+   "bytes": 168327,
+   "sha256": "74f8d0b7c42980022c9e4d39b0c489e549cd28a03567ba32f235f2c9c1d02e56"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-4.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-4.json"
+   ],
+   "source_sha256": "44805fbe99ef2d90ccb4f1ae6f141f0889509bce7e8d7d4dcb2ff5c345a8cc08",
+   "bytes": 164961,
+   "sha256": "44805fbe99ef2d90ccb4f1ae6f141f0889509bce7e8d7d4dcb2ff5c345a8cc08"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-5.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-5.json"
+   ],
+   "source_sha256": "55f9915cf760a507332ab8bd39c8cff89bcc0b6f72b4c7b34f02d9ca29a9f1f2",
+   "bytes": 161130,
+   "sha256": "55f9915cf760a507332ab8bd39c8cff89bcc0b6f72b4c7b34f02d9ca29a9f1f2"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-6.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-6.json"
+   ],
+   "source_sha256": "ea628d4061ab6524cd29d27aaf81a485407ea1713a0f2b3b4e6cf84bfe6e4b5f",
+   "bytes": 190769,
+   "sha256": "ea628d4061ab6524cd29d27aaf81a485407ea1713a0f2b3b4e6cf84bfe6e4b5f"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-7.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-7.json"
+   ],
+   "source_sha256": "8817df2fbe4dc4f8476c9fc873c33b0f55bb327eb14f3d9fd4ea2bec84d9f429",
+   "bytes": 164962,
+   "sha256": "8817df2fbe4dc4f8476c9fc873c33b0f55bb327eb14f3d9fd4ea2bec84d9f429"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-8.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-8.json"
+   ],
+   "source_sha256": "1d44bae58c6a9fc5b2b1280474fceda64e7d72c189b6811b2e7503bc24697700",
+   "bytes": 184353,
+   "sha256": "1d44bae58c6a9fc5b2b1280474fceda64e7d72c189b6811b2e7503bc24697700"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-batches/batch-9.json",
+   "old": [
+    "scratchpad/g7/jb9/batch-9.json"
+   ],
+   "source_sha256": "c1c78942a3ff96c6f16e0cad19bb98a7b406c06321236fe365a052c25870578e",
+   "bytes": 182314,
+   "sha256": "c1c78942a3ff96c6f16e0cad19bb98a7b406c06321236fe365a052c25870578e"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-new.json",
+   "old": [
+    "scratchpad/g7/b9-new.json"
+   ],
+   "source_sha256": "c32f6019c6ce71621eb91c871f0d8253139936467cee4a92dca019ef15d41226",
+   "bytes": 2054464,
+   "sha256": "c32f6019c6ce71621eb91c871f0d8253139936467cee4a92dca019ef15d41226"
+  },
+  {
+   "path": "verdicts/pr43/blind-fresh9-300-verdicts.json",
+   "old": [
+    "tasks/wsgz6lj8x.output"
+   ],
+   "source_sha256": "4302329976861dc2794f2d04672f6c50f048b283699e1e6ca4aa785e6c0d01ae",
+   "from_task_output": true,
+   "bytes": 320585,
+   "sha256": "1c89981e85f5a8320a35304eb6b25e99c8f20b77cd6484eca2ad3830d5c9b609"
+  },
+  {
+   "path": "verdicts/r10/blind-fresh10-305-4bit.json",
+   "old": [
+    "scratchpad/r10/bf10-v2.json"
+   ],
+   "source_sha256": "45088523c470be0d0de1167d420a79f9234501a60dc94e345e91d117292d844b",
+   "bytes": 2065266,
+   "sha256": "45088523c470be0d0de1167d420a79f9234501a60dc94e345e91d117292d844b"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-base.json",
+   "old": [
+    "scratchpad/r11/bf11-main.json"
+   ],
+   "source_sha256": "e8d0defb37ec0ef8956408bb71d987df4674ccd19398019c0750cd1291d3b04e",
+   "bytes": 2126094,
+   "sha256": "e8d0defb37ec0ef8956408bb71d987df4674ccd19398019c0750cd1291d3b04e"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-1.json",
+   "old": [
+    "scratchpad/r11/batches/batch-1.json"
+   ],
+   "source_sha256": "67fe62dc3e2e1ab8906f49df186fa7ceb34281e8944416cf8062dfaa85902927",
+   "bytes": 243512,
+   "sha256": "67fe62dc3e2e1ab8906f49df186fa7ceb34281e8944416cf8062dfaa85902927"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-2.json",
+   "old": [
+    "scratchpad/r11/batches/batch-2.json"
+   ],
+   "source_sha256": "bfd933a6c2488acc055e2c8ffc2e098ec5b443885d4caece6a8e51497db2969a",
+   "bytes": 278554,
+   "sha256": "bfd933a6c2488acc055e2c8ffc2e098ec5b443885d4caece6a8e51497db2969a"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-3.json",
+   "old": [
+    "scratchpad/r11/batches/batch-3.json"
+   ],
+   "source_sha256": "64ef813f4496bb2f833e980176486ad9e794f1baf5c07c2bdfd7f100d9fcafdd",
+   "bytes": 260527,
+   "sha256": "64ef813f4496bb2f833e980176486ad9e794f1baf5c07c2bdfd7f100d9fcafdd"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-4.json",
+   "old": [
+    "scratchpad/r11/batches/batch-4.json"
+   ],
+   "source_sha256": "810cdd25cf493691fef045c365e015a79af4c437b2379cafa2c8ecbe6d27b51e",
+   "bytes": 263081,
+   "sha256": "810cdd25cf493691fef045c365e015a79af4c437b2379cafa2c8ecbe6d27b51e"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-5.json",
+   "old": [
+    "scratchpad/r11/batches/batch-5.json"
+   ],
+   "source_sha256": "b8a0081417bb3f4c4e1159ce03c1286d5555521d887a3ae6f4537d77d6a3e3bf",
+   "bytes": 281426,
+   "sha256": "b8a0081417bb3f4c4e1159ce03c1286d5555521d887a3ae6f4537d77d6a3e3bf"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-6.json",
+   "old": [
+    "scratchpad/r11/batches/batch-6.json"
+   ],
+   "source_sha256": "a6b0bd9b1e2a4d4f491dc1dd3c960f583f93713c09edc2c1daaebc4f9c991797",
+   "bytes": 273067,
+   "sha256": "a6b0bd9b1e2a4d4f491dc1dd3c960f583f93713c09edc2c1daaebc4f9c991797"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-7.json",
+   "old": [
+    "scratchpad/r11/batches/batch-7.json"
+   ],
+   "source_sha256": "50c42a574967d76177080a76c8284dc4a0d25f026e94d4584e361789812be3ae",
+   "bytes": 265534,
+   "sha256": "50c42a574967d76177080a76c8284dc4a0d25f026e94d4584e361789812be3ae"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-batches/batch-8.json",
+   "old": [
+    "scratchpad/r11/batches/batch-8.json"
+   ],
+   "source_sha256": "54ec5e15e8cdcf115ac1acda262b0acdda14d16ac0f5cdfd8bbee4884bf577ef",
+   "bytes": 258545,
+   "sha256": "54ec5e15e8cdcf115ac1acda262b0acdda14d16ac0f5cdfd8bbee4884bf577ef"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-diff-48.json",
+   "old": [
+    "scratchpad/r11/diff.json"
+   ],
+   "source_sha256": "ff9cbfd3970da2170b7b91ce2b5d42ba254ba5225b85cd21d00d4b350b2eef9f",
+   "bytes": 6142,
+   "sha256": "ff9cbfd3970da2170b7b91ce2b5d42ba254ba5225b85cd21d00d4b350b2eef9f"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-diff-rt-base.json",
+   "old": [
+    "scratchpad/r11/rt-diff-main.json"
+   ],
+   "source_sha256": "a56d7dfe9b0bd56964ffbce029677fd02bfa1a3db3c75a4db703fce0f2762429",
+   "bytes": 43775,
+   "sha256": "a56d7dfe9b0bd56964ffbce029677fd02bfa1a3db3c75a4db703fce0f2762429"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-diff-rt-new.json",
+   "old": [
+    "scratchpad/r11/rt-diff-branch.json"
+   ],
+   "source_sha256": "f5a0e103e3ebb92c6feb14787c63794ace7a063962870189c282a35c3c3ac59d",
+   "bytes": 43875,
+   "sha256": "f5a0e103e3ebb92c6feb14787c63794ace7a063962870189c282a35c3c3ac59d"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-new.json",
+   "old": [
+    "scratchpad/r11/bf11-branch.json"
+   ],
+   "source_sha256": "6ff09582cc17bb9464ffc7b4186fd9b9fcd2ccae1abd8b514bd231e6efc4d5bd",
+   "bytes": 2128263,
+   "sha256": "6ff09582cc17bb9464ffc7b4186fd9b9fcd2ccae1abd8b514bd231e6efc4d5bd"
+  },
+  {
+   "path": "verdicts/r11/blind-fresh11-312-verdicts.json",
+   "old": [
+    "tasks/wqzj14x8c.output"
+   ],
+   "source_sha256": "61754dba66b27c5c0697411ad67e29129a281d8f3e2e94bed9e5734829bf0e66",
+   "from_task_output": true,
+   "bytes": 329600,
+   "sha256": "46f558e3194afe34ca2ac75a627a1210de9001d6a63f6cfe0c2aae7ccfeee0b1"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-base.json",
+   "old": [
+    "scratchpad/r9/bf10-base.json"
+   ],
+   "source_sha256": "d9c4198c0e1bf47026ff9f7143a19abf9741eaeaa4e089b5df164f5a3039777e",
+   "bytes": 2082256,
+   "sha256": "d9c4198c0e1bf47026ff9f7143a19abf9741eaeaa4e089b5df164f5a3039777e"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-1.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-1.json"
+   ],
+   "source_sha256": "807800bada5d75bde7f3cd4eadfd1fafc4d8a564c191283be276bdda3fd9f0c6",
+   "bytes": 185368,
+   "sha256": "807800bada5d75bde7f3cd4eadfd1fafc4d8a564c191283be276bdda3fd9f0c6"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-10.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-10.json"
+   ],
+   "source_sha256": "4404d47bd45a8339b92850f437536cc5a4e9051c65a9338f3d806a5205f2fce1",
+   "bytes": 178477,
+   "sha256": "4404d47bd45a8339b92850f437536cc5a4e9051c65a9338f3d806a5205f2fce1"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-11.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-11.json"
+   ],
+   "source_sha256": "748fd64543b8b268600faf8118e5983a1c8c2344bd8f9110c94116931c726685",
+   "bytes": 184989,
+   "sha256": "748fd64543b8b268600faf8118e5983a1c8c2344bd8f9110c94116931c726685"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-12.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-12.json"
+   ],
+   "source_sha256": "7259a76df44578110632ecc6aa58ed86be5c43e3665ca7b4e8ecf1573404376b",
+   "bytes": 182251,
+   "sha256": "7259a76df44578110632ecc6aa58ed86be5c43e3665ca7b4e8ecf1573404376b"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-2.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-2.json"
+   ],
+   "source_sha256": "b7cca37c5f973eeabe194a6276afe0dd380d7a066489ab42ed3b06e2c1ff2c9c",
+   "bytes": 178398,
+   "sha256": "b7cca37c5f973eeabe194a6276afe0dd380d7a066489ab42ed3b06e2c1ff2c9c"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-3.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-3.json"
+   ],
+   "source_sha256": "eec08b4350cf504931f1cae9e98ad3347e5b6e27d3c716aebffcf281d32954e5",
+   "bytes": 183977,
+   "sha256": "eec08b4350cf504931f1cae9e98ad3347e5b6e27d3c716aebffcf281d32954e5"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-4.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-4.json"
+   ],
+   "source_sha256": "f3539f093b6b7bc93778ee893f7d4ab5886e5b079c38f355e4099456797a6375",
+   "bytes": 185111,
+   "sha256": "f3539f093b6b7bc93778ee893f7d4ab5886e5b079c38f355e4099456797a6375"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-5.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-5.json"
+   ],
+   "source_sha256": "4e4d040df590bba0adc02c7d0d0cd642c0d1b48012544e0a29ac16b041d5fb37",
+   "bytes": 181556,
+   "sha256": "4e4d040df590bba0adc02c7d0d0cd642c0d1b48012544e0a29ac16b041d5fb37"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-6.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-6.json"
+   ],
+   "source_sha256": "e61bc987cb012d50c2934a9fb2bbcb5ee12406ee361e06b0efe6201b55e9bdb5",
+   "bytes": 165670,
+   "sha256": "e61bc987cb012d50c2934a9fb2bbcb5ee12406ee361e06b0efe6201b55e9bdb5"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-7.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-7.json"
+   ],
+   "source_sha256": "579f139b64ac5b0cd21386907ba2d6e96229c911be48d4abec5dd48610e3ffab",
+   "bytes": 162740,
+   "sha256": "579f139b64ac5b0cd21386907ba2d6e96229c911be48d4abec5dd48610e3ffab"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-8.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-8.json"
+   ],
+   "source_sha256": "e116f056b1031430818640daf511f9e11f45f41e8cf2418f9913c713141eade7",
+   "bytes": 173981,
+   "sha256": "e116f056b1031430818640daf511f9e11f45f41e8cf2418f9913c713141eade7"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-batches/batch-9.json",
+   "old": [
+    "scratchpad/r9/jb10/batch-9.json"
+   ],
+   "source_sha256": "372eab86b7b65f32690cbd6087e48391ccd84772b47630d795ea839e0456f902",
+   "bytes": 179010,
+   "sha256": "372eab86b7b65f32690cbd6087e48391ccd84772b47630d795ea839e0456f902"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-new.json",
+   "old": [
+    "scratchpad/r9/bf10-new.json"
+   ],
+   "source_sha256": "27a6c22ab4ded335bb10d5668c9fc58b21eeae817aab8a13b6af002ad3e58c32",
+   "bytes": 2075697,
+   "sha256": "27a6c22ab4ded335bb10d5668c9fc58b21eeae817aab8a13b6af002ad3e58c32"
+  },
+  {
+   "path": "verdicts/r9/blind-fresh10-305-verdicts.json",
+   "old": [
+    "tasks/whv9b29zp.output"
+   ],
+   "source_sha256": "15921a42bdc762690c68436669847d32d8117025bf2fb34f8c019b6daa698f11",
+   "from_task_output": true,
+   "bytes": 333796,
+   "sha256": "fbb3d184e0725cb9bd47c76c31d32e9f2a250184abf6793c0cfdd32f1f683fbe"
+  },
+  {
+   "path": "labels/r11/dev2-545-rt-main.json",
+   "old": [
+    "scratchpad/r10/rtpr-main-dev2.json"
+   ],
+   "source_sha256": "44e637737bee589dca05f4b97cd684008015144f528e5e48f1f25d02af5b6034",
+   "bytes": 475884,
+   "sha256": "44e637737bee589dca05f4b97cd684008015144f528e5e48f1f25d02af5b6034"
+  },
+  {
+   "path": "labels/r11/blind-fresh-299-rt-main.json",
+   "old": [
+    "scratchpad/r10/rtpr-main-dev3.json"
+   ],
+   "source_sha256": "e0bdd1802682f08d8cb04d154d73aea72f9e174aca4644a846582ad585f51136",
+   "bytes": 271701,
+   "sha256": "e0bdd1802682f08d8cb04d154d73aea72f9e174aca4644a846582ad585f51136"
+  },
+  {
+   "path": "labels/r11/dev4-594-and-blind-fresh9-300-rt-main.json",
+   "old": [
+    "scratchpad/r10/rtpr-main-dev4.json"
+   ],
+   "source_sha256": "a9256e569f8da2f4fe58906b925f1afd92d910a73efafa7e674578b40b34273e",
+   "bytes": 817424,
+   "sha256": "a9256e569f8da2f4fe58906b925f1afd92d910a73efafa7e674578b40b34273e"
+  },
+  {
+   "path": "labels/r11/jesus-life-5-questions.json",
+   "old": [
+    "scratchpad/r10/friends.json"
+   ],
+   "source_sha256": "65d9cb3310db9798f1bfdb7b8651cfa02f45ab9ba6682ed91e8dd299c9b23283",
+   "bytes": 120,
+   "sha256": "65d9cb3310db9798f1bfdb7b8651cfa02f45ab9ba6682ed91e8dd299c9b23283"
+  },
+  {
+   "path": "labels/r11/jesus-life-5-rt-main.json",
+   "old": [
+    "scratchpad/r10/fr-m.json"
+   ],
+   "source_sha256": "7160b42f92bd93af75204ebdbc8c24500acec62e2b81c131cf3f19b5ae436545",
+   "bytes": 3983,
+   "sha256": "7160b42f92bd93af75204ebdbc8c24500acec62e2b81c131cf3f19b5ae436545"
+  },
+  {
+   "path": "labels/r11/jesus-life-5-rt-branch.json",
+   "old": [
+    "scratchpad/r10/fr-b.json"
+   ],
+   "source_sha256": "32ab1acb312aae1feb8a4418ff45090f6482873072212bea4fb7f246c1e74fae",
+   "bytes": 4017,
+   "sha256": "32ab1acb312aae1feb8a4418ff45090f6482873072212bea4fb7f246c1e74fae"
+  }
+ ]
+}

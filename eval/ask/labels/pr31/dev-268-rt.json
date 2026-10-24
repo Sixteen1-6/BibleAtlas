@@ -1,0 +1,4289 @@
+[
+ {
+  "q": "what happens when we die",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.58,
+    "covers": 1,
+    "score": 0.58
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.41,
+    "covers": 1,
+    "score": 0.41
+   },
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.35,
+    "covers": 1,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "is there life after death",
+  "care": false,
+  "open": "what-happens-when-we-die",
+  "top": [
+   {
+    "id": "what-happens-when-we-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.6,
+    "covers": 0.5,
+    "score": 0.42
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.4,
+    "covers": 0.5,
+    "score": 0.28
+   }
+  ]
+ },
+ {
+  "q": "will i see my loved ones in heaven",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 0.43,
+    "score": 0.44
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 0.43,
+    "score": 0.44
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.47,
+    "covers": 0.57,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "what is heaven like",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "what-is-heaven-like",
+    "said": 0.32,
+    "covers": 1,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "is hell real",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-hell",
+    "said": 0.54,
+    "covers": 1,
+    "score": 0.54
+   }
+  ]
+ },
+ {
+  "q": "why does god allow suffering",
+  "care": false,
+  "open": "why-does-god-allow-suffering",
+  "top": [
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-do-good-people-suffer",
+    "said": 1,
+    "covers": 0.53,
+    "score": 0.72
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "why do bad things happen to good people",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how can i stop worrying",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about anxiety",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-worry",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "how do i deal with fear",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what should i do when i feel lonely",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i get through grief",
+  "care": false,
+  "open": "comfort-in-grief",
+  "top": [
+   {
+    "id": "comfort-in-grief",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "my mom died how do i cope",
+  "care": false,
+  "open": "comfort-in-grief",
+  "top": [
+   {
+    "id": "comfort-in-grief",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.48,
+    "covers": 0.46,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "is it a sin to be angry",
+  "care": false,
+  "open": "is-it-wrong-to-be-angry",
+  "top": [
+   {
+    "id": "is-it-wrong-to-be-angry",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "how do i control my anger",
+  "care": false,
+  "open": "is-it-wrong-to-be-angry",
+  "top": [
+   {
+    "id": "is-it-wrong-to-be-angry",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "is-god-in-control",
+    "said": 0.75,
+    "covers": 0.46,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "how do i forgive someone who hurt me",
+  "care": false,
+  "open": "how-do-i-forgive",
+  "top": [
+   {
+    "id": "how-do-i-forgive",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "will-god-forgive-me",
+    "said": 0.75,
+    "covers": 0.46,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "do i have to forgive if they are not sorry",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "will-god-forgive-me",
+    "said": 0.75,
+    "covers": 0.46,
+    "score": 0.5
+   },
+   {
+    "id": "how-do-i-forgive",
+    "said": 0.6,
+    "covers": 0.46,
+    "score": 0.4
+   }
+  ]
+ },
+ {
+  "q": "how can i be forgiven",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "will god forgive me for anything",
+  "care": false,
+  "open": "will-god-forgive-me",
+  "top": [
+   {
+    "id": "will-god-forgive-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-do-i-forgive",
+    "said": 0.6,
+    "covers": 0.75,
+    "score": 0.51
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.25,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "how do i know i am saved",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "what-is-grace",
+    "said": 0.42,
+    "covers": 1,
+    "score": 0.42
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.42,
+    "covers": 1,
+    "score": 0.42
+   }
+  ]
+ },
+ {
+  "q": "can i lose my salvation",
+  "care": false,
+  "open": "can-i-lose-salvation",
+  "top": [
+   {
+    "id": "can-i-lose-salvation",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "do-good-works-save",
+    "said": 0.43,
+    "covers": 0.5,
+    "score": 0.3
+   },
+   {
+    "id": "is-it-wrong-to-be-angry",
+    "said": 0.43,
+    "covers": 0.5,
+    "score": 0.3
+   }
+  ]
+ },
+ {
+  "q": "how are we saved",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "what-is-grace",
+    "said": 0.42,
+    "covers": 1,
+    "score": 0.42
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.42,
+    "covers": 1,
+    "score": 0.42
+   }
+  ]
+ },
+ {
+  "q": "is jesus the only way to god",
+  "care": false,
+  "open": "is-jesus-the-only-way",
+  "top": [
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 1,
+    "covers": 0.44,
+    "score": 0.66
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 1,
+    "covers": 0.44,
+    "score": 0.66
+   }
+  ]
+ },
+ {
+  "q": "who is jesus",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "is jesus god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "why did jesus have to die",
+  "care": false,
+  "open": "why-did-jesus-die",
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 0.42,
+    "score": 0.41
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 0.42,
+    "score": 0.41
+   }
+  ]
+ },
+ {
+  "q": "did jesus really rise from the dead",
+  "care": false,
+  "open": "did-jesus-rise",
+  "top": [
+   {
+    "id": "did-jesus-rise",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "will-the-dead-rise",
+    "said": 1,
+    "covers": 0.77,
+    "score": 0.86
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 0.23,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "who is the holy spirit",
+  "care": false,
+  "open": "who-is-the-holy-spirit",
+  "top": [
+   {
+    "id": "who-is-the-holy-spirit",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "father-son-spirit",
+    "said": 0.51,
+    "covers": 1,
+    "score": 0.51
+   },
+   {
+    "id": "born-again",
+    "said": 0.47,
+    "covers": 0.5,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "what is the trinity",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "father-son-spirit",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "does god exist",
+  "care": false,
+  "open": "is-god-real",
+  "top": [
+   {
+    "id": "is-god-real",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-the-church",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-about-angels",
+    "said": 0.43,
+    "covers": 0.72,
+    "score": 0.36
+   }
+  ]
+ },
+ {
+  "q": "how can i know god is real",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 1,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "does god love me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-god-like",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.66,
+    "score": 0.4
+   }
+  ]
+ },
+ {
+  "q": "does god hear my prayers",
+  "care": false,
+  "open": "does-god-answer-prayer",
+  "top": [
+   {
+    "id": "does-god-answer-prayer",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-should-i-pray",
+    "said": 0.58,
+    "covers": 0.53,
+    "score": 0.42
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "how should i pray",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "love-your-enemies",
+    "said": 0.27,
+    "covers": 1,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "why does god not answer my prayers",
+  "care": false,
+  "open": "does-god-answer-prayer",
+  "top": [
+   {
+    "id": "does-god-answer-prayer",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-should-i-pray",
+    "said": 0.58,
+    "covers": 0.53,
+    "score": 0.42
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "what is faith",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-is-faith",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.45,
+    "covers": 1,
+    "score": 0.45
+   }
+  ]
+ },
+ {
+  "q": "how can i have more faith",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-is-faith",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.45,
+    "covers": 1,
+    "score": 0.45
+   }
+  ]
+ },
+ {
+  "q": "what if i have doubts",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-doubt",
+    "said": 0.75,
+    "covers": 1,
+    "score": 0.75
+   },
+   {
+    "id": "is-god-real",
+    "said": 0.45,
+    "covers": 1,
+    "score": 0.45
+   }
+  ]
+ },
+ {
+  "q": "what is sin",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 1,
+    "score": 0.33
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 1,
+    "score": 0.33
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.33,
+    "covers": 1,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "what is grace",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-grace",
+    "said": 0.75,
+    "covers": 1,
+    "score": 0.75
+   },
+   {
+    "id": "do-good-works-save",
+    "said": 0.58,
+    "covers": 1,
+    "score": 0.58
+   }
+  ]
+ },
+ {
+  "q": "what is repentance",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should i be baptized",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "why do christians take communion",
+  "care": false,
+  "open": "the-lords-supper",
+  "top": [
+   {
+    "id": "the-lords-supper",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-alcohol",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "why should i go to church",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-giving",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-is-the-church",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "why-meet-together",
+    "said": 0.23,
+    "covers": 1,
+    "score": 0.23
+   }
+  ]
+ },
+ {
+  "q": "what is the church",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-giving",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-is-the-church",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "why-meet-together",
+    "said": 0.23,
+    "covers": 1,
+    "score": 0.23
+   }
+  ]
+ },
+ {
+  "q": "how should i read the bible",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-read-the-bible",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "is the bible true",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "did-jesus-rise",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "what-about-friendship",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   }
+  ]
+ },
+ {
+  "q": "who wrote the bible",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how did god create the world",
+  "care": false,
+  "open": "how-did-the-world-begin",
+  "top": [
+   {
+    "id": "how-did-the-world-begin",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.43,
+    "covers": 0.51,
+    "score": 0.3
+   },
+   {
+    "id": "when-will-the-world-end",
+    "said": 0.43,
+    "covers": 0.37,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "what is my purpose in life",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.6,
+    "covers": 1,
+    "score": 0.6
+   },
+   {
+    "id": "what-is-marriage",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "how-do-i-know-gods-will",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   }
+  ]
+ },
+ {
+  "q": "why am i here",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is god's will for my life",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 1,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "how do i make a decision",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-do-i-know-gods-will",
+    "said": 0.54,
+    "covers": 1,
+    "score": 0.54
+   }
+  ]
+ },
+ {
+  "q": "how do i find wisdom",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does god say about money",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-money",
+    "said": 0.64,
+    "covers": 0.78,
+    "score": 0.55
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "is it wrong to be rich",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should i tithe",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how much should i give",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-giving",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-about-the-poor",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about work",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.53,
+    "covers": 1,
+    "score": 0.53
+   },
+   {
+    "id": "what-about-work",
+    "said": 0.53,
+    "covers": 1,
+    "score": 0.53
+   },
+   {
+    "id": "what-is-faith",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "how should i treat my boss",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about marriage",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.53,
+    "covers": 1,
+    "score": 0.53
+   },
+   {
+    "id": "what-about-sex",
+    "said": 0.46,
+    "covers": 1,
+    "score": 0.46
+   }
+  ]
+ },
+ {
+  "q": "what does a good husband do",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what does a good wife do",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "is divorce a sin",
+  "care": false,
+  "open": "what-about-divorce",
+  "top": [
+   {
+    "id": "what-about-divorce",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "can i remarry after divorce",
+  "care": false,
+  "open": "what-about-divorce",
+  "top": [
+   {
+    "id": "what-about-divorce",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-happens-when-we-die",
+    "said": 0.5,
+    "covers": 0.27,
+    "score": 0.28
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.32,
+    "covers": 0.27,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "should i stay single",
+  "care": false,
+  "open": "what-about-singleness",
+  "top": [
+   {
+    "id": "what-about-singleness",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about sex before marriage",
+  "care": false,
+  "open": "what-about-sex",
+  "top": [
+   {
+    "id": "what-about-sex",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-marriage",
+    "said": 0.53,
+    "covers": 0.32,
+    "score": 0.31
+   },
+   {
+    "id": "judgment-day",
+    "said": 0.37,
+    "covers": 0.29,
+    "score": 0.21
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about lust",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i raise my children",
+  "care": false,
+  "open": "parents-and-children",
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "will-the-dead-rise",
+    "said": 0.5,
+    "covers": 0.46,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "how should i treat my parents",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 0.54,
+    "covers": 1,
+    "score": 0.54
+   }
+  ]
+ },
+ {
+  "q": "how do i honor my parents when they hurt me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 0.54,
+    "covers": 0.67,
+    "score": 0.43
+   },
+   {
+    "id": "how-do-i-forgive",
+    "said": 0.54,
+    "covers": 0.33,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "what is a true friend",
+  "care": false,
+  "open": "what-about-friendship",
+  "top": [
+   {
+    "id": "what-about-friendship",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "did-jesus-rise",
+    "said": 0.47,
+    "covers": 0.43,
+    "score": 0.31
+   }
+  ]
+ },
+ {
+  "q": "how do i love my enemies",
+  "care": false,
+  "open": "love-your-enemies",
+  "top": [
+   {
+    "id": "love-your-enemies",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   }
+  ]
+ },
+ {
+  "q": "how should i treat people who are different",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about racism",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about the poor",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-the-poor",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "how do i help someone in need",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does god say about justice",
+  "care": false,
+  "open": "what-about-justice",
+  "top": [
+   {
+    "id": "what-about-justice",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "should christians obey the government",
+  "care": false,
+  "open": "what-about-government",
+  "top": [
+   {
+    "id": "what-about-government",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "parents-and-children",
+    "said": 0.46,
+    "covers": 0.35,
+    "score": 0.28
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.24,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about war",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "is it wrong to drink alcohol",
+  "care": false,
+  "open": "what-about-alcohol",
+  "top": [
+   {
+    "id": "what-about-alcohol",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about drugs",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i beat an addiction",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i resist temptation",
+  "care": false,
+  "open": "what-about-temptation",
+  "top": [
+   {
+    "id": "what-about-temptation",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about lying",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-lying",
+    "said": 0.71,
+    "covers": 1,
+    "score": 0.71
+   }
+  ]
+ },
+ {
+  "q": "is gossip a sin",
+  "care": false,
+  "open": "what-about-words",
+  "top": [
+   {
+    "id": "what-about-words",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about pride",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-pride",
+    "said": 0.71,
+    "covers": 1,
+    "score": 0.71
+   }
+  ]
+ },
+ {
+  "q": "how can i be humble",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how can i be patient",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i find peace",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how can i have joy",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about depression",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i feel worthless",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does god think of me",
+  "care": false,
+  "open": "does-god-love-me",
+  "top": [
+   {
+    "id": "does-god-love-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "i feel ashamed of my past",
+  "care": false,
+  "open": "will-god-forgive-me",
+  "top": [
+   {
+    "id": "will-god-forgive-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "how do i stop feeling guilty",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i deal with stress",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i rest",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-the-sabbath",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what is the sabbath",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-the-sabbath",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about sickness",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "does god still heal",
+  "care": false,
+  "open": "what-about-sickness",
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "why did god let my baby die",
+  "care": false,
+  "open": "why-does-god-allow-suffering",
+  "top": [
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.58,
+    "covers": 0.35,
+    "score": 0.35
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.41,
+    "covers": 0.35,
+    "score": 0.25
+   }
+  ]
+ },
+ {
+  "q": "what about people who never heard of jesus",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 0.33,
+    "score": 0.38
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 0.33,
+    "score": 0.38
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 0.33,
+    "score": 0.26
+   }
+  ]
+ },
+ {
+  "q": "what happens to babies when they die",
+  "care": false,
+  "open": "why-does-god-allow-suffering",
+  "top": [
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.85,
+    "covers": 1,
+    "score": 0.85
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.58,
+    "covers": 0.41,
+    "score": 0.38
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.41,
+    "covers": 0.41,
+    "score": 0.26
+   }
+  ]
+ },
+ {
+  "q": "what are angels",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-angels",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "is satan real",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about demons",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "when will jesus come back",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "is-jesus-coming-back",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "when-will-the-world-end",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 1,
+    "covers": 0.6,
+    "score": 0.76
+   }
+  ]
+ },
+ {
+  "q": "what are the signs of the end times",
+  "care": false,
+  "open": "when-will-the-world-end",
+  "top": [
+   {
+    "id": "when-will-the-world-end",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what is the rapture",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about israel",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is the kingdom of god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "how do i share my faith",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "do-good-works-save",
+    "said": 0.5,
+    "covers": 0.41,
+    "score": 0.32
+   },
+   {
+    "id": "what-is-faith",
+    "said": 0.5,
+    "covers": 0.41,
+    "score": 0.32
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.45,
+    "covers": 0.41,
+    "score": 0.29
+   }
+  ]
+ },
+ {
+  "q": "what does it mean to be born again",
+  "care": false,
+  "open": "born-again",
+  "top": [
+   {
+    "id": "born-again",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.63,
+    "covers": 0.53,
+    "score": 0.45
+   },
+   {
+    "id": "is-jesus-coming-back",
+    "said": 0.4,
+    "covers": 0.47,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "what is eternal life",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "can-i-lose-salvation",
+    "said": 0.41,
+    "covers": 1,
+    "score": 0.41
+   },
+   {
+    "id": "what-is-hell",
+    "said": 0.41,
+    "covers": 1,
+    "score": 0.41
+   }
+  ]
+ },
+ {
+  "q": "how do i love god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-god-like",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.66,
+    "score": 0.4
+   }
+  ]
+ },
+ {
+  "q": "what is the greatest commandment",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-the-sabbath",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about homosexuality",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about abortion",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "are we supposed to judge others",
+  "care": false,
+  "open": "judgment-day",
+  "top": [
+   {
+    "id": "judgment-day",
+    "said": 0.78,
+    "covers": 0.64,
+    "score": 0.61
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.36,
+    "score": 0.31
+   },
+   {
+    "id": "how-do-i-forgive",
+    "said": 0.4,
+    "covers": 0.36,
+    "score": 0.25
+   }
+  ]
+ },
+ {
+  "q": "how do i deal with a difficult person",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about jealousy",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-jealousy",
+    "said": 0.71,
+    "covers": 1,
+    "score": 0.71
+   }
+  ]
+ },
+ {
+  "q": "how do i stop comparing myself to others",
+  "care": false,
+  "open": "what-about-jealousy",
+  "top": [
+   {
+    "id": "what-about-jealousy",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.36,
+    "score": 0.31
+   },
+   {
+    "id": "how-do-i-forgive",
+    "said": 0.4,
+    "covers": 0.36,
+    "score": 0.25
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about the tongue",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-words",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about fasting",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is worship",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "why should i praise god when life is hard",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-work",
+    "said": 0.59,
+    "covers": 0.44,
+    "score": 0.39
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   }
+  ]
+ },
+ {
+  "q": "does god have a plan for me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "is-god-in-control",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-do-i-know-gods-will",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.25,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "is it okay to question god",
+  "care": false,
+  "open": "what-about-doubt",
+  "top": [
+   {
+    "id": "what-about-doubt",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about hope",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i trust god",
+  "care": false,
+  "open": "what-is-faith",
+  "top": [
+   {
+    "id": "what-is-faith",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "is-the-bible-gods-word",
+    "said": 0.25,
+    "covers": 1,
+    "score": 0.25
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.25,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "why did god create us",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-did-the-world-begin",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "why did god make me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 1,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "am i going to hell",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-hell",
+    "said": 0.54,
+    "covers": 1,
+    "score": 0.54
+   }
+  ]
+ },
+ {
+  "q": "how do i get to heaven",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "what-is-heaven-like",
+    "said": 0.32,
+    "covers": 1,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "can a christian lose their faith",
+  "care": false,
+  "open": "can-i-lose-salvation",
+  "top": [
+   {
+    "id": "can-i-lose-salvation",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "do-good-works-save",
+    "said": 0.5,
+    "covers": 0.34,
+    "score": 0.3
+   },
+   {
+    "id": "what-is-faith",
+    "said": 0.5,
+    "covers": 0.34,
+    "score": 0.3
+   }
+  ]
+ },
+ {
+  "q": "what does god want from me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 1,
+    "score": 0.37
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 1,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "how do i hear god's voice",
+  "care": false,
+  "open": "does-god-answer-prayer",
+  "top": [
+   {
+    "id": "does-god-answer-prayer",
+    "said": 1,
+    "covers": 0.56,
+    "score": 0.74
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   }
+  ]
+ },
+ {
+  "q": "does god care about my problems",
+  "care": false,
+  "open": "does-god-love-me",
+  "top": [
+   {
+    "id": "does-god-love-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.25,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "why do i feel far from god",
+  "care": false,
+  "open": "what-about-loneliness",
+  "top": [
+   {
+    "id": "what-about-loneliness",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "god feels distant",
+  "care": false,
+  "open": "what-about-loneliness",
+  "top": [
+   {
+    "id": "what-about-loneliness",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.13,
+    "score": 0.17
+   }
+  ]
+ },
+ {
+  "q": "why is god silent",
+  "care": false,
+  "open": "does-god-answer-prayer",
+  "top": [
+   {
+    "id": "does-god-answer-prayer",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "how do i get closer to god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "what does it mean to fear god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "is god angry with me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "is-it-wrong-to-be-angry",
+    "said": 0.71,
+    "covers": 0.78,
+    "score": 0.61
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "does god punish us",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "why does god let evil happen",
+  "care": false,
+  "open": "why-does-god-allow-suffering",
+  "top": [
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-satan",
+    "said": 0.6,
+    "covers": 0.75,
+    "score": 0.51
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.25,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "why do innocent people suffer",
+  "care": false,
+  "open": "why-do-good-people-suffer",
+  "top": [
+   {
+    "id": "why-do-good-people-suffer",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.75,
+    "covers": 0.46,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "is it okay to be sad",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what to do when life is hard",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-work",
+    "said": 0.59,
+    "covers": 1,
+    "score": 0.59
+   }
+  ]
+ },
+ {
+  "q": "i am tired of everything",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i feel hopeless",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i feel alone",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-loneliness",
+    "said": 0.75,
+    "covers": 1,
+    "score": 0.75
+   },
+   {
+    "id": "do-good-works-save",
+    "said": 0.55,
+    "covers": 1,
+    "score": 0.55
+   }
+  ]
+ },
+ {
+  "q": "nobody loves me",
+  "care": false,
+  "open": "what-about-loneliness",
+  "top": [
+   {
+    "id": "what-about-loneliness",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   }
+  ]
+ },
+ {
+  "q": "i hate myself",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i feel like a failure",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i am not good enough",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "does god still love me after i sinned",
+  "care": false,
+  "open": "does-god-love-me",
+  "top": [
+   {
+    "id": "does-god-love-me",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 1,
+    "covers": 0.36,
+    "score": 0.62
+   },
+   {
+    "id": "what-happens-when-we-die",
+    "said": 0.5,
+    "covers": 0.32,
+    "score": 0.3
+   }
+  ]
+ },
+ {
+  "q": "i keep sinning",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "does-god-love-me",
+    "said": 0.32,
+    "covers": 1,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "how do i stop sinning",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "does-god-love-me",
+    "said": 0.32,
+    "covers": 1,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "how do i break a bad habit",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "the-lords-supper",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "is masturbation a sin",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "is porn a sin",
+  "care": false,
+  "open": "what-about-sex",
+  "top": [
+   {
+    "id": "what-about-sex",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "is it wrong to get a tattoo",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "is smoking a sin",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "is gambling a sin",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-doubt",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "can christians drink wine",
+  "care": false,
+  "open": "what-about-alcohol",
+  "top": [
+   {
+    "id": "what-about-alcohol",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-divorce",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "is it a sin to swear",
+  "care": false,
+  "open": "what-about-words",
+  "top": [
+   {
+    "id": "what-about-words",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "is it wrong to be gay",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about same sex marriage",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sex",
+    "said": 0.71,
+    "covers": 0.65,
+    "score": 0.56
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.5,
+    "covers": 0.35,
+    "score": 0.31
+   },
+   {
+    "id": "what-is-marriage",
+    "said": 0.53,
+    "covers": 0.3,
+    "score": 0.31
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about transgender",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "is abortion murder",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "when does life begin",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-did-the-world-begin",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about the death penalty",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.6,
+    "covers": 0.43,
+    "score": 0.4
+   },
+   {
+    "id": "what-happens-when-we-die",
+    "said": 0.5,
+    "covers": 0.43,
+    "score": 0.33
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.4,
+    "covers": 0.43,
+    "score": 0.26
+   }
+  ]
+ },
+ {
+  "q": "is it wrong to kill in war",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should christians defend themselves",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.36,
+    "score": 0.22
+   },
+   {
+    "id": "what-about-alcohol",
+    "said": 0.36,
+    "covers": 0.36,
+    "score": 0.22
+   },
+   {
+    "id": "what-about-divorce",
+    "said": 0.36,
+    "covers": 0.36,
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about slavery",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "does god see all people as equal",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "how should i treat foreigners",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about immigrants",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i love my neighbor",
+  "care": false,
+  "open": "love-your-neighbor",
+  "top": [
+   {
+    "id": "love-your-neighbor",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   }
+  ]
+ },
+ {
+  "q": "who is my neighbor",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "love-your-neighbor",
+    "said": 0.64,
+    "covers": 1,
+    "score": 0.64
+   }
+  ]
+ },
+ {
+  "q": "how should i treat my coworkers",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i deal with a bad boss",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i handle conflict",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i apologize",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i make peace with my family",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i forgive my father",
+  "care": false,
+  "open": "how-do-i-forgive",
+  "top": [
+   {
+    "id": "how-do-i-forgive",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "will-god-forgive-me",
+    "said": 0.75,
+    "covers": 0.55,
+    "score": 0.54
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.36,
+    "covers": 0.45,
+    "score": 0.24
+   }
+  ]
+ },
+ {
+  "q": "my parents are getting divorced",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-divorce",
+    "said": 0.71,
+    "covers": 0.5,
+    "score": 0.5
+   },
+   {
+    "id": "parents-and-children",
+    "said": 0.54,
+    "covers": 0.5,
+    "score": 0.38
+   }
+  ]
+ },
+ {
+  "q": "my husband cheated on me",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "how do i save my marriage",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.53,
+    "covers": 0.58,
+    "score": 0.4
+   },
+   {
+    "id": "what-about-sex",
+    "said": 0.46,
+    "covers": 0.58,
+    "score": 0.34
+   },
+   {
+    "id": "do-good-works-save",
+    "said": 0.47,
+    "covers": 0.42,
+    "score": 0.3
+   }
+  ]
+ },
+ {
+  "q": "can i date a non christian",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-alcohol",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-divorce",
+    "said": 0.36,
+    "covers": 0.22,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "how do i find a wife",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "how do i find a husband",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what is love",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 1,
+    "score": 0.66
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 1,
+    "score": 0.66
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "what does real love look like",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-god-like",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   },
+   {
+    "id": "does-god-love-me",
+    "said": 0.66,
+    "covers": 0.36,
+    "score": 0.41
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.36,
+    "score": 0.31
+   }
+  ]
+ },
+ {
+  "q": "how do i deal with betrayal",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "someone lied about me",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i respond to insults",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should i get revenge",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i deal with hate",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "i am being bullied",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i stop being lazy",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i manage my time",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should i borrow money",
+  "care": false,
+  "open": "what-about-money",
+  "top": [
+   {
+    "id": "what-about-money",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "is debt a sin",
+  "care": false,
+  "open": "what-about-money",
+  "top": [
+   {
+    "id": "what-about-money",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-repentance",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   },
+   {
+    "id": "what-about-temptation",
+    "said": 0.33,
+    "covers": 0.29,
+    "score": 0.19
+   }
+  ]
+ },
+ {
+  "q": "how do i stop being greedy",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i become content",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.64,
+    "covers": 0.5,
+    "score": 0.45
+   }
+  ]
+ },
+ {
+  "q": "how do i stop complaining",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i be thankful",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i deal with sickness",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "why did god let me get sick",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 0.22,
+    "covers": 1,
+    "score": 0.22
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "how do i face death",
+  "care": false,
+  "open": "what-happens-when-we-die",
+  "top": [
+   {
+    "id": "what-happens-when-we-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.6,
+    "covers": 0.43,
+    "score": 0.4
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.4,
+    "covers": 0.43,
+    "score": 0.26
+   }
+  ]
+ },
+ {
+  "q": "i am afraid of dying",
+  "care": false,
+  "open": "what-happens-when-we-die",
+  "top": [
+   {
+    "id": "what-happens-when-we-die",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what happens to pets when they die",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-did-jesus-die",
+    "said": 0.58,
+    "covers": 0.41,
+    "score": 0.38
+   },
+   {
+    "id": "comfort-in-grief",
+    "said": 0.41,
+    "covers": 0.41,
+    "score": 0.26
+   },
+   {
+    "id": "why-does-god-allow-suffering",
+    "said": 0.35,
+    "covers": 0.41,
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "q": "is cremation wrong",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what will we do in heaven",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.47,
+    "covers": 1,
+    "score": 0.47
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "what-is-heaven-like",
+    "said": 0.32,
+    "covers": 1,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "will there be marriage in heaven",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-marriage",
+    "said": 0.53,
+    "covers": 0.53,
+    "score": 0.38
+   },
+   {
+    "id": "what-about-sex",
+    "said": 0.46,
+    "covers": 0.53,
+    "score": 0.33
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.47,
+    "covers": 0.47,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "what is the new earth",
+  "care": false,
+  "open": "what-is-heaven-like",
+  "top": [
+   {
+    "id": "what-is-heaven-like",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-the-gospel",
+    "said": 0.6,
+    "covers": 0.47,
+    "score": 0.41
+   },
+   {
+    "id": "born-again",
+    "said": 0.47,
+    "covers": 0.47,
+    "score": 0.32
+   }
+  ]
+ },
+ {
+  "q": "who goes to heaven",
+  "care": false,
+  "open": "how-can-i-be-saved",
+  "top": [
+   {
+    "id": "how-can-i-be-saved",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "what-is-hell",
+    "said": 0.46,
+    "covers": 0.53,
+    "score": 0.33
+   },
+   {
+    "id": "is-jesus-the-only-way",
+    "said": 0.43,
+    "covers": 0.47,
+    "score": 0.29
+   }
+  ]
+ },
+ {
+  "q": "what is the judgment day",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "judgment-day",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   }
+  ]
+ },
+ {
+  "q": "will god judge me",
+  "care": false,
+  "open": "judgment-day",
+  "top": [
+   {
+    "id": "judgment-day",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   }
+  ]
+ },
+ {
+  "q": "what is the gospel",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-is-the-gospel",
+    "said": 0.67,
+    "covers": 1,
+    "score": 0.67
+   }
+  ]
+ },
+ {
+  "q": "what did jesus teach",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "why did jesus come",
+  "care": false,
+  "open": "why-did-jesus-come",
+  "top": [
+   {
+    "id": "why-did-jesus-come",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "is-jesus-coming-back",
+    "said": 0.6,
+    "covers": 1,
+    "score": 0.6
+   },
+   {
+    "id": "when-will-the-world-end",
+    "said": 0.6,
+    "covers": 1,
+    "score": 0.6
+   }
+  ]
+ },
+ {
+  "q": "what did jesus say about himself",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "was jesus a real person",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "where is jesus now",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.63,
+    "covers": 1,
+    "score": 0.63
+   },
+   {
+    "id": "why-did-jesus-come",
+    "said": 0.44,
+    "covers": 1,
+    "score": 0.44
+   }
+  ]
+ },
+ {
+  "q": "what is the holy spirit doing in me",
+  "care": false,
+  "open": "who-is-the-holy-spirit",
+  "top": [
+   {
+    "id": "who-is-the-holy-spirit",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "father-son-spirit",
+    "said": 0.51,
+    "covers": 1,
+    "score": 0.51
+   },
+   {
+    "id": "born-again",
+    "said": 0.47,
+    "covers": 0.5,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "how do i know the holy spirit is in me",
+  "care": false,
+  "open": "who-is-the-holy-spirit",
+  "top": [
+   {
+    "id": "who-is-the-holy-spirit",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "father-son-spirit",
+    "said": 0.51,
+    "covers": 1,
+    "score": 0.51
+   },
+   {
+    "id": "born-again",
+    "said": 0.47,
+    "covers": 0.5,
+    "score": 0.33
+   }
+  ]
+ },
+ {
+  "q": "what are the fruits of the spirit",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-the-holy-spirit",
+    "said": 0.72,
+    "covers": 0.43,
+    "score": 0.48
+   },
+   {
+    "id": "born-again",
+    "said": 0.47,
+    "covers": 0.43,
+    "score": 0.31
+   },
+   {
+    "id": "father-son-spirit",
+    "said": 0.26,
+    "covers": 0.43,
+    "score": 0.17
+   }
+  ]
+ },
+ {
+  "q": "what are spiritual gifts",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-singleness",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "what is speaking in tongues",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-words",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "should women be pastors",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is a church supposed to do",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-giving",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "what-is-the-church",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "why-meet-together",
+    "said": 0.23,
+    "covers": 1,
+    "score": 0.23
+   }
+  ]
+ },
+ {
+  "q": "how should christians treat each other",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 0.44,
+    "covers": 0.73,
+    "score": 0.37
+   },
+   {
+    "id": "love-your-neighbor",
+    "said": 0.5,
+    "covers": 0.27,
+    "score": 0.28
+   },
+   {
+    "id": "why-meet-together",
+    "said": 0.36,
+    "covers": 0.53,
+    "score": 0.26
+   }
+  ]
+ },
+ {
+  "q": "what is communion",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "the-lords-supper",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "why do we pray",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "love-your-enemies",
+    "said": 0.27,
+    "covers": 1,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "what should i pray for",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "love-your-enemies",
+    "said": 0.27,
+    "covers": 1,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "can i pray for anything",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-sickness",
+    "said": 0.43,
+    "covers": 1,
+    "score": 0.43
+   },
+   {
+    "id": "love-your-enemies",
+    "said": 0.27,
+    "covers": 1,
+    "score": 0.27
+   }
+  ]
+ },
+ {
+  "q": "is the bible reliable",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "why are there so many denominations",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is the old testament for",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "do christians have to keep the law",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-government",
+    "said": 0.5,
+    "covers": 1,
+    "score": 0.5
+   },
+   {
+    "id": "how-can-i-be-saved",
+    "said": 0.36,
+    "covers": 0.36,
+    "score": 0.22
+   },
+   {
+    "id": "what-about-alcohol",
+    "said": 0.36,
+    "covers": 0.36,
+    "score": 0.22
+   }
+  ]
+ },
+ {
+  "q": "what are the ten commandments",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-giving",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   },
+   {
+    "id": "what-about-the-sabbath",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "who was abraham",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "who was moses",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "who was david",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "who was paul",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is a covenant",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is the meaning of the cross",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what is the armor of god",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-jesus",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "is-jesus-god",
+    "said": 0.37,
+    "covers": 0.22,
+    "score": 0.2
+   },
+   {
+    "id": "what-is-god-like",
+    "said": 0.34,
+    "covers": 0.22,
+    "score": 0.18
+   }
+  ]
+ },
+ {
+  "q": "how do i fight spiritual battles",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "are ghosts real",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "who-is-the-holy-spirit",
+    "said": 0.57,
+    "covers": 1,
+    "score": 0.57
+   }
+  ]
+ },
+ {
+  "q": "is it wrong to read horoscopes",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "why-read-the-bible",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "how do i overcome lust",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i keep my thoughts pure",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how should i dress",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i raise a teenager",
+  "care": false,
+  "open": "parents-and-children",
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   },
+   {
+    "id": "will-the-dead-rise",
+    "said": 0.5,
+    "covers": 0.46,
+    "score": 0.34
+   }
+  ]
+ },
+ {
+  "q": "how should i discipline my kids",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "parents-and-children",
+    "said": 0.54,
+    "covers": 0.5,
+    "score": 0.38
+   }
+  ]
+ },
+ {
+  "q": "what does the bible say about adoption",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about orphans and widows",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about the environment",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "should i care for animals",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "what does the bible say about rest and burnout",
+  "care": false,
+  "open": null,
+  "top": [
+   {
+    "id": "what-about-the-sabbath",
+    "said": 0.5,
+    "covers": 0.5,
+    "score": 0.35
+   }
+  ]
+ },
+ {
+  "q": "how do i stop overthinking",
+  "care": false,
+  "open": null,
+  "top": []
+ },
+ {
+  "q": "how do i calm my mind",
+  "care": false,
+  "open": "what-about-worry",
+  "top": [
+   {
+    "id": "what-about-worry",
+    "said": 1,
+    "covers": 1,
+    "score": 1
+   }
+  ]
+ },
+ {
+  "q": "what do i do when i cannot sleep",
+  "care": false,
+  "open": null,
+  "top": []
+ }
+]

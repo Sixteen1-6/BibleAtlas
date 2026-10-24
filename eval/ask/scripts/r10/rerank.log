@@ -1,0 +1,5 @@
+rerank 300: dev2 370/426 of 530 | dev3 160/188 of 295 | dev4 236/315 of 668  6.7 ms
+rerank 1000: dev2 379/435 of 530 | dev3 163/192 of 295 | dev4 241/325 of 668  14.8 ms
+rerank 3000: dev2 384/435 of 530 | dev3 162/189 of 295 | dev4 240/338 of 668  38.0 ms
+
+[exited with code 0]

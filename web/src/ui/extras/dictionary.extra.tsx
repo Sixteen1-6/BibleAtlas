@@ -21,8 +21,9 @@
 import './dictionary.css';
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { type Data, listingsAt, load, names } from './dictionary/model';
+import { type Data, SOURCE, listingsAt, load, names } from './dictionary/model';
 import { readerHere } from './first-move';
+import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
 
 const LEAD = 'In old Bible dictionaries';
@@ -82,4 +83,18 @@ export default defineExtra<Data>({
     return line(shown);
   },
   Panel,
+  commentary: true,
+  closed(verse, d, a) {
+    const list = listingsAt(d, verse) ?? [];
+    const where = refName(a, verse);
+    const n = list.length;
+    const one = new Set(list.map((l) => l[0])).size === 1;
+    const line =
+      n === 1
+        ? `An entry in an old Bible dictionary names ${where}.`
+        : n > 1
+          ? `${n} entries in ${one ? 'an old Bible dictionary' : 'old Bible dictionaries'} name ${where}.`
+          : `Entries in old Bible dictionaries name ${where}.`;
+    return { line, button: n === 1 ? 'Show the entry' : 'Show the entries', source: SOURCE };
+  },
 });

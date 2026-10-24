@@ -1,0 +1,498 @@
+/* Commentary: its closed states, the quiet reminder once open, the Sources
+   shelf section, and the two-page notice. Only the app's colour variables, so
+   the dark sky and the light paper both follow. Every class starts with cn-. */
+
+/* ------------------------------------------------------------ closed: one line and one button */
+
+.cn-closed {
+  margin: 0 0 4px;
+}
+.cn-closed p.cn-line {
+  margin: 0 0 10px;
+  font: 15px/1.55 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .cn-closed p.cn-line {
+  font-size: 15.5px;
+}
+.cn-closed p.cn-act {
+  margin: 0;
+}
+.cn-open {
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  font: 600 14px var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.cn-open:hover {
+  background: var(--surface);
+}
+/* Where focus goes once the commentary opens: the start of it. */
+.cn-start:focus {
+  outline: none;
+}
+
+/* ------------------------------------------------------------ open: the quiet reminder */
+
+:is(.xt-body, .panel, .tp-panel, .layers) p.cn-again {
+  margin: 10px 0 0;
+  font: 12px/1.5 var(--font-ui);
+  color: var(--muted);
+}
+.cn-again button,
+.cn-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.cn-again button:hover,
+.cn-link:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ------------------------------------------------------------ the Sources shelf section */
+
+.cn-shelf {
+  margin: 14px 0 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.panel .cn-shelf h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  color: var(--ink);
+}
+.panel .cn-shelf p {
+  margin: 0 0 8px;
+  font: 14px/1.5 var(--font-ui);
+}
+.panel .cn-shelf p.cn-state {
+  color: var(--muted);
+}
+.cn-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+.cn-row .cn-link {
+  font-size: 14px;
+}
+
+/* ------------------------------------------------------------ the notice */
+
+.cn-dialog {
+  /* The reader's own default text size, not the app's 14 px: every size
+     inside is in em, so it follows the browser's text size and zoom. */
+  font-size: medium;
+  line-height: 1.45;
+  /* Where the card's top sits: as if page 2, the taller page, were centred.
+     Both pages start there, so the top bar and "Not now" stay still when the
+     page turns. */
+  --cn-at: max(24px, calc((100vh - 37em) / 2));
+  --cn-end: 24px;
+  box-sizing: border-box;
+  width: min(40em, calc(100% - 48px));
+  max-width: none;
+  max-height: calc(100% - var(--cn-at) - var(--cn-end));
+  margin: var(--cn-at) auto auto;
+  padding: 0;
+  flex-direction: column;
+  /* One column. When the words do not fit, the whole notice scrolls, and the
+     buttons come after the words. */
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  font-family: var(--font-ui);
+}
+.cn-dialog[open],
+.cn-dialog[data-fallback] {
+  display: flex;
+  animation: cn-rise 0.16s ease-out;
+}
+.cn-dialog::backdrop {
+  background: rgba(6, 10, 22, 0.62);
+  animation: cn-fade 0.16s ease-out;
+}
+/* Without <dialog>: the dimmed page is a plain layer over everything. */
+.cn-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: max(24px, calc((100vh - 37em) / 2)) 24px 24px;
+  background: rgba(6, 10, 22, 0.62);
+  font-size: medium;
+  animation: cn-fade 0.16s ease-out;
+}
+.cn-veil .cn-dialog {
+  width: min(40em, 100%);
+  max-height: 100%;
+  margin: 0;
+}
+/* While the notice's code is on the way (the first time only): a clear layer
+   that takes the taps, and after a moment a small "Opening the notice…". */
+.cn-wait {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: progress;
+}
+.cn-wait p:not(:empty),
+.cn-fail {
+  margin: 0;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font: 600 15px/1.4 var(--font-ui);
+  color: var(--ink);
+}
+.cn-fail {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  z-index: 1000;
+  width: fit-content;
+  max-width: 28em;
+  margin: 0 auto;
+  font-weight: 400;
+}
+.cn-dialog :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.cn-top {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.5em 0.75em 0.5em 1.5em;
+  border-bottom: 1px solid var(--line);
+}
+.cn-dialog .cn-step {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  font: 600 0.9375em var(--font-ui);
+  color: var(--muted);
+}
+.cn-dots {
+  display: inline-flex;
+  gap: 0.35em;
+}
+.cn-dots i {
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--line);
+}
+.cn-dots i.on {
+  background: var(--accent);
+}
+.cn-not {
+  min-height: 3em;
+  padding: 0.5em 0.85em;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  font: 600 1em var(--font-ui);
+  color: var(--muted);
+  cursor: pointer;
+}
+.cn-not:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cn-body {
+  /* Grows to keep the buttons at the bottom; never shrinks under the words. */
+  flex: 1 0 auto;
+  padding: 1.6em 2em 0.75em;
+}
+.cn-page {
+  animation: cn-turn 0.18s ease-out;
+}
+.cn-dialog .cn-h {
+  margin: 0 0 0.55em;
+  font: 600 2.25em/1.15 var(--font-read);
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+.cn-dialog .cn-h:focus {
+  outline: none;
+}
+.cn-dialog .cn-p {
+  margin: 0 0 0.8em;
+  font: 1.375em/1.5 var(--font-ui);
+  overflow-wrap: break-word;
+}
+.cn-dialog .cn-p.cn-strong {
+  font-weight: 600;
+}
+.cn-pair {
+  display: grid;
+  /* Side by side only while both fit at the reader's text size: the width is
+     in em, so a larger text size stacks them. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13em), 1fr));
+  gap: 0.75em;
+  margin: 0 0 1.1em;
+  padding: 0;
+  list-style: none;
+}
+.cn-box {
+  display: flex;
+  gap: 0.7em;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 0.95em 1em;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+.cn-box > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.cn-box svg {
+  flex: none;
+  width: 1.9em;
+  height: 1.9em;
+  margin-top: 0.1em;
+}
+.cn-box b {
+  display: block;
+  font: 600 1.375em/1.2 var(--font-read);
+  overflow-wrap: anywhere;
+}
+.cn-box span {
+  display: block;
+  margin-top: 0.2em;
+  font: 1.125em/1.35 var(--font-ui);
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.cn-box.cn-bible {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+}
+.cn-box.cn-bible svg {
+  color: var(--accent);
+}
+.cn-box.cn-bible span {
+  color: var(--ink);
+}
+.cn-box.cn-comm {
+  border-style: dashed;
+  border-color: var(--muted);
+}
+.cn-box.cn-comm svg {
+  color: var(--muted);
+}
+.cn-verse {
+  margin: 0 0 1em;
+  padding: 0.9em 1.1em;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--surface-2);
+}
+.cn-dialog .cn-verse .cn-q {
+  margin: 0;
+  font: 1.25em/1.6 var(--font-read);
+  overflow-wrap: break-word;
+}
+.cn-dialog .cn-verse .cn-cite {
+  margin: 0.5em 0 0;
+  font: 600 0.9375em var(--font-ui);
+  color: var(--accent);
+}
+.cn-foot {
+  flex: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75em;
+  padding: 1em 1.5em 1.25em;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.cn-foot.cn-two {
+  justify-content: space-between;
+}
+.cn-btn {
+  min-height: 2.75em;
+  padding: 0.55em 1.2em;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  font: 600 1.125em/1.25 var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+}
+.cn-btn:hover {
+  border-color: var(--muted);
+}
+.cn-btn.cn-go {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--surface);
+}
+.cn-btn.cn-go:hover {
+  filter: brightness(1.06);
+}
+/* "More below": a fade at the bottom edge while the words run on past it. */
+.cn-cue {
+  position: sticky;
+  bottom: 0;
+  flex: none;
+  height: 0;
+  pointer-events: none;
+}
+.cn-cue[hidden] {
+  display: none;
+}
+.cn-cue span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 3.2em;
+  padding-bottom: 0.45em;
+  box-sizing: border-box;
+  background: linear-gradient(to bottom, transparent, var(--surface) 65%);
+  font: 600 0.9375em var(--font-ui);
+  color: var(--muted);
+}
+
+/* A short screen (zoom, a landscape phone, a large text size): a smaller top
+   bar and foot, and the card nearer the edges. */
+@media (max-height: 36em) {
+  .cn-dialog {
+    --cn-at: 12px;
+    --cn-end: 12px;
+  }
+  .cn-veil {
+    padding: 12px;
+  }
+  .cn-top {
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+  .cn-not {
+    min-height: 2.75em;
+  }
+  .cn-body {
+    padding-top: 1em;
+  }
+  .cn-foot {
+    padding-top: 0.75em;
+    padding-bottom: 0.9em;
+  }
+}
+
+/* Phones: the notice fills the screen, the buttons full width at the bottom. */
+@media (max-width: 600px) {
+  .cn-dialog,
+  .cn-veil .cn-dialog {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
+  .cn-veil {
+    padding: 0;
+  }
+  .cn-top {
+    padding: 0.4em 0.5em 0.4em 1.25em;
+  }
+  .cn-body {
+    padding: 1.4em 1.25em 0.75em;
+  }
+  .cn-dialog .cn-h {
+    font-size: 1.75em;
+  }
+  .cn-dialog .cn-p {
+    font-size: 1.25em;
+  }
+  .cn-pair {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5em), 1fr));
+  }
+  .cn-box {
+    flex-direction: column;
+    gap: 0.4em;
+    padding: 0.8em 0.85em;
+  }
+  .cn-box b {
+    font-size: 1.25em;
+  }
+  .cn-box span {
+    font-size: 1.0625em;
+  }
+  .cn-dialog .cn-verse .cn-q {
+    font-size: 1.1875em;
+  }
+  .cn-foot {
+    flex-direction: column;
+    padding: 0.9em 1.25em 1.25em;
+  }
+  .cn-foot .cn-btn {
+    width: 100%;
+  }
+}
+@keyframes cn-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes cn-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+@keyframes cn-turn {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cn-dialog[open],
+  .cn-dialog[data-fallback],
+  .cn-dialog::backdrop,
+  .cn-veil,
+  .cn-page {
+    animation: none;
+  }
+}

@@ -29,6 +29,9 @@ export interface BookFile {
   notes: { id: string; b: Block[] }[];
 }
 
+/** The panel's source line. */
+export const SOURCE = 'Study notes from the Aquifer Open Study Notes by Mission Mutual, adapted from the Tyndale Open Study Notes by Tyndale House Publishers, CC BY-SA 4.0.';
+
 /** A note on a passage of up to this many verses counts as a note on each of
  * its verses. Wider ones are notes on the passage around the verse. */
 const OWN_SPAN = 3;

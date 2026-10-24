@@ -7,13 +7,14 @@
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, DATA_BASE } from './atlas';
 
-export type License = 'public-domain' | 'cc-by-4.0' | 'cc-by-sa-4.0' | 'copyrighted';
+export type License = 'public-domain' | 'cc-by-4.0' | 'cc-by-sa-4.0' | 'mit' | 'copyrighted';
 
 /** Each license in plain words. */
 export const LICENSE_WORDS: Record<License, string> = {
   'public-domain': 'Free to read and share (public domain)',
   'cc-by-4.0': 'Free to share with credit (CC BY 4.0)',
   'cc-by-sa-4.0': 'Free to share with credit, on the same terms (CC BY-SA 4.0)',
+  mit: 'Free to use and share with its notice (MIT License)',
   copyrighted: 'Copyrighted: cited here, not copied',
 };
 

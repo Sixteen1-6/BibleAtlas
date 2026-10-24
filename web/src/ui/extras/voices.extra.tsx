@@ -1,24 +1,25 @@
 // Christian writers: what Christian writers of the past wrote about a verse,
 // in their own words. At Deep only, and their words show only once the reader
-// chooses to see them: the Church Fathers on the Gospels (as Thomas Aquinas
-// gathered them in the Catena Aurea), Matthew Henry's Concise Commentary and
-// John Wesley's Explanatory Notes, all public domain. Never shown as the app's
-// own claim, or as Scripture.
+// has finished the commentary notice (ui/commentary): the Church Fathers on
+// the Gospels (as Thomas Aquinas gathered them in the Catena Aurea), Matthew
+// Henry's Concise Commentary and John Wesley's Explanatory Notes, all public
+// domain. Never shown as the app's own claim, or as Scripture.
 //
 // The line, under a verse one of them wrote about:
 //   "Christian writers: the Church Fathers, Matthew Henry and John Wesley"
 //
-// The panel: first, what these are and a button to show them (remembered);
-// then each writer's notes, oldest first, folded where long, with places
-// elsewhere to read more on the verse. The small index loads with the reader's
-// first move; the notes and the panel's code load when the panel opens. Built
-// by crates/atlas-cli/src/extra_voices.rs.
+// The panel: each writer's notes, oldest first, folded where long, with places
+// elsewhere to read more on the verse. Opened by a link before the notice, it
+// says who wrote about the verse, with "Show what they wrote". The small index
+// loads with the reader's first move; the notes and the panel's code load when
+// the panel opens. Built by crates/atlas-cli/src/extra_voices.rs.
 
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
+import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
-import { type Data, WORKS, listWords, load, worksOn } from './voices/model';
+import { type Data, SOURCE, WORKS, listWords, load, worksOn } from './voices/model';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
@@ -63,4 +64,9 @@ export default defineExtra<Data>({
     return ws.length ? `Christian writers: ${listWords(ws.map((w) => WORKS[w].short))}` : null;
   },
   Panel,
+  commentary: true,
+  closed(verse, d, a) {
+    const who = listWords(worksOn(d, verse).map((w) => WORKS[w].short));
+    return { line: `${who.charAt(0).toUpperCase()}${who.slice(1)} wrote about ${refName(a, verse)}.`, button: 'Show what they wrote', source: SOURCE };
+  },
 });

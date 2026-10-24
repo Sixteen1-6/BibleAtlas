@@ -1,0 +1,71 @@
+{
+  "notes": [
+    {
+      "id": "psalm-1-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Psalm 1:6",
+      "strength": "widely agreed",
+      "short": "Two lines, two ways: the righteous and the wicked",
+      "about": "The second line answers the first with its opposite. Both lines speak of a way: the LORD guards one, and the other perishes.",
+      "lines": [
+        {
+          "ref": "Psalm 1:6",
+          "words": "For the LORD guards the path of the righteous,"
+        },
+        {
+          "ref": "Psalm 1:6",
+          "words": "but the way of the wicked will perish."
+        }
+      ],
+      "pairs": [
+        [
+          "the righteous",
+          "the wicked"
+        ],
+        [
+          "guards",
+          "will perish"
+        ],
+        [
+          "path",
+          "way"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both lines use the same word, derekh, “way”; the BSB says “path”, then “way”.",
+        "strong": [
+          "H1870",
+          "H6662",
+          "H7563"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) sets the way of the ungodly against the way of the righteous. Barnes calls verses 4 to 6 a strong contrast between the unrighteous and the righteous. Henry: the Lord approves the way of the righteous and is angry at the way of the wicked, which shall perish.",
+      "checked": "2026-10-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "by": "Franz Delitzsch, Lutheran scholar",
+          "on": "Psalm 1:6",
+          "quote": "God knows this way, which on this very account also unfailingly reaches its goal. On the contrary, the way of the ungodly … perishes, because left to itself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 1",
+          "quote": "The condition of the unrighteous, or the strong contrast between the unrighteous and the righteous",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 1:6",
+          "quote": "The Lord approves and is well pleased with the way of the righteous, and therefore, under the influence of his gracious smiles, it shall prosper and end well; but he is angry at the way of the wicked, all they do is offensive to him, and therefore it shall perish, and they in it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-22"
+        }
+      ]
+    }
+  ]
+}
