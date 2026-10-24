@@ -83,7 +83,7 @@ The ESV text is never stored in this repository or in the build. The server-side
 
 ## NET Bible
 
-The NET text and notes are never stored in this repository, in the build or in the service worker. The reader asks the publisher's own web service (https://labs.bible.org/api_web_service) for one chapter at a time while someone reads the NET, keeps at most two chapters in memory, and shows "(NET)" linked to netbible.org with the copyright line and the sentence "To see the NET Bible® study tool go to https://netbible.org", as https://netbible.com/copyright/ asks of free apps. The permissions cover the text only ("without the NET Bible notes"), so the app never shows the translators' notes: at Study a button links the selected verse to its notes on netbible.org. Other uses need permission from Biblical Studies Press.
+The NET text and notes are never stored in this repository, in the build or in the service worker. The reader asks the publisher's own web service (https://labs.bible.org/api_web_service) for one chapter at a time while someone reads the NET, keeps at most two chapters in memory, and under every NET chapter shows "(NET)", with NET linked to netbible.org, and the acknowledgment https://netbible.com/copyright/ asks of free apps, word for word: "Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved." The permissions cover the text only ("without the NET Bible notes"), so the app never shows the translators' notes: at Study a button links the selected verse to its notes on netbible.org. Other uses need permission from Biblical Studies Press.
 
 ## Tyndale Open Bible Dictionary (eras and dates)
 
