@@ -5,8 +5,9 @@
 // not in the service worker (it only caches this site's own files), not in
 // browser storage. This client keeps at most two chapters in memory, like the
 // ESV. Its permissions (https://netbible.com/copyright/) let free apps and
-// websites quote it when each quotation ends with "(NET)" linked to
-// netbible.org; the reader shows that line under every NET chapter.
+// websites quote it when the quotation is followed by "(NET)", with NET linked
+// to netbible.org, and by the publisher's copyright acknowledgment, word for
+// word; the reader shows both under every NET chapter.
 //
 // The translators' notes are the NET's own commentary. Its permissions cover
 // the text only ("without the NET Bible notes"), and the web service's terms
@@ -14,8 +15,18 @@
 // verse links to its notes on netbible.org instead.
 
 export const NET_HOME = 'https://netbible.org';
+/** The web service the text is read from, live. Its own page says its use
+ *  "must comply with the NET Bible Copyright". */
+export const NET_SERVICE = 'https://labs.bible.org/';
+/** The address inside the acknowledgment, as the copyright page prints it, and
+ *  where that page links it. */
+export const NET_COPYRIGHT_URL = 'http://netbible.com';
+export const NET_COPYRIGHT_LINK = 'https://netbible.com/';
+/** The acknowledgment, character for character as https://netbible.com/copyright/
+ *  gives it for non-commercial use (checked against the page on 21 October
+ *  2026; the page puts no-break spaces around the address). */
 export const NET_COPYRIGHT =
-  'Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved.';
+  'Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved.';
 
 const ENDPOINT = 'https://labs.bible.org/api/';
 const MAX_CHAPTERS = 2;
