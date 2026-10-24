@@ -4,7 +4,7 @@
 
 import { batch, signal, useSignalEffect } from '@preact/signals';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
-import { type Atlas, label } from '../data/atlas';
+import { type Atlas, label, linkCount } from '../data/atlas';
 import type { PathResult } from '../engine/client';
 import { BASELINE, arcHeight, arcPath, verseX } from '../gl/layout';
 import * as S from '../state';
@@ -113,6 +113,9 @@ async function run(a: Atlas, f: string, t: string, mv: number): Promise<void> {
     if (my !== ticket) return;
     if (!ra || !rb) return note(`Could not read ${!ra ? `“${f}”` : `“${t}”`}. Try a form like “John 3:16”.`);
     if (ra[0] === rb[0]) return note(`“${f}” and “${t}” are the same verse. Pick two different verses.`);
+    // A verse linked to nothing can be reached by no road, with every link or not.
+    const lone = [ra[0], rb[0]].find((v) => linkCount(a, v) === 0);
+    if (lone !== undefined) return note(`${label(a, lone)} is linked to no other passage, so no road can reach it. Pick another verse.`);
     const found = await eng.paths(ra[0], rb[0], mv, MAX_ROADS);
     if (my !== ticket) return;
     if (!found.length) {

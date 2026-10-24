@@ -39,7 +39,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   return (
     <>
       <Lead>
-        {list.length === 1 ? 'An entry' : 'Entries'} in {ids.length === 1 ? 'an old Bible dictionary' : 'old Bible dictionaries'} that cite {refName(a, verse)}. They were written in the 1800s, so some of what they say is out of date.
+        {list.length === 1 ? 'An entry' : 'Entries'} in {ids.length === 1 ? 'an old Bible dictionary' : 'old Bible dictionaries'} for {refName(a, verse)}. {list.length === 1 ? 'It was written in the 1800s, so some of what it says' : 'They were written in the 1800s, so some of what they say'} is out of date.
       </Lead>
       <ul class="x-dictionary-list">
         {list.map(([dict, slug, entry]) => {
@@ -67,7 +67,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
         <Facts
           rows={[
             ['Dictionaries', [...data.titles].map(([, t]) => `${t.title}, ${t.when}`).join('; ')],
-            ['How entries are matched', 'An entry is listed under each verse it cites: every verse of a passage of up to ten verses, and the first verse of a longer one. Entries named in the verse come first, then those that cite it most narrowly.'],
+            ['How entries are matched', 'An entry is listed under each verse it cites: every verse of a passage of up to ten verses, and the first verse of a longer one. An entry with next to nothing of its own, such as only a reference, is not listed, and one that only sends the reader to another (“See Agriculture”) is listed as that entry. Entries named in the verse come first, then those that cite it most narrowly.'],
             ['Entries here', String(list.length)],
           ]}
         />

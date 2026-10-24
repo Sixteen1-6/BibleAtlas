@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useComputed } from '@preact/signals';
 import { type Atlas, chapterName, chapterRange, linkCount } from '../data/atlas';
 import { type EsvChapter, loadEsvChapter } from '../data/esv';
-import { type NetChapter, NET_COPYRIGHT, NET_HOME, loadNetChapter, netVerseUrl } from '../data/net';
+import { type NetChapter, NET_COPYRIGHT, NET_COPYRIGHT_LINK, NET_COPYRIGHT_URL, NET_HOME, NET_SERVICE, loadNetChapter, netVerseUrl } from '../data/net';
 import { passages } from '../data/layers';
 import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
 import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
@@ -15,8 +15,9 @@ import { atLeast } from '../depth';
 import * as S from '../state';
 import { ASKS } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
-import { PairedEnglish, PairedWords, PairsNote, pairsOn } from './Pairs';
+import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
+import { OMITTED } from './common';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
   let c = 'w';
@@ -154,6 +155,10 @@ export function Reader({ a }: { a: Atlas }) {
   // The verses of the version being read, when it is not the BSB and has arrived.
   const liveVerses = esvReady?.data?.verses ?? netReady?.data?.verses ?? null;
   const VERSION_LONG = { BSB: 'Berean Standard Bible', NET: 'NET Bible', ESV: 'English Standard Version' } as const;
+  // The NET acknowledgment around its address, which is shown as a link.
+  const [netBefore, netAfter] = NET_COPYRIGHT.split(NET_COPYRIGHT_URL);
+  // How many alignment links the build left out (meta.json, written by align.rs).
+  const leftOut = (a.meta as typeof a.meta & { alignment?: { shiftedLinksLeftOut?: number } }).alignment?.shiftedLinksLeftOut;
 
   return (
     <div class="reader" ref={root}>
@@ -195,7 +200,8 @@ export function Reader({ a }: { a: Atlas }) {
           <span class="hint">{S.TAP} a Hebrew or Greek word to study it.</span>
         </div>
       )}
-      {orig && inter && pairsOn.value && <PairsNote hebrew={isHebrew} />}
+      {orig && inter && <WordsNote hebrew={isHebrew} />}
+      {orig && inter && pairsOn.value && !liveVerses && <PairsNote hebrew={isHebrew} leftOut={leftOut} />}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
       {tr === 'NET' && netReady?.error && <div class="notice">The NET could not be loaded just now ({netReady.error.replace(/\.$/, '')}). Showing the BSB instead.</div>}
       {tr === 'NET' && netReady && !netReady.data && !netReady.error && <p class="muted" style="max-width:760px;margin:0 auto">Loading the NET…</p>}
@@ -217,7 +223,7 @@ export function Reader({ a }: { a: Atlas }) {
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : ''}</span>}
+                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -250,7 +256,7 @@ export function Reader({ a }: { a: Atlas }) {
               ) : inter ? (
                 <div class={`inter ${lang}`}>
                   {words.map((w) => (
-                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, !!kin?.has(w[3]))}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={w[4]}>
+                    <button key={indexOf(w)} class={`cell ${lang} ${wordClass(w, w[3] === studyRoot, !!kin?.has(w[3]))}`} data-lr={w[3] >= 0 ? w[3] : undefined} onClick={() => w[3] >= 0 && S.openRoot(w[3], v, indexOf(w))} title={grammarTip(w[4], isHebrew)}>
                       <span class="o">{w[0]}</span>
                       <span class="t">{w[1]}</span>
                       <span class="g">{w[2]}</span>
@@ -287,16 +293,30 @@ export function Reader({ a }: { a: Atlas }) {
               <a href={NET_HOME} target="_blank" rel="noopener">
                 NET
               </a>
-              ). {NET_COPYRIGHT} To see the NET Bible® study tool go to{' '}
-              <a href={NET_HOME} target="_blank" rel="noopener">
-                https://netbible.org
+              ). {netBefore}
+              <a href={NET_COPYRIGHT_LINK} target="_blank" rel="noopener">
+                {NET_COPYRIGHT_URL}
+              </a>
+              {netAfter} Read live from{' '}
+              <a href={NET_SERVICE} target="_blank" rel="noopener">
+                labs.bible.org
               </a>
               .
             </>
           ) : (
-            'English: Berean Standard Bible (public domain). '
+            <>
+              English: <CardLink work="bsb">Berean Standard Bible</CardLink>, by the Berean Bible Translation Committee (2016; public domain since 2023).
+            </>
           )}{' '}
-          {isHebrew ? 'Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).' : 'Greek: STEPBible TAGNT, all major editions (CC BY 4.0).'}
+          {isHebrew ? (
+            <>
+              Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (<CardLink work="tahot">TAHOT</CardLink>, CC BY 4.0).
+            </>
+          ) : (
+            <>
+              Greek: all the major printed editions, tagged by STEPBible (<CardLink work="tagnt">TAGNT</CardLink>, CC BY 4.0).
+            </>
+          )}
         </p>
       )}
     </div>

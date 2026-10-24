@@ -1,0 +1,218 @@
+{
+  "_comment": [
+    "Evidence for the Bible text and word-for-word credits (audit items B8, B12, C7 and C10; founder's decisions 10, 11 and 19), 21 October 2026, branch af-bt off main 2aabdcc.",
+    "Each record gives the page or file that was read, its final address, the HTTP status, the UTC time it was fetched, the SHA-256 of the body as fetched, and either the exact words (public domain, an openly licensed data file, or text the publisher requires the app to show) or a pointer to where on the page the fact is (copyrighted pages, whose words are not copied here).",
+    "pinned: a file of a source pinned in sources.json, read from the verified raw folder of that commit (its hash is the file's, not a web page's).",
+    "Checks are described, never who made them."
+  ],
+  "records": [
+    {
+      "id": "net-copyright",
+      "for": "The NET credit under every NET chapter (web/src/data/net.ts NET_COPYRIGHT) and NOTICE.md line 85",
+      "url": "https://netbible.com/copyright/",
+      "final_url": "https://netbible.com/copyright/",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:48Z",
+      "sha256": "eab28fb378d8fc7e09f76cb6f37bb85124ea6ef8e72e4b15ea608dcbc7393f7c",
+      "required_text": "Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved",
+      "pointer": "Section 'Quoting the NET BIBLE Text', item 1 'Non Commercial Publication': the acknowledgment that must follow the designation (NET). Item 1b 'Church and mobile apps': in free and Internet apps the abbreviation (NET) ends the quotation and, in software apps with internet access, NET is hyperlinked to http://netbible.org.",
+      "checked": [
+        "NET_COPYRIGHT matches required_text character for character, plus the full stop that ends the app's sentence (on the page the sentence runs on into the separate audio acknowledgment). The page puts no-break spaces (U+00A0) on each side of http://netbible.com; the app uses ordinary spaces.",
+        "The page links the address http://netbible.com to https://netbible.com/; the app does the same.",
+        "The words 'study tool' do not occur on the page (0 matches), so the sentence 'To see the NET Bible® study tool go to https://netbible.org' that the reader showed and NOTICE.md line 85 attributes to this page is not one of its terms."
+      ]
+    },
+    {
+      "id": "net-labs-api",
+      "for": "'Read live from labs.bible.org.' after the NET credit",
+      "url": "https://labs.bible.org/api_web_service",
+      "final_url": "https://labs.bible.org/api_web_service",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:49Z",
+      "sha256": "4728d8a9f43bfc684761da96200f5df6d9116fc6597c776252961ff2fa9bb374",
+      "pointer": "The paragraph after 'Return Type (XML, Text, JSON)': use of the API must comply with the NET Bible copyright page. The base address of the service, https://labs.bible.org/api/, is the one web/src/data/net.ts calls.",
+      "checked": ["The words 'study tool' do not occur on this page or on https://labs.bible.org/ (fetched 2026-10-21T11:08:51Z, SHA-256 72d38906c23ead32d972964010068b27c386655a3dd73032114f77aea9bc380f)."]
+    },
+    {
+      "id": "bsb-terms",
+      "for": "'English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023)'",
+      "url": "https://berean.bible/terms.htm",
+      "final_url": "https://berean.bible/terms.htm",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:54Z",
+      "sha256": "e9a15ae12bc992c8db6d6ea3efc1467a1ac97e7632cb02ce7267de33f4afd251",
+      "pointer": "'Terms and Conditions', dated April 30, 2023: the Berean Bible texts are dedicated to the public domain as of that date; the attribution notice names Bible Hub, Discovery Bible, OpenBible.com and the Berean Bible Translation Committee as producing the BSB."
+    },
+    {
+      "id": "bsb-first-printed",
+      "for": "the BSB's date, 2016",
+      "url": "https://biblehub.com/bsb/genesis/1.htm",
+      "final_url": "https://biblehub.com/bsb/genesis/1.htm",
+      "status": 200,
+      "fetched": "2026-10-21T11:21:03Z",
+      "sha256": "a63f7856bde95ff0a74a49e56b5080bd507b75f3c003daebff4c717c9d26607f",
+      "pointer": "The credit line under the chapter: the Berean Standard Bible was printed in 2016, 2020, 2022 and 2025 by Bible Hub and Berean.Bible, produced in cooperation with Bible Hub, Discovery Bible, unfoldingWord, Bible Aquifer, OpenBible.com and the Berean Bible Translation Committee, and dedicated to the public domain.",
+      "note": "Today's line names two more partners (unfoldingWord, Bible Aquifer) than the terms page of 2023; the app's line names only the translators."
+    },
+    {
+      "id": "leningrad-codex-date",
+      "for": "'Leningrad Codex (about AD 1008)' under every Old Testament chapter, and the TAHOT card (held for the integrator)",
+      "url": "https://www.lib.cam.ac.uk/node/18732",
+      "final_url": "https://www.lib.cam.ac.uk/collections/departments/taylor-schechter-genizah-research-unit/fragment-month/fragment-month-5",
+      "status": 200,
+      "fetched": "2026-10-21T11:11:04Z",
+      "sha256": "63c4fdc026975cb625ae285f81fd34e94cc5cc37f9d3d2901d3a2b218c028be6",
+      "pointer": "Cambridge University Library, Taylor-Schechter Genizah Research Unit, 'Fragment of the Month: January 2016', Ben Outhwaite, 'Samuel ben Jacob: the Leningrad Codex B19a and T-S 10J5.15'. It names the manuscript St Petersburg, National Library of Russia, Firkovich MS. Hebrew I, B19a, and reads its colophon (folio 1r): the colophon's several dating systems equate to 1008 to 1011, most of them to 1008 or 1009.",
+      "also": {
+        "url": "https://dornsife.usc.edu/wsrp/biblical-manuscripts-2/",
+        "final_url": "https://dornsife.usc.edu/wsrp/biblical-manuscripts-2/",
+        "status": 200,
+        "fetched": "2026-10-21T11:11:06Z",
+        "sha256": "51dbc47fe7edf7c682622fbafa4f3ab2746c46ef968bce5928d3ffb8e4ee0e3b",
+        "pointer": "West Semitic Research Project (University of Southern California), 'Leningrad Codex Firkovitch B19A': dates the codex to 1010."
+      },
+      "checked": [
+        "'about AD 1008' agrees with the colophon as the library reads it (1008 to 1011, mostly 1008 to 1009).",
+        "The National Library of Russia's own catalogue record for Firkovich Evr. I B 19a was not found online; this check rests on the Cambridge University Library description and the West Semitic Research Project page."
+      ]
+    },
+    {
+      "id": "stepbible-version",
+      "for": "'version of 5 Oct 2026' in the word-for-word note",
+      "url": "https://api.github.com/repos/STEPBible/STEPBible-Data/commits/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "final_url": "https://api.github.com/repos/STEPBible/STEPBible-Data/commits/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:53Z",
+      "sha256": "e56e1c01922d3ada5cf09b3ebb7c37feda9db6f3104ebd0062f34efafec5f887",
+      "quote": "5-Oct-2026",
+      "facts": { "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc", "committed": "2026-10-05T15:57:00Z", "pinned_in_this_repository": "2026-10-07T22:59:42Z (commit a59dfb2, the first commit)" }
+    },
+    {
+      "id": "stepbible-brackets",
+      "for": "the key '[ ] words added for sense; < > a word English does not translate'",
+      "pinned": "STEPBible-Data@1f3423d4, Translators Amalgamated OT+NT/TAHOT Gen-Deu - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt, header 'FIELD DESCRIPTIONS', 'English translation'",
+      "sha256": "e9b8546ee48fe0bfc57c3b70f5f40e98d96580e803526d19026224e31753368b",
+      "license": "CC BY 4.0, STEPBible.org based on work at Tyndale House Cambridge",
+      "quote": "Words in <angle brackets> are in the Hebrew but are best not  included in a translation. Words in [square brackets] aren't in the Hebrew but are implied and are best included in a translation.",
+      "counts": "In the built text (447,744 words): Hebrew and Aramaic 305,648 words, 28,721 with an <angle> gloss (<obj.> 11,003, <the> 10,347) and 46,325 with a [square] one; Greek 142,096 words, 5,881 with an <angle> gloss (<the> 5,860) and 5,678 with a [square] one."
+    },
+    {
+      "id": "tagnt-english",
+      "for": "'based on the Berean Study Bible as it stood in July 2019' in the Greek word-for-word note",
+      "pinned": "STEPBible-Data@1f3423d4, Translators Amalgamated OT+NT/TAGNT Mat-Jhn - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt, header 'FIELD DESCRIPTIONS', 'English'",
+      "sha256": "ab8eaaeb68e17a1dcfa34e1e9350358f22f03bc2a97244d848750ad81044bc8e",
+      "license": "CC BY 4.0, STEPBible.org based on work at Tyndale House Cambridge",
+      "quote": "Based on Berean Study Bible, with permission, as at 1-July02019 and adapted for this work.",
+      "note": "'1-July02019' is the file's own spelling of 1 July 2019. crates/atlas-cli/src/parse.rs takes each Greek word's English from this column (cols[2]) and each Hebrew word's from TAHOT's 'Translation' column (cols[3])."
+    },
+    {
+      "id": "object-sign",
+      "for": "'such as <obj.>, the Hebrew sign of the object' in the Hebrew word-for-word note",
+      "pinned": "STEPBible-Data@1f3423d4, Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt, entry H0853",
+      "sha256": "464dccadd95fd8620dd05fa0d7a4caba58ec3c4d5db3ebf38e43d046ca25b591",
+      "quote": "sign of the definite direct object, not translated in English but generally preceding and indicating the accusative",
+      "note": "The entry's definition is abridged from Brown, Driver and Briggs (1906)."
+    },
+    {
+      "id": "stepbible-morphology-keys",
+      "for": "the word tooltips in word-by-word mode (grammar codes such as HTd/Ncmpa put in words)",
+      "files": [
+        {
+          "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEHMC%20-%20Translators%20Expansion%20of%20Hebrew%20Morphology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+          "status": 200,
+          "fetched": "2026-10-21T11:06:38Z",
+          "sha256": "78779bea824b31d4467dec0161d547481c86f266bc39def12cd11dc7dcbe6da7",
+          "bytes": 394580
+        },
+        {
+          "url": "https://raw.githubusercontent.com/STEPBible/STEPBible-Data/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes/TEGMC%20-%20Translators%20Expansion%20of%20Greek%20Morphhology%20Codes%20-%20STEPBible.org%20CC%20BY.txt",
+          "status": 200,
+          "fetched": "2026-10-21T11:06:37Z",
+          "sha256": "5f0416f7617019a6082285214903bde569a980d5fd3b88b8d7020d944e94de82",
+          "bytes": 467056
+        }
+      ],
+      "license": "CC BY 4.0, STEPBible.org based on work at Tyndale House Cambridge",
+      "examples": {
+        "HTd": "Definite article (Hebrew)",
+        "HNcmpa": "Noun (Plural Masculine, Absolute)",
+        "HVqw3ms": "Verb : Qal (Simple, Active) Consecutive Imperfect (Past/present Indicative) Third Singular Masculine",
+        "V-AAI-3S": "Verb Aorist Active Indicative 3rd Singular"
+      },
+      "method": "Each key gives, for every full code, its fields (line 1) and a phrase (line 2). web/src/ui/Pairs.tsx reads each code part by part with the keys' own words for its letters; '/' joins the parts of a Hebrew word and ' + G<number>=' the parts of a joined Greek word. Where TEHMC's phrases spell 'resultive/transtive', its own notes' spelling 'Resultative / Transitive' is used.",
+      "checked": [
+        "Every grammar code in the built text was put in words and compared with the key's phrase, on 21 October 2026.",
+        "Hebrew and Aramaic: 3,083 distinct codes, made of 742 distinct parts; 734 parts give the key's phrase exactly (99.6% of the 469,294 parts in the text). The 8 that differ: HAcmsa and HAcmsc (1,953 parts), whose phrase says 'Adjective' though their own fields say 'Form=Numerical', given here as 'Numerical Adjective' like every other Ac code; HVPrmpa (6), whose phrase leaves out its voice; and 5 Aramaic codes (6 parts) where the phrase and the fields disagree. 14 words carry no code and get no tooltip.",
+        "Greek: 1,167 distinct codes; 1,098 give the key's phrase exactly, with a word the phrase repeats given once (138,690 of 142,096 words, 97.6%). The 69 that differ (3,406 words): PRT-N and PRT-I (2,905 words), whose phrases repeat their extra field ('Negative Particle Negative Negative'), given here once; 15 noun, particle and verb codes whose phrase leaves out a part of the code (Title, Individual, Location, Gentilic or 'Transcribed from Aramaic'), given here; 4 noun codes whose phrase says 'Individual Gentilic' where the key's other noun codes say 'Person Gentilic', given here as 'Person Gentilic'; 9 codes of 2nd Present, 2nd Perfect and 2nd Pluperfect verbs whose phrase drops '2nd', kept here; 29 possessive pronouns, whose phrase says '1st Person' or '2nd Person' and drops the owner's number, given here as '1st Singular', '1st Plural' and so on; V-PEP-ASM, V-RMM-2P and V-RMM-2S, whose phrases contradict their own codes (case or mood), read here from the code; 4 codes whose phrase puts the same words in another order; and A-DSF-T ('of a type'), V-RPP-GPF ('feminine' in small letters) and N-DPM-C (adds 'Gentilic'). No code is left without words.",
+        "The test and its full list of differences are kept outside the repository with the run's notes; it can be repeated from the two key files above and the built web/public/data/text/*.json."
+      ]
+    },
+    {
+      "id": "clear-alignment-makers",
+      "for": "'Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0)'",
+      "pinned": "Alignments@c99bd0ae, data/eng/alignments/BSB/BGNT-BSB-manual.json and data/eng/alignments/BSB/WLCM-BSB-manual.json, the 'meta' object at the top of each file",
+      "sha256": {
+        "BGNT-BSB-manual.json": "8c8f595d2a3ffa6d9ef75a63b7af55f3095cd254ae86245ff731c96a6a430e7e",
+        "WLCM-BSB-manual.json": "3a7619681cebe2d0768681215456e9ee4701aef72a82af5fc851b31148aa3c1f"
+      },
+      "quote": { "BGNT-BSB-manual.json": "\"meta\": {\"conformsTo\": \"0.3\", \"creator\": \"Berean Bible\"}", "WLCM-BSB-manual.json": "\"meta\": {\"conformsTo\": \"0.3\", \"creator\": \"BiblioNexus\"}" },
+      "note": "Every record in both files is marked manual ('process': 'manual' in the Greek file, 'origin': 'manual' in the Hebrew)."
+    },
+    {
+      "id": "clear-readme",
+      "for": "'published by Clear Bible / Biblica (CC BY 4.0)'",
+      "url": "https://raw.githubusercontent.com/Clear-Bible/Alignments/c99bd0ae6946775f932517656308ca19fc706921/README.md",
+      "final_url": "https://raw.githubusercontent.com/Clear-Bible/Alignments/c99bd0ae6946775f932517656308ca19fc706921/README.md",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:54Z",
+      "sha256": "9d35e3c09989d03ec9facbf692ded764f840358d1b53c42b2b9fc0c1af19318a",
+      "quote": "Alignment data is provided by various parties, who own the copyright\nto their alignments. All alignment data is licensed under a [Creative\nCommons Attribution 4.0 International License][cc-by].",
+      "note": "The repository's code is 'Copyright (c) 2024 by Biblica, Inc.' (MIT)."
+    },
+    {
+      "id": "clear-version",
+      "for": "'Version of 11 May 2026, read 8 Oct 2026' and the link to the pinned tree",
+      "url": "https://api.github.com/repos/Clear-Bible/Alignments/commits/c99bd0ae6946775f932517656308ca19fc706921",
+      "final_url": "https://api.github.com/repos/Clear-Bible/Alignments/commits/c99bd0ae6946775f932517656308ca19fc706921",
+      "status": 200,
+      "fetched": "2026-10-21T11:08:52Z",
+      "sha256": "025ed6f6384392db253018bb44c282aed1d6c007626de168176629d2a6011b8c",
+      "facts": {
+        "commit": "c99bd0ae6946775f932517656308ca19fc706921",
+        "committed": "2026-05-11T18:52:09Z",
+        "pinned_in_this_repository": "2026-10-08T02:08:55Z (commit 7488edf, 'Color pairs: link each original word to the BSB words it became')",
+        "tree_linked": "https://github.com/Clear-Bible/Alignments/tree/c99bd0ae6946775f932517656308ca19fc706921"
+      }
+    },
+    {
+      "id": "alignment-left-out",
+      "for": "'The 18,945 links the app could not place are left out.'",
+      "source": "web/public/data/meta.json, alignment.shiftedLinksLeftOut, written by crates/atlas-cli/src/align.rs; the note reads the number from the build at run time, so it follows the data",
+      "facts": { "shiftedLinksLeftOut": 18945, "versesWithShiftedLinks": 2033, "links": 365604 },
+      "checked": "The atlas build of this branch reports the same numbers."
+    },
+    {
+      "id": "esv-notice",
+      "for": "the esv shelf card held for the integrator (shown only on server deploys)",
+      "url": "https://api.esv.org/",
+      "final_url": "https://api.esv.org/",
+      "status": 200,
+      "fetched": "2026-10-21T11:11:39Z",
+      "sha256": "dd0fdb88e854203c1caa0502776f2e9db8b6551814522acaabed594c1137c290",
+      "required_text": "Scripture quotations marked “ESV” are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved. The ESV text may not be quoted in any publication made available to the public by a Creative Commons license. The ESV may not be translated into any other language.",
+      "pointer": "The API's terms: the notice for a website's copyright page, the 500-verse and half-a-book limits, and the letters 'ESV' after quotations.",
+      "also": {
+        "url": "https://www.crossway.org/permissions/",
+        "final_url": "https://www.crossway.org/permissions/",
+        "status": 200,
+        "fetched": "2026-10-21T11:11:36Z",
+        "sha256": "d3780aed27d4b302ae4ad53b20d19eb61843321aceef6a95304710cfb1bd9dbb",
+        "pointer": "'ESV Copyright and Permissions Information': the ESV is © 2001 by Crossway, a publishing ministry of Good News Publishers; the current text edition is named there."
+      },
+      "checked": [
+        "First published 2001, by Crossway.",
+        "server/esv.mjs shows 'copyright © 2001' where the API's notice says '© 2001', and leaves out its last two sentences. That file is outside this change; the difference is reported in the pull request."
+      ]
+    }
+  ]
+}
