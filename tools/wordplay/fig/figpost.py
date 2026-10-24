@@ -20,6 +20,8 @@ import figcheck as fc
 import cq
 import fetchlog
 import cat
+import byw
+import bmod
 
 READ = {
     'vault': "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
@@ -37,7 +39,8 @@ SURNAME = {'henry': ['Henry'], 'henry-concise': ['Henry'], 'gill': ['Gill'], 'ba
            'clarke': ['Clarke'], 'geneva': ['Geneva'], 'bengel': ['Bengel'], 'maclaren': ['Maclaren'],
            'spurgeon': ['Spurgeon'], 'chrysostom': ['Chrysostom'], 'edersheim': ['Edersheim'],
            'bullinger-cb': ['Bullinger', 'Companion Bible'], 'bullinger-fos': ['Bullinger', 'Figures of Speech'],
-           'catena-aurea': ['Catena'], 'church-fathers': []}
+           'catena-aurea': ['Catena'], 'church-fathers': [], 'wesley': ['Wesley'], 'net-notes': ['NET'],
+           'tyndale-notes': ['Tyndale']}
 _fetch = None
 
 
@@ -78,6 +81,11 @@ def local_source(c):
                     return (READ['catena'], f'https://raw.githubusercontent.com/AlvaroBalbin/catena/{CATENA_SHA}/data/catena/{g}.jsonl',
                             context(text, quote))
         return None
+    if src in bmod.MOD:
+        for u in bmod.units(src, b, ch):
+            if fc._in_order(fc._norm(u), quote):
+                return bmod.READ, bmod.url(src), context(u, quote)
+        return None
     work = fc.LOCAL.get(src)
     if not work or fc.local_quote(src, on, quote) is not True:
         return None
@@ -108,6 +116,40 @@ def web_source(c):
     if not site:
         return None
     return f'{site}, at {u}', u, (c.get('context') or '').strip(), day
+
+
+def cite_rule(c):
+    """(by, None) when the cite may stand in a figure note, else (None, why). by is None for single-writer works."""
+    src = c.get('source')
+    s = fc.CITE.get(src)
+    if not s:
+        return None, 'not on the cite list'
+    if src not in fc.QUOTABLE or src in ('wesley', 'net-notes'):
+        return None, f"{s['name']} is not quotable in figure notes (figure-forms.json quotable)"
+    r = fc.resolve(c.get('on'))
+    if not r:
+        return None, 'on is not a reference'
+    b, ch, v = fc.locate(r[0])
+    book = fc.BOOKS[b]['name']
+    if src in fc.ONLY_ON and not any(f <= b <= l for f, l in fc.ONLY_ON[src]):
+        return None, f"{s['name']} is quoted only on the books its named writer wrote, not {book}"
+    if book in s.get('not_on', []):
+        return None, f"{s['name']} is not cited on {book}"
+    why = fc.BARRED_BOOKS.get((src, book)) or fc.BARRED_VERSES.get((src, book, ch, v)) or byw.quotable_here(src, book, ch)
+    if why:
+        return None, why
+    if src in ('catena-aurea', 'church-fathers'):
+        who = (c.get('at') or '').lower()
+        if any(fc.re.search(r'\b' + fa + r'\b', who) for fa in fc.BARRED_FATHERS if not (fa == 'eusebius' and src == 'catena-aurea')):
+            return None, 'a Father left out by the voices shortlist'
+        if src == 'catena-aurea' and 'pseudo-chrysostom' in who and book == 'Matthew':
+            return None, "the Catena's Pseudo-Chrysostom on Matthew"
+    by = None
+    if src in byw.MULTI:
+        by = byw.by(src, book, c.get('at'))
+        if not by:
+            return None, f"the writer of the quoted part of {s['name']} is not known for certain"
+    return by, None
 
 
 def interpreters(cites):
@@ -145,7 +187,7 @@ def main(out, paths):
     import datetime
     today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
     res = journal_results(paths)
-    report = {'dropped_cites': [], 'held': [], 'missing_stage': [], 'duplicates': [], 'dropped_notes': []}
+    report = {'dropped_cites': [], 'held': [], 'missing_stage': [], 'duplicates': [], 'dropped_notes': [], 'needs_writer': []}
     keys = sorted({l.split(':', 1)[1] for l in res if ':' in l})
     os.makedirs(f'{out}/config/figures', exist_ok=True)
     # what is already there: the seeds, then earlier output
@@ -170,11 +212,20 @@ def main(out, paths):
             n['checked'] = n.get('checked') if fc.date_ok(n.get('checked')) else today
             kept, recs = [], []
             for c in n.get('cites', []):
-                why = None
+                by, why = cite_rule(c)
+                if why:
+                    report['dropped_cites'].append({'key': key, 'note': n['id'], 'source': c['source'], 'on': c.get('on'), 'found': c.get('found'), 'why': why})
+                    continue
+                if by:
+                    c['by'] = by
+                else:
+                    c.pop('by', None)
                 loc = local_source(c)
                 if loc:
                     c['read'], found_in, ctx = loc
                     c['retrieved'] = c['retrieved'] if fc.date_ok(c.get('retrieved')) else today
+                elif c['source'] == 'pulpit':
+                    why = "quote not found in the Pulpit Commentary's exposition (its homilies are other writers')"
                 else:
                     web = web_source(c)
                     if web:
@@ -186,18 +237,18 @@ def main(out, paths):
                     continue
                 recs.append({'note': n['id'], 'field': 'cites', 'source': c['source'], 'on': c['on'], 'quote': c['quote'],
                              'found_in': found_in, 'context': ctx})
-                kept.append({k: c[k] for k in ('source', 'on', 'at', 'quote', 'read', 'retrieved') if k in c})
+                kept.append({k: c[k] for k in ('source', 'by', 'on', 'at', 'quote', 'read', 'retrieved') if k in c})
             dropped = [c['source'] for c in n.get('cites', []) if c['source'] not in {k['source'] for k in kept}]
             n['cites'] = kept
             ws = interpreters(kept)
             if not ws:
-                report['dropped_notes'].append({'key': key, 'note': n['id'], 'why': 'no interpreter left'})
+                report['needs_writer'].append({'key': key, 'note': n, 'dropped': dropped, 'why': 'no quotable interpreter left'})
                 continue
             n['strength'] = fc.strength_for(len(ws))
             left = {s for c in kept for s in SURNAME.get(c['source'], [])}
             stale = [s for d in dropped for s in SURNAME.get(d, []) if s not in left and fc.names_word(n.get('evidence', ''), s)]
             if stale:
-                report['held'].append({'key': key, 'note': n, 'why': f'evidence still names {", ".join(stale)}, whose cite was dropped'})
+                report['held'].append({'key': key, 'note': n, 'dropped': dropped, 'why': f'evidence still names {", ".join(stale)}, whose cite was dropped'})
                 continue
             new.append((key, n, recs))
     # duplicates and ids
@@ -244,7 +295,7 @@ def main(out, paths):
     for n in out_notes.values():
         kinds[n['kind']] = kinds.get(n['kind'], 0) + 1
     print(f'{len(out_notes)} notes in {len(by_book)} books {kinds}; this run: {len(new)} confirmed, '
-          f"{len(report['held'])} held, {len(report['duplicates'])} duplicates, {len(report['dropped_notes'])} notes and "
+          f"{len(report['held'])} held, {len(report['needs_writer'])} need a quotable writer, {len(report['duplicates'])} duplicates, {len(report['dropped_notes'])} notes and "
           f"{len(report['dropped_cites'])} cites dropped, {len(report['missing_stage'])} batches unfinished; "
           f'final check: {len(ck.errors)} problems')
     for e in ck.errors[:20]:
