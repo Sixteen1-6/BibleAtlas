@@ -65,6 +65,9 @@ export interface Data {
   lines: Map<VerseRef, NoteLine>;
 }
 
+/** The verse panel's source line. */
+export const SOURCE = "Notes from this app's Layers of meaning, checked against STEPBible's Hebrew and Greek, CC BY 4.0.";
+
 export const LETTER_NAMES = ['Aleph', 'Bet', 'Gimel', 'Dalet', 'He', 'Vav', 'Zayin', 'Het', 'Tet', 'Yod', 'Kaf', 'Lamed', 'Mem', 'Nun', 'Samekh', 'Ayin', 'Pe', 'Tsade', 'Qof', 'Resh', 'Shin', 'Tav'];
 
 const KINDS = new Set(['wordplay', 'name meaning']);

@@ -15,10 +15,11 @@ import { type Atlas, label } from '../../../data/atlas';
 import { type VerseRow, getVerse } from '../../../data/text';
 import { TAP } from '../../../state';
 import { GoDeeper } from '../../Depth';
+import { CommentaryFoot } from '../../commentary/Gate';
 import { Facts, Lead, Passage, SideBySide, SourceNote, Unsure, openWord, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { ChapterPanelProps, PanelProps, VerseRef } from '../types';
-import { type Data, LETTER_NAMES, MARK, type Play, type Poem, type WordAt, chapterKey, neighbours, say } from './model';
+import { type Data, LETTER_NAMES, MARK, type Play, type Poem, SOURCE, type WordAt, chapterKey, neighbours, say } from './model';
 
 /** Curly quotes and apostrophes for display, as the Layers card shows them. */
 function smart(text: string): string {
@@ -230,7 +231,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       ))}
       {langs.length > 0 && <GoDeeper to="study">See the {list(langs)} words</GoDeeper>}
       <Walk a={a} data={data} verse={verse} at={at} go={go} />
-      <SourceNote>Notes from this app's Layers of meaning, checked against STEPBible's Hebrew and Greek, CC BY 4.0.</SourceNote>
+      <CommentaryFoot />
+      <SourceNote>{SOURCE}</SourceNote>
     </>
   );
 }

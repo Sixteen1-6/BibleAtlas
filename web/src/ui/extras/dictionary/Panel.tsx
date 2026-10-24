@@ -8,10 +8,11 @@
 
 import { useState } from 'preact/hooks';
 import { EntryText, useEntry } from '../../Dictionary';
+import { CommentaryFoot } from '../../commentary/Gate';
 import { Facts, Lead, SourceNote, refName, showSources } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
-import { type Data, listingsAt, year } from './model';
+import { type Data, SOURCE, listingsAt, year } from './model';
 import type { Atlas } from '../../../data/atlas';
 
 function Body({ a, dict, slug, title, navigate }: { a: Atlas; dict: string; slug: string; title: string; navigate: (v: VerseRef) => void }) {
@@ -71,9 +72,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           ]}
         />
       )}
-      <SourceNote>
-        Easton’s Bible Dictionary (1897) and Smith’s Bible Dictionary (1884), both public domain, in the Christian Classics Ethereal Library’s transcription, by way of Jon Craton’s CCEL Paragraphs (CC BY-SA 4.0) and NEUU’s Bible Dictionary Dataset (CC BY 4.0).
-      </SourceNote>
+      <CommentaryFoot />
+      <SourceNote>{SOURCE}</SourceNote>
     </>
   );
 }

@@ -18,7 +18,7 @@
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
-import { type Data, hits, load, nameFrom } from './notes/model';
+import { type Data, SOURCE, hits, load, nameFrom } from './notes/model';
 import { type PanelProps, defineExtra } from './types';
 
 type PanelType = ComponentType<PanelProps<Data>>;
@@ -67,4 +67,16 @@ export default defineExtra<Data>({
     return `${many ? 'Study notes' : 'A study note'} on ${nameFrom(d.a, verse, first.from, first.to)}`;
   },
   Panel,
+  commentary: true,
+  closed(verse, d) {
+    const h = hits(d, verse);
+    const own = h.own[0];
+    const where = own && nameFrom(d.a, verse, own.from, own.to);
+    const line = !own
+      ? `Bible scholars wrote ${h.wide.length > 1 ? 'notes' : 'a note'} on the passage around this verse.`
+      : h.wide.length
+        ? `Bible scholars wrote notes on ${where} and the passage around it.`
+        : `Bible scholars wrote ${h.own.length > 1 ? 'notes' : 'a note'} on ${where}.`;
+    return { line, button: h.own.length + h.wide.length > 1 ? 'Show the notes' : 'Show the note', source: SOURCE };
+  },
 });

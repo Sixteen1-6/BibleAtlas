@@ -9,6 +9,10 @@
 // Study: adds where the text comes from and its license.
 // Deep: adds every verse the entry cites.
 //
+// An entry's text is commentary: it stays closed (one line and "Show the
+// entry") until the reader finishes the commentary notice (ui/commentary).
+// Searching and the list of names stay open.
+//
 // The open entry is part of the link: #tab=sources&read=easton&term=quails.
 // Opening a dictionary or an entry is a step Back undoes (S.step). The names
 // load when the dictionary opens, and each letter's entries the first time
@@ -20,6 +24,7 @@ import type { Atlas } from '../data/atlas';
 import { type DictEntry, type IndexRow, type Piece, type Shelf, licenseWords, loadDictIndex, loadEntry, searchIndex, useLoaded } from '../data/shelf';
 import { atLeast } from '../depth';
 import * as S from '../state';
+import { Commentary, CommentaryFoot } from './commentary/Gate';
 import { refName, verseHash } from './extras/kit';
 
 /** Take the reader to a verse from the shelf, keeping the shelf open beside it
@@ -280,6 +285,8 @@ function Entry({
   const otherIndex = useLoaded(other && found ? `index ${other}` : null, () => loadDictIndex(a, other!));
   const twin = otherIndex?.find((r) => r[1] === slug);
   const otherTitle = shelf?.works.find((w) => w.id === other)?.title;
+  const year = /\d{4}/.exec(shelf?.works.find((w) => w.id === dict)?.when ?? '')?.[0];
+  const from = `This entry is from ${title.replace(/(\w)'(\w)/g, '$1’$2')}${year ? `, ${year}` : ''}.`;
   if (e === undefined) return <p class="xt-wait">…</p>;
   if (e === null) return <p class="muted">Couldn’t load this entry. Check your connection.</p>;
   if (e === 'missing') return <p class="muted">There is no entry here by that name. Search for it above.</p>;
@@ -292,7 +299,9 @@ function Entry({
       <h3 class="dict-name" tabIndex={-1} ref={name}>
         {e.name}
       </h3>
-      <EntryText a={a} text={e.text} go={goToVerse} />
+      <Commentary line={from} button="Show the entry">
+        <EntryText a={a} text={e.text} go={goToVerse} />
+      </Commentary>
       {twin && other && (
         <p class="dict-twin">
           Also in {otherTitle ?? 'the other dictionary'}:{' '}
@@ -317,6 +326,7 @@ function Entry({
           </p>
         </details>
       )}
+      <CommentaryFoot />
     </article>
   );
 }

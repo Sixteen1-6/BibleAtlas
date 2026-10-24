@@ -55,8 +55,7 @@
   text-decoration-color: currentColor;
 }
 .x-voices-more,
-.x-voices-about,
-.x-voices-hide {
+.x-voices-about {
   padding: 0;
   border: 0;
   background: none;
@@ -69,21 +68,6 @@
 }
 .x-voices-about {
   font-size: 12.5px;
-}
-.xt-body .x-voices-ask {
-  margin: 12px 0 8px;
-}
-.x-voices-allow {
-  padding: 8px 14px;
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  background: var(--accent-soft);
-  font: 600 14px var(--font-ui);
-  color: var(--ink);
-  cursor: pointer;
-}
-.x-voices-allow:hover {
-  background: var(--surface-2);
 }
 .x-voices-links {
   margin: 4px 0 6px;
@@ -105,15 +89,12 @@
   color: inherit;
   text-decoration-style: dotted;
 }
-.x-voices-top:focus,
 .x-voices-voice:focus {
   outline: none;
 }
 .x-voices-ref:focus-visible,
 .x-voices-more:focus-visible,
 .x-voices-about:focus-visible,
-.x-voices-hide:focus-visible,
-.x-voices-allow:focus-visible,
 .x-voices-links a:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
