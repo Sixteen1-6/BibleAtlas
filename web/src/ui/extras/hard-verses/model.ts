@@ -29,7 +29,7 @@ export interface Card {
   evidence: string;
   source: string;
   reviewed_by: string[];
-  /** Not yet reviewed by a person (only present in local preview builds). */
+  /** Not yet reviewed (only present in local preview builds). */
   draft: boolean;
 }
 

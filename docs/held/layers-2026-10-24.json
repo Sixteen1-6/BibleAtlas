@@ -1,0 +1,143 @@
+{
+  "_comment": [
+    "Passages taken out of config/layers.json because leaving out a writer's words left them with no note above \"some interpreters\", which the build refuses (rule 7 in crates/atlas-cli/src/layers.rs). A passage is left out here until a decision on it is made (decision 23(5)): found by a session, listed in the pull request, and made final or reversed by the founder.",
+    "Each passage is copied as it stood in config/layers.json, with the cites the leave-out removed still in place, so it can go back unchanged if the founder reverses the leave-out, or go back with a second writer once one is found. why: what was removed and who else was read. left_out_by: the denies entries in config/layer-sources.json behind it."
+  ],
+  "held": [
+    {
+      "id": "ecclesiastes-3-18",
+      "why": "Its two wordplay notes rested on Keil and Delitzsch, the Pulpit Commentary and Bullinger. With the first two left out on Ecclesiastes, only Bullinger (Figures of Speech, on the doubled pronoun) is left, so no note goes beyond \"some interpreters\" (rule 7 of crates/atlas-cli/src/layers.rs). Gill, Clarke, Poole, Benson, Fausset, Henry, Wesley, the Geneva notes, W. T. Bullock (Barnes' Notes) and the Companion Bible were read on this verse on 2026-10-24: none states either point, and Figures of Speech lists the verse only for the doubled pronoun, not for the echo of behemah. The readings are in left_out.held_reads of docs/evidence/layers-reads-2026-10-24.json.",
+      "left_out_by": "keil-delitzsch and pulpit on Ecclesiastes",
+      "passage": {
+        "id": "ecclesiastes-3-18",
+        "section": "prophets-poetry",
+        "ref": "Ecclesiastes 3:18",
+        "saying": "they may see for themselves that they are but beasts",
+        "source": "Sources: the BSB, the Hebrew and Greek texts from STEPBible (Tyndale House, Cambridge), and the writers named under each note.",
+        "reviewed_by": [],
+        "layers": [
+          {
+            "kind": "plain meaning",
+            "strength": "widely agreed",
+            "refs": ["Ecclesiastes 3:18"],
+            "evidence": "Rests on the verse's statement that God tests people to show them their state.",
+            "cites": [
+              { "source": "jfb", "on": "Ecclesiastes 3:18" }
+            ],
+            "text": "Solomon reflects that God lets wrongs go on for a time in order to test people, so that they will see that, as mortal creatures, they are frail and die just like the animals."
+          },
+          {
+            "kind": "wordplay",
+            "strength": "commonly held",
+            "refs": ["Ecclesiastes 3:18"],
+            "words": [
+              { "ref": "Ecclesiastes 3:18", "strong": "H1992" }
+            ],
+            "evidence": "Bullinger lists this verse under Epizeuxis (duplication), rendering it they, even they are like beasts, and says the figure increases the emphasis. The Pulpit Commentary also takes the doubled pronoun as emphatic.",
+            "cites": [
+              { "source": "bullinger-fos", "on": "Ecclesiastes 3:18", "at": "under Epizeuxis (Duplication)", "url": "https://archive.org/details/figuresofspeechu00bull/page/n248/mode/1up" },
+              { "source": "pulpit", "on": "Ecclesiastes 3:18" }
+            ],
+            "text": "The Hebrew behind they are but beasts says they twice (shehem behemah hemmah, that they are beasts, they). Repeating the pronoun is a figure of emphasis: they, even they, mortal people, are like the animals."
+          },
+          {
+            "kind": "wordplay",
+            "strength": "some interpreters",
+            "refs": ["Ecclesiastes 3:18"],
+            "words": [
+              { "ref": "Ecclesiastes 3:18", "strong": "H0929" },
+              { "ref": "Ecclesiastes 3:18", "strong": "H1992" }
+            ],
+            "evidence": "Keil and Delitzsch say hemmah takes up behemah as an echo and completes the comparison, a play upon words that accompanies the thought.",
+            "cites": [
+              { "source": "keil-delitzsch", "on": "Ecclesiastes 3:18" }
+            ],
+            "text": "The second they (hemmah) also echoes the sound of the word for beasts (behemah), a play on words that rounds off the comparison of people with animals."
+          }
+        ]
+      }
+    },
+    {
+      "id": "ecclesiastes-3-20",
+      "why": "Its allusion note (Genesis 3:19) rested on the Companion Bible and the Pulpit Commentary, and its plain meaning on Keil and Delitzsch. With those two left out on Ecclesiastes, only Bullinger states the echo, so no note goes beyond \"some interpreters\". Gill, Henry and Poole state the plain meaning, and could carry it if the passage returns. On Ecclesiastes 3:20, none of Gill, Henry, Poole, Benson, Fausset, Clarke, Wesley, the Geneva notes or W. T. Bullock (Barnes' Notes) points the verse to Genesis 3:19; on Genesis 3:19, none of Gill, Henry, Poole, James G. Murphy (Barnes' Notes), Jamieson, Clarke, Benson, Wesley, C. F. Keil, the Geneva notes or the Companion Bible points back to it (Gill, Poole and the Companion Bible point to Ecclesiastes 12:7). All were read on 2026-10-24. The readings are in left_out.held_reads of docs/evidence/layers-reads-2026-10-24.json.",
+      "left_out_by": "keil-delitzsch and pulpit on Ecclesiastes",
+      "passage": {
+        "id": "ecclesiastes-3-20",
+        "section": "prophets-poetry",
+        "ref": "Ecclesiastes 3:20",
+        "saying": "all come from dust, and all return to dust",
+        "source": "Sources: the BSB, the Hebrew and Greek texts from STEPBible (Tyndale House, Cambridge), and the writers named under each note.",
+        "reviewed_by": [],
+        "layers": [
+          {
+            "kind": "plain meaning",
+            "strength": "widely agreed",
+            "refs": ["Ecclesiastes 3:20"],
+            "evidence": "Rests on the verse's plain words about the grave and the dust.",
+            "cites": [
+              { "source": "keil-delitzsch", "on": "Ecclesiastes 3:20" }
+            ],
+            "text": "People and animals end up in the same place, the grave. All were formed from the dust, and at death all their bodies go back to the dust."
+          },
+          {
+            "kind": "allusion",
+            "strength": "commonly held",
+            "refs": ["Ecclesiastes 3:20", "Genesis 3:19"],
+            "words": [
+              { "ref": "Ecclesiastes 3:20", "strong": "H6083" },
+              { "ref": "Ecclesiastes 3:20", "strong": "H7725G" },
+              { "ref": "Genesis 3:19", "strong": "H6083" },
+              { "ref": "Genesis 3:19", "strong": "H7725G" }
+            ],
+            "evidence": "The Companion Bible points the phrase turn to dust again first to Genesis 3:19, and the Pulpit Commentary sets Genesis 3:19 first beside all are of the dust. Both verses use afar (dust) and shuv (return).",
+            "cites": [
+              { "source": "bullinger-cb", "on": "Ecclesiastes 3:20", "url": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20OT/page/n921/mode/1up" },
+              { "source": "pulpit", "on": "Ecclesiastes 3:20" }
+            ],
+            "text": "The words all come from dust, and all return to dust echo God's sentence on Adam after the first sin: For dust you are, and to dust you shall return (Genesis 3:19). The same Hebrew words for dust (afar) and return (shuv) are used."
+          }
+        ]
+      }
+    },
+    {
+      "id": "proverbs-1-27",
+      "why": "Its wordplay note rested on Keil and Delitzsch and the Pulpit Commentary. With Delitzsch's Proverbs 1 page left out (its introduction leans toward a poet later than Solomon for 1:7 to 9:18), only the Pulpit Commentary states the sound-play, so no note goes beyond \"some interpreters\". Gill, Clarke, Benson, the Concise Commentary, Matthew Henry, Poole, Fausset, the Geneva notes, E. H. Plumptre (Barnes' Notes), Wesley, J. W. Nutt (Ellicott) and the Companion Bible were read on this verse on 2026-10-24: none states it. The readings are in left_out.held_reads of docs/evidence/layers-reads-2026-10-24.json.",
+      "left_out_by": "keil-delitzsch on Proverbs 1",
+      "passage": {
+        "id": "proverbs-1-27",
+        "section": "prophets-poetry",
+        "ref": "Proverbs 1:27",
+        "saying": "when distress and anguish overwhelm you",
+        "source": "Sources: the BSB, the Hebrew and Greek texts from STEPBible (Tyndale House, Cambridge), and the writers named under each note.",
+        "reviewed_by": [],
+        "layers": [
+          {
+            "kind": "plain meaning",
+            "strength": "widely agreed",
+            "refs": ["Proverbs 1:27"],
+            "evidence": "Rests on the verse's storm and whirlwind pictures of sudden judgment.",
+            "cites": [
+              { "source": "barnes", "on": "Proverbs 1:27" }
+            ],
+            "text": "Wisdom warns that those who refuse her will be overtaken by sudden ruin. Dread will come on them like a storm and disaster like a whirlwind, with distress and anguish pressing in."
+          },
+          {
+            "kind": "wordplay",
+            "strength": "commonly held",
+            "refs": ["Proverbs 1:27"],
+            "words": [
+              { "ref": "Proverbs 1:27", "strong": "H6869B" },
+              { "ref": "Proverbs 1:27", "strong": "H6695B" }
+            ],
+            "evidence": "Keil and Delitzsch call tsarah and tsuqah alliterating words, meaning narrowness and distress, and note that Proverbs is fond of such sound-rhymes.",
+            "cites": [
+              { "source": "keil-delitzsch", "on": "Proverbs 1:27" },
+              { "source": "pulpit", "on": "Proverbs 1:27" }
+            ],
+            "text": "Distress and anguish renders two Hebrew words that open with the same sound, tsa-rah and tsu-qah. The first pictures a narrow, cramped place and the second pressing distress; some hear the matching sounds as driving the warning home."
+          }
+        ]
+      }
+    }
+  ]
+}

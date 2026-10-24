@@ -13,17 +13,18 @@
 //!    is in those verses; the `original` note names its language ("In
 //!    Hebrew", and for a Gospel "In Matthew's Greek");
 //! 4. every note cites at least one interpreter on the cite list in
-//!    `config/layer-sources.json` (a work whose role is "interpreter"), each
-//!    citation with the writer's own words, and only works listed as
+//!    `config/layer-sources.json` (a source whose role is "interpreter"),
+//!    each citation with the writer's own words, and only sources listed as
 //!    `quotable` in the forms file may be quoted: public-domain works whose
-//!    words are their named writer's own, in a copy free to quote. A work
-//!    written by several hands (`multi_writer` in the forms file) names the
-//!    writer of the quoted part in the cite's own `by` (decision 10), and a
-//!    work whose writer wrote only some books (`only_on`) is quoted only on
-//!    those. Its strength is the number of different interpreters it cites
-//!    (3 or more "widely agreed", 2 "commonly held", 1 "some interpreters"),
-//!    works by one writer counting once as `same_writer` in the forms file
-//!    says;
+//!    words are their writer's own, in a copy free to quote. The cite list
+//!    says who wrote a source's words on each book (decision 10), as Layers'
+//!    credits do: a cite names no writer itself, words whose writer is not
+//!    known or no longer cited are not quoted, and neither are words the cite
+//!    list's `denies` leaves out. Each cite links the page it quotes: Bible
+//!    Hub's chapter page, the source's own chapter page, or its `url`, never
+//!    a whole work or site. Its strength is the number of different writers
+//!    among the interpreters it cites (3 or more "widely agreed", 2 "commonly
+//!    held", 1 "some interpreters"), two works by one writer counting once;
 //! 5. a note's own words (`short`, `about`, `limit`, the figure, the sides and
 //!    the `original` note) name no writer: sources and what they say go in
 //!    `evidence` and in the citations;
@@ -58,14 +59,20 @@
 //!   roots may be Hebrew or Aramaic (H) or Greek (G), the note names the
 //!   language itself ("In Hebrew", "In Matthew's Greek"), and `words` lists
 //!   every place a root occurs as `[verse, word position, lemma index]`. A
-//!   cite is `{name, by, work, when, on, url, quote, read, retrieved, at?}`:
-//!   `name` is the writer or work and is always shown, `by` who wrote the
-//!   quoted words (the cite's own `by`, or else the cite list's),
-//!   `work` and `when` the work and its first publication, `quote` the
-//!   writer's own words, `read` and `retrieved` the edition or site they were
-//!   read from and the date (decision 10), and `at` reads "Work (year), place
-//!   in it". `defined` carries the same credit fields.
+//!   cite is `{name, by, writer, about?, named, work, when, edition?, label?,
+//!   key, on, url, quote, read, retrieved, at?}`: `name` is the source as the
+//!   cite list names it and is always shown, `writer` who wrote the quoted
+//!   words on that book and `about` who he was (`by` is the two together,
+//!   "Franz Delitzsch, German Lutheran professor of theology and Hebraist"),
+//!   `named` "named" or "attributed", `work` and `when` the work as credited
+//!   and its original date, `edition` the translator or edition read, `label`
+//!   the name the site gives the words when it credits someone else, `key`
+//!   the writer the note's strength counts, `quote` the writer's own words,
+//!   `read` and `retrieved` the edition or site they were read from and the
+//!   date (decision 10), and `at` reads "Work (date), place in it".
+//!   `defined` carries the same credit fields but `on`.
 
+use crate::layers::{CiteList, Listed};
 use crate::loaded::Loaded;
 use crate::parse::WordsByVerse;
 use atlas_core::{refs, Versification, BOOKS};
@@ -129,20 +136,14 @@ const QUOTE_MIN_WORDS: usize = 4;
 const PART_BYTES: usize = 500_000;
 
 #[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 struct FormsFile {
+    #[serde(default, rename = "_comment")]
+    _comment: Vec<String>,
     forms: Vec<Form>,
-    same_writer: Vec<Vec<String>>,
     /// Cite-list ids whose words may be shown: public-domain works whose words
-    /// are their named writer's own, in a copy free to quote.
+    /// are their writer's own, in a copy free to quote.
     quotable: Vec<String>,
-    /// Cite-list ids written by several hands: a cite of one names the writer
-    /// of the quoted part in its own `by`.
-    #[serde(default)]
-    multi_writer: Vec<String>,
-    /// Cite-list ids whose named writer wrote only some books, to the books
-    /// they may be quoted on: a book name, or "First to Last" for a run.
-    #[serde(default)]
-    only_on: BTreeMap<String, Vec<String>>,
 }
 
 #[derive(Deserialize)]
@@ -162,12 +163,13 @@ struct Form {
 #[serde(deny_unknown_fields)]
 struct Defined {
     source: String,
-    /// Who wrote these words, where the cite list's `by` names several
-    /// writers or a set's editors.
+    /// The work, for a source the cite list credits by its works.
     #[serde(default)]
-    by: Option<String>,
+    work: Option<String>,
     quote: String,
     at: String,
+    /// The page the words are on.
+    url: String,
     /// The edition or site the words were read from.
     read: String,
     /// The date they were read there, as 2026-10-21.
@@ -261,51 +263,21 @@ struct Original {
 #[serde(deny_unknown_fields)]
 struct Cite {
     source: String,
-    /// Who wrote these words, where the cite list's `by` names several
-    /// writers or a set's editors (decision 10).
+    /// The work, for a source the cite list credits by its works.
     #[serde(default)]
-    by: Option<String>,
+    work: Option<String>,
     on: String,
     #[serde(default)]
     at: Option<String>,
+    /// The page the words are on, where the cite list's chapter pages do not
+    /// reach it.
+    #[serde(default)]
+    url: Option<String>,
     quote: String,
     /// The edition or site the quote was read from.
     read: String,
     /// The date it was read there, as 2026-10-21.
     retrieved: String,
-}
-
-/// What this module reads from `config/layer-sources.json`; the Layers build
-/// checks the rest of that file.
-#[derive(Deserialize)]
-struct SourceFile {
-    cite: Vec<CiteSource>,
-    avoid: Vec<Avoid>,
-}
-
-#[derive(Deserialize)]
-struct CiteSource {
-    id: String,
-    role: String,
-    name: String,
-    title: String,
-    by: String,
-    when: String,
-    why: String,
-    #[serde(default)]
-    biblehub: Option<String>,
-    #[serde(default)]
-    url: Option<String>,
-    #[serde(default)]
-    not_on: Vec<String>,
-}
-
-#[derive(Deserialize)]
-struct Avoid {
-    name: String,
-    #[serde(rename = "match")]
-    names: Vec<String>,
-    why: String,
 }
 
 /// What the checks read from the rest of the build.
@@ -320,16 +292,10 @@ pub struct Sources<'a> {
 
 struct Check<'a> {
     src: &'a Sources<'a>,
-    cite: &'a SourceFile,
+    cite: &'a CiteList,
     forms: &'a BTreeMap<String, Form>,
-    /// Cite-list id to the id its writer counts as.
-    writer: HashMap<&'a str, &'a str>,
     /// Cite-list ids whose words may be shown.
     quotable: BTreeSet<&'a str>,
-    /// Cite-list ids whose cites name their part's writer.
-    multi_writer: BTreeSet<&'a str>,
-    /// Cite-list id to the runs of books (first, last) it may be quoted on.
-    only_on: HashMap<&'a str, Vec<(u8, u8)>>,
     /// Names a note's own words may not carry.
     writer_names: Vec<String>,
     errors: Vec<String>,
@@ -389,9 +355,9 @@ impl<'a> Check<'a> {
     /// Fail if `s` names a source on the avoid list.
     fn avoid(&mut self, at: &str, field: &str, s: &str) {
         let cite = self.cite;
-        for a in &cite.avoid {
-            if let Some(n) = a.names.iter().find(|n| names(s, n)) {
-                self.fail(at, format_args!("{field} names {n:?} ({}), which may not be cited: {}", a.name, a.why));
+        for (name, spellings, why) in cite.avoid() {
+            if let Some(n) = spellings.iter().find(|n| names(s, n)) {
+                self.fail(at, format_args!("{field} names {n:?} ({name}), which may not be cited: {why}"));
             }
         }
     }
@@ -406,9 +372,9 @@ impl<'a> Check<'a> {
     }
 
     /// A cite-list work whose words this note shows: on the list, and quotable.
-    fn source(&mut self, at: &str, id: &str) -> Option<&'a CiteSource> {
+    fn source(&mut self, at: &str, id: &str) -> Option<Listed<'a>> {
         let cite = self.cite;
-        let Some(s) = cite.cite.iter().find(|s| s.id == id) else {
+        let Some(s) = cite.source(id) else {
             self.fail(at, format_args!("source {id:?} is not on the cite list in {}", crate::layers::SOURCES));
             return None;
         };
@@ -416,7 +382,7 @@ impl<'a> Check<'a> {
             self.fail(at, "the NET translators' notes are linked from Study, never shown");
             return None;
         }
-        if !self.quotable.contains(s.id.as_str()) {
+        if !self.quotable.contains(s.id) {
             self.fail(
                 at,
                 format_args!(
@@ -437,24 +403,71 @@ impl<'a> Check<'a> {
         }
     }
 
-    /// Who wrote the quoted words: the cite's own `by`, required for a work
-    /// by several hands, or else the cite list's.
-    fn by(&mut self, at: &str, s: &CiteSource, by: Option<&str>) -> String {
-        match by {
-            Some(b) => {
-                self.text(at, "by", b, AT_MAX);
-                b.to_string()
+    /// Who wrote a quoted source's words where they are cited, the work and
+    /// its date, and the page they are on (decision 10), as the credit fields
+    /// a cite and a definition share; with the writer key a note's strength
+    /// counts. `on` is the passage the words are on, if any.
+    fn credit(&mut self, at: &str, s: Listed<'a>, on: Option<(u32, u32)>, work: Option<&str>, url: Option<&str>) -> Option<(Value, String)> {
+        let place = on.and_then(|(start, _)| self.src.vz.locate(start));
+        let book = place.map(|(b, _, _)| BOOKS[b as usize].name);
+        let who = match self.cite.who_wrote(s.id, book, place.map_or(0, |(_, c, _)| c), work) {
+            Ok(w) => w,
+            Err(e) => {
+                self.fail(at, format_args!("{}: {e}", s.name));
+                return None;
             }
-            None => {
-                if self.multi_writer.contains(s.id.as_str()) {
-                    self.fail(
-                        at,
-                        format_args!("{} was written by several hands; name the writer of the quoted part in by (decision 10)", s.name),
-                    );
+        };
+        if who.named == "unnamed" {
+            self.fail(at, format_args!("{}'s words here are by {}, whom no one has named; quote a named writer's own words (decision 10)", s.name, who.writer));
+            return None;
+        }
+        if let Some(b) = book.filter(|b| s.not_on.iter().any(|x| x == b)) {
+            self.fail(at, format_args!("{} is not cited on {b}: {}", s.name, s.why));
+            return None;
+        }
+        if let Some((s0, e0)) = on {
+            let denied: Vec<(String, String)> = self.cite.denials(s.id).map(|(o, why)| (o.to_string(), why)).collect();
+            for (o, why) in denied {
+                if self.range(at, &o).is_some_and(|(a, z)| a <= e0 && s0 <= z) {
+                    self.fail(at, format_args!("{}'s words on {o} are left out: {why}", s.name));
+                    return None;
                 }
-                s.by.clone()
             }
         }
+        let link = match url {
+            Some(u) => {
+                self.text(at, "url", u, READ_MAX);
+                Some(u.to_string())
+            }
+            None => place.and_then(|(b, c, _)| self.cite.chapter_page(s.id, b, c)),
+        };
+        let Some(link) = link else {
+            self.fail(at, format_args!("{} has no chapter page here: give the page the words are on in url", s.name));
+            return None;
+        };
+        if !link.starts_with("https://") || self.cite.home_page(s.id, &link) {
+            self.fail(at, format_args!("{link} must be an https link to the page the words are on, not a whole work or site"));
+            return None;
+        }
+        let by = match &who.about {
+            Some(a) if !who.several => format!("{}, {a}", who.writer),
+            _ => who.writer.clone(),
+        };
+        let mut x = json!({
+            "name": s.name, "by": by, "writer": who.writer, "named": who.named, "work": who.work, "when": who.written,
+            "key": who.key, "url": link,
+        });
+        for (k, v) in [("about", &who.about), ("edition", &who.edition), ("label", &who.label)] {
+            if let Some(v) = v {
+                x[k] = json!(v);
+            }
+        }
+        Some((x, who.key))
+    }
+
+    /// "Work (date), place in it", as `defined.at` and Layers' citations read.
+    fn place(credit: &Value, at: &str) -> String {
+        format!("{} ({}), {at}", credit["work"].as_str().unwrap_or_default(), credit["when"].as_str().unwrap_or_default())
     }
 
     fn defined(&mut self, at: &str, d: &Defined) -> Option<Value> {
@@ -462,15 +475,12 @@ impl<'a> Check<'a> {
         self.text(at, "defined at", &d.at, AT_MAX);
         self.read(at, &d.read, &d.retrieved);
         let s = self.source(at, &d.source)?;
-        let by = self.by(at, s, d.by.as_deref());
-        let Some(url) = s.url.as_deref() else {
-            self.fail(at, format_args!("{} has no link of its own for a definition", s.name));
-            return None;
-        };
-        Some(json!({
-            "name": s.name, "by": by, "work": s.title, "when": s.when, "quote": d.quote, "at": place(s, &d.at),
-            "url": url, "read": d.read, "retrieved": d.retrieved,
-        }))
+        let (mut x, _) = self.credit(at, s, None, d.work.as_deref(), Some(&d.url))?;
+        x["quote"] = json!(d.quote);
+        x["at"] = json!(Self::place(&x, &d.at));
+        x["read"] = json!(d.read);
+        x["retrieved"] = json!(d.retrieved);
+        Some(x)
     }
 
     fn note(&mut self, book: u8, n: &Note) -> Option<Value> {
@@ -714,38 +724,17 @@ impl<'a> Check<'a> {
             self.read(&cat, &c.read, &c.retrieved);
             let on = self.range(&cat, &c.on);
             let Some(s) = self.source(&cat, &c.source) else { continue };
-            let by = self.by(&cat, s, c.by.as_deref());
+            let Some(on) = on else { continue };
+            let Some((mut x, key)) = self.credit(&cat, s, Some(on), c.work.as_deref(), c.url.as_deref()) else { continue };
             if s.role == INTERPRETER {
-                writers.insert(self.writer.get(s.id.as_str()).copied().unwrap_or(s.id.as_str()));
+                writers.insert(key);
             }
-            if let Some((b, _, _)) = on.and_then(|(start, _)| self.src.vz.locate(start)) {
-                let book = BOOKS[b as usize].name;
-                if s.not_on.iter().any(|x| x == book) {
-                    self.fail(&cat, format_args!("{} is not cited on {book}: {}", s.name, s.why));
-                }
-                if self.only_on.get(s.id.as_str()).is_some_and(|runs| !runs.iter().any(|&(f, l)| (f..=l).contains(&b))) {
-                    self.fail(
-                        &cat,
-                        format_args!("{} is quoted only on the books its named writer wrote ({FORMS}, only_on), not on {book}", s.name),
-                    );
-                }
-            }
-            let url = s
-                .biblehub
-                .as_deref()
-                .zip(on.and_then(|(start, _)| self.src.vz.locate(start)))
-                .map(|(code, (b, chapter, _))| biblehub(code, b, chapter))
-                .or_else(|| s.url.clone());
-            let Some(url) = url else {
-                self.fail(&cat, format_args!("{} has no link", s.name));
-                continue;
-            };
-            let mut x = json!({
-                "name": s.name, "by": by, "work": s.title, "when": s.when, "on": c.on, "url": url, "quote": c.quote,
-                "read": c.read, "retrieved": c.retrieved,
-            });
+            x["on"] = json!(c.on);
+            x["quote"] = json!(c.quote);
+            x["read"] = json!(c.read);
+            x["retrieved"] = json!(c.retrieved);
             if let Some(a) = &c.at {
-                x["at"] = json!(place(s, a));
+                x["at"] = json!(Self::place(&x, a));
             }
             cites.push(x);
         }
@@ -832,67 +821,26 @@ impl<'a> Check<'a> {
 /// web/public/data, as (path, bytes).
 pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, String> {
     let read = |rel: &str| fs::read_to_string(root.join(rel)).map_err(|e| format!("reading {rel}: {e}"));
-    let cite: SourceFile = serde_json::from_str(&read(crate::layers::SOURCES)?)
-        .map_err(|e| format!("parsing {}: {e}", crate::layers::SOURCES))?;
+    let cite = CiteList::read(root)?;
     let forms_file: FormsFile = serde_json::from_str(&read(FORMS)?).map_err(|e| format!("parsing {FORMS}: {e}"))?;
 
     let mut errors = Vec::new();
-    let mut writer: HashMap<&str, &str> = HashMap::new();
-    for group in &forms_file.same_writer {
-        for id in group {
-            if !cite.cite.iter().any(|s| &s.id == id) {
-                errors.push(format!("{FORMS}: same_writer names {id:?}, which is not on the cite list"));
-            }
-            if writer.insert(id.as_str(), group[0].as_str()).is_some() {
-                errors.push(format!("{FORMS}: same_writer lists {id:?} twice"));
-            }
-        }
-    }
     let mut quotable = BTreeSet::new();
     for id in &forms_file.quotable {
         if id == "net-notes" {
             errors.push(format!("{FORMS}: quotable lists net-notes, whose notes are linked, never shown"));
-        } else if !cite.cite.iter().any(|s| &s.id == id) {
+        } else if cite.source(id).is_none() {
             errors.push(format!("{FORMS}: quotable names {id:?}, which is not on the cite list"));
         }
         if !quotable.insert(id.as_str()) {
             errors.push(format!("{FORMS}: quotable lists {id:?} twice"));
         }
     }
-    let mut multi_writer = BTreeSet::new();
-    for id in &forms_file.multi_writer {
-        if !cite.cite.iter().any(|s| &s.id == id) {
-            errors.push(format!("{FORMS}: multi_writer names {id:?}, which is not on the cite list"));
-        }
-        if !multi_writer.insert(id.as_str()) {
-            errors.push(format!("{FORMS}: multi_writer lists {id:?} twice"));
-        }
-    }
-    let mut only_on: HashMap<&str, Vec<(u8, u8)>> = HashMap::new();
-    for (id, books) in &forms_file.only_on {
-        if !quotable.contains(id.as_str()) {
-            errors.push(format!("{FORMS}: only_on names {id:?}, which is not quotable"));
-        }
-        let mut runs = Vec::new();
-        for b in books {
-            match book_run(b) {
-                Some(r) => runs.push(r),
-                None => errors.push(format!("{FORMS}: only_on {id:?} has {b:?}, which is not a book or a run \"First to Last\"")),
-            }
-        }
-        if runs.is_empty() {
-            errors.push(format!("{FORMS}: only_on {id:?} lists no books"));
-        }
-        only_on.insert(id.as_str(), runs);
-    }
     // Every name on the cite list but the BSB's (the app's own text), less any
     // leading "the", and the names in WRITERS, with ’ written as '.
     let mut writer_names: Vec<String> = cite
-        .cite
-        .iter()
-        .filter(|s| s.id != "bsb")
-        .map(|s| {
-            let n = s.name.as_str();
+        .names()
+        .map(|n| {
             let n = if n.get(..4).is_some_and(|p| p.eq_ignore_ascii_case("the ")) { &n[4..] } else { n };
             n.replace('\u{2019}', "'")
         })
@@ -905,7 +853,7 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
         }
         forms.insert(f.id.clone(), f);
     }
-    let mut check = Check { src, cite: &cite, forms: &forms, writer, quotable, multi_writer, only_on, writer_names, errors };
+    let mut check = Check { src, cite: &cite, forms: &forms, quotable, writer_names, errors };
     let mut form_index = serde_json::Map::new();
     for f in forms.values() {
         let at = format!("{FORMS}: form {:?}", f.id);
@@ -1052,7 +1000,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         KINDS.iter().any(|(k, _)| f["kind"] == *k)
             && ["label", "term", "about"].iter().all(|k| f[k].as_str().is_some_and(|s| !s.is_empty()))
             && (f.get("defined").is_none()
-                || (["name", "by", "work", "when", "quote", "at", "read"].iter().all(|k| f["defined"][k].as_str().is_some_and(|s| !s.is_empty()))
+                || (["name", "by", "writer", "work", "when", "key", "quote", "at", "read"].iter().all(|k| f["defined"][k].as_str().is_some_and(|s| !s.is_empty()))
                     && f["defined"]["retrieved"].as_str().is_some_and(date_ok)
                     && f["defined"]["url"].as_str().is_some_and(|u| u.starts_with("https://"))))
     });
@@ -1187,7 +1135,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 cites_ok &= x["cites"].as_array().is_some_and(|cs| {
                     !cs.is_empty()
                         && cs.iter().all(|c| {
-                            ["name", "by", "work", "when", "on", "quote", "read"].iter().all(|k| c[k].as_str().is_some_and(|s| !s.is_empty()))
+                            ["name", "by", "writer", "work", "when", "key", "on", "quote", "read"].iter().all(|k| c[k].as_str().is_some_and(|s| !s.is_empty()))
+                                && (c["named"] == "named" || c["named"] == "attributed")
                                 && c["retrieved"].as_str().is_some_and(date_ok)
                                 && c["url"].as_str().is_some_and(|u| u.starts_with("https://"))
                                 && (c.get("at").is_none() || c["at"].as_str().is_some_and(|a| a.contains("), ")))
@@ -1209,7 +1158,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         ),
         (spans_ok, "every figure note's other passages are real verses, and each side of a contrast names its person and quotes its verses".to_string()),
         (roots_ok, "every original-language note points at words of the roots it names, in its own verses' word lists, and every root it names has a word".to_string()),
-        (cites_ok, "every figure note cites a writer, with his words and a link".to_string()),
+        (cites_ok, "every figure note cites a named writer, with his words, the work and its date, and a link".to_string()),
         (known && count >= 5, format!("Psalm 1:6's opposite lines are marked at the BSB's own words, and {count} figure notes were written (at least 5)")),
         (size < 100_000, format!("extras/figures.json is {size} bytes, expected under 100,000")),
         (largest < 1_500_000, format!("the largest file of figure notes is {largest} bytes, expected under 1,500,000")),
@@ -1232,12 +1181,6 @@ fn date_ok(s: &str) -> bool {
         && b.iter().enumerate().all(|(i, c)| if i == 4 || i == 7 { *c == b'-' } else { c.is_ascii_digit() })
         && (1..=12).contains(&s[5..7].parse::<u8>().unwrap_or(0))
         && (1..=31).contains(&s[8..10].parse::<u8>().unwrap_or(0))
-}
-
-/// Where in a cited work: "Work (year), place in it", as `defined.at` and
-/// Layers' citations read.
-fn place(s: &CiteSource, at: &str) -> String {
-    format!("{} ({}), {}", s.title, s.when, at)
 }
 
 /// The credit to a drafting tool that `s` carries, if any. Words split at
@@ -1316,16 +1259,6 @@ fn strong_ok(s: &str) -> bool {
 /// Does the lemma `key` ("H1870L") belong to the root `strong` ("H1870")?
 fn lemma_matches(key: &str, strong: &str) -> bool {
     key == strong || (key.len() == strong.len() + 1 && key.starts_with(strong) && key.as_bytes()[strong.len()].is_ascii_alphabetic())
-}
-
-/// Bible Hub's chapter page for a commentary: every book by its name in snake
-/// case, except the Song of Solomon ("songs"), as `layers.rs` builds them.
-fn biblehub(code: &str, book: u8, chapter: u16) -> String {
-    let slug = match BOOKS[book as usize].name {
-        "Song of Solomon" => "songs".to_string(),
-        name => name.to_lowercase().replace(' ', "_"),
-    };
-    format!("https://biblehub.com/commentaries/{code}/{slug}/{chapter}.htm")
 }
 
 fn utf16_len(s: &str) -> usize {
@@ -1442,15 +1375,6 @@ fn language_missing(note: &str, strong: &[String], osis: &str) -> Option<String>
     None
 }
 
-/// A book by its name, or a run "First to Last", as (first, last) book indices.
-fn book_run(s: &str) -> Option<(u8, u8)> {
-    let index = |name: &str| BOOKS.iter().position(|b| b.name == name).map(|i| i as u8);
-    match s.split_once(" to ") {
-        Some((a, z)) => index(a).zip(index(z)).filter(|(a, z)| a <= z),
-        None => index(s).map(|i| (i, i)),
-    }
-}
-
 /// "ESV" as a whole word, in any case.
 fn mentions_esv(s: &str) -> bool {
     s.split(|c: char| !c.is_alphanumeric()).any(|w| w.eq_ignore_ascii_case("esv"))
@@ -1508,14 +1432,6 @@ mod tests {
     }
 
     #[test]
-    fn links_bible_hub_chapters() {
-        let song = BOOKS.iter().position(|b| b.name == "Song of Solomon").unwrap() as u8;
-        let sam = BOOKS.iter().position(|b| b.osis == "1Sam").unwrap() as u8;
-        assert_eq!(biblehub("gill", song, 2), "https://biblehub.com/commentaries/gill/songs/2.htm");
-        assert_eq!(biblehub("kad", sam, 1), "https://biblehub.com/commentaries/kad/1_samuel/1.htm");
-    }
-
-    #[test]
     fn matches_quotes_like_layers() {
         let t = normalize("For the LORD guards the path of the righteous, but the way of the wicked will perish.");
         assert!(contains(&t, "the way of the wicked will perish"));
@@ -1558,16 +1474,6 @@ mod tests {
         assert_eq!(language_missing("In Greek the word is machaira", &g, "Matt").as_deref(), Some("In Matthew's Greek"));
         assert_eq!(language_missing("In Matthew\u{2019}s Greek the word is machaira", &g, "Matt"), None);
         assert_eq!(language_missing("In Paul's Greek the word is agape", &g, "Rom"), None);
-    }
-
-    #[test]
-    fn reads_runs_of_books() {
-        let gen = BOOKS.iter().position(|b| b.name == "Genesis").unwrap() as u8;
-        let acts = BOOKS.iter().position(|b| b.name == "Acts").unwrap() as u8;
-        assert_eq!(book_run("Genesis to Acts"), Some((gen, acts)));
-        assert_eq!(book_run("Psalms").map(|r| r.0 == r.1), Some(true));
-        assert_eq!(book_run("Acts to Genesis"), None);
-        assert_eq!(book_run("Psalm"), None);
     }
 
     #[test]

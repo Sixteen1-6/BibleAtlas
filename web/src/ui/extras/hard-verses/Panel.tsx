@@ -55,7 +55,7 @@ function CardView({ a, c, verse, navigate }: { a: Atlas; c: Card; verse: VerseRe
     <article class="x-hard-verses-card">
       <h3 class="x-hard-verses-q">
         {c.question}
-        {c.draft && <Unsure title="Not yet reviewed by a person">draft</Unsure>}
+        {c.draft && <Unsure title="Draft: shown only in preview builds">draft</Unsure>}
       </h3>
       <Lead>{smart(c.answer)}</Lead>
       <SideBySide>
@@ -131,7 +131,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       ))}
       <GoDeeper to="study">How Christians explain it</GoDeeper>
       <CommentaryFoot />
-      <SourceNote>Answers written for this app with AI help, from the Bible (BSB), and reviewed by a person before they are shown.</SourceNote>
+      <SourceNote>Answers written for this app from the Bible (BSB), and reviewed by a person before they are shown.</SourceNote>
     </>
   );
 }

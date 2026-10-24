@@ -19,7 +19,7 @@ import './shelf.css';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { Atlas, SourceMeta } from '../data/atlas';
 import { ESV_ENABLED } from '../data/esv';
-import { type Cited, type Shelf, type Work, licenseWords, useShelf, workFor } from '../data/shelf';
+import { type Cited, type HowWeKnow, type Shelf, type Work, type WriterRow, licenseWords, useShelf, workFor } from '../data/shelf';
 import { type Depth, atLeast } from '../depth';
 import * as S from '../state';
 import { ASKS, useGate } from './commentary/Gate';
@@ -325,6 +325,7 @@ function Card({ a, shelf, w, open, study, deep }: { a: Atlas; shelf: Shelf; w: W
           {w.license === 'copyrighted' && w.licenseNote && <p class="muted shelf-note">{w.licenseNote}</p>}
           <Actions w={w} canRead={!!dict || w.read?.app !== 'dictionary'} />
           <CitedIn a={a} w={w} />
+          {study && w.writers && w.writers.length > 0 && <Writers w={w} />}
           {study &&
             datasets.map((s) => (
               <p key={s.id} class="shelf-provides">
@@ -429,6 +430,177 @@ function CitedIn({ a, w }: { a: Atlas; w: Work }) {
         );
       })}
     </>
+  );
+}
+
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+/** "2026-10-20" as "20 October 2026". */
+function longDate(iso: string): string {
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+
+/** A reference as a reader reads it: "Psalm 118:14", not "Psalms 118:14". */
+const refWords = (on: string) => on.replace(/^Psalms /, 'Psalm ');
+
+/** "Psalm 86, Proverbs 1 and Ecclesiastes". */
+const andList = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
+
+/** Where the naming words are: "the title page of the printed volume", "the
+ * page's credit line", "the list of the continuation's writers in Edmund
+ * Calamy's account ...". Null when nothing names the writer, or when there is
+ * no scan or page a reader can open to check the words. */
+function namedWhere(n: HowWeKnow['named_by']): string | null {
+  if (!n.leaf || !(n.scan || n.page)) return null;
+  if (n.of) return `the ${n.leaf} ${n.leaf.includes(' of ') ? 'in' : 'of'} ${n.of}`;
+  if (n.scan) return n.leaf === 'library record' ? 'the library record of the scan' : `the ${n.leaf} of the printed volume`;
+  return `the page's ${n.leaf}`;
+}
+
+/** Whether a leaf is more than one thing ("title pages", "opening lines"), for the verb. */
+function plural(leaf: string): boolean {
+  const head = leaf.split(' of ')[0].replace(/\s*\(.*\)$/, '').split(' ').pop() ?? '';
+  return head.endsWith('s') && !head.endsWith("'s");
+}
+
+/** Who names the writer, in words true of the row: "The title page of the
+ * printed volume names the writer: “…”", "The page's credit line says: “…”"
+ * when the words name no one, "The page names no writer." */
+function NamedSentence({ row, h }: { row: WriterRow; h: HowWeKnow }) {
+  const n = h.named_by;
+  const link = n.scan ? `https://archive.org/details/${n.scan}` : n.page;
+  const writers = row.writer.includes(' and ') ? 'writers' : 'writer';
+  const linked = (words: string) =>
+    link ? (
+      <a href={link} target="_blank" rel="noopener">
+        {words}
+      </a>
+    ) : (
+      words
+    );
+  const where = namedWhere(n);
+  if (!where) {
+    if (!n.page) return null;
+    const read = n.read ? ` (read ${longDate(n.read)})` : '';
+    if (h.level === 'none' || !n.names) return <>{linked('The page')} names no writer{read}. </>;
+    return <>{linked('The page')} names its {writers}{read}. </>;
+  }
+  const many = plural(n.leaf!);
+  const verb = n.names ? `${many ? 'name' : 'names'} the ${writers}` : many ? 'say' : 'says';
+  const ends = /[.!?]["'”’]?$/.test(n.words);
+  return (
+    <>
+      {linked(where[0].toUpperCase() + where.slice(1))}
+      {` ${verb}: “${n.words}”`}
+      {n.read ? ` (read ${longDate(n.read)}).` : ends ? '' : '.'}{' '}
+    </>
+  );
+}
+
+/** How many of the comments the app cites from the part were found in the
+ * printed commentary, each comment counted once however many notes cite it,
+ * with subject and verb agreeing. Nothing when none was found: the note says why. */
+function countWords(c: NonNullable<HowWeKnow['count']>): string | null {
+  if (!c.found) return null;
+  const from = c.of === 'book' ? 'this book' : c.of === 'books' ? 'these books' : 'these chapters';
+  const when = longDate(c.on);
+  const chapter = !c.chapter ? '' : c.found === 1 ? ' (only as part of the whole chapter)' : ` (${c.chapter === 1 ? 'one' : c.chapter} of them only as part of the whole chapter)`;
+  if (c.checked < c.comments) {
+    const found = c.found === c.checked ? (c.checked === 1 ? 'it was' : c.checked === 2 ? 'both were' : `all ${c.checked} were`) : `${c.found} of them ${c.found === 1 ? 'was' : 'were'}`;
+    return `Of the ${c.comments} comments the app cites from ${from}, ${c.checked} ${c.checked === 1 ? 'was' : 'were'} checked against the printed commentary on ${when}, and ${found} found in it${chapter}.`;
+  }
+  const subject =
+    c.comments === 1 ? `The one comment the app cites from ${from} was` : c.found === c.comments ? `${c.comments === 2 ? 'Both' : `All ${c.comments}`} comments the app cites from ${from} were` : `Of the ${c.comments} comments the app cites from ${from}, ${c.found} ${c.found === 1 ? 'was' : 'were'}`;
+  return `${subject} found in the printed commentary when checked on ${when}${chapter}.`;
+}
+
+/** How we know who wrote a part: where the writer is named and in what
+ * words, how many of the comments the app cites now were found in the printed
+ * book (or that the site's text was matched to it), one of them to search for,
+ * and what is still weaker or missing. A writer the notes no longer cite gets
+ * only the words that name him. */
+function HowWeKnowLine({ row }: { row: WriterRow }) {
+  const h = row.how;
+  if (!h) return null;
+  const named = <NamedSentence row={row} h={h} />;
+  const hasNamed = !!namedWhere(h.named_by) || !!h.named_by.page;
+  const count = h.count ? countWords(h.count) : null;
+  // Where the writer is named in another printing than the one matched, the match says which.
+  const volume = h.matched?.of ?? 'the printed volume';
+  const matched = h.matched ? `The site's text${h.level === 'chapter' ? ' of a chapter of this book' : ''} was matched to ${volume} on ${longDate(h.matched.on)}.` : null;
+  const e = h.example;
+  const example =
+    e && e.words && e.check ? (
+      <>
+        {'For example, '}
+        <a href={e.page} target="_blank" rel="noopener">
+          its comment on {refWords(e.on)}
+        </a>
+        {` has the words “${e.words}”${e.read ? ` (read ${longDate(e.read)})` : ''}. `}
+        <a href={e.check} target="_blank" rel="noopener">
+          Search {volume} for those words ›
+        </a>{' '}
+      </>
+    ) : e && count ? (
+      <>
+        {'One of them is '}
+        <a href={e.page} target="_blank" rel="noopener">
+          its comment on {refWords(e.on)}
+        </a>
+        .{' '}
+      </>
+    ) : null;
+  if (!hasNamed && !count && !matched && !example && !h.note) return null;
+  return (
+    <p class="shelf-how">
+      <b>How we know: </b>
+      {named}
+      {count && `${count} `}
+      {matched && `${matched} `}
+      {example}
+      {h.note}
+    </p>
+  );
+}
+
+/** Who wrote the words of each part of a work the Layers notes cite. A part
+ * printed without a writer's name says so as the Layers credit line does; a
+ * writer the notes no longer cite, or a part `denies` leaves out, is marked. */
+function Writers({ w }: { w: Work }) {
+  const rows = w.writers ?? [];
+  const says = [...new Map(rows.filter((r) => r.site_says).map((r) => [r.site_says!, r.site!])).entries()];
+  const cap = (x: string) => x[0].toUpperCase() + x.slice(1);
+  return (
+    <div class="shelf-writers">
+      <h4>Who wrote it</h4>
+      {says.map(([s, site]) => (
+        <p key={s} class="muted">
+          The app reads it on a site that files it as “{site}”, with the credit line “{s}”{/[.!?]$/.test(s) ? '' : '.'} Each part below names who wrote the words.
+        </p>
+      ))}
+      <ul>
+        {rows.map((r, i) => (
+          <li key={i}>
+            {(w.layer?.length ?? 0) > 1 && r.work && !r.books && <i>{r.work}: </i>}
+            {r.books && <b>{cap(r.books)}: </b>}
+            {r.named === 'attributed'
+              ? `${r.books ? 'printed' : 'Printed'} without a writer's name and generally credited to ${r.writer}`
+              : r.named === 'unnamed'
+                ? cap(r.writer)
+                : r.writer}
+            {r.about && ` (${r.about})`}
+            {r.volume && `, ${r.volume}`}
+            {r.edition && `, ${r.edition}`}
+            {`, ${r.written}.`}
+            {r.excluded && ' No longer cited.'}
+            {!r.excluded && r.left_out && (r.left_out_all ? ' Not cited now.' : ` Not cited on ${andList(r.left_out)}.`)}
+            {!r.excluded && r.left_out && ' A passage is left out here until a decision on it is made.'}
+            <HowWeKnowLine row={r} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

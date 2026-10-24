@@ -2,9 +2,12 @@
   "_comment": [
     "Evidence for the Layers mend of 2026-10-20 (branch layers-mend-2026-10-20, off main a46d819): one record for each citation this batch added to config/layers.json or re-read and confirmed there.",
     "passage and note: the passage id and the 0-based index of the note in its layers list in config/layers.json as of this commit. kind: the note's kind. source, on, at: the citation as it appears in the note. url: the page that was fetched on the date given. status: 'added' (new this batch) or 'confirmed' (already cited, re-read and found to state the point). counted: whether the writer counts toward the note's strength (3 or more distinct writers who state the point themselves: widely agreed; 2: commonly held; 1: some interpreters); a cite marked false supports part of the note or is a reference work.",
-    "quote: the writer's words as found on the fetched page, given only for public-domain writers; '...' joins parts that appear in that order on the page, and a bracketed verse such as [Mark 12:35] marks a part taken from a neighbouring heading. Spelling, misprints and OCR errors are the page's own. more: further lines from the same writer. pointer: for a modern copyrighted work, where on the page the point is made, with no quotation.",
-    "Every quote was found on its page by a finder and matched again, on a fresh fetch, by a separate checker. removed_cites, dropped_notes, moved_outside_checked_notes and returned_passages record the other changes made to config/layers.json in this batch."
+    "quote: the writer's words as found on the fetched page, given only for public-domain writers; '...' joins parts that appear in that order on the page, and a bracketed verse such as [Mark 12:35] marks a part taken from a neighbouring heading. Spelling, misprints and OCR errors are the page's own. more: further lines from the same writer. pointer: for a modern copyrighted work, and for the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice), where on the page the point is made, with no quotation; more_pointer: the same for further lines.",
+    "Every quote was found on its page by a finder and matched again, on a fresh fetch, by a separate checker. removed_cites, dropped_notes, moved_outside_checked_notes and returned_passages record the other changes made to config/layers.json in this batch.",
+    "kind: \"reads\". on_now, at_now and url_now (added 2026-10-21, with remark_now) give a changed cite as it now stands; the record is otherwise as written on 2026-10-20.",
+    "2026-10-24: the Pulpit Commentary's 73 records here gave its words when written; they now give pointers instead (pointer, more_pointer), because Bible Hub's Pulpit text carries BibleSoft's copyright notice. The pages were read on 2026-10-20 as recorded; the pointers were written from those readings on 2026-10-24."
   ],
+  "kind": "reads",
   "batch": "layers-mend-2026-10-20",
   "fetched": "2026-10-20",
   "records": [
@@ -45,7 +48,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "or, and most probably, his origin, from adamah, the ground",
+      "pointer": "the comment on Genesis 1:26, where the writer thinks the name Adam most likely refers to man's origin in adamah, the ground, while listing other possible meanings",
       "remark": "The judgment 'most probably' is the commentary's own; the authorities it lists are not named in the note."
     },
     {
@@ -94,7 +97,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "The first man Adam was made a living soul (Genesis 2:7). ... Christ is \"a quickening,\" i.e. a life giving, \"Spirit,\""
+      "pointer": "the comment on 1 Corinthians 15:45, where the writer traces Paul's words on the first Adam to Genesis 2:7 and explains that Christ, by contrast, is a Spirit who imparts life"
     },
     {
       "passage": "genesis-2-7",
@@ -142,7 +145,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "of Christ in that both represented entire humanity; one as the representative and author of fallen, the other of restored, humanity"
+      "pointer": "the comment on Romans 5:14, where the writer says Adam was a figure of Christ because each stood for the whole human race, one heading a fallen race and the other a restored one"
     },
     {
       "passage": "genesis-3-1",
@@ -194,7 +197,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": false,
-      "quote": "from 'aram - (a) To make naked; whence atom, plural arumim, naked (Genesis 2:25).",
+      "pointer": "the comment on Genesis 3:1, where the writer traces the word for subtle to the root 'aram, whose first listed sense, to strip bare, gives arumim, naked, in Genesis 2:25",
       "remark": "Gives the link as word origin, not as a play; the strength rests on the other three."
     },
     {
@@ -231,7 +234,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Righteous Abel. The first of the murdered, the prototype of the death of Christ and of all good men who have died for truth, religion, and justice (Genesis 4:8; 1 John 3:12)."
+      "pointer": "the comment on Matthew 23:35, where the writer calls Abel the first man murdered and a pattern beforehand of Christ's death and of every good man killed for the right"
     },
     {
       "passage": "genesis-4-10",
@@ -304,7 +307,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "called his name Noah, - \"rest,\" from nuach, to rest (cf. Genesis 8:4), - not \"The Sailor,\" from the Latin no, and the Greek ναῦς (Bohlen), but at the same time explaining it by saying, This same shall comfort - na-cham, to pant, groan, Piel to comfort.",
+      "pointer": "the comment on Genesis 5:29 (under verses 25-32), where the writer derives Noah from nuach, rest, rejects Bohlen's sailor reading, and ties the comfort Lamech names to nacham",
       "remark": "Under its 'Verses 25-32' heading."
     },
     {
@@ -341,7 +344,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "But Noah found grace. Hen; the same letters as in Noah, but reversed"
+      "pointer": "the comment on Genesis 6:8, where the writer notes that hen, grace, is spelled with the letters of Noah's name in reverse order"
     },
     {
       "passage": "genesis-5-29",
@@ -354,7 +357,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "post 'What's in a Name?' (1 February 2014): quotes Michael Morales on nacham in 6:6 against 5:29, then endorses in his own words the reversal of Noah's letters in chen, 'found grace' (6:8)"
+      "pointer": "post 'What's in a Name?' (1 February 2014): quotes Michael Morales on nacham in 6:6 against 5:29, then endorses in his own words the reversal of Noah's letters in chen, 'found grace' (6:8)",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-5-29",
@@ -366,7 +371,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Reach hannichoach literally, an odor of satisfaction, acquiescence, or rest; from nuach, to rest, with an allusion to Noah's name (vide Genesis 5:29)"
+      "pointer": "the comment on Genesis 8:21, where the writer renders reach hannichoach as a smell of rest or contentment, from nuach, and sees in it a hint at Noah's name (Genesis 5:29)"
     },
     {
       "passage": "genesis-5-29",
@@ -403,7 +408,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "same post: traces the name's 'rest' through Genesis 6:8, 8:4, 8:9 and 8:21, summarizing Michael Morales with approval"
+      "pointer": "same post: traces the name's 'rest' through Genesis 6:8, 8:4, 8:9 and 8:21, summarizing Michael Morales with approval",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-5-29",
@@ -440,7 +447,9 @@
       "status": "added",
       "counted": true,
       "quote": "3 ark. Cp. Gen. 6. 14. bulrushes = papyrus, made by the same Divine in- structions as Noah’s",
-      "remark": "archive.org OCR of the Companion Bible (StudyLight refused the page). The checker counts it, read with its 2:2 note citing Hebrews 11:7; without it the note would be 'commonly held'."
+      "remark": "archive.org OCR of the Companion Bible (StudyLight refused the page). The checker counts it, read with its 2:2 note citing Hebrews 11:7; without it the note would be 'commonly held'.",
+      "url_now": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20OT/page/n85/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "genesis-5-29",
@@ -452,7 +461,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "that is, the water which is saving you is the antitype of the water of the Flood."
+      "pointer": "the comment on 1 Peter 3:21, where the writer explains that the baptismal water now saving believers answers, as antitype, to the waters of the Flood"
     },
     {
       "passage": "genesis-5-29",
@@ -538,7 +547,10 @@
       "status": "added",
       "counted": false,
       "quote": "Paronomasia; or, Rhyming-Words The Repetition of Words similar in Sound, but not necessarily in Sense ... Gen. 11:9 . — “Therefore is the name of it called Babel ... balal , or turn to babble ) the language of all the earth.”",
-      "remark": "Supports the sound play only; the strength rests on Ellicott, the NET note and the Reformation Study Bible."
+      "remark": "Supports the sound play only; the strength rests on Ellicott, the NET note and the Reformation Study Bible.",
+      "at_now": "under Paronomasia (Rhyming-Words)",
+      "url_now": "https://archive.org/details/CompanionBibleOT/figures_of_speech/page/n323/mode/1up",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json); url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "genesis-11-9",
@@ -551,7 +563,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "podcast page 'What's So Bad About Babel?': its show notes set humanity glorifying its own name against letting God make our names great, after quoting Genesis 12:1-3"
+      "pointer": "podcast page 'What's So Bad About Babel?': its show notes set humanity glorifying its own name against letting God make our names great, after quoting Genesis 12:1-3",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-11-9",
@@ -689,7 +703,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "post 'Jacob gets Esau's blessing (Genesis 27)', paragraph on 27:36: Esau's complaint plays on the Hebrew words for birthright and blessing",
-      "remark": "No second writer on the cite list states this play; checked Bible Hub on Genesis 25, 27 and Hebrews 12, the Companion Bible, Figures of Speech, the NET and Reformation Study Bible notes."
+      "remark": "No second writer on the cite list states this play; checked Bible Hub on Genesis 25, 27 and Hebrews 12, the Companion Bible, Figures of Speech, the NET and Reformation Study Bible notes.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-28-12",
@@ -714,7 +730,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "And he called the name of that place Bethel - i.e. a house of God."
+      "pointer": "the comment on Genesis 28:19, where the writer glosses the place name Bethel as meaning house of God"
     },
     {
       "passage": "genesis-28-12",
@@ -837,7 +853,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Behold, an Israelite indeed; one who fulfils the true idea of Israel, a prince with God, a conqueror of God by prayer, and conqueror of man by submission, penitence, and restitution; one who has renounced the spirit of supplanter and taken that of penitent."
+      "pointer": "the comment on John 1:47, where the writer says Nathanael fulfils the meaning of Israel, prevailing with God in prayer and with men by humble amends, trading the supplanter's spirit for a penitent's"
     },
     {
       "passage": "genesis-28-12",
@@ -874,7 +890,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "In the maturity of his manhood he wrestled with God, or rather with the angel of the covenant, and prevailed so that his name was changed to Israel."
+      "pointer": "the comment on Hosea 12:3, where the writer says Jacob as a grown man strove with God, more exactly with the covenant angel, and won, so that he was renamed Israel"
     },
     {
       "passage": "genesis-28-12",
@@ -923,12 +939,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "and she called his name Reuben (literally, reuben, Behold a Son! an expression of joyful surprise at the Divine compassion): for she said, Surely the Lord hath looked upon my affliction.",
-      "more": [
-        "Simeon - i. e. Hearing, because God had heard that she was hated",
-        "to join, is the root from which comes ... Levi"
-      ],
-      "remark": "Trimmed to the commentary's own words; the sentence after it is credited to another writer. The two further lines are its notes on 29:33 and 29:34."
+      "pointer": "the comment on Genesis 29:32, where the writer renders Reuben as see, a son, and reads it as Leah's glad amazement at God's pity in looking on her affliction",
+      "more_pointer": "the comments on Genesis 29:33 and 29:34, where the writer glosses Simeon as hearing, because God heard Leah was unloved, and names the verb to join as the root of Levi",
+      "remark": "The comment on 29:32 stops before the sentence the page credits to another writer; more_pointer gives its notes on 29:33 and 29:34."
     },
     {
       "passage": "genesis-29-35",
@@ -1050,7 +1063,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "That they may be joined unto thee. וְילָּווּ, a play upon the name Levi (see on Genesis 29:34)."
+      "pointer": "the comment on Numbers 18:2, where the writer notes that the Hebrew verb behind be joined plays on the name Levi, and refers back to Genesis 29:34"
     },
     {
       "passage": "genesis-29-35",
@@ -1185,7 +1198,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Judah thou, will praise thee thy brethren, the word יְהוּדָה being a palpable play on יודוך (cf. Genesis 29:35). Leah praised Jehovah for his birth, and his brethren should extol him"
+      "pointer": "the comment on Genesis 49:8, where the writer calls Yehudah a clear play on yoducha, shall praise, recalls Leah praising the Lord at his birth (Genesis 29:35), and says his brothers would honour him"
     },
     {
       "passage": "genesis-49-10",
@@ -1234,7 +1247,9 @@
       "status": "added",
       "counted": true,
       "quote": "8 Judah = Praise. Fig. Paronomasia (Ap. 6).",
-      "remark": "archive.org OCR of the Companion Bible (StudyLight refused the page)."
+      "remark": "archive.org OCR of the Companion Bible (StudyLight refused the page).",
+      "url_now": "https://archive.org/details/companion-bible-ot/Companion%20Bible%20OT/page/n80/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "genesis-49-10",
@@ -1349,7 +1364,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "The Representative of the royal and victorious tribe of Judah was he who had prevailed to open the book, where others had failed (cf. Genesis 40:9, \"Judah is a lion's whelp;\" Hebrews 7:14, \"For it is evident that our Lord sprang out of Judah\"). ... but the ability to open was a consequence of a former act of victory, viz. the redemption. So in ver. 9 the ascription of praise runs, \"Thou art worthy because thou wast slain\"",
+      "pointer": "the comment on Revelation 5:5, where the writer says Christ, heading Judah's kingly tribe, was able to unseal the book when none else could, owing to his earlier victory in redemption (see verse 9)",
       "remark": "'Genesis 40:9' is the page's misprint for 49:9."
     },
     {
@@ -1387,7 +1402,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "literally, and ye were thinking or meditating evil against me; Elohim was thinking or meditating for good"
+      "pointer": "the comment on Genesis 50:20, where the writer gives the literal sense: the brothers devised evil against Joseph, but Elohim devised it for good, one verb used of both"
     },
     {
       "passage": "genesis-50-20",
@@ -1401,7 +1416,11 @@
       "status": "added",
       "counted": true,
       "quote": "Ye thought (or meant) evil against me; but God meant it for good. (Here, we have the same word twice).",
-      "remark": "Under Synonymia, at Ps. xxxii. 1, 2 (p. 327), where Bullinger cites Genesis 50:20 for the verb chashab; the OCR prints Gen. l. 20 as 'Gen. 1.20'."
+      "remark": "Under Synonymia, at Ps. xxxii. 1, 2 (p. 327), where Bullinger cites Genesis 50:20 for the verb chashab; the OCR prints Gen. l. 20 as 'Gen. 1.20'.",
+      "on_now": "Genesis 50:20",
+      "at_now": "under Synonymia (Synonymous Words), in its entry on Psalm 32:1-2",
+      "url_now": "https://archive.org/details/figuresofspeechu00bull/page/n381/mode/1up",
+      "remark_now": "2026-10-21: the cite was re-pointed in 0da9d1c, after this record was written, to Genesis 50:20 as Bullinger cites it in his entry on Psalm 32:1-2; on_now and at_now give the cite as it now stands, and url_now the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "genesis-50-20",
@@ -1414,7 +1433,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "post 'Sleeping with a prostitute part 2: Genesis 38:15-26', on 38:25: Tamar's call to examine the tokens may recall the brothers' call to examine Joseph's robe in 37:32"
+      "pointer": "post 'Sleeping with a prostitute part 2: Genesis 38:15-26', on 38:25: Tamar's call to examine the tokens may recall the brothers' call to examine Joseph's robe in 37:32",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-50-20",
@@ -1426,7 +1447,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": false,
-      "quote": "The root נָכַר ... in the Hiphil signifies to press strongly into a thing (Furst), to look at a thing as strange (Gesenius), or to recognize, and in the Hithpael has the sense of representing one's self as strange",
+      "pointer": "the comment on Genesis 42:7, where the writer explains the root nakar: in the Hiphil to look hard at or to recognize, while in the Hithpael to make oneself seem a stranger, citing Furst and Gesenius",
       "remark": "Explains nakar only; it backs the 42:7-8 wording, not the echo between 37:32 and 38:25."
     },
     {
@@ -1440,7 +1461,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "Tabletalk devotional 'An Inconsolable Father': Jacob's sons deceive him with a goat as he once tricked Isaac with a goat (27:1-29)"
+      "pointer": "Tabletalk devotional 'An Inconsolable Father': Jacob's sons deceive him with a goat as he once tricked Isaac with a goat (27:1-29)",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "genesis-50-20",
@@ -1500,7 +1523,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "(Compare, with Chrysostom, the saying of Joseph to his brethren, \"Be not angry with yourselves, that ye sold me hither: for God did send me before you to preserve life\" (Genesis 45:5)"
+      "pointer": "the comment on Acts 2:23, where the writer follows Chrysostom in setting beside Peter's words Joseph's assurance to his brothers in Genesis 45:5 that God sent him ahead to preserve life"
     },
     {
       "passage": "genesis-50-20",
@@ -1562,7 +1585,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "shews how their fathers treated Moses just as they had treated Jesus Christ; and how God in the case of Moses had chosen and magnified the very man whom they had scornfully rejected"
+      "pointer": "the comment on Acts 7:35, where the writer says the speech shows the fathers dealt with Moses as the hearers dealt with Christ, while God chose and honoured the very man they despised"
     },
     {
       "passage": "exodus-2-10",
@@ -1622,7 +1645,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Moses' refusal to be called the son of Pharaoh's daughter, i.e. his renunciation of his position in the court in order to associate himself with his oppressed fellow-countrymen, is not mentioned in the original history, though it is consistent with it, and indeed implied."
+      "pointer": "the comment on Hebrews 11:24, where the writer says Moses giving up his place at court to side with his oppressed people is not told in Exodus, yet fits that account and is implied there"
     },
     {
       "passage": "exodus-2-10",
@@ -1670,7 +1693,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The name is clearly an equivalent of the \"I AM\" in the preceding versa The exact mode of its formation from the old root hava, \"to be,\" is still disputed among the best Hebraists."
+      "pointer": "the comment on Exodus 3:15, where the writer says the name plainly matches the I AM of verse 14, though scholars still argue over just how it grew from hava, the verb to be"
     },
     {
       "passage": "exodus-3-14",
@@ -1706,7 +1729,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The force of the argument is this, that \"God is not the God of the dead, but of the living.\" Their souls are still alive; and if these patriarchs are still alive, there will be a resurrection."
+      "pointer": "the comment on Mark 12:26, where the writer sums up the Lord's reasoning: God is not a God of dead men, so the patriarchs still live in soul, and a resurrection must follow"
     },
     {
       "passage": "exodus-3-14",
@@ -1743,7 +1766,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The expression in Hosea is based on Exodus 4:22, ... The fundamental thought is that the experience of Messiah was parallel to the experience of the nation."
+      "pointer": "the comment on Matthew 2:15, where the writer traces Hosea's words to Exodus 4:22 and says the core idea is that Messiah's life ran parallel to Israel's as a nation"
     },
     {
       "passage": "exodus-4-22",
@@ -2000,7 +2023,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": false,
-      "quote": "The balance of argument, so far as John is concerned, is in favor of the Passover meat being still in prospect, and the statement is made to call attention to the fact that, as St. Paul said, \"Christ our Passover is sacrificed for us.\"",
+      "pointer": "the comment on John 19:14, where the writer judges that on John's account the Passover meal was still to come, and that John notes it to point to Christ as our Passover, as Paul put it",
       "remark": "States the timing half only; on 19:29 it does not link the hyssop to the Passover."
     },
     {
@@ -2040,7 +2063,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'The Lamblike Servant' (Themelios 48.3): the timing of Jesus' death (19:14) and the hyssop at the cross (19:29), with note 38 calling the hyssop fitting but no sure proof"
+      "pointer": "article 'The Lamblike Servant' (Themelios 48.3): the timing of Jesus' death (19:14) and the hyssop at the cross (19:29), with note 38 calling the hyssop fitting but no sure proof",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "exodus-12-13",
@@ -2053,7 +2078,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article in JETS 52/2 (2009), printed p. 296 (PDF p. 12): the Passover context of 19:14 and the hyssop of 19:29 with Exodus 12:22"
+      "pointer": "article in JETS 52/2 (2009), printed p. 296 (PDF p. 12): the Passover context of 19:14 and the hyssop of 19:29 with Exodus 12:22",
+      "at_now": "page 296",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "exodus-16-15",
@@ -2139,7 +2166,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "serve a copy and shadow of the heavenly things ... The reference here is to Exodus 25:40"
+      "pointer": "the comment on Hebrews 8:5, where the writer says the charge to build by the pattern shown on the mount is drawn from Exodus 25:40"
     },
     {
       "passage": "exodus-25-40",
@@ -2333,7 +2360,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The allusion is to the sin offerings on the Day of Atonement - the bullock for the high priest, and the goat for the people. ... Christ fulfilled the first significance of this type by suffering \"without the gate;\""
+      "pointer": "the comment on Hebrews 13:11, where the writer links it with the yearly Day of Atonement sin offerings for priest and people, a type Christ fulfilled by suffering outside the gate"
     },
     {
       "passage": "leviticus-16-22",
@@ -2567,7 +2594,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "article 'The Jubilee and the Millennium' (Themelios 24.1): the Septuagint renders yobel as aphesis, and aphesis in Luke 4 usually means forgiveness of sins"
+      "pointer": "article 'The Jubilee and the Millennium' (Themelios 24.1): the Septuagint renders yobel as aphesis, and aphesis in Luke 4 usually means forgiveness of sins",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "leviticus-25-10",
@@ -2580,7 +2609,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'The Poor in the Gospels and the Good News Proclaimed to Them' (Themelios 23.1): aphesis in Luke 4:18 means liberty, release, Jubilee, and in Luke is always followed by 'of sins'"
+      "pointer": "article 'The Poor in the Gospels and the Good News Proclaimed to Them' (Themelios 23.1): aphesis in Luke 4:18 means liberty, release, Jubilee, and in Luke is always followed by 'of sins'",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "leviticus-25-10",
@@ -2606,7 +2637,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "essay 'The Background to the Son of Man Sayings', Christ the Lord (1982), p. 65 (the [p.65] marker of the PDF): 11QMelchizedek reads Leviticus 25:13 of the end-time return in the tenth jubilee, with Melchizedek as proclaimer"
+      "pointer": "essay 'The Background to the Son of Man Sayings', Christ the Lord (1982), p. 65 (the [p.65] marker of the PDF): 11QMelchizedek reads Leviticus 25:13 of the end-time return in the tenth jubilee, with Melchizedek as proclaimer",
+      "at_now": "page 65",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "leviticus-25-10",
@@ -2619,7 +2652,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "same Kanagaraj article: 11QMelchizedek uses Isaiah 61's 'to proclaim liberty to the captives' with the Jubilee of Leviticus 25:13 for Melchizedek's end-time judgment"
+      "pointer": "same Kanagaraj article: 11QMelchizedek uses Isaiah 61's 'to proclaim liberty to the captives' with the Jubilee of Leviticus 25:13 for Melchizedek's end-time judgment",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "numbers-13-16",
@@ -2643,7 +2678,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "(Hoshea, help or salvation) to יְהושֻׁעַ (Jehoshua - the same name with the first syllable of the sacred name prefixed"
+      "pointer": "the comment on Numbers 13:16, where the writer explains Hoshea as meaning salvation and Jehoshua as that name with the opening syllable of the divine name set before it"
     },
     {
       "passage": "numbers-13-16",
@@ -2704,7 +2739,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "there can be no doubt that the Jews expected that the Messiah would appear as the Prophet by pre-eminence, and that they founded that expectation on the promise here recorded (cf. John 1:21; John 6:14; Acts 3:22-26; Acts 7:37)",
+      "pointer": "the comment on Deuteronomy 18:18, where the writer says the Jews surely looked for Messiah to come as the Prophet above all others, resting that hope on this promise (John 1:21; Acts 3:22-26)",
       "remark": "Under its 'Verse 18' heading."
     },
     {
@@ -2780,7 +2815,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "article 'The Messiah Who Was Cursed on the Tree' (Themelios 22.3): Temple Scroll 64:6-13 ordains hanging alive and calls the hanged accursed by God and men; with 1 Corinthians 1:23"
+      "pointer": "article 'The Messiah Who Was Cursed on the Tree' (Themelios 22.3): Temple Scroll 64:6-13 ordains hanging alive and calls the hanged accursed by God and men; with 1 Corinthians 1:23",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "deuteronomy-21-23",
@@ -2793,7 +2830,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "essay 'The Curse of the Law', Paul and Paulinism (1982), p. 31 (between the [p.31] and [p.32] markers): the Temple Scroll provides for hanging a man alive and relates it to Deut. 21.23"
+      "pointer": "essay 'The Curse of the Law', Paul and Paulinism (1982), p. 31 (between the [p.31] and [p.32] markers): the Temple Scroll provides for hanging a man alive and relates it to Deut. 21.23",
+      "at_now": "page 31",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "deuteronomy-21-23",
@@ -2807,7 +2846,9 @@
       "status": "confirmed",
       "counted": true,
       "quote": "For whosoever is crucified is said in the law to be accursed, so that I am exceedingly incredulous on this point.",
-      "remark": "Trypho's words in chapter 89, matched by the checker. Justin is the primary source the note reports; the strength counts three cite ids, his among them."
+      "remark": "Trypho's words in chapter 89, matched by the checker. Justin is the primary source the note reports; the strength counts three cite ids, his among them.",
+      "at_now": "chapter 89",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "deuteronomy-21-23",
@@ -2820,7 +2861,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "For the statement in the law, 'Cursed is every one that hangs on a tree,' Deuteronomy 21:23 confirms our hope which depends on the crucified Christ"
+      "quote": "For the statement in the law, 'Cursed is every one that hangs on a tree,' Deuteronomy 21:23 confirms our hope which depends on the crucified Christ",
+      "at_now": "chapter 96",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "deuteronomy-21-23",
@@ -2833,7 +2876,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "same Elgvin article: Deuteronomy 21:23 as the ultimate Jewish argument against Jesus' messiahship (Dialogue 32:1, 89:1), and Justin's answers in chapters 89-96"
+      "pointer": "same Elgvin article: Deuteronomy 21:23 as the ultimate Jewish argument against Jesus' messiahship (Dialogue 32:1, 89:1), and Justin's answers in chapters 89-96",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "deuteronomy-21-23",
@@ -2860,7 +2905,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "Ruth commentary by John Currid, section on 3:16-18: the same word Naomi used in 1:21, so she is no longer empty",
-      "remark": "Moved from Ruth 3:17 to his section heading. No second cite-list writer states the word link; the NET note on 1:21 and the BibleProject Ruth guide state only the empty-to-full theme."
+      "remark": "Moved from Ruth 3:17 to his section heading. No second cite-list writer states the word link; the NET note on 1:21 and the BibleProject Ruth guide state only the empty-to-full theme.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "ruth-3-9",
@@ -2957,7 +3004,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "we have Samuel set before us advancing in age and \"in favour with Jehovah and also with men,\" like him of whom in so many respects he was a type ( Luke 2:52 ), our blessed Lord.",
+      "pointer": "the comment on 1 Samuel 2:24-25, where the writer turns to verse 26 and sets Samuel growing in favour with God and men beside our Lord, whom he prefigured in many ways (Luke 2:52)",
       "remark": "In its note on verses 24-25, speaking of verse 26."
     },
     {
@@ -2984,7 +3031,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "1 Samuel commentary by S. A. Fix and J. Robert Vannoy, section on 4:12-22: the theme of lost glory and Eli's heaviness, both from the root kbd",
-      "remark": "Moved from 1 Samuel 4:18 to their section heading."
+      "remark": "Moved from 1 Samuel 4:18 to their section heading.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-samuel-4-21",
@@ -2998,7 +3047,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "same commentary, section on 2:27-36: the theme of glory (kavod, heaviness or glory) introduced at 2:30, the focus of chapters 4-6",
-      "remark": "Moved from 1 Samuel 2:30 to their section heading."
+      "remark": "Moved from 1 Samuel 2:30 to their section heading.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-samuel-4-21",
@@ -3147,7 +3198,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "article by Herbert W. Bateman IV, JETS 38/1 (1995), top of p. 16: the shared 'I will raise up' links Amos 9:11 and 2 Samuel 7:12 in 4QFlorilegium, which expects a future Davidic King-Messiah",
-      "remark": "No second cite-list writer found; this is a setting note, so no interpreter rule applies."
+      "remark": "No second cite-list writer found; this is a setting note, so no interpreter rule applies.",
+      "at_now": "pages 15 to 16",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-kings-17-23",
@@ -3209,7 +3262,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "the technical expression for the avenger of blood ... it is not taking a very long step in advance to see and acknowledge in God his Goel",
+      "pointer": "the comment on Job 19:25, where the writer cites another for the word as the set term for the blood avenger, then judges it only a short step to see God as Job's Goel",
       "remark": "The first phrase is the commentary quoting another writer; its own conclusion is the second."
     },
     {
@@ -3234,7 +3287,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "This application of the second psalm to the Resurrection is best explained by Romans 1:4. ... was declared before men and angels to be the Son of God, when he was raised from the dead"
+      "pointer": "the comment on Acts 13:33, where the writer explains Paul's use of Psalm 2 for the Resurrection from Romans 1:4: Christ was shown to angels and men as God's Son by rising again"
     },
     {
       "passage": "psalm-2-7",
@@ -3319,7 +3372,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "may represent either tirhem or terohem; but the latter is required by what follows ... Precisely the same expression is used in Revelation 7:17 of the Lamb shepherding his saints"
+      "pointer": "the comment on Revelation 2:27, where the writer says the underlying word could be read tirhem or terohem, finds what follows demands the second, and notes a like phrase for the Lamb in 7:17"
     },
     {
       "passage": "psalm-2-7",
@@ -3367,7 +3420,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "the words, spoken of man in general, are here Messianically transferred to the federal Head of humanity, the ideal and perfect God Man, Jesus Christ."
+      "pointer": "the comment on 1 Corinthians 15:27, where the writer says words of the psalm about mankind as a whole are applied as prophecy to Christ, the covenant Head of the race, both God and perfect man"
     },
     {
       "passage": "psalm-8-4",
@@ -3403,7 +3456,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "relates how one of these chambers was opened by the high priest Hyrcanus, who took from it three thousand talents of gold ... another chamber was opened later by King Herod"
+      "pointer": "the comment on Acts 2:29, where the writer passes on an account that Hyrcanus the high priest opened one chamber of David's tomb and removed three thousand gold talents, and Herod later another"
     },
     {
       "passage": "psalm-16-10",
@@ -3488,7 +3541,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Whether they wilfully misinterpreted the half-heard cry, \"Eli, Eli!\" or whether they really misunderstood it, is an undecided question."
+      "pointer": "the comment on Matthew 27:47, where the writer leaves open whether the bystanders twisted the cry Eli, Eli on purpose or truly mistook it for a call to Elijah"
     },
     {
       "passage": "psalm-22-1",
@@ -3525,7 +3578,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Wagging their heads. In mockery and contempt, thus fulfilling the psalmist's words, \"All they that see me laugh me to scorn; they shoot out the lip, they shake the head;\""
+      "pointer": "the comment on Matthew 27:39, where the writer says the passers-by wagged their heads in scorn and so fulfilled Psalm 22:7"
     },
     {
       "passage": "psalm-22-1",
@@ -3635,7 +3688,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "so that when the tragedy should be consummated, this peculiarity, instead of shaking their faith in him, will prove that he was taken by no surprise"
+      "pointer": "the comment on John 13:19, where the writer explains Jesus foretold the betrayal so that, when it came, it would strengthen rather than shake the disciples' faith, showing he was not caught unawares"
     },
     {
       "passage": "psalm-41-9",
@@ -3683,7 +3736,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Strange is it that even here the ancient psalmist, in portraying the ideal Sufferer (Psalm 69:4; Psalm 35:19), bad seized this feature, and thus anticipated the treatment of the Son of God.",
+      "pointer": "the comment on John 15:25, where the writer marvels that the psalmist, picturing the ideal Sufferer (Psalms 69:4; 35:19), had caught this very trait and so foretold how God's Son would be treated",
       "remark": "'bad' is the page's typo for 'had'."
     },
     {
@@ -3757,7 +3810,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "A good name is better than precious ointment. The paronomasia here is to be remarked, rob ahem mishemen tob. There is a similar assonance in Song of Solomon 1:3",
+      "pointer": "the comment on Ecclesiastes 7:1, where the writer points out the sound play in the Hebrew between shem, name, and shemen, ointment, and finds a like echo in Song of Solomon 1:3",
       "remark": "'rob ahem' is the page's garbling of tov shem."
     },
     {
@@ -3858,7 +3911,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "to be henceforth regarded and treated as a chaste virgin, and in that capacity betrothed unto the Lord",
+      "pointer": "the comment on Hosea 2:19-20, where the writer says Israel would from then on be counted and dealt with as a pure virgin, and as such betrothed to the Lord",
       "remark": "Its note on verses 19-20."
     },
     {
@@ -3895,7 +3948,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Israel is compared to a \"vine\" in the Psalms (Psalm 80:8-16)"
+      "pointer": "the comment on Isaiah 5:1, where the writer notes that the Psalms also liken Israel to a vine, citing Psalm 80:8-16"
     },
     {
       "passage": "isaiah-5-7",
@@ -3920,7 +3973,9 @@
       "status": "added",
       "counted": true,
       "quote": "vine. For Israel as this vine, see 27. 2-6. Jer. 2. 21 ; 12. lo. Ps. 80. 8. Hos. 10. 1 ; 14. s-7, &e. One of the three trees to which Israel is likened",
-      "remark": "As the archive.org OCR reads it ('12. lo' is 12. 10 and '14. s-7' is 14. 5-7). StudyLight refused the page."
+      "remark": "As the archive.org OCR reads it ('12. lo' is 12. 10 and '14. s-7' is 14. 5-7). StudyLight refused the page.",
+      "url_now": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20OT/page/n947/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "isaiah-5-7",
@@ -3944,7 +3999,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The imagery of the parable would be familiar to them from Isaiah (Isaiah 5:1)."
+      "pointer": "the comment on Mark 12:1, where the writer says the hearers would already know the parable's picture of the vineyard from Isaiah 5:1"
     },
     {
       "passage": "isaiah-5-7",
@@ -4018,7 +4073,9 @@
       "status": "added",
       "counted": true,
       "quote": "If ye will not believe, surely ye shall not be established. Note the Fig. Paronomasia (Ap. 6) for emphasis and to attract attention to the importance of the sentence.",
-      "remark": "The OCR prints the verse number as 8, but this is the note on verse 9."
+      "remark": "The OCR prints the verse number as 8, but this is the note on verse 9.",
+      "url_now": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20OT/page/n950/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "isaiah-7-9",
@@ -4032,7 +4089,10 @@
       "status": "added",
       "counted": true,
       "quote": "Isa. vii. 9. — \" If ye will not believe ... im lo taaminu), surely ye shall not be established ... Or, \" no confiding, no abiding.\"",
-      "remark": "p. 313, under Paronomasia; the OCR's garbled Hebrew is left out. Bullinger's two works count as one writer."
+      "remark": "p. 313, under Paronomasia; the OCR's garbled Hebrew is left out. Bullinger's two works count as one writer.",
+      "at_now": "under Paronomasia (Rhyming-Words)",
+      "url_now": "https://archive.org/details/figuresofspeechu00bull/page/n367/mode/1up",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json); url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "isaiah-7-9",
@@ -4094,7 +4154,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "article 'Immanuel' by Gerald Bilkes: the closing promise of Matthew 28:20 is spoken by Immanuel"
+      "pointer": "article 'Immanuel' by Gerald Bilkes: the closing promise of Matthew 28:20 is spoken by Immanuel",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "isaiah-7-14",
@@ -4107,7 +4169,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "article 'I Am with You Always' by Gerrit Scott Dawson: the One who is Immanuel promises to live up to His name"
+      "pointer": "article 'I Am with You Always' by Gerrit Scott Dawson: the One who is Immanuel promises to live up to His name",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "isaiah-7-14",
@@ -4120,7 +4184,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'Matthew's Gospel in Recent Study' by R. T. (Dick) France (Themelios 14.2): ties 'God with us' (1:23) to 'I am with you always' (28:20)"
+      "pointer": "article 'Matthew's Gospel in Recent Study' by R. T. (Dick) France (Themelios 14.2): ties 'God with us' (1:23) to 'I am with you always' (28:20)",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "isaiah-53-5",
@@ -4144,7 +4210,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The slaves, whom the apostle is addressing, might perhaps not infrequently be subjected to the scourge; he bids them remember the more dreadful flagellation which the Lord endured.",
+      "pointer": "the comment on 1 Peter 2:24, where the writer suggests the slaves Peter wrote to may often have faced the whip, and that he calls them to recall the far worse scourging the Lord bore",
       "remark": "Moved from Isaiah 53:5, where the commentary only cross-refers, to 1 Peter 2:24, where it states the point."
     },
     {
@@ -4194,7 +4260,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "implies both that he bore the ultimate cause of sickness, the sin of the world (John 1:29)"
+      "pointer": "the comment on Matthew 8:17, where the writer says the verse implies, first, that Christ carried the root cause of disease, the world's sin, citing John 1:29"
     },
     {
       "passage": "isaiah-53-5",
@@ -4314,7 +4380,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "The exaltation of Israel, the collective \"Servant of the Lord\" (Isaiah 44:1, 21), brings to the prophet's mind the exaltation of the individual \"Servant\"",
+      "pointer": "the comment on Isaiah 52:13, where the writer says the raising up of Israel, the Lord's servant as a nation (Isaiah 44:1, 21), leads the prophet to think of the exalting of the one personal Servant",
       "remark": "Moved from Acts 8:34, where the commentary says only that the eunuch's question opened the way to preach Jesus."
     },
     {
@@ -4503,7 +4569,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": false,
-      "quote": "Mattaniah, in taking the second of the names, may have had in his mind the prophecy of Jeremiah 23:5-8, where blessings are promised to the reign of a king whose name should be \"Jehovah-Tsidkenu,\" i.e. \"The Lord our Righteousness.\"",
+      "pointer": "the comment on 2 Kings 24:17, where the writer suggests that Mattaniah, in choosing the name Zedekiah, may have been thinking of Jeremiah 23:5-8 and its promised king called Jehovah-Tsidkenu",
       "remark": "Offers the link only as one possibility, so it is not counted. The cite is allowed: the Pulpit's not_on list covers Jeremiah and Lamentations, not 2 Kings."
     },
     {
@@ -4552,7 +4618,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "In Daniel 7:9 \"the Ancient of days\" has \"the hair of his head like pure wool.\""
+      "pointer": "the comment on Revelation 1:14, where the writer points to Daniel 7:9, where Daniel's Ancient of days is also pictured with hair white as wool"
     },
     {
       "passage": "daniel-7-13",
@@ -4729,7 +4795,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "It might seem that these quotations are not apposite, since they referred originally, not to the Gentiles, but to the ten tribes of Israel.",
+      "pointer": "the comment on Romans 9:25, where the writer raises the objection that Hosea's words seem not to fit, since at first they concerned Israel's ten tribes, not the Gentiles",
       "remark": "It goes on to say the words state a principle of God's dealing that applies to the Gentile world."
     },
     {
@@ -4768,7 +4834,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "There is in the Hebrew a play on the words here and in the following clause ( Hag-gilgal galoh yigleh )"
+      "pointer": "the comment on Amos 5:5, where the writer notes a Hebrew wordplay in Gilgal shall surely go into captivity, hag-gilgal galoh yigleh, and another in the next clause"
     },
     {
       "passage": "amos-5-5",
@@ -4904,7 +4970,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "article by Gary Yates, JETS 59/2 (2016), and its note 35: Jonah goes down in 1:3, 1:5 and 2:6, a descent of disobedience to the brink of Sheol, until the LORD brings him up"
+      "pointer": "article by Gary Yates, JETS 59/2 (2016), and its note 35: Jonah goes down in 1:3, 1:5 and 2:6, a descent of disobedience to the brink of Sheol, until the LORD brings him up",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "jonah-3-4",
@@ -5001,7 +5069,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "This phrase from David's elegy over Saul (2 Samuel 1:20) had become a proverbial saying"
+      "pointer": "the comment on Micah 1:10, where the writer says Declare ye it not at Gath comes from David's lament for Saul in 2 Samuel 1:20 and had passed into a proverb"
     },
     {
       "passage": "micah-1-10",
@@ -5125,7 +5193,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Christ does not hesitate to apply to himself a prophecy of the coming of God"
+      "pointer": "the comment on Matthew 11:10, where the writer observes that Christ freely applies to his own person a prophecy, from Malachi 3:1, of God's coming"
     },
     {
       "passage": "malachi-3-1",
@@ -5186,7 +5254,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "This lifting up of the despised and rejected stone to be the Corner-stone of the cornice was God's work; and was a fitting object for wonder and praise."
+      "pointer": "the comment on Mark 12:10, where the writer says that raising the scorned, discarded stone to the chief corner was the work of God and rightly moves us to marvel and praise"
     },
     {
       "passage": "mark-12-10",
@@ -5278,7 +5346,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "The idea is rerepeated from Daniel 2:34, 35, and Daniel 2:44, 45. Christ in his humiliation is the Stone against which men fall; Christ in his glory and exaltation is the Stone which falls on them."
+      "pointer": "the comment on Matthew 21:44, where the writer traces the thought to Daniel 2:34-35 and 44-45: men stumble on Christ humbled, and Christ exalted in glory falls on them"
     },
     {
       "passage": "mark-12-10",
@@ -5475,7 +5543,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "is broadened in these verses to the positive law, thou shalt love him as thyself. \"The royal law of verse 18 is expressly extended to the stranger",
+      "pointer": "the comment on Leviticus 19:33-34, where the writer says these verses widen the rule into a command to love the stranger as yourself, and, with a quoted writer, extends verse 18's royal law to him",
       "remark": "Its note on verses 33-34: its own sentence, then a quotation it agrees with."
     },
     {
@@ -5611,7 +5679,9 @@
       "status": "added",
       "counted": true,
       "pointer": "John commentary by Andreas Köstenberger, on 2:19-20: 'raise' (egeirō) rather than 'build' already tells the reader Jesus means His resurrection",
-      "remark": "No third writer on the cite list puts the double sense in the verb; Matthew Henry, Ellicott and the Pulpit Commentary put it in the figure of the temple."
+      "remark": "No third writer on the cite list puts the double sense in the verb; Matthew Henry, Ellicott and the Pulpit Commentary put it in the figure of the temple.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-3-3",
@@ -5770,7 +5840,9 @@
       "status": "added",
       "counted": true,
       "pointer": "essay 'The Background to the Son of Man Sayings', Christ the Lord (1982), p. 51: the double meaning of 'lift up' in John, where being lifted up and being glorified are one idea",
-      "remark": "The PDF header names the book (presented to Donald Guthrie, 1982) but not its editor; the at line follows the existing Bruce cite on Leviticus 25:13."
+      "remark": "The PDF header names the book (presented to Donald Guthrie, 1982) but not its editor; the at line follows the existing Bruce cite on Leviticus 25:13.",
+      "at_now": "page 51",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-3-14",
@@ -5807,7 +5879,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'Lifted Up: Discover John's View of the Cross' by Jimmy Roh (25 January 2026): the verb hypsoō links Isaiah 52:13 and John's lifting-up sayings"
+      "pointer": "article 'Lifted Up: Discover John's View of the Cross' by Jimmy Roh (25 January 2026): the verb hypsoō links Isaiah 52:13 and John's lifting-up sayings",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-3-14",
@@ -5820,7 +5894,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'Soteriology in the Gospel of John' by Bruce Reichenbach (Themelios 46.3): Isaiah 52:13 in the Septuagint as a possible hint behind John 12:32"
+      "pointer": "article 'Soteriology in the Gospel of John' by Bruce Reichenbach (Themelios 46.3): Isaiah 52:13 in the Septuagint as a possible hint behind John 12:32",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-3-14",
@@ -5834,7 +5910,9 @@
       "status": "added",
       "counted": true,
       "pointer": "article 'The Lamblike Servant' by David V. Christensen (Themelios 48.3): 'lifted up' in John 3:14, 8:28 and 12:32 alludes to the Servant of Isaiah 52:13",
-      "remark": "The article names, on another point, a scholar on the avoid list; the note does not name her."
+      "remark": "The article names, on another point, a scholar on the avoid list; the note does not name her.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-4-10",
@@ -5894,7 +5972,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "For the phrase, \"living water,\" see Genesis 26:19; and for its application, Zechariah 14:8; Jeremiah 2:13"
+      "pointer": "the comment on John 4:10, where the writer points to Genesis 26:19 for the words living water, and to Zechariah 14:8 and Jeremiah 2:13 for how they are applied"
     },
     {
       "passage": "john-4-10",
@@ -5945,7 +6023,9 @@
       "status": "confirmed",
       "counted": true,
       "pointer": "article by Carissa Quinn: the biblical authors often set a man's meeting with his future bride at a well (Rebekah, Rachel, Zipporah); 'Jacob's well' recalls Jacob and Rachel; Jesus is called the groom in John 3",
-      "remark": "The article credits a writer on the avoid list for a term it uses; the note's text and evidence do not name him."
+      "remark": "The article credits a writer on the avoid list for a term it uses; the note's text and evidence do not name him.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "john-4-10",
@@ -6006,7 +6086,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": false,
-      "quote": "The psalmists spoke of it (Psalm 78:24; Psalm 105:40) as virtually coming down out of heaven",
+      "pointer": "the comment on John 6:31, where the writer notes the psalmists described the manna as in effect falling from heaven, citing Psalms 78:24 and 105:40",
       "remark": "Indirect: cites the psalms' language without naming them as the source of the quotation."
     },
     {
@@ -6070,7 +6150,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "as meaning \"Sent,\" was in John's thought emblematic of him who had so often spoken of himself as the Sent of God."
+      "pointer": "the comment on John 9:7, where the writer says that for John the name Siloam, meaning Sent, pictured Jesus, who often called himself the one God had sent"
     },
     {
       "passage": "john-9-7",
@@ -6214,7 +6294,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "In the text, following the LXX., equivalents of the Hebrew names are given, Massah being rendered literally by ... Meribah (equivalent to \"strife \") by the unusual word",
+      "pointer": "the comment on Hebrews 3:7-11, where the writer notes that, following the Septuagint, the text renders the names Massah and Meribah, meaning strife, into Greek, the latter by a rare word",
       "remark": "Its note on verses 7-11, under the 3:7 heading."
     },
     {
@@ -6264,7 +6344,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "For ensamples; literally, by way of figure ; typically."
+      "pointer": "the comment on 1 Corinthians 10:11, where the writer gives the literal sense of for ensamples as figures, that is, types, so the events served as types"
     },
     {
       "passage": "1-corinthians-10-4",
@@ -6314,7 +6394,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "A free citation from the Hebrew of Isaiah 25:8"
+      "pointer": "the comment on 1 Corinthians 15:54, where the writer calls Death is swallowed up in victory a loose quotation of the Hebrew text of Isaiah 25:8"
     },
     {
       "passage": "1-corinthians-15-54",
@@ -6351,7 +6431,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "post 'One God, One Lord (Part 8)' (2020): most scholars take it as an acclamation, 'Our Lord comes', or an invocation, 'Come, our Lord'"
+      "pointer": "post 'One God, One Lord (Part 8)' (2020): most scholars take it as an acclamation, 'Our Lord comes', or an invocation, 'Come, our Lord'",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-corinthians-16-22",
@@ -6388,7 +6470,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "article 'The Parousia: Getting our Terms Right' by Walter Riggans (Themelios 21.1): maran ata as the proclamation 'Our Lord has come', marana ta as the longing 'Come, our Lord'"
+      "pointer": "article 'The Parousia: Getting our Terms Right' by Walter Riggans (Themelios 21.1): maran ata as the proclamation 'Our Lord has come', marana ta as the longing 'Come, our Lord'",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-corinthians-16-22",
@@ -6402,7 +6486,9 @@
       "status": "confirmed",
       "counted": false,
       "quote": "Let grace come, and let this world pass away. ... Maran atha. Amen",
-      "remark": "The text being compared, not a writer making the comparison; not counted."
+      "remark": "The text being compared, not a writer making the comparison; not counted.",
+      "at_now": "chapter 10, verse 6",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-corinthians-16-22",
@@ -6415,7 +6501,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "post 'Maranatha and the Identity of Jesus' (2024): the same prayer language in Revelation and the Didache, with 1 Corinthians 11:26 and 16:22, for Jesus' return"
+      "pointer": "post 'Maranatha and the Identity of Jesus' (2024): the same prayer language in Revelation and the Didache, with 1 Corinthians 11:26 and 16:22, for Jesus' return",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "1-corinthians-16-22",
@@ -6428,7 +6516,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "pointer": "same Riggans article: maranatha in the Didache's Lord's Supper prayers (10:6), and 1 Corinthians 11:26 shows the feast looked to the Lord's return"
+      "pointer": "same Riggans article: maranatha in the Didache's Lord's Supper prayers (10:6), and 1 Corinthians 11:26 shows the feast looked to the Lord's return",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "2-corinthians-3-18",
@@ -6517,7 +6607,9 @@
       "more": [
         "transfigured. Gr. metamorphoomai - to change the form. Occ. only here, Mark 9. 2, and in Rom. 12. 2, 2 Cor. 3. is"
       ],
-      "remark": "archive.org OCR of the Companion Bible New Testament. The further line is its note on Matthew 17:2, as the OCR reads it; its final 'is' is 18."
+      "remark": "archive.org OCR of the Companion Bible New Testament. The further line is its note on Matthew 17:2, as the OCR reads it; its final 'is' is 18.",
+      "url_now": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20NT/page/n429/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "philippians-2-10",
@@ -6529,7 +6621,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "Observe also that the words (Isaiah 45:23) on which this passage is formed are the words of Jehovah: \"Unto me every knee shall bow, every tongue shall swear.\" They could not be used without impiety of any but God."
+      "pointer": "the comment on Philippians 2:10, where the writer notes the passage is built on Isaiah 45:23, which the Lord speaks of himself, so applying it to anyone but God would be irreverent"
     },
     {
       "passage": "philippians-2-10",
@@ -6583,7 +6675,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "translate, in the name, not at (comp. Isaiah 45:23, quoted in Romans 14:10, 11)."
+      "pointer": "the comment on Philippians 2:10, where the writer says the phrase should be rendered in the name of Jesus rather than at the name, comparing Isaiah 45:23 as Romans 14:10-11 cites it"
     },
     {
       "passage": "philippians-2-10",
@@ -6669,7 +6761,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Observe the paronomasia, the combination of like-sounding words, which is common in St. Paul's Epistles."
+      "pointer": "the comment on Philippians 3:2, where the writer points out the play on similar sounding words, a device Paul often uses in his letters"
     },
     {
       "passage": "philippians-3-2",
@@ -6732,7 +6824,10 @@
       "status": "added",
       "counted": true,
       "quote": "emathen) ohedience by the things which he suffered",
-      "remark": "Under 'PARONOMASIA; or, RHYMING-WORDS', at Heb. v. 8; 'ohedience' is the OCR's misreading."
+      "remark": "Under 'PARONOMASIA; or, RHYMING-WORDS', at Heb. v. 8; 'ohedience' is the OCR's misreading.",
+      "at_now": "under Paronomasia (Rhyming-Words)",
+      "url_now": "https://archive.org/details/figuresofspeechu00bull/page/n374/mode/1up",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json); url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "hebrews-7-2",
@@ -6854,7 +6949,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": false,
-      "quote": "David, admitted into the councils of the Most High, has been made aware that the Messiah is, by God's decree, to be both King and Priest. ... [Psalm 110:1] Jehovah said unto him who is my Lord and Master, i . e . to Messiah",
+      "pointer": "the comment on Psalm 110:4, where the writer says David, let into God's counsels, learned that by divine decree Messiah would be King and Priest at once; its note on verse 1 takes my Lord as Messiah",
       "remark": "States the psalm half only, not Jesus' use of it; the second part is its note on 110:1, earlier on the page."
     },
     {
@@ -6991,7 +7086,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "The only passage of the New Testament (an expression derived from this very passage through the Vulgate) in which diatheke means a \"testament\" is Hebrews 9:16"
+      "pointer": "the comment on 1 Corinthians 11:25, where the writer says only Hebrews 9:16 uses diatheke in the sense of a testament, and that the title New Testament comes from this verse by way of the Vulgate"
     },
     {
       "passage": "revelation-1-5",
@@ -7004,7 +7099,9 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "pointer": "post 'Firstborn' (2011): following G. K. Beale, all three titles of Revelation 1:5 are found in Psalm 89:27-28 and 37, and they point to the restored Davidic line"
+      "pointer": "post 'Firstborn' (2011): following G. K. Beale, all three titles of Revelation 1:5 are found in Psalm 89:27-28 and 37, and they point to the restored Davidic line",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "revelation-1-5",
@@ -7029,7 +7126,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "In any case, \"my witness, my faithful one\" (Revised Version), is more accurate than \"my faithful martyr\" (Authorized Version). ... it produces clumsiness to reproduce it in English: ... occurs here of Antipas, and in Revelation 1:5 of Christ"
+      "pointer": "the comment on Revelation 2:13, where the writer prefers the Revised Version's my witness, my faithful one to the Authorized faithful martyr, and notes the title fits Antipas here and Christ in 1:5"
     },
     {
       "passage": "revelation-1-5",
@@ -7067,7 +7164,9 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Antipas. A witness in future who will be faithful unto death. Mentioned proleptically. faithful. Ap. 150, IIL martyr=witness. See 1. 5."
+      "quote": "Antipas. A witness in future who will be faithful unto death. Mentioned proleptically. faithful. Ap. 150, IIL martyr=witness. See 1. 5.",
+      "url_now": "https://archive.org/details/thecompanionbible_202504/56.%20Revelation/page/n3/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "revelation-1-5",
@@ -7116,7 +7215,7 @@
       "fetched": "2026-10-20",
       "status": "confirmed",
       "counted": true,
-      "quote": "In what follows it is difficult to decide between \"washed\" ... and \"loosed\" ... both readings being very well supported ... The blood of Jesus Christ cleansing us from all sin is a frequent thought with the apostle who witnessed the piercing of the side ( Revelation 7:13, 14 ;"
+      "pointer": "the comment on Revelation 1:5, where the writer finds washed and loosed equally well attested, and notes that cleansing by Christ's blood is a recurring theme for John, who saw his side pierced"
     },
     {
       "passage": "revelation-1-5",
@@ -7214,7 +7313,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Collectively they are a kingdom - \"a kingdom of priests\" ( Exodus 19:6 ), or, as St. Peter, following the LXX., gives it, \"a royal priesthood\" ( 1 Peter 2:9 )."
+      "pointer": "the comment on Revelation 1:6, where the writer says believers as a body form a kingdom, the kingdom of priests of Exodus 19:6, which Peter, after the Septuagint, calls a royal priesthood"
     },
     {
       "passage": "revelation-1-5",
@@ -7338,7 +7437,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "the account here given is evidently derived from Ezekiel 47 , where the river is connected with trees"
+      "pointer": "the comment on Revelation 22:2, where the writer says John's picture plainly draws on Ezekiel 47, where trees likewise line the river"
     },
     {
       "passage": "revelation-22-2",
@@ -7411,7 +7510,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "Here Isaiah anticipates one of the most sublime thoughts in the Revelation of St. John the Divine ... a Divine radiance shed upon them by the \"Father of lights\" (see Revelation 21:23 ; Revelation 22:5 )."
+      "pointer": "the comment on Isaiah 60:19, where the writer says Isaiah here foreshadows one of the grandest ideas in Revelation, light shed from the Father of lights himself (Revelation 21:23; 22:5)"
     },
     {
       "passage": "revelation-22-2",
@@ -7463,7 +7562,9 @@
       "status": "added",
       "counted": true,
       "pointer": "study note on 1 Samuel 6:6: lists 1 Samuel 31:4, Exodus 10:2 and Jeremiah 38:19 as other places the same Hebrew verb is used",
-      "remark": "A note on the word's meaning that lists Exodus 10:2 among three uses; it counts under the file's practice for pointed cross-references."
+      "remark": "A note on the word's meaning that lists Exodus 10:2 among three uses; it counts under the file's practice for pointed cross-references.",
+      "at_now": null,
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json)."
     },
     {
       "passage": "proverbs-3-20",
@@ -7501,7 +7602,10 @@
       "status": "confirmed",
       "counted": true,
       "quote": "Ecc. iii. 18. — Lit., I said in my heart respecting the estate of the sons of men that . . . they, even they are Hlte beasts.\" Here the figure of Pleonasm (q.v.) first emphasizes the word \" men,\" and then the Epizeuxis again increases that emphasis.",
-      "remark": "Under Epizeuxis (p. 194); 'Hlte' is the OCR's misreading of 'like'. The cite now names the figure."
+      "remark": "Under Epizeuxis (p. 194); 'Hlte' is the OCR's misreading of 'like'. The cite now names the figure.",
+      "at_now": "under Epizeuxis (Duplication)",
+      "url_now": "https://archive.org/details/figuresofspeechu00bull/page/n248/mode/1up",
+      "remark_now": "2026-10-21: at_now gives the place inside the work as the cite now states it (its writer and title now come from config/layer-sources.json); url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "ecclesiastes-3-18",
@@ -7513,7 +7617,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "The pronoun is repeated emphatically, \"that they themselves are [like] beasts, they in themselves.\""
+      "pointer": "the comment on Ecclesiastes 3:18, where the writer notes the Hebrew repeats the pronoun for emphasis, so that men in and of themselves are seen to be like beasts"
     },
     {
       "passage": "ecclesiastes-3-18",
@@ -7539,7 +7643,9 @@
       "status": "confirmed",
       "counted": true,
       "quote": "of the dust. See Gen. 1. 24 ; 2. 7, 19 ; 3. 19. turn to dust again. See Gen. 3. 19.",
-      "remark": "archive.org OCR. The note on 'turn to dust again' goes on to list Psalms, Job and Ecclesiastes 12:7; Genesis 3:19 comes first."
+      "remark": "archive.org OCR. The note on 'turn to dust again' goes on to list Psalms, Job and Ecclesiastes 12:7; Genesis 3:19 comes first.",
+      "url_now": "https://archive.org/details/CompanionBibleOT/Companion%20Bible%20OT/page/n921/mode/1up",
+      "remark_now": "2026-10-21: url_now is the readable page (archive.org's page view) of the same scan whose OCR text this record fetched."
     },
     {
       "passage": "ecclesiastes-3-20",
@@ -7551,7 +7657,7 @@
       "fetched": "2026-10-20",
       "status": "added",
       "counted": true,
-      "quote": "All are of the dust ( Genesis 3:19 ; Psalm 104:29 ; Psalm 146:4 ).",
+      "pointer": "the comment on Ecclesiastes 3:20, where the writer sets the verse's line about all coming from dust beside Genesis 3:19, Psalm 104:29 and Psalm 146:4",
       "remark": "A pointed cross-reference, counted under the file's practice for them."
     }
   ],

@@ -26,15 +26,46 @@ export interface LayerRef {
   arc: boolean;
 }
 
-/** A source a note cites: a commentary on a verse, or a writer and work. */
+/** A citation's credit, as the build resolves it from config/layer-sources.json
+ * and docs/evidence/: the person who wrote the words, the work and its original
+ * date, where the app read it, the date it was read or checked, and the page. */
 export interface Cite {
-  name: string;
+  /** Who wrote the words: a name, two joined by "and", or a plain phrase when no writer can be named. */
+  writer: string;
+  /** Who he was, in one short phrase (for two writers, each by surname). Absent when unnamed. */
+  about?: string;
+  /** "named"; "attributed" (printed without a name and generally credited to the writer); "unnamed". */
+  named: 'named' | 'attributed' | 'unnamed';
+  /** The work as the credit names it, with its volume: "Commentary on Genesis". */
+  work: string;
+  /** The original date as checked ("Andover edition of 1866"), or "date not known". */
+  written: string;
+  /** One checked year or decade, for the short credit below Deep. */
+  year?: string;
+  /** The text as read: "translated by James Martin". */
+  edition?: string;
   /** The verse it comments on, as written: "Genesis 2:7". */
   on?: string;
-  /** The writer and work, when it is not a commentary on a verse. */
+  /** The place inside the work: "chapter 40". */
   at?: string;
-  /** Where to read it. */
-  url?: string;
+  /** "on Genesis 2:7", with the place inside the work. */
+  part: string;
+  /** Where the app read it: "Bible Hub". */
+  read_from: string;
+  /** The site's own label, when it credits the page to someone else: "Barnes' Notes". */
+  label?: string;
+  /** The day the page was read (YYYY-MM-DD), from a record of that reading. */
+  read_on?: string;
+  /** When no reading was recorded: the day it had been checked against the source by. */
+  checked?: string;
+  /** The page read. */
+  url: string;
+  /** The Sources shelf card that presents the work. */
+  shelf: string;
+  /** The writer it counts as when a note's writers are counted. */
+  key: string;
+  /** False when the cite supports part of the note or is a reference work. */
+  counts?: false;
 }
 
 export interface Layer {

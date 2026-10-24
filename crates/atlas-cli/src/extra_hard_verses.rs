@@ -154,6 +154,7 @@ impl Check<'_> {
             self.short(&at, "evidence", &c.evidence, EVIDENCE_MAX);
         }
         self.short(&at, "source", &c.source, EVIDENCE_MAX);
+        if let Some(p) = crate::layers::ai_credit(&c.source) { self.fail(&at, format_args!("source says {p:?}; credit the original sources, never AI")); }
         if c.reviewed_by.iter().any(|n| n.trim().is_empty()) {
             self.fail(&at, "reviewed_by has an empty name");
         }

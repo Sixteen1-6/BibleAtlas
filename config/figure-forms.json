@@ -2,11 +2,9 @@
   "_comment": [
     "The forms that figure, parallelism and contrast notes in config/figures/ may use. Shown only at Deep.",
     "label is the plain name a reader sees first; term is the usual name for the form; about says what it is in plain words.",
-    "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json, quote its exact words, at where in the book, read the edition or site the words were read from and retrieved the date (decision 10). Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
-    "same_writer lists cite-list ids that count as one writer when a note's strength is counted.",
-    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and its New Testament was finished by others after 1913), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words) and the church fathers (a group, not one work). The NET translators' notes are never shown. Works left out may still be linked from Layers.",
-    "multi_writer lists works written by several hands (each volume or part by its own writer): a cite of one names the writer of the quoted part in its own by, as \"Franz Delitzsch, Lutheran scholar\" (decision 10).",
-    "only_on lists works whose named writer wrote only some books, with the books they may be quoted on: a book name, or \"First to Last\" for a run. Barnes wrote Job, the Psalms, Isaiah, Daniel and the New Testament (Genesis in Barnes' Notes is James G. Murphy's); Henry wrote Genesis to Acts (other ministers finished Romans to Revelation); the Catena is on the Gospels."
+    "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json (which says who wrote its words), quote its exact words, at where in the book, url the page they are on, read the edition or site the words were read from and retrieved the date (decision 10). Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
+    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and it was completed after Bullinger's death in 1913 by others, in parts not yet established), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words), the church fathers (a group, not one work) and the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice; it may be cited and linked, never quoted). The NET translators' notes are never shown. Works left out may still be linked from Layers.",
+    "A cite or definition names no writer itself: the cite list in config/layer-sources.json says who wrote a source's words on each book, as it does for Layers (decision 10), so a work by several hands credits each book's own writer, two works by one writer count once toward a note's strength, and words whose writer is not named or is no longer cited are refused."
   ],
   "forms": [
     {
@@ -19,6 +17,7 @@
         "source": "bullinger-fos",
         "quote": "This is when the lines are parallel in thought, and in the use of synonymous words.",
         "at": "Synonymous or Gradational, p. 349",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/349/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -33,6 +32,7 @@
         "source": "bullinger-fos",
         "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
         "at": "Antithetic, or Opposite, p. 351",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/351/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -46,7 +46,8 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "This is where the parallelism consists only in the similar form of construction",
-        "at": "Synthetic, or Constructive",
+        "at": "Synthetic, or Constructive, p. 351",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/351/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -61,6 +62,7 @@
         "source": "bullinger-fos",
         "quote": "This is when the parallel lines are so placed that if there be six lines, the first corresponds with the sixth, the second with the fifth, and the third with the fourth.",
         "at": "Introverted Parallelism, p. 356",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/356/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -75,6 +77,7 @@
         "source": "bullinger-fos",
         "quote": "it is alternate when, of the four members, the first corresponds with the third, and the second with the fourth.",
         "at": "Simple Alternation, p. 365",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/365/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -88,7 +91,8 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "Metonymy is a figure by which one name or noun is used instead of another, to which it stands in a certain relation.",
-        "at": "Metonymy",
+        "at": "Metonymy, p. 538",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/538/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -110,6 +114,7 @@
         "source": "bullinger-fos",
         "quote": "This figure is used of the ascription of human passions, actions, or attributes to God.",
         "at": "Anthropopatheia, or Condescension, p. 871",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/871/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -124,6 +129,7 @@
         "source": "bullinger-fos",
         "quote": "A figure by which things are represented or spoken of as persons",
         "at": "Prosopopoeia, or Personification, p. 861",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/861/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -137,7 +143,8 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "A Declaration that one Thing resembles another; or, Comparison by Resemblance",
-        "at": "Simile, or Resemblance",
+        "at": "Simile, or Resemblance, p. 726",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/726/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -151,7 +158,8 @@
       "defined": {
         "source": "bullinger-fos",
         "quote": "A Declaration that one Thing is (or represents) another; or, Comparison by Representation",
-        "at": "Metaphor, or Representation",
+        "at": "Metaphor, or Representation, p. 735",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/735/mode/1up",
         "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
         "retrieved": "2026-10-21"
       }
@@ -171,23 +179,12 @@
       "about": "Two people are set side by side because one is like the other."
     }
   ],
-  "same_writer": [
-    [
-      "bullinger-fos",
-      "bullinger-cb"
-    ],
-    [
-      "henry",
-      "henry-concise"
-    ]
-  ],
   "quotable": [
     "bsb",
     "henry",
     "barnes",
     "jfb",
     "keil-delitzsch",
-    "pulpit",
     "ellicott",
     "benson",
     "poole",
@@ -201,27 +198,5 @@
     "strongs",
     "easton",
     "bullinger-fos"
-  ],
-  "multi_writer": [
-    "jfb",
-    "keil-delitzsch",
-    "pulpit",
-    "ellicott",
-    "catena-aurea"
-  ],
-  "only_on": {
-    "barnes": [
-      "Job",
-      "Psalms",
-      "Isaiah",
-      "Daniel",
-      "Matthew to Revelation"
-    ],
-    "henry": [
-      "Genesis to Acts"
-    ],
-    "catena-aurea": [
-      "Matthew to John"
-    ]
-  }
+  ]
 }

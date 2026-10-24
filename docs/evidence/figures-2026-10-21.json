@@ -1,4 +1,5 @@
 {
+  "kind": "figure-quotes",
   "_comment": [
     "Where each quotation in config/figures/ and config/figure-forms.json was found, checked 2026-10-21; the Henry quotes on Genesis 6:6, Psalm 1:6 and 1 Samuel 1:2 and the Isaiah 6:10 Bengel credit on 2026-10-22. Records for a form's definition carry \"form\" in place of \"note\".",
     "found_in is the public-domain copy the words were read in, pinned to a commit: the sacred-texts.com commentaries mirrored in jonnyg23/mahabrain, and Bullinger's Figures of Speech as a UniqueBible module. context is the copy's text around the quotation, lowercased with punctuation dropped, as the comparison was made.",
