@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { type Atlas, label, langName, rangeLabel } from '../data/atlas';
 import { extraText, loadExtraText, loadPlainText, plainText } from '../data/plain';
-import { type Extra, type SearchResult, searchEnglish, searchRoots, markWords } from '../data/search';
+import { type Extra, type SearchResult, inOwnLetters, searchEnglish, searchRoots, markWords } from '../data/search';
 import { getVerse } from '../data/text';
 import * as S from '../state';
 import { NOT_LOADED } from './common';
@@ -50,7 +50,8 @@ function VerseText({ a, v, words }: { a: Atlas; v: number; words: Set<string> })
   );
 }
 
-function footNote(q: string, res: SearchResult | null, ref: boolean): string {
+function footNote(q: string, res: SearchResult | null, ref: boolean, roots: boolean): string {
+  if (inOwnLetters(q) && !roots && !ref) return `No Hebrew or Greek root in this app is spelled “${q.trim()}”. Try how it sounds, like “shalom” or “agape”, or a Strong’s number.`;
   if (!q.trim()) return 'Type a reference, words from a verse (any translation, typos are fine), a question like “what happens when we die?”, a Strong’s number, or a transliteration like “agape” or “ruach”.';
   if (!res) return ref ? 'Press Enter to open it.' : '';
   const notes: string[] = [];
@@ -96,8 +97,8 @@ export function Palette({ a }: { a: Atlas }) {
       if (range) out.push({ kind: 'ref', range });
       // Someone asking about ending their life gets help and hope (matchAsk), not every verse that says "kill" or "die".
       const care = isCare(query);
-      // "Mathew 5:3" is a reference, not words to look for.
-      const found = care || (range && /\d/.test(query)) ? null : searchEnglish(a, q, 30, texts, extra);
+      // "Mathew 5:3" is a reference, not words to look for; "שָׁלוֹם" is a root's own spelling.
+      const found = care || (range && /\d/.test(query)) || inOwnLetters(query) ? null : searchEnglish(a, q, 30, texts, extra);
       // "My grace is sufficient for you" looks for its verse; "my dad has dementia" asks.
       const top = found?.verses[0];
       const quoted = top !== undefined && !!texts && holdsWords(texts[top] + (found!.spans[0] === 2 ? ` ${texts[top + 1]}` : ''), query);
@@ -169,7 +170,7 @@ export function Palette({ a }: { a: Atlas }) {
             </li>
           ))}
         </ul>
-        <div class="foot">{footNote(q, res, items[0]?.kind === 'ref')}</div>
+        <div class="foot">{footNote(q, res, items[0]?.kind === 'ref', items.some((it) => it.kind === 'root'))}</div>
       </div>
     </div>
   );

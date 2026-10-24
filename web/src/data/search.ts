@@ -667,16 +667,37 @@ function plain(s: string): string {
   return s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/[.\-'ʼʾʿ]/g, '');
 }
 
-/** Roots whose transliteration, gloss or Strong's number matches. */
+/** A word in Hebrew or Greek letters without its vowel points, accents and
+ * breathings, and with a final sigma as any other ("שָׁלוֹם" -> "שלום", "ἀγάπη" -> "αγαπη"). */
+function bare(s: string): string {
+  return s
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .replace(/[־׀׃׳״.,;·’'ʼ]/g, '')
+    .toLowerCase()
+    .replace(/ς/g, 'σ');
+}
+
+/** A query written in Hebrew or Greek letters, with no Latin ones: a root's own spelling. */
+export function inOwnLetters(query: string): boolean {
+  return /[\p{Script=Hebrew}\p{Script=Greek}]/u.test(query) && !/\p{Script=Latin}/u.test(query);
+}
+
+/** Roots whose transliteration, gloss, Strong's number or own spelling matches. */
 export function searchRoots(a: Atlas, query: string, limit = 8): number[] {
   const q = query.trim().toLowerCase();
   if (q.length < 2) return [];
   const L = a.lemmas;
   const strong = /^[hg]\d{1,4}[a-z]?$/i.test(q);
+  const own = inOwnLetters(q) ? bare(q) : '';
   const hits: [number, number][] = [];
   for (let i = 0; i < L.key.length; i++) {
     let score = 0;
-    if (strong) {
+    if (own) {
+      const w = bare(L.word[i] ?? '');
+      if (w === own) score = 3;
+      else if (own.length >= 2 && w.startsWith(own)) score = 1;
+    } else if (strong) {
       const k = L.key[i].toLowerCase();
       const want = q[0] + q.slice(1).replace(/^(\d+)/, (d) => d.padStart(4, '0'));
       if (k === want) score = 3;

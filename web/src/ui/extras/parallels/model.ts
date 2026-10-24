@@ -14,6 +14,8 @@ interface IndexFile {
   format: number;
   kinds: string[];
   sets: number[][];
+  /** Verses of a set that line up with no verse of the other passages, as [from, to, from, to, ...]. */
+  alone?: number[];
 }
 
 /** web/public/data/extras/parallels/<Book>.json: every set with a passage in that book. */
@@ -65,12 +67,24 @@ const SAYS: Record<Kind, string> = {
   letter: 'Much the same in ',
 };
 
+/** The same, under a verse that lines up with nothing in the other passages
+ * (Matthew 15:14 in Mark 7:14–23): the line is about its passage. */
+const AROUND: Record<Kind, string> = {
+  account: 'This passage is also told in ',
+  event: 'This passage is also told in ',
+  song: 'This song is also sung in ',
+  list: 'This list is also given in ',
+  law: 'This law is also given in ',
+  prophecy: 'Much the same prophecy is in ',
+  letter: 'This passage is much the same in ',
+};
+
 /** The longest line, in letters, before it names fewer passages. */
 const LONG = 70;
 
 /** "Also told in Mark 2:1–12 and Luke 5:17–26": the other passages of the
  * sets a verse is in, at most three named. */
-function lineFor(a: Atlas, sets: PSet[], verse: VerseRef): NoteLine | null {
+function lineFor(a: Atlas, sets: PSet[], verse: VerseRef, alone: boolean): NoteLine | null {
   const others: Span[] = [];
   for (const s of sets) {
     const home = passageAt(s, verse);
@@ -80,7 +94,7 @@ function lineFor(a: Atlas, sets: PSet[], verse: VerseRef): NoteLine | null {
   }
   if (!sets.length || !others.length) return null;
   others.sort((p, q) => p.from - q.from);
-  const says = SAYS[sets[0].kind];
+  const says = (alone ? AROUND : SAYS)[sets[0].kind];
   const length = (named: number) => says.length + others.slice(0, named).reduce((n, p) => n + nameOf(a, p).length + 2, 0) + (named < others.length ? 12 : 0);
   let named = others.length > 3 ? 2 : others.length;
   while (named > 1 && length(named) > LONG) named--;
@@ -115,14 +129,17 @@ export async function load(a: Atlas): Promise<Data> {
       }
     }
   }
+  const alone = new Set<VerseRef>();
+  const runs = file.alone ?? [];
+  for (let i = 0; i + 1 < runs.length; i += 2) for (let v = runs[i]; v <= runs[i + 1] && v < a.n; v++) alone.add(v);
   const lines = new Map<VerseRef, NoteLine>();
   const made = new Map<string, NoteLine | null>();
   for (const [v, ids] of at) {
     const list = ids.flatMap((id) => sets.get(id) ?? []);
-    const key = list.map((s) => `${s.id}.${passageAt(s, v)}`).join(' ');
+    const key = list.map((s) => `${s.id}.${passageAt(s, v)}`).join(' ') + (alone.has(v) ? ' alone' : '');
     let line = made.get(key);
     if (line === undefined) {
-      line = lineFor(a, list, v);
+      line = lineFor(a, list, v, alone.has(v));
       made.set(key, line);
     }
     if (line) lines.set(v, line);

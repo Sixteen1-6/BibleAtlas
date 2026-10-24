@@ -82,7 +82,7 @@ export function Passage({ a, from, to, navigate, note, children }: { a: Atlas; f
           <div key={from + i} class="xt-pverse" data-lv={from + i}>
             <p class="xt-ptext">
               {many && <sup>{locate(a, from + i).verse}</sup>}
-              {row[0]}
+              {row[0] || <span class="muted">Some manuscripts add a verse here.</span>}
             </p>
             {deep && row[1].length > 0 && (
               <div class="xt-porig" onClickCapture={noteStudy} onClick={yieldToStudy}>

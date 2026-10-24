@@ -38,6 +38,8 @@ export function useVerseRow(a: Atlas, v: number | null | undefined): VerseRow | 
 
 /** Shown in place of a verse's words when they could not be loaded. */
 export const NOT_LOADED = 'Couldn’t load this verse. Check your connection.';
+/** In place of the words of a verse the BSB leaves to a footnote (Matthew 17:21). */
+export const OMITTED = 'The BSB does not include this verse in its main text; some manuscripts add it.';
 
 export function Snippet({ a, v, max = 180 }: { a: Atlas; v: number; max?: number }) {
   const { row, failed } = useVerseLoad(a, v);

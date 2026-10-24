@@ -13,9 +13,12 @@
 //! share.
 //!
 //! Output, under `web/public/data/`:
-//! - `extras/parallels.json`: `{format, kinds, sets}`, each set
-//!   `[kind, from, to, from, to, ...]` in verse numbers. Small: it loads the
-//!   first time a reader selects a verse.
+//! - `extras/parallels.json`: `{format, kinds, sets, alone}`, each set
+//!   `[kind, from, to, from, to, ...]` in verse numbers, and `alone` the
+//!   verses of a set whose row lines up with no verse of the other passages,
+//!   as `[from, to, from, to, ...]`, so the line under them speaks of the
+//!   passage rather than the verse. Small: it loads the first time a reader
+//!   selects a verse.
 //! - `extras/parallels/<Book>.json`: for each set with a passage in that book,
 //!   `{titles, listed, pairs, apart}`: the BSB heading of each passage, which
 //!   passages the headings list, for each pair `[i, j, roots in common %,
@@ -30,7 +33,7 @@ use crate::sources::Inputs;
 use atlas_core::canon::BOOKS;
 use atlas_core::Versification;
 use serde_json::{json, Value};
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, BTreeSet, HashMap, HashSet};
 use std::fs;
 use std::path::Path;
 
@@ -634,7 +637,13 @@ pub fn build(
     let mut by_book: BTreeMap<u8, serde_json::Map<String, Value>> = BTreeMap::new();
     let mut index = Vec::new();
     let (mut pairs, mut added) = (0usize, 0usize);
+    // Verses in a set, and those a row lines up with a verse of another passage.
+    let mut covered: BTreeSet<u32> = BTreeSet::new();
+    let mut paired: HashSet<u32> = HashSet::new();
     for (id, set) in sets.iter().enumerate() {
+        for p in &set.passages {
+            covered.extend(p.0..=p.1);
+        }
         let n = set.passages.len();
         let verse_roots: Vec<Vec<Vec<u32>>> = set
             .passages
@@ -660,6 +669,7 @@ pub fn build(
                     .into_iter()
                     .flat_map(|(x, y)| [x, y])
                     .collect();
+                mark_paired(&mut paired, set.passages[i], set.passages[j], &rows);
                 out_pairs.push(json!([
                     i,
                     j,
@@ -731,7 +741,13 @@ pub fn build(
             dropped.join(", ")
         );
     }
-    let doc = json!({ "format": 1, "kinds": KINDS, "sets": index });
+    let alone = runs_of(covered.iter().copied().filter(|v| !paired.contains(v)));
+    eprintln!(
+        "parallels: {} of the {} verses in a set line up with no verse of the other passages",
+        covered.len() - covered.iter().filter(|v| paired.contains(v)).count(),
+        covered.len()
+    );
+    let doc = json!({ "format": 1, "kinds": KINDS, "sets": index, "alone": alone });
     let mut files = vec![(
         OUT.to_string(),
         serde_json::to_vec(&doc).map_err(|e| e.to_string())?,
@@ -744,6 +760,33 @@ pub fn build(
         ));
     }
     Ok(files)
+}
+
+/// Marks the verses of passages `a` and `b` that a row lines up with a verse
+/// of the other: rows as verse counts `[a, b, a, b, ...]`, as the panel reads them.
+fn mark_paired(paired: &mut HashSet<u32>, a: Span, b: Span, rows: &[usize]) {
+    let (mut va, mut vb) = (a.0, b.0);
+    for r in rows.chunks(2) {
+        let (x, y) = (r[0] as u32, r.get(1).copied().unwrap_or(0) as u32);
+        if x > 0 && y > 0 {
+            paired.extend(va..va + x);
+            paired.extend(vb..vb + y);
+        }
+        va += x;
+        vb += y;
+    }
+}
+
+/// Sorted verses as runs, `[from, to, from, to, ...]`.
+fn runs_of(verses: impl IntoIterator<Item = u32>) -> Vec<u32> {
+    let mut out: Vec<u32> = Vec::new();
+    for v in verses {
+        match out.last_mut() {
+            Some(last) if *last + 1 == v => *last = v,
+            _ => out.extend([v, v]),
+        }
+    }
+    out
 }
 
 fn label(vz: &Versification, v: u32) -> String {
@@ -805,8 +848,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     // pair whose rows use up both passages exactly.
     let mut details: HashMap<u8, Value> = HashMap::new();
     let mut complete = true;
+    let mut covered: BTreeSet<u32> = BTreeSet::new();
+    let mut paired: HashSet<u32> = HashSet::new();
     for (id, s) in sets.iter().enumerate() {
         let passages: Vec<Span> = s[1..].chunks(2).map(|p| (p[0], p[1])).collect();
+        for p in &passages {
+            covered.extend(p.0..=p.1);
+        }
         for p in &passages {
             let b = book_of(p.0).ok_or("verse out of range")?;
             if let std::collections::hash_map::Entry::Vacant(e) = details.entry(b) {
@@ -839,6 +887,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                         .map(|r| r.iter().filter_map(Value::as_u64).collect())
                         .unwrap_or_default();
                     let used = |k: usize| rows.iter().skip(k).step_by(2).sum::<u64>();
+                    if i < j && j < passages.len() {
+                        let counts: Vec<usize> = rows.iter().map(|&x| x as usize).collect();
+                        mark_paired(&mut paired, passages[i], passages[j], &counts);
+                    }
                     i < j
                         && j < passages.len()
                         && used(0) == u64::from(passages[i].1 - passages[i].0 + 1)
@@ -849,6 +901,27 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     out.push((
         complete,
         "each book's parallels file lines up every pair of every set it holds".to_string(),
+    ));
+    // The verses whose line speaks of their passage, as their rows show them.
+    let alone: Vec<u32> = doc["alone"]
+        .as_array()
+        .map(|r| {
+            r.iter()
+                .filter_map(|x| x.as_u64().map(|x| x as u32))
+                .collect()
+        })
+        .unwrap_or_default();
+    let want = runs_of(covered.iter().copied().filter(|v| !paired.contains(v)));
+    let is_alone = |r: &str| -> Result<bool, String> {
+        let (v, _) = d.resolve(r)?;
+        Ok(alone.chunks(2).any(|p| p[0] <= v && v <= p[1]))
+    };
+    out.push((
+        alone == want && is_alone("Matt 15:14")? && !is_alone("Mark 2:5")?,
+        format!(
+            "parallels.json lists as alone exactly the {} verses in a set whose row lines up with no verse of another passage (Matthew 15:14 is one, Mark 2:5 is not)",
+            want.chunks(2).map(|p| (p[1] - p[0] + 1) as usize).sum::<usize>()
+        ),
     ));
 
     // Well-known parallels, as verses that must share a set.

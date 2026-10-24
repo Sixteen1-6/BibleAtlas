@@ -119,6 +119,8 @@ function Marked({ a, v, marks }: { a: Atlas; v: number; marks: Set<string> }) {
   const known = plainText()?.[v];
   const { row, failed } = useVerseLoad(a, known ? null : v);
   const t = known ?? row?.[0];
+  // A verse the BSB leaves to a footnote (Acts 8:37) has no words: '' is not still loading.
+  if (t === '') return <span class="muted">Some manuscripts add a verse here.</span>;
   if (!t) return <span class="xt-wait">{failed ? 'Couldn’t load this verse.' : '…'}</span>;
   return <>{wordPieces(t).map((p, i) => (p.word && marks.has(p.word) ? <mark key={i}>{p.text}</mark> : p.text))}</>;
 }
