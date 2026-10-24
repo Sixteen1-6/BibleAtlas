@@ -18,19 +18,19 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect 99093a47469eded37243abf1519e70f457aa0708 (the merge of #55), or the merge of a docs-only PR that
-#   rewrote this section on top of it: git log --oneline 99093a4..origin/main shows only that
+#   expect the merge of #57 (How it is written at Deep, site code only) on top of 4eb6542 (#61, docs),
+#   or a later merge: git log --oneline 4eb6542..origin/main lists what came after
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
-#   expect #57 (the Deep display, section 0, "In flight"), plus the next Ask PR (gathering, section 0, "In flight")
+#   expect the next Ask PR (gathering, section 0, "In flight")
 #   and any docs PR that rewrites this section until they merge
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
 #   expect "buildId": "b1411b345a96", the id in the Pages build of #55's merge (run 40096803861) and of a full local build;
-#   #53 and #54 changed only the site's code and docs, and #55 the writers' and dictionary data     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
+#   #53, #54 and #57 changed only the site's code and docs, and #55 the writers' and dictionary data     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
 
 If any value differs, read what changed before acting: `gh pr list --repo Sixteen1-6/BibleAtlas --state all --limit 5` and `git log origin/main`. Then rewrite section 0.
 
-A docs-only or site-code-only merge moves `main` without changing the data, so the build id stays the one #59's merge produced (`592b8c4dc0b3`); record the new `main` in section 0 when it merges.
+A docs-only or site-code-only merge moves `main` without changing the data, so the build id stays the one #55's merge produced (`b1411b345a96`); record the new `main` in section 0 when it merges.
 
 **Who keeps section 0 current.** Whoever merges a PR or finishes a job re-runs the three commands and rewrites section 0 in the same sitting, and the PR that changes `main` should update section 0 itself (`CLAUDE.md`, "Start here"). Cloud sessions in the founder's claude.ai project also keep a living summary of the whole project, cloud and local, in a Claude Doc that is refreshed every three hours: https://claude.ai/code/artifact/852a3499-e493-45f8-96e2-ffa4cc3d3332. This file stays the source of record for the repository; the doc is the plain-words overview.
 
@@ -51,7 +51,7 @@ Terms used throughout:
 - **Layers** means the "Layers of meaning" notes on wordplay, names, allusions and so on.
 - **Ask** means "Ask the Bible".
 
-## 0. State on 2026-10-24 at 13:15 UTC
+## 0. State on 2026-10-24 at 13:35 UTC
 
 **Live.** Since 2026-10-24 the site serves the Pages deploy of `99093a4`, the merge of #55 (run 40096803861), build id `b1411b345a96` (its log: "build b1411b345a96", "5937 checks passed", `assets/index-DrnMwedI.js`; the same id as a full local build of #55's head merged with #53). #53 (`a855d07`, Pages run 40094793686) and #54 (`15bfcc4`, Pages run 40096079234) deployed before it with the data of #59, `592b8c4dc0b3`; #55 changes the Christian writers' and dictionary data, so the id moved. Before that, as written on 2026-10-22: before #58, https://everyversemap.com/ served the Pages deploy of `85f0994` (#56, run 39678704553, 21:25:44 to 21:30:08 UTC on 2026-10-21). Its data is `2aabdcc`'s (the merge of PR #50 at 02:50:58 UTC on 2026-10-21), build id `6e89a09cfa05`, because #51, #52 and #56 are docs only. Pages rebuilds and redeploys on every push to `main`: the merge of #58 deployed the figures extras with a new build id, and the merge of #59 (`20869ea`, 12:36:21 UTC on 2026-10-22) deployed Ask's word-meaning model with another, `592b8c4dc0b3` (Pages run 39779724695, 12:36:24 to 12:40:37; its log shows "build 592b8c4dc0b3", "5929 checks passed", `assets/index-CZf7Iw2s.js` and "model.bin 7.87 MB, 87408 texts, 29528 word pieces at 4 bits"). The merge of #60 redeploys the site's code with the same data and id.
 
@@ -76,8 +76,9 @@ Terms used throughout:
 | #53, `commentary-notice`, merge `a855d07` | 2026-10-24 12:38 | Founder decision 1: commentary (study notes, Christian writers, dictionaries, Layers, hard verses and passages) opens only after a two-page notice that it is commentary, not God's Word; code in `web/src/ui/commentary/`, the gates are elements with `data-cn-ask`. Local commit `13de9c3` unchanged, `main` merged in. Merged on the founder's "merge" of 2026-10-22 12:58 UTC. Site code and docs only. | CI 40094793674, Deploy 40094793686, both green; data unchanged. |
 | #54, `af-bt`, merge `15bfcc4` | 2026-10-24 12:57 | The Bible text credits (audit module AF-BT): each translation credited as its publisher asks, the NET's line word for word from netbible.com/copyright, and `NOTICE.md` to match. Local commit `ce24306` unchanged. Site code and docs only. | CI 40096079182, Deploy 40096079234, both green; data unchanged. |
 | #55, `no-empty-selections`, merge `99093a4` | 2026-10-24 13:07 | Founder decision 12, nothing opens empty: notes that only point elsewhere are left out (282 Wesley notes, 402 study notes, 92 dictionary entries, 73 of those listed as the entry they point to), with short notes that have words of their own kept, as the founder answered on 2026-10-22; "People ask" stays a list even with one question; Henry's notes on Isaiah 36, 37 and 39 show his 2 Kings notes under "Henry's notes on 2 Kings ..."; no view shows 0, an empty heading, a blank verse or an endless "...". Local commit `fb3b824` unchanged, two cloud commits. | Deploy 40096803861; data and id change (above). |
+| #57, `claude/project-thread-4g4r00` | 2026-10-24 | The display for #58's data, "How it is written" at Deep, behind the commentary notice: a quiet line under a verse with a note, and a panel with the pairs drawn as arcs on a small night sky, the BSB lines lettered A and A′ (pointing lights the partner, a tap pins it), the figure's words and what they stand for, two people side by side, the Hebrew or Greek words, the form's definition, and each writer's own words with writer, work, date, where read and date read (decision 10). At Deep the arc map also draws the selected verse's notes in violet, through the map's overlay slot (`ui/mapSlot.ts`), so `AtlasMap.tsx` (AF-X) is untouched. New files only: `web/src/ui/extras/figures.extra.tsx`, `figures.css`, `figures/{model.ts, Panel.tsx, Strip.tsx, MapArcs.ts}`. Site code only. | Data and build id unchanged (`b1411b345a96`, "5937 checks passed", in a full local build of the head merged with `99093a4`). |
 
-#49 and #50 came from local jobs on the founder's PC, and #53 to #55 began there; #51, #52, #56, #58, #59 and #60 came from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
+#49 and #50 came from local jobs on the founder's PC, and #53 to #55 began there; #51, #52, #56, #57, #58, #59 and #60 came from cloud sessions. All were merged from the `Sixteen1-6` account. Section 8 rows 3 to 5 were settled by #50. Before them, #47 (merge `5296d48`) and #48 (merge `75f6edc`) merged on 2026-10-20; section 4 and the PR bodies have their detail.
 
 **In flight.**
 
@@ -85,7 +86,7 @@ Terms used throughout:
 |---|---|---|
 | `claude/ask-the-bible-u6macl`, restarted from `main` after #60 merges | The cloud Ask session (`01F5MX8Zw1CM7AW18hxHzAeP`) works here on the founder's ask of 12:18 UTC on 2026-10-22: when no prepared answer fits, Ask connects the question to verses through themes, word choices, links and the word-meaning model's guess of the theme, never interpreting. | It arrives as its own PR, judged blind against `main` on fresh messages first. The `true-credits` work (`wip/true-credits-2026-10-21`) must take in #59's `config/shelf.json` card and `NOTICE.md` section for the model. |
 | `mirror/potion-base-8M` at `dced885`, orphan | The model at Hugging Face revision `bf8b0566...`. | Never merge it. Never delete it: a `sources.json` pin will name this commit. |
-| Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Since #45 Layers merged #52 (docs) and #58, the data for three Deep-only note kinds, `figure`, `parallelism` and `contrast`, in new files (`config/figures/`, `config/figure-forms.json`, `extras/figures*`) outside the files `true-credits` holds. Their display is #57 (cloud thread "Arcs and card design at Deep"), which must sit behind the commentary notice, merged as #53. These notes may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. New `config/layers.json` passages wait for the `true-credits` module; new figure notes go in `config/figures/` and must pass `extra_figures.rs`. |
+| Cloud sessions "Push Bible Atlas to GitHub" (Layers) and "Wordplay, questions and scholarly sources" | Since #45 Layers merged #52 (docs) and #58, the data for three Deep-only note kinds, `figure`, `parallelism` and `contrast`, in new files (`config/figures/`, `config/figure-forms.json`, `extras/figures*`) outside the files `true-credits` holds. Their display is #57 (cloud thread "Arcs and card design at Deep"), merged behind the commentary notice (#53). These notes may stand alone at Deep and do not count toward rule 7. Wordplay is writing cited notes for them (664 character contrasts found, Bullinger's 4,988 figure examples indexed), second writers for 83 held passages and 314 new wordplay leads. | Its notes arrive through the Layers session as a PR. New `config/layers.json` passages wait for the `true-credits` module; new figure notes go in `config/figures/` and must pass `extra_figures.rs`. |
 | All four cloud sessions | Stopped at 23:25 UTC on 2026-10-20 on the account's usage limit and resumed at 16:13 UTC on 2026-10-21, when the project's coordinator asked each to rebase on `2aabdcc`, follow `CLAUDE.md` and resume. Usage limits have paused them again since, for hours at a time. | Nothing; they resume by themselves. |
 | Local work after #50 merged (02:51 UTC on 2026-10-21) | Copied to GitHub from the cloud on 2026-10-21 (thread "Local branches and notes"), with the local commits unchanged. Finished branches `commentary-notice`, `af-bt` and `no-empty-selections` merged as #53, #54 and #55 on 2026-10-24. Uncommitted worktree work, saved as found: `wip/true-credits-2026-10-21` (41 files, the true-credits module) and `wip/af-lx-2026-10-21` (7 files, the lexicon module). The founder's decisions are `docs/FOUNDER-DECISIONS.md`; the work folder's notes are `docs/local-work/2026-10-20/` (README there). | Never merge a `wip/` branch: the local job owns it and may push a finished branch. |
 | `docs/local-work/2026-10-20/voices/` (research only) | Seven reports, written 19:31 to 20:05 UTC on 2026-10-20, on which more Christian writers could be shown word for word at Deep, with the plans, build spec and shortlist drawn from them. **Ready from GitHub with an open license:** Matthew Henry's Complete Commentary and Calvin (Let's Church); Spurgeon's Treasury of David (`lyteword/chspurgeon-tod`, CC0); the Geneva notes; Poole and other Reformers and Puritans (EEBO-TCP, CC0; Poole after a repair pass); church fathers (`HistoricalChristianFaith/Commentaries-Database`, after filtering). **Need a mirror branch:** JFB, Clarke, Barnes (New Testament), Keil-Delitzsch, Robertson's Word Pictures, Scofield, Luther. **Not recommended:** Gill and Alford. | Founder decisions 1 to 8 and 23 answer the plans' questions. Adopting a writer needs a mirror where needed, a `sources.json` pin, a `NOTICE.md` credit, a shelf card and changes to `extra_voices.rs`. |
@@ -94,11 +95,10 @@ Terms used throughout:
 
 **Next, in order** (section 9 has the evidence):
 
-1. #57, the Deep display, behind the commentary notice (#53 is merged).
-2. The Ask gathering ask of 2026-10-22 (section 0, "In flight"); its first ask, Scripture only on the page for someone in danger, is #60.
-3. Make the build safe on Windows and pinned everywhere.
+1. The Ask gathering ask of 2026-10-22 (section 0, "In flight"); its first ask, Scripture only on the page for someone in danger, is #60.
+2. Make the build safe on Windows and pinned everywhere.
 
-#53, #54 and #55 merged on 2026-10-24. Of the earlier list, item 2 is done (the local work after #50 is on GitHub as #53 to #56 and two `wip/` branches), and items 1 and 4 are done by #59: it gives `ask/meaning.json` a key in its address, and it settles section 8 rows 7 to 9. The Ask evaluation sets (section 9, item 8) were in the Ask session's container after all, not only in the founder's claude.ai account, and #59 adds them as `eval/ask/`.
+#53, #54, #55 and #57 (the Deep display, the earlier item 1) merged on 2026-10-24. Of the earlier list, item 2 is done (the local work after #50 is on GitHub as #53 to #56 and two `wip/` branches), and items 1 and 4 are done by #59: it gives `ask/meaning.json` a key in its address, and it settles section 8 rows 7 to 9. The Ask evaluation sets (section 9, item 8) were in the Ask session's container after all, not only in the founder's claude.ai account, and #59 adds them as `eval/ask/`.
 
 ## 1. What this is
 
