@@ -288,7 +288,18 @@ async function noteMeta(res) {
 
 async function dataSaved(key) {
   const url = new URL(key);
-  if (stopped || url.pathname !== `${BASE}data/atlas.bin`) return;
+  if (stopped) return;
+  // A file the site retrains without a new data build carries its own key
+  // too (ask/model.bin?v=...&k=...): keep only the copy just saved.
+  const k = url.searchParams.get('k');
+  if (k !== null) {
+    const data = await caches.open(DATA);
+    for (const req of await data.keys()) {
+      const u = new URL(req.url);
+      if (u.pathname === url.pathname && u.searchParams.has('k') && u.searchParams.get('k') !== k) await data.delete(req);
+    }
+  }
+  if (url.pathname !== `${BASE}data/atlas.bin`) return;
   const latest = await (await caches.open(DATA)).match(LATEST);
   if (latest && url.searchParams.get('v') === (await latest.text())) await settle(url.searchParams.get('v'));
 }

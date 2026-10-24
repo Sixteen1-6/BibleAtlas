@@ -1,0 +1,43 @@
+{
+  "module": "AF-BT",
+  "branch": "af-bt",
+  "base": "2aabdcc (origin/main, 21 October 2026)",
+  "commit": "ce24306a90113fdc31a08bd6ac880fb7ae8063de",
+  "files": ["web/src/data/net.ts", "web/src/ui/Reader.tsx", "web/src/ui/Pairs.tsx", "docs/evidence/af-bt-2026-10-21.json"],
+  "diff": "4 files, 511 insertions, 18 deletions",
+  "gate": {
+    "clippy": "cargo clippy --workspace --release -- -D warnings: pass",
+    "tests": "cargo test --release -p atlas-cli: 199 passed, 0 failed",
+    "build": "atlas build: 2212 files, 120.6 MB, build id 6e89a09cfa05 (the same as main and the live site; no data or Rust changed)",
+    "verify": "atlas verify: 5909 checks passed (5909 on main)",
+    "shelf": "58 works in 12 groups; 239 of 239 citations matched (unchanged)",
+    "typecheck": "npx tsc --noEmit: pass",
+    "web_build": "npm run build with VITE_ESV=off: pass; Ask matcher 51,736 of 66,453 examples find their own question (77.9%, needs 70%)",
+    "bundle": "main script 341.33 kB (127.97 kB gzipped), against 332.75 kB (124.73 kB gzipped) on 2aabdcc built the same way: +8.58 kB (+3.24 kB gzipped), the grammar decoder and the notes",
+    "ask_and_search": "Import graph of web/src/ui/ask/*, web/src/ui/extras/ask.extra.tsx and web/src/ui/Palette.tsx: 36 files reached, none of net.ts, Reader.tsx, Pairs.tsx",
+    "net_not_stored": "check-net-not-stored.mjs: 67 NET verses (Genesis 1, John 3) read live into memory; 53 probes of 70 characters not shared with the BSB; 4,457 files (219.6 MB of text) in web/public/data, web/dist and web/public/sw.js: 0 found. (With 40-character probes, John 3:17 matched 4 Christian-writer files, a phrase the KJV shares; the longer probe removes the false match.)",
+    "em_dash_new": 0,
+    "ai_credit_phrases_new": 0,
+    "browser": "1440x900 and 390x844, light and dark, Study, Genesis 1 and John 3, BSB and NET, Word by word and color pairs on: 0 console errors in 4 runs; 40 screenshots after, 32 before (live site); BSB and TAHOT credit links open the bsb and tahot cards (not empty)"
+  },
+  "grammar_tooltips": {
+    "hebrew_aramaic": "3,083 distinct codes in 742 distinct parts; 734 parts give STEPBible TEHMC's phrase exactly (467,329 of 469,294 parts, 99.6%); 14 words have no code (no tooltip)",
+    "greek": "1,167 distinct codes; 1,098 give STEPBible TEGMC's phrase exactly (138,690 of 142,096 words, 97.6%); 0 left without words",
+    "differences": "listed in docs/evidence/af-bt-2026-10-21.json (stepbible-morphology-keys) and grammar-check.txt here"
+  },
+  "gloss_marks": {
+    "hebrew_aramaic_words": 305648,
+    "with_angle": 28721,
+    "obj_marker": 11003,
+    "the_marker_he": 10347,
+    "with_square_he": 46325,
+    "greek_words": 142096,
+    "with_angle_gr": 5881,
+    "with_square_gr": 5678
+  },
+  "alignment_left_out": 18945,
+  "rule_12": {
+    "before_start": "true-credits, no-empty-selections: no commits; commentary-notice d12a4dd: 29 files, none owned; all worktrees clean of owned files",
+    "before_commit": "no branch commits an owned file; but uncommitted edits to web/src/ui/Reader.tsx are now in BibleAtlas-empty (no-empty-selections: an OMITTED import and one verse line) and BibleAtlas-notice (commentary-notice: the Translators' notes button behind the notice). A three-way merge of each with this commit: no-empty-selections merges cleanly; commentary-notice has one conflict, in the import lines next to the Pairs import (both sides add imports), resolved by keeping both."
+  }
+}

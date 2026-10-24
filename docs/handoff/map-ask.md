@@ -31,7 +31,7 @@ Repository: github.com/Sixteen1-6/BibleAtlas, read at main a46d819 (2026-10-20),
 `AskSheet` (`AskSheet.tsx:420-451`) renders by kind:
 - `question`: `QuestionBody` (`AskSheet.tsx:272-291`) loads `ask/q/<id>.json` and shows the chain (`Chain`, `ChainPart`, 141-177), at Study lights the wider set on the map, at Deep shows "Why each verse is here" (`WhyEach`, 223-255) from the ties, and all verses by book.
 - `topic`: a Nave's subject's verses (`TopicBody`, 346-365).
-- `care`: help line (988, Samaritans 116 123, findahelpline.com) then seven whole passages (`HOPE`, 368-376: Ps 34:18, 1 Kgs 19:3-5, Ps 42:11, 2 Cor 1:8-10, Ps 40:1-2, Lam 3:21-23, Matt 11:28-29).
+- `care`: help line (988, Samaritans 116 123, findahelpline.com; removed by #60 on 2026-10-22, when the founder asked for Scripture only) then seven whole passages (`HOPE`, 368-376: Ps 34:18, 1 Kgs 19:3-5, Ps 42:11, 2 Cor 1:8-10, Ps 40:1-2, Lam 3:21-23, Matt 11:28-29).
 - `live`: `LiveBody` (295-303) first loads `ask/signals.json` and `ask/meaning.json` (this is the "loaded on first ask" moment), then `route(ix, text)`:
   1. `exactQuestion` (route.ts:143-144).
   2. Meaning matcher: the likeliest prepared question opens if its likelihood is at least `MEANT = 0.35` (route.ts:127, 147-148).

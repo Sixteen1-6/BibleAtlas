@@ -412,6 +412,8 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     for (rel, bytes) in crate::extra_voices::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    let figure_sources = crate::extra_figures::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index };
+    for (rel, bytes) in crate::extra_figures::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     let naves = crate::naves::read(&inputs, &vz)?;
     let ask_sources = crate::ask::Sources { text: &bsb.text, vz: &vz, degree: &degree, graph: &graph, words: &words, lemma_index: &lemma_index, lemma_count: &theme_counts, quotes: &quotes };

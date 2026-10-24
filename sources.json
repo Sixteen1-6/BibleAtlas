@@ -469,6 +469,23 @@
         "wesley": "packages/lets.bible/seed/commentaries/wesley.json"
       },
       "note": "Each note is placed on the verse the module gives it; the file's verse ranges are not used, because the extractor guesses them. Notes the extractor put on a verse 0 (most belong to the last verse of the book before) are left out."
+    },
+    {
+      "id": "potion-base-8m",
+      "title": "potion-base-8M, a static word-meaning model by Minish Lab (model2vec), mirrored on its own branch of this repository",
+      "provides": "A vector for each of 29,528 English word pieces, so that texts that mean the same thing come out close together even when they share no word. Ask the Bible uses it only to tell which prepared question someone means; it never chooses or writes the verses.",
+      "license": "MIT",
+      "attribution": "potion-base-8M by Minish Lab (Stephan Tulkens and Thomas van Dongen), MIT License, huggingface.co/minishlab/potion-base-8M.",
+      "homepage": "https://huggingface.co/minishlab/potion-base-8M",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "dced885a21af0bfd69eaf34f214c9d2160d8b733",
+      "files": {
+        "tokenizer": "tokenizer.json",
+        "embeddings": "model.safetensors",
+        "readme": "README.md",
+        "source": "SOURCE.md"
+      },
+      "note": "Hugging Face is not reachable from where the data is built, so .github/workflows/mirror-meaning-model.yml copies the files unchanged from revision bf8b056651a2c21b8d2565580b8569da283cab23, checks each against the SHA-256 Hugging Face lists for it, and commits them to the branch mirror/potion-base-8M (SOURCE.md there lists the hashes)."
     }
   ]
 }

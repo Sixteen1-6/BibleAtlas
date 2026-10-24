@@ -1,0 +1,69 @@
+{
+  "notes": [
+    {
+      "id": "1-samuel-1-2-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "1 Samuel 1:2",
+      "strength": "widely agreed",
+      "short": "Side by side: Peninnah has children, Hannah has none",
+      "about": "The verse sets the two wives side by side. Peninnah has children and taunts her rival year after year; Hannah has none, weeps, and takes her grief to the LORD in prayer.",
+      "sides": [
+        {
+          "who": "Peninnah",
+          "label": "Has children, and taunts",
+          "ref": "1 Samuel 1:2-7",
+          "words": "Peninnah had children"
+        },
+        {
+          "who": "Hannah",
+          "label": "Has none, and prays",
+          "ref": "1 Samuel 1:2-11",
+          "words": "but Hannah had none"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the two names cross as they do in the BSB: Hannah, Peninnah, then Peninnah, Hannah.",
+        "strong": [
+          "H2584",
+          "H6444"
+        ]
+      },
+      "evidence": "Bullinger lays the verse out so the two names cross, under Antimetabole. Keil (Keil and Delitzsch) sets the fruitful wife against the childless one; Clarke: Hannah, being barren, is reproached by Peninnah. Henry: Peninnah could not bear her blessing, nor Hannah her affliction.",
+      "limit": "Setting them side by side does not make Hannah faultless.",
+      "checked": "2026-10-22",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 1:2",
+          "at": "Introverted Parallelism, p. 357",
+          "quote": "When Propositions are introverted, it is called Antimetabole",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "keil-delitzsch",
+          "by": "Carl Friedrich Keil, Lutheran scholar",
+          "on": "1 Samuel 1:2-3",
+          "quote": "Elkanah had two wives, Hannah (grace or gracefulness) and Peninnah (coral), the latter of whom was blessed with children, whereas the first was childless.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Samuel 1",
+          "quote": "Hannah, being barren, is reproached by Peninnah, especially in their going up to Shiloh",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-21"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 1:1-8",
+          "quote": "Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-10-22"
+        }
+      ]
+    }
+  ]
+}

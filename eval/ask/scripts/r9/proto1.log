@@ -1,0 +1,55 @@
+texts 88587
+dev2 words (live)                 top1 390 top3 447 of 545
+dev2 model k20 p4                 top1 354 top3 431 of 545
+dev2   blend 0.25                 top1 405 top3 466 of 545
+dev2   blend 0.4                  top1 413 top3 467 of 545
+dev2   blend 0.5                  top1 413 top3 470 of 545
+dev2 model k30 p4                 top1 362 top3 435 of 545
+dev2   blend 0.25                 top1 402 top3 461 of 545
+dev2   blend 0.4                  top1 408 top3 469 of 545
+dev2   blend 0.5                  top1 412 top3 470 of 545
+dev2 model k50 p4                 top1 355 top3 438 of 545
+dev2   blend 0.25                 top1 401 top3 463 of 545
+dev2   blend 0.4                  top1 406 top3 464 of 545
+dev2   blend 0.5                  top1 408 top3 467 of 545
+dev2 model k20 p8                 top1 366 top3 434 of 545
+dev2   blend 0.25                 top1 409 top3 468 of 545
+dev2   blend 0.4                  top1 417 top3 471 of 545
+dev2   blend 0.5                  top1 415 top3 475 of 545
+dev2 model k50 p8                 top1 380 top3 442 of 545
+dev2   blend 0.25                 top1 402 top3 463 of 545
+dev2   blend 0.4                  top1 415 top3 469 of 545
+dev2   blend 0.5                  top1 418 top3 474 of 545
+dev2 model k100 p8                top1 377 top3 439 of 545
+dev2   blend 0.25                 top1 402 top3 460 of 545
+dev2   blend 0.4                  top1 410 top3 468 of 545
+dev2   blend 0.5                  top1 415 top3 472 of 545
+dev3 words (live)                 top1 171 top3 211 of 298
+dev3 model k20 p4                 top1 156 top3 185 of 298
+dev3   blend 0.25                 top1 175 top3 213 of 298
+dev3   blend 0.4                  top1 179 top3 215 of 298
+dev3   blend 0.5                  top1 178 top3 216 of 298
+dev3 model k30 p4                 top1 149 top3 187 of 298
+dev3   blend 0.25                 top1 175 top3 214 of 298
+dev3   blend 0.4                  top1 174 top3 214 of 298
+dev3   blend 0.5                  top1 180 top3 214 of 298
+dev3 model k50 p4                 top1 149 top3 181 of 298
+dev3   blend 0.25                 top1 175 top3 214 of 298
+dev3   blend 0.4                  top1 174 top3 215 of 298
+dev3   blend 0.5                  top1 175 top3 215 of 298
+dev3 model k20 p8                 top1 152 top3 186 of 298
+dev3   blend 0.25                 top1 177 top3 214 of 298
+dev3   blend 0.4                  top1 179 top3 213 of 298
+dev3   blend 0.5                  top1 178 top3 215 of 298
+dev3 model k50 p8                 top1 153 top3 182 of 298
+dev3   blend 0.25                 top1 176 top3 214 of 298
+dev3   blend 0.4                  top1 175 top3 212 of 298
+dev3   blend 0.5                  top1 179 top3 213 of 298
+dev3 model k100 p8                top1 152 top3 190 of 298
+dev3   blend 0.25                 top1 175 top3 215 of 298
+dev3   blend 0.4                  top1 176 top3 214 of 298
+dev3   blend 0.5                  top1 175 top3 216 of 298
+
+real	7m50.646s
+user	7m31.125s
+sys	0m17.899s

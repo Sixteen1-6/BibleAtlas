@@ -228,12 +228,36 @@ for (const group of [
  * God "made" is not "mad", a house "fire" is not being "fired". */
 const OTHER = new Set(['made', 'fire', 'fires', 'scar', 'scars', 'rag', 'rags']);
 
+/** What a question asks for, when its words alone would not tell: "where did
+ * Jesus die" and "why did Jesus die" share every other word. Each kind is a
+ * term that no word can be ("?where"). "When" and "who" count only where they
+ * begin a question, since "when I was twelve" and "my friend who" ask nothing. */
+const ASKING: [string, RegExp][] = [
+  ['?where', /\bwhere\b/],
+  ['?when', /(^|[.?!] *)(so |but |and |ok |okay )?when (was|were|is|are|did|does|do|will|would|should|can|could)\b|\bwhat (year|day|date|month|century)\b|\bhow long ago\b/],
+  ['?who', /(^|[.?!] *)(so |but |and |ok |okay )?who\b/],
+  ['?why', /\bwhy\b|\bhow come\b/],
+  ['?age', /\bhow old\b|\bwhat age\b/],
+  ['?many', /\bhow (many|much|long|far|big|tall|large)\b/],
+];
+
+/** The kinds of thing `s` asks for ("?where", "?why"). */
+export function asking(s: string): string[] {
+  const t = s.toLowerCase().replace(/[’‘']/g, '').replace(/\s+/g, ' ').trim();
+  return ASKING.filter(([, re]) => re.test(t)).map(([k]) => k);
+}
+
+/** A term that tells what is asked for, not a word said. */
+export const isAsking = (t: string): boolean => t.startsWith('?');
+
 /** What `s` says, as Ask the Bible matches it: its content words less the
- * plain ones and numbers, each as its group's word or its stem. */
+ * plain ones and numbers, each as its group's word or its stem, and what it
+ * asks for. */
 export function terms(s: string): Set<string> {
-  return new Set(
-    contentWords(s)
+  return new Set([
+    ...contentWords(s)
       .filter((w) => !PLAIN.has(w) && !PLAIN.has(stem(w)) && !/^\d+$/.test(w))
       .map((w) => SAME.get(w) ?? (OTHER.has(w) ? undefined : SAME.get(stem(w))) ?? stem(w)),
-  );
+    ...asking(s),
+  ]);
 }
