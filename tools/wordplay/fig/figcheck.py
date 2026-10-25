@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """figcheck.py: check figure, parallelism and contrast notes the way the build does
-(crates/atlas-cli/src/extra_figures.rs on the branch figures-at-deep), plus this thread's citation rules.
+(crates/atlas-cli/src/extra_figures.rs on main at 6df7a2f, after PR #63's true credits), plus this thread's citation rules.
+Who wrote a cite's words comes from the cite list in config/layer-sources.json, through ../tc/resolve.py (a mirror of
+layers.rs resolve()), as the build does: a cite names no writer itself.
 
   python3 -I figcheck.py <file.json> [...]          file holds {"notes": [...]} or a list of notes
   python3 -I figcheck.py --quotes <file.json> [...]  also checks every quote from a local copy word for word
@@ -10,7 +12,8 @@ ref (the build takes it from the file name, config/figures/<OSIS>.json).
 """
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import byw
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'tc'))
+import resolve as tcr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 WP = os.path.dirname(HERE)
@@ -43,7 +46,6 @@ BARRED_BOOKS = {
     ('pulpit', 'Ecclesiastes'): "the Pulpit's Ecclesiastes holds that a later writer took Solomon's part",
     ('pulpit', 'Jeremiah'): 'the Pulpit Commentary is never cited on Jeremiah',
     ('pulpit', 'Lamentations'): 'the Pulpit Commentary is never cited on Lamentations',
-    ('barnes', 'Genesis'): "the Barnes text on Genesis is James G. Murphy's commentary; cite another writer",
 }
 BARRED_VERSES = {
     ('calvin', 'Matthew', 27, 9): 'Calvin calls the name Jeremiah a mistake',
@@ -299,27 +301,53 @@ def strength_for(n):
 
 # --- the checker ------------------------------------------------------------------------------------------------
 CITE = {s['id']: s for s in SOURCES['cite']}
-WRITER = {}
-for group in FORMS['same_writer']:
-    for i in group:
-        WRITER[i] = group[0]
 QUOTABLE = set(FORMS['quotable'])
 FORM = {f['id']: f for f in FORMS['forms']}
-WRITER_NAMES = [(s['name'][4:] if s['name'][:4].lower() == 'the ' else s['name']).replace('\u2019', "'") for s in SOURCES['cite'] if s['id'] != 'bsb']
-MULTI = set(FORMS.get('multi_writer', []))
-BOOK_INDEX = {b['name']: i for i, b in enumerate(BOOKS)}
-
-
-def _runs(books):
-    out = []
-    for x in books:
-        a, _, z = x.partition(' to ')
-        out.append((BOOK_INDEX[a], BOOK_INDEX[z or a]))
-    return out
-
-
-ONLY_ON = {k: _runs(v) for k, v in FORMS.get('only_on', {}).items()}
+# Every writer's name and every source's name but the BSB's, less a leading "the" (CiteList::names in layers.rs).
+WRITER_NAMES = [(n[4:] if n[:4].lower() == 'the ' else n).replace('\u2019', "'")
+                for n in [w['name'] for w in SOURCES['writers']] + [s['name'] for s in SOURCES['cite'] if s['id'] != 'bsb']]
 WRITER_NAMES += WRITERS
+HOME_PAGES = ['https://www.studylight.org/commentaries/eng/bul.html', 'https://archive.org/details/figuresofspeechu00bull']
+
+
+def page_key(u):
+    rest = u.split('://', 1)[1] if '://' in u else u
+    h, _, path = rest.partition('/')
+    h = h.lower()
+    h = h[4:] if h.startswith('www.') else h
+    return f"{h}/{path.rstrip('/')}"
+
+
+def home_page(src, url):
+    own = CITE.get(src, {}).get('url')
+    key = page_key(url)
+    return any(page_key(h) == key for h in HOME_PAGES + ([own] if own else [])) or (key.endswith('/') and key.count('/') == 1)
+
+
+def who_wrote(src, on, work, url):
+    """As extra_figures.rs credit(): (writer key, None) or (None, why). on is a verse reference or None (a
+    definition: only a source cited by its works, or whose one part covers every book, answers without a book)."""
+    s = CITE.get(src)
+    if on is None:
+        if not s.get('works') and not any(p.get('books') == 'all' for p in s.get('parts', [])):
+            return None, f"{s['name']} names its writer book by book, so words cited with no book cannot be credited"
+        on = 'Genesis 1:1'
+        probe = {'source': src, 'on': on, 'url': url}
+    else:
+        probe = {'source': src, 'on': on, 'url': url}
+    if work:
+        probe['work'] = work
+    r = tcr.resolve(probe)
+    if not r['ok']:
+        return None, f"{s['name']}: {r['why']}"
+    if r.get('unnamed'):
+        return None, f"{s['name']}'s words here are by {r['unnamed']}, whom no one has named; quote a named writer's own words (decision 10)"
+    link = url or (tcr.chapter_page(s, r['book'], r['chapter']) if r.get('book') and r.get('chapter') else None)
+    if not link:
+        return None, f"{s['name']} has no chapter page here: give the page the words are on in url"
+    if not link.startswith('https://') or home_page(src, link):
+        return None, f'{link} must be an https link to the page the words are on, not a whole work or site'
+    return r['key'], None
 
 
 class Check:
@@ -365,14 +393,16 @@ class Check:
         if p:
             self.fail(at, f'{field} says {p!r}: no field credits a drafting tool')
 
-    def by(self, at, src, book, by, cite_at=None):
-        if by is not None:
-            self.text(at, 'by', by, AT_MAX)
-            want = byw.by(src, book, cite_at) if book else None
-            if src in MULTI and want and by != want:
-                self.fail(at, f'by {by!r} should be {want!r} (the writer of that volume)')
-        elif src in MULTI:
-            self.fail(at, f"{CITE.get(src, {}).get('name', src)} was written by several hands; name the writer of the quoted part in by (decision 10)")
+    def credit(self, at, src, on, work, url):
+        """The writer key a cite's strength counts, or None after a failure."""
+        if url is not None:
+            self.text(at, 'url', url, READ_MAX)
+        if work is not None:
+            self.text(at, 'work', work, AT_MAX)
+        key, why = who_wrote(src, on, work, url)
+        if why:
+            self.fail(at, why)
+        return key
 
     def dash(self, at, field, s):
         try:
@@ -573,16 +603,22 @@ class Check:
             d, dat = n['defined'], f'{at}, defined'
             self.quoted(dat, 'defined quote', d.get('quote'), QUOTE_MAX)
             for k in d:
-                if k not in ('source', 'by', 'quote', 'at', 'read', 'retrieved'):
+                if k not in ('source', 'work', 'quote', 'at', 'url', 'read', 'retrieved'):
                     self.fail(dat, f'unknown field {k!r}')
-            if d.get('source') in MULTI and not d.get('by'):
-                self.fail(dat, 'a work by several hands names the writer in by')
             self.text(dat, 'defined at', d.get('at'), AT_MAX)
             self.text(dat, 'read', d.get('read'), READ_MAX)
             if not date_ok(d.get('retrieved')):
                 self.fail(dat, 'retrieved must be a date')
-            if d.get('source') not in QUOTABLE or not CITE.get(d.get('source'), {}).get('url'):
-                self.fail(dat, f"{d.get('source')!r} must be quotable and have a link of its own")
+            if d.get('source') not in CITE:
+                self.fail(dat, f"source {d.get('source')!r} is not on the cite list")
+            elif d.get('source') == 'net-notes':
+                self.fail(dat, "the NET translators' notes are linked from Study, never shown")
+            elif d.get('source') not in QUOTABLE:
+                self.fail(dat, f"{CITE[d['source']]['name']} is not quotable: only works in the public domain are quoted here")
+            elif not isinstance(d.get('url'), str) or not d['url'].strip():
+                self.fail(dat, 'a definition gives the page its words are on in url')
+            else:
+                self.credit(dat, d['source'], None, d.get('work'), d['url'])
 
         cites = n.get('cites', [])
         writers, seen = set(), set()
@@ -591,7 +627,7 @@ class Check:
         for i, c in enumerate(cites):
             cat = f'{at}, cites[{i}]'
             for k in c:
-                if k not in ('source', 'by', 'on', 'at', 'quote', 'read', 'retrieved', 'found', 'context'):  # found, context: working fields, moved to the quote checks
+                if k not in ('source', 'work', 'on', 'at', 'url', 'quote', 'read', 'retrieved', 'found', 'context'):  # found, context: working fields, moved to the quote checks
                     self.fail(cat, f'unknown field {k!r}')
             src = c.get('source')
             if src in seen:
@@ -619,19 +655,14 @@ class Check:
                 continue
             if src == 'wesley':
                 self.fail(cat, "Wesley's notes abridge Henry (Old Testament) and Bengel (New Testament): cite Henry or Bengel in his own words instead")
-            if s['role'] == 'interpreter':
-                writers.add(WRITER.get(src, src))
-            self.by(cat, src, BOOKS[locate(on[0])[0]]['name'] if on else None, c.get('by'), c.get('at'))
+            if not on:
+                continue
+            key = self.credit(cat, src, c.get('on'), c.get('work'), c.get('url'))
+            if key and s['role'] == 'interpreter':
+                writers.add(key)
             if on:
                 b, ch, v = locate(on[0])
                 book = BOOKS[b]['name']
-                if src in ONLY_ON and not any(f <= b <= l for f, l in ONLY_ON[src]):
-                    self.fail(cat, f"{s['name']} is quoted only on the books its named writer wrote (only_on), not on {book}")
-                why2 = byw.quotable_here(src, book, ch)
-                if why2:
-                    self.fail(cat, f'{src} is not quoted here: {why2}')
-                if book in s.get('not_on', []):
-                    self.fail(cat, f"{s['name']} is not cited on {book}")
                 why = BARRED_BOOKS.get((src, book)) or BARRED_VERSES.get((src, book, ch, v))
                 if why:
                     self.fail(cat, f'{src} may not be cited here: {why}')
@@ -644,8 +675,6 @@ class Check:
                         self.fail(cat, f'{fa.title()} is left out (voices shortlist)')
                 if src == 'catena-aurea' and 'pseudo-chrysostom' in who and on and BOOKS[locate(on[0])[0]]['name'] == 'Matthew':
                     self.fail(cat, "the Catena's Pseudo-Chrysostom on Matthew is an unknown Arian writer")
-            if not s.get('biblehub') and not s.get('url'):
-                self.fail(cat, f"{s['name']} has no link")
             if self.local and on:
                 q = local_quote(src, c.get('on'), c.get('quote', ''))
                 if q is False:
@@ -653,7 +682,7 @@ class Check:
         if cites and not writers:
             self.fail(at, 'cites no interpreter; a word book or the BSB alone cannot carry a note')
         elif cites and n.get('strength') != strength_for(len(writers)):
-            self.fail(at, f"strength is {n.get('strength')!r}, but it cites {len(writers)} different interpreters, which is {strength_for(len(writers))!r}")
+            self.fail(at, f"strength is {n.get('strength')!r}, but it cites {len(writers)} different writers among its interpreters ({', '.join(sorted(writers))}), which is {strength_for(len(writers))!r}")
 
 
 # --- local quote checks -----------------------------------------------------------------------------------------
