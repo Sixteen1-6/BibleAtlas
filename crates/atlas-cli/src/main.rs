@@ -32,6 +32,7 @@ mod extra_wordplay;
 mod loaded;
 mod extra_hard_verses;
 mod extra_figures;
+mod extra_customs;
 mod lxx;
 mod naves;
 mod parse;
