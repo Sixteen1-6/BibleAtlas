@@ -1,0 +1,161 @@
+{
+  "notes": [
+    {
+      "id": "hosea-2-21-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Hosea 2:21-22",
+      "strength": "widely agreed",
+      "short": "Heavens, earth, grain, Jezreel: a chain of answers",
+      "about": "Each line takes up the one before it: the LORD answers the heavens, the heavens the earth, the earth the grain, new wine and oil, and these answer Jezreel. Every link hangs on the one above it and the highest on God, so the blessing comes down step by step to His people.",
+      "lines": [
+        {
+          "ref": "Hosea 2:21",
+          "words": "I will respond to the heavens,",
+          "key": "heavens"
+        },
+        {
+          "ref": "Hosea 2:21",
+          "words": "and they will respond to the earth.",
+          "key": "earth"
+        },
+        {
+          "ref": "Hosea 2:22",
+          "words": "And the earth will respond to the grain, to the new wine and oil,",
+          "key": "grain"
+        },
+        {
+          "ref": "Hosea 2:22",
+          "words": "and they will respond to Jezreel.",
+          "key": "Jezreel"
+        }
+      ],
+      "evidence": "Bullinger lists these verses under Climax: each in its turn hears and cries out to the next, up to Jehovah. E. B. Pusey (Barnes' Notes) sees all things, from lowest to highest, bound together, each depending on the one beyond and the highest on God. Henry sees second causes linked as a chain, all hanging on God, the grain crying to the earth, the earth to the heavens, the heavens to God.",
+      "limit": "The answers come down from God to His people; the chain can also be read upward, each asking the one above it, from Jezreel up to the LORD.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 2:21",
+          "at": "Climax, or Gradation, p. 257",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/257/mode/1up",
+          "quote": "are represented as hearing, and in their turn, crying out to the Earth to bring them forth: the Earth, in its turn, is represented as hearing them, and crying out to the heavens to send rain and heat and light and air; and these in their turn hear, and cry out to Jehovah, the giver of all",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Hosea 2:21",
+          "quote": "And, as an image of love, all, from lowest to highest, are bound together, each depending on the ministry of that beyond it, and the highest on God. At each link, the chain might have been broken; but God who knit their services together, and had before withheld the rain, and made the earth barren, and laid waste the trees, now made each to supply the other",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Hosea 2:14-23",
+          "quote": "See here the coherence of second causes with one another, as links in a chain, and the necessary dependence they all have upon God, the first Cause. … the corn cries to the earth, the earth to the heavens, the heavens to God, and all that they may supply them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hosea-2-21-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "Hosea 2:21",
+      "strength": "widely agreed",
+      "short": "“I will respond” said twice",
+      "about": "The LORD says “I will respond” twice. Saying it twice makes the promise firm, so that a people worn down by famine under judgment, who might have lost hope, could rely on it.",
+      "figure": {
+        "name": "Epizeuxis",
+        "ref": "Hosea 2:21",
+        "words": "I will respond—” declares the LORD— “I will respond",
+        "means": "the LORD's promise to answer, made firm by being said twice"
+      },
+      "original": {
+        "note": "In Hebrew the verb is anah, to answer, the same verb used for every answer that follows.",
+        "strong": [
+          "H6030"
+        ]
+      },
+      "evidence": "Bullinger names the doubled “I will hear” as Epizeuxis, one of the figures heaped together here to express the fulness of Israel's coming blessing. Clarke says the sentence is repeated to show how fully the Almighty had resolved it and how surely they might rely on it; Calvin says the repetition is not needless, for by it God raises up a people worn down by famine.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 2:21",
+          "at": "Climax, or Gradation, p. 257",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/257/mode/1up",
+          "quote": "Thus the figures Epizeuxis (“I will hear”), Polysyndeton , Climax , and Prosopopœia are heaped together to express the coming fulness of Israel’s blessing.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Hosea 2:21",
+          "quote": "I will hear, saith the Lord - The sentence is repeated, to show how fully the thing was determined by the Almighty, and how implicitly they might depend on the Divine promise.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Hosea 2:21",
+          "quote": "I will hear, he says, or I will answer, (ענה, one, means to answer, but it is here equivalent to hear,) … The repetition is not superfluous; for the Israelites had been for some time consumed by famine … They might hence have thought that there was now no hope; but God here raises them up, I will hear, I will hear, he says",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hosea-2-21-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Hosea 2:21",
+      "strength": "widely agreed",
+      "short": "The heavens hear the earth and answer it",
+      "about": "The heavens are spoken of as a person who hears and answers: when the earth seems to ask for rain, the heavens answer it. Behind them the LORD answers the heavens, so nothing in nature gives its gifts to His people without His bidding.",
+      "figure": {
+        "name": "Personification",
+        "part": "Human actions attributed to inanimate things",
+        "ref": "Hosea 2:21",
+        "words": "they will respond to the earth",
+        "means": "the heavens give the earth the rain it needs, as one person answers another who asks"
+      },
+      "evidence": "Bullinger names Prosopopoeia here: grain, wine and oil, the earth and the heavens are represented as hearing and crying out in turn. Keil (Keil and Delitzsch) calls it a prosopopeia, the heaven praying to God and then fulfilling the earth's desires. Fausset (Jamieson, Fausset and Brown) calls it personification, the skies hearing the earth beg for rain. Clarke: the earth seems to plead for rain.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 2:21",
+          "at": "Climax, or Gradation, p. 257",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/257/mode/1up",
+          "quote": "these, by the beautiful figure of Prosopopœia … are represented as hearing, and in their turn, crying out to the Earth to bring them forth: the Earth, in its turn, is represented as hearing them, and crying out to the heavens to send rain and heat and light and air; and these in their turn hear, and cry out to Jehovah",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 2:21",
+          "quote": "By a prosopopeia, the prophet represents the heaven as praying to God, to allow it to give to the earth that which is requisite to ensure its fertility; whereupon the heaven fulfils the desires of the earth, and the earth yields its produce to the nation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Hosea 2:21",
+          "quote": "heavens . . . hear the earth--personification. However many be the intermediate instruments, God is the Great First Cause of all nature's phenomena. … and that the skies again would hearken to the earth begging for a supply of the rain it requires",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Hosea 2:21",
+          "quote": "I will hear the heavens - The visible heavens, the atmosphere, where vapours are collected. The clouds, when they wish to deposit their fertilizing showers upon the earth. They shall hear the earth - When it seems to supplicate for rain.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

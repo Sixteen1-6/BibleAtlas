@@ -1,0 +1,411 @@
+{
+  "notes": [
+    {
+      "id": "romans-8-22-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Romans 8:22",
+      "strength": "widely agreed",
+      "short": "Creation groans like a woman in labor",
+      "about": "Paul speaks of the whole creation as if it felt pain as a person does, groaning like a woman in labor. Birth pains look ahead to a birth, so the picture points to a joyful deliverance to come, when creation shares “the glorious freedom of the children of God.”",
+      "refs": [
+        "Romans 8:21"
+      ],
+      "figure": {
+        "name": "Personification",
+        "ref": "Romans 8:22",
+        "words": "the whole creation has been groaning together in the pains of childbirth",
+        "means": "all creation, pictured as a woman in labor: suffering now, and waiting for a joyful deliverance"
+      },
+      "evidence": "Sanday (Ellicott's Commentary) says the Apostle gives the rest of creation a human sense of pain, and the childbirth picture looks to a joyful delivery. Calvin calls the groaning in travail a most suitable likeness that will bring forth joyful fruit. Brown (Jamieson, Fausset and Brown) calls it a beautiful thought to represent creation as sharing man's miseries and looking to his redemption.",
+      "limit": "Not every reader takes “the whole creation” as the world of nature: some read it as mankind, whose groaning can then be meant plainly.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Romans 8:22",
+          "quote": "In view of the physical evil and misery prevalent in the world, the Apostle attributes a human consciousness of pain to the rest of creation. It groans and travails together, i.e., every member of it in common with its kind. The idea of travailing, as in childbirth, has reference to the future prospect of joyful delivery.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:22",
+          "quote": "it hence follows, that they groan like a woman in travail until they shall be delivered. But it is a most suitable similitude; it shows that the groaning of which he speaks will not be in vain and without effect; for it will at length bring forth a joyful and blessed fruit.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 8:22",
+          "quote": "If for man's sake alone the earth was cursed, it cannot surprise us that it should share in his recovery. And if so, to represent it as sympathizing with man's miseries, and as looking forward to his complete redemption as the period of its own emancipation from its present sin-blighted condition, is a beautiful thought",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-10-9-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Romans 10:9-10",
+      "strength": "some interpreters",
+      "short": "Mouth, heart, then heart, mouth",
+      "about": "Verse 9 names the mouth, then the heart, in the order of the words quoted in verse 8. Verse 10 comes back the other way, in the natural order: belief in the heart first, then confession with the mouth.",
+      "lines": [
+        {
+          "ref": "Romans 10:9",
+          "words": "that if you confess with your mouth, “Jesus is Lord,”",
+          "mark": "A",
+          "key": "mouth"
+        },
+        {
+          "ref": "Romans 10:9",
+          "words": "and believe in your heart that God raised Him from the dead,",
+          "mark": "B",
+          "key": "heart"
+        },
+        {
+          "ref": "Romans 10:10",
+          "words": "For with your heart you believe and are justified,",
+          "mark": "B'",
+          "key": "heart"
+        },
+        {
+          "ref": "Romans 10:10",
+          "words": "and with your mouth you confess and are saved.",
+          "mark": "A'",
+          "key": "mouth"
+        }
+      ],
+      "refs": [
+        "Romans 10:8"
+      ],
+      "evidence": "David Brown (Jamieson, Fausset and Brown) says confession with the mouth is put first in verse 9 only to match the quotation before it, “in your mouth and in your heart,” and that verse 10 places the two in their natural order.",
+      "limit": "Putting the mouth first in verse 9 follows the quotation; it does not make confession come before faith.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Romans 10:9",
+          "quote": "This is put first merely to correspond with the foregoing quotation--\"in thy mouth and in thine heart.\" ... In Rom 10:10 the two things are placed in their natural order.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-10-21-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Romans 10:21",
+      "strength": "widely agreed",
+      "short": "Side by side: outsiders find God, Israel refuses",
+      "about": "Paul sets two lines of Isaiah side by side. Those who did not seek God found Him, while to Israel He held out His hands all day long and was refused. The held-out hands show Him pleading with His own people. Paul draws the same contrast in Romans 9:30-31.",
+      "sides": [
+        {
+          "who": "Israel",
+          "label": "Called all day long, and refused",
+          "ref": "Romans 10:21",
+          "words": "All day long I have held out My hands to a disobedient and obstinate people"
+        },
+        {
+          "who": "those who did not seek Me",
+          "label": "Found God without seeking Him",
+          "ref": "Romans 10:20",
+          "words": "I was found by those who did not seek Me"
+        }
+      ],
+      "refs": [
+        "Isaiah 65:1-2",
+        "Romans 9:30-31",
+        "Romans 11:1-2"
+      ],
+      "evidence": "Albert Barnes: the held-out hands plead, and while the Gentiles would obey, Israel was disobedient and God was found by others. David Brown (JFB): God is found by those who seem farthest from Him, missed by those who think themselves nearest. Calvin: God turned to the Gentiles because the Jews made a mockery of His favor. Clarke: the Gentiles found the redemption the Jews rejected.",
+      "limit": "Paul goes straight on: “God did not reject His people, whom He foreknew” (Romans 11:2). The contrast is between two answers to God, not a claim that every Israelite refused Him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Romans 10:21",
+          "quote": "says that while the Gentiles would be obedient, the character of the Jews was, that they were a disobedient and rebellious people. ... This denotes an attitude of entreaty; a willingness and earnest desire to receive them to favor ... God is represented as stretching out his hands in vain; they rejected him, and he was sought and found by others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 10:21",
+          "quote": "God is often found by those who apparently are the farthest from Him, while He remains undiscovered by those who think themselves the nearest",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 10:21",
+          "quote": "A reason is subjoined why God passed over to the Gentiles; it was because he saw that his favor was become a mockery to the Jews.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 10:20",
+          "quote": "I put my salvation in the way of those (the Gentiles) who were not seeking for it, and knew nothing of it: thus, the Gentiles which followed not after righteousness have attained to the law of righteousness, Rom 9:30, and they have found that redemption which the Jews have rejected.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-11-22-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Romans 11:22",
+      "strength": "some interpreters",
+      "short": "Kindness, severity, then severity, kindness",
+      "about": "Two words go out in one order and come back in the reverse order: the kindness and severity of God, then severity to those who fell and kindness to you.",
+      "lines": [
+        {
+          "ref": "Romans 11:22",
+          "words": "Take notice, therefore, of the kindness",
+          "mark": "A",
+          "key": "kindness"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "and severity of God:",
+          "mark": "B",
+          "key": "severity"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "severity to those who fell,",
+          "mark": "B'",
+          "key": "severity"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "but kindness to you,",
+          "mark": "A'",
+          "key": "kindness"
+        }
+      ],
+      "evidence": "Bullinger lists the verse under Prosapodosis, where words already named are taken up again one by one. He says the two words are not taken up in the same order but in reverse, an Epanodos, and sets them out as goodness, severity, severity, goodness (the BSB's kindness and severity).",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 11:22",
+          "at": "Prosapodosis, or Detailing, p. 395",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/395/mode/1up",
+          "quote": "Here, the return to the two words is not direct ... but in an Epanodos ... a Goodness. b Severity. b Severity. a Goodness.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-1-16-understatement",
+      "kind": "figure",
+      "form": "understatement",
+      "ref": "Romans 1:16",
+      "strength": "widely agreed",
+      "short": "“Not ashamed” means Paul glories in the gospel",
+      "about": "Paul says he is not ashamed of the gospel. The words say less than he means: far from being ashamed of it, he glories in it, for it is the power of God for salvation. Later he says, “Therefore I exult in Christ Jesus in my service to God” (Romans 15:17).",
+      "refs": [
+        "Romans 15:17"
+      ],
+      "figure": {
+        "name": "Tapeinosis",
+        "part": "Negatively",
+        "ref": "Romans 1:16",
+        "words": "I am not ashamed of the gospel",
+        "means": "Paul glories in the gospel and counts it his highest honour to preach it"
+      },
+      "evidence": "Bullinger lists the verse under Tapeinosis: Paul counts it his highest honour and glory to proclaim the gospel. Bengel says Paul speaks less strongly here and later speaks of glorying (15:17). Barnes says Paul was so far from being ashamed of it that he gloried in it, and Benson that he rather gloried in it.",
+      "limit": "The words also answer the scorn the gospel met: the world counted it folly, most of all in a great city like Rome. That reading stands beside this one, not against it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 1:16",
+          "at": "Tapeinosis, or Demeaning, p. 163",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/163/mode/1up",
+          "quote": "I count it my highest honour and glory to proclaim it, and to suffer for it, while I have full confidence in its power to accomplish all God’s purposes of grace.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Romans 1:16",
+          "quote": "He speaks somewhat less forcibly, as in the introduction; afterwards he says, I have whereof I may glory (ch. Romans 15:17).",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/romans/1.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 1:16",
+          "quote": "He had so firm a conviction of its value and its truth; he had experienced so much of its consolations; and had seen so much of its efficacy; that he was so far from being ashamed of it that he gloried in it as the power of God unto salvation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 1:16",
+          "quote": "In whatever contempt that sacred dispensation, and they who publish it, may be held on account of the circumstances and death of its Author, the character of its ministers, and the nature and tendency of its doctrines; I am not ashamed of the gospel of Christ But rather glory in it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-31-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Romans 8:31",
+      "strength": "widely agreed",
+      "short": "“Be against us” means do us real harm",
+      "about": "Here to be against us means to do us real harm. Enemies can still oppose God's people, but while God is for them, none of them can hurt them or overcome them.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Cause",
+        "ref": "Romans 8:31",
+        "words": "be against us",
+        "means": "hurt us or overcome us: enemies may oppose, but cannot harm those whom God is for"
+      },
+      "evidence": "Bullinger, under Metonymy, reads it as who can hurt us or bring evil on us: foes can be against us, but to no hurtful effect. Barnes explains it as who can injure or destroy us, since their power to destroy is taken away. Benson asks what real hurt the world or the devil can do us, and Calvin says Paul does not mean that nothing shall oppose us, but promises victory.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:31",
+          "at": "Metonymy of the Cause, p. 557",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/557/mode/1up",
+          "quote": "“If God be for us, who can be against as?” i.e. , who can hurt us or bring any evils upon us? They can, of course, be “against us,” but not have any hurtful effect.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 8:31",
+          "quote": "Who can injure or destroy us? Sinners may be against us, and so may the great enemy of our souls, but their power to destroy us is taken away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 8:31",
+          "quote": "who can be against us What real hurt can the world, the devil, or all his instruments, do us by all our sufferings from them?",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:31",
+          "quote": "He does not, however, mean, that nothing shall oppose us; but he promises a victory over all kinds of enemies.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-31-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Romans 8:31",
+      "strength": "widely agreed",
+      "short": "A question whose answer is: no one can prevail",
+      "about": "Paul asks who can be against us, not to learn the answer but to make his point: if God is for us, no power can prevail against us. The questions in verses 33 to 35 are asked the same way.",
+      "refs": [
+        "Romans 8:33-35"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Romans 8:31",
+        "words": "who can be against us?",
+        "means": "no one, since no power can stand against those whom God is for"
+      },
+      "evidence": "Bullinger lists the verse, with the questions of verses 33 to 35, under Erotesis in Affirmative Negation: questions whose answer, supplied by the mind, is an emphatic no. Clarke answers it himself: no cunning, strength or malice can prevail, so those who love God are safe. Calvin calls these words exclamations and says no power under or above the heavens can resist the arm of God.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:31-35",
+          "at": "Erotesis, In Affirmative Negation, p. 950",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/950/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “If God be for us, who can be against us?” “Who shall lay anything to the charge of God’s elect?” “Who is he that condemneth?” “Who shall separate us from the love of Christ?” (Rom 8:31-35 ).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 8:31",
+          "quote": "He who is infinitely wise has undertaken to direct us: He who is infinitely powerful has undertaken to protect us: He who is infinitely good has undertaken to save us. What cunning, strength, or malice, can prevail against his wisdom, power, and goodness? None. Therefore we are safe who love God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:31",
+          "quote": "he now breaks out into exclamations, by which he sets forth the magnanimity with which the faithful ought to be furnished when adversities urge them to despond. ... For there is no power either under or above the heavens, which can resist the arm of God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-11-34-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Romans 11:34",
+      "strength": "widely agreed",
+      "short": "Two questions whose answer is “No one”",
+      "about": "Paul takes up the words of Isaiah 40:13 as two questions with only one answer: no one. No one knows the mind of the Lord by his own understanding, and no one has ever advised Him. The questions honor God's wisdom and knowledge and quiet any complaint against His ways.",
+      "refs": [
+        "Isaiah 40:13"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "In Affirmative Negation",
+        "ref": "Romans 11:34",
+        "words": "Who has known the mind of the Lord? Or who has been His counselor?",
+        "means": "No one: no one has known the Lord's mind, and no one has been His adviser"
+      },
+      "evidence": "Bullinger lists Romans 11:34-35 under Erotesis in affirmative negation, a question whose unspoken answer is an emphatic no. Bengel answers it: none, but God Himself. Barnes says the verse affirms that no being could teach or counsel God, to hush murmuring. Calvin says Paul checks men from clamoring against God's judgments, as all are too blind to see His purpose by their own understanding.",
+      "limit": "The questions deny that anyone finds out God's counsel by his own understanding or advises Him. They do not deny that God makes known by His Spirit what He has chosen to reveal.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 11:34",
+          "at": "Erotesis, In Affirmative Negation, pp. 949-950",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “Who hath known the mind of the Lord? or who hath been his counsellor? Or who hath first given to him, and it shall be recompensed unto him again?” (Rom 11:34-35 ).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Romans 11:34",
+          "quote": "Who? i.e. none: but He Himself.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/romans/11.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 11:34",
+          "quote": "It is designed to express the infinite wisdom and knowledge of God, by affirming that no being could teach him, or counsel him. ... It is also designed to silence all opposition to his plans, and to hush all murmurings.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 11:34",
+          "quote": "He begins here to extend as it were his hand to restrain the audacity of men, lest they should clamor against God’s judgments, and this he does by stating two reasons: the first is, that all mortals are too blind to take a view of God’s predestination by their own understanding",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

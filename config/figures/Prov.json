@@ -1,0 +1,447 @@
+{
+  "notes": [
+    {
+      "id": "proverbs-10-2-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Proverbs 10:2-3",
+      "strength": "commonly held",
+      "short": "Wrong gain, righteousness; then righteous, wicked",
+      "about": "The two sayings cross: wrong gain, then righteousness; then the righteous, then the wicked. Read together, the second can give the reason for the first: the LORD keeps the righteous from hunger, and He turns away what the wicked crave.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:2",
+          "words": "Ill-gotten treasures profit nothing,",
+          "mark": "A",
+          "key": "Ill-gotten treasures"
+        },
+        {
+          "ref": "Proverbs 10:2",
+          "words": "but righteousness brings deliverance from death.",
+          "mark": "B",
+          "key": "righteousness"
+        },
+        {
+          "ref": "Proverbs 10:3",
+          "words": "The LORD does not let the righteous go hungry,",
+          "mark": "B'",
+          "key": "the righteous"
+        },
+        {
+          "ref": "Proverbs 10:3",
+          "words": "but He denies the craving of the wicked.",
+          "mark": "A'",
+          "key": "the wicked"
+        }
+      ],
+      "pairs": [
+        [
+          "righteousness",
+          "righteous"
+        ],
+        [
+          "Ill-gotten treasures",
+          "the wicked"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the ill-gotten treasures are treasures of wickedness (resha); the last line speaks of the wicked (resha'im).",
+        "strong": [
+          "H7562",
+          "H7563"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the members of verse 3 stand in chiastic relation to those of verse 2. Henry pairs them the same way and takes the second verse as the reason for the first: treasures of wickedness profit nothing because God casts away the substance of the wicked, and righteousness delivers from death because the LORD will not let the righteous famish.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:3",
+          "quote": "Another proverb, the members of which stand in chiastic relation to those of the preceding",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 10:2-3",
+          "quote": "These two verses speak to the same purport, and the latter may be the reason of the former. … the reason is because God casts away the substance of the wicked … For the Lord will not suffer the soul of the righteous to famish … and so their righteousness delivers from death",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-10-3-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 10:3",
+      "strength": "commonly held",
+      "short": "The righteous kept from hunger, the wicked refused",
+      "about": "The second line answers the first with its opposite. The LORD keeps the righteous from going hungry, but He refuses the wicked what they crave.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:3",
+          "words": "The LORD does not let the righteous go hungry,"
+        },
+        {
+          "ref": "Proverbs 10:3",
+          "words": "but He denies the craving of the wicked."
+        }
+      ],
+      "pairs": [
+        [
+          "the righteous",
+          "the wicked"
+        ],
+        [
+          "go hungry",
+          "the craving"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line speaks of the appetite (nefesh) of the righteous, and the second answers with the craving (havvah) of the wicked.",
+        "strong": [
+          "H5315",
+          "H1942"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) takes the craving of the wicked as the parallel of the appetite of the righteous: God satisfies the one and pushes the other back. Clarke: the righteous have God for their feeder, while on the contrary the wicked lose what they misuse.",
+      "limit": "The writers differ on the last line: one reads it of the wicked losing the goods they misuse, the other of their craving refused, as the BSB has it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:3",
+          "quote": "The parallel הוּה … means the desire … God gives satisfaction to the soul of the righteous, viz., in granting blessings. The desire of the wicked He does not suffer to be accomplished",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 10:3",
+          "quote": "The righteous have God for their feeder; and because of his infinite bounty, they can never famish for want of the bread of life. On the contrary, the wicked are often, in the course of his providence, deprived of the property of which they make a bad use.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-10-23-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 10:23",
+      "strength": "widely agreed",
+      "short": "The fool's delight and the wise man's, set opposite",
+      "about": "The second line answers the first with its opposite: the fool against the man of understanding, shameful conduct against wisdom. Many read the first line's delight as carried into the second, so that wisdom is the wise man's pleasure as wrongdoing is the fool's.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:23",
+          "words": "The fool delights in shameful conduct,"
+        },
+        {
+          "ref": "Proverbs 10:23",
+          "words": "but a man of understanding has wisdom."
+        }
+      ],
+      "pairs": [
+        [
+          "The fool",
+          "a man of understanding"
+        ],
+        [
+          "shameful conduct",
+          "wisdom"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the order turns round in the second line: fool, then wickedness; wisdom, then man of understanding.",
+        "strong": [
+          "H3684",
+          "H2154",
+          "H2451",
+          "H8394"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says sinful conduct is sport to the fool and wisdom to the man of understanding, and that the two sides of the contrast are set crosswise within the verse. So Fausset (Jamieson, Fausset and Brown), J. W. Nutt (Ellicott) and E. H. Plumptre (Barnes' Notes): sin or mischief is the fool's pleasure, wisdom the wise man's.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:23",
+          "quote": "Sinful conduct appears to the fool, who places himself above the solemnity of the moral law, as sport; and wisdom, on the contrary, (appears as sport) to a man of understanding. ... The subjects of the antithesis chiastically combine within the verse",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 10:23",
+          "quote": "Sin is the pleasure of the wicked; wisdom that of the good.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 10:23",
+          "quote": "Rather, But wisdom ( is sport ) to a man of understanding, i.e., one rejoices in mischief, the other ... in wise thoughts and deeds.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 10:23",
+          "quote": "As the fool finds his sport in doing mischief, so the man of understanding finds in wisdom his truest refreshment and delight.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-14-31-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 14:31",
+      "strength": "some interpreters",
+      "short": "Oppress the poor, taunt God; help them, honor Him",
+      "about": "The second line answers the first with its opposite. To oppress the poor is to taunt the God who made them; to be kind to the needy is to honor Him. How a man treats the poor is how he treats their Maker.",
+      "lines": [
+        {
+          "ref": "Proverbs 14:31",
+          "words": "Whoever oppresses the poor taunts their Maker,"
+        },
+        {
+          "ref": "Proverbs 14:31",
+          "words": "but whoever is kind to the needy honors Him."
+        }
+      ],
+      "pairs": [
+        [
+          "oppresses",
+          "is kind to"
+        ],
+        [
+          "taunts",
+          "honors"
+        ],
+        [
+          "the poor",
+          "the needy"
+        ]
+      ],
+      "evidence": "Henry: God reckons Himself affronted by the wrongs done to the poor, and honored by the kindnesses done to them, which He takes as done to Himself; so those who truly honor God show it by compassion to the poor.",
+      "limit": "The last line can also be read the other way round: whoever honors God shows it by kindness to the needy. Either way it answers the first line with its opposite.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Proverbs 14:31",
+          "quote": "He reckons himself affronted in the injuries that are done them. … He reckons himself honoured in the kindnesses that are done them; he takes them as done to himself … Those therefore that have any true honour for God will show it by compassion to the poor",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-22-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 22:1",
+      "strength": "some interpreters",
+      "short": "A good name, then favor: both worth more than wealth",
+      "about": "The second line says the first again in other words. A good name is answered by favor, more desirable by better, and great riches by silver and gold: a good name and the love of others are worth more than wealth.",
+      "lines": [
+        {
+          "ref": "Proverbs 22:1",
+          "words": "A good name is more desirable than great riches;"
+        },
+        {
+          "ref": "Proverbs 22:1",
+          "words": "favor is better than silver and gold."
+        }
+      ],
+      "pairs": [
+        [
+          "A good name",
+          "favor"
+        ],
+        [
+          "more desirable",
+          "better"
+        ],
+        [
+          "great riches",
+          "silver and gold"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verse opens with the word for chosen and closes with the word for good, so the two verdicts frame it; the first line says only name, meaning a good name.",
+        "strong": [
+          "H0977",
+          "H2896",
+          "H8034"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls favor the parallel of name, and the verse's first word, chosen, and its last, good, the parallel predicates, set crosswise in the Hebrew. He takes favor as being beloved, and name by itself as a good name.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 22:1",
+          "quote": "The proverb is constructed chiastically; the commencing word נבחר (cf. Pro 21:3), and the concluding word טוב, are the parallel predicates … The parallel חן signifies grace and favour (being beloved)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-26-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 26:3",
+      "strength": "widely agreed",
+      "short": "Whip and bridle for beasts, the rod for fools",
+      "about": "The two lines are built alike: a tool, then the one it is for. The first names two beasts that need correcting and holding in. The second sets fools beside them, so the rod fits a fool as the whip and bridle fit the horse and the donkey.",
+      "lines": [
+        {
+          "ref": "Proverbs 26:3",
+          "words": "A whip for the horse, a bridle for the donkey,",
+          "key": "whip"
+        },
+        {
+          "ref": "Proverbs 26:3",
+          "words": "and a rod for the backs of fools!",
+          "key": "rod"
+        }
+      ],
+      "pairs": [
+        [
+          "whip",
+          "rod"
+        ],
+        [
+          "horse",
+          "fools"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch): as whip and bridle are useful and needed, so is a rod. Fausset (Jamieson, Fausset and Brown): the rod is as much needed by fools as whips and bridles by beasts. Clarke: correction suits a fool as a whip a horse, or a bridle an ass. Henry: as an unbroken horse needs a whip and an ass a bridle, so a man who will not be guided must be corrected and held back.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 26:3",
+          "quote": "As whip and bridle are both serviceable and necessary, so also serviceable and necessary is a rod",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 26:3",
+          "quote": "The rod is as much needed by fools and as well suited to them, as whips and bridles are for beasts.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 26:3",
+          "quote": "Correction is as suitable to a fool, as a whip is for a horse, or a bridle for an ass.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 26:3",
+          "quote": "Wicked men are compared to the horse and the ass, so brutish are they, so unreasonable, so unruly … A horse unbroken needs a whip for correction, and an ass a bridle for direction and to check him when he would turn out of the way; so a vicious man, who will not be under the guidance and restraint of religion and reason, ought to be whipped and bridled",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-6-16-numbers",
+      "kind": "figure",
+      "form": "numbers",
+      "ref": "Proverbs 6:16",
+      "strength": "widely agreed",
+      "short": "Six things the LORD hates, then seven",
+      "about": "The verse speaks of six things the LORD hates, then raises the count to seven, and the next three verses list all seven. Many read the last, “one who stirs up discord among brothers,” as the one most stressed, worse than the rest.",
+      "refs": [
+        "Proverbs 6:17-19"
+      ],
+      "figure": {
+        "name": "Numerical saying",
+        "ref": "Proverbs 6:16",
+        "words": "six things that the LORD hates, seven",
+        "means": "a list of what the LORD hates, rising to a seventh, the worst of all"
+      },
+      "evidence": "Henry finds the seventh especially meant, since the count is six, yea, seven. J. W. Nutt (Ellicott) says God hates six things and the seventh worse than all, a numerical proverb raising the first number by one; E. H. Plumptre (Barnes' Notes) sees the Hebrew form of climax. Delitzsch (Keil and Delitzsch) calls it a numerical proverb, the seventh the height of what God hates.",
+      "limit": "The seventh is read as the worst, not as the only one the LORD hates: the count here is exact, and all seven are detestable to Him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Proverbs 6:12-19",
+          "quote": "the last of them (which, being the seventh, seems especially to be intended, because he says they are six, yea, seven) is part of his character, that he sows discord",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 6:16",
+          "quote": "He hates six things, but the seventh worse than all. This numerical form of proverb ... in all these instances the number first named is increased afterwards by one.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 6:16",
+          "quote": "With the recognized Hebrew form of climax ... the teacher here enumerates six qualities as detestable, and the seventh as worse than all (seven represents completeness), but all the seven in this instance belong to one man",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 6:16-19",
+          "quote": "The thought that no vice is a greater abomination to God than the (in fact satanical) striving to set men at variance who love one another, clothes itself in the form of the numerical proverb ... the seven are to be numbered separately, and the seventh is the non plus ultra of all that is hated by God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-30-18-numbers",
+      "kind": "figure",
+      "form": "numbers",
+      "ref": "Proverbs 30:18",
+      "strength": "commonly held",
+      "short": "Three things, then four: the list builds to the last",
+      "about": "Agur names three things too wonderful for him, then raises the count to four. The four ways follow in the next verse, and the saying turns on the last of them, “the way of a man with a maiden”; the first three serve to set it off.",
+      "refs": [
+        "Proverbs 30:19"
+      ],
+      "figure": {
+        "name": "Numerical saying",
+        "ref": "Proverbs 30:18",
+        "words": "three things too wonderful for me, four",
+        "means": "the count climbs from three to four, and the weight falls on the fourth thing named"
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) calls the saying another numerical proverb and says its turning point lies in the fourth thing: the other three lead to it and serve only as a foil to it. Matthew Henry says the first three are things of nature, given only as comparisons to shed light on the last.",
+      "limit": "The note claims only how the count builds. What the fourth way means, and what the four ways share, is read in more than one way.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 30:18-20",
+          "quote": "The following proverb, again a numerical proverb, begins with the eagle, mentioned in the last line of the foregoing ... The turning-point lies in the fourth; to that point the other three expressions gravitate, which have not an object in themselves, but are only as folie to the fourth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 30:18-23",
+          "quote": "An account of four things that are unsearchable, too wonderful to be fully known. And here, 1. The first three are natural things, and are only designed as comparisons for the illustration of the last.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+{
+  "notes": [
+    {
+      "id": "1-corinthians-4-8-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "1 Corinthians 4:8",
+      "strength": "widely agreed",
+      "short": "Paul calls them “kings” to rebuke their pride",
+      "about": "Paul tells the Corinthians they already have all they want, are rich, and reign as kings without the apostles. He means the opposite: they only think so, and in their pride they look down on the men through whom they received the gospel. The next verses set the apostles' hardships beside them.",
+      "refs": [
+        "1 Corinthians 4:7",
+        "1 Corinthians 4:10"
+      ],
+      "figure": {
+        "name": "Irony",
+        "part": "Human Irony",
+        "ref": "1 Corinthians 4:8",
+        "words": "Already you have all you want. Already you have become rich. Without us, you have become kings.",
+        "means": "that they only think themselves full, rich and reigning, and are proud of gifts they received"
+      },
+      "evidence": "Bullinger lists the verse as true Irony. Albert Barnes calls it irony and cutting sarcasm, and Calvin says Paul ridicules their self-complacency by irony and upbraids their ingratitude. Simon Browne (Matthew Henry's Commentary) hears a smart irony: they reign only in their own conceit. Adam Clarke judges it a strong irony. On the closing wish, Barnes hears it earnest and Bullinger ironic.",
+      "limit": "The note is on the first three sentences. Writers differ on the closing wish: some hear the irony go on, while others hear Paul's earnest wish that they truly were as blessed as they thought.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 4:8",
+          "at": "Eironeia, or Irony: Human Irony, p. 813",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/813/mode/1up",
+          "quote": "This verse is true Irony. But other figures are involved.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 4:8",
+          "quote": "It is generally agreed that this is spoken in irony, and that it is an indignant sarcasm uttered against the false and self-confident teachers in Corinth. ... The whole passage is an instance of most pungent and cutting sarcasm ... But the more probable interpretation is, that Paul here drops the irony, and addresses them in a sober, earnest manner.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 4:8",
+          "quote": "Having in good earnest, and without the use of any figure, beat down their vain confidence, he now also ridicules it by way of irony, because they are so self-complacent, as if they were the happiest persons in the world. ... he tacitly upbraids them with ingratitude, because they had the audacity to despise him, or rather those, through means of whom they had obtained everything.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 4:7-13",
+          "quote": "He presses the duty of humility upon them by a very smart irony, or at least reproves them for their pride and self-conceit ... to intimate how much the Corinthians were elated by the abundance of their wisdom and spiritual gifts ... \"You have reigned as kings,\" says the apostle, \"that is, in your own conceit;",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Corinthians 4:8",
+          "quote": "Though this paraphrase appears natural, yet I am of opinion that the apostle here intends a strong irony; and one which, when taken in conjunction with what he had said before, must have stung them to the heart. It is not an unusual thing for many people to forget, if not despise, the men by whom they were brought to the knowledge of the truth",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-13-4-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "1 Corinthians 13:4",
+      "strength": "some interpreters",
+      "short": "Love is pictured as a person: patient and kind",
+      "about": "Paul speaks of love as if it were a person who is patient and kind and does not envy or boast. Giving love the ways of a person makes his account of it lively and moving.",
+      "figure": {
+        "name": "Personification",
+        "part": "Human Actions attributed to Things",
+        "ref": "1 Corinthians 13:4",
+        "words": "Love is patient, love is kind",
+        "means": "love, given the qualities and actions of a person, so that the account of it is lively and moving"
+      },
+      "evidence": "Benson says the apostle here gives love the qualities and actions of a person, to make his account of that divine grace the more lively and affecting.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "benson",
+          "on": "1 Corinthians 13:4",
+          "quote": "Here the apostle attributes to love the qualities and actions of a person, in order to render his account of that divine grace the more lively and affecting.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-4-8-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "1 Corinthians 4:8",
+      "strength": "widely agreed",
+      "short": "All they want, then rich, then kings: a climb",
+      "about": "The three sentences climb: from having all they want, to being rich, to reigning as kings, the highest step of all. Each claim goes beyond the one before it, which shows how highly the Corinthians thought of themselves.",
+      "lines": [
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Already you have all you want.",
+          "key": "want"
+        },
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Already you have become rich.",
+          "key": "rich"
+        },
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Without us, you have become kings.",
+          "key": "kings"
+        }
+      ],
+      "evidence": "Albert Barnes calls the third clause a climax: men filled with food, then the rich, then men raised to a throne, the highest elevation. Simon Browne (Henry's Commentary) sees a gradation from sufficiency to wealth and thence to royalty; Calvin says Paul goes step by step, the last much more than the other two; J. A. Bengel calls full, rich, kings a gradation, each step with its own pride.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 4:8",
+          "quote": "This is simply carrying forward the idea before stated; but in the form of a climax. The first metaphor is taken from persons “filled with food;” the second from those who are so rich that they do not feel their lack of more; the third from those who are raised to a throne, the highest elevation, where there was nothing further to be reached or desired.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 4:7-13",
+          "quote": "There is a very elegant gradation from sufficiency to wealth, and thence to royalty, to intimate how much the Corinthians were elated by the abundance of their wisdom and spiritual gifts",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 4:8",
+          "quote": "He proceeds, too, step by step, in exposing their insolence. In the first place, he says, that they were full: this refers to the past. He then adds, Ye are rich: this applies to the future. Lastly, he says, that they had reigned as kings this is much more than either of those two.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "1 Corinthians 4:8",
+          "quote": "A gradation [ascending climax]: full, rich, kings. ... in consequence of fulness, they were fastidious; of opulence, they were insolent; of kingly power, they were proud.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/1_corinthians/4.htm",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-15-55-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "1 Corinthians 15:55",
+      "strength": "widely agreed",
+      "short": "Death is spoken to as a beaten foe",
+      "about": "Here the chapter breaks into a cry of triumph that speaks to Death as if it were a person, a foe armed with a sting, and asks where its victory and its sting have gone. At the resurrection, death's power to hurt is taken away.",
+      "refs": [
+        "Hosea 13:14",
+        "1 Corinthians 15:54"
+      ],
+      "figure": {
+        "name": "Apostrophe",
+        "part": "to Inanimate Things",
+        "ref": "1 Corinthians 15:55",
+        "words": "Where, O Death, is your victory? Where, O Death, is your sting?",
+        "means": "Death, spoken to as a person: an enemy whose victory and sting are gone"
+      },
+      "original": {
+        "note": "In Paul's Greek “sting” is kentron, a point or goad, and the sting of a creature such as a bee or a scorpion.",
+        "strong": [
+          "G2759"
+        ]
+      },
+      "evidence": "Bullinger, under Apostrophe to inanimate things, gives Hosea 13:14 and points to this verse. Clarke says Death is personified here, armed with a sting like a goad. Barnes says the sting is given to death personified, in language of exultation. Simon Browne (Matthew Henry's Commentary) says the saints glory over death as a vanquished enemy.",
+      "limit": "Some read the cry as Paul's own; others as the song the raised saints will sing over death.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 13:14",
+          "at": "Apostrophe to Inanimate Things, p. 905",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/905/mode/1up",
+          "quote": "“O death, I will be thy plagues; O grave, I will be thy destruction.” See 1Co 15:55",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Corinthians 15:55",
+          "quote": "Both Death and Hades are here personified: Death is represented as having a sting, dagger, or goad, by which, like the driver of oxen, he is continually irritating and urging on",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 15:55",
+          "quote": "The word which is here rendered sting (κέντρον kentron) denotes properly a prick, a point, hence, a goad or stimulus ... It denotes here a venomous thing, or weapon, applied to death personified, as if death employed it to destroy life, as the sting of a bee or a scorpion is used. ... The language here is the language of exultation, as if that was taken away or destroyed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 15:51-58",
+          "quote": "They will glory over death as a vanquished enemy, and insult this great and terrible destroyer",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "notes": [
+    {
+      "id": "mark-7-9-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "Mark 7:9",
+      "strength": "commonly held",
+      "short": "“You neatly set aside”: praise that rebukes",
+      "about": "Jesus seems to praise the Pharisees and scribes for how neatly they set aside God's command. He means the opposite: they had done evil. The next verses show how: their tradition kept a man from doing anything for his father or mother.",
+      "figure": {
+        "name": "Irony",
+        "part": "Divine Irony",
+        "ref": "Mark 7:9",
+        "words": "neatly",
+        "means": "that they did evil, not well, in setting aside God's command for their tradition"
+      },
+      "original": {
+        "note": "In Mark's Greek “neatly” is kalōs, “well”, a word that means suitably or becomingly.",
+        "strong": [
+          "G2573"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under irony spoken by God, brought out by the word for well, which means suitably: they did evil, not well. Clarke calls the word a strong irony: how noble their conduct, to annul God's commandments for their own traditions.",
+      "limit": "Not every writer reads irony here: some take the word plainly, as wholly, and others read the words as a question or as praise of their cunning.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Mark 7:9",
+          "at": "Eironeia, or Irony: Divine Irony, p. 811",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/811/mode/1up",
+          "quote": "Here the Irony is beautifully brought out by translating καλῶς (kalōs) “full well.” καλῶς means with propriety, suitably, becomingly. ... “Well do ye reject.” No, ye do evil!",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Mark 7:9",
+          "quote": "Full well - Καλως, - a strong irony. How noble is your conduct! From conscientious attachment to your own traditions ye have annihilated the commandments of God!",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ],
+      "refs": [
+        "Mark 7:10-12"
+      ]
+    }
+  ]
+}

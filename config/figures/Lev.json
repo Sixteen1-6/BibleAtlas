@@ -1,0 +1,55 @@
+{
+  "notes": [
+    {
+      "id": "leviticus-18-25-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Leviticus 18:25",
+      "strength": "widely agreed",
+      "short": "The land “will vomit out its inhabitants”",
+      "about": "The land is spoken of as a living being with a sense of right and wrong, so sickened by the sins done on it that it throws up the people who did them. Verse 28 warns Israel that if they defile the land, “it will vomit you out” too.",
+      "refs": [
+        "Leviticus 18:28",
+        "Leviticus 20:22"
+      ],
+      "figure": {
+        "name": "Personification",
+        "part": "Inanimate things",
+        "ref": "Leviticus 18:25",
+        "words": "the land will vomit out its inhabitants",
+        "means": "the nations driven out for their sins, as if the land itself could not stomach them"
+      },
+      "original": {
+        "note": "In Hebrew the verb is past, “vomited out”: what was still to come is told as if already done, as with “spewed out” in verse 28.",
+        "strong": [
+          "H6958"
+        ]
+      },
+      "evidence": "Clarke calls the words a vigorous prosopopoeia, or personification: the land is represented as an intelligent being with a sense of moral good and evil. Samuel Clark (Barnes' Notes) says the land is impersonated, vomiting forth its inhabitants for their abominations. Keil (Keil and Delitzsch) calls the expression poetical, the land personified as a living creature, and the past tense prophetic.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Leviticus 18:25",
+          "quote": "This is a very nervous prosopopoeia or personification; a figure by which any part of inanimate nature may be represented as possessing the passions and reason of man. Here the land is represented as an intelligent being, with a deep and refined sense of moral good and evil",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Leviticus 18:24-30",
+          "quote": "The land designed and consecrated for His people by Yahweh ... is here impersonated, and represented as vomiting forth its present inhabitants, in consequence of their indulgence in the abominations that have been mentioned.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Leviticus 18:24-30",
+          "quote": "The pret. ותּקא ( Lev 18:25 ) and קאה ( Lev 18:28 ) are prophetic (cf. Lev 20:22-23 ), and the expression is poetical. The land is personified as a living creature, which violently rejects food that it dislikes.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

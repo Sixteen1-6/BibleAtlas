@@ -64,6 +64,65 @@
           "retrieved": "2026-10-22"
         }
       ]
+    },
+    {
+      "id": "1-samuel-15-11-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "1 Samuel 15:11",
+      "strength": "widely agreed",
+      "short": "“I regret”: God's regret over Saul in human words",
+      "about": "The LORD speaks of His regret in human words. They tell of no change in God Himself; the change was in Saul, who had turned away from following Him. The same chapter says the Glory of Israel “does not lie or change His mind, for He is not a man, that He should change His mind” (1 Samuel 15:29).",
+      "refs": [
+        "1 Samuel 15:29",
+        "1 Samuel 15:35"
+      ],
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Affections and Feelings",
+        "ref": "1 Samuel 15:11",
+        "words": "I regret",
+        "means": "how God regards and deals with Saul, who had turned away from Him, told in human words"
+      },
+      "original": {
+        "note": "In Hebrew “regret” is nacham, the verb 15:29 uses twice when it says God does not change His mind, and 15:35 uses again of the LORD's regret over Saul.",
+        "strong": [
+          "H5162"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the LORD's repentance shows no changeableness in God but the sorrow of the divine love at sin, as 15:29 makes plain. Henry says it is a change not of God's mind but of His method, the change being in Saul. Jamieson (Jamieson, Fausset and Brown): God treats men as if He repented. Spence (Ellicott), on verse 29: speaking in human language, the Lord is said to repent.",
+      "limit": "The writers agree the words speak of God in human terms, but not on whether they tell of a real sorrow in God's love or only of a change in how He deals with Saul.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 15:10-11",
+          "quote": "That this does not express any changeableness in the divine nature, but simply the sorrow of the divine love at the rebellion of sinners, is evident enough from Sa1 15:29",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 15:10-23",
+          "quote": "Repentance in God is not, as it is in us, a change of his mind, but a change of his method or dispensation. He does not alter his will, but wills an alteration. The change was in Saul: He has turned back from following me",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Samuel 15:10-11",
+          "quote": "Repentance is attributed in Scripture to Him when bad men give Him cause to alter His course and method of procedure, and to treat them as if He did \"repent\" of kindness shown.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Samuel 15:29",
+          "quote": "The truth is that with God there is no change. ... hence He is said “to repent:” but the change springs alone from a change in the men themselves, not in God. Speaking in human language the Lord is said “to repent” because there was what appeared to be a change in the Eternal counsels.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }
