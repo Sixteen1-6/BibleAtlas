@@ -830,6 +830,62 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "isaiah-9-10-refrain",
+      "kind": "refrain",
+      "ref": "Isaiah 9:8-10:4",
+      "strength": "widely agreed",
+      "short": "Isaiah's warning closes four parts, into chapter 10",
+      "about": "Four times one warning closes a part of the prophecy, and the last time it comes after the chapter break, at Isaiah 10:4.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:12",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised.",
+          "tie": "His anger is not turned away"
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:17",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:21",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 10:4",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        }
+      ],
+      "evidence": "Henry: the burden of that prophecy is repeated at 10:4. Fausset: four strophes, each ending with the formula. Barnes: the words close the second and third strophes, and the fourth is 10:1-4.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 10:4",
+          "quote": "because the burden of that prophecy (for all this his anger is not turned away) is repeated here (Isa 10:4)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Isaiah 9:8",
+          "quote": "There are four strophes, each setting forth Ephraim's crime and consequent punishment, and ending with the formula",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Isaiah 9:21",
+          "quote": "This closes the third strophe or part of the prophecy under consideration. The fourth and last strophe occurs in Isa 10:1-4.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }
