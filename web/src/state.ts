@@ -81,6 +81,11 @@ selected.subscribe((v) => {
   if (v !== openingVerse.peek()) openingVerse.value = null;
 });
 export const mobilePane = signal<'read' | 'study'>('read');
+/** Whether the map shows above the reader. Hiding it gives the text the whole
+ *  screen, which matters most on a phone. Remembered per browser. */
+export const mapShown = stored<'show' | 'hide'>('atlas.map', ['show', 'hide'], 'show');
+/** On a phone, the menu holding the translation, page theme and map style. */
+export const viewMenu = signal(false);
 
 /** The phone layout (styles.css @media (max-width: 900px)), where the map
  *  and reader take turns with the study panel instead of sitting beside it. */
