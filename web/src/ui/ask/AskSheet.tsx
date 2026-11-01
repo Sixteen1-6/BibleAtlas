@@ -299,7 +299,7 @@ function LiveBody({ a, text }: { a: Atlas; text: string }) {
   // theirs, load with the first one typed.
   const ready = useAsync('signals', () => Promise.all([loadSignals(a), loadMeaning(a).catch(() => null)]));
   if (ready === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
-  const q = ix ? route(ix, text) : null;
+  const q = ix ? route(ix, text, a) : null;
   return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;
 }
 

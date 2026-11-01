@@ -14,6 +14,7 @@
 import type { Atlas } from '../../data/atlas';
 import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
+import { citedVerses } from './books';
 import { likelihood, meanings, usesModel } from './meaning';
 import { isAsking, terms } from './words';
 
@@ -144,17 +145,27 @@ export function couldMean(ix: AskIndex, text: string, q: Question): boolean {
   return (likelihood(ix, text, q) ?? 1) >= UNMEANT;
 }
 
-/** The prepared question that plainly answers `text`, or null. */
-export function route(ix: AskIndex, text: string): Question | null {
+/** Does `q`'s chain hold one of these verses? */
+function holds(q: Question, vs: number[]): boolean {
+  return vs.some((v) => q.r.some(([s, e]) => v >= s && v <= e));
+}
+
+/** The prepared question that plainly answers `text`, or null. With the atlas,
+ * a question that cites a verse ("my wife swears proverbs 16:31 says ...")
+ * opens only an answer that holds it: its numbers are not words ("31" is not
+ * Proverbs 31), and gathering shows the verse first. */
+export function route(ix: AskIndex, text: string, a?: Atlas): Question | null {
   // Asked as one of its ways, word for word.
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
+  const cited = a ? citedVerses(a, text) : [];
+  const fits = (q: Question) => !cited.length || holds(q, cited);
   // Plainly what people mean by such words ("they took my car because I
   // missed payments": debt).
   const [sense] = meanings(ix, text, 1);
-  if (sense && sense.p >= (usesModel(ix, text) ? MEANT.model : MEANT.words)) return sense.q;
+  if (sense && sense.p >= (usesModel(ix, text) ? MEANT.model : MEANT.words)) return fits(sense.q) ? sense.q : null;
   const [best, next] = routes(ix, text, 2);
   if (!best || best.said < OPEN.said || best.covers < OPEN.covers || best.score < OPEN.score) return null;
   if (next && best.score - next.score < OPEN.margin && next.said >= OPEN.said) return null;
-  return couldMean(ix, text, best.q) ? best.q : null;
+  return couldMean(ix, text, best.q) && fits(best.q) ? best.q : null;
 }
