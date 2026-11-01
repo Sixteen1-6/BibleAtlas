@@ -197,6 +197,20 @@
       "citation": "William Smith, Smith's Bible Dictionary, the Christian Classics Ethereal Library's edition, dated 1884: the American edition revised and edited by F. N. and M. A. Peloubet (Philadelphia: Porter & Coates, 1884). First published as A Dictionary of the Bible (London: John Murray, 1860–1863). Text from the Christian Classics Ethereal Library's transcription, via CCEL Paragraphs by Jon Craton (CC BY-SA 4.0) and the Bible Dictionary Dataset, Copyright (c) 2026 NEUU, github.com/neuu-org/bible-dictionary-dataset (CC BY 4.0)."
     },
     {
+      "id": "freeman-customs",
+      "group": "dictionaries",
+      "plain": "Handbook of Bible customs, 1874",
+      "title": "Hand-Book of Bible Manners and Customs",
+      "by": "James M. Freeman, Methodist Episcopal minister",
+      "when": "1874",
+      "what": "891 short entries in Bible order, each explaining the custom behind one verse, from dress and meals to weddings and burials. Written in the 1800s, so some of what it says is out of date.",
+      "license": "public-domain",
+      "licenseNote": "The book is public domain. This copy is Bible Truth Publishers' transcription, which its own note says was not proofread, as kept in the UniqueBible.app module on GitHub.",
+      "datasets": ["freeman-customs"],
+      "read": {"url": "https://archive.org/details/handbookofbiblem00free", "label": "Internet Archive (Library of Congress copy, 1874)"},
+      "citation": "James M. Freeman, Hand-Book of Bible Manners and Customs (New York: Nelson and Phillips; Cincinnati: Hitchcock and Walden, 1874). Text transcribed by Bible Truth Publishers (bibletruthpublishers.com), as kept in the UniqueBible.app module \"Freeman - Manners and Customs of the Bible\", github.com/darrelwright/UniqueBible_Books, commit 4017a67, read 2026-11-01."
+    },
+    {
       "id": "naves",
       "group": "dictionaries",
       "plain": "Bible topic index, 1896",
