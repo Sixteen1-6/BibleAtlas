@@ -12,6 +12,7 @@ import { Connections } from './ui/Connections';
 import { DepthControl } from './ui/Depth';
 import { Hubs, Paths, Themes } from './ui/Explore';
 import { Palette } from './ui/Palette';
+import { PanelNav, startPanelNav } from './ui/PanelNav';
 import { AskSheet } from './ui/ask/AskSheet';
 import { Reader } from './ui/Reader';
 import { installPointing } from './ui/pointing';
@@ -150,6 +151,7 @@ export function App() {
         const p = pathFromHash(atlas);
         stop = syncHash(atlas);
         await followLink(atlas, eng, p, linked);
+        startPanelNav();
         // A link pasted into the same tab only changes the hash; follow it.
         window.addEventListener('hashchange', () => {
           const target = pathFromHash(atlas);
@@ -189,6 +191,8 @@ export function App() {
         S.paletteOpen.value = true;
       } else if (e.key === 'Escape' && S.viewMenu.value) {
         S.viewMenu.value = false;
+      } else if (e.key === 'Escape' && S.panelWide.value && !S.paletteOpen.value) {
+        S.panelWide.value = false;
       } else if (e.key === 'Escape' && !S.paletteOpen.value) {
         S.clearAll();
       }
@@ -224,7 +228,7 @@ export function App() {
   const tab = atLeast(TAB_DEPTH[S.tab.value]) || asked ? S.tab.value : 'connections';
   const wheel = S.mapMode.value === 'wheel' && atLeast('study');
   return (
-    <div class="app" data-map={S.mapShown.value}>
+    <div class="app" data-map={S.mapShown.value === 'hide' || S.panelWide.value ? 'hide' : 'show'}>
       <header class="topbar">
         <div class="brand">
           Bible Atlas<small>{a.meta.counts.crossReferences.toLocaleString()} links · Hebrew, Aramaic and Greek</small>
@@ -283,14 +287,14 @@ export function App() {
           )}
         </div>
       </header>
-      {S.mapShown.value === 'hide' ? null : !wheel ? (
+      {S.mapShown.value === 'hide' || S.panelWide.value ? null : !wheel ? (
         <AtlasMap a={a} />
       ) : (
         <div class="map">
           <Wheel a={a} />
         </div>
       )}
-      <main class="work" data-pane={S.mobilePane.value}>
+      <main class="work" data-pane={S.mobilePane.value} data-wide={S.panelWide.value}>
         <nav class="mobtabs" role="tablist">
           <button role="tab" aria-selected={S.mobilePane.value === 'read'} onClick={() => (S.mobilePane.value = 'read')}>
             Read
@@ -301,6 +305,7 @@ export function App() {
         </nav>
         <Reader a={a} />
         <aside class="study">
+          <PanelNav a={a} />
           <div class="tabs" role="tablist">
             {TABS.filter(([id]) => atLeast(TAB_DEPTH[id]) || (id === 'sources' && asked)).map(([id, name]) => (
               <button key={id} role="tab" aria-selected={tab === id} onClick={() => (S.tab.value = id)}>
