@@ -65,7 +65,7 @@ export interface Data {
 }
 
 export const SOURCE =
-  'From the Berean Standard Bible, and at Deep the words of Matthew Henry, John Calvin, John Wesley, the Geneva Bible notes and the Church Fathers in the Catena Aurea (all public domain).';
+  'From the Berean Standard Bible, and at Deep the words of Matthew Henry, John Calvin and the Church Fathers in the Catena Aurea (all public domain).';
 
 export async function load(a: Atlas): Promise<Data> {
   const f = await loadJson<IndexFile>(a, 'extras/prophecies.json');

@@ -3,7 +3,7 @@
     "Prophecy and fulfilment: Old Testament passages and the New Testament passages that fulfil them, drawn as their own arcs on the map (crates/atlas-cli/src/extra_prophecies.rs checks every rule below).",
     "ot, nt: the two passages, as BSB references.",
     "says: the New Testament's own words that the passage was fulfilled, foretold or spoken of, word for word from the BSB verse in ref. A pair with says shows at every level, since it is Scripture's own claim.",
-    "cites: Christian writers who state the pair, each {source, on, quote, father?}: source is a cite id from config/layer-sources.json whose public-domain text the build reads (henry, henry-concise, wesley, calvin, geneva, catena-aurea), on is the verse the writer's note is on, and quote is his words, which the build finds word for word in that note. father names the Church Father a Catena quotation is by. These are commentary: shown only at Deep, after the commentary notice.",
+    "cites: Christian writers who state the pair, each {source, on, quote, father?}: source is a cite id from config/layer-sources.json whose public-domain text the build reads and that config/figure-forms.json lists as quotable (henry, calvin, catena-aurea), on is the verse the writer's note is on, and quote is his words, which the build finds word for word in that note. father names the Church Father a Catena quotation is by. These are commentary: shown only at Deep, after the commentary notice.",
     "A pair needs says, a cite, or both. Strength is the number of different writers among its cites: 3 or more widely agreed, 2 commonly held, 1 some interpreters, counted by the build from the cite list's writers (an abridgment counts as the writer it abridges).",
     "retrieved: the date the quoted words were read from the pinned copies named in sources.json.",
     "How the pairs were found and checked: docs/evidence/prophecies-2026-11-01.json."
@@ -300,28 +300,6 @@
       ]
     },
     {
-      "ot": "Psalms 18:49",
-      "nt": "Romans 15:9",
-      "cites": [
-        {
-          "source": "geneva",
-          "on": "Psalms 18:49",
-          "quote": "(m) This prophecy belongs to the kingdom of Christ and calling of the Gentiles, as in Ro 15:9."
-        }
-      ]
-    },
-    {
-      "ot": "Psalms 21:4",
-      "nt": "Hebrews 5:7",
-      "cites": [
-        {
-          "source": "wesley",
-          "on": "Psalms 21:4",
-          "quote": "But this was more eminently fulfilled in Christ, who asked of his father, life, or to be saved from death, Heb 5:7,"
-        }
-      ]
-    },
-    {
       "ot": "Psalms 22:7",
       "nt": "Matthew 27:39",
       "cites": [
@@ -393,17 +371,6 @@
     },
     {
       "ot": "Psalms 22:18",
-      "nt": "Matthew 27:35",
-      "cites": [
-        {
-          "source": "wesley",
-          "on": "Psalms 22:18-19",
-          "quote": "They part - This also cannot be applied to David, but was literally fulfilled in Christ, Matt 27:35 John 19:24."
-        }
-      ]
-    },
-    {
-      "ot": "Psalms 22:18",
       "nt": "John 19:24",
       "says": {
         "ref": "John 19:24",
@@ -445,14 +412,7 @@
       "says": {
         "ref": "John 19:36",
         "words": "Now these things happened so that the Scripture would be fulfilled"
-      },
-      "cites": [
-        {
-          "source": "henry-concise",
-          "on": "John 19:31-37",
-          "quote": "The Scripture was fulfilled, in Pilate's not allowing his legs to be broken, Psa 34:20."
-        }
-      ]
+      }
     },
     {
       "ot": "Psalms 35:19",
@@ -993,11 +953,6 @@
       "nt": "Luke 3:4-6",
       "cites": [
         {
-          "source": "henry-concise",
-          "on": "Luke 3:1-14",
-          "quote": "Here is the fulfilling of the Scriptures, Is 40:3, in the ministry of John."
-        },
-        {
           "source": "calvin",
           "on": "Isaiah 40:3",
           "quote": "This passage is quoted by the Evangelists, (Matthew 3:3; Mark 1:3; Luke 3:4,) and applied to John the Baptist, as if these things had been foretold concerning him, and not unjustly; for he held the highest rank among the messengers and heralds of our redemption, of which the deliverance from Babylon was only a type."
@@ -1232,17 +1187,6 @@
     },
     {
       "ot": "Isaiah 53:7",
-      "nt": "John 1:29-30",
-      "cites": [
-        {
-          "source": "wesley",
-          "on": "John 1:29-30",
-          "quote": "He seeth Jesus coming and saith, Behold the Lamb - Innocent; to be offered up; prophesied of by Isaiah, Isa 53:7, typified by the paschal lamb, and by the daily sacrifice: The Lamb of God - Whom God gave, approves, accepts of; who taketh away - Atoneth for; the sin - That is, all the sins: of the world - Of all mankind."
-        }
-      ]
-    },
-    {
-      "ot": "Isaiah 53:7",
       "nt": "John 19:9",
       "cites": [
         {
@@ -1266,17 +1210,6 @@
           "source": "henry",
           "on": "Acts 8:26-40",
           "quote": "So that (these verses foretold concerning the Messiah, (1.) That he should die, should be led to the slaughter, as sheep that were offered in sacrifice—that his life should be taken from among men, taken from the earth."
-        }
-      ]
-    },
-    {
-      "ot": "Isaiah 53:9",
-      "nt": "John 19:38",
-      "cites": [
-        {
-          "source": "henry-concise",
-          "on": "John 19:38-42",
-          "quote": "The grave of Jesus was appointed with the wicked, as was the case of those who suffered as criminals; but he was with the rich in his death, as prophesied, Is 53:9; these two circumstances it was very unlikely should ever be united in the same person."
         }
       ]
     },
@@ -1522,17 +1455,6 @@
       ]
     },
     {
-      "ot": "Joel 2:28-29",
-      "nt": "John 7:38-39",
-      "cites": [
-        {
-          "source": "geneva",
-          "on": "Joel 2:28-29",
-          "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations."
-        }
-      ]
-    },
-    {
       "ot": "Joel 2:28-32",
       "nt": "Acts 2:17-21",
       "says": {
@@ -1544,11 +1466,6 @@
           "source": "calvin",
           "on": "Joel 2:28",
           "quote": "Peter, in Acts 2, says, that this prophecy was fulfilled when the Spirit was sent."
-        },
-        {
-          "source": "geneva",
-          "on": "Joel 2:28-29",
-          "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations."
         }
       ]
     },
@@ -1654,11 +1571,6 @@
           "source": "henry",
           "on": "Zechariah 11:4-14",
           "quote": "and reference is had to this prophecy, Matt. xxvii. 9,"
-        },
-        {
-          "source": "geneva",
-          "on": "Matthew 27:9-10",
-          "quote": "(e) As this prophecy is found in Zec 11:12 it cannot be denied that Jeremy's name slipped into the text either through the fault of the Scribe,"
         }
       ]
     },

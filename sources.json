@@ -483,19 +483,6 @@
       }
     },
     {
-      "id": "geneva-notes",
-      "title": "The notes of the Geneva Bible (1599), from the CrossWire SWORD module (Geneva), as kept in the Let's Church repository",
-      "provides": "The study notes printed in the 1599 Geneva Bible. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
-      "license": "Public domain (1560 to 1599), as the SWORD module marks it; the repository is CC0 1.0",
-      "attribution": "The Geneva Bible notes, 1599 edition, public domain, from the CrossWire Bible Society's SWORD module Geneva, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
-      "homepage": "https://github.com/LetsChurch/lets.church",
-      "repo": "https://github.com/LetsChurch/lets.church",
-      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
-      "files": {
-        "geneva": "packages/lets.bible/seed/commentaries/geneva.json"
-      }
-    },
-    {
       "id": "wesley-notes",
       "title": "John Wesley's Explanatory Notes on the Whole Bible, from the CrossWire SWORD module (Wesley), as kept in the Let's Church repository",
       "provides": "John Wesley's notes on the verses of the Old and New Testaments. Shown at Deep, under the verse each note is on, once a reader chooses to see writers' notes.",

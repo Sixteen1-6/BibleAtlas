@@ -111,6 +111,7 @@ def found(work, who, on, quote):
 
 
 SOURCE = {'mhc': 'henry', 'mhcc': 'henry-concise', 'wesley': 'wesley', 'calvin': 'calvin', 'geneva': 'geneva', 'catena': 'catena-aurea'}
+QUOTABLE = set(json.load(open(f'{ROOT}/config/figure-forms.json'))['quotable'])
 HENRY_BOOKS = set(range(0, 44)) | {45, 65}  # Genesis to Acts, 1 Corinthians, Revelation
 
 pairs = []
@@ -125,6 +126,8 @@ miss = 0; skipped = collections.Counter()
 for it in yes:
     o = parse(it['ot']); n = parse(it['nt']); on = parse(it['on']) if re.match(r'.* \d+:\d+(-\d+)?$', it['on']) else None
     work = it['work']
+    if SOURCE[work] not in QUOTABLE:
+        skipped['not on the quotable list in config/figure-forms.json'] += 1; continue
     if on is None:
         skipped['on'] += 1; continue
     if work == 'mhc' and IDX[on[0]][0] not in HENRY_BOOKS:

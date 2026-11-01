@@ -57,10 +57,7 @@ const PROPHECY: &[&str] = &["fulfil", "prophec", "prophesi", "prophesy", "prophe
 /// the copy's name in a credit).
 const WORKS: &[(&str, &str, &str, &str)] = &[
     ("henry", "henry-complete", "mhc", "the CrossWire SWORD module MHC, as kept in the Let's Church repository (commit 71f6f0f)"),
-    ("henry-concise", "henry-concise", "mhcc", "the CrossWire SWORD module MHCC, as kept in the Let's Church repository (commit 71f6f0f)"),
-    ("wesley", "wesley-notes", "wesley", "the CrossWire SWORD module Wesley, as kept in the Let's Church repository (commit 71f6f0f)"),
     ("calvin", "calvin-commentaries", "calvin", "the CrossWire SWORD module Calvin, as kept in the Let's Church repository (commit 71f6f0f)"),
-    ("geneva", "geneva-notes", "geneva", "the CrossWire SWORD module Geneva, as kept in the Let's Church repository (commit 71f6f0f)"),
 ];
 const CATENA: &str = "catena-aurea";
 const CATENA_READ: &str = "the Catena corpus, github.com/AlvaroBalbin/catena (commit efe1bd0)";
@@ -218,6 +215,7 @@ pub fn build(root: &Path, inputs: &Inputs, vz: &Versification, bsb_text: &[Strin
     let text = fs::read_to_string(root.join(CONFIG)).map_err(|e| format!("reading {CONFIG}: {e}"))?;
     let file: File = serde_json::from_str(&text).map_err(|e| format!("parsing {CONFIG}: {e}"))?;
     let cite = CiteList::read(root)?;
+    let quotable = crate::extra_figures::quotable(root)?;
     let mut texts: Vec<(&str, &str, Vec<Note>)> = Vec::new();
     for (id, src, key, read) in WORKS {
         texts.push((id, read, read_lets_church(&inputs.path(src, key), vz)?));
@@ -283,6 +281,10 @@ pub fn build(root: &Path, inputs: &Inputs, vz: &Versification, bsb_text: &[Strin
             if !has_word(&quote, PROPHECY) {
                 errors.push(format!("{at}: quote must say the passage was foretold or fulfilled"));
             }
+            if !quotable.contains(&c.source) {
+                errors.push(format!("{at}: {} is not quotable in config/figure-forms.json, so its words are not shown", c.source));
+                continue;
+            }
             let Some((_, read, ns)) = texts.iter().find(|(id, _, _)| *id == c.source) else {
                 errors.push(format!("{at}: {:?} is not a work the build reads ({})", c.source, WORKS.iter().map(|w| w.0).chain([CATENA]).collect::<Vec<_>>().join(", ")));
                 continue;
@@ -307,6 +309,10 @@ pub fn build(root: &Path, inputs: &Inputs, vz: &Versification, bsb_text: &[Strin
                 }
             }
             let book = BOOKS[place.0 as usize].name;
+            if let Some(l) = cite.source(&c.source).filter(|l| l.not_on.iter().any(|b| b == book)) {
+                errors.push(format!("{at}: {} is not cited on {book}: {}", l.name, l.why));
+                continue;
+            }
             let mut x = if c.source == CATENA {
                 let (key, _) = GOSPELS.iter().find(|(_, b)| *b == place.0).copied().unwrap_or(("matthew", 39));
                 json!({

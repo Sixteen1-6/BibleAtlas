@@ -7,7 +7,8 @@
   "Checked: each sentence was read with both passages' BSB text and judged on its own words: kept only when the writer says the Old Testament passage foretold, or was fulfilled in, what the New Testament verse records. Left out: a passage only quoted, compared or applied; a prophecy fulfilled within Old Testament history; fulfil meaning obeying a law; the writer doubting the link; the fulfilment in another verse than the one given.",
   "The New Testament's own statements (says in config/prophecies.json) were read from the BSB: each New Testament verse that says the passage was fulfilled, foretold or spoken of. Galatians 5:14 and James 2:8 (fulfilling the law) and Matthew 5:33 are not prophecies and are not listed.",
   "records: every sentence kept, as config/prophecies.json cites it; left_out: every sentence not kept, with why. The build finds every kept quote word for word in its writer's note.",
-  "A second reading of every pair only writers name left out 33 pairs whose writer applies the words to a later event in passing (Proverbs 1:20 and Christ's preaching, Isaiah 45:1-2 and Peter's prison gate) rather than naming a prophecy and its fulfilment."
+  "A second reading of every pair only writers name left out 33 pairs whose writer applies the words to a later event in passing (Proverbs 1:20 and Christ's preaching, Isaiah 45:1-2 and Peter's prison gate) rather than naming a prophecy and its fulfilment.",
+  "Only works on the quotable list in config/figure-forms.json are quoted: Henry, Calvin and the Catena's Fathers. Sentences from Henry's Concise, Wesley and the Geneva notes moved to left_out for that reason."
  ],
  "records": [
   {
@@ -191,24 +192,6 @@
    "why": "Matthew 27:9 refers to this prophecy."
   },
   {
-   "ot": "Zechariah 11:12-13",
-   "nt": "Matthew 27:9-10",
-   "source": "geneva",
-   "on": "Matthew 27:9-10",
-   "quote": "(e) As this prophecy is found in Zec 11:12 it cannot be denied that Jeremy's name slipped into the text either through the fault of the Scribe,",
-   "verdict": "states it",
-   "why": "Identifies the prophecy Matthew says was fulfilled as Zechariah 11:12."
-  },
-  {
-   "ot": "Psalms 22:18",
-   "nt": "Matthew 27:35",
-   "source": "wesley",
-   "on": "Psalms 22:18-19",
-   "quote": "They part - This also cannot be applied to David, but was literally fulfilled in Christ, Matt 27:35 John 19:24.",
-   "verdict": "states it",
-   "why": "Literally fulfilled in Christ, Matthew 27:35."
-  },
-  {
    "ot": "Psalms 22:8",
    "nt": "Matthew 27:42-43",
    "source": "henry",
@@ -280,15 +263,6 @@
    "father": "Bede",
    "verdict": "states it",
    "why": "What Malachi foretold of Elias spoken of John."
-  },
-  {
-   "ot": "Isaiah 40:3-5",
-   "nt": "Luke 3:4-6",
-   "source": "henry-concise",
-   "on": "Luke 3:1-14",
-   "quote": "Here is the fulfilling of the Scriptures, Is 40:3, in the ministry of John.",
-   "verdict": "states it",
-   "why": "Fulfilling of Isaiah 40:3 in John's ministry."
   },
   {
    "ot": "Isaiah 40:3-5",
@@ -435,15 +409,6 @@
    "why": "Said I thirst so enemies would fulfil Psalm 69:21."
   },
   {
-   "ot": "Psalms 34:20",
-   "nt": "John 19:36",
-   "source": "henry-concise",
-   "on": "John 19:31-37",
-   "quote": "The Scripture was fulfilled, in Pilate's not allowing his legs to be broken, Psa 34:20.",
-   "verdict": "states it",
-   "why": "Scripture fulfilled in unbroken legs, Psalm 34:20."
-  },
-  {
    "ot": "Zechariah 12:10",
    "nt": "John 19:37",
    "source": "henry",
@@ -469,15 +434,6 @@
    "quote": "Peter, in Acts 2, says, that this prophecy was fulfilled when the Spirit was sent.",
    "verdict": "states it",
    "why": "Prophecy fulfilled when the Spirit was sent."
-  },
-  {
-   "ot": "Joel 2:28-32",
-   "nt": "Acts 2:17-21",
-   "source": "geneva",
-   "on": "Joel 2:28-29",
-   "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations.",
-   "verdict": "states it",
-   "why": "Fulfilled under Christ, Acts 2:17."
   },
   {
    "ot": "Psalms 16:8-11",
@@ -552,15 +508,6 @@
    "why": "Prediction chiefly fulfilled in Paul's own time."
   },
   {
-   "ot": "Psalms 18:49",
-   "nt": "Romans 15:9",
-   "source": "geneva",
-   "on": "Psalms 18:49",
-   "quote": "(m) This prophecy belongs to the kingdom of Christ and calling of the Gentiles, as in Ro 15:9.",
-   "verdict": "states it",
-   "why": "Prophecy belongs to calling of Gentiles, Romans 15:9."
-  },
-  {
    "ot": "Psalms 117:1",
    "nt": "Romans 15:11",
    "source": "calvin",
@@ -606,24 +553,6 @@
    "why": "Calls Ps 110:4 sure word of prophecy of Christ's priesthood"
   },
   {
-   "ot": "Psalms 21:4",
-   "nt": "Hebrews 5:7",
-   "source": "wesley",
-   "on": "Psalms 21:4",
-   "quote": "But this was more eminently fulfilled in Christ, who asked of his father, life, or to be saved from death, Heb 5:7,",
-   "verdict": "states it",
-   "why": "Says more eminently fulfilled in Christ, Heb 5:7"
-  },
-  {
-   "ot": "Isaiah 53:7",
-   "nt": "John 1:29-30",
-   "source": "wesley",
-   "on": "John 1:29-30",
-   "quote": "He seeth Jesus coming and saith, Behold the Lamb - Innocent; to be offered up; prophesied of by Isaiah, Isa 53:7, typified by the paschal lamb, and by the daily sacrifice: The Lamb of God - Whom God gave, approves, accepts of; who taketh away - Atoneth for; the sin - That is, all the sins: of the world - Of all mankind.",
-   "verdict": "states it",
-   "why": "Lamb of God prophesied of by Isaiah 53:7"
-  },
-  {
    "ot": "Genesis 49:9",
    "nt": "Revelation 5:5",
    "source": "henry",
@@ -631,15 +560,6 @@
    "quote": "(2.) He is the lion of the tribe of Judah, as he is called with reference to this prophecy (Rev. v. 5), who, having spoiled principalities and powers, went up a conqueror, and couched so as none can stir him up, when he sat down on the right hand of the Father.",
    "verdict": "states it",
    "why": "Lion of Judah named with reference to this prophecy, Rev 5:5"
-  },
-  {
-   "ot": "Isaiah 53:9",
-   "nt": "John 19:38",
-   "source": "henry-concise",
-   "on": "John 19:38-42",
-   "quote": "The grave of Jesus was appointed with the wicked, as was the case of those who suffered as criminals; but he was with the rich in his death, as prophesied, Is 53:9; these two circumstances it was very unlikely should ever be united in the same person.",
-   "verdict": "states it",
-   "why": "Burial with the rich as prophesied, Isa 53:9; Joseph's request"
   },
   {
    "ot": "Genesis 3:14-15",
@@ -1280,15 +1200,6 @@
    "quote": "This agrees with Daniel’s prophecy, in which the sealing up and the abolition of sins are promised, and in which it is also declared that there would be an end to sacrifices, (Daniel 9:24-27;) for to what purpose are expiations when sins are destroyed?",
    "verdict": "states it",
    "why": "Calvin: Christ's once-for-all sacrifice agrees with Daniel's prophecy"
-  },
-  {
-   "ot": "Joel 2:28-29",
-   "nt": "John 7:38-39",
-   "source": "geneva",
-   "on": "Joel 2:28-29",
-   "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations.",
-   "verdict": "states it",
-   "why": "Geneva: Joel's outpouring fulfilled under Christ, citing John 7:38-39"
   },
   {
    "ot": "Psalms 16:10",
@@ -5453,6 +5364,96 @@
    "father": "Chrysostom",
    "verdict": "left out",
    "why": "a passing application of the words to a later event, not a prophecy and its fulfilment: left out on a second reading to keep the list to clear pairs"
+  },
+  {
+   "ot": "Zechariah 11:12-13",
+   "nt": "Matthew 27:9-10",
+   "source": "geneva",
+   "on": "Matthew 27:9-10",
+   "quote": "(e) As this prophecy is found in Zec 11:12 it cannot be denied that Jeremy's name slipped into the text either through the fault of the Scribe,",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Psalms 22:18",
+   "nt": "Matthew 27:35",
+   "source": "wesley",
+   "on": "Psalms 22:18-19",
+   "quote": "They part - This also cannot be applied to David, but was literally fulfilled in Christ, Matt 27:35 John 19:24.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Isaiah 40:3-5",
+   "nt": "Luke 3:4-6",
+   "source": "henry-concise",
+   "on": "Luke 3:1-14",
+   "quote": "Here is the fulfilling of the Scriptures, Is 40:3, in the ministry of John.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Psalms 34:20",
+   "nt": "John 19:36",
+   "source": "henry-concise",
+   "on": "John 19:31-37",
+   "quote": "The Scripture was fulfilled, in Pilate's not allowing his legs to be broken, Psa 34:20.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Joel 2:28-32",
+   "nt": "Acts 2:17-21",
+   "source": "geneva",
+   "on": "Joel 2:28-29",
+   "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Psalms 18:49",
+   "nt": "Romans 15:9",
+   "source": "geneva",
+   "on": "Psalms 18:49",
+   "quote": "(m) This prophecy belongs to the kingdom of Christ and calling of the Gentiles, as in Ro 15:9.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Psalms 21:4",
+   "nt": "Hebrews 5:7",
+   "source": "wesley",
+   "on": "Psalms 21:4",
+   "quote": "But this was more eminently fulfilled in Christ, who asked of his father, life, or to be saved from death, Heb 5:7,",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Isaiah 53:7",
+   "nt": "John 1:29-30",
+   "source": "wesley",
+   "on": "John 1:29-30",
+   "quote": "He seeth Jesus coming and saith, Behold the Lamb - Innocent; to be offered up; prophesied of by Isaiah, Isa 53:7, typified by the paschal lamb, and by the daily sacrifice: The Lamb of God - Whom God gave, approves, accepts of; who taketh away - Atoneth for; the sin - That is, all the sins: of the world - Of all mankind.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Isaiah 53:9",
+   "nt": "John 19:38",
+   "source": "henry-concise",
+   "on": "John 19:38-42",
+   "quote": "The grave of Jesus was appointed with the wicked, as was the case of those who suffered as criminals; but he was with the rich in his death, as prophesied, Is 53:9; these two circumstances it was very unlikely should ever be united in the same person.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
+  },
+  {
+   "ot": "Joel 2:28-29",
+   "nt": "John 7:38-39",
+   "source": "geneva",
+   "on": "Joel 2:28-29",
+   "quote": "And this was fulfilled under Christ, when God's graces and his Spirit under the Gospel were abundantly given to the Church; Isa 44:3; Ac 2:17 Joh 7:38-39. (r) As they had visions and dreams in ancient times, so will they now have clearer revelations.",
+   "verdict": "left out",
+   "why": "Not on the quotable list in config/figure-forms.json (Henry's Concise is an abridgment; Wesley and the Geneva notes have no copy free to quote), so the words are not shown."
   }
  ]
 }
