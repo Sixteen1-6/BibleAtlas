@@ -73,6 +73,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_figures::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_structure::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_prophecies::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;

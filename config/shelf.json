@@ -450,7 +450,7 @@
       "when": "1828 edition read",
       "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, whose names the edition prints at the head of each book they finished.",
       "license": "public-domain",
-      "datasets": [],
+      "datasets": ["henry-complete"],
       "read": {"url": "https://archive.org/details/expositionofoldn06henr", "label": "archive.org, vol. VI, 1828"},
       "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw).",
       "layer": ["henry-complete"]
@@ -534,7 +534,7 @@
       "when": "Calvin Translation Society edition, from 1844",
       "what": "Calvin's commentaries on most books of the Bible, in the English translation of the Calvin Translation Society. The app links to them on Bible Hub.",
       "license": "public-domain",
-      "datasets": [],
+      "datasets": ["calvin-commentaries"],
       "read": {"url": "https://archive.org/details/commentariesontw01calvuoft", "label": "archive.org, the Minor Prophets, vol. I"},
       "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), read on Bible Hub (biblehub.com/commentaries/calvin).",
       "layer": ["calvin-commentaries"]

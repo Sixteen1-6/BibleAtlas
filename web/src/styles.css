@@ -36,6 +36,7 @@
   /* Quotations and parallels: the map's colors (KIND in ui/colors.ts), deepened for paper. */
   --quote: #c93a78;
   --parallel: #1f84bf;
+  --fulfil: #23905a;
 
   --font-ui: 'Instrument Sans', system-ui, sans-serif;
   --font-read: 'Literata', Georgia, serif;
@@ -69,6 +70,7 @@
     --testaments: #ff5c9d;
     --quote: #ff8fbf;
     --parallel: #7fd4ff;
+    --fulfil: #8fe3a1;
     color-scheme: dark;
   }
 }
@@ -92,6 +94,7 @@
   --testaments: #ff5c9d;
   --quote: #ff8fbf;
   --parallel: #7fd4ff;
+  --fulfil: #8fe3a1;
   color-scheme: dark;
 }
 
@@ -1741,7 +1744,7 @@ p .godeeper {
 }
 /* The same colors mark the lines under a verse that name these links, so the
    map needs no legend. Darker on paper; the map's own on the night page. */
-.xt-verse .xt-line:is([data-x='quotes'], [data-x='parallels']) .xt-words::before {
+.xt-verse .xt-line:is([data-x='quotes'], [data-x='parallels'], [data-x='prophecies']) .xt-words::before {
   content: '';
   display: inline-block;
   width: 7px;
@@ -1756,6 +1759,9 @@ p .godeeper {
 }
 .xt-line[data-x='parallels'] {
   --xt-kind: var(--parallel);
+}
+.xt-line[data-x='prophecies'] {
+  --xt-kind: var(--fulfil);
 }
 .startrow {
   display: flex;

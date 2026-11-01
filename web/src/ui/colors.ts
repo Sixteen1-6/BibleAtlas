@@ -15,12 +15,14 @@ export const ARC = {
 /** Links the map draws in a color of their own, over the sky, so they never
  *  read as ordinary cross-references. The map is a night sky in both page
  *  themes, so these are bright; the matching marks on paper use the --quote
- *  and --parallel CSS variables. Theme threads are lamp gold, as in their panel. */
+ *  --parallel and --fulfil CSS variables. Theme threads are lamp gold, as in their panel. */
 export const KIND = {
   /** The New Testament quoting the Old (an echo is the same color, dashed). */
   quote: '#ff8fbf',
   /** The same event, song or law told in more than one place. */
   parallel: '#7fd4ff',
+  /** An Old Testament prophecy and its New Testament fulfilment. */
+  fulfil: '#8fe3a1',
   thread: ARC.lamp,
 };
 
