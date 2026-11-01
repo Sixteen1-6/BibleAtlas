@@ -89,9 +89,9 @@ const PARTS: &str = "extras/figures";
 
 /// The kinds, each with its bit in `has`.
 const KINDS: [(&str, u8); 3] = [("parallelism", 1), ("figure", 2), ("contrast", 4)];
-const WIDELY: &str = "widely agreed";
-const COMMONLY: &str = "commonly held";
-const SOME: &str = "some interpreters";
+pub(crate) const WIDELY: &str = "widely agreed";
+pub(crate) const COMMONLY: &str = "commonly held";
+pub(crate) const SOME: &str = "some interpreters";
 /// Runs of words, lowercased, that credit a drafting tool, which no field may
 /// carry. "AI" itself is caught only in capitals, so the city of Ai (Joshua 7
 /// and 8) never is.
@@ -113,7 +113,7 @@ const CREDITS: [&str; 15] = [
     "openai",
 ];
 /// The role of a cite-list work that reads the text, as against a word book.
-const INTERPRETER: &str = "interpreter";
+pub(crate) const INTERPRETER: &str = "interpreter";
 /// Writers whose names a note's own words may not carry, beyond the names on
 /// the cite list: surnames, short forms, writers of parts of works on it, and
 /// writers the church fathers entry covers.
@@ -125,14 +125,14 @@ const WRITERS: [&str; 39] = [
 ];
 /// Short enough that the display's "…, and 2 more here" fits a 70-character line.
 const SHORT_MAX: usize = 52;
-const TEXT_MAX: usize = 300;
-const EVIDENCE_MAX: usize = 400;
-const QUOTE_MAX: usize = 400;
-const LABEL_MAX: usize = 40;
+pub(crate) const TEXT_MAX: usize = 300;
+pub(crate) const EVIDENCE_MAX: usize = 400;
+pub(crate) const QUOTE_MAX: usize = 400;
+pub(crate) const LABEL_MAX: usize = 40;
 const MEANS_MAX: usize = 160;
-const AT_MAX: usize = 120;
-const READ_MAX: usize = 200;
-const QUOTE_MIN_WORDS: usize = 4;
+pub(crate) const AT_MAX: usize = 120;
+pub(crate) const READ_MAX: usize = 200;
+pub(crate) const QUOTE_MIN_WORDS: usize = 4;
 const PART_BYTES: usize = 500_000;
 
 #[derive(Deserialize)]
@@ -148,7 +148,7 @@ struct FormsFile {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Form {
+pub(crate) struct Form {
     id: String,
     kind: String,
     label: String,
@@ -261,23 +261,23 @@ struct Original {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Cite {
-    source: String,
+pub(crate) struct Cite {
+    pub(crate) source: String,
     /// The work, for a source the cite list credits by its works.
     #[serde(default)]
-    work: Option<String>,
-    on: String,
+    pub(crate) work: Option<String>,
+    pub(crate) on: String,
     #[serde(default)]
-    at: Option<String>,
+    pub(crate) at: Option<String>,
     /// The page the words are on, where the cite list's chapter pages do not
     /// reach it.
     #[serde(default)]
-    url: Option<String>,
-    quote: String,
+    pub(crate) url: Option<String>,
+    pub(crate) quote: String,
     /// The edition or site the quote was read from.
-    read: String,
+    pub(crate) read: String,
     /// The date it was read there, as 2026-10-21.
-    retrieved: String,
+    pub(crate) retrieved: String,
 }
 
 /// What the checks read from the rest of the build.
@@ -290,23 +290,23 @@ pub struct Sources<'a> {
     pub lemma_index: &'a HashMap<&'a str, u32>,
 }
 
-struct Check<'a> {
-    src: &'a Sources<'a>,
-    cite: &'a CiteList,
+pub(crate) struct Check<'a> {
+    pub(crate) src: &'a Sources<'a>,
+    pub(crate) cite: &'a CiteList,
     forms: &'a BTreeMap<String, Form>,
     /// Cite-list ids whose words may be shown.
     quotable: BTreeSet<&'a str>,
     /// Names a note's own words may not carry.
     writer_names: Vec<String>,
-    errors: Vec<String>,
+    pub(crate) errors: Vec<String>,
 }
 
 impl<'a> Check<'a> {
-    fn fail(&mut self, at: &str, problem: impl std::fmt::Display) {
+    pub(crate) fn fail(&mut self, at: &str, problem: impl std::fmt::Display) {
         self.errors.push(format!("{at}: {problem}"));
     }
 
-    fn range(&mut self, at: &str, r: &str) -> Option<(u32, u32)> {
+    pub(crate) fn range(&mut self, at: &str, r: &str) -> Option<(u32, u32)> {
         let found = refs::parse(r).and_then(|q| refs::resolve(q, self.src.vz));
         if found.is_none() {
             self.fail(at, format_args!("reference {r:?} does not name verses in the BSB"));
@@ -329,7 +329,7 @@ impl<'a> Check<'a> {
     }
 
     /// A field a reader sees: present, short enough, and clean.
-    fn text(&mut self, at: &str, field: &str, s: &str, max: usize) {
+    pub(crate) fn text(&mut self, at: &str, field: &str, s: &str, max: usize) {
         self.quoted(at, field, s, max);
         self.avoid(at, field, s);
     }
@@ -337,7 +337,7 @@ impl<'a> Check<'a> {
     /// A writer's own quoted words: present, short enough, no ESV and no
     /// credit to a drafting tool. The avoid list is not scanned: it governs
     /// whom the app cites, not names inside an old writer's own words.
-    fn quoted(&mut self, at: &str, field: &str, s: &str, max: usize) {
+    pub(crate) fn quoted(&mut self, at: &str, field: &str, s: &str, max: usize) {
         let n = s.chars().count();
         if s.trim().is_empty() {
             self.fail(at, format_args!("{field} is empty"));
@@ -353,7 +353,7 @@ impl<'a> Check<'a> {
     }
 
     /// Fail if `s` names a source on the avoid list.
-    fn avoid(&mut self, at: &str, field: &str, s: &str) {
+    pub(crate) fn avoid(&mut self, at: &str, field: &str, s: &str) {
         let cite = self.cite;
         for (name, spellings, why) in cite.avoid() {
             if let Some(n) = spellings.iter().find(|n| names(s, n)) {
@@ -364,7 +364,7 @@ impl<'a> Check<'a> {
 
     /// A note's own words: a reader field that also names no writer, since
     /// sources and what they say go in the evidence and the citations.
-    fn own_words(&mut self, at: &str, field: &str, s: &str, max: usize) {
+    pub(crate) fn own_words(&mut self, at: &str, field: &str, s: &str, max: usize) {
         self.text(at, field, s, max);
         if let Some(n) = writer_named(s, &self.writer_names) {
             self.fail(at, format_args!("{field} names {n:?}; a note's own words name no writer, so say it in evidence"));
@@ -372,7 +372,7 @@ impl<'a> Check<'a> {
     }
 
     /// A cite-list work whose words this note shows: on the list, and quotable.
-    fn source(&mut self, at: &str, id: &str) -> Option<Listed<'a>> {
+    pub(crate) fn source(&mut self, at: &str, id: &str) -> Option<Listed<'a>> {
         let cite = self.cite;
         let Some(s) = cite.source(id) else {
             self.fail(at, format_args!("source {id:?} is not on the cite list in {}", crate::layers::SOURCES));
@@ -396,7 +396,7 @@ impl<'a> Check<'a> {
     }
 
     /// Where a quotation was read and when: decision 10's credit.
-    fn read(&mut self, at: &str, read: &str, retrieved: &str) {
+    pub(crate) fn read(&mut self, at: &str, read: &str, retrieved: &str) {
         self.text(at, "read", read, READ_MAX);
         if !date_ok(retrieved) {
             self.fail(at, format_args!("retrieved {retrieved:?} must be a date, as 2026-10-21"));
@@ -407,7 +407,7 @@ impl<'a> Check<'a> {
     /// its date, and the page they are on (decision 10), as the credit fields
     /// a cite and a definition share; with the writer key a note's strength
     /// counts. `on` is the passage the words are on, if any.
-    fn credit(&mut self, at: &str, s: Listed<'a>, on: Option<(u32, u32)>, work: Option<&str>, url: Option<&str>) -> Option<(Value, String)> {
+    pub(crate) fn credit(&mut self, at: &str, s: Listed<'a>, on: Option<(u32, u32)>, work: Option<&str>, url: Option<&str>) -> Option<(Value, String)> {
         let place = on.and_then(|(start, _)| self.src.vz.locate(start));
         let book = place.map(|(b, _, _)| BOOKS[b as usize].name);
         let who = match self.cite.who_wrote(s.id, book, place.map_or(0, |(_, c, _)| c), work) {
@@ -466,7 +466,7 @@ impl<'a> Check<'a> {
     }
 
     /// "Work (date), place in it", as `defined.at` and Layers' citations read.
-    fn place(credit: &Value, at: &str) -> String {
+    pub(crate) fn place(credit: &Value, at: &str) -> String {
         format!("{} ({}), {at}", credit["work"].as_str().unwrap_or_default(), credit["when"].as_str().unwrap_or_default())
     }
 
@@ -785,7 +785,7 @@ impl<'a> Check<'a> {
     }
 
     /// The byte offset of `words` in verse `v`'s text, if they occur there exactly once.
-    fn find_once(&mut self, at: &str, v: u32, words: &str) -> Option<usize> {
+    pub(crate) fn find_once(&mut self, at: &str, v: u32, words: &str) -> Option<usize> {
         let t = &self.src.text[v as usize];
         let mut found = t.match_indices(words);
         match (words.trim().is_empty(), found.next(), found.next()) {
@@ -817,16 +817,22 @@ impl<'a> Check<'a> {
     }
 }
 
-/// Read and check the forms and notes; the files to write under
-/// web/public/data, as (path, bytes).
-pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, String> {
-    let read = |rel: &str| fs::read_to_string(root.join(rel)).map_err(|e| format!("reading {rel}: {e}"));
-    let cite = CiteList::read(root)?;
-    let forms_file: FormsFile = serde_json::from_str(&read(FORMS)?).map_err(|e| format!("parsing {FORMS}: {e}"))?;
+/// The works a note may quote, as FORMS lists them, for the structure extra
+/// (extra_structure.rs), which quotes the same works.
+pub(crate) fn quotable(root: &Path) -> Result<Vec<String>, String> {
+    let text = fs::read_to_string(root.join(FORMS)).map_err(|e| format!("reading {FORMS}: {e}"))?;
+    let file: FormsFile = serde_json::from_str(&text).map_err(|e| format!("parsing {FORMS}: {e}"))?;
+    Ok(file.quotable)
+}
 
+/// The checks a note's fields go through: the quotable list (`quotable_ids`,
+/// from FORMS) and the names a note's own words may not carry, with any
+/// problem in the list among its errors. The structure extra uses it too,
+/// with no forms.
+pub(crate) fn checker<'a>(src: &'a Sources<'a>, cite: &'a CiteList, forms: &'a BTreeMap<String, Form>, quotable_ids: &'a [String]) -> Check<'a> {
     let mut errors = Vec::new();
     let mut quotable = BTreeSet::new();
-    for id in &forms_file.quotable {
+    for id in quotable_ids {
         if id == "net-notes" {
             errors.push(format!("{FORMS}: quotable lists net-notes, whose notes are linked, never shown"));
         } else if cite.source(id).is_none() {
@@ -846,14 +852,26 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
         })
         .collect();
     writer_names.extend(WRITERS.iter().map(|w| w.replace('\u{2019}', "'")));
+    Check { src, cite, forms, quotable, writer_names, errors }
+}
+
+/// Read and check the forms and notes; the files to write under
+/// web/public/data, as (path, bytes).
+pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, String> {
+    let read = |rel: &str| fs::read_to_string(root.join(rel)).map_err(|e| format!("reading {rel}: {e}"));
+    let cite = CiteList::read(root)?;
+    let forms_file: FormsFile = serde_json::from_str(&read(FORMS)?).map_err(|e| format!("parsing {FORMS}: {e}"))?;
+
     let mut forms: BTreeMap<String, Form> = BTreeMap::new();
+    let mut listed_twice = Vec::new();
     for f in forms_file.forms {
         if forms.contains_key(&f.id) {
-            errors.push(format!("{FORMS}: form {:?} is listed twice", f.id));
+            listed_twice.push(format!("{FORMS}: form {:?} is listed twice", f.id));
         }
         forms.insert(f.id.clone(), f);
     }
-    let mut check = Check { src, cite: &cite, forms: &forms, quotable, writer_names, errors };
+    let mut check = checker(src, &cite, &forms, &forms_file.quotable);
+    check.errors.extend(listed_twice);
     let mut form_index = serde_json::Map::new();
     for f in forms.values() {
         let at = format!("{FORMS}: form {:?}", f.id);
@@ -1166,7 +1184,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
 }
 
 /// 3 or more different writers are "widely agreed", 2 "commonly held", 1 "some interpreters".
-fn strength_for(writers: usize) -> &'static str {
+pub(crate) fn strength_for(writers: usize) -> &'static str {
     match writers {
         0 | 1 => SOME,
         2 => COMMONLY,
@@ -1175,7 +1193,7 @@ fn strength_for(writers: usize) -> &'static str {
 }
 
 /// A date as 2026-10-21.
-fn date_ok(s: &str) -> bool {
+pub(crate) fn date_ok(s: &str) -> bool {
     let b = s.as_bytes();
     b.len() == 10
         && b.iter().enumerate().all(|(i, c)| if i == 4 || i == 7 { *c == b'-' } else { c.is_ascii_digit() })
@@ -1213,7 +1231,7 @@ fn pair_line(lines: &[&str], w: &str) -> Option<usize> {
 }
 
 /// Where `w` starts in `t` as whole words: no letter or digit just before or after.
-fn whole_words<'t>(t: &'t str, w: &'t str) -> impl Iterator<Item = usize> + 't {
+pub(crate) fn whole_words<'t>(t: &'t str, w: &'t str) -> impl Iterator<Item = usize> + 't {
     t.match_indices(w).map(|(i, _)| i).filter(move |&i| {
         !t[..i].chars().next_back().is_some_and(char::is_alphanumeric)
             && !t[i + w.len()..].chars().next().is_some_and(char::is_alphanumeric)
@@ -1227,7 +1245,7 @@ fn mark_ok(m: &str) -> bool {
 }
 
 /// A B C C' B' A', with one unprimed centre allowed (A B X B' A').
-fn mirror_ok(marks: &[&str]) -> bool {
+pub(crate) fn mirror_ok(marks: &[&str]) -> bool {
     let n = marks.len();
     let half = &marks[..n / 2];
     let distinct = half.iter().collect::<BTreeSet<_>>().len() == half.len();
@@ -1261,7 +1279,7 @@ fn lemma_matches(key: &str, strong: &str) -> bool {
     key == strong || (key.len() == strong.len() + 1 && key.starts_with(strong) && key.as_bytes()[strong.len()].is_ascii_alphabetic())
 }
 
-fn utf16_len(s: &str) -> usize {
+pub(crate) fn utf16_len(s: &str) -> usize {
     s.encode_utf16().count()
 }
 
@@ -1275,7 +1293,7 @@ fn utf16_slice(verse: &str, off: usize, t: &str) -> bool {
 /// Lowercase letters and digits with single spaces between words, as
 /// `layers.rs` compares text: punctuation and quote marks dropped, dashes
 /// splitting words.
-fn normalize(s: &str) -> String {
+pub(crate) fn normalize(s: &str) -> String {
     let mut out = String::with_capacity(s.len());
     for c in s.chars() {
         if c.is_alphanumeric() {
@@ -1294,12 +1312,12 @@ fn parts(s: &str) -> Vec<String> {
     s.replace("...", "…").split('…').map(normalize).filter(|p| !p.is_empty()).collect()
 }
 
-fn word_count(quote: &str) -> usize {
+pub(crate) fn word_count(quote: &str) -> usize {
     parts(quote).iter().map(|p| p.split(' ').count()).sum()
 }
 
 /// Does normalized `text` contain every part of `quote`, as whole words and in order?
-fn contains(text: &str, quote: &str) -> bool {
+pub(crate) fn contains(text: &str, quote: &str) -> bool {
     let parts = parts(quote);
     if parts.is_empty() {
         return false;
@@ -1317,7 +1335,7 @@ fn contains(text: &str, quote: &str) -> bool {
 }
 
 /// The spans between double quotation marks, straight or curly.
-fn quotes(text: &str) -> Result<Vec<&str>, String> {
+pub(crate) fn quotes(text: &str) -> Result<Vec<&str>, String> {
     let mut spans = Vec::new();
     let mut open: Option<usize> = None;
     for (i, c) in text.char_indices() {
@@ -1382,7 +1400,7 @@ fn mentions_esv(s: &str) -> bool {
 
 /// Does `text` name `part` where a word starts? "Vincent" is found in
 /// "Vincent's Word Studies" but not in "Invincent".
-fn names(text: &str, part: &str) -> bool {
+pub(crate) fn names(text: &str, part: &str) -> bool {
     text.match_indices(part).any(|(i, _)| !text[..i].chars().next_back().is_some_and(char::is_alphanumeric))
 }
 
