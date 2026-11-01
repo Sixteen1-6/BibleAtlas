@@ -1,0 +1,47 @@
+.x-prophecies-pair {
+  margin: 0 0 1.25rem;
+}
+.x-prophecies-pair + .x-prophecies-pair {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+.x-prophecies-says {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-read);
+  color: var(--ink);
+}
+.x-prophecies-strength {
+  margin: 0.75rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.x-prophecies-cite {
+  margin: 0.5rem 0;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--line);
+}
+.x-prophecies-cite p {
+  margin: 0;
+  font-family: var(--font-read);
+}
+.x-prophecies-cite footer {
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.x-prophecies-every {
+  margin: 1rem 0;
+}
+.x-prophecies-every summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.x-prophecies-every h4 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 0.85rem;
+}
+.x-prophecies-every ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+}

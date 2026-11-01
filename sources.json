@@ -457,6 +457,45 @@
       "note": "Each note is placed by Henry's own headings (\"Verses 1-9\"); a chapter he treats as a whole covers the whole chapter. Book introductions and chapter outlines are left out. The file's verse ranges are not used, because the extractor guesses them."
     },
     {
+      "id": "henry-complete",
+      "title": "Matthew Henry's Exposition of the Old and New Testament (the complete commentary), from the CrossWire SWORD module (MHC), as kept in the Let's Church repository",
+      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "license": "Public domain (Matthew Henry, 1708 to 1710, and its continuation, which the SWORD module marks public domain); the repository is CC0 1.0",
+      "attribution": "Matthew Henry, An Exposition of the Old and New Testament, and its continuation by other ministers, public domain, from the CrossWire Bible Society's SWORD module MHC (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "mhc": "packages/lets.bible/seed/commentaries/mhc.json"
+      }
+    },
+    {
+      "id": "calvin-commentaries",
+      "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (Calvin), as kept in the Let's Church repository",
+      "provides": "Calvin's commentaries on the books he wrote on. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "license": "Public domain (John Calvin, 16th century, in the Calvin Translation Society's translation from 1844), as the SWORD module marks it; the repository is CC0 1.0",
+      "attribution": "John Calvin, Commentaries, in the Calvin Translation Society's English translation (from 1844), public domain, from the CrossWire Bible Society's SWORD module Calvin (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "calvin": "packages/lets.bible/seed/commentaries/calvin.json"
+      }
+    },
+    {
+      "id": "geneva-notes",
+      "title": "The notes of the Geneva Bible (1599), from the CrossWire SWORD module (Geneva), as kept in the Let's Church repository",
+      "provides": "The study notes printed in the 1599 Geneva Bible. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "license": "Public domain (1560 to 1599), as the SWORD module marks it; the repository is CC0 1.0",
+      "attribution": "The Geneva Bible notes, 1599 edition, public domain, from the CrossWire Bible Society's SWORD module Geneva, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "geneva": "packages/lets.bible/seed/commentaries/geneva.json"
+      }
+    },
+    {
       "id": "wesley-notes",
       "title": "John Wesley's Explanatory Notes on the Whole Bible, from the CrossWire SWORD module (Wesley), as kept in the Let's Church repository",
       "provides": "John Wesley's notes on the verses of the Old and New Testaments. Shown at Deep, under the verse each note is on, once a reader chooses to see writers' notes.",
