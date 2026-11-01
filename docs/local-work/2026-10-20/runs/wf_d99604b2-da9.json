@@ -1,0 +1,221 @@
+{
+ "spec": {
+  "path": "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\voices\\VOICES-BUILD-SPEC.md",
+  "summary": "The spec is written (879 lines, no em dashes). Nothing in the repository changed: it was read from origin/main b6d7f1e only.\n\nWhat it settles:\n\n1. **One set of files per writer.**\n   - Each writer gets its own hand-made file, config/voices/<id>.json, so new writers never edit a shared table.\n   - The build refuses any writer who is not on the cite list.\n   - The index moves to extras/voices/index.json, with a bitset per work (1.3 says why the name changes).\n   - Part files (extras/voices/<work>/<k>.json) are split by first verse at chapter boundaries, 500 KB each, and long-note files sit beside them.\n   - The panel lists the writers on a verse by writer, work and date; each opens on a tap and is remembered under atlas.voices.open. Readers who had already opted in start with the three old works open.\n   - Contract with the commentary notice: no writer's words appear before the notice is done. NOTICE-SPEC.md did not exist yet, so it wins wherever it differs.\n2. **Scripture respect.**\n   - config/voices-exclusions.json lists each passage left out: the work, scope (sentence, paragraph, note or book), place, exact words, why, the reader's line, and who decided.\n   - The build fails unless the words are found where the entry says.\n   - The reader sees a quiet \"[passage left out]\" mark plus a plain line.\n   - A review scan with set patterns must be recorded per work before it ships.\n   - First entries: Keil and Delitzsch and Pulpit on Ecclesiastes, Calvin's three Pastoral stubs, and Luther on James and Jude in his Peter and Jude and his prefaces (those wait for works not yet built).\n3. **Credit.** Each note shows the writer and work, the translator, volume or edition for that verse, and its place in the original. No first-batch copy carries page numbers. Texts for NOTICE.md and the shelf cards are drafted.\n4. **Long notes.** Notes over 2,000 characters keep a 700-character opening; \"Read all\" fetches the rest.\n5. **First batch, per work:** the sources.json entry, license check, reader rules and fix tables, self-checks against the KJV or ASV, works config, cite entry (only Luther's is new), shelf card, NOTICE text, verify checks and size.\n6. **Catena clean-up** with exact counts. Hidden: Origen 638, Didymus 9, and the Arian writer 440 (439 in Matthew plus one at Luke 16:22, which is tagged as the same work). Kept: Eusebius 82 with a note, Victor of Antioch 109 in Mark, and 11 Luke sermons once credited to Chrysostom.\n7. **Mirror workflow** (the full YAML is in section 7). It pins every file by a fixed table rather than reading upstream, and makes one branch per module. A rerun commits nothing, so merging it into main is harmless.\n8. **Build plan:** 14 modules with exclusive file ownership, dependencies, tests and acceptance; 10 PRs in order; and the hooks left for the fathers and Puritan-spelling tracks.\n\nNew facts measured today:\n- KD.zip holds two empty files that VOICES-PLAN Appendix A missed; a check of the exact file set would have failed.\n- The SWORD slot counts are confirmed.\n- Henry's complete commentary prints the KJV verses before each section, with 3 exceptions.\n- Calvin's book Arguments sit at the end of the previous entry.\n- Adding \"not on Ecclesiastes\" breaks 7 live Layers notes in 6 passages (12 in 8 once layers-mend merges), so that fix is its own module, V12, and runs after layers-mend.\n- GITenberg file names and encodings are confirmed.\n\nBatch size: about 109 MB of notes (39 MB compressed) in about 250 files. The site data grows from 121 MB to about 216 MB, the mirror branches add about 23.7 MB to the repository, and opening a writer costs at most about 175 KB compressed.",
+  "modules": [
+   "V0 Mirror workflow: .github/workflows/mirror-sword-modules.yml; makes mirror/sword-JFB, mirror/sword-KD, mirror/sword-Barnes",
+   "V1 Voices core (build): extra_voices.rs orchestrator and extra_voices/{text,works,pack,exclude,lets_church,catena}.rs, stubs for the reader files, config/voices/ files for the three live works, one line in build.rs",
+   "V2 Catena clean-up: extra_voices/catena.rs, config/voices/catena-aurea.json (hide Origen 638, Didymus 9, Arian writer 440; note on Eusebius)",
+   "V3 Exclusions and review method: config/voices-exclusions.json (first entries), scripts/voices-scan.mjs, docs/voices/review/README.md",
+   "V4 Panel: web/src/ui/extras/voices.extra.tsx, voices/model.ts, voices/Panel.tsx, voices.css (writer list, remembered picks, notice gate, Read all, left-out lines)",
+   "V5 SWORD reader: extra_voices/sword.rs, flate2 in Cargo.toml and Cargo.lock",
+   "V6 Calvin New Testament: extra_voices/calvin.rs, config/voices/calvin-commentaries.json, review file",
+   "V7 Jamieson-Fausset-Brown: extra_voices/jfb.rs, config/voices/jfb.json, review file",
+   "V8 Keil and Delitzsch: extra_voices/kd.rs, config/voices/keil-delitzsch.json, review file (built files CC BY-SA)",
+   "V9 Luther Galatians and Genesis 1 to 9: extra_voices/gutenberg.rs, extra_voices/luther.rs, config/voices/luther-galatians.json and luther-genesis.json, review files",
+   "V10 Henry complete: extra_voices/henry_full.rs, config/voices/henry-complete.json, review file",
+   "V11 Barnes New Testament: extra_voices/barnes.rs, config/voices/barnes-nt.json, review file",
+   "V12 Ecclesiastes cites in Layers: config/layer-sources.json not_on for keil-delitzsch and pulpit, plus the Ecclesiastes passages in config/layers.json; runs after layers-mend merges",
+   "VI Integrator: sources.json, NOTICE.md, config/shelf.json, the luther cite entry, proposed exclusions, HANDOFF section 0, PR bodies; PR-1 to PR-10 in order"
+  ],
+  "founderQuestions": [
+   "Where is the line for 'denies Scripture'? Is a later date or another author than tradition, for a book or psalm whose own words name no author, a denial? Examples: Delitzsch's Maccabean date for Psalm 44 (titled 'of the sons of Korah'), and Calvin's view that Paul did not write Hebrews. Proposed default: leave out only what contradicts the text itself (an author named in a title or opening verse, a book's own claims, or its place in the Bible), and record every other case in the work's review file.",
+   "May an exclusion that a session finds take effect at once (the passage is left out and marked) while it waits for your ruling, with only you marking entries 'decided'? Proposed: yes, with each proposed entry listed in the PR body.",
+   "Once JFB and Keil and Delitzsch are stored, should their Bible Hub chapter links under 'Read more on other websites' stay, go, or be replaced (VOICES-PLAN question 13)? Proposed default: keep them for now.",
+   "Already open in the handoff (section 8, row 12) and these PRs depend on it: confirm that the extras' shared-code limits (five one-line insertions in sources.json and NOTICE.md, no new crates) do not bind these one-at-a-time PRs. Each new source adds a multi-line sources.json entry, and flate2 is the one new crate, which you approved."
+  ]
+ },
+ "review:reader": {
+  "findings": [
+   {
+    "severity": "blocker",
+    "problem": "The spec no longer fits the commentary notice. NOTICE-SPEC.md now exists (scratchpad/ba/notice/NOTICE-SPEC.md), but fact 9 still says it does not, and sections 1.6, 1.7 and 1.9 contradict it. In NOTICE-SPEC: (1) the notice replaces the opt-in. The spine (VerseExtras/open.ts) awaits askNotice() when the reader taps the line, and the state lives in web/src/ui/commentary/state.ts as `accepted` under `atlas.commentary`. (2) voices/model.ts drops `voicesAllowed`. (3) \"Show what they wrote\" survives only as the closed state of a panel opened by a link, which the spine renders through the extra's `closed(verse, data)`. (4) \"Read more on other websites\" moves behind the notice. (5) \"Hide writers' notes\" is removed, and \"Close commentary again\" on the Sources shelf replaces it. (6) Every commentary panel ends with \"Commentary, not God's Word · See the notice again\" above the source line. (7) The notice never opens on arrival. Spec 1.6 keeps its own \"Before\" screen, with the Read more links and the line \"Your choice is remembered... You can hide them again at the end of this panel\" (false once Hide is gone). Item 7 keeps Hide. 1.9 has voices call showCommentaryNotice() itself, and says the panel shows the notice \"on its first opening\" for earlier readers, which breaks \"never on arrival\" when that first opening comes from a shared #x=voices link.",
+    "fix": "Rewrite 1.6 \"Before\", item 7 and 1.9 to match NOTICE-SPEC. V4 deletes the opt-in screen, the Hide button and voicesAllowed. It adds `commentary: true` and `closed()` to voices.extra.tsx; closed() returns today's lead with names and verse (\"The Church Fathers, Matthew Henry and John Wesley wrote about John 3:16.\"). It adds the CommentaryFoot line between \"How these are chosen\" and the source line, and leaves the Read more links in the open panel only. Use the names askNotice/accepted. Update fact 9. In the PR, change CLAUDE.md's rule \"Writers appear only at Deep, after 'Show what they wrote'\" to \"after the commentary notice\"."
+   },
+   {
+    "severity": "major",
+    "problem": "The 1.7 migration for earlier readers cannot work alongside the notice. 1.7 opens catena-aurea, henry-concise and wesley-notes for readers whose `atlas.voices` is '1'. But NOTICE-SPEC section 3 stops reading `atlas.voices` and removes it when the reader finishes the notice. A returning reader who finishes the notice on any other surface first (for example the Layers card on Isaiah 53:5, which shows at Simple) loses the key before the voices panel ever reads it, and starts with nothing open: what they saw before disappears, which 1.7 promises will not happen.",
+    "fix": "In voices/model.ts, run the migration at module load, not when the panel opens. The extra's module is imported at app start, before any notice can finish. If `atlas.voices.open` is missing and `atlas.voices` === '1', write [\"catena-aurea\",\"henry-concise\",\"wesley-notes\"] to `atlas.voices.open` right away, inside try/catch. Or agree with the notice branch that voices deletes `atlas.voices` after migrating. Add to V4's browser checks: set the old key, finish the notice from the Layers card, then open Christian writers at Deep. The three works should be open."
+   },
+   {
+    "severity": "major",
+    "problem": "Long notes are not defined for the Catena, whose notes are chains of quotations. Measured on today's built data (BibleAtlas-notice/web/public/data/extras/voices): 781 of the 814 Catena passages are over 2,000 characters in total, and 89 single quotations are over 2,000 (the longest is 8,543). Packing rule 2 and `extra.long: [j, i]` work per item, with one Text per long entry. Applied per item, nearly every Catena passage would shrink to a 700-character opening plus \"Read all\". That breaks \"Show N more of the Fathers\", the per-Father names and citations, and 5.0's acceptance test that the texts stay identical.",
+    "fix": "Apply LONG_CHARS per voice, not per item, and give the pointer per voice: for example voice [who, openingRuns, null, [j, i]], or `extra.long` as a list indexed by voice. Simpler: exempt works with `names: true` from long files, keep the client-side fold at 600 characters, and keep FIRST_FATHERS = 4. Add a verify item: every Catena voice is either whole or has a resolving pointer."
+   },
+   {
+    "severity": "major",
+    "problem": "The rule for where an opening stops would cut many openings mid-thought. Rule 1.5.2 ends at the last \". \", \"? \" or \"! \" at or before 700 characters. I measured this on mhc.json (the Henry complete source in the scratchpad), after cutting each section's printed KJV, across about 3,580 long sections. In 422 of them the cut falls on a list marker (\"Here we have, I. …\", \"Observe, I. …\"). In 371 it falls inside a reference (\"(Job xxvi. …\", \"(ch. xviii. …\"). So about 22% of Henry's openings would stop mid-thought, and Henry is the work where almost every note is long.",
+    "fix": "Define a sentence end as [.?!] followed by a space and then a capital letter or an opening quote. It does not count when the word before the full stop is a number, a Roman numeral (I to XL, i to xl) or a short abbreviation (v, ver, ch, Gen, Job, Ps, Matt and so on), or when an open parenthesis is still unclosed. Prefer the last paragraph end after 300 characters. Add pack.rs unit tests on Henry's Genesis 2:1 and 3:17 sections. Add a verify count of openings that end on a numeral or Roman numeral, expected 0."
+   },
+   {
+    "severity": "major",
+    "problem": "In Matthew, the Catena's left-out lines would crowd out the quotations. Counted on today's data: 329 of the 814 Catena passages contain at least one quotation that section 6 hides, and in 64 places two hidden quotations sit side by side. Two passages in Matthew hide 22 of 58 and 26 of 67. Each hidden place would repeat its whole reason; the arian-matthew line is about 180 characters, so one passage could carry over 4,000 characters of the same sentence. The spec also does not say whether left-out lines count toward the first four Fathers shown. In 216 passages the first four include one to three hidden quotations, so a reader would see two Fathers and two notices before \"Show more\".",
+    "fix": "Give each reason a short form for the place and a full form shown once. At each place: \"A quotation from Origen is left out here.\" or \"A quotation from the unfinished work on Matthew is left out here.\" Merge neighbours: \"Two quotations are left out here.\" Show the full reason once per passage, after the chain, or as a row in \"How these are chosen\". Left-out lines do not count toward FIRST_FATHERS. Change `reasons` values to {short, why}."
+   },
+   {
+    "severity": "major",
+    "problem": "The left-out lines clash with the founder's binding decision 12, \"Nothing that opens empty\", which the spec never mentions. (a) Matthew 23:13: 1.3 sets a `has` bit only for verses that a shown note covers, so the all-hidden Catena item (verse 23931, voices Origen, Pseudo-Chrysostom, Origen) is never reachable. Yet section 6 keeps it, 1.10 item 3 requires a work's note coverage to equal its bits exactly, and 8.4 asks for a browser check of its left-out lines. If the bit is set instead, a reader opens \"The Church Fathers\" and finds only notices, which decision 12 forbids. (b) Book-scope exclusions (KD on Ecclesiastes; Calvin on 1 and 2 Timothy and Titus): the writer has no bit on those verses, so 2.4's \"under that writer's place in the list of writers\" has no place to attach to.",
+    "fix": "State one rule. A writer is listed and can be opened only where it has shown text. Notices about writers who are not listed go in a quiet block of plain lines, not buttons, after the writers' sections. For Matthew 23:13, leave the Catena out of `has` and show one quiet line, such as \"The Church Fathers' quotations on this verse are left out: ...\"; carry it as a `left` entry, not a part-file item. Change 1.10 item 3 and the 8.4 check to match. Optionally show a book-scope line only when that writer is in voicesOpen, so readers who never opened Calvin are not told about his copy's gaps on every verse of three letters."
+   },
+   {
+    "severity": "major",
+    "problem": "The on-screen credit misses binding decisions 10 and 11, which apply to \"every writer shown at Deep\". Decision 10 asks for the original date and the date the text was retrieved, but nothing the reader sees carries a retrieval date: `copy`, the book line and the shelf card's licenseNote give a commit only. Decision 11 asks that a credit tell a first-time reader who the writer was, but the section shows only a name and title, and that only for writers the reader has opened. The source line is built only from open works, so with nothing open it is blank apart from \"All sources\". The spec's own numbering also clashes with the founder's file: it cites \"decision 12\" for the avoid list and \"decision 13\" for many writers, meaning the items of \"The lists\", while FOUNDER-DECISIONS numbers 9 to 12 separately, and its decision 12 is \"Nothing that opens empty\".",
+    "fix": "Add `taken` (the date the pinned copy was fetched or mirrored) to each work, and end each work's source sentence with it, for example \"... Let's Church repository, commit 71f6f0f, copied 2026-10-20.\" Add a short `about` field, checked against the shelf card (\"Reformer in Geneva, 1509 to 1564\"; \"Presbyterian pastor in Philadelphia, 1798 to 1870\"), shown at the start of the open section's book line. With nothing open, the source line names the works on the verse in one short sentence. Cite the lists as \"the lists, item 12/13\", and cite decisions 10 to 12 where they apply."
+   },
+   {
+    "severity": "major",
+    "problem": "The section-header wording is not settled and is too long at phone width. 1.6 says \"writer, title, date\", with the example \"John Calvin, Commentaries on the New Testament, 1540–64\". But Calvin's `when` is \"1540–64; this translation 1843–55\", 3.1's example uses `short` and \"1861–75\", and KD's `when` is \"German 1861–75; English 1864–78\". Built as written, the JFB header is 112 characters (\"Robert Jamieson, A. R. Fausset and David Brown, A Commentary, Critical and Explanatory, on the Whole Bible, 1871\"), KD's 103 and Henry complete's 92. At 390 px each wraps to about three lines, so six closed headers on John 3:16 fill the bottom sheet before any words appear. Titles that contain commas (JFB; Barnes's \"Notes, Explanatory and Practical, on the New Testament\") read like lists. The Catena header and its book line repeat each other (\"Catena Aurea (the Golden Chain), 1260s; translated 1841–45\" twice). The spec also does not say the header button stays inside a heading.",
+    "fix": "Header line 1: `short`, in bold, with an open/closed chevron. Line 2, quiet: title and a new `year` field (\"Commentaries on the New Testament, 1540–64\"). Full writer names, translator, edition and later dates go in the book line once the section is open. Markup: <h3><button aria-expanded aria-controls=...>, so heading navigation still works. Drop the repeated Catena wording from its book line."
+   },
+   {
+    "severity": "major",
+    "problem": "An opened panel gives no hint of what to do. Under 1.7, new readers start with nothing open. Under NOTICE-SPEC, finishing the notice (\"I understand. Show the commentary\") opens the panel, so the reader lands on the lead and a column of closed headers, with no words and nothing saying the headers open. The old \"Your choice is remembered\" line goes with the opt-in screen.",
+    "fix": "Under the lead, while no listed writer is open, add one quiet line: \"Choose a writer to read what they wrote. The app remembers your choice.\" Once any writer is open, show the shorter \"Tap a writer to open or close it.\""
+   },
+   {
+    "severity": "minor",
+    "problem": "The extras line and the closed-state lead read badly once names contain \"and\" or commas. `short` values \"Keil and Delitzsch\" and \"Jamieson, Fausset and Brown\" go through listWords' \"a, b and c\" join. That gives \"Christian writers: Matthew Henry, Keil and Delitzsch and 1 more\", and in the NOTICE-SPEC closed lead, \"Matthew Henry, John Wesley, Keil and Delitzsch and Jamieson, Fausset and Brown wrote about Genesis 3:15\", which reads as six people. Separately, 1.6's example \"the Church Fathers, John Calvin and 5 more\" cannot happen in this batch: the most names on one verse is 6 (John 3:16 gives \"and 4 more\").",
+    "fix": "Use the usual hyphenated names for the line and lead: short \"Keil-Delitzsch\" and \"Jamieson-Fausset-Brown\". The full names stay in the header's book line. Change the example to John 3:16's real line, \"Christian writers: the Church Fathers, John Calvin and 4 more\"."
+   },
+   {
+    "severity": "minor",
+    "problem": "The \"Their words\" and \"Left out\" rows have problems. The approved answer to shortlist question 2 was \"one short line in the panel\". As a Facts row at the bottom, under the heading \"How these are chosen\", readers meet \"Papists\" and \"savage\" before the explanation, under a heading that does not describe it. \"Left out\" says \"Any passage in any writer that denies Scripture is left out\", which promises more than a pattern scan plus a review can. It also does not mention the incomplete-copy entries (Calvin's 1 and 2 Timothy and Titus). And `proposed` exclusions, which take effect before Shubhanshu rules, would show readers \"because it denies that ... is Scripture\" as if decided.",
+    "fix": "Move \"These writers wrote in the language and quarrels of their time; their words are shown as printed.\" to a quiet line under the lead. Reword Left out: \"Passages found to deny Scripture are left out, and the place is marked. So are quotations from writers the early Church condemned, and books this copy keeps only in part.\" For `proposed` entries, show a neutral line: \"A passage is left out here while it is reviewed.\""
+   },
+   {
+    "severity": "minor",
+    "problem": "\"Read all\" handles focus and very long notes poorly. Section 4 moves focus to the note's start, so the reader is sent back to re-read the opening they just finished. Henry complete sections (mhc.json, after the verse-0 entries) have a median of about 7,900 characters, a tenth are over 17,000, and the longest is 80,366 (Matthew 24:4–31). After \"Read all\", \"Show less\" can be dozens of phone screens below. The spec also states only a per-writer cost. With several writers remembered as open, a new chapter fetches one part per open writer: seven on John 3:16, up to about 1.2 MB compressed on a phone.",
+    "fix": "After \"Read all\", keep the scroll position and move focus to the first paragraph after the opening. \"Show less\" scrolls the note's start into view and puts focus on \"Read all\". For notes over about 10,000 characters, add a second \"Show less\" at the top, or make it sticky. Fetch an open writer's part only when its section comes into view (IntersectionObserver), and state the cost with every writer open in 1.8."
+   },
+   {
+    "severity": "minor",
+    "problem": "Luther's Genesis places are wrong for most of the work, and `w` has no label. Volume 2 (27978.txt, which supplies 4:8 to 9:29) has no \"PART\" lines at all. Only volume 1 (48193-8.txt) has them, in capitals (\"PART I. GOD'S WORK ON THE FIRST DAY.\"), so the Genesis `how`, \"Each note names its part of the book\", is false for most notes. Volume 2 instead has Roman-numbered section headings (\"IV. HOW CAIN MURDERED HIS BROTHER AND WAS REQUIRED TO GIVE AN ACCOUNT, AND HOW HE CONDUCTED HIMSELF.\", 50 such lines, an outline title and a heading per section). Each is preceded by an indented outline with paragraph numbers (329 numbered outline lines, plus \"*\" items such as \"Cain the picture of all hypocrites 110-129.\"). The reader rules do not cut these outlines, so they would land on Genesis 4:1 as a second Luther note, or at the ends of the 4:9, 4:12 and 4:16 notes. Shown bare, \"paragraphs 107 to 111\" means nothing to a reader. And 3.1 shows the part heading recased (\"Part I. God's work on the first day\"), which 3.3 forbids.",
+    "fix": "For volume 2, make the place its section heading plus \"paragraphs 107 to 111 in Lenker's numbering\". Cut the outlines and count them in the report. Decide whether headings keep their printed capitals or are recased, and say so in NOTICE.md. Render `w` as a quiet small heading above the note. Fix the Genesis `how` to match."
+   },
+   {
+    "severity": "minor",
+    "problem": "Some reader-facing wording is missing, and some rows would repeat. Section 5 gives no `how` (a required field that fills \"How these are chosen\") for JFB, Keil and Delitzsch, Henry complete or Barnes, and no `copy` sentence (which drives the source line) for JFB, Henry complete or Barnes, so each module would write its own wording. Rows keyed by `writer` give two \"Matthew Henry\" rows and two \"Martin Luther\" rows. In the Facts layout (the label column is 30%, at least 90 px), \"Robert Jamieson, A. R. Fausset and David Brown\" wraps to about five lines at 390 px.",
+    "fix": "Write the strings into the spec. Henry complete: \"Each of Henry's sections shows with every verse it covers, so one note may span a whole passage.\" Keil and Delitzsch: \"Each note shows with the verses its own opening label names.\" JFB and Barnes: \"Each note shows with the verse it is on; where the copy joins several verses, it shows on each of them.\" Label rows with `short` plus a work label (\"Matthew Henry, complete\", \"Matthew Henry, Concise\", \"Martin Luther, Galatians\")."
+   },
+   {
+    "severity": "minor",
+    "problem": "Galatians is labelled abridged only after the reader opens it. The approved answer to shortlist question 3 was Galatians \"labelled 'abridged'\", but the spec says so only in the book line inside the open section. The header a reader chooses from reads \"Martin Luther, Commentary on the Epistle to the Galatians\", as if it were the whole work.",
+    "fix": "Set the title to \"Commentary on the Epistle to the Galatians (abridged)\", so the header and \"How these are chosen\" both say it."
+   },
+   {
+    "severity": "minor",
+    "problem": "The Eusebius note will not read right after his name. The panel prints name + \", \" + note, and every other note is a lowercase phrase (\"a writer once thought to be Jerome\"). The Eusebius note is two full sentences starting with his name, so it renders as \"Eusebius, Eusebius of Caesarea, bishop and church historian (about 260 to 339). He sided with Arius before the Council of Nicaea, then signed its creed. (Hom. ...)\"",
+    "fix": "Change it to: \"bishop of Caesarea and church historian (about 260 to 339), who sided with Arius before the Council of Nicaea and then signed its creed\"."
+   },
+   {
+    "severity": "minor",
+    "problem": "Calvin is missing from most of Mark and Luke with no word why. VOICES-PLAN measured 78 Calvin entries in Mark (678 verses) and 370 in Luke (1,151 verses), because the Harmony files most of its notes under Matthew. A reader on most of Mark or Luke finds no Calvin, and the `how` row that explains why appears only on verses where Calvin is listed.",
+    "fix": "Where a Harmony section's header names its Mark or Luke parallels, place the note on those verses too. Failing that, show a quiet pointer on the parallel verses (\"Calvin wrote on this passage under Matthew 3:1–6, in his Harmony\") linking to it. If neither can be checked, say so in NOTICE.md and on the Calvin shelf card."
+   }
+  ]
+ },
+ "review:feasibility": {
+  "findings": [
+   {
+    "severity": "blocker",
+    "problem": "Long notes (1.3, 1.5, section 4) are defined per note, with one `long: [j, i]` pointer per item. Catena items hold many voices. Measured on today's built data (BibleAtlas-notice/web/public/data/extras/voices): 781 of 814 Catena passages are over 2,000 characters in total, and 89 single quotations are over 2,000. If the rule is read per item, almost every Catena passage shrinks to a 700-character opening, often part of the first Father, which breaks \"Show N more of the Fathers\" and V1's acceptance that the three works stay identical. If it is read per voice, the item format has room for only one pointer. Henry Concise (192 notes over 2,000) and Wesley (61) also change: \"Read all\" now needs a fetch, so 5.0's \"behaviour unchanged\" is not true.",
+    "fix": "Make long per voice: a voice is `[who, text]`, `[who, text, [j, i]]` (opening plus pointer) or `[who, null, reason]`, and `long` is removed from `extra`. Verify then checks each long voice: its opening is a prefix of its whole text and ends with the `more` mark. Decide per work whether long files are used (a `long_chars` value in config/voices/<id>.json, with a high value or none for the three live works), and restate the V1 acceptance as \"every note's text is identical once the opening and its long text are joined\"."
+   },
+   {
+    "severity": "major",
+    "problem": "Under 2.3, the build fails when an entry's work is not configured and the entry has no `waiting`. The 2.6 entries calvin-1-timothy, calvin-2-timothy, calvin-titus and kd-ecclesiastes have no `waiting`, and their works arrive only in PR-4 and PR-6. So `atlas build` on PR-2 fails, which contradicts V3's acceptance that the build \"prints the Calvin and KD entries waiting for their works\". Also, once V6 or V8 configures the work, someone has to remove `waiting` from entries those modules do not own. V1's exclude.rs also needs config/voices-exclusions.json, which V3 writes, before V1 can run.",
+    "fix": "Have the build work out whether an entry is waiting from whether its work exists in config/voices/. Keep `waiting` as an optional note that the build ignores once the work exists. Treat a missing config/voices-exclusions.json as an empty list, so V1 can build and test before V3's file lands."
+   },
+   {
+    "severity": "major",
+    "problem": "Verify's per-work known cases and count thresholds (the \"verify\" bullets in 5.1 to 5.6 and section 6, and 1.10 item 8) have no owner. verify.rs passes `extra_voices::verify` only `&Loaded` (verify.rs line 69, with no root, and the spec keeps it that way), so the cases have to be Rust code. Today they live in extra_voices.rs (lines 1143 to 1220), which 8.1 gives to V1 alone. V6 to V11 would all have to edit that one file in parallel.",
+    "fix": "In each reader stub, V1 adds `pub fn checks(d: &Loaded, notes: &[NoteView]) -> Result<Vec<(bool, String)>, String>`. V1 also makes `verify` dispatch to it by reader, just as `read()` does. Each module then owns its own cases and its 98% threshold as consts in its reader file. Nobody but V1 touches extra_voices.rs after PR-2."
+   },
+   {
+    "severity": "major",
+    "problem": "`cargo clippy -D warnings` will fail on PR-2 as V1 is specified. atlas-cli is a binary crate ([[bin]] in crates/atlas-cli/Cargo.toml), so unused `pub` items in its modules count as dead code. These are unused in PR-2: the stub helpers in sword.rs and gutenberg.rs (Module, open, entries, osis, thml, body, latin1), the Ctx fields `kjv_counts` and `asv`, and `Voice::Left` (first built by V2's hide). Stub `read(ctx, w)` bodies that only return Err also trip unused-variable warnings. V1's acceptance requires clippy to pass.",
+    "fix": "V1 stubs only the `read` (and `checks`) functions that the dispatch calls, with `_ctx` and `_w` parameter names. Each module adds its own helpers with its reader. Add each Ctx field in the PR that first reads it, or mark Ctx `#[allow(dead_code)]` with a note to remove the allow in PR-9. `kjv_counts` is not needed anyway: the pinned KJV.json, ASV.json and BSB.json have identical per-chapter counts (929 and 260 chapters, 23,145 and 7,957 verses), so SWORD slots can be built from `vz` after a check that the totals are 24,115 and 8,246."
+   },
+   {
+    "severity": "major",
+    "problem": "NOTICE-SPEC.md now exists and contradicts 1.6, 1.7 and 1.9:\n- The gate sits in the spine: types.ts gains `commentary` and `closed()`, and VerseExtras.tsx/open.ts await `askNotice()` before a panel opens.\n- `voicesAllowed` becomes `accepted` in web/src/ui/commentary/state.ts.\n- The opt-in screen survives only as the closed state for a panel opened by a link.\n- \"Hide writers' notes\" is removed.\n- \"Read more on other websites\" moves behind the notice.\n- A \"Commentary, not God's Word, See the notice again\" line goes above the source line.\n- The notice change edits voices.extra.tsx, voices/model.ts and voices/Panel.tsx itself.\nSpec 1.6 (\"Before the reader chooses\", item 7 \"Hide writers' notes as today\") and 1.9 (`showCommentaryNotice()`, with voices calling the gate) describe the opposite. V4 owns the same three files and starts \"from main\".",
+    "fix": "Rewrite 1.6 and 1.9 to follow the notice model: voices keeps `commentary: true` and supplies `closed(verse, data)` (the lead naming the writers); no gate or opt-in of its own; the CommentaryFoot above the source line; no Hide button; the external links only after acceptance. Have V4 branch from the commentary-notice tip (or wait for it to merge), not from main, and list `closed()` among V4's model functions."
+   },
+   {
+    "severity": "major",
+    "problem": "Section 1.7's migration (readers whose `atlas.voices` is '1' start with the three works open) cannot work after the notice ships. NOTICE-SPEC section 3 deletes `atlas.voices` when a reader finishes the notice, and the notice merges before PR-2. Every earlier reader who finishes the notice in the gap reaches PR-2 with no key and starts with nothing open. So \"nothing they saw before disappears\" fails, and V4's check for it cannot pass.",
+    "fix": "Agree with the commentary-notice branch that it either leaves `atlas.voices` in place for PR-2 to migrate or writes `atlas.voices.open = [\"catena-aurea\",\"henry-concise\",\"wesley-notes\"]` when it removes the old key. In PR-2, write `atlas.voices.open` as soon as the migration is computed, not on the first change, and only then delete `atlas.voices`."
+   },
+   {
+    "severity": "major",
+    "problem": "Book-scope exclusions cannot be applied as written.\n- 2.1 defines `expect` as the number of word matches, but for book scope as the number of entries removed, and 2.2 requires the match count to equal `expect`. calvin-1-timothy (expect 6), calvin-2-timothy (4) and calvin-titus (3) only pass if the words appear in every stub.\n- The spec's own fact 5 says each book's Argument and the next section's lone {{ref:Bible:...}} header sit at the end of the entry before. So \"THE FIRST EPISTLE TO TIMOTHY\" and the Titus 1:1-4 header probably sit in the last 2 Thessalonians and 2 Timothy entries, outside `on`.\n- Raw is not defined. Calvin's `words` are raw markup ({{ref:...}}), while KD's are prose that OSIS tags can split.\n- `sword::entries` drops heading slots, so a KD introduction kept in a book heading slot can never match, and `found` can only name a verse.\n- Henry's \"Completed by ...\" lines (5.5) probably sit in the verse-0 entries that henry_full step 1 drops.",
+    "fix": "Split the fields: `words_expect` (matches, default 1) and `entries` (book scope, the number of source entries removed). Let `found` name any source entry, including a heading slot (for example \"Ecclesiastes, book heading\"). Define Raw as every source entry and heading slot with its place, in plain text after markup conversion and before any cut, and match `words` written as plain text (calvin-titus then needs prose words). V6 confirms the Calvin words and where they sit before PR-4, and V10 checks the continuators' lines against Raw that includes verse 0."
+   },
+   {
+    "severity": "major",
+    "problem": "Work modules cannot change exclusion entries they depend on. V6 must confirm the Calvin entries' words and counts, and V8 must set `found` and confirm the words for kd-ecclesiastes. But config/voices-exclusions.json belongs to V3 and then VI, and the only fragment in 8.3 is exclusions-proposed.json, which is for new entries. So modules building in parallel have no route for these edits.",
+    "fix": "Keep each configured work's exclusions in its own config/voices/<id>.json (an `exclude` list the module owns, checked by the same code). Keep only cite-only entries and waiting ones (Pulpit, Luther's Peter and Jude, the prefaces) in the shared file. Failing that, add an `exclusions-changes.json` fragment to 8.3."
+   },
+   {
+    "severity": "major",
+    "problem": "The Barnes module cannot be opened as specified. Per 5.2, `sword::Module::open` refuses anything but `Versification=KJV`. The conf CrossWire serves for Barnes (raw/mods.d/barnes.conf: ModDrv=zCom, BlockType=CHAPTER, CompressType=ZIP, Encoding=UTF-8, SourceType=ThML, Version=1.1, about 435 bytes, in line with the table's 437) has no Versification line, because SWORD defaults to KJV. Read literally, V11 cannot open Barnes. The JFB and KD confs do state Versification=KJV.",
+    "fix": "Treat a missing Versification (and any other field SWORD gives a default, such as CompressType) as its SWORD default. Refuse only a stated value that is not KJV. Add a V5 test with a conf that has no Versification line."
+   },
+   {
+    "severity": "major",
+    "problem": "Founder decision 10 is binding: every writer shown at Deep is credited with the original date and the date the text was retrieved. The spec carries no retrieval date anywhere: not in the works schema (1.2), the index, the panel's source line (1.6 item 8), the shelf cards or the NOTICE rows. sources.rs `Source` has no such field either.",
+    "fix": "Add `retrieved` to config/voices/<id>.json (V1's schema): for GitHub sources, the date the pin was taken and its commit; for the CrossWire works, the mirror run date that V0 records. Carry it in index.json and show it in the source line (\"from ..., taken 2026-10-20\"). Put the same date in each NOTICE paragraph and shelf licenseNote. Check it with the other 1.2 checks."
+   },
+   {
+    "severity": "minor",
+    "problem": "The rule for `has` bits is inconsistent. Section 1.3 sets a bit only where a shown note covers the verse, but 1.10 item 3 says bits equal the verses that notes cover. Matthew 23:13 is the one Catena passage whose every quotation is hidden (confirmed in the pinned files: Origen and Pseudo-Chrysostom only). It and Ecclesiastes under Keil and Delitzsch (only a left-out line) fall between the two rules. 8.4 also expects the panel to show the 23:13 left-out lines, which needs the bit. Decision 12 (\"nothing that opens empty\", run wf_e5046b06-4ad) decides whether a writer heading that opens to only left-out lines is allowed.",
+    "fix": "State one rule: a bit is set for every item, including items where every quotation is left out, and verify checks exactly that. Book-scope left-out lines appear only when other writers are on the verse, as a plain line and not an expandable heading. Check both against the no-empty-selections run."
+   },
+   {
+    "severity": "minor",
+    "problem": "The new shelf cards will likely duplicate the cited-work cards. HANDOFF section 9 item 6 says the shelf should be made to match Layers cites before writers are added. Cards for cited works will naturally use the cite ids (`henry`, `calvin`, `barnes`), but this spec adds dataset cards `henry-complete`, `calvin-commentaries` and `barnes-nt` for the same works (only KD reuses its card, and JFB's id matches its cite). The result would be two cards per work.",
+    "fix": "Give each new writers card a `cites` string matching its cite entry's name, as the existing keil-delitzsch card does. Say in 3.5 that these are the cards Layers cites resolve to, and note how this is ordered against HANDOFF item 6."
+   },
+   {
+    "severity": "minor",
+    "problem": "The Catena's writer notes disappear between PR-2 and PR-3. Section 6 deletes the WHO map from Panel.tsx (V4, PR-2), but the `who` rows are filled in only by V2 (PR-3). If V1's catena-aurea.json starts with an empty `who`, PR-2 drops today's seven notes (Gloss, Greek Expositor, Pseudo-Chrysostom, Pseudo-Jerome, Pseudo-Augustine, Pseudo-Athanasius, Josephus).",
+    "fix": "V1 seeds `who` with today's seven rows word for word, with `books: []`. V2 then adds Eusebius and the Mark and Luke split for Pseudo-Chrysostom."
+   },
+   {
+    "severity": "minor",
+    "problem": "The KD reader may not find its own labels. kd.conf declares `Feature=NoParagraphs`, yet KD reader step 1 looks for the range label \"at a paragraph start\". The OSIS converter splits paragraphs only on x-p divs, lb and p, so KD notes may come out as one paragraph each, which also affects where openings can be cut.",
+    "fix": "V8 anchors on the first <reference> whose osisRef range equals the entry's linked slots, wherever it sits. V8 also reports paragraphs per note and, if notes are single blocks, lets the opening fall back to a sentence end."
+   },
+   {
+    "severity": "minor",
+    "problem": "Several new sources.json entries would not parse. sources.rs `Source` requires id, title, provides, license, attribution, homepage, repo, commit and files, with no serde defaults. Sections 5.3 to 5.6 give the KD, Henry complete, Barnes and three Luther entries without some of title, provides and homepage (and Barnes also without attribution), so copying them as written fails `load_spec`.",
+    "fix": "Write out full entries for every new source, as 5.1 and 5.2 do."
+   },
+   {
+    "severity": "minor",
+    "problem": "Page weight goes up for current readers. Today one per-book file of up to 500 KB holds all three works. After PR-2, a migrated reader with three writers open fetches three part files (up to about 525 KB gzipped) the first time they open the panel. Each \"Read all\" on Henry's complete commentary fetches a long file of up to 500 KB (about 175 KB gzipped) to show one note of about 8 KB (33.7 MB over 4,240 sections).",
+    "fix": "State the migrated-reader cost in 1.8. Consider packing long texts by the same chapter ranges as the part file they belong to, or a long-file target near 200,000 bytes, weighed against meta.json growth (measured at about 150 bytes per file entry)."
+   },
+   {
+    "severity": "minor",
+    "problem": "Two code-level gaps:\n- `atlas build` never clears web/public/data, so a local tree keeps the 81 old-format files beside the new ones. Verify items 1 and 5 (\"files present\", \"no data file under extras/voices/\") must not walk the folder.\n- works.rs needs the cite list and the avoid list's word-start matcher, but both are private to layers.rs (`fn names` at line 644; `CiteSource` uses deny_unknown_fields), and V1 does not own layers.rs.\nAlso, the V1 compare script is not owned or committed.",
+    "fix": "Have verify iterate meta.json's `files`. V1 reads config/layer-sources.json with its own lenient structs and copies `names()` (two lines) with a pointer to layers.rs. Let the deny_unknown_fields structs accept `_comment`. Commit the compare script as scripts/voices-compare.mjs (V1)."
+   },
+   {
+    "severity": "minor",
+    "problem": "Only zlib inflate is needed, and flate2 adds flate2 and crc32fast on top of miniz_oxide and adler2 (cfg-if is already in Cargo.lock).",
+    "fix": "Depend on `miniz_oxide` alone: `inflate::decompress_to_vec_zlib` to read, and `deflate::compress_to_vec_zlib` for the synthetic test module. That is two new crates instead of four. Keep flate2 only if the founder's approval named it."
+   },
+   {
+    "severity": "minor",
+    "problem": "The example in 1.3 gives the wrong numbers: kd-ecclesiastes `left` with from 17360 and to 17581. Ecclesiastes is app verses 17316 to 17537 (computed from the pinned KJV.json and BSB.json counts, which are identical).",
+    "fix": "Correct the example, so no test or fixture copies the wrong range."
+   },
+   {
+    "severity": "minor",
+    "problem": "Lists of writers can read ambiguously. `listWords` joins short names with commas and \"and\", so a verse with JFB reads \"John Calvin, Jamieson, Fausset and Brown and Albert Barnes\". This affects the extras line, the \"and N more\" cut and the notice's closed lead.",
+    "fix": "When any listed name contains a comma or \"and\", join the names with semicolons. Alternatively, give JFB a short name without them and test the 70-character line with the John 3:16 set."
+   }
+  ]
+ }
+}

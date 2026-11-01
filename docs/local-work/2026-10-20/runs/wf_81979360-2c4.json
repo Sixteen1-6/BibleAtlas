@@ -1,0 +1,533 @@
+{
+ "research:authors": {
+  "findings": "Saved C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\credits\\authors.md (worktree C:\\Users\\shubh\\Projects\\BibleAtlas-credits, branch true-credits at 0da9d1c = tip of layers-mend-2026-10-20, which is still unmerged; data\\raw already present; nothing committed or pushed).\n\nMethod: every Barnes, Ellicott and Pulpit cite (1,563) was fetched from Bible Hub on 2026-10-20 and its verse comment matched by 7-word runs against the archive.org OCR of the named printed volume. 1,536 matched outright. 14 more matched at chapter level. 13 can't be matched because the volumes have no free scan (11 Pulpit Matthew 1 to 11 cites, Pulpit Daniel 7:13). Contributor names were read from title or contents pages, using page images where the OCR lost the gothic type. Keil and Delitzsch and JFB were matched volume by book. Per-cite records are in res\\true_authors_percite.json (3,890 rows). res\\true_authors_examples.json gives one checkable phrase per writer, with an archive.org search-inside link.\n\nKey results:\n1. Barnes (1,046 cites) is four sources. Albert Barnes wrote 684 (NT 443, Job 27, Psalms 79, Isaiah 124, Daniel 11). The rest are other men's:\n   - E. B. Pusey, Minor Prophets: 182.\n   - J. G. Murphy, Genesis: 31.\n   - Speaker's Commentary: 149, split as Rawlinson 30 (1 Kings to Esther), Payne Smith 25 (Jeremiah), Lord Arthur Hervey 22 (Judges, Samuel), Espin 19 (Deuteronomy, Joshua), Currey 16 (Ezekiel), Espin and Thrupp 12 (Numbers), Plumptre 7 (Proverbs), Samuel Clark 6 (Exodus 20 to 40, Leviticus), Bullock 5 (Ecclesiastes), Kingsbury 5 (Song), F. C. Cook 2 (Exodus 1 to 19).\n   - Correction to the brief: Exodus is the Speaker's Commentary, not Murphy.\n   - Every Bible Hub Barnes page carries the footer \"Notes on the Bible by Albert Barnes [1834]. Text Courtesy of Internet Sacred Texts Archive.\" That footer is the source of the misattribution.\n2. Ellicott (264): one named writer per book, from the contributors pages, all 263 matched to the volume. This corrects dates.md: 2 Kings is C. J. Ball (Barry wrote only 1 Kings), and Ezra and Nehemiah are W. B. Pope.\n3. Pulpit (253): one expositor per book, read from the title pages (31 rows). This fills dates.md's gaps: Hebrews Barmby, Joel Given, Jonah to Malachi W. J. Deane, Ephesians Blaikie, Colossians Findlay, Philemon Eales, James Gibson, 2 Peter Caffin, Jude Salmond, Ruth Morison. Job's title leaf is missing from the scan and Daniel has no free scan, so those two are unverified. Bible Hub's Pulpit text is BibleSoft's copyrighted digital edition.\n4. Keil and Delitzsch (853): Keil 636, Delitzsch 217 (Job, Psalms, Proverbs, Ecclesiastes, Song, Isaiah), with translators per book (Martin, Bolton, Easton, Harper, Sophia Taylor, Patrick, Kennedy). Bible Hub's Isaiah is the earlier James Martin translation, not the 1890 fourth edition.\n5. JFB (855), by the title pages: Jamieson 100 (Genesis to Esther), Fausset 621 (Job to Malachi and 1 Corinthians to Revelation), Brown 134 (Matthew to Romans).\n6. Henry: the Revell edition's volume 6 preface lists the continuators. William Tong wrote Revelation (2 cites) and Simon Browne 1 Corinthians (1 cite). The Concise abridger is unnamed, and 26 of its 157 cites abridge the continuators' text, not Henry's.\n7. Poole: 26 cites are Poole's own and 57 are by continuators the printed 1685 volume does not name. The 6 Romans cites are Richard Mayo's, per Calamy (1713).\n8. Wesley: his own prefaces say the OT notes (197 cites) abridge Matthew Henry and the NT notes (133) translate and abridge Bengel.\n9. Church fathers (17): nine writers, two of them anonymous (the Epistle of Barnabas, the Didache).\n10. Companion Bible (432): its preface says the edition \"is not associated with the name of any man\". Which notes were finished after Bullinger's death is not established.\n\nFounder-rule flags, with quotes and sources in authors.md section 5:\n- Ecclesiastes: Delitzsch (8 cites), Salmon (Ellicott, 3) and W. J. Deane (Pulpit, 6) each deny that Solomon wrote the book, on the very Bible Hub pages we link.\n- F. W. Farrar (13 cites) dated Daniel to 164 BC (Expositor's Bible, 1895).\n- O. C. Whitehouse (8 Ellicott Hosea and Amos cites, shared with Reynolds) later taught a Deutero- and Trito-Isaiah.\n- A. S. Aglen (12 cites) leaves Jonah open as possible fiction.\n- Softer questions: Plumptre (99 cites: Isaiah 36 to 39 given to a disciple, a personated Ecclesiastes), the rest of Delitzsch (Maccabean psalms \"possible\"), and Ginsburg (Jewish-born Christian, 5 cites).\n\nCleared with evidence: Pusey, Murphy, Albert Barnes, Bullock, Rawlinson's Pulpit Isaiah (unity), H. Deane's Ellicott Daniel, and W. J. Deane on Zechariah and Jonah.",
+  "table": [
+   {
+    "source": "barnes",
+    "books": "All NT 443, Job 27, Psalms 79, Isaiah 124, Daniel 11 (684)",
+    "trueAuthor": "Albert Barnes, Presbyterian minister, Philadelphia",
+    "work": "Notes, Explanatory and Practical (NT); Notes on Job, Psalms, Isaiah, Daniel",
+    "published": "Gospels 1832 (catalogue); Acts and Romans 1834; Hebrews 1843; General Epistles 1848; Revelation 1852; Isaiah 1840; Job 1844; Daniel 1853; Psalms 1868 to 1870",
+    "evidence": "682 of 684 matched to the archive.org scans: notesexplanatory01inbarn, notesexplanatory02barn_0, notesexplanat01barn, notesexplana00barn, paulapistlefirst00barnrich, notesexplanpra00barn, ephesiansetc00barnrich, notesonepistlest00barn, notesexplanatory00barnrich, notesexplanatorygen00barn, notesexplanatoryreve00barn, notescriticalill01/02barn, notescriticalexp187101/187102barn, notescriticalexp03barnuoft, notescriticalexp18471/18472barn, practicaldaniel00barnrich",
+    "founderRule": "Passes (already approved)"
+   },
+   {
+    "source": "barnes",
+    "books": "Genesis 31",
+    "trueAuthor": "James G. Murphy, Professor of Hebrew, Belfast (Presbyterian)",
+    "work": "A Critical and Exegetical Commentary on the Book of Genesis",
+    "published": "Edinburgh first edition (year not seen); scan is the Boston/Andover edition, entered 1866, dated 1867",
+    "evidence": "31 of 31 matched criticalexegetic00murp; title page 'By J. G. Murphy, D.D., T.C.D., Professor of Hebrew, Belfast'",
+    "founderRule": "Passes (the preface calls it an antidote to destructive criticism)"
+   },
+   {
+    "source": "barnes",
+    "books": "Hosea 32, Joel 10, Amos 19, Obadiah 3, Jonah 7, Micah 32, Nahum 3, Habakkuk 12, Zephaniah 17, Haggai 5, Zechariah 29, Malachi 13 (182)",
+    "trueAuthor": "E. B. Pusey, Regius Professor of Hebrew and Canon of Christ Church, Oxford",
+    "work": "The Minor Prophets, with a Commentary Explanatory and Practical",
+    "published": "1860 onward in parts (dates.md); scan London 1883",
+    "evidence": "182 of 182 matched minorprophetswit00puserich; title page names Pusey",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "barnes",
+    "books": "Exodus 1 to 19 (2)",
+    "trueAuthor": "F. C. Cook, Canon of Exeter, editor of the Speaker's Commentary",
+    "work": "Speaker's Commentary vol. I part I",
+    "published": "scan London: John Murray, 1877 ('Eighth thousand')",
+    "evidence": "matched holybibleaccordi01p1unse; contents: 'chap. i.-xix. by Canon Cook'",
+    "founderRule": "Passes as far as read"
+   },
+   {
+    "source": "barnes",
+    "books": "Exodus 20 to 40 (2), Leviticus 4 (6)",
+    "trueAuthor": "Samuel Clark, Church of England clergyman",
+    "work": "Speaker's Commentary vol. I",
+    "published": "scan 1877",
+    "evidence": "matched holybibleaccordi01p1unse and holybibleaccordi0001unse; contents: 'chap. xx.-xl. by Samuel Clark'",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "barnes",
+    "books": "Numbers 12",
+    "trueAuthor": "T. E. Espin, Rector of Wallasey and Chancellor of Chester, with J. F. Thrupp",
+    "work": "Speaker's Commentary vol. I",
+    "published": "scan undated",
+    "evidence": "matched holybibleaccordi0001unse; contents: 'by T. E. Espin, B.D., and J. F. Thrupp, M.A.'",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "barnes",
+    "books": "Deuteronomy 13, Joshua 6 (19)",
+    "trueAuthor": "T. E. Espin",
+    "work": "Speaker's Commentary vols. I and II",
+    "published": "vol. II 1872 (catalogue date); scan New York 1886",
+    "evidence": "matched holybibleaccordi0001unse and holybibleaccordi0002edfc; contents",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "barnes",
+    "books": "Judges 8, 1 Samuel 5, 2 Samuel 9 (22)",
+    "trueAuthor": "Lord Arthur Hervey, Bishop of Bath and Wells",
+    "work": "Speaker's Commentary vol. II",
+    "published": "1872 (catalogue date)",
+    "evidence": "matched holybibleaccordi0002edfc; contents",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "barnes",
+    "books": "1 Kings 12, 2 Kings 10, 1 Chronicles 3, 2 Chronicles 1, Ezra 1, Nehemiah 1, Esther 2 (30)",
+    "trueAuthor": "George Rawlinson, Canon of Canterbury, Camden Professor of Ancient History, Oxford",
+    "work": "Speaker's Commentary vols. II and III",
+    "published": "1872; vol. III scan 1873",
+    "evidence": "matched holybibleaccordi0002edfc and holybibleaccordi0003unse; contents",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "barnes",
+    "books": "Proverbs 7",
+    "trueAuthor": "E. H. Plumptre",
+    "work": "Speaker's Commentary vol. IV",
+    "published": "1873",
+    "evidence": "matched holybibleaccordi0004unse; contents 'by Rev. Professor E. H. Plumptre'",
+    "founderRule": "Question (see the Ellicott row for Plumptre)"
+   },
+   {
+    "source": "barnes",
+    "books": "Ecclesiastes 5",
+    "trueAuthor": "W. T. Bullock, Secretary to the Society for the Propagation of the Gospel",
+    "work": "Speaker's Commentary vol. IV",
+    "published": "1873",
+    "evidence": "matched holybibleaccordi0004unse",
+    "founderRule": "Passes: he regards 'Solomon as the author of this book'"
+   },
+   {
+    "source": "barnes",
+    "books": "Song of Solomon 5",
+    "trueAuthor": "T. L. Kingsbury",
+    "work": "Speaker's Commentary vol. IV",
+    "published": "1873",
+    "evidence": "matched holybibleaccordi0004unse",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "barnes",
+    "books": "Jeremiah 25",
+    "trueAuthor": "R. Payne Smith, Dean of Canterbury",
+    "work": "Speaker's Commentary vol. V",
+    "published": "1875",
+    "evidence": "matched holybibleaccordi0005unse",
+    "founderRule": "Passes as far as read"
+   },
+   {
+    "source": "barnes",
+    "books": "Ezekiel 16",
+    "trueAuthor": "G. Currey, Master of the Charterhouse",
+    "work": "Speaker's Commentary vol. VI",
+    "published": "1876",
+    "evidence": "matched holybibleaccordi0006unse",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Isaiah 17, Jeremiah 13, Lamentations 1, Matthew 18, Mark 3, Luke 14, Acts 14, 2 Corinthians 8 (88)",
+    "trueAuthor": "E. H. Plumptre, Professor at King's College London, later Dean of Wells",
+    "work": "Ellicott's Commentary for English Readers",
+    "published": "NT 1878 onward; OT vol. IV and V 1884",
+    "evidence": "contributors leaves of oldtestamentcomm04/05elli, newtestamentcomm01elli and o6n1; 87 of 88 matched",
+    "founderRule": "Question: holds one author for Isaiah 1 to 66 but gives chapters 36 to 39 to a disciple; his Cambridge Ecclesiastes (1881) favours a personated author"
+   },
+   {
+    "source": "ellicott",
+    "books": "John 29",
+    "trueAuthor": "H. W. Watkins, Professor, King's College London",
+    "work": "Ellicott NT vol. I",
+    "published": "1878",
+    "evidence": "newtestamentcomm01elli contributors page; 29 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Genesis 24",
+    "trueAuthor": "R. Payne Smith, Dean of Canterbury",
+    "work": "Ellicott OT vol. I",
+    "published": "1882",
+    "evidence": "oldtestamentcomm01elli title and contributors leaf; 23 of 24 matched",
+    "founderRule": "Passes as far as read"
+   },
+   {
+    "source": "ellicott",
+    "books": "Hebrews 14",
+    "trueAuthor": "W. F. Moulton, Principal of The Leys, Cambridge (Wesleyan)",
+    "work": "Ellicott NT vol. III",
+    "published": "1878 onward",
+    "evidence": "newtestamentcomm03elli contributors page; 14 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Revelation 13",
+    "trueAuthor": "W. Boyd Carpenter, Vicar of St James', Holloway",
+    "work": "Ellicott NT vol. III",
+    "published": "1878 onward",
+    "evidence": "newtestamentcomm03elli; 13 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Psalms 7, Song of Solomon 4, Jonah 1 (12)",
+    "trueAuthor": "A. S. Aglen",
+    "work": "Ellicott OT vols. IV and V",
+    "published": "1884",
+    "evidence": "contributors leaves; 12 matched",
+    "founderRule": "FLAG: on the Jonah page he says the figure is no less striking 'if it is the creation of fiction'"
+   },
+   {
+    "source": "ellicott",
+    "books": "Romans 7, Galatians 3 (10)",
+    "trueAuthor": "W. Sanday",
+    "work": "Ellicott NT vol. II",
+    "published": "about 1879",
+    "evidence": "newtestamentcomm0000unse_o6n1 contributors page; 10 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "1 Kings 1, Ephesians 3, Philippians 3, Colossians 1, Philemon 2 (10)",
+    "trueAuthor": "Alfred Barry, Canon of Westminster",
+    "work": "Ellicott OT vol. III; NT vol. III",
+    "published": "1883; 1878 onward",
+    "evidence": "contributors leaves; 10 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Hosea 7, Amos 1 (8)",
+    "trueAuthor": "H. R. Reynolds, Principal of Cheshunt College, and O. C. Whitehouse",
+    "work": "Ellicott OT vol. V",
+    "published": "1884",
+    "evidence": "ot5 contributors leaf image; 8 matched",
+    "founderRule": "FLAG (Whitehouse): his Century Bible Isaiah (1905) teaches a Deutero- and Trito-Isaiah"
+   },
+   {
+    "source": "ellicott",
+    "books": "1 Corinthians 6",
+    "trueAuthor": "T. Teignmouth Shore, Canon of Worcester",
+    "work": "Ellicott NT vol. II",
+    "published": "about 1879",
+    "evidence": "contributors page; 6 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "2 Kings 3, 1 Chronicles 1, 2 Chronicles 2 (6)",
+    "trueAuthor": "C. J. Ball, Chaplain of Lincoln's Inn",
+    "work": "Ellicott OT vol. III",
+    "published": "1883",
+    "evidence": "contributors leaf image; 5 matched plus 1 at chapter level",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "ellicott",
+    "books": "Leviticus 5",
+    "trueAuthor": "C. D. Ginsburg, LL.D.",
+    "work": "Ellicott OT vol. I",
+    "published": "1882",
+    "evidence": "contributors leaf; 5 matched",
+    "founderRule": "Question: a Jewish-born Christian scholar (compare Edersheim)"
+   },
+   {
+    "source": "ellicott",
+    "books": "Ecclesiastes 3",
+    "trueAuthor": "G. Salmon, Regius Professor of Divinity, Trinity College Dublin",
+    "work": "Ellicott OT vol. IV",
+    "published": "1884",
+    "evidence": "contributors leaf; 3 matched",
+    "founderRule": "FLAG: 'I find myself unable to assert Solomon's authorship' (on the linked Bible Hub page)"
+   },
+   {
+    "source": "ellicott",
+    "books": "Judges 1",
+    "trueAuthor": "F. W. Farrar, Canon of Westminster",
+    "work": "Ellicott OT vol. II",
+    "published": "1883",
+    "evidence": "contributors leaf; 1 matched",
+    "founderRule": "FLAG: dated Daniel to 164 BC (Expositor's Bible Daniel, 1895)"
+   },
+   {
+    "source": "ellicott",
+    "books": "Daniel 2",
+    "trueAuthor": "H. Deane, Fellow of St John's College, Oxford",
+    "work": "Ellicott OT vol. V",
+    "published": "1884",
+    "evidence": "contributors leaf; 2 matched",
+    "founderRule": "Passes: he holds Daniel wrote the whole book"
+   },
+   {
+    "source": "ellicott",
+    "books": "Ezekiel 4 (F. Gardiner); 1 Samuel 4 (H. D. M. Spence); Job 4 (Stanley Leathes); 1 Thessalonians 1 and 1 Peter 2 (A. J. Mason); Numbers 3 (C. J. Elliott); Ruth 3 (R. Sinker); Proverbs 3 (J. W. Nutt); Exodus 2 (George Rawlinson); Deuteronomy 2 (C. H. Waller); Micah 2 (S. L. Warren); Habakkuk 1 (A. C. Jennings); Malachi 1 (W. H. Lowe); Jude 1 (A. Plummer)",
+    "trueAuthor": "as named per book",
+    "work": "Ellicott OT vols. I to V; NT vol. III",
+    "published": "1878 to 1884",
+    "evidence": "contributors leaves (images dl\\img2\\ell_ot_contrib2.jpg, dl\\img\\ot5_contrib.jpg, dl\\img\\nt_contrib.jpg); all matched at verse or chapter level",
+    "founderRule": "Rawlinson and Leathes pass as far as read; the others not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "Exodus 6, 2 Kings 2, Psalms 8, Isaiah 18 (34)",
+    "trueAuthor": "George Rawlinson, Canon of Canterbury",
+    "work": "The Pulpit Commentary, Exposition",
+    "published": "Kegan Paul 1880 to 1897; Cornell scans undated Funk and Wagnalls",
+    "evidence": "title pages of cu31924098499506/514, cu31924101104630, 104804/861/929, 104507/564; 33 of 34 matched",
+    "founderRule": "Passes: Isaiah introduction 'A Defence of the Unity of the Book'"
+   },
+   {
+    "source": "pulpit",
+    "books": "Job 3",
+    "trueAuthor": "Rawlinson per the voices list; not on the scan read",
+    "work": "Pulpit Commentary",
+    "published": "undated scan",
+    "evidence": "cu31924101104986 matched but lacks its title leaf",
+    "founderRule": "Not verified"
+   },
+   {
+    "source": "pulpit",
+    "books": "Genesis 27",
+    "trueAuthor": "Thomas Whitelaw",
+    "work": "Pulpit Commentary",
+    "published": "undated scan",
+    "evidence": "cu31924098499522 title page; 27 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "Ecclesiastes 6, Amos 2, Jonah 3, Micah 4, Habakkuk 2, Zephaniah 2, Zechariah 2, Malachi 2 (23); also Proverbs 5 with S. T. Taylor-Taswell and Matthew 22 with A. Lukyn Williams",
+    "trueAuthor": "W. J. Deane, Rector of Ashen",
+    "work": "Pulpit Commentary",
+    "published": "undated scans",
+    "evidence": "title pages of cu31924101104689, 104796, 104853, 104747, 104978; 22 of 23 matched, Matthew vol. I has no free scan",
+    "founderRule": "FLAG for Ecclesiastes: 'cleverly personated authorship ... this is what we conceive to be the fact'. Passes on Zechariah and Jonah"
+   },
+   {
+    "source": "pulpit",
+    "books": "Romans 5, Hebrews 14 (19)",
+    "trueAuthor": "J. Barmby, Vicar of Pittington",
+    "work": "Pulpit Commentary",
+    "published": "undated scans",
+    "evidence": "title pages of cu31924101105025 and 104960; 19 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "Revelation 18",
+    "trueAuthor": "A. Plummer, with T. Randell and A. T. Bott",
+    "work": "Pulpit Commentary",
+    "published": "undated scan",
+    "evidence": "cu31924101104705 title page; 18 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "John 17",
+    "trueAuthor": "H. R. Reynolds, President of Cheshunt College",
+    "work": "Pulpit Commentary",
+    "published": "undated scans",
+    "evidence": "cu31924101105074 and 105082 title pages; 17 matched",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "1 Corinthians 10, 2 Corinthians 2 (12)",
+    "trueAuthor": "F. W. Farrar, Archdeacon",
+    "work": "Pulpit Commentary",
+    "published": "undated scans",
+    "evidence": "cu31924101104945 and 104887 title pages; 12 matched",
+    "founderRule": "FLAG: 'The probable date is B.C. 164' for Daniel (thebookofdaniel00farruoft, 1895)"
+   },
+   {
+    "source": "pulpit",
+    "books": "Philippians 6, 1 Peter 3, 2 Peter 1 (B. C. Caffin); Acts 7 (Lord A. C. Hervey); 1 Samuel 6 (R. Payne Smith); Hosea 4 and Joel 1 (J. J. Given); Mark 5 (E. Bickersteth); Luke 5 (H. D. M. Spence); Numbers 4 (R. Winterbotham); Leviticus 4 (F. Meyrick); Deuteronomy 4 (W. L. Alexander); Ezekiel 4 (E. H. Plumptre, vol. II with T. Whitelaw); Galatians 3 (E. Huxtable); Joshua 3 (J. J. Lias); 1 Kings 2 (Joseph Hammond); Ruth 2 (James Morison); Song 2 (R. A. Redford); Jude 2 (S. D. F. Salmond); Colossians 1 (G. G. Findlay); Ephesians 1 (W. G. Blaikie); Philemon 1 (S. J. Eales); James 1 (E. C. S. Gibson)",
+    "trueAuthor": "as named per book on each title page",
+    "work": "Pulpit Commentary",
+    "published": "undated Cornell scans; Ruth also in Kegan Paul 1881",
+    "evidence": "title pages read from the OCR of each cu319241011xxxxx volume (list in authors.md 4.3); all matched (Ruth at chapter level)",
+    "founderRule": "Payne Smith and Huxtable pass as far as read; Plumptre is a question; the others not checked"
+   },
+   {
+    "source": "pulpit",
+    "books": "Daniel 1",
+    "trueAuthor": "J. E. H. Thomson per the voices list",
+    "work": "Pulpit Commentary",
+    "published": "not seen",
+    "evidence": "no free scan on archive.org (the 1983 reprint is a lending copy only)",
+    "founderRule": "Not verified"
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "Genesis 131, Exodus 23, Leviticus 6, Numbers 20, Deuteronomy 32, Joshua 10, Judges 18, Ruth 5, 1 Samuel 25, 2 Samuel 12, Ezekiel 29, all twelve Minor Prophets 206 (517)",
+    "trueAuthor": "C. F. Keil, Lutheran professor; translated by James Martin",
+    "work": "Biblical Commentary on the Old Testament (T. and T. Clark)",
+    "published": "Pentateuch 1864 to 1865; Joshua to Ruth 1865; Minor Prophets 1868",
+    "evidence": "volume match per book (res\\kd_findvol.log): cu31924070685718, 685726, india.history.resource.72621, joshuajudgesruth1872keil, biblicalcomment00keil, cu31924070685908, cu31924070689454/462; title pages name Martin",
+    "founderRule": "Passes (already approved; not re-read)"
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "1 Kings 17, 2 Kings 14 (Keil, translator not read); 1 and 2 Chronicles 12 (Keil, tr. Andrew Harper); Ezra 1, Nehemiah 7, Esther 3 (Keil, tr. Sophia Taylor); Jeremiah 47, Lamentations 5 (Keil, tr. David Patrick and James Kennedy); Daniel 13 (Keil, tr. M. G. Easton) (119)",
+    "trueAuthor": "C. F. Keil",
+    "work": "Biblical Commentary on the Old Testament",
+    "published": "Kings 1872; Chronicles 1872; Ezra to Esther 1873; Daniel 1872; Jeremiah first year not seen",
+    "evidence": "title pages of booksofkings00keil, cu31924070685767, booksofezranehem00keil, cu31924070685882/890, bookofprophetdan00keil",
+    "founderRule": "Passes (already approved; not re-read)"
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "Job 19, Psalms 64 (tr. Francis Bolton); Proverbs 16 (tr. M. G. Easton); Isaiah 102 (tr. James Martin) (201)",
+    "trueAuthor": "Franz Delitzsch, Lutheran professor, Leipzig",
+    "work": "Biblical Commentary on the Old Testament",
+    "published": "Job 1866; Psalms 1871; Proverbs 1874; Isaiah scan 1884",
+    "evidence": "biblicalcommejob01deliuoft, biblicalcommenta187101/187102deli, biblicalcommentary01deli, isaiahsprophecie01deliuoft (49 of 60 sequences; the 1890 fourth edition matched only 3)",
+    "founderRule": "Question: Psalms, 'we admit the possibility' of Maccabean psalms; the Isaiah edition Bible Hub uses is the earlier one, not the 1890 edition that conceded an exilic author"
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "Ecclesiastes 8, Song of Solomon 8 (16)",
+    "trueAuthor": "Franz Delitzsch (translated by M. G. Easton, per a later reprint's record)",
+    "work": "Commentary on the Song of Songs and Ecclesiastes",
+    "published": "first English volume not seen",
+    "evidence": "Bible Hub kad/ecclesiastes/1.htm itself",
+    "founderRule": "FLAG (Ecclesiastes): 'not written by Solomon himself, but by a Jewish thinker of a much later age'"
+   },
+   {
+    "source": "jfb",
+    "books": "Genesis to Esther (100)",
+    "trueAuthor": "Robert Jamieson, St Paul's, Glasgow (Church of Scotland)",
+    "work": "A Commentary, Critical and Explanatory, on the Old and New Testaments",
+    "published": "English edition 1871 (dates.md); scan S. S. Scranton, New York, 1873",
+    "evidence": "title page of commentarycritic00jami: 'Genesis to Esther: Rev. Robert Jamieson'; Bible Hub matched the 1878 two-volume reprint",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "jfb",
+    "books": "Job to Malachi 389; 1 Corinthians to Revelation 232 (621)",
+    "trueAuthor": "A. R. Fausset, St Cuthbert's, York (Church of England)",
+    "work": "same",
+    "published": "1871",
+    "evidence": "title pages: 'Job to Malachi' and '1 Corinthians to Revelation: Rev. A. R. Fausset'",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "jfb",
+    "books": "Matthew 33, Mark 8, Luke 25, John 32, Acts 16, Romans 20 (134)",
+    "trueAuthor": "David Brown, Professor of Theology, Aberdeen (Free Church)",
+    "work": "same",
+    "published": "1871",
+    "evidence": "vol. II title page: 'Matthew to Romans: Rev. David Brown'",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "henry",
+    "books": "Genesis to Acts (23)",
+    "trueAuthor": "Matthew Henry, Presbyterian (Nonconformist) minister",
+    "work": "An Exposition of the Old and New Testament",
+    "published": "1708 to 1710 (dates.md)",
+    "evidence": "Bible Hub mhcw",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "henry",
+    "books": "Revelation 5:1, 22:1 (2); 1 Corinthians 10:6 (1)",
+    "trueAuthor": "William Tong (Revelation); Simon Browne (1 Corinthians), Nonconformist ministers who completed Henry's work",
+    "work": "continuation of Henry's Exposition (Romans to Revelation)",
+    "published": "after Henry's death in 1714 (year not re-checked)",
+    "evidence": "preface of vol. VI of the Revell edition (expositionofoldn61henr, image dl\\img\\h61_n10.jpg), quoting J. B. Williams, Memoirs (1828) p. 308; Bible Hub text matched the continuation (0.71 to 0.78)",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "henry-concise",
+    "books": "157 (26 of them on Romans to Revelation, abridging the continuators)",
+    "trueAuthor": "unnamed abridger",
+    "work": "Concise Commentary on the Whole Bible",
+    "published": "not known",
+    "evidence": "CCEL: 'a one-volume abridgement'; Bible Hub gives no editor or date",
+    "founderRule": "Not resolved"
+   },
+   {
+    "source": "poole",
+    "books": "Genesis 8, Exodus 6, Leviticus 2, Deuteronomy 1, Joshua 1, 2 Samuel 1, Job 2, Psalms 3, Proverbs 1, Isaiah 8:10 (26)",
+    "trueAuthor": "Matthew Poole, Puritan minister, London",
+    "work": "Annotations upon the Holy Bible, vol. I",
+    "published": "1683",
+    "evidence": "voices group-1 (Poole wrote to Isaiah 58)",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "poole",
+    "books": "Romans 6",
+    "trueAuthor": "Richard Mayo, ejected minister of Kingston",
+    "work": "Annotations vol. II (continuation)",
+    "published": "1685",
+    "evidence": "Calamy, Account of the Ministers Ejected, 2nd ed. 1713, vol. II (accountofministe00cala)",
+    "founderRule": "Not checked"
+   },
+   {
+    "source": "poole",
+    "books": "Jeremiah 7, Hosea 1, Zechariah 1, Matthew 5, Luke 1, John 13, Acts 7, 1 Corinthians 4, Galatians 2, Philippians 2, Colossians 1, 1 Thessalonians 1, Hebrews 8, 1 Peter 1, Revelation 3 (57)",
+    "trueAuthor": "continuators not named in print",
+    "work": "Annotations vol. II",
+    "published": "1685",
+    "evidence": "1685 title page: 'a Continuation of Mr. Pool's Work by certain Judicious and Learned Divines'; no names in it or in the 1700 edition",
+    "founderRule": "Not resolved"
+   },
+   {
+    "source": "wesley",
+    "books": "OT 197 and NT 133 (330)",
+    "trueAuthor": "John Wesley, founder of Methodism; OT notes chiefly abridge Matthew Henry, NT notes translate and abridge Bengel",
+    "work": "Explanatory Notes upon the Old and New Testament",
+    "published": "NT 1755; OT 1765",
+    "evidence": "Wesley's prefaces: bim_eighteenth-century_explanatory-notes-upon-t_1765_1 and _1755",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "church-fathers",
+    "books": "Justin Martyr 6, Clement of Rome 3, Irenaeus 2, Gregory of Nazianzus 1, Jerome 1, Athanasius 1, Augustine 1, Epistle of Barnabas 1, Didache 1 (17)",
+    "trueAuthor": "as named; Barnabas and the Didache are anonymous",
+    "work": "Ante-Nicene and Nicene and Post-Nicene Fathers translations on New Advent",
+    "published": "ANF 1885 to 1896; NPNF 1888 to 1894",
+    "evidence": "each New Advent page's translator line (dates.md section 6)",
+    "founderRule": "Passes"
+   },
+   {
+    "source": "bullinger-cb",
+    "books": "432 (by book in authors.md 4.11)",
+    "trueAuthor": "generally attributed to E. W. Bullinger (died 1913); later parts possibly by associates",
+    "work": "The Companion Bible notes",
+    "published": "six parts 1909 to 1922 (dates.md)",
+    "evidence": "its preface, as transcribed on archive.org thecompanionbible_202504: 'not associated with the name of any man'",
+    "founderRule": "Not resolved"
+   }
+  ],
+  "founderQuestions": [
+   "Split the 1,046 'Barnes' cites into their true works: Albert Barnes 684, Pusey (Minor Prophets) 182, Murphy (Genesis) 31, and the Speaker's Commentary 149 with a named writer per book? Recommended: yes. The credit names the man who wrote the words and notes that Bible Hub labels the page 'Barnes'.",
+   "Ecclesiastes: Delitzsch (8 cites), Salmon (Ellicott, 3) and W. J. Deane (Pulpit, 6) each say on the linked page that Solomon did not write the book. Recommended: remove these 17 cites, or replace them with Bullock or Fausset, who hold that Solomon wrote it, then recount strengths.",
+   "F. W. Farrar (Pulpit 1 and 2 Corinthians, Ellicott Judges; 13 cites) dated Daniel to 164 BC in 1895. That is your own example of denying Scripture. Recommended: remove his cites and recount.",
+   "O. C. Whitehouse (8 Ellicott Hosea and Amos cites, written jointly with H. R. Reynolds) later taught a Deutero- and Trito-Isaiah. Recommended: remove these joint cites.",
+   "A. S. Aglen (Ellicott Psalms 7, Song 4, Jonah 1) leaves Jonah open as possibly fiction. Recommended: remove the Jonah cite, and decide whether his Psalms and Song cites stay.",
+   "E. H. Plumptre (99 cites) gives Isaiah 36 to 39 to a disciple and favours a personated Ecclesiastes. Delitzsch's other books (209 cites) allow possible Maccabean psalms. Recommended: keep both, after checking the cites that touch those exact points.",
+   "C. D. Ginsburg (Ellicott Leviticus, 5 cites) was a Jewish-born Christian scholar. Recommended: keep him, as with Edersheim.",
+   "Wesley's prefaces say his OT notes abridge Matthew Henry and his NT notes translate Bengel. Recommended: credit 'John Wesley, abridging Matthew Henry' (197 OT cites) and 'John Wesley, from Bengel's Gnomon' (133 NT cites).",
+   "Henry's Concise (157 cites) has no named abridger, and 26 of its cites abridge Henry's continuators. Recommended: name William Tong and Simon Browne for the 3 full-Henry continuation cites, and replace Concise cites with Henry's full text where he makes the same point.",
+   "Poole: 57 cites are by continuators the 1685 volume does not name, and Romans (6) is Richard Mayo's per Calamy. Recommended: credit 'a continuator of Matthew Poole's Annotations (1685), name not printed', and Mayo for Romans.",
+   "The Companion Bible (432 cites) was printed with no author's name. Recommended: credit 'The Companion Bible (1909 to 1922), notes generally attributed to E. W. Bullinger' until the parts finished after his death are identified.",
+   "Bible Hub's Pulpit text is BibleSoft's copyrighted digital edition. Recommended: quote Pulpit words from the archive.org scans named in authors.md."
+  ]
+ },
+ "design": {
+  "specPath": "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\credits\\CREDITS-SPEC.md",
+  "creditExample": "James G. Murphy (Presbyterian minister and Professor of Hebrew, Belfast), Commentary on Genesis, Andover edition of 1866, on Genesis 2:7. Read on Bible Hub, which labels it “Barnes’ Notes”; retrieved 20 October 2026. Read it there ›  (\"Read it there\" opens https://biblehub.com/commentaries/barnes/genesis/2.htm, the page the mend record for genesis-2-7 note 1 fetched on 2026-10-20. The year shows 1866, the earliest dated printing read, criticalexeg00murp. It becomes 1863 only once the Edinburgh first edition is read. The \"about\" phrase is checked against that printing's title page and its preface to the American edition.)",
+  "founderQuestions": [
+   "When a writer's introduction to a book denies Scripture, is he dropped the way Aglen was? Aglen's words ('if it is the creation of fiction') are in his introduction on Bible Hub's Ellicott Jonah 1 page. The app cites his comments on Jonah 4:6 (1), the Psalms (7) and the Song of Solomon (4), and decision 20 drops all 12. Delitzsch, George Salmon and W. J. Deane each say in their own introduction to Ecclesiastes that Solomon did not write it. The app cites their comments on Ecclesiastes 3 to 7 (17 cites) and on their other books (Delitzsch 209 more, Deane 44 more). Recommended: keep Aglen dropped as ruled. For these three, judge each cited comment on its own words and leave out any Ecclesiastes comment that itself treats the Teacher as someone other than Solomon. This follows decision 2 (Luther is kept while his denying prefaces are left out) and decision 20 ('leave out only passages that deny it'). The earlier shortlist answer that kept Keil and Delitzsch and the Pulpit Commentary off Ecclesiastes stays a rule only for the Christian writers at Deep, where whole notes, introductions included, are shown word for word.",
+   "When strengths are counted, should a writer who abridges another count as that writer? Wesley's own 1765 preface says his Old Testament notes abridge Matthew Henry, and his 1755 preface says his New Testament notes translate and abridge Bengel. The Concise Commentary abridges Henry. Recommended: yes, count each abridgment as the writer it abridges. On the notes as they stand, this lowers 5 notes from 'widely agreed' to 'commonly held' (Genesis 17:15, 29:25, 32:30 and 35:7, and 2 Kings 2:23, each note 1) unless a third writer is found. It also changes the wording of the CLAUDE.md strength rule from 'a distinct cited work' to 'a person who wrote the cited words'."
+  ]
+ }
+}

@@ -1,0 +1,847 @@
+[
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps1-light-simple",
+  "query": "level=simple&theme=light&width=phone&p=ps1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-by, #p-ps1 .fx-src, #p-ps1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-simple-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-simple-a",
+    "tsel": "#p-ps1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps1 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-simple-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-simple-src",
+    "tsel": "#p-ps1"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps1-light-study",
+  "query": "level=study&theme=light&width=phone&p=ps1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-by, #p-ps1 .fx-src, #p-ps1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-study-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-study-a",
+    "tsel": "#p-ps1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps1 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-study-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-study-src",
+    "tsel": "#p-ps1"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps1-light-deep",
+  "query": "level=deep&theme=light&width=phone&p=ps1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-by, #p-ps1 .fx-src, #p-ps1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-deep-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-deep-a",
+    "tsel": "#p-ps1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps1 [data-words]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-deep-notice1",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-deep-notice1",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"next\"]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-deep-notice2",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-deep-notice2",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"done\"]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps1-light-deep-words",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps1-light-deep-words",
+    "tsel": "#p-ps1"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps19-light-simple",
+  "query": "level=simple&theme=light&width=phone&p=ps19",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-by, #p-ps19 .fx-src, #p-ps19 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-simple-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-simple-a",
+    "tsel": "#p-ps19"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps19');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps19 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-simple-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-simple-src",
+    "tsel": "#p-ps19"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps19-light-study",
+  "query": "level=study&theme=light&width=phone&p=ps19",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-by, #p-ps19 .fx-src, #p-ps19 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-study-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-study-a",
+    "tsel": "#p-ps19"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps19');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps19 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-study-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-study-src",
+    "tsel": "#p-ps19"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-ps19-light-deep",
+  "query": "level=deep&theme=light&width=phone&p=ps19",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-by, #p-ps19 .fx-src, #p-ps19 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-deep-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-deep-a",
+    "tsel": "#p-ps19"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-ps19');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-ps19 [data-words]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-deep-notice1",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-deep-notice1",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"next\"]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-deep-notice2",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-deep-notice2",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"done\"]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-ps19 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-ps19-light-deep-words",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-ps19-light-deep-words",
+    "tsel": "#p-ps19"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-isa6-light-simple",
+  "query": "level=simple&theme=light&width=phone&p=isa6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-by, #p-isa6 .fx-src, #p-isa6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-simple-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-simple-a",
+    "tsel": "#p-isa6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-isa6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-isa6 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-simple-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-simple-src",
+    "tsel": "#p-isa6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-isa6-light-study",
+  "query": "level=study&theme=light&width=phone&p=isa6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-by, #p-isa6 .fx-src, #p-isa6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-study-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-study-a",
+    "tsel": "#p-isa6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-isa6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-isa6 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-study-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-study-src",
+    "tsel": "#p-isa6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-isa6-light-deep",
+  "query": "level=deep&theme=light&width=phone&p=isa6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-by, #p-isa6 .fx-src, #p-isa6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-deep-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-deep-a",
+    "tsel": "#p-isa6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-isa6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-isa6 [data-words]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-deep-notice1",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-deep-notice1",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"next\"]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-deep-notice2",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-deep-notice2",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"done\"]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-isa6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-isa6-light-deep-words",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-isa6-light-deep-words",
+    "tsel": "#p-isa6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-gen6-light-simple",
+  "query": "level=simple&theme=light&width=phone&p=gen6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-by, #p-gen6 .fx-src, #p-gen6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-simple-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-simple-a",
+    "tsel": "#p-gen6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-gen6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-gen6 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-simple-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-simple-src",
+    "tsel": "#p-gen6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-gen6-light-study",
+  "query": "level=study&theme=light&width=phone&p=gen6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-by, #p-gen6 .fx-src, #p-gen6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-study-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-study-a",
+    "tsel": "#p-gen6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-gen6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-gen6 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-study-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-study-src",
+    "tsel": "#p-gen6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-gen6-light-deep",
+  "query": "level=deep&theme=light&width=phone&p=gen6",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-by, #p-gen6 .fx-src, #p-gen6 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-deep-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-deep-a",
+    "tsel": "#p-gen6"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-gen6');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-gen6 [data-words]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-deep-notice1",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-deep-notice1",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"next\"]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-deep-notice2",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-deep-notice2",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"done\"]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-gen6 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-gen6-light-deep-words",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-gen6-light-deep-words",
+    "tsel": "#p-gen6"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-sam1-light-simple",
+  "query": "level=simple&theme=light&width=phone&p=sam1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-by, #p-sam1 .fx-src, #p-sam1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-simple-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-simple-a",
+    "tsel": "#p-sam1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-sam1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-sam1 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-simple-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-simple-src",
+    "tsel": "#p-sam1"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-sam1-light-study",
+  "query": "level=study&theme=light&width=phone&p=sam1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-by, #p-sam1 .fx-src, #p-sam1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-study-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-study-a",
+    "tsel": "#p-sam1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-sam1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-sam1 [data-src]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-study-src",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-study-src",
+    "tsel": "#p-sam1"
+   }
+  ]
+ },
+ {
+  "file": "mock-reader.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "esel": ".app",
+  "name": "pr-sam1-light-deep",
+  "query": "level=deep&theme=light&width=phone&p=sam1",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-by, #p-sam1 .fx-src, #p-sam1 [data-src]"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-deep-a",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-deep-a",
+    "tsel": "#p-sam1"
+   },
+   {
+    "eval": "(()=>{const r=document.querySelector('#p-sam1');return r? [...r.querySelectorAll('a,button')].filter(a=>a.getClientRects().length).map(a=>(a.innerText||a.getAttribute('aria-label')||'').replace(/\\s+/g,' ').trim().slice(0,70)+' => '+(a.getAttribute('href')||Object.keys(a.dataset).join(','))):null})()"
+   },
+   {
+    "clickText": {
+     "sel": "#p-sam1 [data-words]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-deep-notice1",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-deep-notice1",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"next\"]",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-deep-notice2",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-deep-notice2",
+    "tsel": "#notice"
+   },
+   {
+    "clickText": {
+     "sel": "#notice [data-nt=\"done\"]",
+     "text": ""
+    }
+   },
+   {
+    "scrollTo": {
+     "sel": "#p-sam1 .fx-src"
+    }
+   },
+   {
+    "eshot": "pr-sam1-light-deep-words",
+    "esel": ".app"
+   },
+   {
+    "etext": "pr-sam1-light-deep-words",
+    "tsel": "#p-sam1"
+   }
+  ]
+ }
+]

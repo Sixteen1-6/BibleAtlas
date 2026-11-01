@@ -1,0 +1,437 @@
+{
+ "label": "before",
+ "runs": [
+  {
+   "width": 1440,
+   "height": 900,
+   "theme": "light",
+   "shots": [
+    "af-bt\\out\\before-1440-light-Gen1-wordbyword.png",
+    "af-bt\\out\\before-1440-light-Gen1-notes.png",
+    "af-bt\\out\\before-1440-light-Gen1-credits-BSB.png",
+    "af-bt\\out\\before-1440-light-Gen1-credits-NET.png",
+    "af-bt\\out\\before-1440-light-John3-wordbyword.png",
+    "af-bt\\out\\before-1440-light-John3-notes.png",
+    "af-bt\\out\\before-1440-light-John3-credits-BSB.png",
+    "af-bt\\out\\before-1440-light-John3-credits-NET.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "HR/Ncfsa"
+     ],
+     [
+      "בָּרָ֣א",
+      "HVqp3ms"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "HNcmpa"
+     ],
+     [
+      "אֵ֥ת",
+      "HTo"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "HTd/Ncmpa"
+     ],
+     [
+      "וְאֵ֥ת",
+      "HC/To"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "V-IAI-3S"
+     ],
+     [
+      "δὲ",
+      "CONJ"
+     ],
+     [
+      "ἄνθρωπος",
+      "N-NSM"
+     ],
+     [
+      "ἐκ",
+      "PREP"
+     ],
+     [
+      "τῶν",
+      "T-GPM"
+     ],
+     [
+      "Φαρισαίων,",
+      "N-GPM-T"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible (public domain). Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible (public domain). Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "John-NET-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ]
+   },
+   "errors": []
+  },
+  {
+   "width": 1440,
+   "height": 900,
+   "theme": "dark",
+   "shots": [
+    "af-bt\\out\\before-1440-dark-Gen1-wordbyword.png",
+    "af-bt\\out\\before-1440-dark-Gen1-notes.png",
+    "af-bt\\out\\before-1440-dark-Gen1-credits-BSB.png",
+    "af-bt\\out\\before-1440-dark-Gen1-credits-NET.png",
+    "af-bt\\out\\before-1440-dark-John3-wordbyword.png",
+    "af-bt\\out\\before-1440-dark-John3-notes.png",
+    "af-bt\\out\\before-1440-dark-John3-credits-BSB.png",
+    "af-bt\\out\\before-1440-dark-John3-credits-NET.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "HR/Ncfsa"
+     ],
+     [
+      "בָּרָ֣א",
+      "HVqp3ms"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "HNcmpa"
+     ],
+     [
+      "אֵ֥ת",
+      "HTo"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "HTd/Ncmpa"
+     ],
+     [
+      "וְאֵ֥ת",
+      "HC/To"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "V-IAI-3S"
+     ],
+     [
+      "δὲ",
+      "CONJ"
+     ],
+     [
+      "ἄνθρωπος",
+      "N-NSM"
+     ],
+     [
+      "ἐκ",
+      "PREP"
+     ],
+     [
+      "τῶν",
+      "T-GPM"
+     ],
+     [
+      "Φαρισαίων,",
+      "N-GPM-T"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible (public domain). Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible (public domain). Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "John-NET-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ]
+   },
+   "errors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "theme": "light",
+   "shots": [
+    "af-bt\\out\\before-390-light-Gen1-wordbyword.png",
+    "af-bt\\out\\before-390-light-Gen1-notes.png",
+    "af-bt\\out\\before-390-light-Gen1-credits-BSB.png",
+    "af-bt\\out\\before-390-light-Gen1-credits-NET.png",
+    "af-bt\\out\\before-390-light-John3-wordbyword.png",
+    "af-bt\\out\\before-390-light-John3-notes.png",
+    "af-bt\\out\\before-390-light-John3-credits-BSB.png",
+    "af-bt\\out\\before-390-light-John3-credits-NET.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "HR/Ncfsa"
+     ],
+     [
+      "בָּרָ֣א",
+      "HVqp3ms"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "HNcmpa"
+     ],
+     [
+      "אֵ֥ת",
+      "HTo"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "HTd/Ncmpa"
+     ],
+     [
+      "וְאֵ֥ת",
+      "HC/To"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "V-IAI-3S"
+     ],
+     [
+      "δὲ",
+      "CONJ"
+     ],
+     [
+      "ἄνθρωπος",
+      "N-NSM"
+     ],
+     [
+      "ἐκ",
+      "PREP"
+     ],
+     [
+      "τῶν",
+      "T-GPM"
+     ],
+     [
+      "Φαρισαίων,",
+      "N-GPM-T"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible (public domain). Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible (public domain). Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "John-NET-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ]
+   },
+   "errors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "theme": "dark",
+   "shots": [
+    "af-bt\\out\\before-390-dark-Gen1-wordbyword.png",
+    "af-bt\\out\\before-390-dark-Gen1-notes.png",
+    "af-bt\\out\\before-390-dark-Gen1-credits-BSB.png",
+    "af-bt\\out\\before-390-dark-Gen1-credits-NET.png",
+    "af-bt\\out\\before-390-dark-John3-wordbyword.png",
+    "af-bt\\out\\before-390-dark-John3-notes.png",
+    "af-bt\\out\\before-390-dark-John3-credits-BSB.png",
+    "af-bt\\out\\before-390-dark-John3-credits-NET.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "HR/Ncfsa"
+     ],
+     [
+      "בָּרָ֣א",
+      "HVqp3ms"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "HNcmpa"
+     ],
+     [
+      "אֵ֥ת",
+      "HTo"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "HTd/Ncmpa"
+     ],
+     [
+      "וְאֵ֥ת",
+      "HC/To"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "V-IAI-3S"
+     ],
+     [
+      "δὲ",
+      "CONJ"
+     ],
+     [
+      "ἄνθρωπος",
+      "N-NSM"
+     ],
+     [
+      "ἐκ",
+      "PREP"
+     ],
+     [
+      "τῶν",
+      "T-GPM"
+     ],
+     [
+      "Φαρισαίων,",
+      "N-GPM-T"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible (public domain). Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible (public domain). Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org. Greek: STEPBible TAGNT, all major editions (CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "https://netbible.org",
+      "https://netbible.org"
+     ]
+    ],
+    "John-NET-notes": [
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Alignment by Clear Bible (CC BY 4.0)."
+    ]
+   },
+   "errors": []
+  }
+ ]
+}

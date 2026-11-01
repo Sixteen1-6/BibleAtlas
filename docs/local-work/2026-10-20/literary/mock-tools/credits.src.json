@@ -1,0 +1,33 @@
+{
+  "_comment": [
+    "Founder's answer, 2026-10-20: credit the original sources, never AI. 'The whole point is for us to be looking at original sources and this helps just compile them better.' Each device is defined in the words of a book that defines it, with its page, and each entry names the writers who state it on the verse, at every level.",
+    "Book: E. W. Bullinger, Figures of Speech Used in the Bible (London: Eyre and Spottiswoode, 1898), public domain in the US. Pages are the printed page numbers of the Princeton scan figuresofspeechu00bull on archive.org (NOT_IN_COPYRIGHT). The page map was read from its page_numbers.json and from BookReader's own data (printed page 351 = leaf 405), fetched 2026-10-20. build_mock.py checks every quotation against the e-text and against that printed page of the scan.",
+    "defs: what the device is, in the defining book's words. 'none' where no book of figures from 1930 or earlier names the device (character juxtaposition, per the research). pages: the page of the 1898 book where Bullinger treats this verse, for the link on his name; 'check' must be on that page."
+  ],
+  "book": {
+    "author": "Bullinger",
+    "title": "Figures of Speech Used in the Bible",
+    "year": 1898,
+    "scan": "https://archive.org/details/figuresofspeechu00bull"
+  },
+  "defs": {
+    "ps1-opposite": { "fig": "Antithetic, or Opposite", "q": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.", "p": 351 },
+    "ps1-two-ways": { "none": "No book of figures from 1930 or earlier names this as a figure; it rests on the writers named here." },
+    "ps19-same": { "fig": "Synonymous or Gradational", "q": "This is when the lines are parallel in thought, and in the use of synonymous words.", "p": 349 },
+    "ps19-person": { "fig": "Prosopopoeia, or Personification", "q": "A figure by which things are represented or spoken of as persons", "p": 861 },
+    "ps19-alt": { "fig": "Simple Alternation", "q": "it is alternate when, of the four members, the first corresponds with the third, and the second with the fourth.", "p": 365 },
+    "isa6-mirror": { "fig": "Epanodos, or Inversion", "q": "The Repetition of the same Words in an inverse Order (but same Sense).", "p": 299 },
+    "gen6-human": { "fig": "Anthropopatheia, or Condescension", "q": "This figure is used of the ascription of human passions, actions, or attributes to God.", "p": 871 },
+    "hannah-foil": { "none": "No book of figures from 1930 or earlier names this as a figure; it rests on the writers named here." },
+    "hannah-crossing": { "fig": "Introverted Parallelism", "q": "This is when the parallel lines are so placed that if there be six lines, the first corresponds with the sixth, the second with the fifth, and the third with the fourth.", "p": 356 },
+    "sam15-key": { "fig": "Anthropopatheia, or Condescension", "q": "This figure is used of the ascription of human passions, actions, or attributes to God.", "p": 871 }
+  },
+  "pages": {
+    "ps19-person": { "p": 865, "check": "The heavens declare the glory of God", "note": "his definition is on p. 861; he lists Psalm 19:1 on p. 865" },
+    "ps19-alt": { "p": 366, "check": "The heavens. B -4-6. The sun in them" },
+    "isa6-mirror": { "p": 299, "check": "Make the heart of this people fat, b and make their ears heavy" },
+    "gen6-human": { "p": 882, "check": "not that He has such feelings; but, in infinite condescension" },
+    "hannah-foil": { "p": 357, "check": "The name of the one was Hannah, b and the name of the other was Peninnah" },
+    "hannah-crossing": { "p": 357, "check": "The name of the one was Hannah, b and the name of the other was Peninnah" }
+  }
+}
