@@ -149,6 +149,12 @@ a {
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
   height: 100dvh;
+  /* The app is one screen tall and only its panels scroll. Without this, a
+     hidden screen-reader label at the foot of a long chapter made the whole
+     page taller, so scrolling past the end of a panel slid the app up and
+     left an empty dark screen below it. */
+  position: relative;
+  overflow: hidden;
 }
 .topbar {
   display: flex;
@@ -582,11 +588,13 @@ p .godeeper {
 }
 .reader {
   overflow: auto;
+  overscroll-behavior: contain;
   padding: 20px clamp(16px, 4vw, 48px) 80px;
   border-right: 1px solid var(--line);
 }
 .study {
   overflow: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
   min-height: 0;
   display: flex;
