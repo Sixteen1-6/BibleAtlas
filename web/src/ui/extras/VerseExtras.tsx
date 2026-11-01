@@ -7,7 +7,7 @@
 
 import './extras.css';
 import { createPortal } from 'preact';
-import { useEffect, useErrorBoundary, useRef, useState } from 'preact/hooks';
+import { useEffect, useErrorBoundary, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
 import { type Atlas, chapterName, label } from '../../data/atlas';
 import { deepen } from '../../depth';
@@ -19,7 +19,9 @@ import { SourceNote, refName, verseHash } from './kit';
 import { levelAtLeast } from './level';
 import { closeExtra, openExtra, openPanel } from './open';
 import { type AnyExtra, EXTRAS, extraById } from './registry';
+import { Peek } from './Peek';
 import { Shell } from './Sheet';
+import { peek, peeks, places, unpeek } from './peek';
 import type { ChapterRef, NoteLine, VerseLink, VerseRef } from './types';
 
 /** Lines shown before "and N more". */
@@ -219,11 +221,33 @@ function Guard({ id, children }: { id: string; children: ComponentChildren }) {
 }
 
 const dismiss = () => closeExtra('dismiss');
-const navigate = (v: VerseRef) => {
+/** Take the reader to a verse, closing the panel (Back brings it back). */
+const go = (v: VerseRef) => {
+  // Keep this entry (the panel, and any look) as it is, so Back returns here:
+  // the reader's new verse is written onto a fresh entry above it.
+  try {
+    history.pushState(null, '', location.href);
+  } catch {
+    // No history: Back goes where it would have.
+  }
   closeExtra('navigate');
   S.selectVerse(v);
   S.mobilePane.value = 'read';
 };
+/** A verse named inside a panel opens a look at it there (peek.ts). */
+const navigate = (v: VerseRef) => peek(v);
+
+/** Keeps each look's scroll place: a new look starts at the top, and Back
+ * returns to where the reader was (peek.ts saves it on the way in). */
+function useScrollPlaces(depth: number): void {
+  const last = useRef(depth);
+  useLayoutEffect(() => {
+    const body = document.querySelector<HTMLElement>('.xt-panel .xt-body');
+    if (!body || last.current === depth) return;
+    body.scrollTop = depth > last.current ? 0 : (places[depth] ?? 0);
+    last.current = depth;
+  }, [depth]);
+}
 
 /** Renders the open panel, if any, into the page (outside the reader, so the
  * reader being hidden on phones does not hide it). */
@@ -252,7 +276,10 @@ function PanelHost({ a }: { a: Atlas }) {
     if (s?.state === 'failed' || (ready && !applies)) closeExtra('dismiss');
   }, [o, x, visible, s, ready, applies, a]);
 
+  const looks = peeks.value;
+  useScrollPlaces(o && x && visible && ready && applies ? looks.length : 0);
   if (!o || !x || !visible || !ready || !applies) return null;
+  const looking = looks.length ? looks[looks.length - 1] : null;
   const title = x.title;
   const at = o.kind === 'verse' ? label(a, o.verse!) : `${chapterName(a.books[o.chapter!.book])} ${o.chapter!.chapter}`;
   const P = x.Panel;
@@ -267,7 +294,9 @@ function PanelHost({ a }: { a: Atlas }) {
   // the reader to ask: one line and a button that opens the notice.
   const gate = isCommentary(x, o.kind) ? closedState(a, x, o, s.data) : null;
   return createPortal(
-    <Shell key={`${o.id}.${o.kind}`} title={title} at={at} onDismiss={dismiss} tall={x.tall}>
+    <Shell key={`${o.id}.${o.kind}`} title={title} at={looking === null ? at : `${label(a, looking)}, from ${at}`} onDismiss={dismiss} onBack={looking === null ? dismiss : unpeek} backTitle={looking === null ? 'Back to the side panel' : `Back to ${looks.length > 1 ? label(a, looks[looks.length - 2]) : `${title}, ${at}`}`} tall={x.tall}>
+      {looking !== null && <Peek key={`${looks.length}.${looking}`} a={a} verse={looking} go={go} />}
+      <div hidden={looking !== null}>
       <Guard id={x.id}>
         {gate ? (
           <Commentary line={gate.line} button={gate.button}>
@@ -278,6 +307,7 @@ function PanelHost({ a }: { a: Atlas }) {
         )}
         {gate?.source && !accepted.value && <SourceNote>{gate.source}</SourceNote>}
       </Guard>
+      </div>
     </Shell>,
     document.body,
   );

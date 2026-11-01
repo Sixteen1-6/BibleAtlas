@@ -6,6 +6,9 @@
 //   area, widened into the reader's empty margin when there is room so two
 //   passages fit side by side. The reader and the map stay usable.
 // Focus moves to the panel's heading on open and back to the note on close.
+// - An extra's panel has the side column's own controls (ui/PanelNav.tsx):
+//   Back (through looks at other passages, peek.ts, then closing the panel)
+//   and Full page, the same S.panelWide, so the side has one set of controls.
 
 import type { ComponentChildren } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
@@ -67,9 +70,11 @@ function useDock(on: boolean, tall: boolean): Dock | null {
   return on ? dock : null;
 }
 
-export function Shell({ title, at, onDismiss, tall = false, children }: { title: string; at: string; onDismiss: () => void; tall?: boolean; children: ComponentChildren }) {
+export function Shell({ title, at, onDismiss, onBack, backTitle, tall = false, children }: { title: string; at: string; onDismiss: () => void; onBack?: () => void; backTitle?: string; tall?: boolean; children: ComponentChildren }) {
   const phone = usePhone();
-  const dock = useDock(!phone, tall);
+  // Ask's sheet, which gives no onBack, keeps its own look and size.
+  const big = !!onBack && S.panelWide.value;
+  const dock = useDock(!phone, tall || big);
   const id = useId();
   const box = useRef<HTMLDivElement>(null);
   const head = useRef<HTMLHeadingElement>(null);
@@ -151,19 +156,45 @@ export function Shell({ title, at, onDismiss, tall = false, children }: { title:
       }
     : {};
 
-  const place = !phone && dock ? { top: `${dock.top}px`, width: `${dock.width}px` } : undefined;
+  const place = !phone && dock ? (big ? { top: `${dock.top}px` } : { top: `${dock.top}px`, width: `${dock.width}px` }) : undefined;
   return (
     <>
       {phone && <div class="xt-scrim" onClick={() => dismiss.current()} />}
-      <div ref={box} class={`xt-panel ${phone ? 'xt-sheet' : 'xt-dock'}`} style={place} role="dialog" aria-modal={phone ? 'true' : 'false'} aria-labelledby={id}>
+      <div ref={box} class={`xt-panel ${phone ? 'xt-sheet' : 'xt-dock'}${big ? ' xt-wide' : ''}`} style={place} role="dialog" aria-modal={phone ? 'true' : 'false'} aria-labelledby={id}>
         <header class="xt-head" {...swipe}>
           {phone && <span class="xt-grab" aria-hidden="true" />}
+          {onBack && (
+            <button type="button" class="pnbtn xt-back" onClick={onBack} title={backTitle} aria-label={backTitle}>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>Back</span>
+            </button>
+          )}
           <div class="xt-titles">
             <h2 id={id} ref={head} tabIndex={-1}>
               {title}
             </h2>
             <p class="xt-at">{at}</p>
           </div>
+          {onBack && (
+            <button
+              type="button"
+              class="pnbtn pnwide xt-size"
+              onClick={() => (S.panelWide.value = !big)}
+              aria-pressed={big}
+              title={big ? 'Go back to the text beside this panel' : 'Open this panel over the whole page'}
+            >
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                {big ? (
+                  <path d="M13.5 6.5h-4v-4M2.5 9.5h4v4M9.5 6.5 14 2M6.5 9.5 2 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                ) : (
+                  <path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                )}
+              </svg>
+              <span class="xt-size-words">{big ? 'Back to reading' : 'Full page'}</span>
+            </button>
+          )}
           <button type="button" class="xt-close" onClick={() => dismiss.current()} aria-label={`Close ${title}`}>
             <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
               <path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
