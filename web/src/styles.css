@@ -146,6 +146,7 @@ a {
 
 .app {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
   height: 100dvh;
 }
@@ -289,6 +290,7 @@ p .godeeper {
 .iconbtn {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   border: 1px solid var(--sky-line);
   background: transparent;
   color: var(--sky-ink);
@@ -296,11 +298,94 @@ p .godeeper {
   padding: 6px 10px;
 }
 
+/* The translation, theme and map style. On a wide screen they sit in the
+   header; on a phone they fold into the "..." menu (see small screens). */
+.viewopts {
+  display: contents;
+}
+.optsbtn,
+.optlabel {
+  display: none;
+}
+.maptoggle {
+  color: var(--sky-muted);
+  font: 13px var(--font-ui);
+  white-space: nowrap;
+}
+.maptoggle[aria-pressed='false'] {
+  color: var(--sky-ink);
+  border-color: var(--lamp);
+}
+.maptoggle .short {
+  display: none;
+}
+@media (max-width: 1279px) {
+  .maptoggle .long {
+    display: none;
+  }
+  .maptoggle .short {
+    display: inline;
+  }
+  .topbar {
+    position: relative;
+  }
+  .brand small {
+    display: none;
+  }
+  /* The colour key would run under the zoom hint; the colours still show on the map. */
+  .map .hud .legend {
+    display: none;
+  }
+  .optsbtn {
+    display: inline-flex;
+    order: 5;
+  }
+  .maptoggle,
+  .optsbtn {
+    min-width: 40px;
+    min-height: 40px;
+    justify-content: center;
+  }
+  .seg button {
+    min-height: 36px;
+  }
+  .viewopts {
+    display: none;
+  }
+  .viewopts[data-open='true'] {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 10px;
+    z-index: 60;
+    min-width: 220px;
+    padding: 12px;
+    border: 1px solid var(--sky-line);
+    border-radius: var(--r-md);
+    background: #0b0f22;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+  .viewopts .seg button {
+    flex: 1;
+    min-height: 40px;
+  }
+  .viewopts .themebtn {
+    min-height: 40px;
+    justify-content: center;
+  }
+  .optlabel {
+    display: inline;
+  }
+}
+
 /* ------------------------------------------------------------ map */
 
 .map {
   position: relative;
-  height: clamp(260px, 44vh, 560px);
+  height: clamp(240px, 38vh, 500px);
   background: radial-gradient(ellipse 80% 70% at 50% 85%, #141a3c, var(--sky) 70%);
   color: var(--sky-ink);
   overflow: hidden;
@@ -488,8 +573,12 @@ p .godeeper {
 
 .work {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 420px);
+  grid-template-columns: minmax(0, 1fr) clamp(360px, 32vw, 520px);
   min-height: 0;
+}
+/* With the map hidden the header sits straight on the text. */
+.app[data-map='hide'] {
+  grid-template-rows: auto 1fr;
 }
 .reader {
   overflow: auto;
@@ -1201,27 +1290,35 @@ p .godeeper {
   display: none;
 }
 @media (max-width: 900px) {
+  /* Two short rows: name and depth, then search and the view buttons. */
   .topbar {
     flex-wrap: wrap;
-    padding: 8px 12px;
+    gap: 8px;
+    padding: 8px 10px;
+    position: relative;
+  }
+  .brand {
+    font-size: 17px;
   }
   .brand small {
     display: none;
   }
-  /* Search starts a second row; at Study and Deep the map switch shares it. */
   .searchbox {
     order: 3;
-    flex: 1 1 200px;
+    flex: 1 1 160px;
     max-width: none;
-  }
-  .topbar .mapstyle {
-    order: 4;
+    min-height: 40px;
   }
   .searchbox kbd {
     display: none;
   }
+  .maptoggle {
+    order: 4;
+  }
+  /* Low enough to leave the text room, tall enough for the label under the
+     selected verse (the baseline sits at 80% of the height). */
   .map {
-    height: 38vh;
+    height: clamp(300px, 36vh, 340px);
   }
   .map .hud .legend,
   .map .hud .colors,
@@ -1236,26 +1333,35 @@ p .godeeper {
     max-width: 130px;
     text-align: right;
   }
+  /* Read and Explore sit at the bottom, under the thumb. */
   .work {
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .work > .reader,
+  .work > .study {
+    grid-row: 1;
   }
   .mobtabs {
     display: flex;
-    border-bottom: 1px solid var(--line);
+    grid-row: 2;
+    border-top: 1px solid var(--line);
     background: var(--surface);
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .mobtabs button {
     flex: 1;
     border: 0;
     background: none;
-    padding: 10px;
+    min-height: 50px;
+    padding: 8px;
+    font: 600 15px var(--font-ui);
     color: var(--muted);
-    border-bottom: 2px solid transparent;
+    border-top: 3px solid transparent;
   }
   .mobtabs button[aria-selected='true'] {
     color: var(--ink);
-    border-bottom-color: var(--accent);
+    border-top-color: var(--accent);
   }
   .work[data-pane='read'] .study,
   .work[data-pane='study'] .reader {
@@ -1263,10 +1369,17 @@ p .godeeper {
   }
   .reader {
     border-right: 0;
-    padding: 14px 16px 60px;
+    padding: 14px 16px 40px;
   }
   .readhead h1 {
     font-size: 22px;
+  }
+  .tabs button {
+    min-height: 44px;
+    padding: 10px 12px;
+  }
+  .btn {
+    min-height: 36px;
   }
 }
 
