@@ -6,6 +6,7 @@ layers.rs resolve()), as the build does: a cite names no writer itself.
 
   python3 -I figcheck.py <file.json> [...]          file holds {"notes": [...]} or a list of notes
   python3 -I figcheck.py --quotes <file.json> [...]  also checks every quote from a local copy word for word
+  python3 -I figcheck.py --forms <proposed-forms.json> ...  also accepts the forms proposed in that file
 
 Prints each problem as "<note id>: <problem>" and exits 1 when there is any. A note's book is the book of its
 ref (the build takes it from the file name, config/figures/<OSIS>.json).
@@ -20,6 +21,8 @@ WP = os.path.dirname(HERE)
 DATA = f'{WP}/stable_data'
 FORMS = json.load(open(f'{HERE}/config/figure-forms.json'))
 SOURCES = json.load(open(f'{HERE}/config/layer-sources.json'))
+if os.environ.get('ATLAS_SOURCES_EXTRA'):  # proposed new writers, for checking only
+    FORMS['quotable'] = FORMS['quotable'] + tcr._extra(SOURCES, os.environ['ATLAS_SOURCES_EXTRA']).get('quotable', [])
 
 KINDS = ['parallelism', 'figure', 'contrast']
 WIDELY, COMMONLY, SOME = 'widely agreed', 'commonly held', 'some interpreters'
@@ -767,8 +770,19 @@ def load(path):
     return d['notes'] if isinstance(d, dict) else d
 
 
+def add_forms(path):
+    """Proposed forms (not yet in figure-forms.json) for notes handed to the Layers thread with a form proposal."""
+    for f in json.load(open(path))['forms']:
+        FORM[f['id']] = f
+
+
 def main(argv):
     local = '--quotes' in argv
+    argv = list(argv)
+    if '--forms' in argv:
+        i = argv.index('--forms')
+        add_forms(argv[i + 1])
+        del argv[i:i + 2]
     files = [a for a in argv if a != '--quotes']
     if not files:
         print(__doc__)

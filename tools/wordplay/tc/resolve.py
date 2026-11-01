@@ -12,6 +12,23 @@ BOOKS = ["Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges
 ALIAS = {'Psalm': 'Psalms', 'Song of Songs': 'Song of Solomon', 'Song': 'Song of Solomon'}
 
 S = json.load(open(os.path.join(LW, 'config/layer-sources.json')))
+
+
+def _extra(S, path):
+    """ATLAS_SOURCES_EXTRA: cite-list entries proposed to the Layers thread (new writers), merged for checking only."""
+    x = json.load(open(path))
+    for key in ('writers', 'works', 'cite'):
+        have = {e['id']: i for i, e in enumerate(S[key])}
+        for e in x.get(key, []):
+            if e['id'] in have:
+                S[key][have[e['id']]] = e
+            else:
+                S[key].append(e)
+    return x
+
+
+if os.environ.get('ATLAS_SOURCES_EXTRA'):
+    _extra(S, os.environ['ATLAS_SOURCES_EXTRA'])
 WRITERS = {w['id']: w for w in S['writers']}
 WORKS = {w['id']: w for w in S['works']}
 CITE = {c['id']: c for c in S['cite']}

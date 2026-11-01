@@ -1,0 +1,188 @@
+{
+ "_comment": [
+  "The 12 figures the figure catalogue (List every figure thread) lists next, proposed to the Layers thread for config/figure-forms.json, each labelled with the figure's real name as the founder asked. term is Bullinger's name; about is the catalogue's plain line. The defined quotes and pages are filled in by the forms run.",
+  "Printed pages found with the archive.org search-inside service (search page minus 54), and for Type and Allegory confirmed by the book's own table of contents. Not yet read off the page itself: parable p. 751, antimetabole p. 301, proverb p. 755, riddle p. 772."
+ ],
+ "forms": [
+  {
+   "id": "acrostic",
+   "kind": "figure",
+   "label": "Acrostic",
+   "term": "Acrostichion",
+   "about": "Lines or verses begin with the letters of the Hebrew alphabet in order.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "Repetition of the same or successive Letters at the beginnings of Words or Clauses",
+    "at": "Acrostichion, or Acrostic, p. 180",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/180/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "type",
+   "kind": "figure",
+   "label": "Type",
+   "term": "Type",
+   "about": "A person, thing or event points ahead to a later one, often Christ.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A figure or ensample of something future and more or less prophetic, called the “Antitype”",
+    "at": "Type, p. 768",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/768/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "allegory",
+   "kind": "figure",
+   "label": "Allegory",
+   "term": "Allegory",
+   "about": "A picture is carried on through a whole passage.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "Continued Comparison by Representation or Implication",
+    "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 748",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/748/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "parable",
+   "kind": "figure",
+   "label": "Parable",
+   "term": "Parabola",
+   "about": "A likeness is drawn out into a short story.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "an illustration by which one set of circumstances is likened to another.",
+    "at": "Parabola, or Parable, p. 751",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/751/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "antithesis",
+   "kind": "figure",
+   "label": "Antithesis",
+   "term": "Antithesis",
+   "about": "Two phrases are set side by side to show their difference.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "It is a figure by which two thoughts, ideas, or phrases, are set over one against the other, in order to make the contrast more striking, and thus to emphasize it.",
+    "at": "Antithesis, or Contrast, p. 715",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/715/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "antimetabole",
+   "kind": "figure",
+   "label": "Antimetabole",
+   "term": "Antimetabole",
+   "about": "Words are repeated in reverse order to set two things against each other.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things.",
+    "at": "Antimetabole, or Counterchange, p. 301",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/301/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "aposiopesis",
+   "kind": "figure",
+   "label": "Aposiopesis",
+   "term": "Aposiopesis",
+   "about": "The speaker breaks off mid-sentence, as if feeling is too strong to finish.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "It is the sudden breaking off of what is being said (or written), so that the mind may be the more impressed by what is too wonderful, or solemn, or awful for words: or when a thing may be, as we sometimes say, “better imagined than described.”",
+    "at": "Aposiopesis, or Sudden-Silence, p. 151",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/151/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "meiosis",
+   "kind": "figure",
+   "label": "Meiosis",
+   "term": "Meiosis",
+   "about": "One thing is belittled so that another is seen as greater.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A be-littleing of one thing to magnify another",
+    "at": "Meiosis, or A Be-Littleing, p. 155",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/155/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "exclamation",
+   "kind": "figure",
+   "label": "Exclamation",
+   "term": "Ecphonesis",
+   "about": "Feeling shown by crying out.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "An Expression of Feeling by way of Exclamation",
+    "at": "Ecphonesis, or Exclamation, p. 927",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "riddle",
+   "kind": "figure",
+   "label": "Riddle",
+   "term": "Ænigma",
+   "about": "A truth is told in hidden words to be worked out.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A statement of which the meaning has to be searched for in order to be discovered.",
+    "at": "Ænigma, or Dark Saying, p. 772",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/772/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "hypocatastasis",
+   "kind": "figure",
+   "label": "Hypocatastasis",
+   "term": "Hypocatastasis",
+   "about": "Only the picture is given and the thing meant is left implied.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A Declaration that implies the Resemblance or Representation; or Comparison by Implication",
+    "at": "Hypocatastasis, or Implication, p. 744",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/744/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  },
+  {
+   "id": "proverb",
+   "kind": "figure",
+   "label": "Proverb",
+   "term": "Parœmia",
+   "about": "A short common saying is used to make a point.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A wayside-saying in common use",
+    "at": "Parœmia, or Proverb, p. 755",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/755/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   }
+  }
+ ]
+}

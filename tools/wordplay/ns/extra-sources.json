@@ -1,0 +1,179 @@
+{
+ "_comment": [
+  "Checking-only overlay (ATLAS_SOURCES_EXTRA): the cite-list entries proposed for the new writers, from the new-writers research run (wf_62cceb8e-2fd), so figcheck.py, strcheck.py and resolve.py accept their cites while the proposal waits on the Layers thread. Never copied into the repository as it stands."
+ ],
+ "writers": [
+  {
+   "id": "robert-lowth",
+   "name": "Robert Lowth",
+   "about": "Bishop of London",
+   "about_from": "bim_eighteenth-century_lectures-on-the-sacred-p_lowth-robert_1787_1 (1787): title page as the scan's OCR reads it, 'LORD BISHOP OF LONDON,'; its library record: 'translated from the Latin of the Right Rev. Robert Lowth'"
+  },
+  {
+   "id": "john-jebb",
+   "name": "John Jebb",
+   "about": "Bishop of Limerick, Ardfert and Aghadoe",
+   "about_from": "archive.org library record for sacredliterature00jebb, read 2026-11-01, creator 'Jebb, John, bp. of Limerick, Ardfert and Aghadoe, 1775-1833'; title page (1820) 'By the Rev. JOHN JEBB, A.M. RECTOR OF ABINGTON, IN THE DIOCESE OF CASHEL.'"
+  },
+  {
+   "id": "thomas-boys",
+   "name": "Thomas Boys",
+   "about": "Anglican priest and Hebrew scholar",
+   "about_from": "Wikipedia, read 2026-11-01, 'Thomas Boys': 'Thomas Boys (1792–1880) was an Anglican priest and theologian' and 'He established a reputation as a Hebrew scholar'; tactica-sacra (1824): title page 'By the Rev. Thomas Boys, A.M. of Trinity College, Cambridge: Curate of Widford, Herts.'"
+  },
+  {
+   "id": "john-forbes",
+   "name": "John Forbes",
+   "about": "clergyman of Donaldson's Hospital, Edinburgh",
+   "about_from": "symmetricalstruc00forbiala (1854): title page 'By the Rev. John Forbes, LL.D., Donaldson's Hospital, Edinburgh' (OCR 'LLD.', 'EDINBUBGH'); library record, read 2026-11-01: creator 'Forbes, John, 1802-1898'"
+  }
+ ],
+ "works": [
+  {
+   "id": "lowth-lectures",
+   "title": "Lectures on the Sacred Poetry of the Hebrews",
+   "short": "Lectures on the Sacred Poetry of the Hebrews",
+   "written": "1787 (English translation)",
+   "written_from": "bim_eighteenth-century_lectures-on-the-sacred-p_lowth-robert_1787_1: library record 'Lectures on the sacred poetry of the Hebrews; translated from the Latin of the Right Rev. Robert Lowth, ... by G. Gregory, ... 1787: Vol 1'",
+   "year": "1787",
+   "scan": "https://archive.org/details/bim_eighteenth-century_lectures-on-the-sacred-p_lowth-robert_1787_1",
+   "writers": [
+    "robert-lowth"
+   ],
+   "edition": "G. Gregory's translation, London: Ogles, Duncan, and Cochran, 1816, 2 vols. (library record of lecturesonsacred01lowt); the pages cited are read in this edition",
+   "evidence": "lowth-lectures",
+   "shelf": "lowth-lectures",
+   "translated_by": "G. Gregory"
+  },
+  {
+   "id": "lowth-isaiah",
+   "title": "Isaiah: A New Translation; with a Preliminary Dissertation, and Notes Critical, Philological, and Explanatory",
+   "short": "Isaiah: A New Translation",
+   "written": "1795 printing (third edition)",
+   "written_from": "isaiahnewtransla01lowt: title page 'BY ROBERT LOWTH, D. D.' ... 'THE THIRD EDITION,' ... 'LONDON; PRINTED BY J. NICHOLS, FOR T. CADELL; AND SOLD BY T. CADELL, JUN. AND W. DAVIES, MDCCXCV.'; library record 1795, 'London : Printed by J. Nichols, for T. Cadell'",
+   "scan": "https://archive.org/details/isaiahnewtransla01lowt",
+   "writers": [
+    "robert-lowth"
+   ],
+   "edition": "third edition, London: printed by J. Nichols, for T. Cadell, 1795, vol. 1",
+   "evidence": "lowth-isaiah",
+   "shelf": "lowth-isaiah"
+  },
+  {
+   "id": "jebb-sacred-literature",
+   "title": "Sacred Literature; comprising a review of the principles of composition laid down by the late Robert Lowth ...",
+   "short": "Sacred Literature",
+   "written": "1820 printing",
+   "written_from": "sacredliterature00jebb: title page 'LONDON: PRINTED FOR T. CADELL AND W. DAVIES, IN THE STRAND; AND W. BLACKWOOD, EDINBURGH. 1820.' (the scan's OCR text, read 2026-11-01); library record date '1820', publisher 'London, T. Cadell and W. Davies; Edinburgh, W. Blackwood', 'xiv., 471 p. 24 cm'",
+   "year": "1820",
+   "scan": "https://archive.org/details/sacredliterature00jebb",
+   "writers": [
+    "john-jebb"
+   ]
+  },
+  {
+   "id": "boys-tactica-sacra",
+   "title": "Tactica Sacra: An Attempt to Develope, and to Exhibit to the Eye by Tabular Arrangements, a General Rule of Composition Prevailing in the Holy Scriptures",
+   "short": "Tactica Sacra",
+   "written": "1824",
+   "written_from": "tactica-sacra: title page 'London: Published by T. Hamilton, 33, Paternoster Row ... M.DCCC.XXIV.' (archive.org's text of the scan, read 2026-11-01); the item's date field gives 1824. 'by' and 'Prevailing' in the title come from the item's title field: the title-page text as read left them out",
+   "year": "1824",
+   "scan": "https://archive.org/details/tactica-sacra",
+   "writers": [
+    "thomas-boys"
+   ],
+   "evidence": "boys-tactica-sacra",
+   "shelf": "boys-tactica-sacra"
+  },
+  {
+   "id": "boys-key-psalms",
+   "title": "A Key to the Book of Psalms",
+   "short": "A Key to the Book of Psalms",
+   "written": "1825",
+   "written_from": "akeytobookpsalm00boysgoog: title page 'Printed for L. B. Seeley and Son, Fleet Street, London. MDCCCXXV.'; library record (Oxford University copy, digitized by Google) date 1825",
+   "year": "1825",
+   "scan": "https://archive.org/details/akeytobookpsalm00boysgoog",
+   "writers": [
+    "thomas-boys"
+   ],
+   "evidence": "boys-key-psalms",
+   "shelf": "boys-key-psalms"
+  },
+  {
+   "id": "forbes-symmetrical-structure",
+   "title": "The Symmetrical Structure of Scripture: or, The Principles of Scripture Parallelism Exemplified, in an Analysis of the Decalogue, the Sermon on the Mount, and Other Passages of the Sacred Writings",
+   "short": "The Symmetrical Structure of Scripture",
+   "written": "1854",
+   "written_from": "symmetricalstruc00forbiala: library record, read 2026-11-01, 'date: 1854', 'publisher: Edinburgh : T. & T. Clark', 'xiv, 352 p. ; 24 cm'; title page 'Edinburgh: T. & T. Clark, 38 George Street. London: Hamilton, Adams, & Co. Dublin: John Robertson, and Hodges & Smith.' with the year in roman numerals, which the OCR misreads as 'MDcccLnr'",
+   "year": "1854",
+   "scan": "https://archive.org/details/symmetricalstruc00forbiala",
+   "writers": [
+    "john-forbes"
+   ]
+  }
+ ],
+ "cite": [
+  {
+   "id": "lowth",
+   "role": "interpreter",
+   "name": "Robert Lowth",
+   "url": "https://archive.org/details/isaiahnewtransla01lowt",
+   "why": "A Bishop of London who holds the sacred writings justly attributed to the inspiration of the Holy Spirit; each cite names its work and printed page.",
+   "works": [
+    "lowth-lectures",
+    "lowth-isaiah"
+   ]
+  },
+  {
+   "id": "jebb",
+   "role": "interpreter",
+   "name": "Jebb's Sacred Literature",
+   "url": "https://archive.org/details/sacredliterature00jebb",
+   "why": "Jebb calls the New Testament's writers inspired and Scripture the lively oracles of God, and sets out the Bible's parallel lines as they stand.",
+   "parts": [
+    {
+     "books": "all",
+     "work": "jebb-sacred-literature",
+     "writers": [
+      "john-jebb"
+     ],
+     "evidence": "jebb-sacred-literature"
+    }
+   ]
+  },
+  {
+   "id": "boys",
+   "role": "interpreter",
+   "name": "Thomas Boys",
+   "url": "https://archive.org/details/tactica-sacra",
+   "why": "An Anglican Hebrew scholar who holds that the words of the Spirit are delivered in an order of their own, and sets out that order in the text.",
+   "works": [
+    "boys-tactica-sacra",
+    "boys-key-psalms"
+   ]
+  },
+  {
+   "id": "forbes",
+   "role": "interpreter",
+   "name": "Forbes's Symmetrical Structure of Scripture",
+   "url": "https://archive.org/details/symmetricalstruc00forbiala",
+   "why": "Forbes holds that Scripture claims plenary inspiration for itself and answers those who allege mistakes in it; he reads its ordered structure as the work of a God of order.",
+   "parts": [
+    {
+     "books": "all",
+     "work": "forbes-symmetrical-structure",
+     "writers": [
+      "john-forbes"
+     ],
+     "evidence": "forbes-symmetrical-structure"
+    }
+   ]
+  }
+ ],
+ "quotable": [
+  "lowth",
+  "jebb",
+  "boys",
+  "forbes"
+ ]
+}

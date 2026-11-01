@@ -1,0 +1,91 @@
+{
+ "_comment": [
+  "The 12 figures the figure catalogue (List every figure thread) lists next, proposed to the Layers thread for config/figure-forms.json, each labelled with the figure's real name as the founder asked. term is Bullinger's name; about is the catalogue's plain line. The defined quotes and pages are filled in by the forms run."
+ ],
+ "forms": [
+  {
+   "id": "acrostic",
+   "kind": "figure",
+   "label": "Acrostic",
+   "term": "Acrostichion",
+   "about": "Lines or verses begin with the letters of the Hebrew alphabet in order."
+  },
+  {
+   "id": "type",
+   "kind": "figure",
+   "label": "Type",
+   "term": "Type",
+   "about": "A person, thing or event points ahead to a later one, often Christ."
+  },
+  {
+   "id": "allegory",
+   "kind": "figure",
+   "label": "Allegory",
+   "term": "Allegory",
+   "about": "A picture is carried on through a whole passage."
+  },
+  {
+   "id": "parable",
+   "kind": "figure",
+   "label": "Parable",
+   "term": "Parabola",
+   "about": "A likeness is drawn out into a short story."
+  },
+  {
+   "id": "antithesis",
+   "kind": "figure",
+   "label": "Antithesis",
+   "term": "Antithesis",
+   "about": "Two phrases are set side by side to show their difference."
+  },
+  {
+   "id": "antimetabole",
+   "kind": "figure",
+   "label": "Antimetabole",
+   "term": "Antimetabole",
+   "about": "Words are repeated in reverse order to set two things against each other."
+  },
+  {
+   "id": "aposiopesis",
+   "kind": "figure",
+   "label": "Aposiopesis",
+   "term": "Aposiopesis",
+   "about": "The speaker breaks off mid-sentence, as if feeling is too strong to finish."
+  },
+  {
+   "id": "meiosis",
+   "kind": "figure",
+   "label": "Meiosis",
+   "term": "Meiosis",
+   "about": "One thing is belittled so that another is seen as greater."
+  },
+  {
+   "id": "exclamation",
+   "kind": "figure",
+   "label": "Exclamation",
+   "term": "Ecphonesis",
+   "about": "Feeling shown by crying out."
+  },
+  {
+   "id": "riddle",
+   "kind": "figure",
+   "label": "Riddle",
+   "term": "Ænigma",
+   "about": "A truth is told in hidden words to be worked out."
+  },
+  {
+   "id": "hypocatastasis",
+   "kind": "figure",
+   "label": "Hypocatastasis",
+   "term": "Hypocatastasis",
+   "about": "Only the picture is given and the thing meant is left implied."
+  },
+  {
+   "id": "proverb",
+   "kind": "figure",
+   "label": "Proverb",
+   "term": "Parœmia",
+   "about": "A short common saying is used to make a point."
+  }
+ ]
+}

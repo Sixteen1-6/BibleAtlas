@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""figpost.py <out dir> <journal.jsonl>...: figwrite.js journals -> config/figures/<OSIS>.json files for Layers
+"""figpost.py [--forms <proposed-forms.json>] <out dir> <journal.jsonl>...: figwrite.js journals -> config/figures/<OSIS>.json files for Layers
 (PR #63 rules: each cite's writer comes from the cite list; no by).
 
 Takes each batch's confirmed notes (the second reader's), and for every cite:
@@ -302,7 +302,12 @@ def main(out, paths):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
+    argv = sys.argv[1:]
+    if '--forms' in argv:  # proposed forms, not yet in figure-forms.json
+        i = argv.index('--forms')
+        fc.add_forms(argv[i + 1])
+        del argv[i:i + 2]
+    if len(argv) < 2:
         print(__doc__)
         sys.exit(2)
-    main(sys.argv[1], sys.argv[2:])
+    main(argv[0], argv[1:])

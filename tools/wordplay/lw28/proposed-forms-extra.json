@@ -1,0 +1,110 @@
+{
+ "_comment": [
+  "Forms proposed for config/figure-forms.json, for figure notes the Wordplay thread hands to the Layers thread. The Layers thread's branch claude/layers-figure-forms (a21b8f9, wip) already adds 17 forms; these three are the ones it does not have, in its style. Map for notes written with this thread's working ids: doubling and irony are the same ids there.",
+  "defined: Bullinger's own words, found word for word in the UniqueBible.app module of the 1898 text; at and url give the printed page, which is the archive.org leaf minus 54 (the offset that holds through the book). _page says whether a second reader saw a search hit on that leaf; _examples are the first verses Bullinger lists. Fields starting with _ are working notes, not for the build."
+ ],
+ "forms": [
+  {
+   "id": "implied",
+   "kind": "figure",
+   "label": "A picture left unexplained",
+   "term": "Hypocatastasis",
+   "about": "A picture is named and the thing it stands for is left for the hearer to see.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A Declaration that implies the Resemblance or Representation; or Comparison by Implication",
+    "at": "Hypocatastasis, or Implication, p. 744",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/744/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   },
+   "_examples": [
+    "Jer 4:7",
+    "Psa 22:16",
+    "Mat 15:13",
+    "Mat 16:6",
+    "Mat 15:26",
+    "Joh 2:19"
+   ],
+   "_page": "leaf minus 54, with a search-inside hit on that leaf"
+  },
+  {
+   "id": "acrostic",
+   "kind": "figure",
+   "label": "A to Z",
+   "term": "Acrostic",
+   "about": "Lines or verses begin with the letters of the Hebrew alphabet in order.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "Repetition of the same or successive Letters at the beginnings of Words or Clauses",
+    "at": "Acrostichion: or, Acrostic, p. 180",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/180/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   },
+   "_examples": [
+    "Psa 10:1-18",
+    "Psa 25:1-22",
+    "Psa 37:1-40",
+    "Psa 111:1-10",
+    "Psa 112:1-10",
+    "Psa 119:1-176"
+   ],
+   "_page": "leaf minus 54, with a search-inside hit on that leaf"
+  },
+  {
+   "id": "riddle",
+   "kind": "figure",
+   "label": "A riddle",
+   "term": "Enigma",
+   "about": "A truth is put as a riddle or dark saying for the hearer to work out.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A statement of which the meaning has to be searched for in order to be discovered.",
+    "at": "Ænigma, or Dark Saying, p. 772",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/772/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-01"
+   },
+   "_examples": [
+    "Gen 49:10",
+    "Jdg 14:14",
+    "Isa 11:1",
+    "Isa 21:11-12",
+    "Eze 17:2-10",
+    "Dan 5:25-28"
+   ],
+   "_page": "leaf minus 54, not yet read on the printed page"
+  }
+ ],
+ "same_as_layers_branch": {
+  "doubling": "doubling",
+  "irony": "irony",
+  "overstatement": "hyperbole",
+  "question": "question",
+  "gentle": "euphemism",
+  "two-for-one": "hendiadys",
+  "understatement": "understatement",
+  "many-ands": "many-ands",
+  "refrain": "refrain",
+  "address": "apostrophe",
+  "forms": "inflections",
+  "steps": "climbing",
+  "bookends": "frame",
+  "same-start": "beginnings"
+ },
+ "page_differences": [
+  [
+   "refrain",
+   "refrain",
+   "Amœbæon; or, Refrain, p. 343",
+   "Cycloides, or Circular Repetition, p. 342"
+  ],
+  [
+   "steps",
+   "climbing",
+   "Climax; or, Gradation, p. 256",
+   "Anabasis, or Gradual Ascent, p. 429"
+  ]
+ ]
+}

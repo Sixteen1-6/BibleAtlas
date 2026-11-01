@@ -1,0 +1,8 @@
+{
+  "_comment": ["Forms proposed to the Layers thread for config/figure-forms.json, for the notes written with them. The defined quotes and pages are filled in by the forms run (lw28forms)."],
+  "forms": [
+    { "id": "doubling", "kind": "figure", "label": "A word said twice", "term": "Epizeuxis", "about": "A word or name is said twice or more in a row, for weight or strong feeling." },
+    { "id": "irony", "kind": "figure", "label": "Saying the opposite", "term": "Irony", "about": "The words say the opposite of what the speaker means, to expose or rebuke." },
+    { "id": "implied", "kind": "figure", "label": "A picture left unexplained", "term": "Hypocatastasis", "about": "A picture is named and the thing it stands for is left for the hearer to see." }
+  ]
+}
