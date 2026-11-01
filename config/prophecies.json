@@ -1,0 +1,1711 @@
+{
+  "_comment": [
+    "Prophecy and fulfilment: Old Testament passages and the New Testament passages that fulfil them, drawn as their own arcs on the map (crates/atlas-cli/src/extra_prophecies.rs checks every rule below).",
+    "ot, nt: the two passages, as BSB references.",
+    "says: the New Testament's own words that the passage was fulfilled, foretold or spoken of, word for word from the BSB verse in ref. A pair with says shows at every level, since it is Scripture's own claim.",
+    "cites: Christian writers who state the pair, each {source, on, quote, father?}: source is a cite id from config/layer-sources.json whose public-domain text the build reads and that config/figure-forms.json lists as quotable (henry, calvin, catena-aurea), on is the verse the writer's note is on, and quote is his words, which the build finds word for word in that note. father names the Church Father a Catena quotation is by. These are commentary: shown only at Deep, after the commentary notice.",
+    "A pair needs says, a cite, or both. Strength is the number of different writers among its cites: 3 or more widely agreed, 2 commonly held, 1 some interpreters, counted by the build from the cite list's writers (an abridgment counts as the writer it abridges).",
+    "retrieved: the date the quoted words were read from the pinned copies named in sources.json.",
+    "How the pairs were found and checked: docs/evidence/prophecies-2026-11-01.json."
+  ],
+  "retrieved": "2026-11-01",
+  "pairs": [
+    {
+      "ot": "Genesis 3:14-15",
+      "nt": "Galatians 4:4",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Genesis 3:14-15",
+          "quote": "made of a woman (Gal. iv. 4), that this promise might be fulfilled."
+        }
+      ]
+    },
+    {
+      "ot": "Genesis 3:15",
+      "nt": "Revelation 12:7",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Revelation 12:1-11",
+          "quote": "Here we see that early prophecy eminently fulfilled in which God said he would put enmity between the seed of the woman and the seed of the serpent, Gen. iii. 15. You will observe,"
+        }
+      ]
+    },
+    {
+      "ot": "Genesis 12:3",
+      "nt": "Acts 3:25",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 3:12-26",
+          "quote": "v. 25. This refers to that promise made to Abraham (Gen. xii. 3), which promise was long ere it was fulfilled,"
+        }
+      ]
+    },
+    {
+      "ot": "Genesis 12:3",
+      "nt": "Galatians 3:8",
+      "says": {
+        "ref": "Galatians 3:8",
+        "words": "foretold the gospel to Abraham"
+      }
+    },
+    {
+      "ot": "Genesis 15:6",
+      "nt": "James 2:23",
+      "says": {
+        "ref": "James 2:23",
+        "words": "And the Scripture was fulfilled that says"
+      }
+    },
+    {
+      "ot": "Genesis 18:18",
+      "nt": "Galatians 3:8",
+      "says": {
+        "ref": "Galatians 3:8",
+        "words": "foretold the gospel to Abraham"
+      }
+    },
+    {
+      "ot": "Genesis 22:18",
+      "nt": "Galatians 3:8",
+      "says": {
+        "ref": "Galatians 3:8",
+        "words": "foretold the gospel to Abraham"
+      }
+    },
+    {
+      "ot": "Genesis 28:12",
+      "nt": "John 1:51",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "John 1:51",
+          "quote": "Nor have I any doubt that he alludes to the ladder which was exhibited to the patriarch Jacob in a dream, (Genesis 28:12;) for what was prefigured by that vision is actually fulfilled in Christ."
+        }
+      ]
+    },
+    {
+      "ot": "Genesis 49:9",
+      "nt": "Revelation 5:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Genesis 49:8-12",
+          "quote": "(2.) He is the lion of the tribe of Judah, as he is called with reference to this prophecy (Rev. v. 5), who, having spoiled principalities and powers, went up a conqueror, and couched so as none can stir him up, when he sat down on the right hand of the Father."
+        }
+      ]
+    },
+    {
+      "ot": "Exodus 12:46",
+      "nt": "John 19:36",
+      "says": {
+        "ref": "John 19:36",
+        "words": "Now these things happened so that the Scripture would be fulfilled"
+      }
+    },
+    {
+      "ot": "Numbers 9:12",
+      "nt": "John 19:36",
+      "says": {
+        "ref": "John 19:36",
+        "words": "Now these things happened so that the Scripture would be fulfilled"
+      }
+    },
+    {
+      "ot": "Deuteronomy 18:15",
+      "nt": "Acts 7:37",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 7:30-41",
+          "quote": "by showing how the prophecy of Moses was accomplished, which was so clear, that, as Christ told them himself, If they had believed Moses, they would have believed him, John v. 46."
+        }
+      ]
+    },
+    {
+      "ot": "Deuteronomy 18:18",
+      "nt": "Acts 7:37",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 7:30-41",
+          "quote": "by showing how the prophecy of Moses was accomplished, which was so clear, that, as Christ told them himself, If they had believed Moses, they would have believed him, John v. 46."
+        }
+      ]
+    },
+    {
+      "ot": "Job 16:10",
+      "nt": "Matthew 26:67",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Job 16:6-16",
+          "quote": "which was literally fulfilled, Matt. xxvi. 67."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:1-2",
+      "nt": "Acts 4:25-26",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 4:23-31",
+          "quote": "It was foretold, Ps. ii. 1, 2, (1.) That the heathen would rage at Christ and his kingdom, and be angry at the attempts to set it up, because that would be the pulling down of the gods of the heathen, and giving a check to the wickedness of the heathen."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:2",
+      "nt": "Matthew 22:15",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 22:15-22",
+          "quote": "It was foretold concerning him, that the rulers would take counsel against him (Ps. ii. 2); and so persecuted they the prophets."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:2",
+      "nt": "Luke 23:11",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 23:1-12",
+          "quote": "But God ordered it so for the more evident fulfilling of the scripture, as appears Acts iv. 26, 27, where that of David (Ps. ii. 2), The kings of the earth and the rulers set themselves against the Lord and his Anointed, is expressly said to be fulfilled in Herod and Pontius Pilate."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:2",
+      "nt": "John 11:47",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 11:45-56",
+          "quote": "(1.) A special council is called and held (v. 47): Then gathered the chief priests and Pharisees a council, as was foretold, Ps. ii. 2, The rulers take counsel together against the Lord."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:2",
+      "nt": "Acts 4:17",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 4:15-22",
+          "quote": "Now the scripture was fulfilled that the rulers would take counsel together against the Lord, and against his anointed, Ps. ii. 2. The question proposed was, What shall we do to these men?"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 2:7",
+      "nt": "Acts 13:33",
+      "says": {
+        "ref": "Acts 13:33",
+        "words": "He has fulfilled for us, their children, by raising up Jesus"
+      }
+    },
+    {
+      "ot": "Psalms 2:7-9",
+      "nt": "1 Corinthians 15:24",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 2:7-9",
+          "quote": "but it will not be completely fulfilled till all opposing rule, principality, and power, shall be finally put down, 1 Cor. xv. 24;"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 8:2",
+      "nt": "Matthew 21:16",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 21:12-17",
+          "quote": "and quoted a scripture which was fulfilled in it (Ps. viii. 2),"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 16:8-11",
+      "nt": "Acts 2:25-28",
+      "says": {
+        "ref": "Acts 2:31",
+        "words": "Foreseeing this, David spoke about the resurrection of the Christ"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 2:14-36",
+          "quote": "[3.] He showed it to be the fulfilling of the scripture, and, because the scripture had said that he must rise again before he saw corruption, therefore it was impossible that he should be holden by death and the grave; for David speaks of his being raised, so it comes in, v. 25. The scripture he refers to is that of David (Ps. xvi. 8-11),"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 16:9",
+      "nt": "Luke 24:44",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 16:8-11",
+          "quote": "It is foretold (as he himself showed concerning this, no doubt, among other prophecies in this psalm, Luke xxiv. 44, 46) that Christ should suffer, and rise from the dead, 1 Cor. xv. 3, 4."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 16:10",
+      "nt": "Luke 24:27",
+      "cites": [
+        {
+          "source": "catena-aurea",
+          "father": "Theophylact",
+          "on": "Luke 24:25-35",
+          "quote": "(Ps. 16:10.) But it becomes us in all things to give faith to the Prophets, as well in the glorious things which they predicted of Christ, as the inglorious, since through the suffering of evil things is the entrance into glory."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 16:10",
+      "nt": "John 2:22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 2:12-22",
+          "quote": "Secondly, The great sign to prove him to be the Messiah; for concerning him it was foretold that he should be bruised (Isa. liii. 5), cut off (Dan. ix. 26), and yet that he should not see corruption, Ps. xvi. 10. These things were fulfilled in the blessed Jesus, and therefore truly he was the Son of God, and had authority in the temple, his Father's house."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 16:10",
+      "nt": "Acts 13:35",
+      "says": {
+        "ref": "Acts 13:33",
+        "words": "He has fulfilled for us, their children, by raising up Jesus"
+      }
+    },
+    {
+      "ot": "Psalms 16:10",
+      "nt": "1 Corinthians 15:3-4",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 16:8-11",
+          "quote": "It is foretold (as he himself showed concerning this, no doubt, among other prophecies in this psalm, Luke xxiv. 44, 46) that Christ should suffer, and rise from the dead, 1 Cor. xv. 3, 4."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:7",
+      "nt": "Matthew 27:39",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:33-49",
+          "quote": "This very gesture was prophesied of (Ps. xxii. 7); They shake the head at me."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:8",
+      "nt": "Matthew 27:42-43",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:33-49",
+          "quote": "Nay, these very words David, in that famous prophecy of Christ, mentions, as spoken by his enemies (Ps. xxii. 8); He trusted on the Lord that he would deliver him."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:12",
+      "nt": "John 18:3",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 18:1-12",
+          "quote": "Now the scripture was fulfilled, Bulls have compassed me (Ps. xxii. 12), compassed me like bees, Ps. cxviii. 12. The breath of our nostrils is taken in their pit, Lam. iv. 20. They had so often been frustrated in their attempts to seize him that now, having got him into their hands, we may suppose they flew upon him with so much the more violence."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:14",
+      "nt": "Matthew 26:38",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:36-46",
+          "quote": "Now was fulfilled, Ps. xxii. 14, I am poured out like water, my heart is like wax, it is melted; and all those passages in the Psalms where David complains of the sorrows of his soul, Ps. xviii. 4, 5; xlii. 7; lv. 4, 5; lxix. 1-3; lxxxviii. 3; cxvi. 3, and Jonah's complaint, ch. ii. 4, 5."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:15",
+      "nt": "John 19:28",
+      "says": {
+        "ref": "John 19:28",
+        "words": "and to fulfill the Scripture, Jesus said"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 19:19-30",
+          "quote": "it was foretold that his tongue should cleave to his jaws, Ps. xxii. 15."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:16",
+      "nt": "Matthew 26:57",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "Now the scripture was fulfilled (Ps. xxii. 16); The assembly of the wicked have enclosed me."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:18",
+      "nt": "John 19:24",
+      "says": {
+        "ref": "John 19:24",
+        "words": "This was to fulfill the Scripture"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 22:11-21",
+          "quote": "This very circumstance was exactly fulfilled, John xix. 23, 24. And though it was no great instance of Christ's suffering, yet it is a great instance of the fulfilling of the scripture in him."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 22:22",
+      "nt": "John 20:17-18",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "John 20:17-18",
+          "quote": "To this it may be added, that Christ appears to have borrowed this expression from Psalm 22:22, where we and these words: I will declare thy name to my brethren; for it is beyond all controversy, that this passage contains the fulfillment of that prediction."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 27:12",
+      "nt": "Matthew 26:59",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "Now the scriptures were fulfilled, which said, False witnesses are risen up against me (Ps. xxvii. 12);"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 34:20",
+      "nt": "John 19:36",
+      "says": {
+        "ref": "John 19:36",
+        "words": "Now these things happened so that the Scripture would be fulfilled"
+      }
+    },
+    {
+      "ot": "Psalms 35:19",
+      "nt": "John 15:25",
+      "says": {
+        "ref": "John 15:25",
+        "words": "But this is to fulfill what is written in their Law"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 15:18-25",
+          "quote": "that the word might be fulfilled which is written in their law\" (that is, in the Old Testament, which is a law, and was received by them as a law), \"They hated me without a cause;\" this David speaks of himself as a type of Christ, Ps. xxxv. 19;"
+        },
+        {
+          "source": "calvin",
+          "on": "John 15:25",
+          "quote": "that they hated him without a cause Christ quotes a passage from Psalm 35:19, which, he says, is now fulfilled Not that the same thing did not happen,"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 41:9",
+      "nt": "John 13:18",
+      "says": {
+        "ref": "John 13:18",
+        "words": "But this is to fulfill the Scripture"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 41:5-13",
+          "quote": "that the scripture might be fulfilled, He that eats bread with me has lifted up his heel against me, John xiii. 18,"
+        },
+        {
+          "source": "calvin",
+          "on": "John 13:18",
+          "quote": "had foretold, (Psalm 41:9.) Besides,"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 44:22",
+      "nt": "Romans 8:36",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 44:17-26",
+          "quote": "\" In this the Spirit of prophecy had reference to those who suffered even unto death for the testimony of Christ, to whom it is applied, Rom. viii. 36."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 68:31",
+      "nt": "Acts 8:27",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 8:26-40",
+          "quote": "We have here the story of the conversion of an Ethiopian eunuch to the faith of Christ, by whom, we have reason to think, the knowledge of Christ was sent into that country where he lived, and that scripture fulfilled, Ethiopia shall soon stretch out her hands (one of the first of the nations) unto God, Ps. lxviii. 31."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:1-3",
+      "nt": "Matthew 26:37",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:36-46",
+          "quote": "Now was fulfilled, Ps. xxii. 14, I am poured out like water, my heart is like wax, it is melted; and all those passages in the Psalms where David complains of the sorrows of his soul, Ps. xviii. 4, 5; xlii. 7; lv. 4, 5; lxix. 1-3; lxxxviii. 3; cxvi. 3, and Jonah's complaint, ch. ii. 4, 5."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:4",
+      "nt": "John 15:25",
+      "says": {
+        "ref": "John 15:25",
+        "words": "But this is to fulfill what is written in their Law"
+      }
+    },
+    {
+      "ot": "Psalms 69:8",
+      "nt": "John 1:11",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 69:1-12",
+          "quote": "\" This was fulfilled in Christ, whose brethren did not believe on him (John vii. 5), who came to his own and his own received him not (John i. 11), and who was forsaken by his disciples, whom he had been free with as his brethren."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:8",
+      "nt": "John 7:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 69:1-12",
+          "quote": "\" This was fulfilled in Christ, whose brethren did not believe on him (John vii. 5), who came to his own and his own received him not (John i. 11), and who was forsaken by his disciples, whom he had been free with as his brethren."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:21",
+      "nt": "Matthew 27:48",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:33-49",
+          "quote": "as was literally foretold, Ps. lxix. 21."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:21",
+      "nt": "John 19:29",
+      "says": {
+        "ref": "John 19:28",
+        "words": "and to fulfill the Scripture, Jesus said"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 69:13-21",
+          "quote": "in order that his enemies might have occasion to fulfil it, he said, I thirst, John xix. 28,"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 69:25",
+      "nt": "Acts 1:20",
+      "says": {
+        "ref": "Acts 1:16",
+        "words": "the Scripture had to be fulfilled which the Holy Spirit foretold through the mouth of David concerning Judas"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 1:15-26",
+          "quote": "but had also foretold, [1.] His punishment (Ps. lxix. 25):"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 72:4",
+      "nt": "Matthew 11:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:1-6",
+          "quote": "It was foretold that the Son of David should be the poor man's King, Ps. lxxii. 2, 4, 12,, 13. Or we may understand it, not so much of the poor of the world, as the poor in spirit, and so that scripture is fulfilled, Isa. lxi. 1, He hath anointed me to preach glad tidings to the meek."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 72:12",
+      "nt": "Matthew 11:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:1-6",
+          "quote": "It was foretold that the Son of David should be the poor man's King, Ps. lxxii. 2, 4, 12,, 13. Or we may understand it, not so much of the poor of the world, as the poor in spirit, and so that scripture is fulfilled, Isa. lxi. 1, He hath anointed me to preach glad tidings to the meek."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 72:13",
+      "nt": "Matthew 11:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:1-6",
+          "quote": "It was foretold that the Son of David should be the poor man's King, Ps. lxxii. 2, 4, 12,, 13. Or we may understand it, not so much of the poor of the world, as the poor in spirit, and so that scripture is fulfilled, Isa. lxi. 1, He hath anointed me to preach glad tidings to the meek."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 78:2",
+      "nt": "Matthew 13:35",
+      "says": {
+        "ref": "Matthew 13:35",
+        "words": "So was fulfilled what was spoken through the prophet"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 78:1-8",
+          "quote": "This is said to be fulfilled in the parables which our Saviour put forth (Matt. xiii. 35), which were (as this) representations of the state of the kingdom of God among men."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 109:8",
+      "nt": "Acts 1:20",
+      "says": {
+        "ref": "Acts 1:16",
+        "words": "the Scripture had to be fulfilled which the Holy Spirit foretold through the mouth of David concerning Judas"
+      }
+    },
+    {
+      "ot": "Psalms 109:18-19",
+      "nt": "Matthew 27:3",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:1-10",
+          "quote": "All the curses written in God's book now came into his bowels like water, and like oil into his bones, as was foretold concerning him (Ps. cix. 18, 19), and drove him to this desperate shift, for the escaping of a hell within him, to leap into that before him, which was but the perfection and perpetuity of this horror and despair."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 110:1",
+      "nt": "Matthew 22:44",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 22:41-46",
+          "quote": "he quotes Ps. cx. 1, which psalm the scribes themselves understood of Christ; of him, it is certain, the prophet there speaks, of him and of no other man; and it is a prophetical summary of the doctrine of Christ,"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 110:1",
+      "nt": "Matthew 26:64",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "Secondly, In what posture they should see him; 1. Sitting on the right hand of power, according to the prophecy of the Messiah (Ps. cx. 1); Sit thou at my right hand; which denotes both the dignity and the dominion he is exalted to."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 110:1",
+      "nt": "Mark 12:36",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 12:35-40",
+          "quote": "the spirit of prophecy, to call him his Lord, as he doth, Ps. cx. 1."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 110:4",
+      "nt": "Hebrews 7:17",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 110:1-4",
+          "quote": "The apostle comments largely upon these words (Heb. vii.) and builds on them his discourse of Christ's priestly office, which he shows was no new notion, but built upon this most sure word of prophecy."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 110:4",
+      "nt": "Hebrews 7:21",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 110:1-4",
+          "quote": "The apostle comments largely upon these words (Heb. vii.) and builds on them his discourse of Christ's priestly office, which he shows was no new notion, but built upon this most sure word of prophecy."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 117:1",
+      "nt": "Romans 15:11",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalms 117:1-2",
+          "quote": "very justly considers this as a prediction respecting the calling of the whole world, (Romans 15:11.) How can unbelievers be qualified for praising God,"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 117:1-2",
+      "nt": "Ephesians 3:6",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalms 117:1-2",
+          "quote": "This was the mystery which was hidden in prophecy for many ages, but was at length revealed in the accomplishment, That the Gentiles should be fellow-heirs, Eph. iii. 3, 6. Observe here, 1. Who should be admitted into the church—all nations and all people."
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 118:22-23",
+      "nt": "Matthew 21:42",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 21:42",
+          "quote": "Did the Scripture (Psalm 118:22) foretell that he would be received with joy, and favor, and applause; or did it not, on the contrary, foretell that the rulers themselves would oppose him?"
+        }
+      ]
+    },
+    {
+      "ot": "Psalms 132:11",
+      "nt": "Matthew 1:1",
+      "cites": [
+        {
+          "source": "catena-aurea",
+          "father": "Chrysostom",
+          "on": "Matthew 1:1",
+          "quote": "(Ps. 132:11.) He therefore calls Christ the Son of both, to shew that in Him was fulfilled the promise to both."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 1:9",
+      "nt": "Romans 9:29",
+      "says": {
+        "ref": "Romans 9:29",
+        "words": "It is just as Isaiah foretold"
+      }
+    },
+    {
+      "ot": "Isaiah 6:9-10",
+      "nt": "Matthew 13:14-15",
+      "says": {
+        "ref": "Matthew 13:14",
+        "words": "In them the prophecy of Isaiah is fulfilled"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:1-23",
+          "quote": "Now in this the scripture would be fulfilled, v. 14, 15. It is quoted from Isa. vi. 9, 10. The evangelical prophet that spoke most plainly of gospel grace, foretold the contempt of it, and the consequences of that contempt."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 6:10",
+      "nt": "John 12:40",
+      "says": {
+        "ref": "John 12:41",
+        "words": "Isaiah said these things because he saw Jesus’ glory and spoke about Him"
+      }
+    },
+    {
+      "ot": "Isaiah 7:14",
+      "nt": "Matthew 1:23",
+      "says": {
+        "ref": "Matthew 1:22",
+        "words": "All this took place to fulfill what the Lord had said through the prophet"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 1:18-25",
+          "quote": "Now the scripture that was fulfilled in the birth of Christ was that promise of a sign which God gave to king Ahaz (Isa. vii. 14),"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 9:1-2",
+      "nt": "Matthew 4:15-16",
+      "says": {
+        "ref": "Matthew 4:14",
+        "words": "to fulfill what was spoken through the prophet Isaiah"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 4:12-17",
+          "quote": "2. The prophecy that was fulfilled is this, v. 14-16. It is quoted from Isa. ix. 1, 2, but with some variation."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 10:22-23",
+      "nt": "Romans 9:27-28",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Isaiah 10:23",
+          "quote": "In short, Paul there repeats (Romans 9:28) what Isaiah had said in this passage about the future consumption of the people, and shows that this prediction was chiefly fulfilled in his own time, when the Jews were cut off from the kingdom of God on account of their ingratitude, and but a small remnant (Isaiah 1:9, 10:22) was preserved."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 11:2",
+      "nt": "Matthew 3:16",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 3:13-17",
+          "quote": "So here, in the beginning of this new world, Christ, as God, needed not to receive the Holy Ghost, but it was foretold that the Spirit of the Lord should rest upon him (Isa. xi. 2; lxi. 1), and here he did so; for, [1.] He was to be a Prophet; and prophets always spoke by the Spirit of God, who came upon them."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 11:2",
+      "nt": "John 1:32",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 1:29-36",
+          "quote": "The dove brought the olive-branch of peace, Gen. viii. 11. [3.] The Spirit that descended upon Christ abode upon him, as was foretold, Isa. xi. 2. The Spirit did not move him at times, as Samson (Judg. xiii. 25), but at all times."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 19:1",
+      "nt": "Matthew 2:13-15",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 2:13-15",
+          "quote": "according to that prophecy, The Lord shall come into Egypt, and the idols of Egypt shall be moved at his presence, Isa. xix. 1."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 29:13",
+      "nt": "Matthew 15:8-9",
+      "says": {
+        "ref": "Matthew 15:7",
+        "words": "Isaiah prophesied correctly about you"
+      }
+    },
+    {
+      "ot": "Isaiah 29:13",
+      "nt": "Mark 7:6-7",
+      "says": {
+        "ref": "Mark 7:6",
+        "words": "Isaiah prophesied correctly about you hypocrites"
+      }
+    },
+    {
+      "ot": "Isaiah 29:14",
+      "nt": "1 Corinthians 1:19",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Corinthians 1:17-31",
+          "quote": "III. We have here the triumphs of the cross over human wisdom, according to the ancient prophecy (Isa. xxix. 14): I will destroy the wisdom of the wise, and bring to nothing the understanding of the prudent."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 35:5-6",
+      "nt": "Matthew 11:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:1-6",
+          "quote": "It was foretold (Isa. xxxv. 5, 6), that our God should come, and that then the eyes of the blind should be opened."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 35:5-6",
+      "nt": "Mark 7:32",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 7:31-37",
+          "quote": "Now this cure was, (1.) A proof of Christ's being the Messiah; for it was foretold that by his power the ears of the deaf should be unstopped, and the tongue of the dumb should be made to sing, Isa. xxxv. 5, 6. (2.) It was a specimen of the operations of his gospel upon the minds of men."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 35:5",
+      "nt": "Mark 10:52",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 10:46-52",
+          "quote": "Misery is the object of mercy, his own miserable case he recommends to the compassion of the Son of David, of whom it was foretold, that, when he should come to save us, the eyes of the blind should be opened, Isa. xxxv. 5. In coming to Christ for help and healing, we should have an eye to him as the promised Messiah, the Trustee of mercy and grace."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 35:6",
+      "nt": "Acts 3:8",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 3:1-11",
+          "quote": "Here was that scripture fulfilled (Isa. xxxv. 6): Then shall the lame man leap as a hart."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 35:6",
+      "nt": "Acts 14:10",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 14:8-18",
+          "quote": "Herein the scripture was fulfilled, that when the wilderness of the Gentile world is made to blossom as the rose then shall the lame man leap as a hart, Isa. xxxv. 1, 6. Those that by the grace of God are cured of their spiritual lameness must show it by leaping with a holy exultation and walking in a holy conversation."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 40:3",
+      "nt": "Matthew 3:3",
+      "says": {
+        "ref": "Matthew 3:3",
+        "words": "This is he who was spoken of through the prophet Isaiah"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 3:1-6",
+          "quote": "IV. The prophecy that was fulfilled in him, v. 3. This is he that was spoken of in the beginning of that part of the prophecy of Esaias, which is mostly evangelical, and which points at gospel-times and gospel-grace; see Isa. xl. 3, 4. John is here spoken of,"
+        },
+        {
+          "source": "calvin",
+          "on": "Isaiah 40:3",
+          "quote": "This passage is quoted by the Evangelists, (Matthew 3:3; Mark 1:3; Luke 3:4,) and applied to John the Baptist, as if these things had been foretold concerning him, and not unjustly; for he held the highest rank among the messengers and heralds of our redemption, of which the deliverance from Babylon was only a type."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 40:3",
+      "nt": "Mark 1:3",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 1:1-8",
+          "quote": "begins the evangelical part of his prophecy with this, which points to the beginning of the gospel of Christ (Isa. xl. 3);"
+        },
+        {
+          "source": "calvin",
+          "on": "Isaiah 40:3",
+          "quote": "This passage is quoted by the Evangelists, (Matthew 3:3; Mark 1:3; Luke 3:4,) and applied to John the Baptist, as if these things had been foretold concerning him, and not unjustly; for he held the highest rank among the messengers and heralds of our redemption, of which the deliverance from Babylon was only a type."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 40:3-5",
+      "nt": "Luke 3:4-6",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Isaiah 40:3",
+          "quote": "This passage is quoted by the Evangelists, (Matthew 3:3; Mark 1:3; Luke 3:4,) and applied to John the Baptist, as if these things had been foretold concerning him, and not unjustly; for he held the highest rank among the messengers and heralds of our redemption, of which the deliverance from Babylon was only a type."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 40:11",
+      "nt": "Mark 10:16",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 10:13-16",
+          "quote": "Now the scripture was fulfilled (Isa. xl. 11), He shall gather the lambs in his arms, and carry them in his bosom."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 40:11",
+      "nt": "John 10:11",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 10:1-18",
+          "quote": "&c. He was prophesied of under the Old Testament as a shepherd, Isa. xl. 11;"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 42:1-4",
+      "nt": "Matthew 12:18-21",
+      "says": {
+        "ref": "Matthew 12:17",
+        "words": "This was to fulfill what was spoken through the prophet Isaiah"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 42:1-4",
+          "quote": "We are sure that these verses are to be understood of Christ, for the evangelist tells us expressly that in him this prophecy was fulfilled, Matt. xii. 17-21. Behold with an eye of faith, behold and observe, behold and admire, my servant, whom I uphold."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 42:1",
+      "nt": "Luke 3:22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 3:21-38",
+          "quote": "It was foretold concerning the Messiah, I will be his Father, and he shall be my Son, 2 Sam. vii. 14. I will make him my First-born, Ps. lxxxix. 27. It was also foretold that he should be God's elect, in whom his soul delighted (Isa. xlii. 1); and, accordingly, it is here declared, Thou art my beloved Son, in whom I am well pleased."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 49:6",
+      "nt": "Matthew 28:19",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 28:19",
+          "quote": "Thus was fulfilled that prediction of Isaiah, (49:6,) and others of a similar nature, that Christ was"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 50:6",
+      "nt": "Matthew 26:67",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "Now the scripture was fulfilled (Isa. l. 6),"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 50:6",
+      "nt": "Luke 18:32",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 18:31-34",
+          "quote": "Here is one particular instance of disgrace done him, that he was spit upon, which had been particularly foretold, Isa. l. 6. But here, as always, when Christ spoke of his sufferings and death, he foretold his resurrection as that which took off both the terror and reproach of his sufferings: The third day he shall rise again."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 50:6",
+      "nt": "John 18:22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 18:13-27",
+          "quote": "Now the scripture was fulfilled (Isa. l. 6), I gave my cheeks, eis rhapismata (so the LXX.) to blows, the word here used."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 52:13-15",
+      "nt": "Acts 8:34-35",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 52:13-15",
+          "quote": "This prophecy, which begins here and is continued to the end of the next chapter, points as plainly as can be at Jesus Christ; the ancient Jews understood it of the Messiah, though the modern Jews take a great deal of pains to pervert it, and some of ours (no friends therein to the Christian religion) will have it understood of Jeremiah; but Philip, who"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 52:15",
+      "nt": "Romans 15:21",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Romans 15:21",
+          "quote": "He confirms by the testimony of Isaiah what he had said of the evidence of his apostleship; for in Isaiah 52:15, speaking of the kingdom of Messiah, among other things he predicts, that the knowledge of Christ would be spread among the Gentiles throughout the whole world, that his name would be declared to those by whom it had not been heard of before."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:1",
+      "nt": "John 12:38",
+      "says": {
+        "ref": "John 12:38",
+        "words": "This was to fulfill the word of Isaiah the prophet"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 53:1-3",
+          "quote": "v. 1. The unbelief of the Jews in our Saviour's time is expressly said to be the fulfilling of this word, John xii. 38."
+        },
+        {
+          "source": "calvin",
+          "on": "John 12:38",
+          "quote": "John does not mean that the prediction laid a necessity on the Jews; for Isaiah (Isaiah 53:1; Romans 10:16) uttered nothing but what the Lord revealed to him from the secret treasures of his purpose."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:3",
+      "nt": "Matthew 26:37",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:36-46",
+          "quote": "It was prophesied of Christ, that he should be a Man of sorrows (Isa. liii. 3); he was so all along, we never read that he laughed; but all his sorrows hitherto were nothing to this."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:3",
+      "nt": "John 11:35",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 11:33-44",
+          "quote": "[2.] That he was a man of sorrows, and acquainted with grief, as was foretold, Isa. liii. 3. We never read that he laughed, but more than once we have him in tears."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:4",
+      "nt": "Matthew 8:17",
+      "says": {
+        "ref": "Matthew 8:17",
+        "words": "This was to fulfill what was spoken through the prophet Isaiah"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 8:14-17",
+          "quote": "v. 17. The accomplishment of the Old-Testament prophecies was the great thing Christ had in his eye, and the great proof of his being the Messiah: among other things, it was written of him (Isa. liii. 4),"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:5",
+      "nt": "Matthew 27:26",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:26-32",
+          "quote": "Thus the scripture was fulfilled, The ploughers ploughed upon my back (Ps. cxxix. 3), I gave my back to the smiters (Isa. l. 6), and, By his stripes we are healed, Isa. liii. 5. He was chastised with whips, that we might not be for ever chastised with scorpions."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:5",
+      "nt": "1 Corinthians 15:3",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 15:3-4",
+          "quote": "Now there are many passages of Scripture in which Christ’s death and resurrection are predicted, but nowhere more plainly than in Isaiah 53, in Daniel 9:26, and in Psalm 22"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:7",
+      "nt": "Matthew 26:54",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:47-56",
+          "quote": "that Christ should be led as a lamb to the slaughter, Isa. liii. 7. Should he summon the angels to his assistance, he would not be led to the slaughter at all; should he permit his disciples to fight, he would not be led as a lamb quietly and without resistance; therefore he and his disciples must yield to the accomplishment of the predictions."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:7",
+      "nt": "Matthew 26:63",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "but that the scripture might be fulfilled (Isa. liii. 7);"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:7",
+      "nt": "Matthew 27:12-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 27:12-14",
+          "quote": "And thus was fulfilled the prediction of Isaiah, (53:7,) that he was led as a sheep to the slaughter."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:7",
+      "nt": "John 19:9",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 19:1-15",
+          "quote": "that the scripture might be fulfilled, as a sheep before the shearers is dumb, so he opened not his mouth, Isa. liii. 7."
+        },
+        {
+          "source": "catena-aurea",
+          "father": "Augustine",
+          "on": "John 19:9-12",
+          "quote": "So that the prophecy of Him, As a sheep before her shearers is dumb, so opened He not His mouth, (Isa. 53:7.) was amply fulfilled."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:7-8",
+      "nt": "Acts 8:32-33",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 8:26-40",
+          "quote": "So that (these verses foretold concerning the Messiah, (1.) That he should die, should be led to the slaughter, as sheep that were offered in sacrifice—that his life should be taken from among men, taken from the earth."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:10-12",
+      "nt": "Mark 15:27-28",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 53:10-12",
+          "quote": "this prophecy was fulfilled, Mark xv. 27,"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:12",
+      "nt": "Matthew 27:38",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:33-49",
+          "quote": "Some think that Pilate ordered it thus, that this piece of necessary justice, in executing these thieves, might atone for his injustice in condemning Christ; others, that the Jews contrived it, to add to the ignominy of the sufferings of our Lord Jesus; however it was, the scripture was fulfilled in it (Isa. liii. 12), He was numbered with the transgressors."
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 27:38",
+          "quote": "On this account Mark applies to him the prediction of Isaiah, (53:12) he was reckoned among transgressors; for the prophet expressly says concerning Christ, that he will deliver his people, not by pomp and splendor, but because he will endure the punishment clue to their sins."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:12",
+      "nt": "Luke 22:37",
+      "says": {
+        "ref": "Luke 22:37",
+        "words": "this Scripture must be fulfilled in Me"
+      },
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 22:37",
+          "quote": "But that their minds might not be too much disturbed by the baseness of such a transaction, he quotes a prediction of Isaiah, (53:12) which, it is certain, cannot be explained but as referring to the Messiah."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 53:12",
+      "nt": "Luke 23:34",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 23:32-43",
+          "quote": "Now he made intercession for transgressors, as was foretold (Isa. liii. 12), and it is to be added to his prayer (John xvii.), to complete the specimen he gave of his intercession within the veil: that for saints, this for sinners."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 55:1",
+      "nt": "John 7:37",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "John 7:37",
+          "quote": "And I have no doubt that he alludes to that passage in Isaiah, All that thirst, come to the waters, (Isaiah 55:1.) For what the Prophet there ascribes to God must have been at length fulfilled in Christ, as also that which the blessed Virgin sung, that"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 55:3",
+      "nt": "Acts 13:34",
+      "says": {
+        "ref": "Acts 13:33",
+        "words": "He has fulfilled for us, their children, by raising up Jesus"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 13:14-41",
+          "quote": "Now this was the fulfilling of that scripture (Isa. lv. 3),"
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 55:4",
+      "nt": "John 18:37",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 18:28-40",
+          "quote": "It was foretold that he should be a witness to the people, and, as such, a leader and commander to the people, Isa. lv. 4. Christ's kingdom was not of this world, in which truth faileth (Isa. lix. 15, Qui nescit dissimulare, nescit regnare—He that cannot dissemble knows not how to reign), but of that world in which truth reigns eternally."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 60:6",
+      "nt": "Matthew 2:11",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 60:1-8",
+          "quote": "This was in part fulfilled when the wise men of the east (perhaps some of the countries here mentioned), drawn by the brightness of the star, came to Christ, and presented to him treasures of gold, frankincense, and myrrh, Matt. ii. 11."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 61:1",
+      "nt": "Matthew 11:5",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:1-6",
+          "quote": "It was foretold that the Son of David should be the poor man's King, Ps. lxxii. 2, 4, 12,, 13. Or we may understand it, not so much of the poor of the world, as the poor in spirit, and so that scripture is fulfilled, Isa. lxi. 1, He hath anointed me to preach glad tidings to the meek."
+        }
+      ]
+    },
+    {
+      "ot": "Isaiah 61:1-2",
+      "nt": "Luke 4:18-19",
+      "says": {
+        "ref": "Luke 4:21",
+        "words": "Today this Scripture is fulfilled in your hearing"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 61:1-3",
+          "quote": "This day is this scripture fulfilled in your ears (Luke iv. 17,"
+        }
+      ]
+    },
+    {
+      "ot": "Jeremiah 31:15",
+      "nt": "Matthew 2:18",
+      "says": {
+        "ref": "Matthew 2:17",
+        "words": "Then what was spoken through the prophet Jeremiah was fulfilled"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 2:16-18",
+          "quote": "III. The fulfilling of scripture in this (v. 17, 18); Then was fulfilled that prophecy (Jer. xxxi. 15), A voice was heard in Ramah."
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 31:15",
+          "quote": "This passage is quoted by Matthew, (Matthew 2:18) where he gives an account of the infants under two years old, who had been slain by the command of Herod: then he says, that this prophecy was fulfilled, even that Rachel again wept for her children."
+        }
+      ]
+    },
+    {
+      "ot": "Jeremiah 32:6-9",
+      "nt": "Matthew 27:9-10",
+      "says": {
+        "ref": "Matthew 27:9",
+        "words": "Then what was spoken through Jeremiah the prophet was fulfilled"
+      }
+    },
+    {
+      "ot": "Ezekiel 38:22",
+      "nt": "Revelation 20:9",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Revelation 20:1-10",
+          "quote": "Thus the ruin of Gog and Magog is foretold (Ezek. xxxviii. 22), I will rain upon him and upon his bands an overflowing rain, and great hailstones, and fire and brimstone."
+        }
+      ]
+    },
+    {
+      "ot": "Daniel 2:44",
+      "nt": "1 Corinthians 15:24-25",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Daniel 2:31-45",
+          "quote": "and then this prophecy will have its full accomplishment, and not till then, 1 Cor. xv. 24,"
+        }
+      ]
+    },
+    {
+      "ot": "Daniel 7:13",
+      "nt": "Matthew 26:64",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 26:57-68",
+          "quote": "this refers to another prophecy concerning the Son of man (Dan. vii. 13,"
+        }
+      ]
+    },
+    {
+      "ot": "Daniel 9:24-27",
+      "nt": "Hebrews 9:26",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 9:26",
+          "quote": "This agrees with Daniel’s prophecy, in which the sealing up and the abolition of sins are promised, and in which it is also declared that there would be an end to sacrifices, (Daniel 9:24-27;) for to what purpose are expiations when sins are destroyed?"
+        }
+      ]
+    },
+    {
+      "ot": "Daniel 9:26-27",
+      "nt": "1 Corinthians 15:3",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Corinthians 15:1-11",
+          "quote": "Such prophecies as Ps. xvi. 10; Isa. liii. 4-6; Dan. ix. 26, 27; Hos. vi. 2. Such scripture-types as Jonah (Matt. xii. 4), as Isaac, who is expressly said by the apostle to have been received from the dead in a figure, Heb. xi. 19. Note, It is a great confirmation of our faith of the gospel to see how it corresponds with ancient types and prophecies."
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 15:3-4",
+          "quote": "Now there are many passages of Scripture in which Christ’s death and resurrection are predicted, but nowhere more plainly than in Isaiah 53, in Daniel 9:26, and in Psalm 22"
+        }
+      ]
+    },
+    {
+      "ot": "Hosea 6:2",
+      "nt": "1 Corinthians 15:4",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Corinthians 15:1-11",
+          "quote": "Such prophecies as Ps. xvi. 10; Isa. liii. 4-6; Dan. ix. 26, 27; Hos. vi. 2. Such scripture-types as Jonah (Matt. xii. 4), as Isaac, who is expressly said by the apostle to have been received from the dead in a figure, Heb. xi. 19. Note, It is a great confirmation of our faith of the gospel to see how it corresponds with ancient types and prophecies."
+        }
+      ]
+    },
+    {
+      "ot": "Hosea 11:1",
+      "nt": "Matthew 2:15",
+      "says": {
+        "ref": "Matthew 2:15",
+        "words": "This fulfilled what the Lord had spoken through the prophet"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 2:13-15",
+          "quote": "III. The fulfilling of the scripture in a this—that scripture (Hos. xi. 1), Out of Egypt have I called my son."
+        }
+      ]
+    },
+    {
+      "ot": "Joel 2:28-32",
+      "nt": "Acts 2:17-21",
+      "says": {
+        "ref": "Acts 2:16",
+        "words": "this is what was spoken by the prophet Joel"
+      },
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Joel 2:28",
+          "quote": "Peter, in Acts 2, says, that this prophecy was fulfilled when the Spirit was sent."
+        }
+      ]
+    },
+    {
+      "ot": "Amos 8:9",
+      "nt": "Mark 15:33",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 15:33-41",
+          "quote": "Now the scripture was fulfilled (Amos viii. 9), I will cause the sun to go down at noon, and I will darken the earth in the clear day; and Jer. xv. 9, Her sun is gone down while it is yet day."
+        }
+      ]
+    },
+    {
+      "ot": "Amos 9:11",
+      "nt": "Luke 1:32",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 1:32",
+          "quote": "In a word, the angel declares that in the person of Christ would be fulfilled the prediction of Amos, “In that day will I raise up the tabernacle of David that is fallen,” (Amos 9:11.)"
+        }
+      ]
+    },
+    {
+      "ot": "Amos 9:11-12",
+      "nt": "Acts 15:16-18",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Acts 15:6-21",
+          "quote": "It is written, Amos ix. 11, 12, where is foretold,"
+        }
+      ]
+    },
+    {
+      "ot": "Micah 5:2",
+      "nt": "Matthew 2:6",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 2:1-8",
+          "quote": "The proof they produce is taken from Mic. v. 2, where it is foretold that though Bethlehem be little among the thousands of Judah (so it is in Micah),"
+        }
+      ]
+    },
+    {
+      "ot": "Micah 5:2",
+      "nt": "Luke 2:4",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 2:1-7",
+          "quote": "He was born at Bethlehem; so it was foretold (Mic. v. 2), the scribes so understood it (Matt. ii. 5, 6), so did the common people, John vii. 42. The name of the place was significant."
+        }
+      ]
+    },
+    {
+      "ot": "Zechariah 9:9",
+      "nt": "Matthew 21:5",
+      "says": {
+        "ref": "Matthew 21:4",
+        "words": "This took place to fulfill what was spoken through the prophet"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 21:1-11",
+          "quote": "This particularly which was written of him, Zech. ix. 9, where it ushers in a large prediction of the kingdom of the Messiah, Tell ye the daughter of Sion, Behold, thy King cometh, must be accomplished."
+        }
+      ]
+    },
+    {
+      "ot": "Zechariah 9:9",
+      "nt": "John 12:15",
+      "says": {
+        "ref": "John 12:16",
+        "words": "these very things had also been written about Him"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Zechariah 9:9-11",
+          "quote": "That here begins a prophecy of the Messiah and his kingdom is plain from the literal accomplishment of the ninth verse in, and its express application to, Christ's riding in triumph into Jerusalem, Matt. xxi. 5; John xii. 15."
+        },
+        {
+          "source": "calvin",
+          "on": "John 12:14-15",
+          "quote": "The Jews themselves are constrained to expound the prediction of Zechariah 9:9, which was at that time fulfilled, as referring to the Messiah; but, at the same time, they ridiculed us for being led astray by the shadow of an ass, a so as to give the honor of the Messiah to the son of Mary."
+        }
+      ]
+    },
+    {
+      "ot": "Zechariah 11:12-13",
+      "nt": "Matthew 27:9-10",
+      "says": {
+        "ref": "Matthew 27:9",
+        "words": "Then what was spoken through Jeremiah the prophet was fulfilled"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Zechariah 11:4-14",
+          "quote": "and reference is had to this prophecy, Matt. xxvii. 9,"
+        }
+      ]
+    },
+    {
+      "ot": "Zechariah 12:10",
+      "nt": "John 19:37",
+      "says": {
+        "ref": "John 19:36",
+        "words": "Now these things happened so that the Scripture would be fulfilled"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Zechariah 12:9-14",
+          "quote": "and this scripture is quoted as that which was fulfilled when Christ's side was pierced upon the cross; see John xix. 37."
+        }
+      ]
+    },
+    {
+      "ot": "Zechariah 13:7",
+      "nt": "Matthew 26:31",
+      "says": {
+        "ref": "Matthew 26:56",
+        "words": "But this has all happened so that the writings of the prophets would be fulfilled"
+      }
+    },
+    {
+      "ot": "Zechariah 13:7",
+      "nt": "Mark 14:27",
+      "says": {
+        "ref": "Mark 14:49",
+        "words": "But this has happened that the Scriptures would be fulfilled"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Zechariah 13:7-8",
+          "quote": "This our Lord Jesus himself declares to have been fulfilled when all his disciples were offended because of him in the night wherein he was betrayed, Matt. xxvi. 31; Mark xiv. 27. They all forsook him and fled."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 3:1",
+      "nt": "Matthew 3:3",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 3:1-6",
+          "quote": "so it was foretold, Mal. iii. 1."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 3:1",
+      "nt": "Matthew 11:10",
+      "says": {
+        "ref": "Matthew 11:10",
+        "words": "This is the one about whom it is written"
+      }
+    },
+    {
+      "ot": "Malachi 3:1-3",
+      "nt": "Mark 11:11",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 11:1-11",
+          "quote": "that the scripture might be fulfilled; \"The Lord whom ye seek, shall suddenly come to his temple, without sending any immediate notice before him; he shall surprise you with a day of visitation, for he shall be like a refiner's fire, and like fuller's soap,\" Mal. iii. 1-3."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 3:1",
+      "nt": "Luke 2:27",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Malachi 3:1-6",
+          "quote": "according to the direction of this prophecy, to see him, Luke ii. 27."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 3:1",
+      "nt": "Luke 7:27",
+      "says": {
+        "ref": "Luke 7:27",
+        "words": "This is the one about whom it is written"
+      },
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 7:19-35",
+          "quote": "4. He was the harbinger and forerunner of the Messiah, and was himself prophesied of in the Old Testament (v. 27): This is he of whom it is written (Mal. iii. 1), Behold, I send my messenger before thy face."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 3:2-3",
+      "nt": "John 2:14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 2:12-22",
+          "quote": "(2.) The first work we find him at in the temple was the purging of it; for so it was foretold there (Mal. iii. 2, 3): He shall sit as a refiner and purify the sons of Levi."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 4:5",
+      "nt": "Matthew 11:14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:7-15",
+          "quote": "The concluding prophecy of the Old Testament was, Behold, I will send you Elijah, Mal. iv. 5, 6. Those words prophesied until John, and then, being turned into a history, they ceased to prophecy."
+        }
+      ]
+    },
+    {
+      "ot": "Malachi 4:5-6",
+      "nt": "Luke 1:17",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 1:5-25",
+          "quote": "Secondly, He shall be that very person who was prophesied of by Malachi under the name of Elijah (Mal. iv. 5), who should be sent before the coming of the day of the Lord."
+        },
+        {
+          "source": "catena-aurea",
+          "father": "Bede",
+          "on": "Luke 1:15-17",
+          "quote": "But what was foretold of Elias by Malachi, is now spoken by the angel of John; as it follows, That he should turn the hearts of the parents to the children; (Mal. 4:5, 6.) pouring into the minds of the people, by his preaching, the spiritual knowledge of the ancient saints."
+        }
+      ]
+    }
+  ]
+}

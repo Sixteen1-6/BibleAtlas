@@ -1,6 +1,8 @@
-// Links the map draws in colors of their own for the selected verse: where the
+// Links the map draws in colors of their own for the selected verse: an Old
+// Testament prophecy and its New Testament fulfilment (green; at Deep, after
+// the commentary notice, also the pairs only Christian writers name), where the
 // New Testament quotes the Old (and, from Study on, echoes it), and where the
-// same event, song or law is told again. They come from the Quotations and
+// same event, song or law is told again. They come from the Prophecy and fulfilment, Quotations and
 // Parallel passages extras, and show only once the reader's own lines for
 // that verse have loaded their data, so the map never fetches anything and
 // never draws a link the text does not also name.
@@ -9,10 +11,11 @@ import type { Atlas } from '../data/atlas';
 import { atLeast } from '../depth';
 import { dataState } from './extras/data';
 import { type Data as Parallels, passageAt } from './extras/parallels/model';
+import { type Data as Prophecies, otherSide as prophecySide, pairsAt } from './extras/prophecies/model';
 import { type Data as Quotes, isNt, linksAt, otherSide } from './extras/quotes/model';
 import { extraById } from './extras/registry';
 
-export type LinkKind = 'quote' | 'echo' | 'parallel';
+export type LinkKind = 'fulfil' | 'quote' | 'echo' | 'parallel';
 
 export interface KindLink {
   /** The other passage's first verse, where the arc lands. */
@@ -29,7 +32,7 @@ function ready<D>(id: string): D | null {
   return s?.state === 'ready' ? (s.data as D) : null;
 }
 
-/** The colored links of verse `v`: quotations first, then echoes (Study and
+/** The colored links of verse `v`: fulfilments first, then quotations, then echoes (Study and
  *  deeper, as in its line), then parallels. A passage is named once, under
  *  the first kind that names it. Reading this subscribes the caller to the
  *  extras' data and the reader's level. */
@@ -41,6 +44,8 @@ export function kindLinks(a: Atlas, v: number): KindLink[] {
     seen.add(to);
     out.push({ to, kind });
   };
+  const f = ready<Prophecies>('prophecies');
+  if (f) for (const p of pairsAt(f, v)) add(prophecySide(a, p, v).from, 'fulfil', MOST);
   const q = ready<Quotes>('quotes');
   if (q) {
     const nt = isNt(a, v);

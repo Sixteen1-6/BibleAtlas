@@ -914,9 +914,11 @@ fn evidence_file(name: &str, v: &Value, today: Date, ev: &mut Evidence) -> Resul
         }
         // Where the quotations of Figures at Deep were found; extra_figures.rs owns them and Layers reads none.
         Some("figure-quotes") => {}
+        // Where the writers' words on the prophecy pairs were found; extra_prophecies.rs owns them.
+        Some("prophecy-checks") => {}
         // Another module's evidence with no kind (the Bible text credits' af-bt file); a Layers cite it should date still fails as unrecorded.
         None => {}
-        Some(_) => return Err(format!("{name}: kind must be \"reads\", \"checks\", \"attribution\" or \"figure-quotes\"")),
+        Some(_) => return Err(format!("{name}: kind must be \"reads\", \"checks\", \"attribution\", \"figure-quotes\" or \"prophecy-checks\"")),
     }
     Ok(())
 }
