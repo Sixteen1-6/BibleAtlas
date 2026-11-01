@@ -582,6 +582,74 @@ p .godeeper {
   grid-template-columns: minmax(0, 1fr) clamp(360px, 32vw, 520px);
   min-height: 0;
 }
+/* Back, Forward and Full page on top of the side panel (ui/PanelNav.tsx). */
+.study {
+  --pnh: 42px;
+}
+.panelnav {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--pnh);
+  padding: 0 8px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.pnbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink);
+  font: 13px var(--font-ui);
+  white-space: nowrap;
+}
+.pnbtn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.pnbtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.pnwhere {
+  flex: 1;
+  min-width: 0;
+  padding: 0 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font: 13px var(--font-ui);
+}
+.pnwide[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+/* The panel over the whole page: the text steps aside, the notes stay a
+   comfortable width in the middle. */
+.work[data-wide='true'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.work[data-wide='true'] > .reader {
+  display: none;
+}
+.work[data-wide='true'] .study > :not(.panelnav):not(.tabs) {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.work[data-wide='true'] .tabs {
+  justify-content: center;
+}
 /* With the map hidden the header sits straight on the text. */
 .app[data-map='hide'] {
   grid-template-rows: auto 1fr;
@@ -606,7 +674,7 @@ p .godeeper {
   padding: 8px 10px 0;
   border-bottom: 1px solid var(--line);
   position: sticky;
-  top: 0;
+  top: var(--pnh);
   background: var(--surface);
   z-index: 2;
   overflow-x: auto;
@@ -1373,6 +1441,19 @@ p .godeeper {
   }
   .work[data-pane='read'] .study,
   .work[data-pane='study'] .reader {
+    display: none;
+  }
+  .work[data-wide='true'][data-pane='read'] > .reader {
+    display: block;
+  }
+  .study {
+    --pnh: 48px;
+  }
+  .pnbtn {
+    min-height: 38px;
+    padding: 4px 10px;
+  }
+  .fwdlabel {
     display: none;
   }
   .reader {
