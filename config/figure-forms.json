@@ -3,7 +3,7 @@
     "The forms that figure, parallelism and contrast notes in config/figures/ may use. Shown only at Deep.",
     "label is the plain name a reader sees first; term is the usual name for the form; about says what it is in plain words.",
     "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json (which says who wrote its words), quote its exact words, at where in the book, url the page they are on, read the edition or site the words were read from and retrieved the date (decision 10). Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
-    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and it was completed after Bullinger's death in 1913 by others, in parts not yet established), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words), the church fathers (a group, not one work) and the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice; it may be cited and linked, never quoted). The NET translators' notes are never shown. Works left out may still be linked from Layers.",
+    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved; Spurgeon waits for Project Gutenberg's proofread volumes, decision 8), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and it was completed after Bullinger's death in 1913 by others, in parts not yet established), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words), the church fathers (a group, not one work) and the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice; it may be cited and linked, never quoted). Tropologia is left out too (2026-11-01): Book I is partly translated and compiled from other writers, and Books II and III hold other men's poems. The NET translators' notes are never shown. Works left out may still be linked from Layers.",
     "A cite or definition names no writer itself: the cite list in config/layer-sources.json says who wrote a source's words on each book, as it does for Layers (decision 10), so a work by several hands credits each book's own writer, two works by one writer count once toward a note's strength, and words whose writer is not named or is no longer cited are refused."
   ],
   "forms": [
@@ -203,7 +203,6 @@
     "boys",
     "forbes",
     "horne",
-    "augustine",
-    "spurgeon"
+    "augustine"
   ]
 }
