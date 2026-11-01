@@ -1,0 +1,252 @@
+{
+ "build": {
+  "files": [
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\state.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\Notice.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\Gate.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\commentary.css",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\main.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\types.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\VerseExtras.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\Sheet.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\README.md",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\dictionary.extra.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\dictionary\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\dictionary\\model.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\notes.extra.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\notes\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\notes\\model.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\hard-verses.extra.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\hard-verses\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\hard-passages\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\voices.extra.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\voices\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\voices\\model.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\voices.css",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\wordplay.extra.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\wordplay\\Panel.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\wordplay\\model.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\Layers.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\Dictionary.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\ChapterWhen.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\Sources.tsx"
+  ],
+  "tests": [
+   "npx tsc --noEmit in C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web: exit 0 (re-run this session)",
+   "Playwright check C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\check-notice.cjs against a fresh Vite dev server (port 5301), re-run this session: 102 passed, 0 failed, no console errors (log: C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\run-2026-10-21.log)",
+   "Checks covered: no notice on arrival and Notice.tsx not downloaded on arrival; Layers card on Isaiah 53:5 closed; both pages' words, 1 of 2 / 2 of 2, focus on each heading; Escape x3 and click outside do nothing; '/' search blocked behind it; Tab stays inside; Not now and phone Back leave commentary closed, store nothing, restore focus and the address; finishing opens the asked-for surface, sets atlas.commentary=1, moves focus to its start, shows the reminder line; second visit has no notice; See the notice again shows Close / I understand; phone 390x844 fills the screen, buttons full width >=48px; all nine surfaces (Layers, wordplay, study notes, Often asked with stand-in data, dictionary panel, shelf dictionary entry, Christian writers, hard-passages answers, When line More) ask at the right moment; shared links open each panel closed with no notice; Back brings a panel back closed; Sources shelf See the notice / Close commentary again; storage blocked shows the notice once per page load; 320px nothing cut off; reduced motion has no animation",
+   "npm run build passed in the earlier run at 23:38 on 2026-10-20 after the last source edit (23:18); log C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\build.log; no source changed since",
+   "Diff scan: 0 em dashes, 0 emoji, and no AI or Claude wording in any added line or the commit message"
+  ],
+  "screenshots": [
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\01-simple-1440-dark-arrive-layers-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\02-simple-1440-dark-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\03-simple-1440-dark-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\04-simple-1440-dark-layers-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\05-simple-1440-dark-second-visit.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\06-simple-1440-dark-notice-again-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\07-simple-1440-light-arrive-layers-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\08-simple-1440-light-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\09-simple-1440-light-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\10-simple-1440-light-layers-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\11-simple-390-light-arrive.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\12-simple-390-dark-explore-layers-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\12-simple-390-light-explore-layers-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\13-simple-390-dark-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\13-simple-390-light-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\14-simple-390-dark-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\14-simple-390-light-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\15-simple-390-dark-layers-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\15-simple-390-light-layers-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\16-study-1440-dark-dictionary-line.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\17-study-1440-dark-dictionary-notice.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\18-study-1440-dark-dictionary-panel-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\19-study-1440-dark-notes-panel.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\20-study-1440-light-notes-notice.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\21-study-1440-light-when-more-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\22-deep-1440-dark-voices-link-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\23-deep-1440-dark-voices-notice-over-panel.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\24-deep-1440-dark-voices-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\25-deep-1440-dark-voices-open-end.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\26-deep-1440-light-hard-passages-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\27-deep-1440-light-hard-passages-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\28-deep-390-light-voices-link-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\29-deep-390-light-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\30-deep-390-light-voices-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\31-deep-390-dark-hard-passages-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\32-deep-390-dark-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\33-deep-1440-light-shelf-before.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\34-deep-1440-light-shelf-after.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\35-simple-1440-dark-shelf-entry-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\36-simple-1440-dark-shelf-entry-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\37-study-390-light-shelf-entry-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\38-blocked-1440-dark-wordplay-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\39-blocked-1440-dark-notice-again-after-reload.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\40-simple-320-dark-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\41-study-1440-light-often-asked-link-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\42-study-1440-light-often-asked-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\43-simple-1440-light-wordplay-notice.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\44-simple-1440-light-wordplay-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\45-study-390-dark-when-line.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\46-study-390-dark-when-notice-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\47-study-390-dark-when-more-open.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\48-study-390-light-notes-link-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\49-study-1440-dark-dictionary-link-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\50-study-1440-dark-wordplay-link-closed.png"
+  ],
+  "commit": "d12a4dd323fe74646ab93144377b15127882ebeb",
+  "notes": "The earlier run that hit the usage limit had already finished the build and committed it as d12a4dd on branch commentary-notice (\"Commentary opens only after a two-page notice that it is not God's Word\"). The commit ends with Co-Authored-By: Claude Opus 5.5. The working tree was clean. I made no new commit and changed no code. In this session I:\n\n1. Reviewed the whole diff against NOTICE-SPEC.md section by section, and the build matches it:\n   - One shared module in web/src/ui/commentary: state.ts, Gate.tsx, Notice.tsx (loaded with import() only when first asked for) and commentary.css.\n   - Small hooks in each of the nine surfaces.\n   - The two spine changes the spec calls for: types.ts gains `commentary` and `closed()`, VerseExtras.tsx gates the line tap and the panel, and Sheet.tsx gets one Escape condition. The extras README documents them.\n   - The wording matches the spec exactly, and Acts 17:11 matches web/public/data/bsb.txt line 27535.\n   - The page matches the mockup at 1440 and 390, in dark and light.\n   - The only entry point to a commentary panel is openExtra in VerseExtras.tsx, so the panel's closed state is a safety net for any other route.\n   - Nothing else shows Layers or hard-verse text. The map's dashed layer arcs and the Reader's layered-verse markers carry no words.\n2. Re-ran npx tsc --noEmit: it passes.\n3. Ran a fresh Vite server on port 5301 and re-ran the 102-check Playwright script: 102 passed, 0 failed, no console errors. All 55 screenshots under shots/ were regenerated from this run. I stopped the server afterwards.\n\nFounder rules: no AI wording, em dashes or emoji anywhere in the added code, the notice, the closed lines or the commit message.\n\nTwo deliberate deviations:\n- The Often asked panel shows no source line while it is closed. That line is the existing \"Answers written for this app with AI help...\" credit, and founder decision 15 says no AI credit. Every other panel keeps its source line in the closed state, as the spec says.\n- voicesAllowed was removed rather than renamed. The atlas.voices key is no longer read, and it is deleted when the reader finishes the notice.\n\nPre-existing AI wording in surfaces I did not otherwise change was left as it is, because founder decisions 13 and 15 are a separate task. Examples are the hard-verses and hard-passages source lines, and the Layers Deep line.\n\norigin/main has moved 3 commits since the branch point (b6d7f1e to 2aabdcc), but they touch only config/layers.json and docs/evidence, so they do not overlap with this branch. I did not rebase; a rebase would be clean if wanted.\n\nnpm run build passed in the earlier run after the last source edit (build.log). Nothing was pushed."
+ },
+ "verify:craft": {
+  "pass": false,
+  "findings": [
+   {
+    "severity": "major",
+    "problem": "On a phone, a quick double tap on \"Next\" finishes the whole notice. Page 2's \"I understand. Show the commentary\" sits in the same full-width bottom spot as page 1's \"Next\" (Next was about y 776 to 826 at 390x844; I understand is y 757 to 824). The page turns within a frame, while page 2 is still fading in, so the second tap lands on it. Reproduced at 390x844: two taps 180 ms apart on the centre of Next close the notice and set atlas.commentary=1, so page 2 (the Berean verse) is never seen. On desktop the same happens when the double click lands in the bottom ~10 px of Next (Next y 632 to 682, I understand y 672 to 722, overlapping x). This undoes the founder's \"they have to click like 2 pages, not just click okay once\". Probe: C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\craft\\probe.cjs, scenario E.",
+    "fix": "In Notice.tsx, ignore clicks on page 2's primary button for about 600 ms after the page turns (for example a `readyAt` ref set in the page effect, with `end(true)` returning early before it), or until the cn-turn animation ends. Also avoid stacking it where Next was: on phones put \"I understand\" above \"‹ Back\", so a stray second tap lands on Back. Keyboard is already safe, because focus moves to the heading."
+   },
+   {
+    "severity": "major",
+    "problem": "At large browser text sizes, the page 1 boxes overflow and are clipped. Spec section 4 lists \"the browser's text size set to very large\" as a check, and the builder's run did not cover it. `.cn-pair` stays two columns until a px breakpoint (`@media (max-width: 360px)`), while the text inside grows with `font-size: medium`. Measured with Page.setFontSizes: at Chrome's \"Very large\" (24 px) on desktop 1440/1280/700 wide, \"Commentary\" and \"People’s words about the Bible\" overflow their dashed box by 41 px and run through its border. On a 390 phone at 20 px they overflow by 19 px (26 px at 375). At 24 px they overflow by 61 px and are cut off at the screen edge, reading \"Commentar\" and \"about the Bibl\". The core word of the notice is clipped for exactly the readers who asked for big text. Screenshots: ...\\craft\\shots\\P2-390x844-f24-p1.png (same as D-390x844-f24-dark-p1.png), P2-1440x900-f24-p1.png and P2-390x844-f20-p1.png.",
+    "fix": "Make the boxes stack with the text size, not the px width. For example `.cn-pair { grid-template-columns: repeat(auto-fit, minmax(min(100%, 11em), 1fr)); }` and drop the 360px query. An em media query also works (`@media (max-width: 40em)`, since media-query em follows the browser default size). Add `overflow-wrap: anywhere` on `.cn-box b, .cn-box span` as a last resort. Re-check at 20 and 24 px default text at 390 and 1440."
+   },
+   {
+    "severity": "minor",
+    "problem": "\"Not now\" is not in the same place on both pages, as spec section 2 asks. The card is centred and page 2 is about 80 px taller, so on desktop the whole card (top bar and Not now) jumps up 40 px when Next is pressed (Not now at y 206 on page 1, y 166 on page 2, at 1440x900 in both themes).",
+    "fix": "Give the desktop card a fixed or minimum height that fits the taller page, or anchor it from the top (for example `margin-top: max(24px, 12vh)` instead of vertical centring). Then the top bar and Not now stay still, and the foot stays still too."
+   },
+   {
+    "severity": "minor",
+    "problem": "At 400% zoom (a 320x256 CSS px viewport), page 2's foot (two stacked full-width buttons, 164 px) leaves a 34 px scrolling window for the heading, verse and warning, and the foot runs 4 px past the bottom of the dialog. Both buttons, including \"I understand\", are fully visible while the words are not. This technically meets \"buttons stay reachable\", but the words are barely readable (shot ...\\craft\\shots\\P2-320x256-p2.png).",
+    "fix": "On short screens (for example `@media (max-height: 32em)`), let the whole dialog scroll and put the foot in normal flow: `.cn-dialog { overflow: auto }`, `.cn-body { overflow: visible; flex: none }`. The reader then scrolls through the words to reach the buttons."
+   },
+   {
+    "severity": "minor",
+    "problem": "The repo's rule docs are now stale, and the commit leaves them unchanged. CLAUDE.md line 21 and docs/HANDOFF.md line 545 still say Christian writers appear \"after 'Show what they wrote'\" (the one-click opt-in and atlas.voices are gone; it is now the two-page commentary notice). docs/handoff/map-content.md line 27 says the same. CLAUDE.md also asks that the PR changing main rewrite HANDOFF section 0.",
+    "fix": "In the PR, change those lines to say the writers, and all commentary, open after the two-page commentary notice (atlas.commentary). Rewrite docs/HANDOFF.md section 0 as CLAUDE.md requires."
+   }
+  ]
+ },
+ "verify:access": {
+  "pass": false,
+  "findings": [
+   {
+    "severity": "major",
+    "problem": "A double tap or double click on \"Next\" gets past page 2 without the reader seeing it. Page 2's \"I understand. Show the commentary\" button sits exactly where \"Next\" was: the same full-width bottom slot on phones, and the same right-aligned spot in the footer whenever the dialog is at its maximum height. Measured on a fresh Vite server (port 5331) with Playwright scripts in ...\\scratchpad\\ba\\notice\\a11y (dbl.cjs, adv.cjs B). On a 390x844 phone, two taps on Next 0, 150, 300 and 450 ms apart each closed the notice, set atlas.commentary=1 and opened the Layers notes. A mouse double click did the same at 720x450 (1440x900 at 200% zoom) and in a landscape phone layout (844x390). At 1440x900, 1366x768, 1280x720 and 768x1024 it was safe, but only because page 2 is about 40 px taller and pushes the button down. Enter pressed repeatedly is safe, because focus moves to the heading. So on the phone, the main audience, one impatient double tap opens commentary, which is the 'not just click okay once' the founder ruled out.",
+    "fix": "In Notice.tsx, ignore activation of the page-2 primary button for about 800 ms after page 2 appears. Also ignore any click whose pointerdown started before page 2 rendered (record the time of the page change and compare it with the event). Or move page 2's primary button off the Next spot: on phones, put \"‹ Back\" in the bottom slot and \"I understand\" above it, and on desktop put Next on the left. Add checks to check-notice.cjs: on 390x844, a double tap at 0, 150 and 300 ms gaps leaves the notice open on page 2. At 720x450, mouse.dblclick on Next does the same."
+   },
+   {
+    "severity": "major",
+    "problem": "At 200% zoom the notice's main words are hidden below a fold, with no sign there is more. The top bar (65 px) and the footer (87 px) stay fixed, and the words scroll in a small box between them. At 1440x900 zoomed to 200% (720x450, shots/zoom-720x450-p1.png), page 1 shows the heading, the two boxes and Next. The sentence \"What you are about to read was written by people. It can help you understand the Bible, but it is not the Bible.\" is entirely below the fold, and the page looks finished, because the boxes end neatly at the divider. On page 2, \"If anything here disagrees with the Bible, trust the Bible.\" is hidden. At 1366x768 zoomed to 200%, a very common laptop (C-zoom200-1366-p1/p2.png), the reading window is 183 px tall. Page 1 cuts the boxes in half, and page 2 shows only the heading and its first sentence, while \"I understand\" is fully visible. At 400% (320x256) the window on page 2 is 34 px, a sliver of the heading. Headless Chromium hides scrollbars, but on macOS and phones the scrollbars are also hidden until you scroll. Low-vision readers at 200% are the ones who most need 'very big and easy to understand', and they can finish without ever seeing the explanation.",
+    "fix": "When the dialog is short (for example @media (max-height: 36em), or whenever .cn-body overflows), let the whole dialog scroll as one column. Put the top bar and the buttons in normal flow after the words, so the reader reaches Next / I understand only after scrolling past the message. Otherwise, at least make the top bar and footer smaller at short heights, and add a visible cue that there is more (a fade at the bottom edge and a 'More below' hint). Add a check that at 720x450 and 683x384 the page 1 sentence and the page 2 'trust the Bible' line are visible, or are reached before the primary button."
+   },
+   {
+    "severity": "major",
+    "problem": "With large default text, a phone cuts off the very words that explain what commentary is. The two boxes stay side by side unless the screen is 360 px wide or narrower. That breakpoint is in px, so it ignores text size. Default text was set with CDP Page.setFontSizes, which works like the browser's font size setting (font.cjs, sweep.cjs). At 125% (20 px) on a 390 phone, \"Commentary\" spills across its dashed border. At 150% (24 px) on 390 and 412 px phones, \"Commentar\" and \"People’s words / about the Bibl\" are cut off at the right edge (body scrollWidth 421 in a 390 box; shots/font-w390-t24-p1.png). Reading them needs sideways scrolling inside the dialog. At 175% on a 360 phone and at 200%, the heading word \"commentary,\" is cut off too (C-phone390-text200-p1.png). At 195 px wide (200% page zoom on a 390 phone), the heading's comma and \"Thessalonians,\" in the verse are cut off. This is WCAG failure F69 (resize text), and it breaks the spec's promise that sizes follow the reader's text size and nothing is cut off.",
+    "fix": "In commentary.css, stack the boxes based on text size rather than pixels: for example .cn-pair { grid-template-columns: repeat(auto-fit, minmax(min(100%, 11em), 1fr)); }, or switch the media query to em (max-width: 40em). Give .cn-box > div min-width: 0, and add overflow-wrap: break-word (with hyphens: auto) to .cn-h, .cn-box b and .cn-verse p. Add a check at 390 and 412 px with default text at 20, 24 and 32 px: no element in the dialog is wider than its box, and .cn-body.scrollWidth equals clientWidth."
+   },
+   {
+    "severity": "minor",
+    "problem": "Screen reader users are not told which page they are on. \"Page 1 of 2\" sits before the heading in the dialog, but focus lands on the heading. On opening, and again on each page change, only the heading is read (the AX tree shows the step as separate text before the focused heading). So the reader does not hear that page 2 is the last one.",
+    "fix": "Put a visually hidden \"Page 2 of 2.\" inside each h2, or add the step's id to aria-describedby so it is read with the page."
+   },
+   {
+    "severity": "minor",
+    "problem": "aria-describedby points at the whole page body, so the dialog's description is all of page 1 (the box texts plus the paragraph). On opening, NVDA and JAWS read all of it as the dialog description, then read it again as the reader moves down from the heading.",
+    "fix": "Point aria-describedby at just the main sentence (the cn-p paragraph), or drop it, since focus already starts on the heading."
+   },
+   {
+    "severity": "minor",
+    "problem": "The <footer> inside the verse blockquote is exposed by Chrome as a contentinfo landmark: the AX tree shows 'contentinfo \"Acts 17:11, Berean Standard Bible\"'. It is the only landmark inside the modal, which is odd when navigating by landmarks.",
+    "fix": "Use <p class=\"cn-cite\"> or <cite> for the reference in Notice.tsx, and keep the same styling."
+   },
+   {
+    "severity": "minor",
+    "problem": "Nothing shows while the notice's code is first downloading. The asking button gets no busy or disabled state. App shortcuts are blocked, but Tab and Enter still act on the page behind. With the Notice chunk delayed 4 s (slow.cjs), Tab then Enter moved the app to 1 Peter 2:24, and the notice then opened over a different passage. If the chunk fails to load, the tap does nothing visible. The chunk is 1.8 kB gzipped, so the gap is usually one round trip.",
+    "fix": "Set aria-busy and disabled on the asking control while loading, or preload Notice.js when the browser is idle or on hover and focus of a commentary button. If the load fails, show a short message."
+   },
+   {
+    "severity": "minor",
+    "problem": "The buttons that open the notice (\"Read the notes\", the verse lines, \"Show what they wrote\", \"More\" on the When line) do not tell screen reader users that a dialog opens first.",
+    "fix": "Add aria-haspopup=\"dialog\" to these buttons while commentary is not accepted."
+   }
+  ]
+ },
+ "verify:coverage": {
+  "pass": false,
+  "findings": [
+   {
+    "severity": "major",
+    "problem": "The \"Written:\" part of the When line shows the dating views themselves, in the Tyndale dictionary's words, before any notice. It appears after every chapter, at every level including Simple. ChapterWhen.tsx line 94 prints writtenSummary(), which builds the line from lineLabel() of the first one or two views and adds a \"(N views)\" count. A fresh visit at Simple (adv-when.cjs) shows: Dan 7 \"Written: sixth century BC or about 165 BC\"; Gen 1 \"15th century BC or 13th-century BC (3 views)\"; Isa 40 and 53 \"during Isaiah's retirement years (2 views)\"; Eccl 1 \"c. 940 BC or in the postexilic period (4 views)\"; Rev 1 \"shortly after the reign of Nero or at the close of Domitian's reign\". These are disputed claims about authorship and dates, labelled as views, so they are not just a short date. The task's own context lists \"the dating views on the Written line\" among the places that show people's words. The spec (section 1 table and decision 3) left this line open as \"a short date label\", but no founder sign-off is recorded. On every chapter this is the commentary readers see most, more than the Layers card. Other probes found no leak; see the final finding for the list.",
+    "fix": "Until the notice is finished, show only \"When: <era>\" (the era is the app's own choice). In place of the views, give the Written part a neutral label such as \"Written: when scholars date it\" with More, and keep More opening the notice. Show the views on the line only once accepted is true. If the founder prefers the line to stay open, get his explicit yes on decision 3 with these examples in front of him before the PR."
+   },
+   {
+    "severity": "minor",
+    "problem": "Some Aramaic Deep notes, which the spec leaves open, report what commentators hold, with no notice. web/public/data/extras/aramaic/deep.json sections.jeremiah says: \"Keil, in the Keil and Delitzsch commentary, holds that Jeremiah himself wrote it in Aramaic, as words for Israel to say to the idol-worshippers in their own language: their gods will perish\". entries.abba-father says the pairing \"suggests that Greek-speaking churches kept Jesus' own Aramaic address to God\", and cephas-paul draws a similar conclusion about the early church. The UBS \"In their world\" notes keep their symbolism sections, for example \"perhaps indicating Abraham's generosity toward his guests\". The spec calls Aramaic \"which language the Bible keeps a word in, checked against the text\", and that undersells these sentences.",
+    "fix": "Put these exact sentences in front of the founder for decision 3. If he wants them gated, wrap the Aramaic Deep paragraphs that report a writer's view (at least sections.jeremiah) in <Commentary line=... button=...>, the same way hard-passages wraps its answers."
+   },
+   {
+    "severity": "minor",
+    "problem": "The NET translators' notes link is not behind the notice, though data/net.ts line 11 calls those notes \"the NET's own commentary\". At Study and Deep, the Reader's \"Translators' notes\" toggle (Reader.tsx line 178) adds \"Read the NET translators' notes on this verse at netbible.org\" (NetVerseNotes, line 297). The same link inside the Christian writers' read-more list (voices/links.ts line 94) is gated, and so are the hard-passages links to answers on other websites. The same off-site commentary is gated in one place and open in another. The Sources shelf cards for commentaries, such as Keil and Delitzsch's \"Bible Hub, chapter by chapter\" link, also link out with no notice.",
+    "fix": "Make the Translators' notes toggle wait for askNotice() while accepted is false, as ChapterWhen's More does. Or write down a deliberate rule that off-site links stay open, and apply it the same way everywhere: then the hard-passages answers and the writers' read-more links would not need the gate either."
+   },
+   {
+    "severity": "minor",
+    "problem": "The choice is not kept in step across open tabs. state.ts line 30 reads accepted once, when the page loads, and nothing listens for the storage event. To reproduce (adv-more.cjs scenario E): open tab C after finishing the notice, then use \"Close commentary again\" on the Sources shelf in tab A. Tab C keeps the Layers card open, and tapping \"Christian writers\" there opens the panel with no notice until the page is reloaded. The spec says closing \"closes every commentary surface, and the notice comes again next time\". This fails open only for a reader who has already finished the notice once. The reverse case, a tab opened before finishing, fails closed and simply asks again.",
+    "fix": "In state.ts, add window.addEventListener('storage', (e) => { if (e.key === KEY || e.key === null) accepted.value = stored(); }). A null key means storage was cleared in another tab."
+   },
+   {
+    "severity": "minor",
+    "problem": "Some fully gated panels also hide the Scripture they show. Until the notice is finished, the wordplay verse panel hides its passages side by side and its Hebrew and Greek word cards (wordplay/Panel.tsx lines 135 and 175 to 177). The Often asked panel hides its passages (hard-verses/Panel.tsx lines 61 to 63), and the closed Layers card hides its verse and word chips. Hard passages works the other way: its passages stay open because \"the passages are Scripture and always show\". The same verses can still be read in the reader, so nothing is lost outright. But the rule \"Scripture is never gated\" is applied two different ways. Everything else held. I ran these probes with fresh storage at all three levels: arrival and every tab on 8 verses; 20 shared and deep links (x=voices, notes, dictionary, wordplay, hard-passages and hard-verses, their .chapter forms, and shelf read= and src=term= entries), each followed by Back and Forward; the old atlas.voices=1 and odd atlas.commentary values; Escape, clicks outside, Not now, page 2 then Back, phone Back and Forward; search for commentary words; non-commentary lines and the alphabet poem (none asks); and storage where getItem throws or setItem throws. I checked visible text, title and aria attributes, and hidden DOM text against 35,865 commentary snippets taken from the data, with Scripture snippets removed. There were 0 leaks and 0 console errors, and a positive control confirmed the snippets show once accepted. Scripts and logs: C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\adv-canary.cjs, adv-more.cjs, adv-when.cjs, adv-AC.log, adv-DE.log, adv-F.log.",
+    "fix": "Do what hard-passages does: render the Lead, SideBySide/Passage and word cards outside <Commentary>, and gate only the note text (play.layer.text and the Often asked answer). Or record in the spec, for the founder, that these panels are gated whole on purpose."
+   }
+  ]
+ },
+ "fix": {
+  "files": [
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\Notice.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\commentary.css",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\Gate.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\commentary\\state.ts",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\ChapterWhen.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\Reader.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\Sources.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\web\\src\\ui\\extras\\VerseExtras.tsx",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\CLAUDE.md",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\docs\\HANDOFF.md",
+   "C:\\Users\\shubh\\Projects\\BibleAtlas-notice\\docs\\handoff\\map-content.md",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\check-notice.cjs",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\NOTICE-SPEC.md",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\fix2\\probe.cjs",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\fix2\\run-check-full.log"
+  ],
+  "tests": [
+   "tsc --noEmit (TypeScript 7.0.2, 382 files): pass, run again just before the commit",
+   "vite build to a scratch folder: pass. Notice is still its own chunk (Notice-*.js, 6.1 kB, 2.4 kB gzipped); the 'Opening the notice' layer is in index",
+   "check-notice.cjs, full run on Vite port 5347: 152 passed, 0 failed, no console errors (log: scratchpad\\ba\\notice\\fix2\\run-check-full.log). This is the existing A to J (102 checks, unchanged except that the foot buttons are now pressed after 850 ms) plus new K to N:",
+   "K: double tap on Next at 390x844, 0, 150 and 300 ms apart, and a mouse double click on Next at 720x450 and 844x390. The notice stays open on page 2 with nothing stored. On phones, page 2 puts Back where Next was",
+   "L: default text at 20, 24 and 32 px on 390 and 412 phones, and 24 px at 1440. Both pages: no element is wider than its box, and dialog and .cn-body scrollWidth equal clientWidth",
+   "M: 720x450 and 683x384 (200% zoom). The page 1 sentence and the page 2 'trust the Bible' line are either seen or come before the primary button, and 'More below' shows while the button is out of sight",
+   "N: Not now stays at y 163 on both pages at 1440x900. The dialog name starts 'Page 2 of 2.', the description is the one key sentence, and there is no landmark inside",
+   "N2: at Simple, Dan 7 reads 'Written: when scholars date it' before the notice and 'Written: sixth century BC or about 165 BC' after it (positive control). More carries aria-haspopup only before the notice. Closing commentary in one tab closes the Layers card in another tab without a reload",
+   "N3: the NET Translators' notes toggle opens the notice first. Not now leaves it off, and finishing the notice turns it on",
+   "N4/N5: with the Notice chunk delayed 3 s, the asking button is aria-busy, 'Opening the notice...' shows, and Tab or Enter do nothing behind it. With the chunk aborted, a 'could not open' alert shows and the notes stay closed",
+   "fix2\\probe.cjs layout sweep: 1440x900 both themes, 1366x768, 1280x720, 768x1024, 390x844 both themes, 375x667, 320x640. Nothing overflows. On desktop, Not now is at the same y on both pages",
+   "fix2\\probe.cjs dbl: 390 phone taps 0/150/180/300/450 ms apart plus a triple tap; double clicks at 720x450, 844x390, 1366, 1280 and 1440 (bottom edge). All stay on page 2, and a deliberate later tap on I understand still finishes",
+   "fix2\\probe.cjs font and zoom: 360/390/412 phones at 20 to 32 px text; desktop at 24 px (1440, 1280, 700); zoom at 720x450, 683x384, 640x400, 320x256, 844x390. No overflow, and the key sentence always comes before the button",
+   "fix2\\probe.cjs a11y: ARIA snapshot names the dialog 'Page 1 of 2. This is commentary, not God's Word', the cite is a paragraph (no contentinfo), and Enter pressed 4 times on page 2 leaves the notice open",
+   "adv-when.cjs, the reviewer's probe, at Simple on 17 chapters: every Written part reads 'when scholars date it'. No dating view shows (log: fix2\\adv-when.log)"
+  ],
+  "screenshots": [
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots (01 to 56, regenerated by the full run; 51 to 56 are new: after a double tap, text 24 px, 720x450 and 683x384 zoom, When line closed and open, failed load)",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\14-simple-390-dark-notice-page2.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\45-study-390-dark-when-line.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\54-simple-1440-light-when-line-closed.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\53-simple-720x450-light-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\shots\\52-simple-390-dark-text24-page1.png",
+   "C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\notice\\fix2\\shots (probe shots: layout-*, font-*, zoom-* at every size listed in tests)"
+  ],
+  "commit": "13de9c3 on branch commentary-notice in C:\\Users\\shubh\\Projects\\BibleAtlas-notice (\"The commentary notice cannot be passed with a double tap, and its words come before its buttons\"), on top of d12a4dd. It carries the Co-Authored-By line and has not been pushed.",
+  "notes": "All 6 majors are fixed. 8 of the 12 minors are fixed in code; the other 4 are left for the founder to decide.\n\nMajors:\n1. Written line (ChapterWhen.tsx). Until the notice is finished, the line reads \"When: <era> · Written: when scholars date it\" plus More, and More asks for the notice. The dating views appear on the line only once accepted is true. The When part, the era, still shows. This goes against the old spec, which left the line open as \"a short date label\", so the founder may want it back. If he does, revert that one line and record his yes on decision 3.\n2 and 3. Double tap (Notice.tsx). Next, Back and I understand ignore a press for 800 ms after a page appears (SETTLE_MS). They also ignore a mouse or touch press that began on the page before; a key press only has to wait. On phones (max-width 600px, read through matchMedia so the focus order matches what is shown), page 2 renders I understand first and Back second. Back therefore sits where Next was. On desktop the order stays Back then I understand.\n4. 200% zoom (commentary.css). The dialog itself scrolls (overflow auto). .cn-body is flex 1 0 auto, so the buttons sit at the bottom when everything fits and come after the words when it does not. A sticky \"More below\" fade shows until the first foot button is in view. Under @media (max-height: 36em) the top bar, the foot and the margins are smaller.\n5 and 6. Large text. The card is now min(40em, 100% - 48px) wide. .cn-pair uses repeat(auto-fit, minmax(min(100%, 13em), 1fr)), with 9.5em on phones; the 360px query is gone. .cn-box > div has min-width 0, and the text breaks inside its box with overflow-wrap. I did not use hyphens: auto: Chrome would hyphenate the big heading even at normal sizes.\n\nMinors fixed:\n- Not now no longer moves. The desktop card is anchored at max(24px, (100vh - 37em) / 2) instead of centred; page 2 is about 36.6em tall.\n- 400% zoom: the whole notice scrolls, with the buttons after the words.\n- Storage event sync in state.ts: a KEY or null key re-reads the stored choice.\n- \"Page N of 2.\" is a visually hidden span inside each h2, and the visible step is aria-hidden.\n- aria-describedby points at the one key sentence on each page.\n- The verse's footer is now <p class=\"cn-cite\">.\n- Loading. The notice code is preloaded on pointerover, touchstart or focusin of any [data-cn-ask] control. While it loads, a clear .cn-wait layer takes taps, keydown blocks the default action until a .cn-dialog exists, the opener gets aria-busy, and \"Opening the notice…\" shows after 300 ms. A failed load shows a role=alert message for 6 s.\n- aria-haspopup=\"dialog\" plus data-cn-ask (the ASKS constant in Gate.tsx) is now on Closed buttons, \"See the notice again\", the shelf buttons, More (before the notice) and the NET toggle. The extras lines already had haspopup; they now also get data-cn-ask.\n- NET translators' notes. The toggle waits for askNotice() while not accepted, and notesWanted also needs accepted.\n\nMinors left for the founder (recorded in NOTICE-SPEC.md decision 3 and in the new section 0 row of docs/HANDOFF.md):\n- Aramaic Deep notes: sections.jeremiah (Keil), abba-father and cephas-paul. The exact sentences are quoted in the spec.\n- The UBS \"In their world\" symbolism sections.\n- Wordplay and Often asked panels opened by a link are still closed whole, passages included, while Hard passages keeps its passages open. I did not refactor this. The spec now records it as a choice for the founder.\n- Sources shelf commentary cards still link out with no notice.\n\nDocs. These docs changes are in the commit:\n- CLAUDE.md line 21 and docs/HANDOFF.md section 6 replace \"after Show what they wrote\" with the commentary rule.\n- docs/handoff/map-content.md line 27 is updated.\n- Section 0 of docs/HANDOFF.md gets an in-flight row for commentary-notice. It is not a full rewrite, because main has moved: #50 (layers-mend) merged as 2aabdcc and changed only config/layers.json and docs/evidence.\n\nBefore a PR: rebase on origin/main.\n\nScratch:\n- check-notice.cjs was edited in place; the earlier copy is fix2\\check-notice.before.cjs.\n- Probes, logs and the scratch build are in scratchpad\\ba\\notice\\fix2.\n\nThe Vite server on port 5347 was started in the background for this run."
+ }
+}

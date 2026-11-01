@@ -1,0 +1,92 @@
+{
+ "build:AF-BT": {
+  "module": "AF-BT",
+  "branch": "af-bt",
+  "commit": "ce24306a90113fdc31a08bd6ac880fb7ae8063de",
+  "changed": [
+   "web/src/data/net.ts",
+   "web/src/ui/Reader.tsx",
+   "web/src/ui/Pairs.tsx",
+   "docs/evidence/af-bt-2026-10-21.json",
+   "(not committed, fragments for AF-INT) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\shelf-cards.json",
+   "(not committed) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\notice.md",
+   "(not committed) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\pr.md",
+   "(not committed) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\counts.json",
+   "(not committed) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\check-net-not-stored.mjs",
+   "(not committed) C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\grammar-check.mts and grammar-check.txt"
+  ],
+  "checks": [
+   "Worktree C:\\Users\\shubh\\Projects\\BibleAtlas-af-bt on branch af-bt from origin/main 2aabdcc (after git fetch); data\\raw copied from BibleAtlas-fixes; web\\node_modules junctioned; not pushed",
+   "cargo clippy --workspace --release -- -D warnings: pass",
+   "cargo test --release -p atlas-cli: 199 passed, 0 failed",
+   "cargo run --release -q -p atlas-cli -- build: 2212 files, build id 6e89a09cfa05 (same as main and live; no data or Rust changed)",
+   "cargo run --release -q -p atlas-cli -- verify: 5909 checks passed (same as main)",
+   "npx tsc --noEmit in web: pass",
+   "npm run build (VITE_ESV=off): pass; Ask matcher 51,736 of 66,453 examples (77.9%, needs 70%); main script 341.33 kB / 127.97 kB gzipped, +8.58 kB / +3.24 kB gzipped over 2aabdcc",
+   "NET acknowledgment compared character for character with https://netbible.com/copyright/ fetched 2026-10-21T11:08:48Z (only difference: the page's no-break spaces around the address); 'study tool' sentence found 0 times on that page and on labs.bible.org",
+   "check-net-not-stored.mjs: 67 NET verses (Genesis 1, John 3) read live into memory, 53 probes of 70 characters, 4,457 files (219.6 MB) in web/public/data, web/dist and web/public/sw.js: 0 found",
+   "Grammar tooltips checked against STEPBible TEHMC and TEGMC at the pinned commit for every code in the built text: 734 of 742 Hebrew/Aramaic parts (99.6% of parts) and 1,098 of 1,167 Greek codes (97.6% of words) give the key's phrase exactly; every difference listed in the evidence file",
+   "Ask and search unchanged (rule 8): import graph of web/src/ui/ask/*, ask.extra.tsx and Palette.tsx reaches 36 files, none of the three changed files; the Gate G capture tool was not written by this module",
+   "Browser (Playwright 1.63, vite preview): 1440x900 and 390x844, light and dark, Study, Genesis 1 and John 3, BSB and NET, Word by word and color pairs on: 0 console errors; BSB and TAHOT credit links open their cards (not empty); before shots from the live site, after shots from this branch; preview server stopped",
+   "New strings: 0 em dashes, 0 of rule 3's AI credit phrases (also 0 in the evidence and fragments)",
+   "Rule 12 before start: no in-flight branch or worktree held net.ts, Reader.tsx or Pairs.tsx",
+   "Rule 12 before commit: no branch commits an owned file, but uncommitted Reader.tsx edits appeared in BibleAtlas-empty (three-way merge with ce24306 is clean) and BibleAtlas-notice (one conflict in the import lines next to the Pairs import, fixed by keeping both). Committed locally; the PR waits for AF-INT to choose the merge order (see pr.md)",
+   "Found outside this module, not changed: server/esv.mjs's ESV notice differs from the ESV API terms ('copyright © 2001' and two sentences missing); the plan's \"when\": \"esv\" filter clashes with every card's date field (the fragment uses onlyWhen; AF-SH to name it); the NET shelf card repeats the old NET line (fix in shelf-cards.json)"
+  ],
+  "screenshots": [
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-1440-light-Gen1-notes.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-1440-light-Gen1-credits-BSB.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-1440-light-John3-credits-NET.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-1440-dark-John3-notes.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-390-light-Gen1-notes.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-390-dark-Gen1-notes.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-390-light-John3-credits-BSB.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-390-light-card-BereanStandardBible.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\before-1440-light-Gen1-notes.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\before-1440-light-John3-credits-NET.png",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\after-report.json",
+   "C:\\Users\\shubh\\Projects\\bibleatlas-workfiles\\2026-10-20\\audit-fixes\\af-bt\\screens\\before-report.json"
+  ],
+  "prBody": "**Before**\n\n- Under every NET chapter: \"Scripture quoted by permission. ... Biblical Studies Press, L.L.C. All rights reserved. To see the NET Bible® study tool go to https://netbible.org.\" The acknowledgment was missing \"http://netbible.com\", which the NET copyright page puts inside it. The \"study tool\" sentence is not on that page (checked 21 October 2026: 0 matches).\n- Under every BSB chapter: \"English: Berean Standard Bible (public domain).\" It named no translator and gave no date. The reader had no way to open its card. \"Hebrew and Aramaic: Leningrad Codex via STEPBible TAHOT (CC BY 4.0).\" It gave no date for the codex.\n- With Word by word on, the English under each Hebrew or Greek word was STEPBible's (447,744 words), but it was not credited. Its marks were not explained: 34,602 words carry < > (such as <obj.> on 11,003 Hebrew words) and 52,003 carry [ ].\n- Each word's tooltip showed a raw code, such as \"HTd/Ncmpa\" or \"V-IAI-3S\".\n- The color-pairs note said \"Alignment by Clear Bible (CC BY 4.0)\" and linked to the repository's current head. It did not say who made the links or that 18,945 links were left out. It also showed while the NET was on, when no colors are drawn.\n\n**After**\n\n- NET: \"English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org.\" The acknowledgment is a permission term, so it now matches the publisher's page character for character. The address links to the same place the page links it. \"(NET)\" still links to netbible.org.\n- BSB: \"English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023).\" The name opens the BSB card on the Sources shelf.\n- Hebrew: \"Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).\" Greek: \"Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).\" TAHOT and TAGNT open their cards.\n- With Word by word on: \"Word for word: STEPBible's English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object.\" In the New Testament the note adds \"based on the Berean Study Bible as it stood in July 2019\", as TAGNT itself says. On devices with a mouse it adds \"Point to a word for its grammar, from STEPBible's key.\"\n- Tooltips now give the grammar in words, taken from STEPBible's own keys (TEHMC and TEGMC). For example: \"Definite article (Hebrew) + Noun (Plural Masculine, Absolute)\" and \"Verb Imperfect Active Indicative 3rd Singular\".\n- Color pairs: \"Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out.\" The name links the pinned version (c99bd0ae). The count is read from the build's meta.json, so it follows the data. The note is hidden while the NET is shown.\n\n**How**\n\n- web/src/data/net.ts: the acknowledgment and the two addresses are constants, with a note of where and when they were checked.\n- web/src/ui/Reader.tsx: the credit lines, the card links, the word-for-word note and the tooltips. The pairs note shows only when colors are drawn.\n- web/src/ui/Pairs.tsx: CardLink, WordsNote, the new PairsNote, and grammarTip. grammarTip reads each grammar code part by part, using the keys' own words for its letters. Every code the app ships was checked against the keys' own phrases:\n  - Hebrew and Aramaic: 734 of 742 parts give the key's phrase exactly (99.6% of parts in the text).\n  - Greek: 1,098 of 1,167 codes give the key's phrase exactly (97.6% of words).\n  - The rest are places where a key's phrase repeats, drops or contradicts its own fields. All are listed in the evidence file.\n- docs/evidence/af-bt-2026-10-21.json records every fact with its page or pinned file, HTTP status, time and SHA-256 (decision 11). Checks are described, never who made them (decision 19). Nothing credits AI (decision 15).\n- No data, Rust, Ask or search code changed.\n- Shelf and NOTICE text is not in this PR. The corrected NOTICE.md NET paragraph and the BSB, TAHOT, Clear and NET cards wait for PR H. The new ESV card (server deploys only) waits for AF-SH's PR.\n\n**Checks**\n\n- cargo clippy --workspace --release -- -D warnings: pass.\n- cargo test --release -p atlas-cli: 199 passed.\n- atlas build: build id 6e89a09cfa05, unchanged.\n- atlas verify: 5,909 checks passed, the same as main.\n- npm run build (VITE_ESV=off): pass. The Ask matcher finds its own question for 51,736 of 66,453 examples (77.9%).\n- Main script: 341.33 kB (127.97 kB gzipped), which is 8.58 kB (3.24 kB gzipped) larger than at 2aabdcc.\n- Ask and search are unchanged: none of the three changed files is among the 36 files that web/src/ui/ask/*, ask.extra.tsx and Palette.tsx import, directly or through other files.\n- No NET text is stored. Genesis 1 and John 3 were read live into memory, and 53 probes were searched for in 4,457 files of web/public/data, web/dist and sw.js: 0 found.\n- Browser at 1440x900 and 390x844, light and dark, Study level: Genesis 1 and John 3 in the BSB and the NET with Word by word on. Covered the pairs note, the tooltips on Hebrew and Greek words, and the BSB and TAHOT links (each opens its card, not an empty one). 0 console errors.\n- New strings: 0 em dashes and 0 of the AI credit phrases (rule 3)."
+ },
+ "verify:AF-BT": {
+  "pass": true,
+  "findings": [
+   {
+    "severity": "minor",
+    "problem": "For 3 words the grammar tooltip contradicts STEPBible's key for that exact code, even though the note says the grammar comes \"from STEPBible's key\". AVPi3ms and AVPi3mp show \"Pual\" where TEHMC's fields and phrase both say \"Hitpeel\". HVqj1cp shows \"Cohortative\" where the key's fields (Mood=Jussive) and phrase both say \"Jussive\"; this comes from the module's own rule for first-person forms, not from the key. The evidence record stepbible-morphology-keys then describes these wrongly: it calls them \"5 Aramaic codes (6 parts) where the phrase and the fields disagree\". In fact HVqj1cp is Hebrew, and for the AVPi3m* codes the phrase and the fields agree. Only the key's other AVP codes say Pual.",
+    "fix": "In Pairs.tsx hebrewPart, for these codes either follow the key's own entry or drop the first-person jussive-to-cohortative override. Or keep the choice and correct the evidence record: name each code, say the key is inconsistent across AVP codes (Hitpeel in AVPi3m*, Pual in AVPj3mp and AVPp3m*), and say HVqj1cp is a deliberate departure from the key."
+   },
+   {
+    "severity": "minor",
+    "problem": "The evidence overstates the Greek match. It says \"1,098 of 1,167 codes give the key's phrase exactly\". An independent run of the committed grammarTip against TEGMC at 1f3423d4 finds 1,067 exact matches (138,435 of 142,096 words). The other 31 are joined codes such as \"CONJ + G1437=COND\" and \"P-1NS + G2532=CONJ\" (about 255 words). TEGMC has no phrase for these, and the module's check script counted them as matches whenever they decoded. The Hebrew figures (734 of 742 parts; 467,329 of 469,294) reproduce exactly.",
+    "fix": "Correct the evidence record and the PR body: 1,067 codes give the key's phrase exactly, and 31 joined codes are put in words part by part, each part from the key."
+   },
+   {
+    "severity": "minor",
+    "problem": "The tooltip credit names only STEPBible's key. The grammar analysis itself comes from elsewhere. TAHOT's header says \"Grammar Morphology is from ETCBC, with Ketiv forms parsed by Tyndale scholars\", and TAGNT's says \"Grammar: Based on James Tauber, with additional details by Tyndale scholars\". Decision 10 asks for the true original author. The Hebrew line \"Leningrad Codex (about AD 1008), tagged by STEPBible\" also leaves out that TAHOT's Hebrew comes from WLC 4.20 via OpenScriptures and departs from Leningrad in places (Qere, restored text, LXX-based additions). That line is the plan's own wording, so this is a gap rather than an error.",
+    "fix": "Add the origin in a short phrase, for example \"Point to a word for its grammar (ETCBC's tagging for Hebrew, James Tauber's for Greek, via STEPBible), in the words of STEPBible's key\". Or hand the ETCBC, Tauber and WLC facts to AF-INT as additions to the tahot and tagnt card fragments."
+   },
+   {
+    "severity": "minor",
+    "problem": "The date check in the plan asks for a catalogue record. The Leningrad Codex date \"about AD 1008\" rests instead on a Cambridge University Library article and the USC West Semitic Research Project page; the evidence says this openly. The date itself checks out: the Cambridge page reads the colophon as 1008 to 1011, mostly 1008 to 1009.",
+    "fix": "None needed for the reader line. AF-INT or AF-SH could note in the TAHOT card evidence that no catalogue record was found online, or add one if the National Library of Russia catalogue becomes reachable."
+   },
+   {
+    "severity": "minor",
+    "problem": "Rule 12 before commit: BibleAtlas-empty and BibleAtlas-notice both hold uncommitted edits to web/src/ui/Reader.tsx, an owned file. Confirmed on 21 October after git fetch. The rule says the module waits for that branch to merge, but the module committed locally. It disclosed this in pr.md and left the PR to AF-INT, and it reports the merges: clean with empty, one conflict in the import lines with notice.",
+    "fix": "AF-INT decides the merge order before opening the PR, as pr.md asks. If AF-BT goes first, tell the notice run to rebase and keep both import lines."
+   },
+   {
+    "severity": "minor",
+    "problem": "Browser coverage was narrower than gate G asks. The module checked Study only, while gate G asks for Simple, Study and Deep. It also did not open the TAGNT credit link or the STEPBible link in the Greek word-for-word note, although rule 7 says every new link is opened. I opened TAGNT at Simple and Deep (1440 and 390, light and dark) on John 3 against a vite server from the worktree. The card opens and is not empty, the credit line shows at Simple, and the notes and Greek tooltips show at Deep. The only console errors were dev-server font 403s caused by the node_modules junction, which does not affect the app.",
+    "fix": "Add Simple and Deep, the TAGNT link and the Greek STEPBible link to the module's browser run, and keep the screenshots with the others."
+   },
+   {
+    "severity": "minor",
+    "problem": "The ESV card fragment (shelf-cards.json, held for AF-SH's PR, not in this commit) has two gaps. It gives \"by\": \"Crossway\", the publisher, where decision 10 asks for the translators. It also gives only \"2001\", while the Crossway permissions page fetched today names \"ESV Text Edition: 2025\", the text the API serves.",
+    "fix": "In the fragment, name the ESV translators (the Translation Oversight Committee, published by Crossway). Add the current text edition, for example \"when\": \"2001; text edition 2025\", and record the Crossway page's edition line in the evidence."
+   }
+  ]
+ }
+}

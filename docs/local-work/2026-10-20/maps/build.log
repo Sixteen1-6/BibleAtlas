@@ -1,0 +1,1447 @@
+=== Bible Atlas native Windows build check, 2026-10-20T11:04:58-04:00
+host: MINGW64_NT-10.0-26200 Shubhanshu 3.5.7-463ebcdc.x86_64 2025-03-03 17:26 UTC x86_64 Msys
+cores: 22
+cargo 1.99.0 (5f94df478 2026-08-27)
+rustc 1.99.0 (b940084d7 2026-09-28)
+v24.13.0
+npm 11.6.2
+git version 2.49.0.windows.1
+git-lfs/3.6.1 (GitHub; windows amd64; go 1.23.3; git ea47a34b)
+core.autocrlf (system): true
+LongPathsEnabled: 0 (HKLM FileSystem)
+
+=== worktree add origin/main
+Preparing worktree (detached HEAD a46d819)
+HEAD is now at a46d819 Merge pull request #46 from Sixteen1-6/claude/net-bible-6d3ryw
+rc=0 (worktree add took under 2 s)
+
+=== clippy (cargo clippy --workspace --release -- -D warnings)  [11:05:17]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo clippy --workspace --release -- -D warnings)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded syn v3.0.6
+   Compiling version_check v0.9.5
+   Compiling proc-macro2 v1.0.107
+    Checking typenum v1.20.1
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+    Checking itoa v1.0.18
+    Checking cpufeatures v0.2.17
+    Checking atlas-core v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-core)
+    Checking cfg-if v1.0.5
+    Checking memchr v2.8.3
+   Compiling generic-array v0.14.7
+    Checking atlas-wasm v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-wasm)
+    Checking crypto-common v0.1.7
+    Checking block-buffer v0.10.4
+    Checking digest v0.10.7
+   Compiling syn v3.0.6
+    Checking sha2 v0.10.9
+   Compiling serde_derive v1.0.229
+    Checking atlas-cli v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-cli)
+    Finished `release` profile [optimized] target(s) in 46.96s
+--- clippy (cargo clippy --workspace --release -- -D warnings): rc=0 wall=47.831s
+
+=== tests (cargo test --workspace --release)  [11:06:10]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo test --workspace --release)
+   Compiling typenum v1.20.1
+   Compiling atlas-core v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-core)
+   Compiling itoa v1.0.18
+   Compiling cpufeatures v0.2.17
+   Compiling cfg-if v1.0.5
+   Compiling memchr v2.8.3
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling generic-array v0.14.7
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling atlas-wasm v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-wasm)
+   Compiling atlas-cli v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-cli)
+    Finished `release` profile [optimized] target(s) in 7m 05s
+     Running unittests src\main.rs (target\release\deps\atlas-7b448ac977f00cc5.exe)
+
+running 199 tests
+test align::tests::finds_shifted_links ... ok
+test align::tests::pairs_with_gaps ... ok
+test ask::tests::content_words_by_morphology ... ok
+test ask::tests::example_messages ... ok
+test ask::tests::framework_words ... ok
+test ask::tests::question_words_and_stems ... ok
+test ask::tests::subtracted_ranges ... ok
+test english::tests::normalizes ... ok
+test eras::tests::chapter_scopes ... ok
+test eras::tests::chart_scanner_and_dates ... ok
+test eras::tests::compound_forms ... ok
+test eras::tests::century_conventions ... ok
+test eras::tests::decade_forms ... ok
+test eras::tests::normalizer ... ok
+test eras::tests::one_sided_and_point_forms ... ok
+test eras::tests::phrases_need_word_edges ... ok
+test align::tests::splits_english ... ok
+test ask::tests::overlapping_ranges ... ok
+test eras::tests::between_and_from_to_forms ... ok
+test eras::tests::century_forms ... ok
+test eras::tests::phrase_forms ... ok
+test ask::tests::exact_words ... ok
+test eras::tests::relative_and_unreadable_labels ... ok
+test extra_hard_verses::tests::allows_listed_sites_and_their_subdomains ... ok
+test extra_hard_verses::tests::finds_esv_as_a_word ... ok
+test extra_parallels::tests::heading_text ... ok
+test extra_parallels::tests::lines_up_verses ... ok
+test extra_parallels::tests::passages_must_be_bsb_verses ... ok
+test eras::tests::year_formatting ... ok
+test extra_aramaic::tests::reads_a_verse_footnote ... ok
+test extra_dictionary::tests::finds_names_in_the_verse ... ok
+test extra_notes::tests::a_verse_the_bsb_lacks_stays_text ... ok
+test extra_notes::tests::keeps_text_italics_and_verses_only ... ok
+test extra_parallels::tests::english_words ... ok
+test extra_parallels::tests::reads_headings ... ok
+test extra_parallels::tests::shares ... ok
+test extra_peshitta::tests::header_needs_the_license_and_the_right_book ... ok
+test extra_peshitta::tests::letters_drop_points_and_punctuation ... ok
+test extra_peshitta::tests::runs_of_verses ... ok
+test eras::tests::scanner_reads_every_paragraph_by_section ... ok
+test eras::tests::year_forms ... ok
+test extra_parallels::tests::content_words ... ok
+test extra_hard_verses::tests::matches_quotes_like_layers ... ok
+test extra_dictionary::tests::names_entries_in_plain_word_order ... ok
+test extra_peshitta::tests::scans_verses_and_counts_what_it_leaves_out ... ok
+test extra_peshitta::tests::silent_letters_and_vowel_letters ... ok
+test extra_peshitta::tests::romanizes_the_aramaic_words_of_mark ... ok
+test extra_quotes::tests::closeness_of_wording ... ok
+test extra_quotes::tests::english_words ... ok
+test extra_quotes::tests::footnote_kinds ... ok
+test extra_quotes::tests::quoted_words ... ok
+test extra_quotes::tests::reference_lists ... ok
+test extra_real_map::tests::a_verse_tells_whose_birth_or_death ... ok
+test extra_real_map::tests::csv_reads_quotes_and_newlines ... ok
+test extra_real_map::tests::display_name_prefers_the_bsb_spelling ... ok
+test extra_real_map::tests::encode_round_trips ... ok
+test extra_real_map::tests::inside_and_distance ... ok
+test extra_real_map::tests::labels_say_how_sure ... ok
+test extra_quotes::tests::introductions ... ok
+test extra_quotes::tests::lists_of_quotations ... ok
+test extra_quotes::tests::places_in_the_shown_text ... ok
+test extra_quotes::tests::usfm_verses_and_footnotes ... ok
+test extra_real_map::tests::a_verse_about_someone_else_there_is_shown_last ... ok
+test extra_real_map::tests::markup_becomes_plain_words ... ok
+test extra_quotes::tests::hebrew_words ... ok
+test extra_quotes::tests::strong_numbers ... ok
+test extra_real_map::tests::distances_are_said_plainly ... ok
+test extra_real_map::tests::a_site_on_a_modern_border_is_said_to_be_near_it ... ok
+test extra_quotes::tests::several_passages_quoted_together ... ok
+test extra_real_map::tests::notes_leave_out_working_notes_and_sources ... ok
+test extra_real_map::tests::names_are_found_whole ... ok
+test extra_real_map::tests::people_get_the_bsb_spelling ... ok
+test extra_real_map::tests::uncertain_sites_are_placed_only_as_far_as_they_agree ... ok
+test extra_real_map::tests::positions_from_openstreetmap_google_or_the_palestine_grid_are_left_out ... ok
+test extra_translations::tests::folds_extra_verses_into_the_last ... ok
+test extra_real_map::tests::rings_are_cut_to_the_box ... ok
+test extra_real_map::tests::tribe_shapes ... ok
+test extra_real_map::tests::simplify_keeps_corners_only ... ok
+test extra_voices::tests::links_the_marked_references_and_keeps_their_words ... ok
+test extra_voices::tests::reads_the_references_the_modules_use ... ok
+test family::tests::tells_name_halves_from_spellings ... ok
+test layers::tests::counts_characters_not_bytes ... ok
+test fetch::tests::lfs_pointers ... ok
+test extra_voices::tests::reads_a_heading_split_over_two_lines ... ok
+test extra_voices::tests::does_not_take_a_sentence_for_a_heading ... ok
+test extra_voices::tests::links_a_bare_number_only_in_the_chapter_before_it ... ok
+test extra_voices::tests::reads_the_words_a_wesley_note_explains ... ok
+test extra_voices::tests::splits_henry_by_his_headings ... ok
+test extra_voices::tests::takes_footnote_marks_off_words_only ... ok
+test extra_wordplay::tests::folds_final_letters_and_drops_points ... ok
+test extra_wordplay::tests::lays_out_parts ... ok
+test family::tests::leaves_out_hedged_identities ... ok
+test family::tests::reads_derivations ... ok
+test family::tests::restores_first_vowels ... ok
+test layers::tests::extracts_quotes ... ok
+test layers::tests::links_ranges_both_ways_through_spans ... ok
+test layers::tests::parses_config_references ... ok
+test lexhtml::tests::strips_markup_safely ... ok
+test lxx::tests::a_noted_root_keeps_its_own_note ... ok
+test family::tests::puts_back_a_swallowed_he ... ok
+test family::tests::spots_name_pieces ... ok
+test layers::tests::matches_lemma_keys ... ok
+test extra_voices::tests::takes_a_chapter_henry_treats_as_a_whole ... ok
+test family::tests::reads_strongs_numbers ... ok
+test lxx::tests::names_and_function_words ... ok
+test layers::tests::the_source_list_is_sound ... ok
+test lxx::tests::matches_and_skips ... ok
+test layers::tests::finds_esv_as_a_word ... ok
+test lxx::tests::normalizes_hebrew ... ok
+test lxx::tests::reads_cited_verses ... ok
+test lxx::tests::reads_the_notes ... ok
+test lxx::tests::order_of_the_lexicon_does_not_matter ... ok
+test naves::tests::direct_rows_hide_passages_and_order_by_how_specific ... ok
+test naves::tests::display_filter ... ok
+test naves::tests::csv_quoted_fields ... ok
+test naves::tests::lines_and_labels ... ok
+test lxx::tests::ties_are_settled_by_evidence_or_left_out ... ok
+test lxx::tests::phrases_are_not_word_pairs ... ok
+test naves::tests::the_display_file_is_checked_against_the_table ... ok
+test parse::tests::step_refs ... ok
+test shelf::tests::checks_the_config ... ok
+test shelf::tests::decodes_and_collapses_text ... ok
+test shelf::tests::leaves_books_outside_the_bible_alone ... ok
+test shelf::tests::links_the_references_the_edition_marks ... ok
+test shelf::tests::reads_licenses_loosely ... ok
+test naves::tests::a_fix_reads_a_line_again_for_the_rows_only ... ok
+test layers::tests::matches_with_ellipses ... ok
+test naves::tests::merged_ranges ... ok
+test naves::tests::titles_and_slugs ... ok
+test parse::tests::variant_significance ... ok
+test shelf::tests::cites_but_does_not_link_several_chapters ... ok
+test shelf::tests::follows_a_list_in_one_book ... ok
+test shelf::tests::makes_plain_cards_and_finds_citations ... ok
+test shelf::tests::reads_osis_references ... ok
+test themes::tests::related_rule ... ok
+test themes::tests::verses_leave_out_skip_roots ... ok
+test naves::tests::people_places_and_names ... ok
+test themes::tests::finds_blurb_refs ... ok
+test themes::tests::links_rule ... ok
+test themes::tests::near_counts_a_pair_inside_both_themes_once ... ok
+test themes::tests::near_keeps_the_strongest_partners ... ok
+test shelf::tests::makes_unique_slugs ... ok
+test shelf::tests::shows_a_work_marked_only_when_cited_while_it_is_cited ... ok
+test layers::tests::names_a_source_where_a_word_starts ... ok
+test shelf::tests::links_references_with_their_book ... ok
+test shelf::tests::reads_a_thml_edition ... ok
+test themes::tests::related_words_are_checked ... ok
+test naves::tests::spans_of_three_cite_four_to_sixty_are_passages ... ok
+test themes::tests::near_counts_distinct_pairs_once ... ok
+test layers::tests::normalizes ... ok
+test naves::tests::an_entry_cut_at_a_cells_limit_loses_its_last_line ... ok
+test shelf::tests::names_a_work_where_a_word_starts ... ok
+test world::tests::forms_and_their_translations_are_not_senses ... ok
+test world::tests::dates_and_centuries ... ok
+test world::tests::cross_references_keep_only_their_names ... ok
+test world::tests::glosses_are_english ... ok
+test world::tests::continued_citations_take_the_writer_before ... ok
+test world::tests::a_word_keeps_its_own_block_of_another_entry ... ok
+test world::tests::a_verbs_gloss_is_never_only_little_words ... ok
+test shelf::tests::warns_of_a_citation_that_names_two_works ... ok
+test world::tests::examples_are_not_glosses ... ok
+test world::tests::a_lone_b_is_not_bacchylides ... ok
+test world::tests::dating_passes_over_undated_references ... ok
+test world::tests::a_gloss_cut_short_at_a_number_is_none ... ok
+test world::tests::contrasts_and_absences_are_not_senses ... ok
+test world::tests::alternatives_and_split_glosses_read_as_one ... ok
+test world::tests::grammar_words_and_fragments ... ok
+test world::tests::greek_base_matches_python_nfd ... ok
+test world::tests::glosses_that_stop_short ... ok
+test world::tests::head_glosses_take_the_citations_under_them ... ok
+test world::tests::letters_read_as_writers_are_no_citations ... ok
+test world::tests::lists_of_other_entries_are_sorted_and_apart ... ok
+test world::tests::handbook_text_loses_its_debris ... ok
+test world::tests::lemma_forms_split ... ok
+test world::tests::glosses_are_read_whole ... ok
+test world::tests::paragraphs_become_safe_segments ... ok
+test world::tests::leads_end_at_a_sentence ... ok
+test world::tests::senses_follow_the_lsj5_rules ... ok
+test world::tests::papyri_and_inscriptions ... ok
+test world::tests::references_name_the_verse_they_open ... ok
+test world::tests::sentence_headings_open_their_section ... ok
+test world::tests::the_display_rule ... ok
+test world::tests::the_places_cited_are_not_the_iliad ... ok
+test world::tests::writers_in_english_without_stray_punctuation ... ok
+test world::tests::titles_that_name_the_gloss ... ok
+test world::tests::xml_elements_and_attributes ... ok
+test world::tests::the_bible_and_late_writings_date_nothing ... ok
+test world::tests::doubtful_and_compared_citations_date_nothing ... ok
+test world::tests::example_numbers_are_not_senses ... ok
+test world::tests::cognates_are_not_glosses ... ok
+test world::tests::citations_titles_and_spellings_are_not_glosses ... ok
+test themes::tests::a_related_word_leaves_out_named_verses ... ok
+test naves::tests::a_sense_that_names_a_place_is_left_out ... ok
+test shelf::tests::writes_note_lines ... ok
+test shelf::tests::names_entries ... ok
+test world::tests::only_a_letter_after_the_number_shares_its_entry ... ok
+test world::tests::misprints_and_repeats_are_set_right ... ok
+test world::tests::tahot_refs_give_both_numberings ... ok
+test world::tests::tflsj_rows_need_every_field ... ok
+
+test result: ok. 199 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.42s
+
+     Running unittests src\lib.rs (target\release\deps\atlas_core-4bfb87d60431db4a.exe)
+
+running 18 tests
+test canon::tests::names_are_unique ... ok
+test container::tests::round_trip_and_alignment ... ok
+test graph::tests::sparse_graphs_have_fewer_roads ... ok
+test graph::tests::build_sorts_and_dedupes ... ok
+test graph::tests::roads_edge_cases ... ok
+test refs::tests::resolve_ranges ... ok
+test versification::tests::round_trip ... ok
+test graph::tests::path_prefers_strong_links ... ok
+test refs::tests::common_forms ... ok
+test refs::tests::english_words_stay_english ... ok
+test graph::tests::twin_and_duplicate_links_make_one_road ... ok
+test container::tests::rejects_corruption ... ok
+test graph::tests::pagerank_sums_to_one_and_ranks_hub ... ok
+test refs::tests::how_people_actually_type ... ok
+test graph::tests::neighborhood_and_links_within ... ok
+test refs::tests::rejects_garbage ... ok
+test graph::tests::first_road_is_the_shortest_path ... ok
+test graph::tests::roads_are_disjoint_loopless_and_never_cheaper ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running unittests src\lib.rs (target\release\deps\atlas_wasm-60026e36c50b1651.exe)
+
+running 1 test
+test tests::ffi_round_trip ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests atlas_wasm
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+--- tests (cargo test --workspace --release): rc=0 wall=434.125s
+
+=== compile atlas CLI (cargo build --release -p atlas-cli), what the first 'cargo run --release' in make fetch does  [11:13:58]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo build --release -p atlas-cli)
+
+=== web: npm ci (run while the atlas release binary was still compiling)  [11:27:59]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build/web; npm ci)
+
+added 98 packages, and audited 99 packages in 51s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+--- web: npm ci (run while the atlas release binary was still compiling): rc=0 wall=54.034s
+
+=== web: npm run typecheck (make test's web half), before data and wasm exist  [11:29:07]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build/web; npm run typecheck)
+
+> bible-atlas-web@0.1.0 typecheck
+> tsc --noEmit
+
+--- web: npm run typecheck (make test's web half), before data and wasm exist: rc=0 wall=11.732s
+
+=== rustup target add wasm32-unknown-unknown (one-time, changes the user's stable toolchain)  [11:30:16]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; rustup target add wasm32-unknown-unknown)
+info: downloading component rust-std
+--- rustup target add wasm32-unknown-unknown (one-time, changes the user's stable toolchain): rc=0 wall=22.868s
+
+=== scripts/build-wasm.sh before the target was installed (Git Bash, script checked out with CRLF)
+The wasm32-unknown-unknown target is not installed. Run: rustup target add wasm32-unknown-unknown
+--- rc=1 (expected)
+
+=== (result of the compile step started at 11:13:58; its captured output was clobbered by a parallel step that shared one temp file, cargo's last line was:)
+    Finished `release` profile [optimized] target(s) in 18m 06s
+--- compile atlas CLI (cargo build --release -p atlas-cli): rc=0 wall=1087.110s (one rustc process, fat LTO with codegen-units=1; the PC was shared with other parallel cargo builds and its cores were clocked at 0.9 to 1.4 GHz of 3.8)
+
+=== make fetch = cargo run --release -q -p atlas-cli -- fetch (system git, core.autocrlf=true inherited)  [11:32:40]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- fetch)
+fetching 6 file(s) from https://github.com/Clear-Bible/Alignments @ c99bd0ae69
+fetching 67 file(s) from https://github.com/BibleAquifer/AquiferOpenStudyNotes @ bbb3f86016
+fetching 125 file(s) from https://github.com/openbibleinfo/Bible-Geocoding-Data @ 7eb18a5ee6
+fetching 10 file(s) from https://github.com/STEPBible/STEPBible-Data @ 1f3423d424
+error: git -c advice.detachedHead=false checkout -q --force FETCH_HEAD failed in C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\data/raw\STEPBible-Data@1f3423d424:
+error: unable to create file Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Lexicons/TBESH - Translators Brief lexicon of Extended Strongs for Hebrew - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Lexicons/TFLSJ  0-5624 - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Lexicons/TFLSJ extra - Translators Formatted full LSJ Bible lexicon - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAGNT Act-Rev - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAGNT Mat-Jhn - Translators Amalgamated Greek NT - STEPBible.org CC-BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAHOT Gen-Deu - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAHOT Isa-Mal - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAHOT Job-Sng - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt: Filename too long
+error: unable to create file Translators Amalgamated OT+NT/TAHOT Jos-Est - Translators Amalgamated Hebrew OT - STEPBible.org CC BY.txt: Filename too long
+--- make fetch = cargo run --release -q -p atlas-cli -- fetch (system git, core.autocrlf=true inherited): rc=1 wall=77.096s
+
+=== fetch, run A: env GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=core.longpaths GIT_CONFIG_VALUE_0=true (autocrlf still true)  [11:40:34]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- fetch)
+fetching 6 file(s) from https://github.com/Clear-Bible/Alignments @ c99bd0ae69
+fetching 67 file(s) from https://github.com/BibleAquifer/AquiferOpenStudyNotes @ bbb3f86016
+fetching 125 file(s) from https://github.com/openbibleinfo/Bible-Geocoding-Data @ 7eb18a5ee6
+fetching 10 file(s) from https://github.com/STEPBible/STEPBible-Data @ 1f3423d424
+fetching 27 file(s) from https://github.com/mvh-solutions/aquiferized-tbd-english @ 1bd1bb39b6
+fetching 1 file(s) from https://github.com/BradyStephenson/bible-data @ 720a8da6d2
+fetching 2 file(s) from https://github.com/neuu-org/bible-dictionary-dataset @ b8e82aa7ca
+fetching 4 file(s) from https://github.com/scrollmapper/bible_databases @ e1b254cef8
+fetching 5 file(s) from https://github.com/AlvaroBalbin/catena @ efe1bd084d
+fetching 66 file(s) from https://github.com/usfm-bible/examples.bsb @ 48a9feb71f
+fetching 3 file(s) from https://github.com/LetsChurch/lets.church @ 71f6f0fc8f
+fetching 1 file(s) from https://github.com/Clear-Bible/macula-hebrew @ 47db250bd5
+fetching 5 file(s) from https://github.com/nvkelso/natural-earth-vector @ ca96624a56
+fetching 2 file(s) from https://github.com/openscriptures/strongs @ 0acd2f251c
+fetching 27 file(s) from https://github.com/srophe/syriac-corpus @ 833adc148c
+fetching 3 file(s) from https://github.com/robertrouse/theographic-bible-metadata @ cfb1c485d4
+fetching 3 file(s) from https://github.com/ubsicap/ubs-open-license @ 33dcc8c671
+wrote C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\data/raw\manifest.lock.json
+--- fetch, run A: env GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=core.longpaths GIT_CONFIG_VALUE_0=true (autocrlf still true): rc=0 wall=567.284s
+
+=== make build-data, run A (CRLF sources) = cargo run --release -q -p atlas-cli -- build  [11:52:24]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- build)
+inputs verified against manifest.lock.json
+BSB: 66 books, 1189 chapters, 31102 verses
+cross-references: 344799 read, 344799 kept, 0 unmapped
+Hebrew/Aramaic words: 305648 read, 0 unmapped
+Greek words: 142096 read, 0 unmapped
+word alignment: 365604 of 386390 links kept, 31070 verses; 1532 of 443780 source words and 39805 of 727068 English words without a partner; 18945 links in 2033 verses left out because their English positions look shifted
+lexicon entries: 11682 Hebrew/Aramaic, 11035 Greek
+roots: 16973 (0 without a lexicon entry)
+word families: 5452 derivations (1146 prefix compounds, 1045 shared roots) from 8674 Hebrew and 5523 Greek Strong's entries; 8959 roots with relatives
+theme lamb            175 verses,   196 occurrences via G0286 (lamb), G0721 (lamb), H3532 (lamb), H3535 (ewe-lamb), H7716 (sheep)
+theme light           188 verses,   215 occurrences via G5457 (light), G5458 (light), H0216 (light), H3974 (light)
+theme shepherd        169 verses,   199 occurrences via G0750 (chief shepherd), G4165 (to shepherd), G4166 (shepherd), H7462B (to pasture)
+theme vine            163 verses,   179 occurrences via G0288 (vine), G0290 (vineyard), H1612 (vine), H3754 (vineyard)
+theme bread           366 verses,   395 occurrences via G0740 (bread), H3899G (food), H3899H (food: bread), H3899I (food: allowance)
+theme water           587 verses,   652 occurrences via G5204 (water), H4325G (water)
+theme rock            135 verses,   150 occurrences via G4073 (rock), H5553G (rock), H5553H (crag), H6697H (rock)
+theme fire            417 verses,   449 occurrences via G4442 (fire), H0784 (fire)
+theme blood           383 verses,   455 occurrences via G0129G (blood), H1818 (blood)
+theme covenant        294 verses,   317 occurrences via G1242 (covenant), H1285 (covenant)
+theme seed            238 verses,   264 occurrences via G4690G (seed: offspring), G4690H (seed(s)), H2233G (seed), H2233H (seed: children)
+                    left out: H2233I (seed: semen)
+theme bride            46 verses,    61 occurrences via G3565 (bride), G3566 (bridegroom), H2860 (son-in-law), H3618G (daughter-in-law: bride)
+                    left out: H3618H (daughter-in-law)
+theme temple          317 verses,   342 occurrences via G2411 (temple), G3485 (temple), G4633 (tent), H1964G (temple), H1964I (temple: nave), H4908 (tabernacle)
+                    left out: H1964H (temple: palace)
+theme tree            321 verses,   371 occurrences via G1186 (tree), G3586 (wood), H6086G (tree: wood), H6086H (tree), H6086I (tree: stick), H6086J (tree: stake)
+                    left out: H6086K (tree: carpenter)
+theme way             724 verses,   806 occurrences via G3598 (road), H1870G (way: conduct), H1870J (way: direction), H1870K (way: road), H1870L (way: journey)
+theme spirit          685 verses,   750 occurrences via G4151G (spirit/breath: spirit), G4151H (spirit/breath: breath), H7307G (spirit), H7307H (spirit: breath), H7307J (spirit: temper)
+                    left out: H7307I (spirit: side)
+theme passover         73 verses,    78 occurrences via G3957 (Passover lamb), H6453 (Passover)
+theme redeemer        109 verses,   133 occurrences via G0629 (redemption), G3083 (ransom), G3084 (to ransom), H1350A (to redeem: redeem), H1350B (redemption), H1350H (to redeem: avenge), H1350I (to redeem: relative), H1353 (redemption)
+theme atonement       124 verses,   142 occurrences via G2433 (to propitiate), G2434 (propitiation), G2435 (propitiation), H3722A (to atone), H3725 (atonement), H3727 (mercy seat)
+theme anointed        536 verses,   570 occurrences via G3323 (Messiah), G5547 (Christ), H4899 (anointed)
+theme sabbath         183 verses,   215 occurrences via G2663 (rest), G2664 (to keep from), G4520 (Sabbath rest), G4521 (Sabbath), H4496H (resting), H7673B (to keep), H7676 (Sabbath)
+theme kingdom         414 verses,   451 occurrences via G0932 (kingdom), H4410 (kingship), H4437 (kingdom), H4438 (royalty), H4467 (kingdom)
+theme firstborn       108 verses,   130 occurrences via G4416 (firstborn), H1060 (firstborn)
+theme darkness        131 verses,   149 occurrences via G4652 (dark), G4653 (darkness), G4655 (darkness), H0652 (darkness), H0653 (darkness), H2822 (darkness)
+theme mountain        466 verses,   515 occurrences via G3735 (mountain), H2022G (mountain: mount), H2906 (mountain)
+theme sea             363 verses,   412 occurrences via G2281 (sea), H3220G (sea)
+                    left out: H3220H (sea: west)
+theme river            96 verses,   105 occurrences via G4215 (river), H5104H (river)
+theme wilderness      307 verses,   321 occurrences via G2047 (desert), G2048 (deserted), H4057B (wilderness)
+theme garden           54 verses,    59 occurrences via G2779 (garden), G3857 (paradise), H1588M (garden), H1593 (garden)
+theme cup              54 verses,    62 occurrences via G4221 (cup), H3563A (cup)
+theme oil             247 verses,   291 occurrences via G0218 (to anoint), G1637 (olive oil), G5545 (anointing), G5548 (to anoint), H4886 (to anoint), H8081 (oil)
+theme wine            196 verses,   213 occurrences via G3631 (wine), H3196 (wine), H8492 (new wine)
+theme gate            399 verses,   503 occurrences via G2374 (door), G4439 (gate), G4440 (gate), H1817A (door), H1817B (door), H1817C (door), H8179G (gate)
+theme stars            62 verses,    65 occurrences via G0792 (star), G0798 (star), H3556 (star)
+theme sun             165 verses,   202 occurrences via G2246 (sun), G4582 (moon), H3394 (moon), H8121 (sun)
+theme cloud           109 verses,   127 occurrences via G3507 (cloud), H6051 (cloud), H6205 (cloud)
+theme rain            103 verses,   116 occurrences via G1026 (to rain down), G5205 (rain), H1653 (rain), H2919 (dew), H4306 (rain)
+theme harvest          92 verses,   117 occurrences via G2325 (to reap), G2326 (harvest), H7105A (harvest), H7114B (to reap)
+theme fruit           191 verses,   214 occurrences via G2590 (fruit), H6509 (be fruitful), H6529 (fruit)
+theme flock           309 verses,   358 occurrences via G4167 (flock), G4168 (flock), G4263 (sheep), H5739 (flock), H6629G (flock)
+theme lion            107 verses,   134 occurrences via G3023 (lion), H0738A (lion), H0738B (lion), H3715A (lion), H3833A (lion), H3833B (lioness), H3833C (lion)
+theme wings           113 verses,   145 occurrences via G0105 (eagle), G4420 (wing), H3671 (wing), H5404 (eagle)
+theme dove             41 verses,    41 occurrences via G4058 (dove), H3123 (dove)
+theme serpent          63 verses,    70 occurrences via G1404 (dragon), G3789 (snake), H5175 (serpent), H8577M (serpent: snake), H8577N (serpent: monster)
+theme throne          167 verses,   189 occurrences via G2362 (throne), H3678G (throne), H3764 (throne)
+theme crown            44 verses,    44 occurrences via G1238 (diadem), G4735 (crown), H5850 (crown)
+theme sword           405 verses,   449 occurrences via G3162 (sword), G4501 (sword), H2719 (sword)
+theme refuge          185 verses,   209 occurrences via H2620 (to seek refuge), H4043 (shield), H4268 (refuge), H4581 (security), H4686B (fortress), H4733 (refuge), H4869A (high refuge)
+theme horn             78 verses,    86 occurrences via G2768 (horn), H7161A (horn)
+theme arm              84 verses,    91 occurrences via H2220 (arm)
+theme heart           928 verses,  1009 occurrences via G2588 (heart), H3820A (heart), H3824 (heart), H3825 (heart)
+theme name            984 verses,  1093 occurrences via G3686 (name), H8034 (name)
+theme word           1340 verses,  1427 occurrences via G3056 (word), G4487 (declaration), H0561 (word), H0565A (word), H1697G (word), H1697H (word: speaking), H1697J (word: promised)
+                    left out: H1697I (word: thing), H1697K (word: deed), H1697L (word: case), H1697M (word: because), H1697N (word: portion)
+theme voice           443 verses,   484 occurrences via G5456G (voice/sound: voice), H6963A (voice), H6963I (voice: thunder), H6963J (voice: message)
+                    left out: G5456H (voice/sound: noise), H6963H (voice: sound), H6963K (voice: [sound of]), H6963L (voice: listen)
+theme scroll          182 verses,   198 occurrences via G0975 (scroll), G0976 (book), H4039 (scroll), H5612B (scroll), H5612H (scroll: book), H5612I (scroll: read)
+                    left out: H5612A (scroll: document)
+theme table            76 verses,    86 occurrences via G5132 (table), H7979 (table)
+theme yoke             48 verses,    58 occurrences via G2218 (yoke/scales), H4133 (yoke), H5923 (yoke)
+theme clothing        303 verses,   344 occurrences via G2440 (clothing), G5509 (tunic), H0899B (garment), H3801 (tunic), H8071 (mantle)
+theme stone           281 verses,   317 occurrences via G3037 (stone), H0068G (stone)
+                    left out: H0068H (stone: weight)
+theme dust            110 verses,   117 occurrences via G2868 (dust), G5522 (dust), H6083 (dust)
+theme grass            42 verses,    53 occurrences via G0438 (flower), G5528 (grass), H2682A (grass), H6731A (flower)
+theme leaven           70 verses,    95 occurrences via G0106 (unleavened), G2219 (leaven), G2220 (to leaven), H2557A (leaven), H4682 (unleavened bread), H7603 (leaven)
+theme milkhoney        84 verses,   107 occurrences via G1051 (milk), G3192 (honey), H1706 (honey), H2461 (milk)
+theme figolive         85 verses,    98 occurrences via G1636 (olive tree), G4808 (fig tree), G4810 (fig), H2132H (olive), H8384 (fig)
+theme trumpet         106 verses,   124 occurrences via G4536 (trumpet), G4537 (to sound a trumpet), H2689 (trumpet), H7782 (trumpet)
+theme ark             205 verses,   236 occurrences via G2787G (ark: covenant), G2787H (ark: Noah), H0727 (ark), H8392 (ark)
+theme lamp             95 verses,   130 occurrences via G3087 (lampstand), G3088 (lamp), H3940 (torch), H4501 (lampstand), H5216A (lamp), H5216B (lamp)
+theme fish             56 verses,    67 occurrences via G0231 (fisherman), G1350 (net), G2486 (fish), H1709H (fish), H1710 (fish)
+theme potter           64 verses,    78 occurrences via G2763G (potter), G4081 (clay), H2563A (clay), H3335G (to form: formed), H3335H (to form: potter)
+theme foundation       62 verses,    64 occurrences via G2310 (foundation), G2311 (to found), H3245 (to found)
+theme root             73 verses,    81 occurrences via G2798 (branch), G2814 (branch), G4491 (root), H5342 (branch), H6780 (branch), H8328 (root)
+theme grain            84 verses,    84 occurrences via G4621 (grain), H1715 (grain), H2406 (wheat)
+theme gold            578 verses,   839 occurrences via G0694 (money), G0696 (silver), G5553 (gold), G5557 (gold), H2091 (gold), H3701G (silver: money), H3701H (silver: price)
+theme righthand       171 verses,   177 occurrences via G1188 (right), H3225G (right)
+theme face            444 verses,   487 occurrences via G4383 (face), H6440H (face)
+theme morning         200 verses,   225 occurrences via G4404 (early), H1242 (morning)
+theme love            454 verses,   533 occurrences via G0025 (to love), G0026 (love), G5368 (to love), H0157G (to love: lover), H0157H (to love: friend), H0160 (love)
+theme chesed          239 verses,   245 occurrences via H2617A (kindness)
+theme mercy           163 verses,   178 occurrences via G1653 (to have mercy), G1656 (mercy), G3628 (compassion), G3629 (compassionate), G4697 (to pity), H7349 (compassionate), H7355 (to have compassion), H7356B (compassion)
+theme grace           299 verses,   314 occurrences via G5485 (grace), H2580 (favor), H2587 (gracious), H2603A (be gracious)
+theme truth           293 verses,   311 occurrences via G0225 (truth), G0227 (true), H0530 (faithfulness), H0571G (truth: faithful), H0571H (truth: true), H0571I (truth: certain)
+theme salvation       495 verses,   521 occurrences via G4982 (to save), G4990 (savior), G4991 (salvation), G4992 (saving), H3444 (salvation), H3467 (to save), H3468 (salvation), H8668G (deliverance: salvation)
+theme peace           290 verses,   322 occurrences via G1514 (be at peace), G1515 (peace), G1516 (peaceful), G1517 (to make peace), G1518 (peacemaker), H7965G (peace), H7965I (peace: well-being), H8001 (peace)
+                    left out: H7965J (peace: friendship), H7965K (peace: greeting), H7965L (peace: completely)
+theme hope            175 verses,   194 occurrences via G1679 (to hope/expect), G1680 (hope), H3176H (to wait: hope), H6960A (to await), H8431 (hope), H8615B (hope)
+theme joy             409 verses,   513 occurrences via G0020 (joy), G0021 (to rejoice), G5463 (to rejoice), G5479 (joy), H1523 (to rejoice), H7797 (to rejoice), H8055 (to rejoice), H8056 (glad), H8057 (joy), H8342 (rejoicing)
+theme life            384 verses,   419 occurrences via G2198 (to live), G2222 (life), H2416E (life)
+theme forever         492 verses,   543 occurrences via G0165H (an age: eternity), G0166 (eternal), H5769G (forever: enduring)
+theme glory           410 verses,   457 occurrences via G1391 (glory), G1392 (to glorify), H1926 (glory), H3519 (glory)
+theme holy            805 verses,   955 occurrences via G0037 (to sanctify), G0038 (holiness), G0040G (holy), G0040H (holy: saint), H6918G (holy), H6918H (holy: saint), H6942G (to consecrate: consecate), H6942H (to consecrate: dedicate), H6942K (to consecrate: holiness), H6944G (holiness)
+                    left out: H6942I (to consecrate: forfeit), H6942J (to consecrate: prepare)
+theme righteousness   656 verses,   731 occurrences via G1342 (just), G1343 (righteousness), G1344 (to justify), H6662 (righteous), H6663 (to justify), H6664G (righteousness), H6666 (righteousness)
+theme justice         690 verses,   771 occurrences via G2917 (judgment), G2919 (to judge), G2920 (judgment), H4941G (justice: judgement), H4941H (justice), H8199 (to judge)
+                    left out: H4941I (justice: rule), H4941J (justice: custom)
+theme forgiveness     101 verses,   113 occurrences via G0859 (forgiveness), G0863H (to release: forgive), H5545 (to forgive), H5547 (forgiveness)
+theme oath            280 verses,   319 occurrences via G1860 (promise), G1861 (to profess), G3660 (to swear), G3727 (oath), H7621 (oath), H7650 (to swear)
+theme blessing        482 verses,   551 occurrences via G2127 (to praise/bless), G2129 (praise), G3107 (blessed), H0835 (blessed), H1288 (to bless), H1293 (blessing)
+theme inheritance     274 verses,   328 occurrences via G2816 (to inherit), G2817 (inheritance), G2818 (heir), H5157 (to inherit), H5159 (inheritance)
+theme healing         150 verses,   158 occurrences via G2323 (to serve/heal), G2386 (healing), G2390 (to heal), G2392 (healing), H4832 (healing), H7495 (to heal)
+theme raised           41 verses,    43 occurrences via G0386 (resurrection), G1454 (resurrection)
+theme new              91 verses,   102 occurrences via G2537 (new), H2318 (to renew), H2319H (new)
+theme wisdom          351 verses,   389 occurrences via G4678 (wisdom), G4680 (wise), H2449 (be wise), H2450 (wise), H2451 (wisdom)
+theme comfort          94 verses,   102 occurrences via G3874 (encouragement), H5162G (to be sorry: comfort)
+theme freedom          60 verses,    66 occurrences via G1657 (freedom), G1658 (free/freedom), G1659 (to set free), H1865 (liberty), H2670 (free)
+theme goodnews        144 verses,   159 occurrences via G2097 (to speak good news), G2098 (gospel), H1309 (good news), H1319 (to bear tidings)
+theme servant         835 verses,   930 occurrences via G1401 (slave), H5650 (servant/slave)
+theme priest          801 verses,   903 occurrences via G0749 (high-priest), G2409 (priest), H3548 (priest)
+theme prophet         521 verses,   602 occurrences via G4395 (to prophesy), G4396 (prophet), H5012 (to prophesy), H5030 (prophet)
+theme king           2149 verses,  2811 occurrences via G0935 (king), H4428G (king), H4428H (`the king`), H4430 (king)
+theme father         1431 verses,  1633 occurrences via G3962 (father), H0001G (father), H0001I (father of), H0002 (father)
+theme son            2689 verses,  3449 occurrences via G5207 (son), H1121A (son: child), H1247G (son: descendant), H1247H (son), H1247I (son: description), H1247J (son: child), H1247L (son)
+theme widow            91 verses,   126 occurrences via G3737 (orphan), G5503 (widow), H0490 (widow), H3490 (orphan)
+theme stranger        149 verses,   172 occurrences via G3581 (foreign), G3927 (stranger), G3941 (foreigner), H1616 (sojourner), H5237 (foreign), H8453A (sojourner)
+theme poor            208 verses,   262 occurrences via G4434 (poor), H0034 (needy), H1800 (poor), H6035 (poor), H6041 (afflicted), H7326 (be poor)
+theme disciple        479 verses,   526 occurrences via G1320 (teacher), G1321 (to teach), G3101 (disciple), G3129 (to learn), H3925G (to learn: teach), H3925H (to learn: learn)
+theme angel           368 verses,   389 occurrences via G0032G (angel), G0032H (angel: messenger), H4397 (messenger), H4397G (messenger), H4397H (messenger: angel)
+theme enemy           356 verses,   384 occurrences via G2190 (enemy), H0341 (enemy), H6862C (enemy)
+theme nations         655 verses,   717 occurrences via G1484 (Gentiles), H1471A (nation), H1471G (Gentile)
+theme neighbor        217 verses,   234 occurrences via G4139 (near/neighbor), G5384 (friendly/friend), H7453 (neighbor)
+theme witness         245 verses,   279 occurrences via G3140 (to testify), G3141 (testimony), G3144 (witness), H5707 (witness), H5715 (testimony)
+theme remnant          92 verses,    93 occurrences via G3005 (remnant), H7605 (remnant), H7611 (remnant)
+theme creation         75 verses,    87 occurrences via G2936 (to create), G2937 (creation), G2939 (creator), H1254A (to create)
+theme chosen          211 verses,   222 occurrences via G1586 (to select), G1588 (select), G1589 (selecting), H0977 (to choose)
+theme remember        267 verses,   279 occurrences via G3403 (to remember), H2142 (to remember), H2146 (memorial)
+theme rescue          228 verses,   256 occurrences via G4506 (to rescue), H5337 (to rescue), H6403 (to escape)
+theme gather          184 verses,   198 occurrences via G1287 (to scatter), H6327A (to scatter), H6908 (to gather)
+theme exile           173 verses,   205 occurrences via G0161 (captivity), G3350 (deportation), H1473 (captivity), H1540K (to reveal: remove), H7622 (captivity), H7628A (captivity), H7628B (captive)
+theme wrath           373 verses,   479 occurrences via G2372 (wrath), G3709 (wrath), H0639G (face: anger), H2534 (rage), H2740 (burning anger), H5678 (fury)
+theme reveal           85 verses,    87 occurrences via G0601 (to reveal), G0602 (revelation), H1540H (to reveal: reveal)
+theme faith           704 verses,   773 occurrences via G4100 (to trust (in)), G4102G (faith), G4102H (faith: faithfulness), G4103 (faithful), H0539 (be faithful), H0982 (to trust)
+theme repent          129 verses,   138 occurrences via G3340 (to repent), G3341 (repentance), H7725O (to return: repent)
+theme prayer          290 verses,   322 occurrences via G1162 (petition), G1189 (to pray), G4335 (prayer), G4336 (to pray), H6419 (to pray), H8605 (prayer)
+theme praise          320 verses,   373 occurrences via G0134 (to praise), G0136 (praise), G2168 (to thank), H1984B (to boast: praise), H3034 (to give thanks), H8416 (praise), H8426 (thanksgiving)
+theme worship         220 verses,   232 occurrences via G4352 (to worship), H7812 (to bow)
+theme song            227 verses,   298 occurrences via G0103 (to sing), G5568 (psalm), G5603 (song), H2167 (to sing), H4210 (melody), H7891 (to sing), H7892A (song), H7892B (song)
+theme fear            479 verses,   502 occurrences via G5399 (to fear), G5401 (fear), H3372G (to fear), H3372H (to fear: revere), H3374 (fear)
+theme obey            340 verses,   372 occurrences via G5218 (obedience), G5219 (to obey), H8085H (to hear: obey), H8104G (to keep: obey)
+theme weeping         233 verses,   279 occurrences via G1144 (teardrop), G1145 (to weep), G2799 (to weep), G2805 (weeping), G3996 (to mourn), G3997 (grief), H0056 (to mourn), H1058 (to weep), H1832 (tears), H5594 (to mourn)
+theme fasting          57 verses,    72 occurrences via G3521 (fasting), G3522 (to fast), H6684 (to fast), H6685 (fast)
+theme sacrifice       631 verses,   999 occurrences via G2378 (sacrifice), G3646 (burnt offering), G4376 (offering), H0817 (guilt (offering)), H2077 (sacrifice), H2403H (sin: sin offering), H4503G (offering), H5930A (burnt offering), H7133A (offering), H7133B (offering), H8002 (peace offering)
+theme altar           359 verses,   424 occurrences via G2379 (altar), H4196 (altar)
+theme incense          85 verses,    87 occurrences via G2368 (incense), H3828 (frankincense), H7004 (incense)
+theme washing         188 verses,   237 occurrences via G0907 (to baptize), G0908 (baptism), G3068 (to wash), G3538 (to wash), H3526H (to wash), H7364 (to wash: wash)
+theme clean           453 verses,   575 occurrences via G0169 (unclean), G2511 (to clean), G2513 (clean), H2889 (pure), H2891 (be pure), H2893 (purifying), H2930A (to defile), H2931 (unclean), H2932 (uncleanness)
+theme law             640 verses,   761 occurrences via G1785 (commandment), G3551 (law), H2706G (statute: decree), H4687 (commandment), H8451 (instruction)
+theme cross            72 verses,    78 occurrences via G4716 (cross), G4717 (to crucify), G4957 (to crucify with)
+theme sin             789 verses,  1029 occurrences via G0264 (to sin), G0266 (sin), G0458 (lawlessness), G3900 (trespass), H2398 (to sin), H2403A (sin), H2403B (sin), H2403I (sin: punishment), H5771G (iniquity: crime), H5771H (iniquity: guilt), H5771I (iniquity: punishment), H6586 (to transgress), H6588 (transgression)
+                    left out: H2403H (sin: sin offering)
+theme death          1143 verses,  1354 occurrences via G0599 (to die), G2288 (death), G3498 (dead), H4191 (to die), H4194 (death)
+theme grave            86 verses,    88 occurrences via G0086 (hell: Hades), G1067 (hell: Gehenna), H7585 (hell: Sheol)
+theme idols           120 verses,   130 occurrences via G1495 (idolatry), G1496 (idolater), G1497 (idol), H0457 (idol), H1544 (idol), H6091 (idol), H6456 (idol)
+theme pride           148 verses,   170 occurrences via G5011 (lowly), G5012 (humility), G5013 (to humble), G5243 (pride), G5244 (arrogant), H1346 (pride), H1347 (pride), H3665 (be humble), H8213 (to abase)
+theme satan            89 verses,   100 occurrences via G1228 (devilish/the Devil), G4567 (Satan), H7854 (Satan)
+theme unfaithful      198 verses,   256 occurrences via G3431 (to commit adultery), G4202 (sexual sin), G4203 (to sin sexually), H2181 (to fornicate), H4603 (be unfaithful), H4604 (unfaithfulness), H5003 (to commit adultery), H8457 (fornication)
+theme blind            72 verses,    79 occurrences via G5185 (blind), G5186 (to blind), H5787 (blind)
+theme hunger          168 verses,   200 occurrences via G1372 (to thirst), G3983 (to hunger), H6770 (to thirst), H6772 (thirst), H7456 (be hungry), H7457 (hungry), H7458 (famine)
+theme curse            95 verses,   109 occurrences via G1944 (cursed), G2671 (curse), G2672 (to curse), H0779 (to curse), H7045 (curse)
+theme heaven          684 verses,   731 occurrences via G3772 (heaven), H8064 (heaven), H8065 (heaven)
+theme zion            876 verses,   969 occurrences via G2414 (Jerusalem), G2419 (Jerusalem), G4622 (Zion), H3389 (Jerusalem), H3390 (Jerusalem), H6726 (Zion)
+theme egypt           589 verses,   659 occurrences via G0125 (Egypt), H4714G (Egypt), H4714H (Egypt)
+                    left out: H4714I ((Sea of) Egypt), H4714J ((Brook of) Egypt)
+theme babylon         244 verses,   274 occurrences via G0897 (Babylon), H0894 (Babylon)
+theme feasts           78 verses,    87 occurrences via G1859 (festival), H2282 (feast)
+theme birth           500 verses,   661 occurrences via G0313 (to beget), G1080 (to beget), G5088 (to give birth to), H2029 (to conceive), H3205 (to beget), H3209 (born)
+theme war             476 verses,   516 occurrences via G4170 (to fight), G4171 (war), H3898A (to fight), H4421 (battle)
+theme seven           459 verses,   700 occurrences via G1440 (seventy), G1442 (seventh), G2033 (seven), H7620H (week), H7620I (week), H7637 (seventh), H7651 (seven), H7657 (seventy)
+                    not in a verse with: G1250 (two hundred), G1540 (hundred), G3461 (myriad), G5505 (thousand), G5507 (thousand), H0505G (thousand), H3967 (hundred), H7233 (myriad), H7239 (ten thousand)
+theme forty           102 verses,   158 occurrences via G5062 (forty), H0705 (forty)
+                    not in a verse with: G1250 (two hundred), G1540 (hundred), G3461 (myriad), G5505 (thousand), G5507 (thousand), H0505G (thousand), H3967 (hundred), H7233 (myriad), H7239 (ten thousand)
+theme generations     207 verses,   254 occurrences via G1074 (generation), G1078 (origin), H1755 (generation), H8435 (generation)
+near  lamb          sacrifice 187 x6.7, throne 88 x5, flock 90 x4.4, blood 85 x2.9, seven 65 x3.2, scroll 48 x4.7, shepherd 54 x3.6, horn 28 x4.8
+near  light         darkness 468 x14.8, sun 261 x9.7, lamp 179 x15.8, glory 282 x2.5, stars 99 x8.5, blind 70 x5.2, cloud 62 x3.4, forgiveness 59 x2.5
+near  shepherd      flock 397 x14.1, gather 151 x9, arm 46 x4.5, lamb 54 x3.6, lion 39 x4.3, exile 44 x3.1, remnant 25 x2.8, vine 27 x2.4
+near  vine          fruit 140 x10, figolive 72 x23.6, wine 64 x7.3, tree 59 x4.8, rain 30 x5.1, grain 23 x7.6, harvest 25 x5.4, oil 32 x3.2
+near  bread         hunger 158 x7, table 65 x12.3, fish 52 x9.5, wine 73 x3.4, grain 38 x5.1, oil 62 x2.6, wilderness 70 x2.2, cup 36 x4.2
+near  water         sea 366 x5.3, river 228 x9.7, washing 239 x6.1, hunger 235 x5.9, wilderness 215 x3.9, rain 116 x4.6, clean 195 x2.5, rock 123 x3.2
+near  rock          refuge 157 x9.3, water 123 x3.2, salvation 163 x2.4, river 47 x5.9, mountain 80 x2.4, rescue 60 x3.1, song 63 x2.6, stone 48 x3
+near  fire          wrath 337 x3.8, cloud 132 x5.3, mountain 198 x2.3, angel 195 x2.3, tree 141 x3.1, grave 86 x3.8, altar 99 x2.6, stone 98 x2.4
+near  blood         sin 501 x2.4, atonement 153 x8.1, sacrifice 240 x3.2, clean 218 x3.3, altar 157 x4.2, covenant 181 x2.7, forgiveness 111 x3.6, redeemer 105 x3.3
+near  covenant      oath 224 x4, forever 309 x2.3, seed 176 x3.8, law 286 x2.2, ark 108 x6.2, obey 187 x2.9, blood 181 x2.7, chesed 162 x3
+near  seed          oath 258 x5.7, blessing 251 x2.8, covenant 176 x3.8, forever 223 x2.1, inheritance 127 x3.4, fruit 119 x3.5, birth 132 x2.9, stars 64 x6.2
+near  bride         joy 94 x5.7, zion 56 x2.7, praise 34 x2.9, lamb 22 x5.2, garden 15 x10.1, voice 33 x2.6, neighbor 22 x4.1, wine 19 x4.2
+near  temple        altar 92 x4.2, zion 170 x2, priest 117 x2.4, ark 61 x5.1, cloud 64 x4.6, throne 75 x2.7, gate 67 x2.4, table 26 x5.7
+near  tree          fruit 152 x5.4, garden 66 x11.4, fire 141 x3.1, altar 88 x4.2, root 61 x5, figolive 46 x7.5, vine 59 x4.8, gold 81 x2.7
+near  way           obey 317 x2.3, repent 197 x2.3, wilderness 173 x2.1, cloud 92 x2.2
+near  spirit        washing 263 x2.9, freedom 122 x2.5
+near  passover      leaven 63 x58.1, feasts 48 x37.2, seven 28 x4.9, egypt 33 x3.7, sacrifice 31 x3.9, priest 32 x3.7, stranger 19 x6.5, morning 17 x5.9
+near  redeemer      sin 199 x2.4, holy 190 x2.2, blood 105 x3.3, forgiveness 56 x4.5, inheritance 62 x2.8, potter 37 x5.5, babylon 46 x3.5, chesed 57 x2.2
+near  atonement     sacrifice 169 x9.5, sin 223 x4.6, blood 153 x8.1, priest 124 x6.3, altar 89 x10.1, forgiveness 72 x9.8, ark 46 x9.5, clean 69 x4.4
+near  anointed      faith 1626 x2.2, life 981 x2.2, grace 746 x2.4, goodnews 411 x2.8, cross 191 x3.3, reveal 221 x2.4, raised 124 x3.7, new 145 x2
+near  sabbath       seven 149 x7, holy 224 x2.6, obey 107 x3.6, gate 66 x3.5, feasts 32 x6.7, healing 48 x3.2, sacrifice 59 x2, stranger 33 x3.1
+near  kingdom       king 627 x2.1, heaven 543 x2.2, throne 220 x3.7, repent 131 x2.2, goodnews 127 x2.1, babylon 88 x2.1, crown 37 x2.4
+near  firstborn     son 185 x2.6, egypt 75 x4.5, birth 52 x4, name 89 x2.1, blood 41 x2.6, lamb 26 x4.5, throne 26 x2.8, sacrifice 32 x2.2
+near  darkness      light 468 x14.8, blind 101 x11.2, sun 98 x5.5, lamp 66 x8.8, glory 156 x2.1, cloud 67 x5.5, stars 47 x6.1, forgiveness 48 x3
+near  mountain      zion 447 x3, fire 198 x2.3, voice 196 x2.1, cloud 97 x3.9, wilderness 130 x2.7, sea 141 x2.3, trumpet 85 x3.9, song 138 x2.2
+near  sea           water 366 x5.3, heaven 341 x2.4, river 124 x8.8, wilderness 113 x3.4, egypt 144 x2.3, fish 54 x9.2, mountain 141 x2.3, stars 66 x6.1
+near  river         water 228 x9.7, sea 124 x8.8, wilderness 54 x4.8, rock 47 x5.9, egypt 60 x2.9, exile 34 x5, mountain 43 x2.1, gather 26 x3.2
+near  wilderness    egypt 206 x4.1, water 215 x3.9, forty 71 x9.8, sea 113 x3.4, mountain 130 x2.7, way 173 x2.1, river 54 x4.8, hunger 57 x2.9
+near  garden        tree 66 x11.4, fruit 42 x6.4, comfort 23 x6.7, water 38 x3.1, wilderness 27 x4.5, stone 23 x4.6, bride 15 x10.1, zion 41 x2.2
+near  cup           wine 64 x12.9, wrath 65 x4.8, bread 36 x4.2, fire 42 x3.2, blood 38 x3, covenant 33 x3.1, clean 32 x3.1, washing 23 x4.5
+near  oil           sacrifice 128 x3.8, wine 65 x4.6, clothing 67 x4.2, priest 90 x2.4, horn 43 x6.1, incense 36 x8.1, table 32 x9.1, altar 54 x3.2
+near  wine          cup 64 x12.9, vine 64 x7.3, grain 46 x10.7, joy 114 x2.5, oil 65 x4.6, bread 73 x3.4, milkhoney 36 x6.6, rain 38 x4.6
+near  gate          zion 177 x2, sabbath 66 x3.5, temple 67 x2.4, babylon 43 x2.2, stone 47 x2, exile 35 x2.1
+near  stars         heaven 210 x5.7, sun 118 x18, light 99 x8.5, sea 66 x6.1, seed 64 x6.2, angel 66 x4.2, darkness 47 x6.1, lamp 25 x9.1
+near  sun           light 261 x9.7, stars 118 x18, heaven 279 x3.2, darkness 98 x5.5, sea 65 x2.6, refuge 52 x2.9, cloud 35 x3.4, worship 48 x2.3
+near  cloud         glory 182 x4.2, fire 132 x5.3, heaven 160 x2.7, mountain 97 x3.9, voice 94 x3.5, darkness 67 x5.5, temple 64 x4.6, light 62 x3.4
+near  rain          heaven 192 x3.7, grain 60 x20.7, water 116 x4.6, fruit 76 x5.7, harvest 52 x11.9, blessing 94 x2.7, tree 44 x3.7, wine 38 x4.6
+near  harvest       rain 52 x11.9, fruit 50 x4.8, grain 25 x11, vine 25 x5.4, seven 36 x3.2, poor 32 x2.6, seed 30 x2.6, morning 20 x3.5
+near  fruit         vine 140 x10, root 128 x9.4, tree 152 x5.4, figolive 78 x11.3, blessing 206 x2.5, seed 119 x3.5, rain 76 x5.7, grain 43 x6.2
+near  flock         shepherd 397 x14.1, gather 138 x6, lamb 90 x4.4, sacrifice 109 x2.1, wilderness 71 x2.2, arm 37 x2.7, grain 24 x3.2, remnant 25 x2.1
+near  lion          rescue 62 x5.7, satan 54 x7.3, serpent 38 x11.4, sword 45 x3.6, shepherd 39 x4.3, wings 24 x5.2, war 34 x2.7, enemy 36 x2.2
+near  wings         refuge 60 x5.6, face 60 x2.7, lion 24 x5.2, trumpet 22 x4.1, river 21 x4.2, ark 19 x3.6, covenant 35 x2, wilderness 24 x2
+near  dove          sacrifice 32 x5.9, lamb 17 x7.9, temple 18 x5.3, priest 20 x3.3, voice 19 x2.9
+near  serpent       satan 117 x19.1, lion 38 x11.4, angel 55 x3.6, sea 37 x3.4, sword 36 x3.5, horn 22 x7.5, crown 17 x7.4, war 31 x3
+near  throne        heaven 320 x2.7, kingdom 220 x3.7, forever 264 x2.8, justice 217 x2.1, glory 196 x2.3, lamb 88 x5, righthand 95 x3.6, angel 120 x2.4
+near  crown         throne 40 x5.4, glory 56 x2.5, worship 30 x4.1, joy 42 x2.3, serpent 17 x7.4, kingdom 37 x2.4, satan 21 x4.1, clothing 18 x3.2
+near  sword         hunger 135 x5.8, war 152 x3.9, enemy 139 x2.8, babylon 88 x3.8, egypt 124 x2.1, exile 62 x3.2, gather 65 x2.8, lion 45 x3.6
+near  refuge        rock 157 x9.3, salvation 289 x3.3, song 131 x4.2, rescue 100 x4, wings 60 x5.6, enemy 100 x2.7, fear 138 x2, horn 50 x6.1
+near  horn          altar 67 x9.1, refuge 50 x6.1, oil 43 x6.1, blood 55 x3.5, rock 31 x4.8, sacrifice 43 x2.9, serpent 22 x7.5, lamb 28 x4.8
+near  arm           egypt 103 x4.8, salvation 101 x2.4, righthand 48 x4.3, shepherd 46 x4.5, war 51 x3.6, wrath 52 x2.4, flock 37 x2.7, refuge 29 x2.8
+near  heart         wisdom 564 x2
+near  name          praise 589 x2.7, firstborn 89 x2.1
+near  word          goodnews 333 x2.1, scroll 187 x2.1
+near  voice         obey 200 x2.3, mountain 196 x2.1, trumpet 95 x4.1, cloud 94 x3.5, bride 33 x2.6, garden 27 x2.3, grass 22 x2.6, dove 19 x2.9
+near  scroll        word 187 x2.1, law 113 x2.1, life 110 x2.1, throne 60 x3.6, lamb 48 x4.7, seven 60 x3.2, angel 72 x2.5, worship 50 x3
+near  table         bread 65 x12.3, oil 32 x9.1, gold 31 x5.9, altar 27 x7.4, lamp 18 x12.6, temple 26 x5.7, sacrifice 20 x2.7, tree 15 x3.4
+near  yoke          freedom 24 x13.8, babylon 18 x5.4, servant 30 x2.4, tree 15 x3.3, sword 15 x2.7
+near  clothing      clean 109 x3.7, washing 74 x5.1, oil 67 x4.2, gold 69 x2.8, priest 79 x2.1, weeping 57 x2.7, dust 34 x4, fasting 20 x3.8
+near  stone         gold 114 x4.4, foundation 71 x7.4, fire 98 x2.4, mountain 98 x2.4, tree 68 x3.1, rock 48 x3, covenant 67 x2, ark 35 x3.5
+near  dust          potter 35 x8.9, clothing 34 x4, pride 32 x3.6, poor 36 x2.6, raised 17 x6.4, remember 34 x2.4, grave 19 x3.7, worship 25 x2.3
+near  grass         fear 36 x2.9, bread 21 x4.1, water 26 x2.8, voice 22 x2.6, tree 15 x3.5, sea 16 x2.9, fire 19 x2.4
+near  leaven        passover 63 x58.1, feasts 60 x37.8, sacrifice 78 x8.1, seven 66 x9.3, egypt 55 x5, bread 30 x4.3, morning 21 x5.9, oil 22 x4.8
+near  milkhoney     oath 54 x4.7, wine 36 x6.6, egypt 51 x3.4, grain 22 x11.6, water 45 x2.7, fruit 32 x3.7, bread 29 x3.1, leaven 15 x8.4
+near  figolive      vine 72 x23.6, fruit 78 x11.3, tree 46 x7.5, lamp 31 x15.4, root 30 x10.1, blessing 43 x2.4, light 26 x3.1, wine 19 x4.4
+near  trumpet       voice 95 x4.1, heaven 135 x2.6, seven 77 x5.4, mountain 85 x3.9, angel 80 x3.7, war 68 x4.7, ark 37 x7, priest 58 x2.7
+near  ark           covenant 108 x6.2, priest 104 x4.9, atonement 46 x9.5, temple 61 x5.1, witness 61 x3.7, trumpet 37 x7, seven 51 x3.6, water 61 x2.5
+near  lamp          light 179 x15.8, darkness 66 x8.8, figolive 31 x15.4, seven 49 x4.9, stars 25 x9.1, oil 33 x5, fire 45 x3, table 18 x12.6
+near  fish          sea 54 x9.2, bread 52 x9.5, heaven 51 x2.5, blessing 39 x2.9, praise 27 x3.3, water 29 x3, disciple 22 x2.3, fruit 15 x2.9
+near  potter        creation 56 x9.3, heaven 100 x2.4, dust 35 x8.9, redeemer 37 x5.5, chosen 35 x3.1, remember 34 x2.6, inheritance 29 x2.5, foundation 17 x4.1
+near  foundation    heaven 148 x3.1, stone 71 x7.4, forever 94 x2.4, creation 37 x5.3, rock 34 x4.3, chosen 31 x2.3, potter 17 x4.1, river 17 x3.5
+near  root          fruit 128 x9.4, tree 61 x5, figolive 30 x10.1, fire 56 x2.5, rain 27 x4.7, vine 25 x4.2, seed 32 x2.2, shepherd 24 x2.2
+near  grain         rain 60 x20.7, wine 46 x10.7, fruit 43 x6.2, tree 36 x5.9, bread 38 x5.1, harvest 25 x11, milkhoney 22 x11.6, blessing 48 x2.7
+near  gold          stone 114 x4.4, idols 81 x4.1, tree 81 x2.7, clothing 69 x2.8, incense 37 x5.5, table 31 x5.9, lamp 34 x3.4, milkhoney 28 x3
+near  righthand     heaven 236 x2.1, enemy 128 x3.2, angel 130 x2.8, throne 95 x3.6, arm 48 x4.3, cross 35 x3.2, cloud 35 x2.6, lamp 20 x2.4
+near  face          prayer 175 x2.1, fasting 52 x4.1, wings 60 x2.7, cloud 58 x2.3
+near  morning       sacrifice 67 x2.6, fire 69 x2.4, light 50 x2.3, chesed 49 x2.2, leaven 21 x5.9, altar 36 x2.8, sabbath 33 x3.1, cloud 28 x3.4
+near  love          neighbor 201 x2.6, new 104 x2.1
+near  chesed        mercy 425 x8.5, truth 313 x4, praise 244 x3.8, grace 267 x3.2, forever 294 x2.3, remember 182 x3.7, song 160 x3.3, covenant 162 x3
+near  mercy         chesed 425 x8.5, grace 305 x3.8, wrath 228 x3.4, sin 332 x2.1, remember 152 x3.2, forgiveness 103 x4.3, truth 157 x2.1, repent 98 x2.7
+near  grace         anointed 746 x2.4, mercy 305 x3.8, chesed 267 x3.2, hope 172 x2, forgiveness 92 x2.3
+near  truth         chesed 313 x4, righteousness 566 x2.1, witness 183 x2.3, mercy 157 x2.1
+near  salvation     hope 370 x2.7, refuge 289 x3.3, song 279 x2.2, rescue 222 x2.2, rock 163 x2.4, arm 101 x2.4
+near  peace         healing 91 x2.3
+near  hope          faith 479 x2.4, salvation 370 x2.7, joy 198 x2.1, grace 172 x2, comfort 80 x3.7, raised 56 x6, refuge 77 x2.3, goodnews 83 x2.1
+near  joy           praise 309 x2.6, song 206 x2.4, weeping 176 x2.6, comfort 134 x3.5, bride 94 x5.7, hope 198 x2.1, wine 114 x2.5, crown 42 x2.3
+near  life          death 983 x2.5, anointed 981 x2.2, forever 771 x2.6, raised 98 x4.5, cross 94 x2.5, scroll 110 x2.1, grave 89 x2.1, garden 41 x2.1
+near  forever       life 771 x2.6, glory 586 x2, throne 264 x2.8, covenant 309 x2.3, generations 218 x3.2, praise 335 x2.1, chesed 294 x2.3, oath 269 x2.1
+near  glory         forever 586 x2, cloud 182 x4.2, light 282 x2.5, praise 319 x2.2, throne 196 x2.3, reveal 148 x2.6, darkness 156 x2.1, creation 106 x2
+near  holy          sacrifice 452 x2.2, clean 384 x2.1, chosen 311 x2.1, washing 231 x2.6, sabbath 224 x2.6, altar 211 x2.1, redeemer 190 x2.2, atonement 110 x2.1
+near  righteousness justice 1244 x2.6, truth 566 x2.1
+near  justice       righteousness 1244 x2.6, poor 316 x2.5, widow 169 x4.5, throne 217 x2.1, stranger 143 x2.4
+near  forgiveness   sin 477 x5.9, repent 134 x7.3, atonement 72 x9.8, mercy 103 x4.3, blood 111 x3.6, chesed 93 x3.7, redeemer 56 x4.5, grace 92 x2.3
+near  oath          seed 258 x5.7, covenant 224 x4, forever 269 x2.1, inheritance 144 x3.1, obey 137 x2.2, milkhoney 54 x4.7, stranger 64 x2.8, curse 50 x2.7
+near  blessing      praise 325 x2.4, seed 251 x2.8, fruit 206 x2.5, curse 122 x3.3, rain 94 x2.7, grain 48 x2.7, fish 39 x2.9, stars 52 x2.1
+near  inheritance   oath 144 x3.1, seed 127 x3.4, poor 95 x2.3, chosen 83 x2.2, redeemer 62 x2.8, forgiveness 47 x2.2, stranger 39 x2, potter 29 x2.5
+near  healing       blind 62 x7.4, prayer 104 x2.7, peace 91 x2.3, forgiveness 54 x3.6, goodnews 63 x2.7, sabbath 48 x3.2, light 60 x2, oil 43 x2.5
+near  raised        death 171 x5.9, anointed 124 x3.7, life 98 x4.5, hope 56 x6, washing 29 x6.2, faith 72 x2.1, forever 52 x2.3, grave 18 x5.8
+near  new           creation 72 x8.3, covenant 94 x4.5, anointed 145 x2, song 72 x3.9, love 104 x2.1, blood 63 x2.6, praise 61 x2.5, throne 40 x2.8
+near  wisdom        heart 564 x2, reveal 75 x2.1
+near  comfort       joy 134 x3.5, weeping 75 x4.9, zion 122 x2.5, hope 80 x3.7, mercy 54 x2.6, garden 23 x6.7
+near  freedom       servant 102 x3.7, spirit 122 x2.5, anointed 118 x2.3, law 86 x2.6, yoke 24 x13.8, poor 40 x3.1, oil 28 x3.6, goodnews 25 x2.3
+near  goodnews      anointed 411 x2.8, faith 330 x2.2, word 333 x2.1, disciple 134 x2.3, kingdom 127 x2.1, reveal 65 x3.4, healing 63 x2.7, hope 83 x2.1
+near  servant       freedom 102 x3.7, yoke 30 x2.4
+near  priest        sacrifice 383 x4.9, altar 212 x5.5, atonement 124 x6.3, ark 104 x4.9, clean 151 x2.2, temple 117 x2.4, seven 124 x2.2, oil 90 x2.4
+near  prophet       babylon 101 x2.4, reveal 85 x2.1
+near  king          babylon 481 x4.9, zion 881 x2, kingdom 627 x2.1, war 429 x2.6, exile 184 x2.2
+near  father        (none)
+near  son           birth 752 x2.6, firstborn 185 x2.6
+near  widow         poor 146 x11, stranger 111 x18.1, justice 169 x4.5, unfaithful 32 x3.7, blood 43 x2.4, neighbor 28 x3.3, clothing 23 x2.9, bread 25 x2.1
+near  stranger      widow 111 x18.1, poor 101 x4.9, justice 143 x2.4, oath 64 x2.8, neighbor 43 x3.3, seven 49 x2.6, blood 60 x2.2, egypt 61 x2.1
+near  poor          widow 146 x11, justice 316 x2.5, stranger 101 x4.9, blind 76 x5.8, pride 103 x3.7, hunger 83 x3.3, rescue 95 x2.7, inheritance 95 x2.3
+near  disciple      goodnews 134 x2.3, cross 61 x2.6, passover 23 x2.3, fish 22 x2.3
+near  angel         heaven 443 x2.2, satan 143 x4.2, fire 195 x2.3, righthand 130 x2.8, seven 137 x2.4, throne 120 x2.4, trumpet 80 x3.7, stars 66 x4.2
+near  enemy         wrath 183 x2.3, war 143 x2.8, righthand 128 x3.2, sword 139 x2.8, rescue 119 x2.7, babylon 91 x3, refuge 100 x2.7, rock 65 x2.2
+near  nations       gather 263 x3.7, babylon 174 x2.4, remnant 81 x2.1
+near  neighbor      love 201 x2.6, unfaithful 76 x4.2, stranger 43 x3.3, widow 28 x3.3, bride 22 x4.1
+near  witness       truth 183 x2.3, ark 61 x3.7, atonement 49 x3.2, washing 56 x2.1, scroll 45 x2, raised 27 x2.9, lamp 25 x2.1
+near  remnant       gather 56 x7.7, exile 47 x7.7, zion 77 x2.4, nations 81 x2.1, rain 26 x5.6, mercy 38 x2.8, mountain 44 x2.4, egypt 43 x2.3
+near  creation      heaven 253 x3.6, new 72 x8.3, potter 56 x9.3, glory 106 x2, foundation 37 x5.3, sea 52 x2.5, redeemer 35 x3.1, light 44 x2
+near  chosen        holy 311 x2.1, inheritance 83 x2.2, seed 74 x2, potter 35 x3.1, foundation 31 x2.3, feasts 23 x2.8
+near  remember      chesed 182 x3.7, mercy 152 x3.2, covenant 155 x3, egypt 170 x2.6, generations 68 x2.5, unfaithful 63 x2.1, trumpet 45 x2.8, forgiveness 48 x2
+near  rescue        salvation 222 x2.2, refuge 100 x4, enemy 119 x2.7, lion 62 x5.7, poor 95 x2.7, rock 60 x3.1, redeemer 40 x2.1, river 26 x2.2
+near  gather        nations 263 x3.7, shepherd 151 x9, flock 138 x6, exile 99 x8.6, remnant 56 x7.7, mountain 81 x2.3, sword 65 x2.8, mercy 67 x2.6
+near  exile         zion 199 x4, gather 99 x8.6, babylon 85 x7.4, king 184 x2.2, remnant 47 x7.7, sword 62 x3.2, mercy 64 x3, river 34 x5
+near  wrath         fire 337 x3.8, mercy 228 x3.4, enemy 183 x2.3, chesed 162 x2.3, cup 65 x4.8, forgiveness 70 x2.1, arm 52 x2.4
+near  reveal        anointed 221 x2.4, glory 148 x2.6, goodnews 65 x3.4, prophet 85 x2.1, wisdom 75 x2.1, darkness 37 x2.3
+near  faith         anointed 1626 x2.2, hope 479 x2.4, goodnews 330 x2.2, raised 72 x2.1
+near  repent        sin 366 x3, forgiveness 134 x7.3, way 197 x2.3, washing 86 x4.5, kingdom 131 x2.2, mercy 98 x2.7, unfaithful 63 x2.7, idols 41 x2.4
+near  prayer        fasting 73 x6.2, face 175 x2.1, healing 104 x2.7, weeping 101 x2.2, incense 42 x4.2, forgiveness 65 x2.1, cup 26 x2.1
+near  praise        song 418 x6.8, name 589 x2.7, chesed 244 x3.8, joy 309 x2.6, blessing 325 x2.4, forever 335 x2.1, glory 319 x2.2, sacrifice 157 x2.1
+near  worship       praise 115 x2.4, throne 82 x2.9, idols 61 x3.5, scroll 50 x3, altar 52 x2.4, crown 30 x4.1, sun 48 x2.3, satan 46 x2.3
+near  song          praise 418 x6.8, salvation 279 x2.2, chesed 160 x3.3, refuge 131 x4.2, joy 206 x2.4, mountain 138 x2.2, new 72 x3.9, rock 63 x2.6
+near  fear          war 189 x2.1, refuge 138 x2, grass 36 x2.9
+near  obey          law 538 x3.6, way 317 x2.3, covenant 187 x2.9, voice 200 x2.3, sabbath 107 x3.6, oath 137 x2.2
+near  weeping       joy 176 x2.6, fasting 60 x8.8, comfort 75 x4.9, prayer 101 x2.2, water 111 x2, clothing 57 x2.7, hunger 48 x2.5, oil 42 x2
+near  fasting       prayer 73 x6.2, weeping 60 x8.8, face 52 x4.1, seven 36 x4.5, clothing 20 x3.8, hunger 16 x3.2, bread 16 x2
+near  sacrifice     altar 381 x10.9, priest 383 x4.9, atonement 169 x9.5, holy 452 x2.2, lamb 187 x6.7, sin 396 x2, blood 240 x3.2, incense 106 x11.4
+near  altar         sacrifice 381 x10.9, priest 212 x5.5, incense 91 x19.7, blood 157 x4.2, atonement 89 x10.1, holy 211 x2.1, horn 67 x9.1, temple 92 x4.2
+near  incense       altar 91 x19.7, sacrifice 106 x11.4, oil 36 x8.1, holy 72 x2.7, gold 37 x5.5, atonement 26 x11.1, fire 43 x4.2, prayer 42 x4.2
+near  washing       water 239 x6.1, clean 182 x6.8, spirit 263 x2.9, holy 231 x2.6, sin 179 x2.1, repent 86 x4.5, clothing 74 x5.1, blood 88 x2.7
+near  clean         sin 405 x2.4, washing 182 x6.8, holy 384 x2.1, blood 218 x3.3, idols 119 x4.9, water 195 x2.5, sacrifice 155 x2.5, clothing 109 x3.7
+near  law           obey 538 x3.6, covenant 286 x2.2, scroll 113 x2.1, freedom 86 x2.6, curse 98 x2.3
+near  cross         anointed 191 x3.3, life 94 x2.5, death 104 x2.1, disciple 61 x2.6, righthand 35 x3.2, goodnews 34 x2.8, tree 28 x2.6, washing 18 x2.3
+near  sin           forgiveness 477 x5.9, blood 501 x2.4, repent 366 x3, clean 405 x2.4, atonement 223 x4.6, sacrifice 396 x2, mercy 332 x2.1, redeemer 199 x2.4
+near  death         life 983 x2.5, raised 171 x5.9, grave 219 x4, cross 104 x2.1
+near  grave         death 219 x4, fire 86 x3.8, life 89 x2.1, raised 18 x5.8, dust 19 x3.7, satan 22 x2.5, rock 19 x2.2
+near  idols         unfaithful 122 x8.5, clean 119 x4.9, gold 81 x4.1, worship 61 x3.5, blood 75 x2.5, altar 42 x3.1, fire 61 x2, repent 41 x2.4
+near  pride         poor 103 x3.7, dust 32 x3.6, curse 28 x2.7
+near  satan         serpent 117 x19.1, angel 143 x4.2, lion 54 x7.3, darkness 43 x2.5, worship 46 x2.3, crown 21 x4.1, blind 24 x3.3, grain 17 x3.7
+near  unfaithful    idols 122 x8.5, neighbor 76 x4.2, clean 93 x2.9, blood 101 x2.6, repent 63 x2.7, remember 63 x2.1, stranger 40 x3, widow 32 x3.7
+near  blind         darkness 101 x11.2, poor 76 x5.8, healing 62 x7.4, light 70 x5.2, goodnews 43 x4, clean 41 x2.8, forgiveness 24 x3.5, satan 24 x3.3
+near  hunger        water 235 x5.9, bread 158 x7, sword 135 x5.8, poor 83 x3.3, egypt 90 x2.5, wilderness 57 x2.9, weeping 48 x2.5, wine 35 x2.7
+near  curse         blessing 122 x3.3, law 98 x2.3, oath 50 x2.7, tree 33 x2.7, fire 46 x2, scroll 25 x3.2, pride 28 x2.7, unfaithful 22 x2
+near  heaven        kingdom 543 x2.2, stars 210 x5.7, angel 443 x2.2, sun 279 x3.2, creation 253 x3.6, throne 320 x2.7, sea 341 x2.4, rain 192 x3.7
+near  zion          king 881 x2, mountain 447 x3, exile 199 x4, babylon 201 x3.4, gate 177 x2, temple 170 x2, comfort 122 x2.5, remnant 77 x2.4
+near  egypt         wilderness 206 x4.1, arm 103 x4.8, remember 170 x2.6, sea 144 x2.3, firstborn 75 x4.5, covenant 148 x2, sword 124 x2.1, leaven 55 x5
+near  babylon       king 481 x4.9, zion 201 x3.4, exile 85 x7.4, nations 174 x2.4, sword 88 x3.8, enemy 91 x3, prophet 101 x2.4, fire 80 x2.3
+near  feasts        seven 101 x12, leaven 60 x37.8, passover 48 x37.2, sacrifice 77 x6.7, sabbath 32 x6.7, zion 56 x2.5, worship 24 x3.3, lamb 18 x3.9
+near  birth         son 752 x2.6, seed 132 x2.9, firstborn 52 x4, rain 35 x2
+near  war           king 429 x2.6, sword 152 x3.9, enemy 143 x2.8, fear 189 x2.1, trumpet 68 x4.7, refuge 76 x2.6, arm 51 x3.6, babylon 63 x2.7
+near  seven         sabbath 149 x7, feasts 101 x12, leaven 66 x9.3, trumpet 77 x5.4, angel 137 x2.4, clean 111 x2.5, priest 124 x2.2, sacrifice 109 x2.1
+near  forty         wilderness 71 x9.8, egypt 58 x4.3, water 47 x3.1, mountain 44 x3.4, bread 29 x3.4, seven 26 x3, generations 20 x3.7, oath 26 x2.5
+near  generations   forever 218 x3.2, covenant 90 x3.1, chesed 83 x3, seed 75 x3.2, remember 68 x2.5, forty 20 x3.7, ark 25 x2.8, lamp 20 x3.1
+themes at Simple: 154 themes light 21994 of 31102 verses (70.7%)
+themes at Study: 163 themes light 24807 of 31102 verses (79.8%)
+related words at Simple: 1881 verses reach a theme through a related word, 483 of them with no theme of their own
+related words at Study: 2353 verses reach a theme through a related word, 411 of them with no theme of their own
+related words: 379 reviewed pairs for 126 themes (config/theme-related.json); theme verses unchanged
+themes: 163 in 10 groups; often linked with: 172908 distinct verse pairs with 3+ votes, 162 of 163 themes have a partner
+layers of meaning: 1264 passages, 3099 layers checked; 1264 passages live with 3095 notes (3095 live because they cite a listed source); no drafts
+quotations: 459 links (328 quotations, 131 echoes) from 381 footnotes; 311 quotations named in the Old Testament's notes too; 441 links with Hebrew-Greek word pairs (1882 pairs, 1625 the Septuagint's own)
+  quoted words: 313 after a closing mark, 6 inside a quotation, 62 not found; 0 places not mapped to the BSB text
+  dropped: 0 references not in the BSB, 1 unreadable, 24 to the New Testament, 5 long echoes, 1 repeats; 0 verses not in the BSB; 380 'cited in' references to the New Testament (6 others skipped)
+real-map: 1342 places in the geocoding data, 1234 named in the BSB in 4896 verses (7483 mentions); 683 have a confident site, 260 far from Jerusalem
+real-map: dropped 0 references not in the BSB numbering, 462 where most translations name no place or only its people, 769 where the BSB does not name it, 16 read as not a place, 7 inside a longer name; moved 41 to the next or previous verse; 119 other names used for a place
+real-map: 420 places placed in the dataset's words by another place, 198 with a note; left out 61 sites credited to OpenStreetMap or Google, or placed by a Palestine Grid reference (110 links to them), so 23 places have their strongest site off the map
+real-map: 1112 places joined to Theographic (70 more left without people because another place shares more verses with theirs), 60 with people tied to them; 334 "was there" ties left out as unconfirmed, 11 births and deaths the text rules out, 46 names told apart by a parent
+real-map: 126 places shaded with the dataset's own shapes (0 drawn shapes not pinned in sources.json); the tribes' lands drawn around 147 towns
+real-map: 299 of Theographic's 450 events placed at 154 places (0 with no verse in the BSB)
+peshitta: 7958 verses read, 7958 placed on 7957 BSB verses (529 from later versions, 7957 romanized), 8 placed by name; skipped 0 (outside a chapter 0, bad number 0, empty 0, out of order 0, not in the BSB 0, duplicate 0); removed 51 '+' marks and 0 other characters, 0 unknown entities, 0 tags inside verses, 27 other elements, 0 stray text; 0 BSB verses without Syriac; status {"UncorrectedTranscription": 27}
+World: TAHOT gives 23213 Hebrew verse numbers, 1975 of them differ from the English numbering
+World: 5 linked handbook entries have no text to show and are left out: Woven or knitted material, Floor, Lethek, Kodrantes, Denarius
+World: 5018 Greek roots with LSJ (4531 with senses, 4702 with a first use; 153 grammar words, 36 words given a related word's entry, and 25 names and 42 words given another word's entry not shown); 576 UBS entries linked to 1358 roots (general 1259, verse-only 361); 50 files, 1970 KB
+wordplay: 12 alphabet poems, 461 letters checked against TAHOT
+notes: 16923 notes from 16923 entries; 0 empty, 4 passages not in the BSB, 5 in another book's file; 39101 of 39110 verse references placed
+notes: tags dropped (their text kept): {"</a>": 1, "</h3>": 6, "</span>": 3926, "</strong>": 12, "</sup>": 1, "<a>": 1, "<data>": 1298, "<h3>": 6, "<span>": 3926, "<strong>": 12, "<sup>": 1}
+voices: 814 passages of the Fathers, 4049 of Henry's notes, 16704 of Wesley's, in 81 files; 4562 of 4821 references linked; 6 introductions and 29 notes on a verse 0 left out, 5 not placed, 0 ranges cut to the chapter
+voices: the Fathers' passages took 4 verses before the next passage, 18 Gospel paragraphs and 264 footnote marks left out; 197 repeated Wesley notes left out and 31 moved to the verse whose words they explain
+hard verses: 56 questions checked; 0 written, 56 drafts left out (set ATLAS_HARD_VERSE_DRAFTS=1 to include them), 56 of them pointed out at Deep with their links only
+ask the bible: 1584 questions, 12008 chain parts, each tied to the question or the chain (8287 the question's words, 7057 its Nave's subjects, 7677 cross-references, 124 quotations, 8127 shared roots, 1914 the same passage); 66514 example messages for the meaning matcher; 4672 Nave's subjects, 27 references not in the BSB left out
+naves rows: 1718 of 4672 subjects can show (1861 concepts, 28 of them let through and 143 hidden by config/naves-display.json, which also fixes 14 references; left out 1650 people, 673 places, 160 other names and 328 more names known by how the KJV and BSB write them); 19373 verses with a subject citing them, 8575 more inside a passage; 66 files, 754 KB, the largest naves/Ps.json 43.5 KB
+parallels: 307 sets, 525 pairs lined up, 34 passages added by hand (not in the BSB headings); 3015 headings read, 1 heading references not read
+aramaic: 34 words in 63 verses, 5 sections in 12 chapters, 46 roots; 32786 bytes
+Eras: 17 eras, 71 ranges covering 772 chapters; 66 books (57 dated, 7 relative, 2 undated); 250 quotations checked
+dictionary easton: 3962 entries from 3964 terms (2 given twice and made one, 0 without text, 0 without a usable address, 0 names corrected); 23595 marked verse links and 54 found in the text, 23049 references listed; 5 marked references to several chapters listed but not linked; 5 references outside the BSB's books (e.g. 1 Macc. 1:57 (Bible:1Macc.1.57) | 1 Macc. 4:47 (Bible:1Macc.4.47) | 1 Macc. 1:23 (Bible:1Macc.1.23) | 4:49 (Bible:1Macc.4.49) | 1 Macc. 2:60 (Bible:1Macc.2.60)); 26 the BSB has no verse for (e.g. 16 (Bible:Neh.16) | Cant. l. (Bible:Song.50) | 31 (Bible:Ezek.17.31) | Exodus 1491 (Bible:Exod.1491) | Jer. 38:60 (Bible:Jer.38.60)); elements kept as text: none
+dictionary smith: 4561 entries from 4561 terms (0 given twice and made one, 0 without text, 0 without a usable address, 1 names corrected); 16963 marked verse links and 154 found in the text, 16669 references listed; 36 marked references to several chapters listed but not linked; 239 references outside the BSB's books (e.g. 1Ma 7:40 (Bible:1Macc.7.40) | 45 (Bible:1Macc.7.45) | 1Ma 12:38 (Bible:1Macc.12.38) | 1Esd 5:14 (Bible:1Esd.5.14) | 1Ma 13:20 (Bible:1Macc.13.20)); 157 the BSB has no verse for (e.g. 117 (Bible:Ps.116.117) | Esther 16:10 (Bible:Esth.16.10) | 17 (Bible:Esth.16.17) | Esther 12:6 (Bible:Esth.12.6) | Esther 10:7 (Bible:Esth.10.7)); elements kept as text: none
+shelf: 58 works in 12 groups (58 from config/shelf.json, 0 plain cards from sources.json, 0 left out until the app cites them); 239 of 239 citations matched to a work
+shelf files: shelf.json 66 KB, dict/easton/index.json 109 KB, dict/easton/a.json 345 KB, dict/easton/b.json 230 KB, dict/easton/c.json 309 KB, dict/easton/d.json 166 KB, dict/easton/e.json 208 KB, dict/easton/f.json 112 KB, dict/easton/g.json 158 KB, dict/easton/h.json 211 KB, dict/easton/i.json 58 KB, dict/easton/j.json 236 KB, dict/easton/k.json 56 KB, dict/easton/l.json 105 KB, dict/easton/m.json 249 KB, dict/easton/n.json 106 KB, dict/easton/o.json 46 KB, dict/easton/p.json 261 KB, dict/easton/q.json 8 KB, dict/easton/r.json 106 KB, dict/easton/s.json 301 KB, dict/easton/t.json 152 KB, dict/easton/u.json 16 KB, dict/easton/v.json 21 KB, dict/easton/w.json 64 KB, dict/easton/y.json 3 KB, dict/easton/z.json 60 KB, dict/smith/index.json 127 KB, dict/smith/a.json 315 KB, dict/smith/b.json 154 KB, dict/smith/c.json 146 KB, dict/smith/d.json 98 KB, dict/smith/e.json 157 KB, dict/smith/f.json 51 KB, dict/smith/g.json 115 KB, dict/smith/h.json 188 KB, dict/smith/i.json 63 KB, dict/smith/j.json 264 KB, dict/smith/k.json 45 KB, dict/smith/l.json 138 KB, dict/smith/m.json 289 KB, dict/smith/n.json 142 KB, dict/smith/o.json 64 KB, dict/smith/p.json 354 KB, dict/smith/q.json 4 KB, dict/smith/r.json 107 KB, dict/smith/s.json 402 KB, dict/smith/t.json 233 KB, dict/smith/u.json 36 KB, dict/smith/v.json 38 KB, dict/smith/w.json 79 KB, dict/smith/y.json 5 KB, dict/smith/z.json 88 KB
+dictionary extra: 17629 verses have entries (48328 listings); extras/dictionary.json 98 KB, book files 1708 KB in all, the largest 116 KB
+LXX bridges: 2788 Greek roots, 8446 pairs (3437 pointed, 129 consonants only, 253 by the verses cited, 129 Hebrew-Aramaic twins, 239 by a dominant number, 287 ambiguous skipped, 66 phrases skipped)
+wrote 2212 files (120.6 MB) to C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\web/public/data in 430.0s; build 37a161b535ed
+words: 300821 Hebrew, 4827 Aramaic, 137646 Greek; 10997 with edition/manuscript differences (4643 meaningful)
+--- make build-data, run A (CRLF sources) = cargo run --release -q -p atlas-cli -- build: rc=0 wall=499.986s
+
+=== make verify, run A = cargo run --release -q -p atlas-cli -- verify  [12:01:05]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- verify)
+themes at Simple: 21994 verses (70.7%) have their own, 483 (1.6%) reach one through a related word, 2864 (9.2%) through links, 0 show Nave's rows, 5761 (18.5%) the quiet line
+related words at Simple: 1881 verses newly reach a theme through one: 1398 beside their own themes, 279 that had only links, 0 that had Nave's rows, 204 that had the quiet line; links only 3143 -> 2864, Nave's 0 -> 0, quiet 5965 -> 5761
+themes at Study: 24807 verses (79.8%) have their own, 411 (1.3%) reach one through a related word, 2120 (6.8%) through links, 3012 show Nave's rows, 752 (2.4%) the quiet line
+related words at Study: 2353 verses newly reach a theme through one: 1942 beside their own themes, 227 that had only links, 161 that had Nave's rows, 23 that had the quiet line; links only 2347 -> 2120, Nave's 3173 -> 3012, quiet 775 -> 752
+Nave's rows at Study: 3764 verses (12.1%) have no theme of their own, through a related word or through links; a Nave's subject cites 1410 (4.5%), 1602 (5.2%) are inside a Nave's passage, 752 (2.4%) still have nothing
+Nave's rows if shown at Simple (they are not): 5761 verses (18.5%) have no theme of their own, through a related word or through links; a Nave's subject cites 2100 (6.8%), 2474 (8.0%) are inside a Nave's passage, 1187 (3.8%) still have nothing
+Septuagint bridges: 2788 Greek roots, 8446 pairs; 5952 of 12281 links between the testaments with 8+ votes (48.5%)
+5908 checks passed
+FAILED: Nave's Jesus, the Christ includes 1 Corinthians 1:24 but not 1:10 (its cut last line is left out)
+error: 1 check(s) failed
+--- make verify, run A = cargo run --release -q -p atlas-cli -- verify: rc=1 wall=183.680s
+
+=== fetch, run B: env core.longpaths=true and core.autocrlf=false via GIT_CONFIG_COUNT, into --raw data/raw-lf  [12:04:24]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- --raw data/raw-lf fetch)
+
+=== make wasm = bash scripts/build-wasm.sh (Git Bash; CRLF script)  [12:04:47]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; bash scripts/build-wasm.sh)
+wrote web/src/engine/atlas.wasm (75220 bytes)
+--- make wasm = bash scripts/build-wasm.sh (Git Bash; CRLF script): rc=0 wall=64.597s
+fetching 6 file(s) from https://github.com/Clear-Bible/Alignments @ c99bd0ae69
+fetching 67 file(s) from https://github.com/BibleAquifer/AquiferOpenStudyNotes @ bbb3f86016
+fetching 125 file(s) from https://github.com/openbibleinfo/Bible-Geocoding-Data @ 7eb18a5ee6
+fetching 10 file(s) from https://github.com/STEPBible/STEPBible-Data @ 1f3423d424
+fetching 27 file(s) from https://github.com/mvh-solutions/aquiferized-tbd-english @ 1bd1bb39b6
+fetching 1 file(s) from https://github.com/BradyStephenson/bible-data @ 720a8da6d2
+fetching 2 file(s) from https://github.com/neuu-org/bible-dictionary-dataset @ b8e82aa7ca
+fetching 4 file(s) from https://github.com/scrollmapper/bible_databases @ e1b254cef8
+fetching 5 file(s) from https://github.com/AlvaroBalbin/catena @ efe1bd084d
+fetching 66 file(s) from https://github.com/usfm-bible/examples.bsb @ 48a9feb71f
+fetching 3 file(s) from https://github.com/LetsChurch/lets.church @ 71f6f0fc8f
+fetching 1 file(s) from https://github.com/Clear-Bible/macula-hebrew @ 47db250bd5
+fetching 5 file(s) from https://github.com/nvkelso/natural-earth-vector @ ca96624a56
+fetching 2 file(s) from https://github.com/openscriptures/strongs @ 0acd2f251c
+fetching 27 file(s) from https://github.com/srophe/syriac-corpus @ 833adc148c
+fetching 3 file(s) from https://github.com/robertrouse/theographic-bible-metadata @ cfb1c485d4
+fetching 3 file(s) from https://github.com/ubsicap/ubs-open-license @ 33dcc8c671
+wrote data/raw-lf\manifest.lock.json
+--- fetch, run B: env core.longpaths=true and core.autocrlf=false via GIT_CONFIG_COUNT, into --raw data/raw-lf: rc=0 wall=463.964s
+
+=== run B finding: with autocrlf=false, 71 of 357 source files still differ from CI (66 examples.bsb usfm, 5 natural-earth geojson) because those upstream repos mark files "text" in .gitattributes and core.eol defaults to native (CRLF) on Windows. Removing those two checkouts and fetching again with core.eol=lf added (run C).
+
+=== fetch, run C: core.longpaths=true, core.autocrlf=false, core.eol=lf (re-fetch of the two affected checkouts; others already present)  [12:15:04]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- --raw data/raw-lf fetch)
+fetching 6 file(s) from https://github.com/Clear-Bible/Alignments @ c99bd0ae69
+fetching 67 file(s) from https://github.com/BibleAquifer/AquiferOpenStudyNotes @ bbb3f86016
+fetching 125 file(s) from https://github.com/openbibleinfo/Bible-Geocoding-Data @ 7eb18a5ee6
+fetching 10 file(s) from https://github.com/STEPBible/STEPBible-Data @ 1f3423d424
+fetching 27 file(s) from https://github.com/mvh-solutions/aquiferized-tbd-english @ 1bd1bb39b6
+fetching 1 file(s) from https://github.com/BradyStephenson/bible-data @ 720a8da6d2
+fetching 2 file(s) from https://github.com/neuu-org/bible-dictionary-dataset @ b8e82aa7ca
+fetching 4 file(s) from https://github.com/scrollmapper/bible_databases @ e1b254cef8
+fetching 5 file(s) from https://github.com/AlvaroBalbin/catena @ efe1bd084d
+fetching 66 file(s) from https://github.com/usfm-bible/examples.bsb @ 48a9feb71f
+fetching 3 file(s) from https://github.com/LetsChurch/lets.church @ 71f6f0fc8f
+fetching 1 file(s) from https://github.com/Clear-Bible/macula-hebrew @ 47db250bd5
+fetching 5 file(s) from https://github.com/nvkelso/natural-earth-vector @ ca96624a56
+fetching 2 file(s) from https://github.com/openscriptures/strongs @ 0acd2f251c
+fetching 27 file(s) from https://github.com/srophe/syriac-corpus @ 833adc148c
+fetching 3 file(s) from https://github.com/robertrouse/theographic-bible-metadata @ cfb1c485d4
+fetching 3 file(s) from https://github.com/ubsicap/ubs-open-license @ 33dcc8c671
+wrote data/raw-lf\manifest.lock.json
+--- fetch, run C: core.longpaths=true, core.autocrlf=false, core.eol=lf (re-fetch of the two affected checkouts; others already present): rc=0 wall=512.261s
+live source files 357 matching sha256 in run C lock 357
+
+=== make build-data, run C (LF sources identical to CI) = cargo run --release -q -p atlas-cli -- --raw data/raw-lf build  [12:24:55]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- --raw data/raw-lf build)
+inputs verified against manifest.lock.json
+BSB: 66 books, 1189 chapters, 31102 verses
+cross-references: 344799 read, 344799 kept, 0 unmapped
+Hebrew/Aramaic words: 305648 read, 0 unmapped
+Greek words: 142096 read, 0 unmapped
+word alignment: 365604 of 386390 links kept, 31070 verses; 1532 of 443780 source words and 39805 of 727068 English words without a partner; 18945 links in 2033 verses left out because their English positions look shifted
+lexicon entries: 11682 Hebrew/Aramaic, 11035 Greek
+roots: 16973 (0 without a lexicon entry)
+word families: 5452 derivations (1146 prefix compounds, 1045 shared roots) from 8674 Hebrew and 5523 Greek Strong's entries; 8959 roots with relatives
+theme lamb            175 verses,   196 occurrences via G0286 (lamb), G0721 (lamb), H3532 (lamb), H3535 (ewe-lamb), H7716 (sheep)
+theme light           188 verses,   215 occurrences via G5457 (light), G5458 (light), H0216 (light), H3974 (light)
+theme shepherd        169 verses,   199 occurrences via G0750 (chief shepherd), G4165 (to shepherd), G4166 (shepherd), H7462B (to pasture)
+theme vine            163 verses,   179 occurrences via G0288 (vine), G0290 (vineyard), H1612 (vine), H3754 (vineyard)
+theme bread           366 verses,   395 occurrences via G0740 (bread), H3899G (food), H3899H (food: bread), H3899I (food: allowance)
+theme water           587 verses,   652 occurrences via G5204 (water), H4325G (water)
+theme rock            135 verses,   150 occurrences via G4073 (rock), H5553G (rock), H5553H (crag), H6697H (rock)
+theme fire            417 verses,   449 occurrences via G4442 (fire), H0784 (fire)
+theme blood           383 verses,   455 occurrences via G0129G (blood), H1818 (blood)
+theme covenant        294 verses,   317 occurrences via G1242 (covenant), H1285 (covenant)
+theme seed            238 verses,   264 occurrences via G4690G (seed: offspring), G4690H (seed(s)), H2233G (seed), H2233H (seed: children)
+                    left out: H2233I (seed: semen)
+theme bride            46 verses,    61 occurrences via G3565 (bride), G3566 (bridegroom), H2860 (son-in-law), H3618G (daughter-in-law: bride)
+                    left out: H3618H (daughter-in-law)
+theme temple          317 verses,   342 occurrences via G2411 (temple), G3485 (temple), G4633 (tent), H1964G (temple), H1964I (temple: nave), H4908 (tabernacle)
+                    left out: H1964H (temple: palace)
+theme tree            321 verses,   371 occurrences via G1186 (tree), G3586 (wood), H6086G (tree: wood), H6086H (tree), H6086I (tree: stick), H6086J (tree: stake)
+                    left out: H6086K (tree: carpenter)
+theme way             724 verses,   806 occurrences via G3598 (road), H1870G (way: conduct), H1870J (way: direction), H1870K (way: road), H1870L (way: journey)
+theme spirit          685 verses,   750 occurrences via G4151G (spirit/breath: spirit), G4151H (spirit/breath: breath), H7307G (spirit), H7307H (spirit: breath), H7307J (spirit: temper)
+                    left out: H7307I (spirit: side)
+theme passover         73 verses,    78 occurrences via G3957 (Passover lamb), H6453 (Passover)
+theme redeemer        109 verses,   133 occurrences via G0629 (redemption), G3083 (ransom), G3084 (to ransom), H1350A (to redeem: redeem), H1350B (redemption), H1350H (to redeem: avenge), H1350I (to redeem: relative), H1353 (redemption)
+theme atonement       124 verses,   142 occurrences via G2433 (to propitiate), G2434 (propitiation), G2435 (propitiation), H3722A (to atone), H3725 (atonement), H3727 (mercy seat)
+theme anointed        536 verses,   570 occurrences via G3323 (Messiah), G5547 (Christ), H4899 (anointed)
+theme sabbath         183 verses,   215 occurrences via G2663 (rest), G2664 (to keep from), G4520 (Sabbath rest), G4521 (Sabbath), H4496H (resting), H7673B (to keep), H7676 (Sabbath)
+theme kingdom         414 verses,   451 occurrences via G0932 (kingdom), H4410 (kingship), H4437 (kingdom), H4438 (royalty), H4467 (kingdom)
+theme firstborn       108 verses,   130 occurrences via G4416 (firstborn), H1060 (firstborn)
+theme darkness        131 verses,   149 occurrences via G4652 (dark), G4653 (darkness), G4655 (darkness), H0652 (darkness), H0653 (darkness), H2822 (darkness)
+theme mountain        466 verses,   515 occurrences via G3735 (mountain), H2022G (mountain: mount), H2906 (mountain)
+theme sea             363 verses,   412 occurrences via G2281 (sea), H3220G (sea)
+                    left out: H3220H (sea: west)
+theme river            96 verses,   105 occurrences via G4215 (river), H5104H (river)
+theme wilderness      307 verses,   321 occurrences via G2047 (desert), G2048 (deserted), H4057B (wilderness)
+theme garden           54 verses,    59 occurrences via G2779 (garden), G3857 (paradise), H1588M (garden), H1593 (garden)
+theme cup              54 verses,    62 occurrences via G4221 (cup), H3563A (cup)
+theme oil             247 verses,   291 occurrences via G0218 (to anoint), G1637 (olive oil), G5545 (anointing), G5548 (to anoint), H4886 (to anoint), H8081 (oil)
+theme wine            196 verses,   213 occurrences via G3631 (wine), H3196 (wine), H8492 (new wine)
+theme gate            399 verses,   503 occurrences via G2374 (door), G4439 (gate), G4440 (gate), H1817A (door), H1817B (door), H1817C (door), H8179G (gate)
+theme stars            62 verses,    65 occurrences via G0792 (star), G0798 (star), H3556 (star)
+theme sun             165 verses,   202 occurrences via G2246 (sun), G4582 (moon), H3394 (moon), H8121 (sun)
+theme cloud           109 verses,   127 occurrences via G3507 (cloud), H6051 (cloud), H6205 (cloud)
+theme rain            103 verses,   116 occurrences via G1026 (to rain down), G5205 (rain), H1653 (rain), H2919 (dew), H4306 (rain)
+theme harvest          92 verses,   117 occurrences via G2325 (to reap), G2326 (harvest), H7105A (harvest), H7114B (to reap)
+theme fruit           191 verses,   214 occurrences via G2590 (fruit), H6509 (be fruitful), H6529 (fruit)
+theme flock           309 verses,   358 occurrences via G4167 (flock), G4168 (flock), G4263 (sheep), H5739 (flock), H6629G (flock)
+theme lion            107 verses,   134 occurrences via G3023 (lion), H0738A (lion), H0738B (lion), H3715A (lion), H3833A (lion), H3833B (lioness), H3833C (lion)
+theme wings           113 verses,   145 occurrences via G0105 (eagle), G4420 (wing), H3671 (wing), H5404 (eagle)
+theme dove             41 verses,    41 occurrences via G4058 (dove), H3123 (dove)
+theme serpent          63 verses,    70 occurrences via G1404 (dragon), G3789 (snake), H5175 (serpent), H8577M (serpent: snake), H8577N (serpent: monster)
+theme throne          167 verses,   189 occurrences via G2362 (throne), H3678G (throne), H3764 (throne)
+theme crown            44 verses,    44 occurrences via G1238 (diadem), G4735 (crown), H5850 (crown)
+theme sword           405 verses,   449 occurrences via G3162 (sword), G4501 (sword), H2719 (sword)
+theme refuge          185 verses,   209 occurrences via H2620 (to seek refuge), H4043 (shield), H4268 (refuge), H4581 (security), H4686B (fortress), H4733 (refuge), H4869A (high refuge)
+theme horn             78 verses,    86 occurrences via G2768 (horn), H7161A (horn)
+theme arm              84 verses,    91 occurrences via H2220 (arm)
+theme heart           928 verses,  1009 occurrences via G2588 (heart), H3820A (heart), H3824 (heart), H3825 (heart)
+theme name            984 verses,  1093 occurrences via G3686 (name), H8034 (name)
+theme word           1340 verses,  1427 occurrences via G3056 (word), G4487 (declaration), H0561 (word), H0565A (word), H1697G (word), H1697H (word: speaking), H1697J (word: promised)
+                    left out: H1697I (word: thing), H1697K (word: deed), H1697L (word: case), H1697M (word: because), H1697N (word: portion)
+theme voice           443 verses,   484 occurrences via G5456G (voice/sound: voice), H6963A (voice), H6963I (voice: thunder), H6963J (voice: message)
+                    left out: G5456H (voice/sound: noise), H6963H (voice: sound), H6963K (voice: [sound of]), H6963L (voice: listen)
+theme scroll          182 verses,   198 occurrences via G0975 (scroll), G0976 (book), H4039 (scroll), H5612B (scroll), H5612H (scroll: book), H5612I (scroll: read)
+                    left out: H5612A (scroll: document)
+theme table            76 verses,    86 occurrences via G5132 (table), H7979 (table)
+theme yoke             48 verses,    58 occurrences via G2218 (yoke/scales), H4133 (yoke), H5923 (yoke)
+theme clothing        303 verses,   344 occurrences via G2440 (clothing), G5509 (tunic), H0899B (garment), H3801 (tunic), H8071 (mantle)
+theme stone           281 verses,   317 occurrences via G3037 (stone), H0068G (stone)
+                    left out: H0068H (stone: weight)
+theme dust            110 verses,   117 occurrences via G2868 (dust), G5522 (dust), H6083 (dust)
+theme grass            42 verses,    53 occurrences via G0438 (flower), G5528 (grass), H2682A (grass), H6731A (flower)
+theme leaven           70 verses,    95 occurrences via G0106 (unleavened), G2219 (leaven), G2220 (to leaven), H2557A (leaven), H4682 (unleavened bread), H7603 (leaven)
+theme milkhoney        84 verses,   107 occurrences via G1051 (milk), G3192 (honey), H1706 (honey), H2461 (milk)
+theme figolive         85 verses,    98 occurrences via G1636 (olive tree), G4808 (fig tree), G4810 (fig), H2132H (olive), H8384 (fig)
+theme trumpet         106 verses,   124 occurrences via G4536 (trumpet), G4537 (to sound a trumpet), H2689 (trumpet), H7782 (trumpet)
+theme ark             205 verses,   236 occurrences via G2787G (ark: covenant), G2787H (ark: Noah), H0727 (ark), H8392 (ark)
+theme lamp             95 verses,   130 occurrences via G3087 (lampstand), G3088 (lamp), H3940 (torch), H4501 (lampstand), H5216A (lamp), H5216B (lamp)
+theme fish             56 verses,    67 occurrences via G0231 (fisherman), G1350 (net), G2486 (fish), H1709H (fish), H1710 (fish)
+theme potter           64 verses,    78 occurrences via G2763G (potter), G4081 (clay), H2563A (clay), H3335G (to form: formed), H3335H (to form: potter)
+theme foundation       62 verses,    64 occurrences via G2310 (foundation), G2311 (to found), H3245 (to found)
+theme root             73 verses,    81 occurrences via G2798 (branch), G2814 (branch), G4491 (root), H5342 (branch), H6780 (branch), H8328 (root)
+theme grain            84 verses,    84 occurrences via G4621 (grain), H1715 (grain), H2406 (wheat)
+theme gold            578 verses,   839 occurrences via G0694 (money), G0696 (silver), G5553 (gold), G5557 (gold), H2091 (gold), H3701G (silver: money), H3701H (silver: price)
+theme righthand       171 verses,   177 occurrences via G1188 (right), H3225G (right)
+theme face            444 verses,   487 occurrences via G4383 (face), H6440H (face)
+theme morning         200 verses,   225 occurrences via G4404 (early), H1242 (morning)
+theme love            454 verses,   533 occurrences via G0025 (to love), G0026 (love), G5368 (to love), H0157G (to love: lover), H0157H (to love: friend), H0160 (love)
+theme chesed          239 verses,   245 occurrences via H2617A (kindness)
+theme mercy           163 verses,   178 occurrences via G1653 (to have mercy), G1656 (mercy), G3628 (compassion), G3629 (compassionate), G4697 (to pity), H7349 (compassionate), H7355 (to have compassion), H7356B (compassion)
+theme grace           299 verses,   314 occurrences via G5485 (grace), H2580 (favor), H2587 (gracious), H2603A (be gracious)
+theme truth           293 verses,   311 occurrences via G0225 (truth), G0227 (true), H0530 (faithfulness), H0571G (truth: faithful), H0571H (truth: true), H0571I (truth: certain)
+theme salvation       495 verses,   521 occurrences via G4982 (to save), G4990 (savior), G4991 (salvation), G4992 (saving), H3444 (salvation), H3467 (to save), H3468 (salvation), H8668G (deliverance: salvation)
+theme peace           290 verses,   322 occurrences via G1514 (be at peace), G1515 (peace), G1516 (peaceful), G1517 (to make peace), G1518 (peacemaker), H7965G (peace), H7965I (peace: well-being), H8001 (peace)
+                    left out: H7965J (peace: friendship), H7965K (peace: greeting), H7965L (peace: completely)
+theme hope            175 verses,   194 occurrences via G1679 (to hope/expect), G1680 (hope), H3176H (to wait: hope), H6960A (to await), H8431 (hope), H8615B (hope)
+theme joy             409 verses,   513 occurrences via G0020 (joy), G0021 (to rejoice), G5463 (to rejoice), G5479 (joy), H1523 (to rejoice), H7797 (to rejoice), H8055 (to rejoice), H8056 (glad), H8057 (joy), H8342 (rejoicing)
+theme life            384 verses,   419 occurrences via G2198 (to live), G2222 (life), H2416E (life)
+theme forever         492 verses,   543 occurrences via G0165H (an age: eternity), G0166 (eternal), H5769G (forever: enduring)
+theme glory           410 verses,   457 occurrences via G1391 (glory), G1392 (to glorify), H1926 (glory), H3519 (glory)
+theme holy            805 verses,   955 occurrences via G0037 (to sanctify), G0038 (holiness), G0040G (holy), G0040H (holy: saint), H6918G (holy), H6918H (holy: saint), H6942G (to consecrate: consecate), H6942H (to consecrate: dedicate), H6942K (to consecrate: holiness), H6944G (holiness)
+                    left out: H6942I (to consecrate: forfeit), H6942J (to consecrate: prepare)
+theme righteousness   656 verses,   731 occurrences via G1342 (just), G1343 (righteousness), G1344 (to justify), H6662 (righteous), H6663 (to justify), H6664G (righteousness), H6666 (righteousness)
+theme justice         690 verses,   771 occurrences via G2917 (judgment), G2919 (to judge), G2920 (judgment), H4941G (justice: judgement), H4941H (justice), H8199 (to judge)
+                    left out: H4941I (justice: rule), H4941J (justice: custom)
+theme forgiveness     101 verses,   113 occurrences via G0859 (forgiveness), G0863H (to release: forgive), H5545 (to forgive), H5547 (forgiveness)
+theme oath            280 verses,   319 occurrences via G1860 (promise), G1861 (to profess), G3660 (to swear), G3727 (oath), H7621 (oath), H7650 (to swear)
+theme blessing        482 verses,   551 occurrences via G2127 (to praise/bless), G2129 (praise), G3107 (blessed), H0835 (blessed), H1288 (to bless), H1293 (blessing)
+theme inheritance     274 verses,   328 occurrences via G2816 (to inherit), G2817 (inheritance), G2818 (heir), H5157 (to inherit), H5159 (inheritance)
+theme healing         150 verses,   158 occurrences via G2323 (to serve/heal), G2386 (healing), G2390 (to heal), G2392 (healing), H4832 (healing), H7495 (to heal)
+theme raised           41 verses,    43 occurrences via G0386 (resurrection), G1454 (resurrection)
+theme new              91 verses,   102 occurrences via G2537 (new), H2318 (to renew), H2319H (new)
+theme wisdom          351 verses,   389 occurrences via G4678 (wisdom), G4680 (wise), H2449 (be wise), H2450 (wise), H2451 (wisdom)
+theme comfort          94 verses,   102 occurrences via G3874 (encouragement), H5162G (to be sorry: comfort)
+theme freedom          60 verses,    66 occurrences via G1657 (freedom), G1658 (free/freedom), G1659 (to set free), H1865 (liberty), H2670 (free)
+theme goodnews        144 verses,   159 occurrences via G2097 (to speak good news), G2098 (gospel), H1309 (good news), H1319 (to bear tidings)
+theme servant         835 verses,   930 occurrences via G1401 (slave), H5650 (servant/slave)
+theme priest          801 verses,   903 occurrences via G0749 (high-priest), G2409 (priest), H3548 (priest)
+theme prophet         521 verses,   602 occurrences via G4395 (to prophesy), G4396 (prophet), H5012 (to prophesy), H5030 (prophet)
+theme king           2149 verses,  2811 occurrences via G0935 (king), H4428G (king), H4428H (`the king`), H4430 (king)
+theme father         1431 verses,  1633 occurrences via G3962 (father), H0001G (father), H0001I (father of), H0002 (father)
+theme son            2689 verses,  3449 occurrences via G5207 (son), H1121A (son: child), H1247G (son: descendant), H1247H (son), H1247I (son: description), H1247J (son: child), H1247L (son)
+theme widow            91 verses,   126 occurrences via G3737 (orphan), G5503 (widow), H0490 (widow), H3490 (orphan)
+theme stranger        149 verses,   172 occurrences via G3581 (foreign), G3927 (stranger), G3941 (foreigner), H1616 (sojourner), H5237 (foreign), H8453A (sojourner)
+theme poor            208 verses,   262 occurrences via G4434 (poor), H0034 (needy), H1800 (poor), H6035 (poor), H6041 (afflicted), H7326 (be poor)
+theme disciple        479 verses,   526 occurrences via G1320 (teacher), G1321 (to teach), G3101 (disciple), G3129 (to learn), H3925G (to learn: teach), H3925H (to learn: learn)
+theme angel           368 verses,   389 occurrences via G0032G (angel), G0032H (angel: messenger), H4397 (messenger), H4397G (messenger), H4397H (messenger: angel)
+theme enemy           356 verses,   384 occurrences via G2190 (enemy), H0341 (enemy), H6862C (enemy)
+theme nations         655 verses,   717 occurrences via G1484 (Gentiles), H1471A (nation), H1471G (Gentile)
+theme neighbor        217 verses,   234 occurrences via G4139 (near/neighbor), G5384 (friendly/friend), H7453 (neighbor)
+theme witness         245 verses,   279 occurrences via G3140 (to testify), G3141 (testimony), G3144 (witness), H5707 (witness), H5715 (testimony)
+theme remnant          92 verses,    93 occurrences via G3005 (remnant), H7605 (remnant), H7611 (remnant)
+theme creation         75 verses,    87 occurrences via G2936 (to create), G2937 (creation), G2939 (creator), H1254A (to create)
+theme chosen          211 verses,   222 occurrences via G1586 (to select), G1588 (select), G1589 (selecting), H0977 (to choose)
+theme remember        267 verses,   279 occurrences via G3403 (to remember), H2142 (to remember), H2146 (memorial)
+theme rescue          228 verses,   256 occurrences via G4506 (to rescue), H5337 (to rescue), H6403 (to escape)
+theme gather          184 verses,   198 occurrences via G1287 (to scatter), H6327A (to scatter), H6908 (to gather)
+theme exile           173 verses,   205 occurrences via G0161 (captivity), G3350 (deportation), H1473 (captivity), H1540K (to reveal: remove), H7622 (captivity), H7628A (captivity), H7628B (captive)
+theme wrath           373 verses,   479 occurrences via G2372 (wrath), G3709 (wrath), H0639G (face: anger), H2534 (rage), H2740 (burning anger), H5678 (fury)
+theme reveal           85 verses,    87 occurrences via G0601 (to reveal), G0602 (revelation), H1540H (to reveal: reveal)
+theme faith           704 verses,   773 occurrences via G4100 (to trust (in)), G4102G (faith), G4102H (faith: faithfulness), G4103 (faithful), H0539 (be faithful), H0982 (to trust)
+theme repent          129 verses,   138 occurrences via G3340 (to repent), G3341 (repentance), H7725O (to return: repent)
+theme prayer          290 verses,   322 occurrences via G1162 (petition), G1189 (to pray), G4335 (prayer), G4336 (to pray), H6419 (to pray), H8605 (prayer)
+theme praise          320 verses,   373 occurrences via G0134 (to praise), G0136 (praise), G2168 (to thank), H1984B (to boast: praise), H3034 (to give thanks), H8416 (praise), H8426 (thanksgiving)
+theme worship         220 verses,   232 occurrences via G4352 (to worship), H7812 (to bow)
+theme song            227 verses,   298 occurrences via G0103 (to sing), G5568 (psalm), G5603 (song), H2167 (to sing), H4210 (melody), H7891 (to sing), H7892A (song), H7892B (song)
+theme fear            479 verses,   502 occurrences via G5399 (to fear), G5401 (fear), H3372G (to fear), H3372H (to fear: revere), H3374 (fear)
+theme obey            340 verses,   372 occurrences via G5218 (obedience), G5219 (to obey), H8085H (to hear: obey), H8104G (to keep: obey)
+theme weeping         233 verses,   279 occurrences via G1144 (teardrop), G1145 (to weep), G2799 (to weep), G2805 (weeping), G3996 (to mourn), G3997 (grief), H0056 (to mourn), H1058 (to weep), H1832 (tears), H5594 (to mourn)
+theme fasting          57 verses,    72 occurrences via G3521 (fasting), G3522 (to fast), H6684 (to fast), H6685 (fast)
+theme sacrifice       631 verses,   999 occurrences via G2378 (sacrifice), G3646 (burnt offering), G4376 (offering), H0817 (guilt (offering)), H2077 (sacrifice), H2403H (sin: sin offering), H4503G (offering), H5930A (burnt offering), H7133A (offering), H7133B (offering), H8002 (peace offering)
+theme altar           359 verses,   424 occurrences via G2379 (altar), H4196 (altar)
+theme incense          85 verses,    87 occurrences via G2368 (incense), H3828 (frankincense), H7004 (incense)
+theme washing         188 verses,   237 occurrences via G0907 (to baptize), G0908 (baptism), G3068 (to wash), G3538 (to wash), H3526H (to wash), H7364 (to wash: wash)
+theme clean           453 verses,   575 occurrences via G0169 (unclean), G2511 (to clean), G2513 (clean), H2889 (pure), H2891 (be pure), H2893 (purifying), H2930A (to defile), H2931 (unclean), H2932 (uncleanness)
+theme law             640 verses,   761 occurrences via G1785 (commandment), G3551 (law), H2706G (statute: decree), H4687 (commandment), H8451 (instruction)
+theme cross            72 verses,    78 occurrences via G4716 (cross), G4717 (to crucify), G4957 (to crucify with)
+theme sin             789 verses,  1029 occurrences via G0264 (to sin), G0266 (sin), G0458 (lawlessness), G3900 (trespass), H2398 (to sin), H2403A (sin), H2403B (sin), H2403I (sin: punishment), H5771G (iniquity: crime), H5771H (iniquity: guilt), H5771I (iniquity: punishment), H6586 (to transgress), H6588 (transgression)
+                    left out: H2403H (sin: sin offering)
+theme death          1143 verses,  1354 occurrences via G0599 (to die), G2288 (death), G3498 (dead), H4191 (to die), H4194 (death)
+theme grave            86 verses,    88 occurrences via G0086 (hell: Hades), G1067 (hell: Gehenna), H7585 (hell: Sheol)
+theme idols           120 verses,   130 occurrences via G1495 (idolatry), G1496 (idolater), G1497 (idol), H0457 (idol), H1544 (idol), H6091 (idol), H6456 (idol)
+theme pride           148 verses,   170 occurrences via G5011 (lowly), G5012 (humility), G5013 (to humble), G5243 (pride), G5244 (arrogant), H1346 (pride), H1347 (pride), H3665 (be humble), H8213 (to abase)
+theme satan            89 verses,   100 occurrences via G1228 (devilish/the Devil), G4567 (Satan), H7854 (Satan)
+theme unfaithful      198 verses,   256 occurrences via G3431 (to commit adultery), G4202 (sexual sin), G4203 (to sin sexually), H2181 (to fornicate), H4603 (be unfaithful), H4604 (unfaithfulness), H5003 (to commit adultery), H8457 (fornication)
+theme blind            72 verses,    79 occurrences via G5185 (blind), G5186 (to blind), H5787 (blind)
+theme hunger          168 verses,   200 occurrences via G1372 (to thirst), G3983 (to hunger), H6770 (to thirst), H6772 (thirst), H7456 (be hungry), H7457 (hungry), H7458 (famine)
+theme curse            95 verses,   109 occurrences via G1944 (cursed), G2671 (curse), G2672 (to curse), H0779 (to curse), H7045 (curse)
+theme heaven          684 verses,   731 occurrences via G3772 (heaven), H8064 (heaven), H8065 (heaven)
+theme zion            876 verses,   969 occurrences via G2414 (Jerusalem), G2419 (Jerusalem), G4622 (Zion), H3389 (Jerusalem), H3390 (Jerusalem), H6726 (Zion)
+theme egypt           589 verses,   659 occurrences via G0125 (Egypt), H4714G (Egypt), H4714H (Egypt)
+                    left out: H4714I ((Sea of) Egypt), H4714J ((Brook of) Egypt)
+theme babylon         244 verses,   274 occurrences via G0897 (Babylon), H0894 (Babylon)
+theme feasts           78 verses,    87 occurrences via G1859 (festival), H2282 (feast)
+theme birth           500 verses,   661 occurrences via G0313 (to beget), G1080 (to beget), G5088 (to give birth to), H2029 (to conceive), H3205 (to beget), H3209 (born)
+theme war             476 verses,   516 occurrences via G4170 (to fight), G4171 (war), H3898A (to fight), H4421 (battle)
+theme seven           459 verses,   700 occurrences via G1440 (seventy), G1442 (seventh), G2033 (seven), H7620H (week), H7620I (week), H7637 (seventh), H7651 (seven), H7657 (seventy)
+                    not in a verse with: G1250 (two hundred), G1540 (hundred), G3461 (myriad), G5505 (thousand), G5507 (thousand), H0505G (thousand), H3967 (hundred), H7233 (myriad), H7239 (ten thousand)
+theme forty           102 verses,   158 occurrences via G5062 (forty), H0705 (forty)
+                    not in a verse with: G1250 (two hundred), G1540 (hundred), G3461 (myriad), G5505 (thousand), G5507 (thousand), H0505G (thousand), H3967 (hundred), H7233 (myriad), H7239 (ten thousand)
+theme generations     207 verses,   254 occurrences via G1074 (generation), G1078 (origin), H1755 (generation), H8435 (generation)
+near  lamb          sacrifice 187 x6.7, throne 88 x5, flock 90 x4.4, blood 85 x2.9, seven 65 x3.2, scroll 48 x4.7, shepherd 54 x3.6, horn 28 x4.8
+near  light         darkness 468 x14.8, sun 261 x9.7, lamp 179 x15.8, glory 282 x2.5, stars 99 x8.5, blind 70 x5.2, cloud 62 x3.4, forgiveness 59 x2.5
+near  shepherd      flock 397 x14.1, gather 151 x9, arm 46 x4.5, lamb 54 x3.6, lion 39 x4.3, exile 44 x3.1, remnant 25 x2.8, vine 27 x2.4
+near  vine          fruit 140 x10, figolive 72 x23.6, wine 64 x7.3, tree 59 x4.8, rain 30 x5.1, grain 23 x7.6, harvest 25 x5.4, oil 32 x3.2
+near  bread         hunger 158 x7, table 65 x12.3, fish 52 x9.5, wine 73 x3.4, grain 38 x5.1, oil 62 x2.6, wilderness 70 x2.2, cup 36 x4.2
+near  water         sea 366 x5.3, river 228 x9.7, washing 239 x6.1, hunger 235 x5.9, wilderness 215 x3.9, rain 116 x4.6, clean 195 x2.5, rock 123 x3.2
+near  rock          refuge 157 x9.3, water 123 x3.2, salvation 163 x2.4, river 47 x5.9, mountain 80 x2.4, rescue 60 x3.1, song 63 x2.6, stone 48 x3
+near  fire          wrath 337 x3.8, cloud 132 x5.3, mountain 198 x2.3, angel 195 x2.3, tree 141 x3.1, grave 86 x3.8, altar 99 x2.6, stone 98 x2.4
+near  blood         sin 501 x2.4, atonement 153 x8.1, sacrifice 240 x3.2, clean 218 x3.3, altar 157 x4.2, covenant 181 x2.7, forgiveness 111 x3.6, redeemer 105 x3.3
+near  covenant      oath 224 x4, forever 309 x2.3, seed 176 x3.8, law 286 x2.2, ark 108 x6.2, obey 187 x2.9, blood 181 x2.7, chesed 162 x3
+near  seed          oath 258 x5.7, blessing 251 x2.8, covenant 176 x3.8, forever 223 x2.1, inheritance 127 x3.4, fruit 119 x3.5, birth 132 x2.9, stars 64 x6.2
+near  bride         joy 94 x5.7, zion 56 x2.7, praise 34 x2.9, lamb 22 x5.2, garden 15 x10.1, voice 33 x2.6, neighbor 22 x4.1, wine 19 x4.2
+near  temple        altar 92 x4.2, zion 170 x2, priest 117 x2.4, ark 61 x5.1, cloud 64 x4.6, throne 75 x2.7, gate 67 x2.4, table 26 x5.7
+near  tree          fruit 152 x5.4, garden 66 x11.4, fire 141 x3.1, altar 88 x4.2, root 61 x5, figolive 46 x7.5, vine 59 x4.8, gold 81 x2.7
+near  way           obey 317 x2.3, repent 197 x2.3, wilderness 173 x2.1, cloud 92 x2.2
+near  spirit        washing 263 x2.9, freedom 122 x2.5
+near  passover      leaven 63 x58.1, feasts 48 x37.2, seven 28 x4.9, egypt 33 x3.7, sacrifice 31 x3.9, priest 32 x3.7, stranger 19 x6.5, morning 17 x5.9
+near  redeemer      sin 199 x2.4, holy 190 x2.2, blood 105 x3.3, forgiveness 56 x4.5, inheritance 62 x2.8, potter 37 x5.5, babylon 46 x3.5, chesed 57 x2.2
+near  atonement     sacrifice 169 x9.5, sin 223 x4.6, blood 153 x8.1, priest 124 x6.3, altar 89 x10.1, forgiveness 72 x9.8, ark 46 x9.5, clean 69 x4.4
+near  anointed      faith 1626 x2.2, life 981 x2.2, grace 746 x2.4, goodnews 411 x2.8, cross 191 x3.3, reveal 221 x2.4, raised 124 x3.7, new 145 x2
+near  sabbath       seven 149 x7, holy 224 x2.6, obey 107 x3.6, gate 66 x3.5, feasts 32 x6.7, healing 48 x3.2, sacrifice 59 x2, stranger 33 x3.1
+near  kingdom       king 627 x2.1, heaven 543 x2.2, throne 220 x3.7, repent 131 x2.2, goodnews 127 x2.1, babylon 88 x2.1, crown 37 x2.4
+near  firstborn     son 185 x2.6, egypt 75 x4.5, birth 52 x4, name 89 x2.1, blood 41 x2.6, lamb 26 x4.5, throne 26 x2.8, sacrifice 32 x2.2
+near  darkness      light 468 x14.8, blind 101 x11.2, sun 98 x5.5, lamp 66 x8.8, glory 156 x2.1, cloud 67 x5.5, stars 47 x6.1, forgiveness 48 x3
+near  mountain      zion 447 x3, fire 198 x2.3, voice 196 x2.1, cloud 97 x3.9, wilderness 130 x2.7, sea 141 x2.3, trumpet 85 x3.9, song 138 x2.2
+near  sea           water 366 x5.3, heaven 341 x2.4, river 124 x8.8, wilderness 113 x3.4, egypt 144 x2.3, fish 54 x9.2, mountain 141 x2.3, stars 66 x6.1
+near  river         water 228 x9.7, sea 124 x8.8, wilderness 54 x4.8, rock 47 x5.9, egypt 60 x2.9, exile 34 x5, mountain 43 x2.1, gather 26 x3.2
+near  wilderness    egypt 206 x4.1, water 215 x3.9, forty 71 x9.8, sea 113 x3.4, mountain 130 x2.7, way 173 x2.1, river 54 x4.8, hunger 57 x2.9
+near  garden        tree 66 x11.4, fruit 42 x6.4, comfort 23 x6.7, water 38 x3.1, wilderness 27 x4.5, stone 23 x4.6, bride 15 x10.1, zion 41 x2.2
+near  cup           wine 64 x12.9, wrath 65 x4.8, bread 36 x4.2, fire 42 x3.2, blood 38 x3, covenant 33 x3.1, clean 32 x3.1, washing 23 x4.5
+near  oil           sacrifice 128 x3.8, wine 65 x4.6, clothing 67 x4.2, priest 90 x2.4, horn 43 x6.1, incense 36 x8.1, table 32 x9.1, altar 54 x3.2
+near  wine          cup 64 x12.9, vine 64 x7.3, grain 46 x10.7, joy 114 x2.5, oil 65 x4.6, bread 73 x3.4, milkhoney 36 x6.6, rain 38 x4.6
+near  gate          zion 177 x2, sabbath 66 x3.5, temple 67 x2.4, babylon 43 x2.2, stone 47 x2, exile 35 x2.1
+near  stars         heaven 210 x5.7, sun 118 x18, light 99 x8.5, sea 66 x6.1, seed 64 x6.2, angel 66 x4.2, darkness 47 x6.1, lamp 25 x9.1
+near  sun           light 261 x9.7, stars 118 x18, heaven 279 x3.2, darkness 98 x5.5, sea 65 x2.6, refuge 52 x2.9, cloud 35 x3.4, worship 48 x2.3
+near  cloud         glory 182 x4.2, fire 132 x5.3, heaven 160 x2.7, mountain 97 x3.9, voice 94 x3.5, darkness 67 x5.5, temple 64 x4.6, light 62 x3.4
+near  rain          heaven 192 x3.7, grain 60 x20.7, water 116 x4.6, fruit 76 x5.7, harvest 52 x11.9, blessing 94 x2.7, tree 44 x3.7, wine 38 x4.6
+near  harvest       rain 52 x11.9, fruit 50 x4.8, grain 25 x11, vine 25 x5.4, seven 36 x3.2, poor 32 x2.6, seed 30 x2.6, morning 20 x3.5
+near  fruit         vine 140 x10, root 128 x9.4, tree 152 x5.4, figolive 78 x11.3, blessing 206 x2.5, seed 119 x3.5, rain 76 x5.7, grain 43 x6.2
+near  flock         shepherd 397 x14.1, gather 138 x6, lamb 90 x4.4, sacrifice 109 x2.1, wilderness 71 x2.2, arm 37 x2.7, grain 24 x3.2, remnant 25 x2.1
+near  lion          rescue 62 x5.7, satan 54 x7.3, serpent 38 x11.4, sword 45 x3.6, shepherd 39 x4.3, wings 24 x5.2, war 34 x2.7, enemy 36 x2.2
+near  wings         refuge 60 x5.6, face 60 x2.7, lion 24 x5.2, trumpet 22 x4.1, river 21 x4.2, ark 19 x3.6, covenant 35 x2, wilderness 24 x2
+near  dove          sacrifice 32 x5.9, lamb 17 x7.9, temple 18 x5.3, priest 20 x3.3, voice 19 x2.9
+near  serpent       satan 117 x19.1, lion 38 x11.4, angel 55 x3.6, sea 37 x3.4, sword 36 x3.5, horn 22 x7.5, crown 17 x7.4, war 31 x3
+near  throne        heaven 320 x2.7, kingdom 220 x3.7, forever 264 x2.8, justice 217 x2.1, glory 196 x2.3, lamb 88 x5, righthand 95 x3.6, angel 120 x2.4
+near  crown         throne 40 x5.4, glory 56 x2.5, worship 30 x4.1, joy 42 x2.3, serpent 17 x7.4, kingdom 37 x2.4, satan 21 x4.1, clothing 18 x3.2
+near  sword         hunger 135 x5.8, war 152 x3.9, enemy 139 x2.8, babylon 88 x3.8, egypt 124 x2.1, exile 62 x3.2, gather 65 x2.8, lion 45 x3.6
+near  refuge        rock 157 x9.3, salvation 289 x3.3, song 131 x4.2, rescue 100 x4, wings 60 x5.6, enemy 100 x2.7, fear 138 x2, horn 50 x6.1
+near  horn          altar 67 x9.1, refuge 50 x6.1, oil 43 x6.1, blood 55 x3.5, rock 31 x4.8, sacrifice 43 x2.9, serpent 22 x7.5, lamb 28 x4.8
+near  arm           egypt 103 x4.8, salvation 101 x2.4, righthand 48 x4.3, shepherd 46 x4.5, war 51 x3.6, wrath 52 x2.4, flock 37 x2.7, refuge 29 x2.8
+near  heart         wisdom 564 x2
+near  name          praise 589 x2.7, firstborn 89 x2.1
+near  word          goodnews 333 x2.1, scroll 187 x2.1
+near  voice         obey 200 x2.3, mountain 196 x2.1, trumpet 95 x4.1, cloud 94 x3.5, bride 33 x2.6, garden 27 x2.3, grass 22 x2.6, dove 19 x2.9
+near  scroll        word 187 x2.1, law 113 x2.1, life 110 x2.1, throne 60 x3.6, lamb 48 x4.7, seven 60 x3.2, angel 72 x2.5, worship 50 x3
+near  table         bread 65 x12.3, oil 32 x9.1, gold 31 x5.9, altar 27 x7.4, lamp 18 x12.6, temple 26 x5.7, sacrifice 20 x2.7, tree 15 x3.4
+near  yoke          freedom 24 x13.8, babylon 18 x5.4, servant 30 x2.4, tree 15 x3.3, sword 15 x2.7
+near  clothing      clean 109 x3.7, washing 74 x5.1, oil 67 x4.2, gold 69 x2.8, priest 79 x2.1, weeping 57 x2.7, dust 34 x4, fasting 20 x3.8
+near  stone         gold 114 x4.4, foundation 71 x7.4, fire 98 x2.4, mountain 98 x2.4, tree 68 x3.1, rock 48 x3, covenant 67 x2, ark 35 x3.5
+near  dust          potter 35 x8.9, clothing 34 x4, pride 32 x3.6, poor 36 x2.6, raised 17 x6.4, remember 34 x2.4, grave 19 x3.7, worship 25 x2.3
+near  grass         fear 36 x2.9, bread 21 x4.1, water 26 x2.8, voice 22 x2.6, tree 15 x3.5, sea 16 x2.9, fire 19 x2.4
+near  leaven        passover 63 x58.1, feasts 60 x37.8, sacrifice 78 x8.1, seven 66 x9.3, egypt 55 x5, bread 30 x4.3, morning 21 x5.9, oil 22 x4.8
+near  milkhoney     oath 54 x4.7, wine 36 x6.6, egypt 51 x3.4, grain 22 x11.6, water 45 x2.7, fruit 32 x3.7, bread 29 x3.1, leaven 15 x8.4
+near  figolive      vine 72 x23.6, fruit 78 x11.3, tree 46 x7.5, lamp 31 x15.4, root 30 x10.1, blessing 43 x2.4, light 26 x3.1, wine 19 x4.4
+near  trumpet       voice 95 x4.1, heaven 135 x2.6, seven 77 x5.4, mountain 85 x3.9, angel 80 x3.7, war 68 x4.7, ark 37 x7, priest 58 x2.7
+near  ark           covenant 108 x6.2, priest 104 x4.9, atonement 46 x9.5, temple 61 x5.1, witness 61 x3.7, trumpet 37 x7, seven 51 x3.6, water 61 x2.5
+near  lamp          light 179 x15.8, darkness 66 x8.8, figolive 31 x15.4, seven 49 x4.9, stars 25 x9.1, oil 33 x5, fire 45 x3, table 18 x12.6
+near  fish          sea 54 x9.2, bread 52 x9.5, heaven 51 x2.5, blessing 39 x2.9, praise 27 x3.3, water 29 x3, disciple 22 x2.3, fruit 15 x2.9
+near  potter        creation 56 x9.3, heaven 100 x2.4, dust 35 x8.9, redeemer 37 x5.5, chosen 35 x3.1, remember 34 x2.6, inheritance 29 x2.5, foundation 17 x4.1
+near  foundation    heaven 148 x3.1, stone 71 x7.4, forever 94 x2.4, creation 37 x5.3, rock 34 x4.3, chosen 31 x2.3, potter 17 x4.1, river 17 x3.5
+near  root          fruit 128 x9.4, tree 61 x5, figolive 30 x10.1, fire 56 x2.5, rain 27 x4.7, vine 25 x4.2, seed 32 x2.2, shepherd 24 x2.2
+near  grain         rain 60 x20.7, wine 46 x10.7, fruit 43 x6.2, tree 36 x5.9, bread 38 x5.1, harvest 25 x11, milkhoney 22 x11.6, blessing 48 x2.7
+near  gold          stone 114 x4.4, idols 81 x4.1, tree 81 x2.7, clothing 69 x2.8, incense 37 x5.5, table 31 x5.9, lamp 34 x3.4, milkhoney 28 x3
+near  righthand     heaven 236 x2.1, enemy 128 x3.2, angel 130 x2.8, throne 95 x3.6, arm 48 x4.3, cross 35 x3.2, cloud 35 x2.6, lamp 20 x2.4
+near  face          prayer 175 x2.1, fasting 52 x4.1, wings 60 x2.7, cloud 58 x2.3
+near  morning       sacrifice 67 x2.6, fire 69 x2.4, light 50 x2.3, chesed 49 x2.2, leaven 21 x5.9, altar 36 x2.8, sabbath 33 x3.1, cloud 28 x3.4
+near  love          neighbor 201 x2.6, new 104 x2.1
+near  chesed        mercy 425 x8.5, truth 313 x4, praise 244 x3.8, grace 267 x3.2, forever 294 x2.3, remember 182 x3.7, song 160 x3.3, covenant 162 x3
+near  mercy         chesed 425 x8.5, grace 305 x3.8, wrath 228 x3.4, sin 332 x2.1, remember 152 x3.2, forgiveness 103 x4.3, truth 157 x2.1, repent 98 x2.7
+near  grace         anointed 746 x2.4, mercy 305 x3.8, chesed 267 x3.2, hope 172 x2, forgiveness 92 x2.3
+near  truth         chesed 313 x4, righteousness 566 x2.1, witness 183 x2.3, mercy 157 x2.1
+near  salvation     hope 370 x2.7, refuge 289 x3.3, song 279 x2.2, rescue 222 x2.2, rock 163 x2.4, arm 101 x2.4
+near  peace         healing 91 x2.3
+near  hope          faith 479 x2.4, salvation 370 x2.7, joy 198 x2.1, grace 172 x2, comfort 80 x3.7, raised 56 x6, refuge 77 x2.3, goodnews 83 x2.1
+near  joy           praise 309 x2.6, song 206 x2.4, weeping 176 x2.6, comfort 134 x3.5, bride 94 x5.7, hope 198 x2.1, wine 114 x2.5, crown 42 x2.3
+near  life          death 983 x2.5, anointed 981 x2.2, forever 771 x2.6, raised 98 x4.5, cross 94 x2.5, scroll 110 x2.1, grave 89 x2.1, garden 41 x2.1
+near  forever       life 771 x2.6, glory 586 x2, throne 264 x2.8, covenant 309 x2.3, generations 218 x3.2, praise 335 x2.1, chesed 294 x2.3, oath 269 x2.1
+near  glory         forever 586 x2, cloud 182 x4.2, light 282 x2.5, praise 319 x2.2, throne 196 x2.3, reveal 148 x2.6, darkness 156 x2.1, creation 106 x2
+near  holy          sacrifice 452 x2.2, clean 384 x2.1, chosen 311 x2.1, washing 231 x2.6, sabbath 224 x2.6, altar 211 x2.1, redeemer 190 x2.2, atonement 110 x2.1
+near  righteousness justice 1244 x2.6, truth 566 x2.1
+near  justice       righteousness 1244 x2.6, poor 316 x2.5, widow 169 x4.5, throne 217 x2.1, stranger 143 x2.4
+near  forgiveness   sin 477 x5.9, repent 134 x7.3, atonement 72 x9.8, mercy 103 x4.3, blood 111 x3.6, chesed 93 x3.7, redeemer 56 x4.5, grace 92 x2.3
+near  oath          seed 258 x5.7, covenant 224 x4, forever 269 x2.1, inheritance 144 x3.1, obey 137 x2.2, milkhoney 54 x4.7, stranger 64 x2.8, curse 50 x2.7
+near  blessing      praise 325 x2.4, seed 251 x2.8, fruit 206 x2.5, curse 122 x3.3, rain 94 x2.7, grain 48 x2.7, fish 39 x2.9, stars 52 x2.1
+near  inheritance   oath 144 x3.1, seed 127 x3.4, poor 95 x2.3, chosen 83 x2.2, redeemer 62 x2.8, forgiveness 47 x2.2, stranger 39 x2, potter 29 x2.5
+near  healing       blind 62 x7.4, prayer 104 x2.7, peace 91 x2.3, forgiveness 54 x3.6, goodnews 63 x2.7, sabbath 48 x3.2, light 60 x2, oil 43 x2.5
+near  raised        death 171 x5.9, anointed 124 x3.7, life 98 x4.5, hope 56 x6, washing 29 x6.2, faith 72 x2.1, forever 52 x2.3, grave 18 x5.8
+near  new           creation 72 x8.3, covenant 94 x4.5, anointed 145 x2, song 72 x3.9, love 104 x2.1, blood 63 x2.6, praise 61 x2.5, throne 40 x2.8
+near  wisdom        heart 564 x2, reveal 75 x2.1
+near  comfort       joy 134 x3.5, weeping 75 x4.9, zion 122 x2.5, hope 80 x3.7, mercy 54 x2.6, garden 23 x6.7
+near  freedom       servant 102 x3.7, spirit 122 x2.5, anointed 118 x2.3, law 86 x2.6, yoke 24 x13.8, poor 40 x3.1, oil 28 x3.6, goodnews 25 x2.3
+near  goodnews      anointed 411 x2.8, faith 330 x2.2, word 333 x2.1, disciple 134 x2.3, kingdom 127 x2.1, reveal 65 x3.4, healing 63 x2.7, hope 83 x2.1
+near  servant       freedom 102 x3.7, yoke 30 x2.4
+near  priest        sacrifice 383 x4.9, altar 212 x5.5, atonement 124 x6.3, ark 104 x4.9, clean 151 x2.2, temple 117 x2.4, seven 124 x2.2, oil 90 x2.4
+near  prophet       babylon 101 x2.4, reveal 85 x2.1
+near  king          babylon 481 x4.9, zion 881 x2, kingdom 627 x2.1, war 429 x2.6, exile 184 x2.2
+near  father        (none)
+near  son           birth 752 x2.6, firstborn 185 x2.6
+near  widow         poor 146 x11, stranger 111 x18.1, justice 169 x4.5, unfaithful 32 x3.7, blood 43 x2.4, neighbor 28 x3.3, clothing 23 x2.9, bread 25 x2.1
+near  stranger      widow 111 x18.1, poor 101 x4.9, justice 143 x2.4, oath 64 x2.8, neighbor 43 x3.3, seven 49 x2.6, blood 60 x2.2, egypt 61 x2.1
+near  poor          widow 146 x11, justice 316 x2.5, stranger 101 x4.9, blind 76 x5.8, pride 103 x3.7, hunger 83 x3.3, rescue 95 x2.7, inheritance 95 x2.3
+near  disciple      goodnews 134 x2.3, cross 61 x2.6, passover 23 x2.3, fish 22 x2.3
+near  angel         heaven 443 x2.2, satan 143 x4.2, fire 195 x2.3, righthand 130 x2.8, seven 137 x2.4, throne 120 x2.4, trumpet 80 x3.7, stars 66 x4.2
+near  enemy         wrath 183 x2.3, war 143 x2.8, righthand 128 x3.2, sword 139 x2.8, rescue 119 x2.7, babylon 91 x3, refuge 100 x2.7, rock 65 x2.2
+near  nations       gather 263 x3.7, babylon 174 x2.4, remnant 81 x2.1
+near  neighbor      love 201 x2.6, unfaithful 76 x4.2, stranger 43 x3.3, widow 28 x3.3, bride 22 x4.1
+near  witness       truth 183 x2.3, ark 61 x3.7, atonement 49 x3.2, washing 56 x2.1, scroll 45 x2, raised 27 x2.9, lamp 25 x2.1
+near  remnant       gather 56 x7.7, exile 47 x7.7, zion 77 x2.4, nations 81 x2.1, rain 26 x5.6, mercy 38 x2.8, mountain 44 x2.4, egypt 43 x2.3
+near  creation      heaven 253 x3.6, new 72 x8.3, potter 56 x9.3, glory 106 x2, foundation 37 x5.3, sea 52 x2.5, redeemer 35 x3.1, light 44 x2
+near  chosen        holy 311 x2.1, inheritance 83 x2.2, seed 74 x2, potter 35 x3.1, foundation 31 x2.3, feasts 23 x2.8
+near  remember      chesed 182 x3.7, mercy 152 x3.2, covenant 155 x3, egypt 170 x2.6, generations 68 x2.5, unfaithful 63 x2.1, trumpet 45 x2.8, forgiveness 48 x2
+near  rescue        salvation 222 x2.2, refuge 100 x4, enemy 119 x2.7, lion 62 x5.7, poor 95 x2.7, rock 60 x3.1, redeemer 40 x2.1, river 26 x2.2
+near  gather        nations 263 x3.7, shepherd 151 x9, flock 138 x6, exile 99 x8.6, remnant 56 x7.7, mountain 81 x2.3, sword 65 x2.8, mercy 67 x2.6
+near  exile         zion 199 x4, gather 99 x8.6, babylon 85 x7.4, king 184 x2.2, remnant 47 x7.7, sword 62 x3.2, mercy 64 x3, river 34 x5
+near  wrath         fire 337 x3.8, mercy 228 x3.4, enemy 183 x2.3, chesed 162 x2.3, cup 65 x4.8, forgiveness 70 x2.1, arm 52 x2.4
+near  reveal        anointed 221 x2.4, glory 148 x2.6, goodnews 65 x3.4, prophet 85 x2.1, wisdom 75 x2.1, darkness 37 x2.3
+near  faith         anointed 1626 x2.2, hope 479 x2.4, goodnews 330 x2.2, raised 72 x2.1
+near  repent        sin 366 x3, forgiveness 134 x7.3, way 197 x2.3, washing 86 x4.5, kingdom 131 x2.2, mercy 98 x2.7, unfaithful 63 x2.7, idols 41 x2.4
+near  prayer        fasting 73 x6.2, face 175 x2.1, healing 104 x2.7, weeping 101 x2.2, incense 42 x4.2, forgiveness 65 x2.1, cup 26 x2.1
+near  praise        song 418 x6.8, name 589 x2.7, chesed 244 x3.8, joy 309 x2.6, blessing 325 x2.4, forever 335 x2.1, glory 319 x2.2, sacrifice 157 x2.1
+near  worship       praise 115 x2.4, throne 82 x2.9, idols 61 x3.5, scroll 50 x3, altar 52 x2.4, crown 30 x4.1, sun 48 x2.3, satan 46 x2.3
+near  song          praise 418 x6.8, salvation 279 x2.2, chesed 160 x3.3, refuge 131 x4.2, joy 206 x2.4, mountain 138 x2.2, new 72 x3.9, rock 63 x2.6
+near  fear          war 189 x2.1, refuge 138 x2, grass 36 x2.9
+near  obey          law 538 x3.6, way 317 x2.3, covenant 187 x2.9, voice 200 x2.3, sabbath 107 x3.6, oath 137 x2.2
+near  weeping       joy 176 x2.6, fasting 60 x8.8, comfort 75 x4.9, prayer 101 x2.2, water 111 x2, clothing 57 x2.7, hunger 48 x2.5, oil 42 x2
+near  fasting       prayer 73 x6.2, weeping 60 x8.8, face 52 x4.1, seven 36 x4.5, clothing 20 x3.8, hunger 16 x3.2, bread 16 x2
+near  sacrifice     altar 381 x10.9, priest 383 x4.9, atonement 169 x9.5, holy 452 x2.2, lamb 187 x6.7, sin 396 x2, blood 240 x3.2, incense 106 x11.4
+near  altar         sacrifice 381 x10.9, priest 212 x5.5, incense 91 x19.7, blood 157 x4.2, atonement 89 x10.1, holy 211 x2.1, horn 67 x9.1, temple 92 x4.2
+near  incense       altar 91 x19.7, sacrifice 106 x11.4, oil 36 x8.1, holy 72 x2.7, gold 37 x5.5, atonement 26 x11.1, fire 43 x4.2, prayer 42 x4.2
+near  washing       water 239 x6.1, clean 182 x6.8, spirit 263 x2.9, holy 231 x2.6, sin 179 x2.1, repent 86 x4.5, clothing 74 x5.1, blood 88 x2.7
+near  clean         sin 405 x2.4, washing 182 x6.8, holy 384 x2.1, blood 218 x3.3, idols 119 x4.9, water 195 x2.5, sacrifice 155 x2.5, clothing 109 x3.7
+near  law           obey 538 x3.6, covenant 286 x2.2, scroll 113 x2.1, freedom 86 x2.6, curse 98 x2.3
+near  cross         anointed 191 x3.3, life 94 x2.5, death 104 x2.1, disciple 61 x2.6, righthand 35 x3.2, goodnews 34 x2.8, tree 28 x2.6, washing 18 x2.3
+near  sin           forgiveness 477 x5.9, blood 501 x2.4, repent 366 x3, clean 405 x2.4, atonement 223 x4.6, sacrifice 396 x2, mercy 332 x2.1, redeemer 199 x2.4
+near  death         life 983 x2.5, raised 171 x5.9, grave 219 x4, cross 104 x2.1
+near  grave         death 219 x4, fire 86 x3.8, life 89 x2.1, raised 18 x5.8, dust 19 x3.7, satan 22 x2.5, rock 19 x2.2
+near  idols         unfaithful 122 x8.5, clean 119 x4.9, gold 81 x4.1, worship 61 x3.5, blood 75 x2.5, altar 42 x3.1, fire 61 x2, repent 41 x2.4
+near  pride         poor 103 x3.7, dust 32 x3.6, curse 28 x2.7
+near  satan         serpent 117 x19.1, angel 143 x4.2, lion 54 x7.3, darkness 43 x2.5, worship 46 x2.3, crown 21 x4.1, blind 24 x3.3, grain 17 x3.7
+near  unfaithful    idols 122 x8.5, neighbor 76 x4.2, clean 93 x2.9, blood 101 x2.6, repent 63 x2.7, remember 63 x2.1, stranger 40 x3, widow 32 x3.7
+near  blind         darkness 101 x11.2, poor 76 x5.8, healing 62 x7.4, light 70 x5.2, goodnews 43 x4, clean 41 x2.8, forgiveness 24 x3.5, satan 24 x3.3
+near  hunger        water 235 x5.9, bread 158 x7, sword 135 x5.8, poor 83 x3.3, egypt 90 x2.5, wilderness 57 x2.9, weeping 48 x2.5, wine 35 x2.7
+near  curse         blessing 122 x3.3, law 98 x2.3, oath 50 x2.7, tree 33 x2.7, fire 46 x2, scroll 25 x3.2, pride 28 x2.7, unfaithful 22 x2
+near  heaven        kingdom 543 x2.2, stars 210 x5.7, angel 443 x2.2, sun 279 x3.2, creation 253 x3.6, throne 320 x2.7, sea 341 x2.4, rain 192 x3.7
+near  zion          king 881 x2, mountain 447 x3, exile 199 x4, babylon 201 x3.4, gate 177 x2, temple 170 x2, comfort 122 x2.5, remnant 77 x2.4
+near  egypt         wilderness 206 x4.1, arm 103 x4.8, remember 170 x2.6, sea 144 x2.3, firstborn 75 x4.5, covenant 148 x2, sword 124 x2.1, leaven 55 x5
+near  babylon       king 481 x4.9, zion 201 x3.4, exile 85 x7.4, nations 174 x2.4, sword 88 x3.8, enemy 91 x3, prophet 101 x2.4, fire 80 x2.3
+near  feasts        seven 101 x12, leaven 60 x37.8, passover 48 x37.2, sacrifice 77 x6.7, sabbath 32 x6.7, zion 56 x2.5, worship 24 x3.3, lamb 18 x3.9
+near  birth         son 752 x2.6, seed 132 x2.9, firstborn 52 x4, rain 35 x2
+near  war           king 429 x2.6, sword 152 x3.9, enemy 143 x2.8, fear 189 x2.1, trumpet 68 x4.7, refuge 76 x2.6, arm 51 x3.6, babylon 63 x2.7
+near  seven         sabbath 149 x7, feasts 101 x12, leaven 66 x9.3, trumpet 77 x5.4, angel 137 x2.4, clean 111 x2.5, priest 124 x2.2, sacrifice 109 x2.1
+near  forty         wilderness 71 x9.8, egypt 58 x4.3, water 47 x3.1, mountain 44 x3.4, bread 29 x3.4, seven 26 x3, generations 20 x3.7, oath 26 x2.5
+near  generations   forever 218 x3.2, covenant 90 x3.1, chesed 83 x3, seed 75 x3.2, remember 68 x2.5, forty 20 x3.7, ark 25 x2.8, lamp 20 x3.1
+themes at Simple: 154 themes light 21994 of 31102 verses (70.7%)
+themes at Study: 163 themes light 24807 of 31102 verses (79.8%)
+related words at Simple: 1881 verses reach a theme through a related word, 483 of them with no theme of their own
+related words at Study: 2353 verses reach a theme through a related word, 411 of them with no theme of their own
+related words: 379 reviewed pairs for 126 themes (config/theme-related.json); theme verses unchanged
+themes: 163 in 10 groups; often linked with: 172908 distinct verse pairs with 3+ votes, 162 of 163 themes have a partner
+layers of meaning: 1264 passages, 3099 layers checked; 1264 passages live with 3095 notes (3095 live because they cite a listed source); no drafts
+quotations: 459 links (328 quotations, 131 echoes) from 381 footnotes; 311 quotations named in the Old Testament's notes too; 441 links with Hebrew-Greek word pairs (1882 pairs, 1625 the Septuagint's own)
+  quoted words: 313 after a closing mark, 6 inside a quotation, 62 not found; 0 places not mapped to the BSB text
+  dropped: 0 references not in the BSB, 1 unreadable, 24 to the New Testament, 5 long echoes, 1 repeats; 0 verses not in the BSB; 380 'cited in' references to the New Testament (6 others skipped)
+real-map: 1342 places in the geocoding data, 1234 named in the BSB in 4896 verses (7483 mentions); 683 have a confident site, 260 far from Jerusalem
+real-map: dropped 0 references not in the BSB numbering, 462 where most translations name no place or only its people, 769 where the BSB does not name it, 16 read as not a place, 7 inside a longer name; moved 41 to the next or previous verse; 119 other names used for a place
+real-map: 420 places placed in the dataset's words by another place, 198 with a note; left out 61 sites credited to OpenStreetMap or Google, or placed by a Palestine Grid reference (110 links to them), so 23 places have their strongest site off the map
+real-map: 1112 places joined to Theographic (70 more left without people because another place shares more verses with theirs), 60 with people tied to them; 334 "was there" ties left out as unconfirmed, 11 births and deaths the text rules out, 46 names told apart by a parent
+real-map: 126 places shaded with the dataset's own shapes (0 drawn shapes not pinned in sources.json); the tribes' lands drawn around 147 towns
+real-map: 299 of Theographic's 450 events placed at 154 places (0 with no verse in the BSB)
+peshitta: 7958 verses read, 7958 placed on 7957 BSB verses (529 from later versions, 7957 romanized), 8 placed by name; skipped 0 (outside a chapter 0, bad number 0, empty 0, out of order 0, not in the BSB 0, duplicate 0); removed 51 '+' marks and 0 other characters, 0 unknown entities, 0 tags inside verses, 27 other elements, 0 stray text; 0 BSB verses without Syriac; status {"UncorrectedTranscription": 27}
+World: TAHOT gives 23213 Hebrew verse numbers, 1975 of them differ from the English numbering
+World: 5 linked handbook entries have no text to show and are left out: Woven or knitted material, Floor, Lethek, Kodrantes, Denarius
+World: 5018 Greek roots with LSJ (4531 with senses, 4702 with a first use; 153 grammar words, 36 words given a related word's entry, and 25 names and 42 words given another word's entry not shown); 576 UBS entries linked to 1358 roots (general 1259, verse-only 361); 50 files, 1970 KB
+wordplay: 12 alphabet poems, 461 letters checked against TAHOT
+notes: 16923 notes from 16923 entries; 0 empty, 4 passages not in the BSB, 5 in another book's file; 39101 of 39110 verse references placed
+notes: tags dropped (their text kept): {"</a>": 1, "</h3>": 6, "</span>": 3926, "</strong>": 12, "</sup>": 1, "<a>": 1, "<data>": 1298, "<h3>": 6, "<span>": 3926, "<strong>": 12, "<sup>": 1}
+voices: 814 passages of the Fathers, 4049 of Henry's notes, 16704 of Wesley's, in 81 files; 4562 of 4821 references linked; 6 introductions and 29 notes on a verse 0 left out, 5 not placed, 0 ranges cut to the chapter
+voices: the Fathers' passages took 4 verses before the next passage, 18 Gospel paragraphs and 264 footnote marks left out; 197 repeated Wesley notes left out and 31 moved to the verse whose words they explain
+hard verses: 56 questions checked; 0 written, 56 drafts left out (set ATLAS_HARD_VERSE_DRAFTS=1 to include them), 56 of them pointed out at Deep with their links only
+naves: JESUS, THE CHRIST is cut at 32767 characters, a spreadsheet cell's limit; its last line, "-Head of every man 1CO 1", is left out
+ask the bible: 1584 questions, 12008 chain parts, each tied to the question or the chain (8287 the question's words, 7057 its Nave's subjects, 7677 cross-references, 124 quotations, 8127 shared roots, 1914 the same passage); 66514 example messages for the meaning matcher; 4672 Nave's subjects, 27 references not in the BSB left out
+naves rows: 1718 of 4672 subjects can show (1861 concepts, 28 of them let through and 143 hidden by config/naves-display.json, which also fixes 14 references; left out 1650 people, 673 places, 160 other names and 328 more names known by how the KJV and BSB write them); 19373 verses with a subject citing them, 8575 more inside a passage; 66 files, 754 KB, the largest naves/Ps.json 43.5 KB
+parallels: 307 sets, 525 pairs lined up, 34 passages added by hand (not in the BSB headings); 3015 headings read, 1 heading references not read
+aramaic: 34 words in 63 verses, 5 sections in 12 chapters, 46 roots; 32786 bytes
+Eras: 17 eras, 71 ranges covering 772 chapters; 66 books (57 dated, 7 relative, 2 undated); 250 quotations checked
+dictionary easton: 3962 entries from 3964 terms (2 given twice and made one, 0 without text, 0 without a usable address, 0 names corrected); 23595 marked verse links and 54 found in the text, 23049 references listed; 5 marked references to several chapters listed but not linked; 5 references outside the BSB's books (e.g. 1 Macc. 1:57 (Bible:1Macc.1.57) | 1 Macc. 4:47 (Bible:1Macc.4.47) | 1 Macc. 1:23 (Bible:1Macc.1.23) | 4:49 (Bible:1Macc.4.49) | 1 Macc. 2:60 (Bible:1Macc.2.60)); 26 the BSB has no verse for (e.g. 16 (Bible:Neh.16) | Cant. l. (Bible:Song.50) | 31 (Bible:Ezek.17.31) | Exodus 1491 (Bible:Exod.1491) | Jer. 38:60 (Bible:Jer.38.60)); elements kept as text: none
+dictionary smith: 4561 entries from 4561 terms (0 given twice and made one, 0 without text, 0 without a usable address, 1 names corrected); 16963 marked verse links and 154 found in the text, 16669 references listed; 36 marked references to several chapters listed but not linked; 239 references outside the BSB's books (e.g. 1Ma 7:40 (Bible:1Macc.7.40) | 45 (Bible:1Macc.7.45) | 1Ma 12:38 (Bible:1Macc.12.38) | 1Esd 5:14 (Bible:1Esd.5.14) | 1Ma 13:20 (Bible:1Macc.13.20)); 157 the BSB has no verse for (e.g. 117 (Bible:Ps.116.117) | Esther 16:10 (Bible:Esth.16.10) | 17 (Bible:Esth.16.17) | Esther 12:6 (Bible:Esth.12.6) | Esther 10:7 (Bible:Esth.10.7)); elements kept as text: none
+shelf: 58 works in 12 groups (58 from config/shelf.json, 0 plain cards from sources.json, 0 left out until the app cites them); 239 of 239 citations matched to a work
+shelf files: shelf.json 66 KB, dict/easton/index.json 109 KB, dict/easton/a.json 345 KB, dict/easton/b.json 230 KB, dict/easton/c.json 309 KB, dict/easton/d.json 166 KB, dict/easton/e.json 208 KB, dict/easton/f.json 112 KB, dict/easton/g.json 158 KB, dict/easton/h.json 211 KB, dict/easton/i.json 58 KB, dict/easton/j.json 236 KB, dict/easton/k.json 56 KB, dict/easton/l.json 105 KB, dict/easton/m.json 249 KB, dict/easton/n.json 106 KB, dict/easton/o.json 46 KB, dict/easton/p.json 261 KB, dict/easton/q.json 8 KB, dict/easton/r.json 106 KB, dict/easton/s.json 301 KB, dict/easton/t.json 152 KB, dict/easton/u.json 16 KB, dict/easton/v.json 21 KB, dict/easton/w.json 64 KB, dict/easton/y.json 3 KB, dict/easton/z.json 60 KB, dict/smith/index.json 127 KB, dict/smith/a.json 315 KB, dict/smith/b.json 154 KB, dict/smith/c.json 146 KB, dict/smith/d.json 98 KB, dict/smith/e.json 157 KB, dict/smith/f.json 51 KB, dict/smith/g.json 115 KB, dict/smith/h.json 188 KB, dict/smith/i.json 63 KB, dict/smith/j.json 264 KB, dict/smith/k.json 45 KB, dict/smith/l.json 138 KB, dict/smith/m.json 289 KB, dict/smith/n.json 142 KB, dict/smith/o.json 64 KB, dict/smith/p.json 354 KB, dict/smith/q.json 4 KB, dict/smith/r.json 107 KB, dict/smith/s.json 402 KB, dict/smith/t.json 233 KB, dict/smith/u.json 36 KB, dict/smith/v.json 38 KB, dict/smith/w.json 79 KB, dict/smith/y.json 5 KB, dict/smith/z.json 88 KB
+dictionary extra: 17629 verses have entries (48328 listings); extras/dictionary.json 98 KB, book files 1708 KB in all, the largest 116 KB
+LXX bridges: 2788 Greek roots, 8446 pairs (3437 pointed, 129 consonants only, 253 by the verses cited, 129 Hebrew-Aramaic twins, 239 by a dominant number, 287 ambiguous skipped, 66 phrases skipped)
+wrote 2212 files (120.6 MB) to C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\web/public/data in 246.0s; build 514b1f3bf2b1
+words: 300821 Hebrew, 4827 Aramaic, 137646 Greek; 10997 with edition/manuscript differences (4643 meaningful)
+--- make build-data, run C (LF sources identical to CI) = cargo run --release -q -p atlas-cli -- --raw data/raw-lf build: rc=0 wall=272.856s
+
+=== make verify, run C = cargo run --release -q -p atlas-cli -- verify  [12:29:47]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo run --release -q -p atlas-cli -- verify)
+themes at Simple: 21994 verses (70.7%) have their own, 483 (1.6%) reach one through a related word, 2864 (9.2%) through links, 0 show Nave's rows, 5761 (18.5%) the quiet line
+related words at Simple: 1881 verses newly reach a theme through one: 1398 beside their own themes, 279 that had only links, 0 that had Nave's rows, 204 that had the quiet line; links only 3143 -> 2864, Nave's 0 -> 0, quiet 5965 -> 5761
+themes at Study: 24807 verses (79.8%) have their own, 411 (1.3%) reach one through a related word, 2120 (6.8%) through links, 3012 show Nave's rows, 752 (2.4%) the quiet line
+related words at Study: 2353 verses newly reach a theme through one: 1942 beside their own themes, 227 that had only links, 161 that had Nave's rows, 23 that had the quiet line; links only 2347 -> 2120, Nave's 3173 -> 3012, quiet 775 -> 752
+Nave's rows at Study: 3764 verses (12.1%) have no theme of their own, through a related word or through links; a Nave's subject cites 1410 (4.5%), 1602 (5.2%) are inside a Nave's passage, 752 (2.4%) still have nothing
+Nave's rows if shown at Simple (they are not): 5761 verses (18.5%) have no theme of their own, through a related word or through links; a Nave's subject cites 2100 (6.8%), 2474 (8.0%) are inside a Nave's passage, 1187 (3.8%) still have nothing
+Septuagint bridges: 2788 Greek roots, 8446 pairs; 5952 of 12281 links between the testaments with 8+ votes (48.5%)
+5909 checks passed
+--- make verify, run C = cargo run --release -q -p atlas-cli -- verify: rc=0 wall=371.545s
+buildId 514b1f3bf2b1 514b1f3bf2b1
+files 2211 2211
+differing 0 only in first 0 only in second 0
+sources whose recorded file hashes differ: 27 ['openbible-xref', 'bsb-usfm', 'bsb', 'naves', 'kjv', 'asv', 'openbible-geo', 'openbible-shapes', 'theographic', 'natural-earth', 'tahot', 'tagnt', 'dsc-peshitta', 'tyndale-tbd', 'easton', 'smith', 'aquifer-osn', 'tbesh', 'tflsj', 'ubs-ffr', 'tbesg', 'clear-align', 'macula-hebrew', 'strongs', 'catena-aurea', 'henry-concise', 'wesley-notes']
+local meta.json bytes 483659 live 483302 identical False
+after turning the 357 escaped backslashes into /: identical False count 720
+local meta.json paths with a backslash: 357
+meta.json identical to live after replacing them with /: True
+
+=== web: node scripts/ask-meaning.mjs (the prebuild/predev hook, run by itself)  [12:37:56]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build/web; node scripts/ask-meaning.mjs)
+ask-meaning: 132402 texts, 18655 words, 235856 weights kept; 51736 of 66453 examples find their own question; 554.8s
+--- web: node scripts/ask-meaning.mjs (the prebuild/predev hook, run by itself): rc=0 wall=600.474s
+
+=== web: npm run build (CI variant; prebuild runs ask-meaning, which should be up to date)  [12:58:28]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build/web; npm run build)
+
+> bible-atlas-web@0.1.0 prebuild
+> node scripts/ask-meaning.mjs
+
+ask-meaning: up to date
+
+> bible-atlas-web@0.1.0 build
+> tsc --noEmit && vite build
+
+[36mvite v8.3.3 [32mbuilding client environment for production...[36m[39m
+transforming...
+✓ 161 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/assets/engine.worker-DcOUNqpZ.js                             2.08 kB
+dist/assets/noto-serif-greek-ext-400-normal-fffGn9To.woff2        5.50 kB
+dist/assets/noto-serif-greek-ext-400-normal-8V3SQMVO.woff         7.01 kB
+dist/assets/noto-serif-hebrew-hebrew-400-normal-v_xU1ROG.woff2    7.80 kB
+dist/index.html                                                   8.83 kB │ gzip:   3.11 kB
+dist/assets/noto-serif-greek-400-normal-B3ECBf8v.woff2            9.36 kB
+dist/assets/noto-serif-hebrew-hebrew-400-normal-jyUp5Tfv.woff     9.88 kB
+dist/assets/noto-serif-greek-400-normal-i7vYTb6g.woff            11.67 kB
+dist/assets/instrument-sans-latin-400-normal-DRC__1Mx.woff2      16.86 kB
+dist/assets/noto-sans-syriac-syriac-400-normal-CWH9OPix.woff2    16.93 kB
+dist/assets/instrument-sans-latin-600-normal-B7fBEWYG.woff2      17.40 kB
+dist/assets/extra.worker-Dw7XXs3H.js                             19.09 kB
+dist/assets/literata-latin-400-normal-CLtNJ872.woff2             20.42 kB
+dist/assets/literata-latin-400-italic-BxdXY0No.woff2             21.14 kB
+dist/assets/instrument-sans-latin-400-normal-D1W7dsQl.woff       21.24 kB
+dist/assets/instrument-sans-latin-600-normal-B9e8oLYv.woff       21.67 kB
+dist/assets/literata-latin-600-normal-A9sHopYh.woff2             21.86 kB
+dist/assets/literata-latin-400-normal-CUhpYSl8.woff              25.10 kB
+dist/assets/literata-latin-400-italic-xjtKbHx7.woff              25.93 kB
+dist/assets/literata-latin-600-normal-BFEFPlMO.woff              26.54 kB
+dist/assets/atlas-Cpsxi5h6.wasm                                  75.22 kB │ gzip:  31.97 kB
+dist/assets/Panel-CYmFDelO.css                                    0.66 kB │ gzip:   0.36 kB
+dist/assets/Panel-DwoWAMl8.css                                    1.13 kB │ gzip:   0.42 kB
+dist/assets/WordWorld-BGZXwzh3.css                                2.02 kB │ gzip:   0.82 kB
+dist/assets/Panel-CYOV7_IO.css                                    2.07 kB │ gzip:   0.60 kB
+dist/assets/Dictionary-Dm_XzlTE.css                               4.53 kB │ gzip:   1.33 kB
+dist/assets/MapPanel-KS9pbXJr.css                                 4.71 kB │ gzip:   1.37 kB
+dist/assets/index-C0yGIuLS.css                                   81.73 kB │ gzip:  16.89 kB
+dist/assets/Panel-CXqzKiRT.js                                     1.21 kB │ gzip:   0.66 kB
+dist/assets/open-M-4q9jLd.js                                      1.34 kB │ gzip:   0.68 kB
+dist/assets/Panel-B7tAXWUe.js                                     2.42 kB │ gzip:   1.17 kB
+dist/assets/Panel-BXMEkbFE.js                                     3.10 kB │ gzip:   1.46 kB
+dist/assets/Panel-zCa73b6T.js                                     3.16 kB │ gzip:   1.40 kB
+dist/assets/Panel-B2RHorSl.js                                     3.99 kB │ gzip:   1.86 kB
+dist/assets/common-BwiFtG_W.js                                    4.78 kB │ gzip:   2.47 kB
+dist/assets/Dictionary-vMufjEDF.js                                5.68 kB │ gzip:   2.60 kB
+dist/assets/WordWorld-BJwPDhQs.js                                 6.66 kB │ gzip:   3.00 kB
+dist/assets/Panel-CrMwrHy8.js                                     6.99 kB │ gzip:   3.01 kB
+dist/assets/Panel-rSE9YbBl.js                                     8.96 kB │ gzip:   4.03 kB
+dist/assets/Panel-BGPNQ9MS.js                                    11.44 kB │ gzip:   4.09 kB
+dist/assets/Sources-DjPyMAwL.js                                  12.38 kB │ gzip:   5.05 kB
+dist/assets/Panel-C3RE4odQ.js                                    17.70 kB │ gzip:   7.15 kB
+dist/assets/atlas-C48sN3M4.js                                    29.34 kB │ gzip:  11.54 kB
+dist/assets/MapPanel-Bwdc3r1Y.js                                 30.83 kB │ gzip:  12.13 kB
+dist/assets/gather-ClBTR3D2.js                                   36.16 kB │ gzip:  14.18 kB
+dist/assets/index-DjMyEdtL.js                                   332.57 kB │ gzip: 124.67 kB
+
+[32m✓ built in 7m 35s[39m
+[33m[33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 247.6s of this 455.0s build (54%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin vite:prepare-out-dir renderStart (43%, 195.5s, 1 call)
+  - plugin vite:css-post transform (2%, 10.3s, 34 calls)
+  - plugin vite:build-html transform (0%, 2.2s, 1 call)
+Additional callback time came from the callbacks below and from callbacks under 1s.
+2 callbacks are listed without a time. Their calls overlapped, so the time inside one call includes work from other calls. To find their cost, profile the build with `node --cpu-prof`:
+  - plugin vite:css transform (34 calls)
+  - plugin vite:worker-import-meta-url transform (2 calls)
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+[39m
+--- web: npm run build (CI variant; prebuild runs ask-meaning, which should be up to date): rc=0 wall=666.192s
+
+=== make serve = node server/serve.mjs (PORT=18431), then GET http://localhost:18431/
+Bible Atlas on http://localhost:18431
+node:events:486
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ENOENT: no such file or directory, open 'C:\C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\web\dist\404.html'
+Emitted 'error' event on ReadStream instance at:
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\wt\\build\\web\\dist\\404.html'
+}
+
+Node.js v24.13.0
+--- make serve: crashes on the first request on Windows. server/serve.mjs:9 resolve(new URL('../web/dist', import.meta.url).pathname) gives C:\C:\Users\...
+dist: 127M, 2268 files, 45 in dist/assets
+
+=== native alternative to make serve: node node_modules/vite/bin/vite.js preview --port 18432 --strictPort (in web/)
+GET / -> 200 after 25s; /data/meta.json 200 application/json 483659 bytes; /assets/atlas-Cpsxi5h6.wasm 200 application/wasm 75220 bytes; /data/atlas.bin 200 8357560 bytes
+Opened in the desktop app's browser pane: page "Bible Atlas", header "344,799 links", Isaiah 53:5 selected with its links (1 Pet 2:24, Matt 20:28, 2 Cor 5:21, Ps 103:3) drawn by the wasm engine worker; data requested with ?v=514b1f3bf2b1.
+One console error "An unknown error occurred when fetching the script." (service worker did not register in the pane; curl GET /sw.js -> 200 text/javascript 16602), not a build problem.
+--- vite preview: works natively
+
+=== comparison of web/dist/assets with the live site (HEAD https://everyversemap.com/assets/<same hashed name>)
+45 assets built; 29 exist on the live site under the identical content-hashed name.
+16 do not: atlas-Cpsxi5h6.wasm (rustc 1.99.0 here vs 1.99.1 on CI; only the embedded /rustc/<commit>/ panic paths and 4 dependent offsets differ, same 75220 bytes), engine.worker (names the wasm), index-*.js (names the worker; also CI-variant build has ESV on while Pages builds with VITE_ESV=off), and 13 lazy chunks that import the index chunk by name.
+
+=== fast profile experiment: compile atlas CLI with CARGO_PROFILE_RELEASE_LTO=false CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16 (separate CARGO_TARGET_DIR)  [13:33:38]  (cd /c/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/wt/build; cargo build --release -p atlas-cli)
+   Compiling version_check v0.9.5
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling typenum v1.20.1
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling memchr v2.8.3
+   Compiling cpufeatures v0.2.17
+   Compiling itoa v1.0.18
+   Compiling cfg-if v1.0.5
+   Compiling atlas-core v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-core)
+   Compiling generic-array v0.14.7
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling syn v3.0.6
+   Compiling serde_derive v1.0.229
+   Compiling atlas-cli v0.1.0 (C:\Users\shubh\AppData\Local\Temp\claude\C--Users-shubh-Projects--claude\d3907c69-e0f0-457b-bec9-6a76569849b3\scratchpad\ba\wt\build\crates\atlas-cli)
+    Finished `release` profile [optimized] target(s) in 22m 01s
+--- fast profile experiment: compile atlas CLI with CARGO_PROFILE_RELEASE_LTO=false CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16 (separate CARGO_TARGET_DIR): rc=0 wall=1338.361s
+
+=== SESSION 2 (resumed 2026-10-20 14:50 after the 13:58 cut-off). The log above already held: run C fetch done, build-data C rc=0, verify C rc=0 (5909 checks), ask-meaning rc=0, npm run build rc=0, make serve crash, vite preview OK, live comparison, fast-profile experiment rc=0. Nothing above was repeated.
+PC state at 14:55: Intel Core Ultra 7 155H (16 cores / 22 threads), CPU load 100%, clock 1400 of 3800 MHz, 0.8 GB of 15.4 GB RAM free, MsMpEng (Defender) using about 13% of all CPU; other workflows were running cargo, npm ci, vitest and fetch.sh at the same time.
+
+=== integrity of data/raw-lf (scratch/check-raw.mjs against https://everyversemap.com/data/meta.json, buildId 514b1f3bf2b1)  [14:58]
+lock entries 357; on disk = lock: 357; on disk = live meta.json: 357; missing 0; lock paths with a backslash: 357
+local web/public/data/meta.json 483659 bytes, live 483302; identical: false; escaped backslashes: 357; identical after \ -> /: true
+contrast, data/raw (autocrlf=true checkout): on disk = live: 129 of 357
+wall 59 s
+
+=== spot check of generated data against live
+atlas.bin and ask/index.json byte-identical to live.
+ask/meaning.json differs only in "key" (327d576cd0b3487b local vs 87e1d1c85e65bc2a live); format, ids, scale, w and texts identical. Cause: the key hashes web/src/ui/ask/words.ts and web/scripts/ask-meaning.mjs, which this worktree has with CRLF (system core.autocrlf=true).
+
+=== make test, cargo half as the Makefile writes it (debug profile): cargo test --workspace  [15:03:10]
+Finished `test` profile [unoptimized + debuginfo] target(s) in 2m 51s; 199 + 18 + 1 = 218 tests passed
+--- rc=0 wall=193s (release variant above: 434 s)
+
+=== LF worktree for an exact-parity check: GIT_CONFIG_COUNT=2 core.autocrlf=false core.eol=lf git worktree add --detach wt/build-lf origin/main
+rc=0 7 s; words.ts, index.html, build-wasm.sh all LF
+npm ci in build-lf/web: rc=0 wall=129s (98 packages, 0 vulnerabilities)
+copied web/public/data from wt/build: 2213 files, 213 s; meta.json rewritten with / for \ (scratch/fix-meta.mjs) -> byte-identical to live
+put the live atlas-BuY3SbmO.wasm at web/src/engine/atlas.wasm (CI built it with rustc 1.99.1; this PC has 1.99.0)
+copied the live meaning.json in, then node scripts/ask-meaning.mjs -> "ask-meaning: up to date" (4.6 s): the LF checkout computes the live key 87e1d1c85e65bc2a
+
+=== Pages variant in Git Bash: VITE_ESV=off npm run build -- --base=/   [15:08]
+Git Bash (MSYS) rewrote --base=/ to --base=C:/Program Files/Git/ ; vite warned '"base" option should start with a slash.' Stopped it (rc=127 after 99 s). Use PowerShell, MSYS_NO_PATHCONV=1, or leave --base out (vite's default base is already /).
+
+=== Pages variant in PowerShell: $env:VITE_ESV='off'; npm run build   [15:10:51]
+ask-meaning: up to date; tsc --noEmit; vite build: 161 modules, built in 17.80s (vite:prepare-out-dir 14.2 s)
+--- rc=0 wall=41s
+compare with the crawled live site (scratch/crawl-live.mjs, scratch/compare-dist.mjs): compared 49 live files (index.html, 404.html, sw.js, manifest.webmanifest, 45 assets): 49 byte-identical, 0 differ, 0 missing, 0 extra.
+same comparison for the CRLF CI-variant dist in wt/build: 29 identical; index.html, 404.html, sw.js, manifest.webmanifest differ (CRLF copies of the CRLF checkout); 16 hashed chunks differ (local wasm from rustc 1.99.0 and ESV on).
+
+=== PowerShell 5.1 passes "--" through npm.ps1: npm run typecheck -- --version ran "tsc --noEmit --version" (Version 7.0.2).
+
+=== make dev equivalent: node node_modules/vite/bin/vite.js --port 18433 --strictPort (in build-lf/web)
+VITE v8.3.3 ready in 7732 ms; GET / 200 after 29 s; /src/main.tsx 200 text/javascript; /data/meta.json 200 483302 bytes; /src/engine/atlas.wasm 200 application/wasm 75220. Stopped.
+
+=== other facts gathered
+make, mingw32-make, gmake: not installed. just: installed (~/.cargo/bin/just). curl 8.12.1 in Git Bash, curl.exe in System32 (atlas fetch calls curl only for Git LFS files; none were needed).
+Longest fetched path: 131 chars under data/raw (STEPBible-Data@1f3423d424/Translators Amalgamated OT+NT/TAHOT Gen-Deu - ...). Under C:\Users\shubh\Projects\BibleAtlas\data\raw\ that is 175 chars (below 260, core.longpaths not needed there); under this scratch worktree it was 273 (needed).
+Main clone C:\Users\shubh\Projects\BibleAtlas: core.autocrlf=true from C:/Program Files/Git/etc/gitconfig, no repo .gitattributes, so web/index.html and Makefile are CRLF there too.
+server/serve.mjs:9 resolve(new URL('../web/dist', import.meta.url).pathname) -> C:\C:\Users\shubh\Projects\BibleAtlas\web\dist ; fileURLToPath(...) gives C:\Users\shubh\Projects\BibleAtlas\web\dist
+live wasm atlas-BuY3SbmO.wasm names /rustc/58cf8f9c35b355199727627d07ae34a4e2846d67 (7 times); local rustc 1.99.0 is commit b940084d7eb6a299eb4bfeb8e34901bc051e7ac4.
+
+=== cleanup  [15:25]
+git worktree remove --force wt/build-lf: rc=0 31 s
+wt/build: deleted everything except data/raw-lf (target, target-fast, web incl. node_modules/dist/public/data, data/raw, data/out-crlf, all tracked files and the .git file): 24 s
+git worktree prune --dry-run --verbose listed only "worktrees/build: gitdir file points to non-existent location"; then git worktree prune --verbose removed that entry.
+git worktree list now: C:/Users/shubh/Projects/BibleAtlas a46d819 [main], BibleAtlas-fixes 89c149f, BibleAtlas-layers a46d819 (the last two belong to other jobs, untouched). Main clone: git status clean, HEAD a46d819.
+Left in place for reuse: wt/build/data/raw-lf (17 checkouts + manifest.lock.json, 678 MB, 357 of 357 files equal to the live meta.json hashes). Its checkouts carry no local autocrlf setting: re-fetch into it only with the GIT_CONFIG_* variables, or just build from it with --raw.
+=== end of session 2
+=== addendum: CI reference (scratch/ci-a46d819.log, deploy-a46d819.log, 2026-10-20 14:02 UTC)
+CI job 4m21s: clippy+release tests 60 s, make data 116 s (sources from cache), make wasm 1.5 s, npm ci+build 64 s. CI atlas build "wrote 2212 files (120.6 MB) ... in 14.6s" (Pages run 16.4 s) vs 246 s / 430 s here; ask-meaning 59.3 s / 75.8 s vs 554.8 s here; CI rustc 1.99.1 (58cf8f9c3 2026-10-13); 5909 checks passed on CI too.
