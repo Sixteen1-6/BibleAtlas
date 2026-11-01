@@ -294,7 +294,7 @@ function PanelHost({ a }: { a: Atlas }) {
   // the reader to ask: one line and a button that opens the notice.
   const gate = isCommentary(x, o.kind) ? closedState(a, x, o, s.data) : null;
   return createPortal(
-    <Shell key={`${o.id}.${o.kind}`} title={title} at={looking === null ? at : `${label(a, looking)}, from ${at}`} onDismiss={dismiss} onBack={looking === null ? undefined : unpeek} tall={x.tall}>
+    <Shell key={`${o.id}.${o.kind}`} title={title} at={looking === null ? at : `${label(a, looking)}, from ${at}`} onDismiss={dismiss} onBack={looking === null ? dismiss : unpeek} backTitle={looking === null ? 'Back to the side panel' : `Back to ${looks.length > 1 ? label(a, looks[looks.length - 2]) : `${title}, ${at}`}`} tall={x.tall}>
       {looking !== null && <Peek key={`${looks.length}.${looking}`} a={a} verse={looking} go={go} />}
       <div hidden={looking !== null}>
       <Guard id={x.id}>

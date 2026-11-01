@@ -8,34 +8,16 @@
 // through them too, and coming Back from the reader returns to the look the
 // reader left from. "Read in the Bible" in a look takes the reader there.
 //
-// The panel can also be widened to fill the window (the reader's choice,
-// remembered in this browser).
+// The panel's Back steps back through the looks, and with none left closes
+// the panel, so the side column's own Back (ui/PanelNav.tsx) carries on from
+// there: one Back for the whole side. Its Full page is the side column's too
+// (S.panelWide), so both say and do the same thing.
 
 import { signal } from '@preact/signals';
 import type { VerseRef } from './types';
 
 /** The verses being looked at from the open panel, the latest last. */
 export const peeks = signal<VerseRef[]>([]);
-
-/** The panel fills the window. Remembered per browser. */
-export const wide = signal<boolean>(read());
-
-function read(): boolean {
-  try {
-    return localStorage.getItem('atlas.panelWide') === '1';
-  } catch {
-    return false;
-  }
-}
-
-wide.subscribe((on) => {
-  try {
-    if (on) localStorage.setItem('atlas.panelWide', '1');
-    else localStorage.removeItem('atlas.panelWide');
-  } catch {
-    // Storage blocked: the choice lasts until the page closes.
-  }
-});
 
 const KEY = 'atlasPeek';
 

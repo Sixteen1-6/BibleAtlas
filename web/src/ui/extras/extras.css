@@ -351,48 +351,19 @@ button.xt-chev {
   }
 }
 
-/* Back, after looking at another passage from inside a panel (peek.ts), and
-   the size button that lets the panel fill the window. */
-.xt-back {
+/* Back and Full page in a panel's header are the side column's own buttons
+   (.pnbtn, ui/PanelNav.tsx), sized to sit beside the close button. */
+.xt-head .pnbtn {
   flex: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  height: 32px;
   margin-top: -4px;
-  padding: 0 10px 0 8px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--surface);
+}
+.xt-head .xt-back {
   color: var(--link);
-  font: 13.5px var(--font-ui);
-  cursor: pointer;
 }
-.xt-size {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  margin-top: -4px;
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background: var(--surface);
-  color: var(--muted);
-  cursor: pointer;
-}
-.xt-back:hover,
-.xt-size:hover {
-  color: var(--ink);
-  border-color: var(--muted);
-}
-.xt-back:focus-visible,
-.xt-size:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-.xt-head .xt-back + .xt-titles {
-  margin-left: -4px;
+@media (max-width: 480px) {
+  .xt-size-words {
+    display: none;
+  }
 }
 /* Filling the window: a desktop panel covers the page under the top bar, a
    phone sheet the whole screen; the words keep a readable width. */

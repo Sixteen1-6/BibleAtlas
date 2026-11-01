@@ -6,15 +6,15 @@
 //   area, widened into the reader's empty margin when there is room so two
 //   passages fit side by side. The reader and the map stay usable.
 // Focus moves to the panel's heading on open and back to the note on close.
-// - Either can fill the window instead (the size button, remembered), and a
-//   look at another passage from inside the panel (peek.ts) shows Back.
+// - An extra's panel has the side column's own controls (ui/PanelNav.tsx):
+//   Back (through looks at other passages, peek.ts, then closing the panel)
+//   and Full page, the same S.panelWide, so the side has one set of controls.
 
 import type { ComponentChildren } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import * as S from '../../state';
 import { noticeOpen } from '../commentary/state';
 import { openerElement } from './open';
-import { wide } from './peek';
 
 const PHONE = '(max-width: 900px)';
 /** Widest the desktop panel grows into the reader's margin. */
@@ -70,9 +70,10 @@ function useDock(on: boolean, tall: boolean): Dock | null {
   return on ? dock : null;
 }
 
-export function Shell({ title, at, onDismiss, onBack, tall = false, children }: { title: string; at: string; onDismiss: () => void; onBack?: () => void; tall?: boolean; children: ComponentChildren }) {
+export function Shell({ title, at, onDismiss, onBack, backTitle, tall = false, children }: { title: string; at: string; onDismiss: () => void; onBack?: () => void; backTitle?: string; tall?: boolean; children: ComponentChildren }) {
   const phone = usePhone();
-  const big = wide.value;
+  // Ask's sheet, which gives no onBack, keeps its own look and size.
+  const big = !!onBack && S.panelWide.value;
   const dock = useDock(!phone, tall || big);
   const id = useId();
   const box = useRef<HTMLDivElement>(null);
@@ -163,9 +164,9 @@ export function Shell({ title, at, onDismiss, onBack, tall = false, children }: 
         <header class="xt-head" {...swipe}>
           {phone && <span class="xt-grab" aria-hidden="true" />}
           {onBack && (
-            <button type="button" class="xt-back" onClick={onBack} aria-label="Back">
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <path d="M9 2 4 7l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <button type="button" class="pnbtn xt-back" onClick={onBack} title={backTitle} aria-label={backTitle}>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <span>Back</span>
             </button>
@@ -176,22 +177,24 @@ export function Shell({ title, at, onDismiss, onBack, tall = false, children }: 
             </h2>
             <p class="xt-at">{at}</p>
           </div>
-          <button
-            type="button"
-            class="xt-size"
-            onClick={() => (wide.value = !big)}
-            aria-pressed={big}
-            aria-label={big ? 'Make the panel smaller' : 'Fill the window'}
-            title={big ? 'Make the panel smaller' : 'Fill the window'}
-          >
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-              {big ? (
-                <path d="M5 1v4H1M9 1v4h4M5 13V9H1M9 13V9h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              ) : (
-                <path d="M1 5V1h4M13 5V1H9M1 9v4h4M13 9v4H9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-              )}
-            </svg>
-          </button>
+          {onBack && (
+            <button
+              type="button"
+              class="pnbtn pnwide xt-size"
+              onClick={() => (S.panelWide.value = !big)}
+              aria-pressed={big}
+              title={big ? 'Go back to the text beside this panel' : 'Open this panel over the whole page'}
+            >
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                {big ? (
+                  <path d="M13.5 6.5h-4v-4M2.5 9.5h4v4M9.5 6.5 14 2M6.5 9.5 2 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                ) : (
+                  <path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                )}
+              </svg>
+              <span class="xt-size-words">{big ? 'Back to reading' : 'Full page'}</span>
+            </button>
+          )}
           <button type="button" class="xt-close" onClick={() => dismiss.current()} aria-label={`Close ${title}`}>
             <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
               <path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
