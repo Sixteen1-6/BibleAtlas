@@ -45,6 +45,90 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "acts-1-25-euphemism",
+      "kind": "figure",
+      "form": "euphemism",
+      "ref": "Acts 1:25",
+      "strength": "commonly held",
+      "short": "“His rightful place”: Judas's end, gently told",
+      "about": "The prayer does not say outright what became of Judas. Read of him, as is most natural, the closing words speak of the traitor's end with restraint: he abandoned the apostleship “to go to his rightful place.”",
+      "figure": {
+        "name": "Euphemism",
+        "ref": "Acts 1:25",
+        "words": "to go to his rightful place",
+        "means": "the end that awaited the traitor, spoken of in softened and guarded words that do not name it"
+      },
+      "original": {
+        "note": "In Greek the words read literally his own place; the word behind “rightful” is idios, one's own.",
+        "strong": [
+          "G2398"
+        ]
+      },
+      "evidence": "Brown (Jamieson, Fausset and Brown) calls the words a euphemistic or softened expression of the traitor's awful future, a place both destined for him and suited to him. E. H. Plumptre (Ellicott's Commentary) takes them most naturally of Judas and finds in them the reserve of one who could neither cherish hope for him nor pronounce the condemnation that belongs to God.",
+      "limit": "The writers differ on how much the words say: one hears in them the doom suited to the traitor, the other a reserve that leaves the sentence to God. Some take the words of the man chosen in Judas's place, going to his own place among the Twelve.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Acts 1:25",
+          "quote": "A euphemistic or softened expression of the awful future of the traitor, implying not only destined habitation but congenial element.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Acts 1:25",
+          "quote": "some interpreters have referred the words to the disciple about to be chosen, “to go to his own place” in the company of the Twelve. If we connect them, as seems most natural, with Judas, we find in them the kind of reserve natural in one that could neither bring himself to cherish hope nor venture to pronounce the condemnation which belonged to the Searcher of hearts.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "acts-1-25-hendiadys",
+      "kind": "figure",
+      "form": "hendiadys",
+      "ref": "Acts 1:25",
+      "strength": "widely agreed",
+      "short": "“Ministry and apostleship”: one office, not two",
+      "about": "Two nouns joined by “and” can be read as one office: the ministry of an apostle, the very work Judas abandoned. The second word shows what kind of ministry is meant.",
+      "figure": {
+        "name": "Hendiadys",
+        "part": "Nouns",
+        "ref": "Acts 1:25",
+        "words": "ministry and apostleship",
+        "means": "one thing, the apostolic ministry: the office and work of an apostle"
+      },
+      "evidence": "Bullinger lists the verse under Hendiadys and reads it as this apostolic ministry, with the stress on apostolic. Barnes calls the words a hendiadys, two words used for one thing, meaning the apostolic ministry. Calvin says the sense is plainer when expounded as the ministry of the apostleship, by a figure he calls hypallage.",
+      "limit": "One writer also says the second word is added to join the dignity of the office to its burden, and he gives the figure another name.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Acts 1:25",
+          "at": "Hendiadys, or Two for One: Nouns, p. 665",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/665/mode/1up",
+          "quote": "this ministry, yes-this apostolic ministry, with emphasis on the adjective “apostolic,” which is obtained by exchange for the noun.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Acts 1:25",
+          "quote": "This is an instance of the figure of speech hendiadys, when two words are used to express one thing. It means the apostolic ministry.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Acts 1:25",
+          "quote": "Because the word ministry was base, he addeth apostleship, wherein there is greater dignity; although the sense shall be more plain if you expound it, “the ministry of the apostleship.” For the figure hypallage is common in the Scriptures.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

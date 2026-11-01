@@ -697,6 +697,1418 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "psalm-1-1-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Psalm 1:1",
+      "strength": "widely agreed",
+      "short": "Walk, stand, sit: three steps further into sin",
+      "about": "The verse climbs in three steps: the blessed man does not walk in the counsel of the wicked, stand in the path of sinners, or sit among mockers. Each step goes further, from taking their advice to keeping their way to settling among scoffers, and many see the men grow worse at each step too.",
+      "lines": [
+        {
+          "ref": "Psalm 1:1",
+          "words": "who does not walk in the counsel of the wicked,",
+          "key": "walk"
+        },
+        {
+          "ref": "Psalm 1:1",
+          "words": "or set foot on the path of sinners,",
+          "key": "set foot"
+        },
+        {
+          "ref": "Psalm 1:1",
+          "words": "or sit in the seat of mockers.",
+          "key": "sit"
+        }
+      ],
+      "pairs": [
+        [
+          "walk",
+          "set foot"
+        ],
+        [
+          "set foot",
+          "sit"
+        ],
+        [
+          "counsel",
+          "path"
+        ],
+        [
+          "path",
+          "seat"
+        ],
+        [
+          "wicked",
+          "sinners"
+        ],
+        [
+          "sinners",
+          "mockers"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the three verbs are walk, stand and sit; the BSB gives the second as “set foot.”",
+        "strong": [
+          "H1980",
+          "H5975",
+          "H3427"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Anabasis: evil counsel is taken, then carried out, then settled in as on a seat. Delitzsch (Keil and Delitzsch) finds a climax in the three names for the wicked; Barnes a double climax in nouns and verbs, Clarke in the three characters and in walk, stand and sit. Calvin puts the seat at the top of the climax; Henry traces the steps to the height of impiety.",
+      "limit": "All the writers see the verse climb, but they place the climb differently: in the three names for the wicked, in walking, standing and sitting, or in counsel, path and seat. One doubts that the names rise, except for the mockers.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 1:1",
+          "at": "Anabasis, or Gradual Ascent, p. 429",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/429/mode/1up",
+          "quote": "Here is a triple Anabasis depending on Parallelism … Again, the first continue in that mind, taking evil counsel. The second carry it out, as the principle of their walk. The third settle down in their evil, as on a seat.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 1:1-3",
+          "quote": "The three appellations form a climax: impii corde, peccatores opere, illusores ore … Therefore: Blessed is he who does not walk in the state of mind which the ungodly cherish, much less that he should associate with the vicious life of sinners, or even delight in the company of those who scoff at religion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 1:1",
+          "quote": "We have here, then, a beautiful double gradation or climax, in the nouns and verbs of this verse, indicating successive stages of character. There is, first, casual walking with the wicked, or accidentally falling into their company; there is then a more deliberate inclination for their society",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 1:1",
+          "quote": "There is a double Climax in this verse, which it will be proper to note: - There are here three characters, each exceeding the other in sinfulness. … The second climax is found in the words, 1. Walk 2. Stand 3. Sit Which mark three different degrees of evil in the conduct of those persons.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 1:1",
+          "quote": "The prophet, therefore, begins with counsel … Then he speaks of the way … And he places at the top of the climax the seat … In the same way, also, ought the three phrases, to walk, to stand, and to sit, to be understood. … Whether there is the same gradation in the Hebrew words … I leave to the judgment of others. To me it does not appear that there is, unless perhaps in the last word.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 1:1-3",
+          "quote": "They are here described by three characters, ungodly, sinners, and scornful. See by what steps men arrive at the height of impiety. … Omissions make way for commissions, and by these the heart is so hardened that at length they come to be scorners",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-1-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Psalm 29:1-2",
+      "strength": "commonly held",
+      "short": "“Ascribe to the LORD”, three times over",
+      "about": "Three lines in a row begin “Ascribe to the LORD”. The call comes again and again, pressing those addressed to give the LORD the glory due His name, as though they must be urged to it.",
+      "lines": [
+        {
+          "ref": "Psalm 29:1",
+          "words": "Ascribe to the LORD, O heavenly beings,",
+          "key": "Ascribe to the LORD"
+        },
+        {
+          "ref": "Psalm 29:1",
+          "words": "ascribe to the LORD glory and strength.",
+          "key": "ascribe to the LORD"
+        },
+        {
+          "ref": "Psalm 29:2",
+          "words": "Ascribe to the LORD the glory due His name;",
+          "key": "Ascribe to the LORD"
+        }
+      ],
+      "evidence": "Henry points out how often the call is repeated, once, again and a third time, and takes it to mean that the mighty are slow to this duty and hard to persuade. Calvin says the repetition shows that they must be strongly urged before they will give God His due.",
+      "limit": "The two writers who read the repetition as urging take those addressed as earthly rulers, slow to honor God; others take them as heavenly beings, as the BSB does.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 29",
+          "quote": "How often this call is repeated; Give unto the Lord, and again, and a third time, Give unto the Lord. This intimates that the mighty men are backward to this duty and are with difficulty persuaded to it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 29:1-4",
+          "quote": "The repetition, also, shows that they must be vehemently urged ere a proper acknowledgement be extorted from them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-1-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Psalm 29:1",
+      "strength": "widely agreed",
+      "short": "“Glory and strength”: praise for what is His",
+      "about": "The heavenly beings are called to ascribe to the LORD glory and strength. He has both already, so the words stand for praising Him for His glory and strength, not for giving Him something He lacks.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Subject",
+        "ref": "Psalm 29:1",
+        "words": "glory and strength",
+        "means": "the praise of His glory and strength, which are His already"
+      },
+      "original": {
+        "note": "In Hebrew the verb is havu, “give”; the BSB renders it “ascribe”.",
+        "strong": [
+          "H3051"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Metonymy: glory and strength cannot be given to God, so they are put for the praise given Him for them. Henry reads it as acknowledging His glory and strength and praising Him. Barnes: not granting God what He lacks, since He always has it, but owning Him as glorious and mighty. Delitzsch (Keil and Delitzsch) reads it as rendering back His glory and might in praise.",
+      "limit": "Some add a second sense: those called should also yield to Him whatever glory or strength He has given them.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 29:1",
+          "at": "Metonymy of the Subject, p. 584",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/584/mode/1up",
+          "quote": "How can we give these to God? We can praise Him for these, but we cannot give them. They are thus put, by Metonymy, for the praise given to Him for his glory and strength.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 29",
+          "quote": "nor as if we had any thing to give him that is not his own already (Who hath first given to him?), but the recognition of his glory, and of his dominion over us, he is pleased to interpret as a gift to him … Give unto the Lord glory and strength; acknowledge his glory and strength, and give praise to him as a God of infinite majesty and irresistible power",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 29:1",
+          "quote": "Ascribe unto Yahweh; or, recognize Him as entitled to what is here ascribed to Him. The word cannot be understood, as it is commonly with us, to denote the imparting to another, or granting to another what he does not now possess - for God is always in possession of what is here ascribed to Him. … Glory and strength - Majesty and might. Acknowledge Him as the God of glory; as endowed with power.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 29:1-2",
+          "quote": "to render back to Him cheerfully and joyously in a laudatory recognition, as it were by an echo, His glory and might, which are revealed and to be revealed in the created world",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-3-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Psalm 29:3-9",
+      "strength": "widely agreed",
+      "short": "Seven lines open with “The voice of the LORD”",
+      "about": "Seven times a line begins with the same words, “The voice of the LORD.” They name the thunder and roar of a great storm, heard as God’s own voice, and their return line after line is the heart of the psalm.",
+      "lines": [
+        {
+          "ref": "Psalm 29:3",
+          "words": "The voice of the LORD is over the waters;",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:4",
+          "words": "The voice of the LORD is powerful;",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:4",
+          "words": "the voice of the LORD is majestic.",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:5",
+          "words": "The voice of the LORD breaks the cedars;",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:7",
+          "words": "The voice of the LORD strikes with flames of fire.",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:8",
+          "words": "The voice of the LORD shakes the wilderness;",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 29:9",
+          "words": "The voice of the LORD twists the oaks and strips the forests bare.",
+          "key": "voice"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the phrase is two words, qol YHWH. Qol, voice, is used of any deep, rumbling sound, such as thunder.",
+        "strong": [
+          "H6963",
+          "H3068"
+        ]
+      },
+      "evidence": "Bullinger lists these verses, where the voice of the LORD begins seven clauses in a row. Delitzsch (Keil and Delitzsch) says the chief matter with the poet is the sevenfold voice of the LORD, the deep rumbling sound by which God makes Himself heard. Barnes notes that the phrase is seven times repeated in the psalm and refers to thunder, in which it seems as if God spoke.",
+      "limit": "The voice is chiefly the thunder of the storm; it can also take in the roar of the tempest and the quaking of the earth.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 29:3-9",
+          "at": "Epibole, or Overlaid Repetition, p. 346",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/346/mode/1up",
+          "quote": "Where seven times, we have the words, “ The voice of the Lord,” commencing seven successive clauses.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 29:3",
+          "quote": "The chief matter with the poet, however, is the sevenfold קול ה. ... The dull sounding קול serves not merely to denote the thunder of the storm, but even the thunder of the earthquake, the roar of the tempest, and in general, every low, dull, rumbling sound, by which God makes Himself audible to the world",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 29:3",
+          "quote": "There can be no doubt that the expression here, which is seven times repeated in the psalm, \"the voice of Jehovah,\" refers to thunder; and no one can fail to see the appropriateness of the expression. In heavy thunder it seems as if God spake.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 29:3",
+      "strength": "commonly held",
+      "short": "The LORD’s voice, His thunder, over the waters",
+      "about": "The three lines say one thing three ways. The voice of the LORD over the waters is His thunder, as the second line says: the God of glory thunders. The third line says it again: the LORD is heard over many waters.",
+      "lines": [
+        {
+          "ref": "Psalm 29:3",
+          "words": "The voice of the LORD is over the waters;"
+        },
+        {
+          "ref": "Psalm 29:3",
+          "words": "the God of glory thunders;"
+        },
+        {
+          "ref": "Psalm 29:3",
+          "words": "the LORD is heard over many waters."
+        }
+      ],
+      "pairs": [
+        [
+          "voice",
+          "thunders"
+        ],
+        [
+          "the waters",
+          "many waters"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the poet himself explains the voice of the LORD as the thunder of the God of glory, rolling over the waters of the storm clouds. Henry explains the thunder of the God of glory as the noise of His voice, upon the waters and the many waters, over the ocean and among the clouds.",
+      "limit": "Writers differ on the waters: the waters gathered in the storm clouds, the sea, or both.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 29:3",
+          "quote": "The rumbling ... of Jahve is, as the poet himself explains in Psa 29:3, the thunder produced on high by the אל הכּבוד ... which rolls over the sea of waters floating above the earth in the sky.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 29:3",
+          "quote": "It is the God of glory that thunders (thunders is the noise of his voice ... ) ... To speak it the voice of the God of glory, it is here said to be upon the water, upon many waters ... it reaches over the vast ocean, the waters under the firmament; it rattles among the thick clouds, the waters above the firmament.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-5-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 29:5",
+      "strength": "commonly held",
+      "short": "The cedars, then the cedars of Lebanon",
+      "about": "The first line speaks in general: the voice of the LORD breaks the cedars. The second takes it up and goes further, naming the cedars of Lebanon, the stateliest of all, so the storm is seen striking there.",
+      "lines": [
+        {
+          "ref": "Psalm 29:5",
+          "words": "The voice of the LORD breaks the cedars;"
+        },
+        {
+          "ref": "Psalm 29:5",
+          "words": "the LORD shatters the cedars of Lebanon.",
+          "key": "Lebanon"
+        }
+      ],
+      "pairs": [
+        [
+          "breaks",
+          "shatters"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the first line describes the storm in a general form and the second what is now taking place, the lightning riving the cedars of Lebanon, and he files this verse with verse 8 under the same kind of parallel. Henry reads the second line as going further: the thunder broke the cedars, even those of Lebanon, the strongest and stateliest.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 29:3",
+          "quote": "Psa 29:5 describes this in a general form, and Psa 29:5 expresses by the fut. consec., as it were inferentially, that which is at present taking place: amidst the rolling of the thunder the descending lightning flashes rive the cedars of Lebanon ... as we are told in Psa 29:8 (cf. Psa 29:5, according to the schema of \"parallelism by reservation\")",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 29:5",
+          "quote": "The voice of the Lord, in the thunder, often broke the cedars, even those of Lebanon, the strongest, the stateliest.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-29-8-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 29:8",
+      "strength": "commonly held",
+      "short": "The wilderness, then the Wilderness of Kadesh",
+      "about": "The first line says the voice of the LORD shakes the wilderness. The second repeats it and names which wilderness, the Wilderness of Kadesh, far to the south.",
+      "lines": [
+        {
+          "ref": "Psalm 29:8",
+          "words": "The voice of the LORD shakes the wilderness;"
+        },
+        {
+          "ref": "Psalm 29:8",
+          "words": "the LORD shakes the Wilderness of Kadesh.",
+          "key": "Kadesh"
+        }
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the storm sweeps south into the desert, and the second line tells which: the wilderness of Kadesh, held back to be named there, as in verse 5. Barnes says that, as with Lebanon and Sirion, the psalmist names a particular place, Kadesh, to show the power of the tempest.",
+      "limit": "Writers differ on what is shaken: the desert, its sand whirled up by the storm, or the forests in it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 29:3",
+          "quote": "From the northern mountains the storm sweeps on towards the south of Palestine into the Arabian desert, viz., as we are told in Psa 29:8 (cf. Psa 29:5, according to the schema of \"parallelism by reservation\"), the wilderness region of Kadesh (Kadesh Barnea)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 29:8",
+          "quote": "As in referring Psa 29:5-6 to the effect of the storm on lofty trees, the psalmist had given poetic beauty to the description by \"specifying\" Lebanon and Sirion, so he here refers, for the same purpose, to a particular forest as illustrating the power of the tempest - to wit, the forest or wilderness of \"Kadesh.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-46-7-refrain",
+      "kind": "parallelism",
+      "form": "refrain",
+      "ref": "Psalm 46:7-11",
+      "strength": "widely agreed",
+      "short": "A refrain of trust: “The LORD of Hosts is with us”",
+      "about": "The same two lines come at verse 7 and again at verse 11, where the psalm ends: once after the nations rage, and once after God's call to be still. Each time His people answer with one confession: the LORD of Hosts is with them, and the God of Jacob is their fortress.",
+      "lines": [
+        {
+          "ref": "Psalm 46:7",
+          "words": "The LORD of Hosts is with us; the God of Jacob is our fortress."
+        },
+        {
+          "ref": "Psalm 46:11",
+          "words": "The LORD of Hosts is with us; the God of Jacob is our fortress."
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the lines have no word for is, so they can speak of what God has been, is and will be to His people.",
+        "strong": [
+          "H5973",
+          "H4869"
+        ]
+      },
+      "evidence": "Matthew Henry calls the words of verses 7 and 11 the burden, or refrain, of the song, and says the Hebrew takes in what God has been, is and will be. Franz Delitzsch (Keil and Delitzsch) says that after God's warning to the nations the church boasts yet once more that the LORD of Hosts is its God and stronghold. E. W. Bullinger lists the two verses as one phrase that comes twice.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 46:6-11",
+          "quote": "It is the burden of the song, \"The Lord of hosts is with us; he is on our side, he takes our part, is present with us and president over us; the God of Jacob is our refuge, to whom we may flee, and in whom we may confide and be sure of safety.\" ... The Lord of hosts, the God of Jacob, has been, is, and will be with us—has been, is and will be our refuge: the original includes all",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 46:8-11",
+          "quote": "With this admonition, which is both warning and threatening at the same time, the nations are dismissed; but the church yet once more boasts that Jahve Tsebaoth is its God and its stronghold.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 46:7",
+          "at": "Cycloides, or Circular Repetition, p. 342",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
+          "quote": "Here, the phrase occurs twice, “The Lord of hosts is with us: the God of Jacob is our refuge.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-92-9-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Psalm 92:9",
+      "strength": "widely agreed",
+      "short": "A line taken up again and carried to its end",
+      "about": "The second line takes up the words of the first, “surely Your enemies,” and carries them on to their end: they “will perish.” Saying the words again stresses how sure the end of God's enemies is.",
+      "lines": [
+        {
+          "ref": "Psalm 92:9",
+          "words": "For surely Your enemies, O LORD,"
+        },
+        {
+          "ref": "Psalm 92:9",
+          "words": "surely Your enemies will perish;",
+          "key": "will perish"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the word the BSB gives as “surely” is hinneh, “behold,” said in both lines; it points to the enemies' end.",
+        "strong": [
+          "H2009",
+          "H0341"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the repeat an emotional anadiplosis that breathes zeal for God's cause, the word behold pointing as with a finger to the enemies' inevitable end. Poole says the repeated words show their destruction as present and certain. Barnes calls the repeated lo emphatic, as of an event sure to occur.",
+      "limit": "Only one of the cited writers gives the repeat a name; the others speak of the repeated words and the certainty they give.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 92:7-9",
+          "quote": "for lo Thine enemies, Jahve - for lo Thine enemies.... הנּה points as it were with the finger to the inevitable end; and the emotional anadiplosis breathes forth a zealous love for the cause of God as if it were his own.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 92:9",
+          "quote": "He represents their destruction as present, and as certain, which the repetition of the words implies.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/92.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 92:9",
+          "quote": "The repetition of the word \"lo\" here - \"behold!\" - is emphatic. The attention of the psalmist was fixed on this as an event which would be sure to occur.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-93-3-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Psalm 93:3",
+      "strength": "commonly held",
+      "short": "The floods rise, then roar, then pound",
+      "about": "Each line takes up the one before and goes further: the floodwaters have risen, the rivers have raised their voice, the seas lift up their pounding waves. The noise can be read as growing into real danger, and the last line as telling of it still going on.",
+      "lines": [
+        {
+          "ref": "Psalm 93:3",
+          "words": "The floodwaters have risen, O LORD;",
+          "key": "risen"
+        },
+        {
+          "ref": "Psalm 93:3",
+          "words": "the rivers have raised their voice;",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 93:3",
+          "words": "the seas lift up their pounding waves.",
+          "key": "waves"
+        }
+      ],
+      "pairs": [
+        [
+          "their voice",
+          "their pounding waves"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew all three lines use the same verb, “lift up”, and the same word, “rivers”; the BSB varies both, saying risen, raised and lift up, and floodwaters, rivers and seas.",
+        "strong": [
+          "H5375",
+          "H5104"
+        ]
+      },
+      "evidence": "Henry reads the lines as rising: the floods lift up their voice, which speaks terror, and more than that their waves, which speaks real danger. Delitzsch (Keil and Delitzsch) renders the rivers as having lifted up, lifted up their murmur, and lifting up their roaring: a thought unfolded in what is called parallelism with reservation, the last verb telling of what is still taking place.",
+      "limit": "The note does not say what the floods stand for: some take them as the nations raging against God and His people, while others allow that the sea itself in a storm may be meant.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 93",
+          "quote": "The floods have lifted up, O Lord! (to God himself the remonstrance is made) the floods have lifted up their voice, which speaks terror; nay, they have lifted up their waves, which speaks real danger.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 93:3-5",
+          "quote": "These rivers, as the poet says whilst he raises a plaintive but comforted look upwards to Jahve, have lifted up, have lifted up their murmur, the rivers lift up their roaring. The thought is unfolded in a so-called \"parallelism with reservation.\" The perfects affirm what has taken place, the future that which even now as yet is taking place.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-106-2-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Psalm 106:2",
+      "strength": "widely agreed",
+      "short": "A question that says no one can praise Him enough",
+      "about": "The psalm asks who can tell all the mighty acts of the LORD or give Him all the praise He is due. The answer it expects is no one: His deeds are greater than any words. Some add that this is a reason to praise Him all the more, as best we can.",
+      "refs": [
+        "Psalm 40:5"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Psalm 106:2",
+        "words": "Who can describe the mighty acts of the LORD or fully proclaim His praise?",
+        "means": "no one can tell all His mighty deeds or praise Him as fully as He deserves"
+      },
+      "original": {
+        "note": "In Hebrew “proclaim” is a form of shama, to hear: to make His praise heard. “Mighty acts” is gevurot, the deeds that show His power.",
+        "strong": [
+          "H8085",
+          "H1369"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Erotesis and gives the answer: no one can. Barnes says human language falls far short of His praises; Henry, that His acts are too many to number, too mysterious to describe. Delitzsch (Keil and Delitzsch) calls what God reveals inexhaustible, as in Psalm 40:5. Fausset (Jamieson, Fausset and Brown) says His praise passes our speech; he and Henry say it urges us on.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 106:2",
+          "at": "Erotesis, In Affirmative Negation, p. 949",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "“Who can utter the mighty acts of the Lord? who can show forth all his praise?” (Psa 106:2 ). The answer is that no one can.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 106:2",
+          "quote": "In other words, human language must fall immeasurably short of adequately expressing the praises of Yahweh, or conveying the fullness of what he has done. ... Hebrew, \"Cause to be heard.\" That is, Language cannot be found which would cause \"it to be heard\" in a suitable manner.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 106:1-5",
+          "quote": "Who can utter these? Who is worthy to do it? Who is able to do it? They are so many that they cannot be numbered, so mysterious that they cannot be described; when we have said the most we can of the mighty acts of the Lord, the one half is not told ... This will not excuse us in not doing what we can, but should quicken us to do all we can.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 106:1-5",
+          "quote": "The fulness of this revelation, says Psa 106:2 (like Psa 40:6 ), is inexhaustible. גּבוּרות are the manifestations of His all-conquering power ... The proclaiming of these on the part of man can never be an exhaustive echo of them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 106:2",
+          "quote": "His acts exceed our comprehension, as His praise our powers of expression ( Rom 11:33 ). Their unutterable greatness is not to keep us back, but to urge us the more to try to praise Him as best we can",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-114-5-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "Psalm 114:5",
+      "strength": "widely agreed",
+      "short": "The psalmist asks the sea why it fled",
+      "about": "The psalmist turns to the sea and the Jordan, and then to the mountains and hills, and asks them, as if they could answer, why they fled and skipped. Verse 7 gives the answer: the presence of the Lord, before whom the earth is told to tremble.",
+      "refs": [
+        "Psalm 114:3",
+        "Psalm 114:6",
+        "Psalm 114:7"
+      ],
+      "figure": {
+        "name": "Apostrophe",
+        "part": "to Inanimate Things",
+        "ref": "Psalm 114:5",
+        "words": "Why was it, O sea, that you fled, O Jordan, that you turned back",
+        "means": "the sea and the Jordan, asked as if they could explain why they gave way before God's people"
+      },
+      "original": {
+        "note": "In Hebrew the question is abrupt, opening with mah lekha, literally what to you, O sea.",
+        "strong": [
+          "H4100",
+          "H3220"
+        ]
+      },
+      "evidence": "Bullinger lists verses 5 to 7 under Apostrophe to inanimate things. Barnes gives the Hebrew literally and says the psalmist speaks as if these lifeless things had been struck with terror and could be asked to explain themselves. Clarke calls the abrupt address a fine personification, then answered by the psalmist. Henry says the psalmist asks the sea in a poetical strain and gives it an answer.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 114:5",
+          "at": "Apostrophe to Inanimate Things, p. 904",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/904/mode/1up",
+          "quote": "“What ailed thee, O thou sea, that thou fleddest? thou Jordan, that thou wast driven back? Ye mountains that ye skipped like rams? and ye little hills, like lambs? Tremble, thou earth, at the presence of the Lord (Adon), at the presence of the God (Eloah) of Jacob.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 114:5",
+          "quote": "literally, \"What to thee, O sea,\" etc. ... Instead of stating the cause or reason why they were thus thrown into dismay, the psalmist uses the language of surprise, as if these inanimate objects had been smitten with sudden terror, and as if it were proper to ask an explanation from themselves in regard to conduct that seemed so strange.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 114:5",
+          "quote": "The original is very abrupt; and the prosopopoeia, or personification very fine and expressive ... After these very sublime interrogations, God appears; and the psalmist proceeds as if answering his own questions",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 114:1-8",
+          "quote": "To illustrate this the psalmist asks, in a poetical strain ... What ailed thee, O thou sea! that thou fleddest? And furnishes the sea with an answer ... The psalmist asks the mountains and hills what ailed them to skip thus; and he answers for them, as for the seas, it was at the presence of the Lord",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-121-3-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Psalm 121:3-4",
+      "strength": "commonly held",
+      "short": "“Will not slumber” rises to “nor sleep”",
+      "about": "Verse 4 takes up the words of verse 3 and goes a step higher: “your Protector will not slumber” becomes “the Protector of Israel will neither slumber nor sleep.” The One who keeps each believer is the ever-wakeful Keeper of all His people.",
+      "lines": [
+        {
+          "ref": "Psalm 121:3",
+          "words": "your Protector will not slumber.",
+          "key": "slumber"
+        },
+        {
+          "ref": "Psalm 121:4",
+          "words": "Behold, the Protector of Israel will neither slumber nor sleep.",
+          "key": "sleep"
+        }
+      ],
+      "pairs": [
+        [
+          "your Protector",
+          "the Protector of Israel"
+        ],
+        [
+          "will not slumber",
+          "will neither slumber nor sleep"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the psalmist confirms that the Keeper will not slumber by heightening the words in verse 4, in keeping with the psalm's step-like movement. Barnes says verse 4 passes from the psalmist's own case to a general truth: the people of God are always safe, for their great Guardian never slumbers.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 121:1-4",
+          "quote": "thy Keeper will surely not slumber; and then confirms the assertion that this shall not come to pass by heightening the expression in accordance with the step-like character of the Psalm: Behold the Keeper of Israel slumbereth not and sleepeth not",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 121:4",
+          "quote": "The psalmist here passes from his own particular case to a general truth - a truth to him full of consolation. It is, that the people of God must always be safe; that their great Guardian never slumbers",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-136-1-refrain",
+      "kind": "parallelism",
+      "form": "refrain",
+      "ref": "Psalm 136:1-26",
+      "strength": "widely agreed",
+      "short": "“His loving devotion endures forever,” 26 times",
+      "about": "Every verse ends with the same line. The first halves call for thanks and name the LORD’s works, from creation and the exodus to rescue from foes and food for every creature, each one tied to His loving devotion. At the temple’s dedication the people gave thanks in the same words (2 Chronicles 7:3).",
+      "refs": [
+        "2 Chronicles 7:3"
+      ],
+      "lines": [
+        {
+          "ref": "Psalm 136:1",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:2",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:3",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:4",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:5",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:6",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:7",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:8",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:9",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:10",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:11",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:12",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:13",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:14",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:15",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:16",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:17",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:18",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:19",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:20",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:21",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:22",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:23",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:24",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:25",
+          "words": "His loving devotion endures forever."
+        },
+        {
+          "ref": "Psalm 136:26",
+          "words": "His loving devotion endures forever."
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the line is only three words, ki le'olam chasdo, the same all 26 times; chesed is the word the BSB gives as “loving devotion”.",
+        "strong": [
+          "H2617",
+          "H5769"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) notes the line repeated twenty-six times, and Bullinger calls it the refrain of every verse. Clarke calls it the burden of every verse, Fausset (Jamieson, Fausset and Brown) the chorus to every verse, and Calvin a chorus marking God’s mercy in each benefit, sung in answer at the temple’s dedication. Albert Barnes calls it a kind of refrain, perhaps a response.",
+      "limit": "The writers agree the line is a refrain. That it was sung back in answer, by the people or a choir, is a likely reading, not a certainty.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 136",
+          "quote": "a Hodu, the last of the collection, with \"for His goodness endureth for ever\" repeated twenty-six times as a versus intercalaris",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 136",
+          "at": "Amœbæon, or Refrain, p. 343",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/343/mode/1up",
+          "quote": "Where at the end of every verse, we have the refrain, “For His mercy endureth for ever.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 136",
+          "quote": "The peculiarity consists in repeating at the close of each verse the language \"for his mercy endureth forever.\" This is a kind of refrains, and may have been designed, in public worship, to be a response by a choir, or by the people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 136",
+          "quote": "This Psalm is little else than a repetition of the preceding, with the burden, כי לעולם חסדו ki leolam chasdo, \"because his mercy endureth for ever,\" at the end of every verse. ... It seems to have been a responsive song: the first part of the verse sung by the Levites, the burden by the people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 136:1",
+          "quote": "The chorus to every verse is in terms of that of Psa 106:1; Psa 118:1-4, and was perhaps used as the Amen by the people, in worship",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 136",
+          "quote": "in mentioning each benefit, he takes particular notice of the mercy of God ... The insertion of this clause again and again in so many short and abrupt sentences, may seem a vain repetition, but verses repeated by way of chorus are both allowed and admired ... to sing by response, “for his mercy endureth for ever.” The practice was followed by Solomon in the dedication of the Temple",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-146-1-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "Psalm 146:1",
+      "strength": "widely agreed",
+      "short": "“O my soul”: the psalmist calls on himself",
+      "about": "Having called on all to praise the LORD, the psalmist turns and speaks to his own soul, that is, to himself. He stirs up his own heart first, before he leads others, and the next verse gives his answer: “I will praise the LORD all my life.”",
+      "figure": {
+        "name": "Apostrophe",
+        "part": "To one’s own self",
+        "ref": "Psalm 146:1",
+        "words": "O my soul",
+        "means": "the psalmist himself, his inner self, whom he calls to praise"
+      },
+      "refs": [
+        "Psalm 146:2"
+      ],
+      "original": {
+        "note": "In Hebrew the word is nephesh, “soul”, which here is put for the psalmist himself.",
+        "strong": [
+          "H5315"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Apostrophe to one's own self, the soul being put for the self. Calvin says the psalmist, having called on all to praise, addresses himself, his soul, to name his inward self with more emphasis, and stirs his own zeal before leading others. Henry says David stirred himself up to the work with these words.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 146:1",
+          "at": "Apostrophe to one’s own self, p. 903",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/903/mode/1up",
+          "quote": "This is done by the common Hebrew idiom, by which one’s “soul” is put (by Synecdoche) for one’s self. ... So Psa 104:1; Psa 146:1, etc.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 146:1",
+          "quote": "he addresses himself, or, which is the same thing, his soul, only that under the name of soul he addresses his inward self more emphatically. ... he thinks it proper to apply a stimulus for exciting his own zeal, in the first place, before professing to be a leader or teacher to others.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 146:1-4",
+          "quote": "therefore he stirred up himself to it and to make a business of it: Praise the Lord, O my soul! and he resolved to abide by it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-146-1-frame",
+      "kind": "parallelism",
+      "form": "frame",
+      "ref": "Psalm 146:1-10",
+      "strength": "widely agreed",
+      "short": "The psalm begins and ends with “Hallelujah!”",
+      "about": "The psalm opens and closes with the same word, “Hallelujah!”, a call to all to praise the LORD. Between the two stand the warning against trust in princes and the praise of the God who helps the needy and reigns forever. The last five psalms all begin and end this way.",
+      "lines": [
+        {
+          "ref": "Psalm 146:1",
+          "words": "Hallelujah!",
+          "key": "Hallelujah"
+        },
+        {
+          "ref": "Psalm 146:10",
+          "words": "Hallelujah!",
+          "key": "Hallelujah"
+        }
+      ],
+      "refs": [
+        "Psalm 147:1",
+        "Psalm 150:6"
+      ],
+      "original": {
+        "note": "In Hebrew it is hallelu-yah, “praise the LORD”, spoken to many; the same two words open and close the psalm.",
+        "strong": [
+          "H1984",
+          "H3050"
+        ]
+      },
+      "evidence": "Calvin says the five last psalms close with the same word with which they begin. Barnes, at verse 10, says the psalm closes as it commences, with Hallelujah, a call on all to praise. Benson says it begins and ends with Hallelujah, as do all the rest to the end of the book.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalm 146:1",
+          "quote": "The five last Psalms close with the same word with which they begin.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 146:10",
+          "quote": "Praise ye the Lord - Hallelu-jah. The psalm closes as it commences. It is a call on all persons to unite in the praise of Yahweh.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 146",
+          "quote": "It begins and ends with Hallelujah, or, Praise ye the Lord, as do all the rest to the end of the book, which have therefore been styled, The hallelujahs.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-146-7-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Psalm 146:7-9",
+      "strength": "commonly held",
+      "short": "Five lines in a row begin with “the LORD”",
+      "about": "Five short lines in a row begin with the same words, “the LORD”: He frees prisoners, opens blind eyes, lifts the weighed down, loves the righteous and protects foreigners. The repeated name can be read as stressing that it is the LORD's own almighty power at work for the oppressed.",
+      "lines": [
+        {
+          "ref": "Psalm 146:7",
+          "words": "The LORD sets the prisoners free,",
+          "key": "LORD"
+        },
+        {
+          "ref": "Psalm 146:8",
+          "words": "the LORD opens the eyes of the blind,",
+          "key": "LORD"
+        },
+        {
+          "ref": "Psalm 146:8",
+          "words": "the LORD lifts those who are weighed down,",
+          "key": "LORD"
+        },
+        {
+          "ref": "Psalm 146:8",
+          "words": "the LORD loves the righteous.",
+          "key": "LORD"
+        },
+        {
+          "ref": "Psalm 146:9",
+          "words": "The LORD protects foreigners;",
+          "key": "LORD"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew each of these lines is only three words long, and each begins with the name of the LORD, YHWH.",
+        "strong": [
+          "H3068"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the five lines beginning with the LORD's name belong together, each of three words. Henry says the name is repeated five times in five lines, to show that the LORD's almighty power is engaged for the relief of the oppressed.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 146:7-10",
+          "quote": "The five lines beginning with Jahve belong together. Each consists of three words, which in the main is also the favourite measure of the lines in the Book of Job.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 146:5-10",
+          "quote": "It ought not to pass without remark that the name of Jehovah is repeated here five times in five lines, to intimate that it is an almighty power (that of Jehovah) that is engaged and exerted for the relief of the oppressed",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-146-9-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Psalm 146:9",
+      "strength": "some interpreters",
+      "short": "The LORD helps the needy but frustrates the wicked",
+      "about": "After line on line of the LORD's help for the needy, one line answers with the opposite: He frustrates the ways of the wicked. Help fills many lines and judgment only one, which can be read as showing that He delights most to rule in love.",
+      "lines": [
+        {
+          "ref": "Psalm 146:9",
+          "words": "He sustains the fatherless and the widow,"
+        },
+        {
+          "ref": "Psalm 146:9",
+          "words": "but the ways of the wicked He frustrates."
+        }
+      ],
+      "pairs": [
+        [
+          "sustains",
+          "frustrates"
+        ]
+      ],
+      "refs": [
+        "Psalm 1:6"
+      ],
+      "original": {
+        "note": "In Hebrew the verb is a picture of bending: the LORD bends the way of the wicked, so that it leads astray.",
+        "strong": [
+          "H5791",
+          "H1870"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) sets the two against each other: while the LORD gives the sorrows of His saints a blessed end, He bends the way of the wicked into error, pointing to Psalm 1:6. This judging has only one line, he says, for the LORD rules in love and in wrath but delights most to rule in love.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 146:7-10",
+          "quote": "Whilst Jahve, however, makes the manifold sorrows of His saints to have a blessed issue, He bends ... the way of the wicked, so that it leads into error and ends in the abyss (Psa 1:6). This judicial manifestation of Jahve has only one line devoted to it. For He rules in love and in wrath, but delights most of all to rule in love.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-146-9-synecdoche",
+      "kind": "figure",
+      "form": "synecdoche",
+      "ref": "Psalm 146:9",
+      "strength": "some interpreters",
+      "short": "“The fatherless and the widow”: all the helpless",
+      "about": "The verse names the fatherless and the widow, but they stand for more than themselves: one kind of helpless people is put for every kind. The LORD who sustains them sustains all the afflicted.",
+      "figure": {
+        "name": "Synecdoche",
+        "part": "of the Species",
+        "ref": "Psalm 146:9",
+        "words": "the fatherless and the widow",
+        "means": "all kinds of afflicted and helpless people, of whom these are one kind"
+      },
+      "evidence": "Bullinger lists the verse under Synecdoche of the Species, where widows and fatherless are put for all kinds of afflicted: one class stands for all similar kinds of helpless people.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 146:9",
+          "at": "Synecdoche of the Species, p. 629",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/629/mode/1up",
+          "quote": "Widows and Fatherless are put for all kinds of afflicted ... one kind or class is put for all similar kinds of helpless people. ... So also Psa 146:9.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-150-1-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Psalm 150:1-5",
+      "strength": "widely agreed",
+      "short": "Ten lines in a row begin “Praise”",
+      "about": "Line after line begins with the same call, praise, ten times over. The call is pressed again and again, which shows how great a duty praise is; the count of ten can also be read as a sign of fullness.",
+      "lines": [
+        {
+          "ref": "Psalm 150:1",
+          "words": "Praise God in His sanctuary."
+        },
+        {
+          "ref": "Psalm 150:1",
+          "words": "Praise Him in His mighty heavens."
+        },
+        {
+          "ref": "Psalm 150:2",
+          "words": "Praise Him for His mighty acts;"
+        },
+        {
+          "ref": "Psalm 150:2",
+          "words": "praise Him for His excellent greatness."
+        },
+        {
+          "ref": "Psalm 150:3",
+          "words": "Praise Him with the sound of the horn;"
+        },
+        {
+          "ref": "Psalm 150:3",
+          "words": "praise Him with the harp and lyre."
+        },
+        {
+          "ref": "Psalm 150:4",
+          "words": "Praise Him with tambourine and dancing;"
+        },
+        {
+          "ref": "Psalm 150:4",
+          "words": "praise Him with strings and flute."
+        },
+        {
+          "ref": "Psalm 150:5",
+          "words": "Praise Him with clashing cymbals;"
+        },
+        {
+          "ref": "Psalm 150:5",
+          "words": "praise Him with resounding cymbals."
+        }
+      ],
+      "original": {
+        "note": "In Hebrew each of the ten calls is a form of halal, praise, the verb inside Hallelujah.",
+        "strong": [
+          "H1984"
+        ]
+      },
+      "evidence": "Bullinger lists the whole psalm with those where praise is repeated at the beginning of successive sentences. Delitzsch (Keil and Delitzsch) counts ten calls to praise set between the Hallelujahs, takes ten as the number of completeness, and goes through them one by one. Henry says the call is repeated so often because praise is a great and necessary duty, to which we are by nature cold.",
+      "limit": "That the ten calls stand for completeness is one reading; the repeated call itself is plain.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 150:1-6",
+          "at": "Anaphora, or Like Sentence-Beginnings, p. 200",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/200/mode/1up",
+          "quote": "Psa 148:1-4. -“ Praise ” is seven times repeated at the beginning of successive sentences. So also in the whole of Psa 150:1-6",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 150:1",
+          "quote": "in the mind of the poet the tenfold halaluw encompassed by Hallelujah's is significative; for ten is the number of rounding off, completeness, exclusiveness, and of the extreme of exhaustibleness. ... The third and fourth hălalu give as the object of the praise that which is at the same time the ground of the praise",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 150:1",
+          "quote": "We are here, with the greatest earnestness imaginable, excited to praise God ... And the repeated inculcating of the call thus intimates that it is a great and necessary duty, a duty which we should be much employed and much enlarged in, but which we are naturally backward to and cold in",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-150-1-frame",
+      "kind": "parallelism",
+      "form": "frame",
+      "ref": "Psalm 150:1-6",
+      "strength": "some interpreters",
+      "short": "The psalm opens and closes with “Hallelujah!”",
+      "about": "The psalm begins and ends with the same word, Hallelujah, and the ten calls to praise God stand between the two.",
+      "lines": [
+        {
+          "ref": "Psalm 150:1",
+          "words": "Hallelujah!"
+        },
+        {
+          "ref": "Psalm 150:6",
+          "words": "Hallelujah!"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew Hallelujah is halelu-Yah, praise the LORD; the ten calls between use the same verb, halal.",
+        "strong": [
+          "H1984",
+          "H3050"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the ten calls to praise are encompassed by Hallelujahs, the word that opens and closes the psalm, and that the poet means the number to be significant.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 150:1",
+          "quote": "in the mind of the poet the tenfold halaluw encompassed by Hallelujah's is significative; for ten is the number of rounding off, completeness",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-150-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 150:1",
+      "strength": "commonly held",
+      "short": "His sanctuary is His mighty heavens",
+      "about": "The second line says the first again: the sanctuary where God is to be praised is His heaven, the mighty expanse above. Both lines lift the eyes to God enthroned on high.",
+      "lines": [
+        {
+          "ref": "Psalm 150:1",
+          "words": "Praise God in His sanctuary."
+        },
+        {
+          "ref": "Psalm 150:1",
+          "words": "Praise Him in His mighty heavens."
+        }
+      ],
+      "pairs": [
+        [
+          "God",
+          "Him"
+        ],
+        [
+          "sanctuary",
+          "mighty heavens"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the heavens are the raqia, the expanse spread out above, called mighty for the power it shows.",
+        "strong": [
+          "H7549",
+          "H5797"
+        ]
+      },
+      "evidence": "Calvin says the sanctuary here is heaven and the second clause explains the first, repeating the same thing with the expanse of heaven. Delitzsch (Keil and Delitzsch) says both places in the verse are heavenly: the sanctuary is the heavenly temple, and the firmament is seen from its heavenly side.",
+      "limit": "Others take the sanctuary to be the temple on earth, so that the two lines call for praise on earth and in heaven.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalm 150:1",
+          "quote": "By the sanctuary there is little doubt that heaven is here meant, as is often the case elsewhere. The second clause is exegetical, for the same thing is repeated. But for sanctuary we read רקיע, rekia, that is, the expanse of heaven, to which is added the epithet of power ... That the majesty of God may be duly reverenced, the Psalmist represents him as presiding on his throne in the heavens",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 150:1",
+          "quote": "The local definitions in Psa 150:1 are related attributively to God, and designate that which is heavenly, belonging to the other world, as an object of praise. ... is in this passage the heavenly היכל; and ... is the firmament spread out by God's omnipotence ... according to the reverse or inner side, which is turned towards the celestial world",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-6-6-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "Psalm 6:6",
+      "strength": "widely agreed",
+      "short": "A bed flooded with tears tells of deep grief",
+      "about": "David says, “all night I flood my bed with weeping and drench my couch with tears.” The words say more than is literally meant. They show in strong terms how many tears he shed and how deep his sorrow went, worn out as he was from groaning.",
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "Psalm 6:6",
+        "words": "flood my bed with weeping and drench my couch with tears",
+        "means": "how many tears he shed and how deep his sorrow went"
+      },
+      "original": {
+        "note": "In Hebrew the word for “drench” means to melt or flow down: he made his couch flow with tears.",
+        "strong": [
+          "H4529"
+        ]
+      },
+      "evidence": "Bullinger lists the verse with other hyperbolical pictures of weeping. Barnes calls it hyperbolical language for the depth of David's sorrow, and says the verb rendered water (here drench) means to melt or flow down; and Fausset (Jamieson, Fausset and Brown) says a strong figure shows how much and how deeply he grieved.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 6:6",
+          "at": "Hyperbole, or Exaggeration, p. 424",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/424/mode/1up",
+          "quote": "This is an hyperbolical description of the intensity of their weeping and lamentation. Similar descriptions occur Psa 6:6; Psa 119:136.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 6:6",
+          "quote": "All the night make I my bed to swim - That is, he wept so much that his bed seemed to be immersed in tears. This is, of course, hyperbolical language, expressing in a strong and emphatic manner the depth of his sorrows. I water my couch with my tears - The word here rendered \"water\" means to melt, to flow down; then, in the Hiphil, to cause to flow, to dissolve.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 6:6",
+          "quote": "By a strong figure the abundance as well as intensity of grief is depicted.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

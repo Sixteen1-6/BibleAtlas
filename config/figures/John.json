@@ -129,6 +129,184 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "john-6-37-understatement",
+      "kind": "figure",
+      "form": "understatement",
+      "ref": "John 6:37",
+      "strength": "widely agreed",
+      "short": "“I will never drive away” means a sure welcome",
+      "about": "Jesus says He will never drive away the one who comes to Him. The words say less than they mean: He will not only refuse to turn such a one away but will receive him and keep him. John 10:28 makes the same promise: no one can snatch His sheep out of His hand.",
+      "refs": [
+        "John 10:28"
+      ],
+      "figure": {
+        "name": "Tapeinosis",
+        "part": "Negatively",
+        "ref": "John 6:37",
+        "words": "I will never drive away",
+        "means": "He will surely receive the one who comes to Him and keep him"
+      },
+      "original": {
+        "note": "In John's Greek the negative is doubled (ou mē), so the promise is said with double force.",
+        "strong": [
+          "G3756",
+          "G3361"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Tapeinosis: much more is meant than the words say, for Christ will receive, preserve and defend the one who comes. Bengel calls it a litotes whose meaning is stronger than its words: not only first welcome but lasting keeping. Henry notes the two negatives and says more favour is implied than expressed: Christ will receive those who come and not cast them out later.",
+      "limit": "Some writers take the words only as Christ's welcome to every sinner who comes, not also as a promise to keep him afterwards.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 6:37",
+          "at": "Tapeinosis, or Demeaning, p. 161",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/161/mode/1up",
+          "quote": "Here, there is very much more implied than is expressed in the literal words. Not only will I not cast him out, but I will by all means receive him and preserve him, and defend him: he shall never perish, neither shall any man pluck him out of My hand.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "John 6:37",
+          "quote": "This signifies not merely the first reception, but the lasting preservation ... There is a Litotes [the meaning is stronger than the literal words]: I will not cast him out, but by all means will preserve him;",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/john/6.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 6:37",
+          "quote": "There are two negatives: I will not, no, I will not. ... More favour is implied than is expressed; when it is said that he will no cast them out the meaning is, He will receive them, and entertain them, and give them all that which they come to him for. As he will not refuse them at their first coming, so he will not afterwards, upon every displeasure, cast them out.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-8-46-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "John 8:46",
+      "strength": "widely agreed",
+      "short": "A challenge none of His accusers could answer",
+      "about": "Jesus asks which of His hearers can prove Him guilty of sin. He does not ask to learn but to challenge them, knowing that none of them could. Then He presses the point: if He speaks the truth, why do they not believe Him?",
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "John 8:46",
+        "words": "Which of you can prove Me guilty of sin?",
+        "means": "none of you can convict Me of any sin"
+      },
+      "original": {
+        "note": "In John's Greek the verb is elencho: not to persuade but to convict, to prove guilty and lay bare.",
+        "strong": [
+          "G1651"
+        ]
+      },
+      "evidence": "Bullinger lists it under Erotesis, in Affirmative Negation: no one could ever convict Christ of sin. Calvin says it comes from full confidence that they could bring no just charge. Henry calls it a challenge and their charges groundless. Brown (Jamieson, Fausset and Brown) calls it a challenge claiming absolute sinlessness; Watkins (Ellicott) says no one dared answer.",
+      "limit": "The writers differ on how far the challenge reaches: some take it as a claim to be wholly without sin, while others read it more narrowly, as a challenge to fault His teaching or His life as God's servant.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 8:46",
+          "at": "Erotesis, In Affirmative Negation, p. 950",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/950/mode/1up",
+          "quote": "“Which of you convicteth me of sin?” (Joh 8:46 ). ἐλέγχω ( elengcho ) does not mean to convince , but to convict by bringing in guilty, lay bare, expose . No one could ever bring Christ in guilty of sin.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 8:46",
+          "quote": "This question proceeds from perfect confidence; for, knowing that they could not justly bring any reproach against him, he glories over his enemies, as having obtained a victory.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 8:38-47",
+          "quote": "But their accusations were malicious groundless calumnies, and such as every one that knew him knew to be utterly false. ... The sin he here challenges them to convict him of is, First, An inconsistent doctrine. ... Or, Secondly, An incongruous conversation: \"Which of you can justly charge me with any thing, in word or deed, unbecoming a prophet?\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "John 8:46",
+          "quote": "such a challenge thrown wide among His bitterest enemies, can amount to nothing short of a claim to absolute sinlessness.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "John 8:46",
+          "quote": "It is an appeal that spotless purity alone could make ... We may suppose that the last question was probably followed by a pause, during which any one might have answered the challenge. No one of all who had watched Him in Galilee and Judæa dared utter a syllable.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-21-25-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "John 21:25",
+      "strength": "widely agreed",
+      "short": "A world too small for the books: more than literal",
+      "about": "John closes by saying the world itself would not have space for the books if all that Jesus did were written down. The words say more than is meant literally: far more was done than could ever be recorded, and what is written was chosen so that we may believe (John 20:31).",
+      "refs": [
+        "John 20:30-31",
+        "Matthew 19:11"
+      ],
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "John 21:25",
+        "words": "not even the world itself would have space for the books that would be written",
+        "means": "that Jesus did far more than could ever be written down: a vast number of books would be needed"
+      },
+      "original": {
+        "note": "In John's Greek the verb for “have space” is chōreō, to make room for or take in, the verb Matthew 19:11 uses for accepting a word.",
+        "strong": [
+          "G5562"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Hyperbole and takes the verb as in Matthew 19:11. Barnes calls it a hyperbole meaning only that a great many books would be needed, John giving just what proves Jesus the Messiah. Henry calls it a justifiable hyperbole for a vast number of volumes, and Calvin defends it as an ordinary figure commending the greatness of Christ's works.",
+      "limit": "Some read the words more literally, as John's plain word that his material was far from exhausted. Some take “have space” as to receive, as in Matthew 19:11, so that mankind could not take in so many books.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 21:25",
+          "at": "Hyperbole, or Exaggeration, p. 428",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/428/mode/1up",
+          "quote": "Joh 21:25 is also Hyperbole. The verb χωρῆσαι (chōreesai) is to be taken in the same sense, as it is in Mat 19:11, where the Lord says, “All men cannot receive this saying;”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "John 21:25",
+          "quote": "This is evidently the figure of speech called a hyperbole. It is a mode of speech where the words express more or less than is literally true. ... he clearly intends nothing more than that a great many books would be required ... that he had not pretended to give them all, but only such as would go to establish the main point for which he wrote that he was the Messiah",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 21:20-25",
+          "quote": "The world could not contain the books. It is a hyperbole common enough and justifiable, when no more is intended than this, that it would fill a vast and incredible number of volumes.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 21:25",
+          "quote": "nor ought we to think that the hyperbole is absurd ... If the Evangelist, casting his eyes on that brightness, exclaims in astonishment, that even the whole world could not contain a full narrative, ought we to wonder at it? Nor is he at all to be blamed, if he employ a frequent and ordinary figure of speech for commending the excellence of the works of Christ.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

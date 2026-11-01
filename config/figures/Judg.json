@@ -83,6 +83,88 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "judges-3-24-euphemism",
+      "kind": "figure",
+      "form": "euphemism",
+      "ref": "Judges 3:24",
+      "strength": "widely agreed",
+      "short": "“Relieving himself” renders a modest Hebrew phrase",
+      "about": "Finding the doors locked, Eglon's servants suppose their king is relieving himself. The Hebrew says this modestly: literally, he is covering his feet, probably because a man's long garments fell over his feet as he stooped. The same phrase is used of Saul in the cave (1 Samuel 24:3).",
+      "refs": [
+        "1 Samuel 24:3"
+      ],
+      "figure": {
+        "name": "Euphemism",
+        "ref": "Judges 3:24",
+        "words": "relieving himself",
+        "means": "easing nature, said modestly; the Hebrew is literally covering his feet"
+      },
+      "original": {
+        "note": "In Hebrew the phrase is literally covering (sakak) his feet (regel).",
+        "strong": [
+          "H5526",
+          "H7272"
+        ]
+      },
+      "evidence": "Bullinger says covering the feet is put for a duty of nature, because the garments fell over the feet as a man stooped, and calls it Euphemy. Keil (Keil and Delitzsch) calls the phrase a euphemism for the necessities of nature, and F. W. Farrar (Ellicott), following Bochart, calls it an Eastern euphemism. Bullinger and Keil both point to 1 Samuel 24:3.",
+      "limit": "Some read the Hebrew phrase instead as lying down to sleep with the feet covered, which would also explain why the servants waited so long (verse 25).",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 3:24",
+          "at": "Metonymy of the Adjunct, p. 607",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/607/mode/1up",
+          "quote": "To cover the feet is put for performing a duty of nature, because when stooping the garments fell over the feet. This is a beautiful example of Euphemy",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Judges 3:24",
+          "quote": "they thought \"surely (אך, lit. only, nothing but) he covers his feet\" (a euphemism for performing the necessities of nature; cf. Sa1 24:3 )",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Judges 3:24",
+          "quote": "It is an Eastern euphemism taken from spreading out the garments while relieving the needs of nature",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-5-27-no-ands",
+      "kind": "figure",
+      "form": "no-ands",
+      "ref": "Judges 5:27",
+      "strength": "some interpreters",
+      "short": "Sisera's fall, told with no “and”",
+      "about": "Sisera's fall is told in short clauses with no “and” between them: he collapsed, he fell, there he lay still. The words do not stop over each movement but hurry on to the end of the verse, where he fell dead.",
+      "figure": {
+        "name": "Asyndeton",
+        "ref": "Judges 5:27",
+        "words": "At her feet he collapsed, he fell, there he lay still; at her feet he collapsed, he fell; where he collapsed, there he fell dead.",
+        "means": "the movements of his fall, set down with no “and”, hurrying on to the last words: he fell dead"
+      },
+      "evidence": "Bullinger lists Judges 5:27 among his examples of Asyndeton (no-ands), the figure in which the reader is hurried over the separate statements to the climax they lead up to; in his own rendering of the song he marks the figure again at its last word, dead.",
+      "limit": "The note claims only the missing “and”; the phrase repeated at the start of the clauses is a separate figure.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 5:27",
+          "at": "Asyndeton, or No-Ands, p. 137",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/137/mode/1up",
+          "quote": "When the figure Asyndeton is used, we are not detained over the separate statements, and asked to consider each in detail, but we are hurried on over the various matters that are mentioned, as though they were of no account, in comparison with the great climax to which they lead up",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

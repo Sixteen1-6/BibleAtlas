@@ -188,6 +188,65 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-kings-1-40-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "1 Kings 1:40",
+      "strength": "widely agreed",
+      "short": "“The earth was split”: the crowd's shout of joy",
+      "about": "As Solomon comes up from his anointing, the crowd's flutes and shouts are so loud that the earth is said to split by the sound. The words say more than is meant literally, to show how loud and great the people's joy was.",
+      "refs": [
+        "2 Chronicles 25:12"
+      ],
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "1 Kings 1:40",
+        "words": "the earth was split by the sound",
+        "means": "the people's great joy: the loud noise of their shouts and flutes, as if the ground shook with it"
+      },
+      "original": {
+        "note": "In Hebrew the verb is baqa, to burst in pieces, the word 2 Chronicles 25:12 uses of men dashed to pieces.",
+        "strong": [
+          "H1234"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the earth nearly burst with the shouting and calls the verb, to burst in pieces, a hyperbolical expression for quaking. Joseph Benson calls the words a hyperbolical expression for the very loud noise of the shouts and pipes; Adam Clarke likens them to our saying that cries rend the air. E. W. Bullinger lists them under Hyperbole, of the people leaping for joy.",
+      "limit": "The writers read the picture in different ways: the ground quaking under the shouting, the loudness of the noise, or the people leaping for joy.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Kings 1:40",
+          "quote": "with flutes and loud acclamation, so that the earth nearly burst with their shouting. ... \"to burst in pieces\" (as in Ch2 25:12 ), is a hyperbolical expression for quaking.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "1 Kings 1:39-40",
+          "quote": "So that the earth rent An hyperbolical expression, to signify the very loud noise which the people made with their shouts and their pipes.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Kings 1:40",
+          "quote": "The earth rent - We use a similar expression in precisely the same sense: They rent the air with their cries.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "1 Kings 1:40",
+          "at": "Hyperbole, or Exaggeration, p. 424",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/424/mode/1up",
+          "quote": "“So that the earth rent with the sound of them.” A hyperbolical description of their jumping and leaping for joy.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

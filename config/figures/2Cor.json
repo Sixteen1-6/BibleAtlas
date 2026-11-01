@@ -90,6 +90,66 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "2-corinthians-12-10-paradox",
+      "kind": "figure",
+      "form": "paradox",
+      "ref": "2 Corinthians 12:10",
+      "strength": "widely agreed",
+      "short": "Weak and strong at once, by Christ's power",
+      "about": "Paul delights in weaknesses and says “when I am weak, then I am strong.” The words seem to clash, yet they hold: pressed by trials and weak in himself, he is made strong by the Lord, whose power rests on him (verse 9).",
+      "refs": [
+        "2 Corinthians 12:9",
+        "2 Corinthians 6:9-10"
+      ],
+      "figure": {
+        "name": "Oxymoron",
+        "ref": "2 Corinthians 12:10",
+        "words": "when I am weak, then I am strong",
+        "means": "when Paul is weak in himself and pressed by trials, the Lord's power makes him strong"
+      },
+      "evidence": "Bullinger lists the words under Oxymoron: folly to the natural man, yet true to those who know it. Plumptre (Ellicott) calls them another paradox like those of 6:9-10: the greatest weakness may even be the condition of strength. Barnes grants that joy in affliction can seem a paradox; he, Calvin and Clarke read the weakness as trial and lack in Paul himself and the strength as what God supplies.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 12:10",
+          "at": "Oxymoron, or Wise-Folly, p. 817",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/817/mode/1up",
+          "quote": "“When I am weak, then am I strong.” This is folly to the natural man, but blessed truth to those who know by experience the true wisdom.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 12:10",
+          "quote": "He had learnt to add another paradox to those of 2Co 6:9-10 , and to feel that the greatest weakness was not only compatible with the highest strength, but might be the very condition of its energy.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 12:10",
+          "quote": "There is often real pleasure in affliction, paradoxical as it may appear. ... When I feel weak; when I am subjected to trial, and nature faints and fails, then strength is imparted to me, and I am enabled to bear all.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 12:10",
+          "quote": "The more deficiency there is in me, so much the more liberally does the Lord, from his strength, supply me with whatever he sees to be needful for me. ... be weak in himself that he may be strong in the Lord.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Corinthians 12:10",
+          "quote": "For when I am weak - most oppressed with trials and afflictions, then am I strong; God supporting my mind with his most powerful influences, causing me to rejoice with joy unspeakable and full of glory.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

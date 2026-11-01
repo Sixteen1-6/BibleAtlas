@@ -394,6 +394,96 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "genesis-8-22-many-ands",
+      "kind": "figure",
+      "form": "many-ands",
+      "ref": "Genesis 8:22",
+      "strength": "some interpreters",
+      "short": "Seasons and days named one by one, with “and”",
+      "about": "God promises that the seasons and the days will not cease while the earth lasts. Eight words are named in four pairs, and in Hebrew every word after the first begins with “and”, so each is weighed on its own, showing how complete the covenant is, how full the blessing and how sure the promise.",
+      "figure": {
+        "name": "Polysyndeton",
+        "ref": "Genesis 8:22",
+        "words": "seedtime and harvest, cold and heat, summer and winter, day and night",
+        "means": "each of the seasons and the days weighed on its own, showing how complete the covenant is, how full the blessing and how sure God's promise"
+      },
+      "evidence": "Bullinger lists the verse under Polysyndeton: the four pairs, joined by and throughout, show how complete the covenant is, how full the blessing and how sure God's promise. The BSB keeps the and only inside each pair; the Hebrew has it between the pairs as well.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 8:22",
+          "at": "Polysyndeton, or Many-Ands, p. 210",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/210/mode/1up",
+          "quote": "the completeness of the covenant and the fulness of the blessing, and the certainty of the Divine promise, is set forth in a double four-fold description",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-18-14-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Genesis 18:14",
+      "strength": "widely agreed",
+      "short": "“Is anything too difficult for the LORD?” No",
+      "about": "The LORD answers Sarah's laughter with a question that needs no answer. Nothing is too difficult for Him, so a son for Sarah in her old age is not beyond His power. Jeremiah says it plainly: “Nothing is too difficult for You!”",
+      "refs": [
+        "Genesis 18:13",
+        "Jeremiah 32:17",
+        "Luke 1:37"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Genesis 18:14",
+        "words": "Is anything too difficult for the LORD?",
+        "means": "nothing is too difficult for the LORD, not even a son for Sarah in her old age"
+      },
+      "original": {
+        "note": "In Hebrew “too difficult” is pala, to be wonderful: nothing is too wonderful for the LORD.",
+        "strong": [
+          "H6381"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Erotesis, a question whose answer is an emphatic no. Henry says nothing escapes God's notice or exceeds His power. Calvin reads it as a rebuke of Sarah for measuring God's power by her own sense. Clarke reads it as asking whether any miracle is too great for Him, and says Luke 1:37 takes up the Septuagint's words almost exactly, as a statement instead of a question.",
+      "limit": "Some also read it as asking whether anything is hidden from the LORD: not even Sarah's silent laughter was. Others keep to His power alone.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 18:14",
+          "at": "Erotesis, in Affirmative Negation, p. 949",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “Is anything too hard for the Lord?” (Gen 18:14 ). No! there is nothing too hard for Him",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 18:9-15",
+          "quote": "Here is a question asked which is enough to answer all the cavils of flesh and blood: Is any thing too hard for the Lord? (Heb. too wonderful), that is, (1.) Is any thing so secret as to escape his cognizance? No, not Sarah's laughing, though it was only within herself. Or, (2.) Is any thing so difficult as to exceed his power? No, not the giving of a child to Sarah in her old age.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 18:13",
+          "quote": "For there is no little weight in this sentence, ‘Can anything be wonderful with God?’ But the angel chides Sarah, because she limited the power of God within the bounds of her own sense. An antithesis is therefore implied between the immense power of God, and the contracted measure which Sarah imagined to herself, through her carnal reason.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Genesis 18:14",
+          "quote": "i.e., Can any thing be too great a miracle for him to effect? ... which St. Luke adopts almost literatim, only making it an affirmative position instead of a question ... It was to correct Sarah's unbelief, and to strengthen her faith, that God spoke these most important words",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

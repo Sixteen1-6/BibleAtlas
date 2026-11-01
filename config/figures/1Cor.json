@@ -88,6 +88,125 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-corinthians-4-8-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "1 Corinthians 4:8",
+      "strength": "widely agreed",
+      "short": "All they want, then rich, then kings: a climb",
+      "about": "The three sentences climb: from having all they want, to being rich, to reigning as kings, the highest step of all. Each claim goes beyond the one before it, which shows how highly the Corinthians thought of themselves.",
+      "lines": [
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Already you have all you want.",
+          "key": "want"
+        },
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Already you have become rich.",
+          "key": "rich"
+        },
+        {
+          "ref": "1 Corinthians 4:8",
+          "words": "Without us, you have become kings.",
+          "key": "kings"
+        }
+      ],
+      "evidence": "Albert Barnes calls the third clause a climax: men filled with food, then the rich, then men raised to a throne, the highest elevation. Simon Browne (Henry's Commentary) sees a gradation from sufficiency to wealth and thence to royalty; Calvin says Paul goes step by step, the last much more than the other two; J. A. Bengel calls full, rich, kings a gradation, each step with its own pride.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 4:8",
+          "quote": "This is simply carrying forward the idea before stated; but in the form of a climax. The first metaphor is taken from persons “filled with food;” the second from those who are so rich that they do not feel their lack of more; the third from those who are raised to a throne, the highest elevation, where there was nothing further to be reached or desired.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 4:7-13",
+          "quote": "There is a very elegant gradation from sufficiency to wealth, and thence to royalty, to intimate how much the Corinthians were elated by the abundance of their wisdom and spiritual gifts",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 4:8",
+          "quote": "He proceeds, too, step by step, in exposing their insolence. In the first place, he says, that they were full: this refers to the past. He then adds, Ye are rich: this applies to the future. Lastly, he says, that they had reigned as kings this is much more than either of those two.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "1 Corinthians 4:8",
+          "quote": "A gradation [ascending climax]: full, rich, kings. ... in consequence of fulness, they were fastidious; of opulence, they were insolent; of kingly power, they were proud.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/1_corinthians/4.htm",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-15-55-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "1 Corinthians 15:55",
+      "strength": "widely agreed",
+      "short": "Death is spoken to as a beaten foe",
+      "about": "Here the chapter breaks into a cry of triumph that speaks to Death as if it were a person, a foe armed with a sting, and asks where its victory and its sting have gone. At the resurrection, death's power to hurt is taken away.",
+      "refs": [
+        "Hosea 13:14",
+        "1 Corinthians 15:54"
+      ],
+      "figure": {
+        "name": "Apostrophe",
+        "part": "to Inanimate Things",
+        "ref": "1 Corinthians 15:55",
+        "words": "Where, O Death, is your victory? Where, O Death, is your sting?",
+        "means": "Death, spoken to as a person: an enemy whose victory and sting are gone"
+      },
+      "original": {
+        "note": "In Paul's Greek “sting” is kentron, a point or goad, and the sting of a creature such as a bee or a scorpion.",
+        "strong": [
+          "G2759"
+        ]
+      },
+      "evidence": "Bullinger, under Apostrophe to inanimate things, gives Hosea 13:14 and points to this verse. Clarke says Death is personified here, armed with a sting like a goad. Barnes says the sting is given to death personified, in language of exultation. Simon Browne (Matthew Henry's Commentary) says the saints glory over death as a vanquished enemy.",
+      "limit": "Some read the cry as Paul's own; others as the song the raised saints will sing over death.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 13:14",
+          "at": "Apostrophe to Inanimate Things, p. 905",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/905/mode/1up",
+          "quote": "“O death, I will be thy plagues; O grave, I will be thy destruction.” See 1Co 15:55",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Corinthians 15:55",
+          "quote": "Both Death and Hades are here personified: Death is represented as having a sting, dagger, or goad, by which, like the driver of oxen, he is continually irritating and urging on",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 15:55",
+          "quote": "The word which is here rendered sting (κέντρον kentron) denotes properly a prick, a point, hence, a goad or stimulus ... It denotes here a venomous thing, or weapon, applied to death personified, as if death employed it to destroy life, as the sting of a bee or a scorpion is used. ... The language here is the language of exultation, as if that was taken away or destroyed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 15:51-58",
+          "quote": "They will glory over death as a vanquished enemy, and insult this great and terrible destroyer",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

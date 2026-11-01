@@ -659,6 +659,57 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "isaiah-1-2-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "Isaiah 1:2",
+      "strength": "widely agreed",
+      "short": "Heaven and earth are called on to listen",
+      "about": "Isaiah turns from the people and calls on the heavens and the earth to listen, as if they could hear the LORD's charge against His children. Many read it as a rebuke: the lifeless creation will listen sooner than God's own people.",
+      "figure": {
+        "name": "Apostrophe",
+        "part": "to Inanimate Things",
+        "ref": "Isaiah 1:2",
+        "words": "Listen, O heavens, and give ear, O earth",
+        "means": "heaven and earth, called as if they could hear, to witness the LORD's charge against His rebellious children"
+      },
+      "evidence": "Bullinger lists the verse under Apostrophe to inanimate things. Calvin says the prophet turns to the dumb and lifeless elements because men have no ears. Henry says the prophet, despairing of a hearing from his people, speaks to the heavens and the earth. Barnes says heaven and earth are summoned as witnesses, in high poetic language that marks the weight of the matter.",
+      "limit": "One writer also offers a reading of heaven and earth as angels and the people of the world; others reject that reading and take them as the heavens and the earth themselves.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Isaiah 1:2",
+          "at": "Apostrophe to Inanimate Things, p. 905",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/905/mode/1up",
+          "quote": "“Hear, O heavens, and give ear, O earth; for the Lord hath spoken.” These words were chosen for, and invariably put in, the title-page of the early printed editions of the English Bible.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Isaiah 1:2",
+          "quote": "This is unquestionably a very severe protestation; for it conveys this meaning, that both turn to the elements which are dumb and devoid of feeling, because men have now no ears, or are bereft of all their senses. ... That no one may wonder at the circumstance of his addressing dumb and lifeless objects",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Isaiah 1:2",
+          "quote": "The prophet, though he speaks in God's name, yet, despairing to gain audience with the children of his people, addresses himself to the heavens and the earth, and bespeaks their attention ... Sooner will the inanimate creatures hear, who observe the law and answer the end of their creation, than this stupid senseless people.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Isaiah 1:2",
+          "quote": "The heavens and the earth are summoned to bear witness to the apostasy, ingratitude, and deep depravity of the chosen people of God. ... It is high poetic language, denoting the importance of the subject, and the remarkable and amazing truth to which the attention was to be called.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

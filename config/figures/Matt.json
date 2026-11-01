@@ -201,6 +201,293 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "matthew-5-3-frame",
+      "kind": "parallelism",
+      "form": "frame",
+      "ref": "Matthew 5:3-10",
+      "strength": "commonly held",
+      "short": "The first and eighth blessings share one promise",
+      "about": "The first blessing and the eighth end with the same promise, “for theirs is the kingdom of heaven.” The list comes back at its close to where it began, and the kingdom is the first and the last thing promised.",
+      "lines": [
+        {
+          "ref": "Matthew 5:3",
+          "words": "for theirs is the kingdom of heaven."
+        },
+        {
+          "ref": "Matthew 5:10",
+          "words": "for theirs is the kingdom of heaven."
+        }
+      ],
+      "evidence": "Brown (Jamieson, Fausset and Brown) says the eighth blessing has no promise of its own but repeats the first, since the persecuted are those who bear the seven marks before, and that the kingdom of heaven is the first and the last thing promised. Augustine, in the Catena Aurea of Thomas Aquinas, says the eighth returns to the beginning, the kingdom being named in the first and the eighth.",
+      "limit": "Verse 11 turns the eighth blessing to the disciples themselves; the shared promise is in verses 3 and 10.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Matthew 5:3",
+          "quote": "The eighth one--the \"persecuted for righteousness' sake\"--denotes merely the possessors of the seven preceding features ... Accordingly, instead of any distinct promise to this class, we have merely a repetition of the first promise. ... \"the kingdom of heaven,\" which is the first and the last thing here promised",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 5:10",
+          "at": "Augustine, Sermon on the Mount i. 2",
+          "url": "https://ccel.org/ccel/aquinas/catena1/catena1.ii.v.html",
+          "quote": "Or, the eighth beatitude, as it were, returns to the commencement, because it shews the perfect complete character. In the first then and the eighth, the kingdom of heaven is named",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-10-paradox",
+      "kind": "figure",
+      "form": "paradox",
+      "ref": "Matthew 5:10",
+      "strength": "commonly held",
+      "short": "Blessed when persecuted: it sounds foolish, is wise",
+      "about": "Jesus calls the persecuted blessed. To the world that sounds foolish, for suffering seems the opposite of happiness, but the blessing rests on what is promised: the kingdom of heaven is theirs.",
+      "figure": {
+        "name": "Oxymoron",
+        "ref": "Matthew 5:10",
+        "words": "Blessed are those who are persecuted",
+        "means": "a happiness the world thinks foolish, which is true because it rests on the promise of the kingdom of heaven"
+      },
+      "evidence": "Henry calls this the greatest paradox of all, peculiar to Christianity, and says of the blessings that, however paradoxical they seem, they are a rule of eternal truth. Calvin calls it Christ’s paradox, which rests happiness not on a vain imagination but on the hope of a future reward.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 5:10",
+          "quote": "to give us quite another notion of blessedness and blessed people, which, however paradoxical it may appear to those who are prejudiced, yet is in itself, and appears to be to all who are savingly enlightened, a rule and doctrine of eternal truth and certainty ... Those who are persecuted for righteousness' sake, are happy. This is the greatest paradox of all, and peculiar to Christianity",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 5:10",
+          "quote": "And here lies the main difference between Christ’s paradox and the ravings of the Stoics, who ordered that every man should be satisfied in his own mind, and should be the author of his own happiness: while Christ does not suspend our happiness on a vain imagination, but rests it on the hope of a future reward.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Matthew 5:10-11",
+      "strength": "commonly held",
+      "short": "The blessing on the persecuted is said twice",
+      "about": "The blessing on the persecuted is given twice. The second time Jesus speaks to His hearers directly, “Blessed are you,” and in place of righteousness He says “because of Me,” tying the cause of righteousness to Himself.",
+      "lines": [
+        {
+          "ref": "Matthew 5:10",
+          "words": "Blessed are those who are persecuted because of righteousness,"
+        },
+        {
+          "ref": "Matthew 5:11",
+          "words": "Blessed are you when people insult you, persecute you, and falsely say all kinds of evil against you because of Me."
+        }
+      ],
+      "pairs": [
+        [
+          "persecuted",
+          "persecute"
+        ],
+        [
+          "because of righteousness",
+          "because of Me"
+        ]
+      ],
+      "evidence": "Henry says this blessing is doubled, like Pharaoh’s dream, because it is hard to believe and yet certain, and that the second time the person changes to the disciples. Brown (Jamieson, Fausset and Brown) notes that for righteousness’ sake becomes for My sake, so that Jesus identifies Himself and His cause with righteousness.",
+      "refs": [
+        "Genesis 41:32"
+      ],
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 5:10",
+          "quote": "This beatitude, like Pharaoh's dream, is doubled, because hardly credited, and yet the thing is certain; and in the latter part there is change of the person",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 5:11",
+          "quote": "He had before said, \"for righteousness' sake.\" Here He identifies Himself and His cause with that of righteousness, binding up the cause of righteousness in the world with the reception of Himself.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-29-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "Matthew 5:29",
+      "strength": "widely agreed",
+      "short": "“Gouge it out”: cut off whatever leads to sin",
+      "about": "Jesus says that if your right eye causes you to sin, you should “gouge it out and throw it away.” He is not asking anyone to harm the body. The command says more than is meant literally, to teach that even what is dearest must be given up if it leads into sin.",
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "Matthew 5:29",
+        "words": "gouge it out and throw it away",
+        "means": "give up whatever leads you into sin, however dear it is, at any cost"
+      },
+      "evidence": "Bullinger lists the verses under Hyperbole, since Christ plainly does not wish us to maim our bodies, though elsewhere he says they may be better explained as an implied comparison. Calvin says Christ uses an exaggerated form of speech; Barnes, that He cannot have meant it literally; Brown (Jamieson, Fausset and Brown), that the bodily organ is not meant but its sinful use.",
+      "limit": "The right eye can also be read as standing, by an implied comparison, for whatever one prizes most, rather than as an overstatement. Some in the early church took the command literally; the writers who see a figure here reject that.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 5:29-30",
+          "at": "Hyperbole, or Exaggeration, p. 428",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/428/mode/1up",
+          "quote": "It is perfectly clear that Christ does not wish us to mutilate our bodies: so that this must be an hyperbolical or emphatic exhortation to avoid and remove everything and anything that causes us to stumble.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 5:29",
+          "quote": "And yet Christ does not mean, that we must mutilate our body, in order to obey God: but as all would readily wish, that they should not be restrained from the free use of their senses, Christ employs an exaggerated form of speech to show, that whatever hinders us from yielding that obedience to God which he requires in his law, ought to be cut off.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 5:29",
+          "quote": "It cannot be supposed that Christ intended this to be taken literally. His design was to teach that the dearest objects, if they cause us to sin, are to be abandoned",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 5:29",
+          "quote": "pluck it out and cast it from thee--implying a certain indignant promptitude, heedless of whatever cost to feeling the act may involve. Of course, it is not the eye simply of which our Lord speaks--as if execution were to be done upon the bodily organ ... but the offending eye, or the eye considered as the occasion of sin; and consequently, only the sinful exercise of the organ which is meant.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-23-37-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Matthew 23:37",
+      "strength": "widely agreed",
+      "short": "“Jerusalem” stands for its people",
+      "about": "Jesus speaks to Jerusalem, but He is not mourning stones and buildings. The city’s name stands for people: those who lived there, or, as some read it, the whole people of God.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Subject",
+        "ref": "Matthew 23:37",
+        "words": "Jerusalem, Jerusalem",
+        "means": "the people, not the place: those who lived there, or as some read it, the whole people of God called by their holy city’s name"
+      },
+      "evidence": "Bullinger lists it in Figures of Speech among cities put for their inhabitants: the people that dwelt there. Jerome, in the Catena Aurea of Thomas Aquinas, says He means not the stones and buildings but the people living there. Brown (Jamieson, Fausset and Brown) says it means not the city or its people alone but the whole family of God, called by a name dear to every Jew.",
+      "limit": "The writers differ on how far the name reaches: the people of the city, or the whole nation whose worship centred there.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 23:37",
+          "at": "Metonymy of the Subject, p. 580",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/580/mode/1up",
+          "quote": "“O Jerusalem, Jerusalem”: i.e. , the people that dwelt there.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 23:37-39",
+          "at": "Jerome, Commentary on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-30.shtml",
+          "quote": "By Jerusalem He means not the stones and buildings, but the dwellers there, over whom He laments with the feeling of a Father.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 23:37",
+          "quote": "\"Jerusalem\" here does not mean the mere city or its inhabitants; nor is it to be viewed merely as the metropolis of the nation, but as the center of their religious life ... It is the whole family of God, then, which is here apostrophized by a name dear to every Jew",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-23-37-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Matthew 23:37",
+      "strength": "widely agreed",
+      "short": "Like a hen gathering her chicks",
+      "about": "Jesus likens His longing for the city’s people to a hen gathering her chicks under her wings. The homely picture shows tender love and safe shelter, offered again and again, and refused.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Matthew 23:37",
+        "words": "as a hen gathers her chicks under her wings",
+        "means": "His tender love, longing to gather the people to Himself and shelter them as a mother bird covers her brood"
+      },
+      "refs": [
+        "Deuteronomy 32:11"
+      ],
+      "original": {
+        "note": "In Matthew’s Greek the word rendered hen, ornis, is the general word for a bird, so the picture is of a mother bird with her brood.",
+        "strong": [
+          "G3733"
+        ]
+      },
+      "evidence": "Henry calls it a humble similitude of a hen’s tender care, for shelter and warmth. Calvin says Christ, speaking in the person of God, compares Himself to a hen. Plumptre (Ellicott) finds an image of singular tenderness, like the eagle of Deuteronomy 32:11; Brown (Jamieson, Fausset and Brown), protection and rest; Chrysostom, in the Catena Aurea of Thomas Aquinas, the strength of His love.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 23:34-39",
+          "quote": "It is here illustrated by a humble similitude; as a hen clucks her chickens together. Christ would have gathered them, First, With such a tenderness of affection as the hen does ... The hen gathered her chickens under her wings, for protection and safety, and for warmth and comfort",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 23:37",
+          "quote": "We now perceive the reason why Christ, speaking in the person of God, compares himself to a hen. It is to inflict deeper disgrace on this wicked nation, which had treated with disdain invitations so gentle, and proceeding from more than maternal kindness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 23:37",
+          "quote": "The words reproduce (if we follow the English version), under an image of singular tenderness, the similitude of Deu 32:11 , the care of the hen for her chickens taking the place of that of the eagle for her nestlings. Possibly, however, the contrast between the two images lies in the English rather than the Greek, where we have the generic term, “as a bird gathereth her brood.”",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 23:37",
+          "quote": "And yet how exquisite the figure itself--of protection, rest, warmth, and all manner of conscious well-being in those poor, defenseless, dependent little creatures, as they creep under and feel themselves overshadowed by the capacious and kindly wing of the mother bird!",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 23:37-39",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-30.shtml",
+          "quote": "Notwithstanding, these thy murders have not alienated Me from thee, but I would have taken thee to Me, not once or twice, but many times. The strength of His affection He shews by the comparison of a hen.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

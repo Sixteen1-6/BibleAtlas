@@ -553,6 +553,114 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "exodus-15-9-no-ands",
+      "kind": "figure",
+      "form": "no-ands",
+      "ref": "Exodus 15:9",
+      "strength": "widely agreed",
+      "short": "Six boasts in a row, with no “and” between them",
+      "about": "The enemy's boast comes as six short clauses with no “and” between them. The clipped words show his fierce, vengeful confidence; they can also be read as hurrying the reader past his words to the climax of God's answer: “They sank like lead in the mighty waters.”",
+      "refs": [
+        "Exodus 15:10"
+      ],
+      "figure": {
+        "name": "Asyndeton",
+        "ref": "Exodus 15:9",
+        "words": "I will pursue, I will overtake. I will divide the spoils; I will gorge myself on them. I will draw my sword; my hand will destroy them.",
+        "means": "the enemy's six boasts, set down with no “and”, rushing on to God's reply"
+      },
+      "original": {
+        "note": "In Hebrew, as in the BSB, no “and” joins the clauses: the verbs pursue, overtake and divide stand one after another.",
+        "strong": [
+          "H7291",
+          "H5381",
+          "H2505"
+        ]
+      },
+      "evidence": "Bullinger gives Exodus 15:9-10 as his first example of Asyndeton (no-ands): the reader is hurried over what the enemy said to the climax, the sinking of the host. Keil (Keil and Delitzsch) says the short clauses, with no joining word, vividly picture the Egyptian's vengeful confidence. Benson says no conjunction is let in between the clauses, to show a man whose soul is fired.",
+      "limit": "Two of the writers dwell on what the clipped words show of the enemy's heated, vengeful mood; the third, on the climax they hurry toward.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Exodus 15:9-10",
+          "at": "Asyndeton, or No-Ands, p. 138",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/138/mode/1up",
+          "quote": "Here we are hurried over what “the enemy said,” because it was not of the least importance what he said or what he did. The great fact is recorded in the climax: on which all the emphasis is to be placed both in thought and in public reading.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Exodus 15:9",
+          "quote": "By these short clauses following one another without any copula, the confidence of the Egyptian as he pursued them breathing vengeance is very strikingly depicted.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Exodus 15:9",
+          "quote": "The inspired penman has not suffered one conjunction to intervene between the distinct members of the sentence, that it might have the greater spirit, and might express more naturally and forcibly the disposition of a man whose soul is fired, who discourses with himself, and does not mind connecting his words together.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "exodus-15-11-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Exodus 15:11",
+      "strength": "widely agreed",
+      "short": "A question that means: none is like the LORD",
+      "about": "After the sea covers Pharaoh's army, Israel praises the LORD with a question that needs no answer: none of the gods is like Him. Put as a question, the praise can say more than a plain statement: it is a challenge to every rival and a cry of wonder.",
+      "refs": [
+        "Psalm 89:6"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Exodus 15:11",
+        "words": "Who among the gods is like You, O LORD?",
+        "means": "none of the gods is like the LORD; He is beyond compare"
+      },
+      "evidence": "Bullinger lists the verse under Erotesis, a question whose answer is an emphatic no. Calvin says the question says more than a plain statement that none compares with God, since it marks wonder and sure confidence. Henry calls it a challenge to all other gods to compare with Him, and Clarke answers it: the gods of Egypt could neither save nor destroy.",
+      "limit": "The writers differ on who the gods are: the idols of the nations, or also the mighty rulers of the earth. Either way, none of them compares with the LORD.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Exodus 15:11",
+          "at": "Erotesis, in Affirmative Negation, p. 949",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “Who is like unto thee?” is the cry of all the “poor and needy” ones whom Jehovah has delivered. (Psa 35:10 ). See Exo 15:11 .",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Exodus 15:11",
+          "quote": "The interrogation expresses more than as if he had simply asserted that none can be compared with God; because it marks both admiration and assured confidence in the truth of what he says",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Exodus 15:1-21",
+          "quote": "This is pure praise, and a high expression of humble adoration.—It is a challenge to all other gods to compare with him: \"Let them stand forth, and pretend their utmost; none of them dare make the comparison.\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Exodus 15:11",
+          "quote": "Here the people of God exult over them afresh: Who among these gods is like unto Thee? They can neither save nor destroy; Thou dost both in the most signal manner.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

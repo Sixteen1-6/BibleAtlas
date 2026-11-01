@@ -58,6 +58,67 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "joshua-7-24-many-ands",
+      "kind": "figure",
+      "form": "many-ands",
+      "ref": "Joshua 7:24",
+      "strength": "some interpreters",
+      "short": "“And” after “and”: all that was taken with Achan",
+      "about": "The verse names one by one all that was taken with Achan: the silver, the cloak, the gold, his sons and daughters, his animals, his tent and all he owned. In Hebrew each is joined by “and”, so each is weighed on its own, showing how solemn the judgment was and how great his sin.",
+      "figure": {
+        "name": "Polysyndeton",
+        "ref": "Joshua 7:24",
+        "words": "the silver, the cloak, the bar of gold, his sons and daughters, his oxen and donkeys and sheep, his tent, and everything else he owned",
+        "means": "each thing taken with Achan, weighed on its own, showing how solemn the judgment was and how great his sin"
+      },
+      "evidence": "Bullinger lists the verse under Polysyndeton: the conjunction comes again and again to show how solemn the judgment on Achan was and how great his sin. The BSB keeps only some of the ands; in the Hebrew every item is joined to the one before.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Joshua 7:24",
+          "at": "Polysyndeton, or Many-Ands, p. 211",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/211/mode/1up",
+          "quote": "to show the awful solemnity of the judgment executed upon Achan, and the magnitude of his sin",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "joshua-7-24-synecdoche",
+      "kind": "figure",
+      "form": "synecdoche",
+      "ref": "Joshua 7:24",
+      "strength": "some interpreters",
+      "short": "“Son of Zerah”: son put for a later descendant",
+      "about": "Achan is called the son of Zerah, yet verse 1 traces him through Carmi and Zabdi back to Zerah. Here “son” is put for a descendant further down the line, one relationship standing for another.",
+      "refs": [
+        "Joshua 7:1"
+      ],
+      "figure": {
+        "name": "Synecdoche",
+        "part": "of the Species: one relationship put for others",
+        "ref": "Joshua 7:24",
+        "words": "son of Zerah",
+        "means": "a descendant of Zerah, not his own son: verse 1 names Carmi and Zabdi between them"
+      },
+      "evidence": "Bullinger lists the verse under Synecdoche of the Species, where one relationship is put for others: Achan is called the son of Zerah, which stands for his great-grandson, as verse 1 shows.",
+      "limit": "Verse 1 names Carmi and Zabdi between Zerah and Achan. The note claims only that son here stands for a later descendant, not how many generations lie between them.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Joshua 7:24",
+          "at": "Synecdoche of the Species, p. 625",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/625/mode/1up",
+          "quote": "Achan is called “the son of Zerah,” which is put for great grandson.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

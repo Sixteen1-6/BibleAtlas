@@ -354,6 +354,94 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "proverbs-6-16-numbers",
+      "kind": "figure",
+      "form": "numbers",
+      "ref": "Proverbs 6:16",
+      "strength": "widely agreed",
+      "short": "Six things the LORD hates, then seven",
+      "about": "The verse speaks of six things the LORD hates, then raises the count to seven, and the next three verses list all seven. Many read the last, “one who stirs up discord among brothers,” as the one most stressed, worse than the rest.",
+      "refs": [
+        "Proverbs 6:17-19"
+      ],
+      "figure": {
+        "name": "Numerical saying",
+        "ref": "Proverbs 6:16",
+        "words": "six things that the LORD hates, seven",
+        "means": "a list of what the LORD hates, rising to a seventh, the worst of all"
+      },
+      "evidence": "Henry finds the seventh especially meant, since the count is six, yea, seven. J. W. Nutt (Ellicott) calls it a sort of climax, the seventh worse than all; E. H. Plumptre (Barnes' Notes) sees the Hebrew form of climax, the seventh worse than all. Delitzsch (Keil and Delitzsch) calls it a numerical proverb, the seventh the height of what God hates.",
+      "limit": "The seventh is read as the worst, not as the only one the LORD hates: the count here is exact, and all seven are detestable to Him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Proverbs 6:12-19",
+          "quote": "the last of them (which, being the seventh, seems especially to be intended, because he says they are six, yea, seven) is part of his character, that he sows discord",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 6:16",
+          "quote": "He hates six things, but the seventh worse than all. This numerical form of proverb ... in all these instances the number first named is increased afterwards by one.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 6:16",
+          "quote": "With the recognized Hebrew form of climax ... the teacher here enumerates six qualities as detestable, and the seventh as worse than all (seven represents completeness), but all the seven in this instance belong to one man",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 6:16-19",
+          "quote": "The thought that no vice is a greater abomination to God than the (in fact satanical) striving to set men at variance who love one another, clothes itself in the form of the numerical proverb ... the seven are to be numbered separately, and the seventh is the non plus ultra of all that is hated by God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-30-18-numbers",
+      "kind": "figure",
+      "form": "numbers",
+      "ref": "Proverbs 30:18",
+      "strength": "commonly held",
+      "short": "Three things, then four: the list builds to the last",
+      "about": "Agur names three things too wonderful for him, then raises the count to four. The four ways follow in the next verse, and the saying turns on the last of them, “the way of a man with a maiden”; the first three serve to set it off.",
+      "refs": [
+        "Proverbs 30:19"
+      ],
+      "figure": {
+        "name": "Numerical saying",
+        "ref": "Proverbs 30:18",
+        "words": "three things too wonderful for me, four",
+        "means": "the count climbs from three to four, and the weight falls on the fourth thing named"
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) calls the saying another numerical proverb and says its turning point lies in the fourth thing: the other three lead to it and serve only as a foil to it. Matthew Henry says the first three are things of nature, given only as comparisons to shed light on the last.",
+      "limit": "The note claims only how the count builds. What the fourth way means, and what the four ways share, is read in more than one way.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 30:18-20",
+          "quote": "The following proverb, again a numerical proverb, begins with the eagle, mentioned in the last line of the foregoing ... The turning-point lies in the fourth; to that point the other three expressions gravitate, which have not an object in themselves, but are only as folie to the fourth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 30:18-23",
+          "quote": "An account of four things that are unsearchable, too wonderful to be fully known. And here, 1. The first three are natural things, and are only designed as comparisons for the illustration of the last.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,182 @@
+{
+  "notes": [
+    {
+      "id": "philippians-4-8-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Philippians 4:8",
+      "strength": "some interpreters",
+      "short": "Six times “whatever”: what to think on",
+      "about": "Six clauses in a row begin with “whatever,” naming what is true, honorable, right, pure, lovely and admirable. The repeated word stresses the charge they lead up to at the close: think on these things.",
+      "lines": [
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is true,",
+          "key": "whatever"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is honorable,",
+          "key": "whatever"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is right,",
+          "key": "whatever"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is pure,",
+          "key": "whatever"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is lovely,",
+          "key": "whatever"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is admirable",
+          "key": "whatever"
+        }
+      ],
+      "original": {
+        "note": "In Paul's Greek each clause begins with hosa, “whatever things,” and no “and” joins them.",
+        "strong": [
+          "G3745"
+        ]
+      },
+      "evidence": "Bullinger gives the verse as an example of Anaphora: the repeated whatsoever things, joined with Asyndeton, stresses the important closing charge to think on these things.",
+      "limit": "The note is about the repeated opening word, not about any order among the eight qualities.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Philippians 4:8",
+          "at": "Anaphora, or Like Sentence-Beginnings, p. 205",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/205/mode/1up",
+          "quote": "We have here the repetition of the word “ whatsoever things ” with which the figure of Asyndeton ... is combined, in order to emphasize the important conclusion “ Think on these things :”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "philippians-4-8-no-ands",
+      "kind": "figure",
+      "form": "no-ands",
+      "ref": "Philippians 4:8",
+      "strength": "some interpreters",
+      "short": "No “and” between them: a list that presses on",
+      "about": "The six “whatever” clauses follow one another with no “and” to join them. Together with the repeated word, this puts the weight on the charge at the close: think on these things.",
+      "figure": {
+        "name": "Asyndeton",
+        "ref": "Philippians 4:8",
+        "words": "whatever is true, whatever is honorable, whatever is right, whatever is pure, whatever is lovely, whatever is admirable",
+        "means": "six things set down one after another with no joining word, so that the weight falls on the closing charge"
+      },
+      "evidence": "Bullinger, under Anaphora, says the figure of Asyndeton is joined with the repeated whatsoever things in this verse, to stress the important closing charge to think on these things.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Philippians 4:8",
+          "at": "Anaphora, or Like Sentence-Beginnings, p. 205",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/205/mode/1up",
+          "quote": "We have here the repetition of the word “ whatsoever things ” with which the figure of Asyndeton ... is combined, in order to emphasize the important conclusion “ Think on these things :”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "philippians-4-8-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Philippians 4:8",
+      "strength": "some interpreters",
+      "short": "Two rows of four: each duty and its praise",
+      "about": "One reading sets the eight in two rows of four. The first row names duties and the second their praise, and each answers the one in the same place: true and lovely, honorable and admirable, right and excellent, pure and praiseworthy.",
+      "lines": [
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is true,",
+          "mark": "A",
+          "key": "true"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is honorable,",
+          "mark": "B",
+          "key": "honorable"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is right,",
+          "mark": "C",
+          "key": "right"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is pure,",
+          "mark": "D",
+          "key": "pure"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is lovely,",
+          "mark": "A'",
+          "key": "lovely"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "whatever is admirable",
+          "mark": "B'",
+          "key": "admirable"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "if anything is excellent",
+          "mark": "C'",
+          "key": "excellent"
+        },
+        {
+          "ref": "Philippians 4:8",
+          "words": "or praiseworthy",
+          "mark": "D'",
+          "key": "praiseworthy"
+        }
+      ],
+      "pairs": [
+        [
+          "true",
+          "lovely"
+        ],
+        [
+          "honorable",
+          "admirable"
+        ],
+        [
+          "right",
+          "excellent"
+        ],
+        [
+          "pure",
+          "praiseworthy"
+        ]
+      ],
+      "evidence": "Bengel sees eight nouns in two rows of four, one row bearing on duty and the other on its commendation; set side by side, the first noun of each row answers the first of the other, the second the second, the third the third and the fourth the fourth.",
+      "limit": "The two rows are one reading of the list, not a settled one; others pair each word with the one beside it, such as true with honorable.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bengel",
+          "on": "Philippians 4:8",
+          "quote": "Eight nouns, in two rows of four members each, of which the one has regard to duty, the other to the commendation of it. If we compare both rows of nouns with one another, the first noun corresponds to the first, the second to the second, the third to the third, the fourth to the fourth.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/philippians/4.htm",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

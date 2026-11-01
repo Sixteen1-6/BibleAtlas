@@ -142,6 +142,61 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "job-5-19-numbers",
+      "kind": "figure",
+      "form": "numbers",
+      "ref": "Job 5:19",
+      "strength": "widely agreed",
+      "short": "Six troubles, even seven: however many come",
+      "about": "Eliphaz tells Job that God will rescue him from six calamities, then raises the count to seven. The numbers do not count troubles: they mean that however many come, God is able to deliver from them all.",
+      "figure": {
+        "name": "Numerical saying",
+        "ref": "Job 5:19",
+        "words": "six calamities; no harm will touch you in seven",
+        "means": "every trouble that may come, however many"
+      },
+      "evidence": "Albert Barnes (Barnes' Notes) says six is an indefinite number, one more added to mean every case. Fausset (Jamieson, Fausset and Brown): a number, then the next higher, for all possible troubles. Clarke: six and seven are put for many. Delitzsch (Keil and Delitzsch): formed like the number proverbs, still more than six. Henry: however often troubles come, God delivers out of them all.",
+      "limit": "These are Eliphaz's words to Job. The note is on how he counts, not on whether his counsel fit Job's case.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 5:19",
+          "quote": "Six is used here to denote an indefinite number, meaning that he would support in many troubles. This mode of speech is not uncommon among the Hebrews, where one number is mentioned, so that an extreme number may be immediately added. The method is, to mention a number within the limit, and then to add one more, meaning that in all instances the thing referred to would occur.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 5:19",
+          "quote": "The Hebrew idiom fixes on a certain number (here \"six\"), in order to call attention as to a thing of importance; then increases the force by adding, with a \"yea, nay seven,\" the next higher number; here \"seven,\" the sacred and perfect number. In all possible troubles; not merely in the precise number \"seven.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Job 5:19",
+          "quote": "The numbers six and seven are put here for many. Though a number of troubles should come upon thee all at once, and there should be no hope, humanly speaking, yet God would rid thee out of them all",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 5:17-21",
+          "quote": "Job 5:19 is formed after the manner of the so-called number-proverbs ... in six troubles, yea in still more than six.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Job 5:17-27",
+          "quote": "as afflictions and troubles recur supports and deliverances shall be graciously repeated, be it ever so often ... After six troubles may come a seventh; after many, look for more; but out of them all will God deliver those that are his",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

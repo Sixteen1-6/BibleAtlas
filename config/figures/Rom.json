@@ -202,6 +202,210 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "romans-1-16-understatement",
+      "kind": "figure",
+      "form": "understatement",
+      "ref": "Romans 1:16",
+      "strength": "widely agreed",
+      "short": "“Not ashamed” means Paul glories in the gospel",
+      "about": "Paul says he is not ashamed of the gospel. The words say less than he means: far from being ashamed of it, he glories in it, for it is the power of God for salvation. Later he says, “Therefore I exult in Christ Jesus in my service to God” (Romans 15:17).",
+      "refs": [
+        "Romans 15:17"
+      ],
+      "figure": {
+        "name": "Tapeinosis",
+        "part": "Negatively",
+        "ref": "Romans 1:16",
+        "words": "I am not ashamed of the gospel",
+        "means": "Paul glories in the gospel and counts it his highest honour to preach it"
+      },
+      "evidence": "Bullinger lists the verse under Tapeinosis: Paul counts it his highest honour and glory to proclaim the gospel. Bengel says Paul speaks less strongly here and later speaks of glorying (15:17). Barnes says Paul was so far from being ashamed of it that he gloried in it, and Benson that he rather gloried in it.",
+      "limit": "The words also answer the scorn the gospel met: the world counted it folly, most of all in a great city like Rome. That reading stands beside this one, not against it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 1:16",
+          "at": "Tapeinosis, or Demeaning, p. 163",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/163/mode/1up",
+          "quote": "I count it my highest honour and glory to proclaim it, and to suffer for it, while I have full confidence in its power to accomplish all God’s purposes of grace.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Romans 1:16",
+          "quote": "He speaks somewhat less forcibly, as in the introduction; afterwards he says, I have whereof I may glory (ch. Romans 15:17).",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/romans/1.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 1:16",
+          "quote": "He had so firm a conviction of its value and its truth; he had experienced so much of its consolations; and had seen so much of its efficacy; that he was so far from being ashamed of it that he gloried in it as the power of God unto salvation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 1:16",
+          "quote": "In whatever contempt that sacred dispensation, and they who publish it, may be held on account of the circumstances and death of its Author, the character of its ministers, and the nature and tendency of its doctrines; I am not ashamed of the gospel of Christ But rather glory in it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-31-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Romans 8:31",
+      "strength": "widely agreed",
+      "short": "“Be against us” means do us real harm",
+      "about": "Here to be against us means to do us real harm. Enemies can still oppose God's people, but while God is for them, none of them can hurt them or overcome them.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Cause",
+        "ref": "Romans 8:31",
+        "words": "be against us",
+        "means": "hurt us or overcome us: enemies may oppose, but cannot harm those whom God is for"
+      },
+      "evidence": "Bullinger, under Metonymy, reads it as who can hurt us or bring evil on us: foes can be against us, but to no hurtful effect. Barnes explains it as who can injure or destroy us, since their power to destroy is taken away. Benson asks what real hurt the world or the devil can do us, and Calvin says Paul does not mean that nothing shall oppose us, but promises victory.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:31",
+          "at": "Metonymy of the Cause, p. 557",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/557/mode/1up",
+          "quote": "“If God be for us, who can be against as?” i.e. , who can hurt us or bring any evils upon us? They can, of course, be “against us,” but not have any hurtful effect.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 8:31",
+          "quote": "Who can injure or destroy us? Sinners may be against us, and so may the great enemy of our souls, but their power to destroy us is taken away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 8:31",
+          "quote": "who can be against us What real hurt can the world, the devil, or all his instruments, do us by all our sufferings from them?",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:31",
+          "quote": "He does not, however, mean, that nothing shall oppose us; but he promises a victory over all kinds of enemies.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-31-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Romans 8:31",
+      "strength": "widely agreed",
+      "short": "A question whose answer is: no one can prevail",
+      "about": "Paul asks who can be against us, not to learn the answer but to make his point: if God is for us, no power can prevail against us. The questions in verses 33 to 35 are asked the same way.",
+      "refs": [
+        "Romans 8:33-35"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Romans 8:31",
+        "words": "who can be against us?",
+        "means": "no one, since no power can stand against those whom God is for"
+      },
+      "evidence": "Bullinger lists the verse, with the questions of verses 33 to 35, under Erotesis in Affirmative Negation: questions whose answer, supplied by the mind, is an emphatic no. Clarke answers it himself: no cunning, strength or malice can prevail, so those who love God are safe. Calvin calls these words exclamations and says no power under or above the heavens can resist the arm of God.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:31-35",
+          "at": "Erotesis, In Affirmative Negation, p. 950",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/950/mode/1up",
+          "quote": "“If God be for us, who can be against us?” “Who shall lay anything to the charge of God’s elect?” “Who is he that condemneth?” “Who shall separate us from the love of Christ?” (Rom 8:31-35 ).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 8:31",
+          "quote": "He who is infinitely wise has undertaken to direct us: He who is infinitely powerful has undertaken to protect us: He who is infinitely good has undertaken to save us. What cunning, strength, or malice, can prevail against his wisdom, power, and goodness? None. Therefore we are safe who love God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:31",
+          "quote": "he now breaks out into exclamations, by which he sets forth the magnanimity with which the faithful ought to be furnished when adversities urge them to despond. ... For there is no power either under or above the heavens, which can resist the arm of God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-11-34-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Romans 11:34",
+      "strength": "widely agreed",
+      "short": "Two questions whose answer is “No one”",
+      "about": "Paul takes up the words of Isaiah 40:13 as two questions with only one answer: no one. No one knows the mind of the Lord by his own understanding, and no one has ever advised Him. The questions honor God's wisdom and knowledge and quiet any complaint against His ways.",
+      "refs": [
+        "Isaiah 40:13"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "In Affirmative Negation",
+        "ref": "Romans 11:34",
+        "words": "Who has known the mind of the Lord? Or who has been His counselor?",
+        "means": "No one: no one has known the Lord's mind, and no one has been His adviser"
+      },
+      "evidence": "Bullinger lists Romans 11:34-35 under Erotesis in affirmative negation, a question whose unspoken answer is an emphatic no. Bengel answers it: none, but God Himself. Barnes says the verse affirms that no being could teach or counsel God, to hush murmuring. Calvin says Paul checks men from clamoring against God's judgments, as all are too blind to see His purpose by their own understanding.",
+      "limit": "The questions deny that anyone finds out God's counsel by his own understanding or advises Him. They do not deny that God makes known by His Spirit what He has chosen to reveal.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 11:34",
+          "at": "Erotesis, In Affirmative Negation, pp. 949-950",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “Who hath known the mind of the Lord? or who hath been his counsellor? Or who hath first given to him, and it shall be recompensed unto him again?” (Rom 11:34-35 ).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Romans 11:34",
+          "quote": "Who? i.e. none: but He Himself.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/romans/11.htm",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 11:34",
+          "quote": "It is designed to express the infinite wisdom and knowledge of God, by affirming that no being could teach him, or counsel him. ... It is also designed to silence all opposition to his plans, and to hush all murmurings.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 11:34",
+          "quote": "He begins here to extend as it were his hand to restrain the audacity of men, lest they should clamor against God’s judgments, and this he does by stating two reasons: the first is, that all mortals are too blind to take a view of God’s predestination by their own understanding",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }
