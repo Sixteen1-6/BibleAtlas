@@ -410,6 +410,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_voices::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_customs::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     let figure_sources = crate::extra_figures::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index };

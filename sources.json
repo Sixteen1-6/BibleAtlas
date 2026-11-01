@@ -512,6 +512,20 @@
         "source": "SOURCE.md"
       },
       "note": "Hugging Face is not reachable from where the data is built, so .github/workflows/mirror-meaning-model.yml copies the files unchanged from revision bf8b056651a2c21b8d2565580b8569da283cab23, checks each against the SHA-256 Hugging Face lists for it, and commits them to the branch mirror/potion-base-8M (SOURCE.md there lists the hashes)."
+    },
+    {
+      "id": "freeman-customs",
+      "title": "James M. Freeman, Hand-Book of Bible Manners and Customs (1874), in Bible Truth Publishers' transcription, as kept in the UniqueBible.app module \"Freeman - Manners and Customs of the Bible\"",
+      "provides": "Freeman's 891 short entries on the customs behind the verses, each under the verse he heads it with. Shown at Study under those verses, as Freeman's own words, once a reader has finished the commentary notice.",
+      "license": "Public domain (James M. Freeman, New York: Nelson and Phillips, 1874); a faithful transcription of a public-domain book adds no copyright",
+      "attribution": "James M. Freeman, Hand-Book of Bible Manners and Customs (New York: Nelson and Phillips, 1874), public domain. Text transcribed by Bible Truth Publishers (bibletruthpublishers.com), as kept in the UniqueBible.app module at github.com/darrelwright/UniqueBible_Books.",
+      "homepage": "https://archive.org/details/handbookofbiblem00free",
+      "repo": "https://github.com/darrelwright/UniqueBible_Books",
+      "commit": "4017a67481e0de6027216bbdf3fc5d42c9c289d5",
+      "files": {
+        "module": "Freeman - Manners and Customs of the Bible.book.zip"
+      },
+      "note": "The module is a zip holding one SQLite file; extra_customs.rs reads both itself. Only Freeman's headings, the King James words he prints under them and his paragraphs are used; the transcriber's closing note on the last entry is left out. An entry is placed only where its heading verse is linked in the module and that verse holds the King James words printed under it. The transcription was not proofread (its own note says so); entry 1 and the 1874 title page were compared with the Library of Congress scan, archive.org/details/handbookofbiblem00free, on 2026-11-01."
     }
   ]
 }
