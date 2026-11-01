@@ -8,6 +8,11 @@
 //! 2. every line, figure and side quotes the BSB text of its verse exactly, so
 //!    the reader can mark it without searching; a mirror's or alternation's
 //!    lines all carry marks, and the marks nest (A B B' A', or A B A' B');
+//!    where the BSB sets a verse as poetry (its USFM edition's `\q1`, `\q2`
+//!    and `\qr` lines, `poetry.rs`), a parallel note's line is one of the
+//!    BSB's lines, part of one or whole lines together, never the end of
+//!    one and the start of the next, and in the forms that set line against
+//!    line (same, opposite, building, climbing) no two of its lines share one;
 //! 3. every quotation of four or more words in a note's own words is in the
 //!    BSB text of the verses it names, and every Hebrew or Greek root it names
 //!    is in those verses; the `original` note names its language ("In
@@ -75,6 +80,7 @@
 use crate::layers::{CiteList, Listed};
 use crate::loaded::Loaded;
 use crate::parse::WordsByVerse;
+use crate::poetry::Poetry;
 use atlas_core::{refs, Versification, BOOKS};
 use serde::Deserialize;
 use serde_json::{json, Value};
@@ -87,6 +93,12 @@ pub const FORMS: &str = "config/figure-forms.json";
 const OUT: &str = "extras/figures.json";
 const PARTS: &str = "extras/figures";
 
+/// Parallel forms that set whole lines against each other, so each of a
+/// note's lines is a line of its own in the BSB where it sets the verse as
+/// poetry. A mirror's or alternation's parts, a frame, a refrain and like
+/// beginnings may be clauses inside one line (Isaiah 6:10's "deafen their
+/// ears and close their eyes" is two parts of its mirror).
+const LINE_FORMS: [&str; 4] = ["same", "opposite", "building", "climbing"];
 /// The kinds, each with its bit in `has`.
 const KINDS: [(&str, u8); 3] = [("parallelism", 1), ("figure", 2), ("contrast", 4)];
 pub(crate) const WIDELY: &str = "widely agreed";
@@ -288,6 +300,8 @@ pub struct Sources<'a> {
     pub words: &'a WordsByVerse,
     /// Lemma key ("H1870L") to its index in lemmas.json.
     pub lemma_index: &'a HashMap<&'a str, u32>,
+    /// The BSB's own poetry lines, from its USFM edition.
+    pub poetry: &'a Poetry,
 }
 
 pub(crate) struct Check<'a> {
@@ -548,6 +562,9 @@ impl<'a> Check<'a> {
             }
             lines.push(line);
         }
+        if n.kind == "parallelism" {
+            self.poetry_lines(&at, &lines, LINE_FORMS.contains(&n.form.as_str()));
+        }
         let marks: Vec<&str> = n.lines.iter().filter_map(|l| l.mark.as_deref()).collect();
         if n.kind == "parallelism" && n.lines.len() < 2 {
             self.fail(&at, "parallel lines need at least two lines");
@@ -782,6 +799,39 @@ impl<'a> Check<'a> {
         }
         out["bit"] = json!(bit);
         Some(out)
+    }
+
+    /// Where the BSB sets a verse as poetry, each of a parallel note's lines
+    /// is one of its lines, part of one, or whole lines together, and, for
+    /// the forms that set line against line (`own`), no two of the note's
+    /// lines share one.
+    fn poetry_lines(&mut self, at: &str, lines: &[Value], own: bool) {
+        let mut placed = Vec::new();
+        for (i, l) in lines.iter().enumerate() {
+            let (Some(v), Some(t)) = (l["v"].as_u64(), l["t"].as_str()) else { continue };
+            let text = &self.src.text[v as usize];
+            let Some(off) = text.find(t) else { continue };
+            let Some(p) = self.src.poetry.place(v as u32, text, off, off + t.len()) else { continue };
+            if p.first != p.last && !p.whole {
+                self.fail(
+                    &format!("{at}, lines[{i}]"),
+                    format_args!("{t:?} runs across the BSB's own lines; quote one line, part of one, or whole lines"),
+                );
+            }
+            placed.push((i, p));
+        }
+        if !own {
+            return;
+        }
+        // Line numbers run through each book, so two quotations in
+        // neighbouring verses can share a line that runs on between them.
+        for (k, &(i, p)) in placed.iter().enumerate() {
+            for &(j, q) in &placed[k + 1..] {
+                if p.first <= q.last && q.first <= p.last {
+                    self.fail(at, format_args!("lines[{i}] and lines[{j}] are in one line of the BSB; each parallel line is a line of its own"));
+                }
+            }
+        }
     }
 
     /// The byte offset of `words` in verse `v`'s text, if they occur there exactly once.
