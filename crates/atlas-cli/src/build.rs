@@ -414,7 +414,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     let poetry = crate::poetry::Poetry::read(&inputs, &vz, &bsb.text)?;
-    eprintln!("poetry lines: {} verses the BSB sets as poetry placed on its text", poetry.verses());
+    eprintln!("poetry lines: {} of {} verses the BSB sets as poetry placed on its text", poetry.verses(), poetry.poetry_verses());
     let figure_sources = crate::extra_figures::Sources { text: &bsb.text, vz: &vz, words: &words, lemma_index: &lemma_index, poetry: &poetry };
     for (rel, bytes) in crate::extra_figures::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_structure::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }

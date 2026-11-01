@@ -818,14 +818,16 @@ impl<'a> Check<'a> {
                     format_args!("{t:?} runs across the BSB's own lines; quote one line, part of one, or whole lines"),
                 );
             }
-            placed.push((i, v, p));
+            placed.push((i, p));
         }
         if !own {
             return;
         }
-        for (k, &(i, v, p)) in placed.iter().enumerate() {
-            for &(j, w, q) in &placed[k + 1..] {
-                if v == w && p.first <= q.last && q.first <= p.last {
+        // Line numbers run through each book, so two quotations in
+        // neighbouring verses can share a line that runs on between them.
+        for (k, &(i, p)) in placed.iter().enumerate() {
+            for &(j, q) in &placed[k + 1..] {
+                if p.first <= q.last && q.first <= p.last {
                     self.fail(at, format_args!("lines[{i}] and lines[{j}] are in one line of the BSB; each parallel line is a line of its own"));
                 }
             }

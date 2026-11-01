@@ -992,22 +992,27 @@ fn rank(strength: &str) -> usize {
     STRENGTHS.iter().rev().position(|s| *s == strength).unwrap_or(0)
 }
 
-/// How many different people wrote the counted cites. A joint key ("a+b")
-/// joins its writers, so a key that shares any one of them is the same person
-/// counted again, never a second witness.
-fn persons(keys: &[String]) -> usize {
-    let mut groups: Vec<Vec<&str>> = Vec::new();
-    for k in keys {
-        let ids: Vec<&str> = k.split('+').collect();
-        let (mut with, rest): (Vec<_>, Vec<_>) = groups.into_iter().partition(|g| g.iter().any(|x| ids.contains(x)));
-        let mut merged: Vec<&str> = with.drain(..).flatten().collect();
-        merged.extend(ids);
-        merged.sort_unstable();
-        merged.dedup();
-        groups = rest;
-        groups.push(merged);
+/// How many different people wrote the counted cites: the most cites whose
+/// writers are all different. A joint key ("a+b") is one witness of two
+/// writers, so it cannot stand beside a cite by either of them, but two joint
+/// keys with no writer in common are two witnesses.
+pub(crate) fn persons(keys: &[String]) -> usize {
+    let mut sets: Vec<Vec<&str>> = keys.iter().map(|k| k.split('+').collect()).collect();
+    sets.sort_unstable();
+    sets.dedup();
+    fn most<'a>(rest: &[Vec<&'a str>], taken: &mut Vec<&'a str>) -> usize {
+        let Some((first, rest)) = rest.split_first() else { return 0 };
+        let skip = most(rest, taken);
+        if first.iter().any(|x| taken.contains(x)) {
+            return skip;
+        }
+        let n = taken.len();
+        taken.extend(first);
+        let take = 1 + most(rest, taken);
+        taken.truncate(n);
+        skip.max(take)
     }
-    groups.len()
+    most(&sets, &mut Vec::new())
 }
 
 /// Two links to the same page: scheme, host case, a leading "www." and a trailing slash do not matter.
@@ -1154,6 +1159,17 @@ fn and_list(names: &[&str]) -> String {
 }
 
 impl Credit<'_> {
+    /// The key a cite counts under for a note's strength. An unnamed group
+    /// that is the same people throughout the work (the Geneva exiles, the
+    /// NET's translators) counts once, not once for each book it is cited on;
+    /// an unnamed writer "on this book" still counts by book.
+    fn counting_key(&self) -> String {
+        match self.unnamed {
+            Some(u) if self.writers.is_empty() && self.key.starts_with(&format!("{}:", self.work.id)) && !u.contains("this book") => format!("{}:{u}", self.work.id),
+            _ => self.key.clone(),
+        }
+    }
+
     fn writer(&self) -> String {
         match self.unnamed {
             Some(u) => u.to_string(),
@@ -1498,7 +1514,7 @@ impl Check<'_, '_> {
             };
             *t.dates.entry(label).or_default() += 1;
             if s.role == INTERPRETER && c.counts != Some(false) {
-                counted.push(credit.key.clone());
+                counted.push(credit.counting_key());
             }
             out.push(credit_json(s, sources, &credit, c, &url, when));
         }
@@ -2784,7 +2800,9 @@ mod tests {
         assert_eq!(persons(&k(&[])), 0);
         assert_eq!(persons(&k(&["a", "b", "a"])), 2, "one man's two works count once");
         assert_eq!(persons(&k(&["a+b", "a", "c"])), 2, "a joint part shares its writers with their own words");
-        assert_eq!(persons(&k(&["a+b", "c+d", "b+c"])), 1, "joint parts that share writers join");
+        assert_eq!(persons(&k(&["a+b", "c+d", "b+c"])), 2, "two joint parts with no writer in common are two witnesses");
+        assert_eq!(persons(&k(&["a", "b", "a+b"])), 2, "a joint part cannot stand beside its own writers' words");
+        assert_eq!(persons(&k(&["a+b", "b+c", "c+a"])), 1);
         assert_eq!(persons(&k(&["poole:John", "poole:Acts", "c"])), 3, "unnamed writers of different books are different people");
         assert_eq!([strength_for(0), strength_for(1), strength_for(2), strength_for(3), strength_for(7)], [SOME, SOME, COMMONLY, WIDELY, WIDELY]);
         assert!(rank(WIDELY) > rank(COMMONLY) && rank(COMMONLY) > rank(SOME) && rank("unknown") == rank(SOME));
@@ -2803,6 +2821,15 @@ mod tests {
         assert!(k("barnes", "Numbers 16:13").contains('+'), "a joint part is one key of two writers");
         assert_eq!(k("wesley", "Genesis 1:2"), k("henry", "Genesis 1:2"), "Wesley's Old Testament notes count as Henry, whom they abridge");
         assert!(s.cite.iter().filter(|c| c.role == "reference").all(|c| c.id != "barnes"));
+        let c = |id: &str, on: &str| {
+            let q = refs::parse(on).unwrap();
+            resolve(&s, source(&s, id), Some(BOOKS[q.book as usize].name), q.chapter, None).unwrap().counting_key()
+        };
+        assert_eq!(c("geneva", "Genesis 3:1"), c("geneva", "Isaiah 7:14"), "the Geneva exiles count once, on any book");
+        assert_eq!(c("net-notes", "Genesis 3:1"), c("net-notes", "John 1:1"), "the NET's translators count once");
+        assert_ne!(c("reformation-sb", "Genesis 3:1"), c("reformation-sb", "John 1:1"), "the Reformation Study Bible's writer is named by book");
+        assert_ne!(c("pulpit", "Job 1:1"), c("pulpit", "Daniel 1:1"), "Pulpit's unnamed expositors on Job and Daniel are two people");
+        assert_eq!(c("ellicott", "Exodus 3:14"), c("pulpit", "Exodus 3:14"), "named writers count by name");
     }
 
     #[test]
