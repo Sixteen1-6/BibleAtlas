@@ -12,6 +12,7 @@
 
 import { effect, signal } from '@preact/signals';
 import * as S from '../../state';
+import { clearPeeks, peeks } from './peek';
 import type { ChapterRef, VerseRef } from './types';
 
 export interface OpenPanel {
@@ -79,6 +80,10 @@ export function closeExtra(how: 'dismiss' | 'navigate' | 'quiet' = 'dismiss'): v
   if (!openPanel.peek()) return;
   const p = pushed;
   pushed = null;
+  // Looks at other passages from inside the panel (peek.ts) are history
+  // entries above the panel's own: dismissing steps back over them too.
+  const looks = peeks.peek().length;
+  clearPeeks();
   openPanel.value = null;
   // url.ts has now rewritten the address without x=. If it matches the entry
   // under ours, step back onto it: same address, so nothing else reloads.
@@ -86,7 +91,7 @@ export function closeExtra(how: 'dismiss' | 'navigate' | 'quiet' = 'dismiss'): v
     backPending = true;
     window.setTimeout(() => (backPending = false), 800);
     try {
-      history.back();
+      history.go(-1 - looks);
     } catch {
       backPending = false;
     }

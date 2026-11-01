@@ -6,12 +6,15 @@
 //   area, widened into the reader's empty margin when there is room so two
 //   passages fit side by side. The reader and the map stay usable.
 // Focus moves to the panel's heading on open and back to the note on close.
+// - Either can fill the window instead (the size button, remembered), and a
+//   look at another passage from inside the panel (peek.ts) shows Back.
 
 import type { ComponentChildren } from 'preact';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import * as S from '../../state';
 import { noticeOpen } from '../commentary/state';
 import { openerElement } from './open';
+import { wide } from './peek';
 
 const PHONE = '(max-width: 900px)';
 /** Widest the desktop panel grows into the reader's margin. */
@@ -67,9 +70,10 @@ function useDock(on: boolean, tall: boolean): Dock | null {
   return on ? dock : null;
 }
 
-export function Shell({ title, at, onDismiss, tall = false, children }: { title: string; at: string; onDismiss: () => void; tall?: boolean; children: ComponentChildren }) {
+export function Shell({ title, at, onDismiss, onBack, tall = false, children }: { title: string; at: string; onDismiss: () => void; onBack?: () => void; tall?: boolean; children: ComponentChildren }) {
   const phone = usePhone();
-  const dock = useDock(!phone, tall);
+  const big = wide.value;
+  const dock = useDock(!phone, tall || big);
   const id = useId();
   const box = useRef<HTMLDivElement>(null);
   const head = useRef<HTMLHeadingElement>(null);
@@ -151,19 +155,43 @@ export function Shell({ title, at, onDismiss, tall = false, children }: { title:
       }
     : {};
 
-  const place = !phone && dock ? { top: `${dock.top}px`, width: `${dock.width}px` } : undefined;
+  const place = !phone && dock ? (big ? { top: `${dock.top}px` } : { top: `${dock.top}px`, width: `${dock.width}px` }) : undefined;
   return (
     <>
       {phone && <div class="xt-scrim" onClick={() => dismiss.current()} />}
-      <div ref={box} class={`xt-panel ${phone ? 'xt-sheet' : 'xt-dock'}`} style={place} role="dialog" aria-modal={phone ? 'true' : 'false'} aria-labelledby={id}>
+      <div ref={box} class={`xt-panel ${phone ? 'xt-sheet' : 'xt-dock'}${big ? ' xt-wide' : ''}`} style={place} role="dialog" aria-modal={phone ? 'true' : 'false'} aria-labelledby={id}>
         <header class="xt-head" {...swipe}>
           {phone && <span class="xt-grab" aria-hidden="true" />}
+          {onBack && (
+            <button type="button" class="xt-back" onClick={onBack} aria-label="Back">
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                <path d="M9 2 4 7l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <span>Back</span>
+            </button>
+          )}
           <div class="xt-titles">
             <h2 id={id} ref={head} tabIndex={-1}>
               {title}
             </h2>
             <p class="xt-at">{at}</p>
           </div>
+          <button
+            type="button"
+            class="xt-size"
+            onClick={() => (wide.value = !big)}
+            aria-pressed={big}
+            aria-label={big ? 'Make the panel smaller' : 'Fill the window'}
+            title={big ? 'Make the panel smaller' : 'Fill the window'}
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+              {big ? (
+                <path d="M5 1v4H1M9 1v4h4M5 13V9H1M9 13V9h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              ) : (
+                <path d="M1 5V1h4M13 5V1H9M1 9v4h4M13 9v4H9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              )}
+            </svg>
+          </button>
           <button type="button" class="xt-close" onClick={() => dismiss.current()} aria-label={`Close ${title}`}>
             <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
               <path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />

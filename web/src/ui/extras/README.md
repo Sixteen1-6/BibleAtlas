@@ -16,6 +16,7 @@ The design rule: simple for anyone who comes in, never overwhelming, with the po
 - Tapping a line (or its ›) opens its panel. Verse names inside a line are links that take the reader to that verse.
 - On phones (900 px wide or less) the panel is a bottom sheet over a dimmed page. On wider screens it is a side panel over the study column, widened into the reader's empty margin so two passages fit side by side.
 - Escape, Back (and the phone's back gesture), the × button, a tap outside (phones) and a swipe down (phones) close it. Focus moves into the panel and back to the line.
+- A verse named inside a panel (a link in its words, a passage's name, which is the `navigate` a Panel is given) opens a look at that passage inside the panel, with Back in the header; the browser's Back and a phone's back gesture step back through looks too, and "Read ... in the Bible" takes the reader there (`peek.ts`, `Peek.tsx`). The size button lets the panel fill the window, remembered in `atlas.panelWide`.
 - The open panel is part of the link: `#v=Matt.3.3&tab=connections&x=quotes`. A chapter panel is `&x=quotes.chapter`.
 - An extra may also add one line under the chapter heading (`chapterNote`), with its own panel (`ChapterPanel`).
 
