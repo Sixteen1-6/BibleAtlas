@@ -6,6 +6,7 @@ import { atLeast } from '../depth';
 import * as S from '../state';
 import { GoDeeper } from './Depth';
 import { LayeredPassages, LayersCard } from './Layers';
+import { DevicesCard } from './extras/structure/DevicesCard';
 import { NOT_LOADED, OMITTED, OrigLine, Provenance, RootChip, Snippet, sharedRoots, useVerseLoad, useVerseRow } from './common';
 import { openStarter } from './Welcome';
 import { VerseThemesLine } from './VerseThemes';
@@ -135,6 +136,7 @@ export function Connections({ a }: { a: Atlas }) {
       {/* Phones only: the reader's extras line with the themes is on the other pane. */}
       <VerseThemesLine a={a} v={v} class="vt-phone" onOpen={() => (S.tab.value = 'themes')} />
       <LayersCard a={a} v={v} />
+      <DevicesCard a={a} v={v} />
       {!none && <p class="muted linkfacts">
         Linked to {linked.toLocaleString()} {linked === 1 ? 'passage' : 'passages'}
         {study && (

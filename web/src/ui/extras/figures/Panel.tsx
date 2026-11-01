@@ -340,7 +340,8 @@ function saveOpen(s: Set<string>): void {
   }
 }
 
-function Writers({ note }: { note: Note }) {
+/** Who names it, each in his own words; shared with the structure extra. */
+export function Writers({ note }: { note: Pick<Note, 'id' | 'cites' | 'limit' | 'evidence'> }) {
   const [open, setOpen] = useState<Set<string>>(openSet);
   const with_ = quoted(note);
   const toggle = (k: string) => {

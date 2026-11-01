@@ -33,6 +33,7 @@ mod loaded;
 mod extra_hard_verses;
 mod extra_figures;
 mod extra_customs;
+mod extra_structure;
 mod lxx;
 mod naves;
 mod parse;
