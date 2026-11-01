@@ -38,6 +38,7 @@ mod extra_prophecies;
 mod lxx;
 mod naves;
 mod parse;
+mod poetry;
 mod query;
 mod extra_translations;
 mod shelf;
