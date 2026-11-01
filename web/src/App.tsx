@@ -68,6 +68,21 @@ function Sources(props: ComponentProps<SourcesType>) {
 const FIRST_VERSE = 'Isa.53.5';
 
 const THEME_NEXT = { system: 'light', light: 'dark', dark: 'system' } as const;
+const THEME_NAME = { system: 'Match device', light: 'Light', dark: 'Dark' } as const;
+/** The map switch: a small arc over a line, as the map draws them. */
+const MAP_ICON = (
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M2 12a6 6 0 0 1 12 0M5 12a3 3 0 0 1 6 0" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M1 13.5h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+  </svg>
+);
+const DOTS_ICON = (
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <circle cx="3" cy="8" r="1.5" fill="currentColor" />
+    <circle cx="8" cy="8" r="1.5" fill="currentColor" />
+    <circle cx="13" cy="8" r="1.5" fill="currentColor" />
+  </svg>
+);
 const THEME_ICON = {
   system: (
     <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -157,12 +172,23 @@ export function App() {
     if (row && on && (on.offsetLeft < row.scrollLeft || on.offsetLeft + on.offsetWidth > row.scrollLeft + row.clientWidth)) row.scrollLeft = on.offsetLeft - 10;
   }, [tabNow]);
 
+  // The phone's view menu closes on any tap outside it.
+  useEffect(() => {
+    const away = (e: PointerEvent) => {
+      if (S.viewMenu.peek() && !(e.target as HTMLElement)?.closest?.('.viewopts, .optsbtn')) S.viewMenu.value = false;
+    };
+    window.addEventListener('pointerdown', away);
+    return () => window.removeEventListener('pointerdown', away);
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const typing = (e.target as HTMLElement)?.closest?.('input, textarea');
       if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
         e.preventDefault();
         S.paletteOpen.value = true;
+      } else if (e.key === 'Escape' && S.viewMenu.value) {
+        S.viewMenu.value = false;
       } else if (e.key === 'Escape' && !S.paletteOpen.value) {
         S.clearAll();
       }
@@ -198,7 +224,7 @@ export function App() {
   const tab = atLeast(TAB_DEPTH[S.tab.value]) || asked ? S.tab.value : 'connections';
   const wheel = S.mapMode.value === 'wheel' && atLeast('study');
   return (
-    <div class="app">
+    <div class="app" data-map={S.mapShown.value}>
       <header class="topbar">
         <div class="brand">
           Bible Atlas<small>{a.meta.counts.crossReferences.toLocaleString()} links · Hebrew, Aramaic and Greek</small>
@@ -208,33 +234,56 @@ export function App() {
         </button>
         <span class="spacer" />
         <DepthControl />
-        <div class="seg trseg" role="group" aria-label="English translation">
-          {VERSIONS.map((t) => (
-            <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)} title={VERSION_NAME[t]}>
-              {t}
-            </button>
-          ))}
-        </div>
         <button
-          class="iconbtn"
-          onClick={() => (S.pageTheme.value = THEME_NEXT[S.pageTheme.value])}
-          title={`Theme: ${S.pageTheme.value}. Click to change.`}
-          aria-label={`Page theme: ${S.pageTheme.value}`}
+          class="iconbtn maptoggle"
+          aria-pressed={S.mapShown.value === 'show'}
+          onClick={() => (S.mapShown.value = S.mapShown.value === 'show' ? 'hide' : 'show')}
+          title={S.mapShown.value === 'show' ? 'Hide the map to give the text more room' : 'Show the map'}
         >
-          {THEME_ICON[S.pageTheme.value]}
+          {MAP_ICON}
+          <span class="long">{S.mapShown.value === 'show' ? 'Hide map' : 'Show map'}</span>
+          <span class="short">Map</span>
         </button>
-        {atLeast('study') && (
-          <div class="seg mapstyle" role="group" aria-label="Map style">
-            <button aria-pressed={!wheel} onClick={() => (S.mapMode.value = 'arcs')}>
-              Arcs
-            </button>
-            <button aria-pressed={wheel} onClick={() => (S.mapMode.value = 'wheel')}>
-              Wheel
-            </button>
+        <button
+          class="iconbtn optsbtn"
+          aria-expanded={S.viewMenu.value}
+          aria-controls="viewopts"
+          onClick={() => (S.viewMenu.value = !S.viewMenu.value)}
+          title="Translation, light or dark, map style"
+          aria-label="View options"
+        >
+          {DOTS_ICON}
+        </button>
+        <div class="viewopts" id="viewopts" data-open={S.viewMenu.value}>
+          <div class="seg trseg" role="group" aria-label="English translation">
+            {VERSIONS.map((t) => (
+              <button key={t} aria-pressed={S.translation.value === t} onClick={() => (S.translation.value = t)} title={VERSION_NAME[t]}>
+                {t}
+              </button>
+            ))}
           </div>
-        )}
+          <button
+            class="iconbtn themebtn"
+            onClick={() => (S.pageTheme.value = THEME_NEXT[S.pageTheme.value])}
+            title={`Theme: ${S.pageTheme.value}. Click to change.`}
+            aria-label={`Page theme: ${S.pageTheme.value}`}
+          >
+            {THEME_ICON[S.pageTheme.value]}
+            <span class="optlabel">{THEME_NAME[S.pageTheme.value]}</span>
+          </button>
+          {atLeast('study') && (
+            <div class="seg mapstyle" role="group" aria-label="Map style">
+              <button aria-pressed={!wheel} onClick={() => (S.mapMode.value = 'arcs')}>
+                Arcs
+              </button>
+              <button aria-pressed={wheel} onClick={() => (S.mapMode.value = 'wheel')}>
+                Wheel
+              </button>
+            </div>
+          )}
+        </div>
       </header>
-      {!wheel ? (
+      {S.mapShown.value === 'hide' ? null : !wheel ? (
         <AtlasMap a={a} />
       ) : (
         <div class="map">
