@@ -1,0 +1,39 @@
+{
+  "notes": [
+    {
+      "id": "2-samuel-18-33-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "2 Samuel 18:33",
+      "strength": "commonly held",
+      "short": "“My son, my son”: grief in repeated words",
+      "about": "When David hears that Absalom is dead, he cries out “my son” again and again, with his son's name. The repeated words show how strong his grief was for the son who had risen against him.",
+      "figure": {
+        "name": "Epizeuxis",
+        "ref": "2 Samuel 18:33",
+        "words": "My son, my son Absalom",
+        "means": "the force of David's grief for his son"
+      },
+      "evidence": "Bullinger lists the verse under Epizeuxis in Figures of Speech and says the figure stresses the force of David's grief. Jamieson (Jamieson, Fausset and Brown) sees the strength of David's love for his son breaking out in the many repeated, mournful cries.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Samuel 18:33",
+          "at": "Epizeuxis, or Duplication, p. 193",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/193/mode/1up",
+          "quote": "Here the figure emphasizes the vehemence of David’s grief.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Samuel 18:24-33",
+          "quote": "it is impossible not to sympathize with the outburst of feeling by which David showed that all thoughts of the victory he had won as a king were completely sunk in the painful loss he had sustained as a father. The extraordinary ardor and strength of his affection for this worthless son break out in the redundancy and vehemence of his mournful ejaculations.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

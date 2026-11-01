@@ -1,0 +1,289 @@
+{
+  "notes": [
+    {
+      "id": "luke-10-41-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "Luke 10:41",
+      "strength": "widely agreed",
+      "short": "“Martha, Martha”: her name said twice, in earnest",
+      "about": "When Martha asks the Lord to send Mary to help her, He answers by saying her name twice. The doubled name is emphatic: it calls attention to her and to what He says next, about her worry over many things. It can also voice His tender care for her as He gently corrects her.",
+      "figure": {
+        "name": "Epizeuxis",
+        "part": "Used by God to men",
+        "ref": "Luke 10:41",
+        "words": "Martha, Martha",
+        "means": "an earnest, emphatic call to Martha, which can also voice His care for her"
+      },
+      "evidence": "Bullinger lists the verse among the doubled names in Figures of Speech, where the figure draws special attention to the person and the words. Henry says the Lord repeated her name as one in earnest, concerned for her good. Brown (Jamieson, Fausset and Brown) calls it an emphatic doubling. Plumptre (Ellicott) finds special tenderness in the reproof it carries.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 10:41",
+          "at": "Epizeuxis, or Duplication, p. 190",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/190/mode/1up",
+          "quote": "Seven of these are used by God to man (four of which are in the Old Testament, and three in the New), the other three being used under other circumstances. When thus used, the figure calls special attention to the occasion or to the person, and to some solemn moment of importance in the action, or of significance in the words. ... Martha, Martha (Luk 10:41).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 10:41",
+          "quote": "When he reproved her, he called her by her name, Martha; for reproofs are then most likely to do good when they are particular, applied to particular persons and cases, as Nathan's to David, Thou art the man. He repeated her name, Martha, Martha; he speaks as one in earnest, and deeply concerned for her welfare.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 10:41",
+          "quote": "emphatically redoubling upon the name.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 10:41",
+          "quote": "We note a special tenderness of reproof in the two-fold utterance of the name",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-10-41-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Luke 10:41-42",
+      "strength": "widely agreed",
+      "short": "Side by side: Martha serves, Mary listens",
+      "about": "Luke sets the two sisters side by side. Martha welcomes Jesus and works hard to serve Him, but is worried and upset; Mary sits at His feet and listens. Jesus does not fault Martha’s welcome, but says Mary has chosen the good portion.",
+      "sides": [
+        {
+          "who": "Martha",
+          "label": "Serves Him, but is anxious",
+          "ref": "Luke 10:38-41",
+          "words": "you are worried and upset about many things"
+        },
+        {
+          "who": "Mary",
+          "label": "Sits at His feet and listens",
+          "ref": "Luke 10:39-42",
+          "words": "Mary has chosen the good portion"
+        }
+      ],
+      "refs": [
+        "John 11:5"
+      ],
+      "evidence": "Henry says Martha’s work was good in its season, yet Christ blamed her for not doing as Mary did. Brown (Jamieson, Fausset and Brown) calls both true-hearted disciples, in the higher and the lower of two ways of honouring the Lord. Clarke: she erred only through love for the Lord; Martha was well employed, Mary better. Augustine, in the Catena Aurea of Thomas Aquinas: not a bad part, but a better.",
+      "limit": "Martha is not set aside: her care came from love for the Lord, her work was good in its place, and John 11:5 says Jesus loved her. The writers differ on how far her anxious care was at fault.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 10:38-42",
+          "quote": "Martha's care and work were good in their proper season and place; but now she had something else to do, which was unspeakably more needful, and therefore should be done first, and most minded. She expected Christ to have blamed Mary for not doing as she did, but he blamed her for not doing as Mary did",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 10:42",
+          "quote": "Both were true-hearted disciples, but the one was absorbed in the higher, the other in the lower of two ways of honoring their common Lord. Yet neither despised, or would willingly neglect, the other's occupation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 10:42",
+          "quote": "Through her affectionate respect for our Lord and his disciples, and through that alone, she erred. There is not the slightest intimation that she was either worldly-minded or careless about her soul ... The utmost that can be said on the subject is, Martha was well employed, but Mary, on this occasion, better.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 10:38-42",
+          "at": "Augustine, Sermon 104",
+          "url": "https://www.ecatholic2000.com/catena/untitled-71.shtml",
+          "quote": "Our Lord then does not blame the actions, but distinguishes between the duties. For it follows, Mary hath chosen that good part, &c. Not thine a bad one, but hers a better.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-13-no-ands",
+      "kind": "figure",
+      "form": "no-ands",
+      "ref": "Luke 14:13",
+      "strength": "some interpreters",
+      "short": "Four kinds of guests, named with no “and” in Greek",
+      "about": "Jesus names four kinds of guests. In Luke's Greek no “and” joins them (the BSB adds one before the last), so the list hurries on to the promise: “and you will be blessed.” When the master sends for the same four in 14:21, the Greek puts an “and” before each.",
+      "refs": [
+        "Luke 14:14",
+        "Luke 14:21"
+      ],
+      "figure": {
+        "name": "Asyndeton",
+        "ref": "Luke 14:13",
+        "words": "the poor, the crippled, the lame, and the blind",
+        "means": "four kinds of guests passed over quickly, to reach the blessing promised in the next verse"
+      },
+      "original": {
+        "note": "In Luke's Greek the four words in 14:13 stand side by side with no “and”; in 14:21 kai, “and”, comes before each of them.",
+        "strong": [
+          "G4434",
+          "G0376",
+          "G5560",
+          "G5185",
+          "G2532"
+        ]
+      },
+      "evidence": "Bullinger illustrates both figures with this pair, at the head of Polysyndeton: in verse 13 the four classes are named without “and”, so we are hastened on to the weighty conclusion, the blessing; in verse 21 an “and” before each detains us at every step.",
+      "limit": "The figure is in the Greek wording, which the BSB smooths: it adds an “and” before the last name in 14:13, and in 14:21 has only two where the Greek has four.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 14:13",
+          "at": "Polysyndeton, or Many-Ands, p. 209",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/209/mode/1up",
+          "quote": "In verse 13, we have Asyndeton (no-ands): and in verse 21, Polysyndeton (many-ands). In the former case (Asyndeton) … we are hastened on to the important and weighty conclusion … we are hurried over the enumeration of these classes to be told of this blessing. … by the use of this figure of Polysyndeton in verse 21, we are not hurried on to any climax at the end, but we are detained at each step",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-26-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "Luke 14:26",
+      "strength": "widely agreed",
+      "short": "“Hate” here means to love them less than Christ",
+      "about": "Jesus does not tell His followers to hate their families. The strong word says more than is meant literally: read with Matthew 10:37, it means loving father, mother and all the rest, even one's own life, less than Him. He must come first.",
+      "refs": [
+        "Matthew 10:37",
+        "Genesis 29:31"
+      ],
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "Luke 14:26",
+        "words": "hate",
+        "means": "to love them less than Christ, so that He comes before family and even one's own life"
+      },
+      "evidence": "Bullinger lists the verse under Hyperbole: not to hate them is not to esteem them less than Christ. Henry says a disciple must comparatively hate his relations, loving them less than Christ, as Leah is said to be hated when Rachel was loved more. Clarke and Calvin read it by Matthew 10:37, Calvin noting that Luke's word is harsher but the meaning the same.",
+      "limit": "The word allows no ill will toward family and no neglect of duty to them. It sets the order of love, so that where their claims, or love of one's own life, stand against Christ, He comes first.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 14:26",
+          "at": "Hyperbole, or Exaggeration, p. 426",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/426/mode/1up",
+          "quote": "“If any man come to me and hate not his father and mother”: i.e., does not esteem them less than me. So the verb to hate is used",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 14:25-35",
+          "quote": "Every good man loves his relations; and yet, if he be a disciple of Christ, he must comparatively hate them, must love them less than Christ, as Leah is said to be hated when Rachel was better loved. Not that their persons must be in any degree hated",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 14:26",
+          "quote": "Matthew, Mat 10:37, expresses the true meaning of this word, when he says, He who loveth his father and mother More than me.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 10:37",
+          "quote": "He does not indeed enjoin us to lay aside human affections, or forbid us to discharge the duties of relationship ... The phrase employed by Luke is more harsh, if any man doth not hate his father and mother, but the meaning is the same",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-15-20-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Luke 15:20",
+      "strength": "commonly held",
+      "short": "The son comes home; the father runs to meet him",
+      "about": "The son comes home, and nothing is said of haste; while he is still far off, his father sees him and runs to meet him. The two are set side by side, and the father's running shows how ready God is to receive a sinner who returns.",
+      "sides": [
+        {
+          "who": "The son",
+          "label": "Comes home, in no haste",
+          "ref": "Luke 15:20-21",
+          "words": "So he got up and went to his father."
+        },
+        {
+          "who": "Father",
+          "label": "Runs to meet him",
+          "ref": "Luke 15:20-21",
+          "words": "He ran to his son, embraced him, and kissed him."
+        }
+      ],
+      "evidence": "Barnes says the father's running is opposed to the way the son came: the son came slowly, the father ran; he reads the welcome as showing God's readiness to pity and pardon returning sinners. Henry likewise sets the son, coming slowly under shame and fear, beside the father who ran to meet him, and reads it as showing how quick God is to show mercy.",
+      "limit": "The verse does not say the son came slowly; the writers read it so, from his shame. He is not faulted for it: he is coming home to confess his sin (verse 21).",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Luke 15:20",
+          "quote": "And ran - This is opposed to the manner in which the son came. The beauty of the picture is greatly heightened by these circumstances. The son came slowly - the father \"ran.\" ... This is evidently designed to denote the \"readiness of God\" to pity and pardon returning sinners.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 15:11-32",
+          "quote": "He ran. This denotes how swift God is to show mercy. The prodigal son came slowly, under a burden of shame and fear; but the tender father ran to meet him with his encouragements.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-15-20-many-ands",
+      "kind": "figure",
+      "form": "many-ands",
+      "ref": "Luke 15:20",
+      "strength": "some interpreters",
+      "short": "The father's welcome, told act by act with “and”",
+      "about": "The father's welcome is told act by act: he sees his son, is filled with compassion, runs, embraces him and kisses him. Told with “and” again and again, each act is weighed on its own, and together they show the fulness of God's grace to a sinner who returns.",
+      "figure": {
+        "name": "Polysyndeton",
+        "ref": "Luke 15:20",
+        "words": "his father saw him and was filled with compassion. He ran to his son, embraced him, and kissed him.",
+        "means": "each act of the father's welcome, weighed on its own, showing the fulness of God's grace to the sinner who returns"
+      },
+      "original": {
+        "note": "In Luke's Greek kai, and, links the father's acts more often than the BSB shows.",
+        "strong": [
+          "G2532"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Polysyndeton: the five acts of the father, joined by and, are to be dwelt on one by one, and together they show how full God's grace is in welcoming the lost sinner. He adds that they do not build to a climax.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 15:20",
+          "at": "Polysyndeton, or Many-Ands, p. 222",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/222/mode/1up",
+          "quote": "five particulars give the fulness of Divine grace in receiving the lost sinner ... There is no climax; but we are asked to dwell separately on these five aspects of grace",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

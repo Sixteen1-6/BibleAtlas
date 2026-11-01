@@ -1,0 +1,170 @@
+{
+  "notes": [
+    {
+      "id": "judges-9-6-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Judges 9:6",
+      "strength": "commonly held",
+      "short": "Gideon would not rule; Abimelech sought the crown",
+      "about": "The leaders of Shechem make Abimelech king. His father Gideon had turned that rule down: “I will not rule over you, nor will my son. The LORD shall rule over you.” The son, with no call from God, takes for himself the rule his father refused, and gains it by murdering his brothers.",
+      "sides": [
+        {
+          "who": "Abimelech",
+          "label": "Seeks the crown, and takes it",
+          "ref": "Judges 9:1-6",
+          "words": "proceeded to make Abimelech their king"
+        },
+        {
+          "who": "Gideon",
+          "label": "Refuses to rule",
+          "ref": "Judges 8:22-23",
+          "words": "I will not rule over you, nor will my son."
+        }
+      ],
+      "refs": [
+        "Judges 8:27"
+      ],
+      "evidence": "Matthew Henry: Abimelech set out to take his father's place directly against his father's will, since Gideon had said no son of his should rule, and he had no call from God as his father had, only his own ambition. F. W. Farrar (Ellicott's Commentary), on the crowning: Abimelech was the first Israelite to bear the name of king, while Gideon had refused the title of king and even of ruler.",
+      "limit": "The contrast is in how each stood toward the crown, not in the whole of Gideon's life: his gold ephod “became a snare to Gideon and his household.”",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Judges 9:1-6",
+          "quote": "nothing will serve his proud spirit but he will succeed him in the government of Israel, directly contrary to his father's will, for he had declared no son of his should rule over them. He had no call from God to this honour as his father had",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Judges 9:6",
+          "quote": "He was the first Israelite who ever bore that name. ... Gideon had not only refused the title of king (melek), but even the title of ruler (Jdg 8:23).",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-10-14-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "Judges 10:14",
+      "strength": "commonly held",
+      "short": "“Let them save you”: the LORD's irony",
+      "about": "When Israel cries out, the LORD tells them to cry to the gods they have chosen and let those gods save them. Those gods could neither hear nor save, so the words expose the folly of serving them. Israel then put away the foreign gods (verse 16).",
+      "refs": [
+        "Judges 10:16"
+      ],
+      "figure": {
+        "name": "Irony",
+        "part": "Divine Irony",
+        "ref": "Judges 10:14",
+        "words": "Let them save you",
+        "means": "that the gods they had chosen could neither hear them nor save them"
+      },
+      "evidence": "Bullinger lists the verse under irony spoken by God: those gods could neither hear nor deliver. Henry says the LORD lets Israel see their folly in serving gods that could not help them when they most needed help, bidding them try what those gods can do for them now, to stir them to true repentance.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 10:14",
+          "at": "Eironeia, or Irony: Divine Irony, p. 808",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/808/mode/1up",
+          "quote": "This was Divine Sarcasm, for those gods could neither hear nor deliver.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Judges 10:10-18",
+          "quote": "To awaken them to a thorough repentance and reformation, he lets them see, (1.) Their folly in serving Baalim. They had been at a vast expense to obtain the favour of such gods as could not help them when they had most need of their help: \"Go, and cry unto the gods which you have chosen ... try what they can do for you now.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-3-24-euphemism",
+      "kind": "figure",
+      "form": "euphemism",
+      "ref": "Judges 3:24",
+      "strength": "widely agreed",
+      "short": "“Relieving himself” renders a modest Hebrew phrase",
+      "about": "Finding the doors locked, Eglon's servants suppose their king is relieving himself. The Hebrew says this modestly: literally, he is covering his feet, probably because a man's long garments fell over his feet as he stooped. The same phrase is used of Saul in the cave (1 Samuel 24:3).",
+      "refs": [
+        "1 Samuel 24:3"
+      ],
+      "figure": {
+        "name": "Euphemism",
+        "ref": "Judges 3:24",
+        "words": "relieving himself",
+        "means": "easing nature, said modestly; the Hebrew is literally covering his feet"
+      },
+      "original": {
+        "note": "In Hebrew the phrase is literally covering (sakak) his feet (regel).",
+        "strong": [
+          "H5526",
+          "H7272"
+        ]
+      },
+      "evidence": "Bullinger says covering the feet is put for a duty of nature, because the garments fell over the feet as a man stooped, and calls it Euphemy. Keil (Keil and Delitzsch) calls the phrase a euphemism for the necessities of nature, and F. W. Farrar (Ellicott) calls it an Eastern euphemism. Keil points to 1 Samuel 24:3.",
+      "limit": "Some read the Hebrew phrase instead as lying down to sleep with the feet covered, which would also explain why the servants waited so long (verse 25).",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 3:24",
+          "at": "Metonymy of the Adjunct, p. 607",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/607/mode/1up",
+          "quote": "To cover the feet is put for performing a duty of nature, because when stooping the garments fell over the feet. This is a beautiful example of Euphemy",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Judges 3:24",
+          "quote": "they thought \"surely (אך, lit. only, nothing but) he covers his feet\" (a euphemism for performing the necessities of nature; cf. Sa1 24:3 )",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Judges 3:24",
+          "quote": "It is an Eastern euphemism taken from spreading out the garments while relieving the needs of nature",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-5-27-no-ands",
+      "kind": "figure",
+      "form": "no-ands",
+      "ref": "Judges 5:27",
+      "strength": "some interpreters",
+      "short": "Sisera's fall, told with no “and”",
+      "about": "Sisera's fall is told in short clauses with no “and” between them: he collapsed, he fell, there he lay still. The words do not stop over each movement but hurry on to the end of the verse, where he fell dead.",
+      "figure": {
+        "name": "Asyndeton",
+        "ref": "Judges 5:27",
+        "words": "At her feet he collapsed, he fell, there he lay still; at her feet he collapsed, he fell; where he collapsed, there he fell dead.",
+        "means": "the movements of his fall, set down with no “and”, hurrying on to the last words: he fell dead"
+      },
+      "evidence": "Bullinger lists Judges 5:27 among his examples of Asyndeton (no-ands), the figure in which the reader is hurried over the separate statements to the climax they lead up to.",
+      "limit": "The note claims only the missing “and”; the phrase repeated at the start of the clauses is a separate figure.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 5:27",
+          "at": "Asyndeton, or No-Ands, p. 137",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/137/mode/1up",
+          "quote": "When the figure Asyndeton is used, we are not detained over the separate statements ... but we are hurried on over the various matters that are mentioned, as though they were of no account, in comparison with the great climax to which they lead up ... At her feet he bowed ... where he bowed, there he fell down dead.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}
