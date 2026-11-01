@@ -116,8 +116,15 @@ Some sites file a work under one name although other men wrote it. Each citation
 | The church fathers | Each citation names the writer and the work | By work or volume; shown with each citation and on the Sources shelf | New Advent | Public domain; linked, never copied |
 | The Catena Aurea | Thomas Aquinas gathered it; each citation names the father who wrote the words (Rabanus Maurus on Matthew 1:1) | 1260s; this translation 1841 to 1845 | the Christian Classics Ethereal Library | Public domain; linked, never copied |
 | Alfred Edersheim | Alfred Edersheim | second edition, 1884 | the Christian Classics Ethereal Library | Public domain; linked, never copied |
+| Lowth's Lectures on the Sacred Poetry of the Hebrews | Robert Lowth, in George Gregory's translation | 1787 | archive.org | Public domain; linked, never copied |
+| Jebb's Sacred Literature | John Jebb | 1820 | archive.org | Public domain; linked, never copied |
+| Thomas Boys (Tactica Sacra; A Key to the Book of Psalms) | Thomas Boys | 1824 and 1825 | archive.org | Public domain; linked, never copied |
+| John Forbes (The Symmetrical Structure of Scripture; Analytical Commentary on Romans) | John Forbes | 1854 and 1868 | archive.org | Public domain; linked, never copied |
+| Horne's Introduction to the Holy Scriptures | Thomas Hartwell Horne | fourth edition, 1823 (first published 1818) | archive.org | Public domain; linked, never copied |
+| Tropologia | Book I: Thomas De Laune; Books II and III: Benjamin Keach | 1681 | the Text Creation Partnership's keyboarded text (CC0) | Public domain; linked, never copied |
+| Augustine in the Nicene and Post-Nicene Fathers | Augustine (City of God, translated by Marcus Dods; Expositions on the Psalms, translated by J. E. Tweed) | 1887 and 1888 (these translations) | the Christian Classics Ethereal Library | Public domain; linked, never copied |
 
-Modern writers (journal articles, ministry articles and study-Bible notes) are copyrighted: each citation names the writer and links the page, and the app copies nothing from it.
+Modern writers (journal articles, ministry articles, study-Bible notes, and the sermons of John MacArthur and Timothy Keller) are copyrighted: each citation names the writer and links the page, and the app copies nothing from it.
 
 A contributor's cited passages are judged on their own words: a passage that denies Scripture is left out, and a contributor is dropped entirely only when he denies Scripture in the passages the app would cite. A. S. Aglen, who wrote the Psalms, the Song of Solomon, Obadiah and Jonah in Ellicott's Commentary, is no longer cited. The passages left out are listed under denies in config/layer-sources.json, each until the founder makes it final (the founder's decision 23(5)); passages left with too few writers wait in docs/held/.
 
@@ -133,6 +140,7 @@ Who wrote each book of the many-handed sets, as config/layer-sources.json gives 
 - **Matthew Poole's Commentary**: Genesis to Song of Solomon: Matthew Poole; Isaiah 1 to 58: Matthew Poole; Isaiah 59 to 66: a continuator of Matthew Poole's Annotations whose name is not printed; Romans: Richard Mayo (attributed); Jeremiah to Acts and 1 Corinthians to Revelation: a continuator of Matthew Poole's Annotations whose name is not printed.
 - **Wesley's Notes**: Genesis to Malachi: John Wesley; Matthew to Revelation: John Wesley.
 - **Geneva Study Bible**: Genesis to Malachi: the English Protestant exiles at Geneva; Matthew to Jude: Theodore Beza, Joachim Camerarius and Pierre Loiseleur de Villiers; Revelation: Franciscus Junius.
+- **Treasury of David**: Psalms 1 to 26: C. H. Spurgeon; Psalms 27 to 52: C. H. Spurgeon; Psalms 53 to 78: C. H. Spurgeon; Psalms 79 to 103: C. H. Spurgeon; Psalms 104 to 118: C. H. Spurgeon; Psalms 119 to 150: C. H. Spurgeon.
 
 ## ESV
 
