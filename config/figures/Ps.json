@@ -65,6 +65,638 @@
           "retrieved": "2026-10-22"
         }
       ]
+    },
+    {
+      "id": "psalm-1-3-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 1:3",
+      "strength": "widely agreed",
+      "short": "The godly man is “like a tree planted”",
+      "about": "The man who delights in the LORD's law is said to be like a tree planted by streams of water. It is set in place and watered, not left to grow wild, so it bears fruit in season and its leaf stays green. Verse 4 gives the opposite picture: chaff.",
+      "refs": [
+        "Psalm 1:4"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 1:3",
+        "words": "like a tree planted by streams of water",
+        "means": "the man who meditates on God's word: rooted, fed by it, fruitful and lasting"
+      },
+      "original": {
+        "note": "In Hebrew “streams” is peleg, from a root meaning to divide: channels or brooks that carry water.",
+        "strong": [
+          "H6388"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Simile: the man who meditates in God's word is planted and protected like a tree in a garden. Henry calls it a similitude, the rivers being the means of grace; Barnes, a beautiful image of a tree set out with care where its roots have water; Delitzsch says God's word is to that man what the brook is to the tree.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 1:3",
+          "at": "Simile, or Resemblance, p. 727",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/727/mode/1up",
+          "quote": "Here, the similitude tells us that the man who meditates in God’s word is planted and protected, just as a tree in a garden is cared for as a “tree of the field” is not.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 1:1-3",
+          "quote": "His blessedness is here illustrated by a similitude ... He shall be like a tree, fruitful and flourishing. ... That he is placed by the means of grace, here called the rivers of water",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 1:3",
+          "quote": "This is presented in the form of a very beautiful image - a tree planted where its roots would have abundance of water. ... It is not a tree that springs up spontaneously, but one that is set out in a favorable place, and that is cultivated with care. ... properly means divisions; and then, channels, canals, trenches, branching-cuts, brooks.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 1:1-3",
+          "quote": "What a richly flowing brook is to the tree that is planted on its bank, such is the word of God to him who devotes himself to it",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-1-4-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 1:4",
+      "strength": "widely agreed",
+      "short": "The wicked are “like chaff driven off by the wind”",
+      "about": "The wicked are likened to chaff, the light husk the wind blows away when grain is winnowed. Set against the planted tree of verse 3, the picture shows them without root or fruit, of no worth, and soon swept away.",
+      "refs": [
+        "Psalm 1:3"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 1:4",
+        "words": "like chaff driven off by the wind",
+        "means": "the wicked: without root or fruit, worthless, and soon gone"
+      },
+      "evidence": "Bullinger lists the verse under Simile and calls the contrast between the driven chaff and the planted tree most striking and solemn. Barnes says the winnowed chaff pictures the worthlessness of the wicked; Delitzsch: without root below or fruit above, worthless and unstable; Henry: of no worth in God's account, with no solidity.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 1:4",
+          "at": "Simile, or Resemblance, p. 727",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/727/mode/1up",
+          "quote": "The contrast between the driven chaff and the “planted” tree is most striking and solemn. The two comparisons are the great features of the Psalm",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 1:4",
+          "quote": "This very naturally and appropriately furnished an illustration of the destiny of the wicked. Compared with the righteous, they were like the worthless chaff driven away by the wind. ... The idea thus suggested, therefore, is that of intrinsic worthlessness.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 1:4",
+          "quote": "are the opposite of a tree planted by the water-courses ... without root below, without fruit above, devoid of all the vigour and freshness of life ... thus utterly worthless and unstable.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 1:4-6",
+          "quote": "whereas the righteous are like valuable, useful, fruitful trees, they are like the chaff which the wind drives away ... They are like chaff, of no worth at all in God's account, how highly soever they may value themselves. ... They are light and vain; they have no substance in them, no solidity",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-2-4-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Psalm 2:4",
+      "strength": "widely agreed",
+      "short": "The Lord “laughs”: His scorn told in human terms",
+      "about": "The One enthroned in heaven laughs at the rulers who plot against the LORD and His Anointed. Laughter is spoken of God in human terms, to show His contempt for their vain plans. It can also show His calm as He carries out His own. Psalm 37:13 speaks of His laughter in the same way.",
+      "refs": [
+        "Psalm 2:2",
+        "Psalm 37:13"
+      ],
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Actions",
+        "ref": "Psalm 2:4",
+        "words": "laughs",
+        "means": "God's contempt for the rulers' vain plotting against Him and His Anointed"
+      },
+      "evidence": "Bullinger lists the verse under Anthropopatheia, among the human actions spoken of God, as laughing. Clarke calls the words spoken after the manner of men, for utter contempt of their efforts; Barnes says the same, and that God goes calmly on with His purposes and looks on their efforts with contempt; Fausset (Jamieson, Fausset and Brown) calls it a bold figure, the laughter of supreme contempt.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 2:4",
+          "at": "Anthropopatheia, Human Actions: Laughing, p. 887",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/887/mode/1up",
+          "quote": "Laughing. ... “He that sitteth in the heavens shall laugh: the Lord ... shall have them in derision.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 2:4",
+          "quote": "Shall laugh. Words spoken after the manner of men; shall utterly contemn their puny efforts; shall beat down their pride, assuage their malice, and confound their devices.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 2:4",
+          "quote": "Will smile at their vain attempts; will not be disturbed or agitated by their efforts; will go calmly on in the execution of his purposes. ... This is, of course, to be regarded as spoken after the manner of men ... There is included also the idea that he will look with contempt on their vain and futile efforts.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 2:4",
+          "quote": "By a figure whose boldness is only allowable to an inspired writer, God's conduct and language in view of this opposition are now related. ... shall laugh--in supreme contempt; their vain rage excites His derision.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-8-3-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Psalm 8:3",
+      "strength": "widely agreed",
+      "short": "God's “fingers”: the heavens are His own handiwork",
+      "about": "David calls the heavens the work of God's fingers, speaking of God as a craftsman working with his hands. The picture shows the heavens as God's own direct work; it can also speak of the skill and the ease with which He made them.",
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Parts and Members of Man",
+        "ref": "Psalm 8:3",
+        "words": "the work of Your fingers",
+        "means": "God's own direct act in making the heavens, which can also speak of the skill and ease of His work"
+      },
+      "evidence": "Bullinger lists the verse under Anthropopatheia: a finger is given to God for the putting forth of His power to form, His own direct act. Albert Barnes says fingers may point to skill rather than strength. Henry says God made the heavens easily, with no outstretched arm, and with fine care, as an artist works with his fingers.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 8:3",
+          "at": "Anthropopatheia, or Condescension, p. 881",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/881/mode/1up",
+          "quote": "A Finger is attributed to God, to denote the putting forth of His formative power, and the direct and immediate act of God.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 8:3",
+          "quote": "The work of thy fingers - Which thy fingers have made. The fingers are the instruments by which we construct a piece of work - perhaps indicating skill rather than strength; and hence so used in respect to God, as it is by his skill that the heavens have been made.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 8:3-9",
+          "quote": "They are therefore his, because they are the work of his fingers. He made them; he made them easily. The stretching out of the heavens needed not any outstretched arm; it was done with a word; it was but the work of his fingers. He made them with very great curiosity and fineness, like a nice piece of work which the artist makes with his fingers.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-23-1-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Psalm 23:1",
+      "strength": "widely agreed",
+      "short": "The LORD pictured as a shepherd caring for his flock",
+      "about": "David calls the LORD his shepherd. The picture shows God’s care for His people: He feeds, leads and guards them as a shepherd does his flock, so they lack nothing they truly need. Jesus later says, “I am the good shepherd” (John 10:11).",
+      "refs": [
+        "John 10:11"
+      ],
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Psalm 23:1",
+        "words": "The LORD is my shepherd",
+        "means": "the LORD, who feeds, leads and guards His people as a shepherd does his sheep"
+      },
+      "evidence": "Bullinger lists the verse under Metaphor: the LORD is shown as a Shepherd who tends His people. Fausset (Jamieson, Fausset and Brown) calls it a metaphor from pastoral life for God’s care; Calvin, the similitude of a shepherd; Henry says David, once a shepherd, illustrates by it God’s care of His people; Barnes calls it a comparison that speaks of tender care and protection.",
+      "limit": "Some of the writers also see Christ in this Shepherd, pointing to John 10; the note claims only the picture of the LORD’s care.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 23:1",
+          "at": "Metaphor, or Representation, p. 737",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/737/mode/1up",
+          "quote": "Here, we have a Metaphor; and in it a great and blessed truth is set forth by the representation of Jehovah as a Shepherd. It is He who tends his People, and does more for them than any earthly shepherd does for his sheep",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 23:1",
+          "quote": "Under a metaphor borrowed from scenes of pastoral life, with which David was familiar, he describes God's providential care in providing refreshment, guidance, protection, and abundance",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 23:1-4",
+          "quote": "Under the similitude of a shepherd, he commends the care which God, in his providence, had exercised towards him. His language implies that God had no less care of him than a shepherd has of the sheep who are committed to his charge.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 23:1-6",
+          "quote": "Time was when David was himself a shepherd; ... so he knew by experience the cares and tender affections of a good shepherd towards his flock. ... By this therefore he illustrates God's care of his people",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 23:1",
+          "quote": "The comparison of the care which God extends over his people to that of a shepherd for his flock is one that would naturally occur to those who were accustomed to pastoral life. ... The idea which the language suggests is that of tender care; protection; particular attention to the young and the feeble",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-42-1-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 42:1",
+      "strength": "widely agreed",
+      "short": "As a deer longs for water, so the soul for God",
+      "about": "The psalmist likens his longing for God to a thirsty deer that pants for streams of water. The picture shows how strong his desire is to come before God again, as the next verse asks, “When shall I come and appear in God’s presence?”",
+      "refs": [
+        "Psalm 42:2"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 42:1",
+        "words": "As the deer pants for streams of water, so my soul longs after You",
+        "means": "the soul’s strong longing for God, like a thirsty deer’s longing for water"
+      },
+      "original": {
+        "note": "In Hebrew the same verb, arag, is used of the deer and of the soul; the BSB says “pants”, then “longs”. The deer longs for water below it, the soul for God above.",
+        "strong": [
+          "H6165",
+          "H5921",
+          "H0413"
+        ]
+      },
+      "evidence": "Bullinger lists the verse among the similes built on as and so. Delitzsch (Keil and Delitzsch) says the poet compares his soul’s thirst for God to a stag’s, the hind’s longing going down, the soul’s up. Henry: he compares it to the panting of a hart. Barnes calls it an image of the earnest longing of a soul after God; Clarke likens the spent hart to the psalmist panting for God.",
+      "limit": "Some writers picture the deer as hunted and spent; the verse itself speaks only of its longing for water.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 42:1",
+          "at": "Simile, or Resemblance: “As” and “So”, p. 732",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/732/mode/1up",
+          "quote": "The hart panting, and the soul longing (Psa 42:1 (2)).",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 42:1-5",
+          "quote": "The poet compares the thirsting of his soul after God to the thirsting of a stag. ... על and אל point to the difference in the object of the longing, viz., the hind has this object beneath herself, the soul above itself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 42:1-5",
+          "quote": "He compares it to the panting of a hart, or deer, which is naturally hot and dry, especially of a hunted buck, after the water-brooks. Thus earnestly does a gracious soul desire communion with God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 42:1",
+          "quote": "Nothing could more beautifully or appropriately describe the earnest longing of a soul after God, in the circumstances of the psalmist, than this image.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 42:1",
+          "quote": "The hart feels himself almost entirely spent; he is nearly hunted down; the dogs are in full pursuit; he is parched with thirst; and in a burning heat pants after the water ... Thus pursued, spent, and nearly ready to give up the ghost, the psalmist pants for God, for the living God!",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-56-8-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Psalm 56:8",
+      "strength": "widely agreed",
+      "short": "David's tears kept in God's book",
+      "about": "David says his tears are already in God's book. A book is a human thing spoken of God: it tells that He has noted every tear and will not forget them. The bottle beside it pictures the same care.",
+      "refs": [
+        "Malachi 3:16"
+      ],
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Circumstances attributed to God",
+        "ref": "Psalm 56:8",
+        "words": "Your book",
+        "means": "God's sure remembrance of David's tears, spoken of as a record He keeps"
+      },
+      "original": {
+        "note": "In Hebrew the last words, in Your book (sifrah), take up the first verb, taken account of (safar), so the verse ends where it began.",
+        "strong": [
+          "H5612",
+          "H5608"
+        ]
+      },
+      "evidence": "Bullinger lists this verse under Anthropopatheia, where a book is attributed to God. Delitzsch (Keil and Delitzsch) says the verse figuratively sets forth that God gathers His saints' tears as in a bottle and notes them as in a memorial (Malachi 3:16); he ties the last words to the first verb. Henry and Barnes read the book as God's book of remembrance: the tears are recorded, not forgotten.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 56:8",
+          "at": "Anthropopatheia, or Condescension, p. 893",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/893/mode/1up",
+          "quote": "A Book is attributed to God. … A Book of Life",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 56:8",
+          "quote": "the closing clause הלא בּספרתך unites with ספרתּה in the first member of the verse. … The fact thus figuratively set forth, viz., that God collects the tears of His saints as it were in a bottle, and notes them together with the things which call them forth as in a memorial (Mal 3:16)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 56:8",
+          "quote": "God has a bottle and a book for his people's tears, both those for their sins and those for their afflictions. … That he will remember them and review them, as we do the accounts we have booked.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 56:8",
+          "quote": "In thy book of remembrance; are they not numbered and recorded so that they will not be forgotten?",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-85-10-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Psalm 85:10",
+      "strength": "widely agreed",
+      "short": "“Righteousness and peace have kissed” like friends",
+      "about": "The psalm speaks of loving devotion, faithfulness, righteousness and peace as if they were persons. Two meet together and two kiss, as friends do. The picture shows them joined in full harmony, with none at odds with another.",
+      "refs": [
+        "Psalm 85:11"
+      ],
+      "figure": {
+        "name": "Personification",
+        "part": "Human Actions attributed to Things",
+        "ref": "Psalm 85:10",
+        "words": "Loving devotion and faithfulness have joined together; righteousness and peace have kissed",
+        "means": "these four, pictured as friends who meet and kiss, joined in full harmony"
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls it a charming allegory: mercy meets fidelity like one guardian angel meeting another, and righteousness and peace kiss like two inseparable brothers. Barnes: they kiss as estranged friends do when made friends again, blending in harmony. Henry, among other readings, takes the kiss as the harmony of God's mercy and truth, righteousness and peace, in salvation.",
+      "limit": "The writers agree on the picture, not on where the meeting is found: in God's renewed blessing on His people and their land, or in the salvation Christ brings, where mercy and justice agree.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 85:8-13",
+          "quote": "The possessions that make a people truly happy and prosperous are mentioned under a charming allegory ... Mercy or loving-kindness walks along the streets of Jerusalem, and there meets fidelity, like one guardian angel meeting the other. Righteousness and peace or prosperity, these two inseparable brothers, kiss each other there, and fall lovingly into each other's arms.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 85:10",
+          "quote": "Have kissed each other - As friends and lovers do ... but they have been now united as separated and alienated friends are, and have embraced each other as such friends do; that is, they blend together in beautiful harmony.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 85:8-13",
+          "quote": "Of the harmony of the divine attributes in the Messiah's undertaking. ... God's mercy and truth, and his righteousness and peace, have kissed each other; that is, the great affair of our salvation is so well contrived ... that God may have mercy upon poor sinners, and be at peace with them, without any wrong to his truth and righteousness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-93-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 93:3",
+      "strength": "commonly held",
+      "short": "Three lines that climb as the floods rise",
+      "about": "Each line goes a step further: the floods have risen, then raised their voice, then lift up their pounding waves. The first two lines tell what has happened, and the third what is happening still. The next verse answers that the LORD on high is above them all.",
+      "refs": [
+        "Psalm 93:4"
+      ],
+      "lines": [
+        {
+          "ref": "Psalm 93:3",
+          "words": "The floodwaters have risen, O LORD;",
+          "key": "floodwaters"
+        },
+        {
+          "ref": "Psalm 93:3",
+          "words": "the rivers have raised their voice;",
+          "key": "rivers"
+        },
+        {
+          "ref": "Psalm 93:3",
+          "words": "the seas lift up their pounding waves.",
+          "key": "seas"
+        }
+      ],
+      "pairs": [
+        [
+          "floodwaters",
+          "rivers"
+        ],
+        [
+          "rivers",
+          "seas"
+        ],
+        [
+          "their voice",
+          "their pounding waves"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew all three lines use the same word, rivers, which the BSB gives as floodwaters, rivers and seas, and the same verb, lift up. The first two verbs tell what has happened; the third tells what goes on still.",
+        "strong": [
+          "H5104",
+          "H5375"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the thought is unfolded across the lines, the first two verbs telling what has taken place and the third what is still taking place. Henry reads the floods lifting up their voice as terror, and then their waves as real danger, and verse 4 as the anchor in that storm: God is on high, above them.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 93:3",
+          "quote": "These rivers … have lifted up, have lifted up their murmur, the rivers lift up their roaring. The thought is unfolded in a so-called \"parallelism with reservation.\" The perfects affirm what has taken place, the future that which even now as yet is taking place.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 93:3-4",
+          "quote": "A threatening storm supposed: The floods have lifted up, O Lord! (to God himself the remonstrance is made) the floods have lifted up their voice, which speaks terror; nay, they have lifted up their waves, which speaks real danger. … The Lord himself is mightier. Let this keep our minds fixed, (1.) That God is on high, above them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-98-8-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Psalm 98:8",
+      "strength": "widely agreed",
+      "short": "Rivers clap their hands, mountains sing",
+      "about": "The psalm calls the rivers to clap their hands and the mountains to sing, as people do for joy. With the sea and the world, all creation is called to rejoice before the LORD, who comes to judge the earth (verse 9). Isaiah 55:12 and Psalm 96:11-12 have a like picture.",
+      "refs": [
+        "Psalm 98:9",
+        "Isaiah 55:12",
+        "Psalm 96:11-12"
+      ],
+      "figure": {
+        "name": "Personification",
+        "part": "Human actions given to things",
+        "ref": "Psalm 98:8",
+        "words": "Let the rivers clap their hands, let the mountains sing together for joy",
+        "means": "the joy of all creation before the LORD, shown as if rivers and mountains could rejoice as people do"
+      },
+      "evidence": "Bullinger calls verses 7-8 a beautiful example of Personification, stressing the joy of the whole creation. Albert Barnes reads it as if the rivers were conscious and joined the praise. Delitzsch (Keil and Delitzsch): nature shares man's joy, high waves meeting like clapping hands. Henry and Benson: the floods rejoice as men do when they clap their hands, Henry adding, if they could.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 98:7-8",
+          "at": "Prosopopoeia: human actions given to inanimate things, p. 865",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/865/mode/1up",
+          "quote": "are beautiful examples of Prosopopœia. It is a figure, of speech: but it emphasises the rejoicing of the whole creation of God, when Christ shall return to remove its curse, and cause its groanings to cease.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 98:8",
+          "quote": "Let them join in the universal praise. As if conscious of their beauty, their grandeur, their usefulness; as if sensible that all this was conferred by God; as if rejoicing in the goodness of God manifested to them, and through them, let them unite in the universal praise.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 98:7-9",
+          "quote": "In the bringing in of nature to participate in the joy of mankind, the clapping rivers (נהרות) are original to this Psalm: the rivers cast up high waves, which flow into one another like clapping hands",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 98:4-9",
+          "quote": "Let the floods express their joy, as men do when they clap their hands; and let the hills, that trembled for fear before God when he came down to give the law at Mount Sinai, dance for joy before him when his gospel is preached … even the sea, and the floods, and the hills, would rejoice if they could.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 98:4-9",
+          "quote": "He bids the sea roar, as men in triumph make a loud and vehement noise, and the floods to clap their hands, as men do in token of delight and approbation, while the hills, in like manner, resound their joy.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-148-8-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 148:8",
+      "strength": "some interpreters",
+      "short": "Lightning and clouds frame hail and snow",
+      "about": "The first four things named, which come down from the sky or rise toward it, can be read in a crossing order: the first answers the last, and the middle two answer each other. So lightning goes with clouds, and hail with snow.",
+      "lines": [
+        {
+          "ref": "Psalm 148:8",
+          "words": "lightning",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 148:8",
+          "words": "and hail,",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 148:8",
+          "words": "snow",
+          "mark": "B'"
+        },
+        {
+          "ref": "Psalm 148:8",
+          "words": "and clouds,",
+          "mark": "A'"
+        }
+      ],
+      "pairs": [
+        [
+          "lightning",
+          "clouds"
+        ],
+        [
+          "hail",
+          "snow"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first and last of the four are fire and smoke, which the BSB gives as lightning and clouds; the middle two are hail and snow.",
+        "strong": [
+          "H0784",
+          "H1259",
+          "H7950",
+          "H7008"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the four, which come down from heaven or rise toward it, are arranged after the model of a chiasmus, a crosswise order, so that fire and smoke answer each other, and hail and snow.",
+      "limit": "Other writers take the four as two pairs in the order they are named, lightning with hail and snow with clouds, or group the clouds with the hail and snow as water in the sky. The crossing is one writer's reading.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 148:7-14",
+          "quote": "Then to four phenomena of nature, coming down from heaven and ascending heavenwards, which are so arranged in Psa 148:8, after the model of the chiasmus (crosswise position), that fire and smoke ... hail and snow stand in reciprocal relation",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

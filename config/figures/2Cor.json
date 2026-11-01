@@ -1,0 +1,95 @@
+{
+  "notes": [
+    {
+      "id": "2-corinthians-9-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "2 Corinthians 9:6",
+      "strength": "some interpreters",
+      "short": "Sow sparingly, or sow generously",
+      "about": "The second line answers the first with its opposite. Whoever sows little reaps a small harvest, and whoever sows generously reaps a generous one. Paul applies the farmer's rule to giving.",
+      "lines": [
+        {
+          "ref": "2 Corinthians 9:6",
+          "words": "Whoever sows sparingly will also reap sparingly,"
+        },
+        {
+          "ref": "2 Corinthians 9:6",
+          "words": "and whoever sows generously will also reap generously."
+        }
+      ],
+      "pairs": [
+        [
+          "sows sparingly",
+          "sows generously"
+        ],
+        [
+          "reap sparingly",
+          "reap generously"
+        ]
+      ],
+      "original": {
+        "note": "In Paul's Greek, the word for “generously” is “blessings” (eulogiais), set against the word for “sparingly”.",
+        "strong": [
+          "G2129",
+          "G5340"
+        ]
+      },
+      "evidence": "Calvin reads the verse as a comparison of giving with sowing and sets the two lines side by side: whoever sows sparingly gets a poor harvest, and whoever sows bountifully a bountiful one. He adds that Paul here sets blessing against sparing.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 9:6",
+          "quote": "He now commends alms-giving by a beautiful similitude, comparing it to sowing. ... He that sows sparingly will have a poor harvest, corresponding to the sowing: he that sows bountifully and with a full hand, will reap a correspondingly bountiful harvest. ... He again contrasts here blessing with sparing, as he had previously done with niggardliness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-12-13-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "2 Corinthians 12:13",
+      "strength": "widely agreed",
+      "short": "“Forgive me this wrong!”: said in irony",
+      "about": "Paul asks how the Corinthians fell short of other churches, and names only one thing: he was never a burden to them. Asking pardon for that “wrong” is irony, since he had spared them the cost of supporting him. It can also be read as a rebuke of how they had treated him.",
+      "figure": {
+        "name": "Irony",
+        "part": "Human Irony",
+        "ref": "2 Corinthians 12:13",
+        "words": "Forgive me this wrong",
+        "means": "that sparing them the cost of supporting him was no true wrong done to them"
+      },
+      "evidence": "Bullinger lists the words under irony spoken by men. Barnes calls the verse a striking mixture of sarcasm and irony: in one thing only were they behind other churches, in not having been burdened with the privilege of supporting Paul. Calvin says the exception is put by way of irony, since serving them without pay was one more kindness, and he sees in it a rebuke of their ingratitude.",
+      "limit": "Not every writer hears only irony here: some take the words as a real apology, or partly one, for not letting them support him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 12:13",
+          "at": "Eironeia, or Irony: Human Irony, p. 814",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/814/mode/1up",
+          "quote": "“Forgive me this wrong.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 12:13",
+          "quote": "This verse contains a striking mixture of sarcasm and irony ... In one respect only are you inferior - it is in this, that you have not been burdened with the privilege of supporting me.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 12:13",
+          "quote": "He subjoins one exception ... that he had not been burdensome to them; and this, by way of irony, for in reality this was over and above so many acts of kindness, which he had conferred upon them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

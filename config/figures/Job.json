@@ -1,0 +1,147 @@
+{
+  "notes": [
+    {
+      "id": "job-12-2-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "Job 12:2",
+      "strength": "widely agreed",
+      "short": "Job's friends as the only wise men: said in irony",
+      "about": "Job seems to grant that his friends are the only wise people, so that wisdom will die with them. He means the opposite, as the next verse says: “I am not inferior to you.” Their speeches had told him nothing he did not know.",
+      "refs": [
+        "Job 12:3"
+      ],
+      "figure": {
+        "name": "Irony",
+        "part": "Human Irony",
+        "ref": "Job 12:2",
+        "words": "you are the people with whom wisdom itself will die",
+        "means": "that his friends were no wiser than he was, for all their claim to teach him"
+      },
+      "evidence": "Bullinger lists the verse under irony spoken by men: Job's friends had no more knowledge than he. Delitzsch (Keil and Delitzsch) says the words are meant as irony, as if all understanding were theirs alone. Fausset (Jamieson, Fausset and Brown) calls them ironical, Clarke a strong irony, and Henry says Job speaks ironically of their claim to all wisdom.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Job 12:2",
+          "at": "Eironeia, or Irony: Human Irony, p. 813",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/813/mode/1up",
+          "quote": "This powerful Irony is meant to emphasise the fact that Job’s friends had no more knowledge than he",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 12:1-3",
+          "quote": "is intended as irony: ye are not merely single individuals, but the people = race of men ... so that all human understanding is confined to you, and there is none other to be found; and when once you die, it will seem to have died out.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 12:2",
+          "quote": "Ironical, as if all the wisdom in the world was concentrated in them and would expire when they expired.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Job 12:2",
+          "quote": "Doubtless ye are the wisest men in the world; all wisdom is concentrated in you; and when ye die, there will no more be found on the face of the earth! This is a strong irony.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Job 12:1-5",
+          "quote": "He represents them as claiming the monopoly of wisdom ... He speaks ironically: \"No doubt you are the people; you think yourselves fit to dictate and give law to all mankind",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "job-27-19-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Job 27:19-20",
+      "strength": "some interpreters",
+      "short": "Night, then morning; then back to the night",
+      "about": "Verse 19 can be read as the wicked man's sudden end, either in the night after he lies down, or by day after he opens his eyes. Verse 20 then answers the two crosswise: first terrors like a flood, then a tempest in the night, so the night opens and closes the picture.",
+      "lines": [
+        {
+          "ref": "Job 27:19",
+          "words": "He lies down wealthy, but will do so no more;",
+          "mark": "A",
+          "key": "lies down"
+        },
+        {
+          "ref": "Job 27:19",
+          "words": "when he opens his eyes, all is gone.",
+          "mark": "B",
+          "key": "opens his eyes"
+        },
+        {
+          "ref": "Job 27:20",
+          "words": "Terrors overtake him like a flood;",
+          "mark": "B'"
+        },
+        {
+          "ref": "Job 27:20",
+          "words": "a tempest sweeps him away in the night.",
+          "mark": "A'",
+          "key": "in the night"
+        }
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) reads verse 19 as sudden death, either in the night after the man lies down rich or by day after he opens his eyes in the morning, and says the two lines of verse 20 are attached crosswise to that picture of destruction by night or by day: the terrors of death seize him like a flood, and by night a whirlwind carries him away.",
+      "limit": "The first line of verse 20 names no time; it answers the day only by its place in the crossing. Other writers take lying down in verse 19 as dying, not as going to bed, and do not mark this order.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 27:19-23",
+          "quote": "he lieth down to sleep rich, and he doeth it no more, since in the night he is removed from life ... by sudden death; or also: in the morning he openeth his eyes ... he closes them for ever ... attached crosswise (chiastisch) to this picture of sudden destruction, be it by night or by day: the terrors of death seize him ... like a flood ... by night a whirlwind ... carrieth him away",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "job-28-22-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Job 28:22",
+      "strength": "some interpreters",
+      "short": "The realm of the dead speaks of wisdom",
+      "about": "Abaddon and Death, the world of the dead, are made to speak like persons, as the ocean depths do in verse 14. Even there wisdom is known only by a rumor: they have heard of it, but they do not understand it.",
+      "refs": [
+        "Job 28:14",
+        "Job 26:6"
+      ],
+      "figure": {
+        "name": "Personification",
+        "part": "Inanimate things",
+        "ref": "Job 28:22",
+        "words": "Abaddon and Death say",
+        "means": "the world of the dead, which has only heard a distant report of wisdom"
+      },
+      "original": {
+        "note": "In Hebrew Abaddon means destruction; here, as in Job 26:6, it names the world of the dead.",
+        "strong": [
+          "H0011"
+        ]
+      },
+      "evidence": "Barnes calls the verse a personification, and an exceedingly sublime one; he takes Abaddon, as in Job 26:6, for the world of the dead, whose deep and dark regions had only heard a distant report of wisdom and did not understand it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 28:22",
+          "quote": "Destruction - This is a personification which is exceedingly sublime. ... see the notes at Job 26:6. It is employed here, as in that place, to denote the nether world - the abode of departed spirits ... The sense is, that those deep and dark regions had simply heard the distant report of wisdom but they did not understand it",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

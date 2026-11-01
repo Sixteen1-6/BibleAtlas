@@ -1,0 +1,93 @@
+{
+  "notes": [
+    {
+      "id": "1-corinthians-4-8-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "1 Corinthians 4:8",
+      "strength": "widely agreed",
+      "short": "Paul calls them “kings” to rebuke their pride",
+      "about": "Paul tells the Corinthians they already have all they want, are rich, and reign as kings without the apostles. He means the opposite: they only think so, and in their pride they look down on the men through whom they received the gospel. The next verses set the apostles' hardships beside them.",
+      "refs": [
+        "1 Corinthians 4:7",
+        "1 Corinthians 4:10"
+      ],
+      "figure": {
+        "name": "Irony",
+        "part": "Human Irony",
+        "ref": "1 Corinthians 4:8",
+        "words": "Already you have all you want. Already you have become rich. Without us, you have become kings.",
+        "means": "that they only think themselves full, rich and reigning, and are proud of gifts they received"
+      },
+      "evidence": "Bullinger lists the verse as true Irony. Albert Barnes calls it irony and cutting sarcasm, and Calvin says Paul ridicules their self-complacency by irony and upbraids their ingratitude. Simon Browne (Matthew Henry's Commentary) hears a smart irony: they reign only in their own conceit. Adam Clarke judges it a strong irony. On the closing wish, Barnes hears it earnest and Bullinger ironic.",
+      "limit": "The note is on the first three sentences. Writers differ on the closing wish: some hear the irony go on, while others hear Paul's earnest wish that they truly were as blessed as they thought.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 4:8",
+          "at": "Eironeia, or Irony: Human Irony, p. 813",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/813/mode/1up",
+          "quote": "This verse is true Irony. But other figures are involved.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 4:8",
+          "quote": "It is generally agreed that this is spoken in irony, and that it is an indignant sarcasm uttered against the false and self-confident teachers in Corinth. ... The whole passage is an instance of most pungent and cutting sarcasm ... But the more probable interpretation is, that Paul here drops the irony, and addresses them in a sober, earnest manner.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 4:8",
+          "quote": "Having in good earnest, and without the use of any figure, beat down their vain confidence, he now also ridicules it by way of irony, because they are so self-complacent, as if they were the happiest persons in the world. ... he tacitly upbraids them with ingratitude, because they had the audacity to despise him, or rather those, through means of whom they had obtained everything.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 4:7-13",
+          "quote": "He presses the duty of humility upon them by a very smart irony, or at least reproves them for their pride and self-conceit ... to intimate how much the Corinthians were elated by the abundance of their wisdom and spiritual gifts ... \"You have reigned as kings,\" says the apostle, \"that is, in your own conceit;",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Corinthians 4:8",
+          "quote": "Though this paraphrase appears natural, yet I am of opinion that the apostle here intends a strong irony; and one which, when taken in conjunction with what he had said before, must have stung them to the heart. It is not an unusual thing for many people to forget, if not despise, the men by whom they were brought to the knowledge of the truth",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-13-4-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "1 Corinthians 13:4",
+      "strength": "some interpreters",
+      "short": "Love is pictured as a person: patient and kind",
+      "about": "Paul speaks of love as if it were a person who is patient and kind and does not envy or boast. Giving love the ways of a person makes his account of it lively and moving.",
+      "figure": {
+        "name": "Personification",
+        "part": "Human Actions attributed to Things",
+        "ref": "1 Corinthians 13:4",
+        "words": "Love is patient, love is kind",
+        "means": "love, given the qualities and actions of a person, so that the account of it is lively and moving"
+      },
+      "evidence": "Benson says the apostle here gives love the qualities and actions of a person, to make his account of that divine grace the more lively and affecting.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "benson",
+          "on": "1 Corinthians 13:4",
+          "quote": "Here the apostle attributes to love the qualities and actions of a person, in order to render his account of that divine grace the more lively and affecting.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

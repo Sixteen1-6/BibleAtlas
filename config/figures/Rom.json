@@ -1,0 +1,207 @@
+{
+  "notes": [
+    {
+      "id": "romans-8-22-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Romans 8:22",
+      "strength": "widely agreed",
+      "short": "Creation groans like a woman in labor",
+      "about": "Paul speaks of the whole creation as if it felt pain as a person does, groaning like a woman in labor. Birth pains look ahead to a birth, so the picture points to a joyful deliverance to come, when creation shares “the glorious freedom of the children of God.”",
+      "refs": [
+        "Romans 8:21"
+      ],
+      "figure": {
+        "name": "Personification",
+        "ref": "Romans 8:22",
+        "words": "the whole creation has been groaning together in the pains of childbirth",
+        "means": "all creation, pictured as a woman in labor: suffering now, and waiting for a joyful deliverance"
+      },
+      "evidence": "Sanday (Ellicott's Commentary) says the Apostle gives the rest of creation a human sense of pain, and the childbirth picture looks to a joyful delivery. Calvin calls the groaning in travail a most suitable likeness that will bring forth joyful fruit. Brown (Jamieson, Fausset and Brown) calls it a beautiful thought to represent creation as sharing man's miseries and looking to his redemption.",
+      "limit": "Not every reader takes “the whole creation” as the world of nature: some read it as mankind, whose groaning can then be meant plainly.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Romans 8:22",
+          "quote": "In view of the physical evil and misery prevalent in the world, the Apostle attributes a human consciousness of pain to the rest of creation. It groans and travails together, i.e., every member of it in common with its kind. The idea of travailing, as in childbirth, has reference to the future prospect of joyful delivery.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:22",
+          "quote": "it hence follows, that they groan like a woman in travail until they shall be delivered. But it is a most suitable similitude; it shows that the groaning of which he speaks will not be in vain and without effect; for it will at length bring forth a joyful and blessed fruit.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 8:22",
+          "quote": "If for man's sake alone the earth was cursed, it cannot surprise us that it should share in his recovery. And if so, to represent it as sympathizing with man's miseries, and as looking forward to his complete redemption as the period of its own emancipation from its present sin-blighted condition, is a beautiful thought",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-10-9-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Romans 10:9-10",
+      "strength": "some interpreters",
+      "short": "Mouth, heart, then heart, mouth",
+      "about": "Verse 9 names the mouth, then the heart, in the order of the words quoted in verse 8. Verse 10 comes back the other way, in the natural order: belief in the heart first, then confession with the mouth.",
+      "lines": [
+        {
+          "ref": "Romans 10:9",
+          "words": "that if you confess with your mouth, “Jesus is Lord,”",
+          "mark": "A",
+          "key": "mouth"
+        },
+        {
+          "ref": "Romans 10:9",
+          "words": "and believe in your heart that God raised Him from the dead,",
+          "mark": "B",
+          "key": "heart"
+        },
+        {
+          "ref": "Romans 10:10",
+          "words": "For with your heart you believe and are justified,",
+          "mark": "B'",
+          "key": "heart"
+        },
+        {
+          "ref": "Romans 10:10",
+          "words": "and with your mouth you confess and are saved.",
+          "mark": "A'",
+          "key": "mouth"
+        }
+      ],
+      "refs": [
+        "Romans 10:8"
+      ],
+      "evidence": "David Brown (Jamieson, Fausset and Brown) says confession with the mouth is put first in verse 9 only to match the quotation before it, “in your mouth and in your heart,” and that verse 10 places the two in their natural order.",
+      "limit": "Putting the mouth first in verse 9 follows the quotation; it does not make confession come before faith.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Romans 10:9",
+          "quote": "This is put first merely to correspond with the foregoing quotation--\"in thy mouth and in thine heart.\" ... In Rom 10:10 the two things are placed in their natural order.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-10-21-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Romans 10:21",
+      "strength": "widely agreed",
+      "short": "Side by side: outsiders find God, Israel refuses",
+      "about": "Paul sets two lines of Isaiah side by side. Those who did not seek God found Him, while to Israel He held out His hands all day long and was refused. The held-out hands show Him pleading with His own people. Paul draws the same contrast in Romans 9:30-31.",
+      "sides": [
+        {
+          "who": "Israel",
+          "label": "Called all day long, and refused",
+          "ref": "Romans 10:21",
+          "words": "All day long I have held out My hands to a disobedient and obstinate people"
+        },
+        {
+          "who": "those who did not seek Me",
+          "label": "Found God without seeking Him",
+          "ref": "Romans 10:20",
+          "words": "I was found by those who did not seek Me"
+        }
+      ],
+      "refs": [
+        "Isaiah 65:1-2",
+        "Romans 9:30-31",
+        "Romans 11:1-2"
+      ],
+      "evidence": "Albert Barnes: the held-out hands plead, and while the Gentiles would obey, Israel was disobedient and God was found by others. David Brown (JFB): God is found by those who seem farthest from Him, missed by those who think themselves nearest. Calvin: God turned to the Gentiles because the Jews made a mockery of His favor. Clarke: the Gentiles found the redemption the Jews rejected.",
+      "limit": "Paul goes straight on: “God did not reject His people, whom He foreknew” (Romans 11:2). The contrast is between two answers to God, not a claim that every Israelite refused Him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Romans 10:21",
+          "quote": "says that while the Gentiles would be obedient, the character of the Jews was, that they were a disobedient and rebellious people. ... This denotes an attitude of entreaty; a willingness and earnest desire to receive them to favor ... God is represented as stretching out his hands in vain; they rejected him, and he was sought and found by others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 10:21",
+          "quote": "God is often found by those who apparently are the farthest from Him, while He remains undiscovered by those who think themselves the nearest",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 10:21",
+          "quote": "A reason is subjoined why God passed over to the Gentiles; it was because he saw that his favor was become a mockery to the Jews.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 10:20",
+          "quote": "I put my salvation in the way of those (the Gentiles) who were not seeking for it, and knew nothing of it: thus, the Gentiles which followed not after righteousness have attained to the law of righteousness, Rom 9:30, and they have found that redemption which the Jews have rejected.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-11-22-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Romans 11:22",
+      "strength": "some interpreters",
+      "short": "Kindness, severity, then severity, kindness",
+      "about": "Two words go out in one order and come back in the reverse order: the kindness and severity of God, then severity to those who fell and kindness to you.",
+      "lines": [
+        {
+          "ref": "Romans 11:22",
+          "words": "Take notice, therefore, of the kindness",
+          "mark": "A",
+          "key": "kindness"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "and severity of God:",
+          "mark": "B",
+          "key": "severity"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "severity to those who fell,",
+          "mark": "B'",
+          "key": "severity"
+        },
+        {
+          "ref": "Romans 11:22",
+          "words": "but kindness to you,",
+          "mark": "A'",
+          "key": "kindness"
+        }
+      ],
+      "evidence": "Bullinger lists the verse under Prosapodosis, where words already named are taken up again one by one. He says the two words are not taken up in the same order but in reverse, an Epanodos, and sets them out as goodness, severity, severity, goodness (the BSB's kindness and severity).",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 11:22",
+          "at": "Prosapodosis, or Detailing, p. 395",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/395/mode/1up",
+          "quote": "Here, the return to the two words is not direct ... but in an Epanodos ... a Goodness. b Severity. b Severity. a Goodness.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

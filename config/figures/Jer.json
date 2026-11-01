@@ -1,0 +1,69 @@
+{
+  "notes": [
+    {
+      "id": "jeremiah-22-29-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "Jeremiah 22:29",
+      "strength": "widely agreed",
+      "short": "“Land, land, land”: one call said three times",
+      "about": "The prophet calls on the land three times in a row. The repetition gives the call its weight and draws close attention to the solemn and certain word that follows about Coniah and his line (verse 30). It can also be read as hammer blows on a people hardened against God's warnings.",
+      "refs": [
+        "Jeremiah 22:30"
+      ],
+      "figure": {
+        "name": "Epizeuxis",
+        "ref": "Jeremiah 22:29",
+        "words": "land, land, land",
+        "means": "a call made three times, to give it weight and make the land heed the solemn word that follows"
+      },
+      "original": {
+        "note": "In Hebrew the word said three times is erets, which can mean land or earth.",
+        "strong": [
+          "H0776"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Epizeuxis, a word repeated to mark it and draw attention. Keil (Keil and Delitzsch) says the triple summons gives it special emphasis and marks what follows as weighty. Benson: the word is repeated for emphasis and deeper attention. Plumptre (Ellicott): the solemn repetition shows the decree is certain. Calvin likens it to hammer strokes on hardened hearts.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Jeremiah 22:29",
+          "at": "Epizeuxis, or Duplication, p. 189",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/189/mode/1up",
+          "quote": "It is a common and powerful way of emphasizing a particular word, by thus marking it and calling attention to it.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 22:29",
+          "quote": "The land is to take the king's fate sore to heart. The triple repetition of the summons: Land, gives it a special emphasis, and marks the following sentence as of high importance",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 22:29",
+          "quote": "the repetition was not superfluous in exclaiming “earth” three times, for as the hardness of iron is overcome by the repeated strokes of the hammer, so the Prophet repeated the word “earth,” that he might subdue that perverseness in which the Jews had so hardened themselves that no threats of God moved them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Jeremiah 22:29",
+          "quote": "The word earth, or land rather, as ארצ may be properly rendered, is repeated three times by way of emphasis, to engage the deeper attention.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 22:29",
+          "quote": "The solemnity of the mystic threefold repetition expresses the certainty of the Divine decree",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

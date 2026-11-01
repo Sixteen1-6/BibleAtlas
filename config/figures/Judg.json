@@ -1,0 +1,88 @@
+{
+  "notes": [
+    {
+      "id": "judges-9-6-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Judges 9:6",
+      "strength": "commonly held",
+      "short": "Gideon would not rule; Abimelech sought the crown",
+      "about": "The leaders of Shechem make Abimelech king. His father Gideon had turned that rule down: “I will not rule over you, nor will my son. The LORD shall rule over you.” The son, with no call from God, takes for himself the rule his father refused, and gains it by murdering his brothers.",
+      "sides": [
+        {
+          "who": "Abimelech",
+          "label": "Seeks the crown, and takes it",
+          "ref": "Judges 9:1-6",
+          "words": "proceeded to make Abimelech their king"
+        },
+        {
+          "who": "Gideon",
+          "label": "Refuses to rule",
+          "ref": "Judges 8:22-23",
+          "words": "I will not rule over you, nor will my son."
+        }
+      ],
+      "refs": [
+        "Judges 8:27"
+      ],
+      "evidence": "Matthew Henry: Abimelech set out to take his father's place directly against his father's will, since Gideon had said no son of his should rule, and he had no call from God as his father had, only his own ambition. F. W. Farrar (Ellicott's Commentary), on the crowning: Abimelech was the first Israelite to bear the name of king, while Gideon had refused the title of king and even of ruler.",
+      "limit": "The contrast is in how each stood toward the crown, not in the whole of Gideon's life: his gold ephod “became a snare to Gideon and his household.”",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Judges 9:1-6",
+          "quote": "nothing will serve his proud spirit but he will succeed him in the government of Israel, directly contrary to his father's will, for he had declared no son of his should rule over them. He had no call from God to this honour as his father had",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Judges 9:6",
+          "quote": "He was the first Israelite who ever bore that name. ... Gideon had not only refused the title of king (melek), but even the title of ruler (Jdg 8:23).",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-10-14-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "Judges 10:14",
+      "strength": "commonly held",
+      "short": "“Let them save you”: the LORD's irony",
+      "about": "When Israel cries out, the LORD tells them to cry to the gods they have chosen and let those gods save them. Those gods could neither hear nor save, so the words expose the folly of serving them. Israel then put away the foreign gods (verse 16).",
+      "refs": [
+        "Judges 10:16"
+      ],
+      "figure": {
+        "name": "Irony",
+        "part": "Divine Irony",
+        "ref": "Judges 10:14",
+        "words": "Let them save you",
+        "means": "that the gods they had chosen could neither hear them nor save them"
+      },
+      "evidence": "Bullinger lists the verse under irony spoken by God: those gods could neither hear nor deliver. Henry says the LORD lets Israel see their folly in serving gods that could not help them when they most needed help, bidding them try what those gods can do for them now, to stir them to true repentance.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 10:14",
+          "at": "Eironeia, or Irony: Divine Irony, p. 808",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/808/mode/1up",
+          "quote": "This was Divine Sarcasm, for those gods could neither hear nor deliver.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Judges 10:10-18",
+          "quote": "To awaken them to a thorough repentance and reformation, he lets them see, (1.) Their folly in serving Baalim. They had been at a vast expense to obtain the favour of such gods as could not help them when they had most need of their help: \"Go, and cry unto the gods which you have chosen ... try what they can do for you now.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

@@ -48,6 +48,159 @@
           "retrieved": "2026-10-21"
         }
       ]
+    },
+    {
+      "id": "matthew-5-13-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Matthew 5:13",
+      "strength": "widely agreed",
+      "short": "Disciples as salt that keeps the world from decay",
+      "about": "Jesus calls His disciples salt. As salt seasons food and keeps it from going bad, they are to hold back the world’s corruption by their lives and teaching. The next words warn what becomes of salt that loses its savor.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Matthew 5:13",
+        "words": "You are the salt of the earth",
+        "means": "the disciples, who by their lives and teaching season the world and keep it from corruption, as salt does food"
+      },
+      "evidence": "Bullinger lists the verse under Metaphor: the disciples are to the earth what salt is to other things, keeping it from corruption. Barnes and Brown (Jamieson, Fausset and Brown) say salt preserves from corruption, and so do Christians; Henry says the doctrine of the gospel is as salt; Calvin says the apostles’ office is to salt the earth, and that the Lord pursues His metaphor.",
+      "limit": "The writers differ on whom it speaks of first: some, the apostles and ministers of the word; others, every disciple.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 5:13",
+          "at": "Metaphor, or Representation, p. 738",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/738/mode/1up",
+          "quote": "“Ye are the salt of the earth”: i.e., ye are (or represent) with regard to the earth what salt is to other things, preserving it from total corruption and destruction",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 5:13",
+          "quote": "Salt renders food pleasant and palatable, and preserves from putrefaction. So Christians, by their lives and instructions, are to keep the world from entire moral corruption.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 5:13",
+          "quote": "Ye are the salt of the earth--to preserve it from corruption, to season its insipidity, to freshen and sweeten it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 5:13-16",
+          "quote": "The doctrine of the gospel is as salt; it is penetrating, quick, and powerful ... It is cleansing, it is relishing, and preserves from putrefaction. ... Note, Christians, and especially ministers, are the salt of the earth.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 5:13",
+          "quote": "When Christ calls the apostles the salt of the earth, he means, that it is their office to salt the earth: because men have nothing in them but what is tasteless, till they have been seasoned with the salt of heavenly doctrine. ... Our Lord skillfully pursues his metaphor",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-13-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Matthew 5:13",
+      "strength": "widely agreed",
+      "short": "“The earth” stands for the people on it",
+      "about": "Jesus calls His disciples the salt of the earth. The earth is named in place of the people who live on it: the disciples are salt for the peoples of the world.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Subject",
+        "ref": "Matthew 5:13",
+        "words": "the earth",
+        "means": "the peoples who live on the earth"
+      },
+      "evidence": "Bullinger lists the verse under Metonymy of the Subject, where the land or the earth is put for those who live in it, and explains the earth here as the peoples. Calvin explains salting the earth by men, who are tasteless till seasoned with heavenly doctrine; Brown (Jamieson, Fausset and Brown) says the Lord here gives His disciples among their fellows as the remedy for mankind's corruption.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 5:13",
+          "at": "Metonymy of the Subject: the earth for its inhabitants, p. 579",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/579/mode/1up",
+          "quote": "“Ye are the salt of the earth”: i.e., the peoples. “Salt” also is used by Metaphor ... for its preserving effects.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 5:13",
+          "quote": "When Christ calls the apostles the salt of the earth, he means, that it is their office to salt the earth: because men have nothing in them but what is tasteless, till they have been seasoned with the salt of heavenly doctrine.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 5:13",
+          "quote": "In Scripture, mankind, under the unrestrained workings of their own evil nature, are represented as entirely corrupt. ... The remedy for this, says our Lord here, is the active presence of His disciples among their fellows.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-23-37-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "Matthew 23:37",
+      "strength": "widely agreed",
+      "short": "“Jerusalem, Jerusalem”: the city named twice",
+      "about": "Jesus calls the city by name twice before He names its sin against the prophets. The doubled name gives His lament its weight. Many read it as voicing deep pity for the people He longed to gather, and some as marking how great the city's guilt was. Luke 13:34 gives the same words.",
+      "refs": [
+        "Luke 13:34"
+      ],
+      "figure": {
+        "name": "Epizeuxis",
+        "ref": "Matthew 23:37",
+        "words": "Jerusalem, Jerusalem",
+        "means": "the depth of Jesus' pity for the city and, as some read it, the weight of its guilt"
+      },
+      "evidence": "Bullinger lists the verse under Epizeuxis in Figures of Speech: the doubled name stresses the moving appeal, in view of the city's great guilt. Henry says the repetition is emphatic and full of pity. Calvin finds in it the detestation such impiety deserves. Brown (Jamieson, Fausset and Brown) says the doubled word shows the intense feeling of the cry.",
+      "limit": "The writers hear more than one note in the doubled name: some chiefly pity for the city, others also the weight of its guilt.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 23:37",
+          "at": "Epizeuxis, or Duplication, p. 197",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/197/mode/1up",
+          "quote": "“O Jerusalem, Jerusalem, thou that killest the prophets,” etc.: emphasizing the pathetic appeal by the exceeding guilt of the city in killing the prophets of Jehovah.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 23:37",
+          "quote": "See with what concern he speaks of that city; O Jerusalem, Jerusalem! The repetition is emphatical, and bespeaks abundance of commiseration.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 23:37",
+          "quote": "Christ therefore utters a pathetic exclamation at a sight so monstrous ... This is also implied in the repetition of the name, because impiety so monstrous and incredible deserves no ordinary detestation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 23:37",
+          "quote": "How ineffably grand and melting is this apostrophe! ... The intense feeling that sought vent in this utterance comes out first in the redoubling of the opening word",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }
