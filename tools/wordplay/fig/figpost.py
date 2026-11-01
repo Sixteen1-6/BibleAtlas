@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""figpost.py <out dir> <journal.jsonl>...: figwrite.js journals -> config/figures/<OSIS>.json files for Layers.
+"""figpost.py <out dir> <journal.jsonl>...: figwrite.js journals -> config/figures/<OSIS>.json files for Layers
+(PR #63 rules: each cite's writer comes from the cite list; no by).
 
 Takes each batch's confirmed notes (the second reader's), and for every cite:
 - a local copy (cq.py works, the Catena): the quote must be found word for word there; read is that copy's line;
@@ -20,7 +21,6 @@ import figcheck as fc
 import cq
 import fetchlog
 import cat
-import byw
 import bmod
 
 READ = {
@@ -119,7 +119,8 @@ def web_source(c):
 
 
 def cite_rule(c):
-    """(by, None) when the cite may stand in a figure note, else (None, why). by is None for single-writer works."""
+    """(writer key, None) when the cite may stand in a figure note, else (None, why). Since PR #63 the cite list
+    names the writer of each source's words on each book, so a cite carries no by of its own."""
     src = c.get('source')
     s = fc.CITE.get(src)
     if not s:
@@ -131,11 +132,14 @@ def cite_rule(c):
         return None, 'on is not a reference'
     b, ch, v = fc.locate(r[0])
     book = fc.BOOKS[b]['name']
-    if src in fc.ONLY_ON and not any(f <= b <= l for f, l in fc.ONLY_ON[src]):
-        return None, f"{s['name']} is quoted only on the books its named writer wrote, not {book}"
-    if book in s.get('not_on', []):
-        return None, f"{s['name']} is not cited on {book}"
-    why = fc.BARRED_BOOKS.get((src, book)) or fc.BARRED_VERSES.get((src, book, ch, v)) or byw.quotable_here(src, book, ch)
+    why = fc.BARRED_BOOKS.get((src, book)) or fc.BARRED_VERSES.get((src, book, ch, v))
+    if why:
+        return None, why
+    if not (s.get('biblehub') or s.get('link')) and not c.get('url'):
+        u = (c.get('found') or '').strip()
+        if u.startswith('https://'):
+            c['url'] = u
+    key, why = fc.who_wrote(src, c.get('on'), c.get('work'), c.get('url'))
     if why:
         return None, why
     if src in ('catena-aurea', 'church-fathers'):
@@ -144,20 +148,18 @@ def cite_rule(c):
             return None, 'a Father left out by the voices shortlist'
         if src == 'catena-aurea' and 'pseudo-chrysostom' in who and book == 'Matthew':
             return None, "the Catena's Pseudo-Chrysostom on Matthew"
-    by = None
-    if src in byw.MULTI:
-        by = byw.by(src, book, c.get('at'))
-        if not by:
-            return None, f"the writer of the quoted part of {s['name']} is not known for certain"
-    return by, None
+    return key, None
 
 
 def interpreters(cites):
+    """The writer keys a note's strength counts: distinct people among its interpreters (PR #63)."""
     ws = set()
     for c in cites:
         s = fc.CITE.get(c['source'])
         if s and s['role'] == 'interpreter':
-            ws.add(fc.WRITER.get(c['source'], c['source']))
+            key, why = fc.who_wrote(c['source'], c.get('on'), c.get('work'), c.get('url'))
+            if key:
+                ws.add(key)
     return ws
 
 
@@ -212,14 +214,11 @@ def main(out, paths):
             n['checked'] = n.get('checked') if fc.date_ok(n.get('checked')) else today
             kept, recs = [], []
             for c in n.get('cites', []):
-                by, why = cite_rule(c)
+                c.pop('by', None)
+                _, why = cite_rule(c)
                 if why:
                     report['dropped_cites'].append({'key': key, 'note': n['id'], 'source': c['source'], 'on': c.get('on'), 'found': c.get('found'), 'why': why})
                     continue
-                if by:
-                    c['by'] = by
-                else:
-                    c.pop('by', None)
                 loc = local_source(c)
                 if loc:
                     c['read'], found_in, ctx = loc
@@ -237,7 +236,7 @@ def main(out, paths):
                     continue
                 recs.append({'note': n['id'], 'field': 'cites', 'source': c['source'], 'on': c['on'], 'quote': c['quote'],
                              'found_in': found_in, 'context': ctx})
-                kept.append({k: c[k] for k in ('source', 'by', 'on', 'at', 'quote', 'read', 'retrieved') if k in c})
+                kept.append({k: c[k] for k in ('source', 'work', 'on', 'at', 'url', 'quote', 'read', 'retrieved') if k in c})
             dropped = [c['source'] for c in n.get('cites', []) if c['source'] not in {k['source'] for k in kept}]
             n['cites'] = kept
             ws = interpreters(kept)
