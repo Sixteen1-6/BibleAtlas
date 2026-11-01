@@ -1,0 +1,437 @@
+[
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-1-light-simple",
+  "hash": "level=simple&theme=light&w=phone&ex=psalm-1&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-psalm-1-light-simple-read"
+   },
+   {
+    "etext": "pc-psalm-1-light-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-psalm-1-light-simple-sheet"
+   },
+   {
+    "etext": "pc-psalm-1-light-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-1-light-study",
+  "hash": "level=study&theme=light&w=phone&ex=psalm-1&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-psalm-1-light-study-card"
+   },
+   {
+    "etext": "pc-psalm-1-light-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-1-light-deep",
+  "hash": "level=deep&theme=light&w=phone&ex=psalm-1&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-psalm-1-light-deep-card"
+   },
+   {
+    "etext": "pc-psalm-1-light-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-19-light-simple",
+  "hash": "level=simple&theme=light&w=phone&ex=psalm-19&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-psalm-19-light-simple-read"
+   },
+   {
+    "etext": "pc-psalm-19-light-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-psalm-19-light-simple-sheet"
+   },
+   {
+    "etext": "pc-psalm-19-light-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-19-light-study",
+  "hash": "level=study&theme=light&w=phone&ex=psalm-19&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-psalm-19-light-study-card"
+   },
+   {
+    "etext": "pc-psalm-19-light-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-psalm-19-light-deep",
+  "hash": "level=deep&theme=light&w=phone&ex=psalm-19&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-psalm-19-light-deep-card"
+   },
+   {
+    "etext": "pc-psalm-19-light-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-isaiah-6-light-simple",
+  "hash": "level=simple&theme=light&w=phone&ex=isaiah-6&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-light-simple-read"
+   },
+   {
+    "etext": "pc-isaiah-6-light-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-light-simple-sheet"
+   },
+   {
+    "etext": "pc-isaiah-6-light-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-isaiah-6-light-study",
+  "hash": "level=study&theme=light&w=phone&ex=isaiah-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-light-study-card"
+   },
+   {
+    "etext": "pc-isaiah-6-light-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-isaiah-6-light-deep",
+  "hash": "level=deep&theme=light&w=phone&ex=isaiah-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-light-deep-card"
+   },
+   {
+    "etext": "pc-isaiah-6-light-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-genesis-6-light-simple",
+  "hash": "level=simple&theme=light&w=phone&ex=genesis-6&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-light-simple-read"
+   },
+   {
+    "etext": "pc-genesis-6-light-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-light-simple-sheet"
+   },
+   {
+    "etext": "pc-genesis-6-light-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-genesis-6-light-study",
+  "hash": "level=study&theme=light&w=phone&ex=genesis-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-light-study-card"
+   },
+   {
+    "etext": "pc-genesis-6-light-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-genesis-6-light-deep",
+  "hash": "level=deep&theme=light&w=phone&ex=genesis-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-light-deep-card"
+   },
+   {
+    "etext": "pc-genesis-6-light-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-hannah-light-simple",
+  "hash": "level=simple&theme=light&w=phone&ex=hannah&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-hannah-light-simple-read"
+   },
+   {
+    "etext": "pc-hannah-light-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-hannah-light-simple-sheet"
+   },
+   {
+    "etext": "pc-hannah-light-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-hannah-light-study",
+  "hash": "level=study&theme=light&w=phone&ex=hannah&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-hannah-light-study-card"
+   },
+   {
+    "etext": "pc-hannah-light-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "light",
+  "settle": 1500,
+  "name": "pc-hannah-light-deep",
+  "hash": "level=deep&theme=light&w=phone&ex=hannah&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-hannah-light-deep-card"
+   },
+   {
+    "etext": "pc-hannah-light-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ }
+]

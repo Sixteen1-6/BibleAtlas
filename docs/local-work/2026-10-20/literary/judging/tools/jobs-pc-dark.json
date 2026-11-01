@@ -1,0 +1,176 @@
+[
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-isaiah-6-dark-simple",
+  "hash": "level=simple&theme=dark&w=phone&ex=isaiah-6&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-dark-simple-read"
+   },
+   {
+    "etext": "pc-isaiah-6-dark-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-dark-simple-sheet"
+   },
+   {
+    "etext": "pc-isaiah-6-dark-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-isaiah-6-dark-study",
+  "hash": "level=study&theme=dark&w=phone&ex=isaiah-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-dark-study-card"
+   },
+   {
+    "etext": "pc-isaiah-6-dark-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-isaiah-6-dark-deep",
+  "hash": "level=deep&theme=dark&w=phone&ex=isaiah-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-isaiah-6-dark-deep-card"
+   },
+   {
+    "etext": "pc-isaiah-6-dark-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-genesis-6-dark-simple",
+  "hash": "level=simple&theme=dark&w=phone&ex=genesis-6&pane=read",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame .xt-line"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-dark-simple-read"
+   },
+   {
+    "etext": "pc-genesis-6-dark-simple-read"
+   },
+   {
+    "clickText": {
+     "sel": "#frame .xt-line",
+     "text": ""
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-dark-simple-sheet"
+   },
+   {
+    "etext": "pc-genesis-6-dark-simple-sheet",
+    "tsel": "#frame .xt-panel"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-genesis-6-dark-study",
+  "hash": "level=study&theme=dark&w=phone&ex=genesis-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-dark-study-card"
+   },
+   {
+    "etext": "pc-genesis-6-dark-study-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ },
+ {
+  "file": "mock-card.html",
+  "w": 390,
+  "h": 844,
+  "scheme": "dark",
+  "settle": 1500,
+  "name": "pc-genesis-6-dark-deep",
+  "hash": "level=deep&theme=dark&w=phone&ex=genesis-6&pane=study",
+  "steps": [
+   {
+    "scrollTo": {
+     "sel": "#frame section.dv"
+    }
+   },
+   {
+    "eshot": "pc-genesis-6-dark-deep-card"
+   },
+   {
+    "etext": "pc-genesis-6-dark-deep-card",
+    "tsel": "#frame section.dv"
+   },
+   {
+    "eval": "(()=>{const s=document.querySelector('#frame section.dv');return s? [...s.querySelectorAll('a,button')].map(a=>(a.innerText||'').trim().slice(0,60)+' => '+(a.getAttribute('href')||a.dataset.act||'')+(a.title?' ['+a.title+']':'')):null})()"
+   }
+  ]
+ }
+]

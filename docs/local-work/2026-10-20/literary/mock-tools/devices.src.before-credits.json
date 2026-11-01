@@ -1,0 +1,466 @@
+{
+  "writers": {
+    "bullinger-fos": { "name": "Bullinger's Figures of Speech", "short": "Bullinger", "url": "https://archive.org/details/figuresofspeechu00bull" },
+    "henry": { "name": "Matthew Henry", "short": "Matthew Henry", "bh": "mhcw" },
+    "henry-concise": { "name": "Matthew Henry's Concise Commentary", "short": "Henry's Concise Commentary", "bh": "mhc" },
+    "gill": { "name": "John Gill", "short": "John Gill", "bh": "gill" },
+    "jfb": { "name": "Jamieson, Fausset and Brown", "short": "Jamieson, Fausset and Brown", "bh": "jfb" },
+    "keil-delitzsch": { "name": "Keil and Delitzsch", "short": "Keil and Delitzsch", "bh": "kad" },
+    "calvin": { "name": "John Calvin", "short": "John Calvin", "bh": "calvin" },
+    "clarke": { "name": "Adam Clarke", "short": "Adam Clarke", "bh": "clarke" },
+    "wesley": { "name": "John Wesley", "short": "John Wesley", "bh": "wes" },
+    "benson": { "name": "Joseph Benson", "short": "Joseph Benson", "bh": "benson" },
+    "spurgeon": { "name": "Spurgeon", "short": "Spurgeon", "bh": "tod" }
+  },
+  "examples": [
+    {
+      "id": "psalm-1", "pick": "Psalm 1:6", "hint": "Opposite lines; the two ways",
+      "verse": "Ps.1.6", "chapter": "Ps.1",
+      "simple": "ps1-opposite",
+      "notes": {
+        "simple": [
+          "At Simple there is no card. One quiet line sits under the verse in the reader, because the device is self-evident (a “but” between two lines) and three writers state it.",
+          "Tapping the line opens the two lines with their arcs and names the writers. In the Links panel a single link offers Study."
+        ],
+        "study": [
+          "The card sits in the Links panel where a Layers card would be (Psalm 1:6 has none). Two entries: the verse's own opposite lines, and the whole psalm's two ways.",
+          "Each entry: the BSB words with the answering words in the app's colour pairs, one plain line, the strength, the Hebrew the BSB hides (one word, derekh, for both “path” and “way”) and who names it."
+        ],
+        "deep": [
+          "Deep adds the scholar's name for each form, each writer's own words with a link to read him, how the note was checked, and a way to suggest a correction.",
+          "Every quotation on this page was matched by script against the writer's own text and the pinned BSB."
+        ]
+      }
+    },
+    {
+      "id": "psalm-19", "pick": "Psalm 19:1–2", "hint": "The same thought said twice",
+      "verse": "Ps.19.1", "chapter": "Ps.19",
+      "simple": null,
+      "notes": {
+        "simple": [
+          "Nothing shows at Simple here. Two writers name the repetition, and no “but” makes it self-evident, so it waits for Study. Simple keeps to the verse (PR #48).",
+          "Compare Psalm 1:6, where the narrator's own “but” and three writers let a line show at Simple."
+        ],
+        "study": [
+          "Two entries: the thought said twice, and the sky spoken of as a person. The card ends by saying Deep holds one more.",
+          "The Hebrew note shows what the English softens: the Hebrew of verse 2 says “day to day” and “night to night”."
+        ],
+        "deep": [
+          "Deep adds a third entry, Bullinger's four-part layout of the whole psalm, labelled “a structure some readers see” because he alone gives it. Its arcs interlock (A B A′ B′), where a mirror's arcs nest.",
+          "Bullinger's own note on verse 1 points to his book on the stars. The card shows his figure, never that teaching."
+        ]
+      }
+    },
+    {
+      "id": "isaiah-6", "pick": "Isaiah 6:10", "hint": "A mirror (chiasm)",
+      "verse": "Isa.6.10", "chapter": "Isa.6",
+      "simple": "isa6-mirror",
+      "notes": {
+        "simple": [
+          "The line names the mirror in plain words with no term. Three writers state it, so it is widely agreed and may show at Simple.",
+          "Tapping it opens the mirror as a ladder, with the map's arcs nesting over the words."
+        ],
+        "study": [
+          "This chiasm passes the research's first tier: a word mirror inside one verse, checked in the Hebrew, named by at least one writer. Here three name it: Bullinger, Jamieson, Fausset and Brown, and Keil and Delitzsch.",
+          "The nested arcs are the map's own grammar (two places that answer each other) drawn over the words of one verse."
+        ],
+        "deep": [
+          "Deep shows the Hebrew check (eyes and ears are the same words both times; heart is lev, then levav), the BSB footnote's New Testament citations, and one writer's reading of what the order means, kept at its own, lower strength."
+        ]
+      }
+    },
+    {
+      "id": "genesis-6", "pick": "Genesis 6:6", "hint": "God in human terms",
+      "verse": "Gen.6.6", "chapter": "Gen.6",
+      "simple": "gen6-human",
+      "notes": {
+        "simple": [
+          "One line: “God's sorrow told in human words”. Seven writers name it, the strongest agreement in this mockup."
+        ],
+        "study": [
+          "Believing writers agree on the figure and differ on the feeling, so the card names both readings, each with its writers, and settles neither.",
+          "The structure view lays Genesis 6:6 beside Numbers 23:19 and 1 Samuel 15, which use the same Hebrew word, nacham. On the map, violet device arcs join them over the selected verse's own links."
+        ],
+        "deep": [
+          "Deep shows all seven writers in their own words. Bullinger's sentence and Calvin's are the “way of speaking” reading; Keil and Delitzsch's is the “real grief” reading."
+        ]
+      }
+    },
+    {
+      "id": "hannah", "pick": "1 Samuel 1:2", "hint": "Hannah and Peninnah",
+      "verse": "1Sam.1.2", "chapter": "1Sam.1",
+      "simple": "hannah-foil",
+      "notes": {
+        "simple": [
+          "“Set side by side: Hannah and Peninnah.” The narrator's own “but” makes the contrast self-evident, and three writers state it."
+        ],
+        "study": [
+          "Two entries on one verse: the pair set side by side (widely agreed) and the sentence's crossing (some interpreters: only Bullinger names it, but the crossed names are checked in the Hebrew, which is the first-tier bar).",
+          "“See the whole structure” puts the two women in two columns, verse by verse, with Hannah's song at the end."
+        ],
+        "deep": [
+          "Deep keeps Matthew Henry's frankness about both women, and shows both readings of Hannah's song (2:5). The Jewish tradition that Henry and Gill pass on there is left out."
+        ]
+      }
+    },
+    {
+      "id": "sam15", "pick": "1 Samuel 15:29", "hint": "Beside a Layers card",
+      "verse": "1Sam.15.29", "chapter": "1Sam.15",
+      "simple": "sam15-key",
+      "notes": {
+        "simple": [
+          "This verse has a live Layers passage, so the Links panel shows the Layers card's lead note at Simple, as it does today. The device itself is a line under the verse in the reader."
+        ],
+        "study": [
+          "Both cards together, the Layers card first. Layers says what the verse means and borrows; Literary devices says how it is written. Same frame, own colour: gold for Layers, violet for devices, the colour its arcs take on the map.",
+          "The Layers card here is the live one, word for word, from everyversemap.com."
+        ],
+        "deep": [
+          "At Deep both cards show their sources and their review line. The devices card counts writers the same way Layers does: Keil and Delitzsch, John Gill, John Wesley and Henry's Concise Commentary make four."
+        ]
+      }
+    }
+  ],
+  "entries": [
+    {
+      "id": "ps1-opposite", "covers": ["Ps.1.6"], "level": "simple",
+      "kind": "Opposite lines",
+      "term": "Antithetic parallelism. Bullinger's name for the form: “Antithetic or Opposite”.",
+      "short": "Two lines, two ways: the righteous and the wicked",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "Ps.1.6", "t": "For the LORD guards the path of the righteous,", "lv": 1, "marks": [["guards", 1], ["path", 2], ["the righteous", 0]] },
+        { "ref": "Ps.1.6", "t": "but the way of the wicked will perish.", "lv": 2, "marks": [["way", 2], ["the wicked", 0], ["will perish", 1]] }
+      ],
+      "about": "The second line answers the first with its opposite: one way the LORD keeps, the other comes to nothing.",
+      "hebrew": { "note": "In Hebrew both lines use one word, derekh, “way”. The BSB says “path”, then “way”.", "roots": [7988, 14391, 15530] },
+      "sources": [
+        { "w": "henry", "on": "Psalm 1:6", "book": "psalms", "ch": 1, "quote": "The reason rendered of this different state of the godly and wicked, v. 6", "v": ["cache", "henry", 18, 1, 4, 6] },
+        { "w": "keil-delitzsch", "on": "Psalm 1:6", "book": "psalms", "ch": 1, "quote": "On the contrary, the way of the ungodly ... perishes", "v": ["cache", "keil-delitzsch", 18, 1, 6, 6] },
+        { "w": "gill", "on": "Psalm 1:6", "book": "psalms", "ch": 1, "quote": "the reason of the happiness of one sort of men, and the unhappiness of the other", "v": ["cache", "gill", 18, 1, 6, 6] }
+      ],
+      "evidence": "Both lines turn on one Hebrew word for “way”, and the BSB's “but” marks the turn. Each writer states the contrast on this verse in his own words.",
+      "check": "The two lines are the BSB's own poetry lines; derekh was found in each line of the Hebrew.",
+      "open": "See both lines",
+      "view": {
+        "type": "pairs", "title": "Opposite lines", "at": "Psalm 1:6",
+        "lead": "Both lines speak of a way. The LORD keeps the first; the second perishes.",
+        "rows": [
+          { "ref": "Ps.1.6", "t": "For the LORD guards the path of the righteous,", "lv": 1, "marks": [["guards", 1, "guards"], ["path", 2, "path"], ["the righteous", 0, "righteous"]], "heb": ["Ps.1.6", 0, 4, { "1": 1, "3": 2, "4": 0 }] },
+          { "ref": "Ps.1.6", "t": "but the way of the wicked will perish.", "lv": 2, "marks": [["way", 2, "way"], ["the wicked", 0, "wicked"], ["will perish", 1, "perish"]], "heb": ["Ps.1.6", 5, 7, { "5": 2, "6": 0, "7": 1 }] }
+        ]
+      }
+    },
+    {
+      "id": "ps1-two-ways", "covers": ["Ps.1.1", "Ps.1.2", "Ps.1.3", "Ps.1.4", "Ps.1.5", "Ps.1.6"], "level": "study",
+      "kind": "Set side by side",
+      "term": "Juxtaposition: the whole psalm sets the righteous against the wicked.",
+      "short": "The whole psalm sets the righteous beside the wicked",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "Ps.1.3", "t": "He is like a tree planted by streams of water,", "lv": 1, "marks": [["like a tree", 0]] },
+        { "ref": "Ps.1.4", "t": "Not so the wicked!", "lv": 1, "marks": [["the wicked", 5]] },
+        { "ref": "Ps.1.4", "t": "For they are like chaff driven off by the wind.", "lv": 2, "marks": [["like chaff", 5]] }
+      ],
+      "about": "The psalm sets two kinds of people side by side: the one who delights in the LORD's law, like a fruitful tree, and the wicked, like chaff in the wind.",
+      "scripture": "The psalm marks the turn itself: “Not so the wicked!” (1:4).",
+      "sources": [
+        { "w": "henry", "on": "Psalm 1:1", "book": "psalms", "ch": 1, "quote": "The different character and condition of godly people and wicked people, those that serve God and those that serve him not, is here plainly stated in a few words", "v": ["cache", "henry", 18, 1, 1, 1] },
+        { "w": "clarke", "on": "Psalm 1:1", "book": "psalms", "ch": 1, "quote": "The opposite state of the ungodly pointed out, under the metaphor of chaff driven away by the wind", "v": ["cache", "clarke", 18, 1, 1, 1] },
+        { "w": "keil-delitzsch", "on": "Psalm 1:4", "book": "psalms", "ch": 1, "quote": "The ungodly ... are the opposite of a tree planted by the water-courses", "v": ["cache", "keil-delitzsch", 18, 1, 4, 4] },
+        { "w": "spurgeon", "on": "Psalm 1", "book": "psalms", "ch": 1, "quote": "In the second part (from verse 4 to the end) he contrasts the state and character of the ungodly", "v": ["cache", "spurgeon", 18, 1, 1, 1] }
+      ],
+      "evidence": "The tree of verse 3 and the chaff of verse 4 are the psalm's own pictures of the two; verse 6 holds both in one verse.",
+      "check": "Each writer was read on Psalm 1 in his own words; every BSB phrase was matched against the pinned BSB.",
+      "open": "See the two ways",
+      "view": {
+        "type": "columns", "title": "The two ways", "at": "Psalm 1:1–6",
+        "lead": "Read across: each picture of the righteous has its answer in the wicked.",
+        "heads": [["The righteous", 0], ["The wicked", 5]],
+        "rows": [
+          { "left": { "ref": "Ps.1.1", "t": "Blessed is the man who does not walk in the counsel of the wicked," }, "right": { "ref": "Ps.1.4", "t": "Not so the wicked!" } },
+          { "left": { "ref": "Ps.1.3", "t": "He is like a tree planted by streams of water,", "marks": [["like a tree", 0]] }, "right": { "ref": "Ps.1.4", "t": "For they are like chaff driven off by the wind.", "marks": [["like chaff", 5]] }, "by": "Keil and Delitzsch: the wicked “are the opposite of a tree planted by the water-courses”." },
+          { "left": { "ref": "Ps.1.6", "t": "For the LORD guards the path of the righteous," }, "right": { "ref": "Ps.1.6", "t": "but the way of the wicked will perish." } }
+        ],
+        "span": [1, 6],
+        "arcs": [[1, 4, 0], [3, 4, 0]]
+      }
+    },
+    {
+      "id": "ps19-same", "covers": ["Ps.19.1", "Ps.19.2"], "level": "study",
+      "kind": "Same thought twice",
+      "term": "Synonymous parallelism. Bullinger's name for the form: “Synonymous or Gradational”.",
+      "short": "The same thought, said twice",
+      "strength": "commonly held",
+      "lines": [
+        { "ref": "Ps.19.1", "t": "The heavens declare the glory of God;", "lv": 1, "marks": [["The heavens", 0], ["declare", 1], ["the glory of God", 2]] },
+        { "ref": "Ps.19.1", "t": "the skies proclaim the work of His hands.", "lv": 2, "marks": [["the skies", 0], ["proclaim", 1], ["the work of His hands", 2]] },
+        { "ref": "Ps.19.2", "t": "Day after day they pour forth speech;", "lv": 1, "marks": [["Day after day", 3], ["pour forth speech", 4]] },
+        { "ref": "Ps.19.2", "t": "night after night they reveal knowledge.", "lv": 2, "marks": [["night after night", 3], ["reveal knowledge", 4]] }
+      ],
+      "about": "Each second line says the first again in other words: the heavens and the skies, day after day and night after night.",
+      "hebrew": { "note": "The Hebrew of verse 2 doubles its words: yom le-yom, “day to day”, and laylah le-laylah, “night to night”.", "roots": [16173, 15513, 9711, 10780] },
+      "sources": [
+        { "w": "calvin", "on": "Psalm 19:1", "book": "psalms", "ch": 19, "quote": "In the first verse, the Psalmist repeats one thing twice, according to his usual manner.", "v": ["cache", "calvin", 18, 19, 1, 1] },
+        { "w": "keil-delitzsch", "on": "Psalm 19:2", "book": "psalms", "ch": 19, "quote": "The parallel word ... is an unpictorial, but poetic, word", "v": ["cache", "keil-delitzsch", 18, 19, 2, 2] }
+      ],
+      "evidence": "Calvin says it of verse 1. Keil and Delitzsch call the verb of verse 2's second line “the parallel word” to the verb of its first.",
+      "check": "The lines are the BSB's own; the doubled Hebrew words of verse 2 were found in the verse.",
+      "open": "See both verses",
+      "view": {
+        "type": "pairs", "title": "The same thought twice", "at": "Psalm 19:1–2",
+        "lead": "Read the lines in pairs: the second says the first again.",
+        "rows": [
+          { "ref": "Ps.19.1", "t": "The heavens declare the glory of God;", "lv": 1, "marks": [["The heavens", 0, "heavens"], ["declare", 1, "declare"], ["the glory of God", 2, "glory"]], "heb": ["Ps.19.1", 3, 6, { "3": 0, "4": 1, "5": 2, "6": 2 }] },
+          { "ref": "Ps.19.1", "t": "the skies proclaim the work of His hands.", "lv": 2, "marks": [["the skies", 0, "skies"], ["proclaim", 1, "proclaim"], ["the work of His hands", 2, "work"]], "heb": ["Ps.19.1", 7, 10, { "7": 2, "8": 2, "9": 1, "10": 0 }] },
+          { "ref": "Ps.19.2", "t": "Day after day they pour forth speech;", "lv": 1, "marks": [["Day after day", 3, "day"], ["pour forth speech", 4, "speech"]], "heb": ["Ps.19.2", 0, 3, { "0": 3, "1": 3, "2": 4, "3": 4 }] },
+          { "ref": "Ps.19.2", "t": "night after night they reveal knowledge.", "lv": 2, "marks": [["night after night", 3, "night"], ["reveal knowledge", 4, "knowledge"]], "heb": ["Ps.19.2", 4, 7, { "4": 3, "5": 3, "6": 4, "7": 4 }] }
+        ]
+      }
+    },
+    {
+      "id": "ps19-person", "covers": ["Ps.19.1", "Ps.19.2", "Ps.19.3", "Ps.19.4"], "level": "study",
+      "kind": "Things spoken of as persons",
+      "term": "Personification. Bullinger: Prosopopoeia.",
+      "short": "The sky is said to speak",
+      "strength": "commonly held",
+      "lines": [
+        { "ref": "Ps.19.1", "t": "The heavens declare the glory of God;", "lv": 1, "marks": [["declare", 0]] },
+        { "ref": "Ps.19.2", "t": "Day after day they pour forth speech;", "lv": 1, "marks": [["pour forth speech", 0]] }
+      ],
+      "about": "The sky is said to speak. It has no voice (verse 3), yet what God made tells of Him.",
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Prosopopoeia, or Personification", "on": "Psalm 19:1", "quote": "A figure by which things are represented or spoken of as persons", "v": ["fos"] },
+        { "w": "calvin", "on": "Psalm 19:1", "book": "psalms", "ch": 19, "quote": "attributing to the dumb creature a quality which, strictly speaking, does not belong to it", "v": ["cache", "calvin", 18, 19, 1, 1] }
+      ],
+      "evidence": "Bullinger lists Psalm 19:1 among things spoken of as persons; Calvin says the psalmist gives the heavens a quality that strictly does not belong to them.",
+      "limit": "Bullinger's note on this verse sends readers to his own book on the stars. The app shows his figure, not that teaching.",
+      "check": "Bullinger's list was read in the 1898 text; Calvin on Psalm 19:1.",
+      "open": "See how the sky speaks",
+      "view": {
+        "type": "pairs", "title": "The sky speaks without a voice", "at": "Psalm 19:1–4",
+        "lead": "Verses 1 to 4 give the sky words, and say in the same breath that it has none.",
+        "chain": true,
+        "rows": [
+          { "ref": "Ps.19.1", "t": "The heavens declare the glory of God;", "lv": 1, "marks": [["declare", 0, "declare"]] },
+          { "ref": "Ps.19.1", "t": "the skies proclaim the work of His hands.", "lv": 2, "marks": [["proclaim", 0, "proclaim"]] },
+          { "ref": "Ps.19.2", "t": "Day after day they pour forth speech;", "lv": 1, "marks": [["pour forth speech", 0, "speech"]] },
+          { "ref": "Ps.19.2", "t": "night after night they reveal knowledge.", "lv": 2, "marks": [["reveal knowledge", 0, "knowledge"]] },
+          { "ref": "Ps.19.3", "t": "Without speech or language, without a sound to be heard,", "lv": 1, "marks": [["Without speech or language", 5, "no speech"]] },
+          { "ref": "Ps.19.4", "t": "their voice has gone out into all the earth,", "lv": 1, "marks": [["their voice", 0, "voice"]] },
+          { "ref": "Ps.19.4", "t": "their words to the ends of the world.", "lv": 2, "marks": [["their words", 0, "words"]] }
+        ]
+      }
+    },
+    {
+      "id": "ps19-alt", "covers": ["Ps.19.1", "Ps.19.2", "Ps.19.3", "Ps.19.4", "Ps.19.5", "Ps.19.6", "Ps.19.7", "Ps.19.8", "Ps.19.9", "Ps.19.10", "Ps.19.11", "Ps.19.12", "Ps.19.13", "Ps.19.14"], "level": "deep",
+      "kind": "Two halves that answer each other",
+      "tag": "A structure some readers see",
+      "term": "Alternation. Bullinger: an alternate correspondence, A B A′ B′.",
+      "short": "A four-part shape some readers see",
+      "strength": "some interpreters",
+      "lines": [
+        { "ref": "Ps.19.4", "t": "In the heavens He has pitched a tent for the sun.", "lv": 1, "marks": [["In the heavens", 0], ["the sun", 1]] },
+        { "ref": "Ps.19.11", "t": "By them indeed Your servant is warned;", "lv": 1, "marks": [["By them", 0], ["Your servant", 1]] }
+      ],
+      "about": "Bullinger reads the psalm in four parts: the heavens, then the sun in them; the Scriptures, then God's servant in them.",
+      "hebrew": { "note": "Bullinger ties the second and fourth parts by one Hebrew word, bahem, “in them”, in verses 4 and 11.", "roots": [] },
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Correspondence: Alternation", "on": "Psalm 19", "quote": "A 1-4-. The heavens. B -4-6. The sun in them", "v": ["fos"] }
+      ],
+      "evidence": "Bullinger pairs the parts by subject, and ties the second and fourth by the Hebrew word bahem, “in them”.",
+      "limit": "One writer only, so it shows only at Deep, as a structure some readers see. It does not settle what the psalm teaches.",
+      "check": "bahem was found as the last word of verse 4 and the fourth word of verse 11 in the Hebrew.",
+      "open": "See the four parts",
+      "view": {
+        "type": "outline", "title": "Psalm 19 in four parts", "at": "As Bullinger lays it out",
+        "lead": "The two halves answer each other: what is in the heavens, and what is in the Scriptures.",
+        "rows": [
+          { "label": "A", "range": "1–4a", "bul": "The heavens.", "ref": "Ps.19.1", "t": "The heavens declare the glory of God;", "pair": 0, "from": 1, "to": 4 },
+          { "label": "B", "range": "4b–6", "bul": "The sun in them.", "ref": "Ps.19.4", "t": "In the heavens He has pitched a tent for the sun.", "pair": 1, "from": 4, "to": 6 },
+          { "label": "A′", "range": "7–10", "bul": "The Scriptures.", "ref": "Ps.19.7", "t": "The Law of the LORD is perfect, reviving the soul;", "pair": 0, "from": 7, "to": 10 },
+          { "label": "B′", "range": "11–14", "bul": "Thy servant in them.", "ref": "Ps.19.11", "t": "By them indeed Your servant is warned;", "pair": 1, "from": 11, "to": 14 }
+        ],
+        "span": [1, 14]
+      }
+    },
+    {
+      "id": "isa6-mirror", "covers": ["Isa.6.10"], "level": "simple",
+      "kind": "Mirror",
+      "term": "Chiasm, or introverted parallelism. Bullinger: Epanodos, “Inversion”.",
+      "short": "A mirror: hearts, ears, eyes, then eyes, ears, hearts",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "Isa.6.10", "t": "Make the hearts of this people calloused;", "lv": 1, "marks": [["hearts", 0]] },
+        { "ref": "Isa.6.10", "t": "deafen their ears and close their eyes.", "lv": 2, "marks": [["ears", 1], ["eyes", 2]] },
+        { "ref": "Isa.6.10", "t": "Otherwise they might see with their eyes,", "lv": 1, "marks": [["eyes", 2]] },
+        { "ref": "Isa.6.10", "t": "hear with their ears,", "lv": 2, "marks": [["ears", 1]] },
+        { "ref": "Isa.6.10", "t": "understand with their hearts,", "lv": 2, "marks": [["hearts", 0]] },
+        { "ref": "Isa.6.10", "t": "and turn and be healed.", "lv": 1, "marks": [] }
+      ],
+      "about": "Three words go out in one order and come back in the reverse order: hearts, ears, eyes, then eyes, ears, hearts.",
+      "hebrew": { "note": "In Hebrew the eyes and the ears are the same words both times; the heart is lev, then its fuller form, levav.", "roots": [10666, 5852, 13350, 10672] },
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Epanodos, or Inversion", "on": "Isaiah 6:10", "quote": "The Repetition of the same Words in an inverse Order", "v": ["fos"] },
+        { "w": "jfb", "on": "Isaiah 6:10", "book": "isaiah", "ch": 6, "quote": "In the first member of the sentence, the order is, the heart, ears, eyes; in the latter, the reverse order, the eyes, ears, heart.", "v": ["cache", "jfb", 22, 6, 10, 10] },
+        { "w": "keil-delitzsch", "on": "Isaiah 6:9–10", "book": "isaiah", "ch": 6, "quote": "The three future clauses, with “lest” ( pen ), point back to these three imperatives in inverse order", "v": ["cache", "keil-delitzsch", 22, 6, 9, 10] }
+      ],
+      "evidence": "The words return in reverse order in the BSB and in the Hebrew. The BSB's own footnote says the verse is cited in Matthew 13:15, Mark 4:12, John 12:40 and Acts 28:27.",
+      "check": "First tier of the chiasm bar: a word mirror inside one verse, the reversed words found in the Hebrew, and at least one writer (here three).",
+      "open": "See the mirror",
+      "view": {
+        "type": "ladder", "title": "A mirror", "at": "Isaiah 6:10",
+        "lead": "Three words go out in one order and come back in the reverse order.",
+        "rows": [
+          { "label": "A", "depth": 0, "ref": "Isa.6.10", "t": "Make the hearts of this people calloused;", "marks": [["hearts", 0, "hearts"]], "heb": ["Isa.6.10", 0, 3, { "1": 0 }] },
+          { "label": "B", "depth": 1, "ref": "Isa.6.10", "t": "deafen their ears", "marks": [["ears", 1, "ears"]], "heb": ["Isa.6.10", 4, 5, { "4": 1 }] },
+          { "label": "C", "depth": 2, "ref": "Isa.6.10", "t": "and close their eyes.", "marks": [["eyes", 2, "eyes"]], "heb": ["Isa.6.10", 6, 7, { "6": 2 }] },
+          { "label": "C′", "depth": 2, "ref": "Isa.6.10", "t": "Otherwise they might see with their eyes,", "marks": [["eyes", 2, "eyes"]], "heb": ["Isa.6.10", 8, 10, { "10": 2 }] },
+          { "label": "B′", "depth": 1, "ref": "Isa.6.10", "t": "hear with their ears,", "marks": [["ears", 1, "ears"]], "heb": ["Isa.6.10", 11, 12, { "11": 1 }] },
+          { "label": "A′", "depth": 0, "ref": "Isa.6.10", "t": "understand with their hearts,", "marks": [["hearts", 0, "hearts"]], "heb": ["Isa.6.10", 13, 14, { "13": 0 }] },
+          { "label": "", "depth": 0, "tail": true, "ref": "Isa.6.10", "t": "and turn and be healed.", "marks": [], "heb": ["Isa.6.10", 15, 17, {}] }
+        ],
+        "meaning": { "text": "It is from the heart that corruption flows into the ears and eyes ... but through the eyes and ears healing reaches the heart", "w": "jfb", "on": "Isaiah 6:10", "book": "isaiah", "ch": 6, "note": "Jamieson, Fausset and Brown, crediting Bengel. One writer's reading of what the order means: some interpreters.", "v": ["cache", "jfb", 22, 6, 10, 10] }
+      }
+    },
+    {
+      "id": "gen6-human", "covers": ["Gen.6.6"], "level": "simple",
+      "kind": "God in human terms",
+      "term": "Anthropopathism: human feelings spoken of God. Bullinger: Anthropopatheia, “Condescension”.",
+      "short": "God's sorrow told in human words",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "Gen.6.6", "t": "And the LORD regretted that He had made man on the earth, and He was grieved in His heart.", "lv": 0, "marks": [["regretted", 0], ["grieved in His heart", 1]] }
+      ],
+      "about": "Scripture tells God's sorrow over man's sin in human words, so that we can understand it.",
+      "hebrew": { "note": "“Regretted” is nacham, the word 1 Samuel 15:29 uses when it says God does not “change His mind”.", "roots": [12319, 13666, 10666] },
+      "readings": "canon",
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Anthropopatheia, or Condescension", "on": "Genesis 6:6", "quote": "not that He has such feelings; but, in infinite condescension, He is thus spoken of in order to enable us to comprehend Him", "v": ["fos"] },
+        { "w": "henry", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon the honour of God's immutability or felicity.", "v": ["cache", "henry", 0, 6, 6, 6] },
+        { "w": "keil-delitzsch", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "The repentance of God is an anthropomorphic expression for the pain of the divine love at the sin of man", "v": ["cache", "keil-delitzsch", 0, 6, 6, 6] },
+        { "w": "gill", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "This is speaking by an anthropopathy, after the manner of men", "v": ["cache", "gill", 0, 6, 6, 6] },
+        { "w": "calvin", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "The repentance which is here ascribed to God does not properly belong to him, but has reference to our understanding of him.", "v": ["cache", "calvin", 0, 6, 6, 6] },
+        { "w": "wesley", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "These are expressions after the manner of men, and must be understood so as not to reflect upon God's immutability or felicity.", "v": ["lets", "wesley.json"] },
+        { "w": "benson", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "But this is spoken of God after the manner of men, by the same figure of speech whereby eyes, ears, hands, and feet are ascribed to God", "v": ["file", "benson-gen6.html"] }
+      ],
+      "evidence": "All seven call the words a figure. Where they differ is how far the feeling is like ours; both readings are shown and neither is settled here.",
+      "check": "Every writer was read on Genesis 6:6 in his own words; nacham was found in Genesis 6:6 and 6:7, Numbers 23:19 and 1 Samuel 15:11, 29 and 35.",
+      "open": "See it beside 1 Samuel 15",
+      "view": "canon"
+    },
+    {
+      "id": "hannah-foil", "covers": ["1Sam.1.2"], "level": "simple",
+      "kind": "Set side by side",
+      "term": "Character juxtaposition: a foil, each woman showing up the other.",
+      "short": "Set side by side: Hannah and Peninnah",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "1Sam.1.2", "t": "He had two wives, one named Hannah and the other Peninnah. And Peninnah had children, but Hannah had none.", "lv": 0, "marks": [["Hannah", 0], ["Peninnah", 5]] }
+      ],
+      "about": "The narrator sets the two wives side by side: one has children and taunts; the other has none, and prays.",
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Parallelism, introverted", "on": "1 Samuel 1:2", "quote": "a “The name of the one was Hannah , b and the name of the other was Peninnah : b And Peninnah had children, a but Hannah had no children.”", "v": ["fos"] },
+        { "w": "henry", "on": "1 Samuel 1:1–8", "book": "1_samuel", "ch": 1, "quote": "They had different blessings: Peninnah, like Leah, was fruitful and had many children ... Hannah, like Rachel, was childless indeed", "v": ["cache", "henry", 8, 1, 1, 1] },
+        { "w": "keil-delitzsch", "on": "1 Samuel 1:2", "book": "1_samuel", "ch": 1, "quote": "the latter of whom was blessed with children, whereas the first was childless", "v": ["cache", "keil-delitzsch", 8, 1, 2, 2] }
+      ],
+      "evidence": "The verse itself joins them with “but”. Bullinger lays the sentence out so the two names answer each other; Henry and Keil and Delitzsch state the contrast.",
+      "limit": "A foil is a reading of the story, and Henry is frank about both women: “Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented.” The card does not make Hannah faultless.",
+      "limitV": ["cache", "henry", 8, 1, 1, 1, "Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented"],
+      "check": "Each writer was read on 1 Samuel 1 in his own words. 1 Samuel names Peninnah only in 1:2 and 1:4, and calls her “her rival” only in 1:6 and 1:7 (searched in the pinned BSB).",
+      "open": "See both wives side by side",
+      "view": {
+        "type": "columns", "title": "Hannah and Peninnah", "at": "1 Samuel 1:2–2:5",
+        "lead": "Read across: what the narrator says of one, he says of the other.",
+        "heads": [["Hannah", 0], ["Peninnah", 5]],
+        "rows": [
+          { "left": { "ref": "1Sam.1.2", "t": "but Hannah had none." }, "right": { "ref": "1Sam.1.2", "t": "And Peninnah had children," } },
+          { "left": { "ref": "1Sam.1.5", "t": "But to Hannah he would give a double portion, for he loved her even though the LORD had closed her womb." }, "right": { "ref": "1Sam.1.4", "t": "he would give portions to his wife Peninnah and to all her sons and daughters." } },
+          { "left": { "ref": "1Sam.1.7", "t": "until she wept and would not eat." }, "right": { "ref": "1Sam.1.6", "t": "her rival would provoke her and taunt her viciously." } },
+          { "left": { "ref": "1Sam.1.10", "t": "In her bitter distress, Hannah prayed to the LORD and wept with many tears." }, "right": null, "rightNote": "1 Samuel says no more of Peninnah after 1:7." },
+          { "span": { "ref": "1Sam.2.5", "t": "The barren woman gives birth to seven, but she who has many sons pines away.", "marks": [["The barren woman", 0], ["she who has many sons", 5]] }, "spanLabel": "From Hannah's song",
+            "readings": [
+              { "text": "Matthew Henry and John Gill read the second half as Peninnah.", "who": [
+                { "w": "henry", "on": "1 Samuel 2:5", "book": "1_samuel", "ch": 2, "quote": "Peninnah is now mortified and crest-fallen.", "v": ["cache", "henry", 8, 2, 1, 1] },
+                { "w": "gill", "on": "1 Samuel 2:5", "book": "1_samuel", "ch": 2, "quote": "this may be understood of Peninnah", "v": ["cache", "gill", 8, 2, 5, 5] } ] },
+              { "text": "Adam Clarke says the song looks higher than Peninnah.", "who": [
+                { "w": "clarke", "on": "1 Samuel 2:1", "book": "1_samuel", "ch": 2, "quote": "Hannah in her rejoicing had respect to something higher than Peninnah her rival", "v": ["cache", "clarke", 8, 2, 1, 1] } ] }
+            ] }
+        ],
+        "span": ["1Sam.1.1", "1Sam.2.10"],
+        "arcs": [["1Sam.1.4", "1Sam.1.5", 0], ["1Sam.1.6", "1Sam.1.7", 0], ["1Sam.1.2", "1Sam.2.5", 1]],
+        "dots": { "1Sam.1.5": 0, "1Sam.1.7": 0, "1Sam.1.10": 0, "1Sam.1.4": 5, "1Sam.1.6": 5, "1Sam.1.2": 9, "1Sam.2.5": 9 }
+      }
+    },
+    {
+      "id": "hannah-crossing", "covers": ["1Sam.1.2"], "level": "study",
+      "kind": "Mirror",
+      "term": "A crossing sentence. Bullinger: introverted parallelism.",
+      "short": "The names cross: Hannah, Peninnah, Peninnah, Hannah",
+      "strength": "some interpreters",
+      "lines": [
+        { "ref": "1Sam.1.2", "t": "one named Hannah and the other Peninnah.", "lv": 1, "marks": [["Hannah", 0], ["Peninnah", 5]] },
+        { "ref": "1Sam.1.2", "t": "And Peninnah had children, but Hannah had none.", "lv": 1, "marks": [["Peninnah", 5], ["Hannah", 0]] }
+      ],
+      "about": "The names cross: Hannah, Peninnah, then Peninnah, Hannah. The verse is itself built as a small mirror.",
+      "hebrew": { "note": "The Hebrew keeps the same order: Hannah, Peninnah, Peninnah, Hannah.", "roots": [8932, 14117] },
+      "sources": [
+        { "w": "bullinger-fos", "at": "Bullinger's Figures of Speech (1898), Parallelism, introverted", "on": "1 Samuel 1:2", "quote": "a “The name of the one was Hannah , b and the name of the other was Peninnah : b And Peninnah had children, a but Hannah had no children.”", "v": ["fos"] }
+      ],
+      "evidence": "The two names come back in reverse order, in the BSB and in the Hebrew.",
+      "check": "First tier of the chiasm bar: one writer, and the crossed names found in the Hebrew (words 5, 8, 10 and 12 of the verse).",
+      "open": "See the crossing",
+      "view": {
+        "type": "pairs", "title": "The names cross", "at": "1 Samuel 1:2",
+        "lead": "Two names, then the same two in reverse order.",
+        "rows": [
+          { "ref": "1Sam.1.2", "t": "one named Hannah and the other Peninnah.", "lv": 1, "marks": [["Hannah", 0, "Hannah"], ["Peninnah", 5, "Peninnah"]], "heb": ["1Sam.1.2", 3, 8, { "5": 0, "8": 5 }] },
+          { "ref": "1Sam.1.2", "t": "And Peninnah had children, but Hannah had none.", "lv": 1, "marks": [["Peninnah", 5, "Peninnah"], ["Hannah", 0, "Hannah"]], "heb": ["1Sam.1.2", 9, 14, { "10": 5, "12": 0 }] }
+        ]
+      }
+    },
+    {
+      "id": "sam15-key", "covers": ["1Sam.15.29"], "level": "simple",
+      "kind": "God in human terms",
+      "term": "Anthropopathism, and the verse that explains it.",
+      "short": "God in human words: read with verses 11 and 35",
+      "strength": "widely agreed",
+      "lines": [
+        { "ref": "1Sam.15.29", "t": "Moreover, the Glory of Israel does not lie or change His mind, for He is not a man, that He should change His mind.", "lv": 0, "marks": [["change His mind", 0], ["He is not a man", 1]] }
+      ],
+      "about": "Verses 11 and 35 say the LORD “regretted”. This verse uses the same Hebrew word to say He does not change His mind as a man does: Scripture speaks of God in human terms, yet He does not change.",
+      "hebrew": { "note": "“Change His mind” is nacham, the word the BSB gives as “regret” in verses 11 and 35.", "roots": [12319] },
+      "readings": "canon",
+      "sources": [
+        { "w": "keil-delitzsch", "on": "1 Samuel 15:29", "book": "1_samuel", "ch": 15, "quote": "These words are spoken ... (theomorphically), whereas in 1Sa 15:11 and other passages, which speak of God as repenting, the words are to be understood ... (anthropomorphically; cf. Num 23:19)", "v": ["cache", "keil-delitzsch", 8, 15, 29, 29] },
+        { "w": "gill", "on": "1 Samuel 15:11", "book": "1_samuel", "ch": 15, "quote": "is spoken after the manner of men", "v": ["cache", "gill", 8, 15, 11, 11] },
+        { "w": "wesley", "on": "1 Samuel 15:11", "book": "1_samuel", "ch": 15, "quote": "it is ascribed to God when God alters his method of dealing", "v": ["lets", "wesley.json"] },
+        { "w": "henry-concise", "on": "1 Samuel 15:10–23", "book": "1_samuel", "ch": 15, "quote": "Repentance in God is not a change of mind, as it is in us, but a change of method.", "v": ["lets", "mhcc.json"] }
+      ],
+      "evidence": "Keil and Delitzsch set this verse against verse 11 in so many words. The other three explain the “regret” of verse 11 as a way of speaking.",
+      "check": "nacham was found twice in this verse and once each in verses 11 and 35.",
+      "open": "See verses 11, 29 and 35 together",
+      "view": "canon"
+    }
+  ],
+  "canon": {
+    "title": "God's sorrow, and God who does not change", "at": "Genesis 6:6 with Numbers 23 and 1 Samuel 15",
+    "lead": "One Hebrew word, nacham, runs through these verses. Scripture says the LORD “regretted”, and that He “is not a man, that He should change His mind”. It holds both together.",
+    "rows": [
+      { "ref": "Gen.6.6", "t": "And the LORD regretted that He had made man on the earth, and He was grieved in His heart.", "marks": [["regretted", 0], ["grieved in His heart", 1]] },
+      { "ref": "Gen.6.7", "t": "for I am grieved that I have made them.", "marks": [["grieved", 0]], "note": "Here “grieved” is nacham, the word for “regretted” in 6:6." },
+      { "ref": "Num.23.19", "t": "God is not a man, that He should lie, or a son of man, that He should change His mind.", "marks": [["change His mind", 0]] },
+      { "ref": "1Sam.15.11", "t": "I regret that I have made Saul king,", "marks": [["regret", 0]] },
+      { "ref": "1Sam.15.29", "t": "Moreover, the Glory of Israel does not lie or change His mind, for He is not a man, that He should change His mind.", "marks": [["change His mind", 0]] },
+      { "ref": "1Sam.15.35", "t": "and the LORD regretted that He had made Saul king over Israel.", "marks": [["regretted", 0]] }
+    ],
+    "readings": [
+      { "title": "A way of speaking", "text": "The feeling is told in human words; it does not belong to God as it does to us.",
+        "who": ["calvin", "gill", "henry", "wesley", "benson", "bullinger-fos"] },
+      { "title": "A real grief, in human words", "text": "God's love is truly pained by sin, though His purposes do not change.",
+        "who": ["keil-delitzsch"],
+        "quote": { "w": "keil-delitzsch", "on": "Genesis 6:6", "book": "genesis", "ch": 6, "quote": "does not presuppose any variableness in His nature of His purposes", "v": ["cache", "keil-delitzsch", 0, 6, 6, 6] } }
+    ],
+    "both": "Both readings hold that God does not change (1 Samuel 15:29; Numbers 23:19)."
+  }
+}
