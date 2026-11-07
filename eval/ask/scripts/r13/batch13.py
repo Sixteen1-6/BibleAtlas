@@ -1,0 +1,32 @@
+"""batch13.py outdir n runs...: blind batches of the first 6 shown (gathered verses or chain parts) per message, not yet judged (cache.json)."""
+import json, sys, os
+sys.path.insert(0, os.environ.get('ATLAS_REPO', '.') + '/eval/ask/scripts/tools')
+from bible import parse, text, name
+here = os.path.dirname(os.path.abspath(__file__))
+cache = json.load(open(os.path.join(here, 'cache.json'))) if os.path.exists(os.path.join(here, 'cache.json')) else {}
+out, n = sys.argv[1], int(sys.argv[2])
+K = int(os.environ.get('K', 6))
+def ctx(ref):
+    vs = parse(ref)
+    (b, c, v0), (_, _, v1) = vs[0], vs[-1]
+    lines = []
+    for v in range(max(1, v0 - 2), v1 + 3):
+        try:
+            t = text(b, c, v)
+        except Exception:
+            t = None
+        if t: lines.append(f"{'>>' if v0 <= v <= v1 else '  '} {name(b, c, v)} {t}")
+    return '\n'.join(lines)
+Q, order = {}, []
+for f in sys.argv[3:]:
+    for r in json.load(open(f)):
+        if r['how'] == 'care': continue
+        for t in r.get('shown', [])[:K]:
+            if (r['q'].strip().lower() + '\t' + t['ref']) in cache: continue
+            if r['q'] not in Q: Q[r['q']] = {}; order.append(r['q'])
+            Q[r['q']].setdefault(t['ref'], (t['v'], t['text']))
+items = [{'q': q, 'verses': [{'ref': ref, 'shown': s, 'context': ctx(ref)} for ref, (v, s) in sorted(Q[q].items(), key=lambda x: x[1][0])]} for q in order if Q[q]]
+os.makedirs(out, exist_ok=True)
+for b in range(n):
+    json.dump(items[b::n], open(f'{out}/batch-{b+1}.json', 'w'), indent=1, ensure_ascii=False)
+print(len(items), 'questions', sum(len(x['verses']) for x in items), 'verses in', n, 'batches')
