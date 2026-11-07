@@ -17,6 +17,7 @@ import { ASKS } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
 import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
+import { READ_AFTER_MS, markRead } from '../data/reading';
 import { OMITTED } from './common';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
@@ -48,6 +49,13 @@ export function Reader({ a }: { a: Atlas }) {
   const orig = atLeast('study');
   const other = S.showOtherEditions.value && atLeast('deep');
   const inter = S.interlinear.value;
+
+  // A chapter open for half a minute counts as read (data/reading.ts).
+  useEffect(() => {
+    const c = a.bookChapterStart[book] + chapter - 1;
+    const t = setTimeout(() => markRead(c), READ_AFTER_MS);
+    return () => clearTimeout(t);
+  }, [a, book, chapter]);
 
   useEffect(() => {
     let live = true;
