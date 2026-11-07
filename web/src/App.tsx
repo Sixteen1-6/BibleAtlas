@@ -17,6 +17,7 @@ import { AskSheet } from './ui/ask/AskSheet';
 import { Reader } from './ui/Reader';
 import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
+import { noticeOpen } from './ui/commentary/state';
 import { Wheel } from './ui/Wheel';
 import { WordStudy } from './ui/WordStudy';
 
@@ -189,6 +190,16 @@ export function App() {
       if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
         e.preventDefault();
         S.paletteOpen.value = true;
+      } else if ((e.key === 'j' || e.key === 'k') && !typing && !e.metaKey && !e.ctrlKey && !e.altKey && !S.paletteOpen.value && !noticeOpen.value && !(e.target as HTMLElement)?.closest?.('[role="dialog"], select, [contenteditable]')) {
+        // J and K step to the next and previous verse; the map and the text follow.
+        const at = S.atlas.peek();
+        if (!at) return;
+        e.preventDefault();
+        const sel = S.selected.peek();
+        const { book, chapter } = S.reading.peek();
+        const first = at.chapterStart[at.bookChapterStart[book] + chapter - 1];
+        const next = sel === null ? first : e.key === 'j' ? Math.min(at.n - 1, sel + 1) : Math.max(0, sel - 1);
+        S.selectVerse(next);
       } else if (e.key === 'Escape' && S.viewMenu.value) {
         S.viewMenu.value = false;
       } else if (e.key === 'Escape' && S.panelWide.value && !S.paletteOpen.value) {
