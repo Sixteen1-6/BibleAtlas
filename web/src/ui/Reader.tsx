@@ -17,6 +17,7 @@ import { ASKS } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
 import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
+import { TourBar } from './TourBar';
 import { READ_AFTER_MS, markRead } from '../data/reading';
 import { OMITTED } from './common';
 
@@ -200,6 +201,7 @@ export function Reader({ a }: { a: Atlas }) {
 
   return (
     <div class="reader" ref={root}>
+      <TourBar />
       <Welcome />
       <div class="readhead">
         <h1>

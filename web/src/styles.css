@@ -777,6 +777,21 @@ p .godeeper {
   line-height: 1.45;
   color: var(--muted);
 }
+.welcome .tours {
+  margin: 10px 0 0;
+  font: 13.5px/1.6 var(--font-ui);
+}
+.welcome .linkbtn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  cursor: pointer;
+}
+.welcome .linkbtn:hover {
+  text-decoration: underline;
+}
 .welcome .dismiss {
   margin-top: 10px;
   font-size: 13px;
@@ -912,6 +927,43 @@ p .godeeper {
   .verses.two .verse .sidetag {
     display: none;
   }
+}
+/* A guided tour (TourBar.tsx): held at the top of the reader while it is followed. */
+.tourbar {
+  position: sticky;
+  /* The reader's own top padding, so the bar meets the top edge. */
+  top: -20px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  max-width: 760px;
+  margin: -20px auto 14px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 var(--r-md) var(--r-md);
+  font: 13px var(--font-ui);
+}
+.tourbar .tb-name {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.tourbar .tb-at {
+  color: var(--muted);
+}
+.tourbar .tb-go {
+  display: flex;
+  gap: 6px;
+}
+.tourbar .tb-next {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 /* Poetry in the BSB's own lines (Reader.tsx, PoetryLines). */
 .verse .poem .pl.in {
@@ -1537,6 +1589,10 @@ p .godeeper {
   .reader {
     border-right: 0;
     padding: 14px 16px 40px;
+  }
+  .tourbar {
+    top: -14px;
+    margin-top: -14px;
   }
   .readhead h1 {
     font-size: 22px;

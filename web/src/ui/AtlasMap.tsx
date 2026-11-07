@@ -6,6 +6,7 @@ import { useSignalEffect } from '@preact/signals';
 import { type Atlas, label, linkCount, linked, shortName } from '../data/atlas';
 import { passageAt, passages } from '../data/layers';
 import { forgetRead, readChapters } from '../data/reading';
+import { tourRoad } from '../data/tours';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
@@ -145,7 +146,8 @@ export function AtlasMap({ a }: { a: Atlas }) {
     const f = field.current;
     if (!f) return;
     const hv = S.hovered.value;
-    const p = S.path.value;
+    // A tour is drawn as a road is, while the reader is on its step (data/tours.ts).
+    const p = S.path.value ?? tourRoad.value;
     const sel = S.selected.value;
     const group = S.groupEdges.value;
     let edges: Uint32Array | null = null;
@@ -215,7 +217,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     const sel = S.selected.value;
     const reach = touch ? 22 : 10;
     const base = h * BASELINE;
-    if (sel === null || S.path.value || y > base - reach - 2) return null;
+    if (sel === null || S.path.value || tourRoad.value || y > base - reach - 2) return null;
     const x0 = toScreen(xs[sel], S.view.value, w);
     let best: { v: number; e: number } | null = null;
     let bestD = reach;
@@ -287,7 +289,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
     }
     if (e.pointerType === 'touch') return;
     // With a verse selected, the sky shows its arcs: name the one under the pointer.
-    if (S.selected.value !== null && !S.path.value && localY(e) < h * BASELINE - 12) {
+    if (S.selected.value !== null && !S.path.value && !tourRoad.value && localY(e) < h * BASELINE - 12) {
       const hit = arcAt(x, localY(e), false);
       S.hovered.value = null;
       // The arc's far end lights in the panel and the text too.
@@ -498,7 +500,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
 
   // Selected verse and its strongest neighbors.
   const selV = S.selected.value;
-  const p = S.path.value;
+  const p: (typeof S.path.value & {}) | (NonNullable<typeof tourRoad.value>) | null = S.path.value ?? tourRoad.value;
   let selection: preact.JSX.Element | null = null;
   if (selV !== null && !p) {
     const x = sx(selV);
@@ -569,19 +571,27 @@ export function AtlasMap({ a }: { a: Atlas }) {
     const gold = roadGold();
     pathLayer = (
       <g style={`--road:${gold}`}>
-        {pts.slice(1).map((x1, i) => {
+        {/* A tour's steps need not link one to the next: only the links among them are drawn, in the sky. */}
+        {!('tour' in p) &&
+          pts.slice(1).map((x1, i) => {
           const x0 = pts[i];
           const len = Math.PI * (Math.abs(x1 - x0) / 2 + arcHeight(x0, x1, h, w)) / 2 + 10;
           return <path key={`${p.verses[i]}-${p.verses[i + 1]}`} class="patharc" d={arcPath(x0, x1, h, w)} style={`--len:${len.toFixed(0)};animation-delay:${i * 0.5}s`} />;
         })}
-        {p.verses.map((v, i) => (
-          <g key={v}>
-            <circle cx={pts[i]} cy={base} r={4.5} fill={gold} />
-            <text class="nodelabel" x={Math.min(Math.max(pts[i], 44), w - 44)} y={base + 48 + (i % 2) * 14} text-anchor="middle">
-              {label(a, v, true)}
-            </text>
-          </g>
-        ))}
+        {p.verses.map((v, i) => {
+          // On a tour, every step is a point and only the one being read is named.
+          const here = !('tour' in p) || p.at === i;
+          return (
+            <g key={v}>
+              <circle cx={pts[i]} cy={base} r={'tour' in p && here ? 6 : 4.5} fill={gold} opacity={here ? 1 : 0.7} />
+              {here && (
+                <text class="nodelabel" x={Math.min(Math.max(pts[i], 44), w - 44)} y={base + 48 + ('tour' in p ? 0 : (i % 2) * 14)} text-anchor="middle">
+                  {label(a, v, true)}
+                </text>
+              )}
+            </g>
+          );
+        })}
       </g>
     );
   }
