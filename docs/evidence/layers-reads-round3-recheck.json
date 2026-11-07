@@ -1,0 +1,87 @@
+{
+  "_comment": [
+    "Pages read again in the Layers thread's re-check of round 3 (2026-11-07): one record per citation whose quotation was changed or that was added. Fields as in layers-reads-wordplay-r3-2026-10-25.json; time is the UTC time taken right after the read."
+  ],
+  "kind": "reads",
+  "batch": "Layers thread, round 3 re-check",
+  "from": "2026-11-07",
+  "to": "2026-11-07",
+  "records": [
+    {
+      "passage": "hebrews-1-9",
+      "note": 1,
+      "kind": "name meaning",
+      "source": "strongs",
+      "on": "Hebrews 1:9",
+      "url": "https://biblehub.com/greek/5547.htm",
+      "fetched": "2026-11-07",
+      "time": "2026-11-07T11:23:59Z",
+      "status": "added",
+      "read_for": "round 3 re-check (Layers thread, 2026-11-07): a cite added to the note",
+      "read_how": "read on the page: the Strong's Exhaustive Concordance entry for G5547 (Christos); the page also gives the word origin as from G5548, chrio",
+      "verdict": "respects",
+      "quote": "From chrio; Anointed One, i.e. The Messiah, an epithet of Jesus -- Christ."
+    },
+    {
+      "passage": "matthew-21-42",
+      "note": 1,
+      "kind": "quotation",
+      "source": "barnes",
+      "on": "Matthew 21:42",
+      "url": "https://biblehub.com/commentaries/barnes/matthew/21.htm",
+      "fetched": "2026-11-07",
+      "time": "2026-11-07T12:03:30Z",
+      "status": "added",
+      "read_for": "round 3 re-check (Layers thread, 2026-11-07): a cite added to the note",
+      "read_how": "Read on this page; both pieces found word for word under the heading Matthew 21:42 (the comment on 21:42-43). The page prints Psalm 118:22-23 where the pinned copy has Psa 118:22-23.",
+      "verdict": "respects",
+      "quote": "This passage is found in Psalm 118:22-23. It was first applicable to David, but no less to Jesus...This represents the Lord Jesus, proposed to the Jews as the foundation or cornerstone on which to build the church, but rejected by them - the builders"
+    },
+    {
+      "passage": "leviticus-18-21",
+      "note": 1,
+      "kind": "name meaning",
+      "source": "bullinger-cb",
+      "on": "Leviticus 18:21",
+      "url": "https://www.studylight.org/commentaries/eng/bul/leviticus-18.html",
+      "fetched": "2026-11-07",
+      "time": "2026-11-07T11:43:36Z",
+      "status": "added",
+      "read_for": "round 3 re-check (Layers thread, 2026-11-07): the quotation was changed to the words the cite rests on",
+      "read_how": "read again on this page, where each part of the quotation was found",
+      "verdict": "respects",
+      "quote": "Molech. Always has the article...denoting the king, or the king-idol"
+    },
+    {
+      "passage": "job-1-6",
+      "note": 2,
+      "kind": "name meaning",
+      "source": "gill",
+      "on": "Job 1:6",
+      "url": "https://biblehub.com/commentaries/gill/job/1.htm",
+      "fetched": "2026-11-07",
+      "time": "2026-11-07T11:47:23Z",
+      "status": "added",
+      "read_for": "round 3 re-check (Layers thread, 2026-11-07): the quotation was changed to the words the cite rests on",
+      "read_how": "read again on this page, where each part of the quotation was found",
+      "verdict": "respects",
+      "quote": "Satan came also among them; which word signifies an \"adversary\" ... the first derivation is best",
+      "decided": "The introduction says the authorship is much disputed, lists Isaiah, Solomon, an Idumaean prophet and Moses as candidates, and judges it most probable that Job himself wrote it or that it was compiled from his diary or his friends' records, calling the book a real history."
+    },
+    {
+      "passage": "isaiah-65-11",
+      "note": 1,
+      "kind": "name meaning",
+      "source": "bullinger-cb",
+      "on": "Isaiah 65:11",
+      "url": "https://www.studylight.org/commentaries/eng/bul/isaiah-65.html",
+      "fetched": "2026-11-07",
+      "time": "2026-11-07T11:55:25Z",
+      "status": "added",
+      "read_for": "round 3 re-check (Layers thread, 2026-11-07): the quotation was changed to the words the cite rests on",
+      "read_how": "read again on this page, where each part of the quotation was found",
+      "verdict": "respects",
+      "quote": "that troop. Hebrew Gad, the well-known Syrian god of \"Fate\"...that number. Hebrew. m'ni. Same as the god Manu (= Destiny) of the Assyrian inscriptions."
+    }
+  ]
+}
