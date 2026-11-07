@@ -1,0 +1,53 @@
+{
+  "notes": [
+    {
+      "id": "obadiah-1-1-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Obadiah 1:1-2",
+      "strength": "some interpreters",
+      "short": "The LORD, the envoy, the envoy's call, the LORD",
+      "about": "A message comes from the LORD, and an envoy is sent among the nations. The envoy's words come next, a call to make war on Edom, and in the last line the LORD Himself speaks, from whom the message in the first line came.",
+      "lines": [
+        {
+          "ref": "Obadiah 1:1",
+          "words": "We have heard a message from the LORD;",
+          "mark": "A",
+          "key": "message"
+        },
+        {
+          "ref": "Obadiah 1:1",
+          "words": "an envoy has been sent among the nations",
+          "mark": "B",
+          "key": "envoy"
+        },
+        {
+          "ref": "Obadiah 1:1",
+          "words": "to say, “Rise up, and let us go to battle against her!",
+          "mark": "B'",
+          "key": "battle"
+        },
+        {
+          "ref": "Obadiah 1:2",
+          "words": "Behold, I will make you small among the nations;",
+          "mark": "A'",
+          "key": "small"
+        }
+      ],
+      "evidence": "Boys sets these lines out in four members: the envoy sent among the nations in the second answers the envoy's own words in the third, and the words of the LORD in the last answer the LORD named in the first.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Obadiah 1:1-2",
+          "at": "Introduction, p. 43",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/43/mode/1up",
+          "quote": "The embassage … referred to in b., appears in b. … On the contrary, in a., the last member, we have no longer the words of the ambassador, but of the Lord … a. then answers to a., as well as b. to b. … In b. we have the words of the ambassador, who is mentioned in b.; in a. the words of the Lord, who is mentioned in a.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    }
+  ]
+}

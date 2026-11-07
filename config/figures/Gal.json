@@ -52,6 +52,154 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "galatians-2-7-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Galatians 2:7-8",
+      "strength": "commonly held",
+      "short": "Paul's calling first and last, Peter's between",
+      "about": "Paul's calling to the uncircumcised comes first and last; Peter's calling to the circumcised is in the two middle lines.",
+      "lines": [
+        {
+          "ref": "Galatians 2:7",
+          "words": "they saw that I had been entrusted to preach the gospel to the uncircumcised,",
+          "mark": "A",
+          "key": "uncircumcised"
+        },
+        {
+          "ref": "Galatians 2:7",
+          "words": "just as Peter had been to the circumcised.",
+          "mark": "B",
+          "key": "Peter"
+        },
+        {
+          "ref": "Galatians 2:8",
+          "words": "For the One who was at work in Peter’s apostleship to the circumcised",
+          "mark": "B'",
+          "key": "Peter’s"
+        },
+        {
+          "ref": "Galatians 2:8",
+          "words": "was also at work in my apostleship to the Gentiles.",
+          "mark": "A'",
+          "key": "Gentiles"
+        }
+      ],
+      "evidence": "Bullinger sets out these verses in four parts, Paul's commission in the first and last and Peter's in the two between. Boys gives the two parts he marks a to Paul's commission among the Gentiles, and speaks also of Peter's among the Jews.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Galatians 2:7-8",
+          "at": "Introduction, p. 4",
+          "url": "https://archive.org/details/tactica-sacra/page/4/mode/1up",
+          "quote": "In a. and a., St. Paul's commission to the Gentiles; … St. Peter's commission to the Jews.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Galatians 2:7-8",
+          "at": "Introverted Parallelisms, p. 362",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/362/mode/1up",
+          "quote": "a Paul’s commission. … b Peter’s. … b Peter’s. … a Paul’s commission.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "galatians-4-24-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Galatians 4:24",
+      "strength": "widely agreed",
+      "short": "Paul reads a true history as a picture",
+      "about": "Paul says the account of Abraham's two sons, one by a slave woman and one by a free woman, teaches more than it first tells: the two women stand for two covenants. Paul's own word names the figure, and the history remains true history.",
+      "refs": [
+        "Galatians 4:22-23",
+        "Genesis 16:15",
+        "Genesis 21:2"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "Galatians 4:24",
+        "words": "These things serve as illustrations",
+        "means": "the true history of Hagar and Sarah and their sons, which Paul shows also sets forth the two covenants"
+      },
+      "original": {
+        "note": "In Paul's Greek the words are hatina estin allegoroumena, which things are allegorized; the verb is found nowhere else in the New Testament.",
+        "strong": [
+          "G0238"
+        ]
+      },
+      "evidence": "Bullinger: a true history may be allegorized, shown to teach more, and remain true. Calvin: Paul does not mean Moses wrote it as an allegory, but finds in it a figurative picture of the two covenants that keeps the literal meaning. Barnes: it may be read allegorically without denying that the record is true. Fausset (Jamieson, Fausset and Brown): it has another besides the literal meaning.",
+      "limit": "The note does not claim that Moses wrote the account to be read this way, or that the events did not happen; Paul draws a further lesson from a true history.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Galatians 4:24",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 749",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/749/mode/1up",
+          "quote": "Gal 4:1-31 shows us that a true history may be allegorized (i.e., be shown to have further teaching in that which actually took place) without detracting from the truth of the history.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Galatians 4:22",
+          "quote": "Paul certainly does not mean that Moses wrote the history for the purpose of being turned into an allegory, but points out in what way the history may be made to answer the present subject. ... but this does not involve a departure from the literal meaning. In a word, Paul adduces the history, as containing a figurative representation of the two covenants in the two wives of Abraham",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Galatians 4:24",
+          "quote": "May be regarded allegorically, or as illustrating great principles in regard to the condition of slaves and freemen ... He does not mean to say that the historical record of Moses was not true, or was merely allegorical ... The word does not occur elsewhere in the New Testament",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Galatians 4:24",
+          "quote": "are an allegory--rather, \"are allegorical,\" that is, have another besides the literal meaning. these are the two covenants--\"these [women] are (that is, mean; omit 'the' with all the oldest manuscripts) two covenants.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "galatians-5-17-antimetabole",
+      "kind": "figure",
+      "form": "antimetabole",
+      "ref": "Galatians 5:17",
+      "strength": "some interpreters",
+      "short": "Flesh against Spirit, and Spirit against flesh",
+      "about": "The flesh and the Spirit are named, then named again in reverse order: the flesh craves what is contrary to the Spirit, and the Spirit what is contrary to the flesh. The turn sets each against the other, and the verse then says so: “They are opposed to each other.”",
+      "figure": {
+        "name": "Antimetabole",
+        "ref": "Galatians 5:17",
+        "words": "the flesh craves what is contrary to the Spirit, and the Spirit what is contrary to the flesh",
+        "means": "the flesh and the Spirit, each set against the other"
+      },
+      "evidence": "Bullinger lists the verse under Antimetabole, or Counterchange, words repeated in reverse order to oppose one thing to another, and sets it out: the flesh, against the spirit; and the spirit, against the flesh.",
+      "limit": "The note is about how the words are set out.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Galatians 5:17",
+          "at": "Antimetabole, or Counterchange, pp. 301, 303",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/303/mode/1up",
+          "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... a “ The flesh lusteth b against the spirit, b and the spirit a against the flesh. ”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

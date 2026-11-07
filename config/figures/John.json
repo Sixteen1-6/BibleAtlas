@@ -307,6 +307,570 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "john-1-46-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "John 1:46",
+      "strength": "commonly held",
+      "short": "A common saying that scorned Nazareth",
+      "about": "Nathanael answers with what seems to have been a common saying of the day, scorning the town of Nazareth: could the Messiah come from such a place? Philip does not argue but says, “Come and see.” Nathanael comes, and Jesus calls him a true Israelite.",
+      "refs": [
+        "John 1:47",
+        "John 7:41-42",
+        "John 7:52"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "John 1:46",
+        "words": "Can anything good come from Nazareth?",
+        "means": "a common, scornful saying that nothing good comes from Nazareth, here turned against Jesus, who grew up there"
+      },
+      "evidence": "Bullinger lists the question under Parœmia among proverbs quoted as already in use, which he says John 7:41-42 and 7:52 show. Benson calls it a proverb by which other Israelites ridiculed the Nazarenes, and says Nathanael applied it because Micah had named Bethlehem as the Messiah's birthplace.",
+      "limit": "The verse does not itself call the question a saying. Nathanael may also have had in mind that Scripture named Bethlehem, not Nazareth, as the Messiah's birthplace.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 1:46",
+          "at": "Parœmiœ which are quoted as being already in use as such, p. 757",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/757/mode/1up",
+          "quote": "This appears from 7:41, 42, 52, to have been a proverb already in use.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "John 1:45-46",
+          "quote": "A proverb, by which the rest of the Israelites ridiculed the Nazarenes. Nathanael, on this occasion, applied it the rather, because the Messiah's nativity had been determined by the Prophet Micah to Bethlehem. ... it appears from hence that the Galileans themselves had but an ill opinion of Nazareth, as worse than the rest of that country",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-2-19-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "John 2:19",
+      "strength": "widely agreed",
+      "short": "“This temple” stands for His body, left unsaid",
+      "about": "Jesus says, “Destroy this temple,” without saying that He means His body, and His hearers think of the building. John explains that He was speaking about the temple of His body (verse 21). The saying foretold His death at their hands and His rising in three days.",
+      "refs": [
+        "John 2:20",
+        "John 2:21"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "John 2:19",
+        "words": "this temple",
+        "means": "His own body, which they would put to death and He would raise up in three days"
+      },
+      "original": {
+        "note": "In John's Greek the word is naos, the sanctuary itself rather than the whole temple area.",
+        "strong": [
+          "G3485"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: Jesus did not say His body was like the temple or was the temple, but only implied the word body. Calvin calls the saying allegorical; Henry says Jesus foretold His death and rising in figurative words; Barnes and H. W. Watkins (Ellicott's Commentary) explain why His body is called a temple.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 2:19",
+          "at": "Hypocatastasis, or Implication, p. 746",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/746/mode/1up",
+          "quote": "The Lord Jesus did not say that His body was like the temple (that would have been Simile), or that it was His body (that would have been Metaphor). He merely implied the word body, as ver. 21 plainly declares",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 2:19",
+          "quote": "This is an allegorical mode of expression; and Christ intentionally spoke with that degree of obscurity, because he reckoned them unworthy of a direct reply … Though he uses the word temple in accommodation to the present occurrence, yet the body of Christ is justly and appropriately called a temple.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 2:12-22",
+          "quote": "He foretels his death and resurrection, not in plain terms, as he often did to his disciples, but in figurative expressions … Note, The body of Christ is the true temple, of which that at Jerusalem was a type.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "John 2:19",
+          "quote": "Our Saviour called his body a temple in accordance with the common use of language … As the Lord Jesus was divine - as the fulness of the Godhead dwelt in him so his body might be called a \"temple.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "John 2:19",
+          "quote": "The enigma turns in the present case upon the double sense of the word “temple.” It meant the sacred shrine of the Deity, the Holy and Most Holy place, as distinct from the wider Temple area. But the true shrine of the Deity was the body of the Incarnate Word.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-3-14-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "John 3:14",
+      "strength": "widely agreed",
+      "short": "Moses' raised snake pictures the Son lifted up",
+      "about": "Jesus sets the bronze snake Moses raised on a pole beside His own lifting up. Many read the snake as a type: as each bitten Israelite who looked at it lived, so “everyone who believes in Him may have eternal life” (3:15).",
+      "refs": [
+        "Numbers 21:8-9",
+        "John 3:15",
+        "John 12:32-33"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "John 3:14",
+        "words": "Just as Moses lifted up the snake in the wilderness",
+        "means": "the bronze snake on its pole, pointing ahead to the Son of Man lifted up, so that whoever looks to Him in faith lives"
+      },
+      "evidence": "Henry calls the bronze snake a type of Christ: shaped like the serpents yet without poison, as Christ was made sin yet knew no sin. Calvin says Jesus refers to it as a type of His own lifting up. The Catena Aurea of Thomas Aquinas gives Bede, who says the story was meant as a figure of His Passion and of man's salvation.",
+      "limit": "John 12:32-33 ties the lifting up to His death; one writer reads it here as Christ set forth before all in the preaching of the gospel.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 3:1-21",
+          "quote": "Now in this type of Christ we may observe, First, The deadly and destructive nature of sin ... It was made in the shape of a fiery serpent, and yet had no poison, no sting, fitly representing Christ, who was made sin for us and yet knew no sin",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 3:14",
+          "quote": "The simple meaning of the words therefore is, that, by the preaching of the Gospel, Christ was to be raised on high, like a standard to which the eyes of all would be directed ... As a type of this lifting up, he refers to the brazen serpent, which was erected by Moses, the sight of which was a salutary remedy to those who had been wounded by the deadly bite of serpents.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "John 3:14-15",
+          "at": "Bede, Catena Aurea on John 3:14-15",
+          "url": "https://www.ecatholic2000.com/catena/untitled-91.shtml",
+          "quote": "He introduces the teacher of the Mosaic law, to the spiritual sense of that law; by a passage from the Old Testament history, which was intended to be a figure of His Passion, and of man’s salvation.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-4-37-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "John 4:37",
+      "strength": "widely agreed",
+      "short": "“One sows and another reaps”: an old saying",
+      "about": "Jesus quotes a common saying and says it is true here: others did the hard work, and the disciples reap the harvest (verse 38). The saying often spoke of loss, but here the sower and the reaper rejoice together (verse 36).",
+      "refs": [
+        "John 4:36",
+        "John 4:38"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "John 4:37",
+        "words": "One sows and another reaps",
+        "means": "one labors and another gathers the fruit; the sowers are read as the prophets before Christ, and the reapers as His disciples"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia among proverbs quoted as already in use. Calvin and Benson both call it a common proverb, and both say that, unlike its common use, here the sower does not grudge the reaper but shares his joy. Clarke says the proverb is taken from what often happens, one taking pains for what another reaps, and reads the sowers as the patriarchs and prophets.",
+      "limit": "The verses do not name the sowers.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 4:37",
+          "at": "Parœmiœ which are quoted as being already in use as such, p. 757",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/757/mode/1up",
+          "quote": "Parœmiœ which are quoted as being already in use as such ... “And herein is that saying true; ‘One soweth, and another reapeth.’ ”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 4:37",
+          "quote": "This was a common proverb, by which he showed that many men frequently receive the fruit of the labor of others, though there was this difference, that he who has labored is displeased at seeing the fruit carried away by another, whereas the Apostles have the Prophets for the companions of their joy.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "John 4:37-38",
+          "quote": "That common proverb; One soweth and another reapeth He alludes to what often happens ... But the application which our Lord makes of this proverb here, does not imply any discontent in the persons who sow without reaping, as it seems to do in common uses; for the sower and the reaper are represented as rejoicing together",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "John 4:37",
+          "quote": "this proverb is true ... Others have labored - the patriarchs and prophets, and ye are entered into the fruits of their labors. ... The proverb which our Lord mentions above was taken from what ordinarily happens in the course of the Divine providence, where one takes a great deal of pains to procure that of which another reaps the benefit.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-5-8-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "John 5:8-11",
+      "strength": "commonly held",
+      "short": "Jesus' words frame it; the Sabbath is at the centre",
+      "about": "The account goes out and comes back: the words of Jesus, the man made well, the mat carried, the Sabbath; then the Sabbath, the mat carried, the man made well, and the words of Jesus again, as the man repeats them.",
+      "lines": [
+        {
+          "ref": "John 5:8",
+          "words": "Get up, pick up your mat, and walk.",
+          "mark": "A",
+          "key": "walk"
+        },
+        {
+          "ref": "John 5:9",
+          "words": "Immediately the man was made well,",
+          "mark": "B",
+          "key": "made well"
+        },
+        {
+          "ref": "John 5:9",
+          "words": "and he picked up his mat and began to walk.",
+          "mark": "C",
+          "key": "mat"
+        },
+        {
+          "ref": "John 5:9",
+          "words": "Now this happened on the Sabbath day,",
+          "mark": "D",
+          "key": "Sabbath"
+        },
+        {
+          "ref": "John 5:10",
+          "words": "This is the Sabbath!",
+          "mark": "D'",
+          "key": "Sabbath"
+        },
+        {
+          "ref": "John 5:10",
+          "words": "It is unlawful for you to carry your mat.",
+          "mark": "C'",
+          "key": "mat"
+        },
+        {
+          "ref": "John 5:11",
+          "words": "The man who made me well",
+          "mark": "B'",
+          "key": "made me well"
+        },
+        {
+          "ref": "John 5:11",
+          "words": "told me, ‘Pick up your mat and walk.’",
+          "mark": "A'",
+          "key": "walk"
+        }
+      ],
+      "evidence": "Boys and Bullinger both set out these verses in eight parts: the words of the Lord at the ends, then the man made whole, then the bed carried, and the Sabbath at the centre.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "John 5:8-11",
+          "at": "Introduction, p. 7",
+          "url": "https://archive.org/details/tactica-sacra/page/7/mode/1up",
+          "quote": "In d. and d., the sabbath; in c. and c., the bed carried; in b. and b., the man made whole; in a. and a., the words of our Lord.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "John 5:8-11",
+          "at": "Introverted Correspondence, p. 378",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/378/mode/1up",
+          "quote": "Here in A and A we have the words of Christ; in B and B the man made whole; in C and C the bed he carried; and in D and D the Sabbath.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "john-5-20-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "John 5:20-23",
+      "strength": "some interpreters",
+      "short": "Outer verses answer, and so do the inner two",
+      "about": "Verses 20 and 23 answer each other on the outside, and verses 21 and 22 answer each other in the middle: the Son gives life, and all judgment is given to the Son.",
+      "lines": [
+        {
+          "ref": "John 5:20",
+          "words": "The Father loves the Son and shows Him all He does.",
+          "mark": "A"
+        },
+        {
+          "ref": "John 5:21",
+          "words": "so also the Son gives life to whom He wishes.",
+          "mark": "B"
+        },
+        {
+          "ref": "John 5:22",
+          "words": "but has assigned all judgment to the Son,",
+          "mark": "B'"
+        },
+        {
+          "ref": "John 5:23",
+          "words": "so that all may honor the Son just as they honor the Father.",
+          "mark": "A'"
+        }
+      ],
+      "evidence": "Forbes, on verses 20 to 23: the two distichs of verse 20 correspond to the two of verse 23, while the two central verses, 21 and 22, correspond to each other.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "John 5:20-23",
+          "at": "Section IX, p. 73",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/73/mode/1up",
+          "quote": "The two distichs of v. 20 correspond to the two distichs of v. 23 respectively ... while the two central verses, 21 and 22, mutually correspond.",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-6-32-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "John 6:32",
+      "strength": "widely agreed",
+      "short": "The manna pointed ahead to the true bread",
+      "about": "The crowd holds up the manna as bread from heaven. Jesus answers that His Father now gives “the true bread from heaven.” Many read the manna Israel ate in the wilderness as a type, and Christ as the bread it pointed to, as He goes on to say: “I am the bread of life.”",
+      "refs": [
+        "John 6:31",
+        "John 6:35",
+        "Exodus 16:4"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "John 6:32",
+        "words": "the true bread from heaven",
+        "means": "Christ, the bread the Father gives, to which the manna of the wilderness pointed ahead"
+      },
+      "evidence": "Henry: Christ tells them of the true manna, of which the manna was a type, but a shadow and figure. Clarke: the manna was not the true bread but merely a type of it, and Christ was typified by it. Benson: the manna was only a symbolical representation of the true, heavenly bread the Father now gives.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 6:28-59",
+          "quote": "He informs them concerning the true manna, of which that was a type: But my Father giveth you the true bread from heaven; that which is truly and properly the bread from heaven, of which the manna was but a shadow and figure",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "John 6:32",
+          "quote": "That this bread was not the true bread, but was merely a type of it. … That himself is that heavenly nourishment of which he spake, and who was typified by the manna in the desert.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "John 6:32-33",
+          "quote": "neither was the manna bread from heaven, though it be so called by the psalmist, on account of the thing which it typified … he now giveth you the true spiritual, heavenly bread, of which the manna was only a symbolical representation",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-6-62-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "John 6:62",
+      "strength": "widely agreed",
+      "short": "Jesus leaves His question about ascending unfinished",
+      "about": "When many disciples take offense at His words, Jesus speaks of the day they may “see the Son of Man ascend to where He was before,” and does not finish the thought. What would follow is left unsaid; it can be read as asking whether they would believe even then.",
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Enquiry and Deprecation",
+        "ref": "John 6:62",
+        "words": "if you see the Son of Man ascend to where He was before",
+        "means": "the end is left unsaid: would they believe then, or take still greater offense"
+      },
+      "original": {
+        "note": "In John's Greek the question is only an “if” clause (ean), with no main clause after it; English supplies “what will happen.”",
+        "strong": [
+          "G1437"
+        ]
+      },
+      "evidence": "Bullinger lists John 6:62 under Ellipsis and again under Aposiopesis, since more is implied than any words could supply. Bengel says the if-clause leaves its conclusion to be understood, with far greater things to follow. Henry asks what then, and offers ways the sentence may be completed.",
+      "limit": "The writers fill in the unsaid end differently: that the hearers would be offended still more, or would then be satisfied; one says more is meant than any words could supply.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 6:62",
+          "at": "Aposiopesis, Enquiry and Deprecation, p. 154",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/154/mode/1up",
+          "quote": "“And if ye shall see the Son of Man ascend up where he was before--?” This has already been referred to under Ellipsis (see p. 54). But something more is implied; more than can be supplied by any specific words, such as, “Will ye believe then?” For He did afterwards ascend up, but they still refused to believe!",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "John 6:62",
+          "quote": "ἐάν, if, has as the Apodosis to be understood, what shall be? ... That is, there are far greater things, which will follow: if ye do not believe this, how would you believe those things, if I were to tell you them?",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/john/6.htm",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "henry",
+          "on": "John 6:60-71",
+          "quote": "And what then? First, \"If I should tell you of that, surely it would much more offend you, and you would think my pretensions too high indeed. ... Or, Thirdly, \"When you see that, or hear it from those that shall see it, surely then you will be satisfied.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-10-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "John 10:1-16",
+      "strength": "widely agreed",
+      "short": "The sheepfold, the gate and the good shepherd",
+      "about": "Jesus pictures a sheepfold. Thieves climb in another way, but the shepherd enters by the gate, and his sheep know his voice. When His hearers do not understand, He opens the picture: He is the gate for the sheep, and the good shepherd who lays down His life for them.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "John 10:1",
+        "words": "whoever does not enter the sheepfold by the gate",
+        "means": "God's people as a fold, entered only through Christ the gate and led by Him as their shepherd, while false leaders climb in another way"
+      },
+      "original": {
+        "note": "In John's Greek the word for this illustration in verse 6 is paroimia, a wide word for figurative speech; it is not the word usually rendered parable.",
+        "strong": [
+          "G3942"
+        ]
+      },
+      "evidence": "H. W. Watkins (Ellicott's Commentary) renders the word in verse 6 as allegory, not parable, and warns that not every detail, such as the gatekeeper, is to be pressed. Barnes reads the fold as God's people and the door as Christ, and says the Pharisees came in another way. Henry calls it a figurative discourse in which the fold is the church, and Christ makes Himself both the door and the shepherd.",
+      "limit": "Two of these writers call it a parable or a similitude, and one warns against pressing every detail, such as the gatekeeper.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "John 10:6",
+          "quote": "Better, this allegory spake Jesus unto them. The word rendered “parable” is the wider word (παροιμία, paroimia ) which includes every kind of figurative and proverbial teaching ... the interpretation of every point in the history of the material facts ( e.g., “ the porter” in Joh 10:3 ) is not always to be pressed.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "John 10:1",
+          "quote": "This is called Joh 10:6 a parable, and it is an eminently beautiful illustration ... By the figure here we are to understand the Jewish people, or the church of God ... By the door, here, is meant the Lord Jesus Christ ... the only way of entering the church of God is by believing on him ... The Pharisees claimed to be pastors, but not under his appointment. They entered some other way.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 10:1-18",
+          "quote": "Here is the parable or similitude proposed ... The church of God in the world is a sheepfold ... Jesus spoke this parable to them, this figurative, but wise, elegant, and instructive discourse ... in the explication of the parable, he makes himself to be both the door by which the shepherd enters and the shepherd that enters in by the door.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-15-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "John 15:1-6",
+      "strength": "widely agreed",
+      "short": "The true vine: a picture carried through",
+      "about": "Jesus carries one picture through these verses. He is the true vine and His Father the keeper of the vineyard; the disciples are the branches. Branches that bear fruit are pruned to bear more, and a branch that does not remain in Him withers and is burned.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "John 15:1",
+        "words": "I am the true vine",
+        "means": "Christ, the source of all His people's life and fruit; the Father tends and prunes them, and removes fruitless branches"
+      },
+      "evidence": "H. W. Watkins (Ellicott's Commentary) calls the passage an allegory, in which the branches in view are true and false Christians. Calvin finds three main parts in the comparison and warns against pressing every property of the vine. Barnes: as a vine feeds its branches, Jesus is the source of His disciples' strength. Henry: Christ is the vine, believers the branches, the Father the husbandman.",
+      "limit": "One of these writers calls it a similitude, and another reads it for its main points only, not for each feature of a vine.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "John 15:5",
+          "quote": "It has been implied, but not directly stated, that they are the branches. ... The persons thought of all through this allegory are true and false Christians",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "John 15:1",
+          "quote": "we ought not to examine minutely every property of the vine, but only to take a general view of the object to which Christ applies that comparison. Now, there are three principal parts; first, that we have no power of doing good but what comes from himself; secondly, that we, having a root in him, are dressed and pruned by the Father; thirdly, that he removes the unfruitful branches",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "John 15:1",
+          "quote": "The point of the comparison or the meaning of the figure is this: A vine yields proper juice and nourishment to all the branches, whether these are large or small. ... So Jesus is the source of all real strength and grace to his disciples.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 15:1-8",
+          "quote": "Here Christ discourses concerning the fruit, the fruits of the Spirit, which his disciples were to bring forth, under the similitude of a vine. Observe here, I. The doctrine of this similitude; what notion we ought to have of it. 1. That Jesus Christ is the vine, the true vine. ... 2. That believers are branches of this vine ... 3. That the Father is the husbandman",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-15-20-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "John 15:20",
+      "strength": "commonly held",
+      "short": "“They will keep yours”: more is meant than said",
+      "about": "Jesus says “if they kept My word, they will keep yours as well,” but He means more than the words say. The world had refused His word, and it would refuse theirs just as surely: His disciples could look for no better hearing than He had.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "John 15:20",
+        "words": "if they kept My word, they will keep yours as well",
+        "means": "the world that refused His word will refuse the disciples' word just as surely"
+      },
+      "evidence": "Bullinger lists the verse under Meiosis (a belittling): as surely as they have not kept His saying, they will not keep the disciples', and he says the whole context shows this must be the figure. Henry says Christ means they will regard the disciples' sayings no more than they have regarded and kept His.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "John 15:20",
+          "at": "Meiosis, or A Be-Littleing, p. 157",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/157/mode/1up",
+          "quote": "“If they have kept my saying, they will keep yours also,” i.e., as surely as they have NOT kept my saying, they will not keep yours. The whole context shows that this must be the figure of Meiosis.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "John 15:18-25",
+          "quote": "When Christ says, If they have kept my sayings, they will keep yours, he means, They will keep yours, and regard yours, no more than they have regarded and kept mine.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }
