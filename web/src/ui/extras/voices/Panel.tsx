@@ -200,7 +200,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
     <>
       <Lead>What Christian writers of the past wrote about {where}, in their own words. They are not Scripture, and they do not always agree.</Lead>
       {file === undefined ? (
-        <p class="x-voices-p xt-wait">…</p>
+        <p class="x-voices-p xt-wait">Loading what they wrote…</p>
       ) : (
         WORKS.map((w, k) => {
           const mine = notes.filter((x) => x[0] === k);
