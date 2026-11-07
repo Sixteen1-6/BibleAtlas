@@ -1794,3 +1794,17 @@ p .godeeper {
 .layersection .startrow {
   padding-bottom: 10px;
 }
+
+/* Chapters read (AtlasMap.tsx, data/reading.ts). */
+.map .hud .linkbtn {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--sky-muted);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.map .hud .linkbtn:hover {
+  color: var(--sky-ink);
+}

@@ -19,6 +19,7 @@ import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
 import { noticeOpen } from './ui/commentary/state';
 import { Wheel } from './ui/Wheel';
+import { sharePicture } from './ui/share';
 import { WordStudy } from './ui/WordStudy';
 
 /** The English versions on offer: the ESV only where its server runs. */
@@ -85,6 +86,12 @@ const DOTS_ICON = (
     <circle cx="13" cy="8" r="1.5" fill="currentColor" />
   </svg>
 );
+const SHARE_ICON = (
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 10V2M5 5l3-3 3 3M3 8v5h10V8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+);
+
 const THEME_ICON = {
   system: (
     <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -286,6 +293,20 @@ export function App() {
             {THEME_ICON[S.pageTheme.value]}
             <span class="optlabel">{THEME_NAME[S.pageTheme.value]}</span>
           </button>
+          {!wheel && S.mapShown.value !== 'hide' && !S.panelWide.value && (
+            <button
+              class="iconbtn themebtn sharebtn"
+              onClick={() => {
+                S.viewMenu.value = false;
+                void sharePicture(a);
+              }}
+              title="Share the map, with the selected verse, as a picture"
+              aria-label="Share the map as a picture"
+            >
+              {SHARE_ICON}
+              <span class="optlabel">Share as a picture</span>
+            </button>
+          )}
           {atLeast('study') && (
             <div class="seg mapstyle" role="group" aria-label="Map style">
               <button aria-pressed={!wheel} onClick={() => (S.mapMode.value = 'arcs')}>

@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useSignalEffect } from '@preact/signals';
 import { type Atlas, label, linkCount, linked, shortName } from '../data/atlas';
 import { passageAt, passages } from '../data/layers';
+import { forgetRead, readChapters } from '../data/reading';
 import { getVerse, isBookLoaded } from '../data/text';
 import { ArcField, edgeInstances } from '../gl/arcs';
 import { BASELINE, BOOK_GAP, arcHeight, arcPath, clampView, toScreen, verseAt, verseX, type View } from '../gl/layout';
@@ -585,6 +586,26 @@ export function AtlasMap({ a }: { a: Atlas }) {
     );
   }
 
+  // Chapters read (data/reading.ts), from Study up: a soft gold line on the
+  // baseline under each run of read chapters.
+  const read = readChapters.value;
+  let readLayer: preact.JSX.Element | null = null;
+  if (read.size && atLeast('study') && w > 0) {
+    let d = '';
+    const cs = [...read].filter((c) => c < a.chapterStart.length).sort((x, y) => x - y);
+    for (let i = 0; i < cs.length; ) {
+      let j = i;
+      while (j + 1 < cs.length && cs[j + 1] === cs[j] + 1) j++;
+      const first = a.chapterStart[cs[i]];
+      const last = cs[j] + 1 < a.chapterStart.length ? a.chapterStart[cs[j] + 1] - 1 : a.n - 1;
+      const x0 = Math.max(sx(first) - verseW / 2, 0);
+      const x1 = Math.min(sx(last) + verseW / 2, w);
+      if (x1 > x0) d += `M${x0.toFixed(1)},${base - 4}H${Math.max(x1, x0 + 1).toFixed(1)}`;
+      i = j + 1;
+    }
+    readLayer = <path class="readline" d={d} stroke={ARC.lamp} stroke-width={3} opacity={0.85} />;
+  }
+
   // Ticks for theme, word or search hits.
   const m = S.marks.value;
   let marksLayer: preact.JSX.Element | null = null;
@@ -637,6 +658,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
       <canvas class="arcs" ref={canvas} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp} onPointerLeave={onLeave} onDblClick={() => setView({ scale: 1, offset: 0 })} />
       <svg class="overlay" width={w} height={h} aria-hidden="true">
         {bookBands}
+        {readLayer}
         {groupLabels}
         {marksLayer}
         {selection}
@@ -652,6 +674,15 @@ export function AtlasMap({ a }: { a: Atlas }) {
           <span>
             <strong>{n.toLocaleString()}</strong> of {drawable.toLocaleString()} links shown
             {group ? ` · ${group.label}` : ''}
+            {read.size > 0 && (
+              <span class="readcount" title="Chapters you have had open for half a minute, kept only in this browser. They show as a gold line along the bottom of the map.">
+                {' '}
+                · {read.size.toLocaleString()} {read.size === 1 ? 'chapter' : 'chapters'} read{' '}
+                <button type="button" class="linkbtn" onClick={() => confirm('Forget the chapters you have read in this browser?') && forgetRead()}>
+                  Forget
+                </button>
+              </span>
+            )}
             {atLeast('deep') && votedDown > 0 && <span class="down"> · {votedDown.toLocaleString()} voted down, not shown</span>}
           </span>
           <div class="votes">
