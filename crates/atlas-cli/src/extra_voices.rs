@@ -70,8 +70,9 @@ const HENRY: &str = "henry-concise";
 const WESLEY: &str = "wesley-notes";
 const OUT: &str = "extras/voices.json";
 const DIR: &str = "extras/voices";
-/// A book's notes are split into files of about this many bytes, between chapters.
-const PART_BYTES: usize = 500_000;
+/// A book's notes are split into files of about this many bytes, between
+/// chapters, so opening the panel waits for about 20 KB compressed, not 160 KB.
+const PART_BYTES: usize = 60_000;
 
 /// The works, oldest first, as numbered in the output.
 const FATHERS_W: u8 = 0;
