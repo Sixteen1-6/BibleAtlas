@@ -853,6 +853,66 @@ p .godeeper {
   font: 17px/1.65 var(--font-read);
   cursor: pointer;
 }
+/* Two translations side by side (Reader.tsx): two columns where the reader
+   is wide enough, one under the other where it is not. */
+.reader {
+  container: reader / inline-size;
+}
+.sidehead {
+  display: none;
+  font: 600 12px var(--font-ui);
+  color: var(--muted);
+  padding: 0 0 6px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+.verse .en.side {
+  margin-top: 4px;
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 16px;
+}
+.verse .sidetag {
+  font: 600 10px var(--font-ui);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-right: 6px;
+}
+@container reader (min-width: 820px) {
+  .verses.two,
+  .reader:has(.verses.two) :is(.readhead, .toggles, .copyright) {
+    max-width: 1080px;
+  }
+  .verses.two .sidehead {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+  }
+  .verses.two .verse {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+    align-items: start;
+  }
+  .verses.two .verse > * {
+    grid-column: 1 / -1;
+  }
+  .verses.two .verse > .en {
+    grid-column: 1;
+  }
+  .verses.two .verse > .en.side {
+    grid-column: 2;
+    margin-top: 0;
+    padding-left: 0;
+    border-left: 0;
+    color: inherit;
+    font-size: 17px;
+  }
+  .verses.two .verse .sidetag {
+    display: none;
+  }
+}
 /* Poetry in the BSB's own lines (Reader.tsx, PoetryLines). */
 .verse .poem .pl.in {
   padding-left: 1.5em;
