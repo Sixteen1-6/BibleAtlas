@@ -58,17 +58,17 @@
       "kind": "figure",
       "form": "antimetabole",
       "ref": "2 Chronicles 32:7-8",
-      "strength": "widely agreed",
+      "strength": "some interpreters",
       "short": "With us, with him, then with him, with us",
-      "about": "Hezekiah says “with us” and then “with him,” and turns the words back the other way: “With him is only the arm of flesh, but with us is the LORD our God.” The reversal sets the two sides against each other: the king of Assyria has only human strength, and Judah has the LORD.",
+      "about": "Hezekiah says “with us” and then “with him,” and turns the words back the other way: “With him is only the arm of flesh, but with us is the LORD our God.” The reversal sets the two sides against each other: the king of Assyria, with only the arm of flesh, and Judah, with the LORD.",
       "figure": {
         "name": "Antimetabole",
         "ref": "2 Chronicles 32:8",
         "words": "With him is only the arm of flesh, but with us is the LORD our God",
-        "means": "the LORD, who is with Judah, set against the mere human strength that is with the king of Assyria"
+        "means": "the LORD, who is with Judah, set against the arm of flesh that is with the king of Assyria"
       },
-      "evidence": "Bullinger lists these verses under Antimetabole, words repeated in reverse order to set one thing against another. Matthew Henry, giving the sense of Hezekiah's words, sets the enemy's arm of flesh, which he trusts in, against the LORD who is with Judah and whose power none can resist. C. J. Ball (Ellicott's Commentary) puts it as the enemy's power being human and Judah's superhuman.",
-      "limit": "Only one writer points out the reversed order; the others draw out the contrast it makes.",
+      "evidence": "Bullinger lists these verses under Antimetabole, or Counterchange, words repeated in reverse order to oppose one thing to another, and sets them out a b b a: more with us, than with him; with him an arm of flesh, but with us the Lord our God.",
+      "limit": "The note is about how the words are set out.",
       "checked": "2026-11-07",
       "cites": [
         {
@@ -78,20 +78,6 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/301/mode/1up",
           "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... a There be more with us b than with him; b With him is an arm of flesh, a but with us is the Lord our God.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "henry",
-          "on": "2 Chronicles 32:1-8",
-          "quote": "Sennacherib has a multitude with him, and yet there are more with us than with him; for we have God with us ... With our enemy is an arm of flesh, which he trusts to; but with us is the Lord, whose power is irresistible",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "ellicott",
-          "on": "2 Chronicles 32:8",
-          "quote": "His power is human, ours superhuman.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
         }
       ]

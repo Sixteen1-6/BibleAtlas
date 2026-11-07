@@ -105,17 +105,17 @@
       "kind": "figure",
       "form": "antimetabole",
       "ref": "Mark 2:27",
-      "strength": "widely agreed",
+      "strength": "some interpreters",
       "short": "“Sabbath” and “man” come back in reverse order",
-      "about": "The saying names the Sabbath and man, then names them again in reverse order. The turn shows which serves which: the Sabbath was given for man's good, and man was not made to serve the Sabbath.",
+      "about": "The saying names the Sabbath and man, then names them again in reverse order. Turning the words around sets the two in contrast: the Sabbath was made for man, and man was not made for the Sabbath.",
       "figure": {
         "name": "Antimetabole",
         "ref": "Mark 2:27",
         "words": "The Sabbath was made for man, not man for the Sabbath",
-        "means": "the Sabbath was given to serve man's good; man was not made to serve the Sabbath"
+        "means": "the Sabbath was made for man, not the other way round: man was not made for the Sabbath"
       },
-      "evidence": "Bullinger lists the verse under Antimetabole, or Counterchange, marking the words a b b a. Henry takes each half in turn: man was not made for the Sabbath, but God meant the Sabbath as an advantage to man. Barnes: man was made first and the Sabbath then appointed for his welfare, not the other way round, so its law must not be turned against his real good.",
-      "limit": "The turn does not set the Sabbath aside. It shows what God gave the Sabbath for: man's real good, so its law is not to be turned against him.",
+      "evidence": "Bullinger lists the verse under Antimetabole, or Counterchange, marking the words a b b a.",
+      "limit": "The note is about how the words are set out.",
       "checked": "2026-11-07",
       "cites": [
         {
@@ -125,20 +125,6 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/302/mode/1up",
           "quote": "a “The sabbath b was made for man, b and not man for a the sabbath.”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "henry",
-          "on": "Mark 2:27",
-          "quote": "God never designed it to be an imposition upon us, and therefore we must not make it so to ourselves. Man was not made for the sabbath, for he was made a day before the sabbath was instituted. ... Secondly, God did design it to be an advantage to us, and so we must make it, and improve it.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "barnes",
-          "on": "Mark 2:27",
-          "quote": "Not man for the sabbath - Man was made \"first,\" and then the Sabbath was appointed for his welfare, Gen 2:1-3. The Sabbath was not \"first\" made or contemplated, and then the man made with reference to that. Since, therefore, the Sabbath was intended for man's \"good,\" the law respecting it must not be interpreted so as to oppose his real welfare.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
         }
       ]

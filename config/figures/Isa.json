@@ -991,17 +991,17 @@
       "kind": "figure",
       "form": "antimetabole",
       "ref": "Isaiah 5:20",
-      "strength": "widely agreed",
+      "strength": "some interpreters",
       "short": "Evil called good, and good called evil",
-      "about": "Each pair of words is said, then said back the other way: evil and good, darkness and light, bitter and sweet. The reversals picture people who turn right and wrong upside down, praising what is evil and condemning what is good, as if the difference between them did not exist.",
+      "about": "Each pair of words is said, then said back the other way: evil and good, darkness and light, bitter and sweet. Turning the words around sets the opposites against each other, and the woe falls on those who swap them.",
       "figure": {
         "name": "Antimetabole",
         "ref": "Isaiah 5:20",
         "words": "call evil good and good evil, who turn darkness to light and light to darkness, who replace bitter with sweet and sweet with bitter",
-        "means": "people who swap good and evil, as if darkness and light, or bitter and sweet, had traded places"
+        "means": "people who swap good and evil, darkness and light, bitter and sweet, setting each pair of opposites the wrong way round"
       },
-      "evidence": "Bullinger lists the verse under Antimetabole, words repeated in reverse order to set one thing against another. Calvin explains it as saying of evil that it is good and of good that it is evil, as if to change light into darkness. Delitzsch (Keil and Delitzsch) sees a code of morals that overturned first principles; Matthew Henry and Joseph Benson speak of those who confound good and evil.",
-      "limit": "Only one writer points out the reversed order; the others explain what the reversals show.",
+      "evidence": "Bullinger lists the verse under Antimetabole, or Counterchange, words repeated in reverse order to oppose one thing to another: call evil good, and good evil; put darkness for light, and light for darkness; put bitter for sweet, and sweet for bitter.",
+      "limit": "The note is about how the words are set out.",
       "checked": "2026-11-07",
       "cites": [
         {
@@ -1011,34 +1011,6 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/301/mode/1up",
           "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... “Woe unto them that call evil good, and good evil; that put darkness for light, and light for darkness; that put bitter for sweet, and sweet for bitter. ”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "calvin",
-          "on": "Isaiah 5:20",
-          "quote": "They who say of evil, It is good, and of good, It is evil ... Such persons, the Prophet tells us, act as if they would change light into darkness, and sweet into bitter",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "keil-delitzsch",
-          "on": "Isaiah 5:20",
-          "quote": "This fourth woe relates to those who adopted a code of morals that completely overturned the first principles of ethics, and was utterly opposed to the law of God; for evil, darkness, and bitter, with their respective antitheses, represent moral principles that are essentially related",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "henry",
-          "on": "Isaiah 5:18-30",
-          "quote": "Who confound and overthrow the distinctions between moral good and evil ... who not only live in the omission of that which is good, but condemn it ... not only do that which is evil, but justify it, and applaud it, and recommend it to others as safe and good.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "benson",
-          "on": "Isaiah 5:20",
-          "quote": "That endeavour to confound both the names and the natures of virtue and vice, of piety and impiety; commend and applaud what is evil, and disparage and discountenance what is good",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
         }
       ]
@@ -1164,9 +1136,9 @@
       "kind": "figure",
       "form": "riddle",
       "ref": "Isaiah 11:1",
-      "strength": "widely agreed",
+      "strength": "commonly held",
       "short": "A dark saying: the shoot from Jesse's stump",
-      "about": "Isaiah speaks of a shoot springing from the stump of Jesse, like a tree cut down, without saying who it is. The next verse shows a person: “The Spirit of the LORD will rest on Him”. Many read the shoot as the Messiah, born of David's family when it had sunk low.",
+      "about": "Isaiah speaks of a shoot springing from the stump of Jesse, like a tree cut down, without saying plainly who it is. The next verse shows a person: “The Spirit of the LORD will rest on Him”. The shoot may be read as the Messiah, rising from David's family when it had sunk low.",
       "refs": [
         "Isaiah 11:2"
       ],
@@ -1174,7 +1146,7 @@
         "name": "Riddle",
         "ref": "Isaiah 11:1",
         "words": "a shoot will spring up from the stump of Jesse",
-        "means": "the Messiah, rising from David's royal family when it had been brought as low as a tree cut down to its stump"
+        "means": "perhaps the Messiah, rising from David's royal family when it had been brought as low as a tree cut down to its stump"
       },
       "original": {
         "note": "In Hebrew geza, the word for stump, is what remains of a tree once it is cut.",
@@ -1182,8 +1154,7 @@
           "H1503"
         ]
       },
-      "evidence": "Bullinger lists the verse under Ænigma: a dark saying, to be explained by what follows. Calvin says Isaiah keeps to the picture of a forest rather than say plainly that the Messiah would come. Barnes sees the Messiah as a shoot from a fallen tree, David's family in decay; Fausset (Jamieson, Fausset and Brown) and Delitzsch (Keil and Delitzsch) read the stump as David's humbled house.",
-      "limit": "The writers give different reasons why David's house was brought so low, such as the storms of war or its own turning from God.",
+      "evidence": "Bullinger lists the verse under Ænigma: a dark saying, to be interpreted by what follows. Calvin says Isaiah keeps to the picture of a forest rather than say plainly that the Messiah would come, promising one who will spring even out of a dry trunk, and names Jesse, not David, because David's family had sunk so low.",
       "checked": "2026-11-07",
       "cites": [
         {
@@ -1198,29 +1169,8 @@
         {
           "source": "calvin",
           "on": "Isaiah 11:1",
-          "quote": "Amidst such frightful desolation they might doubt who should be their deliverer. He therefore promises that one will spring even out of a dry trunk; and he continues, as I mentioned a little before, the same metaphor of a forest, because it is far more beautiful than if he had said in plain language that the Messiah would come.",
+          "quote": "the family of David appeared to be completely extinct. On this account he does not call him David, but Jesse; because the rank of that family had sunk so low ... He therefore promises that one will spring even out of a dry trunk; and he continues ... the same metaphor of a forest, because it is far more beautiful than if he had said in plain language that the Messiah would come.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "barnes",
-          "on": "Isaiah 11:1",
-          "quote": "he describes the illustrious personage who is the subject of this chapter, under the image of a slender twig or shoot, sprouting up from the root of a decayed and fallen tree. ... The beauty of this description is apparent, if we bear in recollection that, when the Messiah was born, the ancient and much honored family of David had fallen into decay",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "jfb",
-          "on": "Isaiah 11:1",
-          "quote": "a seemingly humble rod shall come out of Jesse (Messiah) ... stem--literally, “the stump” of a tree cut close by the roots: happily expressing the depressed state of the royal house of David, owing to the hostile storm (Isa 10:18-19), when Messiah should arise from it",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "keil-delitzsch",
-          "on": "Isaiah 11:1",
-          "quote": "the house of David, on the other hand, because of its apostasy, is like the stump of a felled tree ... In the historical account of the fulfilment, even the ring of the words of the prophecy is noticed: the nētzer, at first so humble and insignificant, was a poor despised Nazarene",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
         }
       ]
@@ -1264,7 +1214,7 @@
           "on": "Isaiah 15:3",
           "at": "Preliminary Dissertation, p. xxx",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXX/mode/1up",
-          "quote": "Of which alternate construction I shall add a remarkable example or two; where the Parallelism arises from the alternation of the members of the sentences:",
+          "quote": "Of which alternate construction I shall add a remarkable example or two; where the Parallelism arises from the alternation of the members of the sentences: ... On her house-tops, and to her open streets, Every one howleth, descendeth with weeping. Isaiah, xv. 3.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -1291,7 +1241,7 @@
           "H1158"
         ]
       },
-      "evidence": "Bullinger lists the two verses under Ænigma as another dark saying. Barnes calls the prophecy brief, enigmatical and obscure, and Henry short and dark; Barnes takes the morning as deliverance for the Jews and the night as calamity for Edom, Henry as a day of peace before a night of trouble. Delitzsch (Keil and Delitzsch) notes its Aramaic forms and says each dawn for Edom is swallowed by night.",
+      "evidence": "Bullinger lists both verses under Ænigma as another dark saying. Barnes calls the prophecy brief, enigmatical and obscure, and Henry short and dark; Barnes takes the morning as deliverance for the Jews and the night as calamity for Edom, Henry as peace before trouble. Delitzsch (Keil and Delitzsch): the reply lets the asker see darkly, in Aramaic form; each dawn for Edom is swallowed by night.",
       "limit": "The writers differ on whom the morning and the night fall: one takes the morning for the Jews and the night for Edom, others take both as coming to Edom in turn.",
       "checked": "2026-11-07",
       "cites": [
@@ -1320,8 +1270,8 @@
         },
         {
           "source": "keil-delitzsch",
-          "on": "Isaiah 21:12",
-          "quote": "The answer is intentionally and pathetically expressed in an Aramaean form of Hebrew. ... a morning is coming, and at the same time a night, i.e., that even if the morning dawns, it will be swallowed up again directly by night. ... Again and again there was a glimmer of morning dawn for Edom (and what a glimmer in the Herodian age!), but it was swallowed up directly by another night",
+          "on": "Isaiah 21:11-12",
+          "quote": "What, then, is the prophet's reply? He lets the inquirer “see through a glass darkly.” ... The answer is intentionally and pathetically expressed in an Aramaean form of Hebrew. ... a morning is coming, and at the same time a night ... Again and again there was a glimmer of morning dawn for Edom (and what a glimmer in the Herodian age!), but it was swallowed up directly by another night",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
         }
@@ -1430,9 +1380,9 @@
           "on": "Isaiah 30:16",
           "at": "Preliminary Dissertation, p. xxiii",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIII/mode/1up",
-          "quote": "In Stanzas of Four lines sometimes the Parallel lines answer to one another alternately; the first to the third, and the second to the fourth",
+          "quote": "In Stanzas of Four lines sometimes the Parallel lines answer to one another alternately; the first to the third, and the second to the fourth: ... And ye said: Nay, but on horses will we flee; Therefore shall ye be put to flight: And on swift coursers will we ride; Therefore shall they be swift, that pursue you. Isaiah, xxx. 16.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         }
       ]
     },
@@ -1655,7 +1605,7 @@
           "on": "Isaiah 46:3",
           "at": "Preliminary Dissertation, p. xvii",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
-          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "quote": "Hearken unto-me, O-house of-Jacob; And-all the-remnant of-the-house of-Israel. Isaiah, xlvi. 3. ... In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -1751,9 +1701,9 @@
           "source": "lowth",
           "work": "lowth-isaiah",
           "on": "Isaiah 50:5-6",
-          "at": "Preliminary Dissertation, p. xxviii",
+          "at": "Preliminary Dissertation, pp. xxviii-xxix",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVIII/mode/1up",
-          "quote": "Of the Constructive kind is most commonly the Parallelism of Stanzas of Three lines; ... The following are Constructively Parallel:",
+          "quote": "Of the Constructive kind is most commonly the Parallelism of Stanzas of Three lines; ... The following are Constructively Parallel: ... Isaiah, l. 5, 6.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -1824,7 +1774,7 @@
           "on": "Isaiah 51:7-8",
           "at": "Preliminary Dissertation, p. xvii",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
-          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "quote": "Neither be-ye-borne-down by-their-revilings; For the-moth shall-consume-them like-a-garment; ... Isaiah, li. 7, 8. ... In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -1869,7 +1819,7 @@
           "on": "Isaiah 51:19",
           "at": "Preliminary Dissertation, p. xxx",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXX/mode/1up",
-          "quote": "that is, taken alternately, ... Of which alternate construction I shall add a remarkable example or two",
+          "quote": "that is, taken alternately, desolation by famine, and destruction by the sword. Of which alternate construction I shall add a remarkable example or two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -1922,9 +1872,9 @@
           "source": "lowth",
           "work": "lowth-isaiah",
           "on": "Isaiah 54:4",
-          "at": "Preliminary Dissertation, p. xvii",
-          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
-          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "at": "Preliminary Dissertation, pp. xvi-xvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVI/mode/1up",
+          "quote": "Fear not, for thou shalt not be ashamed; And blush not, for thou shalt not be brought to reproach: ... Isaiah, liv. 4. ... In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -2079,7 +2029,7 @@
           "on": "Isaiah 54:10",
           "at": "Preliminary Dissertation, p. xxvi",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVI/mode/1up",
-          "quote": "the opposition lies between the two parts of a Stanza of Four lines, the latter Distich being opposed to the former. So likewise the following.",
+          "quote": "In the last example the opposition lies between the two parts of a Stanza of Four lines, the latter Distich being opposed to the former. So likewise the following.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -2118,7 +2068,7 @@
           "on": "Isaiah 55:3",
           "at": "Preliminary Dissertation, p. xvii",
           "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
-          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "quote": "Incline your ear, and come unto me; Hearken, and your soul shall live. Isaiah, lv. 3. In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -2179,9 +2129,9 @@
           "source": "lowth",
           "work": "lowth-isaiah",
           "on": "Isaiah 55:6-7",
-          "at": "Preliminary Dissertation, p. xvii",
-          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
-          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "at": "Preliminary Dissertation, pp. xvi-xvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVI/mode/1up",
+          "quote": "Seek ye Jehovah, while he may be found; Call ye upon him, while he is near: Let the wicked forsake his way; ... Isaiah, lv. 6, 7. ... In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
         }
@@ -2299,7 +2249,7 @@
         "words": "We hope for light, but there is darkness; for brightness, but we walk in gloom.",
         "means": "the return of good days the people hoped for, set against the troubles that went on"
       },
-      "evidence": "Bullinger lists the verse under Antithesis. Henry reads it as hopes sadly disappointed: they waited for light as for the morning and saw no dawning of deliverance. Barnes takes the light as the prosperity they waited for and the darkness as calamities that went on, and Fausset (Jamieson, Fausset and Brown) reads light as returning prosperity and obscurity as adversity.",
+      "evidence": "Bullinger lists the verse under Antithesis. Henry reads it as hopes sadly disappointed: they waited for light as for the morning and saw no dawning of deliverance. Barnes takes the light as the prosperity they waited for and the darkness as calamities that went on.",
       "checked": "2026-11-07",
       "cites": [
         {
@@ -2322,13 +2272,6 @@
           "source": "barnes",
           "on": "Isaiah 59:9",
           "quote": "We wait for light - The idea here is, that they anxiously waited for returning prosperity. But behold obscurity - Darkness. Our calamities continue, and relief is not afforded us.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "jfb",
-          "on": "Isaiah 59:9",
-          "quote": "light--the dawn of returning prosperity. obscurity--adversity",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
         }
