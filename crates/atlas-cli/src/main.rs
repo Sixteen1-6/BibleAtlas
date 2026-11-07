@@ -39,6 +39,7 @@ mod lxx;
 mod naves;
 mod parse;
 mod poetry;
+mod poetry_lines;
 mod query;
 mod extra_translations;
 mod shelf;

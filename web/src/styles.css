@@ -853,6 +853,21 @@ p .godeeper {
   font: 17px/1.65 var(--font-read);
   cursor: pointer;
 }
+/* Poetry in the BSB's own lines (Reader.tsx, PoetryLines). */
+.verse .poem .pl.in {
+  padding-left: 1.5em;
+}
+.verse .poem .pl.rf {
+  padding-left: 3em;
+}
+.verse .poem .pl.ti {
+  font-style: italic;
+  color: var(--muted);
+}
+.verse .poem .pgap {
+  display: block;
+  height: 0.6em;
+}
 .verse .num {
   font: 600 11px var(--font-ui);
   color: var(--accent);

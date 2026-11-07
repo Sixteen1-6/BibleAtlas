@@ -10,7 +10,7 @@ import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { type NetChapter, NET_COPYRIGHT, NET_COPYRIGHT_LINK, NET_COPYRIGHT_URL, NET_HOME, NET_SERVICE, loadNetChapter, netVerseUrl } from '../data/net';
 import { passages } from '../data/layers';
 import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
-import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
+import { FLAG, LINE, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { ASKS } from './commentary/Gate';
@@ -223,7 +223,11 @@ export function Reader({ a }: { a: Atlas }) {
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
+                {al ? (
+                  <PairedEnglish v={v} text={english} al={al} />
+                ) : !liveVerses && text?.lines?.[`${chapter}.${i + 1}`] ? (
+                  <PoetryLines text={english} lines={text.lines[`${chapter}.${i + 1}`]} />
+                ) : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -320,6 +324,28 @@ export function Reader({ a }: { a: Atlas }) {
         </p>
       )}
     </div>
+  );
+}
+
+/** A poetry verse set out in the BSB's own lines: a line set one step in, a
+ * refrain such as "Selah" further in, a psalm's title in italics, and a gap
+ * where a new stanza starts. Lines break with <br> so the verse's link
+ * buttons stay at the end of its last line. */
+function PoetryLines({ text, lines }: { text: string; lines: [number, number][] }) {
+  return (
+    <span class="poem">
+      {lines.map(([at, k], j) => {
+        const end = j + 1 < lines.length ? lines[j + 1][0] : text.length;
+        const kind = k & 7;
+        const cls = kind === LINE.indent ? 'pl in' : kind === LINE.refrain ? 'pl rf' : kind === LINE.title ? 'pl ti' : 'pl';
+        return (
+          <Fragment key={j}>
+            {j > 0 && (k & LINE.gap ? <span class="pgap" /> : <br />)}
+            <span class={cls}>{text.slice(at, end).trimEnd()}</span>{' '}
+          </Fragment>
+        );
+      })}
+    </span>
   );
 }
 
