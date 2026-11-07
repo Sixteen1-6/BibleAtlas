@@ -1,0 +1,348 @@
+
+=== session_01GDgrBpfomsCbSfqcijgTXn commits=78 first=2026-10-08T05:24:09Z last=2026-10-09T05:08:55Z
+  d969674 2026-10-08T05:24 Claude: Let the map draw itself and explain what is lit
+  7a09fba 2026-10-08T05:24 Claude: Add one shared animation loop for the map
+  dc8b584 2026-10-08T05:58 Claude: Keep the map's motion bookkeeping honest
+  d43e31a 2026-10-08T06:04 Claude: Extras: one shared slot under the selected verse
+  f770466 2026-10-08T06:06 Claude: Extras README: "your insertions", since an extra may add no source
+  3c04e45 2026-10-08T06:42 Claude: Compute a gold thread through each theme
+  42c598f 2026-10-08T07:15 Claude: Add atlas query roads
+  a3df846 2026-10-08T07:15 Claude: Expose roads to the browser engine as atlas_paths
+  238dc1a 2026-10-08T07:15 Claude: Find up to three roads between two verses that share no verse
+  511fa6a 2026-10-08T07:23 Claude: Engine: ask for roads, download atlas.bin once, report failures
+  23cee01 2026-10-08T07:26 Claude: Paint a small night sky for each theme, and a wide one for the chosen theme
+  3f3aaff 2026-10-08T07:26 Claude: Trace each theme as a gold thread of tappable steps in the Themes panel
+  f2cf79c 2026-10-08T07:53 Claude: Add seven word-traced themes and leave out five wrong word senses
+  cfdafda 2026-10-08T07:53 Claude: Read Abbott-Smith's Septuagint notes into Hebrew-Greek word bridges
+  43558c8 2026-10-08T07:54 Claude: Tell the truth about Nestle-Aland in manuscript notes
+  42061fa 2026-10-08T07:55 Claude: atlas query roads: say "1 vote", not "1 votes"
+  9b6856a 2026-10-08T07:55 Claude: Paths: up to three roads between two verses, each on its own night sky
+  7799405 2026-10-08T08:00 Claude: Show Septuagint word bridges on Paths steps that cross the testaments
+  f95d739 2026-10-08T08:08 Claude: Quotations extra: where the New Testament quotes the Old
+  f08ff41 2026-10-08T08:42 Claude: Places: a quiet line under each verse that names places, and a map
+  8a87b17 2026-10-08T08:52 Claude: Open a bridge word's study from the top, with an easier tap target
+  5f70d58 2026-10-08T09:03 Claude: Add the cards the Wheel opens: two books, or one book
+  bf14559 2026-10-08T09:03 Claude: Make the Wheel something you can ask
+  3e07db6 2026-10-08T09:45 Claude: Quotations: review fixes for lists, joint footnotes and wording
+  8dd917d 2026-10-08T10:08 Claude: Quotations: word for word only when every key word is the same; honest word pairs
+  e0a901d 2026-10-08T10:26 Claude: Quotations: 1 Peter 2:24 quotes Isaiah 53:5
+  eea4390 2026-10-08T10:42 Claude: Extras: Parallel passages
+  4e09968 2026-10-08T11:04 Claude: Arrival: typed verse links open the verse (404 page)
+  cc5d451 2026-10-08T11:04 Claude: Arrival: offline service worker, web app manifest and icons
+  59974f2 2026-10-08T11:05 Claude: Arrival: paint the sky at once, hand it to the app, and offer updates
+  6519916 2026-10-08T11:05 Claude: Arrival: a calm error screen when the app stops
+  2f4b430 2026-10-08T11:19 Claude: Find the verses that echo a studied word
+  3741414 2026-10-08T11:35 Claude: Parallels: fix split and mis-ranged sets, open the panel on its sentence
+  687e3a4 2026-10-08T11:44 Claude: Mount the echoes block in the Word study
+  642af81 2026-10-08T11:44 Claude: Show the echoes of a studied verse in the Word study
+  9a42482 2026-10-08T12:44 Claude: Pin the Tyndale Open Bible Dictionary as a source
+  f39f3d9 2026-10-08T12:46 Claude: Build eras.json: eras and book dates quoted from the dictionary
+  0dcf2df 2026-10-08T12:48 Claude: Pin STEPBible TFLSJ and the UBS Fauna, Flora and Realia handbooks
+  0c4cda9 2026-10-08T12:48 Claude: Build world/: Greek usage outside the Bible and handbook articles per root
+  fc7c4b0 2026-10-08T13:09 Claude: Sources: name the hand-typed era table
+  748a68f 2026-10-08T13:09 Claude: Show when each chapter happened and when its book was written
+  a5473ad 2026-10-08T13:21 Claude: Show bare years with their era and drop a dangling quotation mark
+  58c1f0b 2026-10-08T13:45 Claude: Places review: positions from open sources only, plainer and truer lines
+  5c7b2d8 2026-10-08T13:50 Claude: World data: name handbook cross-references without section numbers
+  71805bd 2026-10-08T13:51 Claude: Word study: "Outside the Bible" and "In their world", depth one tap away
+  76a7419 2026-10-08T14:04 Claude: Places: say when a person's tie to a place has no verse
+  379e6c5 2026-10-08T15:05 Claude: World data: read LSJ's glosses the way LSJ writes them
+  79c262c 2026-10-08T15:15 Claude: Word study: no "Outside the Bible" line for grammar words
+  a6d5366 2026-10-08T15:29 Claude: World data: no Latin, cognates or a related word's senses as glosses
+  3916669 2026-10-08T15:38 Claude: Word study: no "Outside the Bible" line from a related word's entry
+  dab6601 2026-10-08T15:42 Claude: World data: read a gloss that narrows the one before as one
+  bdd310b 2026-10-08T16:13 Claude: World data: plain writer names; no rejected readings or Latin equivalents
+  9854962 2026-10-08T16:22 Claude: World data: date a sense from LSJ's "Id." by the citation it repeats
+  e08b018 2026-10-08T16:28 Claude: World data: Aeschylus and others TFLSJ dates "4th-5th c. BC" are of the 5th
+  f407d1c 2026-10-08T16:31 Claude: World data: LSJ's "Poll." is Pollux, not the epigrammatist Pollianus
+  eb6369c 2026-10-08T16:34 Claude: World verify: Aeschylus is of the 5th century BC, "eyelid" is Pollux's
+  c9a6a3f 2026-10-08T17:27 Claude: World data: keep nothing of an entry TFLSJ takes from another word
+  7655574 2026-10-08T17:29 Claude: World data: a five-digit TAGNT tag is not a four-digit root
+  72cf73a 2026-10-08T17:33 Claude: World data: no gloss that runs into Greek, is only little words, or Latin
+  67dbff8 2026-10-08T17:35 Claude: World data: set right eleven more TFLSJ misprints
+  f660fbb 2026-10-08T17:37 Claude: Word study: More says nothing the summary line already says
+  c0ace76 2026-10-08T17:54 Claude: World data: Heraclitus' fragments are of the 5th century BC, not the 1st AD
+  c546fc2 2026-10-08T18:01 Claude: World data: Democritus' fragments are of the 5th century BC, not the 3rd AD
+  1b24580 2026-10-08T21:43 Claude: Paths: say only what the roads show, and clear what they replace
+  62f7593 2026-10-08T21:43 Claude: Engine: shortest_path runs as fast as it did before roads
+  be52ae6 2026-10-08T22:00 Claude: Paths: keep the screen-reader line inside the Study panel
+  947ea77 2026-10-08T22:36 Claude: Fix the theme journeys after review: skies in budget, steps clear of the tabs, keyboard focus
+  c14f44e 2026-10-08T23:20 Claude: Fix the Wheel on tablets and phones, and name what it ranks
+  b018bb7 2026-10-09T00:27 Claude: Leave phrases, names and small words out of the Septuagint bridges
+  c1a7741 2026-10-09T00:27 Claude: Say plainly what Nestle-Aland's double brackets mean, and trust only NA27
+  db49cb8 2026-10-09T00:27 Claude: Word a bridge as how the Septuagint sometimes translates a word
+  4cbdbc3 2026-10-09T00:28 Claude: Reach the central Atonement and Sabbath verses, and name the other senses
+  3c83ad7 2026-10-09T00:33 Claude: Arrival: review fixes (safe typed links, night sky in every theme, calmer recovery)
+  8dda987 2026-10-09T01:52 Claude: Fix the echoes from review: readings, headings, glosses, drawing
+  6a492dc 2026-10-09T02:09 Claude: Tie dating views to their chapters and layer the When panel
+  2fa3882 2026-10-09T04:58 Claude: Word study: plain provenance, Show less, and Read more only when there is more
+  e9f4261 2026-10-09T04:58 Claude: World data: date each LSJ sense by its earliest sound citation, and read glosses whole
+  e519ebd 2026-10-09T05:08 Claude: World data: a gloss TFLSJ cuts short at a number is no gloss
+
+=== session_01F5MX8Zw1CM7AW18hxHzAeP commits=37 first=2026-10-09T07:08:25Z last=2026-10-20T13:53:10Z
+  cdc4caf 2026-10-09T07:08 Claude: Ask the Bible: questions answered from verses alone (work in progress)
+  2f9b0e2 2026-10-09T07:22 Claude: Ask the Bible: answer in the Bible's own words, and gather verses for any question
+  dc71474 2026-10-09T08:16 Claude: Merge main (search across KJV and ASV wording) into Ask the Bible
+  b532b5a 2026-10-09T08:16 Claude: Ask the Bible: 73 Scripture chains (drafts), help for anyone asking about ending their life
+  876b881 2026-10-09T08:21 Claude: Merge main (wordplay) into Ask the Bible
+  92589a8 2026-10-10T07:00 Claude: Ask the Bible: chains go live, every verse tied to the question by the Bible's own data
+  64f9da2 2026-10-10T07:19 Claude: Ask the Bible: context fixes from the chain readers, words shown as written
+  35d43a7 2026-10-10T07:42 Claude: Ask the Bible: open a chain only when the question means the same, tighter word matching
+  aca1463 2026-10-10T08:56 Claude: Ask the Bible: route common questions to their chains, Bible words for modern ones
+  17f1187 2026-10-10T09:06 Claude: Ask the Bible: Bible words for judging others, the Ten Commandments, sleep and more; no verses for a word the Bible never uses
+  c5edc8e 2026-10-10T09:48 Claude: Ask the Bible: leave out filler words, Bible words for life situations, wider help-line wording
+  156c944 2026-10-10T09:51 Claude: Ask the Bible: whole Bible phrases rank first; abuse, prayer and God's-mind questions
+  915711d 2026-10-10T10:18 Claude: Ask the Bible: read book names as books, misspelt names, possessives and large numbers
+  2409b19 2026-10-10T10:35 Claude: Ask the Bible: spelling fixes keep the word asked, every Bible phrase checked against the BSB
+  ba71f04 2026-10-10T11:08 Claude: Ask the Bible: load the word tables with the first live question
+  60eb0fb 2026-10-10T11:19 Claude: Ask the Bible: statements of what happened and long questions reach Ask
+  159c356 2026-10-10T11:49 Claude: Ask the Bible: open the prepared answer that plainly fits what was typed
+  63da1f4 2026-10-10T12:31 Claude: Ask the Bible: load each question's chain when it opens
+  21ea1d3 2026-10-10T13:40 Claude: Ask the Bible: match what was typed by meaning more than by spelling
+  6863556 2026-10-10T14:16 Claude: Ask the Bible: 590 more prepared answers, for life situations and Bible questions
+  2e6b721 2026-10-10T16:29 Claude: Ask the Bible: everyday words point to the prepared answers
+  64b8bba 2026-10-10T16:29 Claude: Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  080da4f 2026-10-10T17:58 Claude: Ask the Bible: a meaning matcher learned from how people say each question
+  047fa7a 2026-10-10T19:11 Claude: Ask the Bible: 114 prepared chains corrected after a read of every chain in context
+  86c259e 2026-10-10T20:45 Claude: Ask the Bible: 208 more prepared answers and 40,000 examples of how people ask
+  5763dc3 2026-10-10T22:01 Claude: Ask the Bible: fewer off verses for never-seen questions, 62 chains corrected
+  ce2b097 2026-10-11T00:45 Claude: Ask the Bible: the closest examples help pick what people mean
+  432169b 2026-10-11T00:55 Claude: Ask the Bible: a note on hearing God with every answer
+  a1d360b 2026-10-11T01:05 Claude: Ask the Bible: the note says to seek God yourself, and what the tool is
+  d27ae81 2026-10-11T01:24 Claude: Ask the Bible: easy to find from the first screen
+  1096bcb 2026-10-11T01:31 Claude: Revert "Ask the Bible: easy to find from the first screen"
+  d8e981c 2026-10-11T03:33 Claude: Ask the Bible: 353 new prepared answers for what people ask
+  38374b5 2026-10-11T03:53 Claude: Ask the Bible: open a meant question from 0.35
+  42bb301 2026-10-11T07:32 Claude: Ask the Bible: order gathered verses by what answered askers
+  c9f6a55 2026-10-17T13:05 Claude: Ask the Bible: 360 more prepared answers for what nothing covered
+  b78dce2 2026-10-17T13:23 Claude: Ask the Bible: weigh fewer, closer examples so the matcher stays sure with 1,584 answers
+  2f40b85 2026-10-20T13:53 Claude: Add a workflow that mirrors the meaning model to its own branch
+
+=== session_01KSvZFUjwhscpHwZiY2UUGi commits=31 first=2026-10-07T23:32:39Z last=2026-10-17T17:20:02Z
+  6dad5eb 2026-10-07T23:32 Shubhanshu: Live demo on GitHub Pages, new README and screenshots
+  8a70f1e 2026-10-07T23:41 Shubhanshu: Fix clippy on Rust 1.99: read containers with as_chunks
+  41069d9 2026-10-07T23:45 Shubhanshu: Add a link preview image for shared links
+  e95efe3 2026-10-08T01:36 Shubhanshu: Phase 1: a clearer first minute
+  9a40805 2026-10-08T01:47 Shubhanshu: Show the echo on the cards, one link count, fixes from review
+  7be1d3a 2026-10-08T04:58 Shubhanshu: Depth levels: Simple, Study and Deep
+  9779d71 2026-10-08T05:33 Shubhanshu: Layers of meaning: the card, the build checks and 15 drafted passages
+  f8e13c6 2026-10-08T10:40 Shubhanshu: Layers: sections, length limits and one Isaiah 53:5 entry
+  39a44c5 2026-10-08T10:47 Shubhanshu: Layers: 55 more drafted passages, 70 in all
+  4a47c7d 2026-10-09T01:26 Shubhanshu: Layers: credit Greek wording to the Gospel writers, not Jesus
+  9c195f6 2026-10-09T06:38 Shubhanshu: Layers: mark links that are direct quotations
+  73d6a16 2026-10-09T09:31 Shubhanshu: Layers: 18 wordplay passages, 88 in all
+  054ad4a 2026-10-09T09:35 Shubhanshu: Layers: checker fixes for Genesis 27:36, Genesis 32:28 and Ruth 1:20
+  446a137 2026-10-09T09:44 Shubhanshu: Layers: checker fixes for the other wordplay passages
+  16a7444 2026-10-09T09:44 Shubhanshu: Merge main into layers-wordplay
+  56b698b 2026-10-11T01:30 Shubhanshu: Layers: a note goes live when it cites a Bible-believing source
+  1478aa0 2026-10-11T02:00 Shubhanshu: Layers: cite Bible-believing sources for Genesis 2:7 to Luke 10:33
+  fbb5e4b 2026-10-11T02:10 Shubhanshu: Layers: cite sources for John 2:19 to Revelation 22:2; Christian writers only
+  37f9b03 2026-10-11T02:27 Shubhanshu: Layers: fix citations that failed checking; skip Pulpit on Jeremiah
+  759a4a6 2026-10-11T02:31 Shubhanshu: Layers: fix citations that failed checking in Genesis and Exodus
+  308e4b6 2026-10-11T02:48 Shubhanshu: Layers: fix citations that failed checking in John to Revelation
+  75bdd67 2026-10-11T02:50 Shubhanshu: Layers: cite eight more notes after a second search
+  1a8d291 2026-10-11T03:02 Shubhanshu: Layers: fix citations that failed checking in Leviticus to Proverbs
+  13f9d63 2026-10-11T03:33 Shubhanshu: Layers: cite Bullinger and Ellicott for two hidden wordplay notes
+  879e785 2026-10-17T06:47 Shubhanshu: Layers: add 367 cited wordplay and allusion passages, Genesis to Song of Solomon
+  47ec38b 2026-10-17T08:08 Shubhanshu: Layers: add 25 more cited passages that gained a second writer
+  7c37488 2026-10-17T08:31 Shubhanshu: Layers: apply the second check's fixes to the new passages
+  074cc0f 2026-10-17T14:29 Shubhanshu: Layers: merge round 2 part 2 (Isaiah to Revelation) and part 1c wordplay passages
+  05fe581 2026-10-17T16:10 Shubhanshu: Layers: apply the second check to round 2 part 2
+  28c33e4 2026-10-17T17:09 Shubhanshu: Layers: add the three mended part 2 passages
+  5e1ed7f 2026-10-17T17:20 Shubhanshu: Layers: second-check fixes for Jeremiah 48:47 and Matthew 11:23
+
+=== session_01CV3N3cyQquPTsKuYJAD5d1 commits=17 first=2026-10-09T06:45:01Z last=2026-10-10T11:52:15Z
+  a5879e8 2026-10-09T06:45 Claude: Place Colossians and 1-2 Thessalonians in Events from AD 50 to 70
+  37aa849 2026-10-09T06:45 Claude: Light God's seventh-day rest (Genesis 2:2-3) in the Sabbath theme
+  be40008 2026-10-09T07:28 Claude: Keep the Sabbath theme as it was; related words are handled elsewhere
+  c313ef3 2026-10-09T07:55 Claude: Colossians: cite its own article's date, and say why it differs from 2 Timothy
+  9fd96cb 2026-10-09T09:36 Claude: Themes: 163 themes in 10 groups, Simple and Study levels, links between themes
+  3de3f18 2026-10-09T10:10 Claude: Themes on the web: each verse's own themes, themes through links, groups
+  e19040c 2026-10-09T10:42 Claude: Word alignment: leave out links numbered for an older BSB
+  8aed884 2026-10-09T10:42 Claude: Themes: apply the content review
+  baf297e 2026-10-09T11:52 Claude: Themes: apply the second review
+  263b700 2026-10-09T11:52 Claude: Word alignment: count a shift in words, and weigh function words less
+  a330bea 2026-10-10T07:13 Claude: Themes tab: Nave's subjects at Study for a verse no theme reaches
+  4f69baf 2026-10-10T07:13 Claude: Nave's: one shared reader, and per-verse subjects for the Themes tab
+  c3cff66 2026-10-10T08:35 Claude: Nave's rows: apply the review
+  245843b 2026-10-10T10:37 Claude: Verse themes card: show themes reached through a related word
+  70e273a 2026-10-10T10:37 Claude: Themes: reviewed related words, built into themes.json and verified
+  30ba9f7 2026-10-10T11:34 Claude: Related words: apply the review
+  1018a98 2026-10-10T11:52 Claude: Related words: leave out verses where the alignment slips
+
+=== session_01CRsyMFywVGbdBiAR1GjbXu commits=9 first=2026-10-09T05:27:03-04:00 last=2026-10-11T02:39:09Z
+  99ba7ca 2026-10-09T05:27 Shubhanshu Pokharel: Hard verses: "Often asked" cards for verses people ask about (#19)
+  d1a2bb1 2026-10-09T05:34 Shubhanshu Pokharel: Wordplay: say Mareshah and hyphenated names right (#20)
+  11abfaa 2026-10-09T07:04 Claude: Wordplay: a line where the Hebrew or Greek plays on words, and alphabet poems
+  b119fa0 2026-10-09T07:41 Claude: Merge main into wordplay
+  ce966d2 2026-10-09T07:56 Claude: Wordplay: fixes from review
+  fbfca22 2026-10-10T02:33 Shubhanshu Pokharel: Sources shelf: cards for the sites the "Often asked" answers link to (#25)
+  38749bd 2026-10-10T21:28 Claude: Christian writers and hard passages at Deep
+  5a9cae5 2026-10-11T02:35 Claude: Cite only Bible-believing writers in the hard passages, Aramaic notes and links
+  b55d549 2026-10-11T02:39 Claude: Make the reworded hard-passage views and the Jeremiah 10:11 note plainer
+
+=== session_01YWkSFJcj6FuifeVXgT3Vu1 commits=7 first=2026-10-09T07:44:36Z last=2026-10-10T07:58:40Z
+  1af6e7d 2026-10-09T07:44 Claude: Word study: every form of a word, and its family of related words
+  d545c76 2026-10-09T10:10 Claude: Word families and forms: stricter rules, one row per word
+  fb819b0 2026-10-09T10:17 Claude: Merge main into word forms and families; add Strong's to the Sources shelf
+  46293b7 2026-10-09T12:48 Claude: Word families and forms: fix wrong links, forms and panel rows
+  ae2ee9c 2026-10-10T06:17 Claude: Word families: denominatives, split senses and Strong's guesses
+  28620ae 2026-10-10T06:21 Claude: Merge main (search and themes) into word forms and families
+  707aa70 2026-10-10T07:58 Claude: Word forms: fix the re-audit's findings
+
+=== session_01TV2VVB3zDbFGg56enr6Eb2 commits=7 first=2026-10-08T01:54:13Z last=2026-10-09T09:29:39Z
+  c64fd7c 2026-10-08T01:54 Claude: Search finds the verse people mean
+  68beaea 2026-10-08T01:55 Claude: Use made-up wording in a search code comment
+  5b75e4b 2026-10-09T06:58 Claude: Search finds verses remembered in other wording or across two verses
+  5a04880 2026-10-09T07:29 Claude: Merge main into search update
+  f68bcf8 2026-10-09T08:05 Claude: Search: treat 7000, 7,000 and seven thousand as the same word
+  8c11b8f 2026-10-09T08:51 Claude: Search: understand spellings, names, joined words and short forms
+  d4717fa 2026-10-09T09:29 Claude: Search: fixes from review of the word folding
+
+=== session_0197Yk7ESXwqiJSukbJTfMu2 commits=7 first=2026-10-08T14:28:41Z last=2026-10-09T05:45:49Z
+  92ffba9 2026-10-08T14:28 Claude: Merge fixes for the extras: phone focus, one BSB USFM source, Google-placed sites
+  7ca1e9e 2026-10-08T14:32 Claude: Fix clippy on Rust 1.99 in places: read coordinate pairs with as_chunks
+  eb27cd5 2026-10-08T15:19 Claude: Wire the upgrades together
+  7cf082b 2026-10-09T00:17 Claude: Wheel: on phones, the card's sources link steps down to Deep too
+  451627f 2026-10-09T03:22 Claude: Merge PR #7 (hover a verse or word to light it everywhere) into the merge branch
+  07c5884 2026-10-09T03:59 Claude: Merge PR #8 (Jesus' words in Aramaic) into the merge branch
+  bb2881b 2026-10-09T05:45 Claude: Merge words-in-their-world: what Greek words meant outside the Bible
+
+=== session_01VxvHqLgy4PjBwknUmYuR41 commits=5 first=2026-10-09T01:52:16Z last=2026-10-09T03:54:57Z
+  3d01634 2026-10-09T01:52 Claude: Add the Syriac Peshitta at Deep, labelled as a translation
+  353eda4 2026-10-09T02:06 Claude: Show Jesus' Aramaic words, and stop calling them Greek
+  7aea019 2026-10-09T02:13 Claude: Merge branch 'aramaic-peshitta' into claude/jesus-aramaic-tf1tc8
+  4e04216 2026-10-09T03:49 Claude: Aramaic and Syriac extras: fix the design and code review findings
+  2367c90 2026-10-09T03:54 Claude: Merge PR #5's latest into the Aramaic branch
+
+=== session_01WVKMg9CgLALXiRPoYUqwB9 commits=3 first=2026-10-09T07:16:54Z last=2026-10-09T07:38:52Z
+  4c919a1 2026-10-09T07:16 Claude: Places: dated events, region shapes and the tribes' lands; quotes: the Septuagint's own word pairs
+  0be1a9b 2026-10-09T07:29 Claude: Places: the panel reaches up to the top bar on desktop; tests; formatting
+  28561ce 2026-10-09T07:38 Claude: Places: keep every event, keep tribe labels out of taps, cache the MACULA download
+
+=== session_01YDkmdBjMQgxKmV8RCvxLpG commits=3 first=2026-10-09T00:03:36Z last=2026-10-09T03:08:11Z
+  836391b 2026-10-09T00:03 Claude: Light a pointed verse or word everywhere it shows
+  38fea2c 2026-10-09T01:11 Claude: Light pointed verses and words across every panel
+  6c6aca7 2026-10-09T03:08 Claude: Fix what browser testing found in pointing
+
+=== session_01V8TdmB8HpaUTx3XBA4HEnH commits=2 first=2026-10-20T13:51:40Z last=2026-10-20T13:54:34Z
+  59d17f0 2026-10-20T13:51 Claude: Add the NET Bible as a version, with its translators' notes at Study
+  0e04cdc 2026-10-20T13:54 Claude: NET: link to the translators' notes on netbible.org instead of showing them
+
+=== session_012b5WmWv2LUC8i6fnFR2fmR commits=2 first=2026-10-09T09:31:13Z last=2026-10-09T09:41:10Z
+  6f5b508 2026-10-09T09:31 Claude: Sources shelf: every source as a card to read or find, and two old Bible dictionaries to read in the app
+  16c42cb 2026-10-09T09:41 Claude: Shelf cards for the sources main added: KJV, ASV, Nave's, study notes, MACULA, region shapes
+
+=== session_01NJrNPyY17Z1efRLxhxYdZL commits=2 first=2026-10-09T06:54:20Z last=2026-10-09T06:56:54Z
+  39fb8a4 2026-10-09T06:54 Claude: Study notes: what Bible scholars note about each verse, one tap away
+  66e8f45 2026-10-09T06:56 Claude: Study notes: wait for the reader's first move with the shared readerHere
+
+=== session_01VRMN4GpqqHLc8Ca9QVNkyo commits=2 first=2026-10-09T06:32:33Z last=2026-10-09T06:46:42Z
+  81fa60a 2026-10-09T06:32 Claude: Small fixes and speed-ups from PR #5's follow-up list
+  0147377 2026-10-09T06:46 Claude: Outside the Bible: the four open review minors
+
+=== session_01E82vb6SqMrmBiKY6XJxqQb commits=1 first=2026-10-11T01:34:10-04:00 last=2026-10-11T01:34:10-04:00
+  ab53468 2026-10-11T01:34 Claude: Serve the site from everyversemap.com
+
+=== session_01KPhwZeawXqafR9SqMLMXQu commits=1 first=2026-10-09T06:46:03Z last=2026-10-09T06:46:03Z
+  4d119f0 2026-10-09T06:46 Claude: Map colours for quotes, parallels, threads and roads; a hint for each level
+
+=== session_01KDM9rFXp9GYCtYvZtgmX3k commits=1 first=2026-10-08T02:08:55Z last=2026-10-08T02:08:55Z
+  7488edf 2026-10-08T02:08 Claude: Color pairs: link each original word to the BSB words it became
+
+=== session_01AViz6aUYW9mRULSwEqTiWJ commits=1 first=2026-10-07T23:04:04Z last=2026-10-07T23:04:04Z
+  818c732 2026-10-07T23:04 Shubhanshu: New colors: spectrum arcs, night-sky glow, warm paper theme, ideas list
+
+=== NO SESSION TRAILER: 92
+  a46d819 2026-10-20 Shubhanshu Pokharel Merge pull request #46 from Sixteen1-6/claude/net-bible-6d3ryw
+  dced885 2026-10-20 github-actions[bot] Mirror minishlab/potion-base-8M at bf8b056651a2c21b8d2565580b8569da283cab23
+  96ee1d0 2026-10-17 Shubhanshu Pokharel Merge pull request #45 from Sixteen1-6/layers-wordplay-part2r
+  eb257af 2026-10-17 Shubhanshu Pokharel Merge pull request #44 from Sixteen1-6/layers-wordplay-part2
+  a80fb00 2026-10-17 Shubhanshu Pokharel Merge pull request #43 from Sixteen1-6/claude/ask-the-bible-u6macl
+  16af21d 2026-10-17 Shubhanshu Pokharel Layers: 382 more cited wordplay, name and allusion passages, Genesis to Song of Solomon (#42)
+  05d46ad 2026-10-11 Shubhanshu Pokharel Merge pull request #41 from Sixteen1-6/claude/ask-the-bible-u6macl
+  65bdc57 2026-10-11 Shubhanshu Pokharel Merge pull request #40 from Sixteen1-6/claude/ask-the-bible-u6macl
+  8642dd4 2026-10-11 Claude Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  877dae7 2026-10-10 Shubhanshu Pokharel Merge pull request #39 from Sixteen1-6/layers-bullinger
+  ef78565 2026-10-11 Claude Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  bbbe9de 2026-10-10 Shubhanshu Pokharel Merge pull request #38 from Sixteen1-6/layers-citations
+  2bef207 2026-10-11 Claude Merge remote-tracking branch 'origin/main' into layers-citations
+  05c5090 2026-10-10 Shubhanshu Pokharel Merge pull request #37 from Sixteen1-6/claude/project-thread-1eyqzh
+  d7e7ebe 2026-10-11 Claude Merge remote-tracking branch 'origin/main' into claude/project-thread-1eyqzh
+  59fbd21 2026-10-10 Shubhanshu Pokharel Merge pull request #35 from Sixteen1-6/claude/ask-the-bible-u6macl
+  7c0a546 2026-10-10 Shubhanshu Pokharel Merge pull request #34 from Sixteen1-6/claude/ask-the-bible-u6macl
+  8a4dd46 2026-10-10 Shubhanshu Pokharel Merge pull request #32 from Sixteen1-6/claude/ask-the-bible-u6macl
+  f656650 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  f073fe7 2026-10-10 Shubhanshu Pokharel Merge pull request #33 from Sixteen1-6/claude/project-thread-1eyqzh
+  7513cb2 2026-10-10 Shubhanshu Pokharel Merge pull request #31 from Sixteen1-6/claude/ask-the-bible-u6macl
+  d00d03d 2026-10-10 Shubhanshu Pokharel Themes tab: themes reached through a related word (#30)
+  4907e5a 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  7cc4201 2026-10-10 Shubhanshu Pokharel Merge pull request #29 from Sixteen1-6/claude/ask-the-bible-u6macl
+  7efbbf0 2026-10-10 Shubhanshu Pokharel Merge pull request #28 from Sixteen1-6/claude/ask-the-bible-u6macl
+  2b5afc8 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  9e2a746 2026-10-10 Shubhanshu Pokharel Themes tab: Nave's Topical Bible subjects at Study for verses no theme reaches (#27)
+  224e380 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  3df55d8 2026-10-10 Shubhanshu Pokharel Merge pull request #18 from Sixteen1-6/claude/word-forms-family-i4ywp8
+  48c8e3f 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/word-forms-family-i4ywp8
+  a3049ab 2026-10-10 Shubhanshu Pokharel Merge pull request #26 from Sixteen1-6/claude/ask-the-bible-u6macl
+  4c16a61 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/ask-the-bible-u6macl
+  8531320 2026-10-10 Shubhanshu Pokharel Merge pull request #21 from Sixteen1-6/claude/project-thread-r2awql
+  0327564 2026-10-10 Claude Merge remote-tracking branch 'origin/main' into claude/project-thread-r2awql
+  07da21e 2026-10-10 Shubhanshu Pokharel Themes: 163 word-traced themes, and the Themes tab follows the verse you pick (#24)
+  0eaa2aa 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/project-thread-r2awql
+  a3ed2c9 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  8babd27 2026-10-09 Shubhanshu Pokharel Layers: 18 wordplay passages for review, 88 in all (#23)
+  ffe483a 2026-10-09 Shubhanshu Pokharel Merge pull request #22 from Sixteen1-6/claude/sources-shelf-h2m7qu
+  795d687 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/sources-shelf-h2m7qu
+  f256636 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/sources-shelf-h2m7qu
+  83c1376 2026-10-09 Shubhanshu Pokharel Ask the Bible: questions answered in the Bible's own words (#16)
+  1e60274 2026-10-09 Shubhanshu Pokharel Wordplay: plays on words and alphabet poems (#15)
+  1cb8a5e 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/project-thread-1eyqzh
+  d956704 2026-10-09 Shubhanshu Pokharel Merge pull request #11 from Sixteen1-6/claude/themes-eras-review-b1ka8x
+  427c6b1 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/project-thread-1eyqzh
+  b475d8a 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  e725b1c 2026-10-09 Shubhanshu Pokharel Merge pull request #17 from Sixteen1-6/claude/places-quote-data-lr4itd
+  5fc0a88 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/word-forms-family-i4ywp8
+  4520822 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/places-quote-data-lr4itd
+  bdb3160 2026-10-09 Shubhanshu Pokharel Merge pull request #14 from Sixteen1-6/claude/project-thread-r2awql
+  1b95f10 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  81cc374 2026-10-09 Claude Merge main into Ask the Bible
+  5646e17 2026-10-09 Claude Merge main into places-quote-data
+  bca7e60 2026-10-09 Shubhanshu Pokharel Merge pull request #13 from Sixteen1-6/claude/study-notes-f5sshe
+  2dc9051 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/study-notes-f5sshe
+  738a582 2026-10-09 Shubhanshu Pokharel Merge pull request #12 from Sixteen1-6/claude/map-colours-level-hints-wkbxen
+  812a1d3 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/study-notes-f5sshe
+  39c97bf 2026-10-09 Claude Merge main into map-colours-level-hints
+  c252688 2026-10-09 Shubhanshu Pokharel Merge pull request #9 from Sixteen1-6/claude/small-fixes-ued4kg
+  1ccbd96 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/small-fixes-ued4kg
+  5785a60 2026-10-09 Claude Merge main into map-colours-level-hints
+  ee11b84 2026-10-09 Claude Merge remote-tracking branch 'origin/main' into claude/themes-eras-review-b1ka8x
+  a870de6 2026-10-09 Shubhanshu Pokharel Layers: mark links that are direct quotations (#10)
+  996130a 2026-10-09 Shubhanshu Pokharel Everything together: depth levels, search, color pairs, layers, hover, Aramaic, the new ideas and all nine upgrades (#5)
+  53954af 2026-10-09 Claude Merge remote-tracking branch 'origin/claude/merge-all-ideas-tbjk33' into claude/hover-highlight-18rfr1
+  7179e6e 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/time-periods' into claude/merge-all-ideas-tbjk33
+  413275a 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/word-sky' into claude/merge-all-ideas-tbjk33
+  04b0062 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/arrival' into claude/merge-all-ideas-tbjk33
+  efd0660 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/hebrew-meets-greek' into claude/merge-all-ideas-tbjk33
+  ec21fb6 2026-10-09 Claude Merge remote-tracking branch 'origin/phase2-layers' into claude/merge-all-ideas-tbjk33
+  9391489 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/books-in-conversation' into claude/merge-all-ideas-tbjk33
+  4218fac 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/many-roads' into claude/merge-all-ideas-tbjk33
+  055f1b1 2026-10-09 Claude Merge remote-tracking branch 'origin/ultracode/theme-journeys' into claude/merge-all-ideas-tbjk33
+  8b826a4 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/time-periods' into claude/merge-all-ideas-tbjk33
+  3728c5f 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/word-sky' into claude/merge-all-ideas-tbjk33
+  f643d13 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/arrival' into claude/merge-all-ideas-tbjk33
+  934145c 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/books-in-conversation' into claude/merge-all-ideas-tbjk33
+  25ed534 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/hebrew-meets-greek' into claude/merge-all-ideas-tbjk33
+  351b8ae 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/many-roads' into claude/merge-all-ideas-tbjk33
+  837a474 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/theme-journeys' into claude/merge-all-ideas-tbjk33
+  bd8ec21 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/living-sky' into claude/merge-all-ideas-tbjk33
+  1fb4f57 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/parallels' into claude/merge-all-ideas-tbjk33
+  1277cc1 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/real-map' into claude/merge-all-ideas-tbjk33
+  719f1ac 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/quotes' into claude/merge-all-ideas-tbjk33
+  9ffacaa 2026-10-08 Claude Merge remote-tracking branch 'origin/ultracode/ideas-spine' into claude/merge-all-ideas-tbjk33
+  e5d3af6 2026-10-08 Claude Merge remote-tracking branch 'origin/phase2-layers' into claude/merge-all-ideas-tbjk33
+  c2ac4de 2026-10-08 Claude Merge remote-tracking branch 'origin/phase2-layers' into claude/merge-all-ideas-tbjk33
+  b872ca0 2026-10-08 Claude Merge remote-tracking branch 'origin/claude/project-thread-68xr52' into claude/merge-all-ideas-tbjk33
+  7bf9ed8 2026-10-08 Claude Merge remote-tracking branch 'origin/claude/project-thread-r2awql' into claude/merge-all-ideas-tbjk33
+  65ab2b3 2026-10-08 Claude Merge remote-tracking branch 'origin/depth-levels' into claude/merge-all-ideas-tbjk33
+  a59dfb2 2026-10-07 Shubhanshu Bible Atlas: original project

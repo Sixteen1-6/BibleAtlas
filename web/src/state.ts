@@ -84,6 +84,8 @@ export const mobilePane = signal<'read' | 'study'>('read');
 /** Whether the map shows above the reader. Hiding it gives the text the whole
  *  screen, which matters most on a phone. Remembered per browser. */
 export const mapShown = stored<'show' | 'hide'>('atlas.map', ['show', 'hide'], 'show');
+/** The side panel opened over the whole page (ui/PanelNav.tsx). */
+export const panelWide = signal(false);
 /** On a phone, the menu holding the translation, page theme and map style. */
 export const viewMenu = signal(false);
 

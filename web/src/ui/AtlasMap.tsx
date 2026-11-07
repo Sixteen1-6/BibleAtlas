@@ -26,7 +26,7 @@ export function verseEdges(a: Atlas, v: number, limit = 600): Uint32Array {
 }
 
 /** The color of each kind of link drawn over the selection (echoes are dashed). */
-const KIND_COLOR: Record<LinkKind, string> = { quote: KIND.quote, echo: KIND.quote, parallel: KIND.parallel };
+const KIND_COLOR: Record<LinkKind, string> = { fulfil: KIND.fulfil, quote: KIND.quote, echo: KIND.quote, parallel: KIND.parallel };
 
 /** The gold the lit road is drawn in: its own of the three, as on its card in
  *  Many roads, or the lamp's while no road card is chosen (a link's path). */

@@ -1,0 +1,8 @@
+[
+ {"name":"probe-card-390","file":"mock-card.html","w":390,"h":844,"hash":"level=study&theme=light&w=phone","settle":1500,
+  "steps":[{"eval":"(()=>{const f=document.querySelector('#frame');const r=f.getBoundingClientRect();const kids=[...f.querySelectorAll('*')].filter(e=>{const s=getComputedStyle(e);return (s.overflowY==='auto'||s.overflowY==='scroll')&&e.scrollHeight>e.clientHeight}).map(e=>e.className+' '+e.clientHeight+'/'+e.scrollHeight);return {top:r.top,h:r.height,w:r.width,cls:f.className,scrollers:kids}})()"}]},
+ {"name":"probe-reader-390","file":"mock-reader.html","w":390,"h":844,"query":"level=study&theme=light&width=phone","settle":1500,
+  "steps":[{"eval":"(()=>{const all=[...document.querySelectorAll('*')].filter(e=>{const s=getComputedStyle(e);return (s.overflowY==='auto'||s.overflowY==='scroll')&&e.scrollHeight>e.clientHeight}).map(e=>(e.id||'')+'.'+e.className+' '+e.clientHeight+'/'+e.scrollHeight);const ids=[...document.querySelectorAll('[id]')].map(e=>e.id).slice(0,40);return {all,ids}})()"}]},
+ {"name":"probe-arcs-390","file":"mock-arcs.html","w":390,"h":844,"hash":"level=study&theme=light&view=phone","settle":1500,
+  "steps":[{"eval":"(()=>{const all=[...document.querySelectorAll('*')].filter(e=>{const s=getComputedStyle(e);return (s.overflowY==='auto'||s.overflowY==='scroll')&&e.scrollHeight>e.clientHeight}).map(e=>(e.id||'')+'.'+e.className+' '+e.clientHeight+'/'+e.scrollHeight);const ids=[...document.querySelectorAll('[id]')].map(e=>e.id).slice(0,40);return {all,ids}})()"}]}
+]

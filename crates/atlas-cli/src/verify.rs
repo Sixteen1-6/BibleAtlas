@@ -67,10 +67,13 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     r.check(d.vz.chapter_count() == 1_189, format!("chapter count is {}, expected 1,189", d.vz.chapter_count()));
     for (ok, what) in crate::extra_notes::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_voices::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_customs::verify(&d)? { r.check(ok, what); }
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
     for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_figures::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_structure::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_prophecies::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
     let c = d.container();
     let l_off = c.u32s("l_off").map_err(|e| format!("{e:?}"))?;

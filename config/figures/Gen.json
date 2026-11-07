@@ -61,6 +61,429 @@
           "retrieved": "2026-10-21"
         }
       ]
+    },
+    {
+      "id": "genesis-4-10-prosopopoeia",
+      "kind": "figure",
+      "form": "prosopopoeia",
+      "ref": "Genesis 4:10",
+      "strength": "widely agreed",
+      "short": "Abel's blood is given a voice that cries to God",
+      "about": "Abel is dead and silent, yet his blood is given a voice that cries out to the LORD. The picture shows that the murder itself calls on God to judge, even when no one else accuses the killer.",
+      "figure": {
+        "name": "Personification",
+        "part": "Inanimate things",
+        "ref": "Genesis 4:10",
+        "words": "The voice of your brother’s blood cries out to Me",
+        "means": "the murder itself, known to God, calling for His justice though Abel is silent and no one accuses Cain"
+      },
+      "evidence": "Bullinger lists the verse under Personification, among inanimate things spoken of as persons. Henry says God speaks as if the blood were both witness and prosecutor, since His own knowledge testified and His justice demanded satisfaction. Calvin: even when the one wronged is silent, the wrong alone moves God to punish; Abel was speechless, but the voice of his blood was louder than any orator.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 4:10",
+          "at": "Prosopopoeia: inanimate things, p. 864",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/864/mode/1up",
+          "quote": "“The voice of thy brother’s blood crieth unto me from the ground.” See under Heterosis. So in verse 11. The earth is represented as opening her mouth to receive the blood of Abel.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 4:9-12",
+          "quote": "He speaks as if the blood itself were both witness and prosecutor, because God's own knowledge testified against him and God's own justice demanded satisfaction. … Though they hold their peace, their blood has a loud and constant cry, to which the ear of the righteous God is always open.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 4:10",
+          "quote": "yet even when he who is injured is silent the injuries themselves are alone sufficient to arouse God to inflict punishment. … Abel was speechless when his throat was being cut, or in whatever other manner he was losing his life; but after death the voice of his blood was more vehement than any eloquence of the orator.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-8-21-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Genesis 8:21",
+      "strength": "widely agreed",
+      "short": "The LORD “smelled” the aroma: He accepted it",
+      "about": "Scripture says the LORD smelled the aroma of Noah's offering, speaking of God in human terms. It means He accepted the offering and was pleased with it. Paul uses the same picture of Christ, who gave Himself “as a fragrant sacrificial offering to God” (Ephesians 5:2).",
+      "refs": [
+        "Ephesians 5:2"
+      ],
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Actions: Smelling",
+        "ref": "Genesis 8:21",
+        "words": "smelled the pleasing aroma",
+        "means": "that the LORD accepted Noah's offering and was pleased with it"
+      },
+      "original": {
+        "note": "In Hebrew the verb and its noun share one root, so He smelled the smell; and the aroma is an aroma of rest.",
+        "strong": [
+          "H7306",
+          "H7381",
+          "H5207"
+        ]
+      },
+      "evidence": "Bullinger finds Anthropopatheia here: the LORD accepted the sacrifice and was satisfied with the atonement. Calvin: Moses, as is his way, speaks of God in human terms for an untaught people; Noah's piety was the sweet odour. Henry: God was pleased with Noah's zeal as men are with sweet smells, and the offering pictured Christ's. Keil (Keil and Delitzsch): He accepted the offerer's feelings.",
+      "limit": "The writers agree that the words mean God accepted the offering. They put the weight in different places: on Noah's piety and thanks, or on the atonement and the sacrifice of Christ that it pictured.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 8:21",
+          "at": "Polyptoton, Verbs with cognate noun, p. 275",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/275/mode/1up",
+          "quote": "Lit., smelled the sweet smell, or the savour of rest: i.e., Jehovah accepted the sacrifice, and was satisfied with the atonement made by Noah. ... The figure of Anthrōpopatheia ... is involved.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 8:21",
+          "quote": "Moses here, according to his manner, invests God with a human character for the purpose of accommodating himself to the capacity of an ignorant people. ... This piety breathed a good and sweet odour before God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 8:20-22",
+          "quote": "He was well pleased with Noah's pious zeal, and these hopeful beginnings of the new world, as men are with fragrant and agreeable smells ... Christ's sacrifice of himself, which was typified and represented by it, and which was indeed an offering of a sweet-smelling savour",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 8:20-22",
+          "quote": "He graciously accepted the feelings of the offerer which rose to Him in the odour of the sacrificial flame.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-11-5-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Genesis 11:5",
+      "strength": "widely agreed",
+      "short": "The LORD “came down to see”: told in human terms",
+      "about": "The LORD, who sees all and needs no journey, is said to come down to see the city and tower, as a king goes to look before he judges. The words tell in human terms how God took notice of the builders and stepped in. Genesis 18:21 speaks of Sodom in the same way.",
+      "refs": [
+        "Genesis 18:21"
+      ],
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Actions",
+        "ref": "Genesis 11:5",
+        "words": "came down to see",
+        "means": "God's taking notice of the builders and stepping in to judge them, told as a king who goes to look"
+      },
+      "evidence": "Keil (Keil and Delitzsch) calls the coming down an anthropomorphic description of God stepping into the doings of men, not a visible descent. Henry calls it an expression after the manner of men; Calvin says it is spoken with reference to men, since God does not move from place to place; Payne Smith (Ellicott) calls the telling anthropological, the LORD as a king who goes to inspect the work.",
+      "limit": "The note does not say the LORD came here in any visible form; the writers read the words as a picture of His taking notice and stepping in.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 11:5",
+          "quote": "Jehovah's “coming down” is not the same here as in ... viz., the descent from heaven of some visible symbol of His presence, but is an anthropomorphic description of God's interposition in the actions of men",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 11:5",
+          "quote": "It is an expression after the manner of men; he knew it as clearly and fully as men know that which they come to the place to view. Observe, 1. Before he gave judgment upon their cause, he enquired into it; for God is incontestably just and fair in all his proceedings against sin and sinners, and condemns none unheard.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 11:5",
+          "quote": "The descent of God, which Moses here records, is spoken of in reference to men rather than to God; who, as we know, does not move from place to place. But he intimates that God gradually and as with a tardy step, appeared in the character of an Avenger.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Genesis 11:5-7",
+          "quote": "The narrative is given in that simple anthropological manner usual in the Book of Genesis, which so clearly sets before us God’s loving care of man, and here and in Gen 18:21 the equity of Divine justice. For Jehovah is described as a mighty king, who, hearing in His upper and heavenly dwelling of man’s ambitious purpose, determines to go and inspect the work in person",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-18-21-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Genesis 18:21",
+      "strength": "widely agreed",
+      "short": "God will “go down to see”: said in human terms",
+      "about": "The LORD, who knows all things, speaks as a judge who must go and look into a charge before he knows the facts. The words are put in human terms, to show that His judgment on Sodom and Gomorrah is just and never rash.",
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Actions",
+        "ref": "Genesis 18:21",
+        "words": "I will go down to see",
+        "means": "God's searching out of the facts before He judges, told as a man goes to look and learn"
+      },
+      "evidence": "Bullinger lists the verse under Anthropopatheia, where knowing is spoken of God as though He learned what He did not know. Henry and Jamieson (Jamieson, Fausset and Brown) call the words language after the manner of men, showing that God's judgment is not rash; Calvin says Moses brings Him in speaking after the manner of men because His forbearance is beyond us.",
+      "limit": "The note does not make the LORD's appearing to Abraham in this chapter a figure; the figure is in His speaking as one who must go and see in order to know.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 18:21",
+          "at": "Anthropopatheia, or Condescension, p. 883",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/883/mode/1up",
+          "quote": "Human Actions are attributed to God. ... Knowing. Not actual knowledge as such, but the acquiring of knowledge as though before ignorant.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 18:21",
+          "quote": "Not as if there were any thing concerning which God is in doubt, or in the dark; but he is pleased thus to express himself after the manner of men, [1.] To show the incontestable equity of all his judicial proceedings. Men are apt to suggest that his way is not equal; but let them know that his judgments are the result of an eternal counsel, and are never rash or sudden resolves.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Genesis 18:21",
+          "quote": "I will go down . . . and see--language used after the manner of men. These cities were to be made examples to all future ages of God's severity; and therefore ample proof given that the judgment was neither rash nor excessive",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 18:21",
+          "quote": "he commends the moderation of God, who does not immediately fulminate against the ungodly and pour out his vengeance upon them ... Since, however, such forbearance of God cannot be comprehended by us, Moses introduces Him as speaking according to the manner of men.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-22-11-doubling",
+      "kind": "figure",
+      "form": "doubling",
+      "ref": "Genesis 22:11",
+      "strength": "some interpreters",
+      "short": "“Abraham, Abraham!”: a name called twice",
+      "about": "The angel of the LORD calls Abraham's name twice in a row, just as Abraham takes the knife (verse 10). The doubled name draws special attention to Abraham and to a solemn moment. God calls Jacob, Moses and Samuel by name twice in the same way.",
+      "refs": [
+        "Genesis 22:10",
+        "Genesis 46:2",
+        "Exodus 3:4",
+        "1 Samuel 3:10"
+      ],
+      "figure": {
+        "name": "Epizeuxis",
+        "ref": "Genesis 22:11",
+        "words": "Abraham, Abraham",
+        "means": "a name called twice, drawing special attention to Abraham at a solemn moment"
+      },
+      "evidence": "Bullinger lists the verse under Epizeuxis: when thus used, the figure calls special attention to the person and to a solemn moment of importance.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 22:11",
+          "at": "Epizeuxis, or Duplication, p. 190",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/190/mode/1up",
+          "quote": "When thus used, the figure calls special attention to the occasion or to the person, and to some solemn moment of importance in the action, or of significance in the words.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-22-12-anthropopatheia",
+      "kind": "figure",
+      "form": "anthropopatheia",
+      "ref": "Genesis 22:12",
+      "strength": "widely agreed",
+      "short": "“Now I know”: God speaks in human terms",
+      "about": "The angel of the LORD speaks here as God (“from me”). God knew Abraham's heart already. The words “now I know” speak of Him in human terms, so that we can understand, and mark the proof Abraham had just given that he feared God.",
+      "figure": {
+        "name": "Anthropopatheia",
+        "part": "Human Actions",
+        "ref": "Genesis 22:12",
+        "words": "now I know",
+        "means": "God, who knew already, speaking in human terms of the proof Abraham gave that he feared Him"
+      },
+      "evidence": "Bullinger lists the verse under Anthropopatheia, God's knowing told as if He learned it: God knew already, but stoops to make Abraham understand. Calvin says God speaks after the manner of men, to suit our weakness, and that Moses means Abraham proved his fear of God. Henry takes the angel to be God Himself, who knew it before, but Abraham had now given memorable proof of it.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 22:12",
+          "at": "Anthropopatheia, or Condescension, p. 884",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/884/mode/1up",
+          "quote": "God, of course, knew it already; but, in wondrous condescension, He stoops to make Abraham understand.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 22:12",
+          "quote": "Truly, by condescending to the manner of men, God here says that what he has proved by experiment, is now made known to himself. And he speaks thus with us, not according to his own infinite wisdom, but according to our infirmity. Moses, however, simply means that Abraham, by this very act, testified how reverently he feared God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 22:11-14",
+          "quote": "The angel of the Lord, that is, God himself, the eternal Word, the angel of the covenant ... Now know I that thou fearest God. God knew it before, but now Abraham had given a most memorable evidence of it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-39-9-contrast",
+      "kind": "contrast",
+      "form": "contrast",
+      "ref": "Genesis 39:9",
+      "strength": "widely agreed",
+      "short": "Side by side: she urges him, Joseph refuses",
+      "about": "The chapter sets Joseph beside his master’s wife. She urges him day after day; he refuses, naming his master’s trust and his God, and at last runs from her, leaving his cloak in her hand. Her lust and his faithfulness each show up the other.",
+      "sides": [
+        {
+          "who": "Joseph",
+          "label": "Refuses, fearing to sin against God",
+          "ref": "Genesis 39:8-12",
+          "words": "So how could I do such a great evil and sin against God?"
+        },
+        {
+          "who": "Potiphar’s wife",
+          "label": "Urges him day after day",
+          "ref": "Genesis 39:7-12",
+          "words": "Although Potiphar’s wife spoke to Joseph day after day"
+        }
+      ],
+      "evidence": "Henry sets a shameful instance of immodesty in Joseph's mistress against an illustrious instance of virtue in Joseph, kept by the grace of God. Calvin: her filthiness shows the blind force of lust, while Joseph is set before us as an example of fidelity and self-control. Benson: Joseph feared God, while she was deaf to conscience and the fear of God.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Genesis 39:7-12",
+          "quote": "A most shameful instance of impudence and immodesty in Joseph's mistress ... Here is a most illustrious instance of virtue and resolved chastity in Joseph, who, by the grace of God, was enabled to resist and overcome this temptation",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 39:7",
+          "quote": "Now as this filthiness is a signal proof that carnal lust acts from blind and furious impulses; so, in the person of Joseph, an admirable example of fidelity and continence is set before us.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Genesis 39:10",
+          "quote": "But Joseph feared God; Joseph believed in a judgment to come. ... Finding her dead to all sense of shame, and deaf to the calls of duty, honour, conscience, and the fear of God, and that she was not to be reclaimed, he avoided her company",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-8-22-many-ands",
+      "kind": "figure",
+      "form": "many-ands",
+      "ref": "Genesis 8:22",
+      "strength": "some interpreters",
+      "short": "Seasons and days named one by one, with “and”",
+      "about": "God promises that the seasons and the days will not cease while the earth lasts. Eight words are named in four pairs, and in Hebrew every word after the first begins with “and”, so each is weighed on its own, showing how complete the covenant is, how full the blessing and how sure the promise.",
+      "figure": {
+        "name": "Polysyndeton",
+        "ref": "Genesis 8:22",
+        "words": "seedtime and harvest, cold and heat, summer and winter, day and night",
+        "means": "each of the seasons and the days weighed on its own, showing how complete the covenant is, how full the blessing and how sure God's promise"
+      },
+      "evidence": "Bullinger lists the verse under Polysyndeton: the four pairs, joined by and throughout, show how complete the covenant is, how full the blessing and how sure God's promise. The BSB keeps the and only inside each pair; the Hebrew has it between the pairs as well.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 8:22",
+          "at": "Polysyndeton, or Many-Ands, p. 210",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/210/mode/1up",
+          "quote": "the completeness of the covenant and the fulness of the blessing, and the certainty of the Divine promise, is set forth in a double four-fold description",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-18-14-question",
+      "kind": "figure",
+      "form": "question",
+      "ref": "Genesis 18:14",
+      "strength": "widely agreed",
+      "short": "“Is anything too difficult for the LORD?” No",
+      "about": "The LORD answers Sarah's laughter with a question that needs no answer. Nothing is too difficult for Him, so a son for Sarah in her old age is not beyond His power. Jeremiah says it plainly: “Nothing is too difficult for You!”",
+      "refs": [
+        "Genesis 18:13",
+        "Jeremiah 32:17",
+        "Luke 1:37"
+      ],
+      "figure": {
+        "name": "Erotesis",
+        "part": "Affirmative Negation",
+        "ref": "Genesis 18:14",
+        "words": "Is anything too difficult for the LORD?",
+        "means": "nothing is too difficult for the LORD, not even a son for Sarah in her old age"
+      },
+      "original": {
+        "note": "In Hebrew “too difficult” is pala, to be wonderful: nothing is too wonderful for the LORD.",
+        "strong": [
+          "H6381"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Erotesis, a question whose answer is an emphatic no. Henry says nothing escapes God's notice or exceeds His power. Calvin reads it as a rebuke of Sarah for measuring God's power by her own sense. Clarke reads it as asking whether any miracle is too great for Him, and says Luke 1:37 takes up the Septuagint's words almost exactly, as a statement instead of a question.",
+      "limit": "Some also read it as asking whether anything is hidden from the LORD: not even Sarah's silent laughter was. Others keep to His power alone.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 18:14",
+          "at": "Erotesis, in Affirmative Negation, p. 949",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/949/mode/1up",
+          "quote": "where the question is put in the affirmative, and the answer to be supplied by the mind is a very emphatic negative. ... “Is anything too hard for the Lord?” (Gen 18:14 ). No! there is nothing too hard for Him",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 18:9-15",
+          "quote": "Here is a question asked which is enough to answer all the cavils of flesh and blood: Is any thing too hard for the Lord? (Heb. too wonderful), that is, (1.) Is any thing so secret as to escape his cognizance? No, not Sarah's laughing, though it was only within herself. Or, (2.) Is any thing so difficult as to exceed his power? No, not the giving of a child to Sarah in her old age.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 18:13",
+          "quote": "For there is no little weight in this sentence, ‘Can anything be wonderful with God?’ But the angel chides Sarah, because she limited the power of God within the bounds of her own sense. An antithesis is therefore implied between the immense power of God, and the contracted measure which Sarah imagined to herself, through her carnal reason.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Genesis 18:14",
+          "quote": "i.e., Can any thing be too great a miracle for him to effect? ... which St. Luke adopts almost literatim, only making it an affirmative position instead of a question ... It was to correct Sarah's unbelief, and to strengthen her faith, that God spoke these most important words",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

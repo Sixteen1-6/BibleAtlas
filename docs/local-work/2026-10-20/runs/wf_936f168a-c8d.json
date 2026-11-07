@@ -1,0 +1,229 @@
+{
+ "find:browser": {
+  "cases": [
+   {
+    "surface": "Christian writers panel (Deep): John Wesley's section, which is the founder's report",
+    "how": "Deep level. Select Matthew 6:14 (also Hebrews 1:13, Luke 3:4, Mark 1:3, Genesis 25:29 or Genesis 26:10). Tap the line 'Christian writers: ...'. If the panel asks, tap 'Show what they wrote'. Scroll to 'John Wesley'. His whole note is a single verse reference ('Mark 11:25.', 'Psa 110:1.', 'Isa 40:3.') or a few words ('Sod - That is, boiled.', 'Lightly - Perhaps.'). The line under the verse names Wesley, so tapping it opens what looks like an empty writer. Phone width (390x844) shows the same. No writer section is ever completely empty: Panel.tsx:252 skips those, and a data check over all 31,059 verses with the line found 0 such sections. So this near-empty section is what the founder hit.",
+    "count": 522,
+    "examples": [
+     "Matthew 6:14, Deep: Wesley = 'Mark 11:25.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-voices-refonly-deep-Matt.6.14.png",
+     "Hebrews 1:13, Deep: Wesley = 'Psa 110:1.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-voices-wesley-refonly-deep-Heb.1.13.png",
+     "Luke 3:4, Deep: Wesley = 'Isa 40:3.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-voices-wesley-refonly-deep-Luke.3.4.png",
+     "Mark 1:3, Deep: Wesley = 'Isa 40:3.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-voices-refonly-deep-Mark.1.3.png",
+     "Genesis 25:29, Deep: Wesley = 'Sod - That is, boiled.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-voices-short-deep-Gen.25.29.png (phone: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-phone-voices-deep-Gen.25.29.png)",
+     "Genesis 26:10, Deep: Wesley = 'Lightly - Perhaps.' C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c1-voices-deep-Gen.26.10.png",
+     "Also seen in the sweep: Matthew 12:9, 22:24, 23:14; Mark 2:18, 14:1, 15:28; Luke 4:42, 10:3, 11:16; Exodus 34:28 (19 hits at Deep in the sample)",
+     "Whole-Bible count: 282 verses where Wesley's note is only a reference (Mark 92, Luke 89, Matthew 56, John 14, Romans 12, Acts 8, Hebrews 6, others 5) plus 240 where it is under 25 letters"
+    ],
+    "cause": "crates/atlas-cli/src/extra_voices.rs:928, in wesley(): a note is dropped only when its text is empty, so notes like '.Mark 11:25' (the leading punctuation is trimmed) or 'Psa 110:1.' are kept. The item then sets the verse's bit at :972, voices.extra.tsx:63 names Wesley on the line, and voices/Panel.tsx:250-265 renders his section with just that reference.",
+    "fix": "In wesley(), after building the runs at :931, skip a note whose text has no letters once its verse references and punctuation are removed. Dropping the item clears its bit, so the line stops naming Wesley on those 282 verses. For the 240 short glosses ('Sod - That is, boiled.'), either drop them the same way (under about 25 letters) or keep one only when another writer also has a note on that verse, so the panel never consists of a gloss alone. This is the owner's call. Add a check to verify() that no note is references only."
+   },
+   {
+    "surface": "Christian writers panel (Deep): a Matthew Henry note that only points to 2 Kings",
+    "how": "Deep level. Select Isaiah 39:4 (any of Isaiah 39:1-8). Tap 'Christian writers: Matthew Henry'. Henry is the only writer there, so the whole panel is 'On verses 1-8: This chapter is the same as II Kin. 20:12-19.' and that reference is plain text, not a link. On Isaiah 36:1-22 Henry's section is 'See II Kin. 18:17-37, and the commentary thereon.'",
+    "count": 30,
+    "examples": [
+     "Isaiah 39:4, Deep (the panel holds only the pointer): C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-voices-henry-pointer-deep-Isa.39.4.png",
+     "Isaiah 39:4 at phone width: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-phone-voices-deep-Isa.39.4.png",
+     "Isaiah 36:10, Deep, Henry section: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-voices-henry-pointer-deep-Isa.36.10.png",
+     "Isaiah 39:1-8 are the only 8 verses in the Bible where every writer shown is near-empty"
+    ],
+    "cause": "crates/atlas-cli/src/extra_voices.rs:833, in henry(): any section with text is kept, including a pointer to another chapter. The reference parser (book_named, :171) does not read 'II Kin.', so the pointer is never even a link.",
+    "fix": "In henry(), when a chapter note is only a pointer ('This chapter is the same as ...', 'See ... and the commentary thereon'), either copy Henry's note on the passage it names (2 Kings 20:12-19 and 18:17-37) onto the Isaiah verses, or drop it so the line does not show. Teach book_named() the 'I Kin.' and 'II Kin.' forms so references like these become links."
+   },
+   {
+    "surface": "Links tab (Simple, Study, Deep), the default study view for a selected verse that has no links",
+    "how": "Any level. Select Genesis 7:3 (also Nehemiah 10:27, Exodus 35:33, Ecclesiastes 10:9). The Links tab shows 'Linked to 0 passages'. At Simple, the 'Strongest links' heading follows with nothing under it. At Study and Deep the heading is 'Linked passages (0), strongest first', again with nothing under it, and a 'Map its neighborhood, 2 steps out' button. Tapping that button lights '1 verses' (the verse itself) and the top bar reads '1 verses within 2 steps'.",
+    "count": 815,
+    "examples": [
+     "Nehemiah 10:27, Simple: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c3-zero-simple-Neh.10.27.png",
+     "Genesis 7:3, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c1-zero-links-study-Gen.7.3.png",
+     "Genesis 7:3, Deep: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c1-zero-links-deep-Gen.7.3.png",
+     "Genesis 7:3, Study, after 'Map its neighborhood' (lights 1 verse): C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-zero-neighborhood-study-Gen.7.3.png",
+     "Ecclesiastes 10:9, Deep: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c3-zero-deep-Eccl.10.9.png",
+     "Whole Bible: 815 verses (799 with English plus the 16 the BSB leaves out). Most are in 1 Chronicles (140), Numbers (127), Exodus (58), Genesis (57) and Leviticus (42). The sweep hit 37 at each level."
+    ],
+    "cause": "web/src/ui/Connections.tsx:137 always prints 'Linked to {linked}', :152 always prints the list heading, and :146-149 always offers the neighborhood button. For these verses linkCount (web/src/data/atlas.ts:305) is 0. The reader already hides the 'N links' chip for them (Reader.tsx:212, xc > 0), so only the study panel shows the zero. :151 also says '1 verses'.",
+    "fix": "In Connections, when linked is 0, leave out the 'Linked to 0' line, the empty heading and the neighborhood button, and show the verse, its words and its themes or layers. At Deep, if the verse has weak links, show only the 'Show N weak or disputed links' button. Make the count at :151 singular for 1."
+   },
+   {
+    "surface": "Arcs map verse picks (all levels)",
+    "how": "Simple, 1440x900 window. Select Mark 9:44, then click the map's baseline at x=563: this selects Nehemiah 10:27 and the panel shows 'Linked to 0 passages' with an empty 'Strongest links'. Or select Mark 14:1 and click x=212: Numbers 34:25 opens the same way. At Study and Deep the picks land on the same verses and show '(0)'.",
+    "count": 21,
+    "examples": [
+     "Mark 9:44 then pick x=563 opens Nehemiah 10:27: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-mappick-simple-from-Mark.9.44-to-Neh.10.27.png",
+     "Mark 14:1 then pick x=212 opens Numbers 34:25: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-mappick-simple-from-Mark.14.1-to-Num.34.25.png",
+     "Other sweep picks: Genesis 4:1 to Ecclesiastes 10:9, Psalm 12:1 to Ezekiel 22:23, Micah 7:12 to 1 Chronicles 8:38, Mark 1:23 to Numbers 7:55, James 1:24 to Numbers 34:25",
+     "21 of the sweep's 1,150 map picks (7 per level). Any of the 815 verses with no links can be picked this way."
+    ],
+    "cause": "web/src/ui/AtlasMap.tsx:325: a tap that misses an arc selects verseAt(xs, x, ...), whatever verse sits under the pointer, even one with linkCount 0.",
+    "fix": "When the verse under the pointer has linkCount 0, select the nearest verse with links within a few pixels instead, or keep the current selection. Do the same for the hover tip at :301."
+   },
+   {
+    "surface": "Verses the BSB leaves out: reader row, Links tab and the Syriac panel",
+    "how": "Any level. Select Matthew 17:21 (or Matthew 18:11, 23:14; Mark 7:16, 9:44, 9:46, 11:26, 15:28; Luke 17:36, 23:17; John 5:4; Acts 8:37, 15:34, 24:7, 28:29; Romans 16:24), or follow a link to one from a parallels, study note or Syriac panel. The reader shows a bare verse number with no words. The Links tab shows 'Linked to 0 passages' and an empty heading. At Deep, tapping 'Syriac: an early Aramaic translation, made from the Greek' opens a panel whose BSB card ('Matthew 23:14 > Berean Standard Bible, translated from the Greek') has no words in it.",
+    "count": 16,
+    "examples": [
+     "Matthew 17:21, Deep: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-omitted-deep-Matt.17.21.png",
+     "Matthew 17:21, Simple: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-omitted-simple-Matt.17.21.png",
+     "Matthew 17:21, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-zero-links-study-Matt.17.21.png",
+     "Mark 9:44, Simple: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-omitted-verse-simple-Mark.9.44.png",
+     "Matthew 23:14, Deep, Syriac panel with an empty BSB card: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c3-empty-deep-Matt.23.14-peshitta.png",
+     "The sweep reached these verses from 21 parallels panels, 16 Syriac panels and 4 study-note panels"
+    ],
+    "cause": "web/src/ui/Reader.tsx:211 explains a missing verse only for NET and ESV (liveVerses) and prints '' for the BSB. web/src/ui/extras/kit.tsx:85 (Passage) prints row[0] even when it is ''. web/src/ui/extras/peshitta/Panel.tsx:110 always adds that BSB card. Connections.tsx:137/152 add the zero (see the Links case). The parallels panel already handles it: parallels/Compare.tsx:179 says 'Some manuscripts add a verse here.'",
+    "fix": "Use the Compare.tsx:179 wording in Reader.tsx:211 for the BSB too (for example 'The BSB does not include this verse in its main text; some manuscripts add it.'), and in kit.tsx Passage when row[0] is ''. On the Syriac panel, give that card the same sentence instead of empty text. With the Links fix, these verses then show the sentence instead of '0'."
+   },
+   {
+    "surface": "Ask the Bible answer: a lone ellipsis that never resolves",
+    "how": "Any level (Study and Deep on main). Select Acts 8:37, tap 'People ask: Who can baptize someone, and does it matter where?', then tap the question. In the passage card 'Acts 8:36-38', verse 37 shows as a superscript 37 followed by '...', and it stays that way. It was still unresolved after 40 seconds, at all three levels.",
+    "count": 1,
+    "examples": [
+     "Acts 8:37, Deep, scrolled to the stuck verse: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-ell-deep-Acts.8.37-ask.png",
+     "Same panel at the top: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-ell-deep-Acts.8.37-ask.png",
+     "Only one Ask question (who-can-baptize-and-where) has a passage covering one of the 16 verses the BSB leaves out"
+    ],
+    "cause": "web/src/ui/ask/AskSheet.tsx:122-123: t = known ?? row?.[0] is '' for a verse the BSB leaves out, and '' is treated as still loading, so it renders '...' forever.",
+    "fix": "Treat '' as 'not in the BSB' rather than 'loading': skip that verse inside the passage, or show 'Some manuscripts add a verse here.' as parallels/Compare.tsx:179 does. Show '...' only while the row is null."
+   },
+   {
+    "surface": "Places line and its map panel (all levels)",
+    "how": "Any level. Select Exodus 28:29 (also Exodus 26:33, Leviticus 16:2, 1 Kings 10:22), then tap 'Place: Holy Place' or 'Place: Tarshish'. The panel opens on 'The Holy Place is not marked on this map.' (or 'Tarshish is not marked on this map.') over a base map with nothing marked on it.",
+    "count": 35,
+    "examples": [
+     "Exodus 28:29, Deep: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-realmap-none-deep-Exod.28.29.png",
+     "Exodus 26:33, Simple: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-realmap-none-simple-Exod.26.33.png",
+     "1 Kings 10:22, Deep (Tarshish): C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-realmap-none-deep-1Kgs.10.22.png",
+     "By place: Holy Place 16, Tarshish 4, Most Holy Place 2, Etam 2, Senaah 2, and one each for Holy Place with Most Holy Place, Harosheth-hagoyim, Ascent of Heres, Zelzah, Ezel, Zarephath, Gedor, Bamah and Ulai (for example Leviticus 16:2-33, Judges 4:16, 1 Samuel 10:2, 1 Kings 17:10)"
+    ],
+    "cause": "web/src/ui/extras/real-map.extra.tsx:83-91: note() returns a line for every verse with a mention, even when none of its places is confident or has proposed sites. web/src/ui/extras/real-map/MapPanel.tsx:113 then returns only the 'not marked' sentence.",
+    "fix": "Leave a verse out of the Places line when none of its places would be drawn, using the same test as MapPanel lead(): not info().confident and no proposals(). The line's index does not load places.json, so do this in the build (crates/atlas-cli/src/extra_real_map.rs), by leaving such verses out of the 'at' list in extras/real-map.json."
+   },
+   {
+    "surface": "Study notes panel: a note that only says 'See <passage>'",
+    "how": "Study or Deep (on the tested build, own-verse notes also appear at Simple; main shows notes from Study on). Select Exodus 39:20 (any of Exodus 39:1-31) and tap 'A study note on verses 1-31'. The panel holds 'About verses 1-31: See Exodus 28:1-43.' and nothing else. Genesis 21:1 gives 'On verses 1-2: See Genesis 18:10.'",
+    "count": 114,
+    "examples": [
+     "Exodus 39:20, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-notes-see-study-Exod.39.20.png",
+     "Exodus 39:1, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-notes-short-study-Exod.39.1.png",
+     "Genesis 21:1, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-notes-short-study-Gen.21.1.png",
+     "Also Genesis 7:8 ('See the study note on 7:2.'), Genesis 8:17, Genesis 11:18, Genesis 21:2. 114 verses where every note is a pointer of under 25 letters."
+    ],
+    "cause": "crates/atlas-cli/src/extra_notes.rs:419 drops a note only when it has no blocks, so a note whose whole text is 'See <ref>.' is kept and indexed like any other.",
+    "fix": "In build(), when every note on a verse is only 'See' plus references, either drop those notes from the index (the line then does not show) or replace them with the note on the passage they name. Add a verify() check that no indexed verse has only pointer notes."
+   },
+   {
+    "surface": "Old Bible dictionaries panel (Study, Deep): an entry that is only a reference or a 'See X' pointer",
+    "how": "Study or Deep. Select Genesis 8:22, tap 'In old Bible dictionaries: Seasons', then tap 'Seasons'. The entry is '(Gen. 8:22). See AGRICULTURE; MONTH.' and nothing more. Acts 27:29 > 'Anchor' (Smith) is just '(Acts 27:29)'. Job 30:4 > 'Mallows' (Smith) is '(Job 30:4)'. Joshua 3:16 > 'Zaretan' (Smith) is '(Joshua 3:16)'.",
+    "count": 11,
+    "examples": [
+     "Genesis 8:22, Study, entry opened: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c6-dict-allnear-study-Gen.8.22-open.png",
+     "Acts 27:29, Study, Smith 'Anchor': C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-dict-refonly-study-Acts.27.29.png",
+     "Job 30:4, Study, Smith 'Mallows': C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c2-dict-refonly-study-Job.30.4.png",
+     "Joshua 3:16, Study, Smith 'Zaretan': C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c6-dict-refonly-study-Josh.3.16-open.png",
+     "11 verses where every entry is near-empty: Genesis 8:22, 48:12; Deuteronomy 7:14; Judges 5:12, 16:9; 1 Chronicles 1:6; Job 7:3; Isaiah 29:3; Jeremiah 6:6; Luke 21:9; Acts 7:29. Also 6 entries that are only a reference (Smith: Ajah, Eranites, Zaretan, Achar, Mallows, Anchor) and 85 'See X' stub entries."
+    ],
+    "cause": "crates/atlas-cli/src/extra_dictionary.rs:120 indexes every entry under every verse it cites, however short its body.",
+    "fix": "In build(), skip an entry for the verse index when its body, after removing references, has fewer than about 25 letters. For a 'See X' stub, index the entry it points to instead. A verse left with no entries then gets no line. A side note: the one-entry lead reads 'An entry in an old Bible dictionary that cite Genesis 8:22. They were written...', which should be 'cites' and 'It was'."
+   },
+   {
+    "surface": "Parallels line and panel (all levels): 'Also told in ...' on a verse that lines up with nothing",
+    "how": "Any level. Select Matthew 15:14 and tap 'Also told in Mark 7:14-23'. In the marked row for 15:14, the Mark column says 'Nothing here lines up closely.' The same happens on Genesis 5:1-4 ('Also listed in 1 Chronicles 1:1-4'), Matthew 3:2 and Luke 3:1. The panel itself is not empty; it is empty for the verse the reader tapped from, which matches the founder's rule that a line should show only where it applies.",
+    "count": 915,
+    "examples": [
+     "Matthew 15:14, Simple: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c3-empty-simple-Matt.15.14-parallels.png",
+     "915 of the 5,288 verses with a parallels line, 364 of them in the Gospels (for example Genesis 5:1-4, 5:7-13; Matthew 3:2; Luke 3:1, 3:5, 3:10-15)"
+    ],
+    "cause": "web/src/ui/extras/parallels/model.ts:118-128 gives the line to every verse of each passage in a set. parallels/Compare.tsx:327 then shows the gap for the selected verse's row.",
+    "fix": "Owner's call, since this is a passage-level line. Either give the line only to verses whose row has a partner in at least one compared passage (the row counts are in the book files, so compute it in crates/atlas-cli/src/extra_parallels.rs and ship only those verses), or reword it for the rest, for example 'This passage is also told in ...'."
+   },
+   {
+    "surface": "Search palette: a Hebrew or Greek word typed in its own letters",
+    "how": "Any level. Open search (/) and type the Hebrew word shalom with vowel points: the palette says 'No verse uses \"ש\", \"לו\", \"ם\".' and shows no results. Shalom without points, agape in Greek letters (with or without accents) and logos in Greek letters each say 'No verse uses ...', also with no results. The box's label says it takes 'a Hebrew or Greek word'. Ahavah in Hebrew letters returned unrelated Psalm 119 verses.",
+    "count": 5,
+    "examples": [
+     "Hebrew shalom with points, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-search-study-_-0.png",
+     "Hebrew shalom without points: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-search-study-_-1.png",
+     "Greek agape with accents: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-search-study-_-3.png",
+     "Greek logos: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-search-study-_-5.png",
+     "5 of the 11 queries in the probe gave 0 results; results are in C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/out-surfaces/study-search-probe.json"
+    ],
+    "cause": "web/src/data/search.ts:671-696 (searchRoots) matches only gloss, transliteration and Strong's number, never Lemmas.word, the word in its own letters. search.ts:31 (WORD = /[\\p{L}\\p{N}'’]+/gu) leaves out combining marks (\\p{M}), so pointed Hebrew is split into fragments, which web/src/ui/Palette.tsx:58 then reports as unknown words.",
+    "fix": "In searchRoots, also compare the query with L.word after stripping vowel points, accents and breathings (NFD, then remove \\p{M}) on both sides. Add \\p{M} to WORD so a pointed word stays one token, and keep the 'No verse uses' note for Latin-script words only."
+   },
+   {
+    "surface": "Paths tab (Study, Deep) with a verse that has no links",
+    "how": "Study or Deep, Paths tab. Type From 'Genesis 7:3', To 'John 3:16', then Find roads. It says 'No chain of links with at least 5 votes joins Genesis 7:3 and John 3:16.' and offers 'Try with every link'. Tapping that gives a second empty result: 'No chain of cross-references joins Genesis 7:3 and John 3:16.'",
+    "count": 815,
+    "examples": [
+     "Genesis 7:3 to John 3:16, Study, first result: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-paths-study-Gen.7.3-nochain.png",
+     "After 'Try with every link': C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-paths-study-Gen.7.3-everylink.png",
+     "The count is the 815 verses with no links that can be typed as an end. The five suggested pairs and the default pair all found roads at Study and Deep."
+    ],
+    "cause": "web/src/ui/Roads.tsx:120 writes the 'No chain' note, and :412/:506 offer 'Try with every link' even when one end has linkCount 0, so the second search cannot succeed.",
+    "fix": "Before searching, if an end has no links at all, say so once (for example 'Genesis 7:3 has no cross-references, so no road can reach it') and do not offer 'Try with every link'."
+   },
+   {
+    "surface": "Ask line with a single question (Study and Deep on main; Simple too on the tested build)",
+    "how": "Study. Select Genesis 4:1 and tap 'People ask: Was Cain the son of the serpent, as 'serpent seed' teaching claims?'. The panel holds 'People ask about this verse:' and the same question again as its only link, so one extra tap adds nothing. This is near-empty (one item that repeats the line), not empty.",
+    "count": 3671,
+    "examples": [
+     "Genesis 4:1, Study: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-ask-one-study-Gen.4.1.png",
+     "The sweep flagged it on 112 views, for example Exodus 3:6, Exodus 32:20, Deuteronomy 23:4, Psalm 37:1, Proverbs 31:1, Jonah 2:2, Matthew 19:24, John 18:10",
+     "3,671 of the 6,320 verses with an Ask line have exactly one question"
+    ],
+    "cause": "web/src/ui/extras/ask.extra.tsx:17-31: Panel always renders the list under 'People ask about this verse:', even when it has one question (the line at :58 already names that question).",
+    "fix": "When a verse has one question, let the line open that question directly (openAsk({ kind: 'question', q })) rather than a one-item list. Keep the list for two or more."
+   },
+   {
+    "surface": "Not a fault: lone ellipses and panels that were slow under sweep load (checked and cleared)",
+    "how": "Coverage: 364 verses at each of Simple, Study and Deep, covering all 66 books and every extra (including Henry whole-chapter notes, cross-chapter ranges, mid-range verses, Wesley ranges and the Catena with more than 4 Fathers). In total: 3,745 extras panels, 7,442 clicks inside them ('About this book', 'Read all', 'Show N more of the Fathers', word and theme chips, dictionary entries, Ask questions), 2,917 tab views (Links, Word, Themes, Paths, Top verses, Sources), 1,196 row controls and 1,150 map picks. Once per level: all 58 Sources shelf cards with both dictionaries (every letter, first and last entry), all 154 to 163 themes, and 254 Ask questions and topics. Panels that showed '...' or did not open within 7 s under two parallel browsers were replayed one at a time with up to 40 s of waiting.",
+    "count": 0,
+    "examples": [
+     "Resolved within 1 to 10 s on replay: Psalm 2:12 notes and voices, Isaiah 35:8 places, Ezra 5:1 Aramaic chapter, Matthew 4:7 Syriac, 2 Kings 1:4 dictionary, Leviticus 6:4 theme, Judges 21:25 Ask (for example C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c3-ell-deep-Ps.2.12-voices.png)",
+     "Word tab 'Where it appears' rows (Joel 3:13, Exodus 34:28) show '...' until scrolled into view and then fill: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c5-ell-study-Joel.3.13-word.png",
+     "All 87 'did not open in time' panels sampled on replay opened with content (for example Mark 7:16 voices: C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/shots/c4-dno-deep-Mark.7.16-voices.png)",
+     "No view anywhere said 'Sorry'. All shelf cards, dictionary letters, themes, Ask questions and Top verses had content."
+    ],
+    "cause": "Sweep timing only: the panel code and data load on first use, and two browsers were running at once. The only ellipsis that never resolves is the Acts 8:37 Ask case above. The tested build is BibleAtlas-fixes 89c149f (a46d819 plus PR #47) at http://localhost:5391. main b6d7f1e differs only in moving the Ask and study-notes lines to Study and up. Raw records are in C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/out and the cases in C:/Users/shubh/AppData/Local/Temp/claude/C--Users-shubh-Projects--claude/d3907c69-e0f0-457b-bec9-6a76569849b3/scratchpad/ba/empty/cases2.out.json.",
+    "fix": "None needed."
+   }
+  ]
+ },
+ "fix": {
+  "commit": "fb3b824 on branch no-empty-selections in worktree C:\\Users\\shubh\\Projects\\BibleAtlas-empty, built from origin/main 2aabdcc (main had moved past b6d7f1e when PR #50 merged; that PR changed only config/layers.json and docs). Not pushed. Subject: \"Every line and pick under a verse now opens on something to read\". 17 files changed, 986 insertions, 52 deletions. web/src/ui/extras/voices/Panel.tsx and voices/model.ts are not touched, so this cannot conflict with commentary-notice.",
+  "fixed": [
+   "Christian writers (the founder's report): a Wesley note with fewer than 25 letters of its own, after removing references and words that only point, is now left out (extra_voices.rs build(), using own_letters and note_letters). Exactly 522 notes were dropped: 282 that were only a reference and 240 short glosses. So the line no longer names Wesley on Matthew 6:14, Mark 1:3 or Genesis 26:10. The case left the short glosses to the owner. I chose to drop them because the founder's examples included them, and most explain KJV words the BSB does not use. To keep a gloss only when another writer also has a note on the verse, change the retain() in build().",
+   "Henry pointer notes: a chapter note that only says 'See II Kin. ...' or 'This chapter is the same as II Kin. ...' (pointed_to, plus a new pass in henry()) now shows the pointer as a link, followed by Henry's own notes on the passage it names. Isaiah 36 gets 2 Kings 18:17-37, Isaiah 39 gets 2 Kings 20:12-19, and Isaiah 37, which had no line before, gets all of Henry's notes on 2 Kings 19. book_token now reads 'I', 'II' and 'III' before a book name. A new numbered_links step turns 11 plain-text references like 'II Kin.' and 'I Pet.' into links.",
+   "Study notes: a note that only sends the reader elsewhere is now left out of the build (402 notes). Examples: 'See Exodus 28:1-43.', 'Peleg: See the study note on 10:25.', 'Will I recover? See ...', 'See ... Theme Note'. This is done by pointer() and shown_text() in extra_notes.rs. Exodus 39:1-31 and Genesis 21:1-2 no longer show a notes line.",
+   "Old Bible dictionaries: an entry with fewer than 25 letters of its own (after removing references, brackets and 'See X' parts) is no longer listed under a verse (307 entries). If such a stub names exactly one other entry in the same dictionary that has real content, that entry is listed in its place (106 cases). For example, Genesis 8:22 now lists Agriculture and Month instead of Seasons. Smith's Anchor and Mallows are gone. 11 verses no longer have the line. The panel's opening sentence now says 'An entry ... for {verse}. It was written ...', and the Deep facts explain the rule.",
+   "Places: a verse where the map can mark none of its places is left out of the 'at' list in extras/real-map.json. drawn() matches the logic of places.ts info() and proposals(). This removes the line from 35 verses: the Holy Place verses, Tarshish, Zarephath and others.",
+   "Parallels: the build now adds an 'alone' list to extras/parallels.json: the 915 verses whose row has no partner verse in any compared passage. On those verses the line reads 'This passage is also told in ...' (or the matching wording for songs, lists, laws, prophecies and letters) instead of 'Also told in ...'. No verse loses its line. This was also left to the owner; I chose rewording over hiding the line because the row matching is a heuristic and would otherwise hide true parallels such as Genesis 5:1-4 with 1 Chronicles 1:1-4.",
+   "Links tab (Connections.tsx): a verse with no links now shows only itself, its original words, and its themes or layers. There is no 'Linked to 0', no empty heading and no neighborhood button. At Deep, 'Show N weak or disputed links' still appears when there are any. The neighborhood note now says '1 verse' in the singular.",
+   "Map (AtlasMap.tsx): a new linkedAt() picks the verse under the pointer if it has links. Otherwise it picks the closest verse with links within 8 px (16 px for touch), or nothing, in which case the selection is kept and no tip shows. This applies to both hover and tap. The tip also says '1 link' in the singular.",
+   "Verses the BSB leaves out: the reader row and the Links tab now say 'The BSB does not include this verse in its main text; some manuscripts add it.' (the OMITTED constant in common.tsx). The Passage card in kit.tsx, which the Syriac panel also uses, now says 'Some manuscripts add a verse here.' This is a one-line change to a spine file.",
+   "Ask (AskSheet.tsx): an empty verse ('') now means the verse is not in the BSB, not that it is still loading, so Acts 8:37 shows 'Some manuscripts add a verse here.' instead of '...' that never resolves.",
+   "Ask line (ask.extra.tsx): when a verse has only one question, its panel opens that question at once with openAsk inside useLayoutEffect, so there is no one-item list. The list stays when there are two or more questions.",
+   "Search (search.ts, Palette.tsx): a query written in Hebrew or Greek letters, with no Latin letters, is now matched against each lemma's own spelling, ignoring vowel points, accents and breathings and treating final sigma like sigma. Such a query skips the English search, so the 'No verse uses' note no longer appears for it. When nothing matches, a plain note suggests trying the transliteration. The tokenizer (WORD) is unchanged, so it still matches english.rs.",
+   "Paths (Roads.tsx): if either end has no links, the panel says once '<verse> is linked to no other passage, so no road can reach it. Pick another verse.' and does not offer 'Try with every link'.",
+   "atlas verify now has 8 more checks, for 5917 in all. Voices: every note has 25 or more letters of its own; the Wesley known cases; Henry's notes on Isaiah 36, 37 and 39 carry his 2 Kings notes with the pointer as a link. Notes: no note only points elsewhere, and Exodus 39:20 has no line. Dictionary: no thin entry is listed; Genesis 8:22, Acts 27:29 and Job 30:4. Places: every verse with a line has a place the map can mark. Parallels: the 'alone' list matches the rows exactly. The old Exodus 26:33 Most Holy Place check now looks the place up by name, because that verse no longer has a line."
+  ],
+  "guarantees": [
+   "The data sweep C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\empty\\fix\\sweep-empty.cjs reports MISMATCHES 0 on the new build (output in fix\\after.json). On the old build at BibleAtlas-fixes it reported 1766 (fix\\before.json): 282 reference-only writer sections, 248 short ones, 2 Henry pointers, 145 verses whose study notes were all pointers, 109 thin dictionary listings, 3 verses where every dictionary entry was thin, 35 places lines and 915 parallels lines.",
+   "The earlier sweep scripts, re-run on the new data, give: data-count.cjs voices refOnly 0, short 0, emptySection 0, noFile 0, and dictionary refOnlyEntries 0, versesWhereEveryEntryIsNearEmpty 0. census2.cjs gives realMap nothingMarked 0. voices-check.cjs gives missing 0, extra 0, unflagged 0 over 31,097 verses with a line.",
+   "The in-page sweep (page-sweep.js, run through the app's own modules on all 31,102 verses; report at fix\\page-report.json) finds 0 in every class for voices (it found 258 before), notes (145 before), dictionary (41 before), quotes, parallels, themes, wordplay, aramaic, ask, peshitta and hard-passages. The places class 'map marks none of the verse places' fell from 35 to 0. One class remains: 'some-chips-not-on-map' (41 verses, for example Nod on Genesis 4:16). Those maps still mark at least one place, and tapping a chip the map cannot draw opens that place's card with its description and how sure the location is. This was not one of the cases, so I left it.",
+   "Browser replay (confirm4.cjs and fix\\probe-after.cjs on Vite at 1440x900, plus 6 cases at 390x844; screenshots in scratchpad\\ba\\empty\\shots\\after-*.png and fix\\shots). Matthew 6:14 and Mark 1:3 no longer name Wesley. Genesis 26:10 names only Henry. Isaiah 36, 37 and 39 show Henry's notes with a linked 'II Kin.' reference. Genesis 7:3, Nehemiah 10:27 and Ecclesiastes 10:9 show no zero count. Exodus 28:29 and 1 Kings 10:22 have no Places line. Exodus 39:20 and Genesis 21:1 have no notes line. The map picks from Mark 9:44 at x=563 and Mark 14:1 at x=212 land on Nehemiah 10:28 (24 links) and Numbers 34:22. Hebrew shalom (pointed and unpointed), Hebrew ahavah, and Greek agape and logos each find their word. Paths from Genesis 7:3 says it once and offers no retry. Acts 8:37 shows the sentence instead of '...'. Genesis 4:1 opens its question directly.",
+   "The only console errors were 403 responses for font files. Vite's dev server blocks them because web\\node_modules is a junction into BibleAtlas-fixes, outside the project root. This comes from the local setup, not the code."
+  ],
+  "checks": [
+   "Run in C:\\Users\\shubh\\Projects\\BibleAtlas-empty. Data build: cargo run --release -q -p atlas-cli -- build, exit 0. The build log reports 522 Wesley notes and 0 of Henry's left out, 3 Henry pointers filled, 11 numbered references linked, 402 study notes that only point left out, 307 thin dictionary entries (106 listed as their target, 11 verses left with no entry), 35 places verses with no line, and 915 parallels verses marked alone.",
+   "Verify: cargo run --release -q -p atlas-cli -- verify: '5917 checks passed', exit 0. The first run failed one check: 'Most Holy Place' matched the Jerusalem row instead of the tabernacle row. I fixed the check to look at every place of that name and re-ran.",
+   "Tests: cargo test --release -p atlas-cli: 203 passed, 0 failed. That was 199 before; I added 4 test functions: links_numbered_books_in_roman_numerals, tells_a_pointer_from_a_note in voices and in notes, and tells_a_thin_entry_and_where_it_sends.",
+   "Lint: cargo clippy --workspace --release -- -D warnings, exit 0, after naming the pointer tuple 'type Pointer' to fix one type_complexity error.",
+   "Types: npx tsc --noEmit in web, exit 0, run after the last web edit.",
+   "Formatting: rustfmt was run on extra_voices, extra_notes, extra_real_map and extra_parallels, which were already rustfmt-clean at HEAD. In extra_dictionary.rs only my own code is formatted; its 3 regions that were already unformatted on main are left as they were.",
+   "Not run: npm run build (the Ask matcher check, which no changed file feeds), a dark-mode browser pass, and the Search fixed query sets. The search change only affects queries in Hebrew or Greek letters with no Latin letters, and leaves English tokenizing unchanged.",
+   "Not updated: docs/HANDOFF.md section 0, so this branch does not conflict with the handoff branch. Update it when this merges. Scratch outputs are in C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\empty\\fix: build.log, verify.log, test.log, clippy.log, before.json, after.json, page-report.json, after-ui.json, after-phone.json and probe-after.json."
+  ]
+ }
+}

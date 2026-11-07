@@ -250,7 +250,7 @@ function writerOf(name: string): string {
 }
 
 /** The cites whose own words are shown: the writers who name the form. */
-export function quoted(n: Note): Cite[] {
+export function quoted(n: Pick<Note, 'cites'>): Cite[] {
   return n.cites.filter((c) => c.quote);
 }
 

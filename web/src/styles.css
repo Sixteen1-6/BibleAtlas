@@ -36,6 +36,7 @@
   /* Quotations and parallels: the map's colors (KIND in ui/colors.ts), deepened for paper. */
   --quote: #c93a78;
   --parallel: #1f84bf;
+  --fulfil: #23905a;
 
   --font-ui: 'Instrument Sans', system-ui, sans-serif;
   --font-read: 'Literata', Georgia, serif;
@@ -69,6 +70,7 @@
     --testaments: #ff5c9d;
     --quote: #ff8fbf;
     --parallel: #7fd4ff;
+    --fulfil: #8fe3a1;
     color-scheme: dark;
   }
 }
@@ -92,6 +94,7 @@
   --testaments: #ff5c9d;
   --quote: #ff8fbf;
   --parallel: #7fd4ff;
+  --fulfil: #8fe3a1;
   color-scheme: dark;
 }
 
@@ -149,6 +152,12 @@ a {
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: auto auto 1fr;
   height: 100dvh;
+  /* The app is one screen tall and only its panels scroll. Without this, a
+     hidden screen-reader label at the foot of a long chapter made the whole
+     page taller, so scrolling past the end of a panel slid the app up and
+     left an empty dark screen below it. */
+  position: relative;
+  overflow: hidden;
 }
 .topbar {
   display: flex;
@@ -576,17 +585,87 @@ p .godeeper {
   grid-template-columns: minmax(0, 1fr) clamp(360px, 32vw, 520px);
   min-height: 0;
 }
+/* Back, Forward and Full page on top of the side panel (ui/PanelNav.tsx). */
+.study {
+  --pnh: 42px;
+}
+.panelnav {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--pnh);
+  padding: 0 8px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.pnbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 4px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--ink);
+  font: 13px var(--font-ui);
+  white-space: nowrap;
+}
+.pnbtn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+.pnbtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.pnwhere {
+  flex: 1;
+  min-width: 0;
+  padding: 0 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font: 13px var(--font-ui);
+}
+.pnwide[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+/* The panel over the whole page: the text steps aside, the notes stay a
+   comfortable width in the middle. */
+.work[data-wide='true'] {
+  grid-template-columns: minmax(0, 1fr);
+}
+.work[data-wide='true'] > .reader {
+  display: none;
+}
+.work[data-wide='true'] .study > :not(.panelnav):not(.tabs) {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.work[data-wide='true'] .tabs {
+  justify-content: center;
+}
 /* With the map hidden the header sits straight on the text. */
 .app[data-map='hide'] {
   grid-template-rows: auto 1fr;
 }
 .reader {
   overflow: auto;
+  overscroll-behavior: contain;
   padding: 20px clamp(16px, 4vw, 48px) 80px;
   border-right: 1px solid var(--line);
 }
 .study {
   overflow: auto;
+  overscroll-behavior: contain;
   background: var(--surface);
   min-height: 0;
   display: flex;
@@ -598,7 +677,7 @@ p .godeeper {
   padding: 8px 10px 0;
   border-bottom: 1px solid var(--line);
   position: sticky;
-  top: 0;
+  top: var(--pnh);
   background: var(--surface);
   z-index: 2;
   overflow-x: auto;
@@ -1367,6 +1446,19 @@ p .godeeper {
   .work[data-pane='study'] .reader {
     display: none;
   }
+  .work[data-wide='true'][data-pane='read'] > .reader {
+    display: block;
+  }
+  .study {
+    --pnh: 48px;
+  }
+  .pnbtn {
+    min-height: 38px;
+    padding: 4px 10px;
+  }
+  .fwdlabel {
+    display: none;
+  }
   .reader {
     border-right: 0;
     padding: 14px 16px 40px;
@@ -1652,7 +1744,7 @@ p .godeeper {
 }
 /* The same colors mark the lines under a verse that name these links, so the
    map needs no legend. Darker on paper; the map's own on the night page. */
-.xt-verse .xt-line:is([data-x='quotes'], [data-x='parallels']) .xt-words::before {
+.xt-verse .xt-line:is([data-x='quotes'], [data-x='parallels'], [data-x='prophecies']) .xt-words::before {
   content: '';
   display: inline-block;
   width: 7px;
@@ -1667,6 +1759,9 @@ p .godeeper {
 }
 .xt-line[data-x='parallels'] {
   --xt-kind: var(--parallel);
+}
+.xt-line[data-x='prophecies'] {
+  --xt-kind: var(--fulfil);
 }
 .startrow {
   display: flex;

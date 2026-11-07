@@ -1,0 +1,63 @@
+/* Life in Bible times: each of Freeman's entries under a quiet heading, the
+   King James words he explains above it in a muted line, his words in the
+   reading font, long entries folded behind a small button. Only the app's
+   colour variables, so the light and dark themes both follow. */
+
+.x-customs-entry + .x-customs-entry {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-customs-title {
+  margin: 0 0 4px;
+  font: 600 15.5px/1.35 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-customs-quote {
+  margin: 0 0 8px;
+  padding-left: 10px;
+  border-left: 2px solid var(--line);
+  font: italic 14px/1.5 var(--font-read);
+  color: var(--muted);
+}
+.x-customs-on {
+  font: 600 12.5px var(--font-ui);
+  font-style: normal;
+}
+.xt-body .x-customs-p {
+  margin: 0 0 8px;
+  font: 15px/1.6 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-customs-from {
+  margin: 4px 0 0;
+  font: 12.5px/1.45 var(--font-ui);
+  color: var(--muted);
+}
+.x-customs-ref {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.x-customs-ref:hover {
+  text-decoration-color: currentColor;
+}
+.x-customs-more {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 13px var(--font-ui);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.x-customs-ref:focus-visible,
+.x-customs-more:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

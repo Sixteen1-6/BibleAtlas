@@ -1,0 +1,155 @@
+{
+  "notes": [
+    {
+      "id": "2-corinthians-9-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "2 Corinthians 9:6",
+      "strength": "some interpreters",
+      "short": "Sow sparingly, or sow generously",
+      "about": "The second line answers the first with its opposite. Whoever sows little reaps a small harvest, and whoever sows generously reaps a generous one. Paul applies the farmer's rule to giving.",
+      "lines": [
+        {
+          "ref": "2 Corinthians 9:6",
+          "words": "Whoever sows sparingly will also reap sparingly,"
+        },
+        {
+          "ref": "2 Corinthians 9:6",
+          "words": "and whoever sows generously will also reap generously."
+        }
+      ],
+      "pairs": [
+        [
+          "sows sparingly",
+          "sows generously"
+        ],
+        [
+          "reap sparingly",
+          "reap generously"
+        ]
+      ],
+      "original": {
+        "note": "In Paul's Greek, the word for “generously” is “blessings” (eulogiais), set against the word for “sparingly”.",
+        "strong": [
+          "G2129",
+          "G5340"
+        ]
+      },
+      "evidence": "Calvin reads the verse as a comparison of giving with sowing and sets the two lines side by side: whoever sows sparingly gets a poor harvest, and whoever sows bountifully a bountiful one. He adds that Paul here sets blessing against sparing.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 9:6",
+          "quote": "He now commends alms-giving by a beautiful similitude, comparing it to sowing. ... He that sows sparingly will have a poor harvest, corresponding to the sowing: he that sows bountifully and with a full hand, will reap a correspondingly bountiful harvest. ... He again contrasts here blessing with sparing, as he had previously done with niggardliness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-12-13-irony",
+      "kind": "figure",
+      "form": "irony",
+      "ref": "2 Corinthians 12:13",
+      "strength": "widely agreed",
+      "short": "“Forgive me this wrong!”: said in irony",
+      "about": "Paul asks how the Corinthians fell short of other churches, and names only one thing: he was never a burden to them. Asking pardon for that “wrong” is irony, since he had spared them the cost of supporting him. It can also be read as a rebuke of how they had treated him.",
+      "figure": {
+        "name": "Irony",
+        "part": "Human Irony",
+        "ref": "2 Corinthians 12:13",
+        "words": "Forgive me this wrong",
+        "means": "that sparing them the cost of supporting him was no true wrong done to them"
+      },
+      "evidence": "Bullinger lists the words under irony spoken by men. Barnes calls the verse a striking mixture of sarcasm and irony: in one thing only were they behind other churches, in not having been burdened with the privilege of supporting Paul. Calvin says the exception is put by way of irony, since serving them without pay was one more kindness, and he sees in it a rebuke of their ingratitude.",
+      "limit": "Not every writer hears only irony here: some take the words as a real apology, or partly one, for not letting them support him.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 12:13",
+          "at": "Eironeia, or Irony: Human Irony, p. 814",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/814/mode/1up",
+          "quote": "“Forgive me this wrong.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 12:13",
+          "quote": "This verse contains a striking mixture of sarcasm and irony ... In one respect only are you inferior - it is in this, that you have not been burdened with the privilege of supporting me.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 12:13",
+          "quote": "Here is an aggravation of their ingratitude ... He subjoins one exception — that he had not been burdensome to them; and this, by way of irony, for in reality this was over and above so many acts of kindness, which he had conferred upon them — that he had served them gratuitously. ... he sharply reproves pride so frantic. Forgive me this wrong, says he. For they were doubly ungrateful",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-12-10-paradox",
+      "kind": "figure",
+      "form": "paradox",
+      "ref": "2 Corinthians 12:10",
+      "strength": "widely agreed",
+      "short": "Weak and strong at once, by Christ's power",
+      "about": "Paul delights in weaknesses and says “when I am weak, then I am strong.” The words seem to clash, yet they hold: pressed by trials and weak in himself, he is made strong by the Lord, whose power rests on him (verse 9).",
+      "refs": [
+        "2 Corinthians 12:9",
+        "2 Corinthians 6:9-10"
+      ],
+      "figure": {
+        "name": "Oxymoron",
+        "ref": "2 Corinthians 12:10",
+        "words": "when I am weak, then I am strong",
+        "means": "when Paul is weak in himself and pressed by trials, the Lord's power makes him strong"
+      },
+      "evidence": "Bullinger lists the words under Oxymoron: folly to the natural man, yet true to those who know it. Plumptre (Ellicott) calls them another paradox like those of 6:9-10: the greatest weakness may even be the condition of strength. Barnes grants that joy in affliction can seem a paradox; he, Calvin and Clarke read the weakness as trial and lack in Paul himself and the strength as what God supplies.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 12:10",
+          "at": "Oxymoron, or Wise-Folly, p. 817",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/817/mode/1up",
+          "quote": "“When I am weak, then am I strong.” This is folly to the natural man, but blessed truth to those who know by experience the true wisdom.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 12:10",
+          "quote": "He had learnt to add another paradox to those of 2Co 6:9-10 , and to feel that the greatest weakness was not only compatible with the highest strength, but might be the very condition of its energy.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 12:10",
+          "quote": "There is often real pleasure in affliction, paradoxical as it may appear. ... When I feel weak; when I am subjected to trial, and nature faints and fails, then strength is imparted to me, and I am enabled to bear all.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 12:10",
+          "quote": "The more deficiency there is in me, so much the more liberally does the Lord, from his strength, supply me with whatever he sees to be needful for me. ... be weak in himself that he may be strong in the Lord.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Corinthians 12:10",
+          "quote": "For when I am weak - most oppressed with trials and afflictions, then am I strong; God supporting my mind with his most powerful influences, causing me to rejoice with joy unspeakable and full of glory.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

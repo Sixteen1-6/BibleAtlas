@@ -1,0 +1,236 @@
+{
+  "notes": [
+    {
+      "id": "deuteronomy-28-3-beginnings",
+      "kind": "parallelism",
+      "form": "beginnings",
+      "ref": "Deuteronomy 28:3-6",
+      "strength": "widely agreed",
+      "short": "“Blessed” six times, over every part of life",
+      "about": "In Hebrew each of the six clauses in these verses begins with the word “blessed.” Town and country, children, crops and herds, basket and bowl, coming in and going out: the repeated word spreads the blessing over every part of an obedient Israel's life. Verses 16 to 19 answer with “cursed.”",
+      "refs": [
+        "Deuteronomy 28:16-19"
+      ],
+      "lines": [
+        {
+          "ref": "Deuteronomy 28:3",
+          "words": "You will be blessed in the city",
+          "key": "blessed"
+        },
+        {
+          "ref": "Deuteronomy 28:3",
+          "words": "and blessed in the country.",
+          "key": "blessed"
+        },
+        {
+          "ref": "Deuteronomy 28:4",
+          "words": "The fruit of your womb will be blessed, as well as the produce of your land and the offspring of your livestock— the calves of your herds and the lambs of your flocks.",
+          "key": "blessed"
+        },
+        {
+          "ref": "Deuteronomy 28:5",
+          "words": "Your basket and kneading bowl will be blessed.",
+          "key": "blessed"
+        },
+        {
+          "ref": "Deuteronomy 28:6",
+          "words": "You will be blessed when you come in",
+          "key": "blessed"
+        },
+        {
+          "ref": "Deuteronomy 28:6",
+          "words": "and blessed when you go out.",
+          "key": "blessed"
+        }
+      ],
+      "pairs": [
+        [
+          "in the city",
+          "in the country"
+        ],
+        [
+          "when you come in",
+          "when you go out"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew each of the six clauses opens with barukh, “blessed” (twice as “and blessed”); in verses 4 and 5 the BSB puts the word later in the sentence.",
+        "strong": [
+          "H1288"
+        ]
+      },
+      "evidence": "Bullinger gives these verses as an example of Anaphora, and says verses 16 to 19 repeat “cursed” at the start of each sentence in the same way. Keil (Keil and Delitzsch) says the fulness of God's blessing in all of life is pictured by the sixfold repetition of “blessed”; T. E. Espin (Barnes' Notes) says its six repetitions bring in the forms the blessing would take.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 28:3-6",
+          "at": "Anaphora, or Like Sentence-Beginnings, p. 199",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/199/mode/1up",
+          "quote": "See the same figure in verses 16-19 with the word “ cursed ” repeated at the beginning of successive sentences.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 28:1-6",
+          "quote": "In Deu 28:3-6, the fulness of the blessing of God in all the relations of life is depicted in a sixfold repetition of the word \"blessed.\" Israel will be blessed in the town and in the field, the two spheres in which its life moves",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Deuteronomy 28:1",
+          "quote": "The Blessing. The six repetitions of the word \"blessed\" introduce the particular forms which the blessing would take in the various relations of life.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-28-5-metonymy",
+      "kind": "figure",
+      "form": "metonymy",
+      "ref": "Deuteronomy 28:5",
+      "strength": "commonly held",
+      "short": "The basket and bowl stand for what they hold",
+      "about": "The blessing is spoken over a basket and a kneading bowl, but the vessels stand for what fills them: the basket for the seed or the fruit gathered in it, and the bowl for the meal, or all that is stored and made ready to eat. On one reading the pair spans the work from first to last.",
+      "figure": {
+        "name": "Metonymy",
+        "part": "of the Subject: the container for the contents",
+        "ref": "Deuteronomy 28:5",
+        "words": "Your basket and kneading bowl",
+        "means": "what the vessels hold: the seed or the fruit gathered in the basket, and the meal or store kept in the bowl"
+      },
+      "evidence": "Bullinger lists the verse under Metonymy of the Subject, the container put for its contents, and takes the basket, probably, for the seed and the kneading trough for the meal, the start and finish of their work. Clarke takes the basket for the olive gathering and vintage it was used to collect, and the store for all that is laid up or made ready to eat.",
+      "limit": "The writers differ on what the basket held, seed or gathered fruit, and some take the two as the very vessels, used to carry things on a journey.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 28:5",
+          "at": "Metonymy of the Subject, p. 573",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/573/mode/1up",
+          "quote": "The container is put for the contents. Here, probably, the “basket” is put for the seed, and “kneading-trough” for the meal; the beginning and the end of their labours.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Deuteronomy 28:5",
+          "quote": "Thy basket - Thy olive gathering and vintage, as the basket was employed to collect those fruits. Store - משארת mishereth, kneading-trough, or remainder; all that is laid up for future use, as well as what is prepared for present consumption.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-1-apostrophe",
+      "kind": "figure",
+      "form": "apostrophe",
+      "ref": "Deuteronomy 32:1",
+      "strength": "widely agreed",
+      "short": "Moses calls on the heavens and earth to listen",
+      "about": "Moses opens his song by turning from the people to call on the heavens and the earth to listen. The call marks how weighty the song is. Many read them as called to stand witness, as Moses said he would “call heaven and earth to witness against them” (31:28). Isaiah 1:2 opens the same way.",
+      "refs": [
+        "Deuteronomy 31:28",
+        "Isaiah 1:2"
+      ],
+      "figure": {
+        "name": "Apostrophe",
+        "part": "to Inanimate Things",
+        "ref": "Deuteronomy 32:1",
+        "words": "Give ear, O heavens, and I will speak; hear, O earth",
+        "means": "Moses turns from the people to address the heavens and the earth as if they could hear, to mark how weighty his song is"
+      },
+      "evidence": "Bullinger lists the verse under Apostrophe to inanimate things, the song's solemn opening. Calvin says Moses turns to address heaven and earth as witnesses, though they lack understanding, as Isaiah does. Keil (Keil and Delitzsch) says Moses summons them to hearken; T. E. Espin (Barnes' Notes) says they are invoked to show the weight of what follows; Henry calls it a solemn appeal, as in 31:28.",
+      "limit": "Some take the heavens and the earth to stand for those who live in them, angels and men; others take them as the heavens and the earth themselves, called to listen as witnesses.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 32:1",
+          "at": "Apostrophe to Inanimate Things, p. 904",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/904/mode/1up",
+          "quote": "Thus solemnly and emphatically opens this “Song of Moses” (which describes the whole history of Israel from the beginning to the end) and call us to give our attention to it and to consider it.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 32:1",
+          "quote": "heaven and earth would be witnesses of their prodigious obtuseness; nay, he turns and addresses himself to heaven and earth, and thus signifies that it was worthy of the attention of all creatures, even although they were without intelligence or feeling ... just as Isaiah ... in like manner appeals to the heavens and the earth",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 32:1-5",
+          "quote": "Moses summons heaven and earth to hearken to his words, because the instruction which he was about to proclaim concerned both heaven and earth, i.e., the whole universe.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Deuteronomy 32:1-3",
+          "quote": "Heaven and earth are here invoked, as elsewhere (see the marginal references), in order to impress on the hearers the importance of what is to follow.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Deuteronomy 32:1-6",
+          "quote": "With a solemn appeal to heaven and earth concerning the truth and importance of what he was about to say ... that he would in this song call heaven and earth to record against them. Heaven and earth would sooner hear than this perverse and unthinking people",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-1-28-hyperbole",
+      "kind": "figure",
+      "form": "hyperbole",
+      "ref": "Deuteronomy 1:28",
+      "strength": "widely agreed",
+      "short": "Walls “up to the heavens”: very high walls",
+      "about": "The people repeat the spies' report of cities “with walls up to the heavens.” The words say more than is literally meant, to stress how high the walls stood. Moses uses the same picture in 9:1, so the walls were truly great; but told this way, the report made the people's hearts melt.",
+      "refs": [
+        "Deuteronomy 9:1"
+      ],
+      "figure": {
+        "name": "Hyperbole",
+        "ref": "Deuteronomy 1:28",
+        "words": "walls up to the heavens",
+        "means": "walls of great height, too high, it seemed, to be taken"
+      },
+      "evidence": "Bullinger lists the words under Hyperbole, as expressing the cities' great height. Benson calls them a hyperbole for very high walls, which Moses grants in 9:1; Henry, a hyperbole the spies used to dishearten the people.",
+      "limit": "Some do not take the words as an overstatement but as a true account of how high the towns looked to those who saw them.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 1:28",
+          "at": "Hyperbole, or Exaggeration, p. 423",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/423/mode/1up",
+          "quote": "“The cities are great, and walled up to heaven,” to express their great height. So Deu 9:1, etc.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Deuteronomy 1:28",
+          "quote": "The cities are great, and walled up to heaven An hyperbole, signifying that their cities were fenced with very high walls, which Moses himself allows to be true, Deu 9:1.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Deuteronomy 1:28",
+          "quote": "as if it were in vain to think of attacking them either by battle, \"for the people are taller than we,\" or by siege, \"for the cities are walled up to heaven,\" an hyperbole which they made use of to serve their ill purpose, which was to dishearten the people",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

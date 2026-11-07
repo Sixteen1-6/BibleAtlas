@@ -1,0 +1,37 @@
+{
+  "_comment": [
+    "Where the 'Life in Bible times' extra (crates/atlas-cli/src/extra_customs.rs) reads James M. Freeman's Hand-Book of Bible Manners and Customs, and what was checked against the printed book, on 2026-11-01."
+  ],
+  "writer": {
+    "name": "James Midwinter Freeman",
+    "lived": "1827-1900",
+    "about": "Methodist minister; from 1872 assistant editor of Sunday-school and tract publications of the Methodist Episcopal Church",
+    "read": [
+      {"url": "https://en.wikipedia.org/wiki/James_Midwinter_Freeman", "retrieved": "2026-11-01", "quote": "He entered the Methodist ministry and in 1872 became assistant editor of various Sunday-school and tract publications of the Methodist Episcopal church."},
+      {"url": "https://openlibrary.org/authors/OL193786A/Freeman_James_M.", "retrieved": "2026-11-01", "quote": "American writer (1827–1900)"}
+    ]
+  },
+  "work": {
+    "title": "Hand-Book of Bible Manners and Customs",
+    "published": "New York: Nelson & Phillips; Cincinnati: Hitchcock & Walden, 1874",
+    "license": "public domain (published 1874)",
+    "scan": {"url": "https://archive.org/details/handbookofbiblem00free", "what": "the 1874 printing, scanned by the Library of Congress, 532 pages", "retrieved": "2026-11-01"},
+    "title_page": "HAND-BOOK / OF / Bible Manners and Customs. / BY / Rev. JAMES M. FREEMAN, A.M. / ... / New York : / NELSON & PHILLIPS. / CINCINNATI : HITCHCOCK A WALDEN. / 1874. (OCR of the scan; copyright line: \"Entered according to Act of Congress, in the year 1874, by NELSON & PHILLIPS.\")",
+    "later_printings": ["https://archive.org/details/handbookofbiblem00freeuoft (1875, \"THIRD THOUSAND\")", "https://archive.org/details/handbookofbiblem01free (1902, Eaton & Mains, \"Original copyright 1874\")"],
+    "not_this_work": "The New Manners and Customs of the Bible (1996, revised by Harold J. Chadwick) is a different, copyrighted work and is not used."
+  },
+  "copy_used": {
+    "repo": "https://github.com/darrelwright/UniqueBible_Books",
+    "commit": "4017a67481e0de6027216bbdf3fc5d42c9c289d5",
+    "file": "Freeman - Manners and Customs of the Bible.book.zip",
+    "git_blob": "843a24e3408af8bb1945c79c2fae1737a3558696",
+    "sha256": "737033c2d8cf8d0c8f288ded22c93afda964c520369308206572d23a738a8235",
+    "transcriber": "Bible Truth Publishers (bibletruthpublishers.com); the last entry ends: \"Courtesy of BibleTruthPublishers.com. Most likely this text has not been proofread.\"",
+    "retrieved": "2026-11-01"
+  },
+  "checked": [
+    {"what": "entry 1, Use of the Term Father (Genesis 4:20-21), opening sentence", "scan": "IN the East the originator of any custom is frequently spoken of as the \"father\" of that custom; so, also, a man is often described by representing him to be the \"father\" of some peculiarity which distinguishes him from others.", "result": "word for word the same as the copy used, apart from the style of quotation marks"},
+    {"what": "every placed entry", "result": "its heading verse holds at least 60% of the King James words printed under the heading (a verse either side allowed); 10 entries whose heading verse was misread were placed on the one verse holding at least 90% of those words, 6 entries left out (the build prints both lists)"}
+  ],
+  "not_checked": "Entries after Genesis 24 were not compared with the scan word for word; the transcription is unproofread, so Greek and Hebrew letters in particular may be misread. The panel at Deep says so."
+}

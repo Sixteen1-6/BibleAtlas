@@ -30,7 +30,13 @@
 //!     was checked against the source by a date; dates are real dates, none
 //!     after today, and none outside its file's window,
 //! 13. no cite links to a work's home page instead of the page it cites, and
-//!     no credit, source line or source list mentions AI ([`AI_CREDIT`]).
+//!     no credit, source line or source list mentions AI ([`AI_CREDIT`]),
+//! 14. a cited note's strength claims no more writers than its cites name:
+//!     the different people whose words its interpreters' cites quote (a
+//!     cite marked `counts: false` and the reference works do not count),
+//!     3 or more for "widely agreed" and 2 for "commonly held". A note may
+//!     say less than its count; the plain meaning and a passage someone
+//!     reviewed are not counted.
 //!
 //! What goes live: every note of a passage someone reviewed, and in other
 //! passages each note that cites a listed source (a wordplay, allusion,
@@ -88,6 +94,7 @@ pub const STRENGTHS: [&str; 3] = ["widely agreed", "commonly held", "some interp
 pub const SECTIONS: [&str; 4] = ["law-history", "prophets-poetry", "jesus", "letters-revelation"];
 const PLAIN: &str = "plain meaning";
 const WIDELY: &str = "widely agreed";
+const COMMONLY: &str = "commonly held";
 const SOME: &str = "some interpreters";
 
 /// Quoted spans shorter than this are glosses ("my delight"), not quotations.
@@ -914,9 +921,11 @@ fn evidence_file(name: &str, v: &Value, today: Date, ev: &mut Evidence) -> Resul
         }
         // Where the quotations of Figures at Deep were found; extra_figures.rs owns them and Layers reads none.
         Some("figure-quotes") => {}
+        // Where the writers' words on the prophecy pairs were found; extra_prophecies.rs owns them.
+        Some("prophecy-checks") => {}
         // Another module's evidence with no kind (the Bible text credits' af-bt file); a Layers cite it should date still fails as unrecorded.
         None => {}
-        Some(_) => return Err(format!("{name}: kind must be \"reads\", \"checks\", \"attribution\" or \"figure-quotes\"")),
+        Some(_) => return Err(format!("{name}: kind must be \"reads\", \"checks\", \"attribution\", \"figure-quotes\" or \"prophecy-checks\"")),
     }
     Ok(())
 }
@@ -967,6 +976,43 @@ fn dated(ev: &Evidence, k: &CiteKey, link: &str, used: &mut [bool]) -> Result<Da
     }
     let checked = ev.checks.iter().filter(|c| same(&c.passage, Some(c.note), Some(&c.kind), &c.source, c.on.as_deref(), c.at.as_deref())).map(|c| c.by).min();
     checked.map(Dated::Checked).ok_or_else(|| format!("has no record that it was read or checked against the source; add a reads record in {EVIDENCE}/"))
+}
+
+/// The strength a count of writers earns: 3 or more widely agreed, 2 commonly held, else some interpreters.
+fn strength_for(writers: usize) -> &'static str {
+    match writers {
+        0 | 1 => SOME,
+        2 => COMMONLY,
+        _ => WIDELY,
+    }
+}
+
+/// How strong a label is, weakest first; a label off the list ranks lowest.
+fn rank(strength: &str) -> usize {
+    STRENGTHS.iter().rev().position(|s| *s == strength).unwrap_or(0)
+}
+
+/// How many different people wrote the counted cites: the most cites whose
+/// writers are all different. A joint key ("a+b") is one witness of two
+/// writers, so it cannot stand beside a cite by either of them, but two joint
+/// keys with no writer in common are two witnesses.
+pub(crate) fn persons(keys: &[String]) -> usize {
+    let mut sets: Vec<Vec<&str>> = keys.iter().map(|k| k.split('+').collect()).collect();
+    sets.sort_unstable();
+    sets.dedup();
+    fn most<'a>(rest: &[Vec<&'a str>], taken: &mut Vec<&'a str>) -> usize {
+        let Some((first, rest)) = rest.split_first() else { return 0 };
+        let skip = most(rest, taken);
+        if first.iter().any(|x| taken.contains(x)) {
+            return skip;
+        }
+        let n = taken.len();
+        taken.extend(first);
+        let take = 1 + most(rest, taken);
+        taken.truncate(n);
+        skip.max(take)
+    }
+    most(&sets, &mut Vec::new())
 }
 
 /// Two links to the same page: scheme, host case, a leading "www." and a trailing slash do not matter.
@@ -1113,6 +1159,17 @@ fn and_list(names: &[&str]) -> String {
 }
 
 impl Credit<'_> {
+    /// The key a cite counts under for a note's strength. An unnamed group
+    /// that is the same people throughout the work (the Geneva exiles, the
+    /// NET's translators) counts once, not once for each book it is cited on;
+    /// an unnamed writer "on this book" still counts by book.
+    fn counting_key(&self) -> String {
+        match self.unnamed {
+            Some(u) if self.writers.is_empty() && self.key.starts_with(&format!("{}:", self.work.id)) && !u.contains("this book") => format!("{}:{u}", self.work.id),
+            _ => self.key.clone(),
+        }
+    }
+
     fn writer(&self) -> String {
         match self.unnamed {
             Some(u) => u.to_string(),
@@ -1345,15 +1402,17 @@ impl Check<'_, '_> {
         }
     }
 
-    /// Check a layer's citations; returns them for layers.json, and whether
-    /// they make the layer live on their own.
-    fn cites(&mut self, at: &str, p: &PassageSpec, note: usize, kind: &str, cites: &[CiteSpec]) -> (Vec<Value>, bool) {
+    /// Check a layer's citations; returns them for layers.json, whether they
+    /// make the layer live on their own, and the writer keys that count
+    /// toward its strength (interpreters' cites that do not say `counts: false`).
+    fn cites(&mut self, at: &str, p: &PassageSpec, note: usize, kind: &str, cites: &[CiteSpec]) -> (Vec<Value>, bool, Vec<String>) {
         let sources = self.sources;
         let evidence = self.evidence;
         let mut out = Vec::new();
         // Two articles on one verse from the same site are two citations: the work tells them apart.
         let mut seen: Vec<SeenCite> = Vec::new();
         let mut interpreter = false;
+        let mut counted: Vec<String> = Vec::new();
         for (j, c) in cites.iter().enumerate() {
             let key = (c.source.as_str(), c.on.as_deref(), c.at.as_deref());
             let at = format!("{at}, cites[{j}]");
@@ -1454,10 +1513,13 @@ impl Check<'_, '_> {
                 Dated::Checked(d) => format!("checked by {}", d.iso()),
             };
             *t.dates.entry(label).or_default() += 1;
+            if s.role == INTERPRETER && c.counts != Some(false) {
+                counted.push(credit.counting_key());
+            }
             out.push(credit_json(s, sources, &credit, c, &url, when));
         }
         let live = !out.is_empty() && (interpreter || !NEEDS_INTERPRETER.contains(&kind));
-        (out, live)
+        (out, live, counted)
     }
 
     /// Resolve a reference to an inclusive range of verse indices.
@@ -1558,7 +1620,14 @@ impl Check<'_, '_> {
                 self.fail(&at, format_args!("evidence is {n} characters; keep it to {EVIDENCE_MAX}"));
             }
         }
-        let (cites, cited) = self.cites(&at, p, i, &l.kind, &l.cites);
+        let (cites, cited, counted) = self.cites(&at, p, i, &l.kind, &l.cites);
+        // Strength counts persons: a label may not claim more writers than its cites name.
+        if l.kind != PLAIN && p.reviewed_by.is_empty() && !l.cites.is_empty() {
+            let n = persons(&counted);
+            if rank(&l.strength) > rank(strength_for(n)) {
+                self.fail(&at, format_args!("strength {:?} claims more than its cites show: {n} writer{} ({}) is {:?}; lower it or cite another writer who states the point", l.strength, if n == 1 { "" } else { "s" }, counted.join(", "), strength_for(n)));
+            }
+        }
         for r in &l.refs {
             self.esv(&at, "refs", r);
         }
@@ -2726,6 +2795,20 @@ mod tests {
     }
 
     #[test]
+    fn a_strength_claims_no_more_writers_than_its_cites() {
+        let k = |ids: &[&str]| ids.iter().map(|s| s.to_string()).collect::<Vec<_>>();
+        assert_eq!(persons(&k(&[])), 0);
+        assert_eq!(persons(&k(&["a", "b", "a"])), 2, "one man's two works count once");
+        assert_eq!(persons(&k(&["a+b", "a", "c"])), 2, "a joint part shares its writers with their own words");
+        assert_eq!(persons(&k(&["a+b", "c+d", "b+c"])), 2, "two joint parts with no writer in common are two witnesses");
+        assert_eq!(persons(&k(&["a", "b", "a+b"])), 2, "a joint part cannot stand beside its own writers' words");
+        assert_eq!(persons(&k(&["a+b", "b+c", "c+a"])), 1);
+        assert_eq!(persons(&k(&["poole:John", "poole:Acts", "c"])), 3, "unnamed writers of different books are different people");
+        assert_eq!([strength_for(0), strength_for(1), strength_for(2), strength_for(3), strength_for(7)], [SOME, SOME, COMMONLY, WIDELY, WIDELY]);
+        assert!(rank(WIDELY) > rank(COMMONLY) && rank(COMMONLY) > rank(SOME) && rank("unknown") == rank(SOME));
+    }
+
+    #[test]
     fn counts_writers_by_person() {
         let s = real();
         let k = |id: &str, on: &str| {
@@ -2738,6 +2821,15 @@ mod tests {
         assert!(k("barnes", "Numbers 16:13").contains('+'), "a joint part is one key of two writers");
         assert_eq!(k("wesley", "Genesis 1:2"), k("henry", "Genesis 1:2"), "Wesley's Old Testament notes count as Henry, whom they abridge");
         assert!(s.cite.iter().filter(|c| c.role == "reference").all(|c| c.id != "barnes"));
+        let c = |id: &str, on: &str| {
+            let q = refs::parse(on).unwrap();
+            resolve(&s, source(&s, id), Some(BOOKS[q.book as usize].name), q.chapter, None).unwrap().counting_key()
+        };
+        assert_eq!(c("geneva", "Genesis 3:1"), c("geneva", "Isaiah 7:14"), "the Geneva exiles count once, on any book");
+        assert_eq!(c("net-notes", "Genesis 3:1"), c("net-notes", "John 1:1"), "the NET's translators count once");
+        assert_ne!(c("reformation-sb", "Genesis 3:1"), c("reformation-sb", "John 1:1"), "the Reformation Study Bible's writer is named by book");
+        assert_ne!(c("pulpit", "Job 1:1"), c("pulpit", "Daniel 1:1"), "Pulpit's unnamed expositors on Job and Daniel are two people");
+        assert_eq!(c("ellicott", "Exodus 3:14"), c("pulpit", "Exodus 3:14"), "named writers count by name");
     }
 
     #[test]

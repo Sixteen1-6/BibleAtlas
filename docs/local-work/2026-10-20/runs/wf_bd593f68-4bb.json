@@ -1,0 +1,673 @@
+{
+ "research:dates": {
+  "findings": "Saved C:\\Users\\shubh\\AppData\\Local\\Temp\\claude\\C--Users-shubh-Projects--claude\\d3907c69-e0f0-457b-bec9-6a76569849b3\\scratchpad\\ba\\credits\\dates.md. The worktree C:\\Users\\shubh\\Projects\\BibleAtlas-credits already existed on branch true-credits at 0da9d1c, the tip of layers-mend-2026-10-20, and data\\raw was already in place. Nothing was committed or pushed, and nothing in the repository was changed.\n\nRETRIEVAL DATES. config/layers.json has 6,365 cites, one per line. Only 608 have a true retrieval date: each has a record in docs/evidence/layers-mend-2026-10-20.json with \"fetched\": \"2026-10-20\", the URL and a quote or pointer. 607 match by passage, note, source, on and at. The 608th is genesis-50-20's Figures of Speech cite, which 0da9d1c re-pointed after the record was written.\n\nFor every other cite, the date it entered the repository was measured with a per-cite version of git log -S over all 25 commits that touched layers.json. Plain git blame is misleading here: 879e785 and 074cc0f re-sorted whole sections, so blame dates 1,025 older cites to round 2. Commits were then mapped to PRs through main's merges.\n\nProposed honest labels:\n- retrieved 2026-10-20: 608 cites.\n- retrieved 2026-10-20, moved: 2 cites (isaiah-7-9 and mark-12-10, in moved_outside_checked_notes).\n- checked by 2026-10-11 (PR #38): 823 cites. Commits 1478aa0 to 1a8d291, 02:00 to 03:02 UTC. The PR says \"all 1,143 were fetched again\", but no URL or quote was kept.\n- checked by 2026-10-11 (PR #39): 1 cite.\n- checked by 2026-10-17 (PR #42): 1,533 cites. Quotes were matched against downloaded texts; only 33 Bible Hub quotes were re-fetched.\n- checked by 2026-10-17 (PR #44): 3,373 cites. Matched against \"sacred-texts files, the Companion Bible and Figures of Speech databases, Wesley\".\n- checked by 2026-10-17 (PR #45): 21 cites.\n- cited 2026-10-17, not re-read since: 4 cites. These are the plain-meaning cites of the four returned passages. They entered in 47ec38b, were removed in 7c37488 and came back in 8e5a421 with no record, so they were never in a merged PR.\n\nFor the 4,927 round 2 cites, the words were checked against copies whose download date is not recorded, and usually not against the Bible Hub page the app links. No true retrieval date can be given for them.\n\nOther problems found:\n- 21 of the 608 were read on a different page than the one linked. 7 Companion Bible cites were read in archive.org's OCR of the printed book but link to StudyLight's index. 6 were read on StudyLight chapter pages but link to the index. 5 Figures of Speech cites were read in archive.org OCR text. 3 Themelios links differ only by www.\n- 553 cites link to a whole work rather than a page: 431 Companion Bible cites go to the StudyLight index and 122 Figures of Speech cites go to the archive.org item.\n- 610 cites have a page that was fetched on 2026-10-20 for a different cite. That page date is true, but their own point was not re-read, so they should keep their earlier label.\n\nRE-FETCH. The cites link to 3,083 unique URLs: 2,992 on Bible Hub, of which 2,552 were not fetched on 2026-10-20. Adding exact pages for Bullinger (280 StudyLight chapters and 24 figure entries) makes 3,385 pages, about 28 minutes at 2 requests a second and about 0.3 to 0.6 GB. This is recommended as step 1: record URL, status, UTC time and SHA-256 for each page, check that the verse heading is there, and re-match the 608 stored quotes. Step 2 is reading the other 5,757 cites with a finder and a checker each, as the mend did. That is the real cost (several days of workflow, largest works first), and it is the only way to say \"retrieved\" truthfully for them and keep the evidence in the repository.\n\nPUBLICATION DATES. These are given per work and per contributor for the books actually cited. Each is either checked on a dated title page or scan read on 2026-10-20 (archive.org identifiers given), or marked as not checked.\n\nCorrections the cite list needs:\n- gill: ends about 1766, not 1763 (dated OT volumes of 1764 and 1765).\n- easton: 1893 was the first edition; 1897 was the third.\n- henry-concise: CCEL calls it an abridgment by an unnamed editor, so it is not Henry's own wording from the early 1700s.\n- Bible Hub's Barnes: Barnes wrote only the NT, Job, Psalms, Isaiah and Daniel. Genesis is J. G. Murphy (1866 scan), Hosea to Malachi is E. B. Pusey (1860 onward), and 141 cites on Numbers to Esther, Proverbs to Song, Jeremiah and Ezekiel have a writer not yet identified.\n- Pulpit: Bible Hub shows only the Exposition. Expositors were read from title pages for 30 books, 4 more come from the voices list, and 14 books are unidentified. Per-volume first-edition years are not yet established; dated Kegan Paul printings run from 1881 to 1889.\n- Ellicott, Keil and Delitzsch, JFB, Henry's continuators and Poole's continuators are given per book where sourced.\n- Bible Hub's Strong's pages also display BDB and Thayer, both on the avoid list.",
+  "table": [
+   {
+    "source": "gill",
+    "books": "All cited books (1,063 cites)",
+    "trueAuthor": "John Gill, Particular Baptist pastor, London",
+    "work": "An Exposition of the New Testament; An Exposition of the Old Testament (Bible Hub carries Larry Pierce's modernised edition, rights reserved)",
+    "published": "NT 1746 to 1748; the Prophets 1757 to 1758; rest of OT about 1763 to 1766",
+    "evidence": "archive.org expositionofbook0002gill (1758), expositionofbook0001gill (1762), expositionofoldt0002gill (1764), expositionofoldt0003gill (1765); voices group-1.md (1746 NT, Pierce notice)",
+    "founderRule": "Fits (on cite list). Cite list 'when' 1746 to 1763 should end about 1766."
+   },
+   {
+    "source": "barnes",
+    "books": "Matthew to Revelation, Job, Psalms, Isaiah, Daniel",
+    "trueAuthor": "Albert Barnes, Presbyterian pastor, Philadelphia",
+    "work": "Notes, Explanatory and Practical (verse notes for Sunday-school teachers)",
+    "published": "NT 1832 to 1853; Isaiah 1840; Job 1844; Daniel 1853; Psalms 1868 to 1870",
+    "evidence": "archive.org notesexplana00barn (Romans 1834), notesexplanat01barn (Acts 1834), notescriticalex05barngoog (Isaiah 1840), notescriticalill0000barn_g3s5 (Job 1844), notesexplanatory00barnrich (Hebrews 1843), ephesiansetc00barnrich (1845); voices group-1.md",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "barnes",
+    "books": "Genesis (31 cites)",
+    "trueAuthor": "James G. Murphy, Professor of Hebrew, Belfast",
+    "work": "A Critical and Exegetical Commentary on the Book of Genesis",
+    "published": "1866 (Andover edition seen; Edinburgh first edition not checked)",
+    "evidence": "archive.org criticalexeg00murp title page 1866; voices matched Bible Hub Genesis 1:1 to it; founder decision 10 names him",
+    "founderRule": "Not on the cite list by name; founder to confirm he passes (Irish Presbyterian, believing)."
+   },
+   {
+    "source": "barnes",
+    "books": "Exodus, Leviticus (8 cites)",
+    "trueAuthor": "Probably James G. Murphy (not yet matched)",
+    "work": "Commentaries on Exodus and Leviticus",
+    "published": "Exodus 1866; Leviticus 1872",
+    "evidence": "archive.org criticalexegeticexodus00murp (Edinburgh 1866), criticalex00murp (Andover 1872); no sentence match yet",
+    "founderRule": "Pending the true-author match."
+   },
+   {
+    "source": "barnes",
+    "books": "Hosea to Malachi (182 cites)",
+    "trueAuthor": "E. B. Pusey, Regius Professor of Hebrew, Oxford",
+    "work": "The Minor Prophets, with a Commentary Explanatory and Practical",
+    "published": "1860 onward, issued in parts (end year not checked)",
+    "evidence": "archive.org a547289200puseuoft (Oxford, Parker, 1860); founder decision 10",
+    "founderRule": "Tractarian (Anglo-Catholic) who upheld Scripture; allowed under the Catholic-writers clause, founder to confirm."
+   },
+   {
+    "source": "barnes",
+    "books": "Numbers to Esther, Proverbs to Song of Solomon, Jeremiah, Ezekiel (141 cites)",
+    "trueAuthor": "Not identified",
+    "work": "Unknown (not Barnes)",
+    "published": "Unknown",
+    "evidence": "Barnes wrote no OT notes outside Job, Psalms, Isaiah, Daniel (voices group-1.md); sibling sentence matching in progress",
+    "founderRule": "Do not credit to Barnes until identified."
+   },
+   {
+    "source": "pulpit",
+    "books": "All cited books (253 cites); set-level",
+    "trueAuthor": "Many expositors; edited by H. D. M. Spence and Joseph S. Exell",
+    "work": "The Pulpit Commentary, Exposition only on Bible Hub (Biblesoft text)",
+    "published": "1880 to 1897 (London, Kegan Paul); reissued 1909 to 1919",
+    "evidence": "voices group-2.md; Bible Hub Genesis 1 page fetched 2026-10-20 has no Homiletics or Homilies text",
+    "founderRule": "not_on Jeremiah, Lamentations (Cheyne). Per-volume first-edition years not established."
+   },
+   {
+    "source": "pulpit",
+    "books": "Genesis",
+    "trueAuthor": "Thomas Whitelaw, Presbyterian minister",
+    "work": "Pulpit Commentary: Genesis, Exposition",
+    "published": "1880s (first-edition year not established)",
+    "evidence": "title page cu31924098499522",
+    "founderRule": "Fits (voices). Volume introductions by Farrar and Tulloch are not cited."
+   },
+   {
+    "source": "pulpit",
+    "books": "Exodus, 2 Kings, Psalms, Isaiah (Job per voices list)",
+    "trueAuthor": "George Rawlinson, Canon of Canterbury, Camden Professor of Ancient History, Oxford",
+    "work": "Pulpit Commentary Expositions",
+    "published": "1880s to 1890s (2 Kings 'new edition' 1897 seen; first editions not established)",
+    "evidence": "title pages cu31924098499506 (Exodus), in.ernet.dli.2015.1256 (2 Kings 1897), cu31924101104804 and cu31924101104929 (Psalms), cu31924101104507 (Isaiah)",
+    "founderRule": "Fits; his Isaiah answers the critics (voices)."
+   },
+   {
+    "source": "pulpit",
+    "books": "Leviticus",
+    "trueAuthor": "F. Meyrick, Prebendary of Lincoln",
+    "work": "Pulpit Commentary: Leviticus",
+    "published": "1880s (not established)",
+    "evidence": "title page cu31924101105116",
+    "founderRule": "Fits (voices)."
+   },
+   {
+    "source": "pulpit",
+    "books": "Numbers",
+    "trueAuthor": "R. Winterbotham",
+    "work": "Pulpit Commentary: Numbers",
+    "published": "1880s (not established)",
+    "evidence": "title page cu31924101105058",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Deuteronomy",
+    "trueAuthor": "W. L. Alexander, Congregational minister, editor of Kitto's Cyclopaedia",
+    "work": "Pulpit Commentary: Deuteronomy",
+    "published": "1880s (not established)",
+    "evidence": "title page cu31924101104994",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Judges, Acts",
+    "trueAuthor": "Lord A. C. Hervey, Bishop of Bath and Wells",
+    "work": "Pulpit Commentary: Judges; Acts",
+    "published": "Judges and Ruth printing 1881; Acts not established",
+    "evidence": "pulpitcommentar04unkngoog and 05unkngoog (Kegan Paul 1881); cu31924101104937; cu31924101105009",
+    "founderRule": "Fits (voices)."
+   },
+   {
+    "source": "pulpit",
+    "books": "1 and 2 Samuel",
+    "trueAuthor": "R. Payne Smith, Dean of Canterbury",
+    "work": "Pulpit Commentary: 1 and 2 Samuel",
+    "published": "By 1881 (1 Samuel 'fourth edition' 1881)",
+    "evidence": "thepulpitcomment09spenuoft title page; cu31924101104754, cu31924101104812",
+    "founderRule": "Fits (voices)."
+   },
+   {
+    "source": "pulpit",
+    "books": "1 Kings",
+    "trueAuthor": "Joseph Hammond, Vicar of St Austell",
+    "work": "Pulpit Commentary: 1 Kings",
+    "published": "1880s (not established)",
+    "evidence": "title page cu31924101104697",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Proverbs, Ecclesiastes, Amos, Nahum; Matthew with A. Lukyn Williams",
+    "trueAuthor": "W. J. Deane, Rector of Ashen (Proverbs with S. T. Taylor-Taswell)",
+    "work": "Pulpit Commentary Expositions",
+    "published": "1880s to 1890s (not established)",
+    "evidence": "title pages cu31924101104747, cu31924101104689, cu31924101104796, cu31924101104853, cu31924101104978",
+    "founderRule": "Ecclesiastes holds 'personated authorship' (voices); founder decision pending."
+   },
+   {
+    "source": "pulpit",
+    "books": "Song of Solomon",
+    "trueAuthor": "R. A. Redford",
+    "work": "Pulpit Commentary: Song of Solomon",
+    "published": "Not established",
+    "evidence": "title page cu31924101104622",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Ezekiel",
+    "trueAuthor": "E. H. Plumptre, Dean of Wells (vol. 2 with Thomas Whitelaw)",
+    "work": "Pulpit Commentary: Ezekiel",
+    "published": "Not established",
+    "evidence": "title pages cu31924101104614, cu31924101104671",
+    "founderRule": "Plumptre leaned Broad Church (voices); founder may review."
+   },
+   {
+    "source": "pulpit",
+    "books": "Hosea",
+    "trueAuthor": "J. J. Given, Professor of Hebrew, Magee College",
+    "work": "Pulpit Commentary: Hosea",
+    "published": "Not established (reviewed in a journal April 1890)",
+    "evidence": "title page cu31924101104739; jstor-3158065",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Mark",
+    "trueAuthor": "E. Bickersteth, Dean of Lichfield",
+    "work": "Pulpit Commentary: Mark",
+    "published": "Not established",
+    "evidence": "title page cu31924101105090",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Luke",
+    "trueAuthor": "H. D. M. Spence, Dean of Gloucester",
+    "work": "Pulpit Commentary: Luke",
+    "published": "Vol. 2 printing 1889",
+    "evidence": "pulpitcommentar01unkngoog (Kegan Paul 1889)",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "John",
+    "trueAuthor": "H. R. Reynolds, President of Cheshunt College",
+    "work": "Pulpit Commentary: John",
+    "published": "Not established",
+    "evidence": "title pages cu31924101105074, cu31924101105082",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Romans",
+    "trueAuthor": "J. Barmby, Vicar of Pittington",
+    "work": "Pulpit Commentary: Romans",
+    "published": "Not established",
+    "evidence": "title page cu31924101105025",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "1 and 2 Corinthians",
+    "trueAuthor": "F. W. Farrar, Archdeacon of Westminster",
+    "work": "Pulpit Commentary: 1 and 2 Corinthians",
+    "published": "Not established",
+    "evidence": "title pages cu31924101104945, cu31924101104887",
+    "founderRule": "Farrar later rejected endless punishment and wrote for the Expositor's Bible (voices); founder may review."
+   },
+   {
+    "source": "pulpit",
+    "books": "Galatians",
+    "trueAuthor": "E. Huxtable, Prebendary of Wells",
+    "work": "Pulpit Commentary: Galatians",
+    "published": "Not established",
+    "evidence": "title page cu31924101104952",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Philippians, 1 Peter",
+    "trueAuthor": "B. C. Caffin, Vicar of Northallerton",
+    "work": "Pulpit Commentary: Philippians; 1 Peter",
+    "published": "Not established",
+    "evidence": "title pages cu31924101104820, cu31924101104895",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "1 Thessalonians",
+    "trueAuthor": "P. J. Gloag",
+    "work": "Pulpit Commentary: 1 Thessalonians",
+    "published": "1887 printing",
+    "evidence": "pulpitcommentar00unkngoog (Kegan Paul 1887); cu31924101104762",
+    "founderRule": "Not reviewed individually."
+   },
+   {
+    "source": "pulpit",
+    "books": "Revelation",
+    "trueAuthor": "A. Plummer, Principal of University College, Durham, with T. Randell and A. T. Bott",
+    "work": "Pulpit Commentary: Revelation",
+    "published": "Not established",
+    "evidence": "title page cu31924101104705",
+    "founderRule": "Plummer later wrote ICC volumes (voices); founder may review."
+   },
+   {
+    "source": "pulpit",
+    "books": "Joshua, Ruth, Job, Daniel",
+    "trueAuthor": "J. J. Lias; James Morison; George Rawlinson; J. E. H. Thomson (voices list, title pages not seen)",
+    "work": "Pulpit Commentary Expositions",
+    "published": "Not established",
+    "evidence": "voices group-2.md (archive.org catalogue record of the 23-volume reprint)",
+    "founderRule": "Fits per voices."
+   },
+   {
+    "source": "pulpit",
+    "books": "Joel, Jonah, Micah, Habakkuk, Zephaniah, Zechariah, Malachi, Ephesians, Colossians, Philemon, Hebrews, James, 2 Peter, Jude",
+    "trueAuthor": "Not identified",
+    "work": "Pulpit Commentary Expositions",
+    "published": "Not established",
+    "evidence": "No title page read yet",
+    "founderRule": "Identify before crediting."
+   },
+   {
+    "source": "ellicott",
+    "books": "OT cited books (Genesis to Malachi)",
+    "trueAuthor": "Genesis R. Payne Smith; Exodus G. Rawlinson; Leviticus C. D. Ginsburg; Numbers C. J. Elliott; Deuteronomy C. H. Waller; Judges F. W. Farrar; Ruth R. Sinker; 1 Samuel H. D. M. Spence; Kings A. Barry; Chronicles C. J. Ball; Job S. Leathes; Psalms, Song, Jonah A. S. Aglen; Proverbs J. W. Nutt; Ecclesiastes G. Salmon; Isaiah, Jeremiah, Lamentations E. H. Plumptre; Ezekiel F. Gardiner; Daniel H. Deane; Hosea, Amos H. R. Reynolds and O. C. Whitehouse; Micah S. L. Warren; Habakkuk A. C. Jennings; Malachi W. H. Lowe",
+    "work": "An Old Testament Commentary for English Readers, ed. C. J. Ellicott (Bible Hub text courtesy of BibleSupport.com)",
+    "published": "1882 (vol. 1) to 1884 (vol. 4); 5 vols, London, Cassell",
+    "evidence": "title pages oldtestamentcomm01elli (1882), oldtestamentcomm04elli (1884, Job by Leathes); contributors from voices group-2.md",
+    "founderRule": "Mixed: Aglen's Psalms and Jonah fail the rule (voices); review Plumptre, Farrar, Whitehouse; Malachi already dropped in 0da9d1c."
+   },
+   {
+    "source": "ellicott",
+    "books": "NT cited books",
+    "trueAuthor": "Matthew, Mark, Luke, Acts, 2 Corinthians E. H. Plumptre; John H. W. Watkins; Romans, Galatians W. Sanday; 1 Corinthians T. Teignmouth Shore; Ephesians, Philippians, Colossians, Philemon A. Barry; 1 Thessalonians, 1 Peter A. J. Mason; Hebrews W. F. Moulton; Jude A. Plummer; Revelation W. Boyd Carpenter",
+    "work": "A New Testament Commentary for English Readers, ed. C. J. Ellicott",
+    "published": "1878 to 1879, 3 vols (Cassell; Dutton)",
+    "evidence": "newtestamentcomm01elli and 03elli title pages (Plumptre, Barry seen); voices group-3.md",
+    "founderRule": "Sanday, Plumptre, Plummer, Boyd Carpenter flagged by voices; founder to decide not_on."
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "Genesis to Esther, Jeremiah, Lamentations, Ezekiel, Daniel, Hosea to Malachi",
+    "trueAuthor": "C. F. Keil, Lutheran Old Testament scholar",
+    "work": "Biblical Commentary on the Old Testament (T. & T. Clark translation)",
+    "published": "German 1861 to 1875 (range); English: Pentateuch 1864 to 1865, Joshua to Ruth 1865, Minor Prophets 1868, Chronicles 1872, Daniel 1872, Ezra to Esther 1873; other books not checked",
+    "evidence": "title pages india.history.resource.72622/72623/72621 (Martin), 72625, 78876, 72634 (Harper), 72633 (M. G. Easton), cu31924058517529 (Sophia Taylor)",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "keil-delitzsch",
+    "books": "Job, Psalms, Proverbs, Ecclesiastes, Song of Solomon, Isaiah",
+    "trueAuthor": "Franz Delitzsch, Lutheran Old Testament scholar",
+    "work": "Biblical Commentary on the Old Testament (T. & T. Clark translation)",
+    "published": "English 1866 to 1877 range; Job tr. Francis Bolton (second edition 1882 seen); others not checked",
+    "evidence": "cu31924070685791 (Job, 2nd ed. 1882); voices group-2.md",
+    "founderRule": "Ecclesiastes: Delitzsch denies Solomonic authorship (voices); founder decision on not_on pending."
+   },
+   {
+    "source": "jfb",
+    "books": "Genesis to Esther",
+    "trueAuthor": "Robert Jamieson, Church of Scotland minister, Glasgow",
+    "work": "A Commentary, Critical and Explanatory, on the Whole Bible",
+    "published": "1871 one volume (six-volume edition 1864 to 1870)",
+    "evidence": "archive.org commentarycritic01jami_0 (Collins 1871), commentarycritic0001jami (Lippincott 1866); division from voices group-1.md",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "jfb",
+    "books": "Job to Malachi; 1 Corinthians to Revelation",
+    "trueAuthor": "A. R. Fausset, Church of England rector, York",
+    "work": "A Commentary, Critical and Explanatory, on the Whole Bible",
+    "published": "1871 (six-volume edition 1864 to 1870)",
+    "evidence": "As above; division not checked against the 1871 preface",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "jfb",
+    "books": "Matthew to Romans",
+    "trueAuthor": "David Brown, Free Church of Scotland professor, Aberdeen",
+    "work": "A Commentary, Critical and Explanatory, on the Whole Bible",
+    "published": "1871 (six-volume edition 1864 to 1870)",
+    "evidence": "As above",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "clarke",
+    "books": "All cited books (578 cites)",
+    "trueAuthor": "Adam Clarke, Methodist preacher and scholar",
+    "work": "The Holy Bible ... with a Commentary and Critical Notes",
+    "published": "1810 to 1826",
+    "evidence": "voices group-1.md; archive.org holybiblecontain01clar (1817 printing)",
+    "founderRule": "Fits; founder told of his eternal-Sonship and Genesis 3:1 views (voices)."
+   },
+   {
+    "source": "wesley",
+    "books": "All cited books (330 cites)",
+    "trueAuthor": "John Wesley, founder of Methodism (OT notes drawn largely from Henry and Poole)",
+    "work": "Explanatory Notes upon the New Testament; upon the Old Testament",
+    "published": "NT 1755; OT 1765 (3 vols)",
+    "evidence": "archive.org bim_eighteenth-century_explanatory-notes-upon-t_1755; _1765_1, _1765_2, _1765_3",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "benson",
+    "books": "All cited books (67 cites)",
+    "trueAuthor": "Joseph Benson, Methodist preacher",
+    "work": "The Holy Bible ... with Notes, Critical, Explanatory, and Practical",
+    "published": "1811 to 1818 (5 vols; Wikipedia calls this a second edition)",
+    "evidence": "Wikipedia 'Joseph Benson'; first issue not checked",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "bengel",
+    "books": "NT cited books (59 cites)",
+    "trueAuthor": "J. A. Bengel, Lutheran scholar; English ed. A. R. Fausset with Bandinel, Bryce, Fletcher and others",
+    "work": "Gnomon of the New Testament",
+    "published": "Latin 1742; English 1857 to 1858 (T. & T. Clark)",
+    "evidence": "voices group-3.md section 4 (Bible Hub matches the Clark edition)",
+    "founderRule": "Fits; use the Clark edition only (the Philadelphia one is co-translated by Vincent)."
+   },
+   {
+    "source": "henry",
+    "books": "Genesis to Acts (22 cites)",
+    "trueAuthor": "Matthew Henry, Nonconformist Presbyterian minister, Chester",
+    "work": "An Exposition of the Old and New Testament",
+    "published": "1708 to 1710 (Wikipedia); cite list says 1706 to 1721",
+    "evidence": "Wikipedia 'Matthew Henry'; first volume's title page not checked",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "henry",
+    "books": "1 Corinthians, Revelation (4 cites)",
+    "trueAuthor": "Continuators after Henry's death in 1714 (names not checked)",
+    "work": "An Exposition of the Old and New Testament, vol. 6",
+    "published": "1721",
+    "evidence": "voices group-1.md; Bible Hub and CCEL book pages name no continuator",
+    "founderRule": "Name the continuator before crediting."
+   },
+   {
+    "source": "henry-concise",
+    "books": "All cited books (157 cites)",
+    "trueAuthor": "Unnamed abridger of Henry's commentary",
+    "work": "Matthew Henry's Concise Commentary (one-volume abridgment)",
+    "published": "Not established",
+    "evidence": "CCEL ccel.org/ccel/henry/mhcc: 'An abridgment of the 6 volume Matthew Henry's Commentary on the Bible'",
+    "founderRule": "Cite list 'Matthew Henry, early 1700s' is not true of these words."
+   },
+   {
+    "source": "poole",
+    "books": "Genesis to Isaiah 58 (cited: Pentateuch, Joshua, 2 Samuel, Job, Psalms, Proverbs)",
+    "trueAuthor": "Matthew Poole, Puritan minister, London",
+    "work": "Annotations upon the Holy Bible, vol. 1",
+    "published": "1683",
+    "evidence": "EEBO-TCP A55363; 1683 preface 'to the fifty eighth of Isaiah' (voices group-1.md)",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "poole",
+    "books": "Jeremiah; Matthew, Luke, John; 1 Corinthians; Galatians; Revelation",
+    "trueAuthor": "John Collinges",
+    "work": "Annotations upon the Holy Bible, vol. 2",
+    "published": "1685",
+    "evidence": "EEBO-TCP A55368 (voices); names from Wikipedia 'Matthew Poole', not checked in the 1685 volume",
+    "founderRule": "Nonconformist; not reviewed individually."
+   },
+   {
+    "source": "poole",
+    "books": "Hosea, Zechariah; Acts; Romans; Philippians, Colossians; 1 Thessalonians; Hebrews; 1 Peter",
+    "trueAuthor": "Henry Hurst; Peter Vinke; Richard Mayo; Richard Adams; Matthew Barker; Obadiah Hughes; Edward Veale",
+    "work": "Annotations upon the Holy Bible, vol. 2",
+    "published": "1685",
+    "evidence": "Wikipedia 'Matthew Poole' (not checked in the 1685 volume)",
+    "founderRule": "Nonconformist ministers; not reviewed individually."
+   },
+   {
+    "source": "calvin",
+    "books": "Genesis, Deuteronomy, Isaiah, Jeremiah, Lamentations, Zechariah, Romans, Philippians",
+    "trueAuthor": "John Calvin, Reformer, Geneva; Calvin Translation Society translators",
+    "work": "Commentaries",
+    "published": "Latin 1540 to 1564; English 1843 to 1855",
+    "evidence": "voices group-3.md section 1; per-book year and translator not checked",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "maclaren",
+    "books": "Cited books (21 cites)",
+    "trueAuthor": "Alexander Maclaren, Baptist preacher, Manchester",
+    "work": "Expositions of Holy Scripture (sermons)",
+    "published": "1904 to 1910",
+    "evidence": "Cite list; archive.org Hodder and Stoughton volumes dated 1906 (expositionsofhol01macl)",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "spurgeon",
+    "books": "Psalm 110 (1 cite)",
+    "trueAuthor": "C. H. Spurgeon, Baptist preacher, London (the Treasury also quotes others)",
+    "work": "The Treasury of David, vol. 5",
+    "published": "1878 (set 1869 to 1885)",
+    "evidence": "archive.org treasuryofdavid0005chsp (1878)",
+    "founderRule": "Fits; confirm the cited words are Spurgeon's own exposition."
+   },
+   {
+    "source": "chrysostom",
+    "books": "Galatians (1 cite)",
+    "trueAuthor": "John Chrysostom, Archbishop of Constantinople",
+    "work": "Commentary on Galatians, in Nicene and Post-Nicene Fathers I 13",
+    "published": "Greek about AD 395; English 1889 (both not checked)",
+    "evidence": "Not checked; confirm on the NPNF volume",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "catena-aurea",
+    "books": "Matthew 1:1 (1 cite)",
+    "trueAuthor": "Thomas Aquinas, from the church fathers; Oxford translation ed. J. H. Newman",
+    "work": "Catena Aurea on Matthew",
+    "published": "1260s; English 1841 to 1845",
+    "evidence": "sources.json catena-aurea; NOTICE.md",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "edersheim",
+    "books": "Luke 7 (2 cites)",
+    "trueAuthor": "Alfred Edersheim, Jewish-born Anglican scholar",
+    "work": "The Life and Times of Jesus the Messiah, Book III ch. 20",
+    "published": "1883",
+    "evidence": "Cite list; archive.org 2nd edition 1884 (lifeandtimesjes02unkngoog)",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "easton",
+    "books": "Hebrews, Revelation (2 cites)",
+    "trueAuthor": "M. G. Easton, Free Church of Scotland minister",
+    "work": "Illustrated Bible Dictionary",
+    "published": "First edition 1893; third edition 1897",
+    "evidence": "Wikipedia 'Easton's Bible Dictionary'",
+    "founderRule": "Fits. Cite list '1897' is the third edition."
+   },
+   {
+    "source": "strongs",
+    "books": "Genesis 4:10, Luke 10:33 (2 cites)",
+    "trueAuthor": "James Strong, Methodist scholar",
+    "work": "Exhaustive Concordance, Hebrew and Greek dictionaries",
+    "published": "1890",
+    "evidence": "archive.org exhaustiveconcor1890stro (Hunt and Eaton, 1890)",
+    "founderRule": "Fits; but the linked Bible Hub pages also show BDB and Thayer (avoid list)."
+   },
+   {
+    "source": "bullinger-fos",
+    "books": "122 cites",
+    "trueAuthor": "E. W. Bullinger, Church of England clergyman",
+    "work": "Figures of Speech Used in the Bible",
+    "published": "1898",
+    "evidence": "archive.org figuresofspeechu00bull title page (Eyre & Spottiswoode, 1898)",
+    "founderRule": "Fits (on cite list)."
+   },
+   {
+    "source": "bullinger-cb",
+    "books": "432 cites",
+    "trueAuthor": "E. W. Bullinger (died June 1913); later parts by unnamed associates",
+    "work": "The Companion Bible notes",
+    "published": "Six parts, 1909 to 1922",
+    "evidence": "voices group-4.md (Wikipedia); which parts are after 1913 not checked",
+    "founderRule": "On cite list; parts finished after his death are not his own words."
+   },
+   {
+    "source": "geneva",
+    "books": "Genesis, Zechariah (OT notes); Luke (NT); Revelation",
+    "trueAuthor": "Geneva exiles; Laurence Tomson (NT, after Beza); Franciscus Junius (Revelation)",
+    "work": "Geneva Bible notes (1599 Tomson-Junius form)",
+    "published": "OT notes 1560; Tomson NT 1576; Junius Revelation 1599",
+    "evidence": "voices group-4.md",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "church-fathers",
+    "books": "17 cites (Irenaeus, Justin, Barnabas, Clement, Didache, Gregory Nazianzen, Jerome, Athanasius, Augustine)",
+    "trueAuthor": "The named father; translators Roberts and Rambaut, Dods and Reith, Roberts and Donaldson, John Keith, M. B. Riddle, Browne and Swallow, W. H. Fremantle, Newman and Robertson, John Gibb",
+    "work": "As named in each cite, read on New Advent (revised by Kevin Knight)",
+    "published": "Translations: ANF 1 1885, ANF 7 1886, ANF 9 1896, NPNF I 7 1888, NPNF II 3 and 4 1892, NPNF II 7 1894; dates of the originals not checked",
+    "evidence": "Each New Advent page's 'Translated by ... From ...' line, read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "themelios",
+    "books": "14 cites",
+    "trueAuthor": "Elgvin; Kanagaraj; Baker; Riggans; R. T. France; Champlin; Reichenbach; Christensen",
+    "work": "Themelios articles 22.3, 23.1, 24.1, 21.1, 14.2, 42.1, 46.3, 48.3",
+    "published": "April 1997; October 1997; October 1998; October 1995; January 1989; April 2017; December 2021; December 2023",
+    "evidence": "TGC Themelios archive page (issue dates), read 2026-10-20; web-posting dates differ (2020)",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "jets",
+    "books": "5 cites (and beale 2)",
+    "trueAuthor": "Bateman; Hoskins; Lanier; Yates; J. K. Brown; G. K. Beale",
+    "work": "Journal of the Evangelical Theological Society articles",
+    "published": "38/1 1995; 52/2 2009; 56/4 2013; 59/2 2016; 63/1 2020; Beale 48/1 2005",
+    "evidence": "Years in each cite's at; volume N = 1957 + N",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "gospel-coalition",
+    "books": "16 cites",
+    "trueAuthor": "John Currid; S. A. Fix and J. Robert Vannoy; Andreas Kostenberger; Brandon D. Crowe; Jimmy Roh; Angie Velasquez Thornton",
+    "work": "TGC Bible commentary pages and articles",
+    "published": "2021-06-25; 2023-09-19; 2022-10-21; 2025-05-19 (now retitled); 2026-01-25; 2026-06-25",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "ligonier",
+    "books": "5 cites",
+    "trueAuthor": "Derek Thomas; unnamed Tabletalk writers (2); Gerald Bilkes; Gerrit Scott Dawson",
+    "work": "Tabletalk devotionals and Ligonier articles",
+    "published": "2007-03-11; 2007-07-09; 2007-07-26; 2023-12-19; 2014-03-25 (web dates)",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits; two devotionals name no writer."
+   },
+   {
+    "source": "bibleproject",
+    "books": "4 cites",
+    "trueAuthor": "BibleProject (Tim Mackie, Jon Collins); Carissa Quinn",
+    "work": "Podcasts (Babel, Jubilee), Jonah guide, article",
+    "published": "2020-12-07; 2019-12-16; 2023-03-31; 2020-04-07",
+    "evidence": "Pages read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "leithart",
+    "books": "4 cites",
+    "trueAuthor": "Peter J. Leithart, Reformed theologian",
+    "work": "Theopolis posts: What's in a Name?; Firstborn",
+    "published": "2014-02-01; 2011-03-11",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "keener",
+    "books": "2 cites",
+    "trueAuthor": "Craig S. Keener, Asbury Theological Seminary",
+    "work": "Bible Backgrounds blog posts",
+    "published": "2016-01-18; 2016-09-13",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "bird",
+    "books": "3 cites",
+    "trueAuthor": "Michael F. Bird, Ridley College",
+    "work": "Maranatha and the Identity of Jesus (Substack)",
+    "published": "2024-07-25",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "capes",
+    "books": "3 cites",
+    "trueAuthor": "David B. Capes, Baptist New Testament scholar",
+    "work": "One God, One Lord (Part 8), blog",
+    "published": "2020-02-11",
+    "evidence": "Page metadata read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "woudstra",
+    "books": "2 cites",
+    "trueAuthor": "Marten H. Woudstra, Calvin Seminary",
+    "work": "Recent Translations of Genesis 3:15, Calvin Theological Journal 6, pp. 194-203",
+    "published": "1971",
+    "evidence": "Stated on the cited page, read 2026-10-20",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "bruce",
+    "books": "3 cites",
+    "trueAuthor": "F. F. Bruce, evangelical scholar",
+    "work": "Son of Man Sayings (in Christ the Lord); The Curse of the Law (in Paul and Paulinism)",
+    "published": "1982 (as cited)",
+    "evidence": "Not checked",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "net-notes",
+    "books": "18 cites",
+    "trueAuthor": "NET Bible translators (Biblical Studies Press)",
+    "work": "NET Bible translators' notes",
+    "published": "First edition 2005; second edition 2019",
+    "evidence": "Cite list; which edition each page shows not checked",
+    "founderRule": "Fits."
+   },
+   {
+    "source": "reformation-sb",
+    "books": "20 cites",
+    "trueAuthor": "Reformation Study Bible contributors (general editor R. C. Sproul); book contributors not named",
+    "work": "Reformation Study Bible notes on Bible Gateway",
+    "published": "2015",
+    "evidence": "Cite list; not checked",
+    "founderRule": "Fits; name each book's contributor if the founder wants the person who wrote the words."
+   },
+   {
+    "source": "bsb, tyndale-house, abbott-smith, tyndale-notes",
+    "books": "0 cites",
+    "trueAuthor": "BSB committee; STEPBible/Tyndale House; George Abbott-Smith; Tyndale House Publishers",
+    "work": "On the cite list but not cited in Layers",
+    "published": "2016; kept up to date; 1922; 2023 (cite list)",
+    "evidence": "Cite list only",
+    "founderRule": "Fits."
+   }
+  ],
+  "founderQuestions": [
+   "Only 608 of the 6,365 Layers citations have a true retrieval date (2026-10-20). For the other 5,757, may the app show 'checked by 11 October 2026' or 'checked by 17 October 2026 against a copy of the text', or should it show no date until each page is re-read?",
+   "Shall we re-fetch all 3,385 cited pages now? That takes about 28 minutes at 2 requests a second and records the time, status and a hash for each page. Then, should every remaining cite be re-read and given a stored quote (several days of workflow, largest works first, starting with Gill, Barnes and JFB)?",
+   "For 21 cites the words were read on a different page than the one the reader is sent to, for example archive.org's scan of the printed Companion Bible rather than StudyLight's index. Should the credit link the page we actually read? And should all 553 Bullinger cites link the exact chapter or figure page instead of the whole work?",
+   "Bible Hub's 'Barnes' is not Barnes for most Old Testament books: Genesis is J. G. Murphy, the Minor Prophets are E. B. Pusey, and 141 cites are by a writer not yet identified. Do Murphy and Pusey (an Anglo-Catholic Tractarian) pass the citation rule? Until the others are identified, should those cites be hidden or kept with 'writer not yet confirmed'?",
+   "Henry's Concise Commentary (157 cites) is a later abridgment by an unnamed editor, not Henry's own wording. Should we keep it, credited as 'abridged from Matthew Henry', or move those cites to Henry's full commentary?",
+   "Several Ellicott and Pulpit contributors were flagged by the voices research: Aglen (Psalms, Song of Solomon, Jonah), Sanday, Plumptre, Farrar, Whitehouse and Plummer. Should those books get not_on entries, or should the cites stay with the true writer named?",
+   "The four returned plain-meaning cites (1 Samuel 6:6, Proverbs 3:20, Ecclesiastes 3:18 and 3:20) were never re-read in the mend. Should they be checked before the mend PR merges? And may the two moved cites (Isaiah 7:8 and Mark 12:1) carry 'retrieved 20 October 2026'?"
+  ]
+ }
+}

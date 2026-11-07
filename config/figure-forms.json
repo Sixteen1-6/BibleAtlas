@@ -3,7 +3,7 @@
     "The forms that figure, parallelism and contrast notes in config/figures/ may use. Shown only at Deep.",
     "label is the plain name a reader sees first; term is the usual name for the form; about says what it is in plain words.",
     "defined, where present, is the form defined in the words of a book that defines it: source is an id in config/layer-sources.json (which says who wrote its words), quote its exact words, at where in the book, url the page they are on, read the edition or site the words were read from and retrieved the date (decision 10). Pages of Bullinger's Figures of Speech Used in the Bible (1898) are the printed pages of the archive.org scan figuresofspeechu00bull.",
-    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and it was completed after Bullinger's death in 1913 by others, in parts not yet established), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words), the church fathers (a group, not one work) and the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice; it may be cited and linked, never quoted). The NET translators' notes are never shown. Works left out may still be linked from Layers.",
+    "quotable lists the cite-list ids whose words may be shown in a figure note: public-domain works whose words are their named writer's own, in a copy free to quote. Left out, per docs/local-work/2026-10-20/voices/VOICES-SHORTLIST.md as the founder approved it: Gill and Spurgeon (the only typed texts are editors' with rights reserved; Spurgeon waits for Project Gutenberg's proofread volumes, decision 8), the Geneva notes (no free-to-copy statement, and a modern editor's notes mixed in), the Companion Bible (its one typed copy has no license and garbles letters, and it was completed after Bullinger's death in 1913 by others, in parts not yet established), Henry's Concise and Wesley (abridgments, much of them in Henry's, Poole's or Bengel's words), the church fathers (a group, not one work) and the Pulpit Commentary (Bible Hub's text carries BibleSoft's copyright notice; it may be cited and linked, never quoted). Tropologia is left out too (2026-11-01): Book I is partly translated and compiled from other writers, and Books II and III hold other men's poems. The NET translators' notes are never shown. Works left out may still be linked from Layers.",
     "A cite or definition names no writer itself: the cite list in config/layer-sources.json says who wrote a source's words on each book, as it does for Layers (decision 10), so a work by several hands credits each book's own writer, two works by one writer count once toward a note's strength, and words whose writer is not named or is no longer cited are refused."
   ],
   "forms": [
@@ -83,6 +83,66 @@
       }
     },
     {
+      "id": "climbing",
+      "kind": "parallelism",
+      "label": "Lines that climb",
+      "term": "Climax, or gradual ascent",
+      "about": "Each line goes a step higher than the one before it, often taking up its words.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The Figure is so called when a writing, speech, or discourse, ascends up step by step, each with an increase of emphasis or sense.",
+        "at": "Anabasis, or Gradual Ascent, p. 429",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/429/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "frame",
+      "kind": "parallelism",
+      "label": "Bookends",
+      "term": "Inclusio",
+      "about": "A passage begins and ends with the same words, which frame what lies between.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The Latins called it INCLUSIO, inclusion: either because the first word of the sentence is included at the end, or because of the importance of the matter which is thus included between the two words.",
+        "at": "Epanadiplosis, or Encircling, p. 245",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/245/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "refrain",
+      "kind": "parallelism",
+      "label": "A refrain",
+      "term": "Refrain",
+      "about": "The same line comes back again and again through a passage.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The figure is so called because the sentence or phrase is repeated at intervals, as though in regular circles.",
+        "at": "Cycloides, or Circular Repetition, p. 342",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "beginnings",
+      "kind": "parallelism",
+      "label": "Lines that begin alike",
+      "term": "Anaphora",
+      "about": "Line after line begins with the same word or words, to add weight.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This figure is so-called because it is the repeating of the same word at the beginning of successive clauses: thus adding weight and emphasis to statements and arguments by calling special attention to them.",
+        "at": "Anaphora, or Like Sentence-Beginnings, p. 199",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/199/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
       "id": "metonymy",
       "kind": "figure",
       "label": "One thing named for another",
@@ -102,7 +162,15 @@
       "kind": "figure",
       "label": "A part for the whole",
       "term": "Synecdoche",
-      "about": "A part is named for the whole, or the whole for a part."
+      "about": "A part is named for the whole, or the whole for a part.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "A figure by which one word receives something from another which is internally associated with it by the connection of two ideas: as when a part of a thing is put by a kind of Metonymy for the whole of it, or the whole for a part.",
+        "at": "Synecdoche, or Transfer, p. 613",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/613/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
     },
     {
       "id": "anthropopatheia",
@@ -165,6 +233,193 @@
       }
     },
     {
+      "id": "numbers",
+      "kind": "figure",
+      "label": "A number, then one more",
+      "term": "Numerical saying",
+      "about": "A number is named and then the next one up, to give the point more force."
+    },
+    {
+      "id": "apostrophe",
+      "kind": "figure",
+      "label": "Speaking to the absent",
+      "term": "Apostrophe",
+      "about": "The speaker turns from his hearers to speak to someone or something not there, such as the heavens.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The figure is so called when the speaker turns away from the real auditory whom he is addressing, and speaks to an imaginary one.",
+        "at": "Apostrophe, p. 901",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/901/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "hyperbole",
+      "kind": "figure",
+      "label": "More than literal",
+      "term": "Hyperbole",
+      "about": "More is said than is meant literally, to make the point strongly.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "when more is said than is meant to be literally understood, in order to heighten the sense.",
+        "at": "Hyperbole, or Exaggeration, p. 423",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/423/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "irony",
+      "kind": "figure",
+      "label": "Saying the opposite",
+      "term": "Irony",
+      "about": "The words say the opposite of what is meant, to give the point more force.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "The figure is so called when the speaker intends to convey a sense contrary to the strict signification of the words employed",
+        "at": "Eironeia, or Irony, p. 807",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/807/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "question",
+      "kind": "figure",
+      "label": "A question that tells",
+      "term": "Rhetorical question",
+      "about": "A question is asked not to learn anything but to make a point.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This figure is used when a speaker or writer asks animated questions, but not to obtain information.",
+        "at": "Erotesis, or Interrogating, p. 943",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/943/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "doubling",
+      "kind": "figure",
+      "label": "A doubled word",
+      "term": "Epizeuxis, or doubling",
+      "about": "A word is said twice in a row, for weight or feeling.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "It is a common and powerful way of emphasizing a particular word, by thus marking it and calling attention to it.",
+        "at": "Epizeuxis, or Duplication, p. 189",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/189/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "inflections",
+      "kind": "figure",
+      "label": "One word in two forms",
+      "term": "Polyptoton",
+      "about": "A word is repeated in another form, such as a verb with its own noun, for emphasis.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "Polyptoton means with many cases, i.e., a repetition of the same noun in several cases, or of the same verb in several moods or tenses.",
+        "at": "Polyptoton, or Many Inflections, p. 267",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/267/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "euphemism",
+      "kind": "figure",
+      "label": "A gentle word",
+      "term": "Euphemism",
+      "about": "A hard or unpleasant thing is said in a gentler way.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "Euphemy is a figure by which a harsh or disagreeable expression is changed for a pleasant and agreeable one",
+        "at": "Euphemismos, or Euphemy, p. 684",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/684/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "hendiadys",
+      "kind": "figure",
+      "label": "Two words, one idea",
+      "term": "Hendiadys",
+      "about": "Two words joined by \"and\" name one thing.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "Two words employed, but only one thing, or idea, intended.",
+        "at": "Hendiadys, or Two for One, p. 657",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/657/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "paradox",
+      "kind": "figure",
+      "label": "Seems foolish, is wise",
+      "term": "Oxymoron, or paradox",
+      "about": "Words that seem to clash, or seem foolish at first, prove to be wise.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "This is a figure, in which what is said at first sight appears to be foolish, yet when we come to consider it, we find it exceedingly wise.",
+        "at": "Oxymoron, or Wise-Folly, p. 816",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/816/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "understatement",
+      "kind": "figure",
+      "label": "Saying less to mean more",
+      "term": "Tapeinosis, or understatement",
+      "about": "Less is said than is meant, so that the point is made more strongly.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "in Tapeinosis the thing that is lessened is the same thing which is increased and intensified.",
+        "at": "Tapeinosis, or Demeaning, p. 159",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/159/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "many-ands",
+      "kind": "figure",
+      "label": "And, and, and",
+      "term": "Polysyndeton",
+      "about": "\"And\" is said again and again, so that each thing is weighed on its own.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "Instead of hurrying us on, breathlessly, to reach the important conclusion; we are asked to stop at each point",
+        "at": "Polysyndeton, or Many-Ands, p. 208",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/208/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
+      "id": "no-ands",
+      "kind": "figure",
+      "label": "Without \"and\"",
+      "term": "Asyndeton",
+      "about": "The \"and\" is left out, hurrying the reader on to what comes last.",
+      "defined": {
+        "source": "bullinger-fos",
+        "quote": "When the figure Asyndeton is used, we are not detained over the separate statements, and asked to consider each in detail, but we are hurried on over the various matters that are mentioned",
+        "at": "Asyndeton, or No-Ands, p. 137",
+        "url": "https://archive.org/details/figuresofspeechu00bull/page/137/mode/1up",
+        "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+        "retrieved": "2026-11-01"
+      }
+    },
+    {
       "id": "contrast",
       "kind": "contrast",
       "label": "Set side by side",
@@ -197,6 +452,12 @@
     "edersheim",
     "strongs",
     "easton",
-    "bullinger-fos"
+    "bullinger-fos",
+    "lowth",
+    "jebb",
+    "boys",
+    "forbes",
+    "horne",
+    "augustine"
   ]
 }

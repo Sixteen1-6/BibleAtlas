@@ -1,0 +1,891 @@
+{
+  "_comment": [
+    "Structures across verses and chapters, shown from Deep behind the commentary notice: bookends (inclusio), refrains, two threads taking turns (alternation), mirrors (chiasm) and foils (two people set side by side, whose sides may hold several ranges across chapters and books). Checked by crates/atlas-cli/src/extra_structure.rs.",
+    "members are the passage's parts in reading order, each with its mark (A and A' for bookends, R for a refrain, A B A B for turns, A B B' A' for a mirror) and its exact BSB words from one verse of its ref; tie, on the first member of each group that answers one another, is words found in every member of the group.",
+    "cites follow config/figure-forms.json: only its quotable works are quoted, the cite list in config/layer-sources.json says who wrote each book's words, and strength is the number of different interpreters cited (3 or more widely agreed, 2 commonly held, 1 some interpreters). docs/evidence/structures-2026-11-01.json records where each quote was read."
+  ],
+  "kinds": [
+    {
+      "id": "inclusio",
+      "label": "Bookends",
+      "about": "A passage opens and closes with the same words, so the end takes the reader back to the start."
+    },
+    {
+      "id": "refrain",
+      "label": "A refrain",
+      "about": "The same words come back at set places, like the chorus of a song."
+    },
+    {
+      "id": "alternation",
+      "label": "Taking turns",
+      "about": "The account moves back and forth between two threads, so each shows up the other."
+    },
+    {
+      "id": "chiasm",
+      "label": "A mirror",
+      "about": "The parts come in one order and then in reverse, A B then B A, often with the turn at the centre."
+    },
+    {
+      "id": "foil",
+      "label": "Set side by side",
+      "about": "Two people, often chapters or books apart, are set side by side, and each shows up the other."
+    }
+  ],
+  "structures": [
+    {
+      "id": "psalm-8-bookends",
+      "kind": "inclusio",
+      "ref": "Psalm 8:1-9",
+      "strength": "widely agreed",
+      "short": "Psalm 8 opens and closes with the same words",
+      "about": "The psalm begins and ends with one cry of praise. What comes between, the heavens and the place God gives to man, shows why the opening words are true.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 8:1",
+          "words": "O LORD, our Lord, how majestic is Your name in all the earth!",
+          "tie": "how majestic is Your name"
+        },
+        {
+          "mark": "A'",
+          "ref": "Psalm 8:9",
+          "words": "O LORD, our Lord, how majestic is Your name in all the earth!"
+        }
+      ],
+      "evidence": "Henry: the psalm begins and ends with the same acknowledgment of God's name. Delitzsch repeats the opening thought as a conclusion, weaving the psalm into a wreath. Fausset, Clarke and Barnes say the close repeats the opening; Bullinger names this psalm among them.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 8",
+          "quote": "It begins and ends with the same acknowledgment of the transcendent excellency of God's name.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 8:9",
+          "quote": "Thus, then, he can as a conclusion repeat the thought with which he began, in a wider and more comprehensive meaning, and weave his Psalm together, as it were, into a wreath.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 8:9",
+          "quote": "Appropriately, the writer closes this brief but pregnant and sublime song of praise with the terms of admiration with which it was opened.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 8:9",
+          "quote": "The psalmist concludes as he began.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 8:9",
+          "quote": "Repeating the sentiment with which the psalm opens, as now fully illustrated, or as its propriety is now seen.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 8:1-9",
+          "at": "Epanadiplosis, or Encircling, p. 249",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/249/mode/1up",
+          "quote": "The repetitions at the beginning and end of distinct portions, or independent passages … belong rather to the subject-matter and are classed under Correspondence",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-103-bookends",
+      "kind": "inclusio",
+      "ref": "Psalm 103:1-22",
+      "strength": "widely agreed",
+      "short": "Psalm 103 opens and closes with the same call",
+      "about": "The psalmist calls on his own soul to bless the LORD at the start, then calls on angels and all God's works, and ends by calling on his soul once more.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 103:1",
+          "words": "Bless the LORD, O my soul",
+          "tie": "Bless the LORD, O my soul"
+        },
+        {
+          "mark": "A'",
+          "ref": "Psalm 103:22",
+          "words": "Bless the LORD, O my soul!"
+        }
+      ],
+      "evidence": "Henry: he concludes as he began, so that blessing God is the first and last of every service. Barnes: the psalm ends as it began. Bullinger classes such opening and closing repeats, naming this psalm, under correspondence.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 103:22",
+          "quote": "for he concludes, Bless the Lord, O my soul! as he began, Psa 103:1. Blessing God and giving him glory must be the alpha and the omega of all our services.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 103:22",
+          "quote": "Ending the psalm as it began, and with the additional reason derived from the fact that the \"universe\" is called on to do it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 103:1-22",
+          "at": "Epanadiplosis, or Encircling, p. 249",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/249/mode/1up",
+          "quote": "The repetitions at the beginning and end of distinct portions, or independent passages … belong rather to the subject-matter and are classed under Correspondence",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-118-bookends",
+      "kind": "inclusio",
+      "ref": "Psalm 118:1-29",
+      "strength": "widely agreed",
+      "short": "Psalm 118 opens and closes with the same words",
+      "about": "The first and last verses are word for word the same call to give thanks. Between them the psalm tells of the LORD's help, so the closing call has reasons behind it.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 118:1",
+          "words": "Give thanks to the LORD, for He is good; His loving devotion endures forever.",
+          "tie": "Give thanks to the LORD, for He is good"
+        },
+        {
+          "mark": "A'",
+          "ref": "Psalm 118:29",
+          "words": "Give thanks to the LORD, for He is good; His loving devotion endures forever."
+        }
+      ],
+      "evidence": "Clarke: they end as they began. Delitzsch: the psalm closes in correspondence with its beginning. Barnes: the psalm closes as it began, with a call to praise God.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Psalm 118:29",
+          "quote": "All join in thanksgiving, and they end as they began: \"His mercy endureth for ever.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 118:28-29",
+          "quote": "and then the Psalm closes, in correspondence with its beginning, with a Hodu in which all voices join.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 118:29",
+          "quote": "The psalm closes, as it began, with an exhortation to praise God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "ecclesiastes-bookends",
+      "kind": "inclusio",
+      "ref": "Ecclesiastes 1:2-12:8",
+      "strength": "widely agreed",
+      "short": "Ecclesiastes opens and closes its words with one cry",
+      "about": "The Teacher's cry comes at the start of the book and again just before its last words, so everything between is the case he makes for it.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Ecclesiastes 1:2",
+          "words": "“Futility of futilities,” says the Teacher",
+          "tie": "Futility of futilities"
+        },
+        {
+          "mark": "A'",
+          "ref": "Ecclesiastes 12:8",
+          "words": "“Futility of futilities,” says the Teacher"
+        }
+      ],
+      "evidence": "Henry: he repeats his text, having proved it. Clarke: the book's last description closes with the exclamation it began with. Fausset: a resumption of the sentiment the book began with.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Ecclesiastes 12:8",
+          "quote": "He repeats his text (Ecc 12:8), 1. As that which he had fully demonstrated the truth of, and so made good his undertaking in this sermon",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Ecclesiastes 12:8",
+          "quote": "This affecting and minute description of old age and death is concluded by the author with the same exclamation by which he began this book",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Ecclesiastes 12:8",
+          "quote": "Resumption of the sentiment with which the book began",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-samuel-1-refrain",
+      "kind": "refrain",
+      "ref": "2 Samuel 1:19-27",
+      "strength": "widely agreed",
+      "short": "David's lament comes back three times to one cry",
+      "about": "David's song over Saul and Jonathan returns to the same words at its start, its middle and its end, and closes on them.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "2 Samuel 1:19",
+          "words": "How the mighty have fallen!",
+          "tie": "How the mighty have fallen"
+        },
+        {
+          "mark": "R",
+          "ref": "2 Samuel 1:25",
+          "words": "How the mighty have fallen in the thick of battle!"
+        },
+        {
+          "mark": "R",
+          "ref": "2 Samuel 1:27",
+          "words": "How the mighty have fallen"
+        }
+      ],
+      "evidence": "Henry: it is lamented three times. Jamieson: it forms the chorus. Keil: each part of the song opens with the cry. Hervey, in Barnes' Notes: grief is fond of repeating. Bullinger: the burden three times.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "2 Samuel 1:17-27",
+          "quote": "The mighty have fallen (this is three times lamented, Sa2 1:19, Sa2 1:25, Sa2 1:27), and so the strength of the people is weakened.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Samuel 1:19",
+          "quote": "how are the mighty fallen!--This forms the chorus.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "2 Samuel 1:19-27",
+          "quote": "Each strophe opens with the exclamation, \"How are the mighty fallen!\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Samuel 1:19-27",
+          "quote": "is perfectly congenial to the nature of elegy, since grief is fond of dwelling upon the particular objects of the passion, and frequently repeating them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "2 Samuel 1:19-27",
+          "at": "Cycloides, or Circular Repetition, p. 342",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
+          "quote": "Where we have the burden of the lamentation three times, “How are the mighty fallen.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalms-42-43-refrain",
+      "kind": "refrain",
+      "ref": "Psalm 42:5-43:5",
+      "strength": "widely agreed",
+      "short": "One refrain runs through Psalms 42 and 43",
+      "about": "Three times the psalmist asks his soul why it is downcast and tells it to hope in God, twice in Psalm 42 and once more at the end of Psalm 43.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Psalm 42:5",
+          "words": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God",
+          "tie": "Put your hope in God"
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 42:11",
+          "words": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God"
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 43:5",
+          "words": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God"
+        }
+      ],
+      "evidence": "Barnes: the same burden or refrain marks the parts, at 42:5, 42:11 and 43:5. Henry: the fifth verse of Psalm 43 is the same as the eleventh of Psalm 42. Fausset notes the recurrence of the refrain. Bullinger: a three-fold emphasis.",
+      "limit": "Writers differ on whether Psalms 42 and 43 were first written as one psalm; the refrain is in both either way.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 42",
+          "quote": "Psa 42:1-11 consists of two parts, marked by the \"burden\" or \"refrain\" in Psa 42:5, Psa 42:11; and if Psa 43:1-5 were regarded as a part of the same composition, the two would be divided into three parts, marked by the same burden or refrain, in Psa 42:5, Psa 42:11; Psa 43:5.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 43",
+          "quote": "The second verse of this psalm is almost the very same with the ninth verse of the foregoing psalm, as the fifth of this is exactly the same with the eleventh of that.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 43",
+          "quote": "Excepting the recurrence of the refrain, there is no good reason to suppose this a part of the preceding, though the scope is the same.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 42:5-43:5",
+          "at": "Cycloides, or Circular Repetition, p. 342",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
+          "quote": "We have the three-fold emphasis on the great question: “Why art thou cast down, O my soul? and the blessed answer, “Hope thou in God!”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-80-refrain",
+      "kind": "refrain",
+      "ref": "Psalm 80:3-19",
+      "strength": "widely agreed",
+      "short": "Psalm 80 prays one prayer three times",
+      "about": "The same prayer closes three parts of the psalm, and the name of God grows each time: O God, then O God of Hosts, then O LORD God of Hosts.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Psalm 80:3",
+          "words": "cause Your face to shine upon us, that we may be saved.",
+          "tie": "cause Your face to shine upon us"
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 80:7",
+          "words": "cause Your face to shine upon us, that we may be saved."
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 80:19",
+          "words": "cause Your face to shine upon us, that we may be saved."
+        }
+      ],
+      "evidence": "Henry: it is the burden of the song. Fausset: the prayer occurs as a refrain. Clarke and Barnes: three parts end with these words. Delitzsch: the refrain closes three strophes. Bullinger: three times the prayer.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 80:3",
+          "quote": "It is the burden of the song, for we have it again, Psa 80:19.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 80",
+          "quote": "the prayer for relief occurs as a refrain through the Psalm.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 80:3",
+          "quote": "There are four parts in this Psalm, three of which end with the above words; see the third, seventh, and nineteenth verses",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 80",
+          "quote": "The Psalm consists of five eight-line strophes, of which the first, second, and fifth close with the refrain",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 80",
+          "quote": "The psalm is properly divided into three parts, each closing with the prayer",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 80:3-19",
+          "at": "Cycloides, or Circular Repetition, p. 342",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
+          "quote": "Three times we have the prayer: “Turn us again, O God, and cause thy face to shine, and we shall be saved.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-2-turns",
+      "kind": "alternation",
+      "ref": "1 Samuel 2:11-26",
+      "strength": "commonly held",
+      "short": "The boy Samuel and Eli's sons take turns",
+      "about": "The account moves back and forth between the boy who serves the LORD and the priest's sons who treat His offering with contempt, so each shows up the other.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "1 Samuel 2:11",
+          "words": "the boy began ministering to the LORD before Eli the priest",
+          "tie": "boy"
+        },
+        {
+          "mark": "B",
+          "ref": "1 Samuel 2:12-17",
+          "words": "Now the sons of Eli were wicked men",
+          "tie": "sons"
+        },
+        {
+          "mark": "A",
+          "ref": "1 Samuel 2:18-21",
+          "words": "Meanwhile, the boy Samuel grew up in the presence of the LORD."
+        },
+        {
+          "mark": "B",
+          "ref": "1 Samuel 2:22-25",
+          "words": "he heard about everything his sons were doing to all Israel"
+        },
+        {
+          "mark": "A",
+          "ref": "1 Samuel 2:26",
+          "words": "And the boy Samuel continued to grow in stature"
+        }
+      ],
+      "evidence": "Henry: the two families are interwoven through the passage, set one over against the other. Keil: Samuel served as a boy by the side of the worthless sons of Eli.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Samuel 2:11-26",
+          "quote": "The account of these two is observably interwoven throughout this whole paragraph, as if the historian intended to set the one over against the other, that they might set off one another.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 2:18",
+          "quote": "Samuel served as a boy before the Lord by the side of the worthless sons of Eli",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "peter-and-judas",
+      "kind": "foil",
+      "strength": "commonly held",
+      "short": "Peter and Judas, two sorrows set side by side",
+      "about": "Both men failed Jesus the same night. One went out and wept, the other went away and hanged himself.",
+      "sides": [
+        {
+          "who": "Peter",
+          "label": "Wept bitterly",
+          "refs": [
+            "Matthew 26:69-75"
+          ],
+          "words": [
+            "And he went outside and wept bitterly."
+          ]
+        },
+        {
+          "who": "Judas",
+          "label": "Hanged himself",
+          "refs": [
+            "Matthew 26:14-16",
+            "Matthew 27:3-5"
+          ],
+          "words": [
+            "What are you willing to give me if I hand Him over to you?",
+            "he was filled with remorse",
+            "Then he went away and hanged himself."
+          ]
+        }
+      ],
+      "evidence": "Henry: Judas repented, but not like Peter, who repented, believed and was pardoned. Fausset, on 2 Corinthians 7:10, sets Judas's remorse against Peter's godly sorrow.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 27:3-5",
+          "quote": "See here how Judas repented: not like Peter, who repented, believed, and was pardoned: no, he repented, despaired, and was ruined.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Corinthians 7:10",
+          "quote": "\"regret\" implies merely uneasiness of feeling at the past or present, and is applied even to the remorse of Judas … Contrast David's \"godly sorrow,\" Sa2 12:13, and Peter's, Mat 26:75.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "saul-and-david",
+      "kind": "foil",
+      "strength": "widely agreed",
+      "short": "Saul falling and David rising, across two books",
+      "about": "The Spirit of the LORD comes on David as it leaves Saul, and years later the two houses are still set against each other: one grows stronger, the other weaker.",
+      "sides": [
+        {
+          "who": "Saul",
+          "label": "Falling",
+          "refs": [
+            "1 Samuel 16:14",
+            "2 Samuel 3:1"
+          ],
+          "words": [
+            "the Spirit of the LORD had departed from Saul",
+            "the house of Saul grew weaker and weaker."
+          ]
+        },
+        {
+          "who": "David",
+          "label": "Rising",
+          "refs": [
+            "1 Samuel 16:13",
+            "2 Samuel 3:1"
+          ],
+          "words": [
+            "the Spirit of the LORD rushed upon David",
+            "David grew stronger and stronger"
+          ]
+        }
+      ],
+      "evidence": "Henry: here is Saul falling and David rising. Clarke: God seems to have taken Saul's gifts and given them to David. Keil: the historian sums up the course of the two royal houses as they stood opposed.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Samuel 16:14-23",
+          "quote": "We have here Saul falling and David rising.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Samuel 16:14",
+          "quote": "God seems to have taken what gifts he had, and given them to David; and then the evil spirit came upon Saul",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "2 Samuel 3:1",
+          "quote": "The historian sums up in these words the historical course of the two royal houses, as they stood opposed to one another.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "sarah-and-hagar",
+      "kind": "foil",
+      "strength": "widely agreed",
+      "short": "Sarah and Hagar, from Genesis to Galatians",
+      "about": "Genesis tells of Abraham's two sons, one by a slave woman and one by a free woman. Galatians sets the two women side by side as two covenants.",
+      "sides": [
+        {
+          "who": "Hagar",
+          "label": "The slave woman",
+          "refs": [
+            "Genesis 16:1-4",
+            "Galatians 4:24-25"
+          ],
+          "words": [
+            "an Egyptian maidservant named Hagar",
+            "This is Hagar."
+          ]
+        },
+        {
+          "who": "Sarah",
+          "label": "The free woman",
+          "refs": [
+            "Genesis 21:1-3",
+            "Galatians 4:26-27"
+          ],
+          "words": [
+            "So Sarah conceived and bore a son to Abraham",
+            "But the Jerusalem above is free, and she is our mother."
+          ]
+        }
+      ],
+      "evidence": "Fausset sets the church of the promise, answering to Sarah, against the law, answering to Hagar. Barnes: Paul appeals to two cases to show the difference of two conditions. Clarke: one son by a bond maid, Hagar, the other by a free woman, Sarah.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Galatians 4:27",
+          "quote": "the spiritual Church of the Gospel, the fruit of \"the promise,\" answering to Sarah, who bore not \"after the flesh\": as contrasted with the law, answering to Hagar, who was fruitful in the ordinary course of nature.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Galatians 4:21-31",
+          "quote": "To show the difference of the two conditions, he appeals to two cases which would furnish a striking illustration of them. The one was the case of Hagar and her son.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Galatians 4:22",
+          "quote": "the one; Ishmael, by a bond maid, Hagar; the other, Isaac, by a free woman, Sarah.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "pharisee-and-tax-collector",
+      "kind": "foil",
+      "strength": "widely agreed",
+      "short": "The Pharisee and the tax collector at prayer",
+      "about": "Two men go up to pray. One stands by himself and lists what he does; the other stands at a distance and asks for mercy, and he goes home justified.",
+      "sides": [
+        {
+          "who": "Pharisee",
+          "label": "Stood by himself",
+          "refs": [
+            "Luke 18:11-12"
+          ],
+          "words": [
+            "The Pharisee stood by himself and prayed"
+          ]
+        },
+        {
+          "who": "tax collector",
+          "label": "Stood at a distance",
+          "refs": [
+            "Luke 18:13"
+          ],
+          "words": [
+            "But the tax collector stood at a distance",
+            "God, have mercy on me, a sinner!"
+          ]
+        }
+      ],
+      "evidence": "Henry: the publican's prayer was the reverse of the Pharisee's. Barnes: the prayer of the publican was totally different. Brown, in Jamieson, Fausset and Brown: the Pharisee severs himself from the rest of mankind.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 18:13",
+          "quote": "Here is the publican's address to God, which was the reverse of the Pharisee's, as full of humility and humiliation as his was of pride and ostentation",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 18:13",
+          "quote": "The prayer of the publican was totally different from that of the Pharisee.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 18:11",
+          "quote": "the Pharisee arrogantly severs himself from the rest of mankind, as quite above them, and, with a contemptuous look at the poor publican",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-43-mirror",
+      "kind": "chiasm",
+      "ref": "Genesis 43:3-5",
+      "strength": "some interpreters",
+      "short": "Judah's plea to Jacob turns back on itself",
+      "about": "Judah gives the man's warning, then what will happen if Jacob sends Benjamin, then if he does not, and ends with the warning again, so the warning frames the choice.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Genesis 43:3",
+          "words": "The man solemnly warned us",
+          "tie": "man"
+        },
+        {
+          "mark": "B",
+          "ref": "Genesis 43:4",
+          "words": "If you will send our brother with us",
+          "tie": "send"
+        },
+        {
+          "mark": "B'",
+          "ref": "Genesis 43:5",
+          "words": "But if you will not send him"
+        },
+        {
+          "mark": "A'",
+          "ref": "Genesis 43:5",
+          "words": "for the man told us"
+        }
+      ],
+      "evidence": "Bullinger lays out these verses as an introverted correspondence: Joseph's words at both ends, Jacob's act in the middle, if he sends and if he does not.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 43:3-5",
+          "at": "Introverted Correspondence, p. 374",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/374/mode/1up",
+          "quote": "B Jacob’s act: “If thou wilt send.” … B Jacob’s act: “But if thou wilt not send him.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "leviticus-14-mirror",
+      "kind": "chiasm",
+      "ref": "Leviticus 14:51-52",
+      "strength": "some interpreters",
+      "short": "The cleansing of a house is told forward, then back",
+      "about": "Verse 51 names the cedar wood, the hyssop and the scarlet yarn, the live bird, the blood and the water, and the house; verse 52 names them again in reverse order.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Leviticus 14:51",
+          "words": "the cedar wood, the hyssop, the scarlet yarn,",
+          "tie": "the cedar wood"
+        },
+        {
+          "mark": "B",
+          "ref": "Leviticus 14:51",
+          "words": "and the live bird",
+          "tie": "the live bird"
+        },
+        {
+          "mark": "C",
+          "ref": "Leviticus 14:51",
+          "words": "dip them in the blood of the slaughtered bird and the fresh water",
+          "tie": "the fresh water"
+        },
+        {
+          "mark": "D",
+          "ref": "Leviticus 14:51",
+          "words": "and sprinkle the house seven times",
+          "tie": "the house"
+        },
+        {
+          "mark": "D'",
+          "ref": "Leviticus 14:52",
+          "words": "And he shall cleanse the house"
+        },
+        {
+          "mark": "C'",
+          "ref": "Leviticus 14:52",
+          "words": "with the bird’s blood, the fresh water"
+        },
+        {
+          "mark": "B'",
+          "ref": "Leviticus 14:52",
+          "words": "the live bird,"
+        },
+        {
+          "mark": "A'",
+          "ref": "Leviticus 14:52",
+          "words": "the cedar wood, the hyssop, and the scarlet yarn"
+        }
+      ],
+      "evidence": "Bullinger lays out these two verses as an introverted correspondence of eight members, the sprinkling and the cleansing of the house at the centre.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Leviticus 14:51-52",
+          "at": "Introverted Correspondence, p. 375",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/375/mode/1up",
+          "quote": "D and sprinkle the house seven times: … D And he shall cleanse the house",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "isaiah-9-10-refrain",
+      "kind": "refrain",
+      "ref": "Isaiah 9:8-10:4",
+      "strength": "widely agreed",
+      "short": "Isaiah's warning closes four parts, into chapter 10",
+      "about": "Four times one warning closes a part of the prophecy, and the last time it comes after the chapter break, at Isaiah 10:4.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:12",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised.",
+          "tie": "His anger is not turned away"
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:17",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 9:21",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        },
+        {
+          "mark": "R",
+          "ref": "Isaiah 10:4",
+          "words": "Despite all this, His anger is not turned away; His hand is still upraised."
+        }
+      ],
+      "evidence": "Henry: the burden of that prophecy is repeated at 10:4. Fausset: four strophes, each ending with the formula. Barnes: the words close the second and third strophes, and the fourth is 10:1-4.",
+      "checked": "2026-11-01",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Isaiah 10:4",
+          "quote": "because the burden of that prophecy (for all this his anger is not turned away) is repeated here (Isa 10:4)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Isaiah 9:8",
+          "quote": "There are four strophes, each setting forth Ephraim's crime and consequent punishment, and ending with the formula",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Isaiah 9:21",
+          "quote": "This closes the third strophe or part of the prophecy under consideration. The fourth and last strophe occurs in Isa 10:1-4.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

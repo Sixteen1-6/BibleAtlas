@@ -35,7 +35,7 @@
         "2Tim": "562TIBSB.usfm", "Titus": "57TITBSB.usfm", "Phlm": "58PHMBSB.usfm", "Heb": "59HEBBSB.usfm", "Jas": "60JASBSB.usfm", "1Pet": "611PEBSB.usfm",
         "2Pet": "622PEBSB.usfm", "1John": "631JNBSB.usfm", "2John": "642JNBSB.usfm", "3John": "653JNBSB.usfm", "Jude": "66JUDBSB.usfm", "Rev": "67REVBSB.usfm"
       },
-      "note": "A USFM copy of the BSB published by the usfm-bible project as an example of USFM markup: per its README, a fork of the text as of 26 August 2024 with the licensing unchanged. Only its footnotes and section headings are used; the English the app shows comes from the BSB entry listed separately."
+      "note": "A USFM copy of the BSB published by the usfm-bible project as an example of USFM markup: per its README, a fork of the text as of 26 August 2024 with the licensing unchanged. Only its footnotes, section headings and poetry line marks are used (the lines check that parallel lines in Figures at Deep are the BSB's own lines); the English the app shows comes from the BSB entry listed separately."
     },
     {
       "id": "bsb",
@@ -457,6 +457,32 @@
       "note": "Each note is placed by Henry's own headings (\"Verses 1-9\"); a chapter he treats as a whole covers the whole chapter. Book introductions and chapter outlines are left out. The file's verse ranges are not used, because the extractor guesses them."
     },
     {
+      "id": "henry-complete",
+      "title": "Matthew Henry's Exposition of the Old and New Testament (the complete commentary), from the CrossWire SWORD module (MHC), as kept in the Let's Church repository",
+      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "license": "Public domain (Matthew Henry, 1708 to 1710, and its continuation, which the SWORD module marks public domain); the repository is CC0 1.0",
+      "attribution": "Matthew Henry, An Exposition of the Old and New Testament, and its continuation by other ministers, public domain, from the CrossWire Bible Society's SWORD module MHC (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "mhc": "packages/lets.bible/seed/commentaries/mhc.json"
+      }
+    },
+    {
+      "id": "calvin-commentaries",
+      "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (Calvin), as kept in the Let's Church repository",
+      "provides": "Calvin's commentaries on the books he wrote on. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "license": "Public domain (John Calvin, 16th century, in the Calvin Translation Society's translation from 1844), as the SWORD module marks it; the repository is CC0 1.0",
+      "attribution": "John Calvin, Commentaries, in the Calvin Translation Society's English translation (from 1844), public domain, from the CrossWire Bible Society's SWORD module Calvin (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "homepage": "https://github.com/LetsChurch/lets.church",
+      "repo": "https://github.com/LetsChurch/lets.church",
+      "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
+      "files": {
+        "calvin": "packages/lets.bible/seed/commentaries/calvin.json"
+      }
+    },
+    {
       "id": "wesley-notes",
       "title": "John Wesley's Explanatory Notes on the Whole Bible, from the CrossWire SWORD module (Wesley), as kept in the Let's Church repository",
       "provides": "John Wesley's notes on the verses of the Old and New Testaments. Shown at Deep, under the verse each note is on, once a reader chooses to see writers' notes.",
@@ -486,6 +512,20 @@
         "source": "SOURCE.md"
       },
       "note": "Hugging Face is not reachable from where the data is built, so .github/workflows/mirror-meaning-model.yml copies the files unchanged from revision bf8b056651a2c21b8d2565580b8569da283cab23, checks each against the SHA-256 Hugging Face lists for it, and commits them to the branch mirror/potion-base-8M (SOURCE.md there lists the hashes)."
+    },
+    {
+      "id": "freeman-customs",
+      "title": "James M. Freeman, Hand-Book of Bible Manners and Customs (1874), in Bible Truth Publishers' transcription, as kept in the UniqueBible.app module \"Freeman - Manners and Customs of the Bible\"",
+      "provides": "Freeman's 891 short entries on the customs behind the verses, each under the verse he heads it with. Shown at Study under those verses, as Freeman's own words, once a reader has finished the commentary notice.",
+      "license": "Public domain (James M. Freeman, New York: Nelson and Phillips, 1874); a faithful transcription of a public-domain book adds no copyright",
+      "attribution": "James M. Freeman, Hand-Book of Bible Manners and Customs (New York: Nelson and Phillips, 1874), public domain. Text transcribed by Bible Truth Publishers (bibletruthpublishers.com), as kept in the UniqueBible.app module at github.com/darrelwright/UniqueBible_Books.",
+      "homepage": "https://archive.org/details/handbookofbiblem00free",
+      "repo": "https://github.com/darrelwright/UniqueBible_Books",
+      "commit": "4017a67481e0de6027216bbdf3fc5d42c9c289d5",
+      "files": {
+        "module": "Freeman - Manners and Customs of the Bible.book.zip"
+      },
+      "note": "The module is a zip holding one SQLite file; extra_customs.rs reads both itself. Only Freeman's headings, the King James words he prints under them and his paragraphs are used; the transcriber's closing note on the last entry is left out. An entry is placed only where its heading verse is linked in the module and that verse holds the King James words printed under it. The transcription was not proofread (its own note says so); entry 1 and the 1874 title page were compared with the Library of Congress scan, archive.org/details/handbookofbiblem00free, on 2026-11-01."
     }
   ]
 }

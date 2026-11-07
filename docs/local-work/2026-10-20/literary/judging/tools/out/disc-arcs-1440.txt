@@ -1,0 +1,152 @@
+Literary devices, drawn as arcs
+Bible Atlas mockup · design direction “arcs” · not the live app
+PASSAGE
+Psalm 1
+Psalm 19:1–2
+Isaiah 6:10
+Genesis 6:6
+Hannah and Peninnah
+LEVEL
+Simple
+Study
+Deep
+WIDTH
+Desktop
+Phone
+Both
+PAGE
+Paper
+Night
+
+The level and the page theme are also the app’s own switches in its top bar. Hover a lit word or arc to light its partner. Every link in a card opens the writer’s own page.
+
+Desktop
+Bible Atlas344,799 links · Hebrew, Aramaic and Greek
+Search a verse, phrase or Hebrew/Greek word
+/
+Simple
+Study
+Deep
+BSB
+NET
+Psalm 1
+1
+2
+3
+4
+5
+6
+Psalm 2
+1
+2
+3
+the righteous
+the wicked
+tree
+chaff
+Psalm 1:6
+Two ways, Psalm 1
+3663×ResetClear
+Psalm 1
+Berean Standard Bible
+‹ Prev
+Next ›
+Psalm 1 sets two ways side by side
+›
+1Blessed is the man
+who does not walk in the counsel of the wicked,
+or set foot on the path of sinners,
+or sit in the seat of mockers.89 links ›
+2But his delight is in the Law of the LORD,
+and on His law he meditates day and night.39 links ›
+3He is like a tree planted by streams of water,
+yielding its fruit in season,
+whose leaf does not wither,
+and who prospers in all he does.57 links ›
+4Not so the wicked!
+For they are like chaff driven off by the wind.21 links ›
+5Therefore the wicked will not stand in the judgment,
+nor sinners in the assembly of the righteous.14 links ›
+6For the LORD guards the path of the righteous,
+but the way of the wicked will perish.39 links ›
+Two ways: the righteous and the wicked
+›
+Themes: The way · Righteousness
+›
+
+English: Berean Standard Bible (public domain).
+
+Links
+Themes
+Psalm 1:6
+
+For the LORD guards the path of the righteous, but the way of the wicked will perish.
+
+Linked to 39 passages.
+
+Linked passages, strongest first
+2 Timothy 2:19
+43 votes
+Nevertheless, God’s firm foundation stands, bearing this seal: “The Lord knows those who are His,” and, “Everyone who calls on the name of the Lord must turn away from iniquity.”
+Proverbs 15:9
+33 votes
+The LORD detests the way of the wicked, but He loves those who pursue righteousness.
+John 10:14
+33 votes
+I am the good shepherd. I know My sheep and My sheep know Me,
+Two ways
+
+Psalm 1 · widely agreed
+
+1
+2
+3
+4
+5
+6
+the righteous
+the wicked
+chaff
+
+Psalm 1 sets two ways side by side. The man whose delight is in the Law of the LORD is like a tree planted by streams of water; the wicked are like chaff driven off by the wind. The last verse puts both ways into two lines joined by but.
+
+Widely agreed: named by Matthew Henry, Adam Clarke, Keil and Delitzsch and Spurgeon.
+
+Opposite lines: two lines set against each other in meaning.
+
+As defined in Bullinger’s Figures of Speech (1898), p. 351
+
+The righteous, verses 1–3
+
+He is like a tree planted by streams of water,
+
+The wicked, verses 4–5
+
+Not so the wicked! For they are like chaff driven off by the wind.
+
+Verse 6: both ways
+
+For the LORD guards the path of the righteous,
+but the way of the wicked will perish.
+
+See the Hebrew and every note, at Study ›
+Psalm 1 at Simple
+The map zooms to Psalm 1, one verse at a time. One long arc joins the psalm’s two halves; a short arc joins the tree (1:3) and the chaff (1:4); a small arc inside verse 6 joins its two lines.
+Four writers state the two ways (widely agreed), so it shows at Simple, in plain words with no term. Their names are on the card at every level, each linked to his own page on Psalm 1.
+What “opposite lines” means is credited too: Bullinger’s definition, with the page of his 1898 book it is on.
+The verses stand in the BSB’s own poetry lines. The lines make no claim and need no writer.
+The arc grammar
+Same idea, said twice: arcs of one span, side by side (A B C, A′ B′ C′).
+Mirror: nested arcs, outer pair first, the turn in the middle (A B C, C′ B′ A′).
+Taking turns: crossing arcs (A B A′ B′). Whole-psalm outlines show only at Deep, faintly.
+Building up: a stair of rising marks inside the verse.
+Set side by side: an ember arc between two people’s verses.
+A lens rises from the map when a form sits inside one or two verses.
+Where everything here comes from
+Scripture: the BSB words the app shows (scrollmapper/bible_databases @ e1b254cef8), set in the BSB’s own poetry lines from the pinned USFM (usfm-bible/examples.bsb @ 48a9feb71f). Every line rejoins to the exact verse.
+Hebrew: the app’s own live text files (build 7bd9f13db417), from STEPBible TAHOT.
+Map: OpenBible.info cross-references from the same pinned copy (341,385 positive links, the count the live map shows), drawn with the app’s arc formula from gl/layout.ts. Link counts per verse are computed the way the app counts them.
+Writers: every quotation is checked against that writer’s own text by mock-arcs-tools/vq.py: Henry, Gill, Calvin, Clarke, Jamieson-Fausset-Brown, Keil and Delitzsch and Spurgeon from public-domain research copies; Wesley and Henry’s Concise from lets.church @ 71f6f0f, already pinned; Benson from his Bible Hub page; De Laune from Tropologia (TCP A37483 @ e290ad3, CC0).
+Bullinger: every quotation is in the e-text and its page is read from the 1898 Princeton scan (archive.org figuresofspeechu00bull), using the scan’s own page index; the Companion Bible notes from its archive.org OCR.
+Credit goes to the original sources only. Each claim names the writers it rests on, and no card carries a drafting note (the founder’s decision of 20 October 2026). Strength is the number of writers who state the point.
+Repository read at origin/main b6d7f1e (PR #49 added handoff documents only since 75f6edc). Nothing here exists in the app yet.

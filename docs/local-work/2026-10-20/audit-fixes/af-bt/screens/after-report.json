@@ -1,0 +1,525 @@
+{
+ "label": "after",
+ "runs": [
+  {
+   "width": 1440,
+   "height": 900,
+   "theme": "light",
+   "shots": [
+    "af-bt\\out\\after-1440-light-Gen1-wordbyword.png",
+    "af-bt\\out\\after-1440-light-Gen1-notes.png",
+    "af-bt\\out\\after-1440-light-Gen1-credits-BSB.png",
+    "af-bt\\out\\after-1440-light-Gen1-credits-NET.png",
+    "af-bt\\out\\after-1440-light-John3-wordbyword.png",
+    "af-bt\\out\\after-1440-light-John3-notes.png",
+    "af-bt\\out\\after-1440-light-John3-credits-BSB.png",
+    "af-bt\\out\\after-1440-light-John3-credits-NET.png",
+    "af-bt\\out\\after-1440-light-card-BereanStandardBible.png",
+    "af-bt\\out\\after-1440-light-card-TAHOT.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "Preposition + Noun (Singular Feminine, Absolute)"
+     ],
+     [
+      "בָּרָ֣א",
+      "Verb: Qal (Simple, Active) Perfect (Past/present Indicative) Third Singular Masculine"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "אֵ֥ת",
+      "Object indicator"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "Definite article (Hebrew) + Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "וְאֵ֥ת",
+      "Conjunction + Object indicator"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "Verb Imperfect Active Indicative 3rd Singular"
+     ],
+     [
+      "δὲ",
+      "Conjunction"
+     ],
+     [
+      "ἄνθρωπος",
+      "Noun Nominative Singular Masculine"
+     ],
+     [
+      "ἐκ",
+      "Preposition"
+     ],
+     [
+      "τῶν",
+      "Definite article Genitive Plural Masculine"
+     ],
+     [
+      "Φαρισαίων,",
+      "Noun Genitive Plural Masculine Title"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object. Point to a word for its grammar, from STEPBible’s key.",
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object. Point to a word for its grammar, from STEPBible’s key."
+    ],
+    "John-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate. Point to a word for its grammar, from STEPBible’s key.",
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "John-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate. Point to a word for its grammar, from STEPBible’s key."
+    ],
+    "card-Berean Standard Bible": {
+     "hash": "#r=Gen.1&tab=sources&src=bsb",
+     "work": "bsb",
+     "opened": "English Bible, 2016\nBerean Standard Bible (BSB)\n›\n\nA modern English translation from the Hebrew, Aramaic and Greek. It is the English the app opens in, with its own footnotes and section headings.\n\nBy"
+    },
+    "card-TAHOT": {
+     "hash": "#r=Gen.1&tab=sources&src=tahot",
+     "work": "tahot",
+     "opened": "Hebrew Old Testament, word by word\nTranslators Amalgamated Hebrew OT (TAHOT)\n›\n\nEvery Hebrew and Aramaic word of the Old Testament, from the Leningrad Codex, with its root, its grammar and an English "
+    }
+   },
+   "errors": []
+  },
+  {
+   "width": 1440,
+   "height": 900,
+   "theme": "dark",
+   "shots": [
+    "af-bt\\out\\after-1440-dark-Gen1-wordbyword.png",
+    "af-bt\\out\\after-1440-dark-Gen1-notes.png",
+    "af-bt\\out\\after-1440-dark-Gen1-credits-BSB.png",
+    "af-bt\\out\\after-1440-dark-Gen1-credits-NET.png",
+    "af-bt\\out\\after-1440-dark-John3-wordbyword.png",
+    "af-bt\\out\\after-1440-dark-John3-notes.png",
+    "af-bt\\out\\after-1440-dark-John3-credits-BSB.png",
+    "af-bt\\out\\after-1440-dark-John3-credits-NET.png",
+    "af-bt\\out\\after-1440-dark-card-BereanStandardBible.png",
+    "af-bt\\out\\after-1440-dark-card-TAHOT.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "Preposition + Noun (Singular Feminine, Absolute)"
+     ],
+     [
+      "בָּרָ֣א",
+      "Verb: Qal (Simple, Active) Perfect (Past/present Indicative) Third Singular Masculine"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "אֵ֥ת",
+      "Object indicator"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "Definite article (Hebrew) + Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "וְאֵ֥ת",
+      "Conjunction + Object indicator"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "Verb Imperfect Active Indicative 3rd Singular"
+     ],
+     [
+      "δὲ",
+      "Conjunction"
+     ],
+     [
+      "ἄνθρωπος",
+      "Noun Nominative Singular Masculine"
+     ],
+     [
+      "ἐκ",
+      "Preposition"
+     ],
+     [
+      "τῶν",
+      "Definite article Genitive Plural Masculine"
+     ],
+     [
+      "Φαρισαίων,",
+      "Noun Genitive Plural Masculine Title"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object. Point to a word for its grammar, from STEPBible’s key.",
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object. Point to a word for its grammar, from STEPBible’s key."
+    ],
+    "John-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate. Point to a word for its grammar, from STEPBible’s key.",
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "John-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate. Point to a word for its grammar, from STEPBible’s key."
+    ],
+    "card-Berean Standard Bible": {
+     "hash": "#r=Gen.1&tab=sources&src=bsb",
+     "work": "bsb",
+     "opened": "English Bible, 2016\nBerean Standard Bible (BSB)\n›\n\nA modern English translation from the Hebrew, Aramaic and Greek. It is the English the app opens in, with its own footnotes and section headings.\n\nBy"
+    },
+    "card-TAHOT": {
+     "hash": "#r=Gen.1&tab=sources&src=tahot",
+     "work": "tahot",
+     "opened": "Hebrew Old Testament, word by word\nTranslators Amalgamated Hebrew OT (TAHOT)\n›\n\nEvery Hebrew and Aramaic word of the Old Testament, from the Leningrad Codex, with its root, its grammar and an English "
+    }
+   },
+   "errors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "theme": "light",
+   "shots": [
+    "af-bt\\out\\after-390-light-Gen1-wordbyword.png",
+    "af-bt\\out\\after-390-light-Gen1-notes.png",
+    "af-bt\\out\\after-390-light-Gen1-credits-BSB.png",
+    "af-bt\\out\\after-390-light-Gen1-credits-NET.png",
+    "af-bt\\out\\after-390-light-John3-wordbyword.png",
+    "af-bt\\out\\after-390-light-John3-notes.png",
+    "af-bt\\out\\after-390-light-John3-credits-BSB.png",
+    "af-bt\\out\\after-390-light-John3-credits-NET.png",
+    "af-bt\\out\\after-390-light-card-BereanStandardBible.png",
+    "af-bt\\out\\after-390-light-card-TAHOT.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "Preposition + Noun (Singular Feminine, Absolute)"
+     ],
+     [
+      "בָּרָ֣א",
+      "Verb: Qal (Simple, Active) Perfect (Past/present Indicative) Third Singular Masculine"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "אֵ֥ת",
+      "Object indicator"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "Definite article (Hebrew) + Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "וְאֵ֥ת",
+      "Conjunction + Object indicator"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "Verb Imperfect Active Indicative 3rd Singular"
+     ],
+     [
+      "δὲ",
+      "Conjunction"
+     ],
+     [
+      "ἄνθρωπος",
+      "Noun Nominative Singular Masculine"
+     ],
+     [
+      "ἐκ",
+      "Preposition"
+     ],
+     [
+      "τῶν",
+      "Definite article Genitive Plural Masculine"
+     ],
+     [
+      "Φαρισαίων,",
+      "Noun Genitive Plural Masculine Title"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object.",
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object."
+    ],
+    "John-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate.",
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "John-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate."
+    ],
+    "card-Berean Standard Bible": {
+     "hash": "#r=Gen.1&tab=sources&src=bsb",
+     "work": "bsb",
+     "opened": "English Bible, 2016\nBerean Standard Bible (BSB)\n›\n\nA modern English translation from the Hebrew, Aramaic and Greek. It is the English the app opens in, with its own footnotes and section headings.\n\nBy"
+    },
+    "card-TAHOT": {
+     "hash": "#r=Gen.1&tab=sources&src=tahot",
+     "work": "tahot",
+     "opened": "Hebrew Old Testament, word by word\nTranslators Amalgamated Hebrew OT (TAHOT)\n›\n\nEvery Hebrew and Aramaic word of the Old Testament, from the Leningrad Codex, with its root, its grammar and an English "
+    }
+   },
+   "errors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "theme": "dark",
+   "shots": [
+    "af-bt\\out\\after-390-dark-Gen1-wordbyword.png",
+    "af-bt\\out\\after-390-dark-Gen1-notes.png",
+    "af-bt\\out\\after-390-dark-Gen1-credits-BSB.png",
+    "af-bt\\out\\after-390-dark-Gen1-credits-NET.png",
+    "af-bt\\out\\after-390-dark-John3-wordbyword.png",
+    "af-bt\\out\\after-390-dark-John3-notes.png",
+    "af-bt\\out\\after-390-dark-John3-credits-BSB.png",
+    "af-bt\\out\\after-390-dark-John3-credits-NET.png",
+    "af-bt\\out\\after-390-dark-card-BereanStandardBible.png",
+    "af-bt\\out\\after-390-dark-card-TAHOT.png"
+   ],
+   "tips": {
+    "Gen": [
+     [
+      "בְּרֵאשִׁ֖ית",
+      "Preposition + Noun (Singular Feminine, Absolute)"
+     ],
+     [
+      "בָּרָ֣א",
+      "Verb: Qal (Simple, Active) Perfect (Past/present Indicative) Third Singular Masculine"
+     ],
+     [
+      "אֱלֹהִ֑ים",
+      "Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "אֵ֥ת",
+      "Object indicator"
+     ],
+     [
+      "הַשָּׁמַ֖יִם",
+      "Definite article (Hebrew) + Noun (Plural Masculine, Absolute)"
+     ],
+     [
+      "וְאֵ֥ת",
+      "Conjunction + Object indicator"
+     ]
+    ],
+    "John": [
+     [
+      "Ἦν",
+      "Verb Imperfect Active Indicative 3rd Singular"
+     ],
+     [
+      "δὲ",
+      "Conjunction"
+     ],
+     [
+      "ἄνθρωπος",
+      "Noun Nominative Singular Masculine"
+     ],
+     [
+      "ἐκ",
+      "Preposition"
+     ],
+     [
+      "τῶν",
+      "Definite article Genitive Plural Masculine"
+     ],
+     [
+      "Φαρισαίων,",
+      "Noun Genitive Plural Masculine Title"
+     ]
+    ]
+   },
+   "texts": {
+    "Gen-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object.",
+     "Matching colors show which English words came from which Hebrew word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "Gen-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (TAHOT, CC BY 4.0).",
+    "Gen-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "Gen-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026). [ ] words added for sense; < > a word English does not translate, such as <obj.>, the Hebrew sign of the object."
+    ],
+    "John-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate.",
+     "Matching colors show which English words came from which Greek word. Gray words have no partner: the translator added them, left the original word untranslated, or the alignment was made for an older wording of the BSB and is left out. Tap a word to follow it. Links made by hand by the Berean Bible team (Greek) and BiblioNexus (Hebrew), published by Clear Bible / Biblica (CC BY 4.0). Version of 11 May 2026, read 8 Oct 2026. The 18,945 links the app could not place are left out."
+    ],
+    "John-BSB-foot": "English: Berean Standard Bible, by the Berean Bible Translation Committee (2016; public domain since 2023). Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-foot": "English: NET Bible (NET). Scripture quoted by permission. Quotations designated (NET) are from the NET Bible® copyright ©1996, 2019 by Biblical Studies Press, L.L.C. http://netbible.com All rights reserved. Read live from labs.bible.org. Greek: all the major printed editions, tagged by STEPBible (TAGNT, CC BY 4.0).",
+    "John-NET-links": [
+     [
+      "NET",
+      "https://netbible.org"
+     ],
+     [
+      "http://netbible.com",
+      "https://netbible.com/"
+     ],
+     [
+      "labs.bible.org",
+      "https://labs.bible.org/"
+     ]
+    ],
+    "John-NET-notes": [
+     "Word for word: STEPBible’s English for each word (Tyndale House, version of 5 Oct 2026), based on the Berean Study Bible as it stood in July 2019. [ ] words added for sense; < > a word English does not translate."
+    ],
+    "card-Berean Standard Bible": {
+     "hash": "#r=Gen.1&tab=sources&src=bsb",
+     "work": "bsb",
+     "opened": "English Bible, 2016\nBerean Standard Bible (BSB)\n›\n\nA modern English translation from the Hebrew, Aramaic and Greek. It is the English the app opens in, with its own footnotes and section headings.\n\nBy"
+    },
+    "card-TAHOT": {
+     "hash": "#r=Gen.1&tab=sources&src=tahot",
+     "work": "tahot",
+     "opened": "Hebrew Old Testament, word by word\nTranslators Amalgamated Hebrew OT (TAHOT)\n›\n\nEvery Hebrew and Aramaic word of the Old Testament, from the Leningrad Codex, with its root, its grammar and an English "
+    }
+   },
+   "errors": []
+  }
+ ]
+}
