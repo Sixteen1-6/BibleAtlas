@@ -169,10 +169,10 @@ export function Reader({ a }: { a: Atlas }) {
         </h1>
         <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${tr}` : VERSION_LONG[tr]}</span>
         <div class="nav">
-          <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter">
+          <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter" title="Previous chapter. The J and K keys step through the verses.">
             ‹ Prev
           </button>
-          <button class="btn" onClick={() => go(1)} aria-label="Next chapter">
+          <button class="btn" onClick={() => go(1)} aria-label="Next chapter" title="Next chapter. The J and K keys step through the verses.">
             Next ›
           </button>
         </div>
