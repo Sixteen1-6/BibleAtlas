@@ -25,6 +25,7 @@ mod extra_real_map;
 mod family;
 mod fetch;
 mod layers;
+mod layers_index;
 mod extra_notes;
 mod extra_voices;
 mod lexhtml;
