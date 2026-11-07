@@ -244,7 +244,8 @@ impl Check<'_> {
         Some(json!({
             "id": c.id, "v": v, "end": end, "also": also, "question": c.question, "answer": c.answer, "views": views,
             "helps": helps, "read_more": links, "evidence": c.evidence, "source": c.source,
-            "reviewed_by": c.reviewed_by, "draft": c.reviewed_by.is_empty(),
+            // Who approved a card stays in the config: the page never says it.
+            "draft": c.reviewed_by.is_empty(),
         }))
     }
 }

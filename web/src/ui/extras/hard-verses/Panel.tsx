@@ -3,9 +3,9 @@
 // Simple: the question, a plain answer in two or three sentences, and the
 //   verses it is about, side by side.
 // Study: the main ways Christians explain it, each with how widely it is held
-//   and its verses, and the passages that help.
-// Deep: what the answer rests on, where to read more, and a way to suggest a
-//   correction.
+//   and its verses, the passages that help, and the pages on other websites
+//   that answer it.
+// Deep: what the answer rests on and a way to suggest a correction.
 
 import { type Atlas } from '../../../data/atlas';
 import { GoDeeper } from '../../Depth';
@@ -85,29 +85,28 @@ function CardView({ a, c, verse, navigate }: { a: Atlas; c: Card; verse: VerseRe
           <Refs a={a} spans={c.helps} navigate={navigate} />
         </>
       )}
+      {study && c.read_more.length > 0 && (
+        <>
+          <h4 class="x-hard-verses-h">Read more</h4>
+          <ul class="x-hard-verses-links">
+            {c.read_more.map((l) => (
+              <li key={l.url}>
+                <a href={l.url} target="_blank" rel="noopener noreferrer">
+                  {l.title}
+                </a>{' '}
+                <span class="x-hard-verses-site">
+                  <CitedSource a={a} text={l.site} />
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       {deep && (
         <div class="x-hard-verses-deep">
           {c.evidence && <p>Behind this answer: {smart(c.evidence.replace(/\.\s*$/, ''))}.</p>}
-          {c.read_more.length > 0 && (
-            <>
-              <h4 class="x-hard-verses-h">Read more</h4>
-              <ul class="x-hard-verses-links">
-                {c.read_more.map((l) => (
-                  <li key={l.url}>
-                    <a href={l.url} target="_blank" rel="noopener noreferrer">
-                      {l.title}
-                    </a>{' '}
-                    <span class="x-hard-verses-site">
-                      <CitedSource a={a} text={l.site} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
           <p class="x-hard-verses-meta">
-            {c.source}
-            {c.reviewed_by.length > 0 && ` Reviewed by ${c.reviewed_by.join(', ')}.`}{' '}
+            {c.source}{' '}
             <a href={issueLink(a, c)} target="_blank" rel="noopener">
               Suggest a correction
             </a>
@@ -131,7 +130,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       ))}
       <GoDeeper to="study">How Christians explain it</GoDeeper>
       <CommentaryFoot />
-      <SourceNote>Answers written for this app from the Bible (BSB), and reviewed by a person before they are shown.</SourceNote>
+      <SourceNote>Answers written for this app from the Bible (BSB), with pages on other websites to read more.</SourceNote>
     </>
   );
 }
