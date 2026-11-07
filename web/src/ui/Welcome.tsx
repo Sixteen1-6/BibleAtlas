@@ -1,5 +1,8 @@
-// First-visit card above the reader: what an arc is, and three places to start.
+// First-visit card above the reader: what an arc is, three places to start,
+// and the guided tours (data/tours.ts), fetched only when asked for.
 
+import { useState } from 'preact/hooks';
+import { type Tour, loadTours, startTour } from '../data/tours';
 import * as S from '../state';
 
 const STARTERS: { title: string; ref: string; why: string }[] = [
@@ -13,6 +16,39 @@ export async function openStarter(ref: string): Promise<void> {
   if (!r) return;
   S.selectVerse(r[0]);
   S.mobilePane.value = 'study';
+}
+
+/** "Take a guided tour", then the tours' names once they arrive. */
+function Tours() {
+  const [tours, setTours] = useState<Tour[] | 'loading' | 'failed' | null>(null);
+  const open = () => {
+    const a = S.atlas.peek();
+    if (!a) return;
+    setTours('loading');
+    loadTours(a).then(setTours, () => setTours('failed'));
+  };
+  if (tours === null || tours === 'failed')
+    return (
+      <p class="tours">
+        <button class="linkbtn" onClick={open}>
+          {tours === 'failed' ? 'The tours could not be loaded just now. Try again' : 'Or take a guided tour ›'}
+        </button>
+      </p>
+    );
+  if (tours === 'loading') return <p class="tours muted">Loading the tours…</p>;
+  return (
+    <p class="tours">
+      <span class="muted">Guided tours: </span>
+      {tours.map((t, i) => (
+        <span key={t.id}>
+          {i > 0 && ' · '}
+          <button class="linkbtn" onClick={() => startTour(t)}>
+            {t.title}
+          </button>
+        </span>
+      ))}
+    </p>
+  );
 }
 
 export function Welcome() {
@@ -32,6 +68,7 @@ export function Welcome() {
           </button>
         ))}
       </div>
+      <Tours />
       <button class="btn dismiss" onClick={() => (S.welcome.value = 'hidden')}>
         Got it
       </button>

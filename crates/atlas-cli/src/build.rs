@@ -390,6 +390,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "atlas.bin", &bin, &mut files)?;
     for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_people::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::tours::build(root, &vz, &graph)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_peshitta::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_translations::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
 

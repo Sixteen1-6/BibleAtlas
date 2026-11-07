@@ -20,6 +20,7 @@ mod extra_aramaic;
 mod extra_dictionary;
 mod extra_parallels;
 mod extra_people;
+mod tours;
 mod extra_peshitta;
 mod extra_quotes;
 mod extra_real_map;

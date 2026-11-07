@@ -130,6 +130,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     }
     for (ok, what) in crate::extra_real_map::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_people::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::tours::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_peshitta::verify(&d)? { r.check(ok, what); }
     // Split points where NRSV and KJV numbering differ: the Greek must sit
     // under the English verse that translates it.
