@@ -84,7 +84,7 @@ const TOOLS = `Tools (run with python3 -I; never download, clone or install anyt
 
 const show = (k) => `python3 -I -c "import json; g = json.load(open('${FILE}'))[${k}]; print(g['key'], g['form']); print(json.dumps({'notes': g['notes']}, ensure_ascii=False, indent=1))"`
 const ks = args.only
-const keyOf = (k) => `n12rv-${k}`
+const keyOf = (k) => `${args.tag || 'n12rv'}-${k}`
 
 const res = await pipeline(
   ks,
