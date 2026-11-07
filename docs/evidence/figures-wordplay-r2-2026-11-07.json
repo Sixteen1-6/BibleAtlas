@@ -1,0 +1,685 @@
+{
+  "kind": "figure-quotes",
+  "_comment": [
+    "Where each quotation in the Wordplay thread's parallelism and figure notes from Lowth, Jebb, Boys and Forbes (round 2, mined 2026-11-01 and 2026-11-07, reviewed 2026-11-07) was found, and the new cites on two live notes. Records as in figures-2026-10-21.json.",
+    "found_in is the public-domain copy the words were read in, pinned to a commit, or the web page a checking reader fetched that day.",
+    "For the scans (Lowth, Jebb, Boys, Forbes) found_in is archive.org's page text of the leaf the words are on (BookReaderGetTextWrapper, page = leaf index), as a checking reader fetched it on the day in retrieved; also_in is the next leaf when a quotation runs over the page. Each part of a quotation was matched against that text: exact, or letters (the OCR's long s and a few misread letters, never a missing word), or runs (every word inside a run of four or more that a fetch of that scan returned). context is the page text around the first part, lowercased with punctuation dropped, OCR spelling kept."
+  ],
+  "checked": [
+    {
+      "note": "john-5-20-mirror",
+      "field": "cites",
+      "source": "forbes",
+      "on": "John 5:20-23",
+      "quote": "The two distichs of v. 20 correspond to the two distichs of v. 23 respectively ... while the two central verses, 21 and 22, mutually correspond.",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=88",
+      "context": "the two distichs of v the ocr splits it into two pieces the two distichs of v correspond to the two distichs of v respectively a to a and b to while the two central verses and mutually correspond the ocr also shows a superscript after correspond which is a foo",
+      "match": "exact"
+    },
+    {
+      "note": "psalm-89-38-mirror",
+      "field": "cites",
+      "source": "forbes",
+      "on": "Psalm 89:38-45",
+      "quote": "To God's seeming rejection of his Anointed in v. 38 corresponds the shame which he casts upon him in v. 45 ... In ver. 39 and 44, his throne and crown are represented as having been profaned and cast down to the earth. In ver. 40 and 43, his defences fail him, and in ver. 41 and 42, his neighbours and enemies triumph over him.",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=56",
+      "context": "the sentence in pieces to gods seeming rejection of his anointed in v corresponds the shame which he casts upon him in v and as in psalm xc with which psalm the one before us has many points in common the shortening of the",
+      "match": "exact"
+    },
+    {
+      "note": "psalm-25-20-mirror",
+      "field": "cites",
+      "source": "forbes",
+      "on": "Psalm 25:20-22",
+      "quote": "a quatrain (ver. 20, 21, 22) arranged as an introverted parallelism of four members. ... Here a and a are simple petitions, while b and b are bi-membral lines, consisting each of a petition and its plea.",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=117",
+      "context": "the parallelism alone form six lines consisting of a couplet v and a quatrain ver arranged as an introverted parallelism of four members here a and a are simple petitions while b and b are bimembral lines consisting each of a petition and its plea thus perfect",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-50-1-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Isaiah 50:1",
+      "quote": "Here the two central members relate to selling into bondage, and the two extreme ones to divorcement. The two topics are propounded in a. and b., and taken up, in an inverted order, in b. and a.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=42",
+      "context": "we have already seen comprises the whole of the israelites address to joshua here the two central members relate to selling into bondage and the two extreme ones to divorcement the two topics are propounded in a and b and taken up in an inverted order in atid ",
+      "match": "exact"
+    },
+    {
+      "note": "joel-2-30-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Joel 2:30-31",
+      "quote": "I suspect the same distinct resumption of separate topics in the prophet Joel. ... The changes in the sun and moon, spoken of in a., seem to be the wonders in the heavens, predicted in a.; ... in b., the wonders in the earth, predicted in b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=44",
+      "context": "whole of referring to the other topic which appears in b sentence i suspect the same distinct resumption of separate topics in the prophet joel sentence the changes in the sun and moon spoken of in a seem to be the wonders in the heavens predicted in a the blo",
+      "match": "exact"
+    },
+    {
+      "note": "2-samuel-3-1-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "2 Samuel 3:1",
+      "quote": "Saul in a. and a.; David in b. and b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=46",
+      "context": "running head introduction page number authors prose in order 9am hi saul in a and a david in b and b the next passage is much longer but it partakes of the same character v islvi3 here we have the sons of the stranger in a and a the eunuchs in",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-56-3-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Isaiah 56:3-7",
+      "quote": "Here we have the sons of the stranger, in a. and a.; the eunuchs in b. and b. … Two kinds of persons are set before us in a. and b.; the son of the stranger in a., the eunuch in b. Reading on, we find a promise first given to the latter",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=46",
+      "context": "next passage is much longer but it partakes of the same character here we have the sons of the stranger in a and a the eunuchs in b and b the leading terms sufficiently mark the arrangement here we may make the same remark as on a former occasion two kinds of",
+      "match": "exact"
+    },
+    {
+      "note": "1-kings-16-22-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "1 Kings 16:22",
+      "quote": "In other cases, again, we do not find the arrangement turning upon two kinds or classes of persons, but upon two individuals … Omri in a. and a.; Tibni in b. and b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=47",
+      "context": "b and the promise in a verse to the complaint in a in other cases again we do not find the arrangement turning upon two kinds or classes of persons but upon two individuals in tactica sacra i have given a passage of a very similar character here we have only p",
+      "match": "exact"
+    },
+    {
+      "note": "1-samuel-25-3-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "1 Samuel 25:3",
+      "quote": "Nabal in a. and a.; Abigail in b. and b. (Here we have only part of a longer arrangement.)",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=47",
+      "context": "omri in a and a tibni in b and verse lines sam xxv nabal in a and a abigail in b and here we have only part of a longer arrangement in tactica sacra i have given a passage of a very similar character verse lines gen iv",
+      "match": "exact"
+    },
+    {
+      "note": "zechariah-9-5-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Zechariah 9:5",
+      "quote": "The instances of introverted arrangement which have hitherto been given in the present work, consist of no more than four members each. There are, however, similar ones of six members, or more. … Here we have Ashkelon in a. and a., Gaza in b. and b., Ekron in c. and c.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=48",
+      "context": "pne in each of the the authors own prose word for word the instances of introverted arrangement which have hitherto been given in the present work consist of no more than four members each there are however similar ones of six members or more take for instance",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-60-1-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Isaiah 60:1-3",
+      "quote": "In a. and a., the rising of the Church; in b. and b., its light; in c. and c., the glory of the Lord; in d. and d., the spiritual darkness of mankind. … these introverted forms. Here we have the most evident traces of art, contrivance, and design.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=52",
+      "context": "for word scriptural quotations from leviticus and the marginal lettering are excluded in a and a the rising of the church in b and a its light m c and c the glory of the lord in d and d the spiritual darkness of mankind i add the following example though it",
+      "match": "exact"
+    },
+    {
+      "note": "joshua-24-9-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Joshua 24:9-10",
+      "quote": "The person, however, out of whose hand the Lord, in a., says he delivered the Israelites, is not Balaam, but Balak, mentioned in a. … Thus a. and a. refer to Balak; b. and b. to Balaam.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=54",
+      "context": "in a the authors own prose in pieces of characters or fewer the person however out of whose hand the lord in a says he delivered the israelites is not balaam but balak mentioned in a so i delivered you out of his hand that is says poole from balaams malicious ",
+      "match": "exact"
+    },
+    {
+      "note": "judges-2-2-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Judges 2:2",
+      "quote": "In a. we have a thing forbidden … in b. a thing commanded … The guilt of the Israelites, in each particular, appears, in b. and a. They had done that which was forbidden … They had left undone that which was commanded … Thus a. answers to a., and b. to b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=54",
+      "context": "thus a and a refer to balak b and b to balaam in a we have a thing forbidden ye shall make no league in b a thing commanded ye shall throw down their altars the guilt of the israelites in each particular appears thy had done that which was forbidden why",
+      "match": "exact+letters (long s and OCR letters allowed)"
+    },
+    {
+      "note": "obadiah-1-1-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Obadiah 1:1-2",
+      "quote": "The embassage … referred to in b., appears in b. … On the contrary, in a., the last member, we have no longer the words of the ambassador, but of the Lord … a. then answers to a., as well as b. to b. … In b. we have the words of the ambassador, who is mentioned in b.; in a. the words of the Lord, who is mentioned in a.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=54",
+      "context": "up a i m behold i have made thee i despised obadiah the embassage sent among the heathen appears in b arise ye and let us battle a general message or summons to the nations to go to battle against edom the last member we have no longer the dor but of",
+      "match": "exact"
+    },
+    {
+      "note": "exodus-17-7-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Exodus 17:7",
+      "quote": "The place was called Massah … because of their tempting the Lord … and Meribah … because of their chiding … Thus, in order to discover the sense of the passage, it is necessary to observe the correspondence of a. and a., and also that of b. and b. Thus an attention to the arrangement of a passage will often help us to discover its sense or purport.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=55",
+      "context": "of the chiding of a and became they tempted the ex xvii the place was called massah wft ing the lord ofim and meribah md chiding 3h thus in order to discover passage it is necessary to observe the a and also that of b and b thus an attention to the",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-59-5-turns",
+      "field": "cites",
+      "source": "boys",
+      "on": "Isaiah 59:5-6",
+      "quote": "In a. and a., the eggs; in b. and b., the web. The reference to the eggs in a. is kept up in the latter part of a., which speaks of crushing them; and the reference to the web in b., in the latter part of b., which speaks of a covering.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=22",
+      "context": "prose in page order indented bible lines omitted scripture heading js liz in a and a the eggs in b and by ihe web the reference to the eggs in a is kept up in the latter part of a which speaks of crushing them and the reference to the web in",
+      "match": "letters (long s and OCR letters allowed)"
+    },
+    {
+      "note": "isaiah-32-5-turns",
+      "field": "cites",
+      "source": "boys",
+      "on": "Isaiah 32:5-7",
+      "quote": "In a. and a., the vile person; in b. and b., the churl. … and then taken up, in the same order as proposed, in a. and b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=22",
+      "context": "of a similar character but of greater length scripture heading is xxxii in a and a the vile person in b and by the churl in a the prophet assures us that the true character of the vile person shall no longer remain concealed and in b the corresponding member t",
+      "match": "exact"
+    },
+    {
+      "note": "joshua-9-22-turns",
+      "field": "cites",
+      "source": "boys",
+      "on": "Joshua 9:22-25",
+      "quote": "In a. and b. we have the speech of Joshua; in a. and b., the reply of the Gibeonites. The point now to be established is, that the part of the reply in a. answers to the part of the speech in a.; and the part in b., to the part in b. … The Gibeonites reply to the question in a., and express submission to the sentence in b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=24",
+      "context": "their character becomes less obvious at first sight and requires more explanation in a and b we have the speech of joshua in a and ft the reply of the gibeonites the point now to be established is that the part of the reply in a answers to the part of the",
+      "match": "exact"
+    },
+    {
+      "note": "jeremiah-17-5-turns",
+      "field": "cites",
+      "source": "boys",
+      "on": "Jeremiah 17:5-8",
+      "quote": "Here we have a curse and a blessing in A. and A.; and a confirmation, or reason for each, in B. and B. … The leading terms very distinctly mark out for us the arrangement of the passage.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=28",
+      "context": "of a passage can be expected to preserve them unimpaired in a translation here we have a curse and a blessing in a and a and a confirmation or reason for each in b and j3 our translators have rendered the beginning of a pvw whichever way we take it we ought",
+      "match": "exact"
+    },
+    {
+      "note": "psalm-69-14-turns",
+      "field": "cites",
+      "source": "boys",
+      "on": "Psalm 69:14-15",
+      "quote": "Here a. and a. are positive; b. and b., negative. That is, we have prayer for deliverance in a. and a. … and deprecation in b. and b. … Thus a. answers to a., and b. to b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=71",
+      "context": "and b are similar especially in the hebrew ttop mm t tttv here a and a are positive b and b negative that is we have prayer for deliverance in a and a deliver me c a let me be delivered c a and deprecation in b and b let me not",
+      "match": "exact+letters (long s and OCR letters allowed)"
+    },
+    {
+      "note": "genesis-4-1-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Genesis 4:1-5",
+      "quote": "In each of the above instances, we have Cain in the extreme, and Abel in the central members.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=13",
+      "context": "beginning in each of the above instances and the sentence after it in each of the above instances we have cain in the extreme and abel in the central members the two last lines form an introverted parallelism by themselves genesis iii layout man woman serpent ",
+      "match": "exact"
+    },
+    {
+      "note": "genesis-4-3-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Genesis 4:1-5",
+      "quote": "In each of the above instances, we have Cain in the extreme, and Abel in the central members.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=13",
+      "context": "beginning in each of the above instances and the sentence after it in each of the above instances we have cain in the extreme and abel in the central members the two last lines form an introverted parallelism by themselves genesis iii layout man woman serpent ",
+      "match": "exact"
+    },
+    {
+      "note": "matthew-3-10-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Matthew 3:10-12",
+      "quote": "Here, in a., the Lord is referred to under the similitude of a hewer of trees; and in a., under that of a winnower of corn … In c. and c., we have our Lord's superiority to John: in b. and b., the superiority of our Lord's baptism to John's.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=10",
+      "context": "page number sentences after matthew iii through our lords baptism to johns here in a the lord is referred to under the similitude of a hewer of trees and in a under that of a winnower of corn in a we have the axe the instrument of the hewer in a the",
+      "match": "exact"
+    },
+    {
+      "note": "matthew-13-54-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Matthew 13:54-58",
+      "quote": "Here, in D., we have the father and mother of Christ; in D., his brethren and sisters: … In C. and C., we have the corresponding inquiries, … in B., the people “astonished” at Jesus; in B., “offended in him.” In A. and A., the extreme members, the correspondence is two-fold, as it is in the central ones",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=10",
+      "context": "matthew xiii from here in d to the end of the page here in d we have the father and mother of christ in d his brethren and sisters that is his father and brethren in c and c his mother and sisters in d and d in c and c we",
+      "match": "exact"
+    },
+    {
+      "note": "mark-12-14-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Mark 12:14",
+      "quote": "In a. and a., truth; in b. and b., independence. … In St. Matthew the clauses are placed in what, according to our notions of arrangement, we should call their natural order. But God's ways are not always our ways.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=11",
+      "context": "of god in truth followed by mark xii sentences after mark xii in a and a truth in b and b independence in st matthew the clauses are placed in what according to our notions of arrangement we should call their natural order but gods ways are not always our ways",
+      "match": "exact"
+    },
+    {
+      "note": "luke-7-32-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Luke 7:32-34",
+      "quote": "In b. and b. we have the more severe and mournful dispensation; in a. and a., the more festive and joyous. Those who rejected John the Baptist were like the children who would not weep to their companion's mourning: those who rejected Christ, like the children who would not dance to their companion's music.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=12",
+      "context": "page number the running header reads introduction with boyss prose in order in b and b we have the more severe and mournful dispensation in a and a the more festive and joyous those who rejected john the baptist were like the children who would not weep to the",
+      "match": "exact"
+    },
+    {
+      "note": "luke-16-25-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Luke 16:25",
+      "quote": "The rich man in a. and a.; Lazarus in b. and b.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=12",
+      "context": "and lazarus line with the lines before and after before luke xvi line the rich man in a and a lazarus in b and a after a d i sent you to reap that luke xvi the ocr has no son remember text the block contains only two lines a d and",
+      "match": "exact"
+    },
+    {
+      "note": "john-5-8-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "John 5:8-11",
+      "quote": "In d. and d., the sabbath; in c. and c., the bed carried; in b. and b., the man made whole; in a. and a., the words of our Lord.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=12",
+      "context": "sentence after luke xvi and thou art tormented sentence after john v in d and d the sabbath in c and c the bed carried in b and b the man made whole in a and a the words of our lord sentence after acts vii in a and a a double",
+      "match": "exact"
+    },
+    {
+      "note": "john-5-8-mirror",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "John 5:8-11",
+      "quote": "Here in A and A we have the words of Christ; in B and B the man made whole; in C and C the bed he carried; and in D and D the Sabbath.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "red them he that made me whole a the same said unto me take up thy bed and walk here in a and a we have the words of christ in b and b the man made whole in c and c the bed he carried and in d and d the sabbath joh 52129 we have a combined series of introverte"
+    },
+    {
+      "note": "acts-7-5-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Acts 7:5",
+      "quote": "In a. and a., a double obstacle; in b. and b., a double promise",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=12",
+      "context": "a and a the words of our lord sentence after acts vii in a and a a double obstacle in b and b a double promise layout lines and letters for the luke vii block the ocr shows no letters beside these lines the letters appear inline so the first word of",
+      "match": "exact"
+    },
+    {
+      "note": "galatians-2-7-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "Galatians 2:7-8",
+      "quote": "In a. and a., St. Paul's commission to the Gentiles; … St. Peter's commission to the Jews.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=9",
+      "context": "which is likely circumcision in a and a st pauls commission line in a and a st pauls commission to the gentiles in next and b st peters commission to the jews citation layout lines timothy i timothy i i the ocr has no letter beside it galatians ii galatians ii",
+      "match": "exact"
+    },
+    {
+      "note": "galatians-2-7-mirror",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Galatians 2:7-8",
+      "quote": "a Paul’s commission. … b Peter’s. … b Peter’s. … a Paul’s commission.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "07 i affecting words gal 278 a pauls commission when they saw that the gospel of the uncircumcision was committed unto me b peters as the gospel of circumcision was unto peter b peters for he that wrought effectually in peter to the apostleship of the circumci"
+    },
+    {
+      "note": "1-timothy-1-19-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "1 Timothy 1:19",
+      "quote": "Faith in the extremes … good conscience in the centre.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=9",
+      "context": "faith the ocr shows a stray d and a period before holding faith in the extremes line before timothy i i target faith in the extremes or good conscience in the centre after they saw that the gospel of the unciroupscision was the ocrs garbled word is unciroupsci",
+      "match": "exact"
+    },
+    {
+      "note": "3-john-1-11-mirror",
+      "field": "cites",
+      "source": "boys",
+      "on": "3 John 1:11",
+      "quote": "Here we have evil in the extreme, and good in the central members",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=9",
+      "context": "printed page the running header is introduction boyss prose sentences in order here we have evil in the extreme and good in the central members faith in the extremes or good conscience in the centre in a and a st pauls commission to the gentiles in and b st pe",
+      "match": "exact"
+    },
+    {
+      "note": "psalm-84-5-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Psalm 84:5-7",
+      "quote": "The first and sixth lines are here considered, at once, as constructively parallel, and as affording a continuous sense … the intermediate four lines may be accounted parenthetical; the second, constructively parallel with the fifth; and the third with the fourth.",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=72",
+      "context": "first stanza with the first line of the second and so throughout the first and sixth lines are here considered at once as constructively parallel and as affording a continuous sense see the obs on deut xxxii in sect ii p the intermediate four lines may be acco",
+      "match": "exact"
+    },
+    {
+      "note": "psalm-135-15-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Psalm 135:15-18",
+      "quote": "In the first line, we have the idolatrous heathen; In the eighth, those who put their trust in idols: In the second line, the fabrication; In the seventh, the fabricators: In the third line, mouths without articulation; In the sixth, mouths without breath: In the fourth line, eyes without vision; And, in the fifth line, ears without the sense of hearing.",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=74",
+      "context": "the parallelisms here marked out will it is presumed be found accurate in the first line we have the idolatrous heathen in the eighth those who put their trust in idols in the second line the fabrication in the seventh the fabricators in the third line mouths ",
+      "match": "exact"
+    },
+    {
+      "note": "romans-11-33-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Romans 11:33-35",
+      "quote": "The first line proposes the subject: … Riches, wisdom, and knowledge, are then, in a fine epanodos, enlarged upon in the inverted order; first, knowledge … secondly, wisdom … thirdly, riches",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=137",
+      "also_in": [
+        "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=138"
+      ],
+      "context": "texture of romans xi is beautifully though by no means palpably artificial the first line proposes the subject the notion of depth as a quality attributed alike to gods riches and wisdom and knowledge is first expanded in the next couplet riches wisdom and kno",
+      "match": "exact"
+    },
+    {
+      "note": "2-corinthians-9-10-turns",
+      "field": "cites",
+      "source": "jebb",
+      "on": "2 Corinthians 9:10",
+      "quote": "The beauty of that alternate quatrain it is scarcely necessary to indicate to any attentive reader. There is a fine ascending gradation in the terms of it: … in the parallel line, it is advanced upon by the two verbs … of the second line, we have, in the fourth line",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=140",
+      "context": "the sixth verse and immediately to be resumed in the succeeding quatrain the beauty of that alternate quatrain it is scarcely necessary to indicate to any attentive reader there is a fine ascending gradation in the terms of it lines scripture line begins with ",
+      "match": "exact"
+    },
+    {
+      "note": "acts-4-28-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Acts 4:28-30",
+      "quote": "“thy hand,” that is, thine over-ruling power; “thy counsel,” that is, thy pre-disposing wisdom. These two topics give the subject of the next stanza; in which, by an epanodos, they are taken up in the inverted order. First, an appeal is made to the wisdom or “counsel” of God",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=157",
+      "context": "third stanza form the connecting link between that stanza and the fourth thy hand that is thine overruling power thy counsel that is thy predisposing wisdom these two topics give the subject of the next stanza in which by an epanodos they are taken up in the i",
+      "match": "exact"
+    },
+    {
+      "note": "hebrews-10-33-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Hebrews 10:33-34",
+      "quote": "In these two verses the epanodos is indisputable. … with how great personal magnanimity they had … risen superior to their own personal afflictions and deprivations; and with this, his leading object, he commences, and concludes, in the first line, and the fourth. A subordinate circumstance remained: their sympathy, namely, with S. Paul in his imprisonment. … in this central couplet",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=368",
+      "also_in": [
+        "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=369"
+      ],
+      "context": "whole context and indeed of various passages in this most weighty epistle in these two verses the epanodos is indisputable it has been partially noticed by dr hammond comm on s matth vii the apostle is here desirous effectually to remind the hebrew christians ",
+      "match": "exact+runs"
+    },
+    {
+      "note": "matthew-7-6-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Matthew 7:6",
+      "quote": "To cast pearls before swine, is to place … before sensual and besotted wretches, who … will assuredly trample them in the mire. To give that which is holy … to the dogs, is to produce the deep truths of Christianity … before the malignant and profane; who will not fail to add injury to neglect … The warning, therefore, against the dogs, is emphatically placed at the commencement and the close.",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=356",
+      "also_in": [
+        "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=357"
+      ],
+      "context": "last so as to make and to leave the deepest practical impression to cast pearls before swine is to place the pure and elevated morality of the gospel before sensual and besotted wretches who have page end the page ends at the word have midsentence the footer z",
+      "match": "exact"
+    },
+    {
+      "note": "matthew-7-6-mirror",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Matthew 7:6",
+      "quote": "This verse furnishes a beautiful instance of what has been called the \"introverted parallelism.\" … sometimes it was introverted - where the first and fourth lines would correspond, and the second and third. This is the case here. The dogs would tear, and not the swine; the swine would trample the pearls under their feet, and not the dogs.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/mat007.md",
+      "context": "gate who would not perceive its value would trample it down and would abuse you this verse furnishes a beautiful instance of what has been called the introverted parallelism the usual mode of poetry among the hebrews and a common mode of expression in proverbs"
+    },
+    {
+      "note": "isaiah-2-7-turns",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 2:7",
+      "quote": "In the following the form of the construction is alternate",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=59",
+      "context": "an alternate correspondence in these lines after isaiah liv before isaiah ii in the following the form of the construction is alternate after isaiah liv before isaiah ii the following is perhaps a singular instance after isaiah ii before psalm cxiii here the t",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-2-7-turns",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Isaiah 2:7-8",
+      "quote": "We have it in alternate lines",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "07 i affecting words isa 278 we have it in alternate lines their land also is full of silver and gold neither is there any end of their treasures their land is also full of horses neither is there any end of their chariots their land also is full of idols etc"
+    },
+    {
+      "note": "deuteronomy-32-42-turns",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Deuteronomy 32:42",
+      "quote": "Those which consist of four lines generally form two regular distichs; but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences ... In both the above passages, the latter members are to be alternately referred to the former.",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=58",
+      "context": "prose in order before the psalm ps xxxiii after the zechariah passage those which consist of four lines generally form two regular distichs but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences after the deuteronomy pa",
+      "match": "exact"
+    },
+    {
+      "note": "deuteronomy-32-42-turns",
+      "field": "cites",
+      "source": "bullinger-fos",
+      "on": "Deuteronomy 32:42",
+      "quote": "Here a and a relate to the arrows, while b and b refer to the sword.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "context": "od of the slain and of the captives b from the head of the leaders of the enemy here a and a relate to the arrows while b and b refer to the sword"
+    },
+    {
+      "note": "psalm-33-13-turns",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Psalm 33:13-14",
+      "quote": "Those which consist of four lines generally form two regular distichs; but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences ... In both the above passages, the latter members are to be alternately referred to the former.",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=58",
+      "context": "prose in order before the psalm ps xxxiii after the zechariah passage those which consist of four lines generally form two regular distichs but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences after the deuteronomy pa",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-54-5-turns",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 54:5",
+      "quote": "Isaiah too uses with great elegance this form of composition ... The sense has an alternate correspondence in these lines.",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=59",
+      "context": "lecture prose in order with its position relative to the scripture examples isaiah too uses with great elegance this form of composition before isaiah liv the sense has an alternate correspondence in these lines after isaiah liv before isaiah ii in the followi",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-54-7-opposite",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Isaiah 54:7",
+      "quote": "But with great mercies - The contrast here is not that of duration but of magnitude. The forsaking was 'little,' the mercies would be 'great.'",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/isa054.md",
+      "context": "seem to be but as the sorrows of the briefest point of duration compare co2 417 but with great mercies the contrast here is not that of duration but of magnitude the forsaking was little the mercies would be great it would be mercy that they would be recalled "
+    },
+    {
+      "note": "isaiah-54-7-opposite",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Isaiah 54:8",
+      "quote": "everlasting--in contrast to \"for a moment.\"",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/isa054.md",
+      "context": "hough but for a moment was overflowing while it lasted hid face isa 817 psa 307 everlastingin contrast to for a moment isaiah 549"
+    },
+    {
+      "note": "proverbs-27-6-opposite",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Proverbs 27:6",
+      "quote": "This, then, is the contrast, that the strokes inflicted by one who truly loves us, although they tear into our flesh ... yet are faithful ... on the contrary, the enemy covers over with kisses him to whom he wishes all evil.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/pro027.md",
+      "context": "judas betrayed his lord not merely denoted by φιλειν but by καταφιλειν mat 2649 this then is the contrast that the strokes inflicted by one who truly loves us although they tear into our flesh פצע from פצע to split to tear open yet are faithful cf psa 1415 on "
+    },
+    {
+      "note": "proverbs-13-7-opposite",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Proverbs 13:7",
+      "quote": "In opposite ways men act hypocritically for gain of honor or wealth.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/pro013.md",
+      "context": "pro 137 in opposite ways men act hypocritically for gain of honor or wealth proverbs 138"
+    },
+    {
+      "note": "song-of-solomon-1-5-turns",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Song of Solomon 1:5",
+      "quote": "The last line here is also to be divided and separately applied to the preceding",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=61",
+      "context": "as occurs once in the above and as appears in the following the last line here is also to be divided and separately applied to the preceding so likewise ill the enigma of sampson the ocr reads ill probably for in this form of composition indeed agrees best wit",
+      "match": "exact"
+    },
+    {
+      "note": "song-of-solomon-1-5-turns",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Song of Solomon 1:5",
+      "quote": "Dark-hued, as the tents of Kedar with their black goats' hair coverings, rough and weather-stained ... but comely (beautiful) as the rich hangings which adorn the pavilion of Solomon.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/sol001.md",
+      "context": "expositors that of the gentile church on her first conversion sol 15 i am black darkhued as the tents of kedar with their black goats hair coverings rough and weatherstained but comely beautiful as the rich hangings which adorn the pavilion of solomon kedar wa"
+    },
+    {
+      "note": "song-of-solomon-1-5-turns",
+      "field": "cites",
+      "source": "jfb",
+      "on": "Song of Solomon 1:5",
+      "quote": "black--namely, \"as the tents of Kedar,\" equivalent to blackness ... To feel this, and yet also feel one's self in Jesus Christ \"comely as the curtains of Solomon,\" marks the believer",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/sol001.md",
+      "context": "sol 15 blacknamely as the tents of kedar equivalent to blackness psa 1205 she draws the image from the black goatskins with which the scenite arabs kedar was in arabiapetrãbrvbra cover their tents contrasted with the splendid state tent in which the king was a"
+    },
+    {
+      "note": "psalm-19-7-building",
+      "field": "cites",
+      "source": "barnes",
+      "on": "Psalm 19:7-9",
+      "quote": "Of the revealed truth of God, thus characterized by distinct epithets, a particular statement is first made in each case in regard to the truth itself as viewed in that special aspect, and then the effects of that revealed truth on the soul are described corresponding with that truth as so viewed.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/psa019.md",
+      "context": "effect on the soul to wit law testimony statutes commandment fear and judgments of the revealed truth of god thus characterized by distinct epithets a particular statement is first made in each case in regard to the truth itself as viewed in that special aspec"
+    },
+    {
+      "note": "proverbs-11-24-opposite",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Proverbs 11:24",
+      "quote": "Here there is a kind of double Antithesis; one between the two lines themselves; and likewise a subordinate opposition between the two parts of each.",
+      "found_in": "https://ia600905.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F2%2Fitems%2Fisaiahnewtransla01lowt%2Fisaiahnewtransla01lowt_djvu.xml&mode=djvu_xml&page=37",
+      "context": "there are only two antithetic terms for memory and name are synonymous here there is a kind of double antithefis one between the two lines themfelves and likewife a fubordinate oppolition between the two parts of each where the oppolition is chiefly between th",
+      "match": "exact"
+    },
+    {
+      "note": "proverbs-29-26-opposite",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Proverbs 29:26",
+      "quote": "Where the opposition is chiefly between the single terms the Prince, and Jehovah: but there is an opposition likewise in the general sentiment",
+      "found_in": "https://ia600905.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F2%2Fitems%2Fisaiahnewtransla01lowt%2Fisaiahnewtransla01lowt_djvu.xml&mode=djvu_xml&page=37",
+      "context": "themfelves and likewife a fubordinate oppolition between the two parts of each where the oppolition is chiefly between the lingle terms the prince and jehovah but there is an oppolition likewife in the general fentiment which ex the last sentence continues ont",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-9-10-opposite",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 9:10",
+      "quote": "Here the lines themselves are Synthetically Parallel; and the Opposition lies between the two members of each.",
+      "found_in": "https://ia600905.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F2%2Fitems%2Fisaiahnewtransla01lowt%2Fisaiahnewtransla01lowt_djvu.xml&mode=djvu_xml&page=39",
+      "context": "the latter diftich being oppofed to the former so likewife the following here the lines themfelves are synthetically parallel and the oppofition lies between the two members of each the third fort of parallels i call synthetic or conftraative where the paralle",
+      "match": "exact"
+    },
+    {
+      "note": "isaiah-33-24-same",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 33:24",
+      "quote": "The last line of the verse is parallel to the first, and expresses the same sense in other words. Sickness being considered as a visitation from God, and a punishment of sin; the forgiveness of sin is equivalent to the removal of a disease.",
+      "found_in": "https://ia600107.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F20%2Fitems%2Fisaiahnewtransla02lowt%2Fisaiahnewtransla02lowt_djvu.xml&mode=djvu_xml&page=238",
+      "context": "paragraph is cut off quotes below are in pieces of about characters the laft line of the verfe is parallel to the firft and expreffes the fame fenfe in other words sick nefs being confidered as a vilitation from god and a punifhment of fin the forgivenefs of f",
+      "match": "letters (long s and OCR letters allowed)"
+    },
+    {
+      "note": "isaiah-4-2-same",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 4:2",
+      "quote": "The Branch is an appropriated title of the Messiah; and the Fruit of the land means the great Person to spring from the house of Judah, and is only a parallel expression signifying the same: or perhaps the blessings consequent upon the redemption procured by him.",
+      "found_in": "https://ia600107.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F20%2Fitems%2Fisaiahnewtransla02lowt%2Fisaiahnewtransla02lowt_djvu.xml&mode=djvu_xml&page=62",
+      "context": "ibid the branch of jehovaii the meffiah of jehovah fays the chaldee the branch is an appropriated title of the meffiah and the fruit of the land means the great perfon to fpring from the houfe of judah and is only a parallel expreffion fig nifying the fame or ",
+      "match": "letters (long s and OCR letters allowed)"
+    },
+    {
+      "note": "isaiah-41-9-same",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Isaiah 41:9",
+      "quote": "is used like ... the wing, for any thing extended from the extremity of another, or joined on to it. It is here parallel and synonymous to ... from the end, in the preceding member.",
+      "found_in": "https://ia600107.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F20%2Fitems%2Fisaiahnewtransla02lowt%2Fisaiahnewtransla02lowt_djvu.xml&mode=djvu_xml&page=273",
+      "context": "from the extremities thereof hebrew hebrew signifies the arm axilla ala and is used like the wing for any thing extended from the extremity of another or joined on to it it is here parallel and synonymous to hebrew from the end in the preceding member manuscri",
+      "match": "exact"
+    },
+    {
+      "note": "proverbs-10-1-opposite",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Proverbs 10:1",
+      "quote": "Where every word hath its opposite: for the terms father and mother are, as the Logicians say, relatively opposite.",
+      "found_in": "https://ia600905.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F2%2Fitems%2Fisaiahnewtransla01lowt%2Fisaiahnewtransla01lowt_djvu.xml&mode=djvu_xml&page=37",
+      "context": "fomethingof a contrariety in the two propositions thus in the following examples where every word hath its oppolite for the terms father and mother are as the logicians fay relatively oppolite here there are only two antithetic terms for memory and name are sy",
+      "match": "exact"
+    },
+    {
+      "note": "proverbs-10-1-opposite",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Proverbs 10:1",
+      "quote": "Similar proverbs are found further on, but consisting of synonymous parallel members ... the division lies nearer in the synonymous distichs, and is there less liable to be misunderstood than in the antithetic. ... The idea of the parents is in this way only separated, and the two members stand in suppletive interchangeable relationship.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/pro010.md",
+      "context": "ick stout solid as πυκνος σοφος is primarily a practical and ethical conception similar proverbs are found further on but consisting of synonymous parallel members in which either the father both times represents the parents as pro 1721 pro 2324 or father and "
+    },
+    {
+      "note": "proverbs-10-7-opposite",
+      "field": "cites",
+      "source": "lowth",
+      "on": "Proverbs 10:7",
+      "quote": "Here there are only two Antithetic terms: for memory and name are Synonymous.",
+      "found_in": "https://ia600905.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F2%2Fitems%2Fisaiahnewtransla01lowt%2Fisaiahnewtransla01lowt_djvu.xml&mode=djvu_xml&page=37",
+      "context": "the terms father and mother are as the logicians fay relatively oppolite here there are only two antithetic terms for memory and name are synonymous here there is a kind of double antithefis one between the two lines themfelves and likewife a fubordinate oppol",
+      "match": "exact"
+    },
+    {
+      "note": "proverbs-10-7-opposite",
+      "field": "cites",
+      "source": "keil-delitzsch",
+      "on": "Proverbs 10:7",
+      "quote": "The remembrance of the righteous endures after his death, for he is thought of with thankfulness ... because his works, rich in blessing, continue; the name of the godless, on the contrary, far from continuing fresh and green ... after his departure, becomes corrupt",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/pro010.md",
+      "context": "xpresses a growing to something and thus the entrance into a state of endurance the remembrance of the righteous endures after his death for he is thought of with thankfulness צלז זכר צדיק לברכה the usual appendix to the name of an honoured beloved man who has"
+    },
+    {
+      "note": "1-samuel-1-2-contrast",
+      "field": "cites",
+      "source": "boys",
+      "on": "1 Samuel 1:2",
+      "quote": "In other cases, again, we do not find the arrangement turning upon two kinds or classes of persons, but upon two individuals … Hannah in a. and a.; Peninnah in b. and b.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=47",
+      "context": "b and the promise in a verse to the complaint in a in other cases again we do not find the arrangement turning upon two kinds or classes of persons but upon two individuals in tactica sacra i have given a passage of a very similar character here we have only p",
+      "match": "exact"
+    },
+    {
+      "note": "romans-11-22-mirror",
+      "field": "cites",
+      "source": "jebb",
+      "on": "Romans 11:22",
+      "quote": "Gentleness at the beginning; at the close gentleness: this epanodos speaks for itself.",
+      "found_in": "https://ia600602.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F32%2Fitems%2Fsacredliterature00jebb%2Fsacredliterature00jebb_djvu.xml&mode=djvu_xml&page=359",
+      "context": "towards those indeed who but towards thee gentleness prose after the stanza gentleness at the beginning at the close gentleness this epanodos speaks for itself the next readable sentence is earnestly testifying both to the jews and to the greeks but the greek ",
+      "match": "exact"
+    }
+  ]
+}

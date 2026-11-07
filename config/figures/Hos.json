@@ -156,6 +156,176 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "hosea-6-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Hosea 6:4",
+      "strength": "some interpreters",
+      "short": "What shall I do with you, Ephraim, Judah?",
+      "about": "The second line says the first again by repeating its question: what shall I do with you, O Ephraim, O Judah.",
+      "lines": [
+        {
+          "ref": "Hosea 6:4",
+          "words": "What shall I do with you, O Ephraim?",
+          "key": "Ephraim"
+        },
+        {
+          "ref": "Hosea 6:4",
+          "words": "What shall I do with you, O Judah?",
+          "key": "Judah"
+        }
+      ],
+      "evidence": "Lowth gives this verse among parallel lines that are made by repeating part of the first line.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Hosea 6:4",
+          "at": "Preliminary Dissertation, pp. xviii-xix",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVIII/mode/1up",
+          "quote": "Parallels are also sometimes formed by a repetition of part of the first sentence: ... What shall I do unto thee, O Ephraim! What shall I do unto thee, O Judah! ... Hosea, vi. 4.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "hosea-9-14-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Hosea 9:14",
+      "strength": "widely agreed",
+      "short": "A prayer that stops short: “what will You give?”",
+      "about": "The prophet begins a prayer, “Give them, O LORD,” and stops short to ask, “what will You give?” Only then does he name wombs that miscarry and breasts that dry up. Two of the writers read the broken-off words as a sign of how deeply the judgment coming on Ephraim moves him.",
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Enquiry and Deprecation",
+        "ref": "Hosea 9:14",
+        "words": "Give them, O LORD",
+        "means": "a prayer begun and broken off, as if the prophet cannot say what to ask, before he names barrenness"
+      },
+      "original": {
+        "note": "In Hebrew the question “what will You give?” is two words, mah titten, set into the prayer between two cries of ten, “give.”",
+        "strong": [
+          "H4100",
+          "H5414"
+        ]
+      },
+      "evidence": "Bullinger lists Hosea 9:14 under Aposiopesis: the prophet, as though he cannot conceive the punishment deserved, breaks off and returns to the thought of verse 11. Clarke says he began to intercede and the Spirit interrupted his petition. Keil (Keil and Delitzsch) sees the inserted question as a mark of excited speech. Benson says the prophet speaks greatly agitated and at a loss what to say.",
+      "limit": "The writers differ on why he stops: one hears a plea for mercy cut short by God's Spirit, another holy indignation calling for the judgment.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 9:14",
+          "at": "Aposiopesis, Enquiry and Deprecation, p. 154",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/154/mode/1up",
+          "quote": "As though unable to conceive the punishment deserved, the Prophet breaks off and goes back to the thought of verse 11.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Hosea 9:14",
+          "quote": "The prophet, seeing the evils that were likely to fall upon his countrymen, begins to make intercession for them; but when he had formed the first part of his petition, \"Give them, O Lord!\" the prophetic light discovered to him that the petition would not be answered ... Then changing his petition, which the Divine Spirit had interrupted, by signifying that he must not proceed in his request",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 9:13-14",
+          "quote": "In Hos 9:14 the threat rises into an appeal to God to execute the threatened punishment. The excited style of the language is indicated in the interpolated mah-titteen (what wilt Thou give?). The words do not contain an intercessory prayer on the part of the prophet ... but are expressive of holy indignation at the deep corruption of the people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Hosea 9:14",
+          "quote": "The prophet here speaks as one greatly agitated, and at a loss what to say upon what he had just heard",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hosea-13-9-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Hosea 13:9",
+      "strength": "some interpreters",
+      "short": "“O Israel”: God cries out over Israel's ruin",
+      "about": "God's words come as a cry, not a bare statement: “You are destroyed, O Israel, because you are against Me.” They burst out from feeling over the ruin Israel brought on itself by turning against the One who was its helper.",
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Hosea 13:9",
+        "words": "You are destroyed, O Israel",
+        "means": "God's strong feeling over the ruin Israel brought on itself by turning against Him, its helper"
+      },
+      "evidence": "Bullinger lists Hosea 13:9 under Ecphonesis, words that burst out from feeling.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Hosea 13:9",
+          "at": "Ecphonesis; or, Exclamation, pp. 927-928",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/928/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... Hos 13:9. -“O Israel, thou hast destroyed thyself; but in me is thine help.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hosea-13-14-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Hosea 13:14",
+      "strength": "some interpreters",
+      "short": "Sheol, Death, then Death, Sheol",
+      "about": "Sheol is named in the first line and the last, and Death in the two lines between: the LORD will ransom them and redeem them, then asks where the plagues of Death and the sting of Sheol are.",
+      "lines": [
+        {
+          "ref": "Hosea 13:14",
+          "words": "I will ransom them from the power of Sheol;",
+          "mark": "A",
+          "key": "Sheol"
+        },
+        {
+          "ref": "Hosea 13:14",
+          "words": "I will redeem them from Death.",
+          "mark": "B",
+          "key": "Death"
+        },
+        {
+          "ref": "Hosea 13:14",
+          "words": "Where, O Death, are your plagues?",
+          "mark": "B'",
+          "key": "Death"
+        },
+        {
+          "ref": "Hosea 13:14",
+          "words": "Where, O Sheol, is your sting?",
+          "mark": "A'",
+          "key": "Sheol"
+        }
+      ],
+      "evidence": "Jebb gives the verse as an example of what he calls the introverted parallelism, in which, he says, the first and last lines are parallel, and so are the second and the next to last.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Hosea 13:14",
+          "at": "Sacred Literature, sect. IV, pp. 53-54",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/53/mode/1up",
+          "quote": "There are stanzas so constructed, that, whatever be the number of lines, the first line shall be parallel with the last; the second with the penultimate; … This may be called the introverted parallelism … From the hand of hell I will redeem them; From death I will reclaim them: Death! I will be thy pestilence; Hell! I will be thy burning plague. Hosea, xiii. 14. See Bishop Horsley.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

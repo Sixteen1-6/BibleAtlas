@@ -247,6 +247,153 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-kings-16-22-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "1 Kings 16:22",
+      "strength": "some interpreters",
+      "short": "Omri, Tibni, then Tibni, Omri",
+      "about": "Omri is named first and last, and Tibni between: Omri's followers prove stronger than Tibni's, then Tibni dies and Omri becomes king.",
+      "lines": [
+        {
+          "ref": "1 Kings 16:22",
+          "words": "But the followers of Omri proved stronger",
+          "mark": "A",
+          "key": "Omri"
+        },
+        {
+          "ref": "1 Kings 16:22",
+          "words": "than those of Tibni son of Ginath.",
+          "mark": "B",
+          "key": "Tibni"
+        },
+        {
+          "ref": "1 Kings 16:22",
+          "words": "So Tibni died",
+          "mark": "B'",
+          "key": "Tibni"
+        },
+        {
+          "ref": "1 Kings 16:22",
+          "words": "and Omri became king.",
+          "mark": "A'",
+          "key": "Omri"
+        }
+      ],
+      "evidence": "Boys finds the arrangement here turning on two men, with Omri in the two parts he marks a and Tibni in the two he marks b. In the verse, Omri's parts come first and last, and Tibni's between.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "1 Kings 16:22",
+          "at": "Introduction, p. 36",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/36/mode/1up",
+          "quote": "In other cases, again, we do not find the arrangement turning upon two kinds or classes of persons, but upon two individuals … Omri in a. and a.; Tibni in b. and b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "1-kings-20-11-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "1 Kings 20:11",
+      "strength": "widely agreed",
+      "short": "A saying: no boasting before the battle is won",
+      "about": "Ben-hadad has sworn that not enough dust will remain of Samaria for each of his men to have a handful. Ahab answers with a short saying, read as a proverb: a man still putting on his armor has not yet won, so he should not boast like one taking it off after the battle.",
+      "refs": [
+        "1 Kings 20:10"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "1 Kings 20:11",
+        "words": "The one putting on his armor should not boast like one taking it off.",
+        "means": "do not boast of victory before the battle is fought and won"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, among sayings first found in Scripture that have since passed into general use, and says it has come down to later ages as a proverb with many applications. Clarke says it was no doubt a proverbial way of speaking. George Rawlinson (Barnes' Notes) says Ahab's reply has the air of a proverb, the kind Eastern peoples love to answer a foe with.",
+      "limit": "The writers differ on whether the saying was already in use when Ahab spoke or first appears here and passed into common use later; one says only that the reply sounds like a proverb.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Kings 20:11",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 761",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/761/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... This also has come down to, and is used by posterity as a proverb, full of meaning, and with many applications",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Kings 20:11",
+          "quote": "Let not him that girdeth on - This was no doubt a proverbial mode of expression.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Kings 20:11",
+          "quote": "Ahab's reply has the air of a proverb, with which Orientals always love to answer a foe.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-kings-20-39-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "1 Kings 20:39-40",
+      "strength": "widely agreed",
+      "short": "A soldier's lost captive pictures Ahab's own deed",
+      "about": "A wounded prophet in disguise tells King Ahab that he let a captive slip away while on guard. Ahab answers that the man has pronounced his own sentence. Then the prophet shows who he is: Ahab had let go Ben-hadad, the man God had devoted to destruction, and the same sentence falls on Ahab.",
+      "figure": {
+        "name": "Parable",
+        "ref": "1 Kings 20:39",
+        "words": "Your servant had marched out into the middle of the battle",
+        "means": "Ahab himself, who had let Ben-hadad go, the man God had devoted to destruction, so that Ahab's sentence on the soldier was his own"
+      },
+      "refs": [
+        "1 Kings 20:34",
+        "1 Kings 20:42"
+      ],
+      "evidence": "Matthew Henry says the prophet reproved Ahab by a parable, as Nathan did David, charging himself with Ahab's crime in sparing Ben-hadad. Keil (Keil and Delitzsch) says he did as Nathan had done, by a symbolic action that led the king to sentence himself. Poole calls the story a parable that made the king condemn himself; Robert Jamieson (Jamieson, Fausset and Brown) likens it to Nathan's parable.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Kings 20:31-43",
+          "quote": "This prophet designed to reprove Ahab by a parable, that he might oblige him to condemn himself, as Nathan and the woman of Tekoa did David ... he made his application to the king in a story wherein he charged himself with such a crime as the king was now guilty of in sparing Ben-hadad",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Kings 20:35-36",
+          "quote": "to announce to the king that God would punish him for letting Benhadad go, and to do this, as Nathan had formerly done in the case of David ... by means of a symbolical action, whereby the king was led to pronounce sentence upon himself.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "1 Kings 20:39",
+          "quote": "this following relation is not an untruth, but a parable ... wherein an obscure prophet was to speak to a great king ... who by this artifice is made to condemn himself before he was aware of it, and so forced to receive the prophet’s just sentence",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/1_kings/20.htm",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Kings 20:35",
+          "quote": "The prophet found a willing assistant, and then, waiting for Ahab, leads the king unconsciously, in the parabolic manner of Nathan ... to pronounce his own doom",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

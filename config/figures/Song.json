@@ -1,0 +1,67 @@
+{
+  "notes": [
+    {
+      "id": "song-of-solomon-1-5-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Song of Solomon 1:5",
+      "strength": "widely agreed",
+      "short": "Dark as Kedar's tents, lovely as Solomon's curtains",
+      "about": "The verse names two things, then two likenesses, in turn. The tents of Kedar answer to dark, and the curtains of Solomon to lovely.",
+      "lines": [
+        {
+          "ref": "Song of Solomon 1:5",
+          "words": "I am dark,",
+          "mark": "A",
+          "key": "dark"
+        },
+        {
+          "ref": "Song of Solomon 1:5",
+          "words": "yet lovely,",
+          "mark": "B",
+          "key": "lovely"
+        },
+        {
+          "ref": "Song of Solomon 1:5",
+          "words": "like the tents of Kedar,",
+          "mark": "A'",
+          "key": "Kedar"
+        },
+        {
+          "ref": "Song of Solomon 1:5",
+          "words": "like the curtains of Solomon.",
+          "mark": "B'",
+          "key": "Solomon"
+        }
+      ],
+      "evidence": "Lowth says the last line is to be divided and its parts applied separately to what goes before. Kingsbury, in Barnes' Notes, and Fausset (Jamieson, Fausset and Brown) read dark as the tents of Kedar and lovely as the curtains of Solomon.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Song of Solomon 1:5",
+          "at": "Lecture XIX, p. 46",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/46/mode/1up",
+          "quote": "The last line here is also to be divided and separately applied to the preceding",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 1:5",
+          "quote": "Dark-hued, as the tents of Kedar with their black goats' hair coverings, rough and weather-stained ... but comely (beautiful) as the rich hangings which adorn the pavilion of Solomon.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "jfb",
+          "on": "Song of Solomon 1:5",
+          "quote": "black--namely, \"as the tents of Kedar,\" equivalent to blackness ... To feel this, and yet also feel one's self in Jesus Christ \"comely as the curtains of Solomon,\" marks the believer",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    }
+  ]
+}

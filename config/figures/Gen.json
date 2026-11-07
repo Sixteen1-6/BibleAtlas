@@ -484,6 +484,461 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "genesis-3-22-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Genesis 3:22",
+      "strength": "widely agreed",
+      "short": "God's words break off at “and live forever”",
+      "about": "God's words stop after “and live forever...” and never say what He will do. The next verse finishes them with a deed: “the LORD God banished him from the Garden of Eden”. The unspoken end can be read as too dreadful to put into words.",
+      "refs": [
+        "Genesis 3:23"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Anger and Threatening",
+        "ref": "Genesis 3:22",
+        "words": "and live forever",
+        "means": "what God will do is left unsaid; the next verse shows it in deed, as He sends man out of the garden, away from the tree of life"
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis (Sudden Silence), in threatening: what follows is left unsaid, as though too awful to think on, but includes driving man from the tree of life. James G. Murphy (Barnes' Notes) says the next verse completes it by an act. Calvin finds the sentence lacking and supplies that man be barred from the tree. Keil says the account passes from God's words to acts.",
+      "limit": "The writers agree that the words stop short and leave the end to be supplied; that the silence hides something too awful to say is one writer's reading.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 3:22",
+          "at": "Aposiopesis, or Sudden-Silence: Anger and Threatening, p. 152",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/152/mode/1up",
+          "quote": "Here the exact consequences of eating of the tree of life in his fallen condition are left unrevealed, as though they were too awful to be contemplated: and the sudden silence leaves us in the darkness in which the Fall involved us. But we may at least understand that whatever might be involved in this unspoken threatening, it included this fact:- I will drive him away from the tree of life!",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 3:22",
+          "quote": "“Lest he put forth his hand and take also of the tree of life, and eat and live forever.” This sentence is completed by an act, not a word, as we shall see in the next verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 3:22",
+          "quote": "There is a defect in the sentence which I think ought to be thus supplied: ‘It now remains that in future, he be debarred from the fruit of the tree of life;’",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 3:22-24",
+          "quote": "In order that, after the germ of death had penetrated into his nature along with sin, he might not “take also of the tree of life, and eat and live for ever ... God sent him forth from the garden of Eden.” With וישׁלּחהוּ (sent him forth) the narrative passes over from the words to the actions of God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-4-1-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Genesis 4:1-2",
+      "strength": "some interpreters",
+      "short": "Cain, then Abel, then Abel, then Cain",
+      "about": "The two brothers are named Cain, Abel, then Abel, Cain: the birth of Cain and his work at the ends, the birth of Abel and his work in the middle.",
+      "lines": [
+        {
+          "ref": "Genesis 4:1",
+          "words": "she conceived and gave birth to Cain.",
+          "mark": "A",
+          "key": "Cain"
+        },
+        {
+          "ref": "Genesis 4:2",
+          "words": "Later she gave birth to Cain’s brother Abel.",
+          "mark": "B",
+          "key": "Abel"
+        },
+        {
+          "ref": "Genesis 4:2",
+          "words": "Now Abel was a keeper of sheep,",
+          "mark": "B'",
+          "key": "Abel"
+        },
+        {
+          "ref": "Genesis 4:2",
+          "words": "while Cain was a tiller of the soil.",
+          "mark": "A'",
+          "key": "Cain"
+        }
+      ],
+      "evidence": "Boys sets out Genesis 4:1-5 as two instances and says that in each, Cain is in the outer members and Abel in the central ones. This is the first.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Genesis 4:1-5",
+          "at": "Introduction, p. 8",
+          "url": "https://archive.org/details/tactica-sacra/page/8/mode/1up",
+          "quote": "In each of the above instances, we have Cain in the extreme, and Abel in the central members.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-4-3-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Genesis 4:3-5",
+      "strength": "some interpreters",
+      "short": "Two offerings, told Cain, Abel, then Abel, Cain",
+      "about": "Cain brings his offering, then Abel brings his. The answer of the LORD takes them in reverse: first Abel and his offering, then Cain and his offering. Cain stands at the ends, Abel in the middle.",
+      "lines": [
+        {
+          "ref": "Genesis 4:3",
+          "words": "Cain brought some of the fruit of the soil as an offering to the LORD,",
+          "mark": "A",
+          "key": "Cain"
+        },
+        {
+          "ref": "Genesis 4:4",
+          "words": "while Abel brought the best portions of the firstborn of his flock.",
+          "mark": "B",
+          "key": "Abel"
+        },
+        {
+          "ref": "Genesis 4:4",
+          "words": "And the LORD looked with favor on Abel and his offering,",
+          "mark": "B'",
+          "key": "Abel"
+        },
+        {
+          "ref": "Genesis 4:5",
+          "words": "but He had no regard for Cain and his offering.",
+          "mark": "A'",
+          "key": "Cain"
+        }
+      ],
+      "evidence": "Boys sets out Genesis 4:1-5 as two instances and says that in each, Cain is in the outer members and Abel in the central ones. This is the second.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Genesis 4:1-5",
+          "at": "Introduction, p. 8",
+          "url": "https://archive.org/details/tactica-sacra/page/8/mode/1up",
+          "quote": "In each of the above instances, we have Cain in the extreme, and Abel in the central members.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-10-9-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Genesis 10:9",
+      "strength": "widely agreed",
+      "short": "Nimrod's fame became a common saying",
+      "about": "The verse quotes a saying people already used: “Like Nimrod, a mighty hunter before the LORD.” His deeds made his name a byword, so that others could be likened to him. Some read his hunting as reaching to men as well, and verse 10 tells of the kingdom he founded.",
+      "refs": [
+        "Genesis 10:10"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "Genesis 10:9",
+        "words": "Like Nimrod, a mighty hunter before the LORD",
+        "means": "a common byword that likened a mighty man, as hunter or as ruler, to Nimrod"
+      },
+      "evidence": "Bullinger lists Genesis 10:9 under Parœmia, sayings quoted as already in use. Henry says Nimrod became famous to a proverb; Calvin, that it became a proverb of the powerful and the violent, each another Nimrod; Keil (Keil and Delitzsch), that Nimrod's course of life gave occasion to the proverb; James G. Murphy (Barnes' Notes), that his fame in hunting became proverbial.",
+      "limit": "The writers differ on whether the saying remembered his hunting of animals or his rise to rule over men by force.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 10:9",
+          "at": "Parœmia; or, Proverb: quoted as being already in use as such, p. 756",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/756/mode/1up",
+          "quote": "Parœmiœ which are quoted as being already in use as such ... wherefore it is said, ‘Like Nimrod a mighty hunter before the Lord’",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 10:6-14",
+          "quote": "Nimrod was a great hunter; with this he began, and for this became famous to a proverb. Every great hunter is, in remembrance of him, called a Nimrod.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 10:8-9",
+          "quote": "Nimrod was so mighty and imperious that it would be proper to say of any powerful tyrant, that he is another Nimrod. Yet the version of Jerome is satisfactory, that thence it became a proverb concerning the powerful and the violent, that they were like Nimrod.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 10:8-9",
+          "quote": "This course of life gave occasion to the proverb, \"like Nimrod, a mighty hunter against the Lord,\" which immortalized not his skill in hunting beasts, but the success of his hunting of men in the establishment of an imperial kingdom by tyranny and power.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 10:8-12",
+          "quote": "Hunting is a comprehensive term, indicating the taking of any species of animal, whether of the air, the sea, or the land. Nimrod's distinction in this respect was so great as to become proverbial.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-18-27-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "Genesis 18:27",
+      "strength": "widely agreed",
+      "short": "Abraham calls himself “dust and ashes” before God",
+      "about": "Pleading for Sodom, Abraham calls himself “dust and ashes.” He was more than that, a man with a living soul, but he names only what is lowest in himself and sets it beside the greatness of the Lord he dares to speak to. By making himself small, he shows how great God is.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "Genesis 18:27",
+        "words": "dust and ashes",
+        "means": "Abraham's own lowliness, set beside the greatness of the Lord he is speaking to"
+      },
+      "evidence": "Bullinger lists the verse under Meiosis: Abraham sets himself against the high and holy God and takes the lowest place. Calvin says he picks what is most contemptible in himself, though he had a living soul, to empty himself of all dignity. Henry sets God's greatness beside Abraham's meanness. Clarke sees his soul humbled before God, as high thoughts of self mean low thoughts of God's majesty.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 18:27",
+          "at": "Meiosis, or A Be-Littleing, p. 155",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/155/mode/1up",
+          "quote": "he implies much more than he expresses. In calling himself “dust and ashes,” he contrasts himself with the high and holy God whom he is addressing, and takes the place of a man most vile and a creature most abject.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 18:27",
+          "quote": "For what is mortal man when compared with God? ... Abraham, indeed was not forgetful that he possessed a living soul; but he selects what was most contemptible, in order to empty himself of all dignity.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 18:23-33",
+          "quote": "He speaks as one amazed at his own boldness, and the liberty God graciously allowed him, considering God's greatness—he is the Lord; and his own meanness—but dust and ashes.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Genesis 18:27",
+          "quote": "By these expressions he shows how deeply his soul was humbled in the presence of God. He who has high thoughts of himself must have low thoughts of the dignity of the Divine nature, of the majesty of God, and the sinfulness of sin.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-20-3-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Genesis 20:3",
+      "strength": "some interpreters",
+      "short": "A threat of death with its condition left unsaid",
+      "about": "God tells Abimelech, “You are as good as dead,” and stops short of saying on what terms. Verse 7 makes plain what was left unsaid: if he does not restore Sarah, he “will surely die”; if he returns her, Abraham will pray for him and he will live.",
+      "refs": [
+        "Genesis 20:7"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Anger and Threatening",
+        "ref": "Genesis 20:3",
+        "words": "You are as good as dead",
+        "means": "a threat whose condition is not spoken: unless he gives the woman back, as verse 7 makes plain"
+      },
+      "evidence": "Bullinger lists Genesis 20:3 under Aposiopesis (Sudden Silence), in anger and threatening: the words if you do not restore her must be supplied, or that her husband would kill him, and he says verse 7 makes this clear. Genesis 20:7 states the condition.",
+      "limit": "The verse reads as a whole sentence; the break lies in the condition the threat leaves out, which verse 7 supplies. The unsaid words may also be read as a warning that her husband would kill him.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 20:3",
+          "at": "Aposiopesis, or Sudden-Silence: Anger and Threatening, p. 152",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/152/mode/1up",
+          "quote": "“Behold, thou art but a dead man-- for the woman which thou hast taken; for she is a man’s wife.” Here, we must supply if thou dost not restore her; or, her husband will slay thee. This is clear from verse 7.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-22-14-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Genesis 22:14",
+      "strength": "widely agreed",
+      "short": "A saying born on the mountain of the LORD",
+      "about": "The LORD's providing on the mountain passed into a saying that people still repeated: “On the mountain of the LORD it will be provided.” Many read it as a word of hope, that when His people are most in need the LORD will see to it and come to help.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Genesis 22:14",
+        "words": "On the mountain of the LORD it will be provided",
+        "means": "when His people are most in need the LORD will see to it and come to help, as He did for Abraham and Isaac on that mountain"
+      },
+      "original": {
+        "note": "In Hebrew “Will Provide” and “will be provided” both come from ra'ah, to see; to see to a need is to provide for it.",
+        "strong": [
+          "H7200"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Parœmia among proverbs first found in Scripture that passed into general use. Payne Smith (Ellicott) says a proverb arose from it: in man's need God will see to it and provide. Poole: still used as a proverb, of the LORD seen in greatest extremities. Benson calls it a proverb in frequent use: in His people's extremities the LORD will appear to provide.",
+      "limit": "The saying's last word can also be read as seen, the LORD appearing on His mountain; the writers weigh both, and one joins them: He will show Himself by providing. Two of the writers also see in it a pointer to Christ, manifested and offered in that place.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 22:14",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 761",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/761/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “As it is said to this day, ‘In the mount of the Lord it shall be seen.’ ”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Genesis 22:14",
+          "quote": "hence arose a proverb ... or rather, In the mount of Jehovah it shall be provided. ... The verb literally means to see, or, to see to a thing, and the sense of the proverb plainly is that in man’s necessity God will Himself see to it, and provide due help and deliverance. ... point onward to the providing upon this very spot of the sacrifice that was to take away the sins of the world",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Genesis 22:14",
+          "quote": "is become a proverb in frequent use; In the mount of the Lord it shall be seen The words thus rendered, namely, the words of the proverb ... That is, in his people's greatest perplexities and extremities, and when matters are come to a crisis, the Lord will appear to provide for them.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "Genesis 22:14",
+          "quote": "this is still used as a proverb. In the mount of the Lord, i.e. in greatest extremities and distresses, as we say, at the pit’s brink, it shall be seen, or, the Lord shall be seen or manifested. ... yet they may have a further respect ... where the temple was built, and the Lord Christ was manifested in the flesh.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/genesis/22.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-25-22-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Genesis 25:22",
+      "strength": "commonly held",
+      "short": "Rebekah's cry of grief is left unfinished",
+      "about": "The children struggle within Rebekah, and she cries out, “Why is this happening to me?” Her words of grief are left unfinished. The LORD had answered the prayer for a child, yet she suffers so; she does not say the rest, but goes to inquire of the LORD.",
+      "refs": [
+        "Genesis 25:21"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Grief and Complaint",
+        "ref": "Genesis 25:22",
+        "words": "Why is this happening to me?",
+        "means": "the rest of her complaint, unsaid: if the prayer for a child was answered, why must she suffer so, and why did she wish for one?"
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis, the sudden silence of grief and complaint: Rebekah's words are not completed, for she could not see why an answered prayer should bring such suffering. Clarke calls it an imperfect speech, born of her perplexity, and gives its sense: if she must suffer so, why did she ever wish for a child?",
+      "limit": "The two writers fill in her unspoken words a little differently.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 25:22",
+          "at": "Aposiopesis, Grief and Complaint, p. 153",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/153/mode/1up",
+          "quote": "Rebekah’s words of grief and complaint are not completed. She could not understand why, if Jehovah was intreated and answered Isaac’s prayer, she should so suffer that the answer was almost as hard to be borne as her former condition.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Genesis 25:22",
+          "quote": "It appears she was in considerable perplexity, hence that imperfect speech, If so, why am I thus? the simple meaning of which is probably this; if I must suffer such things, why did I ever wish to have a child?",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew her words begin with “if so” and run: if so, why this, I? She does not complete the sentence.",
+        "strong": [
+          "H0518",
+          "H3651"
+        ]
+      }
+    },
+    {
+      "id": "genesis-49-10-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Genesis 49:10",
+      "strength": "widely agreed",
+      "short": "“Shiloh,” a dark name for the coming King",
+      "about": "Jacob says the scepter will stay with Judah until Shiloh comes. The name is dark and its exact meaning is debated, but it is read as a name of the Messiah, the King from Judah to whom the nations will give their allegiance.",
+      "figure": {
+        "name": "Riddle",
+        "ref": "Genesis 49:10",
+        "words": "Shiloh",
+        "means": "the Messiah, the King to come from Judah, whom the nations will obey"
+      },
+      "original": {
+        "note": "In Hebrew Shiloh is elsewhere the name of a town; here it can be read as the name of a person, the bearer of rest.",
+        "strong": [
+          "H7886"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Ænigma, a dark saying. Calvin calls the passage obscure but certain to promise the Messiah from Judah. Jamieson (Jamieson, Fausset and Brown) calls Shiloh an obscure word, explained in several ways, meaning the Messiah. Keil (Keil and Delitzsch) takes it as a title of the Messiah, the bearer of rest, though the grammar of the word may be uncertain.",
+      "limit": "The writers explain the word itself in different ways, such as the one sent, the seed or the bearer of rest; those who explain it agree that it points to the Messiah.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 49:10",
+          "at": "Ænigma; or, Dark Saying, p. 772",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/772/mode/1up",
+          "quote": "is in the form of Enigma. “The sceptre shall not depart from Judah, nor a lawgiver from between his feet, until Shiloh come; and unto him shall the gathering of the people be.” See under Metonymy.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 49:10",
+          "quote": "Though this passage is obscure ... It is certain that the Messiah, who was to spring from the tribe of Judah, is here promised.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Genesis 49:10",
+          "quote": "Shiloh--this obscure word is variously interpreted to mean “the sent” (Joh 17:3), “the seed” (Isa 11:1), the “peaceable or prosperous one” (Eph 2:14) --that is, the Messiah",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 49:9-10",
+          "quote": "Shiloh might also be a personal name, and denote not merely the place of rest, but the man, or bearer, of rest. We regard Shiloh, therefore, as a title of the Messiah ... although there may be uncertainty as to the grammatical interpretation of the word, there is perfect agreement as to the fact that the patriarch is here proclaiming the coming of the Messiah.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

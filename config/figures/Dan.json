@@ -1,0 +1,105 @@
+{
+  "notes": [
+    {
+      "id": "daniel-3-15-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Daniel 3:15",
+      "strength": "widely agreed",
+      "short": "The king finishes his threat but not his offer",
+      "about": "Nebuchadnezzar gives the three men another chance. He leaves unsaid what will follow if they bow to the statue, but spells out what they will suffer if they refuse: “you will be thrown at once into the blazing fiery furnace.”",
+      "refs": [
+        "Exodus 32:32"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Promise",
+        "ref": "Daniel 3:15",
+        "words": "worship the statue I have made",
+        "means": "what would follow if the men bowed, left unsaid, while the threat for refusing is spelled out"
+      },
+      "original": {
+        "note": "In Aramaic the first if-clause, “if you are ready,” runs on through the bowing down and has no then-clause; only the second, the threat, is finished.",
+        "strong": [
+          "H2006"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis: the king was ready with his threat but careful to promise nothing. Keil (Keil and Delitzsch) says the end of the first clause is left out as plain from the second, and compares Exodus 32:32. H. Deane (Ellicott's Commentary) says the word well is not in the Aramaic, where there is an aposiopesis, as in Exodus 32:32.",
+      "limit": "This translation renders the bowing down as a command, so the break shows only in the Aramaic. The writers differ on what is left unsaid: that the men would escape the furnace, or a promise the king took care not to make.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Daniel 3:15",
+          "at": "Aposiopesis, or Sudden-Silence: Promise, p. 152",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/152/mode/1up",
+          "quote": "Here Nebuchadnezzar was ready with his threat of the punishment, but he was careful not to commit himself to any promise.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Daniel 3:15",
+          "quote": "The conclusion to the first clause is omitted, because it is self-evident from the conclusion of the second, opposed passage: then ye will not be cast into the fiery furnace. Similar omissions are found in Exo 32:32 ; Luk 13:9 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Daniel 3:15",
+          "quote": "Well. — The word is not in the Chaldee, where an aposiopesis is to be observed, as in Exo 32:32 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "daniel-5-25-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Daniel 5:25-28",
+      "refs": [
+        "Daniel 5:8",
+        "Daniel 5:12",
+        "Daniel 5:30"
+      ],
+      "strength": "widely agreed",
+      "short": "Four words on the wall, a riddle Daniel explains",
+      "about": "A hand writes four words on the palace wall, and the king’s wise men cannot read them or tell what they mean. Daniel, known to explain riddles, reads them and opens their sense: God has numbered Belshazzar’s reign, weighed him, and divided his kingdom. That very night the king was slain.",
+      "figure": {
+        "name": "Riddle",
+        "ref": "Daniel 5:25",
+        "words": "MENE, MENE, TEKEL, PARSIN",
+        "means": "God’s sentence on Belshazzar: his reign numbered and ended, the king weighed and found deficient, his kingdom divided and given to the Medes and Persians"
+      },
+      "evidence": "Bullinger lists Daniel 5:25-28 under Ænigma: the handwriting is a riddle announcing Babylon’s fall, which Daniel interprets in verses 26-28. Keil (Keil and Delitzsch): the writing has the dark character of an oracle, each word holding a double sense the interpretation brings out. Matthew Henry calls it a riddle the wise men could not solve, so short we could make little of it unexplained.",
+      "limit": "The verses do not say why the wise men could not read the words, and the note does not guess.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Daniel 5:25-28",
+          "at": "Ænigma, or Dark Saying, p. 774",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/774/mode/1up",
+          "quote": "The handwriting on the wall is given in the form of an Enigma, in which the immediate fall of Babylon was announced. ... These three words are interpreted by Daniel in verses 26-28, and the fulfilment of them follows in verses 30, 31.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Daniel 5:25-28",
+          "quote": "Daniel now read the writing (Dan 5:25), and gave its interpretation (Dan 5:26-28). The writing bears the mysterious character of the oracle. ... In all the three words there lies a double sense, which is brought out in the interpretation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Daniel 5:10-29",
+          "quote": "She entreated him not to be discouraged by the insufficiency of his wise men to solve this riddle ... It is well that we have an authentic exposition of these words annexed, else we could make little of them, so concise are they; the signification of them is, He has numbered, he has weighed, and they divide.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

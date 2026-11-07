@@ -207,6 +207,241 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-corinthians-5-6-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "1 Corinthians 5:6",
+      "strength": "widely agreed",
+      "short": "“A little leaven”: a common saying",
+      "about": "Paul answers the church's boasting with a saying he expects them to know: a little leaven works through the whole batch of dough. One sin left alone in the church, like the man living in sin among them, will spread and spoil the whole. Paul uses the same saying in Galatians 5:9 also.",
+      "refs": [
+        "Galatians 5:9"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "ref": "1 Corinthians 5:6",
+        "words": "a little leaven works through the whole batch of dough",
+        "means": "one sin, or one sinner, left alone will spread and corrupt the whole church"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, or Proverb, among sayings first in Scripture. Adam Clarke calls it a common maxim and reads the leaven as the sinning man left in the church. Albert Barnes calls it evidently a proverbial saying: one sin allowed in the church spreads through it all. John Calvin says Paul uses a proverbial saying to show a whole multitude infected by one man.",
+      "limit": "Most of these writers treat it as a saying already in use; one places it among sayings first found in Scripture that later came into general use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 5:6",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 765",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/765/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “A little leaven leaveneth the whole lump.” Leaven is always used in a bad sense.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Corinthians 5:6",
+          "quote": "do you not know and acknowledge the truth of a common maxim, a little leaven leaveneth the whole lump? If this leaven - the incestuous person, be permitted to remain among you; if his conduct be not exposed by the most formidable censure; the flood-gates of impurity will be opened on the Church",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 5:6",
+          "quote": "This is evidently a proverbial saying. It occurs also in Gal 5:9 . ... A single sin indulged in, or allowed in the church, would act like leaven - it would pervade and corrupt the whole church, unless it was removed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 5:6",
+          "quote": "He makes use of a proverbial saying, by which he intimates that a whole multitude is infected by the contagion of a single individual.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-5-7-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "1 Corinthians 5:7",
+      "strength": "widely agreed",
+      "short": "The Passover lamb pointed ahead to Christ",
+      "about": "Paul calls Christ “our Passover lamb.” The lamb Israel slew at Passover pointed ahead to Him. As Israel put away all leaven when the lamb was slain, so those for whom Christ has been sacrificed are to clear out the old leaven of sin.",
+      "refs": [
+        "Exodus 12:15",
+        "Exodus 12:21",
+        "Exodus 12:27"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "1 Corinthians 5:7",
+        "words": "our Passover lamb",
+        "means": "Christ, whom the lamb slain at Passover pictured ahead of time"
+      },
+      "original": {
+        "note": "In Paul's Greek the words are to pascha hēmōn, “our Passover”; the word pascha here means the Passover lamb.",
+        "strong": [
+          "G3957"
+        ]
+      },
+      "evidence": "Barnes: no doubt the paschal lamb was a type of the Messiah, designed to typify Him; pascha usually means that lamb. Calvin: Paul explains the correspondence between the figure in the Passover and the reality, Christ sacrificed once. Fausset (Jamieson, Fausset and Brown): as the days of unleavened bread began with the slain lamb, so with Christ slain. Benson: the paschal lamb represented Christ.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 5:7",
+          "quote": "There can be no doubt here that the paschal lamb was a type of the Messiah … Our \"paschal lamb,\" for so the word πάσχα pascha usually signifies. … that that lamb was designed to adumbrate or typify him",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 5:7",
+          "quote": "Paul, having it in view to exhort the Corinthians to holiness, shows that what was of old figuratively represented in the passover, ought to be at this day accomplished in us, and explains the correspondence which exists between the figure and the reality. … Christ, says Paul, is our Passover He was sacrificed once",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Corinthians 5:7",
+          "quote": "as the Jews began the days of unleavened bread with the slaying of the Passover lamb, so, Christ our Passover having been already slain, let there be no leaven of evil in you who are the \"unleavened lump.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "1 Corinthians 5:6-8",
+          "quote": "For even Christ our passover Who was represented by the paschal lamb",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-9-17-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "1 Corinthians 9:17",
+      "strength": "commonly held",
+      "short": "“Voluntary” here means preaching without pay",
+      "about": "Paul says, “If my preaching is voluntary, I have a reward.” By voluntary he means without pay: the next verse speaks of offering the gospel free of charge. He uses the lesser word to say the greater thing. One writer finds this way of speaking suited to his self-denial.",
+      "refs": [
+        "1 Corinthians 9:18"
+      ],
+      "figure": {
+        "name": "Meiosis",
+        "ref": "1 Corinthians 9:17",
+        "words": "my preaching is voluntary",
+        "means": "preaching without pay, offering the gospel free of charge"
+      },
+      "original": {
+        "note": "In Paul's Greek the word is hekōn, willingly, set beside misthon, a reward: to preach for nothing and yet have a reward.",
+        "strong": [
+          "G1635",
+          "G3408"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Meiosis (a belittling): Paul means gratuitously, but lessens the wording to increase his meaning. Bengel says willingly stands here for gratuitously, so that with a reward it makes an oxymoron, and that Paul, speaking of his own affairs, often heightens or lessens his words, a way suited to express his self-denial.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 9:17",
+          "at": "Meiosis, or a Be-littleing, p. 157",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/157/mode/1up",
+          "quote": "“For if I do this thing willingly, I have a reward.” He means gratuitously; but lessens the wording, so as to increase his meaning.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "1 Corinthians 9:17",
+          "quote": "This is here used instead of gratuitously, whence I have a reward makes an oxymoron; ... Paul often, when speaking of his own affairs, uses increase and diminution ... not unlike a catachresis, and suitable to express his self-abnegation.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/1_corinthians/9.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-11-8-antimetabole",
+      "kind": "figure",
+      "form": "antimetabole",
+      "ref": "1 Corinthians 11:8-9",
+      "strength": "some interpreters",
+      "short": "Man and woman, then woman and man, said twice",
+      "about": "Paul names man, then woman, and turns the pair around: “man did not come from woman, but woman from man.” Verse 9 makes the same turn: “Neither was man created for woman, but woman for man.” Repeating the words in reverse order sets the two in contrast.",
+      "figure": {
+        "name": "Antimetabole",
+        "ref": "1 Corinthians 11:8",
+        "words": "man did not come from woman, but woman from man",
+        "means": "the man and the woman contrasted: the woman came from the man, not the man from the woman"
+      },
+      "refs": [
+        "1 Corinthians 11:11-12"
+      ],
+      "evidence": "Bullinger lists verses 8 and 9 under Antimetabole, or Counterchange, which he defines as words repeated in reverse order to oppose one thing to another or to contrast two or more things. He sets out both turns: man and woman, then woman and man, in verse 8, and the same again in verse 9.",
+      "limit": "The note is about how the words are set out, not the whole teaching: verses 11 and 12 add that in the Lord “woman is not independent of man, nor is man independent of woman.”",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 11:8-9",
+          "at": "Antimetabole, or Counterchange, pp. 301, 303",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/303/mode/1up",
+          "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... a “For the man b is not of the woman; b but the woman a of the man. c Neither was the man created d for the woman, d but the woman c for the man. ”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-15-9-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "1 Corinthians 15:9",
+      "strength": "widely agreed",
+      "short": "Paul calls himself least, and God's grace stands out",
+      "about": "Paul calls himself the least of the apostles, unworthy of the name, because he persecuted the church. He sets himself low, and God's grace stands out: “But by the grace of God I am what I am” (verse 10). Yet, defending his calling, he could say he was “in no way inferior” (2 Corinthians 11:5).",
+      "refs": [
+        "1 Corinthians 15:10",
+        "2 Corinthians 11:5"
+      ],
+      "figure": {
+        "name": "Meiosis",
+        "ref": "1 Corinthians 15:9",
+        "words": "the least of the apostles",
+        "means": "Paul lowers himself, so that the grace of God that made him an apostle is seen the greater"
+      },
+      "evidence": "Bullinger lists the verse under Meiosis, the lowering of one thing to magnify another: it magnifies the grace of God in verse 10. Calvin says Paul gladly abased himself to magnify God's grace, and has him say he will be of no account so that God's goodness may shine the more. Simon Browne (Matthew Henry's Commentary) says Paul, the more he worked, grew humbler and readier to magnify God's favour.",
+      "limit": "One writer thinks Paul was also answering those at Corinth who belittled him; another adds that he was least because he was the last of the apostles to be called.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Corinthians 15:9",
+          "at": "Meiosis, or A Be-littleing, p. 157",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/157/mode/1up",
+          "quote": "“I am the least of the apostles.” This is said to magnify the grace of God (verse 10). Whereas, when magnifying his claims, he could say to these same Corinthians, “I suppose I was not a whit behind the very chiefest apostles”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 15:9",
+          "quote": "he was at all times voluntarily, and even cheerfully, disposed to abase himself, that he might magnify the grace of God, yet I suspect that in this instance he wished to obviate calumnies. ... there were some at Corinth that made it their aim to detract from his dignity ... I shall suffer myself to be of no account whatever, that the goodness of God towards me may shine forth the more.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 15:1-11",
+          "quote": "He was highly favoured of God, but he always endeavoured to keep up a mean opinion of himself, and to express it. ... The least, because the last of them; called latest to the office ... the more he laboured, and the more good he did, the more humble he was in his opinion of himself, and the more disposed to own and magnify the favour of God towards him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

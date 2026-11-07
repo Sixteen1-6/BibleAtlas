@@ -28,8 +28,7 @@ export interface Card {
   read_more: { site: string; title: string; url: string }[];
   evidence: string;
   source: string;
-  reviewed_by: string[];
-  /** Not yet reviewed (only present in local preview builds). */
+  /** Not yet approved (only present in local preview builds). */
   draft: boolean;
 }
 

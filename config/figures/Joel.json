@@ -1,0 +1,92 @@
+{
+  "notes": [
+    {
+      "id": "joel-2-7-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Joel 2:7",
+      "strength": "some interpreters",
+      "short": "Mighty men, men of war",
+      "about": "The second line says the first again in other words: they charge like mighty men, they scale the walls like men of war.",
+      "lines": [
+        {
+          "ref": "Joel 2:7",
+          "words": "They charge like mighty men;"
+        },
+        {
+          "ref": "Joel 2:7",
+          "words": "they scale the walls like men of war."
+        }
+      ],
+      "pairs": [
+        [
+          "mighty men",
+          "men of war"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his examples of synonymous parallel lines, and says such lines are made of synonymous terms, sometimes three or more and sometimes two.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Joel 2:7",
+          "at": "Preliminary Dissertation, p. xvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
+          "quote": "Like mighty men shall they rush on; Like warriors shall they mount the wall: ... Joel, ii. 7. ... In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "joel-2-30-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Joel 2:30-31",
+      "strength": "some interpreters",
+      "short": "Heavens and earth, then the earth and the heavens",
+      "about": "Wonders are promised in the heavens and on the earth. The blood, fire and smoke may be the wonders on the earth, and the darkened sun and the moon turned to blood the wonders in the heavens, so the two come back in reverse order.",
+      "lines": [
+        {
+          "ref": "Joel 2:30",
+          "words": "I will show wonders in the heavens",
+          "mark": "A",
+          "key": "heavens"
+        },
+        {
+          "ref": "Joel 2:30",
+          "words": "and on the earth,",
+          "mark": "B",
+          "key": "earth"
+        },
+        {
+          "ref": "Joel 2:30",
+          "words": "blood and fire and columns of smoke.",
+          "mark": "B'",
+          "key": "smoke"
+        },
+        {
+          "ref": "Joel 2:31",
+          "words": "The sun will be turned to darkness and the moon to blood",
+          "mark": "A'",
+          "key": "sun"
+        }
+      ],
+      "evidence": "Boys suspects the same distinct resumption of separate topics in Joel: the changes in the sun and moon, in the last line, seem to be the wonders in the heavens of the first, and what the third line speaks of seems to be the wonders in the earth of the second.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Joel 2:30-31",
+          "at": "Introduction, p. 33",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/33/mode/1up",
+          "quote": "I suspect the same distinct resumption of separate topics in the prophet Joel. ... The changes in the sun and moon, spoken of in a., seem to be the wonders in the heavens, predicted in a.; ... in b., the wonders in the earth, predicted in b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    }
+  ]
+}
