@@ -11,19 +11,32 @@
 // The panel: each writer's notes, oldest first, folded where long, with places
 // elsewhere to read more on the verse. Opened by a link before the notice, it
 // says who wrote about the verse, with "Show what they wrote". The small index
-// loads with the reader's first move; the notes and the panel's code load when
-// the panel opens. Built by crates/atlas-cli/src/extra_voices.rs.
+// loads with the reader's first move; a verse's notes (a file of about 20 KB
+// compressed) and the panel's code load as soon as its line shows to a reader
+// who has finished the commentary notice, else when the panel opens. Built by crates/atlas-cli/src/extra_voices.rs.
 
 import type { ComponentType } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+import { accepted } from '../commentary/state';
+import { loadJson } from './data';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
-import { type Data, SOURCE, WORKS, listWords, load, worksOn } from './voices/model';
+import { type Data, SOURCE, WORKS, listWords, load, partOf, worksOn } from './voices/model';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
 let panel: Promise<PanelType> | null = null;
+
+/** Once the line shows under a verse, and the reader has finished the
+ * commentary notice, fetch that verse's notes and the panel's code ahead, so
+ * the panel opens without a wait. Both are kept, so this costs nothing twice. */
+function warm(d: Data, verse: number): void {
+  if (!accepted.value) return;
+  const file = partOf(d, verse);
+  if (file) loadJson(d.a, file).catch(() => {});
+  loadPanel().catch(() => {});
+}
 
 /** The panel's code, fetched the first time a reader opens it. */
 function loadPanel(): Promise<PanelType> {
@@ -46,7 +59,7 @@ function Panel(props: PanelProps<Data>) {
       live = false;
     };
   }, []);
-  if (!impl) return <p class="xt-lead xt-wait">…</p>;
+  if (!impl) return <p class="xt-lead xt-wait">Loading what they wrote…</p>;
   return <impl.C {...props} />;
 }
 
@@ -61,6 +74,7 @@ export default defineExtra<Data>({
   },
   note(verse, d) {
     const ws = worksOn(d, verse);
+    if (ws.length) warm(d, verse);
     return ws.length ? `Christian writers: ${listWords(ws.map((w) => WORKS[w].short))}` : null;
   },
   Panel,

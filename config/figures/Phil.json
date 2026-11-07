@@ -177,6 +177,66 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "philippians-3-7-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Philippians 3:7",
+      "strength": "widely agreed",
+      "short": "What was “gain” to Paul he now counts as “loss”",
+      "about": "Paul sets what was gain to him against loss. The gains are the advantages he has just listed in verses 5 and 6, not his sins; for the sake of Christ he now counts them all as loss. They were loss to him because they had kept him from Christ.",
+      "refs": [
+        "Philippians 3:5-6"
+      ],
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Philippians 3:7",
+        "words": "whatever was gain to me I count as loss",
+        "means": "the advantages Paul had as an Israelite, once gain to him, now counted as loss for the sake of Christ"
+      },
+      "original": {
+        "note": "In Paul's Greek “gain” is plural, gains, while “loss” is singular: he counts all the gains together as one loss.",
+        "strong": [
+          "G2771",
+          "G2209"
+        ]
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the verse under Antithesis: it shows that Paul speaks of his gains as a man and an Israelite, not of his sins. Calvin says what was gain while Paul was blind he owns as loss once enlightened, as it kept him from Christ. Barnes: Paul now sees them not as gain but as an obstacle. Fausset (Jamieson, Fausset and Brown) notes the plural gains and one loss.",
+      "limit": "The writers stress different gains: most his birth and standing as an Israelite, one chiefly his own righteousness.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Philippians 3:7",
+          "at": "Antithesis, or Contrast, p. 717",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/717/mode/1up",
+          "quote": "Note that, by Antithesis, our attention is called to the fact that Paul is here speaking, by the Spirit, of his “gains,” not of his sins. Of his gains, as a man and an Israelite",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Philippians 3:7",
+          "quote": "Those things, accordingly, which had been gain to Paul when he was as yet blind, or rather had imposed upon him under an appearance of gain, he acknowledges to have been loss to him, when he has been enlightened. Why loss? Because they were hinderances in the way of his coming to Christ. … Now he speaks chiefly of his own righteousness",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Philippians 3:7",
+          "quote": "The advantages of birth, of education, and of external conformity to the law. … I look upon them, not as gain or an advantage, but as an obstacle to my salvation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Philippians 3:7",
+          "quote": "rather as Greek, “gains”; including all possible advantages of outward status, which he had heretofore enjoyed. … He no longer uses the plural as in “gains”; for he counts them all but one great “loss”",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

@@ -389,6 +389,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     let bin = c.finish();
     write(out, "atlas.bin", &bin, &mut files)?;
     for (rel, bytes) in crate::extra_real_map::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_people::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_peshitta::build(&inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_translations::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
 
@@ -420,11 +421,14 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     for (rel, bytes) in crate::extra_structure::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_prophecies::build(root, &inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
+    write(out, crate::layers_index::OUT, serde_json::to_string(&crate::layers_index::build(&layers_json)).unwrap().as_bytes(), &mut files)?;
     let naves = crate::naves::read(&inputs, &vz)?;
     let ask_sources = crate::ask::Sources { text: &bsb.text, vz: &vz, degree: &degree, graph: &graph, words: &words, lemma_index: &lemma_index, lemma_count: &theme_counts, quotes: &quotes };
     for (rel, bytes) in crate::ask::build(root, &naves, &ask_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::naves::build(root, &inputs, &vz, &naves, &theme_glosses, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
 
+    let poetry_lines = crate::poetry_lines::Lines::read(&inputs, &vz, &bsb.text)?;
+    eprintln!("poetry layout: {} of {} poetry verses set out as lines", poetry_lines.placed, poetry_lines.poetry);
     let (mut heb, mut ara, mut grk, mut var, mut sig) = (0usize, 0usize, 0usize, 0usize, 0usize);
     for (b, book) in BOOKS.iter().enumerate() {
         let b = b as u8;
@@ -456,7 +460,8 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
             }
             chapters.push(Value::Array(verses));
         }
-        let doc = json!({ "book": book.osis, "chapters": chapters });
+        let mut doc = json!({ "book": book.osis, "chapters": chapters });
+        if let Some(l) = poetry_lines.book_json(b as usize) { doc["lines"] = l; }
         write(out, &format!("text/{}.json", book.osis), serde_json::to_string(&doc).unwrap().as_bytes(), &mut files)?;
     }
     for (rel, bytes) in crate::extra_parallels::build(root, &inputs, &vz, &bsb.text, &words, &lemma_index)? { write(out, &rel, &bytes, &mut files)?; }

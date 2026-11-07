@@ -17,7 +17,9 @@ import { AskSheet } from './ui/ask/AskSheet';
 import { Reader } from './ui/Reader';
 import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
+import { noticeOpen } from './ui/commentary/state';
 import { Wheel } from './ui/Wheel';
+import { sharePicture } from './ui/share';
 import { WordStudy } from './ui/WordStudy';
 
 /** The English versions on offer: the ESV only where its server runs. */
@@ -84,6 +86,12 @@ const DOTS_ICON = (
     <circle cx="13" cy="8" r="1.5" fill="currentColor" />
   </svg>
 );
+const SHARE_ICON = (
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 10V2M5 5l3-3 3 3M3 8v5h10V8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+);
+
 const THEME_ICON = {
   system: (
     <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -189,6 +197,16 @@ export function App() {
       if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
         e.preventDefault();
         S.paletteOpen.value = true;
+      } else if ((e.key === 'j' || e.key === 'k') && !typing && !e.metaKey && !e.ctrlKey && !e.altKey && !S.paletteOpen.value && !noticeOpen.value && !(e.target as HTMLElement)?.closest?.('[role="dialog"], select, [contenteditable]')) {
+        // J and K step to the next and previous verse; the map and the text follow.
+        const at = S.atlas.peek();
+        if (!at) return;
+        e.preventDefault();
+        const sel = S.selected.peek();
+        const { book, chapter } = S.reading.peek();
+        const first = at.chapterStart[at.bookChapterStart[book] + chapter - 1];
+        const next = sel === null ? first : e.key === 'j' ? Math.min(at.n - 1, sel + 1) : Math.max(0, sel - 1);
+        S.selectVerse(next);
       } else if (e.key === 'Escape' && S.viewMenu.value) {
         S.viewMenu.value = false;
       } else if (e.key === 'Escape' && S.panelWide.value && !S.paletteOpen.value) {
@@ -275,6 +293,20 @@ export function App() {
             {THEME_ICON[S.pageTheme.value]}
             <span class="optlabel">{THEME_NAME[S.pageTheme.value]}</span>
           </button>
+          {!wheel && S.mapShown.value !== 'hide' && !S.panelWide.value && (
+            <button
+              class="iconbtn themebtn sharebtn"
+              onClick={() => {
+                S.viewMenu.value = false;
+                void sharePicture(a);
+              }}
+              title="Share the map, with the selected verse, as a picture"
+              aria-label="Share the map as a picture"
+            >
+              {SHARE_ICON}
+              <span class="optlabel">Share as a picture</span>
+            </button>
+          )}
           {atLeast('study') && (
             <div class="seg mapstyle" role="group" aria-label="Map style">
               <button aria-pressed={!wheel} onClick={() => (S.mapMode.value = 'arcs')}>

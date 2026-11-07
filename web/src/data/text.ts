@@ -18,7 +18,13 @@ export type VerseRow = [string, WordRow[], VerseAlign?];
 export interface BookText {
   book: string;
   chapters: VerseRow[][];
+  /** The BSB's poetry lines, by "<chapter>.<verse>": [start, kind] for each
+   * line, the start counted in the verse's BSB text (poetry_lines.rs). */
+  lines?: Record<string, [number, number][]>;
 }
+
+/** A poetry line's kind (the low three bits; 8 marks a stanza gap before it). */
+export const LINE = { line: 1, indent: 2, refrain: 3, prose: 4, title: 5, gap: 8 } as const;
 
 export const FLAG = { aramaic: 1, otherEditions: 2, variant: 4, significant: 8 } as const;
 

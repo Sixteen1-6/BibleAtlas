@@ -1,0 +1,56 @@
+{
+  "notes": [
+    {
+      "id": "1-peter-3-21-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "1 Peter 3:21",
+      "strength": "widely agreed",
+      "short": "The water of Noah's day pictures baptism",
+      "about": "In the ark eight people “were saved through water” (verse 20), and that water pictures “the baptism that now saves you also”. Peter adds that it is not a washing of the body but “the pledge of a clear conscience toward God”, and it saves through Christ's resurrection.",
+      "refs": [
+        "1 Peter 3:20",
+        "Genesis 7:23",
+        "1 Corinthians 10:2"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "1 Peter 3:21",
+        "words": "this water symbolizes the baptism that now saves you also",
+        "means": "the flood water through which Noah's household was saved, a picture of Christian baptism, which saves through Christ's resurrection"
+      },
+      "original": {
+        "note": "In Peter's Greek “symbolizes” renders antitypon, the antitype, what answers to the earlier picture.",
+        "strong": [
+          "G0499"
+        ]
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) calls the flood Noah's baptism and baptism its antitype, saving not of itself. Clarke sets the water that saved Noah beside the water of baptism. Mason (Ellicott's commentary) calls Noah's safe passage through the flood a type of baptism.",
+      "limit": "The verse itself says this is not the removal of dirt from the body. Two writers say the water does not save of itself: one ties it to repentance and faith, which it signs and seals, the other to the Spirit's renewing, which it pictures. Another sees in the flood a new beginning for mankind.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "1 Peter 3:21",
+          "quote": "The flood was for Noah a baptism, as the passage through the Red Sea was for the Israelites … The antitypical water, namely, baptism, saves you also not of itself, nor the mere material water, but the spiritual thing conjoined with it, repentance and faith, of which it is the sign and seal",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Peter 3:21",
+          "quote": "Noah and his family were saved by water ... So the water of baptism, typifying the regenerating influence of the Holy Spirit, is the means of salvation to all those who receive this Holy Spirit in its quickening, cleansing efficacy. ... so the water of baptism saves no man, but as it is the means of his getting his heart purified by the Holy Spirit, and typifying to him that purification.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Peter 3:21",
+          "quote": "the water through which Noah was saved is said in the present day (“now,” as opposed to “in the days of Noe”) to save us … it foreshadowed something which does as a fact save us. … so Noe’s safe passage through the Flood is a type of baptism, because it was a regeneration of humanity",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

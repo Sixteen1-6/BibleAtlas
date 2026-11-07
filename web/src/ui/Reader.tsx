@@ -10,13 +10,14 @@ import { type EsvChapter, loadEsvChapter } from '../data/esv';
 import { type NetChapter, NET_COPYRIGHT, NET_COPYRIGHT_LINK, NET_COPYRIGHT_URL, NET_HOME, NET_SERVICE, loadNetChapter, netVerseUrl } from '../data/net';
 import { passages } from '../data/layers';
 import { ChapterExtras, VerseExtras } from './extras/VerseExtras';
-import { FLAG, type BookText, type WordRow, loadBook } from '../data/text';
+import { FLAG, LINE, type BookText, type WordRow, loadBook } from '../data/text';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { ASKS } from './commentary/Gate';
 import { accepted, askNotice } from './commentary/state';
 import { CardLink, PairedEnglish, PairedWords, PairsNote, WordsNote, grammarTip, pairsOn } from './Pairs';
 import { Welcome } from './Welcome';
+import { READ_AFTER_MS, markRead } from '../data/reading';
 import { OMITTED } from './common';
 
 function wordClass(w: WordRow, hit: boolean, shared: boolean): string {
@@ -48,6 +49,18 @@ export function Reader({ a }: { a: Atlas }) {
   const orig = atLeast('study');
   const other = S.showOtherEditions.value && atLeast('deep');
   const inter = S.interlinear.value;
+  // Side by side: the version being read, then its partner. The BSB's partner
+  // is the NET, read live like the NET itself; the NET's and the ESV's is the BSB.
+  const side = orig && S.sideBySide.value === 'on';
+  const partner = tr === 'BSB' ? 'NET' : 'BSB';
+  const netWanted = tr === 'NET' || (side && tr === 'BSB');
+
+  // A chapter open for half a minute counts as read (data/reading.ts).
+  useEffect(() => {
+    const c = a.bookChapterStart[book] + chapter - 1;
+    const t = setTimeout(() => markRead(c), READ_AFTER_MS);
+    return () => clearTimeout(t);
+  }, [a, book, chapter]);
 
   useEffect(() => {
     let live = true;
@@ -58,7 +71,7 @@ export function Reader({ a }: { a: Atlas }) {
   }, [a, book]);
 
   useEffect(() => {
-    if (tr !== 'NET') return;
+    if (!netWanted) return;
     const key = `${book}:${chapter}`;
     let live = true;
     setNet({ key });
@@ -68,7 +81,7 @@ export function Reader({ a }: { a: Atlas }) {
     return () => {
       live = false;
     };
-  }, [tr, book, chapter]);
+  }, [netWanted, book, chapter]);
 
   // The translators' notes stay on netbible.org: the selected verse links to them.
   // They are the NET's own commentary, so the link waits for the commentary notice.
@@ -151,12 +164,37 @@ export function Reader({ a }: { a: Atlas }) {
   const aramaicRows = isHebrew ? rows.filter((r) => r[1].some((w) => w[5] & FLAG.aramaic)).length : 0; // Daniel 2–7, Ezra 4–7, Jeremiah 10
   const layered = new Set(passages.value.map((p) => p.v));
   const esvReady = tr === 'ESV' && esv?.key === `${book}:${chapter}` ? esv : null;
-  const netReady = tr === 'NET' && net?.key === `${book}:${chapter}` ? net : null;
+  const netReady = netWanted && net?.key === `${book}:${chapter}` ? net : null;
   // The verses of the version being read, when it is not the BSB and has arrived.
-  const liveVerses = esvReady?.data?.verses ?? netReady?.data?.verses ?? null;
+  const liveVerses = tr === 'BSB' ? null : (esvReady?.data?.verses ?? netReady?.data?.verses ?? null);
+  // The partner's verses: the NET's beside the BSB once they arrive, or the
+  // BSB's own beside a version that has arrived.
+  const sideVerses = !side ? null : tr === 'BSB' ? (netReady?.data?.verses ?? null) : liveVerses ? 'BSB' : null;
+  const showNetCredit = !!netReady?.data && (tr === 'NET' || sideVerses !== null);
   const VERSION_LONG = { BSB: 'Berean Standard Bible', NET: 'NET Bible', ESV: 'English Standard Version' } as const;
   // The NET acknowledgment around its address, which is shown as a link.
   const [netBefore, netAfter] = NET_COPYRIGHT.split(NET_COPYRIGHT_URL);
+  // Each English version on the page is credited, the one being read first.
+  const mainEsv = tr === 'ESV' && !!esvReady?.data;
+  const mainNet = tr === 'NET' && !!netReady?.data;
+  const bsbShown = !mainEsv && !mainNet;
+  const netCredit = (
+    <>
+      English: NET Bible (
+      <a href={NET_HOME} target="_blank" rel="noopener">
+        NET
+      </a>
+      ). {netBefore}
+      <a href={NET_COPYRIGHT_LINK} target="_blank" rel="noopener">
+        {NET_COPYRIGHT_URL}
+      </a>
+      {netAfter} Read live from{' '}
+      <a href={NET_SERVICE} target="_blank" rel="noopener">
+        labs.bible.org
+      </a>
+      .{' '}
+    </>
+  );
   // How many alignment links the build left out (meta.json, written by align.rs).
   const leftOut = (a.meta as typeof a.meta & { alignment?: { shiftedLinksLeftOut?: number } }).alignment?.shiftedLinksLeftOut;
 
@@ -167,12 +205,12 @@ export function Reader({ a }: { a: Atlas }) {
         <h1>
           {chapterName(b)} {chapter}
         </h1>
-        <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${tr}` : VERSION_LONG[tr]}</span>
+        <span class="muted">{orig ? `${!isHebrew ? 'Greek' : aramaicRows === 0 ? 'Hebrew' : aramaicRows === rows.length ? 'Aramaic' : 'Hebrew and Aramaic'} with ${sideVerses ? `${tr} and ${partner}` : tr}` : VERSION_LONG[tr]}</span>
         <div class="nav">
-          <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter">
+          <button class="btn" onClick={() => go(-1)} aria-label="Previous chapter" title="Previous chapter. The J and K keys step through the verses.">
             ‹ Prev
           </button>
-          <button class="btn" onClick={() => go(1)} aria-label="Next chapter">
+          <button class="btn" onClick={() => go(1)} aria-label="Next chapter" title="Next chapter. The J and K keys step through the verses.">
             Next ›
           </button>
         </div>
@@ -187,6 +225,9 @@ export function Reader({ a }: { a: Atlas }) {
               Color pairs
             </button>
           )}
+          <button class="btn" aria-pressed={side} onClick={() => (S.sideBySide.value = side ? 'off' : 'on')} title={`Show the ${tr} and the ${partner} side by side, verse by verse`}>
+            Side by side
+          </button>
           {tr === 'NET' && (
             <button class="btn" aria-pressed={notesOn} onClick={toggleNotes} {...(accepted.value ? {} : ASKS)} title="A link under the selected verse to the NET translators’ own notes on netbible.org: why they chose their words, and other ways to read the Hebrew and Greek">
               Translators’ notes
@@ -203,11 +244,21 @@ export function Reader({ a }: { a: Atlas }) {
       {orig && inter && <WordsNote hebrew={isHebrew} />}
       {orig && inter && pairsOn.value && !liveVerses && <PairsNote hebrew={isHebrew} leftOut={leftOut} />}
       {tr === 'ESV' && esvReady?.error && <div class="notice">{esvReady.error} Showing the BSB instead.</div>}
-      {tr === 'NET' && netReady?.error && <div class="notice">The NET could not be loaded just now ({netReady.error.replace(/\.$/, '')}). Showing the BSB instead.</div>}
-      {tr === 'NET' && netReady && !netReady.data && !netReady.error && <p class="muted" style="max-width:760px;margin:0 auto">Loading the NET…</p>}
+      {netReady?.error && (
+        <div class="notice">
+          The NET could not be loaded just now ({netReady.error.replace(/\.$/, '')}). Showing the BSB {tr === 'NET' ? 'instead' : 'alone'}.
+        </div>
+      )}
+      {netReady && !netReady.data && !netReady.error && <p class="muted" style="max-width:760px;margin:0 auto">Loading the NET…</p>}
       {!text && <p class="empty" style="max-width:760px;margin:0 auto">Loading {b.name}…</p>}
       <ChapterExtras a={a} book={book} chapter={chapter} />
-      <div class="verses">
+      <div class={sideVerses ? 'verses two' : 'verses'}>
+        {sideVerses && (
+          <div class="sidehead" aria-hidden="true">
+            <span>{VERSION_LONG[tr]}</span>
+            <span>{VERSION_LONG[partner]}</span>
+          </div>
+        )}
         {rows.map((row, i) => {
           const v = start + i;
           const english = liveVerses ? liveVerses[String(i + 1)] ?? '' : row[0];
@@ -217,13 +268,20 @@ export function Reader({ a }: { a: Atlas }) {
           const indexOf = (w: WordRow) => row[1].indexOf(w);
           // Pairs follow the BSB, so they are off while another version is shown.
           const al = orig && inter && pairsOn.value && !liveVerses ? row[2] : undefined;
+          const poem = text?.lines?.[`${chapter}.${i + 1}`];
+          // The partner's words for this verse, beside the main text.
+          const other2 = sideVerses === 'BSB' ? row[0] : sideVerses ? sideVerses[String(i + 1)] ?? '' : null;
           return (
             <div class={`verse${sel.value === v ? ' sel' : ''}`} key={v} data-v={v} data-lv={v}>
               <div class="en" onClick={() => S.selectVerse(v)}>
                 <button class="num" onClick={() => S.selectVerse(v)} aria-label={`Select verse ${i + 1}`}>
                   {i + 1}
                 </button>
-                {al ? <PairedEnglish v={v} text={english} al={al} /> : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
+                {al ? (
+                  <PairedEnglish v={v} text={english} al={al} />
+                ) : !liveVerses && poem ? (
+                  <PoetryLines text={english} lines={poem} />
+                ) : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -251,6 +309,16 @@ export function Reader({ a }: { a: Atlas }) {
                   </button>
                 )}
               </div>
+              {other2 !== null && (
+                <div class="en side" onClick={() => S.selectVerse(v)}>
+                  <span class="sidetag">{partner}</span>
+                  {sideVerses === 'BSB' && poem ? (
+                    <PoetryLines text={other2} lines={poem} />
+                  ) : (
+                    other2 || <span class="muted">{sideVerses === 'BSB' ? OMITTED : `The ${partner} does not include this verse in its main text.`}</span>
+                  )}
+                </div>
+              )}
               {!orig ? null : al ? (
                 <PairedWords v={v} row={row} al={al} hebrew={isHebrew} other={other} studyRoot={studyRoot} kin={kin} />
               ) : inter ? (
@@ -283,31 +351,18 @@ export function Reader({ a }: { a: Atlas }) {
       <ChapterWhen a={a} book={book} chapter={chapter} ready={!!text} />
       {text && (
         <p class="copyright">
-          {tr === 'ESV' && esvReady?.data ? (
+          {mainEsv && (
             <>
-              {esvReady.data.copyright} Read more at <a href="https://www.esv.org" target="_blank" rel="noopener">esv.org</a>.
+              {esvReady?.data?.copyright} Read more at <a href="https://www.esv.org" target="_blank" rel="noopener">esv.org</a>.{' '}
             </>
-          ) : tr === 'NET' && netReady?.data ? (
+          )}
+          {mainNet && netCredit}
+          {(bsbShown || sideVerses === 'BSB') && (
             <>
-              English: NET Bible (
-              <a href={NET_HOME} target="_blank" rel="noopener">
-                NET
-              </a>
-              ). {netBefore}
-              <a href={NET_COPYRIGHT_LINK} target="_blank" rel="noopener">
-                {NET_COPYRIGHT_URL}
-              </a>
-              {netAfter} Read live from{' '}
-              <a href={NET_SERVICE} target="_blank" rel="noopener">
-                labs.bible.org
-              </a>
-              .
+              English: <CardLink work="bsb">Berean Standard Bible</CardLink>, by the Berean Bible Translation Committee (2016; public domain since 2023).{' '}
             </>
-          ) : (
-            <>
-              English: <CardLink work="bsb">Berean Standard Bible</CardLink>, by the Berean Bible Translation Committee (2016; public domain since 2023).
-            </>
-          )}{' '}
+          )}
+          {!mainNet && showNetCredit && netCredit}
           {isHebrew ? (
             <>
               Hebrew and Aramaic: Leningrad Codex (about AD 1008), tagged by STEPBible (<CardLink work="tahot">TAHOT</CardLink>, CC BY 4.0).
@@ -320,6 +375,28 @@ export function Reader({ a }: { a: Atlas }) {
         </p>
       )}
     </div>
+  );
+}
+
+/** A poetry verse set out in the BSB's own lines: a line set one step in, a
+ * refrain such as "Selah" further in, a psalm's title in italics, and a gap
+ * where a new stanza starts. Lines break with <br> so the verse's link
+ * buttons stay at the end of its last line. */
+function PoetryLines({ text, lines }: { text: string; lines: [number, number][] }) {
+  return (
+    <span class="poem">
+      {lines.map(([at, k], j) => {
+        const end = j + 1 < lines.length ? lines[j + 1][0] : text.length;
+        const kind = k & 7;
+        const cls = kind === LINE.indent ? 'pl in' : kind === LINE.refrain ? 'pl rf' : kind === LINE.title ? 'pl ti' : 'pl';
+        return (
+          <Fragment key={j}>
+            {j > 0 && (k & LINE.gap ? <span class="pgap" /> : <br />)}
+            <span class={cls}>{text.slice(at, end).trimEnd()}</span>{' '}
+          </Fragment>
+        );
+      })}
+    </span>
   );
 }
 

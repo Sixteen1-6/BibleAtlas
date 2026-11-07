@@ -13,6 +13,7 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import { type Atlas, label } from '../../../data/atlas';
 import { type VerseRow, getVerse } from '../../../data/text';
+import { loadNotes, notes } from '../../../data/layers';
 import { TAP } from '../../../state';
 import { GoDeeper } from '../../Depth';
 import { CommentaryFoot } from '../../commentary/Gate';
@@ -152,6 +153,11 @@ function PlayView({ a, play, here, rows, navigate }: { a: Atlas; play: Play; her
   const deep = levelAtLeast('deep');
   const L = a.lemmas;
   const unsure = play.layer.strength === 'some interpreters';
+  // The note's words come from layers.json, which loads with the panel.
+  const note = notes.value?.get(play.passage.id)?.layers[play.at];
+  useEffect(() => {
+    loadNotes(a).catch(() => {});
+  }, [a]);
   const verses = sideBySide(play, here);
   return (
     <article class="x-wordplay-play">
@@ -161,7 +167,7 @@ function PlayView({ a, play, here, rows, navigate }: { a: Atlas; play: Play; her
         {unsure && <Unsure title="Some interpreters read it this way; others do not">some interpreters</Unsure>}
         {play.passage.draft && <Unsure title="Not yet reviewed by a person">draft</Unsure>}
       </p>
-      <p class="x-wordplay-text">{smart(play.layer.text)}</p>
+      <p class="x-wordplay-text">{note ? smart(note.text) : 'Loading the note…'}</p>
       {study && play.roots.length > 0 && (
         <div class="x-wordplay-words">
           {play.roots.map((w) => {
@@ -178,7 +184,7 @@ function PlayView({ a, play, here, rows, navigate }: { a: Atlas; play: Play; her
           ))}
         </SideBySide>
       )}
-      {deep && play.layer.evidence && <p class="x-wordplay-deep">Behind this note: {smart(play.layer.evidence.replace(/\.\s*$/, ''))}.</p>}
+      {deep && note?.evidence && <p class="x-wordplay-deep">Behind this note: {smart(note.evidence.replace(/\.\s*$/, ''))}.</p>}
     </article>
   );
 }

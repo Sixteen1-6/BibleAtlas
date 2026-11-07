@@ -43,7 +43,7 @@ const OUT_SHAPES: &str = "extras/real-map/shapes.json";
 const SHAPES: &str = "openbible-shapes";
 
 const GEO: &str = "openbible-geo";
-const THEO: &str = "theographic";
+pub(crate) const THEO: &str = "theographic";
 const NE: &str = "natural-earth";
 
 /// The Bible lands the map covers: west, south, east, north, in degrees.
@@ -434,13 +434,13 @@ fn csv(text: &str) -> Vec<Vec<String>> {
 }
 
 /// A CSV file with a header row, read by column name.
-struct Table {
+pub(crate) struct Table {
     cols: HashMap<String, usize>,
-    rows: Vec<Vec<String>>,
+    pub(crate) rows: Vec<Vec<String>>,
 }
 
 impl Table {
-    fn open(path: &Path, need: &[&str]) -> Result<Self, String> {
+    pub(crate) fn open(path: &Path, need: &[&str]) -> Result<Self, String> {
         let mut rows = csv(&read(path)?);
         if rows.is_empty() {
             return Err(format!("{} is empty", path.display()));
@@ -457,7 +457,7 @@ impl Table {
         Ok(Self { cols, rows })
     }
 
-    fn get<'a>(&self, row: &'a [String], col: &str) -> &'a str {
+    pub(crate) fn get<'a>(&self, row: &'a [String], col: &str) -> &'a str {
         self.cols
             .get(col)
             .and_then(|&i| row.get(i))
@@ -466,12 +466,12 @@ impl Table {
     }
 }
 
-fn list(s: &str) -> impl Iterator<Item = &str> {
+pub(crate) fn list(s: &str) -> impl Iterator<Item = &str> {
     s.split(',').map(str::trim).filter(|x| !x.is_empty())
 }
 
 /// "Isa.40.3" as a verse number in the BSB, if the BSB has that verse.
-fn osis_verse(osis: &str, vz: &Versification) -> Option<u32> {
+pub(crate) fn osis_verse(osis: &str, vz: &Versification) -> Option<u32> {
     let mut it = osis.trim().split('.');
     let book = atlas_core::canon::by_osis(it.next()?)?;
     let chapter: u16 = it.next()?.parse().ok()?;
@@ -1976,7 +1976,7 @@ fn note_words(html: &str, own: &str, name_of: &dyn Fn(&str) -> Option<String>) -
 // ------------------------------------------------------------------ people
 
 /// Theographic people left out of "people tied to this place".
-const NOT_PEOPLE: [&str; 3] = ["God", "Holy Spirit", "Satan"];
+pub(crate) const NOT_PEOPLE: [&str; 3] = ["God", "Holy Spirit", "Satan"];
 
 /// Edit distance between two words.
 fn edits(a: &[char], b: &[char]) -> usize {
@@ -2083,11 +2083,11 @@ const NOT_VERSES: [(&str, &str, &str); 1] = [("herod_1506", "Acts.12.19", "the g
 const PASSAGE: u32 = 3;
 
 /// A Theographic person as a BSB reader meets them.
-struct Person {
+pub(crate) struct Person {
     /// Theographic's title in the BSB's spelling: "Simon Peter", "Oholiab"
     /// (not the KJV's "Aholiab"), "Timothy" (not "Timotheus"), "Mary (Mother
     /// of Jesus)".
-    name: String,
+    pub(crate) name: String,
     /// The verses of the passages Theographic lists them in: each verse it
     /// lists, and up to PASSAGE verses either side in the same chapter. Its
     /// lists leave verses out (Paul in Acts 16:1, Barnabas in Acts 13:4).
@@ -2107,7 +2107,7 @@ impl Person {
     /// title first, then the earliest). A name inside a place's name ("David"
     /// in "the City of David") does not count: `places` are the spans of the
     /// places the verse names.
-    fn named_at(
+    pub(crate) fn named_at(
         &self,
         v: u32,
         text: &[Vec<char>],
@@ -2360,7 +2360,7 @@ fn name_between(
     })
 }
 
-fn person(pe: &Table, r: &[String], vz: &Versification, text: &[Vec<char>]) -> Person {
+pub(crate) fn person(pe: &Table, r: &[String], vz: &Versification, text: &[Vec<char>]) -> Person {
     let title = pe.get(r, "displayTitle");
     let title = if title.is_empty() {
         pe.get(r, "name")

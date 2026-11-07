@@ -132,6 +132,180 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "jeremiah-13-23-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 13:23",
+      "strength": "some interpreters",
+      "short": "A saying: can the leopard change his spots?",
+      "about": "The verse asks two questions whose plain answer is no: can the Ethiopian change his skin, or the leopard his spots? It then applies them: those accustomed to doing evil are not able to do good. The questions are read as a saying first found here that has since passed into common use.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Jeremiah 13:23",
+        "words": "Can the Ethiopian change his skin, or the leopard his spots?",
+        "means": "as the Ethiopian cannot change his skin nor the leopard his spots, so those accustomed to doing evil are not able to do good"
+      },
+      "evidence": "Bullinger lists the two questions under Parœmia, among sayings first found in Scripture that have since passed into general use as proverbs. The verse itself applies them to those accustomed to doing evil.",
+      "limit": "The verse itself does not call the questions a proverb; they count as one because the saying has since passed into common use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Jeremiah 13:23",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “Can the Ethiopian change his skin, or the leopard his spots?”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-17-5-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Jeremiah 17:5-8",
+      "strength": "some interpreters",
+      "short": "Cursed and like a shrub; blessed and like a tree",
+      "about": "A curse on the man who trusts in mankind is followed by a picture of him, a shrub in the desert. A blessing on the man who trusts in the LORD is followed by its picture, a tree planted by the waters.",
+      "lines": [
+        {
+          "ref": "Jeremiah 17:5",
+          "words": "Cursed is the man who trusts in mankind,",
+          "mark": "A",
+          "key": "Cursed"
+        },
+        {
+          "ref": "Jeremiah 17:6",
+          "words": "He will be like a shrub in the desert;",
+          "mark": "B",
+          "key": "shrub"
+        },
+        {
+          "ref": "Jeremiah 17:7",
+          "words": "But blessed is the man who trusts in the LORD,",
+          "mark": "A'",
+          "key": "blessed"
+        },
+        {
+          "ref": "Jeremiah 17:8",
+          "words": "He is like a tree planted by the waters",
+          "mark": "B'",
+          "key": "tree"
+        }
+      ],
+      "evidence": "Boys sets the four verses out in four members that take turns: a curse and a blessing in the first and third, and a confirmation or reason for each in the second and fourth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Jeremiah 17:5-8",
+          "at": "Introduction, p. 17",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/17/mode/1up",
+          "quote": "Here we have a curse and a blessing in A. and A.; and a confirmation, or reason for each, in B. and B. … The leading terms very distinctly mark out for us the arrangement of the passage.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-23-28-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 23:28",
+      "strength": "some interpreters",
+      "short": "A saying: what is straw compared to grain?",
+      "about": "The LORD has spoken of prophets who prophesy lies in His name, saying, “I had a dream!” (verse 25). Let the dreamer retell his dream, He says, and the one with His word speak it truthfully. Then He asks a question that later became a common saying: “For what is straw compared to grain?”",
+      "refs": [
+        "Jeremiah 23:25-27",
+        "Jeremiah 23:32"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Jeremiah 23:28",
+        "words": "what is straw compared to grain",
+        "means": "a saying that straw is nothing beside grain; the verse sets the prophet's dream beside the LORD's word"
+      },
+      "evidence": "Bullinger lists the question under Parœmia, among proverbs that first appear in Scripture and have since come into common use as sayings. The verses around it (23:25-27 and 32) tell of prophets who prophesy lies and false dreams in the LORD's name, and the verse sets their dreams beside His word.",
+      "limit": "The verse does not call the question a saying; it is counted one because it later came into common use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Jeremiah 23:28",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “What is the chaff (Heb., straw) to the wheat?”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-31-29-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 31:29",
+      "strength": "widely agreed",
+      "short": "A saying that blamed the fathers for the children",
+      "about": "People said that the fathers ate sour grapes and the children's teeth were set on edge, meaning they suffered for their fathers' sins, not their own. It can be read as a charge that God was unjust. The LORD says it will be said no more: instead, “each will die for his own iniquity” (verse 30).",
+      "refs": [
+        "Jeremiah 31:30",
+        "Ezekiel 18:2-3"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "Jeremiah 31:29",
+        "words": "The fathers have eaten sour grapes, and the teeth of the children are set on edge",
+        "means": "the children are punished for their fathers' sins, not for their own"
+      },
+      "evidence": "Bullinger lists it under Parœmia, a proverb already in use, and points to Ezekiel 18:2-3. Calvin says the people used it to strive with God, as if He punished them while innocent; Keil (Keil and Delitzsch) reads it as a complaint that God is unjust. Plumptre (Ellicott) says it was in common use and eased their consciences; Fausset (Jamieson, Fausset and Brown) says the exiles' children used it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Jeremiah 31:29",
+          "at": "Parœmiœ which are quoted as being already in use as such, p. 757",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/757/mode/1up",
+          "quote": "“In those days they shall say no more, ‘The fathers have eaten a sour grape, and the children’s teeth are set on edge.’ ” This is what they did once say. See Eze 18:2-3.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 31:29-30",
+          "quote": "Ezekiel shews that it was a complaint commonly prevailing among the people, that they suffered for the sins of their fathers ... Such, then, was the arrogance of the Jews, as to strive with God, as though he punished them, while they were innocent; and they expressed this by using a proverb",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 31:29",
+          "quote": "The proverb means, \"Children atone for the misdeeds of their fathers,\" or \"The sins of the fathers are visited on their innocent children.\" ... The proverb mentioned in Jer 31:29 involves the complaint against God, that in punishing sin He deals unjustly.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 31:29-30",
+          "quote": "The proverb was one which, as we find from Eze 18:2-3 , had at this time come into common use. Men found in it an explanation of their sufferings which relieved their consciences. They were suffering, they said, for the sins of their fathers, not for their own.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 31:29",
+          "quote": "the proverb among the exiles' children born in Babylon, to express that they suffered the evil consequences of their fathers' sins rather than of their own",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

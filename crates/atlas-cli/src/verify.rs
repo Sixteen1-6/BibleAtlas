@@ -68,6 +68,8 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     for (ok, what) in crate::extra_notes::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_voices::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_customs::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::poetry_lines::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::layers_index::verify(&d)? { r.check(ok, what); }
     r.check(d.graph.validate().is_ok(), format!("cross-reference CSR: {:?}", d.graph.validate()));
     r.check(d.graph.edge_count() > 330_000, format!("only {} cross-references", d.graph.edge_count()));
     for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
@@ -127,6 +129,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
         r.check(any, format!("{} 1:1 has original-language words", bk.name));
     }
     for (ok, what) in crate::extra_real_map::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_people::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_peshitta::verify(&d)? { r.check(ok, what); }
     // Split points where NRSV and KJV numbering differ: the Greek must sit
     // under the English verse that translates it.
