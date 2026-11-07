@@ -488,6 +488,1828 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "matthew-3-10-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 3:10",
+      "strength": "widely agreed",
+      "short": "The axe at the root stands for judgment at hand",
+      "about": "John has told his hearers, “Produce fruit, then, in keeping with repentance.” Now he speaks only of an axe at the root of the trees and of fruitless trees cut down and burned, without saying who the trees are. Many read them as people judged by their fruit, with God's judgment close at hand.",
+      "refs": [
+        "Matthew 3:8"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 3:10",
+        "words": "The axe lies ready at the root of the trees",
+        "means": "God's judgment close at hand, ready to cut down all who do not bear the fruit of repentance"
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: the axe at the root implies the outcome of John's ministry. Brown (Jamieson, Fausset and Brown) calls it a figure of judgment at hand; Barnes, a figure threatening coming wrath; Calvin, God's judgment near, cutting unworthy men off like barren trees; Clarke and E. H. Plumptre (Ellicott's Commentary) read the trees as nations and people.",
+      "limit": "The writers differ on the trees. Some read them as each person who will not repent. One also reads them as the Jewish nation, with the Romans as the axe soon to fall; another sees the fall of Jerusalem only as a shadow of the judgment on each one.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 3:10",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "by the axe being laid to the root of the trees, etc., is implied the result of the ministry of John the Baptist.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 3:10",
+          "quote": "as it were ready to strike: an expressive figure of impending judgment, only to be averted in the way next described … Language so personal and individual as this can scarcely be understood of any national judgment like the approaching destruction of Jerusalem … though this would serve as the dark shadow, cast before, of a more terrible retribution to come.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 3:10",
+          "quote": "Laying the axe at the root of a tree is intended to denote that the tree is to be cut down. … This is a beautiful and very striking figure of speech, and a very direct threatening of future wrath.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 3:10",
+          "quote": "John announces the approaching judgment of God. … he now adds, that God is just about to drive out unworthy persons from the Church, as barren trees are wont to be cut down.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 3:10",
+          "quote": "It was customary with the prophets to represent the kingdoms, nations, and individuals, whose ruin they predicted, under the notion of forests and trees, doomed to be cut down. … The Baptist follows the same metaphor: the Jewish nation is the tree, and the Romans the axe, which, by the just judgment of God, was speedily to cut it down.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 3:10",
+          "quote": "The symbolism which saw in “trees” the representatives of human characters, of nations, and institutions, had been recognised in Isaiah’s parable of the vine ... and the Baptist’s application of it was but a natural extension. ... Now the axe was laid to the root, and the alternative was preservation or destruction. For the unfruitful tree there was the doom of fire.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-3-10-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Matthew 3:10-12",
+      "strength": "some interpreters",
+      "short": "The axe and the winnowing fork frame John's words",
+      "about": "John speaks of the axe at the root of the trees, then of his baptism with water, then of the One more powerful than he. He comes back in reverse: he is not worthy to carry His sandals, that One will baptize with the Holy Spirit, and His winnowing fork is in His hand.",
+      "lines": [
+        {
+          "ref": "Matthew 3:10",
+          "words": "The axe lies ready at the root of the trees,",
+          "mark": "A",
+          "key": "axe"
+        },
+        {
+          "ref": "Matthew 3:11",
+          "words": "I baptize you with water for repentance,",
+          "mark": "B",
+          "key": "baptize"
+        },
+        {
+          "ref": "Matthew 3:11",
+          "words": "but after me will come One more powerful than I,",
+          "mark": "C"
+        },
+        {
+          "ref": "Matthew 3:11",
+          "words": "whose sandals I am not worthy to carry.",
+          "mark": "C'"
+        },
+        {
+          "ref": "Matthew 3:11",
+          "words": "He will baptize you with the Holy Spirit and with fire.",
+          "mark": "B'",
+          "key": "baptize"
+        },
+        {
+          "ref": "Matthew 3:12",
+          "words": "His winnowing fork is in His hand",
+          "mark": "A'",
+          "key": "winnowing fork"
+        }
+      ],
+      "evidence": "Boys sets out these verses with the Lord as a hewer of trees in the first part and as a winnower of corn in the last, the superiority of His baptism to John's in the second and next to last, and His superiority to John in the two central parts.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Matthew 3:10-12",
+          "at": "Introduction, p. 5",
+          "url": "https://archive.org/details/tactica-sacra/page/5/mode/1up",
+          "quote": "Here, in a., the Lord is referred to under the similitude of a hewer of trees; and in a., under that of a winnower of corn … In c. and c., we have our Lord's superiority to John: in b. and b., the superiority of our Lord's baptism to John's.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-14-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 5:14",
+      "strength": "some interpreters",
+      "short": "A saying: a city on a hill cannot be hidden",
+      "about": "Jesus tells His disciples, “You are the light of the world,” and adds words that, first found here, later passed into common use as a saying: “A city on a hill cannot be hidden.” What stands high is seen by all, and so are they; verse 16 tells them to let their light shine before men.",
+      "refs": [
+        "Matthew 5:16"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 5:14",
+        "words": "A city on a hill cannot be hidden",
+        "means": "what is set high is seen by all, as His disciples, the light of the world, will be seen"
+      },
+      "evidence": "Bullinger lists the words under Parœmia, among sayings that first appear in Scripture and have since passed into general use. The verse itself sets them beside the disciples as the light of the world, and verse 16 speaks of their good deeds being seen.",
+      "limit": "The verse itself does not mark the words as a proverb.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 5:14",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “A city that is set on a hill cannot be hid.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-5-29-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 5:29-30",
+      "strength": "widely agreed",
+      "short": "Eye and hand stand for what we hold most dear",
+      "about": "Jesus says to gouge out a right eye or cut off a right hand that causes sin. He is not asking anyone to harm the body. The eye and hand picture what is dearest and most useful to us, which must be given up if it leads into sin, since losing it is better than hell.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 5:29",
+        "words": "your right eye",
+        "means": "whatever is dearest and most useful to us, when it leads us into sin"
+      },
+      "evidence": "Bullinger lists Matthew 5:29-30 under Hypocatastasis, the right eye standing by implication for the most prized possession, and prefers it to Hyperbole. Barnes says it is not meant literally: the dearest objects, if they cause sin, must go. Benson reads it as anything as dear as a right eye. Plumptre (Ellicott) says any sense that ministers to sin is better lost.",
+      "limit": "One writer grants the words could be taken as an overstatement, but finds a hidden comparison explains them better; another takes the eye as any of the senses. Either way the point is the same: whatever leads into sin must go, however dear it is.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 5:29-30",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "May also be explained by this figure better than by Hyperbole ... The right eye, etc., is compared by implication to the most highly prized possession.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 5:29",
+          "quote": "The right eye and hand are mentioned, because they are of most use to us ... It cannot be supposed that Christ intended this to be taken literally. His design was to teach that the dearest objects, if they cause us to sin, are to be abandoned",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 5:29-30",
+          "quote": "If any person or thing, as pleasant and as dear to thee as thy right eye, should be a stumbling-block in thy way ... that is, give up and part with the beloved object.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 5:29",
+          "quote": "The bold severity of the phrase excludes a literal interpretation. ... What is meant is, that any sense, when it ministers to sin is an evil and not a good, the loss of which would be the truest gain.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-6-21-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 6:21",
+      "strength": "some interpreters",
+      "short": "Heart follows treasure, a saying since in wide use",
+      "about": "Jesus closes His call to store up treasures in heaven with a short saying: where a person's treasure is, there his heart will be. It can be read as a saying first found here that later passed into common use.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 6:21",
+        "words": "where your treasure is, there your heart will be also",
+        "means": "a person's heart goes after whatever he treasures most"
+      },
+      "original": {
+        "note": "In Matthew's Greek the stress of the saying falls on the word heart, kardia.",
+        "strong": [
+          "G2588"
+        ]
+      },
+      "evidence": "Bullinger, in Figures of Speech, lists these words under Parœmia, among proverbs that first appear in Scripture and have since passed into general use, and notes that Matthew's Greek puts the stress on the heart.",
+      "limit": "The text does not mark the words as a proverb; that they later passed into common use is the cited writer's reading, not the verse's own claim.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 6:21",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “Where your treasure is, there will your heart be also.” Greek, “there will your heart also be,” with emphasis on “heart.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-6-24-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Matthew 6:24",
+      "strength": "some interpreters",
+      "short": "Two masters, at the start and again at the end",
+      "about": "The first line says no one can serve two masters, and the last line says it again, now naming the two masters: God and money.",
+      "lines": [
+        {
+          "ref": "Matthew 6:24",
+          "words": "No one can serve two masters:",
+          "mark": "A",
+          "key": "masters"
+        },
+        {
+          "ref": "Matthew 6:24",
+          "words": "Either he will hate the one and love the other,",
+          "mark": "B",
+          "key": "hate"
+        },
+        {
+          "ref": "Matthew 6:24",
+          "words": "or he will be devoted to the one and despise the other.",
+          "mark": "B'",
+          "key": "despise"
+        },
+        {
+          "ref": "Matthew 6:24",
+          "words": "You cannot serve both God and money.",
+          "mark": "A'",
+          "key": "God"
+        }
+      ],
+      "evidence": "Jebb reads the verse as four lines and calls it an epanodos: the first line says in general terms that no one can serve two masters, and the fourth says it again and names the two masters, God and mammon.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Matthew 6:24",
+          "at": "Sacred Literature, p. 336",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/336/mode/1up",
+          "quote": "In this quatrain at large, there is a clear epanodos: in the first line, the impossibility is, in general terms, asserted, of serving two masters … in the fourth line, this impossibility is re-asserted … by the specification of the two incompatible masters, God and MAMMON.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-6-24-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 6:24",
+      "refs": [
+        "Luke 16:13"
+      ],
+      "strength": "widely agreed",
+      "short": "“No one can serve two masters”: likely a proverb",
+      "about": "Jesus opens with a proverb: no one can serve two masters. He then applies it in the verse's last words: “You cannot serve both God and money.” Luke 16:13 records the same saying.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 6:24",
+        "words": "No one can serve two masters",
+        "means": "a servant cannot give himself wholly to two owners; here the two are God and money"
+      },
+      "evidence": "Calvin says the words were no doubt a proverb in common use, a truth all admitted, which Christ applies to His present subject. Henry calls them a general maxim and says it is likely they were a proverb among the Jews. Bullinger, in Figures of Speech, lists them under Parœmia, among proverbs that first appear in Scripture and have since passed into general use.",
+      "limit": "The text does not mark the words as a proverb. Two of the writers take the saying as already in use; the third lists it among sayings first found in Scripture.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 6:24",
+          "quote": "This was, no doubt, a proverb in common use: No man can serve two masters He takes for granted a truth which had been universally admitted, and applies it to his present subject",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 6:24",
+          "quote": "A general maxim laid down; it is likely it was a proverb among the Jews, No man can serve two masters, much less two gods; for their commands will some time or other cross or contradict one another, and their occasions interfere.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 6:24",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “No man can serve two masters.” See Hermeneia.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-7-3-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 7:3-5",
+      "strength": "widely agreed",
+      "short": "A speck and a beam: small faults and great ones",
+      "about": "Jesus pictures a man fussing over a speck in his brother's eye with a beam in his own. Most read speck and beam as faults: we are quick to see a small one in another and slow to see a far greater one in ourselves. He must first deal with his own, and then he can help his brother.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 7:3",
+        "words": "the speck in your brother’s eye, but fail to notice the beam in your own eye",
+        "means": "a brother's small fault, and the far greater fault we fail to see in ourselves"
+      },
+      "evidence": "Bullinger lists Matthew 7:3-5 under Hypocatastasis: the mote and beam point by implication to whatever warps the sight. Barnes says we judge small offences in others more readily than larger ones in ourselves. Brown (Jamieson, Fausset and Brown) says the speck denotes any small fault and the beam the greater fault we overlook, and Henry that some sins are as motes, others as beams.",
+      "limit": "Most of the cited writers take the speck and beam as faults; one puts it more widely, as anything that warps a person's sight.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 7:3-5",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "The mote and beam refer by implication to anything that perverts the vision.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 7:3",
+          "quote": "The one is an exceedingly small object, the other a large one. The meaning is, that “we are much more quick and acute to judge of small offences in others, than of much larger offences in ourselves.”",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 7:3",
+          "quote": "the mote--“splinter,” here very well rendered “mote,” denoting any small fault ... the beam that is in thine own eye?--denoting the much greater fault which we overlook in ourselves.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 7:3-5",
+          "quote": "who quarrel with their brother for small faults, while they allow themselves in great ones ... There are degrees in sin: some sins are comparatively but as motes, others as beams",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-7-6-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 7:6",
+      "strength": "widely agreed",
+      "short": "“Dogs” and “swine” stand for scornful people",
+      "about": "Jesus warns not to give what is holy to dogs or throw pearls before swine. The animals stand for people who scorn what is holy and precious and turn on those who bring it. It is no license to write people off quickly: the words fit only those who plainly despise what they are offered.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 7:6",
+        "words": "Do not give dogs what is holy; do not throw your pearls before swine",
+        "means": "people who plainly scorn holy things and turn on those who bring them"
+      },
+      "evidence": "Bullinger lists Matthew 7:6 under Hypocatastasis: dogs and swine stand by implication for persons. Barnes says dogs are people who spurn and abuse the gospel, swine the impure who trample it. Brown (Jamieson, Fausset and Brown) reads them as haters of truth and the impure. Henry and Calvin take them as people hardened in scorn, and they and Brown warn against naming people so too readily.",
+      "limit": "The writers differ on whether the pearls are the gospel's teaching or a wise rebuke.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 7:6",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "Here “dogs” and “swine” are compared by implication to persons.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 7:6",
+          "quote": "Pearls are precious stones found in shell-fish ... In this place they are used to denote the doctrines of the gospel. “Dogs” signify people who spurn, oppose, and abuse that doctrine ... “Swine” denote those who would trample the precepts underfoot; people of impurity of life",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 7:6",
+          "quote": "unto the dogs--savage or snarling haters of truth and righteousness. neither cast ye your pearls before swine--the impure or coarse, who are incapable of appreciating the priceless jewels of Christianity ... let us be on our guard against too readily setting our neighbors down as dogs and swine",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 7:6",
+          "quote": "Good counsel and reproof are a holy thing, and a pearl ... there are some that have arrived at such a pitch of wickedness, that they are looked upon as dogs and swine ... they professedly hate and despise instruction, and set it at defiance ... Yet we must be very cautious whom we condemn as dogs and swine, and not do it till after trial, and upon full evidence.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 7:6",
+          "quote": "dogs and swine are names given not to every kind of debauched men, or to those who are destitute of the fear of God and of true godliness, but to those who, by clear evidences, have manifested a hardened contempt of God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-7-6-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Matthew 7:6",
+      "strength": "commonly held",
+      "short": "Dogs and swine, then swine and dogs",
+      "about": "The first line names the dogs and the second the swine. The third goes back to the swine, which trample, and the fourth to the dogs, which turn and tear. So the warning about the dogs opens and closes the verse.",
+      "lines": [
+        {
+          "ref": "Matthew 7:6",
+          "words": "Do not give dogs what is holy;",
+          "mark": "A",
+          "key": "dogs"
+        },
+        {
+          "ref": "Matthew 7:6",
+          "words": "do not throw your pearls before swine.",
+          "mark": "B",
+          "key": "swine"
+        },
+        {
+          "ref": "Matthew 7:6",
+          "words": "they may trample them under their feet,",
+          "mark": "B'",
+          "key": "trample"
+        },
+        {
+          "ref": "Matthew 7:6",
+          "words": "and then turn and tear you to pieces.",
+          "mark": "A'",
+          "key": "tear"
+        }
+      ],
+      "pairs": [
+        [
+          "dogs",
+          "tear"
+        ],
+        [
+          "swine",
+          "trample"
+        ]
+      ],
+      "evidence": "Jebb says the swine, sensual men, will trample the pearls in the mire, and the dogs, malignant men, will add injury to neglect; so the warning against the dogs stands at the beginning and the close. Barnes calls it an introverted parallelism: the dogs tear and the swine trample.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Matthew 7:6",
+          "at": "Sacred Literature, sect. XVI, pp. 339-340",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/339/mode/1up",
+          "quote": "To cast pearls before swine, is to place … before sensual and besotted wretches, who … will assuredly trample them in the mire. To give that which is holy … to the dogs, is to produce the deep truths of Christianity … before the malignant and profane; who will not fail to add injury to neglect … The warning, therefore, against the dogs, is emphatically placed at the commencement and the close.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 7:6",
+          "quote": "This verse furnishes a beautiful instance of what has been called the \"introverted parallelism.\" … sometimes it was introverted - where the first and fourth lines would correspond, and the second and third. This is the case here. The dogs would tear, and not the swine; the swine would trample the pearls under their feet, and not the dogs.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "matthew-9-12-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 9:12",
+      "refs": [
+        "Matthew 9:11"
+      ],
+      "strength": "commonly held",
+      "short": "Likely a common saying: the sick need a doctor",
+      "about": "When the Pharisees ask why He eats with tax collectors and sinners, Jesus answers with a proverb no one could mistake: a doctor is for the sick, not the healthy. Applied to Himself, it can be read as showing Him the doctor of souls, who heals those who own that they are sick.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 9:12",
+        "words": "It is not the healthy who need a doctor, but the sick",
+        "means": "a doctor is for the sick; so Jesus, the doctor of souls, heals sinners who own their need of Him"
+      },
+      "evidence": "Clarke calls the words a common proverb that none could misunderstand or misapply, and says Jesus here presents Himself as the Physician of souls, whose healing all need, and that men must own their spiritual sickness to be healed by Him. Bullinger, in Figures of Speech, lists them under Parœmia, among proverbs that first appear in Scripture and have since passed into general use.",
+      "limit": "The text does not mark the words as a proverb. One writer calls it a common proverb; the other lists it among sayings first found in Scripture that later passed into general use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Matthew 9:12",
+          "quote": "A common proverb, which none could either misunderstand or misapply. ... Jesus Christ represents himself here as the sovereign Physician of souls. 2. That all stand in need of his healing power. 3. That men must acknowledge their spiritual maladies, and the need they have of his mercy, in order to be healed by him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 9:12",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “They that be whole need not a physician.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-9-15-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Matthew 9:15",
+      "strength": "widely agreed",
+      "short": "Jesus pictures Himself as the bridegroom",
+      "about": "Asked why His disciples do not fast, Jesus answers with a picture of a wedding. The guests cannot mourn while the bridegroom is with them; when the bridegroom is taken from them, they will fast. He does not say who the bridegroom is: the picture implies Himself, with His disciples as the guests.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Matthew 9:15",
+        "words": "the guests of the bridegroom",
+        "means": "Jesus is the bridegroom and His disciples the guests; when He is taken from them, they will fast"
+      },
+      "original": {
+        "note": "In Matthew's Greek the guests are the sons of the bridechamber, a Hebrew way of naming the guests at a wedding.",
+        "strong": [
+          "G5207",
+          "G3567"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Allegory as repeated Hypocatastasis, a picture whose meaning is left implied. Henry says Christ is the Bridegroom of His Church and speaks of Himself under this similitude. Calvin says He compares Himself to the bridegroom, and calls the sons of the bridegroom a Hebrew phrase for wedding guests. Barnes reads the bridegroom as Jesus with His disciples.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 9:15",
+          "at": "Allegory, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "Mat 3:10 ; Mat 3:12 is repeated Hypocatastasis, and therefore Allegory. ... Mat 9:15 is the same, the meaning being implied.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 9:14-17",
+          "quote": "Jesus Christ is the Bridegroom of his Church, and his disciples are the children of the bride-chamber. Christ speaks of himself to John's disciples under this similitude, because that John had used it, when he called himself a friend of the bridegroom",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 9:15",
+          "quote": "for he compares himself to the bridegroom, who enlivens his friends by his presence. ... The children of the bridegroom, or of the nuptial bed, is a Hebrew phrase, which denotes the guests at a marriage.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 9:14-15",
+          "quote": "Christ, in reply to them, used three illustrations ... The first is taken from a marriage. ... I am with my disciples. It is with them a time of joy. It is not fit that they should use the tokens of grief, and fast now. When I am taken away, it will then be proper that they should fast.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-9-16-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Matthew 9:16-17",
+      "strength": "widely agreed",
+      "short": "A patch and wineskins: the new will not fit the old",
+      "about": "Jesus goes on with two pictures that make one point. New cloth sewn on an old garment pulls away and makes a worse tear, and new wine bursts old wineskins. The new cannot be forced onto the old without loss; new wine goes into new wineskins, and both are kept.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Matthew 9:16",
+        "words": "a patch of unshrunk cloth",
+        "means": "that what is new cannot be joined to what is old without harm; the writers differ on what the old and the new stand for"
+      },
+      "evidence": "Bullinger lists both sayings under Allegory in Figures of Speech and reads the patch as teaching that the old nature cannot be reformed. Barnes reads the patch of the new teaching of Christ, which does not match the old rites of the Pharisees. Calvin rejects that reading, and he and Henry take them of weak disciples and a discipline stricter than they could bear. Clarke gives both readings.",
+      "limit": "The writers agree the two sayings are pictures but differ on what they stand for: the teaching of Christ set against the old rites, strict fasting laid on disciples not yet strong, or the old nature that cannot be mended.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 9:16-17",
+          "at": "Allegory, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "The “old piece” on the new implies the solemn lesson as to the impossibility of reforming the Old nature.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 9:16",
+          "quote": "So, says he, my \"new\" doctrines do not match with the old rites of the Pharisees. There is a fitness of things. Their doctrines require much fasting. In my system it would be incongruous; and if my new doctrines were to be attached to their old ones, it would only make the matter worse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 9:17",
+          "quote": "The institutes of Christ, and those of the Pharisees, could never be brought to accord ... To impose such duties and mortifications as are not absolutely necessary to salvation, before God has properly prepared the heart by his grace for them, is a conduct as absurd and ruinous as putting a piece of raw, unscoured cloth on an old garment",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 9:16-17",
+          "quote": "Those who think that he compares worn-out garments and decayed bottles to the Pharisees, and new wine and fresh cloth to the doctrine of the gospel, have no probability on their side. The comparison is beautifully adapted to the matter in hand, if we explain it as referring to the weak and tender disciples of Christ, and to a discipline more strict than they were able to bear.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 9:14-17",
+          "quote": "That they had not strength sufficient for that duty. This is set forth in two similitudes, one of putting new cloth into an old garment, which does but pull the old to pieces ... Christ's disciples were not able to bear these severe exercises so well as those of John and of the Pharisees",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-10-10-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 10:10",
+      "refs": [
+        "Luke 10:7",
+        "1 Timothy 5:18"
+      ],
+      "strength": "commonly held",
+      "short": "A rule all knew: the worker earns his keep",
+      "about": "Jesus sends the Twelve out with no bag, second tunic, sandals or staff. The reason He gives is a rule known in all everyday work: a worker deserves his food. He applies it to those doing the Lord's work. Paul later quotes the saying as Scripture in 1 Timothy 5:18.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 10:10",
+        "words": "the worker is worthy of his provisions",
+        "means": "one who works has a right to his food, and so do those sent out to do the Lord's work"
+      },
+      "evidence": "Brown (Jamieson, Fausset and Brown) says the words state a principle recognized by all in everyday affairs, here applied with authority to the Lord's workmen, and later used by Paul, once as Scripture. Bullinger, in Figures of Speech, lists them under Parœmia, among proverbs that first appear in Scripture and have since passed into general use, pointing to Luke 10:7 as well.",
+      "limit": "One writer calls the words a rule all knew in daily life; the other lists them among sayings first found in Scripture that later came into common use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Matthew 10:10",
+          "quote": "his \"food\" or \"maintenance\"; a principle which, being universally recognized in secular affairs, is here authoritatively applied to the services of the Lord's workmen, and by Paul repeatedly and touchingly employed in his appeals to the churches ... and once as \"scripture\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 10:10",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “The workman is worthy of his meat.” So Luk 10:7. 1Co 9:7, etc.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-12-34-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 12:34",
+      "strength": "commonly held",
+      "short": "A saying: the mouth speaks what fills the heart",
+      "about": "Rebuking the Pharisees, Jesus uses a short saying, one that later came into common use: what fills the heart comes out in speech. Their evil words against Him showed the malice in their hearts. Luke 6:45 gives the same saying.",
+      "refs": [
+        "Luke 6:45"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 12:34",
+        "words": "out of the overflow of the heart, the mouth speaks",
+        "means": "what fills a person's heart comes out in what he says; here the Pharisees' evil words show their evil hearts"
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the words under Parœmia, among proverbs that first appear in Scripture and have since passed into general use. Calvin treats them as a proverbial saying that states what usually happens, not an invariable rule, since a cruel man may deceive with flattery, and says Christ reproaches the Pharisees with showing by their words the malice they had conceived within.",
+      "limit": "A saying like this tells what usually happens, not a rule without exception: an evil man can sometimes speak fair words.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 12:34",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 764",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/764/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “For out of the abundance of the heart the mouth speaketh.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 12:34",
+          "quote": "proverbial sayings ought not to be rigidly interpreted as an invariable rule ... a cruel man will deceive the simple by honied flatteries ... the ordinary practice demonstrates the truth of what Christ here says, that out of the abundance of the heart the mouth speaketh ... he reproaches the Pharisees with having manifested by words the malice which they had inwardly conceived.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-12-40-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "Matthew 12:40",
+      "strength": "widely agreed",
+      "short": "Jonah in the fish points to Jesus in the grave",
+      "about": "Jesus Himself sets Jonah beside His own burial and rising. As Jonah spent three days and three nights in the great fish and came out alive, so the Son of Man would lie in the earth and rise again. This is “the sign of the prophet Jonah,” pointing ahead to His resurrection.",
+      "refs": [
+        "Matthew 12:39",
+        "Jonah 1:17",
+        "Jonah 2:10"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "Matthew 12:40",
+        "words": "as Jonah was three days and three nights in the belly of the great fish",
+        "means": "Jonah, swallowed and then brought out alive, pointing ahead to Jesus' burial and His rising from the dead"
+      },
+      "evidence": "Benson: Jonah was herein a type of Christ. Henry: the grave was to Christ as the fish's belly to Jonah; as Jonah came out, Christ would rise. Barnes: as Jonah was restored alive, so He would be raised. Brown (Jamieson, Fausset and Brown) calls Jonah's case analogous, reversed in three days. Calvin keeps the likeness to one point: risen, He would speak to them, as Jonah came up to Nineveh.",
+      "limit": "The likeness is not pressed at every point. One reading keeps it to one: that He would die, rise and speak to them again, as Jonah came up from the sea and preached at Nineveh.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 12:38-45",
+          "quote": "As Jonas was three days and three nights in the whale's belly, and then came out again safe and well, thus Christ shall be so long in the grave, and then shall rise again. … The grave was to Christ as the belly of the fish was to Jonah",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 12:39",
+          "quote": "As Jonah was preserved three days by miracle and then restored alive, so he would be raised from the dead after three days.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 12:40",
+          "quote": "This was the second public announcement of His resurrection three days after His death. ... Jonah's case was analogous to this, as being a signal judgment of God; reversed in three days; and followed by a glorious mission to the Gentiles.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 12:39",
+          "quote": "as the resemblance between Christ and Jonah does not hold at every point, we must inquire in what respect Christ compares himself to Jonah. ... I think that Christ intends to mark out that single point of resemblance ... I am yet to die, and to rise from the grave, and to speak to you after my resurrection, as Jonah came from the bottom of the sea to Nineveh.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 12:38-40",
+          "quote": "the sign of the Prophet Jonas Who was herein a type of Christ.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-12-43-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Matthew 12:43-45",
+      "strength": "widely agreed",
+      "short": "A spirit's return pictures “this wicked generation”",
+      "about": "Jesus tells of an unclean spirit that leaves a man and finds no rest. It comes back to find the house vacant and swept clean, then brings seven spirits worse than itself. The man ends worse than he began. The last words apply the picture: “So will it be with this wicked generation.”",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Matthew 12:43",
+        "words": "When an unclean spirit comes out of a man",
+        "means": "that generation: though it was reformed for a time, its evil would come back and its end be worse than before"
+      },
+      "evidence": "Bullinger calls it an Allegory in Figures of Speech, to be read of the Jewish nation, as verse 45 declares. Henry says the application makes the parable represent the Jewish church and nation. Barnes says the man's state pictured that generation, which, though reformed outwardly, would go back and grow worse. Clarke says Jesus used the case to show the real state of the Jewish people.",
+      "limit": "The note does not claim that the spirit's going and coming is only a story.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 12:43-45",
+          "at": "Allegory, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "This is an Allegory. It is to be interpreted of the Jewish nation, as verse 45 declares.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 12:43-45",
+          "quote": "The application of the parable makes it to represent the case of the body of the Jewish church and nation: So shall it be with this wicked generation, that now resist, and will finally reject, the gospel of Christ.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 12:45",
+          "quote": "Even so shall it be with this generations - This shows the scope and design of this illustration. The state of that man was a representation of that generation of people. Much might be done to cure their unbelief, much to reform them externally ... they would return, after all the means used to reform them, and they would be worse and worse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 12:43",
+          "quote": "If there had been no reality in demoniacal possessions, our Lord would have scarcely appealed to a case of this kind here, to point out the real state of the Jewish people, and the desolation which was coming upon them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-3-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:3-8",
+      "strength": "widely agreed",
+      "short": "Seed on four soils: the word in different hearts",
+      "about": "Jesus tells of a farmer whose seed falls on four kinds of ground, and only the good soil bears a crop. He explains it Himself in verses 18-23: the seed is “the message of the kingdom”, and the soils are its hearers, fruitful only in the one who “hears the word and understands it”.",
+      "refs": [
+        "Matthew 13:18-23"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:3",
+        "words": "A farmer went out to sow his seed",
+        "means": "the message of the kingdom, sown in hearers whose hearts receive it in different ways, so that only some bear fruit"
+      },
+      "original": {
+        "note": "In Matthew's Greek “parables” is parabolē, from words for setting one thing beside another: a comparison.",
+        "strong": [
+          "G3850"
+        ]
+      },
+      "evidence": "Matthew Henry reads the seed as the word of the kingdom and the ground as hearts disposed in different ways. Albert Barnes calls the sowing an illustration of preaching the gospel. Brown (Jamieson, Fausset and Brown) titles it the effect of the word depending on the state of the heart. Adam Clarke explains Matthew's Greek word as a comparison and says few hearers would bear fruit.",
+      "limit": "The note does not press the four grounds to tell how many hearers bear fruit.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:1-23",
+          "quote": "The seed sown is the word of God, here called the word of the kingdom ... The sower that scatters the seed is our Lord Jesus Christ, either by himself, or by his ministers ... The ground in which this seed is sown is the hearts of the children of men, which are differently qualified and disposed, and accordingly the success of the word is different.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:3",
+          "quote": "The image here is taken from an employment known to all people, and therefore intelligible to all. Nor can there be a more striking illustration of preaching the gospel than placing the seed in the ground, to spring up hereafter and bear fruit.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:3",
+          "quote": "This parable may be entitled, THE EFFECT OF THE WORD DEPENDENT ON THE STATE OF THE HEART.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 13:3",
+          "quote": "Parable, from παρα, near, and βαλλω, I cast, or put. A comparison or similitude, in which one thing is compared with another, especially spiritual things with natural ... Under the parable of the sower, our Lord intimates, 1. That of all the multitudes then attending his ministry, few would bring forth fruit to perfection.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-24-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:24-30",
+      "strength": "widely agreed",
+      "short": "Wheat and weeds grow together until the harvest",
+      "about": "Jesus likens the kingdom to a man who sows good seed; an enemy sows weeds among the wheat, and the owner lets both grow until the harvest. He explains it in verses 36-43: the sower is the Son of Man, the weeds are “the sons of the evil one”, and at the end of the age the angels weed out the wicked.",
+      "refs": [
+        "Matthew 13:36-43"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:24",
+        "words": "The kingdom of heaven is like a man who sowed good seed in his field",
+        "means": "the sons of the kingdom, sown by the Son of Man, and the sons of the evil one, sown by the devil, left to grow together until the end of the age"
+      },
+      "evidence": "Matthew Henry takes the good seed as true saints and the weeds as the wicked, mixed together in this world. Albert Barnes says the two must remain together until the end, when they are separated. Brown (Jamieson, Fausset and Brown) places the weeds in the visible church and the separation at Christ's coming. John Calvin sees bad men mingled with the good while the church is in this world.",
+      "limit": "Jesus says “The field is the world” (verse 38); most of the writers apply the mixture to false members within the visible church.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:24-43",
+          "quote": "The good seed are the children of the kingdom, true saints. ... The tares are the children of the wicked one. Here is the character of sinners, hypocrites, and all profane and wicked people. ... God has so ordered it, that good and bad should be mixed together in this world, that the good may be exercised, the bad left inexcusable, and a difference made between earth and heaven.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:36-43",
+          "quote": "The good seed was the children of the kingdom; that is, of the kingdom of God, or Christians. ... Yet amid them were wicked people; and all hypocrites and unbelievers in the church are the work of Satan. Yet they must remain together until the end, when they shall be separated, and the righteous saved and the wicked lost.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:39",
+          "quote": "\"The tares are the children of the wicked one\"; and by their being sown \"among the wheat\" is meant their being deposited within the territory of the visible Church. ... The harvest is the end of the world ... the period of Christ's second coming, and of the judicial separation of the righteous and the wicked.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:24-30",
+          "quote": "In my opinion, the design of the parable is simply this: So long as the pilgrimage of the Church in this world continues, bad men and hypocrites will mingle in it with those who are good and upright, that the children of God may be armed with patience",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-47-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:47-48",
+      "strength": "widely agreed",
+      "short": "A net gathers every kind, and the catch is sorted",
+      "about": "Jesus likens the kingdom to a net cast into the sea that gathers fish of every kind; once it is drawn ashore, the good are kept and the bad thrown away. He explains it in verses 49-50: at the end of the age the angels will “separate the wicked from the righteous”.",
+      "refs": [
+        "Matthew 13:49-50"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:47",
+        "words": "the kingdom of heaven is like a net that was cast into the sea",
+        "means": "the gospel gathering people of every kind, true and false, until the angels separate the wicked from the righteous at the end of the age"
+      },
+      "original": {
+        "note": "In Matthew's Greek the net is a sagēnē, a big dragnet that sweeps up all in its path.",
+        "strong": [
+          "G4522"
+        ]
+      },
+      "evidence": "Matthew Henry reads the net as the preaching of the gospel, with hypocrites and true Christians parted when it is drawn ashore. Albert Barnes says the gospel gathers good and bad until the end of the world. Brown (Jamieson, Fausset and Brown) explains the word as a dragnet, showing the Gospel's far reach. John Calvin sees in it the church's present mixture of the good with the bad.",
+      "limit": "Some of the writers say it teaches what the parable of the weeds teaches. One also finds a warning in it: being gathered in is not enough unless one is truly His.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:44-52",
+          "quote": "The preaching of the gospel is the casting of a net into this sea, to catch something out of it, for his glory who has the sovereignty of the sea. ... When the net is full and drawn to the shore, there shall be a separation between the good and bad that were gathered in it. Hypocrites and true Christians shall then be parted",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:47",
+          "quote": "This parable does not differ in meaning from that of the tares. The gospel is compared to a net dragging along on the bottom of a lake, and collecting all - good and bad. The gospel may be expected to do the same; but in the end of the world, when the net \"is drawn in,\" the bad will be separated from the good",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:47",
+          "quote": "The word here rendered \"net\" signifies a large drag-net, which draws everything after it, suffering nothing to escape, as distinguished from a casting-net ... The far-reaching efficacy of the Gospel is thus denoted. This Gospel net \"gathered of every kind,\" meaning every variety of character.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:47-50",
+          "quote": "what he formerly taught is confirmed by another parable, that the Church of God, so long as it exists in the world, is a mixture of the good with the bad ... he warns us, that it is not enough ... to be gathered into the fold, unless we are his true and chosen sheep. ... The preaching of the Gospel is justly compared to a net sunk beneath the water",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-54-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Matthew 13:54-58",
+      "strength": "some interpreters",
+      "short": "The hometown's questions turn back on themselves",
+      "about": "The account goes out and comes back: His hometown, their astonishment, where He got this wisdom, His father and mother; then His brothers and sisters, where He got all this, their offense, and a prophet without honor in his hometown.",
+      "lines": [
+        {
+          "ref": "Matthew 13:54",
+          "words": "Coming to His hometown, He taught the people in their synagogue,",
+          "mark": "A",
+          "key": "hometown"
+        },
+        {
+          "ref": "Matthew 13:54",
+          "words": "and they were astonished.",
+          "mark": "B",
+          "key": "astonished"
+        },
+        {
+          "ref": "Matthew 13:54",
+          "words": "Where did this man get such wisdom and miraculous powers?",
+          "mark": "C",
+          "key": "this man"
+        },
+        {
+          "ref": "Matthew 13:55",
+          "words": "Isn’t this the carpenter’s son? Isn’t His mother’s name Mary,",
+          "mark": "D",
+          "key": "mother’s"
+        },
+        {
+          "ref": "Matthew 13:55",
+          "words": "and aren’t His brothers James, Joseph, Simon, and Judas?",
+          "mark": "D'",
+          "key": "brothers"
+        },
+        {
+          "ref": "Matthew 13:56",
+          "words": "Where then did this man get all these things?",
+          "mark": "C'",
+          "key": "this man"
+        },
+        {
+          "ref": "Matthew 13:57",
+          "words": "And they took offense at Him.",
+          "mark": "B'",
+          "key": "offense"
+        },
+        {
+          "ref": "Matthew 13:57",
+          "words": "Only in his hometown and in his own household is a prophet without honor.",
+          "mark": "A'",
+          "key": "hometown"
+        }
+      ],
+      "evidence": "Boys sets out these verses in eight parts, the first and last answering each other in two ways, as the two at the centre do. Next stand the people astonished, then offended; then their two questions; and at the centre His father and mother, then His brothers and sisters.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Matthew 13:54-58",
+          "at": "Introduction, p. 5",
+          "url": "https://archive.org/details/tactica-sacra/page/5/mode/1up",
+          "quote": "Here, in D., we have the father and mother of Christ; in D., his brethren and sisters: … In C. and C., we have the corresponding inquiries, … in B., the people “astonished” at Jesus; in B., “offended in him.” In A. and A., the extreme members, the correspondence is two-fold, as it is in the central ones",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-57-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 13:57",
+      "strength": "widely agreed",
+      "short": "A saying: a prophet is not honored at home",
+      "about": "When His hometown takes offense at Him, Jesus answers with a saying that seems to have been in common use: a prophet is honored least by those who know him best. His own town proved it true of Him. Mark 6:4 and John 4:44 give it too.",
+      "refs": [
+        "Mark 6:4",
+        "John 4:44"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 13:57",
+        "words": "Only in his hometown and in his own household is a prophet without honor",
+        "means": "a man God sends is less esteemed by those who knew him growing up than by strangers; Jesus applies it to His own town"
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the words under Parœmia, among proverbs first found in Scripture and since in general use. Clarke and Barnes say they seem to have been a proverbial expression, true in general; Calvin allows it may be a general proverb, which Christ turns on His Galilean countrymen; Plumptre (Ellicott's Commentary) says the proverb seems to have been often on His lips.",
+      "limit": "The writers differ on whether it was already a saying: some suggest it was, while one lists it among sayings first found in Scripture. It is given as a general truth, not a rule without exception; in Jesus' own town it held true.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 13:57",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 764",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/764/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “A prophet is not without honour, save in his own country and in his own house.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 13:57",
+          "quote": "A prophet is not without honor - This seems to have been a proverbial mode of speech, generally true, but not without some exceptions.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:57",
+          "quote": "This seems to be a proverbial expression. Jesus advances it as a general truth. There might be some exceptions to it, but He was not an exception. Everywhere else he had been more honored than at home.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:57",
+          "quote": "It may, no doubt, be a general proverb, that those who are distinguished by eminent gifts are nowhere held in less estimation than in their own country ... But what was usually spoken against the whole nation, Christ now asserts with special reference to his Galilean countrymen",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 13:57",
+          "quote": "The proverb seems to have been one often on our Lord’s lips, and obviously tells of a prolonged experience of indifference and unbelief in all their many forms.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-15-3-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Matthew 15:3-6",
+      "strength": "some interpreters",
+      "short": "God's command and their tradition, first and last",
+      "about": "The first line asks why they break the command of God, and the last says they nullify the word of God, both for the sake of their tradition. Within, the command to honor parents and the ban on cursing them are answered in reverse: first what is said to father or mother, then not honoring them.",
+      "lines": [
+        {
+          "ref": "Matthew 15:3",
+          "words": "why do you break the command of God for the sake of your tradition?",
+          "mark": "A",
+          "key": "command of God"
+        },
+        {
+          "ref": "Matthew 15:4",
+          "words": "Honor your father and mother",
+          "mark": "B",
+          "key": "Honor"
+        },
+        {
+          "ref": "Matthew 15:4",
+          "words": "Anyone who curses his father or mother must be put to death.",
+          "mark": "C",
+          "key": "curses"
+        },
+        {
+          "ref": "Matthew 15:5",
+          "words": "if anyone says to his father or mother,",
+          "mark": "C'",
+          "key": "says"
+        },
+        {
+          "ref": "Matthew 15:6",
+          "words": "he need not honor his father or mother with it.",
+          "mark": "B'",
+          "key": "honor"
+        },
+        {
+          "ref": "Matthew 15:6",
+          "words": "Thus you nullify the word of God for the sake of your tradition.",
+          "mark": "A'",
+          "key": "word of God"
+        }
+      ],
+      "evidence": "Jebb leaves out some clauses and sets the rest of verses 3 to 6 out as a six-line stanza of the introverted kind. In its central four lines, he says, the charges are brought forward in the inverted order: what constituted the end is put first and last, and the means are enclosed in the central couplets.",
+      "limit": "Manuscripts differ in verse 6 between the word of God and the command of God; scholars differ.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Matthew 15:3-6",
+          "at": "Sacred Literature, sect. XII, pp. 245-246",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/245/mode/1up",
+          "quote": "Now, omitting those clauses, the remainder of the passage constitutes a six-lined stanza, of the introverted, or epanodostic kind … The whole difficulty lies in the central quatrain … The criminative charges are brought forward, and established, in the inverted order … that, therefore, which constituted the end, is put first and last, and the means are enclosed in the central couplets.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "matthew-15-13-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 15:13",
+      "strength": "widely agreed",
+      "short": "Plants stand for people God did not plant",
+      "about": "Told that the Pharisees were offended, Jesus speaks only of plants His Father did not plant, which will be pulled up. He does not say whom He means. Many read the plants as the Pharisees and all like them whose religion is not God's own work. Next He says, “Disregard them! They are blind guides.”",
+      "refs": [
+        "Matthew 15:12",
+        "Matthew 15:14"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 15:13",
+        "words": "Every plant",
+        "means": "people, such as the Pharisees, whose religion God did not plant, and who will be pulled up"
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: persons are implied, though only plants are named. Calvin says Christ spoke of men, hypocrites such as the scribes; Clarke, of the Pharisees as a religious body; Henry, of their sect as well as their opinions; Brown (Jamieson, Fausset and Brown) and E. H. Plumptre (Ellicott's Commentary), of the men and their system alike.",
+      "limit": "Some have taken the plants to be the teachings of men rather than the men; one writer rejects that, and others take in both the men and what they taught.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 15:13",
+          "at": "Hypocatastasis, or Implication, p. 745",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/745/mode/1up",
+          "quote": "This is Hypocatastasis, bordering on Allegory. Persons are implied, though only plants are named.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 15:13",
+          "quote": "It is a mistaken view of this passage which some have adopted, that all the inventions of men, and every thing that has not proceeded from the mouth of God, must be rooted up and perish; for it was rather to men that Christ referred ... Hypocrites, who appear for a time to have been planted like good trees, are particularly described by Christ ... Such were the scribes",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 15:13",
+          "quote": "The Pharisees, as a religious body, were now a plantation of trees, which God did not plant, water, nor own: therefore, they should be rooted up",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 15:10-20",
+          "quote": "Not only the corrupt opinions and superstitious practices of the Pharisees, but their sect, and way, and constitution, were plants not of God's planting.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 15:13",
+          "quote": "their corrupt teaching is already doomed: the garden of the Lord upon earth, too long cumbered with their presence, shall yet be purged of them and their accursed system",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 15:13",
+          "quote": "The system and the men that they had been taught to regard as pre-eminently religious were, after all, in their Master’s judgment, as the tares and not as the wheat … So far as they were a sect or party, His Father had not planted them.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-15-14-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 15:14",
+      "strength": "commonly held",
+      "short": "A saying: the blind leading the blind",
+      "about": "Jesus calls the Pharisees blind guides and adds a short saying: if a blind man leads a blind man, both fall into a pit. Here it warns of the ruin that teachers and followers alike were heading for. Luke 6:39 gives the saying in another sermon.",
+      "refs": [
+        "Luke 6:39"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 15:14",
+        "words": "If a blind man leads a blind man, both will fall into a pit",
+        "means": "a teacher who cannot see the truth brings those who follow him to ruin with him; here the Pharisees and those they lead"
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the words under Parœmia, among proverbs that first appear in Scripture and have since passed into general use. Plumptre (Ellicott's Commentary) says the proverb was probably a familiar one, given also in Luke 6:39, and that as Jesus spoke it here it had the character of a prophecy of the ruin teachers and people were alike hastening toward.",
+      "limit": "One writer thinks the saying was likely well known already; the other lists it among sayings first found in Scripture that later came into common use.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 15:14",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 764",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/764/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “If the blind lead the blind, both shall fall into the ditch.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 15:14",
+          "quote": "The proverb was probably a familiar one (it is given in St. Luk 6:39 as part of the Sermon on the Plain), but, as now spoken, it had the character of a prophecy. We have but to read ... to see what the “ditch” was towards which teachers and people were alike blindly hastening.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-15-26-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 15:26",
+      "strength": "widely agreed",
+      "short": "“The dogs” points to the Gentile woman, unnamed",
+      "about": "Jesus does not tell the Canaanite woman that she is a dog. He speaks only of the children's bread and the dogs, and leaves her to see that she, a Gentile, is meant. She takes the point and answers in faith, and He tells her, “your faith is great!” (verse 28).",
+      "refs": [
+        "Matthew 15:27",
+        "Matthew 15:28"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 15:26",
+        "words": "dogs",
+        "means": "the woman herself, as a Gentile, whom Jesus does not name"
+      },
+      "original": {
+        "note": "In Matthew's Greek the word is kunarion, a little dog, such as a dog kept in the house.",
+        "strong": [
+          "G2952"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: Jesus left out all mention of her and put a dog in her place. Calvin says He compares the woman herself to a dog; Henry, that He pressed the name for Gentiles against her; Clarke and Barnes, that He used the common name for Gentiles, Barnes adding, to test her faith; E. H. Plumptre (Ellicott's Commentary), a house dog, marking Israel's prior claim.",
+      "limit": "The writers differ on the tone. One hears a harsh, disdainful word, though spoken to test her faith. Others say Jesus used a name then in common use, and one that its small form was gentler, with no scorn meant.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 15:26",
+          "at": "Hypocatastasis, or Implication, p. 746",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/746/mode/1up",
+          "quote": "Here, the Lord Jesus, did not say to the woman of Canaan, Thou art a dog of the Gentiles (which would have been Metaphor), but He left out all reference to her, and only referred to her by implication, substituting a “dog” for herself.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 15:26",
+          "quote": "Christ’s reply is harsher than ever ... he disdainfully compares the woman herself to a dog, thus implying that she is unworthy of being a partaker of his grace ... those who were formerly dogs are now reckoned among the children. ... His chief design was, to make trial of the woman’s faith",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 15:21-28",
+          "quote": "The Gentiles were looked upon by the Jews with great contempt, were called and counted dogs … Now this Christ urgeth against this woman of Canaan … Christ had placed the Jews with the children, as olive-plants round about God's table, and had put the Gentiles with the dogs, under the table; and she doth not deny the aptness of the similitude.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 15:26",
+          "quote": "And cast it to the κυναριοις, little dogs - to the curs; such the Gentiles were reputed by the Jewish people, and our Lord uses that form of speech which was common among his countrymen.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 15:26",
+          "quote": "To all other nations they were accustomed to apply terms of contempt, of which dogs was the most common. ... The Saviour means to say that he was sent to the Jews. The woman was a Gentile. He meant merely using a term in common use, and designed to test her faith in the strongest manner",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 15:26",
+          "quote": "The word used was diminutive in its form, and as such pointed … to the tamer animals that were bred in the house, and kept as pets. … it was probably but a common proverb … indicating the line of demarcation which gave a priority to the claims of the family of Israel to those of strangers. We may well believe that there was no intentional scorn in it",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-15-28-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Matthew 15:28",
+      "strength": "widely agreed",
+      "short": "“Your faith is great!”: Jesus' cry of praise",
+      "about": "After His silence and His hard answer, Jesus' reply to the Canaanite woman breaks out as a cry: “O woman,” and “your faith is great!” The words show His warm, admiring praise of a faith that kept on asking, and He grants her request.",
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Matthew 15:28",
+        "words": "your faith is great!",
+        "means": "Jesus' warm, admiring praise of her faith, after His silence and refusal"
+      },
+      "evidence": "Bullinger lists Matthew 15:28 under Ecphonesis, words that burst out from feeling. Clarke says the hindrances in her way only increased her faith, and Jesus admires it so that we may admire and imitate it. Calvin says He first applauds the woman's faith. Henry says Christ, who had hidden His face from her, now gathers her with kindness, speaks like Himself and commends her faith.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 15:28",
+          "at": "Ecphonesis; or, Exclamation, pp. 927-928",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/928/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... Mat 15:28. -“Then Jesus answered and said unto her, O woman, great is thy faith: be it unto thee even as thou wilt.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 15:28",
+          "quote": "The hinderances thrown in this woman's way only tended to increase her faith. ... Persevering faith and prayer are next to omnipotent. ... Jesus admires this faith, to the end that we may admire and imitate it, and may reap the same fruits and advantages from it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 15:28",
+          "quote": "He first applauds the woman’s faith, and next declares, that on account of her faith he grants her prayer.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 15:21-28",
+          "quote": "Hitherto Christ hid his face from her, but now gathers her with everlasting kindness ... Now he begins to speak like himself, and to put on his own countenance. He will not contend for ever. (1.) He commended her faith.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-16-6-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 16:6",
+      "strength": "widely agreed",
+      "short": "“Leaven” stands for teaching Jesus leaves unnamed",
+      "about": "Jesus warns of leaven without saying what He means, and the disciples think He is talking about bread. Only after His rebuke do they see He meant “the teaching of the Pharisees and Sadducees” (verse 12). Many read the picture as showing how such teaching spreads, as leaven works through dough.",
+      "refs": [
+        "Matthew 16:12",
+        "Luke 12:1"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 16:6",
+        "words": "leaven",
+        "means": "the teaching of the Pharisees and Sadducees, as verse 12 explains"
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: Jesus implies the word doctrine and never says it. Calvin says leaven is here applied to false doctrine; Henry says the corrupt principles and practices of the two parties are compared to leaven; Barnes, that the Pharisees' doctrines spread quietly, as leaven passes through dough; Clarke, that bad doctrines act in the soul as leaven does in meal.",
+      "limit": "Some of these writers take the leaven to cover the hypocrisy and worldly life that went with the teaching as well; Luke 12:1 calls the leaven of the Pharisees hypocrisy.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 16:6",
+          "at": "Hypocatastasis, or Implication, p. 745",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/745/mode/1up",
+          "quote": "He took the word “doctrine” and put it down underneath, and did not mention it at all. He only implied it: and this was Hypocatastasis.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 16:6",
+          "quote": "Now the metaphor of leaven, which is here applied to false doctrine, might have been employed, at another time, to denote the hypocrisy of life and conduct",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 16:5-12",
+          "quote": "The corrupt principles and practices of the Pharisees and Sadducees are compared to leaven; they were souring, and swelling, and spreading, like leaven; they fermented wherever they came.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 16:6-11",
+          "quote": "Leaven is used in making bread. It passes secretly, silently, but certainly through the mass of dough. … So it was with the doctrines of the Pharisees. They were insinuating, artful, plausible.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 16:6",
+          "quote": "Bad doctrines act in the soul as leaven does in meal; they assimulate the whole Spirit to their own nature. ... Pride, hypocrisy, and worldly-mindedness, which constituted the leaven of the Pharisees and Sadducees, ruin the major part of the world.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-17-17-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Matthew 17:17",
+      "strength": "widely agreed",
+      "short": "A grieved rebuke of an unbelieving generation",
+      "about": "Jesus' reply opens with a cry: “O unbelieving and perverse generation!” It is a grieved rebuke of the unbelief around Him, and His two questions carry the same grief. Yet the boy is not forgotten: at once He says, “Bring the boy here to Me.”",
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Matthew 17:17",
+        "words": "O unbelieving and perverse generation!",
+        "means": "Jesus' grieved rebuke of the unbelief around Him, aimed at their sin, not at them"
+      },
+      "evidence": "Bullinger lists the verse under Ecphonesis, words that burst out from feeling. Henry says Christ chid those about Him, the people and perhaps chiefly the scribes; such faithlessness is a great grief to Him, yet He cared for the child. Jerome, in the Catena Aurea, says the meek and gentle Lord did not break out in wrath: He is angry with the sin, not the man, and convicts the Jews of unbelief.",
+      "limit": "Who the words are aimed at is read in more than one way: the writers cited see the people and the scribes, or the Jews in general. Jesus speaks of the disciples' little faith apart, in verse 20.",
+      "refs": [
+        "Matthew 17:20"
+      ],
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 17:17",
+          "at": "Ecphonesis; or, Exclamation, pp. 927-928",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/928/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... Mat 17:17. -“Then Jesus answered and said, O faithless and perverse generation,” etc.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 17:14-21",
+          "quote": "He chid those about him ... O faithless and perverse generation! This is not spoken to the disciples, but to the people, and perhaps especially to the scribes ... The faithlessness and perverseness of those who enjoy the means of grace are a great grief to the Lord Jesus. ... Though the people were perverse, and Christ was provoked, yet care was taken of the child.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 17:14-18",
+          "at": "Jerome, Commentary on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-24.shtml",
+          "quote": "Not that we must think that He was overcome by weariness of them, and that The meek and gentle broke out into words of wrath ... That it is the sin, and not the man with whom He is angry, and that in the person of this one man He convicts the Jews of unbelief",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-18-14-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "Matthew 18:14",
+      "strength": "widely agreed",
+      "short": "Not willing that they perish: He wills them saved",
+      "about": "Jesus says the Father is not willing that any of these little ones should perish. The words say less than they mean: the Father does more than not want them lost; He wills that they be saved.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "Matthew 18:14",
+        "words": "is not willing that any of these little ones should perish",
+        "means": "the Father's earnest will that these little ones be saved"
+      },
+      "evidence": "Bullinger lists the verse under Meiosis: the Father's will embraces much more than that they not perish. Henry says more is implied than is expressed, for it is God's will that these little ones be saved. Bengel glosses the words as God's most earnest wish that all be saved.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 18:14",
+          "at": "Meiosis, or A Be-Littleing, p. 156",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/156/mode/1up",
+          "quote": "“Even so it is not the will of your Father which is in heaven, that one of these little ones should perish.” No! It is contrary to His wish. His will embraces much more than this",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 18:7-14",
+          "quote": "It is not the will of your Father, that one of these little ones should perish. More is implied than is expressed. It is not his will that any should perish, but, 1. It is his will, that these little ones should be saved",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Matthew 18:14",
+          "quote": "ἵνα, κ.τ.λ., that, etc.) i.e. He wishes most earnestly that all should be saved.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/matthew/18.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "matthew-18-23-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 18:23-24",
+      "strength": "widely agreed",
+      "short": "A forgiven servant who would not forgive",
+      "about": "Peter asks how often to forgive, and Jesus tells a story. A king forgives a servant a debt he could never pay, but that servant will not forgive a fellow servant a small one. Jesus applies it: “That is how My heavenly Father will treat each of you unless you forgive your brother from your heart.”",
+      "refs": [
+        "Matthew 18:35"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 18:23",
+        "words": "the kingdom of heaven is like a king who wanted to settle accounts with his servants",
+        "means": "God, who forgives His servants a debt of sin they could never pay, and looks for them to forgive one another from the heart"
+      },
+      "evidence": "Calvin says the unforgiving find God as stern, and asks how much each of us owes Him. Henry calls God our master, every sin a debt to Him. Barnes sums it: our sins are great, and God freely forgives them. Clarke calls every sin a debt to God; Plumptre (Ellicott), the sum a debt man can never clear. Jerome, in Thomas Aquinas' Catena Aurea, reads it as the Lord bidding Peter forgive lesser wrongs.",
+      "limit": "The likeness lies in its main point, as Jesus applies it in verse 35. Details He does not explain, such as the sale of the servant's family, are not each pressed for a meaning.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 18:23-24",
+          "quote": "our Lord confirms this doctrine by a most appropriate parable, the substance of which is, that those who will not yield to pardon the faults of brethren judge very ill for themselves ... for they will find God to be equally stern and inexorable towards themselves. ... what are we, if we are compared with God? And how large is the sum which every one of us owes to God?",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 18:21-35",
+          "quote": "A further discourse of our Saviour's, by way of parable, to show the necessity of forgiving the injuries that are done to us. ... Those, and those only, may expect to be forgiven of God, who forgive their brethren. ... God is our master; his servants we are, at least in profession and obligation. ... Every sin we commit is a debt to God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 18:35",
+          "quote": "This verse contains the sum or moral of the parable. When Christ has explained one of his own parables, we are to receive it just as he has explained it, and not attempt to draw spiritual instruction from any parts or circumstances which he has not explained. ... 1. that our sins are great. 2. that God freely forgives them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 18:23",
+          "quote": "Every sin is a debt contracted with the justice of God; men are all God's own servants; and the day is at hand in which their Master will settle accounts with them, inquire into their work, and pay them their wages.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 18:24",
+          "quote": "The sum is evidently named in its vague vastness to indicate the immensity of the debt which man owes to God, the absolute impossibility of his ever clearing off the aggregate, ever-accumulating, of sins of omission and commission",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 18:23-35",
+          "at": "Jerome, Commentary on Matthew, book 3",
+          "url": "https://www.ecatholic2000.com/catena/untitled-25.shtml",
+          "quote": "Therefore the Lord’s command to Peter under this similitude of the king and his servant who owed him ten thousand talents, and was forgiven by his lord upon his entreaty, is, that he also should forgive his fellow-servants their lesser trespasses.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-21-33-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 21:33-41",
+      "strength": "widely agreed",
+      "short": "The tenants who killed the owner's son",
+      "about": "Jesus tells of tenants who beat and kill the owner's servants, then kill his son to take his inheritance. His hearers pass sentence on such tenants in verse 41, and verse 45 says the leaders knew He was speaking about them. Many read the servants as the prophets and the son as Jesus Himself.",
+      "refs": [
+        "Matthew 21:45"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 21:33",
+        "words": "he rented it out to some tenants",
+        "means": "the leaders of Israel, given charge of God's people, who mistreated the prophets He sent and would kill His Son; verse 45 says they knew He meant them"
+      },
+      "evidence": "Matthew Henry: the Jewish nation and its leaders are the tenants, the servants the prophets. John Calvin: the rulers would rob God, as with the prophets, and slay His Son. Albert Barnes: the Son is Jesus Christ, sent after the prophets. David Brown (JFB): the tenants are the people's guides. Chrysostom (Thomas Aquinas' Catena Aurea): it was told so they would judge themselves.",
+      "limit": "Not every detail is pressed: the note claims the parable's main drift, which the hearers saw, not a meaning for each wall, winepress or tower.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 21:33-46",
+          "quote": "This parable plainly sets forth the sin and ruin of the Jewish nation; they and their leaders are the husbandmen here ... These servants were the prophets of the Old Testament, who were sent, and sometimes directly, to the people of the Jews, to reprove and instruct them. ... Never did grace appear more gracious than in sending the Son.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 21:33-34",
+          "quote": "The substance of this parable is, that it is no new thing, if the priests and the other rulers of the Church wickedly endeavor to defraud God of his right; for long ago they practiced the same kind of robbery towards the prophets, and now they are ready to slay his Son; but they will not go unpunished, for God will arise to defend his right.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 21:37",
+          "quote": "This beautifully and most tenderly exhibits the love of God in sending his only Son, Jesus Christ, into the world to die for people. Long had he sent the prophets, and they had been persecuted and slain.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 21:33",
+          "quote": "and let it out to husbandmen ... These are just the ordinary spiritual guides of the people, under whose care and culture the fruits of righteousness are expected to spring up.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 21:33-44",
+          "at": "Chrysostom, Homilies on Matthew 68",
+          "url": "https://ccel.org/ccel/aquinas/catena1/catena1.ii.xxi.html",
+          "quote": "the Lord proposed this parable to them with this intent, that not understanding it they should give sentence against themselves; as was done by Nathan to David.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-22-3-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "Matthew 22:3",
+      "strength": "some interpreters",
+      "short": "Not willing to come: a flat refusal from the heart",
+      "about": "The king's guests refused to come. Matthew's Greek says, more mildly, that they were not willing to come. The mild words make the refusal stronger: they refused outright, and did so by their own wish.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "Matthew 22:3",
+        "words": "they refused to come",
+        "means": "an outright refusal made by their own wish, told in Matthew's Greek in the milder words not willing"
+      },
+      "original": {
+        "note": "In Matthew's Greek the words are ouk ēthelon elthein, they were not willing to come.",
+        "strong": [
+          "G2309"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Meiosis: Matthew's Greek says they did not wish to come, and so stresses that they refused outright and acted on the wish of their own hearts.",
+      "limit": "The English here already gives the stronger sense, refused; the milder wording is in Matthew's Greek.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 22:3",
+          "at": "Meiosis, or A Be-Littleing, p. 157",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/157/mode/1up",
+          "quote": "The Greek is:- οὐκ ἤθελον ἐλθεῖν (ouk eethelon elthein), they did not wish to come, this is enhancing, by Meiosis, the fact that they not only absolutely refused, but in doing so they acted only on the wish of their heart.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-24-28-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Matthew 24:28",
+      "strength": "widely agreed",
+      "short": "A saying: where the carcass is, vultures gather",
+      "about": "Jesus uses a saying that echoes Job 39:30: wherever a carcass lies, vultures gather. As the birds surely find a dead body, judgment will surely come wherever a people is lifeless and corrupt. Some of the writers apply it first to Jerusalem's fall to the armies of Rome.",
+      "refs": [
+        "Job 39:30",
+        "Luke 17:37"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Matthew 24:28",
+        "words": "Wherever there is a carcass, there the vultures will gather",
+        "means": "as vultures find a dead body, God's judgment will surely come wherever a people is lifeless and corrupt"
+      },
+      "evidence": "Bullinger (Figures of Speech) lists it under Parœmia, says it is from Job 39:30 and reads it with Luke 17:37 of a time of judgment. Barnes calls the words proverbial, applies them to Rome's armies and Jerusalem, and finds in them a universal truth; Benson says our Lord applies a proverbial expression to the Romans; Plumptre (Ellicott's Commentary) calls it a proverb of judgment where life is gone.",
+      "limit": "The writers agree it is a saying but differ on how far it reaches: some apply it chiefly to Rome's armies coming on Jerusalem, others to a law of judgment seen again and again until the end.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Matthew 24:28",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 764",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/764/mode/1up",
+          "quote": "The word “for” introduces the Parœmia, which is from Job 39:30. ... Luk 17:37 clearly shows that it is a time of judgment (see verses 24-37)",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 24:28",
+          "quote": "The words in this verse are proverbial. Vultures and eagles easily ascertain where dead bodies are, and hasten to devour them. So with the Roman army. Jerusalem is like a dead and putrid corpse. ... This proverb also teaches a universal truth. Wherever wicked people are, there will be assembled the instruments of their chastisement.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 24:27-28",
+          "quote": "his servants only shall come, the Roman armies, who by his command shall destroy this nation as eagles devour their prey. Thus our Lord, after his usual manner, applies a proverbial expression with a particular meaning",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 24:28",
+          "quote": "What the enigmatic proverb (if indeed it be enigmatic) means, is that wherever life is gone, wherever a church or nation is decaying and putrescent, there to the end of time will God’s ministers of vengeance, the vultures that do their work of destruction ... assuredly be found.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

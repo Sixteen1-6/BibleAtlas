@@ -442,6 +442,669 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "proverbs-3-9-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 3:9",
+      "strength": "some interpreters",
+      "short": "Honor the LORD with wealth, with firstfruits",
+      "about": "The second line says the first again in other words: honor the LORD with your wealth, and with the firstfruits of all your harvest.",
+      "lines": [
+        {
+          "ref": "Proverbs 3:9",
+          "words": "Honor the LORD with your wealth"
+        },
+        {
+          "ref": "Proverbs 3:9",
+          "words": "and with the firstfruits of all your harvest;"
+        }
+      ],
+      "pairs": [
+        [
+          "your wealth",
+          "the firstfruits of all your harvest"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his examples of synonymous parallel lines, and says such lines are made of synonymous terms.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 3:9",
+          "at": "Preliminary Dissertation, p. xvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
+          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-6-16-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 6:16-19",
+      "strength": "some interpreters",
+      "short": "Six things, seven, and then the list",
+      "about": "A number is given, then a greater one, and then the list follows line by line in the same build: haughty eyes, a lying tongue, hands that shed innocent blood, a scheming heart, feet quick to evil, a false witness, and one who stirs up discord.",
+      "lines": [
+        {
+          "ref": "Proverbs 6:16",
+          "words": "There are six things that the LORD hates,"
+        },
+        {
+          "ref": "Proverbs 6:16",
+          "words": "seven that are detestable to Him:"
+        },
+        {
+          "ref": "Proverbs 6:17",
+          "words": "haughty eyes,"
+        },
+        {
+          "ref": "Proverbs 6:17",
+          "words": "a lying tongue,"
+        },
+        {
+          "ref": "Proverbs 6:17",
+          "words": "hands that shed innocent blood,"
+        },
+        {
+          "ref": "Proverbs 6:18",
+          "words": "a heart that devises wicked schemes,"
+        },
+        {
+          "ref": "Proverbs 6:18",
+          "words": "feet that run swiftly to evil,"
+        },
+        {
+          "ref": "Proverbs 6:19",
+          "words": "a false witness who gives false testimony,"
+        },
+        {
+          "ref": "Proverbs 6:19",
+          "words": "and one who stirs up discord among brothers."
+        }
+      ],
+      "pairs": [
+        [
+          "six",
+          "seven"
+        ]
+      ],
+      "evidence": "Lowth says that where a set number is given twice over for an open one, the list of particulars that follows naturally makes the lines parallel, of the synthetic kind and no other; he gives these verses as an example of it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 6:16-19",
+          "at": "Preliminary Dissertation, p. xxix",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIX/mode/1up",
+          "quote": "Of the same sort of Parallelism are those passages, frequent in the Poetic Books, where a Definite number is twice put for an Indefinite; this being followed by an enumeration of particulars naturally throws the sentences into a Parallelism, which cannot be of any other than the Synthetic kind.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-10-1-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 10:1",
+      "strength": "widely agreed",
+      "short": "A wise son, a foolish son: joy and grief",
+      "about": "The second line answers the first with its opposite: wise and foolish, joy and grief, father and mother. Each line names one parent, but the joy and the grief can be read as belonging to both.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:1",
+          "words": "A wise son brings joy to his father,"
+        },
+        {
+          "ref": "Proverbs 10:1",
+          "words": "but a foolish son grief to his mother."
+        }
+      ],
+      "pairs": [
+        [
+          "wise",
+          "foolish"
+        ],
+        [
+          "joy",
+          "grief"
+        ],
+        [
+          "father",
+          "mother"
+        ]
+      ],
+      "evidence": "Bullinger lists the verse under opposite lines, whose words are contrasted and opposed in sense. Lowth says every word has its opposite, father and mother included. Delitzsch (Keil and Delitzsch) sets this antithetic proverb beside similar ones whose lines say the same thing, and says its two lines supply each other.",
+      "limit": "Pairing father with mother does not mean that only one parent rejoices and only the other grieves.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 10:1",
+          "at": "Antithetic, or Opposite, p. 351",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/351/mode/1up",
+          "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 10:1",
+          "at": "Preliminary Dissertation, p. xxiv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIV/mode/1up",
+          "quote": "Where every word hath its opposite: for the terms father and mother are, as the Logicians say, relatively opposite.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:1",
+          "quote": "Similar proverbs are found further on, but consisting of synonymous parallel members ... the division lies nearer in the synonymous distichs, and is there less liable to be misunderstood than in the antithetic. ... The idea of the parents is in this way only separated, and the two members stand in suppletive interchangeable relationship.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-10-7-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 10:7",
+      "strength": "commonly held",
+      "short": "A blessed memory, a name that rots",
+      "about": "The second line answers the first with its opposite. Memory and name mean the same, but the righteous and the wicked, blessing and rot, are set against each other: one is remembered with thanks, the other's name decays.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:7",
+          "words": "The memory of the righteous is a blessing,"
+        },
+        {
+          "ref": "Proverbs 10:7",
+          "words": "but the name of the wicked will rot."
+        }
+      ],
+      "pairs": [
+        [
+          "memory",
+          "name"
+        ],
+        [
+          "righteous",
+          "wicked"
+        ],
+        [
+          "a blessing",
+          "will rot"
+        ]
+      ],
+      "evidence": "Lowth says the verse has only two opposed terms, for memory and name are synonymous. Delitzsch (Keil and Delitzsch) says the remembrance of the righteous endures, while the name of the godless, on the contrary, becomes corrupt.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 10:7",
+          "at": "Preliminary Dissertation, p. xxiv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIV/mode/1up",
+          "quote": "Here there are only two Antithetic terms: for memory and name are Synonymous.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:7",
+          "quote": "The remembrance of the righteous endures after his death, for he is thought of with thankfulness ... because his works, rich in blessing, continue; the name of the godless, on the contrary, far from continuing fresh and green ... after his departure, becomes corrupt",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-11-24-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 11:24",
+      "strength": "some interpreters",
+      "short": "Gives and gains, withholds and grows poor",
+      "about": "The second line answers the first with its opposite: one gives freely, another withholds. Each line also sets its own two parts against each other, giving yet gaining more, and holding back only to become poor.",
+      "lines": [
+        {
+          "ref": "Proverbs 11:24",
+          "words": "One gives freely, yet gains even more;"
+        },
+        {
+          "ref": "Proverbs 11:24",
+          "words": "another withholds what is right, only to become poor."
+        }
+      ],
+      "pairs": [
+        [
+          "gives freely",
+          "withholds"
+        ],
+        [
+          "gains even more",
+          "become poor"
+        ]
+      ],
+      "evidence": "Lowth calls this proverb a kind of double antithesis: one between the two lines, and a lesser one between the two parts of each line.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 11:24",
+          "at": "Preliminary Dissertation, p. xxiv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIV/mode/1up",
+          "quote": "Here there is a kind of double Antithesis; one between the two lines themselves; and likewise a subordinate opposition between the two parts of each.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-13-7-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 13:7",
+      "strength": "commonly held",
+      "short": "One pretends to be rich, another to be poor",
+      "about": "The second half answers the first with its opposite: one pretends to be rich but has nothing; another pretends to be poor yet has great wealth.",
+      "lines": [
+        {
+          "ref": "Proverbs 13:7",
+          "words": "One pretends to be rich, but has nothing;"
+        },
+        {
+          "ref": "Proverbs 13:7",
+          "words": "another pretends to be poor, yet has great wealth."
+        }
+      ],
+      "pairs": [
+        [
+          "rich",
+          "poor"
+        ],
+        [
+          "nothing",
+          "great wealth"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his first examples of antithetic lines. Fausset (Jamieson, Fausset and Brown): men act hypocritically in opposite ways.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Proverbs 13:7",
+          "at": "Lecture XIX, p. 45",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/45/mode/1up",
+          "quote": "The Antithetic parallelism is the next that I shall specify, when a thing is illustrated by its contrary being opposed to it. This is not confined to any particular form: for sentiments are opposed to sentiments, words to words, singulars to singulars, plurals to plurals, &c. of which the following are examples",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 13:7",
+          "quote": "In opposite ways men act hypocritically for gain of honor or wealth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-16-33-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 16:33",
+      "strength": "some interpreters",
+      "short": "The lot is cast, but the LORD decides",
+      "about": "The second line answers the first with its opposite, though no single word stands against another. The lot is cast into the lap, but its every decision is from the LORD: what looks like chance is the LORD’s doing.",
+      "lines": [
+        {
+          "ref": "Proverbs 16:33",
+          "words": "The lot is cast into the lap,"
+        },
+        {
+          "ref": "Proverbs 16:33",
+          "words": "but its every decision is from the LORD."
+        }
+      ],
+      "evidence": "Lowth gives this proverb as one where the sense is opposed without any opposed terms: the event seems to be chance, but is really the direction of Providence.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 16:33",
+          "at": "Preliminary Dissertation, p. xxv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXV/mode/1up",
+          "quote": "In the following there is much the same opposition of sentiment, without any contraposition of terms at all: ... That is, the event seems to be the work of Chance; but is really the direction of Providence.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-23-15-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Proverbs 23:15-16",
+      "strength": "some interpreters",
+      "short": "The son's heart and lips around the father's joy",
+      "about": "The first line speaks of the son's wise heart and the last of his lips speaking what is right. The two lines between tell of the father's joy: his own heart and his inmost being rejoice.",
+      "lines": [
+        {
+          "ref": "Proverbs 23:15",
+          "words": "My son, if your heart is wise,",
+          "mark": "A",
+          "key": "your heart"
+        },
+        {
+          "ref": "Proverbs 23:15",
+          "words": "my own heart will indeed rejoice.",
+          "mark": "B",
+          "key": "my own heart"
+        },
+        {
+          "ref": "Proverbs 23:16",
+          "words": "My inmost being will rejoice",
+          "mark": "B'",
+          "key": "My inmost being"
+        },
+        {
+          "ref": "Proverbs 23:16",
+          "words": "when your lips speak what is right.",
+          "mark": "A'",
+          "key": "your lips"
+        }
+      ],
+      "evidence": "Jebb gives these verses as an example of what he calls the introverted parallelism: stanzas in which, he says, the first and last lines are parallel, and so are the second and the next to last.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Proverbs 23:15-16",
+          "at": "Sacred Literature, sect. IV, p. 53",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/53/mode/1up",
+          "quote": "There are stanzas so constructed, that, whatever be the number of lines, the first line shall be parallel with the last; the second with the penultimate; and so throughout, in an order that looks inward, or, to borrow a military phrase, from flanks to centre. This may be called the introverted parallelism",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-27-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 27:6",
+      "strength": "widely agreed",
+      "short": "A friend's wounds, an enemy's kisses",
+      "about": "The second line answers the first with its opposite: the wounds of a friend against the kisses of an enemy, faithful against deceitful.",
+      "lines": [
+        {
+          "ref": "Proverbs 27:6",
+          "words": "The wounds of a friend are faithful,"
+        },
+        {
+          "ref": "Proverbs 27:6",
+          "words": "but the kisses of an enemy are deceitful."
+        }
+      ],
+      "pairs": [
+        [
+          "wounds",
+          "kisses"
+        ],
+        [
+          "friend",
+          "enemy"
+        ],
+        [
+          "faithful",
+          "deceitful"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his examples of antithetic lines, where a thing is set off by its contrary. Bullinger lists it under antithetic parallelism. Delitzsch (Keil and Delitzsch) sets the faithful strokes of one who loves us against the kisses of an enemy.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Proverbs 27:6",
+          "at": "Lecture XIX, p. 45",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/45/mode/1up",
+          "quote": "The Antithetic parallelism is the next that I shall specify, when a thing is illustrated by its contrary being opposed to it. This is not confined to any particular form: for sentiments are opposed to sentiments, words to words, singulars to singulars, plurals to plurals, &c. of which the following are examples",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 27:6",
+          "at": "Antithetic, or Opposite, p. 351",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/351/mode/1up",
+          "quote": "This is when the words are contrasted in the two or more lines, being opposed in sense the one to the other.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 27:6",
+          "quote": "This, then, is the contrast, that the strokes inflicted by one who truly loves us, although they tear into our flesh ... yet are faithful ... on the contrary, the enemy covers over with kisses him to whom he wishes all evil.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-27-7-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 27:7",
+      "strength": "some interpreters",
+      "short": "Full, honey is loathed; hungry, bitter is sweet",
+      "about": "The second line answers the first with its opposite: the soul that is full and the hungry soul, honey that is loathed and any bitter thing that is sweet.",
+      "lines": [
+        {
+          "ref": "Proverbs 27:7",
+          "words": "The soul that is full loathes honey,"
+        },
+        {
+          "ref": "Proverbs 27:7",
+          "words": "but to a hungry soul, any bitter thing is sweet."
+        }
+      ],
+      "pairs": [
+        [
+          "full",
+          "hungry"
+        ],
+        [
+          "honey",
+          "bitter thing"
+        ],
+        [
+          "loathes",
+          "sweet"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his first examples of antithetic lines, where a thing is set off by its contrary.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Proverbs 27:7",
+          "at": "Lecture XIX, p. 45",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/45/mode/1up",
+          "quote": "The Antithetic parallelism is the next that I shall specify, when a thing is illustrated by its contrary being opposed to it. This is not confined to any particular form: for sentiments are opposed to sentiments, words to words, singulars to singulars, plurals to plurals, &c. of which the following are examples",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-28-11-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 28:11",
+      "strength": "some interpreters",
+      "short": "A rich man wise in his own eyes, a poor man who sees",
+      "about": "The two halves set a rich man who is wise in his own eyes against a poor man with discernment, who sees through him.",
+      "lines": [
+        {
+          "ref": "Proverbs 28:11",
+          "words": "A rich man is wise in his own eyes,"
+        },
+        {
+          "ref": "Proverbs 28:11",
+          "words": "but a poor man with discernment sees through him."
+        }
+      ],
+      "pairs": [
+        [
+          "rich",
+          "poor"
+        ],
+        [
+          "wise in his own eyes",
+          "discernment"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his first examples of antithetic lines, where a thing is set off by its contrary.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Proverbs 28:11",
+          "at": "Lecture XIX, p. 45",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/45/mode/1up",
+          "quote": "The Antithetic parallelism is the next that I shall specify, when a thing is illustrated by its contrary being opposed to it. This is not confined to any particular form: for sentiments are opposed to sentiments, words to words, singulars to singulars, plurals to plurals, &c. of which the following are examples",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-29-26-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 29:26",
+      "strength": "some interpreters",
+      "short": "The ruler’s favor set against the LORD",
+      "about": "The second line answers the first with its opposite. The two lines turn chiefly on the ruler and the LORD, and the whole saying sets seeking a ruler’s favor against the LORD, from whom justice comes.",
+      "lines": [
+        {
+          "ref": "Proverbs 29:26",
+          "words": "Many seek the ruler’s favor,"
+        },
+        {
+          "ref": "Proverbs 29:26",
+          "words": "but a man receives justice from the LORD."
+        }
+      ],
+      "pairs": [
+        [
+          "ruler’s",
+          "LORD"
+        ]
+      ],
+      "evidence": "Lowth says the opposition in this proverb lies chiefly between the ruler and the LORD, and also in the sense of the whole.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Proverbs 29:26",
+          "at": "Preliminary Dissertation, p. xxiv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIV/mode/1up",
+          "quote": "Where the opposition is chiefly between the single terms the Prince, and Jehovah: but there is an opposition likewise in the general sentiment",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-31-10-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Proverbs 31:10",
+      "refs": [
+        "Proverbs 31:10-31"
+      ],
+      "strength": "widely agreed",
+      "short": "The noble wife's praise, set out letter by letter",
+      "about": "In Hebrew the 22 verses of this poem on the noble wife, verses 10 to 31, begin with the letters of the alphabet in order, from the first letter to the last. The pattern may have been meant to help readers learn the poem by heart.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Proverbs 31:10",
+        "words": "A wife of noble character",
+        "means": "In Hebrew this opens a poem whose 22 verses begin with the letters of the alphabet in order, ending with the last letter in verse 31."
+      },
+      "original": {
+        "note": "In Hebrew verse 10 opens with eshet, “wife”, whose first letter, aleph, is the first of the alphabet.",
+        "strong": [
+          "H0802"
+        ]
+      },
+      "evidence": "Bullinger lists verses 10 to 31 under Acrostichion as a perfect alphabetical acrostic. Clarke: each verse begins with the next Hebrew letter, aleph in verse 10 to tau in verse 31. Fausset (Jamieson, Fausset and Brown) and Henry: the verses begin with the letters in order. Poole says the order calls for careful remembrance; Nutt (Ellicott), that it may have made the poem easier to learn by heart.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 31:10-31",
+          "at": "Acrostichion, or Acrostic, p. 184",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/184/mode/1up",
+          "quote": "is a perfect alphabetical Acrostic, marking and calling our attention to this song in praise of a virtuous woman.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 31:10",
+          "quote": "This and the following verses are acrostic, each beginning with a consecutive letter of the Hebrew alphabet: Pro 31:10, א aleph; Pro 31:11, ב beth; Pro 31:12, ג gimel; and so on to the end of the chapter, the last verse of which has the letter ת tau.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 31:10",
+          "quote": "In Hebrew the verses begin with the letters of the Hebrew alphabet in order",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 31:10-31",
+          "quote": "This description of the virtuous woman is designed to show what wives the women should make and what wives the men should choose; it consists of twenty-two verses, each beginning with a letter of the Hebrew alphabet in order, as some of the Psalms",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 31:10-31",
+          "quote": "This is written in the form of an acrostic, the twenty-two verses composing it each commencing with a letter of the Hebrew alphabet. This may have been done, as in the case of several of the psalms, which are of a didactic character (e.g., 25, 34, 37, 119), to render it more easy for committal to memory.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "Proverbs 31:10",
+          "quote": "And here he lays down several characters or qualifications of an excellent wife, which are here delivered in alphabetical order, each verse beginning with a several and the succeeding letter of the Hebrew alphabet; which method is used in some, and but in a few places of Scripture, to oblige us to the more diligent consideration and careful remembrance of them",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/proverbs/31.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

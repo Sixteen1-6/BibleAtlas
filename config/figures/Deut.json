@@ -231,6 +231,114 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "deuteronomy-6-7-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Deuteronomy 6:7",
+      "strength": "widely agreed",
+      "short": "“Teach them diligently”: in Hebrew, whet them",
+      "about": "The words “teach them diligently” render a Hebrew word that means to whet or sharpen. Read so, God's words are to be taught to children so that they go deep within. Some read in it also teaching given again and again, which can be pictured as a knife turned on each side in whetting.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Deuteronomy 6:7",
+        "words": "teach them diligently",
+        "means": "whet or sharpen them: teach them so that, like a sharp point, they go deep into heart and mind"
+      },
+      "original": {
+        "note": "In Hebrew “teach them diligently” is one word, from shanan, to whet or sharpen, the word used of a sword in Deuteronomy 32:41.",
+        "strong": [
+          "H8150"
+        ]
+      },
+      "refs": [
+        "Deuteronomy 32:41"
+      ],
+      "evidence": "Poole says the Hebrew is whet or sharpen them, to pierce deep into the heart, and calls it a metaphor for teaching diligently, earnestly and often. Henry takes up the reading whet them: repeat the words so they pierce the heart, as a knife is turned on each side in whetting. Calvin says the word properly means to whet, not to repeat: the teaching is to pierce the mind like a sword's point.",
+      "limit": "The picture is in the Hebrew word only; the BSB gives its sense. The writers differ on whether it also means teaching often repeated: one sets that sense aside and keeps only teaching that pierces the mind.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "poole",
+          "on": "Deuteronomy 6:7",
+          "quote": "Heb. whet, or sharpen them, so as they may pierce deep into their hearts. This metaphor signifies the manner of instructing them, that it is to be done diligently, earnestly, frequently, discreetly, and dexterously.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/deuteronomy/6.htm",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "henry",
+          "on": "Deuteronomy 6:4-16",
+          "quote": "Thou shalt whet them diligently upon thy children, so some read it; frequently repeat these things to them, try all ways of instilling them into their minds, and making them pierce into their hearts; as, in whetting a knife, it is turned first on this side, then on that. ... Be careful and exact in teaching thy children; and aim, as by whetting, to sharpen them, and put an edge upon them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 6:6-9",
+          "quote": "The word שנן shanan, which Moses uses, means properly “to whet.” Commentators think that it is employed metaphorically for “to reiterate,” or “to repeat constantly,” ... its signification may be transitive, viz., that they should cause it to penetrate their minds, as if they should prick them with the point of a sword; for the other translation does not seem consistent.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-42-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Deuteronomy 32:42",
+      "strength": "commonly held",
+      "short": "Arrows and sword, then blood and heads, in turn",
+      "about": "Four lines take turns. The third line goes back to the first, the arrows made drunk with blood. The fourth goes back to the second, the sword that devours flesh.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 32:42",
+          "words": "I will make My arrows drunk with blood,",
+          "mark": "A",
+          "key": "arrows"
+        },
+        {
+          "ref": "Deuteronomy 32:42",
+          "words": "while My sword devours flesh",
+          "mark": "B",
+          "key": "sword"
+        },
+        {
+          "ref": "Deuteronomy 32:42",
+          "words": "the blood of the slain and captives,",
+          "mark": "A'",
+          "key": "slain"
+        },
+        {
+          "ref": "Deuteronomy 32:42",
+          "words": "the heads of the enemy leaders.",
+          "mark": "B'",
+          "key": "heads"
+        }
+      ],
+      "evidence": "Lowth gives this verse as one of two four-line passages whose latter lines are to be referred in turn to the former. Bullinger, under Alternate: the a lines relate to the arrows, the b lines to the sword.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Deuteronomy 32:42",
+          "at": "Lecture XIX, p. 43",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/43/mode/1up",
+          "quote": "Those which consist of four lines generally form two regular distichs; but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences ... In both the above passages, the latter members are to be alternately referred to the former.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 32:42",
+          "at": "Complex Parallelism, Alternate, p. 352",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/352/mode/1up",
+          "quote": "Here a and a relate to the arrows, while b and b refer to the sword.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

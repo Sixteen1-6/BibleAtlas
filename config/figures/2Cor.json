@@ -150,6 +150,109 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "2-corinthians-4-17-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "2 Corinthians 4:17",
+      "strength": "widely agreed",
+      "short": "Light, brief trouble set against weighty glory",
+      "about": "Paul sets each part of present trouble against its answer in the glory to come: light against weight, a moment against eternity, affliction against glory. Set side by side, the trouble looks small beside the glory it is producing.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "2 Corinthians 4:17",
+        "words": "light and momentary affliction is producing for us an eternal weight of glory",
+        "means": "present trouble, light and brief, set against the glory to come, weighty and eternal"
+      },
+      "original": {
+        "note": "In Paul's Greek “light” stands as a noun, the lightness of our affliction, and so answers the weight of glory more closely.",
+        "strong": [
+          "G1645",
+          "G0922"
+        ]
+      },
+      "evidence": "E. H. Plumptre (Ellicott's Commentary) reads the present lightness of our affliction, which he says better keeps the balanced antithesis of the clauses. Barnes says Paul set the trials of this life and the glories of heaven in emphatic contrast. A. R. Fausset (Jamieson, Fausset and Brown) sets the lightness against the weight; Calvin says Paul compares present miseries with future felicity.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 4:17",
+          "quote": "More accurately, the present lightness of our affliction. This is at once more literally in accord with the Greek, and better sustains the balanced antithesis of the clauses.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 4:17",
+          "quote": "His object is to contrast this with the glory that awaited him, as being heavy, and as being also eternal. … Paul has set in most beautiful and emphatic contrast the trials of this life and the glories of heaven.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Corinthians 4:17",
+          "quote": "\"The lightness of affliction\" (he does not express \"burden\" after \"light\"; the Greek is \"the light of affliction\") contrasts beautifully with the \"weight of the glory.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 4:17",
+          "quote": "Paul, with the view of shaking us off from a carnal attachment to the present life, draws a comparison between present miseries and future felicity. … For this comparison makes that light which previously seemed heavy, and makes that brief and momentary which seemed of boundless duration.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-9-10-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "2 Corinthians 9:10",
+      "strength": "some interpreters",
+      "short": "Seed and bread, then seed and harvest",
+      "about": "Four lines take turns. The first answers the third: He who supplies seed to the sower will supply and multiply your store of seed. The second answers the fourth: bread for food, then the harvest of your righteousness.",
+      "lines": [
+        {
+          "ref": "2 Corinthians 9:10",
+          "words": "Now He who supplies seed to the sower",
+          "mark": "A",
+          "key": "supplies seed"
+        },
+        {
+          "ref": "2 Corinthians 9:10",
+          "words": "and bread for food",
+          "mark": "B",
+          "key": "bread"
+        },
+        {
+          "ref": "2 Corinthians 9:10",
+          "words": "will supply and multiply your store of seed",
+          "mark": "A'",
+          "key": "supply and multiply"
+        },
+        {
+          "ref": "2 Corinthians 9:10",
+          "words": "and will increase the harvest of your righteousness.",
+          "mark": "B'",
+          "key": "harvest"
+        }
+      ],
+      "evidence": "Jebb sets the verse out as an alternate quatrain and traces a rising order in its terms: a term is advanced upon in the parallel line by two verbs, and a term of the second line is answered in the fourth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "2 Corinthians 9:10",
+          "at": "Sacred Literature, sect. VII, p. 123",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/123/mode/1up",
+          "quote": "The beauty of that alternate quatrain it is scarcely necessary to indicate to any attentive reader. There is a fine ascending gradation in the terms of it: … in the parallel line, it is advanced upon by the two verbs … of the second line, we have, in the fourth line",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

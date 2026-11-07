@@ -34,6 +34,243 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "2-samuel-3-1-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "2 Samuel 3:1",
+      "strength": "some interpreters",
+      "short": "Saul, David, then David, Saul",
+      "about": "The house of Saul is named first and last, and David between: the long war between the two houses, then David growing stronger while the house of Saul grew weaker.",
+      "lines": [
+        {
+          "ref": "2 Samuel 3:1",
+          "words": "Now the war between the house of Saul",
+          "mark": "A",
+          "key": "Saul"
+        },
+        {
+          "ref": "2 Samuel 3:1",
+          "words": "and the house of David was protracted.",
+          "mark": "B",
+          "key": "David"
+        },
+        {
+          "ref": "2 Samuel 3:1",
+          "words": "And David grew stronger and stronger,",
+          "mark": "B'",
+          "key": "David"
+        },
+        {
+          "ref": "2 Samuel 3:1",
+          "words": "while the house of Saul grew weaker and weaker.",
+          "mark": "A'",
+          "key": "Saul"
+        }
+      ],
+      "evidence": "Boys puts Saul in the two parts he marks a and David in the two he marks b. In the verse, Saul's parts come first and last, and David's between.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "2 Samuel 3:1",
+          "at": "Introduction, p. 35",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/35/mode/1up",
+          "quote": "Saul in a. and a.; David in b. and b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "2-samuel-5-8-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "2 Samuel 5:8",
+      "strength": "commonly held",
+      "short": "David's offer to the attackers, left unfinished",
+      "about": "David speaks of whoever attacks the Jebusites through the water shaft but names no reward. Read with 1 Chronicles 11:6, his words can be heard as a promise left unfinished: the first to strike down a Jebusite would become chief commander. Joab went up first and became the chief.",
+      "refs": [
+        "1 Chronicles 11:6"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Promise",
+        "ref": "2 Samuel 5:8",
+        "words": "Whoever attacks the Jebusites",
+        "means": "the start of an offer whose reward is left unsaid here; 1 Chronicles 11:6 gives it: the first to strike would become chief commander"
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis, among promises left unsaid, and notes from 1 Chronicles 11:6 that Joab won the promised post. Poole says the words of the promise must be understood from 1 Chronicles 11:6 to make the sense complete, and that such gaps are usual in promises, oaths and conditional offers.",
+      "limit": "This translation renders David's words as a complete order, with no break. The reward itself is told only in 1 Chronicles 11:6.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Samuel 5:8",
+          "at": "Aposiopesis, or Sudden-Silence: Promise, p. 151",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/151/mode/1up",
+          "quote": "“And David said on that day, Whosoever getteth up to the gutter--.” We learn from 1Ch 11:6 that the promise was fulfilled in Joab, who was made chief or captain.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "2 Samuel 5:8",
+          "quote": "He shall be chief and captain: these words are fitly supplied out of 1 Chronicles 11:6, where they are expressed; and they must needs be understood to make the sense complete. And such ellipses or defects of a part of the sentence are usual in promises, and oaths, and conditional offers, such as this was.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/2_samuel/5.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "2-samuel-12-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "2 Samuel 12:1-4",
+      "strength": "widely agreed",
+      "short": "Nathan's story of the lamb pictures David's own sin",
+      "about": "Nathan tells of a rich man with many flocks who took a poor man's one lamb. David condemns the man, and Nathan answers, “You are that man!” The story pictures David's own sin, which Nathan then names: he had killed Uriah and taken his wife. Told as a case to judge, it led David to judge himself.",
+      "figure": {
+        "name": "Parable",
+        "ref": "2 Samuel 12:1",
+        "words": "There were two men in a certain city",
+        "means": "David's own sin in taking Uriah's wife, as Nathan shows when he tells David that he is that man"
+      },
+      "refs": [
+        "2 Samuel 12:5-7",
+        "2 Samuel 12:9"
+      ],
+      "evidence": "Matthew Henry says the parable showed David the evil of his sin, Uriah being like the poor man with one wife. Keil (Keil and Delitzsch) says Nathan used a parable to charge the king with his crimes and lead him to sentence himself; Clarke, that it was made so David would unwittingly sentence himself. Robert Jamieson (Jamieson, Fausset and Brown) says the real offense far exceeded the story's.",
+      "limit": "The likeness lies in the main point, David's taking of what was not his. The note does not say what every detail, such as the traveler, stands for.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "2 Samuel 12:1-14",
+          "quote": "He fetched a compass with a parable, which seemed to David as a complaint made to him by Nathan against one of his subjects that had wronged his poor neighbour ... In this he showed him the evil of the sin he had been guilty of in defiling Bath-sheba ... Uriah, like the poor man, had only one wife, who was to him as his own soul",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "2 Samuel 12:1-4",
+          "quote": "To ensure the success of his mission, viz., to charge the king with his crimes, Nathan resorted to a parable by which he led on the king to pronounce sentence of death upon himself.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Samuel 12:1",
+          "quote": "There is nothing in this parable that requires illustration; its bent is evident; and it was construed to make David, unwittingly, pass sentence on himself.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Samuel 12:1",
+          "quote": "This exquisitely pathetic parable was founded on a common custom of pastoral people who have pet lambs, which they bring up with their children, and which they address in terms of endearment. The atrocity of the real, however, far exceeded that of the fictitious offense.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-samuel-14-5-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "2 Samuel 14:5-7",
+      "strength": "widely agreed",
+      "short": "The Tekoa woman's story, framed like Absalom's case",
+      "about": "Sent by Joab, a woman tells David that one of her two sons killed the other, and the clan wants the killer's life. David promises to protect her son. Then she turns it on him: why has he not brought back his own banished son? Joab gave her the words, and her case was framed to point to Absalom's.",
+      "figure": {
+        "name": "Parable",
+        "ref": "2 Samuel 14:5",
+        "words": "I am a widow, for my husband is dead",
+        "means": "David's own case with Absalom, who had killed his brother and was still in exile, so that David's ruling for her son would apply to his own"
+      },
+      "refs": [
+        "2 Samuel 14:1-3",
+        "2 Samuel 14:13"
+      ],
+      "evidence": "Robert Jamieson (Jamieson, Fausset and Brown) says her speech was in the form of a parable, made as like David's case as was wise. Matthew Henry calls it a parallel case, judged as Nathan's parable was, which she applies to Absalom. Keil (Keil and Delitzsch) says her case was disguised so that David's ruling could apply to Absalom; Poole says she applies the parable to the king's case.",
+      "limit": "The likeness is only in part: Absalom had not killed his brother in a sudden quarrel. Two of the writers say her case was kept unlike his so that David would not see her purpose too soon.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "2 Samuel 14:2",
+          "quote": "Her speech was in the form of a parable--the circumstances--the language--the manner--well suited to the occasion, represented a case as like David's as it was policy to make it, so as not to be prematurely discovered.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "2 Samuel 14:1-20",
+          "quote": "His contrivance to do it by laying somewhat of a parallel case before the king, which was done so dexterously by the person he employed that the king took it for a real case, and gave judgment upon it, as he had done upon Nathan's parable ... She supposes Absalom's case to be, in effect, the same with that which she had put as her son's",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "2 Samuel 14:5-7",
+          "quote": "This account differed, no doubt, from the case of Absalom, inasmuch as in his case no murder had taken place in the heat of a quarrel ... But it was necessary to disguise the affair in this manner, in order that David might not detect her purpose, but might pronounce a decision out of pity for the poor widow which could be applied to his own conduct towards Absalom.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "poole",
+          "on": "2 Samuel 14:12",
+          "quote": "she now throws off the veil, and begins to apply this parable to the king’s and kingdom’s present case.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/2_samuel/14.htm",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "2-samuel-20-18-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "2 Samuel 20:18",
+      "strength": "widely agreed",
+      "short": "An old saying: go to Abel for counsel",
+      "about": "The wise woman of Abel quotes an old saying: people sought counsel at Abel, and so their disputes were settled. She reminds Joab that her city was known for its wisdom, and she can be read as saying he should have asked its counsel before he began battering its wall.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "2 Samuel 20:18",
+        "words": "Seek counsel at Abel",
+        "means": "Abel was known for wise counsel: people took their disputes there, and its answer settled them"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, a proverb quoted as already in use. Clarke calls it a proverb of unknown origin, Abel probably being famed for the wisdom of its people, to whom disputes were taken, and says she hints that Joab should have done so before storming the city. Lord Arthur Hervey (Barnes' Notes) calls it an old proverb, Abel being once famous for the wisdom of its people.",
+      "limit": "The writers cited here take her words as an old saying about Abel's wisdom, though where it began is not known.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Samuel 20:18",
+          "at": "Parœmiœ which are quoted as being already in use as such, p. 756",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/756/mode/1up",
+          "quote": "“They were wont to speak in old time, saying, ‘They shall surely ask counsel at Abel’: and so they ended the matter.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Samuel 20:18",
+          "quote": "This is a proverb, but from what it originated we know not ... Abel was probably famed for the wisdom of its inhabitants; and parties who had disputes appealed to their judgment ... To this the wise woman refers, and intimates to Joab that he should have proceeded in this way before he began to storm the city",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Samuel 20:18",
+          "quote": "This was an old proverb. Abel, like Teman, and some other places, was once famous for the wisdom of its inhabitants",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

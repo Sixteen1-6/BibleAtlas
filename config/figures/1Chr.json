@@ -1,0 +1,110 @@
+{
+  "notes": [
+    {
+      "id": "1-chronicles-4-10-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "1 Chronicles 4:10",
+      "strength": "widely agreed",
+      "short": "Jabez's prayer stops short of its promise",
+      "about": "Jabez asks God to bless him, enlarge his land, be with him and keep him from harm. These can be read as the conditions of a vow, like Jacob's at Bethel, but here the promise is never spoken. The verse moves straight to God's answer: “And God granted the request of Jabez.”",
+      "refs": [
+        "Genesis 28:20-22"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Promise",
+        "ref": "1 Chronicles 4:10",
+        "words": "so that I will be free from pain",
+        "means": "where the prayer stops: the promise of a vow, or thanks too great for words, is left unsaid"
+      },
+      "original": {
+        "note": "In Hebrew the prayer opens with im, if, as a vow does (Genesis 28:20), and no then-clause follows.",
+        "strong": [
+          "H0518"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis: a sudden silence, as if Jabez could not say how he would thank God. Keil (Keil and Delitzsch) says only the conditions of the vow are given, without its conclusion. C. J. Ball (Ellicott's Commentary) says the prayer is a condition with its consequence suppressed. Henry, on the margin's reading as a vow, says the promise was left to be understood.",
+      "limit": "The writers differ on what is left unsaid: a vow to serve God, as Jacob vowed, or thanks too great to put in words. This translation gives the prayer as a wish, with no break.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Chronicles 4:10",
+          "at": "Aposiopesis, or Sudden-Silence: Promise, p. 152",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/152/mode/1up",
+          "quote": "Then there is a sudden silence, as though it were impossible for Jabez to express the manner in which he would give God thanks and declare his praise for His great mercies.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Chronicles 4:8-10",
+          "quote": "But of the vow itself only the conditions proposed by the maker of the vow are communicated ... without the conclusion, Then I vow to do this or that (cf. Gen 28:20 .), but with the remark that God granted him that which he requested.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Chronicles 4:10",
+          "quote": "Literally, “if indeed thou wilt bless me.” ... The prayer is expressed in the form of a condition, with the consequence (“then will I serve thee,” comp. Gen 28:22 ) suppressed.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Chronicles 4:10",
+          "quote": "As the margin reads it, it was a solemn vow—If thou wilt bless me indeed, &c. and then the sense is imperfect, but may easily be filled up from Jacob's vow, or some such like—then thou shalt be my God. He did not express his promise, but left it to be understood",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-chronicles-11-17-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "1 Chronicles 11:17",
+      "strength": "widely agreed",
+      "short": "David's cry of longing for Bethlehem's water",
+      "about": "With a Philistine garrison in Bethlehem, David's longing for the water of its well breaks out as a wish, spoken, it may be, with no thought of the danger. Three of his men risked their lives to bring it, and he would not drink it but poured it out to the LORD.",
+      "refs": [
+        "1 Chronicles 11:16",
+        "1 Chronicles 11:18-19"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "1 Chronicles 11:17",
+        "words": "Oh, that someone would get me a drink of water",
+        "means": "David's longing for the water of Bethlehem, voiced as a wish"
+      },
+      "evidence": "Bullinger lists the verse under Ecphonesis, an outburst of words prompted by emotion, and adds that it comes also under Œonismos. Henry counts it a weakness, a word said unadvisedly from a foolish fancy, which David undid by not drinking; Jamieson (Jamieson, Fausset and Brown) says David probably uttered the wish with no thought of the Philistine outpost at Bethlehem.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Chronicles 11:17",
+          "at": "Ecphonesis; or, Exclamation, p. 927",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... “And David longed, and said, Oh that one would give me drink of the water of the well of Bethlehem, that is at the gate!” This would come also under the figure Œonismos",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Chronicles 11:10-47",
+          "quote": "Repentance for his own weakness. It is really an honour to a man, when he is made sensible that he has said or done any thing unadvisedly, to unsay it and undo it again by repentance ... He longed for the water of the well of Bethlehem; but, when he had it, he would not drink it, because he would not so far humour himself and gratify a foolish fancy.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Chronicles 11:15",
+          "quote": "they were ready to gratify his smallest wish at the risk of their lives. It is probable that, when uttering the wish, David had no recollection of the military posted at Beth-lehem.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

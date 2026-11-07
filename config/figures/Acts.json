@@ -129,6 +129,327 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "acts-4-28-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Acts 4:28-30",
+      "strength": "some interpreters",
+      "short": "God's hand and will, then His will and hand",
+      "about": "Verse 28 names God's hand and then His will. The prayer takes them up again in reverse: it first turns to His will, asking Him to consider their threats, and then to His hand, stretched out to heal.",
+      "lines": [
+        {
+          "ref": "Acts 4:28",
+          "words": "They carried out what Your hand",
+          "mark": "A",
+          "key": "Your hand"
+        },
+        {
+          "ref": "Acts 4:28",
+          "words": "and will had decided beforehand would happen.",
+          "mark": "B",
+          "key": "will"
+        },
+        {
+          "ref": "Acts 4:29",
+          "words": "And now, Lord, consider their threats,",
+          "mark": "B'",
+          "key": "consider"
+        },
+        {
+          "ref": "Acts 4:30",
+          "words": "as You stretch out Your hand to heal",
+          "mark": "A'",
+          "key": "Your hand"
+        }
+      ],
+      "evidence": "Jebb takes God's hand in verse 28 as His over-ruling power and His counsel as His pre-disposing wisdom, and says these two topics give the subject of the next stanza, which takes them up by an epanodos in the inverted order, first with an appeal to the wisdom or counsel of God.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Acts 4:28-30",
+          "at": "Sacred Literature, sect. VIII, pp. 140-141",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/140/mode/1up",
+          "quote": "“thy hand,” that is, thine over-ruling power; “thy counsel,” that is, thy pre-disposing wisdom. These two topics give the subject of the next stanza; in which, by an epanodos, they are taken up in the inverted order. First, an appeal is made to the wisdom or “counsel” of God",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "acts-7-5-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Acts 7:5",
+      "strength": "some interpreters",
+      "short": "No land and no child, around a double promise",
+      "about": "Abraham is given no inheritance, and he has no child: these stand at the ends. Between them is the promise, made to him and to his descendants.",
+      "lines": [
+        {
+          "ref": "Acts 7:5",
+          "words": "He gave him no inheritance here, not even a foot of ground.",
+          "mark": "A",
+          "key": "inheritance"
+        },
+        {
+          "ref": "Acts 7:5",
+          "words": "But God promised to give possession of the land to Abraham",
+          "mark": "B",
+          "key": "Abraham"
+        },
+        {
+          "ref": "Acts 7:5",
+          "words": "and his descendants,",
+          "mark": "B'",
+          "key": "descendants"
+        },
+        {
+          "ref": "Acts 7:5",
+          "words": "even though he did not yet have a child.",
+          "mark": "A'",
+          "key": "child"
+        }
+      ],
+      "evidence": "Boys sets out the verse in four lines: a double obstacle in the first and last, and a double promise in the two between.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Acts 7:5",
+          "at": "Introduction, p. 7",
+          "url": "https://archive.org/details/tactica-sacra/page/7/mode/1up",
+          "quote": "In a. and a., a double obstacle; in b. and b., a double promise",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "acts-7-51-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Acts 7:51",
+      "strength": "widely agreed",
+      "short": "Stephen breaks off in a cry of sharp rebuke",
+      "about": "Stephen's calm account of Israel's history breaks off in a cry: “You stiff-necked people with uncircumcised hearts and ears!” It is a sharp rebuke, and many read it as spoken when the council would no longer listen. Yet he dies praying for them: “Lord, do not hold this sin against them.”",
+      "refs": [
+        "Acts 7:60"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Acts 7:51",
+        "words": "You stiff-necked people with uncircumcised hearts and ears!",
+        "means": "Stephen's sharp rebuke and holy indignation, as he breaks off his speech"
+      },
+      "evidence": "Bullinger lists Acts 7:51 under Ecphonesis, words that burst out from feeling. Henry thinks it likely Stephen saw they would silence him, so he broke off and sharply rebuked them. Calvin calls it a sharp reprehension in holy zeal, breaking off before deaf men. Plumptre (Ellicott's Commentary) sees a sudden change from calm argument to vehement indignation, as the council seemed past control.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Acts 7:51",
+          "at": "Ecphonesis; or, Exclamation, pp. 927-928",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/928/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... Act 7:51 is also an Ecphonesis.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Acts 7:51-53",
+          "quote": "It is probable that he perceived this, and that they were going to silence him; and therefore he breaks off abruptly in the midst of his discourse, and by that spirit of wisdom, courage, and power, wherewith he was filled, he sharply rebuked his persecutors, and exposed their true character",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Acts 7:51",
+          "quote": "And he is enforced to use a sharp reprehension for a conclusion, Ye of an hard neck, saith he ... We see how soon he is offended with them with an holy zeal, but because he saw that he spake many things to small end, especially before deaf men, he breaketh off his doctrine.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Acts 7:51",
+          "quote": "The sudden change of tone from calm argument to vehement indignation cannot be thought of as spontaneous. The excitement of the Sanhedrin, perhaps of the listening crowd also, at this point, would seem to have become uncontrollable.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "acts-20-29-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Acts 20:29",
+      "strength": "widely agreed",
+      "short": "“Savage wolves” stands for false teachers",
+      "about": "Paul has just called the church of God a flock (verse 28). Now he warns that savage wolves will come in among them, but does not say who they are. Many read them as false teachers who would prey on the church as wolves prey on sheep.",
+      "refs": [
+        "Acts 20:28"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Acts 20:29",
+        "words": "savage wolves",
+        "means": "false teachers who would come in and prey on the church, the flock"
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis, telling by implication what some who came after the apostle would be. Barnes says the wolves are false, hypocritical and dangerous teachers; Clarke, men professing to be teachers; Henry, seducers and false teachers; Brown (Jamieson, Fausset and Brown), teachers who would make a prey of the flock.",
+      "limit": "Some have taken the wolves to be persecutors; one writer gives that view and prefers false teachers. One writer also reads the verse as showing what kind of men would follow after the apostles.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Acts 20:29",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "“I know this, that after my departing shall grievous wolves enter in among you, not sparing the flock.” Thus does the Holy Spirit inform us, by Implication, as to the true character of “apostolic succession,” in order to impress the solemn fact on our minds.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Acts 20:29",
+          "quote": "Grievous wolves - Heavy βαρεῖς bareis, strong, mighty, dangerous wolves - so strong that the feeble flock would not be able to resist them. The term \"wolves\" is used to denote \"the enemies of the flock - false, and hypocritical, and dangerous teachers.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Acts 20:29",
+          "quote": "Grievous wolves - Persons professing to be teachers; Judaizing Christians, who, instead of feeding the flock, would feed themselves, even to the oppression and ruin of the Church.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Acts 20:17-38",
+          "quote": "Some understand it of persecutors ... It is rather to be understood of seducers and false teachers. ... these he calls grievous wolves, for though they came in sheep's clothing, nay, in shepherds' clothing, they made mischief in the congregations of Christians",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Acts 20:29",
+          "quote": "both were to be teachers, but the one, \"grievous wolves,\" not sparing, that is, making a prey of the flock",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "acts-20-35-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Acts 20:35",
+      "strength": "widely agreed",
+      "short": "A saying of the Lord: giving is more blessed",
+      "about": "Paul ends his charge to the elders of Ephesus with a short saying of the Lord Jesus that is not written in the four Gospels: the giver is more blessed than the one who receives. He tells them to remember it, words he had likely taught them before, as the reason to work hard and help the weak.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Acts 20:35",
+        "words": "It is more blessed to give than to receive",
+        "means": "the giver is more blessed than the one who receives, so the elders should work hard to help the weak"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, or Proverb, among sayings first found in Scripture, and calls it an unrecorded saying of Christ. Albert Barnes says no Gospel records it, calls it one of the Lord's most precious sayings, and thinks the elders knew it. E. H. Plumptre (Ellicott's Commentary) finds it in no Gospel, sees how widely the Lord's teaching spread, and says Paul often taught it.",
+      "limit": "The saying is the Lord's own, first written down here; the note does not claim it was a common proverb before He spoke it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Acts 20:35",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 764",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/764/mode/1up",
+          "quote": "This is one of the un-recorded Parœmiœ or Logia of Christ.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Acts 20:35",
+          "quote": "These words are nowhere recorded by the evangelists. ... Paul evidently addresses the elders of Ephesus as if they had heard this before, and were acquainted with it. Perhaps he had himself reminded them of it. This is one of the Redeemer's most precious sayings ... The giver is more blessed or happy than the receiver.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Acts 20:35",
+          "quote": "The words that follow are not found in any of the four Canonical Gospels, nor indeed in any of the Apocryphal. They furnish, accordingly, an example of the wide diffusion of an oral teaching, embodying both the acts and the words of Christ ... The injunction to “remember” the words implies that they had often been prominent in the Apostle’s teaching.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "acts-26-14-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Acts 26:14",
+      "strength": "widely agreed",
+      "short": "An old saying: kicking against the goads",
+      "about": "The voice from heaven meets Saul with a well-known saying from farm life. An ox that kicks back at the goad only drives the point in deeper. So Saul, in fighting against the Lord, was only hurting himself.",
+      "refs": [
+        "Acts 9:5"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Very probably already in use as proverbial expressions",
+        "ref": "Acts 26:14",
+        "words": "It is hard for you to kick against the goads",
+        "means": "fighting against the Lord is as useless as an ox kicking the goad: it only hurts the one who kicks"
+      },
+      "original": {
+        "note": "In Luke's Greek the goads are kentra, iron-pointed sticks used to drive oxen at the plough.",
+        "strong": [
+          "G2759"
+        ]
+      },
+      "evidence": "Bullinger lists it under Parœmia, or Proverb, as common among Greeks and Hebrews. In their notes on the same words at Acts 9:5, Albert Barnes and Adam Clarke call it a proverbial expression, E. H. Plumptre (Ellicott's Commentary) one of the oldest Greek proverbs, and John Calvin a proverbial sentence drawn from goaded oxen or horses.",
+      "limit": "Several of the writers find the saying among the Greeks. One says it was common among the Hebrews too; another finds it in no collection of Hebrew proverbs. In the BSB the saying stands here, in Paul's own account, and not at Acts 9:5.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Acts 26:14",
+          "at": "Parœmiœ which, though not quoted as such, were very probably already in use as proverbial expressions, p. 760",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/760/mode/1up",
+          "quote": "This was a proverb common among the Greeks as well as the Hebrews.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Acts 9:5",
+          "quote": "This is evidently a proverbial expression. ... The expression \"to kick against the prick\" is derived from the action of a stubborn and unyielding ox kicking against the goad. And as the ox would injure no one by it but himself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Acts 9:5",
+          "quote": "This is a proverbial expression, which exists, not only in substance, but even in so many words, both in the Greek and Latin writers. Κεντρον, kentron, signifies an ox goad, a piece of pointed iron stuck in the end of a stick, with which the ox is urged on when drawing the plough.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Acts 9:5",
+          "quote": "This is a proverbial sentence, taken from oxen or horses, which, when they are pricked with goads, do themselves no good by kicking, save only that they double the evil by causing the prick to go farther into their skins.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Acts 9:5",
+          "quote": "In their outward form they were among the oldest and most familiar of Greek proverbs. ... They do not occur in any collection of Hebrew proverbs ... What they taught was, of course, that to resist a power altogether superior to our own is a profitless and perilous experiment.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

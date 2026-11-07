@@ -2109,6 +2109,1839 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "psalm-6-3-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Psalm 6:3",
+      "strength": "widely agreed",
+      "short": "“How long, O LORD, how long?”: a cry left unfinished",
+      "about": "David begins to speak to the LORD and does not finish the sentence; all that comes is “How long, O LORD, how long?” The break can be read as grief too strong for words. He ends with no complaint against God, only the question how long before the LORD helps.",
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Grief and Complaint",
+        "ref": "Psalm 6:3",
+        "words": "How long, O LORD, how long?",
+        "means": "the unfinished end of his prayer: how long he must suffer, and how long before the LORD rises to help him"
+      },
+      "original": {
+        "note": "In Hebrew the words run: and You, O LORD, until when? The sentence that begins with “You” is left unfinished.",
+        "strong": [
+          "H0859",
+          "H4970"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis: the words are drowned in grief, and the prayer is left to the will of God. Barnes calls it a broken sentence, an address to God begun but not completed, that ends with no complaint but only the question how long. Fausset (Jamieson, Fausset and Brown): the sentence is incomplete, as expressing strong emotion.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 6:3",
+          "at": "Aposiopesis, Grief and Complaint, p. 153",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/153/mode/1up",
+          "quote": "The words are drowned in grief: “How long shall I be sore vexed? How long [ before thou wilt arise? ]” Thus his prayer is submitted to the will of God.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 6:3",
+          "quote": "This is a broken sentence, as if he had commenced an address to God, but did not complete it. ... but he ends the sentence by no language of complaint or complaining, but by simply asking \"how long\" these sorrows were to continue.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 6:3",
+          "quote": "but--or, \"and.\" thou--The sentence is incomplete as expressive of strong emotion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-9-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 9:1",
+      "strength": "some interpreters",
+      "short": "Set out in the order of the Hebrew alphabet",
+      "about": "In Hebrew this psalm is set out in the order of the alphabet, though the order is handled freely and not carried through in full. Psalm 10 shares the pattern, and the two psalms can be read as a pair. A poet can use the letters in this way to express his feelings to the full.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 9:1",
+        "words": "I will give thanks to the LORD with all my heart;",
+        "means": "This line opens the psalm, which in Hebrew is set out in the order of the alphabet, an order handled freely and not carried through in full."
+      },
+      "refs": [
+        "Psalm 10:1-18"
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) speaks of the alphabetical arrangement of Psalms 9 and 10 as freely handled and not fully carried out, says this pair of psalms shows that David wrote in acrostics, and says a lyric writer uses the letters as keys on which he strikes every note, to give his feelings their fullest expression.",
+      "limit": "Some letters are missing from the order, and the note does not say why.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 9",
+          "quote": "the freedom, with which the alphabetical arrangement is handled in Ps 9 and 10 ... the alphabetical arrangement is not fully carried out ... In reality this pair of Psalms shows, that even David was given to acrostic composition. ... The lyric writer regards it as the keys on which he strikes every note, in order to give the fullest expression to his feelings.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-19-7-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 19:7-9",
+      "strength": "widely agreed",
+      "short": "Six lines built alike on the LORD's law",
+      "about": "The lines do not repeat or oppose one another; each is built the same way. Each names the LORD's word, says what it is, and then what it does: perfect, reviving the soul; trustworthy, making wise the simple.",
+      "lines": [
+        {
+          "ref": "Psalm 19:7",
+          "words": "The Law of the LORD is perfect, reviving the soul;"
+        },
+        {
+          "ref": "Psalm 19:7",
+          "words": "the testimony of the LORD is trustworthy, making wise the simple."
+        },
+        {
+          "ref": "Psalm 19:8",
+          "words": "The precepts of the LORD are right, bringing joy to the heart;"
+        },
+        {
+          "ref": "Psalm 19:8",
+          "words": "the commandments of the LORD are radiant, giving light to the eyes."
+        },
+        {
+          "ref": "Psalm 19:9",
+          "words": "The fear of the LORD is pure, enduring forever;"
+        },
+        {
+          "ref": "Psalm 19:9",
+          "words": "the judgments of the LORD are true, being altogether righteous."
+        }
+      ],
+      "evidence": "Lowth gives these verses as the first instance of synthetic or constructive parallelism, where lines answer by the form of construction alone. Bullinger gives them under synthetic parallelism. Barnes: in each case a statement on the truth itself, then its effect on the soul.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Psalm 19:7-10",
+          "at": "Lecture XIX, p. 49",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/49/mode/1up",
+          "quote": "merely by the form of construction. To this which may be called the Synthetic or Constructive Parallelism, may be referred all such as do not come within the two former classes: I shall however produce a few of the most remarkable instances",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 19:7-9",
+          "at": "Synthetic, or Constructive, p. 351",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/351/mode/1up",
+          "quote": "This is where the parallelism consists only in the similar form of construction",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 19:7",
+          "quote": "Of the revealed truth of God, thus characterized by distinct epithets, a particular statement is first made in each case in regard to the truth itself as viewed in that special aspect, and then the effects of that revealed truth on the soul are described corresponding with that truth as so viewed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-20-7-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Psalm 20:7-8",
+      "strength": "some interpreters",
+      "short": "Chariots and horses, or the name of the LORD",
+      "about": "Each second line answers the line before it with its opposite. Some trust in chariots and others in horses, but we trust in the name of the LORD our God; they collapse and fall, but we rise up and stand firm.",
+      "lines": [
+        {
+          "ref": "Psalm 20:7",
+          "words": "Some trust in chariots and others in horses,"
+        },
+        {
+          "ref": "Psalm 20:7",
+          "words": "but we trust in the name of the LORD our God."
+        },
+        {
+          "ref": "Psalm 20:8",
+          "words": "They collapse and fall,"
+        },
+        {
+          "ref": "Psalm 20:8",
+          "words": "but we rise up and stand firm."
+        }
+      ],
+      "pairs": [
+        [
+          "chariots",
+          "the name of the LORD our God"
+        ],
+        [
+          "collapse and fall",
+          "rise up and stand firm"
+        ]
+      ],
+      "evidence": "Lowth gives these verses as one of a few examples of the same antithetic form, the opposition of diction and sentiment, from the higher poetry.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 20:7-8",
+          "at": "Preliminary Dissertation, p. xxv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXV/mode/1up",
+          "quote": "the Antithetic form, the opposition of diction and sentiment. ... However, I shall add a few examples of the like kind from the higher Poetry.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-21-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 21:1-2",
+      "strength": "some interpreters",
+      "short": "The king's joy, then his desire granted, each twice",
+      "about": "Each second line says the line before it again in other words. The king rejoices and exults, in the LORD's strength and in His salvation; his heart's desire is granted, and the request of his lips is not withheld.",
+      "lines": [
+        {
+          "ref": "Psalm 21:1",
+          "words": "O LORD, the king rejoices in Your strength.",
+          "key": "rejoices"
+        },
+        {
+          "ref": "Psalm 21:1",
+          "words": "How greatly he exults in Your salvation!",
+          "key": "exults"
+        },
+        {
+          "ref": "Psalm 21:2",
+          "words": "You have granted his heart’s desire",
+          "key": "heart’s desire"
+        },
+        {
+          "ref": "Psalm 21:2",
+          "words": "and have not withheld the request of his lips.",
+          "key": "request of his lips"
+        }
+      ],
+      "pairs": [
+        [
+          "rejoices",
+          "exults"
+        ],
+        [
+          "strength",
+          "salvation"
+        ],
+        [
+          "heart’s desire",
+          "request of his lips"
+        ]
+      ],
+      "evidence": "Lowth gives these two verses as an example of parallel lines synonymous, which answer one another by expressing the same sense in other words.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 21:1-2",
+          "at": "Preliminary Dissertation, p. xv",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XV/mode/1up",
+          "quote": "First of Parallel Lines Synonymous: that is, which correspond one to another by expressing the same sense in different, but equivalent terms",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-22-1-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Psalm 22:1",
+      "strength": "widely agreed",
+      "short": "A cry of anguish that still says “my God”",
+      "about": "The psalm opens not with a statement but a cry. Grief at being forsaken breaks out, yet the sufferer still calls God “my God.” On the cross Jesus cried out these words in a loud voice (Matthew 27:46; Mark 15:34).",
+      "refs": [
+        "Matthew 27:46",
+        "Mark 15:34"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Psalm 22:1",
+        "words": "My God, my God, why have You forsaken me?",
+        "means": "anguish at being forsaken, from one who still holds to God as his own"
+      },
+      "evidence": "Bullinger lists the verse under Ecphonesis, words breaking out from feeling. Calvin hears faith in the exclamation My God! my God! and grief forcing out the complaint; Delitzsch (Keil and Delitzsch) a disconsolate cry of anguish, of yearning, not despair; Barnes a wonderful exclamation, a cry from the bitterness of his soul; Henry one overwhelmed with grief, crying for relief.",
+      "limit": "The writers hear the cry as Christ's on the cross, some also as David's in his troubles. They differ on how near it comes to despair, but those who weigh it agree the sufferer still holds to God as his own.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 22:1",
+          "at": "Ecphonesis, or Exclamation, p. 927",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+          "quote": "The figure is used when, through feeling, we change our mode of speech; and, instead of merely making a statement, express it by an exclamation. ... My God (Eli), my God (Eli)",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 22:1",
+          "quote": "We see then the source from which proceeded this exclamation, My God! my God! ... Whilst the vehemence of grief, and the infirmity of the flesh, forced from the Psalmist these words, I am forsaken of God; faith, lest he should when so severely tried sink into despair, put into his mouth a correction of this language, so that he boldly called God, of whom he thought he was forsaken, his God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 22:1-2",
+          "quote": "the disconsolate cry of anguish ... struggles through to an incipient, trustfully inclined prayer. The question beginning with למּה ... is not an expression of impatience and despair, but of alienation and yearning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 22:1",
+          "quote": "These are the very words uttered by the Saviour when on the cross ... The language is abrupt, and is uttered without any previous intimation of what would produce or cause it ... he cries out in the bitterness of his soul, under the pressure of anguish which is no longer to be borne ... Every word in this wonderful exclamation may be supposed to be emphatic.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 22:1-2",
+          "quote": "pressed with the burden of his displeasure, roaring under it, as one overwhelmed with grief and terror, crying earnestly for relief, and, in this case, apprehending himself forsaken of God, unhelped, unheard, yet calling him, again and again, \"My God,\" ... But it must be applied to Christ: for, in the first words of this complaint, he poured out his soul before God when he was upon the cross",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-22-6-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "Psalm 22:6",
+      "strength": "widely agreed",
+      "short": "“A worm and not a man”: a shame too deep for words",
+      "about": "The sufferer belittles himself: a worm, not even a man. The lowly words point to shame and suffering deeper than plain speech can tell. Read of Christ, they tell how He was scorned and forsaken as He suffered.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "Psalm 22:6",
+        "words": "I am a worm and not a man",
+        "means": "the speaker made as low as can be, to show how deep his shame and affliction go"
+      },
+      "original": {
+        "note": "In Hebrew the word is tola'at, the kermes or crimson worm; the likeness lies in suffering that is helpless and shameful, not in its red colour.",
+        "strong": [
+          "H8438"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Meiosis: the figure tells of more humility and affliction than words can express. Barnes reads it as being treated as most despicable, and of the Redeemer as forsaken by God and men; Fausset (Jamieson, Fausset and Brown) calls them words of abasement that give His value as men esteemed it. Delitzsch (Keil and Delitzsch) sees suffering defenceless and shameful.",
+      "limit": "The words tell how the sufferer was treated and regarded, not his true worth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 22:6",
+          "at": "Meiosis, or A Be-Littleing, p. 156",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/156/mode/1up",
+          "quote": "Here, as elsewhere, this figure is used to denote a much greater depth of humility and affliction than words can express.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 22:6",
+          "quote": "I am left and forsaken, as if I were not worth regarding; as if I were a grovelling worm beneath the notice of the great God. In other words, I am treated as if I were the most insignificant, the most despicable, of all objects ... As applicable to the Redeemer, this means that he was forsaken alike by God and men",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 22:6",
+          "quote": "He who was despised and rejected of His own people, as a disgrace to the nation, might well use these words of deep abasement, which express not His real, but esteemed, value.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 22:6-8",
+          "quote": "תּולעת is more particularly the kermes, or cochineal (vermiculus, whence color vermiculi, vermeil, vermiglio); but the point of comparison in the present instance is not the blood-red appearance, but the suffering so utterly defenceless and even ignominious.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-22-16-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Psalm 22:16",
+      "strength": "widely agreed",
+      "short": "“Dogs” stands for his enemies, left unnamed",
+      "about": "The psalmist says dogs surround him but does not say who they are. The next line names them: a band of evil men. The picture can show how fierce, greedy and shameless his enemies were, closing in on every side.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Psalm 22:16",
+        "words": "dogs",
+        "means": "his enemies, the band of evil men named in the next line"
+      },
+      "evidence": "Bullinger lists the verse under Hypocatastasis: the enemies are implied, not said to be like dogs or to be dogs. Delitzsch (Keil and Delitzsch) calls the animal name a figure of character, of shamelessness and of biting, that is, persecuting. Barnes reads men who resemble dogs; Fausset (Jamieson, Fausset and Brown) says evildoers are well described as dogs; Henry says enemies are compared to dogs.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 22:16",
+          "at": "Hypocatastasis, or Implication, p. 745",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/745/mode/1up",
+          "quote": "Here He does not say that his enemies were like dogs, or that they were dogs … It is implied: and by a kind of Prosopopoeia, they are spoken of as “dogs.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 22:16-18",
+          "quote": "In the animal name … figuratively descriptive of character, beside shamelessness and meanness, special prominence is given to the propensity for biting and worrying, i.e., for persecuting",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 22:16",
+          "quote": "Men who resemble dogs; harsh, snarling, fierce, ferocious.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 22:16",
+          "quote": "Evildoers are well described as dogs, which, in the East, herding together, wild and rapacious, are justly objects of great abhorrence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 22:11-21",
+          "quote": "He is here insulted and surrounded by his enemies, such as were of a higher rank, who for their strength and fury, are compared to bulls … and others of a lower rank, who are compared to dogs … filthy and greedy, and unwearied in running him down.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-25-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 25:1",
+      "strength": "commonly held",
+      "short": "Its verses follow the Hebrew alphabet in order",
+      "about": "In Hebrew the verses of this psalm begin with the letters of the alphabet in order, though a few letters are missing or repeated. After the last letter one more verse is added, a prayer for God's people: “Redeem Israel, O God, from all its distress.”",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 25:1",
+        "words": "To You, O LORD, I lift up my soul;",
+        "means": "In Hebrew this verse begins with aleph, the first letter; the verses after it follow the alphabet, with a few letters missing."
+      },
+      "refs": [
+        "Psalm 25:22"
+      ],
+      "evidence": "Albert Barnes calls the psalm alphabetical, each verse beginning with a Hebrew letter: aleph opens the first two, the second letter is left out, and one more verse, beginning with pe, is added after the last letter. Franz Delitzsch (Keil and Delitzsch) calls it an alphabetical psalm, a companion to Psalm 34 in its acrostic build: both lack the sixth letter and add a verse after the alphabet.",
+      "limit": "The order is not kept perfectly: in Hebrew, verses 1 and 2 both begin with the first letter, and no verse begins with the second.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 25",
+          "quote": "\"alphabetical,\" in which the first word of each verse begins with one of the letters of the Hebrew alphabet. ... the two first verses commence with the Hebrew letter א ('), the first letter of the Hebrew alphabet; while the second letter, ב (b), is omitted. ... after the Hebrew letter ת (t), the last letter of the Hebrew alphabet - another verse is added, beginning with the Hebrew letter פ (p).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 25",
+          "quote": "it is one of the nine alphabetical Psalms of the whole collection, and the companion to Ps 34, to which it corresponds even in many peculiarities of the acrostic structure. For both Psalms have no ו strophe; ... both Psalms, after having gone through the alphabet, have a פ strophe added as the concluding one, whose beginning and contents are closely related.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-25-16-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 25:16-17",
+      "strength": "some interpreters",
+      "short": "Prayer, reason, reason, prayer",
+      "about": "The first and last lines are prayers, to turn and be gracious and to free me. The two lines between give the reasons: lonely and afflicted, and troubles that increase.",
+      "lines": [
+        {
+          "ref": "Psalm 25:16",
+          "words": "Turn to me and be gracious,",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 25:16",
+          "words": "for I am lonely and afflicted.",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 25:17",
+          "words": "The troubles of my heart increase;",
+          "mark": "B'"
+        },
+        {
+          "ref": "Psalm 25:17",
+          "words": "free me from my distress.",
+          "mark": "A'"
+        }
+      ],
+      "evidence": "Forbes: verses 16 and 17 form, like verses 20 to 22, an introverted parallelism, in which the outer lines are petitions and the two inner lines are their pleas.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Psalm 25:16-17",
+          "at": "p. 102",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/102/mode/1up",
+          "quote": "for ver. 16-17 form like ver. 20-22 an introverted parallelism. ... Here a and a are petitions: b and b are their respective pleas.",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-25-20-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 25:20-22",
+      "strength": "some interpreters",
+      "short": "Two plain prayers around two prayers with reasons",
+      "about": "The outer lines are plain prayers, to guard and deliver and to redeem Israel. The two inner lines each pray and then give a reason: I take refuge in You, I wait for You.",
+      "lines": [
+        {
+          "ref": "Psalm 25:20",
+          "words": "Guard my soul and deliver me;",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 25:20",
+          "words": "let me not be put to shame, for I take refuge in You.",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 25:21",
+          "words": "May integrity and uprightness preserve me, because I wait for You.",
+          "mark": "B'"
+        },
+        {
+          "ref": "Psalm 25:22",
+          "words": "Redeem Israel, O God, from all its distress.",
+          "mark": "A'"
+        }
+      ],
+      "evidence": "Forbes arranges verses 20 to 22 as an introverted parallelism of four members: the first and last are simple petitions, while the two between are each a petition with its plea.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Psalm 25:20-22",
+          "at": "p. 102",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/102/mode/1up",
+          "quote": "a quatrain (ver. 20, 21, 22) arranged as an introverted parallelism of four members. ... Here a and a are simple petitions, while b and b are bi-membral lines, consisting each of a petition and its plea.",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-33-13-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 33:13-14",
+      "strength": "some interpreters",
+      "short": "From heaven He looks; from His dwelling He gazes",
+      "about": "Four lines take turns. The third line goes back to the first: the LORD looks down from heaven, and gazes from His dwelling place. The fourth goes back to the second: He sees all the sons of men, all who inhabit the earth.",
+      "lines": [
+        {
+          "ref": "Psalm 33:13",
+          "words": "The LORD looks down from heaven;",
+          "mark": "A",
+          "key": "heaven"
+        },
+        {
+          "ref": "Psalm 33:13",
+          "words": "He sees all the sons of men.",
+          "mark": "B",
+          "key": "sons of men"
+        },
+        {
+          "ref": "Psalm 33:14",
+          "words": "From His dwelling place He gazes",
+          "mark": "A'",
+          "key": "dwelling place"
+        },
+        {
+          "ref": "Psalm 33:14",
+          "words": "on all who inhabit the earth.",
+          "mark": "B'",
+          "key": "earth"
+        }
+      ],
+      "evidence": "Lowth gives these verses as four lines with a peculiar artifice in how the sentences are distributed: the latter lines are to be referred in turn to the former.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Psalm 33:13-14",
+          "at": "Lecture XIX, p. 43",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/43/mode/1up",
+          "quote": "Those which consist of four lines generally form two regular distichs; but there is sometimes a peculiar artifice to be perceived in the distribution of the sentences ... In both the above passages, the latter members are to be alternately referred to the former.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-34-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 34:1",
+      "strength": "widely agreed",
+      "short": "A psalm whose verses follow the Hebrew alphabet",
+      "about": "In Hebrew each verse begins with the next letter of the alphabet, though no verse begins with the sixth letter. After the last letter comes one more verse, “The LORD redeems His servants,” outside the series, like the last verse of Psalm 25. It may have been added so the psalm ends on a promise.",
+      "refs": [
+        "Psalm 34:22",
+        "Psalm 25:22"
+      ],
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 34:1",
+        "words": "I will bless the LORD at all times",
+        "means": "In Hebrew the verses begin with the alphabet's letters in order, one letter starting none; the last verse, added after the final letter, is outside the series"
+      },
+      "evidence": "Bullinger, under Acrostichion: as in Psalm 25, the sixth letter is omitted and a repeated letter puts verse 22 outside the series. Henry calls it an alphabetical psalm. Delitzsch (Keil and Delitzsch) and Barnes note the missing letter and the added verse, which Barnes says makes the verses equal the letters. Benson finds two letters in verse 5 and suggests verse 22 was added to end on a promise.",
+      "limit": "The pattern shows only in Hebrew, and writers account for its missing letter and its added last verse in different ways.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 34:1-22",
+          "at": "Acrostichion, or Acrostic, p. 181",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/181/mode/1up",
+          "quote": "Here, as in Psa 25:1-22, the sixth letter ו is omitted, the alphabet ending at verse 21; and the פ repeated thus puts verse 22 outside the alphabetical series. Thus far the two Psalms ... are framed on the same model. In this Psalm, with the above exception, there is one letter left for each verse in its order.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 34:1-10",
+          "quote": "there is something curious too in the composition, for it is what is called an alphabetical psalm, that is, a psalm in which every verse begins with each letter in its order as it stands in the Hebrew alphabet.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 34",
+          "quote": "This psalm is the second of the alphabetical psalms, or the psalms in which the successive verses begin with one of the letters of the Hebrew alphabet. ... The arrangement is regular in this psalm, except that the Hebrew letter ו (v) is omitted, and that, to make the number of the verses equal to the letters of the Hebrew alphabet, an additional verse is appended to the end",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 34",
+          "quote": "It consists of verses of two lines, which follow one another according to the order of the letters of the alphabet. The ו is wanting, just as the נ is wanting in Ps 145; and after ת, as in Ps 25, which is the counterpart to Ps 34, follows a second supernumerary פ.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 34:22",
+          "quote": "as this is another of the alphabetical Psalms, every verse beginning with a distinct letter of the Hebrew alphabet, except the fifth, which includes two letters; so this verse is a kind of detached sentence, added, as in Psalms 25., beyond the alphabet, perhaps in order that the Psalm might end with a promise rather than a threatening.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-37-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 37:1-2",
+      "strength": "widely agreed",
+      "short": "An alphabet psalm, two verses to each letter",
+      "about": "In Hebrew this psalm follows the alphabet: verse 1 begins with the first letter, verse 3 with the second, and so on, most letters opening a pair of verses. The pairs can be read as short proverbs on one theme: do not fret at the success of the wicked.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 37:1",
+        "words": "Do not fret over those who do evil; do not envy those who do wrong.",
+        "means": "In Hebrew verse 1 begins with aleph, the first letter; the next letter opens verse 3, and so on through the psalm."
+      },
+      "evidence": "Albert Barnes calls it an alphabetical psalm whose letters begin every other verse, and names the verses that break the pattern. Joseph Benson says it is alphabetical in every other verse, two verses to each letter. Franz Delitzsch (Keil and Delitzsch) says it unfolds one thought, not to fret at the prosperity of the ungodly, in short proverbial sayings that follow the order of the alphabet.",
+      "limit": "A few letters open only one verse. Writers differ on the letter ayin: one finds another letter in its place at verse 29, another finds it inside verse 28, where the verse division runs two sayings together.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 37",
+          "quote": "This is one of the \"alphabetical\" psalms ... the successive letters of the alphabet occur at the beginning of every other verse, the first, the third, the fifth, etc. ... In Psa 37:29 the Hebrew letter צ (ts) occurs instead of the Hebrew letter ע (‛); and in Psa 37:7, Psa 37:20, Psa 37:34, the letter introduces only a single verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 37",
+          "quote": "the Psalm is alphabetical, but not in every verse, as in the two former Psalms we have noticed, namely, the 25th and 34th, but only in every other verse; the plan in this Psalm being to give two verses ... or four hemistics, to each of the Hebrew letters.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 37",
+          "quote": "Do not let the prosperity of the ungodly be a source of vexation to thee ... This fundamental thought the poet does not expand in strophes of ordinary compass, but in shorter utterances of the proverbial form following the order of the letters of the alphabet ... strophes ס and ע are only run into one another by the division of the verses. The ע strophe begins with לעולם, Psa 37:28",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-37-10-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Psalm 37:10-11",
+      "strength": "some interpreters",
+      "short": "The wicked gone, the meek in the land",
+      "about": "Four lines in two pairs, and the second pair answers the first with its opposite. The wicked will be no more and will not be found; but the meek will inherit the land and delight in abundant prosperity.",
+      "lines": [
+        {
+          "ref": "Psalm 37:10",
+          "words": "Yet a little while, and the wicked will be no more;"
+        },
+        {
+          "ref": "Psalm 37:10",
+          "words": "though you look for them, they will not be found."
+        },
+        {
+          "ref": "Psalm 37:11",
+          "words": "But the meek will inherit the land"
+        },
+        {
+          "ref": "Psalm 37:11",
+          "words": "and delight in abundant prosperity."
+        }
+      ],
+      "pairs": [
+        [
+          "the wicked",
+          "the meek"
+        ]
+      ],
+      "evidence": "Lowth says that in these verses the opposition lies between the two halves of a stanza of four lines, the second couplet set against the first.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 37:10-11",
+          "at": "Preliminary Dissertation, p. xxvi",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVI/mode/1up",
+          "quote": "In the last example the opposition lies between the two parts of a Stanza of Four lines, the latter Distich being opposed to the former.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-49-4-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Psalm 49:4",
+      "strength": "widely agreed",
+      "short": "The psalmist sets out “my riddle” with the harp",
+      "about": "The psalmist calls the teaching he is about to sing his riddle: a deep matter that some do not grasp, which he will set forth with the harp. Many read it as the question of what riches are truly worth: the rich trust a false hope, and the poor have a true one.",
+      "figure": {
+        "name": "Riddle",
+        "ref": "Psalm 49:4",
+        "words": "my riddle",
+        "means": "the deep matter the psalm goes on to open: what riches are worth, and why they give no true hope"
+      },
+      "original": {
+        "note": "In Hebrew the word is chidah, from a root meaning to tie a knot: a saying tangled like a knot.",
+        "strong": [
+          "H2420"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Ænigma, the dark saying: a knotty or intricate saying. Barnes says the point, the value of wealth, was intricate and not well understood, and the psalmist meant to make it plain. Delitzsch (Keil and Delitzsch) calls it an involved riddle in its depth, set forth to show the rich their false hope and the poor their true one. Henry says it was a riddle to some.",
+      "limit": "The riddle lies in the depth of the matter, not in dark wording. The writers differ on how he opens it: two say he makes it plain, one that he sets it forth rather than solves it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 49:4",
+          "at": "Ænigma, or Dark Saying, p. 772",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/772/mode/1up",
+          "quote": "The “dark saying” of the Old Testament is חִידָה ( cheedah ); from חוּד ( chood ), to tie in a knot, to twist: a knotty or intricate saying . It is rendered dark saying three times (Psa 49:4 (5); 78:2.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 49:4",
+          "quote": "The \"problem\" - the \"parable\" - the difficult point - related to the right use, or the proper value, of wealth ... The idea here is, that the point was intricate or obscure; it was not well understood, and he purposed \"to lay it open,\" and to make it plain.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 49:1-4",
+          "quote": "It is his intention to declare to the rich the utter nothingness or vanity of their false ground of hope, and to the poor the superiority of their true ground of hope ... the divine Mashal, which in the depth and fulness of its contents is a חידה, i.e., an involved riddle ... The opening of the riddle does not consist in the solving of it, but in the setting of it forth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 49:1-5",
+          "quote": "Some understood it not, it was a riddle to them; tell them of the vanity of the things that are seen, and of the reality and weight of invisible things, and they say, Ah Lord God! doth he not speak parables? For the sake of such, he would open this dark saying, and make it so plain that he that runs might read it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-57-7-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Psalm 57:7",
+      "strength": "widely agreed",
+      "short": "Prayer turns to a glad cry of praise",
+      "about": "After the net and the pit of verse 6, David's prayer suddenly turns to praise. The double “my heart is steadfast” is a glad cry of confidence rather than a plain statement, and it leads straight into song: “I will sing and make music.”",
+      "refs": [
+        "Psalm 57:6"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Psalm 57:7",
+        "words": "My heart is steadfast, O God, my heart is steadfast",
+        "means": "glad confidence in God breaking out into praise"
+      },
+      "evidence": "Bullinger calls the verse a beautiful Ecphonesis, an outburst of words prompted by emotion. Henry marks how suddenly the tune changes here, prayer and complaint turned into fervent praise; Delitzsch (Keil and Delitzsch) says the music swells in triumph as David's confident, cheerful heart is urged on to song and harp.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 57:7",
+          "at": "Ecphonesis, or Exclamation, p. 927",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+          "quote": "The figure is used when, through feeling, we change our mode of speech; and, instead of merely making a statement, express it by an exclamation. So that Ecphonesis is an outburst of words, prompted by emotion ... Psa 57:7 (8) is also a beautiful Ecphonesis.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 57:7-11",
+          "quote": "How strangely is the tune altered here! David's prayers and complaints, by the lively actings of faith, are here, all of a sudden, turned into praises and thanksgivings; his sackcloth is loosed, he is girded with gladness, and his hallelujahs are as fervent as his hosannas.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 57:6-11",
+          "quote": "In this certainty, to express which the music here becomes triumphantly forte, David's heart is confident, cheerful ... and a powerful inward impulse urges him to song and harp.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-69-14-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 69:14-15",
+      "strength": "some interpreters",
+      "short": "Rescue me, keep me from sinking, twice over",
+      "about": "The lines take turns between two kinds of prayer: rescue me, and do not let me sink; deliver me, and do not let the floods engulf me.",
+      "lines": [
+        {
+          "ref": "Psalm 69:14",
+          "words": "Rescue me from the mire",
+          "mark": "A",
+          "key": "Rescue"
+        },
+        {
+          "ref": "Psalm 69:14",
+          "words": "and do not let me sink;",
+          "mark": "B",
+          "key": "sink"
+        },
+        {
+          "ref": "Psalm 69:14",
+          "words": "deliver me from my foes and out of the deep waters.",
+          "mark": "A'",
+          "key": "deliver"
+        },
+        {
+          "ref": "Psalm 69:15",
+          "words": "Do not let the floods engulf me",
+          "mark": "B'",
+          "key": "floods"
+        }
+      ],
+      "evidence": "Boys sets these lines out in four members that take turns: the first and third are positive, prayer for deliverance, and the second and fourth are negative.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Psalm 69:14-15",
+          "at": "Chapter I, p. 60",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/60/mode/1up",
+          "quote": "Here a. and a. are positive; b. and b., negative. That is, we have prayer for deliverance in a. and a. … and deprecation in b. and b. … Thus a. answers to a., and b. to b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-77-16-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 77:16",
+      "strength": "some interpreters",
+      "short": "The waters saw You, the waters saw You",
+      "about": "The second line takes up part of the first again and goes on: the waters saw You, O God; the waters saw You and swirled.",
+      "lines": [
+        {
+          "ref": "Psalm 77:16",
+          "words": "The waters saw You, O God;",
+          "key": "O God"
+        },
+        {
+          "ref": "Psalm 77:16",
+          "words": "the waters saw You and swirled;",
+          "key": "swirled"
+        }
+      ],
+      "evidence": "Lowth gives this verse among parallel lines that are made by repeating part of the first line.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 77:16",
+          "at": "Preliminary Dissertation, p. xviii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVIII/mode/1up",
+          "quote": "Parallels are also sometimes formed by a repetition of part of the first sentence:",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-78-2-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Psalm 78:2",
+      "refs": [
+        "Matthew 13:34-35",
+        "Psalm 49:4"
+      ],
+      "strength": "widely agreed",
+      "short": "Israel's history told as “things hidden”",
+      "about": "The psalmist promises things hidden from the beginning, then tells Israel's own history. Many read that history as the riddle: its events hold lessons for later days that must be carefully searched out. Matthew 13:35 says Jesus' teaching in parables fulfilled this verse.",
+      "figure": {
+        "name": "Riddle",
+        "ref": "Psalm 78:2",
+        "words": "things hidden from the beginning",
+        "means": "Israel's history from of old, told so that its events hold lessons the hearers must search out"
+      },
+      "original": {
+        "note": "In Hebrew the word is chidot, riddles or knotty sayings, the word behind “my riddle” in Psalm 49:4; the BSB gives “things hidden”.",
+        "strong": [
+          "H2420"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Ænigma, a knotty or intricate saying; Matthew 13:35 quotes it. Delitzsch (Keil and Delitzsch): the poet tells the history of the fathers as a riddle, its events questions for the present age. Fausset (Jamieson, Fausset and Brown): the history is a riddle if left unexplained, needing wisdom and attention. Henry: dark sayings to be looked into, not hard to grasp.",
+      "limit": "The words of the history are plain: the riddle lies in what its events teach later days, which takes wise and careful thought to see, not in obscure speech.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 78:2",
+          "at": "Ænigma, or Dark Saying, p. 772",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/772/mode/1up",
+          "quote": "See Psa 78:2 quoted in Mat 13:35 . The “dark saying” of the Old Testament is חִידָה ( cheedah ); from חוּד ( chood ), to tie in a knot, to twist: a knotty or intricate saying .",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 78:1-11",
+          "quote": "חידה is that which is entangled, knotted ... The poet, however, does not mean to say that he will literally discourse gnomic sentences and propound riddles, but that he will set forth the history of the fathers after the manner of a parable and riddle, so that it may become as a parable, i.e., a didactic history, and its events as marks of interrogation and nota-bene's to the present age.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 78:1-2",
+          "quote": "The history which follows was a \"dark saying,\" or riddle, if left unexplained, and its right apprehension required wisdom and attention.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 78:1-8",
+          "quote": "I will utter dark sayings, which challenge your most serious regards as much as the enigmas with which the eastern princes and learned men used to try one another. These are called dark sayings, not because they are hard to be understood, but because they are greatly to be admired and carefully to be looked into.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-80-8-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 80:8-16",
+      "strength": "widely agreed",
+      "short": "Israel pictured as a vine God planted",
+      "about": "From verse 8 the psalm speaks of a vine. God brought it out of Egypt and planted it, and it filled the land. Then its walls are broken, the boar ravages it, and it is cut down and burned. Israel is not named in these verses; the vine stands for the people throughout.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 80:8",
+        "words": "You uprooted a vine from Egypt",
+        "means": "Israel, whom God brought out of Egypt and planted in Canaan, and who is now laid waste"
+      },
+      "evidence": "Bullinger gives Psalm 80:8-15 as an allegory by continued Hypocatastasis: only the vine is named, and Israel is implied. Delitzsch (Keil and Delitzsch) says Israel is compared to a vine in a continued allegory, a figure that rules all the language here. Henry reads the vine as God's church, planted out of Egypt; Barnes as God's people; Clarke as Israel, brought out of Egypt into Canaan.",
+      "limit": "One writer reads the vine as God's church in its Old Testament form, the others as the people of Israel. The boar may stand for an enemy nation that the psalm does not name.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 80:8-15",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 748",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/748/mode/1up",
+          "quote": "The Allegory, therefore, is of two kinds; ... the other, in which it is continued Hypocatastasis (Psa 80:8-15), where only one thing is mentioned (the vine), and what is asserted belongs properly to the Secondary object; viz., to Israel. Israel whom it really refers, is not mentioned, but only implied.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 80:8-19",
+          "quote": "so here Israel is compared to a vine ... Psa 80:11-12 state this in a continued allegory ... Without doubt the poet associates a distinct nation with the wild boar in his mind ... The figure of the vine, which rules all the language here, is also still continued",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 80:8-19",
+          "quote": "The church is here represented as a vine ... The church is like a vine, weak and needing support, unsightly and having an unpromising outside, but spreading and fruitful ... How the vine of the Old-Testament church was planted at first. It was brought out of Egypt with a high hand",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 80:8",
+          "quote": "Referring to his people, under the image (which often occurs in the Scriptures) of a vine or vineyard. ... Thou hast established thy people there as one plants a vine in a field.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 80:8",
+          "quote": "This is a most elegant metaphor, and every where well supported. ... This vine was brought out of Egypt that it might be planted in a better and more favorable soil. The Israelites were brought out of their Egyptian bondage that they might be established in the land of Canaan",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-84-1-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Psalm 84:1",
+      "strength": "commonly held",
+      "short": "The psalm opens with a cry of love for God's house",
+      "about": "The psalm does not open with a plain statement but with a cry: “How lovely is Your dwelling place, O LORD of Hosts!” The cry shows the singer's deep love for the place where God is worshiped, a longing the next verse voices more fully.",
+      "refs": [
+        "Psalm 84:2"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Psalm 84:1",
+        "words": "How lovely is Your dwelling place",
+        "means": "the singer's deep love and longing for the house where God is worshiped"
+      },
+      "evidence": "Bullinger lists the verse under Ecphonesis, or Exclamation, his name for an outburst of words prompted by feeling. Calvin says the opening words take the form of an exclamation that shows ardent affection, a feeling the second verse expresses still more fully.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 84:1",
+          "at": "Ecphonesis; or, Exclamation, p. 927",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+          "quote": "So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected. ... “How amiable (i.e., How lovely, or How delightful) are thy tabernacles, O Lord of hosts,” etc.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 84:1",
+          "quote": "The opening words are in the form of an exclamation, which is an indication of ardent affection; and this state of feeling is expressed still more fully in the second verse.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-84-5-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 84:5-7",
+      "strength": "some interpreters",
+      "short": "Strength in God at the start, Zion at the end",
+      "about": "The first and last lines are parallel and read on as one sense: those whose strength is in the LORD at last appear before God in Zion. The four lines between pair inward: hearts set on pilgrimage with going from strength to strength, and springs with the autumn rain.",
+      "lines": [
+        {
+          "ref": "Psalm 84:5",
+          "words": "Blessed are those whose strength is in You,",
+          "mark": "A",
+          "key": "strength"
+        },
+        {
+          "ref": "Psalm 84:5",
+          "words": "whose hearts are set on pilgrimage.",
+          "mark": "B",
+          "key": "pilgrimage"
+        },
+        {
+          "ref": "Psalm 84:6",
+          "words": "As they pass through the Valley of Baca, they make it a place of springs;",
+          "mark": "C",
+          "key": "springs"
+        },
+        {
+          "ref": "Psalm 84:6",
+          "words": "even the autumn rain covers it with pools.",
+          "mark": "C'",
+          "key": "rain"
+        },
+        {
+          "ref": "Psalm 84:7",
+          "words": "They go from strength to strength,",
+          "mark": "B'",
+          "key": "strength to strength"
+        },
+        {
+          "ref": "Psalm 84:7",
+          "words": "until each appears before God in Zion.",
+          "mark": "A'",
+          "key": "Zion"
+        }
+      ],
+      "evidence": "Jebb sets verses 5 to 7 out as six lines. He takes the first and the sixth as parallel and as one continuous sense, and the four lines between as a parenthesis, the second parallel with the fifth and the third with the fourth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Psalm 84:5-7",
+          "at": "Sacred Literature, sect. IV, pp. 55-56",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/55/mode/1up",
+          "quote": "The first and sixth lines are here considered, at once, as constructively parallel, and as affording a continuous sense … the intermediate four lines may be accounted parenthetical; the second, constructively parallel with the fifth; and the third with the fourth.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-89-38-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 89:38-45",
+      "strength": "some interpreters",
+      "short": "The king brought low, verse answering verse",
+      "about": "Eight verses pair from the outside in: rejected and covered with shame, crown and throne thrown down, walls broken and sword bent, and at the centre the scorn of his neighbors and the joy of his enemies.",
+      "lines": [
+        {
+          "ref": "Psalm 89:38",
+          "words": "You have spurned and rejected him;",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 89:39",
+          "words": "and sullied his crown in the dust.",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 89:40",
+          "words": "You have broken down all his walls;",
+          "mark": "C"
+        },
+        {
+          "ref": "Psalm 89:41",
+          "words": "he has become a reproach to his neighbors.",
+          "mark": "D"
+        },
+        {
+          "ref": "Psalm 89:42",
+          "words": "You have made all his enemies rejoice.",
+          "mark": "D'"
+        },
+        {
+          "ref": "Psalm 89:43",
+          "words": "You have bent the edge of his sword",
+          "mark": "C'"
+        },
+        {
+          "ref": "Psalm 89:44",
+          "words": "and cast his throne to the ground.",
+          "mark": "B'"
+        },
+        {
+          "ref": "Psalm 89:45",
+          "words": "You have covered him with shame.",
+          "mark": "A'"
+        }
+      ],
+      "evidence": "Forbes, on verses 38 to 45: the rejection of verse 38 answers the shame of verse 45, the throne and crown of 39 and 44, the defences that fail in 40 and 43, and the neighbours and enemies of 41 and 42.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Psalm 89:38-45",
+          "at": "Section V, p. 41",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/41/mode/1up",
+          "quote": "To God's seeming rejection of his Anointed in v. 38 corresponds the shame which he casts upon him in v. 45 ... In ver. 39 and 44, his throne and crown are represented as having been profaned and cast down to the earth. In ver. 40 and 43, his defences fail him, and in ver. 41 and 42, his neighbours and enemies triumph over him.",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-103-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 103:3",
+      "strength": "some interpreters",
+      "short": "Forgives all iniquities, heals all diseases",
+      "about": "The second half says the first again in other words: He forgives all your iniquities and heals all your diseases.",
+      "lines": [
+        {
+          "ref": "Psalm 103:3",
+          "words": "He who forgives all your iniquities"
+        },
+        {
+          "ref": "Psalm 103:3",
+          "words": "and heals all your diseases,"
+        }
+      ],
+      "pairs": [
+        [
+          "forgives",
+          "heals"
+        ],
+        [
+          "iniquities",
+          "diseases"
+        ]
+      ],
+      "evidence": "Lowth, in his note on Isaiah 33:24, quotes this verse and says its latter line only varies the wording of the former.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 103:3",
+          "at": "Notes on chap. xxxiii. 24, p. 229",
+          "url": "https://archive.org/details/isaiahnewtransla02lowt/page/229/mode/1up",
+          "quote": "Thus the Psalmist: ... Where the latter line only varies the expression of the former.",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-103-11-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 103:11-12",
+      "strength": "some interpreters",
+      "short": "As high as, so great; as far as, so far",
+      "about": "Four lines take turns. The first answers the third: the heavens above the earth, the east from the west. The second answers the fourth: how great His loving devotion is, and how far He has removed our transgressions.",
+      "lines": [
+        {
+          "ref": "Psalm 103:11",
+          "words": "For as high as the heavens are above the earth,",
+          "mark": "A",
+          "key": "as high as"
+        },
+        {
+          "ref": "Psalm 103:11",
+          "words": "so great is His loving devotion for those who fear Him.",
+          "mark": "B",
+          "key": "so great"
+        },
+        {
+          "ref": "Psalm 103:12",
+          "words": "As far as the east is from the west,",
+          "mark": "A'",
+          "key": "As far as"
+        },
+        {
+          "ref": "Psalm 103:12",
+          "words": "so far has He removed our transgressions from us.",
+          "mark": "B'",
+          "key": "so far"
+        }
+      ],
+      "evidence": "Lowth gives these verses as a stanza of four lines that answer one another alternately, the first line to the third and the second to the fourth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 103:11-12",
+          "at": "Preliminary Dissertation, p. xxiii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXIII/mode/1up",
+          "quote": "In Stanzas of Four lines sometimes the Parallel lines answer to one another alternately; the first to the third, and the second to the fourth",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-111-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 111:1",
+      "strength": "widely agreed",
+      "short": "Each line begins with the next Hebrew letter",
+      "about": "In Hebrew the psalm's 22 lines begin with the 22 letters of the alphabet in order, two to each of verses 1 to 8 and three to verses 9 and 10. Psalm 112 is built the same way, and the two can be read as a pair: this one praises the LORD for His works, the next blesses “the man who fears the LORD.”",
+      "refs": [
+        "Psalm 112:1"
+      ],
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 111:1",
+        "words": "I will give thanks to the LORD with all my heart",
+        "means": "the first of 22 lines that, in Hebrew, begin with the letters of the alphabet in order"
+      },
+      "evidence": "Barnes calls it one of the alphabetical psalms: two lettered clauses to each of verses 1 to 8, three to verses 9 and 10. Clarke, calling it acrostic, counts the same 22 lettered parts. Delitzsch (Keil and Delitzsch) counts 22 lines with the 22 letters at their head, calls them acrostic lines, and calls Psalms 111 and 112 twins in form and contents.",
+      "limit": "Why the last two verses have three lines, not two, is left open: one writer says the reason can no longer be found out.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 111",
+          "quote": "This is one of the alphabetical psalms. ... The peculiarity of this psalm is that the first eight verses of the psalm contain \"two\" clauses, beginning with the letters of the alphabet taken in their order; the last two verses, \"three\". Why this arrangement was adopted, it is impossible now to determine",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 111",
+          "quote": "This is one of the alphabetical or acrostic Psalms: but it is rather different from those we have already seen, as the first eight verses contain each two members; and each member commences with a consecutive letter of the Hebrew alphabet. But the two last verses are composed of three members each, characterized the same way, making twenty-two members or hemistichs in the whole",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 111",
+          "quote": "It stands in the closest relationship to Psa 112:1-10. ... The two Psalms are twin in form as in contents. ... both are sententious, and both alphabetical. ... Each consists of twenty-two lines with the twenty-two letters of the alphabet at the beginning, ... Both songs are only chains of acrostic lines without any strophic grouping",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-112-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 112:1",
+      "strength": "widely agreed",
+      "short": "Built like Psalm 111, letter by Hebrew letter",
+      "about": "In Hebrew this psalm, like Psalm 111, has 22 lines that begin with the 22 letters of the alphabet in order. The two can be read as a pair: Psalm 111 praises the LORD, and this one the man who fears Him, picking up where Psalm 111 ends, with “the fear of the LORD” (Psalm 111:10).",
+      "refs": [
+        "Psalm 111:10"
+      ],
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 112:1",
+        "words": "Blessed is the man who fears the LORD",
+        "means": "the first of 22 lines that, in Hebrew, begin with the letters of the alphabet in order, as in Psalm 111"
+      },
+      "evidence": "Barnes calls it alphabetical like Psalm 111, two lettered clauses to each of verses 1 to 8 and three to 9 and 10, and says it begins where Psalm 111 ends, with the blessedness of fearing God. Clarke, calling it acrostic, counts the same 22 parts. Delitzsch (Keil and Delitzsch) says it matches Psalm 111 in structure and praises men whose conduct follows God's pattern.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 112",
+          "quote": "like that, it is alphabetical in its form, and composed in the same manner - the first eight verses with two clauses each, beginning with successive letters of the Hebrew alphabet - and the last two verses with \"three\" clauses ... this psalm \"begins\" where the other \"ends,\" with the happiness or blessedness of \"fearing God,\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 112",
+          "quote": "This is another of the acrostic or alphabetical Psalms, under the title Hallelujah. It is formed exactly as the preceding in the division of its verses. It has ten verses in the whole: the first eight contain each two hemistichs, beginning with a consecutive letter of the alphabet; the ninth and tenth verses, three each, making twenty-two in the whole.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 112",
+          "quote": "The alphabetical Hallelujah Psa 111:1-10, which celebrated the government of God, is now followed by another coinciding with it in structure ... which celebrates the men whose conduct is ordered after the divine pattern.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-112-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 112:1",
+      "strength": "some interpreters",
+      "short": "Fears the LORD, delights in His commandments",
+      "about": "The second line says the first again in other words: the blessed man fears the LORD, and greatly delights in His commandments.",
+      "lines": [
+        {
+          "ref": "Psalm 112:1",
+          "words": "Blessed is the man who fears the LORD,"
+        },
+        {
+          "ref": "Psalm 112:1",
+          "words": "who greatly delights in His commandments."
+        }
+      ],
+      "pairs": [
+        [
+          "fears the LORD",
+          "delights in His commandments"
+        ]
+      ],
+      "evidence": "Lowth gives this verse among his examples of synonymous parallel lines, and says such lines are made of synonymous terms, sometimes three or more and sometimes two.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 112:1",
+          "at": "Preliminary Dissertation, p. xvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XVII/mode/1up",
+          "quote": "In the foregoing examples may be observed the different degrees of Synonymous Parallelism. The Parallel Lines sometimes consist of three or more Synonymous terms; sometimes of two",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-114-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 114:1-2",
+      "strength": "some interpreters",
+      "short": "Israel leaves Egypt, told twice in other words",
+      "about": "Each second line says the line before it again in other words: Israel and the house of Jacob, Egypt and a people of foreign tongue; Judah and Israel, God's sanctuary and His dominion.",
+      "lines": [
+        {
+          "ref": "Psalm 114:1",
+          "words": "When Israel departed from Egypt,"
+        },
+        {
+          "ref": "Psalm 114:1",
+          "words": "the house of Jacob from a people of foreign tongue,"
+        },
+        {
+          "ref": "Psalm 114:2",
+          "words": "Judah became God’s sanctuary,"
+        },
+        {
+          "ref": "Psalm 114:2",
+          "words": "and Israel His dominion."
+        }
+      ],
+      "pairs": [
+        [
+          "Egypt",
+          "a people of foreign tongue"
+        ],
+        [
+          "sanctuary",
+          "dominion"
+        ]
+      ],
+      "evidence": "Lowth gives this psalm as his first example of synonymous parallel lines, where the same sentiment is repeated in different but equivalent terms.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Psalm 114",
+          "at": "Lecture XIX, p. 35",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/35/mode/1up",
+          "quote": "The first species is the synonymous parallelism, when the same sentiment is repeated in different, but equivalent terms. This is the most frequent of all, and is often conducted with the utmost accuracy and neatness: examples are very numerous, nor will there be any great difficulty in the choice of them: on this account I shall select such as are most remarkable in other respects.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-119-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 119:1-8",
+      "strength": "widely agreed",
+      "short": "Eight verses to each Hebrew letter, 22 times",
+      "about": "In Hebrew the psalm's 176 verses fall into 22 groups of eight, one group for each letter of the alphabet in order, and every verse in a group begins with its letter: verses 1 to 8 with aleph, 9 to 16 with beth, and so on. Many read the pattern as a help to memory.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 119:1",
+        "words": "Blessed are those whose way is blameless",
+        "means": "the first verse of the first group; in Hebrew all eight verses here begin with aleph, the first letter"
+      },
+      "evidence": "Barnes calls it the most perfect alphabetical psalm, perhaps arranged to be memorized. Clarke, calling it acrostic, and Benson describe parts of eight verses, each begun with its letter. Calvin says each eight verses begin with their letter to aid memory; Benson sees a memory aid, as the verses are loosely joined. Delitzsch (Keil and Delitzsch) counts 22 groups of eight and finds coherence.",
+      "limit": "Writers differ on how closely the verses are joined: one finds little link from verse to verse, while another finds a train of thought running through the groups.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 119",
+          "quote": "This is an Alphabetical Psalm - the longest, and most perfect in its kind, in the collection of Psalms. ... the first eight verses of the psalm begin with the first letter of the Hebrew alphabet ... and so on, through the twenty-two letters of the alphabet. ... it may have been intended, as would seem not improbable from the alphabetical arrangement, to be committed to memory by the young",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 119",
+          "quote": "This is another of the alphabetical or acrostic Psalms. It is divided into twenty-two parts, answering to the number of letters in the Hebrew alphabet. Every part is divided into eight verses; and each verse begins with that letter of the alphabet which forms the title of the part",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 119",
+          "quote": "each of these parts is divided into eight verses, and every one of these verses begins with that letter of the alphabet which forms the title of the part. ... without any great connection, or dependance on each other: and this want of connection, probably, was the reason why the Psalm was written in this alphabetical method: that the initial letters might be a help to the memory",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 119:1-8",
+          "quote": "That this was done to aid the memory, may be gathered from each part containing a doctrine, which ought to form a theme of constant meditation among the children of God. For the purpose, therefore, of rendering it less irksome to the reader, the prophet has distinguished every successive eight verses by their beginning each with the corresponding letter of the Hebrew alphabet",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 119",
+          "quote": "which according to the twenty-two letters of the alphabet fall into twenty-two groups ... for each group contains eight verses (distichs), each of which begins with the same consecutive letter (8 x 22 = 176). ... this is sufficient to show that the Psalm is not wanting in coherence and progressive movement",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-123-1-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 123:1-2",
+      "strength": "some interpreters",
+      "short": "Eyes on the LORD around servants' eyes",
+      "about": "The first line lifts the eyes to the One enthroned in heaven, and the last keeps them on the LORD our God. The two lines between give the likeness: servants watching their master's hand, and a maidservant her mistress's.",
+      "lines": [
+        {
+          "ref": "Psalm 123:1",
+          "words": "I lift up my eyes to You, the One enthroned in heaven.",
+          "mark": "A",
+          "key": "my eyes"
+        },
+        {
+          "ref": "Psalm 123:2",
+          "words": "As the eyes of servants look to the hand of their master,",
+          "mark": "B",
+          "key": "servants"
+        },
+        {
+          "ref": "Psalm 123:2",
+          "words": "as the eyes of a maidservant look to the hand of her mistress,",
+          "mark": "B'",
+          "key": "maidservant"
+        },
+        {
+          "ref": "Psalm 123:2",
+          "words": "so our eyes are on the LORD our God until He shows us mercy.",
+          "mark": "A'",
+          "key": "our eyes"
+        }
+      ],
+      "evidence": "Jebb gives these two verses as an example of what he calls the introverted parallelism, in which, he says, the first and last lines are parallel, and so are the second and the next to last.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Psalm 123:1-2",
+          "at": "Sacred Literature, sect. IV, p. 53",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/53/mode/1up",
+          "quote": "There are stanzas so constructed, that, whatever be the number of lines, the first line shall be parallel with the last; the second with the penultimate; and so throughout, in an order that looks inward, or, to borrow a military phrase, from flanks to centre. This may be called the introverted parallelism",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-135-6-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 135:6-7",
+      "strength": "some interpreters",
+      "short": "Heaven, earth and sea; clouds, lightning, wind",
+      "about": "The lines go in threes and are built the same way. The LORD does all that pleases Him in the heavens, on the earth and in the seas; He raises the clouds, makes the lightning with the rain, and brings out the wind.",
+      "lines": [
+        {
+          "ref": "Psalm 135:6",
+          "words": "The LORD does all that pleases Him"
+        },
+        {
+          "ref": "Psalm 135:6",
+          "words": "in the heavens and on the earth,"
+        },
+        {
+          "ref": "Psalm 135:6",
+          "words": "in the seas and in all their depths."
+        },
+        {
+          "ref": "Psalm 135:7",
+          "words": "He causes the clouds to rise from the ends of the earth."
+        },
+        {
+          "ref": "Psalm 135:7",
+          "words": "He generates the lightning with the rain"
+        },
+        {
+          "ref": "Psalm 135:7",
+          "words": "and brings forth the wind from His storehouses."
+        }
+      ],
+      "evidence": "Lowth says stanzas of three lines are most often parallel by construction, and gives these verses among his examples of three-line stanzas that are constructively parallel.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 135:6-7",
+          "at": "Preliminary Dissertation, p. xxviii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVIII/mode/1up",
+          "quote": "Of the Constructive kind is most commonly the Parallelism of Stanzas of Three lines; ... The following are Constructively Parallel:",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-135-15-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Psalm 135:15-18",
+      "strength": "commonly held",
+      "short": "Idols and their makers, from both ends inward",
+      "about": "Eight lines pair from both ends inward: the idols of the nations with all who trust in them, what the hands of men made with those who make them, mouths that cannot speak with mouths without breath, and eyes that cannot see with ears that cannot hear.",
+      "lines": [
+        {
+          "ref": "Psalm 135:15",
+          "words": "The idols of the nations are silver and gold,",
+          "mark": "A",
+          "key": "idols"
+        },
+        {
+          "ref": "Psalm 135:15",
+          "words": "made by the hands of men.",
+          "mark": "B",
+          "key": "made"
+        },
+        {
+          "ref": "Psalm 135:16",
+          "words": "They have mouths, but cannot speak;",
+          "mark": "C",
+          "key": "mouths"
+        },
+        {
+          "ref": "Psalm 135:16",
+          "words": "they have eyes, but cannot see;",
+          "mark": "D",
+          "key": "eyes"
+        },
+        {
+          "ref": "Psalm 135:17",
+          "words": "they have ears, but cannot hear;",
+          "mark": "D'",
+          "key": "ears"
+        },
+        {
+          "ref": "Psalm 135:17",
+          "words": "nor is there breath in their mouths.",
+          "mark": "C'",
+          "key": "mouths"
+        },
+        {
+          "ref": "Psalm 135:18",
+          "words": "Those who make them become like them,",
+          "mark": "B'",
+          "key": "make"
+        },
+        {
+          "ref": "Psalm 135:18",
+          "words": "as do all who trust in them.",
+          "mark": "A'",
+          "key": "trust"
+        }
+      ],
+      "evidence": "Jebb sets these verses out as eight lines and names each pair: the idolatrous heathen in the first line and those who trust in idols in the eighth; the making and the makers; mouths without articulation and mouths without breath; eyes without vision and ears without the sense of hearing. Bullinger lists them among his introverted parallelisms with the same pairs, letter by letter.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Psalm 135:15-18",
+          "at": "Sacred Literature, sect. IV, p. 57",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/57/mode/1up",
+          "quote": "In the first line, we have the idolatrous heathen; In the eighth, those who put their trust in idols: In the second line, the fabrication; In the seventh, the fabricators: In the third line, mouths without articulation; In the sixth, mouths without breath: In the fourth line, eyes without vision; And, in the fifth line, ears without the sense of hearing.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 135:15-18",
+          "at": "Introverted Parallelisms, p. 358",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/358/mode/1up",
+          "quote": "c Mouths without speech. d Eyes without sight. d Ears without hearing. c Mouths without breath. b The fabricators. a The idolatrous heathen.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-145-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Psalm 145:1",
+      "refs": [
+        "Psalm 145:13"
+      ],
+      "strength": "widely agreed",
+      "short": "A psalm of praise that runs through the alphabet",
+      "about": "In Hebrew this psalm runs through the alphabet: each pair of lines opens with the next letter in order, from the first letter to the last. The pattern can be read as marking out the one psalm titled “A Psalm of praise”, and its verses can each stand as a saying of their own.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Psalm 145:1",
+        "words": "I will exalt You",
+        "means": "In Hebrew this opens a psalm whose pairs of lines begin with the letters of the alphabet in order, from the first letter to the last."
+      },
+      "evidence": "Bullinger lists the psalm under Acrostichion: one letter to each verse of two lines marks it as David's special psalm of praise, and a copyist lost the N verse. Barnes: alphabetical, its verses independent sayings. Delitzsch (Keil and Delitzsch): each pair's first line has its letter in order; he sees the missing N pair as a poet's freedom. Benson: alphabetical, its verses loosely joined.",
+      "limit": "Most Hebrew copies lack the last two lines of verse 13, the pair for the letter N, which the BSB includes. Writers differ on why: one says a copyist lost them, another that the psalm never had them.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 145:1-21",
+          "at": "Acrostichion, or Acrostic, p. 184",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/184/mode/1up",
+          "quote": "the Acrostic is perfect, with the exception of the letter Nun ... It has evidently dropped out through the carelessness of some scribe ... The Psalm is “David’s Psalm of praise.” It is the only Psalm that is dignified by this title. It is a special Psalm, therefore, and the Acrostic marks it as such, there being exactly 22 verses, one letter for each verse, and each verse consisting of two lines.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 145",
+          "quote": "It is an \"alphabetical\" psalm; that is, each verse begins with a letter of the Hebrew alphabet. ... the composition, as in most of the alphabetical psalms, being made up of independent sentiments suggested in part at least by the necessity of commencing each verse with a particular letter.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 145",
+          "quote": "The Psalm is distichic, and every first line of the distich has the ordinal letter; but the distich Nun is wanting. ... We are contented to see in the omission of the Nun-strophe an example of that freedom with which the Old Testament poets are wont to handle this kind of forms.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 145",
+          "quote": "This is an alphabetical Psalm; and therefore no great connection of one verse with another is to be expected in it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-148-7-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 148:7-13",
+      "strength": "some interpreters",
+      "short": "Sea creatures to kings, all called to praise",
+      "about": "The lines are built the same way, a call to praise and then name after name of what is called: sea creatures and depths, lightning and hail, mountains and trees, animals, kings and peoples, young and old, and then let them praise the name of the LORD.",
+      "lines": [
+        {
+          "ref": "Psalm 148:7",
+          "words": "Praise the LORD from the earth,"
+        },
+        {
+          "ref": "Psalm 148:7",
+          "words": "all great sea creatures and ocean depths,"
+        },
+        {
+          "ref": "Psalm 148:8",
+          "words": "lightning and hail, snow and clouds,"
+        },
+        {
+          "ref": "Psalm 148:9",
+          "words": "mountains and all hills,"
+        },
+        {
+          "ref": "Psalm 148:10",
+          "words": "wild animals and all cattle,"
+        },
+        {
+          "ref": "Psalm 148:11",
+          "words": "kings of the earth and all peoples,"
+        },
+        {
+          "ref": "Psalm 148:12",
+          "words": "young men and maidens,"
+        },
+        {
+          "ref": "Psalm 148:13",
+          "words": "Let them praise the name of the LORD,"
+        }
+      ],
+      "evidence": "Lowth gives these verses as an example of lines that answer each other not word for word but in the shape and build of each sentence and its parts, noun to noun and verb to verb.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Psalm 148:7-13",
+          "at": "Preliminary Dissertation, p. xxvii",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVII/mode/1up",
+          "quote": "similar form of Construction; in which word does not answer to word, and sentence to sentence, as equivalent or opposite; but there is a correspondence and equality between different propositions, in respect of the shape and turn of the whole sentence, and of the constructive parts; such as noun answering to noun, verb to verb, member to member",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

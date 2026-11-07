@@ -45,6 +45,151 @@
       "refs": [
         "Mark 7:10-12"
       ]
+    },
+    {
+      "id": "mark-1-17-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Mark 1:17",
+      "strength": "widely agreed",
+      "short": "“Fishers of men”: winning people for Christ",
+      "about": "Jesus finds two fishermen at their nets and says He will make them fishers of men. Their old work becomes a picture of the new: they will bring people to Christ through the gospel, as they once drew fish from the sea. Matthew 4:19 gives the same call.",
+      "refs": [
+        "Matthew 4:19",
+        "Luke 5:10"
+      ],
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Mark 1:17",
+        "words": "fishers of men",
+        "means": "men who win others to Christ, gathering them in by the gospel"
+      },
+      "evidence": "Bullinger lists Mark 1:17 under Hypocatastasis: the Lord neither says like fishers nor uses a direct metaphor, so the likeness is only implied. Henry says ministers are to fish for souls and win them to Christ, and Benson that they would draw men in by the net of the gospel. Calvin, on the same call in Luke 5:10, says Christ alluded to fishing when He spoke of preaching the gospel.",
+      "limit": "One writer calls the picture a metaphor. Either way, the fishermen's old work stands for their new work of winning people.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Mark 1:17",
+          "at": "Hypocatastasis, or Implication, p. 747",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/747/mode/1up",
+          "quote": "The Lord does not say like fishers, nor does He use direct metaphor. The resemblance is only by implication.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Mark 1:14-22",
+          "quote": "The business of ministers is to fish for souls, and win them to Christ. ... Ministers, in preaching the gospel, cast the net into the waters",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Mark 1:17-20",
+          "quote": "I will enable you to draw them into my true church by the net of my gospel.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 5:10",
+          "quote": "As to the meaning of the metaphor, fishers of men, there is no necessity for a minute investigation. Yet, as it was drawn from the present occurrence, the allusion which Christ made to fishing, when he spoke of the preaching of the Gospel, was appropriate",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "mark-2-27-antimetabole",
+      "kind": "figure",
+      "form": "antimetabole",
+      "ref": "Mark 2:27",
+      "strength": "widely agreed",
+      "short": "“Sabbath” and “man” come back in reverse order",
+      "about": "The saying names the Sabbath and man, then names them again in reverse order. The turn shows which serves which: the Sabbath was given for man's good, and man was not made to serve the Sabbath.",
+      "figure": {
+        "name": "Antimetabole",
+        "ref": "Mark 2:27",
+        "words": "The Sabbath was made for man, not man for the Sabbath",
+        "means": "the Sabbath was given to serve man's good; man was not made to serve the Sabbath"
+      },
+      "evidence": "Bullinger lists the verse under Antimetabole, or Counterchange, marking the words a b b a. Henry takes each half in turn: man was not made for the Sabbath, but God meant the Sabbath as an advantage to man. Barnes: man was made first and the Sabbath then appointed for his welfare, not the other way round, so its law must not be turned against his real good.",
+      "limit": "The turn does not set the Sabbath aside. It shows what God gave the Sabbath for: man's real good, so its law is not to be turned against him.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Mark 2:27",
+          "at": "Antimetabole; or, Counterchange, p. 302",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/302/mode/1up",
+          "quote": "a “The sabbath b was made for man, b and not man for a the sabbath.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Mark 2:27",
+          "quote": "God never designed it to be an imposition upon us, and therefore we must not make it so to ourselves. Man was not made for the sabbath, for he was made a day before the sabbath was instituted. ... Secondly, God did design it to be an advantage to us, and so we must make it, and improve it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Mark 2:27",
+          "quote": "Not man for the sabbath - Man was made \"first,\" and then the Sabbath was appointed for his welfare, Gen 2:1-3. The Sabbath was not \"first\" made or contemplated, and then the man made with reference to that. Since, therefore, the Sabbath was intended for man's \"good,\" the law respecting it must not be interpreted so as to oppose his real welfare.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "mark-12-14-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Mark 12:14",
+      "strength": "some interpreters",
+      "short": "Truth at both ends, no favoritism in the middle",
+      "about": "The questioners call Jesus honest and say He teaches the way of God in accordance with the truth: these are the outer lines. In the two inner lines He seeks favor from no one and is impartial.",
+      "lines": [
+        {
+          "ref": "Mark 12:14",
+          "words": "we know that You are honest",
+          "mark": "A",
+          "key": "honest"
+        },
+        {
+          "ref": "Mark 12:14",
+          "words": "and seek favor from no one.",
+          "mark": "B"
+        },
+        {
+          "ref": "Mark 12:14",
+          "words": "Indeed, You are impartial",
+          "mark": "B'",
+          "key": "impartial"
+        },
+        {
+          "ref": "Mark 12:14",
+          "words": "and teach the way of God in accordance with the truth.",
+          "mark": "A'",
+          "key": "truth"
+        }
+      ],
+      "evidence": "Boys sets out the questioners' words in four lines: truth in the first and last, independence in the two between. He notes that in Matthew's account of the same words the clauses come in the order a reader would expect.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Mark 12:14",
+          "at": "Introduction, p. 6",
+          "url": "https://archive.org/details/tactica-sacra/page/6/mode/1up",
+          "quote": "In a. and a., truth; in b. and b., independence. … In St. Matthew the clauses are placed in what, according to our notions of arrangement, we should call their natural order. But God's ways are not always our ways.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }
