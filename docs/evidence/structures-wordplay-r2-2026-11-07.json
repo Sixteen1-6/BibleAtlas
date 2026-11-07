@@ -1,0 +1,281 @@
+{
+  "_comment": "Where each quotation of the Wordplay thread's round 2 structures (Boys, Jebb, Forbes, with Bullinger) and of the new cites on five live structures was read, word for word. For the scans (Lowth, Jebb, Boys, Forbes) found_in is archive.org's page text of the leaf the words are on (BookReaderGetTextWrapper, page = leaf index), as a checking reader fetched it on the day in retrieved; also_in is the next leaf when a quotation runs over the page. Each part of a quotation was matched against that text: exact, or letters (the OCR's long s and a few misread letters, never a missing word), or runs (every word inside a run of four or more that a fetch of that scan returned). context is the page text around the first part, lowercased with punctuation dropped, OCR spelling kept. Bullinger's Figures of Speech (1898) was read in the UniqueBible.app module at github.com/darrelwright/UniqueBible_Books, commit 4017a67481e0de6027216bbdf3fc5d42c9c289d5.",
+  "quotes": [
+    {
+      "structure": "john-5-bookends",
+      "source": "forbes",
+      "on": "John 5:19-30",
+      "quote": "the idea to which such prominence is given in the subsequent Introverted Parallelism, or Epanodos (v. 19-30), by placing it first and last. The leading proposition, with which the Epanodos opens, is (v. 19) ... and the conclusion from the whole reasoning in the close of the Epanodos (v. 30) runs in the same terms",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=85",
+      "page": "70",
+      "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "psalm-89-28-mirror",
+      "source": "forbes",
+      "on": "Psalm 89:28-37",
+      "quote": "To God's mercy kept for David for evermore ... in v. 28, corresponds in v. 37 ... In ver. 29 and 36 we have his seed enduring for ever, and his throne ... Though his children prove unfaithful, v. 30. Yet will not God prove unfaithful, v. 35. Though they break God's statutes, v. 31. Yet will not God break his covenant, v. 34. In v. 32, God's chastening in measure is made to correspond with (v. 33)",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=56",
+      "page": "41",
+      "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "romans-8-mirror",
+      "source": "forbes",
+      "on": "Romans 8:28-39",
+      "quote": "The second of these ... is first enlarged upon in verses 29-34 (B); and the first is then taken up in verses 35-39 (A): so that the whole passage forms an Epanodos, or Introverted Parallelism, in which the Christian's love to God occupies the first and last place. After the statement of the general proposition in ver. 28, the Apostle first enlarges on the 'purpose' of God in vv. 29-34 (B).",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=334",
+      "page": "319",
+      "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "genesis-10-mirror",
+      "source": "boys",
+      "on": "Genesis 10:1-31",
+      "quote": "he inverts that order. The sons of Japheth come first, then the sons of Ham, and, last of all, the sons of Shem ... Thus we have Shem and his descendants in a. and a., Ham and his descendants in b. and b., Japheth and his descendants in c. and c.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=50",
+      "page": "39",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "genesis-10-mirror",
+      "source": "forbes",
+      "on": "Genesis 10:1-31",
+      "quote": "The reason of this arrangement, however, Mr Boys has omitted to notice. Why should Shem be placed either first or last ... The intention of the sacred historian evidently was to mark the pre-eminence which God designed for Shem in his generations, as the progenitor of the chosen people",
+      "found_in": "https://ia601603.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F3%2Fitems%2Fsymmetricalstruc00forbiala%2Fsymmetricalstruc00forbiala_djvu.xml&mode=djvu_xml&page=59",
+      "page": "44",
+      "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "genesis-10-mirror",
+      "source": "bullinger-fos",
+      "on": "Genesis 10:1-31",
+      "quote": "After two, three, or more words have been mentioned, they are repeated, not in the same order again, but backward.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "page": "299",
+      "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+      "retrieved": "2026-11-07"
+    },
+    {
+      "structure": "genesis-10-mirror",
+      "source": "keil-delitzsch",
+      "on": "Genesis 10:1",
+      "quote": "In Gen 10:1 the names of the three sons are introduced according to their relative ages, to give completeness and finish to the Tholedoth; but in the genealogy itself Japhet is mentioned first and Shem last",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/kad/gen010.md",
+      "page": null,
+      "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+      "retrieved": "2026-11-07"
+    },
+    {
+      "structure": "psalm-101-turns",
+      "source": "boys",
+      "on": "Psalm 101:1-8",
+      "quote": "The whole of this Psalm is a promise, or a declaration of the Psalmist's resolutions and intentions. There is, however, a distinction of an obvious kind. In A. and A., the first and third members, the Psalmist sets forth what he will do, and whom he will encourage … in B. and B., the second and fourth, what he will avoid, and whom he will discourage and destroy.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=72",
+      "page": "61",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "psalm-128-turns",
+      "source": "boys",
+      "on": "Psalm 128:1-6",
+      "quote": "In this Psalm we have an alternate parallelism of four members, A., B., A., B.: the third member, A., answering to the first, A.; and the fourth, B., to the second, B. … In A. and A., the first and third members, the man … is spoken of; in B. and B., the second and fourth, he is spoken to. … But in the second and fourth members, B. and B., the nature of the blessing is particularized.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=75",
+      "page": "64",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-01",
+      "match": "exact"
+    },
+    {
+      "structure": "psalm-70-mirror",
+      "source": "boys",
+      "on": "Psalm 70:1-5",
+      "quote": "The whole of the seventieth Psalm is prayer; but there is this distinction: that the prayer of the Psalmist refers, in the two extreme members, A. and A., to himself; and in the two central members, B. and B., to others. ... In both A. and A. he speaks of help. ... his prayer refers to others; that is, to the wicked, or his enemies, in B., and to the righteous, or his friends, in B.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=116",
+      "page": "105",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "psalm-96-turns",
+      "source": "boys",
+      "on": "Psalm 96:1-13",
+      "quote": "Here we have two exhortations in A. and A., supported by two reasons in B. and B. … Then in A. again, the third member, we find a second exhortation, to glorify, to worship, and to rejoice in the Lord; corresponding to the former exhortation, in A. the first member. … And, lastly, we have, in B., the reason for this second exhortation",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=82",
+      "also_in": [
+        "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=83"
+      ],
+      "page": "71",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-01",
+      "match": "letters (long s and OCR letters allowed)"
+    },
+    {
+      "structure": "proverbs-1-turns",
+      "source": "boys",
+      "on": "Proverbs 1:8-19",
+      "quote": "Here in A. and A. we have a twofold exhortation, and in B. and B. a twofold motive for compliance. The exhortation in A. is, ... Then follows in B. the motive",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=31",
+      "page": "19",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-07",
+      "match": "exact+runs"
+    },
+    {
+      "structure": "genesis-3-mirror",
+      "source": "boys",
+      "on": "Genesis 3:9-19",
+      "quote": "In the following instance, we have first the man, the woman, and the serpent; then the serpent, the woman, and the man.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=13",
+      "page": "8",
+      "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+      "retrieved": "2026-11-01",
+      "match": "exact"
+    },
+    {
+      "structure": "2-thessalonians-mirror",
+      "source": "boys",
+      "on": "2 Thessalonians 1:1-3:18",
+      "quote": "Its general character is that of an introverted parallelism of four members, A. B. B. A. ... The two extreme members, A. and A., are epistolary ... The two central members, B. and B., consist of three parts each, which parts correspond respectively in the order in which they stand. The following is a skeleton of the Epistle ... Thanksgiving. ... Prayer. ... Admonition.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=26",
+      "page": "21",
+      "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "2-peter-1-turns",
+      "source": "boys",
+      "on": "2 Peter 1:12-3:13",
+      "quote": "C. is divided into three parts, a., b., c.; and C. into three corresponding parts, a., b., c. … so that a. corresponds to a., b. to b., and c. to c. … Thus in a. we have the Apostle St. Peter himself; in b. a more general reference to the apostles and prophets; and in c. the wicked, corrupt, and abominable, who are there exposed and denounced.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=28",
+      "page": "23",
+      "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+      "retrieved": "2026-11-01",
+      "match": "exact"
+    },
+    {
+      "structure": "1-thessalonians-4-mirror",
+      "source": "boys",
+      "on": "1 Thessalonians 4:1-5:22",
+      "quote": "an introverted parallelism: the last member here answering to the first, and the third to the second … e. and e. are hortatory, f. and f. didactic. … In e. and e. the Apostle exhorts the Thessalonians to the performance of various duties, and in f. and f. he instructs them on two points upon which it was necessary that they should be rightly informed.",
+      "found_in": "https://ia601409.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F23%2Fitems%2Ftactica-sacra%2FTactica%20Sacra_djvu.xml&mode=djvu_xml&page=52",
+      "page": "47",
+      "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+      "retrieved": "2026-11-07",
+      "match": "exact+runs"
+    },
+    {
+      "structure": "leviticus-14-mirror",
+      "source": "boys",
+      "on": "Leviticus 14:51-52",
+      "quote": "Here, in a. and a., we have the cedar wood, the hyssop, and the scarlet; in b. and b., the living bird; in c. and c., the blood of the slain bird, and the running water; in d. and d., the house.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=50",
+      "page": "39",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-01",
+      "match": "exact"
+    },
+    {
+      "structure": "genesis-43-mirror",
+      "source": "bullinger-fos",
+      "on": "Genesis 43:3-5",
+      "quote": "In A and A, we have Joseph’s words; and in B and B, Jacob’s action.",
+      "found_in": "https://raw.githubusercontent.com/darrelwright/UniqueBible_Books/4017a67481e0de6027216bbdf3fc5d42c9c289d5/Bullinger%20-%20Figures%20of%20Speach.book.zip",
+      "page": "374",
+      "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+      "retrieved": "2026-11-07"
+    },
+    {
+      "structure": "genesis-43-mirror",
+      "source": "boys",
+      "on": "Genesis 43:3-5",
+      "quote": "Here, as in the previous examples, a. answers to a., and b. to b. Judah repeats the words of Joseph, both in a. and a.: while he states, in b., under what circumstances the brethren will, and, in b., under what circumstances they will not go down.",
+      "found_in": "https://ia903209.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F17%2Fitems%2Fakeytobookpsalm00boysgoog%2Fakeytobookpsalm00boysgoog_djvu.xml&mode=djvu_xml&page=42",
+      "page": "31",
+      "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+      "retrieved": "2026-11-01",
+      "match": "exact"
+    },
+    {
+      "structure": "psalms-42-43-refrain",
+      "source": "lowth",
+      "on": "Psalm 42-43",
+      "quote": "it ought not perhaps to be separated from the preceding Psalm, but rather to be considered as a part or continuation of the same composition: if this be true, the whole poem consists of three parts almost equal and alike, each of which is concluded by the same intercalary period or stanza.",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=166",
+      "page": "151",
+      "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "2-samuel-1-refrain",
+      "source": "lowth",
+      "on": "2 Samuel 1:19-27",
+      "quote": "There is something singular, however, in the intercalary period which occurs in this poem ... It is three times introduced, beautifully diversified in the order and diction: it forms part of the exordium, as well as of the conclusion, and is once inserted in the body of the poem.",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=173",
+      "page": "158",
+      "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    },
+    {
+      "structure": "isaiah-9-10-refrain",
+      "source": "henry",
+      "on": "Isaiah 10:1-4",
+      "quote": "because the burden of that prophecy (for all this his anger is not turned away) is repeated here (Isa 10:4)",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/henry/isa010.md",
+      "page": null,
+      "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+      "retrieved": "2026-11-01",
+      "on_was": "Isaiah 10:4"
+    },
+    {
+      "structure": "isaiah-9-10-refrain",
+      "source": "jfb",
+      "on": "Isaiah 9:8-10:4",
+      "quote": "There are four strophes, each setting forth Ephraim's crime and consequent punishment, and ending with the formula",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/jfb/isa009.md",
+      "page": null,
+      "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+      "retrieved": "2026-11-07"
+    },
+    {
+      "structure": "isaiah-9-10-refrain",
+      "source": "barnes",
+      "on": "Isaiah 9:21",
+      "quote": "For all this ... - see Isa 9:12, note Isa 5:25. This closes the third strophe or part of the prophecy under consideration. The fourth and last strophe occurs in Isa 10:1-4.",
+      "found_in": "https://raw.githubusercontent.com/jonnyg23/mahabrain/b00aa504cf9a7fb368a040b97ebe9cafca950489/sacred_obsidian_vault/bib/cmt/barnes/isa009.md",
+      "page": null,
+      "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+      "retrieved": "2026-11-07"
+    },
+    {
+      "structure": "isaiah-9-10-refrain",
+      "source": "lowth",
+      "on": "Isaiah 9:8-10:4",
+      "quote": "The poem consists of four parts, each of which contains a denunciation of vengeance against the crimes of this rebellious people ... To each of these a specific punishment is annexed; and a clause declaratory of a further reserve of the divine vengeance is added, which forms the Epode",
+      "found_in": "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=294",
+      "also_in": [
+        "https://ia801807.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=%2F34%2Fitems%2Flecturesonsacred02lowt%2Flecturesonsacred02lowt_djvu.xml&mode=djvu_xml&page=295"
+      ],
+      "page": "279",
+      "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+      "retrieved": "2026-11-07",
+      "match": "exact"
+    }
+  ]
+}

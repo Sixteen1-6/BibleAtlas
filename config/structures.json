@@ -266,36 +266,29 @@
           "words": "How the mighty have fallen"
         }
       ],
-      "evidence": "Henry: it is lamented three times. Jamieson: it forms the chorus. Keil: each part of the song opens with the cry. Hervey, in Barnes' Notes: grief is fond of repeating. Bullinger: the burden three times.",
-      "checked": "2026-11-01",
+      "evidence": "Henry: it is lamented three times. Jamieson: it forms the chorus. Keil: each part of the song opens with the cry. Bullinger: the burden three times. Lowth: the refrain comes three times, varied in order and wording, in the opening and the close and once in the middle.",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "henry",
           "on": "2 Samuel 1:17-27",
           "quote": "The mighty have fallen (this is three times lamented, Sa2 1:19, Sa2 1:25, Sa2 1:27), and so the strength of the people is weakened.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "jfb",
           "on": "2 Samuel 1:19",
           "quote": "how are the mighty fallen!--This forms the chorus.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "keil-delitzsch",
           "on": "2 Samuel 1:19-27",
           "quote": "Each strophe opens with the exclamation, \"How are the mighty fallen!\"",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
-        },
-        {
-          "source": "barnes",
-          "on": "2 Samuel 1:19-27",
-          "quote": "is perfectly congenial to the nature of elegy, since grief is fond of dwelling upon the particular objects of the passion, and frequently repeating them.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "bullinger-fos",
@@ -304,7 +297,17 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
           "quote": "Where we have the burden of the lamentation three times, “How are the mighty fallen.”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "2 Samuel 1:19-27",
+          "at": "Lecture XXIII, p. 158",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/158/mode/1up",
+          "quote": "There is something singular, however, in the intercalary period which occurs in this poem ... It is three times introduced, beautifully diversified in the order and diction: it forms part of the exordium, as well as of the conclusion, and is once inserted in the body of the poem.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
         }
       ]
     },
@@ -333,30 +336,30 @@
           "words": "Why are you downcast, O my soul? Why the unease within me? Put your hope in God"
         }
       ],
-      "evidence": "Barnes: the same burden or refrain marks the parts, at 42:5, 42:11 and 43:5. Henry: the fifth verse of Psalm 43 is the same as the eleventh of Psalm 42. Fausset notes the recurrence of the refrain. Bullinger: a three-fold emphasis.",
+      "evidence": "Barnes: the same burden or refrain marks the parts, at 42:5, 42:11 and 43:5. Henry: the fifth verse of Psalm 43 is the same as the eleventh of Psalm 42. Fausset notes the recurrence of the refrain. Bullinger: a three-fold emphasis. Lowth: the psalm should perhaps not be parted from the one before it; if so, the whole has three nearly equal parts, each closed by the same stanza.",
       "limit": "Writers differ on whether Psalms 42 and 43 were first written as one psalm; the refrain is in both either way.",
-      "checked": "2026-11-01",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "barnes",
           "on": "Psalm 42",
           "quote": "Psa 42:1-11 consists of two parts, marked by the \"burden\" or \"refrain\" in Psa 42:5, Psa 42:11; and if Psa 43:1-5 were regarded as a part of the same composition, the two would be divided into three parts, marked by the same burden or refrain, in Psa 42:5, Psa 42:11; Psa 43:5.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "henry",
           "on": "Psalm 43",
           "quote": "The second verse of this psalm is almost the very same with the ninth verse of the foregoing psalm, as the fifth of this is exactly the same with the eleventh of that.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "jfb",
           "on": "Psalm 43",
           "quote": "Excepting the recurrence of the refrain, there is no good reason to suppose this a part of the preceding, though the scope is the same.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "bullinger-fos",
@@ -365,7 +368,17 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/342/mode/1up",
           "quote": "We have the three-fold emphasis on the great question: “Why art thou cast down, O my soul? and the blessed answer, “Hope thou in God!”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Psalm 42-43",
+          "at": "Lecture XXIII, p. 151",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/151/mode/1up",
+          "quote": "it ought not perhaps to be separated from the preceding Psalm, but rather to be considered as a part or continuation of the same composition: if this be true, the whole poem consists of three parts almost equal and alike, each of which is concluded by the same intercalary period or stanza.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
         }
       ]
     },
@@ -723,7 +736,7 @@
       "id": "genesis-43-mirror",
       "kind": "chiasm",
       "ref": "Genesis 43:3-5",
-      "strength": "some interpreters",
+      "strength": "commonly held",
       "short": "Judah's plea to Jacob turns back on itself",
       "about": "Judah gives the man's warning, then what will happen if Jacob sends Benjamin, then if he does not, and ends with the warning again, so the warning frames the choice.",
       "members": [
@@ -750,16 +763,26 @@
           "words": "for the man told us"
         }
       ],
-      "evidence": "Bullinger lays out these verses as an introverted correspondence: Joseph's words at both ends, Jacob's act in the middle, if he sends and if he does not.",
-      "checked": "2026-11-01",
+      "evidence": "Bullinger, under Introverted Correspondence, says A and A give Joseph's words, and B and B Jacob's action. Boys: a answers to a and b to b; in both a's Judah repeats Joseph's words, and in the b's he says when the brothers will go down and when they will not.",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "bullinger-fos",
           "on": "Genesis 43:3-5",
           "at": "Introverted Correspondence, p. 374",
           "url": "https://archive.org/details/figuresofspeechu00bull/page/374/mode/1up",
-          "quote": "B Jacob’s act: “If thou wilt send.” … B Jacob’s act: “But if thou wilt not send him.”",
+          "quote": "In A and A, we have Joseph’s words; and in B and B, Jacob’s action.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Genesis 43:3-5",
+          "at": "Introduction, p. 31",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/31/mode/1up",
+          "quote": "Here, as in the previous examples, a. answers to a., and b. to b. Judah repeats the words of Joseph, both in a. and a.: while he states, in b., under what circumstances the brethren will, and, in b., under what circumstances they will not go down.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
         }
       ]
@@ -768,7 +791,7 @@
       "id": "leviticus-14-mirror",
       "kind": "chiasm",
       "ref": "Leviticus 14:51-52",
-      "strength": "some interpreters",
+      "strength": "commonly held",
       "short": "The cleansing of a house is told forward, then back",
       "about": "Verse 51 names the cedar wood, the hyssop and the scarlet yarn, the live bird, the blood and the water, and the house; verse 52 names them again in reverse order.",
       "members": [
@@ -817,8 +840,8 @@
           "words": "the cedar wood, the hyssop, and the scarlet yarn"
         }
       ],
-      "evidence": "Bullinger lays out these two verses as an introverted correspondence of eight members, the sprinkling and the cleansing of the house at the centre.",
-      "checked": "2026-11-01",
+      "evidence": "Bullinger, under Introverted Correspondence, labels both the sprinkling and the cleansing of the house D. Boys pairs the parts in a and a (the cedar wood, the hyssop and the scarlet), b and b (the live bird), c and c (the blood of the slain bird and the water) and d and d (the house).",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "bullinger-fos",
@@ -827,6 +850,16 @@
           "url": "https://archive.org/details/figuresofspeechu00bull/page/375/mode/1up",
           "quote": "D and sprinkle the house seven times: … D And he shall cleanse the house",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Leviticus 14:51-52",
+          "at": "Introduction, p. 39",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/39/mode/1up",
+          "quote": "Here, in a. and a., we have the cedar wood, the hyssop, and the scarlet; in b. and b., the living bird; in c. and c., the blood of the slain bird, and the running water; in d. and d., the house.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
         }
       ]
@@ -861,29 +894,718 @@
           "words": "Despite all this, His anger is not turned away; His hand is still upraised."
         }
       ],
-      "evidence": "Henry: the burden of that prophecy is repeated at 10:4. Fausset: four strophes, each ending with the formula. Barnes: the words close the second and third strophes, and the fourth is 10:1-4.",
-      "checked": "2026-11-01",
+      "evidence": "Henry: the burden of that prophecy is repeated at 10:4. Fausset: four strophes, each ending with the formula. Barnes: at 9:21 the words close the third strophe, and the fourth and last is 10:1-4. Lowth: the poem has four parts; to each is added a clause, the epode, that declares more of God's vengeance held in reserve.",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "henry",
-          "on": "Isaiah 10:4",
+          "on": "Isaiah 10:1-4",
           "quote": "because the burden of that prophecy (for all this his anger is not turned away) is repeated here (Isa 10:4)",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "jfb",
-          "on": "Isaiah 9:8",
+          "on": "Isaiah 9:8-10:4",
           "quote": "There are four strophes, each setting forth Ephraim's crime and consequent punishment, and ending with the formula",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-01"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "barnes",
           "on": "Isaiah 9:21",
-          "quote": "This closes the third strophe or part of the prophecy under consideration. The fourth and last strophe occurs in Isa 10:1-4.",
+          "quote": "For all this ... - see Isa 9:12, note Isa 5:25. This closes the third strophe or part of the prophecy under consideration. The fourth and last strophe occurs in Isa 10:1-4.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "Isaiah 9:8-10:4",
+          "at": "Lecture XXIX, pp. 279-280",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/279/mode/1up",
+          "quote": "The poem consists of four parts, each of which contains a denunciation of vengeance against the crimes of this rebellious people ... To each of these a specific punishment is annexed; and a clause declaratory of a further reserve of the divine vengeance is added, which forms the Epode",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "john-5-bookends",
+      "kind": "inclusio",
+      "ref": "John 5:19-30",
+      "strength": "some interpreters",
+      "short": "Verses 19 to 30 open and close with the same claim",
+      "about": "Jesus begins His reply by saying the Son can do nothing by Himself, and in verse 30 He says the same of Himself, so these verses open and close with one claim.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "John 5:19",
+          "words": "the Son can do nothing by Himself",
+          "tie": "can do nothing by"
+        },
+        {
+          "mark": "A'",
+          "ref": "John 5:30",
+          "words": "I can do nothing by Myself"
+        }
+      ],
+      "evidence": "Forbes: verses 19 to 30 form an introverted parallelism, or epanodos, that gives one idea prominence by placing it first and last: the leading proposition opens it in verse 19, and its close in verse 30 runs in the same terms.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "John 5:19-30",
+          "at": "Section IX, p. 70",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/70/mode/1up",
+          "quote": "the idea to which such prominence is given in the subsequent Introverted Parallelism, or Epanodos (v. 19-30), by placing it first and last. The leading proposition, with which the Epanodos opens, is (v. 19) ... and the conclusion from the whole reasoning in the close of the Epanodos (v. 30) runs in the same terms",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-89-28-mirror",
+      "kind": "chiasm",
+      "ref": "Psalm 89:28-37",
+      "strength": "some interpreters",
+      "short": "God's oath to David, verse answering verse",
+      "about": "The verses pair from the outside in: love kept forever and a throne established forever, his line and his throne, sons who forsake His law and a God who will not lie, they violate and He will not violate, and at the centre the rod beside His loving devotion.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 89:28",
+          "words": "I will forever preserve My loving devotion for him",
+          "tie": "forever"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 89:29",
+          "words": "his throne as long as the heavens endure.",
+          "tie": "his throne"
+        },
+        {
+          "mark": "C",
+          "ref": "Psalm 89:30",
+          "words": "If his sons forsake My law and do not walk in My judgments,",
+          "tie": "not"
+        },
+        {
+          "mark": "D",
+          "ref": "Psalm 89:31",
+          "words": "if they violate My statutes",
+          "tie": "violate My"
+        },
+        {
+          "mark": "E",
+          "ref": "Psalm 89:32",
+          "words": "I will attend to their transgression with the rod,",
+          "tie": "I will"
+        },
+        {
+          "mark": "E'",
+          "ref": "Psalm 89:33",
+          "words": "But I will not withdraw My loving devotion from him,"
+        },
+        {
+          "mark": "D'",
+          "ref": "Psalm 89:34",
+          "words": "I will not violate My covenant"
+        },
+        {
+          "mark": "C'",
+          "ref": "Psalm 89:35",
+          "words": "I will not lie to David"
+        },
+        {
+          "mark": "B'",
+          "ref": "Psalm 89:36",
+          "words": "and his throne before Me like the sun,"
+        },
+        {
+          "mark": "A'",
+          "ref": "Psalm 89:37",
+          "words": "like the moon, established forever,"
+        }
+      ],
+      "evidence": "Forbes: God's mercy kept for David for evermore, in verse 28, corresponds to verse 37; verses 29 and 36 have his seed enduring forever and his throne; his children prove unfaithful in verse 30, yet God will not in verse 35; they break God's statutes in verse 31, yet God will not break His covenant in verse 34; and God's chastening in measure in verse 32 is made to correspond with verse 33.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Psalm 89:28-37",
+          "at": "Section V, p. 41",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/41/mode/1up",
+          "quote": "To God's mercy kept for David for evermore ... in v. 28, corresponds in v. 37 ... In ver. 29 and 36 we have his seed enduring for ever, and his throne ... Though his children prove unfaithful, v. 30. Yet will not God prove unfaithful, v. 35. Though they break God's statutes, v. 31. Yet will not God break his covenant, v. 34. In v. 32, God's chastening in measure is made to correspond with (v. 33)",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-mirror",
+      "kind": "chiasm",
+      "ref": "Romans 8:28-39",
+      "strength": "some interpreters",
+      "short": "Love and calling, then calling and love",
+      "about": "Verse 28 speaks of those who love God and who are called. Paul takes up the calling first, in verses 29 to 34, and then love, in verses 35 to 39, so love stands first and last.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Romans 8:28",
+          "words": "those who love Him",
+          "tie": "love"
+        },
+        {
+          "mark": "B",
+          "ref": "Romans 8:28",
+          "words": "who are called according to His purpose",
+          "tie": "called"
+        },
+        {
+          "mark": "B'",
+          "ref": "Romans 8:29-34",
+          "words": "And those He predestined, He also called;"
+        },
+        {
+          "mark": "A'",
+          "ref": "Romans 8:35-39",
+          "words": "Who shall separate us from the love of Christ?"
+        }
+      ],
+      "evidence": "Forbes: of the two things in verse 28, the second, God's purpose, is enlarged on first, in verses 29 to 34, and the first is then taken up in verses 35 to 39, so that the whole passage forms an epanodos, or introverted parallelism, in which the Christian's love to God has the first and last place.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Romans 8:28-39",
+          "at": "p. 319",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/319/mode/1up",
+          "quote": "The second of these ... is first enlarged upon in verses 29-34 (B); and the first is then taken up in verses 35-39 (A): so that the whole passage forms an Epanodos, or Introverted Parallelism, in which the Christian's love to God occupies the first and last place. After the statement of the general proposition in ver. 28, the Apostle first enlarges on the 'purpose' of God in vv. 29-34 (B).",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-10-mirror",
+      "kind": "chiasm",
+      "ref": "Genesis 10:1-31",
+      "strength": "widely agreed",
+      "short": "Noah's sons named, then their families in reverse",
+      "about": "The first verse names Shem, Ham and Japheth. The lists of their families then go the other way: Japheth's sons come first and Shem's last, with Ham's between.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Genesis 10:1",
+          "words": "Shem",
+          "tie": "Shem"
+        },
+        {
+          "mark": "B",
+          "ref": "Genesis 10:1",
+          "words": "Ham",
+          "tie": "Ham"
+        },
+        {
+          "mark": "C",
+          "ref": "Genesis 10:1",
+          "words": "and Japheth",
+          "tie": "Japheth"
+        },
+        {
+          "mark": "C'",
+          "ref": "Genesis 10:2-5",
+          "words": "The sons of Japheth: Gomer, Magog,"
+        },
+        {
+          "mark": "B'",
+          "ref": "Genesis 10:6-20",
+          "words": "The sons of Ham: Cush, Mizraim, Put, and Canaan."
+        },
+        {
+          "mark": "A'",
+          "ref": "Genesis 10:21-31",
+          "words": "And sons were also born to Shem"
+        }
+      ],
+      "evidence": "Boys: the order is inverted, so Shem and his descendants stand in a and a, Ham and his in b and b, Japheth and his in c and c. Forbes: Shem is placed first and last to mark the pre-eminence God designed for him as forefather of the chosen people. Bullinger lists it under epanodos, words repeated backward. Keil: verse 1 names the sons by age, but the genealogy puts Japheth first and Shem last.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Genesis 10:1-31",
+          "at": "Introduction, p. 39",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/39/mode/1up",
+          "quote": "he inverts that order. The sons of Japheth come first, then the sons of Ham, and, last of all, the sons of Shem ... Thus we have Shem and his descendants in a. and a., Ham and his descendants in b. and b., Japheth and his descendants in c. and c.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "forbes",
+          "work": "forbes-symmetrical",
+          "on": "Genesis 10:1-31",
+          "at": "Section VI, p. 44",
+          "url": "https://archive.org/details/symmetricalstruc00forbiala/page/44/mode/1up",
+          "quote": "The reason of this arrangement, however, Mr Boys has omitted to notice. Why should Shem be placed either first or last ... The intention of the sacred historian evidently was to mark the pre-eminence which God designed for Shem in his generations, as the progenitor of the chosen people",
+          "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 10:1-31",
+          "at": "Epanodos, or Inversion, p. 299",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/299/mode/1up",
+          "quote": "After two, three, or more words have been mentioned, they are repeated, not in the same order again, but backward.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 10:1",
+          "quote": "In Gen 10:1 the names of the three sons are introduced according to their relative ages, to give completeness and finish to the Tholedoth; but in the genealogy itself Japhet is mentioned first and Shem last",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-101-turns",
+      "kind": "alternation",
+      "ref": "Psalm 101:1-8",
+      "strength": "some interpreters",
+      "short": "What he will do and shun, then do and shun again",
+      "about": "The psalm is the psalmist's resolve throughout. Verses 1 and 2, and again verse 6, tell what he will do and whom he will welcome; verses 3 to 5, and again 7 and 8, what he will shun and whom he will cut off.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 101:1-2",
+          "words": "I will ponder the way that is blameless",
+          "tie": "the way"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 101:3-5",
+          "words": "I will set no worthless thing before my eyes.",
+          "tie": "no"
+        },
+        {
+          "mark": "A",
+          "ref": "Psalm 101:6",
+          "words": "he who walks in the way of integrity shall minister to me."
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 101:7-8",
+          "words": "no one who tells lies shall stand in my presence."
+        }
+      ],
+      "evidence": "Boys reads the whole psalm as the psalmist's resolutions in four members, the first answering the third and the second the fourth: in the first and third he says what he will do and whom he will encourage, in the second and fourth what he will avoid and whom he will discourage and destroy.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Psalm 101:1-8",
+          "at": "Chapter I, p. 61",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/61/mode/1up",
+          "quote": "The whole of this Psalm is a promise, or a declaration of the Psalmist's resolutions and intentions. There is, however, a distinction of an obvious kind. In A. and A., the first and third members, the Psalmist sets forth what he will do, and whom he will encourage … in B. and B., the second and fourth, what he will avoid, and whom he will discourage and destroy.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-128-turns",
+      "kind": "alternation",
+      "ref": "Psalm 128:1-6",
+      "strength": "some interpreters",
+      "short": "Spoken of, then spoken to, twice over",
+      "about": "Verses 1 and 4 speak of the man who fears the LORD and declare him blessed. Verses 2 and 3, and again 5 and 6, speak to him and tell what the blessing will be.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 128:1",
+          "words": "Blessed are all who fear the LORD,",
+          "tie": "the LORD"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 128:2-3",
+          "words": "For when you eat the fruit of your labor,",
+          "tie": "you"
+        },
+        {
+          "mark": "A",
+          "ref": "Psalm 128:4",
+          "words": "In this way indeed shall blessing come to the man who fears the LORD."
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 128:5-6",
+          "words": "May the LORD bless you from Zion,"
+        }
+      ],
+      "evidence": "Boys calls the psalm an alternate parallelism of four members, the third answering the first and the fourth the second: in the first and third the man is spoken of, in the second and fourth he is spoken to, and the blessing is set out in detail.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Psalm 128:1-6",
+          "at": "Chapter I, p. 64",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/64/mode/1up",
+          "quote": "In this Psalm we have an alternate parallelism of four members, A., B., A., B.: the third member, A., answering to the first, A.; and the fourth, B., to the second, B. … In A. and A., the first and third members, the man … is spoken of; in B. and B., the second and fourth, he is spoken to. … But in the second and fourth members, B. and B., the nature of the blessing is particularized.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-70-mirror",
+      "kind": "chiasm",
+      "ref": "Psalm 70:1-5",
+      "strength": "some interpreters",
+      "short": "He prays for himself at both ends, about others between",
+      "about": "The psalm is a prayer throughout. In the first and last verses the psalmist prays for himself and asks for help; in the verses between he prays about others, first those who seek his life, then all who seek God.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 70:1",
+          "words": "Hurry, O LORD, to help me!",
+          "tie": "help"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 70:2-3",
+          "words": "May those who seek my life be ashamed and confounded;",
+          "tie": "who seek"
+        },
+        {
+          "mark": "B'",
+          "ref": "Psalm 70:4",
+          "words": "May all who seek You rejoice and be glad in You;"
+        },
+        {
+          "mark": "A'",
+          "ref": "Psalm 70:5",
+          "words": "You are my help and my deliverer;"
+        }
+      ],
+      "evidence": "Boys reads the whole psalm as four members, the fourth answering the first and the third the second: in the two outer members the psalmist's prayer refers to himself and he speaks of help, in the two inner members it refers to others, his enemies and then his friends.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Psalm 70:1-5",
+          "at": "Chapter II, p. 105",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/105/mode/1up",
+          "quote": "The whole of the seventieth Psalm is prayer; but there is this distinction: that the prayer of the Psalmist refers, in the two extreme members, A. and A., to himself; and in the two central members, B. and B., to others. ... In both A. and A. he speaks of help. ... his prayer refers to others; that is, to the wicked, or his enemies, in B., and to the righteous, or his friends, in B.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-96-turns",
+      "kind": "alternation",
+      "ref": "Psalm 96:1-13",
+      "strength": "some interpreters",
+      "short": "Calls to praise, each followed by its reasons",
+      "about": "Two calls to sing and give glory to the LORD, in verses 1 to 3 and 7 to 12, are each followed by reasons, in verses 4 to 6 and in verse 13: His greatness above all gods, and His coming to judge the earth.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Psalm 96:1-3",
+          "words": "Sing to the LORD a new song;",
+          "tie": "to the LORD"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 96:4-6",
+          "words": "He is to be feared above all gods.",
+          "tie": "He"
+        },
+        {
+          "mark": "A",
+          "ref": "Psalm 96:7-12",
+          "words": "Ascribe to the LORD, O families of the nations,"
+        },
+        {
+          "mark": "B",
+          "ref": "Psalm 96:13",
+          "words": "He will judge the world in righteousness"
+        }
+      ],
+      "evidence": "Boys finds two exhortations, in A and A, supported by two reasons, in B and B: the second exhortation, in the third member, to glorify, to worship and to rejoice in the Lord, corresponds to the first, and the last member, B, gives the reason for it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Psalm 96:1-13",
+          "at": "Chapter I, pp. 71-72",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/71/mode/1up",
+          "quote": "Here we have two exhortations in A. and A., supported by two reasons in B. and B. … Then in A. again, the third member, we find a second exhortation, to glorify, to worship, and to rejoice in the Lord; corresponding to the former exhortation, in A. the first member. … And, lastly, we have, in B., the reason for this second exhortation",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-1-turns",
+      "kind": "alternation",
+      "ref": "Proverbs 1:8-19",
+      "strength": "some interpreters",
+      "short": "Two calls to a son, each with its reason",
+      "about": "A father's call to his son comes twice, in verse 8 and in verses 10 to 15, and each is followed by a reason to heed it, in verse 9 and in verses 16 to 19.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Proverbs 1:8",
+          "words": "Listen, my son, to your father’s instruction,",
+          "tie": "son"
+        },
+        {
+          "mark": "B",
+          "ref": "Proverbs 1:9",
+          "words": "For they are a garland of grace on your head",
+          "tie": "For"
+        },
+        {
+          "mark": "A",
+          "ref": "Proverbs 1:10-15",
+          "words": "My son, if sinners entice you,"
+        },
+        {
+          "mark": "B",
+          "ref": "Proverbs 1:16-19",
+          "words": "For their feet run to evil,"
+        }
+      ],
+      "evidence": "Boys finds a twofold exhortation in A and A and a twofold motive for compliance in B and B: after the first exhortation, in A, the motive follows in B.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Proverbs 1:8-19",
+          "at": "Introduction, pp. 19-20",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/19/mode/1up",
+          "quote": "Here in A. and A. we have a twofold exhortation, and in B. and B. a twofold motive for compliance. The exhortation in A. is, ... Then follows in B. the motive",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-3-mirror",
+      "kind": "chiasm",
+      "ref": "Genesis 3:9-19",
+      "strength": "some interpreters",
+      "short": "The man, the woman, the serpent, then back again",
+      "about": "The LORD God questions the man, then the woman, and the woman names the serpent. He then speaks to the serpent, then to the woman, and last to the man, so the three come back in reverse order.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Genesis 3:9-12",
+          "words": "Have you eaten from the tree of which I commanded you not to eat?",
+          "tie": "from the tree of which I commanded you not to eat"
+        },
+        {
+          "mark": "B",
+          "ref": "Genesis 3:13",
+          "words": "Then the LORD God said to the woman",
+          "tie": "the woman"
+        },
+        {
+          "mark": "C",
+          "ref": "Genesis 3:13",
+          "words": "“The serpent deceived me,” she replied",
+          "tie": "serpent"
+        },
+        {
+          "mark": "C'",
+          "ref": "Genesis 3:14-15",
+          "words": "So the LORD God said to the serpent:"
+        },
+        {
+          "mark": "B'",
+          "ref": "Genesis 3:16",
+          "words": "To the woman He said:"
+        },
+        {
+          "mark": "A'",
+          "ref": "Genesis 3:17-19",
+          "words": "have eaten from the tree of which I commanded you not to eat"
+        }
+      ],
+      "evidence": "Boys, on Genesis 3:9-19: first come the man, the woman and the serpent, then the serpent, the woman and the man.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Genesis 3:9-19",
+          "at": "Introduction, p. 8",
+          "url": "https://archive.org/details/tactica-sacra/page/8/mode/1up",
+          "quote": "In the following instance, we have first the man, the woman, and the serpent; then the serpent, the woman, and the man.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-thessalonians-mirror",
+      "kind": "chiasm",
+      "ref": "2 Thessalonians 1:1-3:18",
+      "strength": "some interpreters",
+      "short": "Greetings at both ends; thanks, prayer and urging twice",
+      "about": "The letter opens and closes with greeting and blessing. Between them come two long parts, 1:3 to 2:12 and 2:13 to 3:15, and each gives thanks, then prays, then urges the readers, in the same order.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "2 Thessalonians 1:1-2",
+          "words": "Grace and peace to you from God our Father and the Lord Jesus Christ.",
+          "tie": "Lord Jesus Christ"
+        },
+        {
+          "mark": "B",
+          "ref": "2 Thessalonians 1:3-2:12",
+          "words": "We are obligated to thank God for you all the time, brothers,",
+          "tie": "thank God for you"
+        },
+        {
+          "mark": "B'",
+          "ref": "2 Thessalonians 2:13-3:15",
+          "words": "But we should always thank God for you, brothers"
+        },
+        {
+          "mark": "A'",
+          "ref": "2 Thessalonians 3:16-18",
+          "words": "The grace of our Lord Jesus Christ be with all of you."
+        }
+      ],
+      "evidence": "Boys reads the whole epistle as an introverted parallelism of four members. The first and last are epistolary; the two central members have three parts each, thanksgiving, prayer and admonition, which answer each other in the order they stand.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "2 Thessalonians 1:1-3:18",
+          "at": "Part I, the Second Epistle to the Thessalonians, p. 21",
+          "url": "https://archive.org/details/tactica-sacra/page/21/mode/1up",
+          "quote": "Its general character is that of an introverted parallelism of four members, A. B. B. A. ... The two extreme members, A. and A., are epistolary ... The two central members, B. and B., consist of three parts each, which parts correspond respectively in the order in which they stand. The following is a skeleton of the Epistle ... Thanksgiving. ... Prayer. ... Admonition.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "2-peter-1-turns",
+      "kind": "alternation",
+      "ref": "2 Peter 1:12-3:13",
+      "strength": "some interpreters",
+      "short": "Peter, apostles and prophets, false teachers, twice over",
+      "about": "Three subjects come twice in the same order: Peter himself, who means to remind his readers; the apostles and the prophets; and the false teachers and scoffers to come, with the day of judgment.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "2 Peter 1:12-15",
+          "words": "I think it is right to refresh your memory as long as I live in the tent of my body,",
+          "tie": "my"
+        },
+        {
+          "mark": "B",
+          "ref": "2 Peter 1:16-21",
+          "words": "We also have the word of the prophets as confirmed beyond doubt.",
+          "tie": "prophets"
+        },
+        {
+          "mark": "C",
+          "ref": "2 Peter 2:1-22",
+          "words": "to hold the unrighteous for punishment on the day of judgment.",
+          "tie": "the day of judgment"
+        },
+        {
+          "mark": "A",
+          "ref": "2 Peter 3:1",
+          "words": "Beloved, this is now my second letter to you."
+        },
+        {
+          "mark": "B",
+          "ref": "2 Peter 3:2",
+          "words": "by recalling what was foretold by the holy prophets and commanded by our Lord and Savior through your apostles."
+        },
+        {
+          "mark": "C",
+          "ref": "2 Peter 3:3-13",
+          "words": "being kept for the day of judgment and destruction of ungodly men."
+        }
+      ],
+      "evidence": "Boys divides two members of 2 Peter into three parts each, which correspond in turn, the first to the first, the second to the second and the third to the third: Peter himself; the apostles and prophets more generally; and the wicked, who are exposed and denounced.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "2 Peter 1:12-3:13",
+          "at": "Part I, the Second Epistle of St. Peter, p. 23",
+          "url": "https://archive.org/details/tactica-sacra/page/23/mode/1up",
+          "quote": "C. is divided into three parts, a., b., c.; and C. into three corresponding parts, a., b., c. … so that a. corresponds to a., b. to b., and c. to c. … Thus in a. we have the Apostle St. Peter himself; in b. a more general reference to the apostles and prophets; and in c. the wicked, corrupt, and abominable, who are there exposed and denounced.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-thessalonians-4-mirror",
+      "kind": "chiasm",
+      "ref": "1 Thessalonians 4:1-5:22",
+      "strength": "some interpreters",
+      "short": "Exhortation at both ends, teaching in the middle",
+      "about": "The Apostle urges his readers to various duties in 4:1-12 and again in 5:12-22. Between these come two parts of teaching, 4:13-18 and 5:1-11, on two points they needed to understand rightly.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "1 Thessalonians 4:1-12",
+          "words": "Finally, brothers, we ask and encourage you in the Lord Jesus",
+          "tie": "we ask"
+        },
+        {
+          "mark": "B",
+          "ref": "1 Thessalonians 4:13-18",
+          "words": "Therefore encourage one another with these words.",
+          "tie": "Therefore encourage"
+        },
+        {
+          "mark": "B'",
+          "ref": "1 Thessalonians 5:1-11",
+          "words": "Therefore encourage and build one another up,"
+        },
+        {
+          "mark": "A'",
+          "ref": "1 Thessalonians 5:12-22",
+          "words": "But we ask you, brothers,"
+        }
+      ],
+      "evidence": "Boys sets out 1 Thessalonians 4:1-5:22 as an introverted parallelism of four members, the last answering to the first and the third to the second: one pair hortatory, where the Apostle exhorts to various duties, and the other didactic, where he instructs on two points.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "1 Thessalonians 4:1-5:22",
+          "at": "Part I, the First Epistle to the Thessalonians, p. 47",
+          "url": "https://archive.org/details/tactica-sacra/page/47/mode/1up",
+          "quote": "an introverted parallelism: the last member here answering to the first, and the third to the second … e. and e. are hortatory, f. and f. didactic. … In e. and e. the Apostle exhorts the Thessalonians to the performance of various duties, and in f. and f. he instructs them on two points upon which it was necessary that they should be rightly informed.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
         }
       ]
     }
