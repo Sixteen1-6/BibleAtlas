@@ -150,14 +150,14 @@
     {
       "id": "theographic",
       "title": "Theographic Bible Metadata",
-      "provides": "People tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep. Its names of people and places keep them out of the Themes tab's Nave's subjects.",
+      "provides": "The people each verse names and their families (the People extra, at Study); people tied to each place: who was born there, who died there and who was there; and the events that happened at each place, with Theographic's dates. Events are shown in the Places map at Study, people and dates at Deep. Its names of people and places keep them out of the Themes tab's Nave's subjects.",
       "license": "CC BY-SA 4.0",
       "attribution": "Theographic Bible Metadata by Robert Rouse (viz.bible), CC BY-SA 4.0",
       "homepage": "https://github.com/robertrouse/theographic-bible-metadata",
       "repo": "https://github.com/robertrouse/theographic-bible-metadata",
       "commit": "cfb1c485d4da6fb63a69cb3b7f5b0752792f46bc",
       "files": { "people": "CSV/People.csv", "places": "CSV/Places.csv", "events": "CSV/Events.csv" },
-      "note": "The files built from it, extras/real-map/people.json and extras/real-map/events.json, are shared under the same license, CC BY-SA 4.0. Event years are Theographic's own, from one traditional chronology (Creation in 4004 BC, the Exodus in 1491 BC), and are shown only at Deep with that said."
+      "note": "The files built from it, extras/people.json, extras/real-map/people.json and extras/real-map/events.json, are shared under the same license, CC BY-SA 4.0. Event years are Theographic's own, from one traditional chronology (Creation in 4004 BC, the Exodus in 1491 BC), and are shown only at Deep with that said."
     },
     {
       "id": "natural-earth",
