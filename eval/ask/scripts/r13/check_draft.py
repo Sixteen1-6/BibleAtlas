@@ -23,7 +23,10 @@ REPO = os.environ.get('ATLAS_REPO', '.')
 GROUPS = ["God", "Jesus", "Saved", "Living", "Hard times", "Family", "Death and the future", "Church and Bible"]
 OUTSIDE = ["scholar", "theolog", "commentat", "denomination", "christians believe", "gotquestions", "esv", "nave", "interpret"]
 STOP = set("""what who whom whose why how when where which does did doing will would should could can may might must shall are was were
-the and for with about from into that this there they them their you your our his her its have has had not any all""".split())
+the and for with about from into that this there they them their you your our his her its have has had not any all
+say says said bible verse verses mean means really god gods lord lords get one way like deal handle cope overcome stop find help
+make feel use wrong right allowed possible best ever still even too also much many happen happens thing things someone
+something people person tell teach teaches okay just some""".split())  # the build's QUESTION_STOP (crates/atlas-cli/src/ask.rs)
 
 def norm(s):
     s = re.sub(r"['’‘ʼ]", '', s.lower())

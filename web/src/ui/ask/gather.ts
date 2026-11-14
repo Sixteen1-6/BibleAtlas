@@ -20,7 +20,7 @@
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
 
-import type { Atlas } from '../../data/atlas';
+import { type Atlas, locate } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { type AskIndex, type Question, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
@@ -673,6 +673,9 @@ const FIT = {
   rows: 80,
 };
 
+/** How many verses on each side of a cited verse come right after it. */
+export const AROUND = { reach: 2 };
+
 /** For the eval scripts (eval/ask/scripts/r12/): what FIT weighed for each
  * verse of the last question gathered. Off in the app. */
 export const TRACE: { on: boolean; rows: unknown[] } = { on: false, rows: [] };
@@ -952,6 +955,17 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // chapters of a named book come last, as most were about something else.
   const cites: number[] = [];
   for (const b of named) if (b.verse) for (let v = b.from; v < b.to; v++) if (!texts || texts[v]) cites.push(v);
+  // Then the verses on either side of it, the nearest first: read blind, the
+  // verse just before or after a cited verse answered the asker far more often
+  // than the rest of its chapter. Not among Solomon's proverbs (Proverbs 10 to
+  // 29), where each saying stands alone.
+  const sayings = (v: number) => {
+    const l = locate(a, v);
+    return a.books[l.book].name === 'Proverbs' && l.chapter >= 10 && l.chapter <= 29;
+  };
+  const around: number[] = [];
+  for (let d = 1; d <= AROUND.reach; d++)
+    for (const b of named) if (b.verse && !sayings(b.from)) for (const v of [b.to - 1 + d, b.from - d]) if (within(v, chapters) && (!texts || texts[v])) around.push(v);
   const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
   // Otherwise FIT orders those SHOW ranks and the best found.
   const rows = [...new Set([...pool, ...found.slice(0, FIT.rows)])];
@@ -976,7 +990,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const xs = named.length ? [] : rows.map(known);
   const fit = xs.map((x) => logistic(FIT.answers, x) - FIT.offWeight * logistic(FIT.off, x));
   const first = named.length
-    ? [...cites, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
+    ? [...cites, ...around, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
     : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
   const put = new Set(first);
   const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);
