@@ -15,6 +15,9 @@ export interface IndexFile {
   has: string;
   /** Each book's files, as the first chapter of each. */
   parts: number[][];
+  /** Who wrote each book of Henry's complete commentary from Romans on, after
+   * his death, by book index, from a printed list. */
+  finished?: [number, string][];
 }
 
 /** Words, or [from, to, words] naming verses. */
@@ -55,7 +58,7 @@ export interface Work {
 
 /** The panel's source line. */
 export const SOURCE =
-  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s Concise Commentary, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English, transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church.';
+  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s complete and Concise commentaries, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English; Henry’s and Calvin’s transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church.';
 
 /** The works, in the order the build numbers them (oldest first is OLDEST_FIRST). */
 export const WORKS: readonly Work[] = [
@@ -69,7 +72,7 @@ export const WORKS: readonly Work[] = [
   {
     short: 'Matthew Henry',
     brief: 'Henry',
-    name: 'Matthew Henry',
+    name: 'Matthew Henry’s Concise Commentary',
     book: 'Concise Commentary on the Whole Bible, from his commentary of 1706–21',
     shelf: 'henry-concise',
   },
@@ -87,21 +90,42 @@ export const WORKS: readonly Work[] = [
     book: 'Commentaries on the New Testament, written 1540–64 (the dates the copy gives his commentaries); in the Calvin Translation Society’s English, from 1844',
     shelf: 'calvin-commentaries',
   },
+  {
+    short: 'Matthew Henry',
+    brief: 'Henry',
+    name: 'Matthew Henry, his full commentary',
+    book: 'An Exposition of the Old and New Testament, published from 1708, the whole of what he wrote, section by section; he wrote as far as Acts before his death in 1714',
+    shelf: 'henry-complete',
+  },
+  {
+    short: 'a minister who finished Matthew Henry’s commentary',
+    brief: 'Henry’s finishers',
+    name: 'The ministers who finished Matthew Henry’s commentary',
+    book: 'Henry died in 1714, having written as far as Acts. Other ministers wrote Romans to Revelation for his Exposition',
+    shelf: 'henry-complete',
+  },
 ];
+
+/** Henry's complete commentary, his own notes and those of the ministers who finished it. */
+export const FULL = 4;
+export const FINISHED = 5;
 
 export interface Data {
   a: Atlas;
   has: string;
   parts: number[][];
+  /** Who finished each book of Henry's commentary, by book index. */
+  finished: Map<number, string>;
 }
 
 export async function load(a: Atlas): Promise<Data> {
   const file = await loadJson<IndexFile>(a, 'extras/voices.json');
-  return { a, has: file.has, parts: file.parts };
+  return { a, has: file.has, parts: file.parts, finished: new Map(file.finished ?? []) };
 }
 
-/** The works by when they were written: the Fathers, Calvin, Henry, Wesley. */
-export const OLDEST_FIRST: readonly number[] = [0, 3, 1, 2];
+/** The works by when they were written: the Fathers, Calvin, Henry's full
+ * commentary and its finishers, his Concise, Wesley. */
+export const OLDEST_FIRST: readonly number[] = [0, 3, FULL, FINISHED, 1, 2];
 
 /** The works with a note on a verse, oldest first. */
 export function worksOn(d: Data, verse: VerseRef): number[] {
@@ -109,9 +133,22 @@ export function worksOn(d: Data, verse: VerseRef): number[] {
   return OLDEST_FIRST.filter((w) => bits & (1 << w));
 }
 
-/** The file that holds a verse's notes, or null if it has none. */
+/** The file that holds a verse's notes from Henry's complete commentary, or
+ * null if it has none: one file for each chapter. */
+export function fullOf(d: Data, verse: VerseRef): string | null {
+  if (!worksOn(d, verse).some((w) => w >= FULL)) return null;
+  const l = locate(d.a, verse);
+  return `extras/voices/full/${d.a.books[l.book].osis}.${l.chapter}.json`;
+}
+
+/** Who wrote a verse's notes in the finishers' part of Henry's commentary. */
+export function finisher(d: Data, verse: VerseRef): string | null {
+  return d.finished.get(locate(d.a, verse).book) ?? null;
+}
+
+/** The file that holds a verse's other notes, or null if it has none. */
 export function partOf(d: Data, verse: VerseRef): string | null {
-  if (worksOn(d, verse).length === 0) return null;
+  if (!worksOn(d, verse).some((w) => w < FULL)) return null;
   const l = locate(d.a, verse);
   const starts = d.parts[l.book] ?? [];
   let k = -1;
@@ -144,7 +181,16 @@ export function listWords(xs: readonly string[]): string {
 
 /** The writers on a verse as the line names them: in full, or by surname
  * when the full names would make the line longer than about 70 characters. */
-export function writersLine(ws: readonly number[]): string {
-  const full = listWords(ws.map((w) => WORKS[w].short));
-  return full.length <= 50 ? full : listWords(ws.map((w) => WORKS[w].brief));
+export function writersLine(d: Data, verse: VerseRef, ws: readonly number[]): string {
+  const names = (pick: (w: Work) => string) => {
+    const who = finisher(d, verse);
+    const out: string[] = [];
+    for (const w of ws) {
+      const n = w === FINISHED && who ? who : pick(WORKS[w]);
+      if (!out.includes(n)) out.push(n);
+    }
+    return out;
+  };
+  const full = listWords(names((w) => w.short));
+  return full.length <= 50 ? full : listWords(names((w) => w.brief));
 }

@@ -1,9 +1,10 @@
 // Christian writers: what Christian writers of the past wrote about a verse,
 // in their own words. At Deep only, and their words show only once the reader
 // has finished the commentary notice (ui/commentary): the Church Fathers on
-// the Gospels (as Thomas Aquinas gathered them in the Catena Aurea), Matthew
-// Henry's Concise Commentary and John Wesley's Explanatory Notes, all public
-// domain. Never shown as the app's own claim, or as Scripture.
+// the Gospels (as Thomas Aquinas gathered them in the Catena Aurea), John
+// Calvin's New Testament commentaries, Matthew Henry's complete commentary
+// (finished from Romans on by other ministers) and his Concise Commentary,
+// and John Wesley's Explanatory Notes, all public domain. Never shown as the app's own claim, or as Scripture.
 //
 // The line, under a verse one of them wrote about:
 //   "Christian writers: the Church Fathers, Matthew Henry and John Wesley"
@@ -22,7 +23,7 @@ import { loadJson } from './data';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
-import { type Data, SOURCE, load, partOf, worksOn, writersLine } from './voices/model';
+import { type Data, SOURCE, fullOf, load, partOf, worksOn, writersLine } from './voices/model';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
@@ -33,8 +34,7 @@ let panel: Promise<PanelType> | null = null;
  * the panel opens without a wait. Both are kept, so this costs nothing twice. */
 function warm(d: Data, verse: number): void {
   if (!accepted.value) return;
-  const file = partOf(d, verse);
-  if (file) loadJson(d.a, file).catch(() => {});
+  for (const file of [partOf(d, verse), fullOf(d, verse)]) if (file) loadJson(d.a, file).catch(() => {});
   loadPanel().catch(() => {});
 }
 
@@ -75,12 +75,12 @@ export default defineExtra<Data>({
   note(verse, d) {
     const ws = worksOn(d, verse);
     if (ws.length) warm(d, verse);
-    return ws.length ? `Christian writers: ${writersLine(ws)}` : null;
+    return ws.length ? `Christian writers: ${writersLine(d, verse, ws)}` : null;
   },
   Panel,
   commentary: true,
   closed(verse, d, a) {
-    const who = writersLine(worksOn(d, verse));
+    const who = writersLine(d, verse, worksOn(d, verse));
     return { line: `${who.charAt(0).toUpperCase()}${who.slice(1)} wrote about ${refName(a, verse)}.`, button: 'Show what they wrote', source: SOURCE };
   },
 });
