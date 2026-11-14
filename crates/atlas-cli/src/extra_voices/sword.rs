@@ -243,23 +243,33 @@ fn entities(s: &str) -> String {
 }
 
 /// An entry's OSIS as paragraphs: `<title>` its own paragraph, a paragraph
-/// break at each `x-p`, `introduction` or `book` division, `<p>` and `<lb/>`,
-/// each `<reference osisRef>` a mark, and every other tag dropped with its
-/// words kept (counted by name in `dropped`).
+/// break at each `x-p`, `introduction` or `book` division, `<p>`, `<lb/>`,
+/// table row, list item and poetry line, each `<reference osisRef>` a mark,
+/// each `<note>` a mark "[1]" where it stands with its words as a paragraph
+/// "[1] ..." after the paragraph that holds it, and every other tag dropped
+/// with its words kept (counted by name in `dropped`).
 pub(super) fn osis(text: &str, dropped: &mut BTreeMap<String, usize>) -> Vec<Para> {
     let mut out: Vec<Para> = Vec::new();
     let mut cur = String::new();
     let mut title: Option<String> = None;
-    fn flush(out: &mut Vec<Para>, cur: &mut String, title: Option<String>) {
+    // The footnote being read, the ones waiting for their paragraph's end, and how many so far.
+    let mut foot: Option<String> = None;
+    let mut waiting: Vec<String> = Vec::new();
+    let mut feet = 0usize;
+    fn flush(out: &mut Vec<Para>, cur: &mut String, title: Option<String>, waiting: &mut Vec<String>) {
         let t = cur.split_whitespace().collect::<Vec<_>>().join(" ");
         cur.clear();
         if !t.is_empty() {
             out.push(Para { title, text: t });
         }
+        for f in waiting.drain(..) {
+            let t = f.split_whitespace().collect::<Vec<_>>().join(" ");
+            out.push(Para { title: None, text: t });
+        }
     }
     let mut rest = text;
     while let Some(i) = rest.find('<') {
-        cur.push_str(&entities(&rest[..i]));
+        foot.as_mut().unwrap_or(&mut cur).push_str(&entities(&rest[..i]));
         let Some(e) = rest[i..].find('>') else {
             rest = &rest[i..];
             break;
@@ -269,30 +279,45 @@ pub(super) fn osis(text: &str, dropped: &mut BTreeMap<String, usize>) -> Vec<Par
         let name: String = tag.trim_start_matches(['<', '/']).chars().take_while(|c| c.is_ascii_alphanumeric()).collect();
         let closing = tag.starts_with("</");
         match name.as_str() {
-            "title" if !closing => {
-                flush(&mut out, &mut cur, title.take());
-                title = Some(attr(tag, "type").unwrap_or("").to_string());
+            "note" if !closing && foot.is_none() => {
+                feet += 1;
+                cur.push_str(&format!("[{feet}]"));
+                foot = Some(format!("[{feet}] "));
             }
-            "title" => flush(&mut out, &mut cur, title.take()),
-            "div" => {
-                if matches!(attr(tag, "type"), Some("x-p" | "introduction" | "book" | "paragraph")) {
-                    flush(&mut out, &mut cur, title.take());
+            "note" if closing => {
+                if let Some(f) = foot.take() {
+                    waiting.push(f);
                 }
             }
-            "p" | "lb" => flush(&mut out, &mut cur, title.take()),
+            // Inside a footnote, a break is a space.
+            "title" | "div" | "p" | "lb" | "row" | "item" | "l" | "lg" | "list" | "table" if foot.is_some() => foot.as_mut().unwrap_or(&mut cur).push(' '),
+            "title" if !closing => {
+                flush(&mut out, &mut cur, title.take(), &mut waiting);
+                title = Some(attr(tag, "type").unwrap_or("").to_string());
+            }
+            "title" => flush(&mut out, &mut cur, title.take(), &mut waiting),
+            "div" => {
+                if matches!(attr(tag, "type"), Some("x-p" | "introduction" | "book" | "paragraph")) {
+                    flush(&mut out, &mut cur, title.take(), &mut waiting);
+                }
+            }
+            "p" | "lb" | "row" | "item" | "l" | "lg" | "list" | "table" => flush(&mut out, &mut cur, title.take(), &mut waiting),
+            "cell" => foot.as_mut().unwrap_or(&mut cur).push(' '),
             "reference" if !closing => match attr(tag, "osisRef") {
                 Some(r) => {
-                    cur.push_str("{{ref:");
-                    cur.push_str(r);
-                    cur.push('|');
+                    let at = foot.as_mut().unwrap_or(&mut cur);
+                    at.push_str("{{ref:");
+                    at.push_str(r);
+                    at.push('|');
                 }
                 None => *dropped.entry("reference without osisRef".into()).or_default() += 1,
             },
             "reference" => {
                 // Close the mark only where one was opened.
-                if let Some(o) = cur.rfind("{{ref:") {
-                    if !cur[o..].contains("}}") {
-                        cur.push_str("}}");
+                let at = foot.as_mut().unwrap_or(&mut cur);
+                if let Some(o) = at.rfind("{{ref:") {
+                    if !at[o..].contains("}}") {
+                        at.push_str("}}");
                     }
                 }
             }
@@ -300,8 +325,11 @@ pub(super) fn osis(text: &str, dropped: &mut BTreeMap<String, usize>) -> Vec<Par
             _ => *dropped.entry(name).or_default() += 1,
         }
     }
-    cur.push_str(&entities(rest));
-    flush(&mut out, &mut cur, title);
+    foot.as_mut().unwrap_or(&mut cur).push_str(&entities(rest));
+    if let Some(f) = foot.take() {
+        waiting.push(f);
+    }
+    flush(&mut out, &mut cur, title, &mut waiting);
     out
 }
 
@@ -420,5 +448,17 @@ mod tests {
             ]
         );
         assert_eq!(dropped.get("foreign"), Some(&2));
+    }
+
+    #[test]
+    fn puts_footnotes_after_their_paragraph() {
+        let mut dropped = BTreeMap::new();
+        let ps = osis(
+            r#"Thus far.<note placement="foot">See <reference osisRef="Gen.2.4">Gen 2:4</reference>; <hi type="italic">Ewald</hi>.</note> Then on. <div type="x-p"/>Next.<table><row><cell>a</cell><cell>b</cell></row><row><cell>c</cell></row></table>"#,
+            &mut dropped,
+        );
+        let texts: Vec<&str> = ps.iter().map(|p| p.text.as_str()).collect();
+        assert_eq!(texts, ["Thus far.[1] Then on.", "[1] See {{ref:Gen.2.4|Gen 2:4}}; Ewald.", "Next.", "a b", "c"]);
+        assert!(dropped.is_empty());
     }
 }

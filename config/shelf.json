@@ -320,11 +320,18 @@
       "title": "Biblical Commentary on the Old Testament",
       "by": "Carl Friedrich Keil and Franz Delitzsch",
       "when": "1800s",
-      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word, put into English in Edinburgh. The app links to it on Bible Hub.",
+      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word. Delitzsch wrote Job, Psalms, Proverbs, the Song and Isaiah, Keil the rest. At Deep.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "The 1864–78 English translation is public domain. This copy is CrossWire's KD module (version 2.0 of 3 August 2022), whose text came from Wikisource (CC BY-SA 3.0; its source document is not known), copied unchanged to a branch of this app's repository (mirror/sword-KD, commit d3bd6d4) on 14 November 2026; the files built from it are shared under CC BY-SA 4.0, crediting Wikisource contributors. Left out: introductions, Ecclesiastes (Delitzsch holds that Solomon did not write it), and passages that deny what the text says of its writer, each marked where it was.",
+      "datasets": [
+        "kd-commentary"
+      ],
+      "find": {
+        "url": "https://github.com/Sixteen1-6/BibleAtlas/blob/d3bd6d4eca7210a4c4014f0efecc453c18adf4ce/SOURCE.md",
+        "label": "the copied module (GitHub)"
+      },
       "read": {"url": "https://biblehub.com/commentaries/kad/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
-      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century).",
+      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century), read on Bible Hub (biblehub.com/commentaries/kad); the notes shown at Deep are Wikisource contributors' text of the English translation (CC BY-SA 3.0), from the CrossWire Bible Society's SWORD module KD, version 2.0, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-KD.",
       "cites": ["C. F. Keil and F. Delitzsch"],
       "layer": ["keil-delitzsch"]
     },
