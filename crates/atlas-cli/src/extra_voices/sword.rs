@@ -53,6 +53,9 @@ pub(super) struct Entry {
     pub(super) slot: Slot,
     pub(super) to: u16,
     pub(super) text: String,
+    /// Bytes that are not UTF-8, read by the DOS code page 437 instead
+    /// (Barnes's copy has a few of them).
+    pub(super) bad: usize,
 }
 
 /// The conf's fields, read with `\r` trimmed; a field given twice keeps its
@@ -116,6 +119,35 @@ fn u32_at(b: &[u8], i: usize) -> u32 {
     u32::from_le_bytes([b[i], b[i + 1], b[i + 2], b[i + 3]])
 }
 
+/// The upper half of the DOS code page 437, from 0x80.
+const CP437: &str = "ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒáíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■\u{a0}";
+
+/// The bytes as UTF-8, with each byte that is not part of a UTF-8 sequence
+/// read by code page 437; the count is of those bytes.
+pub(super) fn dos(raw: &[u8]) -> (String, usize) {
+    let mut text = String::new();
+    let mut bad = 0;
+    let mut rest = raw;
+    loop {
+        match std::str::from_utf8(rest) {
+            Ok(s) => {
+                text.push_str(s);
+                return (text, bad);
+            }
+            Err(e) => {
+                let (good, after) = rest.split_at(e.valid_up_to());
+                text.push_str(std::str::from_utf8(good).expect("checked"));
+                let n = e.error_len().unwrap_or(after.len());
+                for &b in &after[..n] {
+                    bad += 1;
+                    text.push(if b < 0x80 { char::from(b) } else { CP437.chars().nth(usize::from(b - 0x80)).expect("128 chars") });
+                }
+                rest = &after[n..];
+            }
+        }
+    }
+}
+
 /// One testament's entries, from its three files.
 fn testament(conf: &Conf, slots: &[Slot], index: &[u8], verses: &[u8], data: &[u8], name: &str) -> Result<Vec<Entry>, String> {
     if !index.len().is_multiple_of(12) {
@@ -172,9 +204,9 @@ fn testament(conf: &Conf, slots: &[Slot], index: &[u8], verses: &[u8], data: &[u
         let raw = bytes
             .get(offset as usize..(offset + size) as usize)
             .ok_or(format!("{name}: slot {k} runs past its block"))?;
-        let text = String::from_utf8(raw.to_vec()).map_err(|e| format!("{name}: slot {k}: {e}"))?;
+        let (text, bad) = dos(raw);
         let to = if let Slot::Verse(_, _, v) = slot { v } else { 0 };
-        out.push(Entry { slot, to, text });
+        out.push(Entry { slot, to, text, bad });
     }
     Ok(out)
 }
@@ -333,6 +365,57 @@ pub(super) fn osis(text: &str, dropped: &mut BTreeMap<String, usize>) -> Vec<Par
     out
 }
 
+/// An entry's ThML as paragraphs (Barnes): a paragraph break at each run of
+/// `<br />` and at each `<blockquote>`, each `<scripRef>` a mark
+/// `{{ref:<label>|<label>}}` (its label is a reference as the copy writes
+/// it, "Jn 6:33, 17:21", which the app reads from the start), `<i>` dropped
+/// with its words kept, control characters dropped, and every other tag
+/// dropped with its words kept (counted by name in `dropped`).
+pub(super) fn thml(text: &str, dropped: &mut BTreeMap<String, usize>) -> Vec<Para> {
+    let mut out: Vec<Para> = Vec::new();
+    let mut cur = String::new();
+    let flush = |out: &mut Vec<Para>, cur: &mut String| {
+        let t = cur.split_whitespace().collect::<Vec<_>>().join(" ");
+        cur.clear();
+        if !t.is_empty() {
+            out.push(Para { title: None, text: t });
+        }
+    };
+    // Where the open reference's label starts in `cur`.
+    let mut open: Option<usize> = None;
+    let mut rest = text;
+    let clean = |s: &str| entities(s).chars().filter(|c| !c.is_control() || c.is_whitespace()).collect::<String>();
+    while let Some(i) = rest.find('<') {
+        cur.push_str(&clean(&rest[..i]));
+        let Some(e) = rest[i..].find('>') else {
+            rest = &rest[i..];
+            break;
+        };
+        let tag = &rest[i..i + e + 1];
+        rest = &rest[i + e + 1..];
+        let name: String = tag.trim_start_matches(['<', '/']).chars().take_while(|c| c.is_ascii_alphanumeric()).collect();
+        let closing = tag.starts_with("</");
+        match name.as_str() {
+            "br" | "blockquote" if open.is_none() => flush(&mut out, &mut cur),
+            "scripRef" if !closing && open.is_none() => open = Some(cur.len()),
+            "scripRef" if closing => {
+                if let Some(o) = open.take() {
+                    let label = cur[o..].split_whitespace().collect::<Vec<_>>().join(" ");
+                    cur.truncate(o);
+                    if !label.is_empty() {
+                        cur.push_str(&format!("{{{{ref:{label}|{label}}}}}"));
+                    }
+                }
+            }
+            "i" | "br" | "blockquote" | "scripRef" => {}
+            _ => *dropped.entry(name).or_default() += 1,
+        }
+    }
+    cur.push_str(&clean(rest));
+    flush(&mut out, &mut cur);
+    out
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -460,5 +543,21 @@ mod tests {
         let texts: Vec<&str> = ps.iter().map(|p| p.text.as_str()).collect();
         assert_eq!(texts, ["Thus far.[1] Then on.", "[1] See {{ref:Gen.2.4|Gen 2:4}}; Ewald.", "Next.", "a b", "c"]);
         assert!(dropped.is_empty());
+    }
+
+    #[test]
+    fn reads_dos_bytes() {
+        assert_eq!(dos(b"or \x9c5 and Kuin\x94el, 30\xf8"), ("or \u{a3}5 and Kuin\u{f6}el, 30\u{b0}".to_string(), 3));
+        assert_eq!(dos("caf\u{e9}".as_bytes()), ("caf\u{e9}".to_string(), 0));
+        assert_eq!(CP437.chars().count(), 128);
+    }
+
+    #[test]
+    fn reads_thml() {
+        let mut d = BTreeMap::new();
+        let ps = thml("Verse 16. <i>For God</i> so loved. See <scripRef passage=\"Jn 6:33\">Jn 6:33, 17:21</scripRef>.<br /><br /> <blockquote>A line\u{14}</blockquote>(n) <b>x</b>", &mut d);
+        let t: Vec<&str> = ps.iter().map(|p| p.text.as_str()).collect();
+        assert_eq!(t, ["Verse 16. For God so loved. See {{ref:Jn 6:33, 17:21|Jn 6:33, 17:21}}.", "A line", "(n) x"]);
+        assert_eq!(d.get("b"), Some(&2));
     }
 }

@@ -237,6 +237,9 @@ pub(super) fn kd(root: &Path, inputs: &crate::sources::Inputs, vz: &Versificatio
     let cfg = config(root)?;
     writers_of(&cfg)?;
     let (conf, entries) = sword::read(inputs, KD, vz)?;
+    if let Some(e) = entries.iter().find(|e| e.bad > 0) {
+        return Err(format!("{KD}: {:?} holds {} bytes that are not UTF-8", e.slot, e.bad));
+    }
     if conf.license != "Public Domain" || conf.source_type != "OSIS" || conf.version != "2.0" || conf.date != "2022-08-03" {
         return Err(format!(
             "{KD}: the conf says {} {} {} {}; expected Public Domain, OSIS, version 2.0 of 2022-08-03",

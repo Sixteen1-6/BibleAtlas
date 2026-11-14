@@ -342,11 +342,13 @@
       "title": "Notes, Explanatory and Practical, on the New Testament",
       "by": "Albert Barnes, Presbyterian minister, Philadelphia",
       "when": "1832 (the Gospels) to 1851 (Revelation, its copyright year)",
-      "what": "Verse-by-verse notes on the New Testament, written for Sunday-school teachers and Bible classes. Bible Hub shows them as \"Barnes' Notes\"; the app links there.",
+      "what": "Verse-by-verse notes on the New Testament, written for Sunday-school teachers and Bible classes. Bible Hub shows them as \"Barnes' Notes\". All of it shows at Deep, verse by verse.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "Public domain, as the CrossWire SWORD module (Barnes, version 1.1, dated 2002-01-01) marks it. The module names no source and no printing; its notes seem to follow a printing later than 1858, which it does not name. It is copied unchanged from crosswire.org to a branch of this app's repository (mirror/sword-Barnes, commit 85bb86f), copied into the app on 14 November 2026. A few letters the module keeps in an old DOS code page are put right (config/voices/barnes-nt.json). Left out: his prefaces and introductions to the books, the module's verse labels and lists of references keyed to the King James text, and passages that say a word of Scripture is a mistake, each marked where it was.",
+      "datasets": ["barnes-nt"],
+      "find": {"url": "https://github.com/Sixteen1-6/BibleAtlas/blob/85bb86f682828a2f9d791bb6f5c43b60761c9502/SOURCE.md", "label": "the copied module (GitHub)"},
       "read": {"url": "https://archive.org/details/notesexplanatory01inbarn", "label": "archive.org, the Gospels volume"},
-      "citation": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (New York, 1832 onward), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "citation": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (New York, 1832 onward), read on Bible Hub (biblehub.com/commentaries/barnes); the notes shown at Deep are from the CrossWire Bible Society's SWORD module Barnes, version 1.1, which names no printing, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-Barnes.",
       "layer": ["barnes-nt"]
     },
     {

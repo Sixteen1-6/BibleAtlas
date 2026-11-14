@@ -506,6 +506,24 @@
       "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-JFB (SOURCE.md there lists the hashes). Each note is placed on the verse the module gives it, or on the verses it links it to; the general, book and chapter introductions are left out, with the passages config/voices/jfb.json lists."
     },
     {
+      "id": "barnes-nt",
+      "title": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament, from the CrossWire SWORD module Barnes 1.1, mirrored unchanged on this repository's branch mirror/sword-Barnes",
+      "provides": "Albert Barnes's notes on the New Testament: shown at Deep under the verses each note is on, once a reader chooses to see writers' notes.",
+      "license": "Public domain (1832 to 1852; the SWORD module marks it 'Public Domain').",
+      "attribution": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (1832 to 1852), in a printing after 1858 that this copy does not name, public domain; from the CrossWire Bible Society's SWORD module Barnes, version 1.1 (dated 2002-01-01), which names no source; copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-Barnes, on 2026-11-14.",
+      "homepage": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=Barnes",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "85bb86f682828a2f9d791bb6f5c43b60761c9502",
+      "files": {
+        "conf": "mods.d/barnes.conf",
+        "nt-czs": "modules/comments/zcom/barnes/nt.czs",
+        "nt-czv": "modules/comments/zcom/barnes/nt.czv",
+        "nt-czz": "modules/comments/zcom/barnes/nt.czz",
+        "source": "SOURCE.md"
+      },
+      "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-Barnes (SOURCE.md there lists the hashes and the license notice). Its \"Verse 16.\" labels are left out, with the passages config/voices/barnes-nt.json lists."
+    },
+    {
       "id": "kd-commentary",
       "title": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament (English, Edinburgh: T. and T. Clark, 1864–78), from the CrossWire SWORD module KD 2.0, whose text came from Wikisource, mirrored unchanged on this repository's branch mirror/sword-KD",
       "provides": "The two scholars' notes on the Old Testament: shown at Deep under the verses each note is on, once a reader chooses to see writers' notes, each under the name of the one of the two who wrote that book.",
