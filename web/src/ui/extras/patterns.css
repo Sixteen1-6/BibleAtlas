@@ -1,0 +1,134 @@
+/* Patterns. Every class starts with x-patterns-. It shares the figures'
+   violet (figures.css defines --x-figures-*), since both show how Scripture
+   is written. Marks are underlined as well as tinted, so the meaning never
+   rests on colour alone. */
+
+.xt-line[data-x='patterns'] .xt-words::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border: 1.5px dashed var(--x-figures-ink);
+  border-radius: 50%;
+  vertical-align: 0;
+}
+
+.x-patterns-side h4,
+.x-patterns-telling h4 {
+  margin: 4px 0 4px;
+  font: 600 15px/1.4 var(--font-ui);
+}
+.x-patterns-side ul {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+.x-patterns-side li {
+  margin: 0 0 10px;
+  padding-left: 10px;
+  border-left: 2px solid var(--x-figures-ink);
+}
+.x-patterns-ref {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 13px/1.4 var(--font-ui);
+  color: var(--accent);
+  cursor: pointer;
+}
+.x-patterns-ref:focus-visible,
+.x-patterns-plain:focus-visible,
+.x-patterns-parts button:focus-visible {
+  outline: 2px solid var(--x-figures-ink);
+  outline-offset: 2px;
+}
+.x-patterns-words {
+  margin: 2px 0 0;
+  font: 16px/1.55 var(--font-read);
+  color: var(--ink);
+}
+.x-patterns-plain {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+.x-patterns-mark {
+  background: var(--x-figures-tint);
+  color: inherit;
+  text-decoration: underline var(--x-figures-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  border-radius: 2px;
+}
+.x-patterns-count {
+  margin: 10px 0 6px;
+  font: 15px/1.5 var(--font-ui);
+}
+.x-patterns-verses {
+  list-style: none;
+  margin: 0 0 6px;
+  padding: 0;
+}
+.x-patterns-verses li {
+  margin: 0 0 10px;
+}
+.x-patterns-hint,
+.x-patterns-what {
+  margin: 6px 0;
+  font: 13px/1.5 var(--font-ui);
+  color: var(--muted);
+}
+.x-patterns-parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 10px;
+}
+.x-patterns-parts button {
+  min-height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--x-figures-ink);
+  border-radius: 16px;
+  background: none;
+  color: var(--ink);
+  font: 13px/1.3 var(--font-ui);
+  cursor: pointer;
+}
+.x-patterns-parts button[aria-pressed='true'] {
+  background: var(--x-figures-tint);
+  font-weight: 600;
+}
+.x-patterns-tellings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.x-patterns-telling {
+  margin: 0 0 14px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.x-patterns-telling dl {
+  margin: 4px 0 0;
+}
+.x-patterns-telling dl > div {
+  padding: 4px 6px;
+  border-left: 2px solid transparent;
+  border-radius: 4px;
+}
+.x-patterns-telling dl > div.lit {
+  background: var(--x-figures-tint);
+  border-left-color: var(--x-figures-ink);
+}
+.x-patterns-telling dt {
+  font: 600 12px/1.4 var(--font-ui);
+  color: var(--muted);
+}
+.x-patterns-telling dd {
+  margin: 0;
+}

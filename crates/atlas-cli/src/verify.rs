@@ -75,6 +75,7 @@ pub fn run(root: &Path, out: &Path) -> Result<(), String> {
     for (ok, what) in crate::extra_hard_verses::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_figures::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_structure::verify(&d)? { r.check(ok, what); }
+    for (ok, what) in crate::extra_patterns::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_prophecies::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::extra_grammar::verify(&d)? { r.check(ok, what); }
     for (ok, what) in crate::world::verify(&d)? { r.check(ok, what); }
