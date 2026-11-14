@@ -16,7 +16,7 @@ import './ask.css';
 import { createPortal } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, langName, locate, verseIndex } from '../../data/atlas';
-import { plainText } from '../../data/plain';
+import { loadExtraText, loadPlainText, plainText } from '../../data/plain';
 import { wordPieces } from '../../data/search';
 import { ALL_VOTES, linksWithinRows } from '../../data/thread';
 import { atLeast, deepen } from '../../depth';
@@ -296,8 +296,11 @@ function QuestionBody({ a, asked, typed }: { a: Atlas; asked: Asked & { kind: 'q
 function LiveBody({ a, text }: { a: Atlas; text: string }) {
   const ix = askIndex.value;
   // The words that point to each prepared question, and what people mean by
-  // theirs, load with the first one typed.
-  const ready = useAsync('signals', () => Promise.all([loadSignals(a), loadMeaning(a).catch(() => null)]));
+  // theirs, load with the first one typed; so do the BSB, KJV and ASV
+  // wording search has loaded already, to find a verse quoted in them.
+  const ready = useAsync('signals', () =>
+    Promise.all([loadSignals(a), loadMeaning(a).catch(() => null), loadPlainText(a).catch(() => null), loadExtraText(a).catch(() => null)]),
+  );
   if (ready === undefined) return <p class="xt-lead xt-wait">Finding the verses…</p>;
   const q = ix ? route(ix, text, a) : null;
   return q ? <QuestionBody a={a} asked={{ kind: 'question', q }} typed={text} /> : <GatheredBody a={a} text={text} />;

@@ -16,6 +16,7 @@ import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
 import { citedVerses, namedChapters } from './books';
 import { likelihood, meanings, usesModel } from './meaning';
+import { QUOTE, quotedVerses } from './quote';
 import { isAsking, terms } from './words';
 
 /** The everyday words that point to each question ("layoffs", "chemo"), in
@@ -159,12 +160,15 @@ function holds(q: Question, vs: number[]): boolean {
 /** The prepared question that plainly answers `text`, or null. With the atlas,
  * a question that cites a verse ("my wife swears proverbs 16:31 says ...")
  * opens only an answer that holds it: its numbers are not words ("31" is not
- * Proverbs 31), and gathering shows the verse first. */
+ * Proverbs 31), and gathering shows the verse first. So does a question that
+ * quotes one ("god is not the author of confusion but babel ..."), once the
+ * BSB's plain text has loaded. */
 export function route(ix: AskIndex, text: string, a?: Atlas): Question | null {
   // Asked as one of its ways, word for word.
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
-  const cited = a ? citedVerses(a, text) : [];
+  const named = a ? citedVerses(a, text) : [];
+  const cited = a && !named.length && QUOTE.route ? quotedVerses(a, text) : named;
   const chapters = a && NAMED.chapter && !cited.length ? namedChapters(a, text) : [];
   const fits = (q: Question) =>
     cited.length ? holds(q, cited) : !chapters.length || chapters.some(([from, to]) => q.r.some(([s, e]) => s < to && e >= from));
