@@ -802,6 +802,52 @@
       "cites": ["TBESG, Translators Brief lexicon"]
     },
     {
+      "id": "step-morph",
+      "group": "word-books",
+      "plain": "What each grammar tag on a word stands for",
+      "title": "Translators Expansion of Greek and Hebrew Morphology Codes (TEGMC, TEHMC)",
+      "by": "STEPBible.org, based on work at Tyndale House, Cambridge",
+      "when": "kept up to date",
+      "what": "For every grammar tag on a Greek, Hebrew or Aramaic word: the form's parts in words, what the form means and an example. The Word choice notes show its line with each verb.",
+      "license": "cc-by-4.0",
+      "datasets": ["step-morph"],
+      "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes", "label": "the data files (GitHub)"},
+      "citation": "STEPBible, TEGMC: Translators Expansion of Greek Morphology Codes, and TEHMC: Translators Expansion of Hebrew Morphology Codes. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: November 2026.",
+      "cites": ["STEPBible's expansion of each grammar tag"]
+    },
+    {
+      "id": "robertson-short-grammar",
+      "group": "word-books",
+      "plain": "Greek grammar of the New Testament, 1908",
+      "title": "A Short Grammar of the Greek New Testament",
+      "by": "A. T. Robertson, professor of New Testament interpretation at the Southern Baptist Theological Seminary",
+      "when": "1908 (third edition)",
+      "what": "A grammar of New Testament Greek for students. The Word choice notes quote its own sentences on what a tense, voice or mood conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+        "label": "archive.org, third edition"
+      },
+      "citation": "A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; copyright 1908), read on archive.org (archive.org/details/shortgrammarofgr00robeuoft)."
+    },
+    {
+      "id": "green-hebrew-grammar",
+      "group": "word-books",
+      "plain": "Hebrew grammar of the Old Testament, 1861",
+      "title": "A Grammar of the Hebrew Language",
+      "by": "William Henry Green, professor in the Theological Seminary at Princeton",
+      "when": "1861 (second edition)",
+      "what": "A full grammar of Biblical Hebrew. The Word choice notes quote its own sentences on what a Hebrew verb form or pattern conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/grammarofhebrew00gree",
+        "label": "archive.org, second edition"
+      },
+      "citation": "William Henry Green, A Grammar of the Hebrew Language, second edition, with corrections and copious indexes (New York: John Wiley, 1861), read on archive.org (archive.org/details/grammarofhebrew00gree)."
+    },
+    {
       "id": "tflsj",
       "group": "word-books",
       "plain": "Greek dictionary, 1843–1940",

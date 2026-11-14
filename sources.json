@@ -379,6 +379,20 @@
       "files": { "tbesg": "Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt" }
     },
     {
+      "id": "step-morph",
+      "title": "STEPBible TEGMC and TEHMC (Expansions of the Greek and Hebrew Morphology Codes)",
+      "provides": "What each grammar tag on a Greek, Hebrew or Aramaic word stands for, in STEPBible's own words: the form's parts, what it means and an example. Shown with each verb in the Word choice notes.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "greek": "Morphology codes/TEGMC - Translators Expansion of Greek Morphhology Codes - STEPBible.org CC BY.txt",
+        "hebrew": "Morphology codes/TEHMC - Translators Expansion of Hebrew Morphology Codes - STEPBible.org CC BY.txt"
+      }
+    },
+    {
       "id": "clear-align",
       "title": "Clear Bible BSB word alignments",
       "provides": "Hand-made links from each Hebrew, Aramaic and Greek word to the BSB English words that translate it (Hebrew from the WLC as tokenized by Macula, Greek from the Berean Greek New Testament). Used to color matching words in word-by-word mode.",
