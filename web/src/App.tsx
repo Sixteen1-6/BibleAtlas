@@ -19,7 +19,7 @@ import { installPointing } from './ui/pointing';
 import { lightTheme } from './ui/ThemeThread';
 import { noticeOpen } from './ui/commentary/state';
 import { Wheel } from './ui/Wheel';
-import { sharePicture } from './ui/share';
+import { ShareDialog, shareOpen } from './ui/ShareDialog';
 import { WordStudy } from './ui/WordStudy';
 
 /** The English versions on offer: the ESV only where its server runs. */
@@ -293,15 +293,15 @@ export function App() {
             {THEME_ICON[S.pageTheme.value]}
             <span class="optlabel">{THEME_NAME[S.pageTheme.value]}</span>
           </button>
-          {!wheel && S.mapShown.value !== 'hide' && !S.panelWide.value && (
+          {!S.panelWide.value && (
             <button
               class="iconbtn themebtn sharebtn"
               onClick={() => {
                 S.viewMenu.value = false;
-                void sharePicture(a);
+                shareOpen.value = true;
               }}
-              title="Share the map, with the selected verse, as a picture"
-              aria-label="Share the map as a picture"
+              title="Share the selected verse, with its links on the map, as a picture"
+              aria-label="Share as a picture"
             >
               {SHARE_ICON}
               <span class="optlabel">Share as a picture</span>
@@ -355,6 +355,7 @@ export function App() {
       </main>
       {S.paletteOpen.value && <Palette a={a} />}
       <AskSheet a={a} />
+      {shareOpen.value && <ShareDialog a={a} />}
     </div>
   );
 }
