@@ -1,6 +1,6 @@
 export const meta = {
   name: 'ask-fresh-questions-15',
-  description: 'Write about 520 new never-seen things people type into Ask the Bible, held out blind for the round 14 main-versus-branch test',
+  description: 'Write about 520 new never-seen things people type into Ask the Bible, held out blind for the round 15 main-versus-branch test',
   phases: [{ title: 'Write', detail: '10 writers: 5 kinds of askers x 2 voices, each with its own angle' }],
 }
 const S = args.dir
