@@ -22,10 +22,16 @@ export type Run = string | [number, number, string];
 /** A note's words: one string, or words and verse names. Paragraphs are
  * split by a blank line. */
 export type Text = string | Run[];
-/** One note: [work, first verse, last verse, voices], each voice [who, text];
- * `who` is a Father's name in the Catena, a heading such as "Henry's notes on
- * 2 Kings 18:17-37" where Henry sends the reader to another passage, else "". */
-export type Item = [number, number, number, [string, Text][]];
+/** One note: [work, first verse, last verse, voices, left], each voice [who,
+ * text]; `who` is a Father's name in the Catena, a heading such as "Henry's
+ * notes on 2 Kings 18:17-37" where Henry sends the reader to another passage,
+ * or "Calvin's notes on Matthew 3:13-17, in his Harmony of the Gospels", else
+ * "". `left`, when there, says why a passage of the note is left out; the
+ * note shows "[passage left out]" where it was. */
+export type Item = [number, number, number, [string, Text][], string[]?];
+
+/** What stands in a note where a passage is left out. */
+export const LEFT_OUT = '[passage left out]';
 
 /** web/public/data/extras/voices/<Book>.<k>.json. */
 export interface PartFile {
@@ -37,6 +43,8 @@ export interface PartFile {
 export interface Work {
   /** How the line names the work. */
   short: string;
+  /** How the line names it when the full names make the line too long. */
+  brief: string;
   /** The heading over its notes. */
   name: string;
   /** Under the heading: the book and when it was written. */
@@ -47,27 +55,37 @@ export interface Work {
 
 /** The panel's source line. */
 export const SOURCE =
-  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s Concise Commentary and John Wesley’s Notes, from the CrossWire SWORD modules via Let’s Church.';
+  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s Concise Commentary, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English, transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church.';
 
-/** The works, oldest first, in the order the build numbers them. */
+/** The works, in the order the build numbers them (oldest first is OLDEST_FIRST). */
 export const WORKS: readonly Work[] = [
   {
     short: 'the Church Fathers',
+    brief: 'the Church Fathers',
     name: 'The Church Fathers',
     book: 'As Thomas Aquinas gathered them in the Catena Aurea (the Golden Chain), 1260s; translated 1841–45',
     shelf: 'catena-aurea',
   },
   {
     short: 'Matthew Henry',
+    brief: 'Henry',
     name: 'Matthew Henry',
     book: 'Concise Commentary on the Whole Bible, from his commentary of 1706–21',
     shelf: 'henry-concise',
   },
   {
     short: 'John Wesley',
+    brief: 'Wesley',
     name: 'John Wesley',
     book: 'Explanatory Notes on the Old and New Testaments, 1755–66',
     shelf: 'wesley-notes',
+  },
+  {
+    short: 'John Calvin',
+    brief: 'Calvin',
+    name: 'John Calvin',
+    book: 'Commentaries on the New Testament, written 1540–64 (the dates the copy gives his commentaries); in the Calvin Translation Society’s English, from 1844',
+    shelf: 'calvin-commentaries',
   },
 ];
 
@@ -82,10 +100,13 @@ export async function load(a: Atlas): Promise<Data> {
   return { a, has: file.has, parts: file.parts };
 }
 
+/** The works by when they were written: the Fathers, Calvin, Henry, Wesley. */
+export const OLDEST_FIRST: readonly number[] = [0, 3, 1, 2];
+
 /** The works with a note on a verse, oldest first. */
 export function worksOn(d: Data, verse: VerseRef): number[] {
   const bits = (d.has.charCodeAt(verse) || 48) - 48;
-  return WORKS.map((_, w) => w).filter((w) => bits & (1 << w));
+  return OLDEST_FIRST.filter((w) => bits & (1 << w));
 }
 
 /** The file that holds a verse's notes, or null if it has none. */
@@ -119,4 +140,11 @@ export function nameFrom(a: Atlas, verse: VerseRef, from: VerseRef, to: VerseRef
 /** The words of a list: "a", "a and b", "a, b and c". */
 export function listWords(xs: readonly string[]): string {
   return xs.length < 2 ? (xs[0] ?? '') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`;
+}
+
+/** The writers on a verse as the line names them: in full, or by surname
+ * when the full names would make the line longer than about 70 characters. */
+export function writersLine(ws: readonly number[]): string {
+  const full = listWords(ws.map((w) => WORKS[w].short));
+  return full.length <= 50 ? full : listWords(ws.map((w) => WORKS[w].brief));
 }

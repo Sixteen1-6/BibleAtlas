@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-11-07 at 16:17 UTC, against `main` at `9210e49` (the merge of #88). The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-11-14 at 15:00 UTC, against `main` at `5d27a47` (the merge of #89). The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
@@ -18,14 +18,14 @@ Section 0 is true only while these three commands still give the values shown. T
 
 ```
 git ls-remote https://github.com/Sixteen1-6/BibleAtlas.git refs/heads/main
-#   expect the merge of Ask's round 13 PR from claude/ask-the-bible-u6macl (1,745 prepared answers), or a later merge:
-#   git log --oneline <that merge>..origin/main lists what came after; before it, 9210e49 (#88, guided tours)
+#   expect the merge of the Calvin PR from claude/project-thread-7xwpts (John Calvin's notes at Deep), or a later merge:
+#   git log --oneline <that merge>..origin/main lists what came after; before it, 5d27a47 (#89, Ask round 13)
 gh pr list --repo Sixteen1-6/BibleAtlas --state open
 #   expect none, or the docs PR that rewrites this section until it merges,
 #   or #80 (13 more structures at Deep), the Ask session's next round, or the Layers session's next figure notes
 curl -s https://everyversemap.com/data/meta.json | grep -o '"buildId": *"[^"]*"'
-#   expect "78f3ca96f52f" from Ask's round 13 merge (a full local build of its head on 9210e49; if #80 merged first,
-#   the id differs: take the Pages log's id); before it, "4b5f5f73f8e3" from #88's merge (Pages run 42390038059)     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
+#   expect "5cfffd33737b" from the Calvin PR's merge (a full local build of its head on 5d27a47; if another data PR
+#   merged first, take the Pages log's id); before it, "78f3ca96f52f" from #89's merge (Pages run 42391083631)     (PowerShell: (Invoke-RestMethod https://everyversemap.com/data/meta.json).buildId)
 ```
 
 If any value differs, read what changed before acting: `gh pr list --repo Sixteen1-6/BibleAtlas --state all --limit 5` and `git log origin/main`. Then rewrite section 0.
@@ -51,7 +51,10 @@ Terms used throughout:
 - **Layers** means the "Layers of meaning" notes on wordplay, names, allusions and so on.
 - **Ask** means "Ask the Bible".
 
-## 0. State on 2026-11-07
+## 0. State on 2026-11-14
+
+**John Calvin's notes at Deep (this PR, `claude/project-thread-7xwpts`, the first of the writers in `docs/local-work/2026-10-20/voices/VOICES-BUILD-SPEC.md`, section 5.1, under decision 23).** The Christian writers panel gains a fourth work: Calvin's commentaries on 21 books of the New Testament, from the pinned `calvin-commentaries` file (already in `sources.json`, until now read only for the prophecy quotes). `crates/atlas-cli/src/extra_voices/calvin.rs` reads it: section headings in every form the copy uses, the verses printed after them in English and Latin, each book's closing heading and what follows (indexes, Arguments, dedications, Calvin's own version, the translators' additions) and the translator's note at 1 Corinthians 16:22 are cut; seven entries filed on the wrong verse are moved (`MOVES`) and the build fails on any new one; broken paragraphs are joined; on Mark and Luke, a passage the copy has no note of his on shows his Harmony notes on the Matthew parallel (155 passages). 1 and 2 Timothy and Titus are left out (the copy keeps only the start of each chapter) and the Old Testament waits. The Scripture check (spec section 2.5's patterns, every hit read in full, `docs/voices/checks/calvin-commentaries.md`) found 15 passages in 11 notes that say a word of Scripture as the BSB prints it is a mistake (Matthew 27:9, John 1:28, Acts 7:14, 7:16 and 7:43, Luke 2:14, 2 Corinthians 1:17, 2 Thessalonians 2:4, James 4:7, 1 John 2:23, Jude 1:1); `config/voices/calvin-commentaries.json` lists them, each shown as "[passage left out]" with "A passage is left out here until a decision on it is made." (decision 23, rule 5: Shubhanshu makes them final). Output: work 3 in `extras/voices/`, bit 8 in `has`, an optional fifth element on an item for its left-out lines; the panel lists the works oldest first (the Fathers, Calvin, Henry, Wesley) and the line uses surnames when the full names would pass 70 characters. 5,014 Calvin notes; three new verify checks. Shelf card, `NOTICE.md` and `sources.json` updated. A full local build on `5d27a47` gives `5cfffd33737b` and "6713 checks passed". Next in the spec: Matthew Henry's complete commentary.
+
 
 **Ask round 13 (this PR, `claude/ask-the-bible-u6macl`).** Two gaps #62's round found, and Shubhanshu's ask of 2026-11-01 ("Make it way better"). (1) A message that cites a verse ("my wife swears proverbs 16:31 says ...") opens a prepared answer only when that answer's chain holds the verse; otherwise Ask gathers, which shows the cited verse first and then its chapter (`web/src/ui/ask/route.ts`; the book and verse naming moves from `gather.ts` to `books.ts`). An exact phrasing still opens as before. (2) 161 new prepared answers to plain questions of fact: "who killed Jesus", "what day did Jesus die" and the people, places and events from Genesis to Acts, each a chain of whole BSB verses tied by the build like every other answer. 1,584 prepared answers become 1,745 in `config/questions.json`, and `config/ask-examples.json` holds 70,759 examples, of which the matcher finds its own question for 78.2% (the build's floor is 70%). Each answer was drafted from the verses, then read by two reviewers before it was applied: one read every part in its context and checked that it states the fact asked (on who killed Jesus, the Bible's whole witness, never a verse blaming one people first), the other that it takes no message an existing answer serves better. The sureness thresholds stay as they were. Judged blind on 520 never-seen messages (`eval/ask/sets/blind-fresh13-520.json`), `main` at `fe24b91` against the branch the same day: answered 310 to 340, answering verses 701 to 781, off verses 1,010 of 3,108 to 889 of 3,098 (32.5% to 28.7%); plain facts 42 to 58 answered, off 50.8% to 36.5%. The sets, verdicts and scripts are in `eval/ask/` (round r13 in its README); the next blind set must leave out `eval/ask/sets/seen15-6928.txt`. Config and site code; the build id moves: a full local build of its head on `9210e49` gave `78f3ca96f52f` and "6614 checks passed" (161 more than `main`'s 6,453). Since 16:16:13 UTC on 2026-11-07 the site serves `9210e49` (#88), Pages run 42390038059: its log shows "build 4b5f5f73f8e3", "6453 checks passed" and `assets/index-Bxy2baCz.js`. Before it, from 15:49:40 UTC, `a250738` (#87), Pages run 42387928483, build `31e6bb00f1b8`, "6450 checks passed".
 
