@@ -20,7 +20,7 @@
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
 
-import type { Atlas } from '../../data/atlas';
+import { type Atlas, locate } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { type AskIndex, type Question, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
@@ -673,32 +673,8 @@ const FIT = {
   rows: 80,
 };
 
-/** How many of a question's words are looked for, with its phrases, and which
- * when it has more: the first (`first`); those the BSB uses before those it
- * does not (`bible`); or, of those, the rarer first (`rare`). */
-export const PICK = { max: 8, way: 'first' };
-
-/** The verses a word and its Bible words are in, at most: for choosing. */
-function reachOf(a: Atlas, w: string): number {
-  if (/^\d+$/.test(w)) return 1;
-  const bible = BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? [];
-  const forms = new Set(INSTEAD.has(w) ? [] : formsOf(a.englishWords, w, true));
-  for (const x of bible) for (const p of x.split(' ')) for (const f of formsOf(a.englishWords, p, false)) forms.add(f);
-  let n = 0;
-  for (const f of forms) {
-    const i = lowerBound(a.englishWords, f);
-    if (a.englishWords[i] === f) n += a.eOff[i + 1] - a.eOff[i];
-  }
-  return n;
-}
-
-function pick(a: Atlas, ws: string[], room: number): string[] {
-  if (ws.length <= room || PICK.way === 'first') return ws.slice(0, room);
-  const n = ws.map((w) => reachOf(a, w));
-  const rank = (k: number) => (PICK.way === 'rare' ? (n[k] ? (n[k] < a.n * 0.2 ? n[k] : a.n + n[k]) : 3 * a.n) : n[k] ? k : ws.length + k);
-  const keep = new Set(ws.map((_, k) => k).sort((x, y) => rank(x) - rank(y) || x - y).slice(0, room));
-  return ws.filter((_, k) => keep.has(k));
-}
+/** How many verses on each side of a cited verse come right after it. */
+export const AROUND = { reach: 2 };
 
 /** For the eval scripts (eval/ask/scripts/r12/): what FIT weighed for each
  * verse of the last question gathered. Off in the app. */
@@ -732,11 +708,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const toks = rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   const { named, used } = namedBooks(a, toks);
   rest = toks.filter((w, i) => !used.has(i) && !VERSE_AT.test(w) && !VERSE_TILL.test(w)).join(' ');
-  const words = [...new Set(contentWords(rest))]
+  const ws = [...new Set(contentWords(rest))]
     // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
-    .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)));
-  const ws = pick(a, words, Math.max(0, PICK.max - phrases.length));
+    .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
+    .slice(0, Math.max(0, 8 - phrases.length));
   const n = a.n;
 
   // 1. Concepts and the BSB words for each.
@@ -979,6 +955,17 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // chapters of a named book come last, as most were about something else.
   const cites: number[] = [];
   for (const b of named) if (b.verse) for (let v = b.from; v < b.to; v++) if (!texts || texts[v]) cites.push(v);
+  // Then the verses on either side of it, the nearest first: read blind, the
+  // verse just before or after a cited verse answered the asker far more often
+  // than the rest of its chapter. Not among Solomon's proverbs (Proverbs 10 to
+  // 29), where each saying stands alone.
+  const sayings = (v: number) => {
+    const l = locate(a, v);
+    return a.books[l.book].name === 'Proverbs' && l.chapter >= 10 && l.chapter <= 29;
+  };
+  const around: number[] = [];
+  for (let d = 1; d <= AROUND.reach; d++)
+    for (const b of named) if (b.verse && !sayings(b.from)) for (const v of [b.to - 1 + d, b.from - d]) if (within(v, chapters) && (!texts || texts[v])) around.push(v);
   const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
   // Otherwise FIT orders those SHOW ranks and the best found.
   const rows = [...new Set([...pool, ...found.slice(0, FIT.rows)])];
@@ -1003,7 +990,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const xs = named.length ? [] : rows.map(known);
   const fit = xs.map((x) => logistic(FIT.answers, x) - FIT.offWeight * logistic(FIT.off, x));
   const first = named.length
-    ? [...cites, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
+    ? [...cites, ...around, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
     : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
   const put = new Set(first);
   const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);
