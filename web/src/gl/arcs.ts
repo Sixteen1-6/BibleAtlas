@@ -538,6 +538,19 @@ const STILL: Look = { fade: 1, grow: 0, time: 0, front: 1e3, soft: 1e-3, pulse: 
 
 /** Every field made on this page, so ones whose canvas has gone can be freed. */
 const fields = new Set<ArcField>();
+
+/** Draw a settled frame on the field drawing to `canvas`, so the caller can
+ * copy it (drawImage) before returning to the event loop. For the share
+ * picture (ui/share.ts). False when no field draws there. */
+export function settle(canvas: HTMLCanvasElement): boolean {
+  for (const f of fields) {
+    if (f.drawsTo(canvas)) {
+      f.renderSettled();
+      return true;
+    }
+  }
+  return false;
+}
 /** Only the page's first map plays the long reveal. */
 let firstField = true;
 let lightPage = false;
@@ -766,6 +779,10 @@ export class ArcField {
    *  readPixels) before returning to the event loop, since the browser may
    *  clear it once the frame is shown. Animations carry on afterwards. For
    *  Phase 2's share image. */
+  drawsTo(canvas: HTMLCanvasElement): boolean {
+    return this.canvas === canvas;
+  }
+
   renderSettled(): void {
     if (this.disposed || this.lost) return;
     this.finishReveal();

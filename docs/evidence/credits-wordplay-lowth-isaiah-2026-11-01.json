@@ -1,0 +1,27 @@
+{
+  "_comment": [
+    "Who wrote the words of Lowth's Isaiah (1795, third edition), the second work of the lowth source, as read on archive.org on 2026-11-01."
+  ],
+  "kind": "attribution",
+  "from": "2026-11-01",
+  "to": "2026-11-01",
+  "records": [
+    {
+      "id": "lowth-isaiah",
+      "source": "lowth",
+      "work": "lowth-isaiah",
+      "books": "all",
+      "writers": [
+        "robert-lowth"
+      ],
+      "named_by": {
+        "scan": "isaiahnewtransla01lowt",
+        "leaf": "title page",
+        "words": "BY ROBERT LOWTH, D. D."
+      },
+      "level": "title page",
+      "note": "Third edition, 1795. Two lines below, the title page names him 'Lord Bishop of London' (OCR 'Londq^'). Wikipedia gives the first edition as 1778; no printing before 1795 was found on archive.org. William Lowth, whose 1714 commentary on the prophets the same archive.org search lists, is a different writer and is never credited here."
+    }
+  ],
+  "cites": []
+}

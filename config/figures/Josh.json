@@ -119,6 +119,167 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "joshua-7-7-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Joshua 7:7",
+      "strength": "widely agreed",
+      "short": "Joshua cries out in grief after the defeat at Ai",
+      "about": "After Israel's defeat at Ai, Joshua's prayer opens with a cry, “O, Lord GOD,” where a plain statement might stand. It voices his grief and distress to the LORD: why bring this people over the Jordan only to see them destroyed?",
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Joshua 7:7",
+        "words": "O, Lord GOD",
+        "means": "grief and distress cried out to God after Israel was routed at Ai"
+      },
+      "original": {
+        "note": "In Hebrew the cry opens with ahah, “alas”, a word of distress, which the BSB gives as “O”.",
+        "strong": [
+          "H0162"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Ecphonesis, an outburst of emotion. Clarke calls ahah, alas, a particle of exclamation and distress. Keil (Keil and Delitzsch) says they lay before the ark to pour out their grief, and calls the complaint faith wrestling with God; Jamieson (Jamieson, Fausset and Brown) calls the prayer the effusion of an afflicted mind; Henry says he gave vent to his trouble.",
+      "limit": "The writers weigh the cry differently: it can be heard as a fretful complaint that doubts God, partly excused by his concern for Israel, or as bold faith pleading with God and caring for His honour.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Joshua 7:7",
+          "at": "Ecphonesis, or Exclamation, p. 927",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/927/mode/1up",
+          "quote": "The figure is used when, through feeling, we change our mode of speech; and, instead of merely making a statement, express it by an exclamation. So that Ecphonesis is an outburst of words, prompted by emotion, and is not used as though any reply were expected ... Alas, O Lord God (Adonai Jehovah), wherefore hast thou at all brought up this people over Jordan",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Joshua 7:7",
+          "quote": "Particles of exclamations and distress, or what are called interjections, are nearly the same in all languages: and the reason is because they are the simple voice of nature. The Hebrew word which we translate alas is אהה ahah. The complaint of Joshua in this and the following verses seems principally to have arisen from his deep concern for the glory of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Joshua 7:6-7",
+          "quote": "In the deepest grief, with their clothes rent ... they fell down before the ark of the Lord ... until the evening, to pour out their grief before the Lord. Joshua's prayer contains a complaint ... it by no means arose from unbelief, but was simply the bold language of faith wrestling with God in prayer",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Joshua 7:6-9",
+          "quote": "although apparently breathing a spirit of bold remonstrance and complaint, it was in reality the effusion of a deeply humbled and afflicted mind",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Joshua 7:6-9",
+          "quote": "his spirit seemed to be somewhat ruffled and discomposed ... by giving vent to his trouble in a humble address to God, he keeps his temper and it ends well ... This savours too much of discontent and distrust of God, and cannot be justified, though the surprise and disappointment to one deeply concerned for the public interest may in part excuse it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "joshua-9-22-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Joshua 9:22-25",
+      "strength": "some interpreters",
+      "short": "Question and sentence, then answer and yielding",
+      "about": "Joshua asks why the Gibeonites deceived Israel and then pronounces their sentence. Their reply follows the same order: first the answer to his question, then their yielding to the sentence.",
+      "lines": [
+        {
+          "ref": "Joshua 9:22",
+          "words": "Why did you deceive us",
+          "mark": "A",
+          "key": "deceive"
+        },
+        {
+          "ref": "Joshua 9:23",
+          "words": "Now therefore you are under a curse",
+          "mark": "B",
+          "key": "curse"
+        },
+        {
+          "ref": "Joshua 9:24",
+          "words": "The Gibeonites answered,",
+          "mark": "A'",
+          "key": "answered"
+        },
+        {
+          "ref": "Joshua 9:25",
+          "words": "Now we are in your hands.",
+          "mark": "B'",
+          "key": "hands"
+        }
+      ],
+      "evidence": "Boys sets the four verses out in four members that take turns: Joshua's question in the first is answered in the third, and the Gibeonites express submission in the fourth to the sentence he pronounces in the second.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Joshua 9:22-25",
+          "at": "Introduction, p. 13",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/13/mode/1up",
+          "quote": "In a. and b. we have the speech of Joshua; in a. and b., the reply of the Gibeonites. The point now to be established is, that the part of the reply in a. answers to the part of the speech in a.; and the part in b., to the part in b. … The Gibeonites reply to the question in a., and express submission to the sentence in b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "joshua-24-9-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Joshua 24:9-10",
+      "strength": "some interpreters",
+      "short": "Balak, Balaam, then Balaam, Balak",
+      "about": "Balak sets out to fight Israel and sends for Balaam. The LORD would not listen to Balaam, and He delivered Israel from his hand. That hand is taken to be Balak's, so the first and last lines are both about Balak.",
+      "lines": [
+        {
+          "ref": "Joshua 24:9",
+          "words": "Then Balak son of Zippor, the king of Moab, set out to fight against Israel.",
+          "mark": "A",
+          "key": "Balak"
+        },
+        {
+          "ref": "Joshua 24:9",
+          "words": "He sent for Balaam son of Beor to curse you,",
+          "mark": "B",
+          "key": "Balaam"
+        },
+        {
+          "ref": "Joshua 24:10",
+          "words": "but I would not listen to Balaam.",
+          "mark": "B'",
+          "key": "Balaam"
+        },
+        {
+          "ref": "Joshua 24:10",
+          "words": "and I delivered you from his hand.",
+          "mark": "A'",
+          "key": "hand"
+        }
+      ],
+      "evidence": "Boys sets the two verses out in four lines and says the hand the LORD delivered Israel from is Balak's, not Balaam's: the first and last lines refer to Balak, the two between to Balaam.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Joshua 24:9-10",
+          "at": "Introduction, p. 43",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/43/mode/1up",
+          "quote": "The person, however, out of whose hand the Lord, in a., says he delivered the Israelites, is not Balaam, but Balak, mentioned in a. … Thus a. and a. refer to Balak; b. and b. to Balaam.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

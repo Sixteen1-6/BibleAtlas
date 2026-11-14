@@ -1,12 +1,12 @@
 // The data behind the wordplay line: the plays on words and name meanings in
-// the reviewed layers (layers.json, written by `atlas build` from
+// the reviewed layers (layers-index.json and layers.json, written by `atlas build` from
 // config/layers.json, drafts left out), and the alphabet poems that
 // crates/atlas-cli/src/extra_wordplay.rs checks letter by letter against the
 // Hebrew (extras/wordplay.json). load() does all the work, so a line is one
 // Map.get.
 
 import type { Atlas } from '../../../data/atlas';
-import type { Layer, Passage } from '../../../data/layers';
+import { type LayerMark, type PassageMark, loadIndex } from '../../../data/layers';
 import { loadJson } from '../data';
 import type { ChapterRef, NoteLine, VerseRef } from '../types';
 
@@ -39,8 +39,10 @@ export type WordAt = [VerseRef, number, number];
 
 /** One play on words (or name meaning) from a layered passage. */
 export interface Play {
-  passage: Passage;
-  layer: Layer;
+  passage: PassageMark;
+  layer: LayerMark;
+  /** The note's place in its passage, to find its words in layers.json. */
+  at: number;
   /** The verses its line shows under: the verses its words are in, or the
    * layered passage's verse when it names no words. */
   verses: VerseRef[];
@@ -160,7 +162,7 @@ function fit(a: Atlas, play: Play, v: VerseRef): number {
   return here.size >= 2 ? 2 : here.size;
 }
 
-function playOf(p: Passage, l: Layer, a: Atlas): Play {
+function playOf(p: PassageMark, l: LayerMark, at: number, a: Atlas): Play {
   const seen = new Set<string>();
   const roots: WordAt[] = [];
   for (const w of l.words) {
@@ -172,7 +174,7 @@ function playOf(p: Passage, l: Layer, a: Atlas): Play {
   const vs = new Set<VerseRef>(l.words.map((w) => w[0]));
   if (!vs.size) vs.add(p.v);
   const verses = [...vs].sort((x, y) => x - y);
-  return { passage: p, layer: l, verses, anchor: vs.has(p.v) ? p.v : verses[0], words: l.words, roots };
+  return { passage: p, layer: l, at, verses, anchor: vs.has(p.v) ? p.v : verses[0], words: l.words, roots };
 }
 
 function add<K, V>(m: Map<K, V[]>, k: K, v: V): void {
@@ -184,17 +186,19 @@ function add<K, V>(m: Map<K, V[]>, k: K, v: V): void {
 export async function load(a: Atlas): Promise<Data> {
   const [file, layered] = await Promise.all([
     loadJson<WordplayFile>(a, 'extras/wordplay.json'),
-    // Older builds have no layers; the alphabet poems still show.
-    loadJson<Passage[]>(a, 'layers.json').catch(() => [] as Passage[]),
+    // The index of the layers (layers-index.json), which the app loads for
+    // every visit; older builds fall back to layers.json, and a build with no
+    // layers still shows the alphabet poems.
+    loadIndex(a),
   ]);
   const poems = new Map<string, Poem>();
   for (const p of file.acrostics) poems.set(chapterKey(p), p);
   const plays = new Map<VerseRef, Play[]>();
   const stops = new Map<VerseRef, Play[]>();
   for (const p of layered) {
-    for (const l of p.layers) {
+    for (const [i, l] of p.layers.entries()) {
       if (!KINDS.has(l.kind)) continue;
-      const play = playOf(p, l, a);
+      const play = playOf(p, l, i, a);
       for (const v of play.verses) add(plays, v, play);
       add(stops, play.anchor, play);
     }

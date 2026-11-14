@@ -96,29 +96,72 @@ export interface Passage {
   layers: Layer[];
 }
 
-/** Every layered passage, in reading order of the config. Empty until loaded. */
-export const passages = signal<Passage[]>([]);
-
-export async function loadLayers(a: Atlas): Promise<void> {
-  try {
-    const r = await fetch(`${DATA_BASE}layers.json?${a.version}`);
-    if (r.ok) passages.value = (await r.json()) as Passage[];
-  } catch {
-    // Older data builds have no layers; the app works without them.
-  }
+/** What every visit loads (layers-index.json): a passage's place, and each
+ * note's kind, strength, links and words, but not its words, evidence or credits. */
+export type LayerMark = Pick<Layer, 'kind' | 'strength' | 'refs' | 'words'>;
+export interface PassageMark {
+  id: string;
+  section: Section;
+  v: number;
+  end: number;
+  draft?: boolean;
+  layers: LayerMark[];
 }
 
-export function passageAt(list: Passage[], v: number): Passage | null {
+/** Every layered passage, in reading order of the config. Empty until loaded. */
+export const passages = signal<PassageMark[]>([]);
+
+/** The whole notes (layers.json), by passage id, once a reader opens them. */
+export const notes = signal<Map<string, Passage> | null>(null);
+let notesLoad: Promise<Map<string, Passage>> | null = null;
+
+async function fetchJson<T>(a: Atlas, file: string): Promise<T> {
+  const r = await fetch(`${DATA_BASE}${file}?${a.version}`);
+  if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
+  return (await r.json()) as T;
+}
+
+let indexLoad: Promise<PassageMark[]> | null = null;
+
+/** The index, fetched once; a data build before the index uses the whole file
+ * as its own index, and one with no layers gives an empty list. */
+export function loadIndex(a: Atlas): Promise<PassageMark[]> {
+  if (!indexLoad) {
+    indexLoad = fetchJson<PassageMark[]>(a, 'layers-index.json')
+      .catch(async () => [...(await loadNotes(a)).values()] as PassageMark[])
+      .catch(() => [] as PassageMark[]);
+  }
+  return indexLoad;
+}
+
+export async function loadLayers(a: Atlas): Promise<void> {
+  passages.value = await loadIndex(a);
+}
+
+/** The whole notes, fetched once, the first time a reader opens them. */
+export function loadNotes(a: Atlas): Promise<Map<string, Passage>> {
+  if (!notesLoad) {
+    notesLoad = fetchJson<Passage[]>(a, 'layers.json').then((list) => {
+      const m = new Map(list.map((p) => [p.id, p]));
+      notes.value = m;
+      return m;
+    });
+    notesLoad.catch(() => (notesLoad = null));
+  }
+  return notesLoad;
+}
+
+export function passageAt<P extends PassageMark>(list: P[], v: number): P | null {
   return list.find((p) => p.v <= v && v <= p.end) ?? null;
 }
 
 /** Layered passages elsewhere whose notes point at verse v. */
-export function pointingAt(list: Passage[], v: number): Passage[] {
+export function pointingAt<P extends PassageMark>(list: P[], v: number): P[] {
   return list.filter((p) => !(p.v <= v && v <= p.end) && p.layers.some((l) => l.refs.some((r) => r.s <= v && v <= r.e)));
 }
 
 /** The note shown first: the first deeper layer that is widely agreed, else the first deeper one. */
-export function leadLayer(p: Passage): Layer | null {
+export function leadLayer<L extends LayerMark>(p: { layers: L[] }): L | null {
   const deeper = p.layers.filter((l) => l.kind !== 'plain meaning');
   return deeper.find((l) => l.strength === 'widely agreed') ?? deeper[0] ?? null;
 }

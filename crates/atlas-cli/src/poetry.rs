@@ -130,7 +130,7 @@ fn placed(segs: &[Seg], text: &str, book: u32) -> Option<Vec<Word>> {
 }
 
 /// A word for comparing the two copies: lowercased, with one apostrophe.
-fn fold(w: &str) -> String {
+pub(crate) fn fold(w: &str) -> String {
     w.chars().map(|c| if c == '\'' || c == 'ʼ' { '’' } else { c }).flat_map(char::to_lowercase).collect()
 }
 
@@ -138,7 +138,7 @@ fn fold(w: &str) -> String {
 /// apostrophes, so "it’s" is one word and "well-being" two, in both copies.
 /// A run with no letter or digit is a closing quotation mark ("generations.’”"),
 /// not a word.
-fn tokens(t: &str) -> Vec<(usize, usize)> {
+pub(crate) fn tokens(t: &str) -> Vec<(usize, usize)> {
     let word = |c: char| c.is_alphanumeric() || c == '’' || c == '\'' || c == 'ʼ';
     let mut out = Vec::new();
     let mut start = None;
@@ -160,7 +160,7 @@ fn tokens(t: &str) -> Vec<(usize, usize)> {
 }
 
 /// Text without footnotes, cross-references or character markers.
-fn clean(t: &str) -> String {
+pub(crate) fn clean(t: &str) -> String {
     let mut out = String::new();
     let mut rest = t;
     while let Some(i) = rest.find('\\') {

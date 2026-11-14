@@ -1,0 +1,53 @@
+{
+  "notes": [
+    {
+      "id": "3-john-1-11-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "3 John 1:11",
+      "strength": "some interpreters",
+      "short": "Evil at both ends, good in the middle",
+      "about": "Evil is named in the first and last lines, good in the two between: not what is evil but what is good; the one who does good is of God, the one who does evil has not seen God.",
+      "lines": [
+        {
+          "ref": "3 John 1:11",
+          "words": "do not imitate what is evil,",
+          "mark": "A",
+          "key": "evil"
+        },
+        {
+          "ref": "3 John 1:11",
+          "words": "but what is good.",
+          "mark": "B",
+          "key": "good"
+        },
+        {
+          "ref": "3 John 1:11",
+          "words": "The one who does good is of God;",
+          "mark": "B'",
+          "key": "good"
+        },
+        {
+          "ref": "3 John 1:11",
+          "words": "the one who does evil has not seen God.",
+          "mark": "A'",
+          "key": "evil"
+        }
+      ],
+      "evidence": "Boys finds evil at the extremes of the verse, first and last, with good in the members at its centre.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "3 John 1:11",
+          "at": "Introduction, p. 4",
+          "url": "https://archive.org/details/tactica-sacra/page/4/mode/1up",
+          "quote": "Here we have evil in the extreme, and good in the central members",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    }
+  ]
+}

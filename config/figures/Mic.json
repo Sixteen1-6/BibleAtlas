@@ -58,6 +58,43 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "micah-6-15-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Micah 6:15",
+      "strength": "some interpreters",
+      "short": "Sow, press, tread, and never enjoy it",
+      "about": "Three lines built the same way: you will sow but not reap, press olives but not anoint yourselves, tread grapes but not drink the wine. Each line names a labor and then the loss of its fruit.",
+      "lines": [
+        {
+          "ref": "Micah 6:15",
+          "words": "You will sow but not reap;"
+        },
+        {
+          "ref": "Micah 6:15",
+          "words": "you will press olives but not anoint yourselves with oil;"
+        },
+        {
+          "ref": "Micah 6:15",
+          "words": "you will tread grapes but not drink the wine."
+        }
+      ],
+      "evidence": "Lowth says stanzas of three lines are most often parallel by construction, and gives this verse among his examples of three-line stanzas that are constructively parallel.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-isaiah",
+          "on": "Micah 6:15",
+          "at": "Preliminary Dissertation, pp. xxviii-xxix",
+          "url": "https://archive.org/details/isaiahnewtransla01lowt/page/XXVIII/mode/1up",
+          "quote": "Of the Constructive kind is most commonly the Parallelism of Stanzas of Three lines; ... The following are Constructively Parallel: ... Micah, vi. 15",
+          "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
     }
   ]
 }

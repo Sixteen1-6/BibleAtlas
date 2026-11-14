@@ -1,0 +1,232 @@
+{
+  "format": 1,
+  "about": "Jamieson, Fausset and Brown's Commentary (1871) at Deep under Christian writers. Read by crates/atlas-cli/src/extra_voices/jfb.rs. writers: who of the three wrote each book, as the 1873 title page names them (docs/evidence/credits-2026-10-21.json, entries jfb-jamieson, jfb-fausset and jfb-brown). exclude: the passages left out because they say a word of Scripture as the BSB prints it is a mistake (decision 23), checked as docs/voices/checks/jfb.md describes; each is in force at once and waits for Shubhanshu's decision (proposed).",
+  "writers": [
+    {
+      "books": [
+        "Genesis",
+        "Exodus",
+        "Leviticus",
+        "Numbers",
+        "Deuteronomy",
+        "Joshua",
+        "Judges",
+        "Ruth",
+        "1 Samuel",
+        "2 Samuel",
+        "1 Kings",
+        "2 Kings",
+        "1 Chronicles",
+        "2 Chronicles",
+        "Ezra",
+        "Nehemiah",
+        "Esther"
+      ],
+      "writer": "Robert Jamieson",
+      "checked": "docs/evidence/credits-2026-10-21.json, jfb-jamieson"
+    },
+    {
+      "books": [
+        "Job",
+        "Psalms",
+        "Proverbs",
+        "Ecclesiastes",
+        "Song of Solomon",
+        "Isaiah",
+        "Jeremiah",
+        "Lamentations",
+        "Ezekiel",
+        "Daniel",
+        "Hosea",
+        "Joel",
+        "Amos",
+        "Obadiah",
+        "Jonah",
+        "Micah",
+        "Nahum",
+        "Habakkuk",
+        "Zephaniah",
+        "Haggai",
+        "Zechariah",
+        "Malachi",
+        "1 Corinthians",
+        "2 Corinthians",
+        "Galatians",
+        "Ephesians",
+        "Philippians",
+        "Colossians",
+        "1 Thessalonians",
+        "2 Thessalonians",
+        "1 Timothy",
+        "2 Timothy",
+        "Titus",
+        "Philemon",
+        "Hebrews",
+        "James",
+        "1 Peter",
+        "2 Peter",
+        "1 John",
+        "2 John",
+        "3 John",
+        "Jude",
+        "Revelation"
+      ],
+      "writer": "A. R. Fausset",
+      "checked": "docs/evidence/credits-2026-10-21.json, jfb-fausset"
+    },
+    {
+      "books": [
+        "Matthew",
+        "Mark",
+        "Luke",
+        "John",
+        "Acts",
+        "Romans"
+      ],
+      "writer": "David Brown",
+      "checked": "docs/evidence/credits-2026-10-21.json, jfb-brown"
+    }
+  ],
+  "exclude": [
+    {
+      "id": "jfb-1-chronicles-18-4",
+      "scope": "sentence",
+      "on": "1 Chronicles 18:4",
+      "words": "Probably the former should be adopted",
+      "reason": "calls-text-wrong",
+      "why": "It prefers seven hundred, but the BSB prints seven thousand charioteers at both 2 Samuel 8:4 and 1 Chronicles 18:4.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-1-chronicles-19-18",
+      "scope": "sentence",
+      "on": "1 Chronicles 19:18",
+      "words": "Either the text in one of the books is corrupt",
+      "reason": "calls-text-wrong",
+      "why": "It offers as one option that a number is corrupt, where the BSB prints seven thousand charioteers here and seven hundred at 2 Samuel 10:18; it also gives a harmonisation; unsure, please review.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-2-chronicles-15-8",
+      "scope": "paragraph",
+      "on": "2 Chronicles 15:8",
+      "words": "generally regarded as a corruption of the text",
+      "reason": "calls-text-wrong",
+      "why": "It says the words of Oded the prophet are a corruption to be erased, but the BSB prints the prophecy of Azariah son of Oded the prophet.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-2-chronicles-21-12",
+      "scope": "sentence",
+      "on": "2 Chronicles 21:12",
+      "words": "the name of Elijah has, by the error of a transcriber",
+      "reason": "calls-text-wrong",
+      "why": "It says Elijah is a copyist's error for Elisha, but the BSB prints a letter from Elijah the prophet.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-2-chronicles-8-10",
+      "scope": "sentence",
+      "on": "2 Chronicles 8:10",
+      "words": "It is generally agreed that the text of one of these passages is corrupt",
+      "reason": "calls-text-wrong",
+      "why": "It says one of the numbers is corrupt, but the BSB prints 250 here and 550 at 1 Kings 9:23.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-2-chronicles-8-18",
+      "scope": "sentence",
+      "on": "2 Chronicles 8:18",
+      "words": "The text in one of these passages is corrupt",
+      "reason": "calls-text-wrong",
+      "why": "It says one of the numbers is corrupt, but the BSB prints 450 talents here and 420 at 1 Kings 9:28.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-2-samuel-23-8",
+      "scope": "sentence",
+      "on": "2 Samuel 23:8",
+      "words": "The text is corrupt in this passage",
+      "reason": "calls-text-wrong",
+      "why": "It says the number is corrupt and should be three hundred, but the BSB prints eight hundred men at 2 Samuel 23:8.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-jeremiah-15-14",
+      "scope": "sentence",
+      "on": "Jeremiah 15:14",
+      "words": "Eichorn, needlessly, from Syriac and the Septuagint",
+      "reason": "calls-text-wrong",
+      "why": "The BSB prints 'I will enslave you to your enemies' at Jeremiah 15:14, the reading JFB calls needless and doubtless interpolated.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-jeremiah-25-38",
+      "scope": "words",
+      "on": "Jeremiah 25:38",
+      "words": "; probably interpolated from {{ref:Jer.46.16|Jr 46:16}}",
+      "reason": "calls-text-wrong",
+      "why": "JFB says the word \"sword\", which the BSB prints at Jeremiah 25:38 (\"the sword of the oppressor\"), was probably interpolated; only those words are left out, since the rest of the note explains the sense the BSB gives; unsure, please review.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-joshua-8-15",
+      "scope": "sentence",
+      "on": "Joshua 8:15",
+      "words": "rejected by some eminent scholars, as an interpolation",
+      "reason": "calls-text-wrong",
+      "why": "The BSB prints 'or Bethel' at Joshua 8:17 with no footnote, and the sentence presents it as an interpolation missing from the oldest manuscripts; unsure, please review.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-revelation-15-6",
+      "scope": "sentence",
+      "on": "Revelation 15:6",
+      "words": "On the principle that the harder reading is the one least likely",
+      "reason": "calls-text-wrong",
+      "why": "The BSB prints dressed in clean and bright linen, and this sentence says the text should read a stone and drop the and.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-revelation-18-3",
+      "scope": "sentence",
+      "on": "Revelation 18:3",
+      "words": "from which perhaps \"the wine\" may have been interpolated",
+      "reason": "calls-text-wrong",
+      "why": "The BSB prints have drunk the wine of the passion of her immorality, and this says the wine may have been interpolated; unsure, please review.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-philippians-4-13",
+      "scope": "sentence",
+      "on": "Philippians 4:13",
+      "words": "was inserted here by transcribers",
+      "reason": "calls-text-wrong",
+      "why": "The BSB prints \"through Christ who gives me strength\", and this sentence says \"Christ\" was inserted by transcribers.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "jfb-isaiah-41-24",
+      "scope": "sentence",
+      "on": "Isaiah 41:24",
+      "words": "The Hebrew text is here corrupt",
+      "reason": "calls-text-wrong",
+      "why": "It says the Hebrew text of Isaiah 41:24, which the BSB translates as it stands (\"your work is of no value\"), is corrupt; unsure, since the BSB's sense is the one JFB accepts.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    }
+  ]
+}

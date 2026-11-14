@@ -1,0 +1,189 @@
+{
+  "notes": [
+    {
+      "id": "lamentations-1-1-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Lamentations 1:1",
+      "strength": "widely agreed",
+      "short": "Once full of people, now sitting alone",
+      "about": "The verse sets what Jerusalem was against what she has become. The city once full of people now sits alone; she who was great among the nations and a princess of the provinces is now a widow and a slave. Setting then against now shows how far she has fallen.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Lamentations 1:1",
+        "words": "How lonely lies the city, once so full of people! She who was great among the nations has become a widow. The princess of the provinces has become a slave.",
+        "means": "what Jerusalem once was, full, great and ruling, set against what she is now: lonely, widowed and enslaved"
+      },
+      "evidence": "Bullinger lists the verse's opening line under Antithesis. Keil (Keil and Delitzsch) says the verse tells Jerusalem's fall from former glory into disgrace, the writer depicting the contrast between past and present. Calvin says the prophet sets her flourishing state before the calamity against her desolation; Henry, that the populous city is depopulated and the ruling one in subjection.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Lamentations 1:1",
+          "at": "Antithesis, or Contrast, p. 715",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/715/mode/1up",
+          "quote": "“How doth the city sit solitary that was full of people!”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Lamentations 1:1",
+          "quote": "The dreadful turn that things have taken is briefly declared in Lam 1:1 in two clauses, which set forth the fall of Jerusalem from its former glory into the depths of disgrace and misery ... The writer keeps this time before his mind, in order to depict the contrast between the past and present. The city that once ruled over nations and provinces has now become but dependent on others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Lamentations 1:1",
+          "quote": "Here, by a comparison, he amplifies the indignity of the fact; for, on the one hand, he refers to the flourishing state of Jerusalem before the calamity, and, on the other hand, he shews how the place had in a manner been turned into darkness. ... Then he says that Jerusalem was lying solitary, because it was desolate and forsaken, though it had before a vast number of people.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Lamentations 1:1-11",
+          "quote": "A city that was populous is now depopulated ... (2.) A city that had dominion is now in subjection. She had been great among the nations ... But now the tables are turned; she has not only lost her friends and sits solitary, but has lost her freedom too and sits tributary",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "lamentations-2-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Lamentations 2:1",
+      "strength": "commonly held",
+      "short": "A second lament that runs through the alphabet",
+      "about": "In Hebrew the 22 verses of this lament begin with the 22 letters of the alphabet in order, as chapter 1 does, but the verse for pe (verse 16) comes before the one for ayin (verse 17). The pattern can be read as a help to memory, so that the lament could be learned by heart.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Lamentations 2:1",
+        "words": "How the Lord has covered the Daughter of Zion",
+        "means": "In Hebrew this verse begins with aleph, the first letter, and the verses after it run through the alphabet to tav in verse 22."
+      },
+      "evidence": "Bullinger lists Lamentations 2 among the alphabetical acrostics in Figures of Speech: it is built like chapter 1, each of its 22 verses beginning with the next letter, though verse 19 has four lines and the letters of verses 16 and 17 are transposed. Henry, introducing the book, says its poems but chapter 5 are alphabetical, each verse beginning with the next Hebrew letter, as a help to memory.",
+      "limit": "The note does not say why the verse for pe comes before the one for ayin here.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Lamentations 2:1-22",
+          "at": "Acrostichion, p. 185",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/185/mode/1up",
+          "quote": "Lam 1:1-22 is an acrostic chapter. It consists of 22 verses, each of which commences with a successive letter of the alphabet … Lam 2:1-22 is the same, except that in this case it is verse 19 ( ק , Koph ) which contains four lines. ע and פ (verses 16 and 17) are transposed.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Lamentations 1-5",
+          "quote": "it is not only poetical, but alphabetical, all except the 5th chapter, as some of David's psalms are; each verse begins with a several letter in the order of the Hebrew alphabet, the first aleph, the second beth, &c. … which was a help to memory (it being designed that these mournful ditties should be got by heart)",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "lamentations-3-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Lamentations 3:1-3",
+      "strength": "widely agreed",
+      "short": "Three verses to each letter of the alphabet",
+      "about": "In Hebrew each letter of the alphabet begins three verses in a row: verses 1 to 3 begin with aleph, 4 to 6 with beth, and so on to tav in 64 to 66, though the verses for pe (46 to 48) come before those for ayin (49 to 51). The pattern can be read as a help to memory.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Lamentations 3:1",
+        "words": "I am the man who has seen affliction",
+        "means": "In Hebrew verses 1 to 3 all begin with aleph, the first letter; each later set of three takes another letter, ending with tav in verses 64 to 66."
+      },
+      "evidence": "Henry, introducing the book, calls chapter 3 a triple alphabet, three verses with aleph, then three with beth, a help to memory. Calvin says each letter is here thrice repeated; Clarke calls it a triple acrostic. Plumptre (Ellicott) calls it alphabetic like chapters 1 and 2, three verses to a letter. Bullinger lists it among the acrostics, pe and ayin transposed.",
+      "limit": "The note does not say why pe comes before ayin here, as in chapter 2.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Lamentations 1-5",
+          "quote": "it is not only poetical, but alphabetical, all except the 5th chapter, as some of David's psalms are; each verse begins with a several letter in the order of the Hebrew alphabet, the first aleph, the second beth, &c., but the 3rd chapter is a triple alphabet, the first three beginning with aleph, the next three with beth, &c., which was a help to memory",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Lamentations 3:2",
+          "quote": "The letters of the alphabet are tripled in this chapter, which I had omitted to mention. … Here then, as I have said, each letter is thrice repeated. Then the first, the second, and the third verse begins with א aleph; and the fourth begins with ב, beth, and so he goes on to the end.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Lamentations 3",
+          "quote": "It has already been noticed in the introduction, that this chapter contains a triple acrostic, three lines always beginning with the same letter; so that the Hebrew alphabet is thrice repeated in this chapter, twenty-two multiplied by three being equal to sixty-six.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Lamentations 3",
+          "quote": "The elegy which is contained in this chapter is alphabetic in its structure, like the two that precede it, but it is of a more complicated character, three consecutive verses beginning with the same letter of the alphabet.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Lamentations 3:1-66",
+          "at": "Acrostichion, p. 185",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/185/mode/1up",
+          "quote": "Lam 3:1-66 is different. It consists of 66 verses; the first three each commencing with א (A) … and so on. Here, also as in chap. 2, ע and פ (verses 46-48 and 49-51) are transposed.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "lamentations-4-1-acrostic",
+      "kind": "figure",
+      "form": "acrostic",
+      "ref": "Lamentations 4:1",
+      "strength": "widely agreed",
+      "short": "A fourth lament that runs through the alphabet",
+      "about": "In Hebrew the 22 verses of this lament begin with the letters of the alphabet in turn, though the verse for pe (verse 16) comes before the one for ayin (verse 17). It is the last of the book's alphabetical laments; chapter 5 does not follow the alphabet. The pattern can be read as a help to memory.",
+      "figure": {
+        "name": "Acrostic",
+        "ref": "Lamentations 4:1",
+        "words": "How the gold has become tarnished",
+        "means": "In Hebrew this verse begins with aleph, the first letter, and the verses after it run through the alphabet to tav in verse 22."
+      },
+      "evidence": "Bullinger closes his list of the alphabetical acrostics with Lamentations 4: 22 verses, each beginning with the next letter, the letters of verses 16 and 17 transposed by design, as in chapters 2 and 3. Henry, introducing the book, says its poems but chapter 5 are alphabetical, a help to memory. Calvin, on this verse, says Jeremiah here follows the alphabet the fourth time.",
+      "limit": "The note does not say why pe comes before ayin here, as in chapters 2 and 3.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Lamentations 4:1-22",
+          "at": "Acrostichion, p. 185",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/185/mode/1up",
+          "quote": "Here, there are 22 verses, each verse commencing successively with the letters of the alphabet, and consisting of two lines. Here, also as in chaps. 2 and 3, the ע and פ (verses 16 and 17) are designedly transposed. These are all the Alphabetical Acrostics.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Lamentations 1-5",
+          "quote": "it is not only poetical, but alphabetical, all except the 5th chapter … each verse begins with a several letter in the order of the Hebrew alphabet … which was a help to memory (it being designed that these mournful ditties should be got by heart)",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Lamentations 4:1",
+          "quote": "Here Jeremiah, following the order of the alphabet the fourth time, deplores the ruin of the city, and the destruction of the priesthood and of the kingdom.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    }
+  ]
+}

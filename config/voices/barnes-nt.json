@@ -1,0 +1,648 @@
+{
+ "format": 1,
+ "about": "Albert Barnes's Notes on the New Testament as CrossWire's Barnes module 1.1 keeps them (crates/atlas-cli/src/extra_voices/barnes.rs). starts: where his comment starts in a book's first or second entry; what comes before is the book's introduction and is not shown (words null: the whole entry). module_notes: paragraphs the module's maker added, left out wherever a paragraph starts with them. repairs: letters of the copy's old code page that stand for other letters, put right. exclude: passages left out where a note says a word of Scripture is a mistake (decision 23; docs/voices/checks/barnes.md).",
+ "starts": [
+  {
+   "book": "Matthew",
+   "verse": 1,
+   "words": "1. The book of the generation",
+   "why": "Barnes's preface to the Gospels and his introduction to Matthew come first; his note on 1:1 opens with its words."
+  },
+  {
+   "book": "Matthew",
+   "verse": 2,
+   "words": "Verses 2-16.",
+   "why": "Barnes's general introduction to the New Testament fills the entry on 1:2 before its label."
+  },
+  {
+   "book": "Mark",
+   "verse": 1,
+   "words": "Verse 1. The beginning of the Gospel",
+   "why": "The preface to Mark comes first."
+  },
+  {
+   "book": "Luke",
+   "verse": 1,
+   "words": "Verse 1. Forasmuch as many",
+   "why": "The preface to Luke comes first."
+  },
+  {
+   "book": "John",
+   "verse": 1,
+   "words": "Verse 1. In the beginning. This expression",
+   "why": "The preface to John comes first."
+  },
+  {
+   "book": "Acts",
+   "verse": 1,
+   "words": "Verse 1. The former treatise",
+   "why": "The introduction to Acts comes first."
+  },
+  {
+   "book": "Romans",
+   "verse": 1,
+   "words": "Verse 1. Paul. The original name",
+   "why": "The preface to Romans comes first."
+  },
+  {
+   "book": "Romans",
+   "verse": 2,
+   "words": "Verse 2. Which he had promised afore",
+   "why": "The introduction to Romans fills the entry on 1:2 before its note."
+  },
+  {
+   "book": "1 Corinthians",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to 1 Corinthians; the note on 1:1 is in the entry on 1:2."
+  },
+  {
+   "book": "1 Corinthians",
+   "verse": 2,
+   "words": "Verse 1. Paul, called to be an",
+   "why": "The introduction runs on into the entry on 1:2, which then gives the notes on 1:1 and 1:2."
+  },
+  {
+   "book": "2 Corinthians",
+   "verse": 1,
+   "words": "Verse 1. Paul, an apostle,",
+   "why": "The introduction to 2 Corinthians comes first."
+  },
+  {
+   "book": "Galatians",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to Galatians; the notes on 1:1 and 1:2 are in the entry on 1:2."
+  },
+  {
+   "book": "Ephesians",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to Ephesians."
+  },
+  {
+   "book": "Ephesians",
+   "verse": 2,
+   "words": "ANALYSIS OF THE CHAPTER,",
+   "why": "The introduction runs on into the entry on 1:2; the analysis of chapter 1 and the notes on 1:1 and 1:2 follow."
+  },
+  {
+   "book": "Philippians",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "The introduction to Philippians comes before the analysis of chapter 1."
+  },
+  {
+   "book": "Colossians",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to Colossians."
+  },
+  {
+   "book": "Colossians",
+   "verse": 2,
+   "words": "ANALYSIS OF CHAPTER 1.",
+   "why": "The introduction runs on into the entry on 1:2; the analysis of chapter 1 and the notes on 1:1 and 1:2 follow."
+  },
+  {
+   "book": "1 Thessalonians",
+   "verse": 1,
+   "words": "ANALYSIS OF CHAPTER I.",
+   "why": "The introduction to 1 Thessalonians comes before the analysis of chapter 1."
+  },
+  {
+   "book": "2 Thessalonians",
+   "verse": 1,
+   "words": "ANALYSIS OF CHAPTER I.",
+   "why": "The introduction to 2 Thessalonians comes before the analysis of chapter 1."
+  },
+  {
+   "book": "1 Timothy",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to 1 Timothy."
+  },
+  {
+   "book": "1 Timothy",
+   "verse": 2,
+   "words": "ANALYSIS OF CHAPTER 1.",
+   "why": "The introduction runs on into the entry on 1:2; the analysis of chapter 1 and the notes on 1:1 and 1:2 follow."
+  },
+  {
+   "book": "2 Timothy",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER",
+   "why": "The introduction to 2 Timothy comes before the analysis of chapter 1."
+  },
+  {
+   "book": "Titus",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "The introduction to Titus comes before the analysis of chapter 1."
+  },
+  {
+   "book": "Philemon",
+   "verse": 1,
+   "words": "ANALYSIS OF THE EPISTLE.",
+   "why": "The introduction to Philemon comes before the analysis of the letter."
+  },
+  {
+   "book": "Hebrews",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "A note of the module's maker, the book's title and the chapter label come first; the copy has no introduction to Hebrews."
+  },
+  {
+   "book": "James",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "A note of the module's maker, the book's title and the chapter label come first; the copy has no introduction to James."
+  },
+  {
+   "book": "1 Peter",
+   "verse": 1,
+   "words": null,
+   "why": "The entry on 1:1 is all the introduction to 1 Peter."
+  },
+  {
+   "book": "1 Peter",
+   "verse": 2,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "The introduction runs on into the entry on 1:2; the analysis of chapter 1 and the notes on 1:1 and 1:2 follow."
+  },
+  {
+   "book": "2 Peter",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER,",
+   "why": "The introduction to 2 Peter comes before the analysis of chapter 1."
+  },
+  {
+   "book": "1 John",
+   "verse": 1,
+   "words": "ANALYSIS OF THE CHAPTER.",
+   "why": "The introduction to 1 John comes before the analysis of chapter 1; the notes on 1:1 and 1:2 are in the entry on 1:2."
+  },
+  {
+   "book": "2 John",
+   "verse": 1,
+   "words": "ANALYSIS OF THE SECOND EPISTLE.",
+   "why": "Barnes's introduction to the second and third letters of John comes first."
+  },
+  {
+   "book": "3 John",
+   "verse": 1,
+   "words": "ANALYSIS OF THE EPISTLE.",
+   "why": "The book's title comes first."
+  },
+  {
+   "book": "Jude",
+   "verse": 1,
+   "words": "ANALYSIS OF THE EPISTLE.",
+   "why": "The introduction to Jude comes first."
+  },
+  {
+   "book": "Revelation",
+   "verse": 1,
+   "words": "ANALYSIS OF CHAPTER I",
+   "why": "A note of the module's maker, the book's title and the chapter label come first; the copy has no introduction to Revelation."
+  }
+ ],
+ "module_notes": [
+  "**Due to the length of Introductory Material to Chapter",
+  "Verses 1 and 2 of 1st John Chapter 1",
+  "Note: This Verse is too large for one note",
+  "Continuation of Notes of 2nd Corinthians 4:18",
+  "Note: The notes on this verse are too large for a single file",
+  "Continuation of Notes on",
+  "This note purposely split at this point.",
+  "Continuation of Note from Revelation 7:5",
+  "This note is continued in next verse.",
+  "Continuation of Barnes Notes on Revelation 9:11",
+  "This is part 2 of 4 Parts of the Note for Revelation 9:20-21.",
+  "This is part 3 of 4 parts of Notes for Revelation 9.20"
+ ],
+ "repairs": [
+  {
+   "find": "o£ ",
+   "to": "of ",
+   "why": "The letter f, read as a pound sign, in \"of\" (seven times)."
+  },
+  {
+   "find": "£rom what",
+   "to": "from what",
+   "why": "The letter f, read as a pound sign, in \"from\" (1 Timothy 4:12)."
+  },
+  {
+   "find": "30¢ 50'",
+   "to": "30° 50'",
+   "why": "A degree sign, read as a cent sign (Matthew 2:1)."
+  },
+  {
+   "find": "35¢ 20'",
+   "to": "35° 20'",
+   "why": "A degree sign, read as a cent sign (Matthew 2:1)."
+  },
+  {
+   "find": "a¢ this time",
+   "to": "at this time",
+   "why": "The letter t, read as a cent sign, in \"at\" (Acts 25:21)."
+  },
+  {
+   "find": "¢he church",
+   "to": "the church",
+   "why": "The letter t, read as a cent sign, in \"the\"."
+  },
+  {
+   "find": "¥e are the sons",
+   "to": "Ye are the sons",
+   "why": "The letter Y, read as a yen sign (Acts 3:25)."
+  },
+  {
+   "find": "Kuinöel",
+   "to": "Kuinoel",
+   "why": "Kuinoel's name, with its o read as ö."
+  },
+  {
+   "find": "Kuiönel",
+   "to": "Kuinoel",
+   "why": "Kuinoel's name, with its letters swapped and o read as ö."
+  },
+  {
+   "find": "without life. ·",
+   "to": "without life.",
+   "why": "A stray mark at the end of a paragraph (Matthew 16:16)."
+  },
+  {
+   "find": "Mt 15:18-20</scripRef>.    ·",
+   "to": "Mt 15:18-20</scripRef>.",
+   "why": "A stray mark at the end of a note (Mark 7:23)."
+  },
+  {
+   "find": "he had appointed.                             ·",
+   "to": "he had appointed.",
+   "why": "A stray mark at the end of a note (Hebrews 3:6)."
+  },
+  {
+   "find": "the epistle. ·",
+   "to": "the epistle.",
+   "why": "A stray mark at the end of a paragraph (Hebrews 4:14)."
+  },
+  {
+   "find": "mere elements.·",
+   "to": "mere elements.",
+   "why": "A stray mark at the end of a sentence (Hebrews 6:1)."
+  }
+ ],
+ "exclude": [
+  {
+   "id": "barnes-1-timothy-3-16",
+   "scope": "sentence",
+   "on": "1 Timothy 3:16",
+   "words": "The probability in regard to the correct reading here",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints He appeared in the flesh, from the reading who, and gives God only in a footnote; Barnes leans to God as the original word while saying the evidence is not clear; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-john-1-7",
+   "scope": "sentence",
+   "on": "2 John 1:7",
+   "words": "The common reading is the correct one",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints have gone out into the world, the reading Barnes says is not correct and arose from the unusual expression.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-john-1-8",
+   "scope": "sentence",
+   "on": "2 John 1:8",
+   "words": "the common reading is probably genuine",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints so that you do not lose and that you may be fully rewarded, the reading Barnes says is probably not genuine; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-peter-3-16",
+   "scope": "sentence",
+   "on": "2 Peter 3:16",
+   "words": "has every evidence of being the genuine reading",
+   "reason": "calls-text-wrong",
+   "why": "Barnes calls the reading 'in which things' the genuine one, but the BSB follows the other reading and prints 'Some parts of his letters'; the difference is only the gender of 'which', so this needs a second look; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-timothy-4-14",
+   "scope": "sentence",
+   "on": "2 Timothy 4:14",
+   "words": "The authority, however, is not sufficient to justify a change in the present reading",
+   "reason": "calls-text-wrong",
+   "why": "Barnes rejects the reading 'will reward', but the BSB prints 'The Lord will repay him according to his deeds'.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-timothy-4-14-2",
+   "scope": "sentence",
+   "on": "2 Timothy 4:14",
+   "words": "These variations have, do doubtless, arisen from a belief",
+   "reason": "calls-text-wrong",
+   "why": "Barnes says the reading 'will reward' arose from copyists softening the text, and that is the reading the BSB prints ('will repay').",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-2-timothy-4-14-3",
+   "scope": "sentence",
+   "on": "2 Timothy 4:14",
+   "words": "But there is no reason for desiring a change in the text",
+   "reason": "calls-text-wrong",
+   "why": "Barnes rejects the future reading as a change to the text, but the BSB prints it ('The Lord will repay him').",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-13-18",
+   "scope": "sentence",
+   "on": "Acts 13:18",
+   "words": "a change of a single letter might easily have occurred in a Ms",
+   "reason": "calls-text-wrong",
+   "why": "Barnes suggests 'suffered their manners' came from a copyist's one-letter slip, but the BSB prints that reading ('He endured their conduct'); unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-13-18-2",
+   "scope": "sentence",
+   "on": "Acts 13:18",
+   "words": "It adds to the probability that this is the true reading",
+   "reason": "calls-text-wrong",
+   "why": "Barnes argues 'nourished' is probably the true reading, but the BSB prints 'He endured their conduct'; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-13-18-3",
+   "scope": "sentence",
+   "on": "Acts 13:18",
+   "words": "It is furthermore not probable that Paul would have commenced",
+   "reason": "calls-text-wrong",
+   "why": "Barnes argues Paul would not have spoken of Israel's conduct here, against the BSB's 'He endured their conduct'; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-13-18-4",
+   "scope": "sentence",
+   "on": "Acts 13:18",
+   "words": "Such a course would rather tend to exasperate than to conciliate",
+   "reason": "calls-text-wrong",
+   "why": "This continues the argument against the reading the BSB prints, 'He endured their conduct'; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-13-20",
+   "scope": "sentence",
+   "on": "Acts 13:20",
+   "words": "Mistakes are so easily made in transcribing numbers",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints 450 years at Acts 13:20 and 480 at 1 Kings 6:1; Barnes suggests one of these numbers may be a copyist's error, though he does not say which and goes on to answer the difficulty another way; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-20-28",
+   "scope": "sentence",
+   "on": "Acts 20:28",
+   "words": "and this probably was the genuine text",
+   "reason": "calls-text-wrong",
+   "why": "Barnes judges 'the Lord' the genuine reading, but the BSB prints 'the church of God' at Acts 20:28 and puts 'of the Lord' only in a footnote.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-20-28-2",
+   "scope": "sentence",
+   "on": "Acts 20:28",
+   "words": "many important reasons may be given why it should be retained",
+   "reason": "calls-text-wrong",
+   "why": "This sentence argues for keeping 'the Lord' over 'God', which the BSB prints at Acts 20:28.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-20-28-3",
+   "scope": "sentence",
+   "on": "Acts 20:28",
+   "words": "a change from Lord to God might easily be made in the transcribing",
+   "reason": "calls-text-wrong",
+   "why": "This suggests 'God', which the BSB prints at Acts 20:28, came from a copyist's change; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-20-28-4",
+   "scope": "sentence",
+   "on": "Acts 20:28",
+   "words": "The authority, however, is so doubtful, that it should not be used",
+   "reason": "calls-text-wrong",
+   "why": "This calls the reading 'God', which the BSB prints at Acts 20:28, too doubtful to cite, without deciding; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-7-15",
+   "scope": "paragraph",
+   "on": "Acts 7:15",
+   "words": "as the text now stands, it is an evident error",
+   "reason": "calls-text-wrong",
+   "why": "This calls the text of Acts 7:16 an evident error, where the BSB prints 'the tomb that Abraham had bought'.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-7-15-2",
+   "scope": "sentence",
+   "on": "Acts 7:15",
+   "words": "The probability therefore is, that the error has arisen since",
+   "reason": "calls-text-wrong",
+   "why": "This says an error entered the text of Acts 7:16 after Stephen, where the BSB prints 'Abraham'.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-acts-7-15-3",
+   "scope": "sentence",
+   "on": "Acts 7:15",
+   "words": "some early transciber inserted the name Abraham",
+   "reason": "calls-text-wrong",
+   "why": "This reports a theory that a copyist inserted 'Abraham' at Acts 7:16, a name the BSB prints, and Barnes does not reject it; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-hebrews-1-6",
+   "scope": "sentence",
+   "on": "Hebrews 1:6",
+   "words": "where they are inserted in the Song of Moses",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints 'and let all God's angels worship Him' as part of Deuteronomy 32:43 (from the Dead Sea Scrolls and the Septuagint) and cites it at Hebrews 1:6, while Barnes treats the words as an insertion of the Septuagint; 'inserted' may only mean 'placed'; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-hebrews-1-6-2",
+   "scope": "paragraph",
+   "on": "Hebrews 1:6",
+   "words": "omitted in all the ancient versions, except the Septuagint",
+   "reason": "calls-text-wrong",
+   "why": "This whole paragraph is a reason given that 'let all God's angels worship Him' is not part of Deuteronomy 32:43, which the BSB prints there from the Dead Sea Scrolls and the Septuagint; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-hebrews-1-6-3",
+   "scope": "paragraph",
+   "on": "Hebrews 1:6",
+   "words": "One is, that the passage is not in the Hebrew",
+   "reason": "calls-text-wrong",
+   "why": "The first of Barnes's reasons that the words \"let all God's angels worship Him\", which the BSB prints in Deuteronomy 32:43 from the Dead Sea Scrolls and the Septuagint, were not in the Scriptures; it goes with the two passages before it; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-hebrews-4-2",
+   "scope": "sentence",
+   "on": "Hebrews 4:2",
+   "words": "The former reading makes the best sense, and is the best sustained",
+   "reason": "calls-text-wrong",
+   "why": "The BSB follows the other reading at Hebrews 4:2 ('they did not share the faith', footnote 'not having been united'), which Barnes calls the less sustained one; the difference in sense is slight; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-john-8-11",
+   "scope": "sentence",
+   "on": "John 8:11",
+   "words": "has been by many critics thought to be spurious",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints John 7:53 to 8:11, and Barnes reports it as thought spurious without answering; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-john-8-11-2",
+   "scope": "sentence",
+   "on": "John 8:11",
+   "words": "has been rejected by Erasmus, Calvin, Beza",
+   "reason": "calls-text-wrong",
+   "why": "The BSB prints the passage on the woman taken in adultery, and this sentence presents the case for rejecting it; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-john-8-11-3",
+   "scope": "sentence",
+   "on": "John 8:11",
+   "words": "It is not easy to decide the question",
+   "reason": "calls-text-wrong",
+   "why": "Barnes leaves undecided whether the passage the BSB prints is a genuine part of the New Testament; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-john-8-11-4",
+   "scope": "sentence",
+   "on": "John 8:11",
+   "words": "recorded and introduced by Papias into the sacred text",
+   "reason": "calls-text-wrong",
+   "why": "Reports without answer that the passage the BSB prints was introduced into the text by Papias; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-mark-15-25",
+   "scope": "paragraph",
+   "on": "Mark 15:25",
+   "words": "A mistake in numbers is easily made",
+   "reason": "calls-text-wrong",
+   "why": "Suggests, without deciding, that the number of the hour in Mark 15:25 or John 19:14 is a copyist's error, where the BSB prints the third hour in Mark and the sixth hour in John; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-mark-15-25-2",
+   "scope": "paragraph",
+   "on": "Mark 15:25",
+   "words": "That a mistake might have occurred in the early MSS. is not improbable",
+   "reason": "calls-text-wrong",
+   "why": "Argues, without deciding, that John 19:14 first read the third hour and that the sixth hour is a copyist's mistake, where the BSB prints about the sixth hour; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-1-3",
+   "scope": "paragraph",
+   "on": "Matthew 1:3",
+   "words": "errors would be more likely to creep into the text in genealogical tables",
+   "reason": "calls-text-wrong",
+   "why": "Suggests, without deciding, that copyists' errors crept into the genealogy of Matthew 1, which the BSB prints as it stands; unsure, please review.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-27-9",
+   "scope": "sentence",
+   "on": "Matthew 27:9",
+   "words": "Others have thought that there was a mistake made by ancient transcribers",
+   "reason": "calls-text-wrong",
+   "why": "Gives the view that Jeremiah in Matthew 27:9 is a transcribers' mistake for Zechariah, which Barnes then endorses; the BSB prints Jeremiah.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-27-9-2",
+   "scope": "sentence",
+   "on": "Matthew 27:9",
+   "words": "It was often the custom to abridge words in writing them",
+   "reason": "calls-text-wrong",
+   "why": "Part of the argument that Jeremiah in Matthew 27:9 is a copying slip; the BSB prints Jeremiah.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-27-9-3",
+   "scope": "sentence",
+   "on": "Matthew 27:9",
+   "words": "So Zechariah would be written Zriou",
+   "reason": "calls-text-wrong",
+   "why": "Part of the argument that Jeremiah in Matthew 27:9 is a copying slip; the BSB prints Jeremiah.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-27-9-4",
+   "scope": "sentence",
+   "on": "Matthew 27:9",
+   "words": "By the mere change of Z into I, therefore, the mistake might easily be made",
+   "reason": "calls-text-wrong",
+   "why": "Says the name Jeremiah in Matthew 27:9 arose from a copyist's mistake; the BSB prints Jeremiah.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  },
+  {
+   "id": "barnes-matthew-27-9-5",
+   "scope": "sentence",
+   "on": "Matthew 27:9",
+   "words": "Probably this is the correct explanation",
+   "reason": "calls-text-wrong",
+   "why": "Endorses the view that Jeremiah in Matthew 27:9 is a transcribers' mistake; the BSB prints Jeremiah.",
+   "line": "A passage is left out here until a decision on it is made.",
+   "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 3 and 5); for Shubhanshu to make final"
+  }
+ ]
+}

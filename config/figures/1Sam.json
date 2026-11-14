@@ -29,18 +29,18 @@
           "H6444"
         ]
       },
-      "evidence": "Bullinger lays the verse out so the two names cross, under Antimetabole. Keil (Keil and Delitzsch) sets the fruitful wife against the childless one; Clarke: Hannah, being barren, is reproached by Peninnah. Henry: Peninnah could not bear her blessing, nor Hannah her affliction.",
+      "evidence": "Bullinger lists the verse under Introverted Parallelisms, where he calls introverted propositions Antimetabole. Boys: the arrangement turns on two persons, Hannah in a and a, Peninnah in b and b. Keil (Keil and Delitzsch) sets the fruitful wife against the childless one; Clarke: Hannah, being barren, is reproached by Peninnah. Henry: Peninnah could not bear her blessing, nor Hannah her affliction.",
       "limit": "Setting them side by side does not make Hannah faultless.",
-      "checked": "2026-10-22",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "bullinger-fos",
           "on": "1 Samuel 1:2",
-          "at": "Introverted Parallelism, p. 356",
+          "at": "Introverted Parallelisms, pp. 356-357",
           "url": "https://archive.org/details/figuresofspeechu00bull/page/356/mode/1up",
-          "quote": "When Propositions are introverted, it is called Antimetabole",
+          "quote": "When Propositions are introverted, it is called Antimetabole … a “The name of the one was Hannah, b and the name of the other was Peninnah: b And Peninnah had children, a but Hannah had no children.”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
-          "retrieved": "2026-10-21"
+          "retrieved": "2026-11-07"
         },
         {
           "source": "keil-delitzsch",
@@ -51,7 +51,7 @@
         },
         {
           "source": "clarke",
-          "on": "1 Samuel 1",
+          "on": "1 Samuel 1:6-7",
           "quote": "Hannah, being barren, is reproached by Peninnah, especially in their going up to Shiloh",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-10-21"
@@ -62,6 +62,16 @@
           "quote": "Peninnah could not bear the blessing of fruitfulness, but she grew haughty and insolent; Hannah could not bear the affliction of barrenness, but she grew melancholy and discontented",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-10-22"
+        },
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "1 Samuel 1:2",
+          "at": "Introduction, p. 36",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/36/mode/1up",
+          "quote": "In other cases, again, we do not find the arrangement turning upon two kinds or classes of persons, but upon two individuals … Hannah in a. and a.; Peninnah in b. and b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
         }
       ]
     },
@@ -121,6 +131,287 @@
           "quote": "The truth is that with God there is no change. ... hence He is said “to repent:” but the change springs alone from a change in the men themselves, not in God. Speaking in human language the Lord is said “to repent” because there was what appeared to be a change in the Eternal counsels.",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-2-4-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "1 Samuel 2:4-5",
+      "strength": "some interpreters",
+      "short": "The mighty broken, the feeble made strong",
+      "about": "Each second line answers the line before it with its opposite: the mighty and the feeble, the well-fed and the starving, the barren woman and she who has many sons.",
+      "lines": [
+        {
+          "ref": "1 Samuel 2:4",
+          "words": "The bows of the mighty are broken,"
+        },
+        {
+          "ref": "1 Samuel 2:4",
+          "words": "but the feeble are equipped with strength."
+        },
+        {
+          "ref": "1 Samuel 2:5",
+          "words": "The well-fed hire themselves out for food,"
+        },
+        {
+          "ref": "1 Samuel 2:5",
+          "words": "but the starving hunger no more."
+        },
+        {
+          "ref": "1 Samuel 2:5",
+          "words": "The barren woman gives birth to seven,"
+        },
+        {
+          "ref": "1 Samuel 2:5",
+          "words": "but she who has many sons pines away."
+        }
+      ],
+      "pairs": [
+        [
+          "mighty",
+          "feeble"
+        ],
+        [
+          "well-fed",
+          "starving"
+        ],
+        [
+          "barren woman",
+          "many sons"
+        ]
+      ],
+      "evidence": "Lowth says the antithesis is not out of place in the higher kinds of Hebrew poetry, for it is found in Hannah's song of thanksgiving, and he quotes these lines of it.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "lowth",
+          "work": "lowth-lectures",
+          "on": "1 Samuel 2:4-7",
+          "at": "Lecture XIX, p. 47",
+          "url": "https://archive.org/details/lecturesonsacred02lowt/page/47/mode/1up",
+          "quote": "the antithesis. It is not, however, inconsistent with the superior kinds of Hebrew poetry; for we meet with it in the thanksgiving ode of Hannah ... The bows of the mighty are broken; And they that stumbled are girded with strength: The full have hired themselves for bread; And the hungry have ceased to hunger: The barren also hath borne seven; And she who had many children is become fruitless.",
+          "read": "the 1816 printing, in the scan at archive.org/details/lecturesonsacred02lowt",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-10-12-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "1 Samuel 10:12",
+      "strength": "widely agreed",
+      "short": "“Is Saul also among the prophets?” became a byword",
+      "about": "People who had known Saul were amazed to see him prophesying, and their question became a common saying. It was said in wonder at someone found where no one would have expected him. The same saying is told again when Saul prophesied before Samuel (1 Samuel 19:24).",
+      "refs": [
+        "1 Samuel 10:11",
+        "1 Samuel 19:23-24"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "1 Samuel 10:12",
+        "words": "Is Saul also among the prophets?",
+        "means": "wonder at a man found in a place or company unlike anything in his old life"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, sayings quoted as already in use. Keil (Keil and Delitzsch) says the proverb voiced astonishment at any man found in a sphere of life strange to him; Spence (Ellicott) says much the same. Henry says it was commonly used in Israel in wonder at a bad man becoming good, or found in good company.",
+      "limit": "Most of the writers trace the saying to this day; one thinks it took hold when the same thing happened again (1 Samuel 19:23-24).",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 10:12",
+          "at": "Parœmia; or, Proverb: quoted as being already in use as such, p. 756",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/756/mode/1up",
+          "quote": "Parœmiœ which are quoted as being already in use as such ... Therefore it became a proverb: ‘Is Saul also among the prophets?’",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 10:12",
+          "quote": "From this the proverb arose, \"Is Saul also among the prophets?\" - a proverb which was used to express astonishment at the appearance of any man in a sphere of life which had hitherto been altogether strange to him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Samuel 10:11",
+          "quote": "In 1Sa 19:23 we again find Saul, but under changed circumstances ... It was probably this recurrence of the same incident in the king’s life which gave rise to the saying, or proverb, which expresses amazement at the unexpected appearance of any man in a position which had hitherto been quite strange to him.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 10:9-16",
+          "quote": "It became a proverb, commonly used in Israel, when they would express their wonder at a bad man's either becoming good, or at least being found in good company, Is Saul among the prophets?",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-24-13-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "1 Samuel 24:13",
+      "strength": "widely agreed",
+      "short": "David quotes an old proverb to Saul",
+      "about": "David quotes a saying from long ago: wickedness comes from the wicked. Most of the writers read it this way: a wicked man would have struck the king down when he could, so David's sparing of Saul shows he is not wicked. His hand will never be against Saul.",
+      "refs": [
+        "1 Samuel 24:10-11"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "1 Samuel 24:13",
+        "words": "Wickedness proceeds from the wicked",
+        "means": "wicked deeds come from wicked men; David's hand, kept back from Saul, shows he is not one of them"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, sayings quoted as already in use. Henry says it was an old saying in use in David's time, and among his readings: bad men will do bad things, so a wicked David would have done this wicked deed; Clarke reads it the same way. Keil (Keil and Delitzsch): only a wicked man could wish to avenge himself, and David does not.",
+      "limit": "One writer also gives other readings: that the wicked are brought down by their own wickedness, or that wrong done by the wicked is not to be paid back in kind.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 24:13",
+          "at": "Parœmia; or, Proverb: quoted as being already in use as such, p. 756",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/756/mode/1up",
+          "quote": "Parœmiœ which are quoted as being already in use as such ... As saith the proverb of the ancients, ‘Wickedness proceedeth from the wicked: but mine hand shall not be upon thee.’",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 24:9-15",
+          "quote": "\"As the old saying is.\" Here is one that was in use in David's time: Wickedness proceedeth from the wicked, that is, 1. Men's own iniquity will ruin them at last, so some understand it. ... 2. Bad men will do bad things ... If David had been a wicked man, as he was represented, he would have done this wicked thing ... Or thus: Whatever injuries bad men do us ... yet we must not return them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Samuel 24:13",
+          "quote": "This proverb may be thus understood: He that does a wicked act, gives proof thereby that he is a wicked man. ... Had I conspired to dethrone thee, I should have taken thy life when it was in my power, and thus added wickedness to wickedness.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 24:12-13",
+          "quote": "As the proverb of the ancients ... says, Evil proceedeth from the evil, but my hand shall not be upon thee. ... The meaning is this: Only a wicked man could wish to avenge himself; I do not.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-24-14-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "1 Samuel 24:14",
+      "strength": "widely agreed",
+      "short": "David calls himself “a dead dog” and “a flea”",
+      "about": "Having spared Saul in the cave, David calls out to ask whom the king of Israel is chasing: “A dead dog? A flea?” He makes himself as harmless and worthless as he can, to show that a king should not stoop to hunting him.",
+      "refs": [
+        "1 Samuel 26:20",
+        "2 Samuel 9:8"
+      ],
+      "figure": {
+        "name": "Meiosis",
+        "ref": "1 Samuel 24:14",
+        "words": "A dead dog? A flea?",
+        "means": "David himself, made as harmless and worthless as can be, to show that a king should not stoop to hunting him"
+      },
+      "original": {
+        "note": "In Hebrew David says “one flea”, a single flea.",
+        "strong": [
+          "H6550",
+          "H0259"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Meiosis: Saul does what is unworthy of a king in chasing one as harmless as a dead dog and as worthless as a flea. Keil (Keil and Delitzsch) says David paints himself as harmless and insignificant, beneath a king's dignity to pursue. Henry says it was below so great a king and that the Hebrew says one flea; Lord Arthur Hervey (Barnes' Notes) asks if it fits a king.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 24:14",
+          "at": "Meiosis: or, A Be-Littleing, p. 155",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/155/mode/1up",
+          "quote": "you do that which is altogether unworthy of a king, in pursuing one who is as harmless as a dead dog ... and as worthless as a flea, which is poor game for a royal hunter",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 24:14",
+          "quote": "By these similes David meant to describe himself as a perfectly harmless and insignificant man, of whom Saul had no occasion to be afraid, and whom the king of Israel ought to think it beneath his dignity to pursue.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 24:9-15",
+          "quote": "He endeavours to convince Saul that as it was a bad thing, so it was a mean thing, for him to give chase to such an inconsiderable person as he was ... A dead dog; a flea; one flea, so it is in the Hebrew. It is below so great a king to enter the lists with one that is so unequal a match for him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Samuel 24:14",
+          "quote": "was it consistent with the dignity of the king of Israel to lead armies in pursuit of a weak and helpless individual like David?",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-25-3-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "1 Samuel 25:3",
+      "strength": "some interpreters",
+      "short": "Nabal, Abigail, then Abigail, Nabal",
+      "about": "Nabal is named first, then his wife Abigail. What follows speaks of her first and of him last: she was intelligent and beautiful, but her husband was harsh and evil.",
+      "lines": [
+        {
+          "ref": "1 Samuel 25:3",
+          "words": "His name was Nabal,",
+          "mark": "A",
+          "key": "Nabal"
+        },
+        {
+          "ref": "1 Samuel 25:3",
+          "words": "and his wife’s name was Abigail.",
+          "mark": "B",
+          "key": "Abigail"
+        },
+        {
+          "ref": "1 Samuel 25:3",
+          "words": "She was an intelligent and beautiful woman,",
+          "mark": "B'",
+          "key": "She"
+        },
+        {
+          "ref": "1 Samuel 25:3",
+          "words": "but her husband, a Calebite, was harsh and evil in his dealings.",
+          "mark": "A'",
+          "key": "husband"
+        }
+      ],
+      "evidence": "Boys puts Nabal in the two parts he marks a and Abigail in the two he marks b, and notes that this is only part of a longer arrangement. In the verse, Nabal's parts come first and last, and Abigail's between.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "1 Samuel 25:3",
+          "at": "Introduction, p. 36",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/36/mode/1up",
+          "quote": "Nabal in a. and a.; Abigail in b. and b. (Here we have only part of a longer arrangement.)",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
         }
       ]
     }

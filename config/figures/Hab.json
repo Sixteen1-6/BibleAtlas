@@ -50,6 +50,66 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "habakkuk-2-6-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Habakkuk 2:6",
+      "strength": "widely agreed",
+      "short": "A saying the plundered nations will take up",
+      "about": "The nations the conqueror gathered to himself (verse 5) will turn his deeds into a saying against him: “Woe to him who amasses what is not his.” Short and pointed, it would be repeated everywhere when the plunderer fell.",
+      "refs": [
+        "Habakkuk 2:5"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Habakkuk 2:6",
+        "words": "Woe to him who amasses what is not his",
+        "means": "the saying the wronged nations will repeat against the plunderer: wealth taken from others brings him woe, not gain"
+      },
+      "original": {
+        "note": "In Hebrew “taunt” is mashal, a word for a short, pointed saying.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Parœmia, among proverbs first found in Scripture. Calvin says this woe would be said everywhere, the mashal being a short, pithy saying worth remembering. Henry says those triumphing in the tyrant's fall are given a taunting proverb, the woe its words. E. B. Pusey (Barnes' Notes) has the nations sing a dirge of woes: proverbs saying much in few words.",
+      "limit": "The verse foretells a saying the nations will take up when he falls; it does not say the words were already in use. It is the first of five woes in the chapter (verses 6, 9, 12, 15 and 19).",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Habakkuk 2:6",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 763",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/763/mode/1up",
+          "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “Shall not all these take up a parable against him, and a taunting proverb against him, and say, ‘Woe to him that increaseth that which is not his!",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Habakkuk 2:6",
+          "quote": "all these would at length take up against them parables and taunts; and what would be said everywhere would be this ... Woe to him who increases and enriches himself by things not his own. ... meshil is a short saying or a pithy sentence, and worthy to be remembered",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Habakkuk 2:5-14",
+          "quote": "Those that shall triumph in the fall of this great tyrant are here furnished with a parable, and a taunting proverb, to take up against him. He shall say (he that draws up the insulting ditty shall say thus), Ho, he that increases that which is not his!",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Habakkuk 2:6",
+          "quote": "As one vast choir in one terrible varied chant of all those thousand thousand voices, to sing a dirge over him of the judgments of God which his ill-doings to them should bring upon him, a fivefold Woe, woe, woe, woe, woe! ... It is the character of these proverbs to say much in few words, sometimes in one, and more than appears.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

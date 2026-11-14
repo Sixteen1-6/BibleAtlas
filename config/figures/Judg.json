@@ -165,6 +165,195 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "judges-2-2-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Judges 2:2",
+      "strength": "some interpreters",
+      "short": "Forbidden, commanded, then both broken",
+      "about": "The angel of the LORD recalls what Israel was forbidden, a covenant with the people of the land, and what they were commanded, to tear down their altars. The charge comes back in reverse: the command was not obeyed, and the forbidden thing was done.",
+      "lines": [
+        {
+          "ref": "Judges 2:2",
+          "words": "and you are not to make a covenant with the people of this land,",
+          "mark": "A",
+          "key": "covenant"
+        },
+        {
+          "ref": "Judges 2:2",
+          "words": "but you shall tear down their altars.",
+          "mark": "B",
+          "key": "altars"
+        },
+        {
+          "ref": "Judges 2:2",
+          "words": "Yet you have not obeyed My voice.",
+          "mark": "B'",
+          "key": "obeyed"
+        },
+        {
+          "ref": "Judges 2:2",
+          "words": "What is this you have done?",
+          "mark": "A'",
+          "key": "done"
+        }
+      ],
+      "evidence": "Boys sets the verse out in four lines: a thing forbidden in the first and a thing commanded in the second; the guilt for each appears in turn, the commanded thing left undone in the third and the forbidden thing done in the fourth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Judges 2:2",
+          "at": "Introduction, p. 43",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/43/mode/1up",
+          "quote": "In a. we have a thing forbidden … in b. a thing commanded … The guilt of the Israelites, in each particular, appears, in b. and a. They had done that which was forbidden … They had left undone that which was commanded … Thus a. answers to a., and b. to b.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "judges-5-29-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Judges 5:29-30",
+      "strength": "commonly held",
+      "short": "Sisera's mother's hopeful words end in silence",
+      "about": "Sisera's mother waits at her window and keeps telling herself that dividing the spoil explains his delay. Her words stop there. The song does not tell of her disappointment or how she bears it; it breaks out instead, “So may all Your enemies perish, O LORD!”",
+      "refs": [
+        "Judges 5:31"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Grief and Complaint",
+        "ref": "Judges 5:30",
+        "words": "for the neck of the looter",
+        "means": "her hopeful words end there; her disappointment, and how she bears it, are left untold"
+      },
+      "evidence": "Bullinger calls this a wonderful Aposiopesis: her soliloquy ends in a sudden silence, and how she bears it is left to the imagination. Farrar (Ellicott's Commentary) finds the song's abrupt rush to its close very grand: by leaving the princesses' disappointment unspoken, in scorn, it implies it all the more forcibly.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 5:29-30",
+          "at": "Aposiopesis, Grief and Complaint, p. 153",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/153/mode/1up",
+          "quote": "There is a wonderful Aposiopesis here, where the mother of Sisera looks out of her lattice and wonders where Sisera is, and why he does not return. ... Her soliloquy ends in a sudden silence. Everything is left to the imagination as to how she bears it.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Judges 5:31",
+          "quote": "The abrupt burst in which the song rushes, as it were, to its conclusion, is very grand. The total frustration of the hopes of the princesses is all the more forcibly implied by the scorn with which it is left unexpressed.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-9-8-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Judges 9:8-15",
+      "refs": [
+        "Judges 9:16-20"
+      ],
+      "strength": "widely agreed",
+      "short": "Jotham's trees picture the crowning of Abimelech",
+      "about": "Jotham tells of trees looking for a king. The olive tree, the fig tree and the grapevine will not leave their fruit to rule; only the thornbush accepts. From verse 16 Jotham applies the story to the leaders of Shechem, who had made Abimelech king.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Judges 9:8",
+        "words": "the trees set out to anoint a king for themselves",
+        "means": "the leaders of Shechem choosing a king; the worthless thornbush that takes the crown is Abimelech"
+      },
+      "evidence": "Bullinger lists Judges 9:7-15 under Allegory as a continued Hypocatastasis: only the trees are named, and the interpretation in verses 16-20 makes the meaning plain. Keil (Keil and Delitzsch) takes the fruitful trees as nobler men in general and the briar as a worthless man; Henry sees Abimelech in the bramble; Hervey (Barnes' Notes) says Gideon's house refused the kingdom and Abimelech took it.",
+      "limit": "Some of these writers call the story a fable or a parable. They differ on the three fruitful trees: two see Gideon and others who had turned the kingship down, one sees worthy and fruitful men in general.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 9:7-15",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 749",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/749/mode/1up",
+          "quote": "It is a continued Hypocatastasis, only one of the two things being plainly mentioned. Were it not for the interpretation given, in verses 16-20, there would be nothing beyond what is implied.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Judges 9:7-15",
+          "quote": "The meaning of the fable is very easy to understand. The olive tree, fig tree, and vine do not represent different historical persons ... but in a perfectly general way the nobler families or persons who bring forth fruit and blessing in the calling appointed them by God ... The briar, which has nothing but thorns upon it ... is an admirable simile for a worthless man",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Judges 9:7-21",
+          "quote": "His parable is very ingenious ... He hereby applauds the generous modesty of Gideon, and the other judges who were before him, and perhaps of the sons of Gideon, who had declined accepting the state and power of kings when they might have had them ... He hereby exposes the ridiculous ambition of Abimelech, whom he compares to the bramble or thistle",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Judges 9:14",
+          "quote": "The application is obvious. The noble Gideon and his worthy sons had declined the proffered kingdom. The vile, base-born Abimelech had accepted it, and his act would turn out to the mutual ruin of himself and his subjects.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "judges-14-14-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Judges 14:14",
+      "strength": "widely agreed",
+      "short": "Samson's riddle of the lion and the honey",
+      "about": "Samson's riddle is drawn from the lion he killed and the honey he later found in its body (14:8). The eater and the strong one is the lion; the food and the sweet thing is the honey. The men gave the answer (14:18) only after his wife told it to them (14:17).",
+      "refs": [
+        "Judges 14:8",
+        "Judges 14:17",
+        "Judges 14:18"
+      ],
+      "figure": {
+        "name": "Riddle",
+        "ref": "Judges 14:14",
+        "words": "Out of the eater came something to eat, and out of the strong came something sweet.",
+        "means": "the lion Samson had killed, in whose carcass he later found bees and honey"
+      },
+      "evidence": "Bullinger lists Samson's saying under Ænigma, a dark saying, and points to the answer in verse 18. Henry explains that food came from the devourer, and that the men had only to think of the strongest eater and the sweetest food. Jamieson (Jamieson, Fausset and Brown) says the riddle was about honey in the lion's carcass.",
+      "limit": "Some writers also draw lessons from the riddle, about God bringing good out of evil or about Christ; the note keeps to the lion and the honey that the text itself gives.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 14:14",
+          "at": "Ænigma; or, Dark Saying, p. 773",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/773/mode/1up",
+          "quote": "The answer is given in verse 18, in the form of another question ... “What is sweeter than honey? And what is stronger than a lion?” This is a saying both “dark” and “deep”: for there is precious truth hidden in that darkness and those depths, which neither the Philistines nor the natural man can understand or receive. The Living Word (Christ) is stronger than the strong man armed",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Judges 14:10-20",
+          "quote": "yet food came from the devourer ... If they had but so much sense as to consider what eater is most strong, and what meat is most sweet, they would have found out the riddle, and neither lions nor honey were such strangers to their country ... This riddle is applicable to many of the methods of divine providence and grace. When God, by an over-ruling providence, brings good out of evil",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Judges 14:12-18",
+          "quote": "Samson's riddle related to honey in the lion's carcass. ... Three days were passed in vain attempts to unravel the enigma.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

@@ -20,10 +20,11 @@
 // The words that carry the question are highlighted in each verse, so what
 // matters stands out.
 
-import { type Atlas, chapterRange } from '../../data/atlas';
+import { type Atlas, locate } from '../../data/atlas';
 import { loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { type AskIndex, type Question, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
+import { CITE, type Named, VERSE_AT, VERSE_TILL, namedBooks, skeleton, slips } from './books';
 import { loadMeaning, meaningOf, meanings } from './meaning';
 import { couldMean, loadSignals, routes } from './route';
 
@@ -502,32 +503,6 @@ function formsOf(words: string[], w: string, stems: boolean): string[] {
   return [...out];
 }
 
-/** The slips that turn the BSB word `x` into the typed `w`: letters left out
- * ("intrest"), two neighbours swapped ("freinds") and, in long words, one
- * vowel for another ("sacrafice"). Other changes make another word
- * ("quitting" is not "quoting", "witch" not "watch"), so they never count. */
-function slips(w: string, x: string): number {
-  const vowel = (c: string) => 'aeiou'.includes(c);
-  const d = [Array.from({ length: x.length + 1 }, (_, j) => j)];
-  for (let i = 1; i <= w.length; i++) {
-    d[i] = [Infinity];
-    for (let j = 1; j <= x.length; j++) {
-      const [a, b] = [w[i - 1], x[j - 1]];
-      let best = d[i][j - 1] + 1;
-      if (a === b) best = Math.min(best, d[i - 1][j - 1]);
-      else if (w.length >= 8 && vowel(a) && vowel(b)) best = Math.min(best, d[i - 1][j - 1] + 1);
-      if (i > 1 && j > 1 && a === x[j - 2] && w[i - 2] === b) best = Math.min(best, d[i - 2][j - 2] + 1);
-      d[i][j] = best;
-    }
-  }
-  return d[w.length][x.length];
-}
-
-/** Consonant outline: "zacheus" and "zacchaeus" both read "zchs". */
-function skeleton(w: string): string {
-  return w[0] + w.slice(1).replace(/[aeiouyh]/g, '').replace(/(.)\1+/g, '$1');
-}
-
 /** The BSB word a misspelt one was meant to be ("methusela", "freinds"), or
  * null. It must sound alike, so "anime" does not become "anise", nor
  * "cremation" "creation", nor "pills" "piles". */
@@ -546,94 +521,6 @@ function meant(a: Atlas, w: string): string | null {
     if (d < bestD || (d === bestD && n > bestN)) [best, bestD, bestN] = [x, d, n];
   });
   return bestD <= max ? best : null;
-}
-
-/** Books named for a person: "john" is the book only as "john 3" or "the
- * gospel of john". Books that are also everyday words need the same. */
-const PERSON_BOOKS = new Set(['solomon', 'joshua', 'ruth', 'samuel', 'ezra', 'nehemiah', 'esther', 'job', 'isaiah', 'jeremiah', 'ezekiel', 'daniel', 'hosea', 'joel', 'amos', 'obadiah', 'jonah', 'micah', 'nahum', 'habakkuk', 'zephaniah', 'haggai', 'zechariah', 'malachi', 'matthew', 'mark', 'luke', 'john', 'james', 'peter', 'jude', 'timothy', 'titus', 'philemon']);
-const WORD_BOOKS = new Set(['numbers', 'judges', 'kings', 'chronicles', 'psalms', 'psalm', 'proverbs', 'lamentations', 'acts', 'romans', 'song', 'songs']);
-const ORDINALS: Record<string, number> = { '1': 1, '2': 2, '3': 3, first: 1, second: 2, third: 3 };
-
-/** "16:31" and "16:31-33" after a word are marked as a verse ("16 v31 w33")
- * so the book named before them can take them; marks no book takes are dropped. */
-const CITE = /\b(\p{L}+)\s+(\d{1,3})\s*[:.]\s*(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?/gu;
-const VERSE_AT = /^v(\d{1,3})$/;
-const VERSE_TILL = /^w(\d{1,3})$/;
-
-interface Named {
-  /** Verses of the books or chapters named. */
-  from: number;
-  to: number;
-  chapter: boolean;
-  /** The verses themselves, as in "proverbs 16:31". */
-  verse?: boolean;
-}
-
-/** The Bible books a question names as books ("in john 1", "leviticus",
- * "matthew says ... but acts says"), and which of its words did. */
-function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Set<number> } {
-  const byWord = new Map<string, { book: number; ord: number }[]>();
-  a.books.forEach((b, book) => {
-    const parts = b.name.toLowerCase().split(' ');
-    const ord = /^\d$/.test(parts[0]) ? +parts[0] : 0;
-    const last = parts[parts.length - 1];
-    for (const w of last === 'psalms' ? ['psalms', 'psalm'] : [last]) byWord.set(w, [...(byWord.get(w) ?? []), { book, ord }]);
-  });
-  // "philipians 4:13" is Philippians.
-  const keys = [...byWord.keys()];
-  toks = toks.map((w) => {
-    if (byWord.has(w) || w.length < 6) return w;
-    const x = keys.find((k) => k[0] === w[0] && skeleton(k) === skeleton(w) && slips(w, k) <= 2);
-    return x ?? w;
-  });
-  const isBook = (w: string | undefined) => !!w && byWord.has(w);
-  const SAYS = ['says', 'say', 'said', 'writes', 'wrote'];
-  // "matthew says ... but acts says": a book that speaks, when another does too.
-  const speaking = toks.filter((w, i) => isBook(w) && SAYS.includes(toks[i + 1])).length;
-  const named: Named[] = [];
-  const used = new Set<number>();
-  toks.forEach((w, i) => {
-    const books = byWord.get(w);
-    if (!books) return;
-    const [prev, next] = [toks[i - 1], toks[i + 1]];
-    const chapter = next && /^\d+$/.test(next) ? +next : 0;
-    const asBook =
-      chapter > 0 ||
-      (!PERSON_BOOKS.has(w) && !WORD_BOOKS.has(w)) ||
-      prev === 'in' ||
-      (prev === 'of' && ['book', 'gospel', 'letter', 'epistle'].includes(toks[i - 2])) ||
-      (SAYS.includes(next) && speaking > 1) ||
-      (prev === 'and' && isBook(toks[i - 2])) ||
-      (next === 'and' && isBook(toks[i + 2]));
-    if (!asBook) return;
-    const ord = ORDINALS[prev] ?? 0;
-    const pick = books.filter((b) => b.ord === ord);
-    for (const { book } of pick.length ? pick : books) {
-      const meta = a.books[book];
-      const end = book + 1 < a.books.length ? a.books[book + 1].start : a.n;
-      if (chapter > 0 && chapter <= meta.chapters.length) {
-        const [from, to] = chapterRange(a, book, chapter);
-        // "16:31", "16:31-33": the verses asked about.
-        const at = VERSE_AT.exec(toks[i + 2] ?? '');
-        const till = VERSE_TILL.exec(toks[i + 3] ?? '');
-        if (at && +at[1] >= 1 && from + +at[1] - 1 < to) {
-          const first = from + +at[1] - 1;
-          const last = till ? Math.min(to - 1, from + +till[1] - 1, first + 5) : first;
-          if (last >= first) named.push({ from: first, to: last + 1, chapter: false, verse: true });
-        }
-        named.push({ from, to, chapter: true });
-      }
-      named.push({ from: meta.start, to: end, chapter: false });
-    }
-    used.add(i);
-    if (chapter > 0) used.add(i + 1);
-    if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '')) used.add(i + 2);
-    if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '') && VERSE_TILL.test(toks[i + 3] ?? '')) used.add(i + 3);
-    if (ORDINALS[prev]) used.add(i - 1);
-    // "the book of romans", "psalm 23 verse 4": words about the book, not of the question.
-    for (const j of [i - 2, i - 1, i + 1, i + 2]) if (['book', 'books', 'gospel', 'letter', 'epistle', 'chapter', 'verse'].includes(toks[j])) used.add(j);
-  });
-  return { named, used };
 }
 
 /** Verses holding any of these index words. */
@@ -777,18 +664,41 @@ const POINT = { seeds: 12, votes: 2, min: 2, wider: 3 };
  * question whose words the Bible hardly holds (`weak`), the surest chain,
  * nearness and words again; the surest chain times how sure the matcher is of
  * the closest question; that sureness; `weak`; the surest chain among first
- * parts; nearness times chains; words times a whole phrase. Fitted on 31,904
- * verses gathered for 2,844 messages and read blind (eval/ask/scripts/r12/). */
-const FIT = {
-  answers: [-3.9886, 0.0707, -0.0657, -0.0805, -0.1683, 0.2566, -0.167, 1.8585, 0.0289, 0.5772, -0.8008, 0.0337, 4.7109, 3.2868, 0.1092, 2.0765, -0.1532, 0.7969, 1.3943, -0.0666, -0.0421, 0.7006, -0.1282, -1.3385, -2.6002, -0.9967, -0.0431, 0.8873, -4.3064, 0.3518],
-  off: [2.5309, 0.1788, 1.4186, -0.2159, 0.4284, -0.0726, 0.691, -0.509, 0.1317, -0.8813, 2.098, 0.3535, -5.6172, -4.2553, -0.2062, -2.909, 0.097, -1.5313, -3.0359, -0.653, 0.2165, -0.6521, 0.6945, 0.997, 3.1599, -0.1379, -0.2309, -0.5591, 4.3938, -0.1605],
+ * parts; nearness times chains; words times a whole phrase; and how sure the
+ * matcher is of the surest of the DEEP chains that holds it among its first
+ * parts. Fitted on 26,939 verses gathered for 1,913 messages and read blind
+ * (eval/ask/scripts/r15/; first eval/ask/scripts/r12/). */
+export const FIT = {
+  answers: [-3.146, -0.3368, 0.9622, 0.0271, -0.029, 0.4689, -0.0481, 1.3681, 0.3167, 0.6776, 0.2496, 0.1724, 2.7034, 2.6248, 0.0153, 0.7915, -0.1078, 0.5738, -0.2234, 0.7936, -0.0095, 1.0914, -0.0302, -1.3242, 0.5741, -1.3416, -0.2142, 0.2064, -1.3089, 0.111, 1.6472],
+  off: [2.0612, 0.307, -0.9647, -0.4226, -0.1392, -0.8963, 0.0894, -1.4821, -0.1952, -1.04, -0.3081, -0.2528, -4.5293, -3.1625, 0.0608, -1.5675, 0.1491, -0.8418, 0.5623, -0.645, 0.0718, -0.6348, 0.5927, 1.0859, -0.4245, 0.0879, -0.1379, -0.5228, 0.7543, -0.4325, -1.3897],
   offWeight: 0.5,
   rows: 80,
 };
 
+/** How many verses on each side of a cited verse come right after it. */
+export const AROUND = { reach: 2 };
+
 /** For the eval scripts (eval/ask/scripts/r12/): what FIT weighed for each
  * verse of the last question gathered. Off in the app. */
 export const TRACE: { on: boolean; rows: unknown[] } = { on: false, rows: [] };
+
+/** How many of the question's words make its concepts. Read blind on 957
+ * seen messages, 12 rather than 8 (with DEEP and FIT refitted) answered 575
+ * rather than 564, with 1,821 off verses rather than 1,903; a long message
+ * often says what it is about late ("the ten horns in revelation 13"). */
+export const WORDS = { max: 12 };
+
+/** Beside the closest chains, the first `parts` parts of the chains of the
+ * `top` prepared questions the matcher finds likeliest are among the verses
+ * FIT weighs, read from the index (no chain is loaded for them). */
+export const DEEP = { top: 20, parts: 3 };
+
+/** After a cited verse, its cross-references with `votes` or more votes, the
+ * most voted first, up to `top`, one by one with the verses either side of
+ * it. Read blind on the 132 seen messages that cite a verse where it changed
+ * what came first, the first 6 held 341 answering verses rather than 289 and
+ * 74 off verses rather than 171 (10 votes; 5 did a little better still). */
+export const CITED = { votes: 5, top: 4 };
 
 function logistic(w: number[], x: number[]): number {
   let z = 0;
@@ -822,7 +732,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
     .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
-    .slice(0, Math.max(0, 8 - phrases.length));
+    .slice(0, Math.max(0, WORDS.max - phrases.length));
   const n = a.n;
 
   // 1. Concepts and the BSB words for each.
@@ -868,6 +778,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const near = new Map<Question, number>();
   for (const r of routes(ix, question, LEAN.top)) if (r.said >= LEAN.said && r.score >= LEAN.score && couldMean(ix, question, r.q)) near.set(r.q, r.score);
   const nearest = meanings(ix, question, SHOW.top);
+  // The first parts of the chains of more of the likeliest prepared questions.
+  const deepP = new Map<number, number>();
+  if (DEEP.top > 0)
+    for (const m of meanings(ix, question, DEEP.top))
+      for (const [s, e] of m.q.r.slice(0, DEEP.parts)) for (let v = s; v <= Math.min(e, s + 2); v++) if (m.p > (deepP.get(v) ?? 0)) deepP.set(v, m.p);
   for (const m of nearest.slice(0, LEAN.top)) near.set(m.q, 1);
   const lean = [...near].map(([q, score]) => ({ q, score }));
   const [topicSets, questionSets, leanSets, nearestSets] = await Promise.all([
@@ -1065,9 +980,20 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // chapters of a named book come last, as most were about something else.
   const cites: number[] = [];
   for (const b of named) if (b.verse) for (let v = b.from; v < b.to; v++) if (!texts || texts[v]) cites.push(v);
+  // Then the verses on either side of it, the nearest first: read blind, the
+  // verse just before or after a cited verse answered the asker far more often
+  // than the rest of its chapter. Not among Solomon's proverbs (Proverbs 10 to
+  // 29), where each saying stands alone.
+  const sayings = (v: number) => {
+    const l = locate(a, v);
+    return a.books[l.book].name === 'Proverbs' && l.chapter >= 10 && l.chapter <= 29;
+  };
+  const around: number[] = [];
+  for (let d = 1; d <= AROUND.reach; d++)
+    for (const b of named) if (b.verse && !sayings(b.from)) for (const v of [b.to - 1 + d, b.from - d]) if (within(v, chapters) && (!texts || texts[v])) around.push(v);
   const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
   // Otherwise FIT orders those SHOW ranks and the best found.
-  const rows = [...new Set([...pool, ...found.slice(0, FIT.rows)])];
+  const rows = [...new Set([...pool, ...found.slice(0, FIT.rows), ...deepP.keys()])];
   const firstTen = new Set(found.slice(0, 10));
   const weak = !usable.length || Math.max(0, ...rows.map((v) => text.get(v) ?? 0)) < 0.5 ? 1 : 0;
   const sure = nearest[0]?.p ?? 0;
@@ -1084,12 +1010,30 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
       (links.get(v) ?? linked(v)) / 6, hp, Math.min(h?.n ?? 0, 5) / 5, h?.first ? 1 : 0, near, widerTop.has(v) ? 1 : 0,
       Math.min(pointed.get(v) ?? 0, 5) / 5, (score.get(v) ?? 0) / 5, (show.get(v) ?? 0) / 5, firstTen.has(v) ? 1 : 0,
       weak * hp, weak * near, weak * words, sure * hp, sure, weak, h?.first ? hp : 0, (near * (h?.n ?? 0)) / 5, words * phrase,
+      deepP.get(v) ?? 0,
     ];
   };
   const xs = named.length ? [] : rows.map(known);
   const fit = xs.map((x) => logistic(FIT.answers, x) - FIT.offWeight * logistic(FIT.off, x));
+  // The Bible's own cross-references from a cited verse, the most voted first,
+  // beside the verses either side of it.
+  const linkedTo: number[] = [];
+  if (cites.length) {
+    const votes = new Map<number, number>();
+    const skip = new Set([...cites, ...around]);
+    for (const u of cites) {
+      const add = (v: number, n: number) => {
+        if (!skip.has(v) && (!texts || texts[v]) && n >= CITED.votes && n > (votes.get(v) ?? 0)) votes.set(v, n);
+      };
+      for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) add(a.xDst[e], a.xVotes[e]);
+      for (let k = a.xInOff[u]; k < a.xInOff[u + 1]; k++) add(a.xSrc[a.xInEdge[k]], a.xVotes[a.xInEdge[k]]);
+    }
+    linkedTo.push(...[...votes].sort((x, y) => y[1] - x[1] || x[0] - y[0]).slice(0, CITED.top).map((x) => x[0]));
+  }
+  const beside: number[] = [];
+  for (let k = 0; k < Math.max(linkedTo.length, around.length); k++) beside.push(...linkedTo.slice(k, k + 1), ...around.slice(k, k + 1));
   const first = named.length
-    ? [...cites, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
+    ? [...cites, ...beside, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
     : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
   const put = new Set(first);
   const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);

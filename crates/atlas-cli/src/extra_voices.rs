@@ -1,11 +1,14 @@
 //! What Christian writers said: notes on verses by Christian writers of the
-//! past, in their own words. All three works are public domain:
+//! past, in their own words. All the works are public domain:
 //! - the Church Fathers on the Gospels, as Thomas Aquinas gathered them in the
 //!   Catena Aurea, in the Oxford translation edited by John Henry Newman
 //!   (1841–45), from the Catena corpus (`catena-aurea`);
 //! - Matthew Henry's Concise Commentary (`henry-concise`) and
 //! - John Wesley's Explanatory Notes (`wesley-notes`), both from the CrossWire
 //!   SWORD modules as kept in the Let's Church repository (CC0 1.0).
+//!
+//! - John Calvin's commentaries on the New Testament (`calvin-commentaries`),
+//!   read by [`calvin`], which says what it cuts and leaves out.
 //!
 //! The app shows them only at Deep, and only once a reader chooses to see
 //! them, always as these writers' words and never as the app's own claim.
@@ -47,15 +50,27 @@
 //! Output, under `web/public/data/`:
 //! - `extras/voices.json`: `{format, has, parts}`. `has` holds one character
 //!   per verse, '0' plus a bit for each work with a note on it (1 the Fathers,
-//!   2 Henry, 4 Wesley). `parts[book]` lists the first chapter of each of the
+//!   2 Henry, 4 Wesley, 8 Calvin). `parts[book]` lists the first chapter of each of the
 //!   book's files. Small: it loads with the reader's first move.
 //! - `extras/voices/<Book>.<k>.json`: `{format, items}`, the notes on the
-//!   chapters of part k, each `[work, from, to, voices]`: work 0 the Fathers,
-//!   1 Henry, 2 Wesley; `voices` a list of `[who, text]`, who being the
-//!   Father's name in the Catena and "" otherwise; text a string, or a list of
+//!   chapters of part k, each `[work, from, to, voices, left?]`: work 0 the
+//!   Fathers, 1 Henry, 2 Wesley, 3 Calvin; `voices` a list of `[who, text]`,
+//!   who being the Father's name in the Catena, a heading over notes from
+//!   another passage ("Henry's notes on 2 Kings 18:17-37", "Calvin's notes on
+//!   Matthew 3:13-17, in his Harmony of the Gospels"), and "" otherwise;
+//!   `left`, only on a note with a passage left out (shown as "[passage left
+//!   out]"), the lines saying why; text a string, or a list of
 //!   strings and `[from, to, text]` verse links, its paragraphs split by a
 //!   blank line. Items are in order of first verse, then work, and never cross
 //!   a chapter. They load when the panel opens.
+
+mod calvin;
+mod henry_full;
+mod jfb;
+mod barnes;
+mod kd;
+mod luther;
+mod sword;
 
 use crate::loaded::Loaded;
 use crate::sources::Inputs;
@@ -70,8 +85,9 @@ const HENRY: &str = "henry-concise";
 const WESLEY: &str = "wesley-notes";
 const OUT: &str = "extras/voices.json";
 const DIR: &str = "extras/voices";
-/// A book's notes are split into files of about this many bytes, between chapters.
-const PART_BYTES: usize = 500_000;
+/// A book's notes are split into files of about this many bytes, between
+/// chapters, so opening the panel waits for about 20 KB compressed, not 160 KB.
+const PART_BYTES: usize = 60_000;
 
 /// The works, oldest first, as numbered in the output.
 const FATHERS_W: u8 = 0;
@@ -142,6 +158,8 @@ struct Item {
     from: u32,
     to: u32,
     voices: Vec<(String, Vec<Run>)>,
+    /// Lines saying what is left out of the note, and why.
+    left: Vec<String>,
 }
 
 /// What the build placed and dropped, for its report.
@@ -168,7 +186,7 @@ struct Report {
     pointers: usize,
     pointers_empty: usize,
     /// Notes left out with no words of their own, only pointers, by work.
-    thin: [usize; 3],
+    thin: [usize; 11],
 }
 
 fn read_json(path: &std::path::Path) -> Result<Value, String> {
@@ -675,7 +693,7 @@ fn text_json(runs: &[Run]) -> Value {
 }
 
 fn item_json(item: &Item) -> Value {
-    json!([
+    let mut out = json!([
         item.work,
         item.from,
         item.to,
@@ -683,7 +701,11 @@ fn item_json(item: &Item) -> Value {
             .iter()
             .map(|(who, runs)| json!([who, text_json(runs)]))
             .collect::<Vec<_>>()
-    ])
+    ]);
+    if !item.left.is_empty() {
+        out.as_array_mut().expect("an array").push(json!(item.left));
+    }
+    out
 }
 
 /// The words of a text, as they are written (letters only).
@@ -898,6 +920,7 @@ fn catena(
             from,
             to,
             voices,
+            left: Vec::new(),
         });
     }
     // Aquinas comments on every verse: a passage runs on to the next one in its chapter.
@@ -1005,6 +1028,7 @@ fn henry(
                 from,
                 to,
                 voices,
+                left: Vec::new(),
             });
         }
     }
@@ -1032,6 +1056,7 @@ fn henry(
             from,
             to,
             voices,
+            left: Vec::new(),
         });
     }
     Ok(())
@@ -1110,13 +1135,14 @@ fn wesley(
             from: at,
             to: at,
             voices,
+            left: Vec::new(),
         });
     }
     Ok(())
 }
 
 /// The files to write under web/public/data, as (path, bytes).
-pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>)>, String> {
+pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>)>, String> {
     let mut report = Report::default();
     // The KJV, one line per verse: the words Wesley's notes quote, and the
     // words that tell the Catena's footnote marks from words.
@@ -1130,6 +1156,16 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     catena(inputs, vz, &kjv, &mut books, &mut report)?;
     henry(inputs, vz, &mut books, &mut report)?;
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
+    let calvin = calvin::calvin(root, inputs, vz, &kjv, &mut books, &mut report)?;
+    let (full, full_counts) = henry_full::henry_full(root, inputs, vz, &kjv, &mut report)?;
+    let (jfb_items, jfb_counts) = jfb::jfb(root, inputs, vz, &mut report)?;
+    let (kd_items, kd_counts) = kd::kd(root, inputs, vz, &mut report)?;
+    let (barnes_items, barnes_counts) = barnes::barnes(root, inputs, vz, &mut report)?;
+    let (luther_items, luther_counts) = luther::luther(root, inputs, vz, &kjv, &mut report)?;
+    for x in full.into_iter().chain(jfb_items).chain(kd_items).chain(barnes_items).chain(luther_items) {
+        let b = vz.locate(x.from).ok_or("a note outside the Bible")?.0;
+        books[b as usize].push(x);
+    }
     // A note that is only references ("Mark 11:25.") would make the line name
     // a writer whose section only points elsewhere.
     for items in &mut books {
@@ -1140,14 +1176,21 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
         });
     }
 
-    let mut has = vec![b'0'; vz.verse_count() as usize];
-    let mut counts = [0usize; 3];
+    // Each verse's works as bits, written six to a character as '0' plus
+    // the bits (up to 'o'): works 0 to 5 in `has`, 6 on in `more`.
+    let mut has = vec![0u16; vz.verse_count() as usize];
+    let mut counts = [0usize; 11];
     let mut out = Vec::new();
     let mut parts: Vec<Vec<u16>> = Vec::with_capacity(BOOKS.len());
     for (b, items) in books.iter_mut().enumerate() {
         items.sort_by_key(|x| (x.from, x.work, x.to));
-        // Each chapter's items, as JSON, in order.
+        // Each chapter's items, as JSON, in order; Henry's complete
+        // commentary in a file of its own for each chapter.
         let mut chapters: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
+        let mut full: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
+        let mut kd_chapters: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
+        let mut barnes_chapters: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
+        let mut luther_chapters: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
         for item in items.iter() {
             let (_, c, _) = vz.locate(item.from).ok_or("a note outside the Bible")?;
             if vz.locate(item.to).map(|l| l.1) != Some(c) {
@@ -1157,7 +1200,24 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
                 has[v as usize] |= 1 << item.work;
             }
             counts[item.work as usize] += 1;
-            chapters.entry(c).or_default().push(item_json(item));
+            let to = if item.work == kd::KD_W {
+                &mut kd_chapters
+            } else if item.work == barnes::BARNES_W {
+                &mut barnes_chapters
+            } else if item.work == luther::GALATIANS_W || item.work == luther::GENESIS_W {
+                &mut luther_chapters
+            } else if item.work >= henry_full::FULL_W {
+                &mut full
+            } else {
+                &mut chapters
+            };
+            to.entry(c).or_default().push(item_json(item));
+        }
+        for (dir, list) in [(henry_full::FULL_DIR, full), (kd::KD_DIR, kd_chapters), (barnes::BARNES_DIR, barnes_chapters), (luther::LUTHER_DIR, luther_chapters)] {
+            for (c, list) in list {
+                let doc = json!({ "format": 1, "items": list });
+                out.push((format!("{dir}/{}.{c}.json", BOOKS[b].osis), serde_json::to_vec(&doc).map_err(|e| e.to_string())?));
+            }
         }
         let mut starts: Vec<u16> = Vec::new();
         let mut file: Vec<Value> = Vec::new();
@@ -1189,8 +1249,8 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
     }
     let files: usize = parts.iter().map(Vec::len).sum();
     eprintln!(
-        "voices: {} passages of the Fathers, {} of Henry's notes, {} of Wesley's, in {files} files; {} of {} references linked; {} introductions and {} notes on a verse 0 left out, {} not placed, {} ranges cut to the chapter",
-        counts[0], counts[1], counts[2], report.linked, report.refs, report.intros, report.verse_zero, report.unplaced, report.clamped
+        "voices: {} passages of the Fathers, {} of Henry's notes, {} of Wesley's, {} of Calvin's, in {files} files; {} of {} references linked; {} introductions and {} notes on a verse 0 left out, {} not placed, {} ranges cut to the chapter",
+        counts[0], counts[1], counts[2], counts[3], report.linked, report.refs, report.intros, report.verse_zero, report.unplaced, report.clamped
     );
     eprintln!(
         "voices: the Fathers' passages took {} verses before the next passage, {} Gospel paragraphs and {} footnote marks left out; {} repeated Wesley notes left out and {} moved to the verse whose words they explain",
@@ -1200,10 +1260,24 @@ pub fn build(inputs: &Inputs, vz: &Versification) -> Result<Vec<(String, Vec<u8>
         "voices: {} notes of the Fathers, {} of Henry's and {} of Wesley's left out as only pointers elsewhere; {} of Henry's chapter notes that only point to another passage given his notes there ({} with none); {} references to numbered books in Roman numerals linked",
         report.thin[0], report.thin[1], report.thin[2], report.pointers, report.pointers_empty, report.numbered
     );
+    eprintln!("{}; {} of Calvin's notes left out as only pointers elsewhere", calvin.line(), report.thin[3]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", full_counts.line(), report.thin[4] + report.thin[5]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", jfb_counts.line(), report.thin[6]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", kd_counts.line(), report.thin[7]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", barnes_counts.line(), report.thin[8]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", luther_counts.line(), report.thin[9] + report.thin[10]);
+    let six = |shift: u16| String::from_utf8(has.iter().map(|&x| b'0' + ((x >> shift) & 63) as u8).collect()).map_err(|e| e.to_string());
     let index = json!({
         "format": 1,
-        "has": String::from_utf8(has).map_err(|e| e.to_string())?,
+        "has": six(0)?,
+        "more": six(6)?,
         "parts": parts,
+        "finished": henry_full::finished(root)?,
+        "writers": jfb::writers(root)?
+            .into_iter()
+            .map(|(w, bs)| json!([jfb::JFB_W, w, bs]))
+            .chain(kd::writers(root)?.into_iter().map(|(w, bs)| json!([kd::KD_W, w, bs])))
+            .collect::<Vec<_>>(),
     });
     out.push((
         OUT.to_string(),
@@ -1245,8 +1319,21 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .len();
     let index = read_json(&index_path)?;
     let n = d.vz.verse_count();
-    let has = index["has"].as_str().unwrap_or("").as_bytes().to_vec();
-    let has_ok = has.len() == n as usize && has.iter().all(|c| (b'0'..=b'7').contains(c));
+    let six = |k: &str| index[k].as_str().unwrap_or("").as_bytes().to_vec();
+    let (low, high) = (six("has"), six("more"));
+    let has_ok = [&low, &high].iter().all(|s| s.len() == n as usize && s.iter().all(|c| (b'0'..=b'o').contains(c)));
+    let has: Vec<u16> = low.iter().zip(high.iter().chain(std::iter::repeat(&b'0'))).map(|(a, z)| u16::from(a.wrapping_sub(b'0')) | (u16::from(z.wrapping_sub(b'0')) << 6)).collect();
+    // Who wrote each book of a work that names its writer by book.
+    let mut by_book: BTreeMap<(u64, u64), String> = BTreeMap::new();
+    let mut writers_ok = true;
+    for row in index["writers"].as_array().into_iter().flatten() {
+        let (w, name) = (row[0].as_u64().unwrap_or(99), row[1].as_str().unwrap_or(""));
+        for b in row[2].as_array().into_iter().flatten().filter_map(Value::as_u64) {
+            writers_ok &= !name.is_empty() && by_book.insert((w, b), name.to_string()).is_none();
+        }
+    }
+    writers_ok &= (0..BOOKS.len() as u64).all(|b| by_book.contains_key(&(u64::from(jfb::JFB_W), b)));
+    let kd_writers_ok = (0..39u64).all(|b| by_book.contains_key(&(u64::from(kd::KD_W), b))) && !by_book.keys().any(|&(w, b)| w == u64::from(kd::KD_W) && b >= 39);
     let parts: Vec<Vec<u16>> = index["parts"]
         .as_array()
         .into_iter()
@@ -1261,8 +1348,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .collect();
     let mut parts_ok = parts.len() == BOOKS.len();
 
-    let mut seen = vec![b'0'; n as usize];
-    let mut counts = [0usize; 3];
+    let mut seen = vec![0u16; n as usize];
+    let mut counts = [0usize; 11];
+    // Notes with a passage left out, and whether each says why.
+    let (mut gaps, mut gaps_ok) = (0usize, true);
     let (mut items_ok, mut links_ok, mut clean) = (true, true, true);
     let mut largest = 0u64;
     // (work, first verse, last verse, who, words) of every note, for the known cases below.
@@ -1271,16 +1360,55 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     // Henry note's links as (note's first verse, last verse, link's first, last).
     let mut thin = 0usize;
     let mut henry_links: Vec<(u32, u32, u64, u64)> = Vec::new();
+    // Every file: (book, path, first chapter, the next file's first chapter,
+    // its kind: 0 a part file, 1 Henry's complete commentary and JFB, 2 Keil
+    // and Delitzsch, 3 Barnes, 4 Luther). Kinds 1 to 4 have one file for each chapter with a note.
+    let mut files: Vec<(usize, std::path::PathBuf, u16, u16, u8)> = Vec::new();
     for (b, starts) in parts.iter().enumerate() {
         parts_ok &= starts.windows(2).all(|w| w[0] < w[1])
             && starts
                 .iter()
                 .all(|&c| c >= 1 && c <= d.vz.chapters_in(b as u8));
         for (k, &first) in starts.iter().enumerate() {
-            let path = d.dir.join(format!("{DIR}/{}.{k}.json", BOOKS[b].osis));
-            largest = largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
-            let doc = read_json(&path)?;
             let next = starts.get(k + 1).copied().unwrap_or(u16::MAX);
+            files.push((b, d.dir.join(format!("{DIR}/{}.{k}.json", BOOKS[b].osis)), first, next, 0));
+        }
+        for c in 1..=d.vz.chapters_in(b as u8) {
+            let any = |mask: u16| {
+                (1..=d.vz.verses_in(b as u8, c).unwrap_or(0))
+                    .filter_map(|v| d.vz.index(b as u8, c, v))
+                    .any(|v| has.get(v as usize).is_some_and(|x| x & mask != 0))
+            };
+            if any(0b111 << henry_full::FULL_W) {
+                files.push((b, d.dir.join(format!("{}/{}.{c}.json", henry_full::FULL_DIR, BOOKS[b].osis)), c, c + 1, 1));
+            }
+            if any(1 << kd::KD_W) {
+                files.push((b, d.dir.join(format!("{}/{}.{c}.json", kd::KD_DIR, BOOKS[b].osis)), c, c + 1, 2));
+            }
+            if any(1 << barnes::BARNES_W) {
+                files.push((b, d.dir.join(format!("{}/{}.{c}.json", barnes::BARNES_DIR, BOOKS[b].osis)), c, c + 1, 3));
+            }
+            if any((1 << luther::GALATIANS_W) | (1 << luther::GENESIS_W)) {
+                files.push((b, d.dir.join(format!("{}/{}.{c}.json", luther::LUTHER_DIR, BOOKS[b].osis)), c, c + 1, 4));
+            }
+        }
+    }
+    let (mut full_largest, mut kd_largest, mut barnes_largest, mut luther_largest) = (0u64, 0u64, 0u64, 0u64);
+    {
+        for (b, path, first, next, kind) in files {
+            let full = kind > 0;
+            if kind == 1 {
+                full_largest = full_largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            } else if kind == 2 {
+                kd_largest = kd_largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            } else if kind == 3 {
+                barnes_largest = barnes_largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            } else if kind == 4 {
+                luther_largest = luther_largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            } else {
+                largest = largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            }
+            let doc = read_json(&path)?;
             let mut prev = (0u32, 0u64, 0u32);
             for item in doc["items"].as_array().into_iter().flatten() {
                 let w = item[0].as_u64().unwrap_or(9);
@@ -1289,7 +1417,14 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     item[2].as_u64().unwrap_or(0) as u32,
                 );
                 let (lf, lt) = (d.vz.locate(from), d.vz.locate(to));
-                let fits = w < 3
+                let work_ok = match kind {
+                    0 => w < 4,
+                    1 => w == u64::from(if b < 44 { henry_full::FULL_W } else { henry_full::FINISH_W }) || w == u64::from(jfb::JFB_W),
+                    3 => w == u64::from(barnes::BARNES_W) && b >= 39,
+                    4 => (w == u64::from(luther::GALATIANS_W) && b == 47) || (w == u64::from(luther::GENESIS_W) && b == 0),
+                    _ => w == u64::from(kd::KD_W) && b < 39,
+                };
+                let fits = work_ok
                     && from <= to
                     && to < n
                     && matches!((lf, lt), (Some((bf, cf, _)), Some((bt, ct, _)))
@@ -1298,6 +1433,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 prev = (from, w, to);
                 let voices = item[3].as_array().cloned().unwrap_or_default();
                 let mut ok = fits && !voices.is_empty();
+                let left: Vec<&str> = item[4].as_array().into_iter().flatten().filter_map(Value::as_str).collect();
+                let gap = voices.iter().any(|v| plain(&v[1]).contains(calvin::LEFT_OUT));
+                gaps += usize::from(gap);
+                gaps_ok &= gap == !left.is_empty() && left.iter().all(|l| !l.is_empty()) && item.as_array().map_or(0, Vec::len) == 4 + usize::from(gap);
                 thin += usize::from(
                     voices.iter().map(|v| json_letters(&v[1])).sum::<usize>() < OWN_LETTERS,
                 );
@@ -1319,7 +1458,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     }
                     let who = v[0].as_str().unwrap_or("");
                     let words = plain(&v[1]);
-                    let named = w == FATHERS_W as u64 || (w == u64::from(HENRY_W) && who.starts_with("Henry's notes on "));
+                    let named = w == FATHERS_W as u64
+                        || (w == u64::from(HENRY_W) && who.starts_with("Henry's notes on "))
+                        || (w == u64::from(calvin::CALVIN_W) && who.starts_with("Calvin's notes on Matthew ") && who.ends_with(", in his Harmony of the Gospels"))
+                        || full;
                     ok &= !words.trim().is_empty() && (named || who.is_empty()) && (w != FATHERS_W as u64 || !who.is_empty());
                     clean &= !words.contains("{{")
                         && !words.contains("}}")
@@ -1363,10 +1505,10 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     };
     Ok(vec![
         (
-            counts[0] > 800 && counts[1] > 4_000 && counts[2] > 16_000,
+            counts[0] > 800 && counts[1] > 4_000 && counts[2] > 16_000 && counts[3] > 4_500,
             format!(
-                "{} passages of the Church Fathers, {} of Matthew Henry's notes and {} of John Wesley's, expected more than 800, 4,000 and 16,000",
-                counts[0], counts[1], counts[2]
+                "{} passages of the Church Fathers, {} of Matthew Henry's notes, {} of John Wesley's and {} of John Calvin's, expected more than 800, 4,000, 16,000 and 4,500",
+                counts[0], counts[1], counts[2], counts[3]
             ),
         ),
         (
@@ -1462,6 +1604,144 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     && henry_links.iter().any(|&(a, z, f, t)| a <= i39 && i39 <= z && (f, t) == (u64::from(k20), u64::from(k20e)))
             },
             "Henry's notes on Isaiah 36, 37 and 39, which only point to 2 Kings 18-20, carry his notes there under \"Henry's notes on 2 Kings ...\", with the pointer as a link".to_string(),
+        ),
+        (
+            note(calvin::CALVIN_W, "John 3:16", "", "Christ opens up the first cause")?
+                && !note(calvin::CALVIN_W, "Romans 3:28", "", "Is he the God of the Jews only")?
+                && note(calvin::CALVIN_W, "Matthew 5:3", "", "")?
+                && note(calvin::CALVIN_W, "Philemon 1:1", "", "Paul")?
+                && note(calvin::CALVIN_W, "John 4:44", "", "For Jesus himself testified")?,
+            "Calvin's notes are on their verses: John 3:16 (\"Christ opens up the first cause\"), Matthew 5:3, Philemon 1:1, John 4:44 (which the copy files under John 4:4), and Romans 3:28 without the next verse's".to_string(),
+        ),
+        (
+            notes.iter().filter(|x| x.0 == calvin::CALVIN_W).all(|(_, a, _, _, t)| {
+                let book = d.vz.locate(*a).map_or(0, |l| l.0);
+                (39..=64).contains(&book)
+                    && ![53, 54, 55, 62, 63].contains(&book)
+                    && ["THE ARGUMENT", "COMMENTARIES ON", "Doddridge", "Macknight", "put down by mistake", "Indexes", "Bullingeri", "Omnes enim peccaverunt", "{{", "<div"].iter().all(|w| !t.contains(w))
+            }),
+            "every Calvin note is on the New Testament outside 1 and 2 Timothy, Titus, 2 and 3 John and Revelation, without the copy's Arguments, indexes, appendices, translators' additions, Latin verses or marks".to_string(),
+        ),
+        (
+            gaps_ok
+                && gaps >= 12
+                && note(calvin::CALVIN_W, "Matthew 27:9", "", calvin::LEFT_OUT)?
+                && note(calvin::CALVIN_W, "Acts 7:14", "", calvin::LEFT_OUT)?
+                && note(calvin::CALVIN_W, "Acts 7:16", "", calvin::LEFT_OUT)?
+                && note(calvin::CALVIN_W, "Mark 15:1", "", "")?,
+            format!("{gaps} notes with a passage left out, each marked where it was and saying why (Matthew 27:9, Acts 7:14 and 7:16 among them), and no line without a gap; the Harmony reaches Mark 15:1"),
+        ),
+        (
+            counts[4] > 3_500
+                && counts[5] > 400
+                && note(henry_full::FULL_W, "Genesis 1:1", "The Creation. (b. c. 4004.)", "In these verses we have the work of creation")?
+                && !note(henry_full::FULL_W, "Genesis 1:1", "", "PREFACE")?
+                && !note(henry_full::FULL_W, "Genesis 1:3", "", "And God said, Let there be light: and there was light. 4")?
+                && note(henry_full::FULL_W, "Job 28:14", "", "")?
+                && note(henry_full::FULL_W, "John 3:16", "", "")?
+                && note(henry_full::FINISH_W, "Romans 1:1", "", "")?
+                && note(henry_full::FULL_W, "1 Chronicles 9:35", "", calvin::LEFT_OUT)?
+                && !notes.iter().any(|(w, a, _, _, _)| *w == henry_full::FULL_W && d.vz.locate(*a).is_some_and(|l| l.0 >= 44))
+                && !notes.iter().any(|(w, a, _, _, _)| *w == henry_full::FINISH_W && d.vz.locate(*a).is_some_and(|l| l.0 < 44))
+                && full_largest < 250_000,
+            format!(
+                "{} of Matthew Henry's own sections (Genesis to Acts) and {} of the ministers who finished his commentary (Romans to Revelation), never under each other's names; the printed verses and prefaces are cut (Genesis 1:1 and 1:3), Job 28:14 and John 3:16 are covered, and the largest chapter file is {full_largest} bytes (under 250,000)",
+                counts[4], counts[5]
+            ),
+        ),
+        (
+            {
+                let jfb_notes = || notes.iter().filter(|x| x.0 == jfb::JFB_W);
+                counts[6] > 15_000
+                    && writers_ok
+                    && note(jfb::JFB_W, "Genesis 1:1", "", "In the beginning")?
+                    && jfb_notes().all(|(_, _, _, _, t)| ["INTRODUCTION TO THE", "Commentary by Robert Jamieson", "CHAPTER 1", "<div", "osisRef"].iter().all(|w| !t.contains(w)))
+                    && jfb_notes().filter(|x| d.vz.locate(x.1).is_some_and(|l| (l.0, l.1, l.2) == (0, 1, 1))).all(|x| x.4.len() < 20_000)
+                    && note(jfb::JFB_W, "John 3:16", "", "")?
+                    && note(jfb::JFB_W, "Matthew 24:1", "", "see on Mr 13:1-37")?
+                    && note(jfb::JFB_W, "Psalm 70:3", "", "")?
+                    && note(jfb::JFB_W, "Jeremiah 17:1", "", "The first of the four clauses")?
+                    && note(jfb::JFB_W, "Revelation 3:1", "", "Sardis")?
+            },
+            format!(
+                "{} notes of Jamieson, Fausset and Brown, each book under the one of the three who wrote it; without the introductions or chapter labels (Genesis 1:1's note is its own), with Matthew 24's pointer to Mark 13, Psalm 70's chapter note and the notes the module files a verse late (Jeremiah 17:1, Revelation 3:1) in place",
+                counts[6]
+            ),
+        ),
+        (
+            {
+                let kd_notes = || notes.iter().filter(|x| x.0 == kd::KD_W);
+                let in_book = |a: u32, b: u8| d.vz.locate(a).is_some_and(|l| l.0 == b);
+                counts[7] > 8_000
+                    && kd_writers_ok
+                    && note(kd::KD_W, "Genesis 1:1", "The Creation of the World - Genesis 1:1-2:3", "The account of the creation")?
+                    && note(kd::KD_W, "Genesis 3:15", "", "")?
+                    && note(kd::KD_W, "Exodus 17:1", "", "Want of Water at Rephidim")?
+                    && note(kd::KD_W, "Isaiah 53:5", "", "")?
+                    && note(kd::KD_W, "Malachi 4:6", "", "")?
+                    && ["Psalm 22:16", "Psalm 22:17", "Psalm 22:18"].iter().all(|r| note(kd::KD_W, r, "", "").unwrap_or(false))
+                    && !kd_notes().any(|x| in_book(x.1, 20))
+                    && kd_notes().all(|(_, _, _, _, t)| ["Introduction to the Psalter", "GENERAL INTRODUCTION", "\u{201e}", "Hebrew_Bible_", "{{", "osisRef", "<div", "<note"].iter().all(|w| !t.contains(w)))
+                    && !kd_notes().any(|x| d.vz.locate(x.1).is_some_and(|l| l.0 >= 39))
+                    && kd_largest < 250_000
+            },
+            format!(
+                "{} notes of Keil and Delitzsch on the Old Testament, each book under the one of the two who wrote it; without the book introductions (Genesis 1:1's note opens with the creation), no note on Ecclesiastes, Exodus 17's chapter note on its first verse, Psalm 22:16-18 covered, and the largest chapter file {kd_largest} bytes (under 250,000)",
+                counts[7]
+            ),
+        ),
+        (
+            {
+                let barnes_notes = || notes.iter().filter(|x| x.0 == barnes::BARNES_W);
+                counts[8] > 6_000
+                    && note(barnes::BARNES_W, "John 3:16", "", "For God so loved")?
+                    && !note(barnes::BARNES_W, "John 3:16", "", "1Jn 4:9")?
+                    && note(barnes::BARNES_W, "Matthew 1:1", "", "The book of the generation")?
+                    && note(barnes::BARNES_W, "Romans 1:1", "", "The original name")?
+                    && note(barnes::BARNES_W, "Hebrews 4:1", "", "ANALYSIS OF THE CHAPTER")?
+                    && note(barnes::BARNES_W, "Galatians 1:1", "", "Paul, an apostle")?
+                    && barnes_notes().all(|(_, _, _, _, t)| !t.starts_with("Verse") && ["PREFACE", "INTRODUCTION.", "No entry from BARNES", "No specific Barnes", "too large", "Continuation of", "-----", "{{", "<br", "scripRef", "\u{fffd}", "\u{b7}", "Kuin\u{f6}el"].iter().all(|w| !t.contains(w)))
+                    && !barnes_notes().any(|x| d.vz.locate(x.1).is_some_and(|l| l.0 < 39))
+                    && barnes_largest < 250_000
+            },
+            format!(
+                "{} notes of Albert Barnes on the New Testament; without the verse labels, prefaces, introductions, lettered references or the module maker's notes (John 3:16, Matthew 1:1 and Romans 1:1 open with his comment; Hebrews 4:1 keeps his analysis of the chapter; Galatians 1:1's note is the one the copy files under 1:2), no letter of the copy's old code page left wrong, and the largest chapter file {barnes_largest} bytes (under 250,000)",
+                counts[8]
+            ),
+        ),
+        (
+            {
+                let luther_notes = || notes.iter().filter(|x| x.0 == luther::GALATIANS_W || x.0 == luther::GENESIS_W);
+                let (g414, _) = d.resolve("Genesis 4:14")?;
+                let numbered = |t: &str| t.split("\n\n").any(|p| {
+                    let k = p.bytes().take_while(u8::is_ascii_digit).count();
+                    k > 0 && p[k..].starts_with(". ")
+                });
+                counts[9] > 120
+                    && counts[10] > 120
+                    && note(luther::GALATIANS_W, "Galatians 1:1", "", "VERSE 1. Paul, an apostle")?
+                    && note(luther::GALATIANS_W, "Galatians 2:20", "", "I am crucified with Christ")?
+                    && note(luther::GALATIANS_W, "Galatians 3:1", "", "VERSE 1. O foolish Galatians")?
+                    && note(luther::GALATIANS_W, "Galatians 5:5", "", "VERSE 5.")?
+                    && note(luther::GALATIANS_W, "Galatians 5:6", "", "VERSE 6.")?
+                    && !note(luther::GALATIANS_W, "Galatians 5:5", "", "VERSE 6.")?
+                    && note(luther::GENESIS_W, "Genesis 1:1", "PART I. GOD'S WORK ON THE FIRST DAY.", "In the beginning God created the heavens and the earth")?
+                    && note(luther::GENESIS_W, "Genesis 4:8", "", "And Cain told (talked with) Abel his brother")?
+                    && note(luther::GENESIS_W, "Genesis 7:1", "", "Come thou and all thy house into the ark")?
+                    && note(luther::GENESIS_W, "Genesis 9:29", "", "")?
+                    && luther_notes().filter(|x| x.0 == luther::GENESIS_W && x.1 <= g414 && g414 <= x.2).count() == 1
+                    && luther_notes().all(|(w, a, _, _, t)| {
+                        let at = d.vz.locate(*a);
+                        (if *w == luther::GALATIANS_W { at.is_some_and(|l| l.0 == 47) } else { at.is_some_and(|l| l.0 == 0 && l.1 <= 9) })
+                            && ["Gutenberg", "PREFACE", "Project Wittenberg", "[Footnote", "Translated by", "_", "[1]"].iter().all(|x| !t.contains(x))
+                            && !numbered(t)
+                    })
+                    && luther_largest < 300_000
+            },
+            format!(
+                "{} notes of Martin Luther on Galatians and {} on Genesis 1 to 9, only there; without the prefaces, Project Gutenberg's words, the outlines, footnotes or Lenker's paragraph numbers in the text (Galatians 1:1, 2:20, 3:1, 5:5 and 5:6 under their own headings, Genesis 1:1 under its part, 4:8 from the second volume and 4:14 once, 7:1 under the heading the copy numbers 2a, 9:29 covered), and the largest chapter file {luther_largest} bytes (under 300,000; his notes on Genesis 3 are long)",
+                counts[9], counts[10]
+            ),
         ),
     ])
 }

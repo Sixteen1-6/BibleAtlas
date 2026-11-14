@@ -15,7 +15,7 @@
 
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, label, rangeLabel } from '../data/atlas';
-import { type Cite, type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, passageAt, passages, pointingAt } from '../data/layers';
+import { type Cite, type Layer, type LayerRef, type Passage, SECTIONS, type Section, leadLayer, loadNotes, notes, passageAt, passages, pointingAt } from '../data/layers';
 import { atLeast } from '../depth';
 import * as S from '../state';
 import { Closed, CommentaryFoot, useGate } from './commentary/Gate';
@@ -294,8 +294,15 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
   const [openFor, setOpenFor] = useState<string | null>(null);
   const q = useQuotes(a);
   const gate = useGate<HTMLHeadingElement>();
-  const p = passageAt(list, v);
-  if (!p) {
+  const mark = passageAt(list, v);
+  // The notes themselves load the first time a reader who has finished the
+  // commentary notice comes to a layered verse; the marks need only the index.
+  const [failed, setFailed] = useState(false);
+  const wanted = !!mark && gate.open;
+  useEffect(() => {
+    if (wanted) loadNotes(a).then(() => setFailed(false), () => setFailed(true));
+  }, [a, wanted]);
+  if (!mark) {
     const from = pointingAt(list, v);
     if (!from.length) return null;
     return (
@@ -313,6 +320,27 @@ export function LayersCard({ a, v }: { a: Atlas; v: number }) {
       <section class="layers" aria-label="Layers of meaning">
         <h3>Layers of meaning</h3>
         <Closed line="Notes on what this passage means, drawn from Christian writers." button="Read the notes" onAsk={gate.ask} />
+      </section>
+    );
+  }
+  const p = notes.value?.get(mark.id);
+  if (!p) {
+    return (
+      <section class="layers" aria-label="Layers of meaning">
+        <h3 class="cn-start" ref={gate.start} tabIndex={-1}>
+          Layers of meaning
+        </h3>
+        <p class="muted" aria-live="polite">
+          {failed ? 'The notes could not be loaded just now.' : 'Loading the notes…'}
+          {failed && (
+            <>
+              {' '}
+              <button type="button" class="godeeper" onClick={() => loadNotes(a).then(() => setFailed(false), () => setFailed(true))}>
+                Try again
+              </button>
+            </>
+          )}
+        </p>
       </section>
     );
   }

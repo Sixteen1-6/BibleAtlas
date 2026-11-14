@@ -68,6 +68,9 @@ function stored<T extends string>(key: string, allowed: readonly T[], fallback: 
 export const arcColor = stored<ArcColorMode>('atlas.arcColor', ['spectrum', 'reach', 'genre'], 'spectrum');
 export const view = signal<View>({ scale: 1, offset: 0 });
 /** The first-visit card above the reader. Hidden for good once dismissed. */
+/** Two translations side by side in the reader, at Study and Deep: the BSB
+ *  beside the NET, or beside the ESV while the ESV is read. Remembered per browser. */
+export const sideBySide = stored<'on' | 'off'>('atlas.side', ['on', 'off'], 'off');
 export const welcome = stored<'show' | 'hidden'>('atlas.welcome', ['show', 'hidden'], 'show');
 export const interlinear = signal(false);
 export const showOtherEditions = signal(false);

@@ -284,6 +284,680 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "luke-2-14-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Luke 2:14",
+      "strength": "widely agreed",
+      "short": "Glory in the highest set against peace on earth",
+      "about": "The angels' song sets two clauses against each other: glory to God in the highest, and peace on earth. The highest heaven is set against the earth; if the words about men belong with peace on earth, God is set against men as well.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Luke 2:14",
+        "words": "Glory to God in the highest, and on earth peace to men",
+        "means": "glory given to God in the highest heaven, set against peace given to men on earth"
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the verse under Antithesis: glory in the highest to God, and on earth peace, with a third fact following from them. Bengel points out a double antithesis: in the highest set against on earth, and to God set against among men. Calvin says the two clauses match, and that God and men must be set clearly against each other for the contrast to show.",
+      "limit": "The writers differ on whether the song has two parts or three. Either way, the highest heaven is set against the earth.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 2:14",
+          "at": "Antithesis, or Contrast, p. 716",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/716/mode/1up",
+          "quote": "“Glory in the highest to God, and on earth peace.” And then, after these two Antitheta, a third fact is stated as resulting from them when coming together",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Luke 2:14",
+          "quote": "Moreover we ought to observe the double antithesis: 1. between, in the highest, and, on earth; 2. between, to God, and, among men.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/luke/2.htm",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 2:14",
+          "quote": "The most general reading is, that the words, among men good-will, should stand as a third clause. ... but the other appears to be preferable. The two clauses, Glory to God in the highest, and peace on earth, do unquestionably agree with each other; but if you do not place men and God in marked opposition, the contrast will not fully appear.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-4-23-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Luke 4:23",
+      "strength": "widely agreed",
+      "short": "A common saying: “Physician, heal yourself!”",
+      "about": "Jesus knows His hometown will throw a common saying at Him: “Physician, heal yourself!” They want Him to do among His own people the works they heard He did in Capernaum. He answers that “no prophet is accepted in his hometown” (verse 24).",
+      "refs": [
+        "Luke 4:24"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "Luke 4:23",
+        "words": "Physician, heal yourself!",
+        "means": "do among your own people at home the healing works you have done for others elsewhere"
+      },
+      "evidence": "Bullinger lists the verse under Parœmia and calls it a well known proverb. Barnes says it was probably in common use, here a demand that He show by miracles why they should trust Him. Calvin explains the common proverb as a physician beginning with his own people, and Brown (Jamieson, Fausset and Brown) likens it to our saying, charity begins at home.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 4:23",
+          "at": "Parœmiœ which are quoted as being already in use as such, p. 757",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/757/mode/1up",
+          "quote": "“Ye will surely say unto me this proverb: ‘Physician, heal thyself’ ” This was a well known proverb.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 4:23",
+          "quote": "This proverb was probably in common use at that time. The meaning is this: Suppose that a man should attempt to heal another when he was himself diseased in the same manner; it would be natural to ask him first to cure himself ... It was only a demand that he would show the proper evidence \"by miracles\" why they should trust in him",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 4:23",
+          "quote": "Such is the meaning of the common proverb, that a physician ought to begin with himself, and those immediately connected with him, before he exhibits his skill in healing others.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 4:23",
+          "quote": "this proverb--like our \"Charity begins at home.\" whatsoever, &c.--\"Strange rumors have reached our ears of Thy doings at Capernaum; but if such power resides in Thee to cure the ills of humanity, why has none of it yet come nearer home",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-7-32-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Luke 7:32-34",
+      "strength": "some interpreters",
+      "short": "Flute and dirge, then John and the Son of Man",
+      "about": "The children's complaint names the flute and then the dirge. The answer takes them in reverse: John the Baptist came neither eating nor drinking, then the Son of Man came eating and drinking. The mournful lines are in the middle, the joyful ones at the ends.",
+      "lines": [
+        {
+          "ref": "Luke 7:32",
+          "words": "We played the flute for you, and you did not dance;",
+          "mark": "A",
+          "key": "dance"
+        },
+        {
+          "ref": "Luke 7:32",
+          "words": "we sang a dirge, and you did not weep.",
+          "mark": "B",
+          "key": "weep"
+        },
+        {
+          "ref": "Luke 7:33",
+          "words": "For John the Baptist came neither eating bread nor drinking wine,",
+          "mark": "B'",
+          "key": "John the Baptist"
+        },
+        {
+          "ref": "Luke 7:34",
+          "words": "The Son of Man came eating and drinking,",
+          "mark": "A'",
+          "key": "Son of Man"
+        }
+      ],
+      "evidence": "Boys sets out these verses in four lines: the more severe and mournful in the two inner lines, the dirge and John the Baptist; the more joyful in the outer lines, the flute and the Son of Man.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Luke 7:32-34",
+          "at": "Introduction, p. 7",
+          "url": "https://archive.org/details/tactica-sacra/page/7/mode/1up",
+          "quote": "In b. and b. we have the more severe and mournful dispensation; in a. and a., the more festive and joyous. Those who rejected John the Baptist were like the children who would not weep to their companion's mourning: those who rejected Christ, like the children who would not dance to their companion's music.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "luke-7-41-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 7:41-42",
+      "strength": "widely agreed",
+      "short": "A story of two debtors answers Simon's thought",
+      "about": "Jesus answers Simon's unspoken thought with a story: a moneylender forgives two debtors who cannot pay, one owing ten times more. Many read the lender as God and the debtors as the woman and Simon. Jesus draws the point Himself: “he who has been forgiven little loves little.”",
+      "refs": [
+        "Luke 7:47"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 7:41",
+        "words": "Two men were debtors to a certain moneylender",
+        "means": "sinners in debt to God, here the sinful woman and Simon: neither can pay, and only God's free pardon can clear the debt"
+      },
+      "evidence": "Clarke and Barnes say the lender stands for God and the debtors for Simon and the woman. Brown (Jamieson, Fausset and Brown) likens it to Nathan's parable to David and names the same debtors. Calvin says it shows Simon wrong to condemn a woman the heavenly judge has freed; Henry, that Simon is the lesser debtor and the woman the greater. Plumptre (Ellicott) says neither could pay for their sins.",
+      "limit": "The likeness lies in its main point, that love answers forgiveness. One writer adds that the free cancelling of the debt does not show how God forgives sins, which rests on Christ's atonement.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Luke 7:41",
+          "quote": "It is plain that in this parable our Lord means, by the creditor, God, and, by the two debtors, Simon and the woman who was present.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 7:42",
+          "quote": "This is not designed to express anything about the way in which God forgives sinners. He forgives - forgives freely, but it is in connection with the \"atonement\" made by the Lord Jesus. ... It is clear that by the creditor here our Saviour meant to designate God, and by the \"debtors,\" sinners and the woman present. Simon ... was denoted by the one that owed \"fifty\" pence",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 7:40-43",
+          "quote": "Like Nathan with David, our Lord conceals His home thrust under the veil of a parable, and makes His host himself pronounce upon the case. The two debtors are the woman and Simon",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 7:41",
+          "quote": "The scope of this parable is to demonstrate, that Simon is wrong in condemning the woman who is acquitted by the heavenly judge. ... her case would not correspond to the parable, in which Christ expressly states, that the creditor freely forgave the debtors who were not able to pay.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 7:36-50",
+          "quote": "He by a parable forces Simon to acknowledge that the greater sinner this woman had been the greater love she ought to show to Jesus Christ when her sins were pardoned ... The Pharisee was the less debtor, yet he a debtor too, which was more than he thought himself ... This woman, that had been a scandalous notorious sinner, was the greater debtor.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 7:41-42",
+          "quote": "The application of the parable treats the woman as a greater debtor than the Pharisee. She had committed greater sins. Each was equally powerless to pay the debt — i.e., to make atonement for his or her sins.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-9-62-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Luke 9:62",
+      "strength": "widely agreed",
+      "short": "The plowman who looks back pictures a divided heart",
+      "about": "A man offers to follow Jesus but first wants to say goodbye at home. Jesus answers with a picture from the field: a man at the plow must keep his eyes ahead, and one who looks back spoils his furrow. So one who sets out after Jesus but still looks back is not fit for God's kingdom.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Luke 9:62",
+        "words": "puts his hand to the plow and then looks back",
+        "means": "one who begins to follow Jesus but turns his heart back to the life he left"
+      },
+      "evidence": "Bullinger calls the verse a brief allegory in Figures of Speech. Barnes says a hand on the plow is a proverbial way of saying one takes up a work, and so in religion. Brown (Jamieson, Fausset and Brown) says plowing needs an eye on the furrow, as the work of God needs an undivided heart. Henry and Calvin take looking back as turning to a worldly life and its cares.",
+      "limit": "One of these writers takes the words as aimed mainly at those called to preach, though he applies them to every follower of Jesus.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 9:62",
+          "at": "Allegory, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "“No man having put his hand to the plough, and looking back, is fit for the kingdom of God.” This is a brief allegory.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 9:62",
+          "quote": "To put one's hand to a plow is a proverbial expression to signify undertaking any business. In order that a plowman may accomplish his work, it is necessary to look onward - to be intent on his employment - not to be looking back with regret that he undertook it. So in religion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 9:62",
+          "quote": "As ploughing requires an eye intent on the furrow to be made, and is marred the instant one turns about, so will they come short of salvation who prosecute the work of God with a distracted attention, a divided heart. Though the reference seems chiefly to ministers, the application is general.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 9:57-62",
+          "quote": "for then he makes balks with his plough, and the ground he ploughs is not fit to be sown; so thou, if thou hast a design to follow me and to reap the advantages of those that do so, yet if thou lookest back to a worldly life again and hankerest after that",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 9:62",
+          "quote": "They are said to look back, who become involved in the cares of the world, so as to allow themselves to be withdrawn from the right path; particularly, when they plunge themselves into those employments which disqualify them to follow Christ.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-12-16-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 12:16-21",
+      "strength": "widely agreed",
+      "short": "The rich fool: rich in goods, not rich toward God",
+      "about": "After a warning against greed, Jesus tells of a rich man who plans bigger barns and years of ease. God calls him a fool, for that very night his life will be required of him. Verse 21 applies it to anyone who stores up treasure for himself but is not rich toward God.",
+      "refs": [
+        "Luke 12:15"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 12:16",
+        "words": "The ground of a certain rich man produced an abundance",
+        "means": "anyone who stores up treasure for himself but is not rich toward God (verse 21), since life does not consist in possessions (verse 15)"
+      },
+      "evidence": "John Calvin: the parable portrays, as in a mirror, that men do not live by their abundance, since life is short. Matthew Henry: it illustrates the warning against greed, showing the folly of worldly men in life and their misery at death. Albert Barnes calls it an instructive parable: the man who trusts his riches is a fool in God's sight. Joseph Benson: our Lord gives it to illustrate His warning.",
+      "limit": "The man is not charged with gaining his wealth unjustly; the story faults his trust in his goods and his leaving God out.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 12:16",
+          "quote": "This parable presents to us, as in a mirror, a lively portrait of this sentiment, that men do not live by their abundance. ... This parable shows us, first, that the present life is short and transitory. Secondly, it points out to us, that riches are of no avail for prolonging life.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 12:13-21",
+          "quote": "The illustration of this by a parable, the sum of which is to show the folly of carnal worldlings while they live, and their misery when they die, which is intended not only for a check to that man who came to Christ with an address about his estate, while he was in no care about his soul and another world, but for the enforcing of that necessary caution to us all, to take heed of covetousness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 12:21",
+          "quote": "From this instructive parable we learn: ... 6. That the man who is trusting to his riches in this manner is a fool in the sight of God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 12:16-20",
+          "quote": "To illustrate his admonition, and give it the greater weight, our Lord here delivers an important parable. ... This man, it appears, became rich, not by unjust gains, but by the produce of his own land ... without taking God and religion into his scheme at all.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-13-9-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Luke 13:9",
+      "strength": "commonly held",
+      "short": "The vinedresser leaves his “if” unfinished",
+      "about": "In Luke's Greek the vinedresser leaves his first “if” unfinished: after “If it bears fruit next year” he goes straight on to “But if not”. English adds “fine” to finish it. Left unsaid is that the tree would be spared, and the silence can be heard as saying more.",
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Promise",
+        "ref": "Luke 13:9",
+        "words": "If it bears fruit next year",
+        "means": "the end left unsaid: a fruitful tree would be spared, read as gladness for owner and vinedresser, or as care for it that would go on"
+      },
+      "evidence": "Bullinger lists Luke 13:9 under Aposiopesis (Sudden Silence), a promise too great for words: beside the grammatical gap there is a rhetorical one, as if the vinedresser could not say what he would do for the tree, not only spare it but go on tending it. Matthew Henry says well is not in the original and the expression is abrupt, left to be supplied to show how glad owner and vinedresser will be.",
+      "limit": "Both writers hear more in the break than that the tree would be spared, but name different things: the gladness of owner and vinedresser, or care for the tree that would go on.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 13:9",
+          "at": "Aposiopesis, or Sudden-Silence: Promise, p. 152",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/152/mode/1up",
+          "quote": "beside the grammatical ellipsis, there is also the rhetorical: “And if it bear fruit--,” as though the vine-dresser would say, “I cannot say what I will not do for it: not only will I not cut it down, but I will continue to care for it and tend it!”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 13:6-9",
+          "quote": "The word well is not in the original, but the expression is abrupt: If it bear fruit!—supply it how you please, so as to express how wonderfully well-pleased both the owner and dresser will be.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-15-4-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 15:4-6",
+      "strength": "widely agreed",
+      "short": "A shepherd seeks one lost sheep until he finds it",
+      "about": "When the Pharisees and scribes grumble that Jesus welcomes sinners, He tells of a shepherd who leaves the ninety-nine to look for one lost sheep, then carries it home rejoicing. He applies it in verse 7: there is “more joy in heaven over one sinner who repents”.",
+      "refs": [
+        "Luke 15:1-2",
+        "Luke 15:7"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 15:4",
+        "words": "What man among you, if he has a hundred sheep and loses one of them",
+        "means": "God seeking the lost sinner, and the joy in heaven when one repents, told to answer those who grumbled that Jesus welcomed sinners"
+      },
+      "evidence": "Matthew Henry says it shows the pleasure God takes in the conversion of sinners, the sinner being like a lost sheep. Brown (Jamieson, Fausset and Brown) sees in the search the many means God uses to recover sinners. Albert Barnes says it pictures the joy over one recovered, and so defended Jesus' own conduct. Adam Clarke calls the lost sheep an emblem of a heedless sinner.",
+      "limit": "The note does not say whom the ninety-nine stand for.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 15:1-10",
+          "quote": "The parable of the lost sheep. ... here it is designed to show the pleasure God takes in the conversion of sinners, as a reason why we should rejoice in it. ... The case of a sinner that goes on in sinful ways. He is like a lost sheep, a sheep gone astray",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 15:4",
+          "quote": "bend all His attention and care, as it were, to the one object of recovering the lost sheep ... pointing to all the diversified means which God sets in operation for recovering sinners.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 15:7",
+          "quote": "It is a principle of human nature that the \"recovery\" of an object in danger of being lost, affords much more intense joy than the quiet \"possession\" of many that are safe. This our Saviour illustrated by the case of the lost sheep and of the piece of silver. ... By this he vindicated his own conduct.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 15:4",
+          "quote": "Our Lord spoke this and the following parable to justify his conduct in receiving and conversing with sinners or heathens. ... The lost sheep is an emblem of a heedless, thoughtless sinner: one who follows the corrupt dictates of his own heart",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-15-8-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 15:8-10",
+      "strength": "widely agreed",
+      "short": "The lost coin: joy in heaven over one who repents",
+      "about": "Jesus tells of a woman who lights a lamp and sweeps her house until she finds one lost silver coin, then calls her friends to rejoice. He gives the point Himself: so there is joy in the presence of God's angels over one sinner who repents. It makes the same point as the lost sheep before it.",
+      "refs": [
+        "Luke 15:4-7"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 15:8",
+        "words": "what woman who has ten silver coins and loses one of them",
+        "means": "a lost sinner sought and found, and the joy in heaven when one sinner repents (verse 10)"
+      },
+      "evidence": "Albert Barnes: as in the one before, there is joy among the angels over one sinner recovered. Adam Clarke: the lost coin is an emblem of a sinner estranged from God. Matthew Henry: the search shows how God brings lost souls home. E. H. Plumptre (Ellicott): its lesson is the lost sheep's; the coin is a symbol of the soul. David Brown (JFB): the joy is the Great Owner's, over sinners won back.",
+      "limit": "The note does not say whom the woman pictures.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Luke 15:8-10",
+          "quote": "Jesus in this parable expresses the same sentiment which he did in the preceding. ... there is joy among the angels at the recovery of a single sinner.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 15:8",
+          "quote": "The drachma that was lost is also a very expressive emblem of a sinner who is estranged from God, and enslaved to habits of iniquity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 15:1-10",
+          "quote": "The parable of the lost piece of silver. ... The woman lights a candle, to look behind the door, under the table, and in every corner of the house, sweeps the house, and seeks diligently till she finds it. This represents the various means and methods God makes use of to bring lost souls home to himself",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 15:8",
+          "quote": "The main lesson of the parable that thus opens is, of course, identical with that of the Lost Sheep. ... (1) the use of the silver coin (the drachma) as a symbol of the human soul.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 15:10",
+          "quote": "True to the idea of the parables. The Great Shepherd. The Great Owner Himself, is He whose the joy properly is over His own recovered property ... The application of this to the reception of those publicans and sinners that stood around our Lord is grand in the extreme",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-15-21-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Luke 15:21",
+      "strength": "widely agreed",
+      "short": "The son's planned confession is cut short",
+      "about": "The son begins the confession he had planned in verses 18 and 19 but stops before its last words, “Make me like one of your hired servants.” One writer suggests grief cut him short; all the writers see his father's welcome not waiting for him to finish, as verse 22 follows at once.",
+      "refs": [
+        "Luke 15:19",
+        "Luke 15:22"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Grief and Complaint",
+        "ref": "Luke 15:21",
+        "words": "I am no longer worthy to be called your son.",
+        "means": "the end of the plea he had planned in verse 19, to be taken back as a hired servant, left unsaid"
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis: the son stops short of what he resolved to say in verse 19, broken down by grief, or because his father's joy would not wait for him to finish. Clarke notes that several copies add the plea here, in his view to match verse 19, and says the father cuts short his tale of contrition with assurances of pardon; Henry, that the father interrupted him.",
+      "limit": "Some old copies of Luke add “Make me like one of your hired servants” here too; one writer judges those words added to match verse 19.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 15:21",
+          "at": "Aposiopesis, Grief and Complaint, p. 153",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/153/mode/1up",
+          "quote": "It is as though, broken down by the grief which the utterance of these words brought into his heart, he could not continue, and say the rest of what, we are told, he had resolved to say in verse 19. Or it is also to show us as well, that the father’s joy to receive is so great that he would not wait for the son to finish",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 15:21",
+          "quote": "Make me as one of thy hired servants, is added here by several MSS. and versions; but it is evident this has been added, merely to make his conduct agree with his resolution ... His tenderness of heart cannot wait till the son has made his confession ... he cuts short his tale of contrition and self-reproach, by giving him the most plenary assurances of his pardoning love.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 15:11-32",
+          "quote": "He was going on in his submission, but one word we find in his purpose to say ... which we do not find that he did say ... and that was, Make me as one of thy hired servants. We cannot think that he forgot it, much less that he changed his mind ... but his father interrupted him, prevented his saying it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-16-25-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Luke 16:25",
+      "strength": "some interpreters",
+      "short": "The rich man at the ends, Lazarus in the middle",
+      "about": "Abraham speaks first of the good things the rich man received, then of the bad things Lazarus received; then of Lazarus comforted, and last of the rich man in agony.",
+      "lines": [
+        {
+          "ref": "Luke 16:25",
+          "words": "during your lifetime you received your good things,",
+          "mark": "A",
+          "key": "good things"
+        },
+        {
+          "ref": "Luke 16:25",
+          "words": "while Lazarus received bad things.",
+          "mark": "B",
+          "key": "Lazarus"
+        },
+        {
+          "ref": "Luke 16:25",
+          "words": "But now he is comforted here,",
+          "mark": "B'",
+          "key": "comforted"
+        },
+        {
+          "ref": "Luke 16:25",
+          "words": "while you are in agony.",
+          "mark": "A'",
+          "key": "agony"
+        }
+      ],
+      "evidence": "Boys sets out Abraham's answer in four lines, with the rich man in the first and last and Lazarus in the two between.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-tactica",
+          "on": "Luke 16:25",
+          "at": "Introduction, p. 7",
+          "url": "https://archive.org/details/tactica-sacra/page/7/mode/1up",
+          "quote": "The rich man in a. and a.; Lazarus in b. and b.",
+          "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
+          "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "luke-18-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 18:1-8",
+      "strength": "widely agreed",
+      "short": "The persistent widow: pray and do not lose heart",
+      "about": "Luke gives the point before the story: to pray at all times and not lose heart. A widow keeps appealing to a judge who neither feared God nor respected men, until he gives her justice. Jesus then reasons from him to God, who will bring about justice for His elect who cry out to Him.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 18:3",
+        "words": "a widow in that town who kept appealing to him",
+        "means": "God's people at prayer, who are to pray at all times and not lose heart, for God will bring about justice for His elect who cry out to Him"
+      },
+      "evidence": "Matthew Henry: its purpose hangs like a key at the door, and it urges God's praying people on. E. H. Plumptre (Ellicott): one of the few parables opened by a statement of its drift. Adam Clarke: Luke explains its plain meaning. Albert Barnes: the judge does not picture God; if he did justice, how much more God. John Calvin: the widow prevailed by asking on, though God and the judge are no equals.",
+      "limit": "The judge is not a picture of God. The likeness lies in the widow's persistence, and the story argues from an unjust judge to a God who is good.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 18:1-8",
+          "quote": "This parable has its key hanging at the door; the drift and design of it are prefixed. Christ spoke it with this intent, to teach us that men ought always to pray and not to faint ... He applies this for the encouragement of God's praying people to pray with faith and fervency, and to persevere therein.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 18:1",
+          "quote": "The whole verse is remarkable as being one of the few instances (Luk 18:9 being another) in which a parable is introduced by a distinct statement as to its drift and aim.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 18:1",
+          "quote": "Therefore the plain meaning and moral of the parable are evident ... No other meaning need be searched for in this parable: St. Luke, who perfectly knew his Master's meaning, has explained it as above.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 18:7",
+          "quote": "We are not to suppose that the character of God is at all represented by this judge ... If, therefore, this \"wicked man\" by persevering prayer was induced to do justice, how much more shall \"God,\" who is good, and who is not actuated by any such selfish and base principles, do justice to them who apply to him!",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 18:1-6",
+          "quote": "In the parable Christ describes to us a widow, who obtained what she wanted from an unjust and cruel judge, because she did not cease to make earnest demands. ... The parties between whom the comparison is drawn are, indeed, by no means equal; for there is a wide difference between a wicked and cruel man and God, who is naturally inclined to mercy.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-19-42-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Luke 19:42",
+      "strength": "widely agreed",
+      "short": "Jesus' grieving words over Jerusalem break off",
+      "about": "Weeping over Jerusalem, Jesus begins, “If only you had known on this day what would bring you peace!” He never says what knowing it would have meant. The sentence breaks off in sorrow, and He turns to what is now hidden from the city's eyes.",
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Grief and Complaint",
+        "ref": "Luke 19:42",
+        "words": "If only you had known on this day what would bring you peace",
+        "means": "the end is left unsaid: how blessed and safe the city would then have been; grief at what is coming cuts the sentence short"
+      },
+      "original": {
+        "note": "In Luke's Greek the sentence opens with ei, “if,” and nothing follows to finish it; English renders it as a wish.",
+        "strong": [
+          "G1487"
+        ]
+      },
+      "evidence": "Bullinger lists Luke 19:42 under Aposiopesis, in grief and complaint: the blessing is overwhelmed by the coming tribulation, and the sense would run on to how happy the city would have been. Calvin calls the speech abrupt, strong feeling being only half expressed. E. H. Plumptre (Ellicott's Commentary) sees in the broken sentence the deepest sorrow. Henry calls the manner of speaking abrupt.",
+      "limit": "The writers fill in the unsaid end in different words; the verse itself leaves it unsaid.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Luke 19:42",
+          "at": "Aposiopesis, Grief and Complaint, p. 153",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/153/mode/1up",
+          "quote": "The blessedness involved in this knowledge is overwhelmed by the tribulation which is to come upon the nation. The continuation of the sense would probably be “How happy thou wouldest have been! How blessed! How safe! How secure!",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 19:42",
+          "quote": "The discourse is pathetic, and therefore abrupt; for we know that by those who are under the influence of vehement passion their feelings are not more than half-expressed.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 19:42",
+          "quote": "The broken form of the sentence ... with no corresponding clause as to what would then have followed ... all point to the words as being the utterance of the deepest human sorrow that the Son of Man had known.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 19:41-48",
+          "quote": "The manner of speaking is abrupt: If thou hadst known! ... How happy had it been for thee! Or, \"If thou hadst known, thou wouldest have wept for thyself, and I should have no occasion to weep for thee, but should have rejoiced rather.\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

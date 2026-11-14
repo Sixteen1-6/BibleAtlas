@@ -160,7 +160,7 @@
       "kind": "parallelism",
       "form": "mirror",
       "ref": "Romans 11:22",
-      "strength": "some interpreters",
+      "strength": "commonly held",
       "short": "Kindness, severity, then severity, kindness",
       "about": "Two words go out in one order and come back in the reverse order: the kindness and severity of God, then severity to those who fell and kindness to you.",
       "lines": [
@@ -189,8 +189,8 @@
           "key": "kindness"
         }
       ],
-      "evidence": "Bullinger lists the verse under Prosapodosis, where words already named are taken up again one by one. He says the two words are not taken up in the same order but in reverse, an Epanodos, and sets them out as goodness, severity, severity, goodness (the BSB's kindness and severity).",
-      "checked": "2026-11-01",
+      "evidence": "Bullinger lists the verse under Prosapodosis. He says the two words are not taken up in the same order but in reverse, an Epanodos, and sets them out as goodness, severity, severity, goodness (the BSB's kindness and severity). Jebb puts gentleness (the BSB's kindness) at the beginning and at the close, and calls this an epanodos.",
+      "checked": "2026-11-07",
       "cites": [
         {
           "source": "bullinger-fos",
@@ -200,6 +200,16 @@
           "quote": "Here, the return to the two words is not direct ... but in an Epanodos ... a Goodness. b Severity. b Severity. a Goodness.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Romans 11:22",
+          "at": "Sacred Literature, sect. XVI, p. 342",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/342/mode/1up",
+          "quote": "Gentleness at the beginning; at the close gentleness: this epanodos speaks for itself.",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
         }
       ]
     },
@@ -404,6 +414,495 @@
           "quote": "He begins here to extend as it were his hand to restrain the audacity of men, lest they should clamor against God’s judgments, and this he does by stating two reasons: the first is, that all mortals are too blind to take a view of God’s predestination by their own understanding",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-5-14-type",
+      "kind": "figure",
+      "form": "type",
+      "ref": "Romans 5:14",
+      "strength": "widely agreed",
+      "short": "Adam is “a pattern of the One to come”, Christ",
+      "about": "Paul calls Adam “a pattern of the One to come”, that is, of Christ. Each stands at the head of many: “as in Adam all die, so in Christ all will be made alive” (1 Corinthians 15:22). The likeness lies in contrast: one man's trespass brought condemnation, the other's righteousness life (verse 18).",
+      "refs": [
+        "Genesis 3:6",
+        "Romans 5:18",
+        "1 Corinthians 15:22"
+      ],
+      "figure": {
+        "name": "Type",
+        "ref": "Romans 5:14",
+        "words": "a pattern of the One to come",
+        "means": "Adam, whose one sin brought death to all who came from him, pictures Christ, whose one act of righteousness brings justification and life"
+      },
+      "original": {
+        "note": "In Paul's Greek “pattern” is typos, a type or figure.",
+        "strong": [
+          "G5179"
+        ]
+      },
+      "evidence": "Clarke says Adam was the type or pattern of the Messiah and traces the likeness: as in Adam all die, so in Christ all are made alive. Brown (Jamieson, Fausset and Brown) finds it in the public part both bore, each a representative man. Calvin says Paul fitly calls Adam the type of Christ, since all are lost through Adam's sin and restored through Christ's righteousness.",
+      "limit": "The writers do not make Adam's person a picture of Christ in every way: the likeness is in what one man's act brought to many, and in the next verses it is mostly set out as a contrast.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Romans 5:14",
+          "quote": "Adam was the figure, τυπος, the type, pattern, or resemblance of him who was to come; i.e. of the Messiah. The correspondence between them appears in the following particulars ... As in Adam all die; so in Christ shall all be made alive",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 5:14",
+          "quote": "The point of analogy intended here is plainly the public character which both sustained, neither of the two being regarded in the divine procedure towards men as mere individual men, but both alike as representative men. … Adam is a type of Him who was to come after him in the same public character",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 5:14",
+          "quote": "But in saying that Adam bore a resemblance to Christ, there is nothing incongruous; for some likeness often appears in things wholly contrary. As then we are all lost through Adam’s sin, so we are restored through Christ’s righteousness: hence he calls Adam not inaptly the type of Christ.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-5-18-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Romans 5:18",
+      "strength": "widely agreed",
+      "short": "One trespass set against one act of righteousness",
+      "about": "Paul sets two acts and their results against each other: one trespass brought condemnation for all men, and one act of righteousness brought justification and life. Here he sums up the contrast between Adam and Christ that runs through verses 15 to 19.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Romans 5:18",
+        "words": "one trespass brought condemnation for all men, so also one act of righteousness brought justification and life",
+        "means": "Adam's one trespass, which brought condemnation, set against Christ's one act of righteousness, which brought justification and life"
+      },
+      "evidence": "Bullinger lists the verse under Antithesis: one offence to condemnation, the righteous act of one to justifying. Barnes says Christ's righteousness stands opposed to Adam's one offence. W. Sanday (Ellicott's commentary) sets one act of trespass against one of obedience in verses 15 to 19. Brown (Jamieson, Fausset and Brown) sees one righteousness answer one offense, reversing Adam's condemnation.",
+      "limit": "Writers differ on whether the one act of righteousness means a single righteous act or the whole of Christ's obedience to death. The note claims only that the two acts and their results are set against each other.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 5:18",
+          "at": "Antithesis, or Contrast, p. 716",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/716/mode/1up",
+          "quote": "“Therefore as through one offence judgment came upon all men to condemnation, even so too, through the righteous act (δικαίωμα, not δικαιοσύνη) of one, the free gift came upon all men unto a justifying",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 5:18",
+          "quote": "This is properly a summing up, a recapitulation of what had been stated in the previous verses. ... By the righteousness of one - This stands opposed to the one offence of Adam, and must mean, therefore, the holiness, obedience, purity of the Redeemer. ... As the tendency of the one was to involve the race in condemnation, so the tendency of the other was to restore them to acceptance with God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 5:15-19",
+          "quote": "Now comes the statement of the contrast which extends over the next five verses. ... One man, Adam. One Man, Christ. The action. One act of trespass. One act of obedience.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 5:18",
+          "quote": "expresses it in a more concentrated and vivid form--suggested no doubt by the expression in Rom 5:16 , \"through one offense,\" representing Christ's whole work, considered as the ground of our justification, as \"ONE RIGHTEOUSNESS.\" ... so here it denotes Christ's whole \"obedience unto death,\" considered as the one meritorious ground of the reversal of the condemnation which came by Adam.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-5-19-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Romans 5:19",
+      "strength": "widely agreed",
+      "short": "Adam's disobedience set against Christ's obedience",
+      "about": "Two men's acts are set against each other. Through the disobedience of the one man the many were made sinners; through the obedience of the one man the many will be made righteous. Obedience answers disobedience.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Romans 5:19",
+        "words": "through the disobedience of the one man the many were made sinners, so also through the obedience of the one man the many will be made righteous",
+        "means": "Adam's disobedience, which made the many sinners, set against Christ's obedience, which will make the many righteous"
+      },
+      "original": {
+        "note": "In Paul's Greek the two words are parakoē, disobedience, and hupakoē, obedience, set here as opposites.",
+        "strong": [
+          "G3876",
+          "G5218"
+        ]
+      },
+      "evidence": "Bullinger (Figures of Speech) lists the verse under Antithesis: one man's disobedient act, the obedient act of one. Barnes and W. Sanday (Ellicott's commentary) set Christ's obedience against Adam's disobedience. Bengel calls obedience the opposite here. Brown (Jamieson, Fausset and Brown) sees God repair in Christ the evil Adam did: the race ruined in one is recovered in the other.",
+      "limit": "Writers differ on whether the obedience is Christ's death or His whole work as Redeemer. The note claims only that the two acts and their results are set against each other.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 5:19",
+          "at": "Antithesis, or Contrast, p. 716",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/716/mode/1up",
+          "quote": "“For as by one man’s disobedient act many were made sinners, so by the obedient act of one (i.e., His death) shall many be made righteous.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 5:19",
+          "quote": "By the obedience of one - Of Christ. This stands opposed to the disobedience of Adam, and evidently includes the entire work of the Redeemer which has a bearing on the salvation of people",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 5:19",
+          "quote": "Obedience. — This term is chosen in contradistinction to the disobedience of Adam.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "bengel",
+          "on": "Romans 5:19",
+          "quote": "παρακοὴ, disobedience, implies this carelessness or weakness. The opposite in this passage is ὑπακοὴ, obedience",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/romans/5.htm",
+          "retrieved": "2026-11-07"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 5:19",
+          "quote": "this section of the Epistle, whose sole object is to show how God repairs in the second Adam the evil done by the first. ... It is totals that are compared and contrasted; and it is the same total in two successive conditions--namely, the human race as ruined in Adam and recovered in Christ",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-7-24-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Romans 7:24",
+      "strength": "widely agreed",
+      "short": "A cry of anguish over the struggle with sin",
+      "about": "After describing the war with sin within, Paul breaks out in a cry of anguish and longs to be rescued. The next verse answers the cry with thanks: “Thanks be to God, through Jesus Christ our Lord!”",
+      "refs": [
+        "Romans 7:25"
+      ],
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Romans 7:24",
+        "words": "What a wretched man I am!",
+        "means": "grief at the war with sin within, and a longing to be set free from it"
+      },
+      "evidence": "Bullinger calls the verse a true Ecphonesis (exclamation), closing the chapter. Calvin calls it a vehement exclamation, the voice of one panting for help; Brown (Jamieson, Fausset and Brown) the cry of an agonized believer longing to shake off his burden; Barnes a lamentation born of the painful conflict; Clarke, who reads it of a man under the law, the groans of a wounded captive.",
+      "limit": "The writers differ on whether Paul speaks as a believer still at war with sin or of a man under the law before he knew Christ.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 7:24",
+          "at": "Ecphonesis, or Exclamation, p. 928",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/928/mode/1up",
+          "quote": "This is a true Ecphonesis; but, as concluding the whole of the chapter, it is also in that respect a kind of Epiphonema",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 7:24",
+          "quote": "He closes his argument with a vehement exclamation, by which he teaches us that we are not only to struggle with our flesh, but also with continual groaning to bewail within ourselves and before God our unhappy condition. ... it is the voice of one panting and almost fainting, because he does not find immediate help, as he longs for.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 7:24",
+          "quote": "it is the cry of a living but agonized believer, weighed down under a burden which is not himself, but which he longs to shake off from his renewed self.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 7:24",
+          "quote": "The feeling implied by this lamentation is the result of this painful conflict; and this frequent subjection to sinful propensities. ... In such circumstances, the mind is overwhelmed with wretchedness, and instinctively sighs for relief.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 7:24",
+          "quote": "This affecting account is finished more impressively by the groans of the wounded captive. ... He now finds that the law can afford him no deliverance; and he despairs of help from any human being; but while he is emitting his last, or almost expiring groan, the redemption by Christ Jesus is proclaimed to him",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-5-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Romans 8:5",
+      "strength": "widely agreed",
+      "short": "Flesh and Spirit: two minds set side by side",
+      "about": "Paul sets two kinds of people against each other in one sentence. Those who live by the flesh set their minds on its things; those who live by the Spirit set theirs on the things of the Spirit. Side by side, the two halves can show that a life takes its course from whichever of the two rules it.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Romans 8:5",
+        "words": "Those who live according to the flesh set their minds on the things of the flesh; but those who live according to the Spirit set their minds on the things of the Spirit",
+        "means": "two ways of life set against each other: a mind set on the things of the flesh, and a mind set on the things of the Spirit"
+      },
+      "evidence": "Bullinger lists Romans 8:5 under Antithesis, or Contrast. W. Sanday (Ellicott's Commentary) reads verses 5 to 8 as the antithesis of flesh and spirit, verse 5 on what each is set on. Calvin says Paul sets this difference as an argument from opposites; David Brown (Jamieson, Fausset and Brown) says men are under one or the other, and whichever has the mastery shapes their life.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:5",
+          "at": "Antithesis; or, Contrast, p. 716",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/716/mode/1up",
+          "quote": "For they that are (or live) after (or according to) flesh (the Old nature) do mind the things of the flesh; but they that are (or live) after (according to) spirit (the New nature) [do mind] the things of the spirit",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 8:5-8",
+          "quote": "(5-8) Further description of the antithesis between flesh and spirit in regard to (1) their object, Rom 8:5 ; (2) their nature, Rom 8:7-8 ; (3) their end, Rom 8:6 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 8:5",
+          "quote": "He introduces this difference between the flesh and the Spirit, not only to confirm, by an argument derived from what is of an opposite character, what he has before mentioned",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 8:5",
+          "quote": "Men must be under the predominating influence of one or other of these two principles, and, according as the one or the other has the mastery, will be the complexion of their life, the character of their actions.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-8-13-antithesis",
+      "kind": "figure",
+      "form": "antithesis",
+      "ref": "Romans 8:13",
+      "strength": "widely agreed",
+      "short": "Flesh and death set against the Spirit and life",
+      "about": "The verse sets two ways against each other. A life ruled by the flesh ends in death; putting the deeds of the body to death by the Spirit ends in life. Each half shows up the other: flesh against Spirit, death against life.",
+      "figure": {
+        "name": "Antithesis",
+        "ref": "Romans 8:13",
+        "words": "if you live according to the flesh, you will die; but if by the Spirit you put to death the deeds of the body, you will live",
+        "means": "two ways set against each other: a life by the flesh, which ends in death, and sin put to death by the Spirit, which ends in life"
+      },
+      "evidence": "Bullinger lists Romans 8:13 under Antithesis, or Contrast. Barnes puts the two halves as a choice: either our sins die or we do, and if they are put to death we are saved. David Brown (Jamieson, Fausset and Brown) hears put to death as a play on die, and says Paul tempers the warning by a bright alternative, life for those who by the Spirit put to death the deeds of the body.",
+      "limit": "The turn from die to put to death may be a play on words of its own; this note is on the two halves set against each other.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 8:13",
+          "at": "Antithesis; or, Contrast, p. 716",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/716/mode/1up",
+          "quote": "For if ye live according to flesh, ye shall die: but if ye through spirit (the New nature) do mortify the deeds of the body (i.e., by reckoning that it died with Christ, Rom 6:11), ye will live.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 8:13",
+          "quote": "Either your sins must die, or you must. If they are suffered to live, you will die. If they are put to death, you will be saved.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 8:13",
+          "quote": "he uses the word \"mortify\" (put to death) as a kind of play upon the word \"die\" just before. \"If ye do not kill sin, it will kill you.\" But he tempers this by the bright alternative, that if they do, through the Spirit, mortify the deeds of the body, such a course will infallibly terminate in \"life\" everlasting.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-10-19-meiosis",
+      "kind": "figure",
+      "form": "meiosis",
+      "ref": "Romans 10:19",
+      "strength": "widely agreed",
+      "short": "“Not a nation”: those God would make His people",
+      "about": "Moses calls the Gentiles “not a nation,” as if they did not count as a people at all. Yet out of those who were no people God would make a people for Himself by His grace, and so stir Israel to jealousy.",
+      "figure": {
+        "name": "Meiosis",
+        "ref": "Romans 10:19",
+        "words": "those who are not a nation",
+        "means": "the Gentiles, of no account before God, out of whom His grace would make a people for Himself"
+      },
+      "original": {
+        "note": "In Paul's Greek the words are ouk ethnei, not a nation: a no-nation, a people with no existence as a people.",
+        "strong": [
+          "G3756",
+          "G1484"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Meiosis (a belittling): ouk ethnos is a non-people, a thing with no existence, as the Gentiles were, from whom grace now takes out a people. Calvin says God raised up a new people from nothing, since without the hope of eternal life men have properly no existence. Benson says the Gentiles, given Israel's privileges, were not God's people and of no account with Him.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 10:19",
+          "at": "Meiosis, or a Be-littleing, p. 157",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/157/mode/1up",
+          "quote": "οὐκ ἔθνος (ouk ethnos), a non-people. ... a thing which has no existence at all. ... Such were we Gentiles. But through grace, “a people” is now being taken out from among all nations",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 10:19",
+          "quote": "God formed for himself a nation from that which was not a nation, and raised up from nothing a new people ... Observe, that a foolish nation, and no nation, are the same; for without the hope of eternal life men have properly no existence.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 10:18-21",
+          "quote": "By bestowing your privileges on the Gentiles, who at present are not my people, and of no account with me.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ],
+      "refs": [
+        "Deuteronomy 32:21"
+      ]
+    },
+    {
+      "id": "romans-11-33-exclamation",
+      "kind": "figure",
+      "form": "exclamation",
+      "ref": "Romans 11:33",
+      "strength": "widely agreed",
+      "short": "A cry of wonder at the depth of God's wisdom",
+      "about": "Having set out God's plan of mercy for Jews and Gentiles, Paul breaks out in a cry of wonder and praise at God's wisdom and knowledge, deeper than any mind can reach: “How unsearchable are His judgments, and untraceable His ways!”",
+      "figure": {
+        "name": "Exclamation",
+        "ref": "Romans 11:33",
+        "words": "O, the depth of the riches of the wisdom and knowledge of God!",
+        "means": "wonder, awe and praise at God's wisdom, too deep for man to search out"
+      },
+      "evidence": "Bullinger calls the verse a proper Ecphonesis (exclamation) joined with Thaumasmos, since it voices wonder. Calvin says Paul bursts into an exclamation, overcome by so great a mystery; Barnes that he voices his admiration; Brown (Jamieson, Fausset and Brown) that he gives himself to admiring the divine plan; Sanday (Ellicott) that he breaks out in impassioned praise.",
+      "limit": "The writers differ on whether riches, wisdom and knowledge are three things Paul wonders at or the riches are those of God's wisdom and knowledge; the cry of wonder is the same either way.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Romans 11:33",
+          "at": "Thaumasmos, or Wondering, p. 923",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/923/mode/1up",
+          "quote": "This is a proper Ecphonesis, except that it expresses wonder and astonishment, so that it is combined with Thaumasmos.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 11:33",
+          "quote": "Here first the Apostle bursts into an exclamation, which arose spontaneously from a devout consideration of God’s dealings with the faithful ... being at length overcome by the sublimity of so great a mystery, he could not do otherwise than wonder and exclaim ... I have therefore no doubt but that he extols God’s deep riches of wisdom and knowledge",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 11:33",
+          "quote": "The apostle has three subjects of admiration. ... The apostle wishes to express his admiration of the riches and the wisdom, and the knowledge of God. ... So every pardoned sinner may still exclaim. ... The wonderful wisdom with which this was done, is the object of the apostle's profound admiration.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 11:33",
+          "quote": "The apostle now yields himself up to the admiring contemplation of the grandeur of that divine plan which he had sketched out.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 11:33-36",
+          "quote": "This grand and comprehensive view of the divine purposes makes so deep an impression upon the Apostle that he breaks out into an impassioned ascription of praise, with which the first (doctrinal) portion of the Epistle is brought to a close.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "romans-11-33-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Romans 11:33-35",
+      "strength": "some interpreters",
+      "short": "Riches, wisdom, knowledge, then back again",
+      "about": "Verse 33 names the riches, the wisdom and the knowledge of God. Verses 34 and 35 take them up in reverse: who has known His mind answers to knowledge, who has been His counselor to wisdom, and who has first given to God to riches.",
+      "lines": [
+        {
+          "ref": "Romans 11:33",
+          "words": "O, the depth of the riches",
+          "mark": "A",
+          "key": "riches"
+        },
+        {
+          "ref": "Romans 11:33",
+          "words": "of the wisdom",
+          "mark": "B",
+          "key": "wisdom"
+        },
+        {
+          "ref": "Romans 11:33",
+          "words": "and knowledge of God!",
+          "mark": "C",
+          "key": "knowledge"
+        },
+        {
+          "ref": "Romans 11:34",
+          "words": "Who has known the mind of the Lord?",
+          "mark": "C'",
+          "key": "known"
+        },
+        {
+          "ref": "Romans 11:34",
+          "words": "Or who has been His counselor?",
+          "mark": "B'",
+          "key": "counselor"
+        },
+        {
+          "ref": "Romans 11:35",
+          "words": "Who has first given to God, that God should repay him?",
+          "mark": "A'",
+          "key": "given"
+        }
+      ],
+      "evidence": "Jebb says the first line proposes the subject, and that riches, wisdom and knowledge are then taken up again in an epanodos, in the inverted order: first knowledge, secondly wisdom, thirdly riches.",
+      "limit": "The BSB's words can also be read as the riches of the wisdom and knowledge of God, two things rather than three.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "jebb",
+          "work": "jebb-sacred-literature",
+          "on": "Romans 11:33-35",
+          "at": "Sacred Literature, sect. VII, pp. 120-121",
+          "url": "https://archive.org/details/sacredliterature00jebb/page/120/mode/1up",
+          "quote": "The first line proposes the subject: … Riches, wisdom, and knowledge, are then, in a fine epanodos, enlarged upon in the inverted order; first, knowledge … secondly, wisdom … thirdly, riches",
+          "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
+          "retrieved": "2026-11-07"
         }
       ]
     }

@@ -661,6 +661,116 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "exodus-17-7-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Exodus 17:7",
+      "strength": "some interpreters",
+      "short": "Massah, Meribah, then quarreling, testing",
+      "about": "The place is given two names, Massah and Meribah, and two reasons follow in reverse order: the Israelites quarreled, which answers Meribah, and they tested the LORD, which answers Massah.",
+      "lines": [
+        {
+          "ref": "Exodus 17:7",
+          "words": "He named the place Massah",
+          "mark": "A",
+          "key": "Massah"
+        },
+        {
+          "ref": "Exodus 17:7",
+          "words": "and Meribah",
+          "mark": "B",
+          "key": "Meribah"
+        },
+        {
+          "ref": "Exodus 17:7",
+          "words": "because the Israelites quarreled,",
+          "mark": "B'",
+          "key": "quarreled"
+        },
+        {
+          "ref": "Exodus 17:7",
+          "words": "and because they tested the LORD,",
+          "mark": "A'",
+          "key": "tested"
+        }
+      ],
+      "evidence": "Boys sets the verse out in four lines, the first answering the fourth and the second the third: Massah is named for their testing the Lord and Meribah for their quarreling, and he says the sense of the passage is found by marking these correspondences.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "boys",
+          "work": "boys-key-psalms",
+          "on": "Exodus 17:7",
+          "at": "Introduction, p. 44",
+          "url": "https://archive.org/details/akeytobookpsalm00boysgoog/page/44/mode/1up",
+          "quote": "The place was called Massah … because of their tempting the Lord … and Meribah … because of their chiding … Thus, in order to discover the sense of the passage, it is necessary to observe the correspondence of a. and a., and also that of b. and b. Thus an attention to the arrangement of a passage will often help us to discover its sense or purport.",
+          "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
+          "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "exodus-32-32-aposiopesis",
+      "kind": "figure",
+      "form": "aposiopesis",
+      "ref": "Exodus 32:32",
+      "strength": "widely agreed",
+      "short": "Moses breaks off his plea for pardon",
+      "about": "Moses confesses the people's great sin and pleads, “if You would only forgive their sin,” then stops without finishing. What would follow is left unsaid, and he goes on: “But if not, please blot me out of the book that You have written.”",
+      "refs": [
+        "Exodus 32:31",
+        "Daniel 3:15"
+      ],
+      "figure": {
+        "name": "Aposiopesis",
+        "part": "Promise",
+        "ref": "Exodus 32:32",
+        "words": "if You would only forgive their sin",
+        "means": "what Moses leaves unsaid after asking pardon: that this alone would content him, or a promise for the people he could not make"
+      },
+      "original": {
+        "note": "In Hebrew the plea opens with im, if, and no then-clause follows before the next if. Im can also carry a wish: oh, that You would forgive.",
+        "strong": [
+          "H0518"
+        ]
+      },
+      "evidence": "Bullinger lists the verse under Aposiopesis, or sudden silence: Moses seems about to promise something for the people but stops. Calvin says the plea breaks off in his earnestness, the sentence left unfinished. Henry calls it an abrupt expression, as if Moses would ask nothing more. George Rawlinson (Ellicott's Commentary) names the aposiopesis and supplies words such as well and good.",
+      "limit": "The writers differ on what is left unsaid: that pardon alone would content Moses, or a promise for the people that he could not make.",
+      "checked": "2026-11-07",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Exodus 32:31-32",
+          "at": "Aposiopesis, or Sudden-Silence: Promise, p. 151",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/151/mode/1up",
+          "quote": "Here it seems that Moses was about to promise something on behalf of the people; but neither knew what promise he could make for them, nor how far he could answer for its fulfilment by them. His sudden silence is solemnly eloquent.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "calvin",
+          "on": "Exodus 32:31-32",
+          "quote": "this with extreme earnestness, which is the reason why his address is suddenly broken off, for the sentence is imperfect, as is often the case in pathetic appeals, “if thou wilt forgive their sin.” ... still in the vehemence of his feelings he seems to burst forth into an exclamation, “Oh, if thou wilt forgive;”",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "henry",
+          "on": "Exodus 32:32",
+          "quote": "What then Moses? It is an abrupt expression, \"If thou wilt, I desire no more; if thou wilt, thou wilt be praised, I shall be pleased, and abundantly recompensed for my intercession.\" ... If thou wilt forgive, is as much as, \"O that thou wouldest forgive!\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-01"
+        },
+        {
+          "source": "ellicott",
+          "on": "Exodus 32:32",
+          "quote": "Supply after the word “sin,” “well and good,” “I am content,” or some such phrase. Similar instances of aposiopesis will be found in Dan 3:15",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-01"
+        }
+      ]
     }
   ]
 }

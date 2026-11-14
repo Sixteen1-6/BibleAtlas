@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "about": "Guided tours: verses to step through in order. Only Scripture is shown on a tour; a title names it. The build refuses a tour unless every step is joined to the rest by cross-references (a step joins the steps it is cross-referenced with, either way, with at least one net vote, and the steps of one chapter count together). See crates/atlas-cli/src/tours.rs.",
+  "tours": [
+    {
+      "id": "lamb",
+      "title": "The Lamb, Genesis to Revelation",
+      "steps": ["Gen.22.8", "Exod.12.5", "Exod.12.13", "Isa.53.7", "John.1.29", "1Cor.5.7", "1Pet.1.19", "Rev.5.6", "Rev.5.12"]
+    },
+    {
+      "id": "psalm-22",
+      "title": "Psalm 22 and the cross",
+      "steps": ["Ps.22.1", "Matt.27.46", "Ps.22.7", "Matt.27.39", "Ps.22.8", "Matt.27.43", "Ps.22.16", "John.20.25", "Ps.22.18", "John.19.24", "Ps.22.22", "Heb.2.12"]
+    },
+    {
+      "id": "seed",
+      "title": "The promised seed",
+      "steps": ["Gen.3.15", "Gen.12.3", "Gen.22.18", "Gen.49.10", "2Sam.7.12", "Isa.9.7", "Isa.7.14", "Matt.1.1", "Gal.3.16", "Gal.4.4", "Rom.16.20", "Rev.12.9"]
+    },
+    {
+      "id": "new-creation",
+      "title": "Creation and new creation",
+      "steps": ["Gen.1.1", "John.1.1", "Col.1.16", "Heb.11.3", "Isa.65.17", "2Cor.5.17", "2Pet.3.13", "Rev.21.1", "Rev.21.5"]
+    },
+    {
+      "id": "shepherd",
+      "title": "The Shepherd",
+      "steps": ["Ps.23.1", "Isa.40.11", "Ezek.34.23", "John.10.11", "Heb.13.20", "1Pet.2.25", "1Pet.5.4", "Rev.7.17"]
+    }
+  ]
+}

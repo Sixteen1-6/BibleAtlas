@@ -320,13 +320,50 @@
       "title": "Biblical Commentary on the Old Testament",
       "by": "Carl Friedrich Keil and Franz Delitzsch",
       "when": "1800s",
-      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word, put into English in Edinburgh. The app links to it on Bible Hub.",
+      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word. Delitzsch wrote Job, Psalms, Proverbs, the Song and Isaiah, Keil the rest. At Deep.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "The 1864–78 English translation is public domain. This copy is CrossWire's KD module (version 2.0 of 3 August 2022), whose text came from Wikisource (CC BY-SA 3.0; its source document is not known), copied unchanged to a branch of this app's repository (mirror/sword-KD, commit d3bd6d4) on 14 November 2026; the files built from it are shared under CC BY-SA 4.0, crediting Wikisource contributors. Left out: introductions, Ecclesiastes (Delitzsch holds that Solomon did not write it), and passages that deny what the text says of its writer, each marked where it was.",
+      "datasets": [
+        "kd-commentary"
+      ],
+      "find": {
+        "url": "https://github.com/Sixteen1-6/BibleAtlas/blob/d3bd6d4eca7210a4c4014f0efecc453c18adf4ce/SOURCE.md",
+        "label": "the copied module (GitHub)"
+      },
       "read": {"url": "https://biblehub.com/commentaries/kad/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
-      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century).",
+      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century), read on Bible Hub (biblehub.com/commentaries/kad); the notes shown at Deep are Wikisource contributors' text of the English translation (CC BY-SA 3.0), from the CrossWire Bible Society's SWORD module KD, version 2.0, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-KD.",
       "cites": ["C. F. Keil and F. Delitzsch"],
       "layer": ["keil-delitzsch"]
+    },
+    {
+      "id": "luther-galatians",
+      "group": "writers",
+      "plain": "Commentary on Galatians, 1535, abridged",
+      "title": "Commentary on the Epistle to the Galatians (abridged)",
+      "by": "Martin Luther, Reformer in Wittenberg; abridged and put into modern English by Theodore Graebner",
+      "when": "lectured 1531, printed 1535; this version 1939",
+      "what": "Luther's lectures on Galatians, on justification by faith in Christ alone, in Theodore Graebner's abridged modern English version. Each section opens with Luther's heading and the King James words it treats. All of it shows at Deep.",
+      "license": "public-domain",
+      "licenseNote": "Public domain in the USA, as Project Gutenberg's record of ebook 1549 says (its page, read on 14 November 2026). Graebner's version (Grand Rapids: Zondervan, 1939, as CCEL's catalogue gives the printing) is abridged, with no marks where Luther's words are left out; his preface says it was condensed to about half. Produced for Project Gutenberg by Laura J. Hoelter and David Widger. Project Gutenberg's current file (most recently updated 17 February 2024) is copied unchanged to a branch of this app's repository (mirror/pg-1549, commit d4a3a6d) and into the app on 14 November 2026. Two letters of its headings are put right (config/voices/luther.json). Left out: Project Gutenberg's header and license, Graebner's preface and the front matter, and passages that say a word of Scripture is a mistake, each marked where it was.",
+      "datasets": ["luther-galatians"],
+      "find": {"url": "https://github.com/Sixteen1-6/BibleAtlas/blob/d4a3a6de9227b65f025e2ed7bd7e997e62324b3d/SOURCE.md", "label": "the copied text (GitHub)"},
+      "read": {"url": "https://www.gutenberg.org/ebooks/1549", "label": "Project Gutenberg, ebook 1549"},
+      "citation": "Martin Luther, Commentary on the Epistle to the Galatians (1535), abridged and translated by Theodore Graebner (Grand Rapids: Zondervan, 1939), Project Gutenberg ebook 1549, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/pg-1549."
+    },
+    {
+      "id": "luther-genesis",
+      "group": "writers",
+      "plain": "Lectures on Genesis 1 to 9, 1535 to 1545",
+      "title": "Lectures on Genesis, chapters 1 to 9",
+      "by": "Martin Luther, Reformer in Wittenberg; translated by John Nicholas Lenker, from Henry Cole's translation for chapters 1 to 4",
+      "when": "lectured 1535 to 1545; these translations 1904 and 1910",
+      "what": "The first part of the lectures on Genesis Luther gave in Wittenberg in his last ten years: the creation, the fall and the flood. Each note opens with Luther's heading and the words of Scripture it treats. All of it shows at Deep.",
+      "license": "public-domain",
+      "licenseNote": "Public domain in the USA, as Project Gutenberg's records of ebooks 48193 and 27978 say (their pages, read on 14 November 2026). Luther on the Creation (Minneapolis: Lutherans in All Lands Co., 1904) is Henry Cole's translation from the Latin, revised, enlarged and partly retranslated by Lenker; Luther on Sin and the Flood (Minneapolis: The Luther Press, 1910) is Lenker's, as their title pages say. Both produced for Project Gutenberg by Ron Swanson. Project Gutenberg's files are copied unchanged to branches of this app's repository (mirror/pg-48193, commit 80c47b5, and mirror/pg-27978, commit 8a370aa) and into the app on 14 November 2026. Where the volumes overlap (4:8 to 4:15) only the second is used. One heading the second volume numbers 7:2 is placed on 7:1, whose words it quotes (config/voices/luther.json). Left out: Project Gutenberg's header and license, the prefaces and introductions, the outlines before each section of the second volume, its two footnotes, and passages that say a word of Scripture is a mistake, each marked where it was. Lenker's paragraph numbers are shown in each note's heading.",
+      "datasets": ["luther-genesis", "luther-genesis-2"],
+      "find": {"url": "https://github.com/Sixteen1-6/BibleAtlas/blob/80c47b5f1a136fb5712eee81efbece9b5bce9489/SOURCE.md", "label": "the copied first volume (GitHub)"},
+      "read": {"url": "https://www.gutenberg.org/ebooks/48193", "label": "Project Gutenberg, ebook 48193"},
+      "citation": "Martin Luther, Lectures on Genesis (1535 to 1545), chapters 1 to 4 in Luther on the Creation, Henry Cole's translation revised by John Nicholas Lenker (Minneapolis, 1904), Project Gutenberg ebook 48193, and chapters 4 to 9 in Luther on Sin and the Flood, translated by John Nicholas Lenker (Minneapolis, 1910), Project Gutenberg ebook 27978, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branches mirror/pg-48193 and mirror/pg-27978."
     },
     {
       "id": "barnes-nt",
@@ -335,11 +372,13 @@
       "title": "Notes, Explanatory and Practical, on the New Testament",
       "by": "Albert Barnes, Presbyterian minister, Philadelphia",
       "when": "1832 (the Gospels) to 1851 (Revelation, its copyright year)",
-      "what": "Verse-by-verse notes on the New Testament, written for Sunday-school teachers and Bible classes. Bible Hub shows them as \"Barnes' Notes\"; the app links there.",
+      "what": "Verse-by-verse notes on the New Testament, written for Sunday-school teachers and Bible classes. Bible Hub shows them as \"Barnes' Notes\". All of it shows at Deep, verse by verse.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "Public domain, as the CrossWire SWORD module (Barnes, version 1.1, dated 2002-01-01) marks it. The module names no source and no printing; its notes seem to follow a printing later than 1858, which it does not name. It is copied unchanged from crosswire.org to a branch of this app's repository (mirror/sword-Barnes, commit 85bb86f), copied into the app on 14 November 2026. A few letters the module keeps in an old DOS code page are put right (config/voices/barnes-nt.json). Left out: his prefaces and introductions to the books, the module's verse labels and lists of references keyed to the King James text, and passages that say a word of Scripture is a mistake, each marked where it was.",
+      "datasets": ["barnes-nt"],
+      "find": {"url": "https://github.com/Sixteen1-6/BibleAtlas/blob/85bb86f682828a2f9d791bb6f5c43b60761c9502/SOURCE.md", "label": "the copied module (GitHub)"},
       "read": {"url": "https://archive.org/details/notesexplanatory01inbarn", "label": "archive.org, the Gospels volume"},
-      "citation": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (New York, 1832 onward), read on Bible Hub (biblehub.com/commentaries/barnes).",
+      "citation": "Albert Barnes, Notes, Explanatory and Practical, on the New Testament (New York, 1832 onward), read on Bible Hub (biblehub.com/commentaries/barnes); the notes shown at Deep are from the CrossWire Bible Society's SWORD module Barnes, version 1.1, which names no printing, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-Barnes.",
       "layer": ["barnes-nt"]
     },
     {
@@ -434,11 +473,13 @@
       "title": "A Commentary, Critical and Explanatory, on the Old and New Testaments",
       "by": "Robert Jamieson, A. R. Fausset and David Brown",
       "when": "New York reprints of 1873 and 1878 of the English edition",
-      "what": "A short commentary on the whole Bible. Its title page divides it: Genesis to Esther by Jamieson, Job to Malachi and 1 Corinthians to Revelation by Fausset, Matthew to Romans by Brown.",
+      "what": "A short commentary on the whole Bible. Its title page divides it: Genesis to Esther by Jamieson, Job to Malachi and 1 Corinthians to Revelation by Fausset, Matthew to Romans by Brown. All of it shows at Deep, verse by verse.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "Public domain, as the CrossWire SWORD module (JFB, version 3.0 of 15 February 2021) marks it. Its text is the Christian Classics Ethereal Library's electronic edition (jfb.txt). The module is copied unchanged from crosswire.org to a branch of this app's repository (mirror/sword-JFB, commit 5277a65), copied into the app on 14 November 2026. This copy shortens references (\"Ge 1:3-5\") as the module does. Left out: the general, book and chapter introductions, and passages that say a word of Scripture is a mistake, each marked where it was.",
+      "datasets": ["jfb-commentary"],
       "read": {"url": "https://archive.org/details/commentarycritic00jami", "label": "archive.org, 1873"},
-      "citation": "Robert Jamieson, A. R. Fausset and David Brown, A Commentary, Critical and Explanatory, on the Old and New Testaments (New York: S. S. Scranton, 1873), read on Bible Hub (biblehub.com/commentaries/jfb).",
+      "find": {"url": "https://github.com/Sixteen1-6/BibleAtlas/blob/5277a65d85923a34e6dd8b8702cfb5ae8aea2497/SOURCE.md", "label": "the copied module (GitHub)"},
+      "citation": "Robert Jamieson, A. R. Fausset and David Brown, A Commentary, Critical and Explanatory, on the Old and New Testaments (New York: S. S. Scranton, 1873), read on Bible Hub (biblehub.com/commentaries/jfb); the notes shown at Deep are the Christian Classics Ethereal Library's electronic edition of A Commentary, Critical and Explanatory, on the Whole Bible (1871), from the CrossWire Bible Society's SWORD module JFB, version 3.0, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-JFB.",
       "layer": ["jfb"]
     },
     {
@@ -448,11 +489,13 @@
       "title": "An Exposition of the Old and New Testament",
       "by": "Matthew Henry; Romans to Revelation completed after his death by other ministers",
       "when": "1828 edition read",
-      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, whose names the edition prints at the head of each book they finished.",
+      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, named at the head of each book. All of it shows at Deep, section by section.",
       "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (MHC) marks it. The text is the Christian Classics Ethereal Library's transcription. This copy is from the Let's Church repository, which is CC0 1.0, commit 71f6f0f, copied into the app on 14 November 2026. Left out: the King James verses each section prints, the prefaces and chapter outlines, and passages that say a word of Scripture is a mistake, each marked where it was.",
       "datasets": ["henry-complete"],
       "read": {"url": "https://archive.org/details/expositionofoldn06henr", "label": "archive.org, vol. VI, 1828"},
-      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw).",
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhc.json", "label": "the data file (GitHub)"},
+      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw); the notes shown at Deep are the Christian Classics Ethereal Library's transcription, from the CrossWire Bible Society's SWORD module MHC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "layer": ["henry-complete"]
     },
     {
@@ -530,13 +573,15 @@
       "group": "writers",
       "plain": "Bible commentaries, English from 1844",
       "title": "Commentaries",
-      "by": "John Calvin, Reformer and pastor in Geneva",
-      "when": "Calvin Translation Society edition, from 1844",
-      "what": "Calvin's commentaries on most books of the Bible, in the English translation of the Calvin Translation Society. The app links to them on Bible Hub.",
+      "by": "John Calvin, Reformer and pastor in Geneva; translated for the Calvin Translation Society",
+      "when": "written 1540–64, as the copy dates his commentaries; Calvin Translation Society edition, from 1844",
+      "what": "The Reformer's commentaries, in the Calvin Translation Society's English. His New Testament notes show at Deep under each verse, once a reader chooses to see writers' notes; the app also links to him on Bible Hub.",
       "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (CalvinCommentaries) marks it. The text is the Christian Classics Ethereal Library's transcription. This copy is from the Let's Church repository, which is CC0 1.0, commit 71f6f0f, copied into the app on 14 November 2026. Left out: the Old Testament for now; 1 and 2 Timothy and Titus, which this copy keeps only in part; the verses printed before his notes, in English and Latin; each book's Argument, indexes and the translators' additions; and 15 passages that say a word of Scripture is a mistake, each marked where it was.",
       "datasets": ["calvin-commentaries"],
       "read": {"url": "https://archive.org/details/commentariesontw01calvuoft", "label": "archive.org, the Minor Prophets, vol. I"},
-      "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), read on Bible Hub (biblehub.com/commentaries/calvin).",
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/calvin.json", "label": "the data file (GitHub)"},
+      "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), transcribed by the Christian Classics Ethereal Library, from the CrossWire Bible Society's SWORD module CalvinCommentaries, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0); also read on Bible Hub (biblehub.com/commentaries/calvin).",
       "layer": ["calvin-commentaries"]
     },
     {
@@ -599,15 +644,15 @@
       "id": "church-fathers",
       "group": "writers",
       "plain": "Writings of the early church, in translation",
-      "title": "The church fathers, as New Advent gives them",
-      "by": "Justin Martyr, Irenaeus, Clement of Rome, Gregory of Nazianzus, Jerome, Athanasius, Augustine, John Chrysostom, and the unknown writer of the Epistle of Barnabas",
+      "title": "The church fathers, as New Advent and the Christian Classics Ethereal Library give them",
+      "by": "Justin Martyr, Irenaeus, Clement of Rome, Cyprian, Cyril of Jerusalem, Gregory of Nazianzus, Jerome, Athanasius, Augustine, John Chrysostom, and the unknown writer of the Epistle of Barnabas",
       "when": "first to fifth centuries; English translations of 1885 to 1896",
       "what": "Early Christian writings the Layers notes cite, each in the English of the Ante-Nicene and Nicene and Post-Nicene Fathers. Each cite names the writer, the work and its translator.",
       "license": "public-domain",
       "datasets": [],
       "read": {"url": "https://www.newadvent.org/fathers/", "label": "New Advent"},
-      "citation": "The Ante-Nicene Fathers (1885 to 1896) and the Nicene and Post-Nicene Fathers (1888 to 1894), read on New Advent (newadvent.org/fathers), revised and edited there by Kevin Knight.",
-      "layer": ["justin-dialogue", "justin-first-apology", "irenaeus-against-heresies", "barnabas", "first-clement", "gregory-oration-41", "jerome-apology", "athanasius-arians", "augustine-tractates-john", "chrysostom-galatians"]
+      "citation": "The Ante-Nicene Fathers (1885 to 1896) and the Nicene and Post-Nicene Fathers (1888 to 1894), read on New Advent (newadvent.org/fathers), revised and edited there by Kevin Knight, and on the Christian Classics Ethereal Library (ccel.org).",
+      "layer": ["justin-dialogue", "justin-first-apology", "irenaeus-against-heresies", "barnabas", "first-clement", "gregory-oration-41", "jerome-apology", "athanasius-arians", "augustine-tractates-john", "chrysostom-galatians", "cyprian-testimonies", "cyril-catechetical-lectures", "chrysostom-father-if-it-be-possible", "chrysostom-2-timothy", "chrysostom-romans"]
     },
     {
       "id": "edersheim-life",
@@ -639,6 +684,21 @@
       "layer": ["lowth-lectures"]
     },
     {
+      "id": "lowth-isaiah",
+      "group": "writers",
+      "plain": "Isaiah translated, with notes; 1795 printing",
+      "title": "Isaiah: A New Translation; with a Preliminary Dissertation, and Notes Critical, Philological, and Explanatory",
+      "by": "Robert Lowth, Bishop of London",
+      "when": "third edition, 1795; the first edition was not read",
+      "what": "Lowth's own English translation of Isaiah, with a dissertation on Hebrew poetry and notes. His notes that propose changing the Hebrew text are never cited.",
+      "license": "public-domain",
+      "licenseNote": "Printed in 1795; Lowth died in 1787.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/isaiahnewtransla01lowt", "label": "archive.org, vol. 1, 1795"},
+      "citation": "Robert Lowth, Isaiah: A New Translation; with a Preliminary Dissertation, and Notes Critical, Philological, and Explanatory, 3rd ed., 2 vols. (London: Printed by J. Nichols, for T. Cadell, 1795).",
+      "layer": ["lowth-isaiah"]
+    },
+    {
       "id": "jebb-sacred-literature",
       "group": "writers",
       "plain": "Parallel lines in the New Testament, 1820",
@@ -667,6 +727,36 @@
       "read": {"url": "https://archive.org/details/10353478bsb", "label": "archive.org, Tactica Sacra, 1824"},
       "citation": "Thomas Boys, Tactica Sacra (London: T. Hamilton, 1824); A Key to the Book of Psalms (London: L. B. Seeley and Son, 1825).",
       "layer": ["boys-tactica", "boys-key-psalms"]
+    },
+    {
+      "id": "blunt",
+      "group": "writers",
+      "plain": "Details in one book explained by another, 1847",
+      "title": "Undesigned Coincidences in the Writings both of the Old and New Testament",
+      "by": "J. J. Blunt, Anglican clergyman and Cambridge professor of divinity",
+      "when": "1847",
+      "what": "Small details in one book of the Bible that another book, written apart from it, quietly explains, gathered as evidence that both tell what truly happened: the books of Moses, the histories, the prophets, and the Gospels and Acts.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1847; the text read is the eighth edition (London: John Murray, 1863). Blunt died in 1855. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/undesignedcoinci00blunuoft", "label": "archive.org, 1863"},
+      "citation": "J. J. Blunt, Undesigned Coincidences in the Writings both of the Old and New Testament, an Argument of their Veracity, 8th ed. (London: John Murray, 1863).",
+      "layer": ["blunt-coincidences"]
+    },
+    {
+      "id": "paley",
+      "group": "writers",
+      "plain": "Paul's letters checked against Acts, 1790",
+      "title": "Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced",
+      "by": "William Paley, Anglican clergyman and Archdeacon of Carlisle",
+      "when": "1790",
+      "what": "Paul's letters set beside the Acts of the Apostles, point by point, to show how the two agree in small things neither seems to have copied from the other.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1790; the text read is the New York printing of 1849 (Robert Carter and Brothers). Paley died in 1805. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/horaepaulinae00pale", "label": "archive.org, 1849"},
+      "citation": "William Paley, Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced (New York: Robert Carter and Brothers, 1849; first printed 1790).",
+      "layer": ["paley-horae-paulinae"]
     },
     {
       "id": "forbes",
@@ -783,6 +873,52 @@
       "cites": ["TBESG, Translators Brief lexicon"]
     },
     {
+      "id": "step-morph",
+      "group": "word-books",
+      "plain": "What each grammar tag on a word stands for",
+      "title": "Translators Expansion of Greek and Hebrew Morphology Codes (TEGMC, TEHMC)",
+      "by": "STEPBible.org, based on work at Tyndale House, Cambridge",
+      "when": "kept up to date",
+      "what": "For every grammar tag on a Greek, Hebrew or Aramaic word: the form's parts in words, what the form means and an example. The Word choice notes show its line with each verb.",
+      "license": "cc-by-4.0",
+      "datasets": ["step-morph"],
+      "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes", "label": "the data files (GitHub)"},
+      "citation": "STEPBible, TEGMC: Translators Expansion of Greek Morphology Codes, and TEHMC: Translators Expansion of Hebrew Morphology Codes. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: November 2026.",
+      "cites": ["STEPBible's expansion of each grammar tag"]
+    },
+    {
+      "id": "robertson-short-grammar",
+      "group": "word-books",
+      "plain": "Greek grammar of the New Testament, 1908",
+      "title": "A Short Grammar of the Greek New Testament",
+      "by": "A. T. Robertson, professor of New Testament interpretation at the Southern Baptist Theological Seminary",
+      "when": "1908 (third edition)",
+      "what": "A grammar of New Testament Greek for students. The Word choice notes quote its own sentences on what a tense, voice or mood conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+        "label": "archive.org, third edition"
+      },
+      "citation": "A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; copyright 1908), read on archive.org (archive.org/details/shortgrammarofgr00robeuoft)."
+    },
+    {
+      "id": "green-hebrew-grammar",
+      "group": "word-books",
+      "plain": "Hebrew grammar of the Old Testament, 1861",
+      "title": "A Grammar of the Hebrew Language",
+      "by": "William Henry Green, professor in the Theological Seminary at Princeton",
+      "when": "1861 (second edition)",
+      "what": "A full grammar of Biblical Hebrew. The Word choice notes quote its own sentences on what a Hebrew verb form or pattern conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/grammarofhebrew00gree",
+        "label": "archive.org, second edition"
+      },
+      "citation": "William Henry Green, A Grammar of the Hebrew Language, second edition, with corrections and copious indexes (New York: John Wiley, 1861), read on archive.org (archive.org/details/grammarofhebrew00gree)."
+    },
+    {
       "id": "tflsj",
       "group": "word-books",
       "plain": "Greek dictionary, 1843–1940",
@@ -861,7 +997,7 @@
       "title": "Theographic Bible Metadata",
       "by": "Robert Rouse (viz.bible)",
       "when": "kept up to date",
-      "what": "Linked lists of the people, places and events of the Bible. The app uses it to name who was born, died or was present at each place.",
+      "what": "Linked lists of the people, places and events of the Bible. The app uses it to name the people each verse names, with their families, and who was born, died or was present at each place.",
       "license": "cc-by-sa-4.0",
       "licenseNote": "The people file the app builds from it is shared under the same license.",
       "datasets": ["theographic"],
@@ -1103,14 +1239,14 @@
       "group": "scholars",
       "plain": "Articles in an evangelical journal, 1989 to 2023",
       "title": "Themelios",
-      "by": "The Gospel Coalition's journal; articles by Torleif Elgvin, Jey J. Kanagaraj, David L. Baker, Walter Riggans, R. T. France, Matt Champlin, Bruce Reichenbach and David V. Christensen",
+      "by": "The Gospel Coalition's journal; articles by Torleif Elgvin, Jey J. Kanagaraj, David L. Baker, Walter Riggans, R. T. France, Matt Champlin, Bruce Reichenbach, David V. Christensen, G. K. Beale and Anthony T. Selvaggio",
       "when": "articles of 1989 to 2023",
       "what": "An international evangelical journal for students of theology. The app cites the articles named here, each linked.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://www.thegospelcoalition.org/themelios/", "label": "thegospelcoalition.org/themelios"},
       "citation": "Themelios (The Gospel Coalition), thegospelcoalition.org/themelios.",
-      "layer": ["elgvin-cursed-on-the-tree", "kanagaraj-poor-in-the-gospels", "baker-jubilee-and-millennium", "riggans-parousia", "france-matthews-gospel", "champlin-blessing-in-genesis", "reichenbach-soteriology-john", "christensen-lamblike-servant"]
+      "layer": ["elgvin-cursed-on-the-tree", "kanagaraj-poor-in-the-gospels", "baker-jubilee-and-millennium", "riggans-parousia", "france-matthews-gospel", "champlin-blessing-in-genesis", "reichenbach-soteriology-john", "christensen-lamblike-servant", "beale-fighting-the-good-fight", "selvaggio-preaching-advice-hebrews"]
     },
     {
       "id": "jets",
@@ -1172,29 +1308,29 @@
       "id": "leithart",
       "group": "scholars",
       "plain": "Essays, 2011 and 2014",
-      "title": "Essays at the Theopolis Institute",
+      "title": "Essays by Peter J. Leithart",
       "by": "Peter J. Leithart, President of the Theopolis Institute",
       "when": "2011 and 2014",
-      "what": "Short essays by a Reformed theologian on reading the Bible: Firstborn (2011) and What's in a Name? (2014).",
+      "what": "Short essays by a Reformed theologian on reading the Bible: Firstborn (2011), Roe, Host, Glory (2011) and What's in a Name? (2014) at the Theopolis Institute, and Structure and Poetry in Isaiah 24 (2011) in First Things.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://theopolisinstitute.com/", "label": "theopolisinstitute.com"},
-      "citation": "Peter J. Leithart, \"Firstborn\" (2011) and \"What's in a Name?\" (2014), Theopolis Institute, theopolisinstitute.com.",
-      "layer": ["leithart-whats-in-a-name", "leithart-firstborn"]
+      "citation": "Peter J. Leithart, \"Firstborn\" (2011), \"Roe, Host, Glory\" (2011) and \"What's in a Name?\" (2014), Theopolis Institute, theopolisinstitute.com; \"Structure and Poetry in Isaiah 24\" (2011), First Things, firstthings.com.",
+      "layer": ["leithart-whats-in-a-name", "leithart-firstborn", "leithart-roe-host-glory", "leithart-structure-and-poetry-isaiah-24"]
     },
     {
       "id": "keener",
       "group": "scholars",
-      "plain": "Bible background articles, 2016",
-      "title": "Bible Backgrounds",
+      "plain": "Bible background articles and a book chapter",
+      "title": "Writings by Craig S. Keener",
       "by": "Craig S. Keener, New Testament scholar, Asbury Theological Seminary",
-      "when": "2016",
-      "what": "Short articles on the setting of passages in Genesis.",
+      "when": "2012 and 2016",
+      "what": "Short articles on the setting of passages in Genesis (Bible Backgrounds, 2016), and his chapter Paul and Spiritual Warfare in Paul's Missionary Methods (2012), read in an excerpt posted with the publisher's permission.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://craigkeener.com/", "label": "craigkeener.com"},
-      "citation": "Craig S. Keener, \"Jacob gets Esau's blessing\" and \"Sleeping with a prostitute part 2\" (2016), Bible Backgrounds, craigkeener.com.",
-      "layer": ["keener-esaus-blessing", "keener-genesis-38"]
+      "citation": "Craig S. Keener, \"Jacob gets Esau's blessing\" and \"Sleeping with a prostitute part 2\" (2016), Bible Backgrounds, craigkeener.com; \"Paul and Spiritual Warfare,\" in Robert L. Plummer and John Mark Terry, eds., Paul's Missionary Methods: In His Time and Ours (IVP Academic, 2012), excerpted at thegospelcoalition.org.",
+      "layer": ["keener-esaus-blessing", "keener-genesis-38", "keener-spiritual-warfare"]
     },
     {
       "id": "bird",
@@ -1282,7 +1418,7 @@
       "citation": "The Gospel Coalition. The Gospel Coalition, Inc., 2007–. https://www.thegospelcoalition.org/.",
       "cites": ["The Gospel Coalition"],
       "onlyWhenCited": true,
-      "layer": ["currid-ruth", "fix-vannoy-1-samuel", "kostenberger-john", "roh-lifted-up", "crowe-walking-on-water", "thornton-ruth-foreshadows-christ"]
+      "layer": ["currid-ruth", "fix-vannoy-1-samuel", "kostenberger-john", "roh-lifted-up", "crowe-walking-on-water", "thornton-ruth-foreshadows-christ", "bolt-luke", "tabb-revelation", "gladd-twice-healed", "carson-equipped-man"]
     },
     {
       "id": "bible-org",
@@ -1327,7 +1463,7 @@
       "citation": "Ligonier Ministries. Ligonier Ministries, Inc., 1971–. https://www.ligonier.org/.",
       "cites": ["Ligonier"],
       "onlyWhenCited": true,
-      "layer": ["thomas-snakes-and-ladders", "inconsolable-father", "risky-proposal", "bilkes-immanuel", "dawson-with-you-always"]
+      "layer": ["thomas-snakes-and-ladders", "inconsolable-father", "risky-proposal", "bilkes-immanuel", "dawson-with-you-always", "sproul-blind-man-peters-confession"]
     },
     {
       "id": "christianity-today",

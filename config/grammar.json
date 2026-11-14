@@ -1,0 +1,1160 @@
+{
+  "_comment": [
+    "Word choice (the grammar notes at Deep). The build (crates/atlas-cli/src/extra_grammar.rs) finds every point from STEPBible's grammar tags; this file holds only the words shown with them.",
+    "terms: one entry for each kind of point the build places; the build refuses a missing or an extra one. fact is what the tags show and is true wherever the term is put. plain, line and care say what the form conveys, so they may be filled only together with says: a grammarian's own words, each with its work, page, the page's address and the date it was read, and a matching record in docs/evidence/grammar-reads.json (same work, page and words, inside the record's context). Without says the term shows its fact and STEPBible's expansion of the tag, nothing more.",
+    "works: the grammars quoted. Shubhanshu's rule (2026-10-11) holds here as in Layers: quote Bible-believing writers; about_from says where the writer's description was read. A grammar describes a language's forms; it is credited for what it is and never made to interpret a verse.",
+    "links: the linking words, in the order a verse's line prefers them. words: a root's Strong's key (with its sense letter, or the bare number for every sense) and, where the root has other uses, how STEPBible's word-by-word English must begin. back: the word looks back to what was just said, so where it opens a verse the note names the verses before it.",
+    "A line is at most 56 characters, so that with \"Word choice: \" it stays under 70. {n} is a count, {where} the Old or New Testament."
+  ],
+  "works": [
+    {
+      "id": "robertson-short",
+      "writer": "A. T. Robertson",
+      "about": "professor of New Testament interpretation, Southern Baptist Theological Seminary",
+      "about_from": "the book's own title page (\"Professor of New Testament Interpretation, Southern Baptist Theological Seminary, Louisville\"), read in the archive.org scan on 2026-11-14",
+      "title": "A Short Grammar of the Greek New Testament",
+      "written": "1908; third edition",
+      "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+      "site": "archive.org",
+      "shelf": "robertson-short-grammar"
+    },
+    {
+      "id": "green-grammar",
+      "writer": "William Henry Green",
+      "about": "professor in the Theological Seminary at Princeton",
+      "about_from": "the book's own title page (\"Professor in the Theological Seminary at Princeton, N. J.\"), read in the archive.org scan on 2026-11-14",
+      "title": "A Grammar of the Hebrew Language",
+      "written": "1861; second edition",
+      "url": "https://archive.org/details/grammarofhebrew00gree",
+      "site": "archive.org",
+      "shelf": "green-hebrew-grammar"
+    }
+  ],
+  "terms": [
+    {
+      "id": "g-present",
+      "lang": "greek",
+      "name": "Present",
+      "fact": "Tagged as a present-tense form.",
+      "line_fact": "a present-tense verb",
+      "plain": "The action is shown as not completed. Whether it is brief, lasting, repeated or usual depends on the case and on the meaning of the verb itself.",
+      "line": "",
+      "care": "So a present tense alone does not prove that an action goes on without end.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "the present tense expresses incompleted action",
+          "page": "140",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n179/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "Too much has been read into the Greek tenses and not enough allowance is always made for the meaning of the verb itself.",
+          "page": "141",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n180/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-imperfect",
+      "lang": "greek",
+      "name": "Imperfect",
+      "fact": "Tagged as an imperfect, a past form built on the same stem as the present.",
+      "line_fact": "a past verb in the imperfect form",
+      "plain": "A past action shown as not completed: the describing tense of a story.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The imperfect is the descriptive tense of narrative and varies the simple monotony of the aorist.",
+          "page": "141",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n180/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-aorist",
+      "lang": "greek",
+      "name": "Aorist",
+      "fact": "Tagged as an aorist form.",
+      "line_fact": "an aorist verb",
+      "plain": "The action is simply stated, as a point, without describing it as completed or as still going on.",
+      "line": "",
+      "care": "So an aorist alone does not prove that an act was brief or happened only once.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "If the action is not to be described as completed or incompleted, put it in the aorist.",
+          "page": "137",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n176/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "the aorist represents the action as a point",
+          "page": "138",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n177/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "In itself it may have continued a long time.",
+          "page": "138",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n177/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-future",
+      "lang": "greek",
+      "name": "Future",
+      "fact": "Tagged as a future form.",
+      "line_fact": "a future-tense verb",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "g-perfect",
+      "lang": "greek",
+      "name": "Perfect",
+      "fact": "Tagged as a perfect form.",
+      "line_fact": "a perfect-tense verb",
+      "plain": "The action is completed. It may be shown as just finished, or as standing finished.",
+      "line": "",
+      "care": "What the finished act leaves behind differs with the meaning of the verb and its setting.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "It always conveys the same sense, completed action.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n182/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "The action may be represented as just finished or as standing finished.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n182/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n182/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-pluperfect",
+      "lang": "greek",
+      "name": "Pluperfect",
+      "fact": "Tagged as a pluperfect form.",
+      "line_fact": "a pluperfect verb",
+      "plain": "Also called the past perfect. It stresses that the action was already completed at a time in the past.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "When therefore the past perfect is used, the completion in past time is distinctly emphasized.",
+          "page": "146",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n185/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-passive",
+      "lang": "greek",
+      "name": "Passive",
+      "fact": "Tagged as passive in voice.",
+      "line_fact": "a verb in the passive voice",
+      "plain": "The subject is acted upon.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The passive represents the subject as acted upon.",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n173/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-middle",
+      "lang": "greek",
+      "name": "Middle",
+      "fact": "Tagged as middle in voice.",
+      "line_fact": "a verb in the middle voice",
+      "plain": "The subject acts with reference to himself. How he does so is left to the meaning of the verb and its setting.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "In the middle voice the subject is acting with reference to himself",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n173/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "How the subject acts with reference to himself, the middle voice does not tell.",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n173/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-imperative",
+      "lang": "greek",
+      "name": "Command",
+      "fact": "Tagged as an imperative, the form of commands and requests.",
+      "line_fact": "a command or request",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "g-subjunctive",
+      "lang": "greek",
+      "name": "Subjunctive",
+      "fact": "Tagged as a subjunctive form.",
+      "line_fact": "a verb in the subjunctive form",
+      "plain": "A form for what is not simply stated as fact. Robertson sets it beside the optative as a way of affirming with some doubt.",
+      "line": "",
+      "care": "The form alone does not make a saying uncertain: it is also the usual form after the doubled “not”, the second sentence quoted here.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek has two modes for doubting affirmation, the subjunctive and the optative.",
+          "page": "129",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n168/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "The usual construction is with the subjunctive",
+          "page": "203",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n242/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-optative",
+      "lang": "greek",
+      "name": "Optative",
+      "fact": "Tagged as an optative, a form the New Testament uses fewer than seventy times.",
+      "line_fact": "a verb in the rare optative form",
+      "plain": "A form for what is not simply stated as fact, and the usual New Testament way to state a wish about the future.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek has two modes for doubting affirmation, the subjunctive and the optative.",
+          "page": "129",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n168/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "the usual way to express a future wish in New Testament Greek is still the optative",
+          "page": "157",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n196/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-infinitive",
+      "lang": "greek",
+      "name": "“To” form",
+      "fact": "Tagged as an infinitive, the form English makes with “to”.",
+      "line_fact": "a “to” form of a verb",
+      "plain": "Both a verb and a noun at once.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The idea of the infinitive in Greek is that of a verbal substantive with emphasis on both terms.",
+          "page": "187",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n226/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-participle",
+      "lang": "greek",
+      "name": "Participle",
+      "fact": "Tagged as a participle, as English uses “-ing” and “-ed” words.",
+      "line_fact": "an “-ing” or “-ed” form of a verb",
+      "plain": "Both a verb and a describing word at once.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The participle is a verbal adjective.",
+          "page": "193",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n232/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "It is always both verb and adjective.",
+          "page": "193",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n232/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-never",
+      "lang": "greek",
+      "name": "Doubled “not”",
+      "fact": "The two Greek words for “not”, ou and me, stand side by side.",
+      "line_fact": "two words for “not” side by side",
+      "plain": "The two words for “not” do not cancel each other; each keeps its force.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "They do not neutralize each other, but each retains its force",
+          "page": "203",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n242/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-forbid-present",
+      "lang": "greek",
+      "name": "“Not” with a present command",
+      "fact": "The word me, “not”, stands with a command in the present form.",
+      "line_fact": "“not” with a present-form command",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "g-forbid-aorist",
+      "lang": "greek",
+      "name": "“Not” with an aorist",
+      "fact": "The word me, “not”, stands with an aorist subjunctive addressed to “you”.",
+      "line_fact": "“not” with an aorist form",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "g-pronoun",
+      "lang": "greek",
+      "name": "Pronoun added",
+      "fact": "A pronoun (I, you, we) is written beside a verb whose ending already says who acts.",
+      "line_fact": "a pronoun the verb did not need",
+      "plain": "A Greek verb already carries its “I”, “you” or “we”, so a pronoun written as its subject adds emphasis.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek verb itself contains the personal subject",
+          "page": "78",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n117/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "When, therefore, the nominative case of the pronoun is used, there is emphasis.",
+          "page": "78",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/n117/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "g-not-but",
+      "lang": "greek",
+      "name": "“Not … but”",
+      "fact": "A “not” is answered by alla, a Greek word for “but”.",
+      "line_fact": "“not this, but that”",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "h-perfect",
+      "lang": "hebrew",
+      "name": "Perfect",
+      "fact": "Tagged as a perfect form.",
+      "line_fact": "a verb in the Hebrew perfect form",
+      "plain": "Green calls this form the preterite: it states what is past, or is thought of as past. Of the prophets he says that they at times tell what is to come in this form, as if it had already taken place.",
+      "line": "",
+      "care": "Whether a given perfect speaks of the past or of a sure future is a question for the passage; the form alone does not settle it.",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Whatever is, or is conceived of as past, must be put in the preterite",
+          "page": "289",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n304/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "they give to their predictions the form of a recital of what has already taken place",
+          "page": "291",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n306/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-imperfect",
+      "lang": "hebrew",
+      "name": "Imperfect",
+      "fact": "Tagged as an imperfect form.",
+      "line_fact": "a verb in the Hebrew imperfect form",
+      "plain": "Green calls this form the future: it is used for what is future, or is thought of as future, and also for constant or habitual acts.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "the future is used for all that is, or is conceived of as future",
+          "page": "289",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n304/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "Constant or habitual acts or states viewed as continuing for an indefinite period from the time spoken of",
+          "page": "293",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n308/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-then",
+      "lang": "hebrew",
+      "name": "“And then” form",
+      "fact": "Tagged as a consecutive imperfect: “and” joined to the verb.",
+      "line_fact": "an “and then” verb",
+      "plain": "Green calls this the future with Vav Conversive, “and” joined to the verb: it carries on an account begun in the past.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "a narration begun in the preterite may be continued in the future with Vav Conversive",
+          "page": "129",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n144/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "the future so employed is converted into what may be called a continuative preterite",
+          "page": "129",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n144/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-and-perfect",
+      "lang": "hebrew",
+      "name": "“And” with the perfect",
+      "fact": "Tagged as a consecutive perfect: “and” joined to a perfect.",
+      "line_fact": "“and” joined to a perfect verb",
+      "plain": "“And” joined to the perfect (Green’s preterite with Vav Conversive) carries on a future or a command.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Vav Conversive prefixed to the preterite makes of it a continuative future or imperative",
+          "page": "132",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n147/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-imperative",
+      "lang": "hebrew",
+      "name": "Command",
+      "fact": "Tagged as an imperative, the form of commands and requests.",
+      "line_fact": "a command or request",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "h-jussive",
+      "lang": "hebrew",
+      "name": "“Let him” form",
+      "fact": "Tagged as a jussive, the form of “let him” and “may it”.",
+      "line_fact": "a “let him” or “may it” form",
+      "plain": "A shortened form that expresses a wish or a command, or with “not” a dissuasion or prohibition.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "expresses a wish or command, or with a negative, dissuasion or prohibition",
+          "page": "126",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n141/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-cohortative",
+      "lang": "hebrew",
+      "name": "“Let me” form",
+      "fact": "Tagged as a cohortative, the form of “let me” and “let us”.",
+      "line_fact": "a “let me” or “let us” form",
+      "plain": "A lengthened first-person form that turns a plain statement about the future into an expression of desire or resolve.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "converting it from a simple declaration of futurity to an expression of desire or determination",
+          "page": "126",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n141/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-infinitive-absolute",
+      "lang": "hebrew",
+      "name": "Bare name of the action",
+      "fact": "Tagged as an infinitive absolute.",
+      "line_fact": "the bare name of the action",
+      "plain": "It gives the bare idea of the verb, without tense, number or person.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The absolute infinitive, expressing as it does the abstract idea of the verb irrespective of tense, number, or person",
+          "page": "298",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n313/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-infinitive",
+      "lang": "hebrew",
+      "name": "“To” form",
+      "fact": "Tagged as an infinitive construct, the form English makes with “to” or “-ing”.",
+      "line_fact": "a “to” form of a verb",
+      "plain": "It follows verbs, nouns and prepositions.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The construct infinitive is used after verbs, nouns, and prepositions",
+          "page": "297",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n312/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-participle",
+      "lang": "hebrew",
+      "name": "Participle",
+      "fact": "Tagged as a participle, as English uses “-ing” and “-ed” words.",
+      "line_fact": "an “-ing” or “-ed” form of a verb",
+      "plain": "A verbal noun with no fixed time of its own; the setting decides whether it speaks of the past, the present or the future.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The participles being properly verbal nouns, do not in strictness involve any definite notion of time",
+          "page": "296",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n311/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-niphal",
+      "lang": "hebrew",
+      "name": "Niphal",
+      "fact": "Tagged as a Niphal, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Niphal pattern",
+      "plain": "Commonly the passive of the simple verb, which Green calls the Kal.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Niphal is commonly the passive of Kal or of the simple idea of the verb",
+          "page": "101",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n116/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-piel",
+      "lang": "hebrew",
+      "name": "Piel",
+      "fact": "Tagged as a Piel, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Piel pattern",
+      "plain": "Gives new intensity to the simple idea of the verb; how it does so differs from verb to verb.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Piel gives new intensity to the simple idea of the verb",
+          "page": "102",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n117/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-pual",
+      "lang": "hebrew",
+      "name": "Pual",
+      "fact": "Tagged as a Pual, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Pual pattern",
+      "plain": "The passive of the Piel.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Pual is the passive of Piel",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n118/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-hiphil",
+      "lang": "hebrew",
+      "name": "Hiphil",
+      "fact": "Tagged as a Hiphil, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Hiphil pattern",
+      "plain": "Denotes causing or producing what the simple verb states.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Hiphil denotes the causing or producing of that which is signified by the simple form of the verb",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n118/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-hophal",
+      "lang": "hebrew",
+      "name": "Hophal",
+      "fact": "Tagged as a Hophal, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Hophal pattern",
+      "plain": "The passive of the Hiphil.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Hophal is the passive of Hiphil.",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n118/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-hithpael",
+      "lang": "hebrew",
+      "name": "Hithpael",
+      "fact": "Tagged as a Hithpael, one of the patterns a Hebrew verb can take.",
+      "line_fact": "a verb in the Hithpael pattern",
+      "plain": "Reflexive or reciprocal: the subject acts on itself, or the subjects on one another.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Hithpael is reflexive or reciprocal of the idea of the verb",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n118/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "h-twice",
+      "lang": "hebrew",
+      "name": "The verb said twice",
+      "fact": "The same verb stands twice, side by side: once as the bare name of the action and once as an ordinary verb.",
+      "line_fact": "the same verb said twice, side by side",
+      "plain": "The verb is joined to its own bare form to add emphasis or intensity. Green’s own examples include Genesis 2:17.",
+      "line": "",
+      "care": "",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "In verbs the absolute infinitive is joined with the finite forms to add emphasis or intensity to the idea",
+          "page": "310",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/n325/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "a-perfect",
+      "lang": "aramaic",
+      "name": "Perfect",
+      "fact": "Tagged as an Aramaic perfect form.",
+      "line_fact": "a verb in the Aramaic perfect form",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "a-imperfect",
+      "lang": "aramaic",
+      "name": "Imperfect",
+      "fact": "Tagged as an Aramaic imperfect form.",
+      "line_fact": "a verb in the Aramaic imperfect form",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "a-imperative",
+      "lang": "aramaic",
+      "name": "Command",
+      "fact": "Tagged as an Aramaic imperative, the form of commands and requests.",
+      "line_fact": "a command or request",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "a-participle",
+      "lang": "aramaic",
+      "name": "Participle",
+      "fact": "Tagged as an Aramaic participle.",
+      "line_fact": "an Aramaic participle",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "a-infinitive",
+      "lang": "aramaic",
+      "name": "“To” form",
+      "fact": "Tagged as an Aramaic infinitive.",
+      "line_fact": "a “to” form of a verb",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "chain-to",
+      "lang": "greek",
+      "name": "A chain of “to” verbs",
+      "fact": "Three or more “to” verbs follow one another in one sentence with no other main verb between them.",
+      "line_fact": "a chain of {n} “to” verbs",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "chain-command",
+      "lang": "any",
+      "name": "A run of commands",
+      "fact": "Three or more commands follow one another with no statement between them.",
+      "line_fact": "a run of {n} commands",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "chain-then",
+      "lang": "hebrew",
+      "name": "A run of “and then” verbs",
+      "fact": "Four or more “and then” verbs stand in one verse.",
+      "line_fact": "{n} “and then” verbs in one verse",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "list",
+      "lang": "greek",
+      "name": "A list",
+      "fact": "Three or more nouns or describing words of the same form are set in a row.",
+      "line_fact": "a list of {n} words in a row",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    },
+    {
+      "id": "rare",
+      "lang": "any",
+      "name": "A rare word",
+      "fact": "Counted in STEPBible's tagged text of the {where}. Names are not counted, and a root's senses are counted together.",
+      "line_fact": "a word used only {n} in the {where}",
+      "plain": "",
+      "line": "",
+      "care": "",
+      "says": []
+    }
+  ],
+  "links": [
+    {
+      "id": "therefore",
+      "name": "Therefore",
+      "plain": "Draws a conclusion from what was just said.",
+      "line": "“therefore”: a conclusion from what came before",
+      "back": true,
+      "words": [
+        {
+          "root": "G3767",
+          "gloss": [
+            "therefore",
+            "so"
+          ]
+        },
+        {
+          "root": "G1352"
+        },
+        {
+          "root": "G1355"
+        },
+        {
+          "root": "G5105"
+        },
+        {
+          "root": "G5106"
+        },
+        {
+          "root": "G0686",
+          "gloss": [
+            "then",
+            "so",
+            "therefore"
+          ]
+        },
+        {
+          "root": "G5620",
+          "gloss": [
+            "therefore",
+            "so then"
+          ]
+        },
+        {
+          "root": "H3651C",
+          "gloss": [
+            "to therefore",
+            "fore"
+          ]
+        },
+        {
+          "root": "H2006B",
+          "gloss": [
+            "therefore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "for",
+      "name": "For",
+      "plain": "Gives the reason for what was just said.",
+      "line": "“for”: the reason for what came before",
+      "back": true,
+      "words": [
+        {
+          "root": "G1063",
+          "gloss": [
+            "for"
+          ]
+        },
+        {
+          "root": "H3588A",
+          "gloss": [
+            "for"
+          ]
+        },
+        {
+          "root": "H3588C"
+        }
+      ]
+    },
+    {
+      "id": "but",
+      "name": "But",
+      "plain": "Sets what follows against what was just said.",
+      "line": "“but”: a turn from what came before",
+      "back": true,
+      "words": [
+        {
+          "root": "G0235"
+        },
+        {
+          "root": "G1161",
+          "gloss": [
+            "but",
+            "however",
+            "yet"
+          ]
+        },
+        {
+          "root": "G4133",
+          "gloss": [
+            "but",
+            "nevertheless",
+            "yet",
+            "however"
+          ]
+        },
+        {
+          "root": "G3305"
+        },
+        {
+          "root": "H0199"
+        },
+        {
+          "root": "H0061",
+          "gloss": [
+            "but"
+          ]
+        },
+        {
+          "root": "H0389",
+          "gloss": [
+            "nevertheless"
+          ]
+        },
+        {
+          "root": "H0403",
+          "gloss": [
+            "nevertheless"
+          ]
+        },
+        {
+          "root": "H1297"
+        }
+      ]
+    },
+    {
+      "id": "so-that",
+      "name": "So that",
+      "plain": "Gives the purpose or the result: what the action is for, or what comes of it.",
+      "line": "“so that”: the purpose or the result",
+      "back": false,
+      "words": [
+        {
+          "root": "G2443",
+          "gloss": [
+            "so that",
+            "in order that",
+            "in order"
+          ]
+        },
+        {
+          "root": "G3704",
+          "gloss": [
+            "so that"
+          ]
+        },
+        {
+          "root": "G5620",
+          "gloss": [
+            "so that",
+            "so as"
+          ]
+        },
+        {
+          "root": "H4616",
+          "gloss": [
+            "so that",
+            "so as"
+          ]
+        },
+        {
+          "root": "H5668",
+          "gloss": [
+            "inorder that",
+            "in order"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lest",
+      "name": "Lest",
+      "plain": "Names what the action is meant to prevent.",
+      "line": "“lest”: what is to be prevented",
+      "back": false,
+      "words": [
+        {
+          "root": "H6435"
+        },
+        {
+          "root": "G3379",
+          "gloss": [
+            "lest"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "because",
+      "name": "Because",
+      "plain": "Gives the cause or ground of the statement it is joined to.",
+      "line": "“because”: the ground of what is said",
+      "back": false,
+      "words": [
+        {
+          "root": "G3754H"
+        },
+        {
+          "root": "G1360",
+          "gloss": [
+            "because",
+            "for"
+          ]
+        },
+        {
+          "root": "G1893",
+          "gloss": [
+            "since",
+            "because"
+          ]
+        },
+        {
+          "root": "G1894"
+        },
+        {
+          "root": "H3282"
+        },
+        {
+          "root": "H6903H"
+        }
+      ]
+    },
+    {
+      "id": "if",
+      "name": "If",
+      "plain": "Sets a condition: what follows depends on it.",
+      "line": "“if”: a condition",
+      "back": false,
+      "words": [
+        {
+          "root": "G1487G",
+          "gloss": [
+            "if"
+          ]
+        },
+        {
+          "root": "G1487M"
+        },
+        {
+          "root": "G1437",
+          "gloss": [
+            "if"
+          ]
+        },
+        {
+          "root": "H0518A",
+          "gloss": [
+            "if"
+          ]
+        },
+        {
+          "root": "H3884"
+        },
+        {
+          "root": "H3588A",
+          "gloss": [
+            "if"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "just-as",
+      "name": "Just as",
+      "plain": "Sets a pattern or a comparison for what is said.",
+      "line": "“just as”: a pattern or comparison",
+      "back": false,
+      "words": [
+        {
+          "root": "G2531"
+        },
+        {
+          "root": "G5618"
+        }
+      ]
+    },
+    {
+      "id": "behold",
+      "name": "Behold",
+      "plain": "Calls the hearer to look at what follows.",
+      "line": "“behold”: a call to look at what follows",
+      "back": false,
+      "words": [
+        {
+          "root": "H2009"
+        },
+        {
+          "root": "H2005"
+        },
+        {
+          "root": "G2400"
+        }
+      ]
+    }
+  ]
+}

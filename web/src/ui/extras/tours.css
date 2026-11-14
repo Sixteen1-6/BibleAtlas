@@ -1,0 +1,58 @@
+/* Guided tours: the tour's name, two quiet buttons and its steps as plain
+   links. Only the app's colour variables. */
+
+.x-tours-tour + .x-tours-tour {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.xt-body .x-tours-title {
+  margin: 0 0 4px;
+  font: 600 16px/1.35 var(--font-read);
+  color: var(--ink);
+}
+.xt-body .x-tours-count,
+.xt-body .x-tours-go {
+  margin: 0 0 8px;
+  font: 13.5px/1.55 var(--font-ui);
+  color: var(--muted);
+}
+.x-tours-go {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.x-tours-btn {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  color: var(--ink);
+  font: 13px var(--font-ui);
+  cursor: pointer;
+}
+.x-tours-btn:first-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.x-tours-steps {
+  margin: 4px 0 0;
+  padding-left: 22px;
+  font: 14px/1.7 var(--font-ui);
+  color: var(--muted);
+}
+.x-tours-steps li[aria-current='step'] .x-tours-link {
+  font-weight: 600;
+  color: var(--accent);
+}
+.x-tours-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--link);
+  font: inherit;
+  cursor: pointer;
+}
+.x-tours-link:hover {
+  text-decoration: underline;
+}
