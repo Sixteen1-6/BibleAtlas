@@ -1,0 +1,7 @@
+{
+  "_comment": [
+    "The Word choice notes' quotations (crates/atlas-cli/src/extra_grammar.rs reads this file; it has no kind, so the Layers build passes over it).",
+    "Where each quotation in config/grammar.json was read. work and page are the term's own; quote is the words as config/grammar.json gives them; found_in is the page's address; context is the scan's text around the quotation, as it was copied that day; read is the date."
+  ],
+  "checked": []
+}

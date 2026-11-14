@@ -800,6 +800,20 @@
       "cites": ["TBESG, Translators Brief lexicon"]
     },
     {
+      "id": "step-morph",
+      "group": "word-books",
+      "plain": "What each grammar tag on a word stands for",
+      "title": "Translators Expansion of Greek and Hebrew Morphology Codes (TEGMC, TEHMC)",
+      "by": "STEPBible.org, based on work at Tyndale House, Cambridge",
+      "when": "kept up to date",
+      "what": "For every grammar tag on a Greek, Hebrew or Aramaic word: the form's parts in words, what the form means and an example. The Word choice notes show its line with each verb.",
+      "license": "cc-by-4.0",
+      "datasets": ["step-morph"],
+      "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes", "label": "the data files (GitHub)"},
+      "citation": "STEPBible, TEGMC: Translators Expansion of Greek Morphology Codes, and TEHMC: Translators Expansion of Hebrew Morphology Codes. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: November 2026.",
+      "cites": ["STEPBible's expansion of each grammar tag"]
+    },
+    {
       "id": "tflsj",
       "group": "word-books",
       "plain": "Greek dictionary, 1843–1940",
