@@ -524,6 +524,51 @@
       "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-Barnes (SOURCE.md there lists the hashes and the license notice). Its \"Verse 16.\" labels are left out, with the passages config/voices/barnes-nt.json lists."
     },
     {
+      "id": "luther-galatians",
+      "title": "Martin Luther, Commentary on the Epistle to the Galatians, abridged and put into modern English by Theodore Graebner, from Project Gutenberg ebook 1549, mirrored unchanged on this repository's branch mirror/pg-1549",
+      "provides": "Martin Luther's commentary on Galatians: shown at Deep under the verses each section is on, once a reader chooses to see writers' notes.",
+      "license": "Public domain in the USA (Project Gutenberg's record of ebook 1549, as its page gave it on 2026-11-14 and the branch's SOURCE.md quotes it).",
+      "attribution": "Martin Luther, Commentary on the Epistle to the Galatians (lectures of 1531, printed 1535), abridged and put into modern English by Theodore Graebner (Grand Rapids: Zondervan, 1939); produced by Laura J. Hoelter and David Widger; Project Gutenberg ebook 1549 (most recently updated 17 February 2024); copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/pg-1549, on 2026-11-14. Project Gutenberg's header and license are not used.",
+      "homepage": "https://www.gutenberg.org/ebooks/1549",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "d4a3a6de9227b65f025e2ed7bd7e997e62324b3d",
+      "files": {
+        "text": "pg1549.txt",
+        "source": "SOURCE.md"
+      },
+      "note": "gutenberg.org is not reachable from where the data is built, so .github/workflows/mirror-web-texts.yml copies Project Gutenberg's current file unchanged to the branch mirror/pg-1549, with its size, SHA-256 and Project Gutenberg's rights line in SOURCE.md. Each section is placed on the verses its heading names; Graebner's preface, the front matter and Project Gutenberg's header and license are left out, with the passages config/voices/luther.json lists."
+    },
+    {
+      "id": "luther-genesis",
+      "title": "Martin Luther, Luther on the Creation: a Critical and Devotional Commentary on Genesis, based on Henry Cole's translation, revised, enlarged and partly retranslated by John Nicholas Lenker (1904), from Project Gutenberg ebook 48193, mirrored unchanged on this repository's branch mirror/pg-48193",
+      "provides": "Martin Luther's lectures on Genesis 1:1 to 4:7: shown at Deep under the verses each section is on, once a reader chooses to see writers' notes.",
+      "license": "Public domain in the USA (Project Gutenberg's record of ebook 48193, as its page gave it on 2026-11-14 and the branch's SOURCE.md quotes it).",
+      "attribution": "Martin Luther, Lectures on Genesis (1535 to 1545), chapters 1 to 4, in Luther on the Creation, based on Dr. Henry Cole's translation from the original Latin, revised, enlarged, parts retranslated and edited by John Nicholas Lenker (Minneapolis: Lutherans in All Lands Co., 1904); produced by Ron Swanson; Project Gutenberg ebook 48193 (most recently updated 24 October 2024); copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/pg-48193, on 2026-11-14. Project Gutenberg's header and license are not used.",
+      "homepage": "https://www.gutenberg.org/ebooks/48193",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "80c47b5f1a136fb5712eee81efbece9b5bce9489",
+      "files": {
+        "text": "pg48193.txt",
+        "source": "SOURCE.md"
+      },
+      "note": "Mirrored by .github/workflows/mirror-web-texts.yml as for luther-galatians. Each section is placed on the verses its heading names, from Genesis 1:1 to 4:7; the volume's prefaces and introductions, and its sections on 4:8 and later (which the second volume holds), are left out."
+    },
+    {
+      "id": "luther-genesis-2",
+      "title": "Martin Luther, Luther on Sin and the Flood: Commentary on Genesis, Vol. II, by John Nicholas Lenker (1910), from Project Gutenberg ebook 27978, mirrored unchanged on this repository's branch mirror/pg-27978",
+      "provides": "Martin Luther's lectures on Genesis 4:8 to 9:29: shown at Deep under the verses each section is on, once a reader chooses to see writers' notes.",
+      "license": "Public domain in the USA (Project Gutenberg's record of ebook 27978, as its page gave it on 2026-11-14 and the branch's SOURCE.md quotes it).",
+      "attribution": "Martin Luther, Lectures on Genesis (1535 to 1545), chapters 4 to 9, in Luther on Sin and the Flood, Commentary on Genesis, Vol. II, by John Nicholas Lenker (Minneapolis: The Luther Press, 1910); produced by Ron Swanson; Project Gutenberg ebook 27978; copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/pg-27978, on 2026-11-14. Project Gutenberg's header and license are not used.",
+      "homepage": "https://www.gutenberg.org/ebooks/27978",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "8a370aaf056d1f15f13759c2e2f62b4b46910380",
+      "files": {
+        "text": "pg27978.txt",
+        "source": "SOURCE.md"
+      },
+      "note": "Mirrored by .github/workflows/mirror-web-texts.yml as for luther-galatians. Each section is placed on the verses its heading names; the volume's preface, the outlines before each section and the translator's footnotes are left out, and Lenker's paragraph numbers are given in each note's heading instead of in its text."
+    },
+    {
       "id": "kd-commentary",
       "title": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament (English, Edinburgh: T. and T. Clark, 1864–78), from the CrossWire SWORD module KD 2.0, whose text came from Wikisource, mirrored unchanged on this repository's branch mirror/sword-KD",
       "provides": "The two scholars' notes on the Old Testament: shown at Deep under the verses each note is on, once a reader chooses to see writers' notes, each under the name of the one of the two who wrote that book.",
