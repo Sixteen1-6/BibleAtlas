@@ -1,0 +1,156 @@
+{
+  "format": 1,
+  "about": "Passages of John Calvin's New Testament commentaries left out because they say a word of Scripture, as the Berean Standard Bible prints it, is a mistake (decision 23, rule 4). Each is found by its words, once, in Calvin's note on the verse `on`, and replaced by \"[passage left out]\", with `line` shown under the note. `scope` is the sentence holding the words, or the whole paragraph. Entries with `proposed` are in force at once with the line for a passage not yet decided (decision 23, rule 5); the founder makes them final. The check that found them is described in docs/voices/checks/calvin-commentaries.md.",
+  "exclude": [
+    {
+      "id": "calvin-matthew-27-9",
+      "scope": "sentence",
+      "on": "Matthew 27:9",
+      "words": "How the name of Jeremiah crept in, I confess that I do not know",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the name Jeremiah, which the BSB prints in Matthew 27:9, crept into the text.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-matthew-27-9-2",
+      "scope": "sentence",
+      "on": "Matthew 27:9",
+      "words": "plainly shows that the name of Jeremiah has been put down by mistake",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the name Jeremiah was put down by mistake instead of Zechariah; the rest of the paragraph, on Zechariah 11:13, stands without these two sentences.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-luke-2-14",
+      "scope": "sentence",
+      "on": "Luke 2:14",
+      "words": "How that reading crept in, I know not: but it ought certainly to be rejected",
+      "reason": "calls-text-wrong",
+      "why": "Calvin calls the genitive reading (men of good will) not genuine and says it crept in, but the BSB prints that same reading (men on whom His favor rests); unsure, since he frames it as a fault of the Vulgate, so please review.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-john-1-28",
+      "scope": "sentence",
+      "on": "John 1:28",
+      "words": "some have inserted here the name Bethany, but this is a mistake",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the name Bethany in John 1:28, which the BSB prints, is a mistaken insertion for Bethabara (a textual variant; his received text read Bethabara).",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-acts-7-14",
+      "scope": "paragraph",
+      "on": "Acts 7:14",
+      "words": "Therefore, I think that this difference came through the error of the writers",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the number seventy-five, which the BSB prints in Acts 7:14, disagrees with Moses and came in through copyists' error, perhaps altered from what Luke wrote; the whole paragraph argues this.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-acts-7-16",
+      "scope": "sentence",
+      "on": "Acts 7:16",
+      "words": "it is manifest that there is a fault [mistake] in the word Abraham",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the name Abraham in Acts 7:16, as the BSB prints it, is a mistake; the run from 'And whereas he saith afterward' to 'must be amended' (three sentences) belongs together, while the earlier half on the patriarchs' bones offers synecdoche or tradition and can stay.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-acts-7-16-2",
+      "scope": "sentence",
+      "on": "Acts 7:16",
+      "words": "For Abraham had bought a double cave of Ephron the Hittite",
+      "reason": "calls-text-wrong",
+      "why": "This sentence is Calvin's argument that the name Abraham in Acts 7:16 is wrong; it goes with the sentence before it.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-acts-7-16-3",
+      "scope": "sentence",
+      "on": "Acts 7:16",
+      "words": "Wherefore this place must be amended.",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the text of Acts 7:16 must be amended.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-acts-7-43",
+      "scope": "sentence",
+      "on": "Acts 7:43",
+      "words": "Wherefore it may be that the word Babylon cropt [crept] in here through error",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the word Babylon in Acts 7:43, which the BSB prints, may have crept in by error in place of the prophet's Damascus.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-2-corinthians-1-17",
+      "scope": "sentence",
+      "on": "2 Corinthians 1:17",
+      "words": "it is possible that it may have crept in through the ignorance of transcribers",
+      "reason": "calls-text-wrong",
+      "why": "Calvin suggests the doubled \"yes, yes\" and \"no, no\", which the BSB prints in 2 Corinthians 1:17, may have crept into the text through copyists' ignorance; he says it only tentatively, so a reviewer may judge it a mild textual aside.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-2-thessalonians-2-4",
+      "scope": "sentence",
+      "on": "2 Thessalonians 2:4",
+      "words": "from some Greek commentaries, that Paul’s words have been corrupted",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the received Greek behind the BSB's \"every so-called god\" is a corruption of Paul's words; unsure, since the BSB English could fit either reading, but the claim is about the received text.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-2-thessalonians-2-4-2",
+      "scope": "sentence",
+      "on": "2 Thessalonians 2:4",
+      "words": "some transcriber, or too daring reader, turned it into πάντα",
+      "reason": "calls-text-wrong",
+      "why": "The next sentence makes the same claim, that a transcriber changed the word the BSB translates; leave it out with the one before, and the rest of the paragraph stands.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-james-4-7",
+      "scope": "paragraph",
+      "on": "James 4:7",
+      "words": "Erasmus suspects that it was first a note in the margin",
+      "reason": "calls-text-wrong",
+      "why": "Calvin says the quotation \"God opposes the proud, but gives grace to the humble\" (printed by the BSB in James 4:6) was introduced into many copies and grants it may have crept in from a margin note.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-1-john-2-23",
+      "scope": "paragraph",
+      "on": "1 John 2:23",
+      "words": "as I think that a note by some copyist has crept into the text",
+      "reason": "calls-text-wrong",
+      "why": "Calvin omits \"whoever confesses the Son has the Father as well\", which the BSB prints, as a copyist's note that crept into the text.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "calvin-jude-1-1",
+      "scope": "paragraph",
+      "on": "Jude 1:1",
+      "words": "I therefore regard it as corrupt; and it is, indeed, found but in a few copies",
+      "reason": "calls-text-wrong",
+      "why": "Calvin calls the reading \"loved by God the Father\" corrupt, and that is the reading the BSB prints.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    }
+  ]
+}

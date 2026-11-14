@@ -22,7 +22,7 @@ import { loadJson } from './data';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
-import { type Data, SOURCE, WORKS, listWords, load, partOf, worksOn } from './voices/model';
+import { type Data, SOURCE, load, partOf, worksOn, writersLine } from './voices/model';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
@@ -75,12 +75,12 @@ export default defineExtra<Data>({
   note(verse, d) {
     const ws = worksOn(d, verse);
     if (ws.length) warm(d, verse);
-    return ws.length ? `Christian writers: ${listWords(ws.map((w) => WORKS[w].short))}` : null;
+    return ws.length ? `Christian writers: ${writersLine(ws)}` : null;
   },
   Panel,
   commentary: true,
   closed(verse, d, a) {
-    const who = listWords(worksOn(d, verse).map((w) => WORKS[w].short));
+    const who = writersLine(worksOn(d, verse));
     return { line: `${who.charAt(0).toUpperCase()}${who.slice(1)} wrote about ${refName(a, verse)}.`, button: 'Show what they wrote', source: SOURCE };
   },
 });
