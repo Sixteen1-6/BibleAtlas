@@ -90,9 +90,10 @@ struct Config {
     exclude: Vec<Exclusion>,
 }
 
+/// A passage left out of a writer's note (decision 23), as a works config lists it.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
-struct Exclusion {
+pub(super) struct Exclusion {
     id: String,
     /// "sentence" or "paragraph".
     scope: String,
@@ -390,23 +391,34 @@ fn joined(ps: Vec<String>, counts: &mut Counts) -> Vec<String> {
 }
 
 /// A note's paragraphs, keyed by (book, first verse, last verse).
-type Notes = BTreeMap<(u8, u32, u32), Vec<String>>;
+pub(super) type Notes = BTreeMap<(u8, u32, u32), Vec<String>>;
 /// The lines under each note with a passage left out, keyed as [`Notes`].
-type Lines = BTreeMap<(u8, u32, u32), Vec<String>>;
+pub(super) type Lines = BTreeMap<(u8, u32, u32), Vec<String>>;
 /// The voices of each Harmony note on Mark and Luke, keyed as [`Notes`].
 type Voices = BTreeMap<(u8, u32, u32), Vec<(String, Vec<String>)>>;
 
-/// Leaves out what the config lists, and returns each note's lines.
-fn exclude(root: &Path, vz: &Versification, notes: &mut Notes, counts: &mut Counts) -> Result<Lines, String> {
+/// Leaves out what Calvin's config lists, and returns each note's lines.
+fn exclude_calvin(root: &Path, vz: &Versification, notes: &mut Notes, counts: &mut Counts) -> Result<Lines, String> {
     let text = std::fs::read_to_string(root.join(CONFIG)).map_err(|e| format!("reading {CONFIG}: {e}"))?;
     let cfg: Config = serde_json::from_str(&text).map_err(|e| format!("{CONFIG}: {e}"))?;
     if cfg.format != 1 {
         return Err(format!("{CONFIG}: format must be 1"));
     }
+    let (lines, n) = exclude(CONFIG, "Calvin", &cfg.exclude, vz, notes)?;
+    counts.left_out += n;
+    Ok(lines)
+}
+
+/// Leaves out the passages `list` names from the notes, as "[passage left
+/// out]", and returns each changed note's lines and how many were left out.
+/// A passage is found by its words, exactly once in the note that begins on
+/// its verse (or else the one that covers it).
+pub(super) fn exclude(config: &str, writer: &str, list: &[Exclusion], vz: &Versification, notes: &mut Notes) -> Result<(Lines, usize), String> {
     let mut lines: Lines = BTreeMap::new();
     let mut ids = HashSet::new();
-    for x in &cfg.exclude {
-        let at = format!("{CONFIG}: {}", x.id);
+    let mut left_out = 0;
+    for x in list {
+        let at = format!("{config}: {}", x.id);
         if !ids.insert(x.id.as_str()) {
             return Err(format!("{at}: the id is used twice"));
         }
@@ -424,8 +436,9 @@ fn exclude(root: &Path, vz: &Versification, notes: &mut Notes, counts: &mut Coun
         let key = notes
             .keys()
             .copied()
-            .find(|&(nb, f, t)| nb == b && f == v && t == v)
-            .ok_or(format!("{at}: Calvin has no note on {}", x.on))?;
+            .find(|&(nb, f, _)| nb == b && f == v)
+            .or_else(|| notes.keys().copied().find(|&(nb, f, t)| nb == b && f <= v && v <= t))
+            .ok_or(format!("{at}: {writer} has no note on {}", x.on))?;
         let ps = notes.get_mut(&key).expect("the note");
         let found: Vec<usize> = ps.iter().enumerate().filter(|(_, p)| p.contains(&x.words)).map(|(i, _)| i).collect();
         let total: usize = ps.iter().map(|p| p.matches(&x.words).count()).sum();
@@ -438,16 +451,18 @@ fn exclude(root: &Path, vz: &Versification, notes: &mut Notes, counts: &mut Coun
             "sentence" => {
                 let p = &ps[i];
                 let at_word = p.find(&x.words).expect("found");
-                let ends = |s: &str| -> Vec<usize> {
+                // Sentence ends, never inside a reference mark ("{{ref:..|ch. xv. 19}}").
+                let marked: Vec<(usize, usize)> = p.match_indices("{{").filter_map(|(a, _)| p[a..].find("}}").map(|e| (a, a + e + 2))).collect();
+                let ends = |from: usize, to: usize| -> Vec<usize> {
                     let mut v = Vec::new();
                     for pat in [". ", "? ", "! "] {
-                        v.extend(s.match_indices(pat).map(|(k, _)| k + 1));
+                        v.extend(p[from..to].match_indices(pat).map(|(k, _)| from + k + 1).filter(|&k| !marked.iter().any(|&(a, z)| a < k && k < z)));
                     }
                     v
                 };
-                let start = ends(&p[..at_word]).into_iter().max().map_or(0, |k| k + 1);
+                let start = ends(0, at_word).into_iter().max().map_or(0, |k| k + 1);
                 let after = at_word + x.words.len();
-                let end = ends(&p[after..]).into_iter().min().map_or(p.len(), |k| after + k);
+                let end = ends(after, p.len()).into_iter().min().unwrap_or(p.len());
                 let mut q = String::new();
                 q.push_str(&p[..start]);
                 q.push_str(LEFT_OUT);
@@ -465,13 +480,13 @@ fn exclude(root: &Path, vz: &Versification, notes: &mut Notes, counts: &mut Coun
             }
             _ => return Err(format!("{at}: scope must be sentence or paragraph")),
         }
-        counts.left_out += 1;
+        left_out += 1;
         let l = lines.entry(key).or_default();
         if !l.contains(&x.line) {
             l.push(x.line.clone());
         }
     }
-    Ok(lines)
+    Ok((lines, left_out))
 }
 
 pub(super) fn calvin(
@@ -646,7 +661,7 @@ pub(super) fn calvin(
     for ps in notes.values_mut() {
         *ps = joined(std::mem::take(ps), &mut counts);
     }
-    let lines = exclude(root, vz, &mut notes, &mut counts)?;
+    let lines = exclude_calvin(root, vz, &mut notes, &mut counts)?;
     let text_of = |ps: &[String]| marks(&ps.join("\n\n"));
     // The Harmony on Mark and Luke.
     let covered = |b: u8, f: u32, t: u32, notes: &Notes| notes.keys().any(|&(nb, a, z)| nb == b && a <= t && f <= z);

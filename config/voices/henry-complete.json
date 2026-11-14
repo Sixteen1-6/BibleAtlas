@@ -1,0 +1,167 @@
+{
+  "format": 1,
+  "about": "Matthew Henry's complete commentary (henry-complete). `finished`: who wrote each book from Romans to Revelation after Henry's death in 1714, from the list Isaac Watts wrote in his copy, as J. B. Williams prints it in his Memoirs of Matthew Henry (London 1829, Boston 1830), and the heads of the books in the 1828 Philadelphia edition (`checked` names the evidence file and its rows). 1 Peter is left unnamed, because the printed sources differ (Merrill and Marriot); those notes are shown under that minister's name, never Henry's. `exclude`: passages left out because they say a word of Scripture, as the Berean Standard Bible prints it, is a mistake (decision 23, rule 4); each is found by its words, once, in the note that begins on the verse `on`, and replaced by \"[passage left out]\", with `line` shown under the note. `scope` is the sentence holding the words, or the whole paragraph. Entries with `proposed` are in force at once with the line for a passage not yet decided (decision 23, rule 5); the founder makes them final. The check is described in docs/voices/checks/henry-complete.md.",
+  "finished": [
+    {
+      "books": [
+        "Romans"
+      ],
+      "writer": "John Evans",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Romans"
+    },
+    {
+      "books": [
+        "1 Corinthians"
+      ],
+      "writer": "Simon Browne",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for 1 Corinthians"
+    },
+    {
+      "books": [
+        "2 Corinthians",
+        "1 Thessalonians",
+        "2 Thessalonians"
+      ],
+      "writer": "Daniel Mayo",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for 2 Corinthians, 1 Thessalonians, 2 Thessalonians"
+    },
+    {
+      "books": [
+        "Galatians"
+      ],
+      "writer": "Joshua Bayes",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Galatians"
+    },
+    {
+      "books": [
+        "Ephesians"
+      ],
+      "writer": "Samuel Rosewell",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Ephesians"
+    },
+    {
+      "books": [
+        "Philippians",
+        "Colossians"
+      ],
+      "writer": "William Harris",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Philippians, Colossians"
+    },
+    {
+      "books": [
+        "1 Timothy",
+        "2 Timothy"
+      ],
+      "writer": "Benjamin Andrews Atkinson",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for 1 Timothy, 2 Timothy"
+    },
+    {
+      "books": [
+        "Titus",
+        "Philemon"
+      ],
+      "writer": "Jeremiah Smith",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Titus, Philemon"
+    },
+    {
+      "books": [
+        "Hebrews",
+        "Revelation"
+      ],
+      "writer": "William Tong",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Hebrews, Revelation"
+    },
+    {
+      "books": [
+        "James"
+      ],
+      "writer": "S. Wright",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for James"
+    },
+    {
+      "books": [
+        "2 Peter"
+      ],
+      "writer": "Joseph Hill",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for 2 Peter"
+    },
+    {
+      "books": [
+        "1 John",
+        "2 John",
+        "3 John"
+      ],
+      "writer": "John Reynolds",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for 1 John, 2 John, 3 John"
+    },
+    {
+      "books": [
+        "Jude"
+      ],
+      "writer": "John Billingsley",
+      "checked": "docs/evidence/henry-continuators-2026-11-14.json: the rows for Jude"
+    }
+  ],
+  "exclude": [
+    {
+      "id": "henry-1-chronicles-9-35-a",
+      "scope": "sentence",
+      "on": "1 Chronicles 9:35",
+      "words": "I should be tempted to think this repetition arose from a blunder",
+      "reason": "calls-text-wrong",
+      "why": "Henry suggests that 1 Chronicles 9:35-44, which the BSB prints, is a copyist's mistaken repeat of 8:29-38.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "henry-1-chronicles-9-35-b2",
+      "scope": "sentence",
+      "on": "1 Chronicles 9:35",
+      "words": "Some one, in copying out these genealogies",
+      "reason": "calls-text-wrong",
+      "why": "The sentence that begins the account of how a copyist is supposed to have repeated those verses; it goes with the sentences around it.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "henry-1-chronicles-9-35-b",
+      "scope": "sentence",
+      "on": "1 Chronicles 9:35",
+      "words": "was loth to make a blot in his book",
+      "reason": "calls-text-wrong",
+      "why": "The next sentence of that account, that the copyist saw his mistake and let it stand.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "henry-1-chronicles-9-35-c",
+      "scope": "sentence",
+      "on": "1 Chronicles 9:35",
+      "words": "We have a rule in our law, Redundans non nocet",
+      "reason": "calls-text-wrong",
+      "why": "The sentence that closes the same claim, that the repeated verses are a harmless copyist's redundancy.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "henry-2-chronicles-16-1",
+      "scope": "sentence",
+      "on": "2 Chronicles 16:1",
+      "words": "we must suppose a mistake in the transcriber here",
+      "reason": "calls-text-wrong",
+      "why": "Henry, following Josephus, says the thirty-sixth year (16:1) and thirty-fifth year (15:19), which the BSB prints, are copyists' mistakes.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    },
+    {
+      "id": "henry-nehemiah-7-5",
+      "scope": "sentence",
+      "on": "Nehemiah 7:5",
+      "words": "the mistakes of transcribers, which easily happen in numbers",
+      "reason": "calls-text-wrong",
+      "why": "Henry puts the differences between the numbers in Nehemiah 7 and Ezra 2, both printed by the BSB, down first to copyists' mistakes; the harmonising sentence after it stays.",
+      "line": "A passage is left out here until a decision on it is made.",
+      "proposed": "found by the Scripture check of 2026-11-14 (decision 23, rules 4 and 5); for Shubhanshu to make final"
+    }
+  ]
+}
