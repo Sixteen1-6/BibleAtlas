@@ -66,6 +66,8 @@
 
 mod calvin;
 mod henry_full;
+mod jfb;
+mod sword;
 
 use crate::loaded::Loaded;
 use crate::sources::Inputs;
@@ -181,7 +183,7 @@ struct Report {
     pointers: usize,
     pointers_empty: usize,
     /// Notes left out with no words of their own, only pointers, by work.
-    thin: [usize; 6],
+    thin: [usize; 7],
 }
 
 fn read_json(path: &std::path::Path) -> Result<Value, String> {
@@ -1153,7 +1155,8 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
     let calvin = calvin::calvin(root, inputs, vz, &kjv, &mut books, &mut report)?;
     let (full, full_counts) = henry_full::henry_full(root, inputs, vz, &kjv, &mut report)?;
-    for x in full {
+    let (jfb_items, jfb_counts) = jfb::jfb(root, inputs, vz, &mut report)?;
+    for x in full.into_iter().chain(jfb_items) {
         let b = vz.locate(x.from).ok_or("a note outside the Bible")?.0;
         books[b as usize].push(x);
     }
@@ -1167,9 +1170,10 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
         });
     }
 
-    // Each verse's works as bits, written as '0' plus the bits (up to 'o').
-    let mut has = vec![0u8; vz.verse_count() as usize];
-    let mut counts = [0usize; 6];
+    // Each verse's works as bits, written six to a character as '0' plus
+    // the bits (up to 'o'): works 0 to 5 in `has`, 6 on in `more`.
+    let mut has = vec![0u16; vz.verse_count() as usize];
+    let mut counts = [0usize; 7];
     let mut out = Vec::new();
     let mut parts: Vec<Vec<u16>> = Vec::with_capacity(BOOKS.len());
     for (b, items) in books.iter_mut().enumerate() {
@@ -1240,11 +1244,15 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
     );
     eprintln!("{}; {} of Calvin's notes left out as only pointers elsewhere", calvin.line(), report.thin[3]);
     eprintln!("{}; {} of its notes left out as only pointers elsewhere", full_counts.line(), report.thin[4] + report.thin[5]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", jfb_counts.line(), report.thin[6]);
+    let six = |shift: u16| String::from_utf8(has.iter().map(|&x| b'0' + ((x >> shift) & 63) as u8).collect()).map_err(|e| e.to_string());
     let index = json!({
         "format": 1,
-        "has": String::from_utf8(has.iter().map(|&x| b'0' + x).collect()).map_err(|e| e.to_string())?,
+        "has": six(0)?,
+        "more": six(6)?,
         "parts": parts,
         "finished": henry_full::finished(root)?,
+        "writers": jfb::writers(root)?.into_iter().map(|(w, bs)| json!([jfb::JFB_W, w, bs])).collect::<Vec<_>>(),
     });
     out.push((
         OUT.to_string(),
@@ -1286,9 +1294,20 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .len();
     let index = read_json(&index_path)?;
     let n = d.vz.verse_count();
-    let has = index["has"].as_str().unwrap_or("").as_bytes().to_vec();
-    let has_ok = has.len() == n as usize && has.iter().all(|c| (b'0'..=b'o').contains(c));
-    let has: Vec<u8> = has.iter().map(|c| c.wrapping_sub(b'0')).collect();
+    let six = |k: &str| index[k].as_str().unwrap_or("").as_bytes().to_vec();
+    let (low, high) = (six("has"), six("more"));
+    let has_ok = [&low, &high].iter().all(|s| s.len() == n as usize && s.iter().all(|c| (b'0'..=b'o').contains(c)));
+    let has: Vec<u16> = low.iter().zip(high.iter().chain(std::iter::repeat(&b'0'))).map(|(a, z)| u16::from(a.wrapping_sub(b'0')) | (u16::from(z.wrapping_sub(b'0')) << 6)).collect();
+    // Who wrote each book of a work that names its writer by book.
+    let mut by_book: BTreeMap<(u64, u64), String> = BTreeMap::new();
+    let mut writers_ok = true;
+    for row in index["writers"].as_array().into_iter().flatten() {
+        let (w, name) = (row[0].as_u64().unwrap_or(99), row[1].as_str().unwrap_or(""));
+        for b in row[2].as_array().into_iter().flatten().filter_map(Value::as_u64) {
+            writers_ok &= !name.is_empty() && by_book.insert((w, b), name.to_string()).is_none();
+        }
+    }
+    writers_ok &= (0..BOOKS.len() as u64).all(|b| by_book.contains_key(&(u64::from(jfb::JFB_W), b)));
     let parts: Vec<Vec<u16>> = index["parts"]
         .as_array()
         .into_iter()
@@ -1303,8 +1322,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .collect();
     let mut parts_ok = parts.len() == BOOKS.len();
 
-    let mut seen = vec![0u8; n as usize];
-    let mut counts = [0usize; 6];
+    let mut seen = vec![0u16; n as usize];
+    let mut counts = [0usize; 7];
     // Notes with a passage left out, and whether each says why.
     let (mut gaps, mut gaps_ok) = (0usize, true);
     let (mut items_ok, mut links_ok, mut clean) = (true, true, true);
@@ -1354,7 +1373,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     item[2].as_u64().unwrap_or(0) as u32,
                 );
                 let (lf, lt) = (d.vz.locate(from), d.vz.locate(to));
-                let work_ok = if full { w == u64::from(if b < 44 { henry_full::FULL_W } else { henry_full::FINISH_W }) } else { w < 4 };
+                let work_ok = if full { w == u64::from(if b < 44 { henry_full::FULL_W } else { henry_full::FINISH_W }) || w == u64::from(jfb::JFB_W) } else { w < 4 };
                 let fits = work_ok
                     && from <= to
                     && to < n
@@ -1578,6 +1597,25 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             format!(
                 "{} of Matthew Henry's own sections (Genesis to Acts) and {} of the ministers who finished his commentary (Romans to Revelation), never under each other's names; the printed verses and prefaces are cut (Genesis 1:1 and 1:3), Job 28:14 and John 3:16 are covered, and the largest chapter file is {full_largest} bytes (under 250,000)",
                 counts[4], counts[5]
+            ),
+        ),
+        (
+            {
+                let jfb_notes = || notes.iter().filter(|x| x.0 == jfb::JFB_W);
+                counts[6] > 15_000
+                    && writers_ok
+                    && note(jfb::JFB_W, "Genesis 1:1", "", "In the beginning")?
+                    && jfb_notes().all(|(_, _, _, _, t)| ["INTRODUCTION TO THE", "Commentary by Robert Jamieson", "CHAPTER 1", "<div", "osisRef"].iter().all(|w| !t.contains(w)))
+                    && jfb_notes().filter(|x| d.vz.locate(x.1).is_some_and(|l| (l.0, l.1, l.2) == (0, 1, 1))).all(|x| x.4.len() < 20_000)
+                    && note(jfb::JFB_W, "John 3:16", "", "")?
+                    && note(jfb::JFB_W, "Matthew 24:1", "", "see on Mr 13:1-37")?
+                    && note(jfb::JFB_W, "Psalm 70:3", "", "")?
+                    && note(jfb::JFB_W, "Jeremiah 17:1", "", "The first of the four clauses")?
+                    && note(jfb::JFB_W, "Revelation 3:1", "", "Sardis")?
+            },
+            format!(
+                "{} notes of Jamieson, Fausset and Brown, each book under the one of the three who wrote it; without the introductions or chapter labels (Genesis 1:1's note is its own), with Matthew 24's pointer to Mark 13, Psalm 70's chapter note and the notes the module files a verse late (Jeremiah 17:1, Revelation 3:1) in place",
+                counts[6]
             ),
         ),
     ])
