@@ -666,7 +666,7 @@ const POINT = { seeds: 12, votes: 2, min: 2, wider: 3 };
  * the closest question; that sureness; `weak`; the surest chain among first
  * parts; nearness times chains; words times a whole phrase. Fitted on 31,904
  * verses gathered for 2,844 messages and read blind (eval/ask/scripts/r12/). */
-const FIT = {
+export const FIT: { answers: number[]; off: number[]; offWeight: number; rows: number; dirA?: number[]; dirO?: number[] } = {
   answers: [-3.9886, 0.0707, -0.0657, -0.0805, -0.1683, 0.2566, -0.167, 1.8585, 0.0289, 0.5772, -0.8008, 0.0337, 4.7109, 3.2868, 0.1092, 2.0765, -0.1532, 0.7969, 1.3943, -0.0666, -0.0421, 0.7006, -0.1282, -1.3385, -2.6002, -0.9967, -0.0431, 0.8873, -4.3064, 0.3518],
   off: [2.5309, 0.1788, 1.4186, -0.2159, 0.4284, -0.0726, 0.691, -0.509, 0.1317, -0.8813, 2.098, 0.3535, -5.6172, -4.2553, -0.2062, -2.909, 0.097, -1.5313, -3.0359, -0.653, 0.2165, -0.6521, 0.6945, 0.997, 3.1599, -0.1379, -0.2309, -0.5591, 4.3938, -0.1605],
   offWeight: 0.5,
@@ -680,9 +680,19 @@ export const AROUND = { reach: 2 };
  * verse of the last question gathered. Off in the app. */
 export const TRACE: { on: boolean; rows: unknown[] } = { on: false, rows: [] };
 
-function logistic(w: number[], x: number[]): number {
+/** Round 15 switches, all off: how many words make concepts (`words`); the
+ * first `parts` parts of the chains of the `top` likeliest prepared questions
+ * among the verses FIT weighs (DEEP); and the cross-references of a cited
+ * verse with `votes` or more votes, up to `top`, beside the verses either side
+ * of it (`mix`: one by one; otherwise all of them first) (CITED). */
+export const WORDS = { max: 8 };
+export const DEEP = { top: 0, parts: 3 };
+export const CITED = { votes: 0, top: 4, mix: 1 };
+
+function logistic(w: number[], x: number[], e?: Float64Array | null, dir?: number[]): number {
   let z = 0;
   for (let k = 0; k < w.length; k++) z += w[k] * x[k];
+  if (e && dir) for (let d = 0; d < dir.length; d++) z += dir[d] * e[d];
   return 1 / (1 + Math.exp(-z));
 }
 
@@ -712,7 +722,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
     .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
-    .slice(0, Math.max(0, 8 - phrases.length));
+    .slice(0, Math.max(0, WORDS.max - phrases.length));
   const n = a.n;
 
   // 1. Concepts and the BSB words for each.
@@ -758,6 +768,12 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const near = new Map<Question, number>();
   for (const r of routes(ix, question, LEAN.top)) if (r.said >= LEAN.said && r.score >= LEAN.score && couldMean(ix, question, r.q)) near.set(r.q, r.score);
   const nearest = meanings(ix, question, SHOW.top);
+  // The first parts of the chains of more of the likeliest prepared questions,
+  // read from the index (no chain is loaded for them).
+  const deepP = new Map<number, number>();
+  if (DEEP.top > 0)
+    for (const m of meanings(ix, question, DEEP.top))
+      for (const [s, e] of m.q.r.slice(0, DEEP.parts)) for (let v = s; v <= Math.min(e, s + 2); v++) if (m.p > (deepP.get(v) ?? 0)) deepP.set(v, m.p);
   for (const m of nearest.slice(0, LEAN.top)) near.set(m.q, 1);
   const lean = [...near].map(([q, score]) => ({ q, score }));
   const [topicSets, questionSets, leanSets, nearestSets] = await Promise.all([
@@ -906,11 +922,17 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   for (const v of best) score.set(v, score.get(v)! + 0.15 * links.get(v)!);
   // How near in meaning each of the best is to the question.
   const closeness = new Map<number, number>();
+  const verseMeaning = new Map<number, Float64Array | null>();
+  const meantOf = (v: number) => {
+    let e = verseMeaning.get(v);
+    if (e === undefined) verseMeaning.set(v, (e = texts?.[v] ? meaningOf(texts[v]) : null));
+    return e;
+  };
   const nearOf = (v: number) => {
     let s = closeness.get(v);
     if (s !== undefined) return s;
     s = 0;
-    const e = qv && texts?.[v] ? meaningOf(texts[v]) : null;
+    const e = qv ? meantOf(v) : null;
     if (e) for (let d = 0; d < e.length; d++) s += qv![d] * e[d];
     closeness.set(v, s);
     return s;
@@ -968,7 +990,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
     for (const b of named) if (b.verse && !sayings(b.from)) for (const v of [b.to - 1 + d, b.from - d]) if (within(v, chapters) && (!texts || texts[v])) around.push(v);
   const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
   // Otherwise FIT orders those SHOW ranks and the best found.
-  const rows = [...new Set([...pool, ...found.slice(0, FIT.rows)])];
+  const rows = [...new Set([...pool, ...found.slice(0, FIT.rows), ...deepP.keys()])];
   const firstTen = new Set(found.slice(0, 10));
   const weak = !usable.length || Math.max(0, ...rows.map((v) => text.get(v) ?? 0)) < 0.5 ? 1 : 0;
   const sure = nearest[0]?.p ?? 0;
@@ -985,12 +1007,34 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
       (links.get(v) ?? linked(v)) / 6, hp, Math.min(h?.n ?? 0, 5) / 5, h?.first ? 1 : 0, near, widerTop.has(v) ? 1 : 0,
       Math.min(pointed.get(v) ?? 0, 5) / 5, (score.get(v) ?? 0) / 5, (show.get(v) ?? 0) / 5, firstTen.has(v) ? 1 : 0,
       weak * hp, weak * near, weak * words, sure * hp, sure, weak, h?.first ? hp : 0, (near * (h?.n ?? 0)) / 5, words * phrase,
+      deepP.get(v) ?? 0,
     ];
   };
   const xs = named.length ? [] : rows.map(known);
-  const fit = xs.map((x) => logistic(FIT.answers, x) - FIT.offWeight * logistic(FIT.off, x));
+  const fit = xs.map((x, k) => {
+    const e = FIT.dirA || FIT.dirO ? meantOf(rows[k]) : null;
+    return logistic(FIT.answers, x, e, FIT.dirA) - FIT.offWeight * logistic(FIT.off, x, e, FIT.dirO);
+  });
+  // The Bible's own cross-references from a cited verse, the most voted first,
+  // beside the verses either side of it.
+  const linkedTo: number[] = [];
+  if (CITED.votes > 0 && cites.length) {
+    const votes = new Map<number, number>();
+    const skip = new Set([...cites, ...around]);
+    for (const u of cites) {
+      const add = (v: number, n: number) => {
+        if (!skip.has(v) && (!texts || texts[v]) && n >= CITED.votes && n > (votes.get(v) ?? 0)) votes.set(v, n);
+      };
+      for (let e = a.xOff[u]; e < a.xOff[u + 1]; e++) add(a.xDst[e], a.xVotes[e]);
+      for (let k = a.xInOff[u]; k < a.xInOff[u + 1]; k++) add(a.xSrc[a.xInEdge[k]], a.xVotes[a.xInEdge[k]]);
+    }
+    linkedTo.push(...[...votes].sort((x, y) => y[1] - x[1] || x[0] - y[0]).slice(0, CITED.top).map((x) => x[0]));
+  }
+  const beside: number[] = [];
+  if (CITED.mix) for (let k = 0; k < Math.max(linkedTo.length, around.length); k++) beside.push(...linkedTo.slice(k, k + 1), ...around.slice(k, k + 1));
+  else beside.push(...linkedTo, ...around);
   const first = named.length
-    ? [...cites, ...around, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
+    ? [...cites, ...beside, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
     : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
   const put = new Set(first);
   const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);

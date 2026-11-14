@@ -14,7 +14,7 @@
 import type { Atlas } from '../../data/atlas';
 import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
-import { citedVerses } from './books';
+import { citedVerses, namedChapters } from './books';
 import { likelihood, meanings, usesModel } from './meaning';
 import { isAsking, terms } from './words';
 
@@ -145,6 +145,10 @@ export function couldMean(ix: AskIndex, text: string, q: Question): boolean {
   return (likelihood(ix, text, q) ?? 1) >= UNMEANT;
 }
 
+/** Round 15 switch, off: a question that names a chapter ("esther 9")
+ * opens only an answer that holds a verse of it (`chapter`). */
+export const NAMED = { chapter: 0 };
+
 /** Does `q`'s chain hold one of these verses? */
 function holds(q: Question, vs: number[]): boolean {
   return vs.some((v) => q.r.some(([s, e]) => v >= s && v <= e));
@@ -159,7 +163,9 @@ export function route(ix: AskIndex, text: string, a?: Atlas): Question | null {
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
   const cited = a ? citedVerses(a, text) : [];
-  const fits = (q: Question) => !cited.length || holds(q, cited);
+  const chapters = a && NAMED.chapter && !cited.length ? namedChapters(a, text) : [];
+  const fits = (q: Question) =>
+    cited.length ? holds(q, cited) : !chapters.length || chapters.some(([from, to]) => q.r.some(([s, e]) => s < to && e >= from));
   // Plainly what people mean by such words ("they took my car because I
   // missed payments": debt).
   const [sense] = meanings(ix, text, 1);

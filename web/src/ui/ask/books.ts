@@ -37,9 +37,25 @@ const PERSON_BOOKS = new Set(['solomon', 'joshua', 'ruth', 'samuel', 'ezra', 'ne
 const WORD_BOOKS = new Set(['numbers', 'judges', 'kings', 'chronicles', 'psalms', 'psalm', 'proverbs', 'lamentations', 'acts', 'romans', 'song', 'songs']);
 const ORDINALS: Record<string, number> = { '1': 1, '2': 2, '3': 3, first: 1, second: 2, third: 3 };
 
+/** Short names that are no English word, read as a book only before a
+ * chapter ("eph 6:12", "ps 46", "1 cor 13"); those of books in parts only
+ * with the part ("2 tim 3:16", "1cor 13"). "ex", "is", "am" and "act" are
+ * words, so they are left out. */
+const SHORT: Record<string, string> = {
+  gen: 'genesis', exod: 'exodus', lev: 'leviticus', num: 'numbers', deut: 'deuteronomy', dt: 'deuteronomy', josh: 'joshua', judg: 'judges',
+  sam: 'samuel', kgs: 'kings', chr: 'chronicles', chron: 'chronicles', neh: 'nehemiah', esth: 'esther', ps: 'psalms', psa: 'psalms',
+  pss: 'psalms', prov: 'proverbs', eccl: 'ecclesiastes', eccles: 'ecclesiastes', ecc: 'ecclesiastes', isa: 'isaiah', jer: 'jeremiah',
+  lam: 'lamentations', ezek: 'ezekiel', dan: 'daniel', hos: 'hosea', obad: 'obadiah', mic: 'micah', nah: 'nahum', hab: 'habakkuk',
+  zeph: 'zephaniah', hag: 'haggai', zech: 'zechariah', mal: 'malachi', matt: 'matthew', mt: 'matthew', mk: 'mark', lk: 'luke',
+  jn: 'john', rom: 'romans', cor: 'corinthians', gal: 'galatians', eph: 'ephesians', phil: 'philippians', col: 'colossians',
+  thess: 'thessalonians', thes: 'thessalonians', tim: 'timothy', phlm: 'philemon', philem: 'philemon', heb: 'hebrews', jas: 'james',
+  pet: 'peter', rev: 'revelation',
+};
+const IN_PARTS = new Set(['sam', 'kgs', 'chr', 'chron', 'cor', 'thess', 'thes', 'tim', 'pet']);
+
 /** "16:31" and "16:31-33" after a word are marked as a verse ("16 v31 w33")
  * so the book named before them can take them; marks no book takes are dropped. */
-export const CITE = /\b(\p{L}+)\s+(\d{1,3})\s*[:.]\s*(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?/gu;
+export const CITE = /\b(\d?\p{L}+)\s+(\d{1,3})\s*[:.]\s*(\d{1,3})(?:\s*[-–]\s*(\d{1,3}))?/gu;
 export const VERSE_AT = /^v(\d{1,3})$/;
 export const VERSE_TILL = /^w(\d{1,3})$/;
 
@@ -62,9 +78,13 @@ export function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Se
     const last = parts[parts.length - 1];
     for (const w of last === 'psalms' ? ['psalms', 'psalm'] : [last]) byWord.set(w, [...(byWord.get(w) ?? []), { book, ord }]);
   });
-  // "philipians 4:13" is Philippians.
+  // "philipians 4:13" is Philippians; "eph 6:12" Ephesians; "1cor" First Corinthians.
   const keys = [...byWord.keys()];
-  toks = toks.map((w) => {
+  const glued: number[] = [];
+  toks = toks.map((w, i) => {
+    const g = /^([123])(\p{L}+)$/u.exec(w);
+    if (g && (byWord.has(g[2]) || SHORT[g[2]])) [glued[i], w] = [+g[1], g[2]];
+    if (SHORT[w] && /^\d+$/.test(toks[i + 1] ?? '') && (!IN_PARTS.has(w) || glued[i] || ORDINALS[toks[i - 1]])) w = SHORT[w];
     if (byWord.has(w) || w.length < 6) return w;
     const x = keys.find((k) => k[0] === w[0] && skeleton(k) === skeleton(w) && slips(w, k) <= 2);
     return x ?? w;
@@ -89,7 +109,7 @@ export function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Se
       (prev === 'and' && isBook(toks[i - 2])) ||
       (next === 'and' && isBook(toks[i + 2]));
     if (!asBook) return;
-    const ord = ORDINALS[prev] ?? 0;
+    const ord = glued[i] ?? ORDINALS[prev] ?? 0;
     const pick = books.filter((b) => b.ord === ord);
     for (const { book } of pick.length ? pick : books) {
       const meta = a.books[book];
@@ -112,24 +132,34 @@ export function namedBooks(a: Atlas, toks: string[]): { named: Named[]; used: Se
     if (chapter > 0) used.add(i + 1);
     if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '')) used.add(i + 2);
     if (chapter > 0 && VERSE_AT.test(toks[i + 2] ?? '') && VERSE_TILL.test(toks[i + 3] ?? '')) used.add(i + 3);
-    if (ORDINALS[prev]) used.add(i - 1);
+    if (!glued[i] && ORDINALS[prev]) used.add(i - 1);
     // "the book of romans", "psalm 23 verse 4": words about the book, not of the question.
     for (const j of [i - 2, i - 1, i + 1, i + 2]) if (['book', 'books', 'gospel', 'letter', 'epistle', 'chapter', 'verse'].includes(toks[j])) used.add(j);
   });
   return { named, used };
 }
 
-/** The verses a question cites by chapter and verse ("proverbs 16:31",
- * "1 cor 13:4-7"), as gathering reads them. */
-export function citedVerses(a: Atlas, question: string): number[] {
+function named(a: Atlas, question: string): Named[] {
   const rest = question
     .toLowerCase()
     .replace(/\b(\p{L}+)['’]s\b/gu, '$1')
     .replace(/[’‘']/g, '')
     .replace(CITE, (_, w: string, c: string, v: string, t?: string) => `${w} ${c} v${v}${t ? ` w${t}` : ''}`);
-  const toks = rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
-  if (!toks.some((w) => VERSE_AT.test(w))) return [];
+  return namedBooks(a, rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean)).named;
+}
+
+/** The verses a question cites by chapter and verse ("proverbs 16:31",
+ * "1 cor 13:4-7"), as gathering reads them. */
+export function citedVerses(a: Atlas, question: string): number[] {
   const out: number[] = [];
-  for (const b of namedBooks(a, toks).named) if (b.verse) for (let v = b.from; v < b.to; v++) out.push(v);
+  for (const b of named(a, question)) if (b.verse) for (let v = b.from; v < b.to; v++) out.push(v);
   return out;
+}
+
+/** The chapters a question names ("esther 9", "in revelation 13"), each as
+ * its first verse and the verse after its last. */
+export function namedChapters(a: Atlas, question: string): [number, number][] {
+  return named(a, question)
+    .filter((b) => b.chapter)
+    .map((b) => [b.from, b.to]);
 }
