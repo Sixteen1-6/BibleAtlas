@@ -421,6 +421,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     for (rel, bytes) in crate::extra_figures::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_structure::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_prophecies::build(root, &inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_grammar::build(root, &inputs, &crate::extra_grammar::Sources { vz: &vz, words: &words })? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     write(out, crate::layers_index::OUT, serde_json::to_string(&crate::layers_index::build(&layers_json)).unwrap().as_bytes(), &mut files)?;
     let naves = crate::naves::read(&inputs, &vz)?;
