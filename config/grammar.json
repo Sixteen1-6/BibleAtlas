@@ -17,6 +17,17 @@
       "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
       "site": "archive.org",
       "shelf": "robertson-short-grammar"
+    },
+    {
+      "id": "green-grammar",
+      "writer": "William Henry Green",
+      "about": "professor in the Theological Seminary at Princeton",
+      "about_from": "the book's own title page (\"Professor in the Theological Seminary at Princeton, N. J.\"), read in the archive.org scan on 2026-11-14",
+      "title": "A Grammar of the Hebrew Language",
+      "written": "1861; second edition",
+      "url": "https://archive.org/details/grammarofhebrew00gree",
+      "site": "archive.org",
+      "shelf": "green-hebrew-grammar"
     }
   ],
   "terms": [
@@ -398,10 +409,25 @@
       "name": "Perfect",
       "fact": "Tagged as a perfect form.",
       "line_fact": "a verb in the Hebrew perfect form",
-      "plain": "",
+      "plain": "Green calls this form the preterite: it states what is past, or is thought of as past. Of the prophets he says that they at times tell what is to come in this form, as if it had already taken place.",
       "line": "",
-      "care": "",
-      "says": []
+      "care": "Whether a given perfect speaks of the past or of a sure future is a question for the passage; the form alone does not settle it.",
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Whatever is, or is conceived of as past, must be put in the preterite",
+          "page": "289",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/289/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "they give to their predictions the form of a recital of what has already taken place",
+          "page": "291",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/291/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-imperfect",
@@ -409,10 +435,25 @@
       "name": "Imperfect",
       "fact": "Tagged as an imperfect form.",
       "line_fact": "a verb in the Hebrew imperfect form",
-      "plain": "",
+      "plain": "Green calls this form the future: it is used for what is future, or is thought of as future, and also for constant or habitual acts.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "the future is used for all that is, or is conceived of as future",
+          "page": "289",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/289/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "Constant or habitual acts or states viewed as continuing for an indefinite period from the time spoken of",
+          "page": "293",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/293/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-then",
@@ -420,10 +461,25 @@
       "name": "“And then” form",
       "fact": "Tagged as a consecutive imperfect: “and” joined to the verb.",
       "line_fact": "an “and then” verb",
-      "plain": "",
+      "plain": "Green calls this the future with Vav Conversive, “and” joined to the verb: it carries on an account begun in the past.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "a narration begun in the preterite may be continued in the future with Vav Conversive",
+          "page": "129",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/129/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "green-grammar",
+          "quote": "the future so employed is converted into what may be called a continuative preterite",
+          "page": "129",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/129/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-and-perfect",
@@ -431,10 +487,18 @@
       "name": "“And” with the perfect",
       "fact": "Tagged as a consecutive perfect: “and” joined to a perfect.",
       "line_fact": "“and” joined to a perfect verb",
-      "plain": "",
+      "plain": "“And” joined to the perfect (Green’s preterite with Vav Conversive) carries on a future or a command.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Vav Conversive prefixed to the preterite makes of it a continuative future or imperative",
+          "page": "132",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/132/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-imperative",
@@ -453,10 +517,18 @@
       "name": "“Let him” form",
       "fact": "Tagged as a jussive, the form of “let him” and “may it”.",
       "line_fact": "a “let him” or “may it” form",
-      "plain": "",
+      "plain": "A shortened form that expresses a wish or a command, or with “not” a dissuasion or prohibition.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "expresses a wish or command, or with a negative, dissuasion or prohibition",
+          "page": "126",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/126/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-cohortative",
@@ -464,10 +536,18 @@
       "name": "“Let me” form",
       "fact": "Tagged as a cohortative, the form of “let me” and “let us”.",
       "line_fact": "a “let me” or “let us” form",
-      "plain": "",
+      "plain": "A lengthened first-person form that turns a plain statement about the future into an expression of desire or resolve.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "converting it from a simple declaration of futurity to an expression of desire or determination",
+          "page": "126",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/126/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-infinitive-absolute",
@@ -475,10 +555,18 @@
       "name": "Bare name of the action",
       "fact": "Tagged as an infinitive absolute.",
       "line_fact": "the bare name of the action",
-      "plain": "",
+      "plain": "It gives the bare idea of the verb, without tense, number or person.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The absolute infinitive, expressing as it does the abstract idea of the verb irrespective of tense, number, or person",
+          "page": "298",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/298/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-infinitive",
@@ -486,10 +574,18 @@
       "name": "“To” form",
       "fact": "Tagged as an infinitive construct, the form English makes with “to” or “-ing”.",
       "line_fact": "a “to” form of a verb",
-      "plain": "",
+      "plain": "It follows verbs, nouns and prepositions.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The construct infinitive is used after verbs, nouns, and prepositions",
+          "page": "297",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/297/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-participle",
@@ -497,10 +593,18 @@
       "name": "Participle",
       "fact": "Tagged as a participle, as English uses “-ing” and “-ed” words.",
       "line_fact": "an “-ing” or “-ed” form of a verb",
-      "plain": "",
+      "plain": "A verbal noun with no fixed time of its own; the setting decides whether it speaks of the past, the present or the future.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The participles being properly verbal nouns, do not in strictness involve any definite notion of time",
+          "page": "296",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/296/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-niphal",
@@ -508,10 +612,18 @@
       "name": "Niphal",
       "fact": "Tagged as a Niphal, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Niphal pattern",
-      "plain": "",
+      "plain": "Commonly the passive of the simple verb, which Green calls the Kal.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Niphal is commonly the passive of Kal or of the simple idea of the verb",
+          "page": "101",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/101/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-piel",
@@ -519,10 +631,18 @@
       "name": "Piel",
       "fact": "Tagged as a Piel, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Piel pattern",
-      "plain": "",
+      "plain": "Gives new intensity to the simple idea of the verb; how it does so differs from verb to verb.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Piel gives new intensity to the simple idea of the verb",
+          "page": "102",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/102/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-pual",
@@ -530,10 +650,18 @@
       "name": "Pual",
       "fact": "Tagged as a Pual, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Pual pattern",
-      "plain": "",
+      "plain": "The passive of the Piel.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Pual is the passive of Piel",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-hiphil",
@@ -541,10 +669,18 @@
       "name": "Hiphil",
       "fact": "Tagged as a Hiphil, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Hiphil pattern",
-      "plain": "",
+      "plain": "Denotes causing or producing what the simple verb states.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Hiphil denotes the causing or producing of that which is signified by the simple form of the verb",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-hophal",
@@ -552,10 +688,18 @@
       "name": "Hophal",
       "fact": "Tagged as a Hophal, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Hophal pattern",
-      "plain": "",
+      "plain": "The passive of the Hiphil.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "Hophal is the passive of Hiphil.",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-hithpael",
@@ -563,10 +707,18 @@
       "name": "Hithpael",
       "fact": "Tagged as a Hithpael, one of the patterns a Hebrew verb can take.",
       "line_fact": "a verb in the Hithpael pattern",
-      "plain": "",
+      "plain": "Reflexive or reciprocal: the subject acts on itself, or the subjects on one another.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "The Hithpael is reflexive or reciprocal of the idea of the verb",
+          "page": "103",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "h-twice",
@@ -574,10 +726,18 @@
       "name": "The verb said twice",
       "fact": "The same verb stands twice, side by side: once as the bare name of the action and once as an ordinary verb.",
       "line_fact": "the same verb said twice, side by side",
-      "plain": "",
+      "plain": "The verb is joined to its own bare form to add emphasis or intensity. Green’s own examples include Genesis 2:17.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "green-grammar",
+          "quote": "In verbs the absolute infinitive is joined with the finite forms to add emphasis or intensity to the idea",
+          "page": "310",
+          "url": "https://archive.org/details/grammarofhebrew00gree/page/310/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "a-perfect",

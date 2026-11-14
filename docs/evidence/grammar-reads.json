@@ -3,7 +3,8 @@
     "The Word choice notes' quotations (crates/atlas-cli/src/extra_grammar.rs reads this file; it has no kind, so the Layers build passes over it).",
     "Where each quotation in config/grammar.json was read. work and page are the term's own; quote is the words as config/grammar.json gives them; found_in is the address of the scan's text for that page; page_address opens the page itself; context is the scan's text around the quotation, as it was copied that day; read is the date; note says anything the reader should know, above all where the scan's text differs from what is given.",
     "robertson-short: A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; \"Copyright, 1908, by A. T. Robertson\"), the archive.org scan shortgrammarofgr00robeuoft, which archive.org dates [1912] and marks NOT_IN_COPYRIGHT. The printed page is the scan's leaf number less 40, by the scan's own page-number file.",
-    "How these were read on 2026-11-14: from the scan's text layer (its OCR), one page at a time, in two separate readings on the same day, the second copying each sentence and the two sentences either side of it word by word. Both readings agree on every quotation. No page image was seen, so each quotation is the scan's text, not a proof-read of the print: where that text is plainly a misreading (\"asa\" for \"as a\", \"haye\" for \"have\", a word broken at a line end), the note says so and gives what the context was changed to."
+    "How these were read on 2026-11-14: from the scan's text layer (its OCR), one page at a time, in two separate readings on the same day, the second copying each sentence and the two sentences either side of it word by word. Both readings agree on every quotation. No page image was seen, so each quotation is the scan's text, not a proof-read of the print: where that text is plainly a misreading (\"asa\" for \"as a\", \"haye\" for \"have\", a word broken at a line end), the note says so and gives what the context was changed to.",
+    "green-grammar: William Henry Green, A Grammar of the Hebrew Language, second edition, with corrections and copious indexes (New York: John Wiley, 1861), the archive.org scan grammarofhebrew00gree. The printed page is the scan's leaf number less 16, by the scan's own page-number file. Read on 2026-11-14 from the scan's text layer, each quotation at least twice in this scan (a note says where a word rests on the other scan), and once more in the scan of the third edition of 1863 (grammarofhebrew1863gree), which has the same page and section numbers on the pages compared and gives the same words. No page image was seen. Green's names are older than the tags': his preterite is the perfect, his future the imperfect, Vav Conversive the \"and\" of the consecutive forms, Kal the simple pattern. In these records the context is the words just before the quotation, the quotation and the words just after, pieced from short copies of the scan's text; Hebrew letters in it are garbled and kept as read."
   ],
   "checked": [
     {
@@ -225,6 +226,215 @@
       "context": "In Greek the pronoun is not so common as in the modern European tongues. The Greek verb itself contains the personal subject, and even the oblique case of the pronoun was not always used. When, therefore, the nominative case of the pronoun is used, there is emphasis. Cf. éyé (Matt. 5:22), ot (John 1:42), duets (Matt. 27:24). In the New Testament the pronoun, as in the xowy and the Hebrew, occurs much more frequently than in earlier Greek.",
       "read": "2026-11-14",
       "note": "The scan's text breaks \"pro- noun\" at a line end; the context joins it. Greek letters after it are garbled in the scan's text and kept as read."
+    },
+    {
+      "work": "green-grammar",
+      "page": "289",
+      "section": "§261. 2",
+      "quote": "Whatever is, or is conceived of as past, must be put in the preterite",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=304",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/289/mode/1up",
+      "context": "to which these may be regarded as covered by the paragogic and apocopated futures, § 204. Whatever is, or is conceived of as past, must be put in the preterite; the future is used for all that is, or is conceived of as future,",
+      "read": "2026-11-14",
+      "note": "Green's \"preterite\" is the form now called the perfect. The clause ends at a semicolon; the next clause is on the future. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "291",
+      "section": "§262. 4",
+      "quote": "they give to their predictions the form of a recital of what has already taken place",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=306",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/291/mode/1up",
+      "context": "often transport themselves to the time when they shall have been accomplished; and, surveying the future from this ideal point of view, they give to their predictions the form of a recital of what has already taken place, Babylon",
+      "read": "2026-11-14",
+      "note": "\"They\" are the prophets, named earlier in the same sentence, in the paragraph \"4. The future, when viewed as past\". Page 291 ends one word after the quotation. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "289",
+      "section": "§261. 2",
+      "quote": "the future is used for all that is, or is conceived of as future",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=304",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/289/mode/1up",
+      "context": "Whatever is, or is conceived of as past, must be put in the preterite; the future is used for all that is, or is conceived of as future, while all subordinate modifications or shades of meaning are either suggested by accompanying particles,",
+      "read": "2026-11-14",
+      "note": "Green's \"future\" is the form now called the imperfect. A clause after a semicolon. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "293",
+      "section": "§263. 4",
+      "quote": "Constant or habitual acts or states viewed as continuing for an indefinite period from the time spoken of",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=308",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/293/mode/1up",
+      "context": "so now and always will; a son 13D^ honour etlt his father ]\\Ial. 1 :G. 4. Constant or habitual acts or states viewed as continuing for an indefinite period from the time spoken of, even though they may have ceased at the time of speaking, and so belong entirely to the past, a mist",
+      "read": "2026-11-14",
+      "note": "Item 4 of the list that follows \"The future is used in speaking of\" (section 263). The scan's text breaks \"con-tinuing\" at a line end; it is joined here. Scan text: The OCR has a line-end hyphen, 'con-tinuing'; joined in the quote. Otherwise exact (two targeted reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "129",
+      "section": "§99. 1",
+      "quote": "a narration begun in the preterite may be continued in the future with Vav Conversive",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=144",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/129/mode/1up",
+      "context": "the force of and tlien or and so, indicating that what follows is the sequel of what precedes. Consequently a narration begun in the preterite may be continued in the future with Vav Conversive, the opening words fixing the initial point from which all that come after proceed in regular succession; and",
+      "read": "2026-11-14",
+      "note": "The sentence opens \"Consequently\". The scan's text breaks \"be-gun\" at a line end, joined here, and has \"tlien\" for \"then\" in the words before. Scan text: The OCR has a line-end hyphen, 'be-gun'; joined in the quote. Otherwise exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "129",
+      "section": "§99. 1",
+      "quote": "the future so employed is converted into what may be called a continuative preterite",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=144",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/129/mode/1up",
+      "context": "fixing the initial point from which all that come after proceed in regular succession; and the future so employed is converted into what may be called a continuative preterite. Thus, in the account of the crea-tion in Gen. 1, the original condition of things",
+      "read": "2026-11-14",
+      "note": "The second half of the same sentence, after a semicolon and \"and\". Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "132",
+      "section": "§100. 1",
+      "quote": "Vav Conversive prefixed to the preterite makes of it a continuative future or imperative",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=147",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/132/mode/1up",
+      "context": "Ezek. 16: 10 but i^GSX^i vcr. 8, f^^r^?.N,l Job 30\\26, !^4''^™ ^\"^ '^^ ' ^^■'\" §100. 1. Vav Conversive prefixed to the preterite makes of it a continuative future or imperative, by connecting with it the idea of futurity or command expressed in a preceding verb.",
+      "read": "2026-11-14",
+      "note": "The words before it are Hebrew examples, garbled in the scan's text and kept as read. Scan text: exact (two reads of this scan agree). The 1863 scan's OCR has 'Conversivc' and 'fiitm-e' for 'Conversive' and 'future' but the same words."
+    },
+    {
+      "work": "green-grammar",
+      "page": "126",
+      "section": "§97. 2",
+      "quote": "expresses a wish or command, or with a negative, dissuasion or prohibition",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=141",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/126/mode/1up",
+      "context": "2. The apocopated or jussive future is an abbreviation of the second or third persons singular and expresses a wish or command, or with a negative, dissuasion or prohibition. In the perfect verb it has a separate form only in the lliphil species, the",
+      "read": "2026-11-14",
+      "note": "The second half of the sentence that opens \"2. The apocopated or jussive future is an abbreviation of the second or third persons singular\". Scan text: exact (two reads of this scan agree, and the scan's search-inside result gives 'expresses a wish or command, or with a negative'). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "126",
+      "section": "§97. 1",
+      "quote": "converting it from a simple declaration of futurity to an expression of desire or determination",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=141",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/126/mode/1up",
+      "context": "to the first person singular or plural, and in a very few instances to the third person singular, thus converting it from a simple declaration of futurity to an expression of desire or determination, n^TSii I shall keejj, !\"0''9^^ I loill surel?/ keej) or let me keep, Ps. 39",
+      "read": "2026-11-14",
+      "note": "\"It\" is the ordinary future; the sentence opens \"1. The paragogic or cohortative is formed from the ordinary future by appending the termination\" and a Hebrew ending. The words after are Hebrew examples with their English, garbled in the scan's text and kept as read (\"I shall keep\", \"I will surely keep or let me keep\"). Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "298",
+      "section": "§268",
+      "quote": "The absolute infinitive, expressing as it does the abstract idea of the verb irrespective of tense, number, or person",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=313",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/298/mode/1up",
+      "context": "person of (he wicked Pro v. 18:5. nnbTP] to yield its strength Gen. 4: 12. § 268. The absolute infinitive, expressing as it does the abstract idea of the verb irrespective of tense, number, or person, may be used instead of any of the finite forms of the verb, when the sense is duly qualified by the context.",
+      "read": "2026-11-14",
+      "note": "The opening of a sentence, cut at the comma before its verb (\"may be used instead of any of the finite forms of the verb\"). Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "297",
+      "section": "§267. b",
+      "quote": "The construct infinitive is used after verbs, nouns, and prepositions",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=312",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/297/mode/1up",
+      "context": "to do justice (is) a jay to the righteous Prov. 21 : 15. b. The construct infinitive is used after verbs, nouns, and prepositions, and when governed by a verb or noun it is usually though not invariably preceded as in English by the",
+      "read": "2026-11-14",
+      "note": "The mark after \"prepositions\" is a full stop in this scan's text and a comma in the 1863 scan's; the sentence goes on \"and when governed by a verb or noun ...\", so the quotation stops before the mark. Scan text: The words agree in three reads of this scan. The mark after 'prepositions' is a period in this scan's OCR and a comma in the 1863 scan's OCR; the next word is 'and' with a small letter, so the comma is recorded."
+    },
+    {
+      "work": "green-grammar",
+      "page": "296",
+      "section": "§266",
+      "quote": "The participles being properly verbal nouns, do not in strictness involve any definite notion of time",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=311",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/296/mode/1up",
+      "context": "296 SYNTAX. § 266 Participles. § 2GG. The participles being properly verbal nouns, do not in strictness involve any definite notion of time, and the connection must decide whether they are to be referred to the past, present, or future,",
+      "read": "2026-11-14",
+      "note": "The section opens page 296, so the words before are the running head, where the scan's text has \"2GG\" for 266. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "101",
+      "section": "§77. 1",
+      "quote": "The Niphal is commonly the passive of Kal or of the simple idea of the verb",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=116",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/101/mode/1up",
+      "context": "several species already stated is liable to certain modifications in the variety of cases to which it is applied. The Niphal is commonly the passive of Kal or of the simple idea of the verb, nia to steal, Ni. to he stolen; -1^3 to write, Ni. to he written.",
+      "read": "2026-11-14",
+      "note": "Kal is Green's name for the simple pattern. The words after are Hebrew examples, garbled in the scan's text and kept as read. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "102",
+      "section": "§78. 1",
+      "quote": "The Piel gives new intensity to the simple idea of the verb",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=117",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/102/mode/1up",
+      "context": "another previous condition, K^iri to be full, Ni. to be filed, n:;n to be, Ni. to become. § 78. 1. The Piel gives new intensity to the simple idea of the verb, by which its meaning is variously modified according to the nature of the case, 'avyi to be few. Pi. to be",
+      "read": "2026-11-14",
+      "note": "The scan's text reads this page's head number as 103; it is page 102 by the scan's page-number file and by the 1863 scan. Scan text: exact (two reads of this scan agree). Also read the same in the 1863 third-edition scan (same page, same wording)."
+    },
+    {
+      "work": "green-grammar",
+      "page": "103",
+      "section": "§78. 3",
+      "quote": "Pual is the passive of Piel",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=118",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+      "context": "§79,80 SPECIES OF VERBS. 103 3. Pual is the passive of Piel, and therefore can only exist when the sense of the latter is such that a passive is possible.",
+      "read": "2026-11-14",
+      "note": "This scan's text has \"Picl\" for \"Piel\"; the 1863 scan (same page) reads \"Piel\", which the context gives. It opens page 103, so the words before are the running head. The paragraph is section 78, 3. Scan text: This scan's OCR has 'Picl' for 'Piel' (two reads agree on that). The 1863 scan reads 'Pual is the passive of Piel,' in a page read and in its search-inside result; the quote follows it."
+    },
+    {
+      "work": "green-grammar",
+      "page": "103",
+      "section": "§79. 1",
+      "quote": "The Hiphil denotes the causing or producing of that which is signified by the simple form of the verb",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=118",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+      "context": "when the sense of the latter is such that a passive is possible. §70. 1. The Hiphil denotes the causing or producing of that which is signified by the simple form of the verb, and, as in the corresponding case of Piel, intransitive verbs become transitive, and such as admitted",
+      "read": "2026-11-14",
+      "note": "This scan's text has \"Iliphil\" for \"Hiphil\" and prints the section mark as \"70\"; the 1863 scan (same page) reads \"Hiphil\", and the section is 79. Scan text: This scan's OCR has 'Iliphil' for 'Hiphil' (two reads agree on that), and prints the section mark as '§70'. The 1863 scan reads the sentence with 'Hiphil'; the quote follows it."
+    },
+    {
+      "work": "green-grammar",
+      "page": "103",
+      "section": "§79. 3",
+      "quote": "Hophal is the passive of Hiphil.",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=118",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+      "context": "to grow rich; \"ji?^ Hi. to make fat and to become fat (comp. YiW^. fatten). 3. Hophal is the passive of Hiphil. a. When Kal has both a transitive and an intransitive sense, Hiphil, as the causative",
+      "read": "2026-11-14",
+      "note": "A whole sentence. The words before are Hebrew examples, garbled in the scan's text and kept as read. Scan text: exact (two reads of this scan agree). The 1863 scan reads the same in a page read and in its search-inside result."
+    },
+    {
+      "work": "green-grammar",
+      "page": "103",
+      "section": "§80. 1",
+      "quote": "The Hithpael is reflexive or reciprocal of the idea of the verb",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=118",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/103/mode/1up",
+      "context": "of turning aside, there is an ellipsis of its proper object, to bend (the steps). §80. 1. The Hithpael is reflexive or reciprocal of the idea of the verb, mostly as this is expressed in the Piel spe-cies (from which it is formed, §82. 5), the particular shade of meaning being modified",
+      "read": "2026-11-14",
+      "note": "This scan's text has \"Ilithpael\" for \"Hithpael\" and cannot be read at the word \"verb\"; both words are given from the 1863 scan (same page 103), which reads the clause in full. Scan text: This scan's OCR has 'Ilithpael' for 'Hithpael' and the garble '\\cYh,' for 'verb,' (three reads agree; the OCR's own confidence for that word is very low). The 1863 scan reads 'The Hithpael is reflexive or reciprocal of the idea of the verb,' in a page read and in its search-inside result; the quote follows it."
+    },
+    {
+      "work": "green-grammar",
+      "page": "310",
+      "section": "§282",
+      "quote": "In verbs the absolute infinitive is joined with the finite forms to add emphasis or intensity to the idea",
+      "found_in": "https://ia902804.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/18/items/grammarofhebrew00gree/grammarofhebrew00gree_djvu.xml&mode=djvu_xml&page=325",
+      "page_address": "https://archive.org/details/grammarofhebrew00gree/page/310/mode/1up",
+      "context": "a nomi to which it refers, &?^n-Da micb to Beth, to him also Gen. 4:26. § 282. In verbs the absolute infinitive is joined with the finite forms to add emphasis or intensity to the idea, \"I'^Kin ^\"b/an shall thou actually reign over us? Gen. 37 : 8, n~^ri ni'b tliou shall surely die Gen. 2:17.",
+      "read": "2026-11-14",
+      "note": "Section 282, on the repetition of words. Green's own examples follow at once, Genesis 37:8 and Genesis 2:17; their Hebrew is garbled in the scan's text and the English reads \"tliou shall surely die\". One reading of the scan's text gave \"Avith\" for \"with\". Scan text: One read of this scan gave 'Avith' for 'with' (an OCR slip) and one gave 'with'; otherwise the two reads agree. The 1863 scan reads 'with'."
     }
   ]
 }

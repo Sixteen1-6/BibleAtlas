@@ -1072,8 +1072,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             "grammar: every quotation names its work, its page, the page's address and the day it was read".to_string(),
         ),
         (
-            ["g-present", "g-aorist", "g-perfect"].iter().all(|id| term(id).is_some_and(|i| terms[i]["says"].as_array().is_some_and(|s| !s.is_empty()))),
-            "grammar: the Greek present, aorist and perfect are each explained in a grammarian's own words".to_string(),
+            ["g-present", "g-aorist", "g-perfect", "h-perfect", "h-imperfect", "h-twice"].iter().all(|id| term(id).is_some_and(|i| terms[i]["says"].as_array().is_some_and(|s| !s.is_empty()))),
+            "grammar: the Greek present, aorist and perfect, and the Hebrew perfect, imperfect and doubled verb, are each explained in a grammarian's own words".to_string(),
         ),
     ];
     // A verse's points of one kind.
