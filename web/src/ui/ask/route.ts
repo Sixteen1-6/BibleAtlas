@@ -132,8 +132,12 @@ export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
  * 545 never-seen messages, nine in ten of its opens at this level were the
  * very answer people needed, and most others the one beside it. (0.35 before
  * the word-meaning model: with two kinds of evidence to agree, its scores
- * run lower and its opens are surer.) Without the model, as before. */
-export const MEANT = { model: 0.25, words: 0.35 };
+ * run lower and its opens are surer.) Without the model, as before. 0.30
+ * since gathering grew surer (round 16): on the 282 of 4,887 judged seen
+ * messages where 0.25 opened and 0.30 gathers, 202 rather than 193 were
+ * answered, with 340 off verses rather than 354 (0.20 and 0.15 did worse,
+ * 0.35 fewer answers). */
+export const MEANT = { model: 0.3, words: 0.35 };
 
 /** A question the router picks by its words opens only if the meaning
  * matcher finds it at least this likely meant: "did Jesus have a beard"

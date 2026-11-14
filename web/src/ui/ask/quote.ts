@@ -15,7 +15,11 @@ import { STOP } from './words';
 export const QUOTE = { on: 1, route: 1, run: 6, words: 3, most: 3 };
 
 /** Words too common in the Bible to tell one verse from another. */
-const SMALL = new Set([...STOP, 'unto', 'thee', 'thou', 'thy', 'thine', 'ye', 'lord', 'god', 'said', 'say', 'saith', 'not', 'no', 'him', 'his', 'her', 'them', 'they', 'their', 'all', 'one', 'man', 'men', 'people', 'come', 'came', 'go', 'went', 'up', 'out', 'into', 'upon', 'there', 'then', 'also', 'even', 'now', 'let', 'made', 'make', 'day', 'house', 'son', 'sons', 'king', 'israel']);
+const SMALL = new Set([
+  ...STOP,
+  ...['but', 'nor', 'yet', 'because', 'therefore', 'unto', 'upon', 'thee', 'thou', 'thy', 'thine', 'ye', 'art', 'hast', 'hath', 'doth', 'shalt', 'thereof'],
+  ...['whom', 'whose', 'these', 'those', 'every', 'one', 'lord', 'god', 'saith', 'man', 'men', 'come', 'came', 'went', 'now', 'made', 'day', 'house', 'son', 'sons', 'king', 'israel'],
+]);
 
 function find(words: string[], w: string): number {
   let lo = 0;
