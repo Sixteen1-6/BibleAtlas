@@ -940,15 +940,14 @@ pub fn build(root: &Path, inputs: &Inputs, s: &Sources) -> Result<Vec<(String, V
         let mut v_map = serde_json::Map::new();
         let mut chain_ids: BTreeSet<usize> = BTreeSet::new();
         let mut list_ids: BTreeSet<usize> = BTreeSet::new();
-        for v in from..to {
-            chain_ids.extend(b.verses[v].chains.iter().copied());
-            list_ids.extend(b.verses[v].lists.iter().copied());
+        for p in &b.verses[from..to] {
+            chain_ids.extend(p.chains.iter().copied());
+            list_ids.extend(p.lists.iter().copied());
         }
         let chain_at: HashMap<usize, usize> = chain_ids.iter().enumerate().map(|(i, &c)| (c, i)).collect();
         let list_at: HashMap<usize, usize> = list_ids.iter().enumerate().map(|(i, &l)| (l, i)).collect();
         let mut joined: BTreeMap<u16, usize> = BTreeMap::new();
-        for v in from..to {
-            let p = &b.verses[v];
+        for (v, p) in b.verses.iter().enumerate().take(to).skip(from) {
             if p.is_empty() {
                 continue;
             }
