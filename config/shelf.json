@@ -448,11 +448,13 @@
       "title": "An Exposition of the Old and New Testament",
       "by": "Matthew Henry; Romans to Revelation completed after his death by other ministers",
       "when": "1828 edition read",
-      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, whose names the edition prints at the head of each book they finished.",
+      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, named at the head of each book. All of it shows at Deep, section by section.",
       "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (MHC) marks it. The text is the Christian Classics Ethereal Library's transcription. This copy is from the Let's Church repository, which is CC0 1.0, commit 71f6f0f, copied into the app on 14 November 2026. Left out: the King James verses each section prints, the prefaces and chapter outlines, and passages that say a word of Scripture is a mistake, each marked where it was.",
       "datasets": ["henry-complete"],
       "read": {"url": "https://archive.org/details/expositionofoldn06henr", "label": "archive.org, vol. VI, 1828"},
-      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw).",
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhc.json", "label": "the data file (GitHub)"},
+      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw); the notes shown at Deep are the Christian Classics Ethereal Library's transcription, from the CrossWire Bible Society's SWORD module MHC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "layer": ["henry-complete"]
     },
     {
