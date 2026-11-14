@@ -1,0 +1,142 @@
+name: Mirror SWORD modules
+
+# The build's sources are pinned git commits on github.com (sources.json), and
+# the containers that build the data can only reach github.com. This copies
+# public-domain commentary modules from crosswire.org, unpacks each zip, checks
+# that the unpacked files are exactly the files in the table below (path, bytes
+# and SHA-256, measured 2026-10-20), writes SOURCE.md with each module's license
+# notice, and commits them unchanged to one branch per module,
+# mirror/sword-<Module>, which sources.json then pins. CrossWire repacks some
+# zips without changing the files in them, so only the files are checked. Any
+# other change stops the run: the table is the pin. Never force-push or delete
+# these branches. Decision 23 (2026-10-21) cleared all three modules.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/mirror-sword-modules.yml
+
+permissions:
+  contents: write
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        module: [JFB, KD, Barnes]
+    concurrency:
+      group: mirror-sword-${{ matrix.module }}
+      cancel-in-progress: false
+    env:
+      MODULE: ${{ matrix.module }}
+      BRANCH: mirror/sword-${{ matrix.module }}
+    steps:
+      - name: Download the module and check every file in it
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/m/out && cd /tmp/m
+          curl -sSfL --retry 3 "https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/$MODULE.zip" -o module.zip
+          echo "ZIP_SHA=$(sha256sum module.zip | cut -d' ' -f1)" >> "$GITHUB_ENV"
+          (cd out && unzip -q ../module.zip)
+          python3 - <<'EOF'
+          import hashlib, os
+          FILES = {
+            "JFB": [
+              ("mods.d/jfb.conf", 2174, "1d474def68d5b0f24b38d7fed8c3bd94dbfd50c264cae2bc7d481af4dc588003"),
+              ("modules/comments/zcom/jfb/nt.bzs", 336, "4aa673c91e5d50c1a762e435914bfdfa9760ba01c90601da2b37639cf6b86db4"),
+              ("modules/comments/zcom/jfb/nt.bzv", 98952, "695ca0063f406aa8a5542628a2f9ce0685ba0282d759b86f04656f19790c959a"),
+              ("modules/comments/zcom/jfb/nt.bzz", 2441962, "40594e36e8efbde9507785f2b049ee55d6cefcfddc13cdd91b45ad6e69145920"),
+              ("modules/comments/zcom/jfb/ot.bzs", 480, "0cb741bf07cf710e7ad5cabe90517aaf43ccdf3a92bab527e8925441fb52b00e"),
+              ("modules/comments/zcom/jfb/ot.bzv", 289380, "9ca7806638bb062095fd49046c48e8b72a74c6fc645498b17d33d87d31f91556"),
+              ("modules/comments/zcom/jfb/ot.bzz", 3191787, "58b063ebf038328915f99aeaf92b123d19ae22ba5ca5163c4c7a534cf60f384a"),
+            ],
+            "KD": [
+              ("mods.d/kd.conf", 5032, "667cbe39b3d2f9b75a35429bee6ef6d3f7c4b453d5a9b097fe97996d68f8b39b"),
+              ("modules/comments/zcom4/kd/nt.bzs", 0, "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+              ("modules/comments/zcom4/kd/nt.bzv", 98952, "7cc2b428668b09df5d81782a789028113481a7ee96f1f4a9643f439c9efb2b78"),
+              ("modules/comments/zcom4/kd/nt.bzz", 0, "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"),
+              ("modules/comments/zcom4/kd/ot.bzs", 576, "95c55f5a0fdc3bbccdf267787561a3f2ea00652cc315ad3c14f2e9f456eb0385"),
+              ("modules/comments/zcom4/kd/ot.bzv", 289380, "03c62880ef488dc9dfa329d807b1bf2ca09903ea3116ae23ed4cd77e5589b324"),
+              ("modules/comments/zcom4/kd/ot.bzz", 11145784, "2adfc1ca3811ee1325e0513fb498d1bfdb95c66f3fc1ce8858fa805c92df03f5"),
+            ],
+            "Barnes": [
+              ("mods.d/barnes.conf", 437, "6895f7186042c5624117973892bc22dc27fa31a21e9f4fbb217793e8b5df9a5f"),
+              ("modules/comments/zcom/barnes/nt.czs", 3120, "a39f80ec47d108a43fda634c1234fc03827f32eac1636d614c01b424dfcf6302"),
+              ("modules/comments/zcom/barnes/nt.czv", 82460, "edd2d46416db52595af44811a49940527bba208bd6b73b7c30f480c21d63edae"),
+              ("modules/comments/zcom/barnes/nt.czz", 6018995, "d26ada7eba82d4c0c24c18ad8d8a520c1dfd5761e2bdc8161c6888bc665ea40a"),
+            ],
+          }
+          # Each module's license notice, written into SOURCE.md before any push.
+          NOTICES = {
+            "JFB": "Public domain (1871). CrossWire's text source: CCEL's jfb.txt, an expanded electronic edition prepared from text scanned by Woodside Bible Fellowship.",
+            "KD": ("Text by Wikisource contributors, \"Biblical commentary on the Old Testament\", "
+                   "https://en.wikisource.org/wiki/Biblical_commentary_the_Old_Testament. When CrossWire made "
+                   "version 2.0 of this module (2022-08-03), Wikisource shared it under the Creative Commons "
+                   "Attribution-ShareAlike 3.0 Unported license, https://creativecommons.org/licenses/by-sa/3.0/ ; "
+                   "Wikisource says the source document of this text is not known. CrossWire's conf says the module "
+                   "is based on Willem Swanepoel's BibleWorks 8 user-created module. These files are copied unchanged "
+                   "from CrossWire's KD module and are shared under CC BY-SA 3.0 Unported, as their source was. "
+                   "The underlying English translation (T. and T. Clark, 1864-78) is public domain."),
+            "Barnes": "Public domain (1832-53). CrossWire's conf names no text source.",
+          }
+          module = os.environ["MODULE"]
+          want = FILES[module]
+          os.chdir("out")
+          found = sorted(os.path.relpath(os.path.join(d, n)).replace(os.sep, "/") for d, _, ns in os.walk(".") for n in ns)
+          names = sorted(p for p, _, _ in want)
+          assert found == names, f"{module}: the zip holds {found}, expected {names}"
+          rows = []
+          wrong = []
+          for path, size, sha in want:
+              data = open(path, "rb").read()
+              got = hashlib.sha256(data).hexdigest()
+              if (len(data), got) != (size, sha):
+                  wrong.append(f"{path}: {len(data)} bytes, sha256 {got}; expected {size} bytes, {sha}")
+                  if path.startswith("mods.d/"):
+                      # The conf is short and plain text: show it, so a change can be read.
+                      print(data.decode("utf-8", "replace"))
+              rows.append(f"| {path} | {size} | {sha} |")
+          assert not wrong, "\n".join(wrong)
+          conf = next(p for p in names if p.startswith("mods.d/"))
+          lines = [l.strip() for l in open(conf, encoding="utf-8").read().splitlines()]
+          license = [l for l in lines if l.startswith(("DistributionLicense=", "TextSource=", "SwordVersionDate=", "Version="))]
+          assert "DistributionLicense=Public Domain" in license, f"{conf}: {license}"
+          url = f"https://www.crosswire.org/ftpmirror/pub/sword/packages/rawzip/{module}.zip"
+          open("SOURCE.md", "w", encoding="utf-8").write(
+              f"# CrossWire SWORD module {module}, mirrored\n\n"
+              f"Unpacked unchanged from {url}\n"
+              "by .github/workflows/mirror-sword-modules.yml, which checks every file against the table below.\n"
+              "The zip itself is not pinned: CrossWire repacks some zips without changing the files in them.\n\n"
+              "## License and credit\n\n" + NOTICES[module] + "\n\n"
+              "## From the module's conf\n\n" + "\n".join(license) + "\n\n"
+              "| file | bytes | sha256 |\n|---|---|---|\n" + "\n".join(rows) + "\n")
+          print(open("SOURCE.md", encoding="utf-8").read())
+          EOF
+
+      - name: Commit the copy to its own branch
+        run: |
+          set -euo pipefail
+          # The branch keeps its history: a pinned commit must stay fetchable.
+          mkdir /tmp/mirror && cd /tmp/mirror
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          if git ls-remote --exit-code origin "refs/heads/$BRANCH" > /dev/null; then
+            git fetch -q origin "$BRANCH"
+            git checkout -q -b "$BRANCH" FETCH_HEAD
+          else
+            git checkout -q --orphan "$BRANCH"
+          fi
+          cp -r /tmp/m/out/. .
+          git add -A
+          if git diff --cached --quiet; then
+            echo "The branch already holds this copy: $(git rev-parse HEAD)"
+            exit 0
+          fi
+          git commit -q -m "Mirror CrossWire SWORD module $MODULE (zip sha256 $ZIP_SHA, fetched $(date -u +%F))"
+          git push -q origin "HEAD:refs/heads/$BRANCH"
+          echo "Mirrored to $BRANCH at $(git rev-parse HEAD)"

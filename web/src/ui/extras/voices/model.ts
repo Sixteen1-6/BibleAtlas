@@ -11,13 +11,17 @@ import type { VerseRef } from '../types';
 /** web/public/data/extras/voices.json. */
 export interface IndexFile {
   format: number;
-  /** One character per verse: '0' plus a bit for each work with a note on it. */
+  /** One character per verse: '0' plus a bit for each of works 0 to 5 with a note on it. */
   has: string;
+  /** The same for works 6 on (bit 0 is work 6). */
+  more?: string;
   /** Each book's files, as the first chapter of each. */
   parts: number[][];
   /** Who wrote each book of Henry's complete commentary from Romans on, after
    * his death, by book index, from a printed list. */
   finished?: [number, string][];
+  /** For a work whose books have different writers: [work, writer, book indexes]. */
+  writers?: [number, string, number[]][];
 }
 
 /** Words, or [from, to, words] naming verses. */
@@ -58,7 +62,7 @@ export interface Work {
 
 /** The panel's source line. */
 export const SOURCE =
-  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s complete and Concise commentaries, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English; Henry’s and Calvin’s transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church.';
+  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s complete and Concise commentaries, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English; Henry’s and Calvin’s transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church; Jamieson, Fausset and Brown’s Commentary (1871), in the Christian Classics Ethereal Library’s edition, from CrossWire’s SWORD module.';
 
 /** The works, in the order the build numbers them (oldest first is OLDEST_FIRST). */
 export const WORKS: readonly Work[] = [
@@ -104,32 +108,46 @@ export const WORKS: readonly Work[] = [
     book: 'Henry died in 1714, having written as far as Acts. Other ministers wrote Romans to Revelation for his Exposition',
     shelf: 'henry-complete',
   },
+  {
+    short: 'Jamieson, Fausset and Brown',
+    brief: 'JFB',
+    name: 'Jamieson, Fausset and Brown',
+    book: 'A Commentary, Critical and Explanatory, on the Whole Bible, 1871 (the date the copy gives)',
+    shelf: 'jfb',
+  },
 ];
 
 /** Henry's complete commentary, his own notes and those of the ministers who finished it. */
 export const FULL = 4;
 export const FINISHED = 5;
+/** Jamieson, Fausset and Brown: each book under the one of the three who wrote it. */
+export const JFB = 6;
 
 export interface Data {
   a: Atlas;
   has: string;
+  more: string;
   parts: number[][];
   /** Who finished each book of Henry's commentary, by book index. */
   finished: Map<number, string>;
+  /** Who wrote each book of a work by several writers, by `${work}.${book}`. */
+  writers: Map<string, string>;
 }
 
 export async function load(a: Atlas): Promise<Data> {
   const file = await loadJson<IndexFile>(a, 'extras/voices.json');
-  return { a, has: file.has, parts: file.parts, finished: new Map(file.finished ?? []) };
+  const writers = new Map<string, string>();
+  for (const [w, name, books] of file.writers ?? []) for (const b of books) writers.set(`${w}.${b}`, name);
+  return { a, has: file.has, more: file.more ?? '', parts: file.parts, finished: new Map(file.finished ?? []), writers };
 }
 
 /** The works by when they were written: the Fathers, Calvin, Henry's full
- * commentary and its finishers, his Concise, Wesley. */
-export const OLDEST_FIRST: readonly number[] = [0, 3, FULL, FINISHED, 1, 2];
+ * commentary and its finishers, his Concise, Wesley, Jamieson, Fausset and Brown. */
+export const OLDEST_FIRST: readonly number[] = [0, 3, FULL, FINISHED, 1, 2, JFB];
 
 /** The works with a note on a verse, oldest first. */
 export function worksOn(d: Data, verse: VerseRef): number[] {
-  const bits = (d.has.charCodeAt(verse) || 48) - 48;
+  const bits = ((d.has.charCodeAt(verse) || 48) - 48) | (((d.more.charCodeAt(verse) || 48) - 48) << 6);
   return OLDEST_FIRST.filter((w) => bits & (1 << w));
 }
 
@@ -144,6 +162,14 @@ export function fullOf(d: Data, verse: VerseRef): string | null {
 /** Who wrote a verse's notes in the finishers' part of Henry's commentary. */
 export function finisher(d: Data, verse: VerseRef): string | null {
   return d.finished.get(locate(d.a, verse).book) ?? null;
+}
+
+/** Who wrote a work's notes on a verse's book, where that is not the work's
+ * own name: a minister who finished Henry's commentary, or the one of
+ * Jamieson, Fausset and Brown who wrote that book. */
+export function writerOf(d: Data, w: number, verse: VerseRef): string | null {
+  if (w === FINISHED) return finisher(d, verse);
+  return d.writers.get(`${w}.${locate(d.a, verse).book}`) ?? null;
 }
 
 /** The file that holds a verse's other notes, or null if it has none. */
@@ -182,15 +208,15 @@ export function listWords(xs: readonly string[]): string {
 /** The writers on a verse as the line names them: in full, or by surname
  * when the full names would make the line longer than about 70 characters. */
 export function writersLine(d: Data, verse: VerseRef, ws: readonly number[]): string {
-  const names = (pick: (w: Work) => string) => {
-    const who = finisher(d, verse);
+  const names = (pick: (w: Work) => string, short = false) => {
     const out: string[] = [];
     for (const w of ws) {
-      const n = w === FINISHED && who ? who : pick(WORKS[w]);
+      const by = writerOf(d, w, verse);
+      const n = by ? (short ? (by.split(' ').pop() ?? by) : by) : pick(WORKS[w]);
       if (!out.includes(n)) out.push(n);
     }
     return out;
   };
   const full = listWords(names((w) => w.short));
-  return full.length <= 50 ? full : listWords(names((w) => w.brief));
+  return full.length <= 50 ? full : listWords(names((w) => w.brief, true));
 }
