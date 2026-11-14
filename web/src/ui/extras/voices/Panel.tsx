@@ -12,7 +12,7 @@ import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, FINISHED, type Item, JFB, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, fullOf, nameFrom, notesOn, partOf, writerOf } from './model';
+import { type Data, FINISHED, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, fullOf, kdOf, nameFrom, notesOn, partOf, writerOf } from './model';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -206,12 +206,19 @@ function Elsewhere({ a, verse }: { a: Atlas; verse: VerseRef }) {
 export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const partPath = partOf(data, verse);
   const fullPath = fullOf(data, verse);
+  const kdPath = kdOf(data, verse);
   const part = useJson<PartFile>(a, partPath);
   const full = useJson<PartFile>(a, fullPath);
+  const kd = useJson<PartFile>(a, kdPath);
   const where = refName(a, verse);
 
-  // Either file may be missing for a verse; null is a failed fetch.
-  const file = !partPath ? full : !fullPath ? part : part === null || full === null ? null : part === undefined || full === undefined ? undefined : { format: 1, items: [...part.items, ...full.items] };
+  // Any of the files may be missing for a verse; null is a failed fetch.
+  const got = [
+    [partPath, part],
+    [fullPath, full],
+    [kdPath, kd],
+  ].filter(([path]) => path).map(([, f]) => f as PartFile | null | undefined);
+  const file = got.some((f) => f === null) ? null : got.some((f) => f === undefined) ? undefined : { format: 1, items: got.flatMap((f) => (f ? f.items : [])) };
   if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
   const notes = file ? notesOn(file, verse) : [];
   return (
@@ -231,7 +238,9 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
               ? 'Writing for Matthew Henry’s Exposition of the Old and New Testament, which Henry wrote as far as Acts before his death in 1714'
               : k === JFB
                 ? `Writing in Jamieson, Fausset and Brown’s ${w.book}`
-                : w.book;
+                : k === KD
+                  ? `Writing in Keil and Delitzsch’s ${w.book}`
+                  : w.book;
           return (
             <section key={k} class="x-voices-work" aria-label={who ?? w.name}>
               <h3 class="x-voices-h">{who ?? w.name}</h3>
@@ -257,6 +266,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           ['Matthew Henry’s Concise Commentary', 'A later shortening of his commentary, placed by its own headings, such as “Verses 1–9”. A chapter it treats as a whole shows with every verse in it.'],
           ['John Calvin', 'Each note shows with the verse he comments on. On Matthew, Mark and Luke he wrote one Harmony of the three, filed under Matthew: where this copy has no note of his on a passage of Mark or Luke, his notes on the same passage in Matthew show there. The verses the copy prints before his notes, in English and Latin, are left out. Not shown on 1 and 2 Timothy and Titus, which this copy keeps only in part; he wrote no commentary on 2 and 3 John or Revelation, and his Old Testament commentaries are not here yet. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['John Wesley', 'Each note shows with the verse it is on.'],
+          ['Keil and Delitzsch', 'On the Old Testament: each note shows with the verses the copy links it to, under the one of the two scholars who wrote that book, C. F. Keil or Franz Delitzsch. Their introductions to the books are left out, and so is Delitzsch’s Ecclesiastes, because he holds that Solomon did not write it. A passage that denies what the text says of its writer, or says a word of Scripture is a mistake, is left out, and marked where it was. Footnotes follow their paragraph.'],
           ['Jamieson, Fausset and Brown', 'Each note shows with the verse it is on, or with every verse where the copy joins several, under the one of the three ministers who wrote that book: Robert Jamieson, A. R. Fausset or David Brown. Its introductions to the Bible, its books and chapters are left out. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Verse numbers', 'The notes are placed by the King James Version’s verse numbers, which match the Berean Standard Bible’s almost everywhere.'],
         ]}
