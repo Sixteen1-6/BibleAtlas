@@ -65,6 +65,7 @@
 //!   a chapter. They load when the panel opens.
 
 mod calvin;
+mod henry_full;
 
 use crate::loaded::Loaded;
 use crate::sources::Inputs;
@@ -180,7 +181,7 @@ struct Report {
     pointers: usize,
     pointers_empty: usize,
     /// Notes left out with no words of their own, only pointers, by work.
-    thin: [usize; 4],
+    thin: [usize; 6],
 }
 
 fn read_json(path: &std::path::Path) -> Result<Value, String> {
@@ -1151,6 +1152,11 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
     henry(inputs, vz, &mut books, &mut report)?;
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
     let calvin = calvin::calvin(root, inputs, vz, &kjv, &mut books, &mut report)?;
+    let (full, full_counts) = henry_full::henry_full(root, inputs, vz, &kjv, &mut report)?;
+    for x in full {
+        let b = vz.locate(x.from).ok_or("a note outside the Bible")?.0;
+        books[b as usize].push(x);
+    }
     // A note that is only references ("Mark 11:25.") would make the line name
     // a writer whose section only points elsewhere.
     for items in &mut books {
@@ -1161,14 +1167,17 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
         });
     }
 
-    let mut has = vec![b'0'; vz.verse_count() as usize];
-    let mut counts = [0usize; 4];
+    // Each verse's works as bits, written as '0' plus the bits (up to 'o').
+    let mut has = vec![0u8; vz.verse_count() as usize];
+    let mut counts = [0usize; 6];
     let mut out = Vec::new();
     let mut parts: Vec<Vec<u16>> = Vec::with_capacity(BOOKS.len());
     for (b, items) in books.iter_mut().enumerate() {
         items.sort_by_key(|x| (x.from, x.work, x.to));
-        // Each chapter's items, as JSON, in order.
+        // Each chapter's items, as JSON, in order; Henry's complete
+        // commentary in a file of its own for each chapter.
         let mut chapters: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
+        let mut full: BTreeMap<u16, Vec<Value>> = BTreeMap::new();
         for item in items.iter() {
             let (_, c, _) = vz.locate(item.from).ok_or("a note outside the Bible")?;
             if vz.locate(item.to).map(|l| l.1) != Some(c) {
@@ -1178,7 +1187,15 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
                 has[v as usize] |= 1 << item.work;
             }
             counts[item.work as usize] += 1;
-            chapters.entry(c).or_default().push(item_json(item));
+            let to = if item.work >= henry_full::FULL_W { &mut full } else { &mut chapters };
+            to.entry(c).or_default().push(item_json(item));
+        }
+        for (c, list) in full {
+            let doc = json!({ "format": 1, "items": list });
+            out.push((
+                format!("{}/{}.{c}.json", henry_full::FULL_DIR, BOOKS[b].osis),
+                serde_json::to_vec(&doc).map_err(|e| e.to_string())?,
+            ));
         }
         let mut starts: Vec<u16> = Vec::new();
         let mut file: Vec<Value> = Vec::new();
@@ -1222,10 +1239,12 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
         report.thin[0], report.thin[1], report.thin[2], report.pointers, report.pointers_empty, report.numbered
     );
     eprintln!("{}; {} of Calvin's notes left out as only pointers elsewhere", calvin.line(), report.thin[3]);
+    eprintln!("{}; {} of its notes left out as only pointers elsewhere", full_counts.line(), report.thin[4] + report.thin[5]);
     let index = json!({
         "format": 1,
-        "has": String::from_utf8(has).map_err(|e| e.to_string())?,
+        "has": String::from_utf8(has.iter().map(|&x| b'0' + x).collect()).map_err(|e| e.to_string())?,
         "parts": parts,
+        "finished": henry_full::finished(root)?,
     });
     out.push((
         OUT.to_string(),
@@ -1268,7 +1287,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let index = read_json(&index_path)?;
     let n = d.vz.verse_count();
     let has = index["has"].as_str().unwrap_or("").as_bytes().to_vec();
-    let has_ok = has.len() == n as usize && has.iter().all(|c| (b'0'..=b'?').contains(c));
+    let has_ok = has.len() == n as usize && has.iter().all(|c| (b'0'..=b'o').contains(c));
+    let has: Vec<u8> = has.iter().map(|c| c.wrapping_sub(b'0')).collect();
     let parts: Vec<Vec<u16>> = index["parts"]
         .as_array()
         .into_iter()
@@ -1283,8 +1303,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         .collect();
     let mut parts_ok = parts.len() == BOOKS.len();
 
-    let mut seen = vec![b'0'; n as usize];
-    let mut counts = [0usize; 4];
+    let mut seen = vec![0u8; n as usize];
+    let mut counts = [0usize; 6];
     // Notes with a passage left out, and whether each says why.
     let (mut gaps, mut gaps_ok) = (0usize, true);
     let (mut items_ok, mut links_ok, mut clean) = (true, true, true);
@@ -1295,16 +1315,37 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     // Henry note's links as (note's first verse, last verse, link's first, last).
     let mut thin = 0usize;
     let mut henry_links: Vec<(u32, u32, u64, u64)> = Vec::new();
+    // Every file: (book, path, first chapter, the next file's first chapter,
+    // whether it is Henry's complete commentary). Henry's complete commentary
+    // has one file for each chapter with a note.
+    let mut files: Vec<(usize, std::path::PathBuf, u16, u16, bool)> = Vec::new();
     for (b, starts) in parts.iter().enumerate() {
         parts_ok &= starts.windows(2).all(|w| w[0] < w[1])
             && starts
                 .iter()
                 .all(|&c| c >= 1 && c <= d.vz.chapters_in(b as u8));
         for (k, &first) in starts.iter().enumerate() {
-            let path = d.dir.join(format!("{DIR}/{}.{k}.json", BOOKS[b].osis));
-            largest = largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
-            let doc = read_json(&path)?;
             let next = starts.get(k + 1).copied().unwrap_or(u16::MAX);
+            files.push((b, d.dir.join(format!("{DIR}/{}.{k}.json", BOOKS[b].osis)), first, next, false));
+        }
+        for c in 1..=d.vz.chapters_in(b as u8) {
+            let full = (1..=d.vz.verses_in(b as u8, c).unwrap_or(0))
+                .filter_map(|v| d.vz.index(b as u8, c, v))
+                .any(|v| has.get(v as usize).is_some_and(|x| x >> henry_full::FULL_W != 0));
+            if full {
+                files.push((b, d.dir.join(format!("{}/{}.{c}.json", henry_full::FULL_DIR, BOOKS[b].osis)), c, c + 1, true));
+            }
+        }
+    }
+    let mut full_largest = 0u64;
+    {
+        for (b, path, first, next, full) in files {
+            if full {
+                full_largest = full_largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            } else {
+                largest = largest.max(fs::metadata(&path).map(|m| m.len()).unwrap_or(u64::MAX));
+            }
+            let doc = read_json(&path)?;
             let mut prev = (0u32, 0u64, 0u32);
             for item in doc["items"].as_array().into_iter().flatten() {
                 let w = item[0].as_u64().unwrap_or(9);
@@ -1313,7 +1354,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     item[2].as_u64().unwrap_or(0) as u32,
                 );
                 let (lf, lt) = (d.vz.locate(from), d.vz.locate(to));
-                let fits = w < 4
+                let work_ok = if full { w == u64::from(if b < 44 { henry_full::FULL_W } else { henry_full::FINISH_W }) } else { w < 4 };
+                let fits = work_ok
                     && from <= to
                     && to < n
                     && matches!((lf, lt), (Some((bf, cf, _)), Some((bt, ct, _)))
@@ -1349,7 +1391,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                     let words = plain(&v[1]);
                     let named = w == FATHERS_W as u64
                         || (w == u64::from(HENRY_W) && who.starts_with("Henry's notes on "))
-                        || (w == u64::from(calvin::CALVIN_W) && who.starts_with("Calvin's notes on Matthew ") && who.ends_with(", in his Harmony of the Gospels"));
+                        || (w == u64::from(calvin::CALVIN_W) && who.starts_with("Calvin's notes on Matthew ") && who.ends_with(", in his Harmony of the Gospels"))
+                        || full;
                     ok &= !words.trim().is_empty() && (named || who.is_empty()) && (w != FATHERS_W as u64 || !who.is_empty());
                     clean &= !words.contains("{{")
                         && !words.contains("}}")
@@ -1518,6 +1561,24 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 && note(calvin::CALVIN_W, "Acts 7:16", "", calvin::LEFT_OUT)?
                 && note(calvin::CALVIN_W, "Mark 15:1", "", "")?,
             format!("{gaps} notes with a passage left out, each marked where it was and saying why (Matthew 27:9, Acts 7:14 and 7:16 among them), and no line without a gap; the Harmony reaches Mark 15:1"),
+        ),
+        (
+            counts[4] > 3_500
+                && counts[5] > 400
+                && note(henry_full::FULL_W, "Genesis 1:1", "The Creation. (b. c. 4004.)", "In these verses we have the work of creation")?
+                && !note(henry_full::FULL_W, "Genesis 1:1", "", "PREFACE")?
+                && !note(henry_full::FULL_W, "Genesis 1:3", "", "And God said, Let there be light: and there was light. 4")?
+                && note(henry_full::FULL_W, "Job 28:14", "", "")?
+                && note(henry_full::FULL_W, "John 3:16", "", "")?
+                && note(henry_full::FINISH_W, "Romans 1:1", "", "")?
+                && note(henry_full::FULL_W, "1 Chronicles 9:35", "", calvin::LEFT_OUT)?
+                && !notes.iter().any(|(w, a, _, _, _)| *w == henry_full::FULL_W && d.vz.locate(*a).is_some_and(|l| l.0 >= 44))
+                && !notes.iter().any(|(w, a, _, _, _)| *w == henry_full::FINISH_W && d.vz.locate(*a).is_some_and(|l| l.0 < 44))
+                && full_largest < 250_000,
+            format!(
+                "{} of Matthew Henry's own sections (Genesis to Acts) and {} of the ministers who finished his commentary (Romans to Revelation), never under each other's names; the printed verses and prefaces are cut (Genesis 1:1 and 1:3), Job 28:14 and John 3:16 are covered, and the largest chapter file is {full_largest} bytes (under 250,000)",
+                counts[4], counts[5]
+            ),
         ),
     ])
 }

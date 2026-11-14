@@ -459,7 +459,7 @@
     {
       "id": "henry-complete",
       "title": "Matthew Henry's Exposition of the Old and New Testament (the complete commentary), from the CrossWire SWORD module (MHC), as kept in the Let's Church repository",
-      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death: shown at Deep under the verses each section covers, once a reader chooses to see writers' notes, Genesis to Acts under Henry's name and Romans to Revelation under the name of the minister who finished each book. The build also checks, word for word, the sentences quoted from Henry on the prophecy and fulfilment pairs.",
       "license": "Public domain (Matthew Henry, 1708 to 1710, and its continuation, which the SWORD module marks public domain); the repository is CC0 1.0",
       "attribution": "Matthew Henry, An Exposition of the Old and New Testament, and its continuation by other ministers, public domain, from the CrossWire Bible Society's SWORD module MHC (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "homepage": "https://github.com/LetsChurch/lets.church",
@@ -467,7 +467,8 @@
       "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
       "files": {
         "mhc": "packages/lets.bible/seed/commentaries/mhc.json"
-      }
+      },
+      "note": "Each note is one of Henry's sections, placed on the verses the section prints, with the section's title over it. The King James verses each section prints, the prefaces and introductions to volumes, books and chapters, and five title-only chapter entries are left out, with the passages config/voices/henry-complete.json lists."
     },
     {
       "id": "calvin-commentaries",

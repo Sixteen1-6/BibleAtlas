@@ -1,0 +1,493 @@
+{
+  "read_on": "2026-11-14",
+  "sources": [
+    {
+      "id": "williams-1829-london",
+      "title": "Memoirs of the Life, Character, and Writings, of the Rev. Matthew Henry",
+      "author": "John Bickerton Williams",
+      "year": "1829",
+      "publisher": "London: J. O. Robinson",
+      "url": "https://archive.org/details/memoirsoflifecha00will_0",
+      "page": "Appendix, Note N, 'An account of Mr. Henry's Exposition': lead-in on scan leaf n426, list and footnotes on scan leaf n427 (archive.org full-text search numbers these 429 and 430). Printed page number not legible in the OCR.",
+      "how_read": "Read through the archive.org OCR text layer (BookReaderGetTextWrapper and fulltext/inside.php) on 2026-11-14; the page images themselves were not viewed."
+    },
+    {
+      "id": "williams-1830-boston",
+      "title": "Memoirs of the Life, Character, and Writings of the Rev. Matthew Henry",
+      "author": "John Bickerton Williams",
+      "year": "1830",
+      "publisher": "Boston: Peirce & Williams",
+      "url": "https://archive.org/details/memoirsoflifecha00will_1",
+      "page": "Appendix note on the Exposition, scan leaf n348 (full-text search page 349). Books and names OCR as two separate columns.",
+      "how_read": "OCR text layer only, 2026-11-14."
+    },
+    {
+      "id": "henry-1828-philadelphia-vol6",
+      "title": "An Exposition of the Old and New Testament, by Matthew Henry. A new edition: edited by the Rev. George Burder, and the Rev. Joseph Hughes, A. M. Vol. VI.",
+      "author": "Matthew Henry; continuators as named in each book's heading; edited by George Burder and Joseph Hughes",
+      "year": "1828",
+      "publisher": "Philadelphia: Ed. Barrington & Geo. D. Haswell, Market Street",
+      "url": "https://archive.org/details/expositionofoldn06henr",
+      "page": "Title page scan leaf n6 (no date printed on it; 1828 is the archive.org catalogue date). Each epistle's heading reads 'AN EXPOSITION, WITH PRACTICAL OBSERVATIONS, OF ... Completed by ...'; leaf per book below.",
+      "how_read": "OCR text layer only, 2026-11-14. This is the Burder and Hughes edition, which Williams calls 'the 4to edition' or 'the quarto edition' when he corrects it."
+    }
+  ],
+  "williams_context": {
+    "lead_in_attribution": "Williams prints the list as a statement Dr. Isaac Watts wrote on a blank leaf at the beginning of the last volume of his own copy of the Exposition (OCR, leaf n426: \"Dr. Watts, in his copy of the Exposition, upon a blank leaf at the beginning of the last volume,\" ... \"wrote the following statement: — \\\"The Reverend Mr. Matthew Henry before his death had made some small\\\" ...). The statement ends \"By these assistances the ministers whose names are here written, have endeavoured to complete this work in the style and method of the author: viz.\" and the list follows on leaf n427.",
+    "williams_cites": "Footnote on the list: \"Protestant Dissenters' Magazine, vol. iv. p. 472.\" (where Watts's note was printed; not fetched).",
+    "footnotes_n427": [
+      "(marker on the Romans line) \"The Exposition on the Romans, begun by Henry, and finished by Dr. Evans, is the best I ever saw.\" Dr. Doddridge's Works, vol. 3, p. 474.",
+      "(marker on the James line) \"This should be Dr. S. Wright.\"",
+      "(marker on the 1 Peter line) \"The editors of the 4to edition, ut supra, assign the 1 Peter to Mr. Z. Marriot; on what evidence does not appear. Mr. Stedman also varies from Dr. Watts, without any explanatory remark, by attributing 1 Peter to Mr. Hill, and 2 Peter to 'Mr. Merril, of Hampstead.' Letters to a Young Clergyman, vol. i. p. 174.\" (OCR read; 'ut mpra', 'attributinsr', 'vol. j.' corrected)",
+      "(marker on the 1, 2, and 3 John line) \"In the quarto edition of the Exposition, ut supra, it is by mistake, 'Mr. T. Reynolds.' Dr. Watts has noticed this 'Comment on the Three Epistles,' in his Preface to Mr. Reynolds's Practical Discourse of Reconciliation between God and Man, p. 6. 8vo. 1729.\""
+    ]
+  },
+  "books": [
+    {
+      "book": "Romans",
+      "writer": "John Evans",
+      "source": "williams-1829-london",
+      "quote": "Romans Mr. [afterwards Dr.] John Evans",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Romans Mr. [afterwards Dr.] John Evans",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Dr. John Evans.",
+          "page": "scan leaf n292; https://archive.org/details/expositionofoldn06henr/page/n292/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. [afterwards] Dr. John Evans.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "1 Corinthians",
+      "writer": "Simon Browne",
+      "source": "williams-1829-london",
+      "quote": "1 Corinthians Mr. Simon Browne.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "1  Corinthians   Mr.  Simon  Browne.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed, by Mr. Simon Brown.",
+          "page": "scan leaf n403; https://archive.org/details/expositionofoldn06henr/page/n403/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr J?imon Browne. [OCR for 'Mr. Simon Browne.']",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "2 Corinthians",
+      "writer": "Daniel Mayo",
+      "source": "williams-1829-london",
+      "quote": "2 Corinthians Mr. Daniel Mayo.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "2  Corinthians   ]\\Ir  Daniel  ;>Iavo.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. D. Mayo.",
+          "page": "scan leaf n481; https://archive.org/details/expositionofoldn06henr/page/n481/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. David Mayo.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Galatians",
+      "writer": "Joshua Bayes",
+      "source": "williams-1829-london",
+      "quote": "Galatians Mr. Joshua Bayes.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Gaiatians Mr. Jo?hua Bayes.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed, by Mr. Bayes.",
+          "page": "scan leaf n513; https://archive.org/details/expositionofoldn06henr/page/n513/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Joshua I'ayes. [OCR for 'Bayes']",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Ephesians",
+      "writer": "Samuel Rosewell",
+      "source": "williams-1829-london",
+      "quote": "Ephesians Mr. Samuel Rosewell.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Ephesians   3Ir.  Samuel  Ro'sewell.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. Roswell.",
+          "page": "scan leaf n543; https://archive.org/details/expositionofoldn06henr/page/n543/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Samuel Rosewell.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Philippians",
+      "writer": "William Harris",
+      "source": "williams-1829-london",
+      "quote": "Mr. [afterwards Dr.] William Harris (one name braced against Philippians and Colossians)",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "SloSr.  :  :  ::::::::  '}^^'-  r^ft^rwards  Dr.]  AVimam  Harris",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Dr. JV. Harris. [OCR for 'Dr. W. Harris.']",
+          "page": "scan leaf n572; https://archive.org/details/expositionofoldn06henr/page/n572/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. [afterwards Dr.] William Harris.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Colossians",
+      "writer": "William Harris",
+      "source": "williams-1829-london",
+      "quote": "Mr. [afterwards Dr.] William Harris (one name braced against Philippians and Colossians)",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "SloSr.  :  :  ::::::::  '}^^'-  r^ft^rwards  Dr.]  AVimam  Harris",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Dr. JV. Harris. [OCR for 'Dr. W. Harris.']",
+          "page": "scan leaf n592; https://archive.org/details/expositionofoldn06henr/page/n592/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. [afterwards Dr.] William Harris.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "1 Thessalonians",
+      "writer": "Daniel Mayo",
+      "source": "williams-1830-boston",
+      "quote": "Mr. Daniel Mayo. (names column; books column reads in the same order, braced)",
+      "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up",
+      "ocr_raw_1829": "1  Thessalonians  1,,         -  ,  ■«»",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. D. Mayo.",
+          "page": "scan leaf n610; https://archive.org/details/expositionofoldn06henr/page/n610/mode/1up"
+        },
+        {
+          "source": "williams-1829-london",
+          "quote": "[name illegible in the OCR]",
+          "ocr_raw": "1  Thessalonians  1,,         -  ,  ■«»",
+          "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "2 Thessalonians",
+      "writer": "Daniel Mayo",
+      "source": "williams-1830-boston",
+      "quote": "Mr. Daniel Mayo. (names column; books column reads in the same order, braced)",
+      "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up",
+      "ocr_raw_1829": "2  Thessalonians  P^^-  ^^^^'^^  ^^^J  O-",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. D. Mayo.",
+          "page": "scan leaf n627; https://archive.org/details/expositionofoldn06henr/page/n627/mode/1up"
+        },
+        {
+          "source": "williams-1829-london",
+          "quote": "[name illegible in the OCR]",
+          "ocr_raw": "2  Thessalonians  P^^-  ^^^^'^^  ^^^J  O-",
+          "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "1 Timothy",
+      "writer": "Benjamin Andrews Atkinson",
+      "source": "williams-1830-boston",
+      "quote": "Mr. Benjamin Andrews Atkinson. (names column; books column reads in the same order, braced)",
+      "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up",
+      "ocr_raw_1829": "[1 Timothy line not legible in the OCR; braced with 2 Timothy]",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. Atkinson.",
+          "page": "scan leaf n638; https://archive.org/details/expositionofoldn06henr/page/n638/mode/1up"
+        },
+        {
+          "source": "williams-1829-london",
+          "quote": "[name illegible in the OCR]",
+          "ocr_raw": "[1 Timothy line not legible in the OCR; braced with 2 Timothy]",
+          "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "2 Timothy",
+      "writer": "Benjamin Andrews Atkinson",
+      "source": "williams-1829-london",
+      "quote": "2 Timothy Mr. Benjamin Andrews Atkinson.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "2  Timothy  '. }Mr.  Benjamin  Andrews  Atkinson.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. Atkinson.",
+          "page": "scan leaf n659; https://archive.org/details/expositionofoldn06henr/page/n659/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Benjamin Andrews Atkinson.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Titus",
+      "writer": "Jeremiah Smith",
+      "source": "williams-1830-boston",
+      "quote": "Mr. Jeremiah Smith. (names column; books column reads in the same order, braced)",
+      "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up",
+      "ocr_raw_1829": "[Titus line not legible in the OCR; braced with Philemon]",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. J. Smith",
+          "page": "scan leaf n675; https://archive.org/details/expositionofoldn06henr/page/n675/mode/1up"
+        },
+        {
+          "source": "williams-1829-london",
+          "quote": "[name illegible in the OCR]",
+          "ocr_raw": "[Titus line not legible in the OCR; braced with Philemon]",
+          "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Philemon",
+      "writer": "Jeremiah Smith",
+      "source": "williams-1829-london",
+      "quote": "Philemon ... Jeremiah Smith.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Philemon  y/.  \\  .l^^'\"-  Jeremiah  Smith.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. J. Smith.",
+          "page": "scan leaf n694; https://archive.org/details/expositionofoldn06henr/page/n694/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Jeremiah Smith.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Hebrews",
+      "writer": "William Tong",
+      "source": "williams-1829-london",
+      "quote": "Hebrews Mr. William Tong.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Hebrews Mr. William Tong.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. W. Tong.",
+          "page": "scan leaf n703; https://archive.org/details/expositionofoldn06henr/page/n703/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. William Tong.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "James",
+      "writer": "S. Wright (Dr.)",
+      "source": "williams-1829-london",
+      "quote": "James Mr William Wright.[footnote mark] [Williams's footnote: \"This should be Dr. S. Wright.\"]",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "James  Mr  William  Wrig^ht.t ... t  This  should  be  Dr.  S.  Wright.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed, by Dr. S. IVright. [OCR for 'Wright']",
+          "page": "scan leaf n764; https://archive.org/details/expositionofoldn06henr/page/n764/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. William Wright.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "1 Peter",
+      "writer": "Zech. Merrill (conflict: Z. Marriot in the 1828 edition)",
+      "source": "williams-1829-london",
+      "quote": "1 Peter Mr. Zech. Merrill.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "1  Peter  Mr.  Zech.  Merrill.^",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. Z. Marriot.",
+          "page": "scan leaf n791; https://archive.org/details/expositionofoldn06henr/page/n791/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Zech. Merrill.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "2 Peter",
+      "writer": "Joseph Hill",
+      "source": "williams-1829-london",
+      "quote": "2 Peter Mr. Joseph Hill.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "2  Peter   Mr.  Joseph  Hill.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. J. Hill.",
+          "page": "scan leaf n820; https://archive.org/details/expositionofoldn06henr/page/n820/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. Joseph Hill.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "1 John",
+      "writer": "John Reynolds, of Shrewsbury",
+      "source": "williams-1829-london",
+      "quote": "1, 2, and 3 John Mr. John Reynolds, of Shrewsbury.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "1,  2,  and  3  John  Mr.  John  Reynolds,  of  Shrewsbury.^",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. T. Reynolds",
+          "page": "scan leaf n838; https://archive.org/details/expositionofoldn06henr/page/n838/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. John Reynolds of Shrewsbury.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "2 John",
+      "writer": "John Reynolds, of Shrewsbury",
+      "source": "williams-1829-london",
+      "quote": "1, 2, and 3 John Mr. John Reynolds, of Shrewsbury.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "1,  2,  and  3  John  Mr.  John  Reynolds,  of  Shrewsbury.^",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. T. Reynolds.",
+          "page": "scan leaf n868; https://archive.org/details/expositionofoldn06henr/page/n868/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. John Reynolds of Shrewsbury.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "3 John",
+      "writer": "John Reynolds, of Shrewsbury",
+      "source": "williams-1829-london",
+      "quote": "1, 2, and 3 John Mr. John Reynolds, of Shrewsbury.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "1,  2,  and  3  John  Mr.  John  Reynolds,  of  Shrewsbury.^",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. T. Reynolds.",
+          "page": "scan leaf n872; https://archive.org/details/expositionofoldn06henr/page/n872/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. John Reynolds of Shrewsbury.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Jude",
+      "writer": "John Billingsley",
+      "source": "williams-1829-london",
+      "quote": "Jude Mr. John Billingsley.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Jade  .  Mr.  John  Bi'llin;.'.<ilev.",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by M L J. Billingsley. [OCR for 'Mr. J. Billingsley.']",
+          "page": "scan leaf n875; https://archive.org/details/expositionofoldn06henr/page/n875/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. John Billingsley.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    },
+    {
+      "book": "Revelation",
+      "writer": "William Tong",
+      "source": "williams-1829-london",
+      "quote": "Revelations Mr. William Tong.",
+      "page": "scan leaf n427; https://archive.org/details/memoirsoflifecha00will_0/page/n427/mode/1up",
+      "ocr_raw": "Revelations  Mr.  William  Ton?.'''!!",
+      "also": [
+        {
+          "source": "henry-1828-philadelphia-vol6",
+          "quote": "Completed by Mr. William, Tong.",
+          "page": "scan leaf n884; https://archive.org/details/expositionofoldn06henr/page/n884/mode/1up"
+        },
+        {
+          "source": "williams-1830-boston",
+          "quote": "Mr. William Tong.",
+          "page": "scan leaf n348; https://archive.org/details/memoirsoflifecha00will_1/page/n348/mode/1up"
+        }
+      ]
+    }
+  ],
+  "unconfirmed": [],
+  "notes": "All 22 rows (21 books, with 1, 2 and 3 John split) are named in at least two dated printed sources read on 2026-11-14. Nothing was filled from memory.; Quotes are readings of the archive.org OCR text layer, not of the page images, which could not be viewed from this session (archive.org is reachable only through the web-fetch tool). The 'quote' field normalises spacing and corrects obvious OCR misreadings (for example '3Ir.' to 'Mr.'); the exact OCR string is kept in 'ocr_raw'. Check the image at the given leaf before quoting to a reader.; Leaf numbers are archive.org's 0-based scan positions (the /page/nX URLs), derived from the OCR page index; the full-text search numbers the same pages one higher (Williams list: 430; Philadelphia Romans heading: 293). Printed page numbers were not legible in the OCR. Blue Letter Bible cites this list as Williams, Memoirs, 8vo, p. 308, which is probably another edition (the 1828 first edition was not found on archive.org).; In the 1829 London OCR the lines for Philippians/Colossians, 1 and 2 Thessalonians, 1 Timothy and Titus are garbled (the books are printed in braced pairs); for 1 and 2 Thessalonians, 1 Timothy and Titus the primary quote is therefore the 1830 Boston printing of the same list, whose names column reads cleanly in order: Evans, Browne, Mayo, Bayes, Rosewell, Harris, Daniel Mayo, Atkinson, Smith, Tong, Wright, Merrill, Hill, Reynolds of Shrewsbury, Billingsley, Tong.; CONFLICT 1 Peter: Watts's list in Williams (1829, 1830) has 'Mr. Zech. Merrill'; the Burder and Hughes edition (Philadelphia 1828) heading has 'Completed by Mr. Z. Marriot.' Williams says the quarto editors give Marriot 'on what evidence does not appear', and that Stedman gives 1 Peter to Hill and 2 Peter to 'Mr. Merril, of Hampstead'. Treat Merrill as Watts's attribution and say the sources differ.; CONFLICT 1-3 John: Watts's list has 'Mr. John Reynolds, of Shrewsbury'; the 1828 headings have 'Mr. T. Reynolds'. Williams calls 'T. Reynolds' a mistake and cites Watts's preface to Reynolds's Practical Discourse of Reconciliation (1729), which mentions Reynolds's 'Comment on the Three Epistles'.; CONFLICT James: Watts's list as Williams prints it reads 'Mr William Wright', with Williams's footnote 'This should be Dr. S. Wright.'; the 1830 Boston printing also reads 'Mr. William Wright.' without (per the OCR) the footnote; the 1828 heading reads 'Completed, by Dr. S. Wright.' None of these three sources prints the first name 'Samuel'; the writer field therefore says 'S. Wright'.; 2 Corinthians: the 1830 Boston OCR reads 'Mr. David Mayo.' for 2 Corinthians but 'Mr. Daniel Mayo.' for 1 and 2 Thessalonians; the 1829 London reads 'Daniel' (OCR ']\\Ir Daniel ;>Iavo.'), and 1828 has 'Mr. D. Mayo.'. Probably a Boston misprint or OCR slip; Daniel Mayo is the reading of the other two.; Spelling variants: 'Simon Browne' (Williams) / 'Simon Brown' (1828); 'Samuel Rosewell' (Williams) / 'Roswell' (1828); 'Revelations' (Williams list heading) / 'Revelation' (1828).; Only the first name or initial is printed for Merrill ('Zech.'); 'Zechariah' is not in these sources.; The 1828 Philadelphia title page (leaf n6) prints no date; 1828 is from the archive.org catalogue. The 1853 New York (Carter) vol. 6 (archive.org expositionofoldn0006henr) has the same style of heading ('Completed, by Mr. J. Billingsley.' for Jude, search page 876), so the headings carried into later American printings.; Not found: a scan of the 1721 first printing of vol. 6, and the Protestant Dissenters' Magazine vol. iv (1797) p. 472 that Williams cites. The CCEL online text prints the same list but credits it to Williams, so it is not an independent source."
+}
