@@ -11,8 +11,13 @@ import { STOP } from './words';
 
 /** A quote is `run` words in a row of one verse, `words` of them more than
  * the small words every verse has, said by no more than `most` verses (the
- * same saying in two or three Gospels). */
-export const QUOTE = { on: 1, route: 1, run: 6, words: 3, most: 3 };
+ * same saying in two or three Gospels). Read on 4,887 judged seen messages
+ * (round 16): where quotes of six words changed the first verses shown, 58 of
+ * 72 messages were answered rather than 49, with 89 off verses rather than
+ * 122; five words changed 25 more, 20 answered rather than 19, 27 off rather
+ * than 34. Without the router's part (`route`), 8 rather than 9 more were
+ * answered. */
+export const QUOTE = { on: 1, route: 1, run: 5, words: 3, most: 3 };
 
 /** Words too common in the Bible to tell one verse from another. */
 const SMALL = new Set([
