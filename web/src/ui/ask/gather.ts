@@ -21,11 +21,12 @@
 // matters stands out.
 
 import { type Atlas, locate } from '../../data/atlas';
-import { loadPlainText, plainText } from '../../data/plain';
+import { loadExtraText, loadPlainText, plainText } from '../../data/plain';
 import { tokens } from '../../data/search';
 import { type AskIndex, type Question, type Range, contentWords, loadAsk, questionData, sameWord, stem, topicData } from './ask';
 import { CITE, type Named, VERSE_AT, VERSE_TILL, namedBooks, skeleton, slips } from './books';
 import { loadMeaning, meaningOf, meanings } from './meaning';
+import { quotedVerses } from './quote';
 import { couldMean, loadSignals, routes } from './route';
 
 /** Plain English -> the words the BSB uses for it. Search mechanics only: each
@@ -707,7 +708,14 @@ function logistic(w: number[], x: number[]): number {
 }
 
 export async function gather(a: Atlas, question: string): Promise<Gathered> {
-  const [ix] = await Promise.all([loadAsk(a), loadPlainText(a).catch(() => null), loadSignals(a).catch(() => null), loadMeaning(a).catch(() => null)]);
+  const [ix] = await Promise.all([
+    loadAsk(a),
+    loadPlainText(a).catch(() => null),
+    // The KJV and ASV, which search has loaded already, to find a verse quoted in their words.
+    loadExtraText(a).catch(() => null),
+    loadSignals(a).catch(() => null),
+    loadMeaning(a).catch(() => null),
+  ]);
   // "God's voice" is God's, not "gods".
   let rest = question
     .toLowerCase()
@@ -980,6 +988,10 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   // chapters of a named book come last, as most were about something else.
   const cites: number[] = [];
   for (const b of named) if (b.verse) for (let v = b.from; v < b.to; v++) if (!texts || texts[v]) cites.push(v);
+  // A verse quoted from memory ("let not thy left hand know what thy right
+  // hand doeth") is cited too, when none is cited by chapter and verse.
+  const quoted = named.some((b) => b.verse) ? [] : quotedVerses(a, question);
+  for (const v of quoted) if (!texts || texts[v]) cites.push(v);
   // Then the verses on either side of it, the nearest first: read blind, the
   // verse just before or after a cited verse answered the asker far more often
   // than the rest of its chapter. Not among Solomon's proverbs (Proverbs 10 to
@@ -991,6 +1003,12 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const around: number[] = [];
   for (let d = 1; d <= AROUND.reach; d++)
     for (const b of named) if (b.verse && !sayings(b.from)) for (const v of [b.to - 1 + d, b.from - d]) if (within(v, chapters) && (!texts || texts[v])) around.push(v);
+  const chapterOf = (v: number) => {
+    const l = locate(a, v);
+    return `${l.book}:${l.chapter}`;
+  };
+  for (let d = 1; d <= AROUND.reach; d++)
+    for (const q of quoted) if (!sayings(q)) for (const v of [q + d, q - d]) if (v >= 0 && v < a.n && chapterOf(v) === chapterOf(q) && !quoted.includes(v) && (!texts || texts[v])) around.push(v);
   const place = (v: number) => (chapters.length ? (within(v, chapters) ? 0 : within(v, named) ? 2 : 1) : within(v, named) ? 0 : 1);
   // Otherwise FIT orders those SHOW ranks and the best found.
   const rows = [...new Set([...pool, ...found.slice(0, FIT.rows), ...deepP.keys()])];
@@ -1034,7 +1052,7 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   for (let k = 0; k < Math.max(linkedTo.length, around.length); k++) beside.push(...linkedTo.slice(k, k + 1), ...around.slice(k, k + 1));
   const first = named.length
     ? [...cites, ...beside, ...found.map((v, k) => ({ v, k })).sort((x, y) => place(x.v) - place(y.v) || x.k - y.k).map((x) => x.v)]
-    : rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v);
+    : [...cites, ...beside, ...rows.map((v, k) => ({ v, k })).sort((x, y) => fit[y.k] - fit[x.k] || x.k - y.k).map((x) => x.v)];
   const put = new Set(first);
   const verses = [...new Set(first), ...found.filter((v) => !put.has(v))].slice(0, MAX);
   if (TRACE.on) {
