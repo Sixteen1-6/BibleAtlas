@@ -1,0 +1,13 @@
+{
+  "_comment": [
+    "Who wrote the words of the two works added to the cite list on 2026-11-14 for the patterns at Deep (details that fit, key words, repeated scenes). Each record gives the words that name the writer, as printed, and where they were read; both were read on 2026-11-14.",
+    "Both texts were read in the CC0 transcriptions at github.com/nick-lang/undesigned-coincidences-paley-blunt, commit c529753b0add8ab4368dbe6b48697f815f91deb1, which its README says were verified word by word against the scans named here (copies of both scans are in that repository's sources/scans)."
+  ],
+  "kind": "attribution",
+  "from": "2026-11-14",
+  "to": "2026-11-14",
+  "records": [
+    {"id": "blunt-coincidences", "source": "blunt", "work": "blunt-coincidences", "books": "all", "writers": ["j-j-blunt"], "named_by": {"scan": "undesignedcoinci00blunuoft", "leaf": "title page (scan page 7)", "words": "BY REV. J. J. BLUNT, B.D., LATE LADY MARGARET PROFESSOR OF DIVINITY IN THE UNIVERSITY OF CAMBRIDGE. EIGHTH EDITION. LONDON: JOHN MURRAY, ALBEMARLE STREET, 1863."}, "level": "title page", "note": "The OCR of the title page is partly garbled ('LATE :.IAI;GA:IEX vr.ov:;s&oii OF DIYIMUT'); the words were read from the page image in the repository's copy of the scan, sources/scans/blunt-undesigned-coincidences-1863-murray.pdf."},
+    {"id": "paley-horae-paulinae", "source": "paley", "work": "paley-horae-paulinae", "books": "all", "writers": ["william-paley"], "named_by": {"scan": "horaepaulinae00pale", "leaf": "title page", "words": "HORÆ PAULINÆ; OR, THE TRUTH OF THE SCRIPTURE HISTORY OF ST. PAUL EVINCED. BY WILLIAM PALEY, D.D. ARCHDEACON OF CARLISLE. NEW YORK: ROBERT CARTER & BROTHERS ... 1849."}, "level": "title page", "note": "Read in texts/paley-horae-paulinae.txt, lines 3 to 25, of the transcription."}
+  ]
+}
