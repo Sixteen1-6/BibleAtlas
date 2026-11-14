@@ -243,6 +243,9 @@ pub(super) fn jfb(root: &Path, inputs: &crate::sources::Inputs, vz: &Versificati
     let cfg = config(root)?;
     writers_of(&cfg)?;
     let (conf, entries) = sword::read(inputs, JFB, vz)?;
+    if let Some(e) = entries.iter().find(|e| e.bad > 0) {
+        return Err(format!("{JFB}: {:?} holds {} bytes that are not UTF-8", e.slot, e.bad));
+    }
     if conf.license != "Public Domain" || conf.source_type != "OSIS" || conf.version != "3.0" || conf.date != "2021-02-15" {
         return Err(format!(
             "{JFB}: the conf says {} {} {} {}; expected Public Domain, OSIS, version 3.0 of 2021-02-15",

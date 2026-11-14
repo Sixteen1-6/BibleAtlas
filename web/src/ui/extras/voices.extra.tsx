@@ -23,7 +23,7 @@ import { loadJson } from './data';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
-import { type Data, SOURCE, fullOf, load, partOf, worksOn, writersLine } from './voices/model';
+import { type Data, SOURCE, barnesOf, fullOf, kdOf, load, partOf, worksOn, writersLine } from './voices/model';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
@@ -34,7 +34,7 @@ let panel: Promise<PanelType> | null = null;
  * the panel opens without a wait. Both are kept, so this costs nothing twice. */
 function warm(d: Data, verse: number): void {
   if (!accepted.value) return;
-  for (const file of [partOf(d, verse), fullOf(d, verse)]) if (file) loadJson(d.a, file).catch(() => {});
+  for (const file of [partOf(d, verse), fullOf(d, verse), kdOf(d, verse), barnesOf(d, verse)]) if (file) loadJson(d.a, file).catch(() => {});
   loadPanel().catch(() => {});
 }
 
