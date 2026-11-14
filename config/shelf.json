@@ -699,6 +699,36 @@
       "layer": ["boys-tactica", "boys-key-psalms"]
     },
     {
+      "id": "blunt",
+      "group": "writers",
+      "plain": "Details in one book explained by another, 1847",
+      "title": "Undesigned Coincidences in the Writings both of the Old and New Testament",
+      "by": "J. J. Blunt, Anglican clergyman and Cambridge professor of divinity",
+      "when": "1847",
+      "what": "Small details in one book of the Bible that another book, written apart from it, quietly explains, gathered as evidence that both tell what truly happened: the books of Moses, the histories, the prophets, and the Gospels and Acts.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1847; the text read is the eighth edition (London: John Murray, 1863). Blunt died in 1855. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/undesignedcoinci00blunuoft", "label": "archive.org, 1863"},
+      "citation": "J. J. Blunt, Undesigned Coincidences in the Writings both of the Old and New Testament, an Argument of their Veracity, 8th ed. (London: John Murray, 1863).",
+      "layer": ["blunt-coincidences"]
+    },
+    {
+      "id": "paley",
+      "group": "writers",
+      "plain": "Paul's letters checked against Acts, 1790",
+      "title": "Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced",
+      "by": "William Paley, Anglican clergyman and Archdeacon of Carlisle",
+      "when": "1790",
+      "what": "Paul's letters set beside the Acts of the Apostles, point by point, to show how the two agree in small things neither seems to have copied from the other.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1790; the text read is the New York printing of 1849 (Robert Carter and Brothers). Paley died in 1805. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/horaepaulinae00pale", "label": "archive.org, 1849"},
+      "citation": "William Paley, Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced (New York: Robert Carter and Brothers, 1849; first printed 1790).",
+      "layer": ["paley-horae-paulinae"]
+    },
+    {
       "id": "forbes",
       "group": "writers",
       "plain": "Parallel lines in Scripture, 1854 and 1868",
