@@ -95,7 +95,7 @@ struct Config {
 #[serde(deny_unknown_fields)]
 pub(super) struct Exclusion {
     id: String,
-    /// "sentence" or "paragraph".
+    /// "sentence", "words" (only the words given) or "paragraph".
     scope: String,
     /// The verse of the note, as "Matthew 27:9".
     on: String,
@@ -461,6 +461,12 @@ pub(super) fn exclude(config: &str, writer: &str, list: &[Exclusion], vz: &Versi
                     v
                 };
                 let start = ends(0, at_word).into_iter().max().map_or(0, |k| k + 1);
+                // A note that opens with the words it explains and a dash
+                // ("12-15. there came a writing ... prophet--") keeps them;
+                // the verse numbers before them are not a sentence.
+                let num = p.find(char::is_alphabetic).unwrap_or(0);
+                let lemma = p.find("--").filter(|&k| k + 2 <= at_word && ends(num, k).is_empty()).map_or(0, |k| k + 2);
+                let start = start.max(lemma);
                 let after = at_word + x.words.len();
                 let end = ends(after, p.len()).into_iter().min().unwrap_or(p.len());
                 let mut q = String::new();
@@ -478,7 +484,13 @@ pub(super) fn exclude(config: &str, writer: &str, list: &[Exclusion], vz: &Versi
                 }
                 ps[i] = q.trim().to_string();
             }
-            _ => return Err(format!("{at}: scope must be sentence or paragraph")),
+            // Only the words themselves, where the sentence round them stands without them.
+            "words" => {
+                let p = &ps[i];
+                let k = p.find(&x.words).expect("found");
+                ps[i] = format!("{} {LEFT_OUT}{}", p[..k].trim_end(), &p[k + x.words.len()..]).trim().to_string();
+            }
+            _ => return Err(format!("{at}: scope must be sentence, words or paragraph")),
         }
         left_out += 1;
         let l = lines.entry(key).or_default();

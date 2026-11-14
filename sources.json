@@ -471,6 +471,27 @@
       "note": "Each note is one of Henry's sections, placed on the verses the section prints, with the section's title over it. The King James verses each section prints, the prefaces and introductions to volumes, books and chapters, and five title-only chapter entries are left out, with the passages config/voices/henry-complete.json lists."
     },
     {
+      "id": "jfb-commentary",
+      "title": "Jamieson, Fausset and Brown, A Commentary, Critical and Explanatory, on the Whole Bible (1871), from the CrossWire SWORD module JFB 3.0, mirrored unchanged on its own branch of this repository",
+      "provides": "The three ministers' notes on the whole Bible: shown at Deep under the verses each note is on, once a reader chooses to see writers' notes, each under the name of the one of the three who wrote that book.",
+      "license": "Public domain (1871). The SWORD module's conf says 'DistributionLicense=Public Domain'; its text source is the Christian Classics Ethereal Library's jfb.txt",
+      "attribution": "Robert Jamieson, A. R. Fausset and David Brown, A Commentary, Critical and Explanatory, on the Whole Bible (1871), public domain; in the electronic edition kept by the Christian Classics Ethereal Library (jfb.txt), from the CrossWire Bible Society's SWORD module JFB, version 3.0 (15 February 2021), copied unchanged from crosswire.org to the branch mirror/sword-JFB of github.com/Sixteen1-6/BibleAtlas on 2026-11-14.",
+      "homepage": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=JFB",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "5277a65d85923a34e6dd8b8702cfb5ae8aea2497",
+      "files": {
+        "conf": "mods.d/jfb.conf",
+        "ot-bzs": "modules/comments/zcom/jfb/ot.bzs",
+        "ot-bzv": "modules/comments/zcom/jfb/ot.bzv",
+        "ot-bzz": "modules/comments/zcom/jfb/ot.bzz",
+        "nt-bzs": "modules/comments/zcom/jfb/nt.bzs",
+        "nt-bzv": "modules/comments/zcom/jfb/nt.bzv",
+        "nt-bzz": "modules/comments/zcom/jfb/nt.bzz",
+        "source": "SOURCE.md"
+      },
+      "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-JFB (SOURCE.md there lists the hashes). Each note is placed on the verse the module gives it, or on the verses it links it to; the general, book and chapter introductions are left out, with the passages config/voices/jfb.json lists."
+    },
+    {
       "id": "calvin-commentaries",
       "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (CalvinCommentaries), as kept in the Let's Church repository",
       "provides": "Calvin's own notes on 21 books of the New Testament, shown at Deep under the verse each note is on, once a reader chooses to see writers' notes (not 1 and 2 Timothy or Titus, which this copy keeps only in part). The build also checks, word for word, the sentences quoted from him on the prophecy and fulfilment pairs.",
