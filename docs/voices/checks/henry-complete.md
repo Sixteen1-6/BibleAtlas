@@ -13,9 +13,9 @@ Most hits are about people: sinners' errors, corrupt hearts, false teachers, the
 
 Each passage left out is the smallest that makes the claim: one sentence where the paragraph stands without it. Each is in force at once with the line "A passage is left out here until a decision on it is made." (rule 5), for Shubhanshu to make final.
 
-## Left out (5 passages in 3 notes)
+## Left out (6 sentences in 3 notes)
 
-- 1 Chronicles 9:35 (three sentences, shown as one mark): Henry says that, if copyists' errors are allowed in the originals, he would think 9:35-44, which repeats 8:29-38 and which the BSB prints, came in by a copyist's slip; the paragraph's first sentence, that the verses repeat 8:29-38, stays.
+- 1 Chronicles 9:35 (four sentences, shown as one mark): Henry says that, if copyists' errors are allowed in the originals, he would think 9:35-44, which repeats 8:29-38 and which the BSB prints, came in by a copyist's slip; the paragraph's first sentence, that the verses repeat 8:29-38, stays.
 - 2 Chronicles 16:1 (sentence): following Josephus, Henry says the thirty-sixth year (16:1) and the thirty-fifth (15:19), which the BSB prints, are a transcriber's mistake for the twenty-sixth and twenty-fifth.
 - Nehemiah 7:5 (sentence): Henry puts the differences between the numbers in Nehemiah 7 and Ezra 2, both printed by the BSB, down first to copyists' mistakes; the next sentence, which harmonises the two lists another way, stays. Unsure, since copyists' error is one of the reasons he offers.
 
