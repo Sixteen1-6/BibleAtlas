@@ -506,6 +506,24 @@
       "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-JFB (SOURCE.md there lists the hashes). Each note is placed on the verse the module gives it, or on the verses it links it to; the general, book and chapter introductions are left out, with the passages config/voices/jfb.json lists."
     },
     {
+      "id": "kd-commentary",
+      "title": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament (English, Edinburgh: T. and T. Clark, 1864–78), from the CrossWire SWORD module KD 2.0, whose text came from Wikisource, mirrored unchanged on this repository's branch mirror/sword-KD",
+      "provides": "The two scholars' notes on the Old Testament: shown at Deep under the verses each note is on, once a reader chooses to see writers' notes, each under the name of the one of the two who wrote that book.",
+      "license": "Public domain (the 1864–78 English translation). The module's text came from Wikisource, 'Biblical commentary on the Old Testament', where on 3 August 2022, when CrossWire made version 2.0, it was shared under the Creative Commons Attribution-ShareAlike 3.0 Unported license (https://creativecommons.org/licenses/by-sa/3.0/); Wikisource says the source document of this text is not known. The mirrored module is shared under CC BY-SA 3.0 as it was. The files this app builds from it are an adaptation, shared under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) as CC BY-SA 3.0 section 4(b) allows.",
+      "attribution": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, English translation (Edinburgh: T. and T. Clark, 1864–78), public domain. Text by Wikisource contributors, 'Biblical commentary on the Old Testament', https://en.wikisource.org/wiki/Biblical_commentary_the_Old_Testament, CC BY-SA 3.0; earlier, according to CrossWire, Willem Swanepoel's BibleWorks 8 user-created module; by way of the CrossWire Bible Society's SWORD module KD, version 2.0 (3 August 2022); copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-KD, on 2026-11-14; modified as described in NOTICE.md.",
+      "homepage": "https://www.crosswire.org/sword/modules/ModInfo.jsp?modName=KD",
+      "repo": "https://github.com/Sixteen1-6/BibleAtlas",
+      "commit": "d3bd6d4eca7210a4c4014f0efecc453c18adf4ce",
+      "files": {
+        "conf": "mods.d/kd.conf",
+        "ot-bzs": "modules/comments/zcom4/kd/ot.bzs",
+        "ot-bzv": "modules/comments/zcom4/kd/ot.bzv",
+        "ot-bzz": "modules/comments/zcom4/kd/ot.bzz",
+        "source": "SOURCE.md"
+      },
+      "note": "crosswire.org is not reachable from where the data is built, so .github/workflows/mirror-sword-modules.yml copies the module's files unchanged, checks each against the bytes and SHA-256 in its table, and commits them to the branch mirror/sword-KD (SOURCE.md there lists the hashes and the license notice). The module's New Testament files are empty and not listed. Each note is placed on the verses the module links it to; the introductions to books and groups of books, and Ecclesiastes, are left out, with the passages config/voices/keil-delitzsch.json lists."
+    },
+    {
       "id": "calvin-commentaries",
       "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (CalvinCommentaries), as kept in the Let's Church repository",
       "provides": "Calvin's own notes on 21 books of the New Testament, shown at Deep under the verse each note is on, once a reader chooses to see writers' notes (not 1 and 2 Timothy or Titus, which this copy keeps only in part). The build also checks, word for word, the sentences quoted from him on the prophecy and fulfilment pairs.",

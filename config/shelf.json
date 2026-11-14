@@ -320,11 +320,18 @@
       "title": "Biblical Commentary on the Old Testament",
       "by": "Carl Friedrich Keil and Franz Delitzsch",
       "when": "1800s",
-      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word, put into English in Edinburgh. The app links to it on Bible Hub.",
+      "what": "A close, verse by verse commentary on the whole Old Testament by two conservative German Lutheran scholars who held it to be God's word. Delitzsch wrote Job, Psalms, Proverbs, the Song and Isaiah, Keil the rest. At Deep.",
       "license": "public-domain",
-      "datasets": [],
+      "licenseNote": "The 1864–78 English translation is public domain. This copy is CrossWire's KD module (version 2.0 of 3 August 2022), whose text came from Wikisource (CC BY-SA 3.0; its source document is not known), copied unchanged to a branch of this app's repository (mirror/sword-KD, commit d3bd6d4) on 14 November 2026; the files built from it are shared under CC BY-SA 4.0, crediting Wikisource contributors. Left out: introductions, Ecclesiastes (Delitzsch holds that Solomon did not write it), and passages that deny what the text says of its writer, each marked where it was.",
+      "datasets": [
+        "kd-commentary"
+      ],
+      "find": {
+        "url": "https://github.com/Sixteen1-6/BibleAtlas/blob/d3bd6d4eca7210a4c4014f0efecc453c18adf4ce/SOURCE.md",
+        "label": "the copied module (GitHub)"
+      },
       "read": {"url": "https://biblehub.com/commentaries/kad/genesis/1.htm", "label": "Bible Hub, chapter by chapter"},
-      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century).",
+      "citation": "C. F. Keil and F. Delitzsch, Biblical Commentary on the Old Testament, translated from the German (Edinburgh: T. & T. Clark, 19th century), read on Bible Hub (biblehub.com/commentaries/kad); the notes shown at Deep are Wikisource contributors' text of the English translation (CC BY-SA 3.0), from the CrossWire Bible Society's SWORD module KD, version 2.0, copied unchanged to github.com/Sixteen1-6/BibleAtlas, branch mirror/sword-KD.",
       "cites": ["C. F. Keil and F. Delitzsch"],
       "layer": ["keil-delitzsch"]
     },
@@ -688,6 +695,36 @@
       "read": {"url": "https://archive.org/details/10353478bsb", "label": "archive.org, Tactica Sacra, 1824"},
       "citation": "Thomas Boys, Tactica Sacra (London: T. Hamilton, 1824); A Key to the Book of Psalms (London: L. B. Seeley and Son, 1825).",
       "layer": ["boys-tactica", "boys-key-psalms"]
+    },
+    {
+      "id": "blunt",
+      "group": "writers",
+      "plain": "Details in one book explained by another, 1847",
+      "title": "Undesigned Coincidences in the Writings both of the Old and New Testament",
+      "by": "J. J. Blunt, Anglican clergyman and Cambridge professor of divinity",
+      "when": "1847",
+      "what": "Small details in one book of the Bible that another book, written apart from it, quietly explains, gathered as evidence that both tell what truly happened: the books of Moses, the histories, the prophets, and the Gospels and Acts.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1847; the text read is the eighth edition (London: John Murray, 1863). Blunt died in 1855. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/undesignedcoinci00blunuoft", "label": "archive.org, 1863"},
+      "citation": "J. J. Blunt, Undesigned Coincidences in the Writings both of the Old and New Testament, an Argument of their Veracity, 8th ed. (London: John Murray, 1863).",
+      "layer": ["blunt-coincidences"]
+    },
+    {
+      "id": "paley",
+      "group": "writers",
+      "plain": "Paul's letters checked against Acts, 1790",
+      "title": "Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced",
+      "by": "William Paley, Anglican clergyman and Archdeacon of Carlisle",
+      "when": "1790",
+      "what": "Paul's letters set beside the Acts of the Apostles, point by point, to show how the two agree in small things neither seems to have copied from the other.",
+      "license": "public-domain",
+      "licenseNote": "First printed in 1790; the text read is the New York printing of 1849 (Robert Carter and Brothers). Paley died in 1805. The transcription read is released CC0.",
+      "datasets": [],
+      "read": {"url": "https://archive.org/details/horaepaulinae00pale", "label": "archive.org, 1849"},
+      "citation": "William Paley, Horae Paulinae, or the Truth of the Scripture History of St. Paul Evinced (New York: Robert Carter and Brothers, 1849; first printed 1790).",
+      "layer": ["paley-horae-paulinae"]
     },
     {
       "id": "forbes",
