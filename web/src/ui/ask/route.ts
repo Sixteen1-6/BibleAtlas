@@ -145,9 +145,11 @@ export function couldMean(ix: AskIndex, text: string, q: Question): boolean {
   return (likelihood(ix, text, q) ?? 1) >= UNMEANT;
 }
 
-/** Round 15 switch, off: a question that names a chapter ("esther 9")
- * opens only an answer that holds a verse of it (`chapter`). */
-export const NAMED = { chapter: 0 };
+/** A question that names a chapter ("esther 9 is confusing me") opens only an
+ * answer that holds a verse of it; otherwise gathering shows the chapter. Read
+ * blind on the 31 seen messages where that changed what opened, 19 rather than
+ * 16 were answered, with 47 off verses rather than 73. */
+export const NAMED = { chapter: 1 };
 
 /** Does `q`'s chain hold one of these verses? */
 function holds(q: Question, vs: number[]): boolean {

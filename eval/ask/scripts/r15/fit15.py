@@ -3,13 +3,14 @@ messages traced by trace15.cjs (dir/tr-*.json, dir/verses.bin, dir/cache15.json)
 over messages, each message's verses ordered by its fold's weights and the first 6 scored by the cache.
 mode: "now" (the order the trace shows), "30" (FIT's 30 inputs refitted), "31" (with the chains of more
 prepared questions, DEEP), and either with "+v" (the word-meaning model's direction for the verse, 16 times
-its 256 values, weighed with l2e). JUDGED=1 orders only judged verses. Writes each message's first 6."""
+its 256 values, weighed with l2e). JUDGED=1 orders only judged verses; CACHE names another cache, LAM the weight of off. Writes each message's first 6."""
 import json, sys, os, glob, base64, collections, numpy as np
 D, mode = sys.argv[1], sys.argv[2]
 l2e = float(sys.argv[3]) if len(sys.argv) > 3 else 10.0
 outp = sys.argv[4] if len(sys.argv) > 4 else None
 JUDGED = os.environ.get('JUDGED') == '1'
-cache = json.load(open(f'{D}/cache15.json'))
+cache = json.load(open(os.environ.get('CACHE') or f'{D}/cache15.json'))
+LAM = float(os.environ.get('LAM', '0.5'))
 V = np.fromfile(f'{D}/verses.bin', dtype=np.float32).reshape(31102, -1).astype(np.float64) * 16
 lab = lambda q, ref: cache.get(q.strip().lower() + '\t' + ref)
 msgs = []
@@ -46,7 +47,7 @@ def fitw(ms):
 def top6(m, w):
     rs = m['rows']
     if w is None: return sorted([r for r in rs if r['pos'] >= 0], key=lambda r: r['pos'])[:6]
-    X = X_of(m); u = 1/(1+np.exp(-X@w[0])) - 0.5/(1+np.exp(-X@w[1]))
+    X = X_of(m); u = 1/(1+np.exp(-X@w[0])) - LAM/(1+np.exp(-X@w[1]))
     return [rs[j] for j in np.argsort(-u, kind='stable')[:6]]
 def tally(pairs):
     c = collections.Counter()
@@ -64,5 +65,5 @@ else:
     for f in range(5):
         w = fitw([m for j, m in enumerate(msgs) if j % 5 != f])
         pairs += [(m, top6(m, w)) for j, m in enumerate(msgs) if j % 5 == f]
-print(D.rstrip('/').split('/')[-1], mode, l2e, 'judged-only' if JUDGED else 'all rows', fmt(tally(pairs)), flush=True)
+print(D.rstrip('/').split('/')[-1], mode, l2e, 'lam', LAM, 'judged-only' if JUDGED else 'all rows', fmt(tally(pairs)), flush=True)
 if outp: json.dump([{'q': m['q'], 'how': 'live', 'shown': [{'ref': r['ref'], 'v': r['v']} for r in top]} for m, top in pairs], open(outp, 'w'))
