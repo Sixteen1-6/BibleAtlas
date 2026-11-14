@@ -162,6 +162,10 @@ button.x-grammar-word:focus-visible {
 .x-grammar-says a {
   color: var(--link);
 }
+.x-grammar-page {
+  font: 12px var(--font-ui);
+  white-space: nowrap;
+}
 .x-grammar-shelf {
   padding: 0;
   border: 0;

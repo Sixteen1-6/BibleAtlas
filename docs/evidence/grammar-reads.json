@@ -1,7 +1,230 @@
 {
   "_comment": [
     "The Word choice notes' quotations (crates/atlas-cli/src/extra_grammar.rs reads this file; it has no kind, so the Layers build passes over it).",
-    "Where each quotation in config/grammar.json was read. work and page are the term's own; quote is the words as config/grammar.json gives them; found_in is the page's address; context is the scan's text around the quotation, as it was copied that day; read is the date."
+    "Where each quotation in config/grammar.json was read. work and page are the term's own; quote is the words as config/grammar.json gives them; found_in is the address of the scan's text for that page; page_address opens the page itself; context is the scan's text around the quotation, as it was copied that day; read is the date; note says anything the reader should know, above all where the scan's text differs from what is given.",
+    "robertson-short: A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; \"Copyright, 1908, by A. T. Robertson\"), the archive.org scan shortgrammarofgr00robeuoft, which archive.org dates [1912] and marks NOT_IN_COPYRIGHT. The printed page is the scan's leaf number less 40, by the scan's own page-number file.",
+    "How these were read on 2026-11-14: from the scan's text layer (its OCR), one page at a time, in two separate readings on the same day, the second copying each sentence and the two sentences either side of it word by word. Both readings agree on every quotation. No page image was seen, so each quotation is the scan's text, not a proof-read of the print: where that text is plainly a misreading (\"asa\" for \"as a\", \"haye\" for \"have\", a word broken at a line end), the note says so and gives what the context was changed to."
   ],
-  "checked": []
+  "checked": [
+    {
+      "work": "robertson-short",
+      "page": "140",
+      "quote": "the present tense expresses incompleted action",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=179",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/140/mode/1up",
+      "context": "The present is the normal tense for incompletion in all the modes. The stem of the imperfect is the same as that of the present. (a) The present. So, then, the present tense expresses incompleted action, which action in any given case may be momentary, prolonged, simultaneous, descriptive, repeated, customary, attempted, interrupted, or begun, according to the nature of the case or the meaning of the verb itself. In vivid narration past or future incompleted action can be conceived of and stated in the present indicative. This is not a peculiarity of language at all.",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence opens \"So, then,\" and goes on after \"action,\". The context runs from the foot of page 139 over the heading \"(a) The present.\" The scan's text has \"attempted. interrupted,\" where the list otherwise uses commas; a comma is given here."
+    },
+    {
+      "work": "robertson-short",
+      "page": "141",
+      "quote": "Too much has been read into the Greek tenses and not enough allowance is always made for the meaning of the verb itself.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=180",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/141/mode/1up",
+      "context": "(b) The imperfect. The imperfect likewise expresses incompleted action which in any given case may be either momentary, simultaneous, prolonged, descriptive, repeated, customary, interrupted, attempted, or begun, according to the context or the meaning of the verb. Too much has been read into the Greek tenses and not enough allowance is always made for the meaning of the verb itself. To wink the eye, for instance, is obviously different as to length of duration from eating one’s dinner and living a life. With due regard to this point and the context the Greek imperfect will be found always true to its root idea.",
+      "read": "2026-11-14",
+      "note": "The second sentence of the section \"(b) The imperfect.\""
+    },
+    {
+      "work": "robertson-short",
+      "page": "141",
+      "quote": "The imperfect is the descriptive tense of narrative and varies the simple monotony of the aorist.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=180",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/141/mode/1up",
+      "context": "With due regard to this point and the context the Greek imperfect will be found always true to its root idea. The participle with e«iué is very common in the New Testament, especially in Luke. The imperfect is the descriptive tense of narrative and varies the simple monotony of the aorist. It puts life into the story like the present. Some imperfects that are very common like éAeyey perhaps do not differ in stem from an old second aorist (cf. &AaBev).",
+      "read": "2026-11-14",
+      "note": "Greek letters in the sentences around it are garbled in the scan's text and are kept as read."
+    },
+    {
+      "work": "robertson-short",
+      "page": "137",
+      "quote": "If the action is not to be described as completed or incompleted, put it in the aorist.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=176",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/137/mode/1up",
+      "context": "The Greek is an ‘‘aorist loving language’’ (Broadus). A statement. in the indicative would naturally be in the aorist unless there is reason to put it in some other tense, and so of the other modes. If the action is not to be described as completed or incompleted, put it in the aorist. General statements or illustrations are often put in the aorist and you are left to draw the inference. This is really * a representative aorist..",
+      "read": "2026-11-14",
+      "note": "The scan's text has stray marks in the sentences around it (a full stop after \"A statement\", an asterisk, a doubled full stop); they are kept as read."
+    },
+    {
+      "work": "robertson-short",
+      "page": "138",
+      "quote": "the aorist represents the action as a point",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=177",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/138/mode/1up",
+      "context": "See the exact force of the Greek aorist in every instance. That force is well represented by Moulton (Prolegomena, p. 109) as punctiliar or point action. The thing to bear in mind is that the aorist represents the action as a point. In itself it may have continued a long time. It is precisely the idea of the aorist (undefined action) that it does not distinguish between complete or incomplete action. It may be used of either.",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence opens \"The thing to bear in mind is that\". The scan's text runs two words together as \"asa point\" and has \"haye\" for \"have\" in the next sentence; the context gives \"as a point\" and \"have\". No page image was seen."
+    },
+    {
+      "work": "robertson-short",
+      "page": "138",
+      "quote": "In itself it may have continued a long time.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=177",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/138/mode/1up",
+      "context": "See the exact force of the Greek aorist in every instance. That force is well represented by Moulton (Prolegomena, p. 109) as punctiliar or point action. The thing to bear in mind is that the aorist represents the action as a point. In itself it may have continued a long time. It is precisely the idea of the aorist (undefined action) that it does not distinguish between complete or incomplete action. It may be used of either.",
+      "read": "2026-11-14",
+      "note": "The sentence after \"the aorist represents the action as a point\". The scan's text has \"haye\" for \"have\" and \"asa\" for \"as a\"; the context gives \"have\" and \"as a\". No page image was seen."
+    },
+    {
+      "work": "robertson-short",
+      "page": "143",
+      "quote": "It always conveys the same sense, completed action.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=182",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+      "context": "The xowy corresponds to this situation. But the perfect infinitive and participle are quite common. It always conveys the same sense, completed action. Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context. The action may have been completed a moment ago or a thousand years ago.",
+      "read": "2026-11-14",
+      "note": "\"It\" is the perfect tense, in section \"7. Completed action\". The running head of this page reads 145 in the scan's text; it is page 143 by the scan's page-number file and by the pages on either side (142 and 144)."
+    },
+    {
+      "work": "robertson-short",
+      "page": "143",
+      "quote": "The action may be represented as just finished or as standing finished.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=182",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+      "context": "Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context. The action may have been completed a moment ago or a thousand years ago. The action may be represented as just finished or as standing finished. The tense yields itself naturally to these different applications. The resultant idea may be state or condition.",
+      "read": "2026-11-14",
+      "note": "Same page as the sentence before; page 143 by the scan's page-number file and by the pages on either side."
+    },
+    {
+      "work": "robertson-short",
+      "page": "143",
+      "quote": "Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=182",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+      "context": "Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context. The action may have been completed a moment ago or a thousand years ago. The action may be represented as just finished or as standing finished. The tense yields itself naturally to these different applications. The resultant idea may be state or condition.",
+      "read": "2026-11-14",
+      "note": "The sentence after \"It always conveys the same sense, completed action.\"; page 143 by the scan's page-number file and by the pages on either side."
+    },
+    {
+      "work": "robertson-short",
+      "page": "146",
+      "quote": "When therefore the past perfect is used, the completion in past time is distinctly emphasized.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=185",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/146/mode/1up",
+      "context": "In the indicative, future time was almost wholly indicated by one tense, present time by two tenses, past time by three though the aorist and the imperfect held the field against the past perfect. The aorist was used of past time in the indicative, as a matter of course, unless there was a special desire to lay stress on the incompletion or the completion of the action. When therefore the past perfect is used, the completion in past time is distinctly emphasized. But as a rule the Greeks did not care to work out the relation of time so carefully. The simple aorist told the story consecutively and one could see the rest for himself.",
+      "read": "2026-11-14",
+      "note": "Robertson calls the pluperfect the past perfect. The scan's text breaks \"empha- sized\" at a line end, and in the sentences around it has \"indicatiye\" and \"asa rule\"; the context joins the word and gives \"indicative\" and \"as a rule\". The first sentence of the context begins at the foot of page 145."
+    },
+    {
+      "work": "robertson-short",
+      "page": "134",
+      "quote": "The passive represents the subject as acted upon.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=173",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+      "context": "The reflexive pronoun is sometimes used in the New Testament with the middle though it is not necessary. In English the reflexive pronoun is the only way that the middle idea can be expressed. 6. The passive represents the subject as acted upon. The passive is later than the active and the middle and did not develop distinctive personal endings. In most cases, like a parasite, it used the middle endings as in Latin throughout.",
+      "read": "2026-11-14",
+      "note": "The first sentence of paragraph 6 of the chapter on the voices. The scan's text has \"pas- siye\" in the next sentence; the context gives \"passive\"."
+    },
+    {
+      "work": "robertson-short",
+      "page": "134",
+      "quote": "In the middle voice the subject is acting with reference to himself",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=173",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+      "context": "But certainly the middle was on a par with the active at most points and had a parallel development. The active and the middle had a full set of personal endings. In the middle voice the subject is acting with reference to himself, and here again the action may be either transitive or intransitive. How the subject acts with reference to himself, the middle voice does not tell. That has to be determined by the meaning of the verb and the context. He may be represented as doing a certain thing of himself, by himself, on himself, for himself, etc.",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence goes on after \"himself,\"."
+    },
+    {
+      "work": "robertson-short",
+      "page": "134",
+      "quote": "How the subject acts with reference to himself, the middle voice does not tell.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=173",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+      "context": "But certainly the middle was on a par with the active at most points and had a parallel development. The active and the middle had a full set of personal endings. In the middle voice the subject is acting with reference to himself, and here again the action may be either transitive or intransitive. How the subject acts with reference to himself, the middle voice does not tell. That has to be determined by the meaning of the verb and the context. He may be represented as doing a certain thing of himself, by himself, on himself, for himself, etc.",
+      "read": "2026-11-14",
+      "note": "The sentence after \"In the middle voice the subject is acting with reference to himself, ...\"."
+    },
+    {
+      "work": "robertson-short",
+      "page": "129",
+      "quote": "The Greek has two modes for doubting affirmation, the subjunctive and the optative.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=168",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/129/mode/1up",
+      "context": "4. Doubtful statement. The Greek has two modes for doubting affirmation, the subjunctive and the optative. The names are not distinctive, for both are used in subordinate senses, and the optative is used elsewhere besides in wishes and is not the only mode so used (see indicative). But the names will answer at any rate.",
+      "read": "2026-11-14",
+      "note": "The scan's text breaks \"doubt- ing\" at a line end; the context joins it. The context begins at the run-in heading."
+    },
+    {
+      "work": "robertson-short",
+      "page": "203",
+      "quote": "The usual construction is with the subjunctive",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=242",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/203/mode/1up",
+      "context": "(1) The use of ov wy calls for a special note. The usual construction is with the subjunctive as in ov py adefy above (Matt. 24:2). The future indicative is read in ov pi éorat oor TotTo (Matt. 16:22) and is doubtless the correct text in od pH tyjnoe (Matt. 15:6) and a few other places (Matt. 26:35; Mk. 14:31). No satisfactory explanation of the origin of this use of od zy has been found. They do not neutralize each other, but each retains its force as in py od in questions (Rom, 10:18). Cf. od wy in questions (Lu. 18:7, ob py roujon;). Does this use throw any light on the problem ?",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence goes on \"as in ... above (Matt. 24:2)\". It is said of the doubled \"not\", ou me, which this short section is about; its Greek letters are garbled in the scan's text and kept as read. The running head reads 208 in the scan's text; it is page 203 by the scan's page-number file."
+    },
+    {
+      "work": "robertson-short",
+      "page": "157",
+      "quote": "the usual way to express a future wish in New Testament Greek is still the optative",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=196",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/157/mode/1up",
+      "context": "But the usual way to express a future wish in New Testament Greek is still the optative, once the present as in Acts 8:20 (e&), usually the aorist as in 1 Thess. 5:23 (dyuioa).",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence opens \"But\" and goes on after \"optative,\". Page 157 opens the chapter \"Wishes\" and carries no printed number; 157 is from the scan's page-number file. Greek letters are garbled in the scan's text and kept as read; the scan's text has \"asin\" for \"as in\"."
+    },
+    {
+      "work": "robertson-short",
+      "page": "187",
+      "quote": "The idea of the infinitive in Greek is that of a verbal substantive with emphasis on both terms.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=226",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/187/mode/1up",
+      "context": "In Sanskrit the noun idea is dominant over the verbal, but already in Homer the verbal idea is on a par with the nominal conception. 2. The idea of the infinitive in Greek is that of a verbal substantive with emphasis on both terms. It is évoya fyyaros, but is still ovova. The infinitive is non-finite, not limited, and so expresses undefined action.",
+      "read": "2026-11-14",
+      "note": "Page 187 opens the chapter \"The Infinitive\" and carries no printed number; 187 is from the scan's page-number file. The scan's text breaks \"sub- stantive\" at a line end; the context joins it. Greek letters are garbled in the scan's text and kept as read."
+    },
+    {
+      "work": "robertson-short",
+      "page": "193",
+      "quote": "The participle is a verbal adjective.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=232",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/193/mode/1up",
+      "context": "The English participle is much like the Greek in its freedom and adaptability. The Greek is a ‘participle loving language’’ (Broadus) and thus has a great advantage in flexibility over the Latin. 2. The participle is a verbal adjective. The participle (pars, capio) takes part, participates, shares in both verb and adjective, as the infinitive shares in both verb and substantive. It is always both verb and adjective. Like the infinitive the participle is also non-finite, undefined action. The participle makes no affirmation and is not a mode.",
+      "read": "2026-11-14",
+      "note": "Page 193 opens the chapter \"The Participle\" and carries no printed number; 193 is from the scan's page-number file. The scan's text has \"nota mode\"; the context gives \"not a mode\"."
+    },
+    {
+      "work": "robertson-short",
+      "page": "193",
+      "quote": "It is always both verb and adjective.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=232",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/193/mode/1up",
+      "context": "The English participle is much like the Greek in its freedom and adaptability. The Greek is a ‘participle loving language’’ (Broadus) and thus has a great advantage in flexibility over the Latin. 2. The participle is a verbal adjective. The participle (pars, capio) takes part, participates, shares in both verb and adjective, as the infinitive shares in both verb and substantive. It is always both verb and adjective. Like the infinitive the participle is also non-finite, undefined action. The participle makes no affirmation and is not a mode.",
+      "read": "2026-11-14",
+      "note": "Two sentences after \"The participle is a verbal adjective.\""
+    },
+    {
+      "work": "robertson-short",
+      "page": "203",
+      "quote": "They do not neutralize each other, but each retains its force",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=242",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/203/mode/1up",
+      "context": "(1) The use of ov wy calls for a special note. The usual construction is with the subjunctive as in ov py adefy above (Matt. 24:2). The future indicative is read in ov pi éorat oor TotTo (Matt. 16:22) and is doubtless the correct text in od pH tyjnoe (Matt. 15:6) and a few other places (Matt. 26:35; Mk. 14:31). No satisfactory explanation of the origin of this use of od zy has been found. They do not neutralize each other, but each retains its force as in py od in questions (Rom, 10:18). Cf. od wy in questions (Lu. 18:7, ob py roujon;). Does this use throw any light on the problem ?",
+      "read": "2026-11-14",
+      "note": "Cut before \"as in ... in questions (Rom. 10:18)\". \"They\" are the two words for \"not\", ou and me, which this short section is about; its Greek letters are garbled in the scan's text and kept as read. The running head reads 208 in the scan's text; it is page 203 by the scan's page-number file."
+    },
+    {
+      "work": "robertson-short",
+      "page": "78",
+      "quote": "The Greek verb itself contains the personal subject",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=117",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/78/mode/1up",
+      "context": "In Greek the pronoun is not so common as in the modern European tongues. The Greek verb itself contains the personal subject, and even the oblique case of the pronoun was not always used. When, therefore, the nominative case of the pronoun is used, there is emphasis. Cf. éyé (Matt. 5:22), ot (John 1:42), duets (Matt. 27:24). In the New Testament the pronoun, as in the xowy and the Hebrew, occurs much more frequently than in earlier Greek.",
+      "read": "2026-11-14",
+      "note": "A clause: the sentence goes on after \"subject,\". Page 78 opens the chapter \"Pronouns\" and carries no printed number; 78 is from the scan's page-number file. It stands under the run-in heading \"3. Emphasis.\""
+    },
+    {
+      "work": "robertson-short",
+      "page": "78",
+      "quote": "When, therefore, the nominative case of the pronoun is used, there is emphasis.",
+      "found_in": "https://ia800407.us.archive.org/BookReader/BookReaderGetTextWrapper.php?path=/26/items/shortgrammarofgr00robeuoft/shortgrammarofgr00robeuoft_djvu.xml&mode=djvu_xml&page=117",
+      "page_address": "https://archive.org/details/shortgrammarofgr00robeuoft/page/78/mode/1up",
+      "context": "In Greek the pronoun is not so common as in the modern European tongues. The Greek verb itself contains the personal subject, and even the oblique case of the pronoun was not always used. When, therefore, the nominative case of the pronoun is used, there is emphasis. Cf. éyé (Matt. 5:22), ot (John 1:42), duets (Matt. 27:24). In the New Testament the pronoun, as in the xowy and the Hebrew, occurs much more frequently than in earlier Greek.",
+      "read": "2026-11-14",
+      "note": "The scan's text breaks \"pro- noun\" at a line end; the context joins it. Greek letters after it are garbled in the scan's text and kept as read."
+    }
+  ]
 }

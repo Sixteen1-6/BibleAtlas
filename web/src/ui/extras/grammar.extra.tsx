@@ -13,9 +13,11 @@
 // or lists:
 //   "Word choice: how this chapter’s thoughts are joined"
 //
-// The points are the tagged text's own, so the panel is not commentary. What a
-// form means is shown only in a grammarian's own words, with the page they
-// were read on (config/grammar.json). The data is written and checked by
+// The points are the tagged text's own, so the line and the panel are not
+// commentary. What a form means is shown only in a grammarian's own words,
+// with the page they were read on (config/grammar.json), and that one part
+// of the panel stays closed until the reader has finished the commentary
+// notice. The data is written and checked by
 // crates/atlas-cli/src/extra_grammar.rs; a book's points load when its panel
 // opens, and the panel's code the first time a reader opens it.
 

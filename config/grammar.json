@@ -6,7 +6,19 @@
     "links: the linking words, in the order a verse's line prefers them. words: a root's Strong's key (with its sense letter, or the bare number for every sense) and, where the root has other uses, how STEPBible's word-by-word English must begin. back: the word looks back to what was just said, so where it opens a verse the note names the verses before it.",
     "A line is at most 56 characters, so that with \"Word choice: \" it stays under 70. {n} is a count, {where} the Old or New Testament."
   ],
-  "works": [],
+  "works": [
+    {
+      "id": "robertson-short",
+      "writer": "A. T. Robertson",
+      "about": "professor of New Testament interpretation, Southern Baptist Theological Seminary",
+      "about_from": "the book's own title page (\"Professor of New Testament Interpretation, Southern Baptist Theological Seminary, Louisville\"), read in the archive.org scan on 2026-11-14",
+      "title": "A Short Grammar of the Greek New Testament",
+      "written": "1908; third edition",
+      "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+      "site": "archive.org",
+      "shelf": "robertson-short-grammar"
+    }
+  ],
   "terms": [
     {
       "id": "g-present",
@@ -14,10 +26,25 @@
       "name": "Present",
       "fact": "Tagged as a present-tense form.",
       "line_fact": "a present-tense verb",
-      "plain": "",
+      "plain": "The action is shown as not completed. Whether it is brief, lasting, repeated or usual depends on the case and on the meaning of the verb itself.",
       "line": "",
-      "care": "",
-      "says": []
+      "care": "So a present tense alone does not prove that an action goes on without end.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "the present tense expresses incompleted action",
+          "page": "140",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/140/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "Too much has been read into the Greek tenses and not enough allowance is always made for the meaning of the verb itself.",
+          "page": "141",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/141/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-imperfect",
@@ -25,10 +52,18 @@
       "name": "Imperfect",
       "fact": "Tagged as an imperfect, a past form built on the same stem as the present.",
       "line_fact": "a past verb in the imperfect form",
-      "plain": "",
+      "plain": "A past action shown as not completed: the describing tense of a story.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The imperfect is the descriptive tense of narrative and varies the simple monotony of the aorist.",
+          "page": "141",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/141/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-aorist",
@@ -36,10 +71,32 @@
       "name": "Aorist",
       "fact": "Tagged as an aorist form.",
       "line_fact": "an aorist verb",
-      "plain": "",
+      "plain": "The action is simply stated, as a point, without describing it as completed or as still going on.",
       "line": "",
-      "care": "",
-      "says": []
+      "care": "So an aorist alone does not prove that an act was brief or happened only once.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "If the action is not to be described as completed or incompleted, put it in the aorist.",
+          "page": "137",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/137/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "the aorist represents the action as a point",
+          "page": "138",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/138/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "In itself it may have continued a long time.",
+          "page": "138",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/138/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-future",
@@ -58,10 +115,32 @@
       "name": "Perfect",
       "fact": "Tagged as a perfect form.",
       "line_fact": "a perfect-tense verb",
-      "plain": "",
+      "plain": "The action is completed. It may be shown as just finished, or as standing finished.",
       "line": "",
-      "care": "",
-      "says": []
+      "care": "What the finished act leaves behind differs with the meaning of the verb and its setting.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "It always conveys the same sense, completed action.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "The action may be represented as just finished or as standing finished.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "Variations in the resultant idea will occur in this tense also, owing to the meaning of the verb and the context.",
+          "page": "143",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/143/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-pluperfect",
@@ -69,10 +148,18 @@
       "name": "Pluperfect",
       "fact": "Tagged as a pluperfect form.",
       "line_fact": "a pluperfect verb",
-      "plain": "",
+      "plain": "Also called the past perfect. It stresses that the action was already completed at a time in the past.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "When therefore the past perfect is used, the completion in past time is distinctly emphasized.",
+          "page": "146",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/146/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-passive",
@@ -80,10 +167,18 @@
       "name": "Passive",
       "fact": "Tagged as passive in voice.",
       "line_fact": "a verb in the passive voice",
-      "plain": "",
+      "plain": "The subject is acted upon.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The passive represents the subject as acted upon.",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-middle",
@@ -91,10 +186,25 @@
       "name": "Middle",
       "fact": "Tagged as middle in voice.",
       "line_fact": "a verb in the middle voice",
-      "plain": "",
+      "plain": "The subject acts with reference to himself. How he does so is left to the meaning of the verb and its setting.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "In the middle voice the subject is acting with reference to himself",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "How the subject acts with reference to himself, the middle voice does not tell.",
+          "page": "134",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/134/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-imperative",
@@ -113,10 +223,25 @@
       "name": "Subjunctive",
       "fact": "Tagged as a subjunctive form.",
       "line_fact": "a verb in the subjunctive form",
-      "plain": "",
+      "plain": "A form for what is not simply stated as fact. Robertson sets it beside the optative as a way of affirming with some doubt.",
       "line": "",
-      "care": "",
-      "says": []
+      "care": "The form alone does not make a saying uncertain: it is also the usual form after the doubled “not”, the second sentence quoted here.",
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek has two modes for doubting affirmation, the subjunctive and the optative.",
+          "page": "129",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/129/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "The usual construction is with the subjunctive",
+          "page": "203",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/203/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-optative",
@@ -124,10 +249,25 @@
       "name": "Optative",
       "fact": "Tagged as an optative, a form the New Testament uses fewer than seventy times.",
       "line_fact": "a verb in the rare optative form",
-      "plain": "",
+      "plain": "A form for what is not simply stated as fact, and the usual New Testament way to state a wish about the future.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek has two modes for doubting affirmation, the subjunctive and the optative.",
+          "page": "129",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/129/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "the usual way to express a future wish in New Testament Greek is still the optative",
+          "page": "157",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/157/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-infinitive",
@@ -135,10 +275,18 @@
       "name": "“To” form",
       "fact": "Tagged as an infinitive, the form English makes with “to”.",
       "line_fact": "a “to” form of a verb",
-      "plain": "",
+      "plain": "Both a verb and a noun at once.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The idea of the infinitive in Greek is that of a verbal substantive with emphasis on both terms.",
+          "page": "187",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/187/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-participle",
@@ -146,10 +294,25 @@
       "name": "Participle",
       "fact": "Tagged as a participle, as English uses “-ing” and “-ed” words.",
       "line_fact": "an “-ing” or “-ed” form of a verb",
-      "plain": "",
+      "plain": "Both a verb and a describing word at once.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The participle is a verbal adjective.",
+          "page": "193",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/193/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "It is always both verb and adjective.",
+          "page": "193",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/193/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-never",
@@ -157,10 +320,18 @@
       "name": "Doubled “not”",
       "fact": "The two Greek words for “not”, ou and me, stand side by side.",
       "line_fact": "two words for “not” side by side",
-      "plain": "",
+      "plain": "The two words for “not” do not cancel each other; each keeps its force.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "They do not neutralize each other, but each retains its force",
+          "page": "203",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/203/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-forbid-present",
@@ -190,10 +361,25 @@
       "name": "Pronoun added",
       "fact": "A pronoun (I, you, we) is written beside a verb whose ending already says who acts.",
       "line_fact": "a pronoun the verb did not need",
-      "plain": "",
+      "plain": "A Greek verb already carries its “I”, “you” or “we”, so a pronoun written as its subject adds emphasis.",
       "line": "",
       "care": "",
-      "says": []
+      "says": [
+        {
+          "work": "robertson-short",
+          "quote": "The Greek verb itself contains the personal subject",
+          "page": "78",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/78/mode/1up",
+          "read": "2026-11-14"
+        },
+        {
+          "work": "robertson-short",
+          "quote": "When, therefore, the nominative case of the pronoun is used, there is emphasis.",
+          "page": "78",
+          "url": "https://archive.org/details/shortgrammarofgr00robeuoft/page/78/mode/1up",
+          "read": "2026-11-14"
+        }
+      ]
     },
     {
       "id": "g-not-but",

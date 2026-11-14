@@ -814,6 +814,22 @@
       "cites": ["STEPBible's expansion of each grammar tag"]
     },
     {
+      "id": "robertson-short-grammar",
+      "group": "word-books",
+      "plain": "Greek grammar of the New Testament, 1908",
+      "title": "A Short Grammar of the Greek New Testament",
+      "by": "A. T. Robertson, professor of New Testament interpretation at the Southern Baptist Theological Seminary",
+      "when": "1908 (third edition)",
+      "what": "A grammar of New Testament Greek for students. The Word choice notes quote its own sentences on what a tense, voice or mood conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+        "label": "archive.org, third edition"
+      },
+      "citation": "A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; copyright 1908), read on archive.org (archive.org/details/shortgrammarofgr00robeuoft)."
+    },
+    {
       "id": "tflsj",
       "group": "word-books",
       "plain": "Greek dictionary, 1843–1940",

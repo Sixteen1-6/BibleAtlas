@@ -3,7 +3,9 @@
 // verb's form, and its rare words; then what each form is. Every point sits
 // on a word the reader can tap for its word study, and each verb carries its
 // tag with STEPBible's own expansion of it. What a form means is shown only
-// in a grammarian's own words, with the page it was read on.
+// in a grammarian's own words, with the page it was read on, and those words
+// wait behind the commentary notice: they are people's words, where the
+// forms are the text's own.
 //
 // A chapter's panel is its outline: paragraph by paragraph, the linking
 // words, chains and lists, each a link to its verse.
@@ -12,6 +14,7 @@ import type { ComponentChildren } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, chapterRange, label, locate } from '../../../data/atlas';
 import { FLAG, type VerseRow, type WordRow, loadBook } from '../../../data/text';
+import { Commentary, CommentaryFoot } from '../../commentary/Gate';
 import { useJson } from '../data';
 import { Lead, Passage, SourceNote, Unsure, openWord, refName, showSources, usePassage } from '../kit';
 import type { ChapterPanelProps, PanelProps, VerseRef } from '../types';
@@ -65,39 +68,52 @@ function Words({ a, ats, find }: { a: Atlas; ats: At[]; find: (at: At) => WordRo
   );
 }
 
-/** What a form is, and what it conveys in a grammarian's own words. */
-function TermCard({ data, term, where }: { data: Data; term: Term; where: string }) {
+/** What the tags show of a form: true wherever the form stands. */
+function TermCard({ term, where }: { term: Term; where: string }) {
   return (
     <div class="x-grammar-term">
       <h4>{term.name}</h4>
       <p>{term.fact.replace('{where}', where)}</p>
-      {term.plain && term.says && (
-        <>
-          <p class="x-grammar-plain">{term.plain}</p>
-          {term.says.map((s, i) => {
-            const work = data.works.find((w) => w.id === s.work);
-            if (!work) return null;
-            return (
-              <figure key={i} class="x-grammar-says">
-                <blockquote>“{s.quote}”</blockquote>
-                <figcaption>
-                  {work.writer} ({work.about}),{' '}
-                  <button type="button" class="x-grammar-shelf" onClick={() => showSources(work.shelf)}>
-                    {work.title}
-                  </button>{' '}
-                  ({work.written}),{' '}
-                  <a href={s.url} target="_blank" rel="noopener noreferrer">
-                    page {s.page}
-                    <span class="sr-only"> at {work.site} (opens a new tab)</span> <span aria-hidden="true">↗</span>
-                  </a>
-                  . Read at {work.site} on {day(s.read)}.
-                </figcaption>
-              </figure>
-            );
-          })}
-          {term.care && <p class="x-grammar-care">{term.care}</p>}
-        </>
-      )}
+    </div>
+  );
+}
+
+/** What a form conveys, in a grammarian's own words: each quotation with its
+ * page, then the work they were read in, named once. People's words about
+ * the language, so they wait behind the commentary notice. */
+function SaysCard({ data, term }: { data: Data; term: Term }) {
+  const says = term.says ?? [];
+  const works = data.works.filter((w) => says.some((s) => s.work === w.id));
+  if (!term.plain || !works.length) return null;
+  return (
+    <div class="x-grammar-term">
+      <h4>{term.name}</h4>
+      <p class="x-grammar-plain">{term.plain}</p>
+      {works.map((work) => {
+        const mine = says.filter((s) => s.work === work.id);
+        const days = [...new Set(mine.map((s) => s.read))];
+        return (
+          <figure key={work.id} class="x-grammar-says">
+            {mine.map((s, i) => (
+              <blockquote key={i}>
+                “{s.quote}”{' '}
+                <a class="x-grammar-page" href={s.url} target="_blank" rel="noopener noreferrer">
+                  page {s.page}
+                  <span class="sr-only"> at {work.site} (opens a new tab)</span> <span aria-hidden="true">↗</span>
+                </a>
+              </blockquote>
+            ))}
+            <figcaption>
+              {work.writer}, {work.about}:{' '}
+              <button type="button" class="x-grammar-shelf" onClick={() => showSources(work.shelf)}>
+                {work.title}
+              </button>{' '}
+              ({work.written}). Read at {work.site} on {days.map(day).join(' and ')}.
+            </figcaption>
+          </figure>
+        );
+      })}
+      {term.care && <p class="x-grammar-care">{term.care}</p>}
     </div>
   );
 }
@@ -158,6 +174,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const rareTerm = data.terms.findIndex((t) => t.id === 'rare');
   if (rare.length) show(rareTerm);
 
+  const said = shown.filter((i) => data.terms[i].plain && data.terms[i].says?.length);
+
   const span = (ats: At[]) => refName(a, ats[0][0], ats[ats.length - 1][0]);
   const stands = made.length + chains.length + lists.length > 0;
 
@@ -172,7 +190,6 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
           <h4>{data.terms[m[1]].name}</h4>
           <Words a={a} ats={m[2].map(here)} find={find} />
           <p>{data.terms[m[1]].fact}</p>
-          {data.terms[m[1]].plain && <p class="x-grammar-plain">{data.terms[m[1]].plain}</p>}
         </section>
       ))}
       {chains.map((c, i) => (
@@ -280,8 +297,19 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
 
       {shown.length > 0 && <h3>What these forms are</h3>}
       {shown.map((i) => (
-        <TermCard key={i} data={data} term={data.terms[i]} where={where} />
+        <TermCard key={i} term={data.terms[i]} where={where} />
       ))}
+      {said.length > 0 && (
+        <>
+          <h3>What these forms convey</h3>
+          <Commentary line="A grammarian’s own sentences on these forms, each with the page it was read on." button="Show the grammarian’s words">
+            {said.map((i) => (
+              <SaysCard key={i} data={data} term={data.terms[i]} />
+            ))}
+          </Commentary>
+          <CommentaryFoot />
+        </>
+      )}
       <SourceNote>{SOURCE} Paragraphs from the Berean Standard Bible.</SourceNote>
     </>
   );

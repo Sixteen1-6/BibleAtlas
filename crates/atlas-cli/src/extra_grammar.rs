@@ -1064,6 +1064,17 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             "grammar: no term says what a form means without a grammarian's words".to_string(),
         ),
         (crate::layers::ai_credit_in(&index, "").is_none(), "grammar: nothing a reader sees credits AI".to_string()),
+        (
+            terms.iter().flat_map(|t| t["says"].as_array().cloned().unwrap_or_default()).all(|s| {
+                let work = index["works"].as_array().is_some_and(|w| w.iter().any(|w| w["id"] == s["work"]));
+                work && s["url"].as_str().is_some_and(|u| u.starts_with("https://")) && s["page"].as_str().is_some_and(|p| !p.is_empty()) && s["read"].as_str().is_some_and(|r| r.len() == 10)
+            }),
+            "grammar: every quotation names its work, its page, the page's address and the day it was read".to_string(),
+        ),
+        (
+            ["g-present", "g-aorist", "g-perfect"].iter().all(|id| term(id).is_some_and(|i| terms[i]["says"].as_array().is_some_and(|s| !s.is_empty()))),
+            "grammar: the Greek present, aorist and perfect are each explained in a grammarian's own words".to_string(),
+        ),
     ];
     // A verse's points of one kind.
     let points = |r: &str, kind: &str| -> Result<Vec<Value>, String> {
