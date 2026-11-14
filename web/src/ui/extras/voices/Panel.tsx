@@ -12,7 +12,7 @@ import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, FINISHED, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, fullOf, kdOf, nameFrom, notesOn, partOf, writerOf } from './model';
+import { type Data, FINISHED, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, barnesOf, fullOf, kdOf, lutherOf, nameFrom, notesOn, partOf, writerOf } from './model';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -207,9 +207,13 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const partPath = partOf(data, verse);
   const fullPath = fullOf(data, verse);
   const kdPath = kdOf(data, verse);
+  const barnesPath = barnesOf(data, verse);
+  const lutherPath = lutherOf(data, verse);
   const part = useJson<PartFile>(a, partPath);
   const full = useJson<PartFile>(a, fullPath);
   const kd = useJson<PartFile>(a, kdPath);
+  const barnes = useJson<PartFile>(a, barnesPath);
+  const luther = useJson<PartFile>(a, lutherPath);
   const where = refName(a, verse);
 
   // Any of the files may be missing for a verse; null is a failed fetch.
@@ -217,6 +221,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
     [partPath, part],
     [fullPath, full],
     [kdPath, kd],
+    [barnesPath, barnes],
+    [lutherPath, luther],
   ].filter(([path]) => path).map(([, f]) => f as PartFile | null | undefined);
   const file = got.some((f) => f === null) ? null : got.some((f) => f === undefined) ? undefined : { format: 1, items: got.flatMap((f) => (f ? f.items : [])) };
   if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
@@ -262,11 +268,13 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       <Facts
         rows={[
           ['The Church Fathers', 'On the Gospels only: the early and medieval teachers Aquinas quoted on each passage, under their names. In this copy his few short words joining one quotation to the next are part of the quotation before them.'],
+          ['Martin Luther', 'On Galatians and on Genesis 1 to 9: each note shows with the verses his heading names, and opens with that heading and the words of Scripture it prints, as the translator gives them. Several headings in a row on one verse show as one note. Galatians is Theodore Graebner’s abridged version, which his preface says was condensed to about half, with no mark where words are left out. On Genesis 1:1 to 4:7 each note is named by its part of the book; from 4:8 on, by its section and the translator’s paragraph numbers. The translators’ prefaces, and the outlines before each section of the second Genesis volume, are left out. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Matthew Henry’s full commentary', 'Each of his sections shows with every verse it covers, under the title his commentary gives it. The King James verses it prints before each comment, and its prefaces and chapter outlines, are left out. He wrote as far as Acts; from Romans on, the notes are by the ministers who finished his work after he died, under their own names where a printed list names them. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Matthew Henry’s Concise Commentary', 'A later shortening of his commentary, placed by its own headings, such as “Verses 1–9”. A chapter it treats as a whole shows with every verse in it.'],
           ['John Calvin', 'Each note shows with the verse he comments on. On Matthew, Mark and Luke he wrote one Harmony of the three, filed under Matthew: where this copy has no note of his on a passage of Mark or Luke, his notes on the same passage in Matthew show there. The verses the copy prints before his notes, in English and Latin, are left out. Not shown on 1 and 2 Timothy and Titus, which this copy keeps only in part; he wrote no commentary on 2 and 3 John or Revelation, and his Old Testament commentaries are not here yet. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['John Wesley', 'Each note shows with the verse it is on.'],
           ['Keil and Delitzsch', 'On the Old Testament: each note shows with the verses the copy links it to, under the one of the two scholars who wrote that book, C. F. Keil or Franz Delitzsch. Their introductions to the books are left out, and so is Delitzsch’s Ecclesiastes, because he holds that Solomon did not write it. A passage that denies what the text says of its writer, or says a word of Scripture is a mistake, is left out, and marked where it was. Footnotes follow their paragraph.'],
+          ['Albert Barnes', 'On the New Testament: each note shows with the verse it is on, or with every verse where the copy joins several. His prefaces and introductions to the books are left out, and so are the copy’s lists of references keyed to the King James text; his outlines of the chapters stay. The copy does not say which printing of his Notes it follows; it seems to be one later than 1858. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Jamieson, Fausset and Brown', 'Each note shows with the verse it is on, or with every verse where the copy joins several, under the one of the three ministers who wrote that book: Robert Jamieson, A. R. Fausset or David Brown. Its introductions to the Bible, its books and chapters are left out. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Verse numbers', 'The notes are placed by the King James Version’s verse numbers, which match the Berean Standard Bible’s almost everywhere.'],
         ]}

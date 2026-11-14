@@ -62,7 +62,7 @@ export interface Work {
 
 /** The panel's source line. */
 export const SOURCE =
-  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s complete and Concise commentaries, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English; Henry’s and Calvin’s transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church; Jamieson, Fausset and Brown’s Commentary (1871), in the Christian Classics Ethereal Library’s edition, from CrossWire’s SWORD module. Keil and Delitzsch’s Biblical Commentary on the Old Testament (English 1864–78, public domain): text by Wikisource contributors (CC BY-SA 3.0), from CrossWire’s SWORD module; the notes shown here are shared under CC BY-SA 4.0.';
+  'Public domain: the Catena Aurea in the Oxford translation (1841–45), from the Catena project; Matthew Henry’s complete and Concise commentaries, John Wesley’s Notes and John Calvin’s Commentaries (in the Calvin Translation Society’s English; Henry’s and Calvin’s transcribed by the Christian Classics Ethereal Library), from the CrossWire SWORD modules via Let’s Church; Jamieson, Fausset and Brown’s Commentary (1871), in the Christian Classics Ethereal Library’s edition, from CrossWire’s SWORD module. Keil and Delitzsch’s Biblical Commentary on the Old Testament (English 1864–78, public domain): text by Wikisource contributors (CC BY-SA 3.0), from CrossWire’s SWORD module; the notes shown here are shared under CC BY-SA 4.0. Albert Barnes’s Notes on the New Testament (1832 to 1852), from CrossWire’s SWORD module, which names no printing. Martin Luther’s Commentary on Galatians, in Theodore Graebner’s abridged translation (1939), and his Lectures on Genesis 1 to 9, in John Nicholas Lenker’s translations (1904 and 1910), from Project Gutenberg’s ebooks 1549, 48193 and 27978.';
 
 /** The works, in the order the build numbers them (oldest first is OLDEST_FIRST). */
 export const WORKS: readonly Work[] = [
@@ -122,6 +122,27 @@ export const WORKS: readonly Work[] = [
     book: 'Biblical Commentary on the Old Testament, written in German 1861–75 and put into English 1864–78',
     shelf: 'keil-delitzsch',
   },
+  {
+    short: 'Albert Barnes',
+    brief: 'Barnes',
+    name: 'Albert Barnes',
+    book: 'Notes, Explanatory and Practical, on the New Testament, 1832 to 1852 (the dates of its volumes), in a printing after 1858 that this copy does not name',
+    shelf: 'barnes-nt',
+  },
+  {
+    short: 'Martin Luther',
+    brief: 'Luther',
+    name: 'Martin Luther',
+    book: 'Commentary on the Epistle to the Galatians, from his lectures of 1531, printed in 1535; abridged and put into modern English by Theodore Graebner, 1939',
+    shelf: 'luther-galatians',
+  },
+  {
+    short: 'Martin Luther',
+    brief: 'Luther',
+    name: 'Martin Luther',
+    book: 'Lectures on Genesis, given 1535 to 1545; chapters 1 to 4 in Henry Cole’s translation as revised by John Nicholas Lenker, 1904, and chapters 4 to 9 in Lenker’s translation, 1910',
+    shelf: 'luther-genesis',
+  },
 ];
 
 /** Henry's complete commentary, his own notes and those of the ministers who finished it. */
@@ -131,6 +152,11 @@ export const FINISHED = 5;
 export const JFB = 6;
 /** Keil and Delitzsch, on the Old Testament: each book under the one of the two who wrote it. */
 export const KD = 7;
+/** Albert Barnes, on the New Testament. */
+export const BARNES = 8;
+/** Martin Luther, on Galatians and on Genesis 1 to 9. */
+export const GALATIANS = 9;
+export const GENESIS = 10;
 
 export interface Data {
   a: Atlas;
@@ -150,10 +176,10 @@ export async function load(a: Atlas): Promise<Data> {
   return { a, has: file.has, more: file.more ?? '', parts: file.parts, finished: new Map(file.finished ?? []), writers };
 }
 
-/** The works by when they were written: the Fathers, Calvin, Henry's full
- * commentary and its finishers, his Concise, Wesley, Keil and Delitzsch,
- * Jamieson, Fausset and Brown. */
-export const OLDEST_FIRST: readonly number[] = [0, 3, FULL, FINISHED, 1, 2, KD, JFB];
+/** The works by when they were written: the Fathers, Luther, Calvin, Henry's full
+ * commentary and its finishers, his Concise, Wesley, Barnes, Keil and
+ * Delitzsch, Jamieson, Fausset and Brown. */
+export const OLDEST_FIRST: readonly number[] = [0, GALATIANS, GENESIS, 3, FULL, FINISHED, 1, 2, BARNES, KD, JFB];
 
 /** The works with a note on a verse, oldest first. */
 export function worksOn(d: Data, verse: VerseRef): number[] {
@@ -164,7 +190,7 @@ export function worksOn(d: Data, verse: VerseRef): number[] {
 /** The file that holds a verse's notes from Henry's complete commentary, or
  * null if it has none: one file for each chapter. */
 export function fullOf(d: Data, verse: VerseRef): string | null {
-  if (!worksOn(d, verse).some((w) => w >= FULL && w !== KD)) return null;
+  if (!worksOn(d, verse).some((w) => w === FULL || w === FINISHED || w === JFB)) return null;
   const l = locate(d.a, verse);
   return `extras/voices/full/${d.a.books[l.book].osis}.${l.chapter}.json`;
 }
@@ -175,6 +201,22 @@ export function kdOf(d: Data, verse: VerseRef): string | null {
   if (!worksOn(d, verse).includes(KD)) return null;
   const l = locate(d.a, verse);
   return `extras/voices/kd/${d.a.books[l.book].osis}.${l.chapter}.json`;
+}
+
+/** The file that holds a verse's notes from Albert Barnes, or null if it has
+ * none: one file for each chapter. */
+export function barnesOf(d: Data, verse: VerseRef): string | null {
+  if (!worksOn(d, verse).includes(BARNES)) return null;
+  const l = locate(d.a, verse);
+  return `extras/voices/barnes/${d.a.books[l.book].osis}.${l.chapter}.json`;
+}
+
+/** The file that holds a verse's notes from Martin Luther, or null if it
+ * has none: one file for each chapter. */
+export function lutherOf(d: Data, verse: VerseRef): string | null {
+  if (!worksOn(d, verse).some((w) => w === GALATIANS || w === GENESIS)) return null;
+  const l = locate(d.a, verse);
+  return `extras/voices/luther/${d.a.books[l.book].osis}.${l.chapter}.json`;
 }
 
 /** Who wrote a verse's notes in the finishers' part of Henry's commentary. */
