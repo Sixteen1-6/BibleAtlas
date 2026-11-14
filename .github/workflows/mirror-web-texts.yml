@@ -91,12 +91,12 @@ jobs:
           if via == "gutenberg":
               page = open("page.html", encoding="utf-8", errors="replace").read()
               plain = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", page)).split())
-              def field(label):
-                  m = re.search(re.escape(label) + r"\s+(.+?)(?=\s+(?:Copyright Status|Release Date|Most Recently Updated|Downloads|Language|LoC Class|Subject|Category|EBook-No\.|Title|Author|Credits|Summary|Note|Reading Level)\b|$)", plain)
-                  return m.group(1).strip() if m else ""
-              rights = field("Copyright Status") or "(not found on the page)"
-              release = field("Release Date")
-              updated = field("Most Recently Updated")
+              def field(pattern):
+                  m = re.search(pattern, plain)
+                  return m.group(1) if m else ""
+              rights = field(r"Copyright(?: Status)? (Public domain in the USA\.)") or "(not found on the page)"
+              release = field(r"Release Date (\w+ \d+, \d{4})")
+              updated = field(r"(?:Last Update|Most Recently Updated) (\w+ \d+, \d{4})") or "(not given)"
               if not rights.startswith("Public domain in the USA"):
                   i = plain.find("Copyright")
                   print(plain[max(0, i - 300):i + 300] if i >= 0 else plain[:1500])
@@ -112,7 +112,7 @@ jobs:
               "by .github/workflows/mirror-web-texts.yml.\n\n"
               "## Rights\n\n"
               f"Project Gutenberg's page for ebook {book} (https://www.gutenberg.org/ebooks/{book}), copyright status: {rights}\n"
-              + (f"Release date: {release}. Most recently updated: {updated}.\n" if via == "gutenberg" else "")
+              + (f"Release date: {release}. Last update: {updated}.\n" if via == "gutenberg" else "")
               + "\nProject Gutenberg's header and license are not used by Bible Atlas.\n\n"
               "| file | bytes | sha256 |\n|---|---|---|\n"
               f"| {name} | {len(data)} | {sha} |\n")
