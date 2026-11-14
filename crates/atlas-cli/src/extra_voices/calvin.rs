@@ -453,10 +453,31 @@ pub(super) fn exclude(config: &str, writer: &str, list: &[Exclusion], vz: &Versi
                 let at_word = p.find(&x.words).expect("found");
                 // Sentence ends, never inside a reference mark ("{{ref:..|ch. xv. 19}}").
                 let marked: Vec<(usize, usize)> = p.match_indices("{{").filter_map(|(a, _)| p[a..].find("}}").map(|e| (a, a + e + 2))).collect();
+                // Not after an abbreviation ("cf. Psa 86:2", "vid. Ewald"), a single
+                // letter or a small Roman numeral ("Sota ix. 15").
+                let abbreviation = |k: usize| {
+                    let word = p[..k - 1].rsplit([' ', '(', '[']).next().unwrap_or("");
+                    let roman = !word.is_empty() && word.chars().all(|c| matches!(c, 'i' | 'v' | 'x' | 'l' | 'c'));
+                    // A sentence starts with a capital, a quotation or another script, never
+                    // with a small letter, a number or "§" ("Berth. have", "Ew. §273").
+                    let next = p[k + 1..].chars().next().unwrap_or('A');
+                    let low = next.is_lowercase() || next.is_ascii_digit() || matches!(next, '§' | ')' | ',' | ';' | ':');
+                    low || roman
+                        || word.chars().count() == 1
+                        || matches!(word.to_lowercase().as_str(), "cf" | "vid" | "comp" | "i.e" | "e.g" | "viz" | "ver" | "vv" | "ch" | "chap" | "ff" | "sq" | "pp" | "p" | "ed" | "lit" | "ibid")
+                        // Keil's and Delitzsch's short names for books, versions and scholars.
+                        || matches!(word.to_lowercase().as_str(), "ew" | "berth" | "syr" | "vulg" | "targ" | "arab" | "fig" | "conj" | "gen" | "ant" | "macc" | "esdr" | "vol" | "sing" | "plur" | "art" | "vat" | "alex" | "cod" | "codd" | "nom" | "prop" | "obj" | "app" | "punct" | "extraord" | "archaeol" | "ramb" | "sc" | "al" | "cop" | "comm")
+                };
                 let ends = |from: usize, to: usize| -> Vec<usize> {
                     let mut v = Vec::new();
                     for pat in [". ", "? ", "! "] {
-                        v.extend(p[from..to].match_indices(pat).map(|(k, _)| from + k + 1).filter(|&k| !marked.iter().any(|&(a, z)| a < k && k < z)));
+                        v.extend(
+                            p[from..to]
+                                .match_indices(pat)
+                                .map(|(k, _)| from + k + 1)
+                                .filter(|&k| !marked.iter().any(|&(a, z)| a < k && k < z))
+                                .filter(|&k| pat != ". " || !abbreviation(k)),
+                        );
                     }
                     v
                 };
