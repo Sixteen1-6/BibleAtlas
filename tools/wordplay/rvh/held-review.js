@@ -8,7 +8,9 @@ export const meta = {
     { title: 'Verify critic', detail: 'a skeptic checks the critic findings' },
   ],
 }
-// args: { sp: scratchpad, items: [{ batch: [passage ids], review?: <a finished review>, verdicts?: <a finished skeptic's results> }] }
+// args: { sp: scratchpad, items: [{ batch: [passage ids], prior?: 'review' | 'review+verify' }] }
+// prior: that batch's review (and skeptic) already ran; their results are in <sp>/rvh/items2.json, keyed by the
+// batch's first passage, and the agents read them there (a workflow script cannot read files).
 const SP = args.sp
 const ITEMS = args.items
 
@@ -128,36 +130,51 @@ Report findings in the same form. note_index, cite_index and rec always use show
 AGREED FIXES (ops per note):
 ${JSON.stringify(confirmed, null, 1)}`
 }
+const PRIOR = (first, what) => `cd ${SP} && python3 -I -c "import json; it={i['batch'][0]: i for i in json.load(open('rvh/items2.json'))}[\\"${first}\\"]; print(json.dumps(${what}, indent=1, ensure_ascii=False))"`
+const PRIOR_FINDINGS = (first) => PRIOR(first, "it['review']['findings']")
+const PRIOR_KEPT = (first) => PRIOR(first, "[dict(passage=v['passage'], note_index=v['note_index'], ops=v['ops']) for v in it['verdicts'] if v['verdict'] != 'refute']")
 const keep = (vs) => (vs || []).filter(r => r.verdict !== 'refute').map(r => ({ passage: r.passage, note_index: r.note_index, ops: r.ops }))
 
 const results = await pipeline(
   ITEMS,
   async (it) => {
-    if (it.review) return { batch: it.batch, review: it.review, prior: it }
+    if (it.prior) return { batch: it.batch, review: 'in rvh/items2.json', prior: it.prior }
     const r = await agent(reviewPrompt(it.batch), { label: `review:${it.batch[0]}`, phase: 'Review', schema: FINDINGS_SCHEMA })
-    return { batch: it.batch, review: r, prior: it }
+    return { batch: it.batch, review: r, prior: null }
   },
   async (st) => {
-    const { prior, ...s } = st
-    if (!s.review) return { ...s, verdicts: null, kept: [] }
-    if (prior.verdicts) return { ...s, verdicts: prior.verdicts, kept: keep(prior.verdicts) }
-    const f = s.review.findings || []
-    if (!f.length) return { ...s, verdicts: [], kept: [] }
-    const v = await agent(verifyPrompt(s.batch, f, 1), { label: `verify:${s.batch[0]}`, phase: 'Verify', schema: VERDICT_SCHEMA })
+    const first = st.batch[0]
+    if (!st.review) return { ...st, verdicts: null, kept: [] }
+    if (st.prior === 'review+verify') return { ...st, verdicts: 'in rvh/items2.json', kept: 'in file' }
+    let p
+    if (st.prior === 'review') p = verifyPrompt(st.batch, '__F__', 1).replace('"__F__"', `Print them with this command (read-only):\n${PRIOR_FINDINGS(first)}`)
+    else {
+      const f = st.review.findings || []
+      if (!f.length) return { ...st, verdicts: [], kept: [] }
+      p = verifyPrompt(st.batch, f, 1)
+    }
+    const v = await agent(p, { label: `verify:${first}`, phase: 'Verify', schema: VERDICT_SCHEMA })
     const vs = (v && v.results) || null
-    return { ...s, verdicts: vs, kept: keep(vs) }
+    return { ...st, verdicts: vs, kept: keep(vs) }
   },
   async (st) => {
     if (!st.review || st.verdicts === null) return { ...st, critic: null }
-    const c = await agent(criticPrompt(st.batch, st.kept), { label: `critic:${st.batch[0]}`, phase: 'Critic', schema: FINDINGS_SCHEMA })
+    const first = st.batch[0]
+    const p = st.kept === 'in file'
+      ? criticPrompt(st.batch, '__K__').replace('"__K__"', `Print them with this command (read-only):\n${PRIOR_KEPT(first)}`)
+      : criticPrompt(st.batch, st.kept)
+    const c = await agent(p, { label: `critic:${first}`, phase: 'Critic', schema: FINDINGS_SCHEMA })
     return { ...st, critic: c }
   },
   async (st) => {
     const cf = (st.critic && st.critic.findings) || []
     if (!st.critic) return { ...st, verdicts2: null }
     if (!cf.length) return { ...st, verdicts2: [] }
-    const withPrior = cf.map(f => ({ ...f, already_applied: st.kept.filter(k => k.passage === f.passage && k.note_index === f.note_index).map(k => k.ops) }))
-    const v = await agent(verifyPrompt(st.batch, withPrior, 2), { label: `verify2:${st.batch[0]}`, phase: 'Verify critic', schema: VERDICT_SCHEMA })
+    const first = st.batch[0]
+    const withPrior = cf.map(f => ({ ...f, already_applied: st.kept === 'in file'
+      ? `the agreed fixes for this note, if any: run ${PRIOR_KEPT(first)} and take the entries with this passage and note_index`
+      : st.kept.filter(k => k.passage === f.passage && k.note_index === f.note_index).map(k => k.ops) }))
+    const v = await agent(verifyPrompt(st.batch, withPrior, 2), { label: `verify2:${first}`, phase: 'Verify critic', schema: VERDICT_SCHEMA })
     return { ...st, verdicts2: (v && v.results) || null }
   },
 )
