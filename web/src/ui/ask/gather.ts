@@ -673,6 +673,33 @@ const FIT = {
   rows: 80,
 };
 
+/** How many of a question's words are looked for, with its phrases, and which
+ * when it has more: the first (`first`); those the BSB uses before those it
+ * does not (`bible`); or, of those, the rarer first (`rare`). */
+export const PICK = { max: 8, way: 'first' };
+
+/** The verses a word and its Bible words are in, at most: for choosing. */
+function reachOf(a: Atlas, w: string): number {
+  if (/^\d+$/.test(w)) return 1;
+  const bible = BIBLE_WORDS[w] ?? BIBLE_WORDS[stem(w)] ?? [];
+  const forms = new Set(INSTEAD.has(w) ? [] : formsOf(a.englishWords, w, true));
+  for (const x of bible) for (const p of x.split(' ')) for (const f of formsOf(a.englishWords, p, false)) forms.add(f);
+  let n = 0;
+  for (const f of forms) {
+    const i = lowerBound(a.englishWords, f);
+    if (a.englishWords[i] === f) n += a.eOff[i + 1] - a.eOff[i];
+  }
+  return n;
+}
+
+function pick(a: Atlas, ws: string[], room: number): string[] {
+  if (ws.length <= room || PICK.way === 'first') return ws.slice(0, room);
+  const n = ws.map((w) => reachOf(a, w));
+  const rank = (k: number) => (PICK.way === 'rare' ? (n[k] ? (n[k] < a.n * 0.2 ? n[k] : a.n + n[k]) : 3 * a.n) : n[k] ? k : ws.length + k);
+  const keep = new Set(ws.map((_, k) => k).sort((x, y) => rank(x) - rank(y) || x - y).slice(0, room));
+  return ws.filter((_, k) => keep.has(k));
+}
+
 /** For the eval scripts (eval/ask/scripts/r12/): what FIT weighed for each
  * verse of the last question gathered. Off in the app. */
 export const TRACE: { on: boolean; rows: unknown[] } = { on: false, rows: [] };
@@ -705,11 +732,11 @@ export async function gather(a: Atlas, question: string): Promise<Gathered> {
   const toks = rest.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
   const { named, used } = namedBooks(a, toks);
   rest = toks.filter((w, i) => !used.has(i) && !VERSE_AT.test(w) && !VERSE_TILL.test(w)).join(' ');
-  const ws = [...new Set(contentWords(rest))]
+  const words = [...new Set(contentWords(rest))]
     // Two letters are a name in the BSB ("Er", "Ai"), not an "er" bill or an "ai" app.
     .filter((w) => !FILLER.has(w) && !(personal && (SPANS.has(w) || /^\d+$/.test(w))) && (w.length > 2 || /^\d+$/.test(w) || TWO.has(w)))
-    .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)))
-    .slice(0, Math.max(0, 8 - phrases.length));
+    .map((w) => (BIBLE_WORDS[w] || INSTEAD.has(w) || formsOf(a.englishWords, w, true).length ? w : (meant(a, w) ?? w)));
+  const ws = pick(a, words, Math.max(0, PICK.max - phrases.length));
   const n = a.n;
 
   // 1. Concepts and the BSB words for each.
