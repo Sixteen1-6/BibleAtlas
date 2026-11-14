@@ -89,11 +89,17 @@ jobs:
           names = sorted(p for p, _, _ in want)
           assert found == names, f"{module}: the zip holds {found}, expected {names}"
           rows = []
+          wrong = []
           for path, size, sha in want:
               data = open(path, "rb").read()
               got = hashlib.sha256(data).hexdigest()
-              assert (len(data), got) == (size, sha), f"{path}: {len(data)} bytes, sha256 {got}; expected {size} bytes, {sha}"
+              if (len(data), got) != (size, sha):
+                  wrong.append(f"{path}: {len(data)} bytes, sha256 {got}; expected {size} bytes, {sha}")
+                  if path.startswith("mods.d/"):
+                      # The conf is short and plain text: show it, so a change can be read.
+                      print(data.decode("utf-8", "replace"))
               rows.append(f"| {path} | {size} | {sha} |")
+          assert not wrong, "\n".join(wrong)
           conf = next(p for p in names if p.startswith("mods.d/"))
           lines = [l.strip() for l in open(conf, encoding="utf-8").read().splitlines()]
           license = [l for l in lines if l.startswith(("DistributionLicense=", "TextSource=", "SwordVersionDate=", "Version="))]
