@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "Pages read again in the Layers thread's re-check of the 71 held passages (2026-11-14): one record per citation whose quotation was changed or that was added. Fields as in layers-reads-wordplay-held-2026-11-07.json; time is the UTC time taken right after the read."
+  ],
+  "kind": "reads",
+  "batch": "Layers thread, held passages re-check",
+  "from": "2026-11-14",
+  "to": "2026-11-14",
+  "records": [
+    {
+      "passage": "ezekiel-16-53",
+      "note": 0,
+      "kind": "plain meaning",
+      "source": "jfb",
+      "on": "Ezekiel 16:53",
+      "url": "https://biblehub.com/commentaries/jfb/ezekiel/16.htm",
+      "fetched": "2026-11-14",
+      "time": "2026-11-14T15:33:17Z",
+      "status": "added",
+      "read_for": "held passages re-check (Layers thread, 2026-11-14): the quotation was changed to the words the cite rests on",
+      "read_how": "read again on this page, where each part of the quotation was found",
+      "verdict": "respects",
+      "quote": "bring again . . . captivity--that is, change the affliction into prosperity (so Job 42:10 )"
+    }
+  ]
+}

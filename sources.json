@@ -379,6 +379,20 @@
       "files": { "tbesg": "Lexicons/TBESG - Translators Brief lexicon of Extended Strongs for Greek - STEPBible.org CC BY.txt" }
     },
     {
+      "id": "step-morph",
+      "title": "STEPBible TEGMC and TEHMC (Expansions of the Greek and Hebrew Morphology Codes)",
+      "provides": "What each grammar tag on a Greek, Hebrew or Aramaic word stands for, in STEPBible's own words: the form's parts, what it means and an example. Shown with each verb in the Word choice notes.",
+      "license": "CC BY 4.0",
+      "attribution": "Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0)",
+      "homepage": "https://github.com/STEPBible/STEPBible-Data",
+      "repo": "https://github.com/STEPBible/STEPBible-Data",
+      "commit": "1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc",
+      "files": {
+        "greek": "Morphology codes/TEGMC - Translators Expansion of Greek Morphhology Codes - STEPBible.org CC BY.txt",
+        "hebrew": "Morphology codes/TEHMC - Translators Expansion of Hebrew Morphology Codes - STEPBible.org CC BY.txt"
+      }
+    },
+    {
       "id": "clear-align",
       "title": "Clear Bible BSB word alignments",
       "provides": "Hand-made links from each Hebrew, Aramaic and Greek word to the BSB English words that translate it (Hebrew from the WLC as tokenized by Macula, Greek from the Berean Greek New Testament). Used to color matching words in word-by-word mode.",
@@ -459,7 +473,7 @@
     {
       "id": "henry-complete",
       "title": "Matthew Henry's Exposition of the Old and New Testament (the complete commentary), from the CrossWire SWORD module (MHC), as kept in the Let's Church repository",
-      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "provides": "Matthew Henry's full notes on every chapter, with the continuation other ministers wrote after his death: shown at Deep under the verses each section covers, once a reader chooses to see writers' notes, Genesis to Acts under Henry's name and Romans to Revelation under the name of the minister who finished each book. The build also checks, word for word, the sentences quoted from Henry on the prophecy and fulfilment pairs.",
       "license": "Public domain (Matthew Henry, 1708 to 1710, and its continuation, which the SWORD module marks public domain); the repository is CC0 1.0",
       "attribution": "Matthew Henry, An Exposition of the Old and New Testament, and its continuation by other ministers, public domain, from the CrossWire Bible Society's SWORD module MHC (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "homepage": "https://github.com/LetsChurch/lets.church",
@@ -467,14 +481,15 @@
       "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",
       "files": {
         "mhc": "packages/lets.bible/seed/commentaries/mhc.json"
-      }
+      },
+      "note": "Each note is one of Henry's sections, placed on the verses the section prints, with the section's title over it. The King James verses each section prints, the prefaces and introductions to volumes, books and chapters, and five title-only chapter entries are left out, with the passages config/voices/henry-complete.json lists."
     },
     {
       "id": "calvin-commentaries",
-      "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (Calvin), as kept in the Let's Church repository",
-      "provides": "Calvin's commentaries on the books he wrote on. Read by the build only to check, word for word, the sentences quoted on the prophecy and fulfilment pairs.",
+      "title": "John Calvin's Commentaries, in the Calvin Translation Society's English, from the CrossWire SWORD module (CalvinCommentaries), as kept in the Let's Church repository",
+      "provides": "Calvin's own notes on 21 books of the New Testament, shown at Deep under the verse each note is on, once a reader chooses to see writers' notes (not 1 and 2 Timothy or Titus, which this copy keeps only in part). The build also checks, word for word, the sentences quoted from him on the prophecy and fulfilment pairs.",
       "license": "Public domain (John Calvin, 16th century, in the Calvin Translation Society's translation from 1844), as the SWORD module marks it; the repository is CC0 1.0",
-      "attribution": "John Calvin, Commentaries, in the Calvin Translation Society's English translation (from 1844), public domain, from the CrossWire Bible Society's SWORD module Calvin (which takes the text from the Christian Classics Ethereal Library), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
+      "attribution": "John Calvin, Commentaries, in the Calvin Translation Society's English translation (from 1844), public domain, from the CrossWire Bible Society's SWORD module CalvinCommentaries (which takes the text from the Christian Classics Ethereal Library, its transcriber), as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "homepage": "https://github.com/LetsChurch/lets.church",
       "repo": "https://github.com/LetsChurch/lets.church",
       "commit": "71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239",

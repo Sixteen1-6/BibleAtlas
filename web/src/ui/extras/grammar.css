@@ -1,0 +1,224 @@
+/* Word choice. Only the app's colour variables, so the paper (light) and dark
+   themes both follow. Hebrew uses the app's Hebrew font and reads right to
+   left (.he); Greek uses its Greek font (.gr). */
+
+.xt-body .x-grammar-point {
+  margin: 0 0 14px;
+}
+.xt-body .x-grammar-point h4,
+.xt-body .x-grammar-term h4,
+.xt-body .x-grammar-para h4 {
+  margin: 0 0 6px;
+  font: 600 13.5px var(--font-ui);
+  color: var(--ink);
+}
+.x-grammar-span {
+  font-weight: 400;
+  color: var(--muted);
+}
+.xt-body .x-grammar-point p {
+  margin: 0 0 4px;
+  font-size: 13.5px;
+}
+
+/* ------------------------------------------------------------ a word */
+
+.x-grammar-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+.x-grammar-word {
+  display: inline-grid;
+  justify-items: center;
+  gap: 1px;
+  min-width: 64px;
+  max-width: 100%;
+  padding: 6px 10px 5px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md, 8px);
+  background: var(--surface-2);
+  color: var(--ink);
+  font: inherit;
+  text-align: center;
+}
+button.x-grammar-word {
+  cursor: pointer;
+}
+button.x-grammar-word:hover,
+button.x-grammar-word:focus-visible {
+  border-color: var(--accent);
+}
+.x-grammar-orig {
+  font-size: 19px;
+  line-height: 1.35;
+}
+.x-grammar-orig.he {
+  font-size: 23px;
+  direction: rtl;
+}
+.x-grammar-eng {
+  font: 12px/1.3 var(--font-ui);
+  color: var(--muted);
+  direction: ltr;
+  overflow-wrap: anywhere;
+}
+
+/* ------------------------------------------------- links and rare words */
+
+.x-grammar-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.xt-body .x-grammar-back {
+  color: var(--muted);
+}
+.x-grammar-ref {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------ the verbs */
+
+.x-grammar-verbs {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.x-grammar-verbs li {
+  display: grid;
+  grid-template-columns: minmax(92px, auto) 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.xt-body .x-grammar-names {
+  margin: 2px 0 2px;
+  font: 600 13px var(--font-ui);
+}
+.xt-body .x-grammar-tag,
+.xt-body .x-grammar-note {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.xt-body .x-grammar-note {
+  margin: 0 0 12px;
+}
+.x-grammar-code {
+  padding: 0 4px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------- what a form is */
+
+.x-grammar-term {
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md, 8px);
+  background: var(--surface);
+}
+.xt-body .x-grammar-term p {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.xt-body .x-grammar-term .x-grammar-plain,
+.xt-body .x-grammar-point .x-grammar-plain {
+  font-size: 14px;
+  color: var(--ink);
+}
+.x-grammar-says {
+  margin: 8px 0 6px;
+  padding-left: 10px;
+  border-left: 2px solid var(--accent);
+}
+.x-grammar-says blockquote {
+  margin: 0 0 4px;
+  font: 14.5px/1.5 var(--font-read, Georgia, serif);
+  color: var(--ink);
+}
+.x-grammar-says figcaption {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.x-grammar-says a {
+  color: var(--link);
+}
+.x-grammar-page {
+  font: 12px var(--font-ui);
+  white-space: nowrap;
+}
+.x-grammar-shelf {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-style: italic;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.xt-body .x-grammar-term .x-grammar-care {
+  font-style: italic;
+}
+
+/* ---------------------------------------------------- a chapter's outline */
+
+.x-grammar-para {
+  margin: 0 0 14px;
+}
+.x-grammar-para ol {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0 0 0 10px;
+  border-left: 2px solid var(--line);
+  list-style: none;
+}
+.x-grammar-para li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 6px;
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+.x-grammar-open {
+  color: var(--muted);
+}
+.x-grammar-key {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 12px;
+  font-size: 13px;
+}
+.x-grammar-key div {
+  display: grid;
+  grid-template-columns: minmax(78px, 22%) 1fr;
+  gap: 10px;
+}
+.x-grammar-key dt {
+  font-weight: 600;
+}
+.x-grammar-key dd {
+  margin: 0;
+  color: var(--muted);
+}

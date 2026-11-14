@@ -448,11 +448,13 @@
       "title": "An Exposition of the Old and New Testament",
       "by": "Matthew Henry; Romans to Revelation completed after his death by other ministers",
       "when": "1828 edition read",
-      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, whose names the edition prints at the head of each book they finished.",
+      "what": "A devotional commentary on the whole Bible. Henry wrote Genesis to Acts; the epistles and Revelation were completed by other ministers, named at the head of each book. All of it shows at Deep, section by section.",
       "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (MHC) marks it. The text is the Christian Classics Ethereal Library's transcription. This copy is from the Let's Church repository, which is CC0 1.0, commit 71f6f0f, copied into the app on 14 November 2026. Left out: the King James verses each section prints, the prefaces and chapter outlines, and passages that say a word of Scripture is a mistake, each marked where it was.",
       "datasets": ["henry-complete"],
       "read": {"url": "https://archive.org/details/expositionofoldn06henr", "label": "archive.org, vol. VI, 1828"},
-      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw).",
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/mhc.json", "label": "the data file (GitHub)"},
+      "citation": "Matthew Henry, An Exposition of the Old and New Testament, edited by George Burder and Joseph Hughes (Philadelphia: Barrington and Haswell, 1828), read on Bible Hub (biblehub.com/commentaries/mhcw); the notes shown at Deep are the Christian Classics Ethereal Library's transcription, from the CrossWire Bible Society's SWORD module MHC, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0).",
       "layer": ["henry-complete"]
     },
     {
@@ -530,13 +532,15 @@
       "group": "writers",
       "plain": "Bible commentaries, English from 1844",
       "title": "Commentaries",
-      "by": "John Calvin, Reformer and pastor in Geneva",
-      "when": "Calvin Translation Society edition, from 1844",
-      "what": "Calvin's commentaries on most books of the Bible, in the English translation of the Calvin Translation Society. The app links to them on Bible Hub.",
+      "by": "John Calvin, Reformer and pastor in Geneva; translated for the Calvin Translation Society",
+      "when": "written 1540–64, as the copy dates his commentaries; Calvin Translation Society edition, from 1844",
+      "what": "The Reformer's commentaries, in the Calvin Translation Society's English. His New Testament notes show at Deep under each verse, once a reader chooses to see writers' notes; the app also links to him on Bible Hub.",
       "license": "public-domain",
+      "licenseNote": "Public domain, as the CrossWire SWORD module (CalvinCommentaries) marks it. The text is the Christian Classics Ethereal Library's transcription. This copy is from the Let's Church repository, which is CC0 1.0, commit 71f6f0f, copied into the app on 14 November 2026. Left out: the Old Testament for now; 1 and 2 Timothy and Titus, which this copy keeps only in part; the verses printed before his notes, in English and Latin; each book's Argument, indexes and the translators' additions; and 15 passages that say a word of Scripture is a mistake, each marked where it was.",
       "datasets": ["calvin-commentaries"],
       "read": {"url": "https://archive.org/details/commentariesontw01calvuoft", "label": "archive.org, the Minor Prophets, vol. I"},
-      "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), read on Bible Hub (biblehub.com/commentaries/calvin).",
+      "find": {"url": "https://github.com/LetsChurch/lets.church/blob/71f6f0fc8f99dfe7fa4cbc09ea58a1a32ae3f239/packages/lets.bible/seed/commentaries/calvin.json", "label": "the data file (GitHub)"},
+      "citation": "John Calvin, Commentaries, translated for the Calvin Translation Society (Edinburgh, from 1844), transcribed by the Christian Classics Ethereal Library, from the CrossWire Bible Society's SWORD module CalvinCommentaries, as kept in the Let's Church repository, github.com/LetsChurch/lets.church (CC0 1.0); also read on Bible Hub (biblehub.com/commentaries/calvin).",
       "layer": ["calvin-commentaries"]
     },
     {
@@ -599,15 +603,15 @@
       "id": "church-fathers",
       "group": "writers",
       "plain": "Writings of the early church, in translation",
-      "title": "The church fathers, as New Advent gives them",
-      "by": "Justin Martyr, Irenaeus, Clement of Rome, Gregory of Nazianzus, Jerome, Athanasius, Augustine, John Chrysostom, and the unknown writer of the Epistle of Barnabas",
+      "title": "The church fathers, as New Advent and the Christian Classics Ethereal Library give them",
+      "by": "Justin Martyr, Irenaeus, Clement of Rome, Cyprian, Cyril of Jerusalem, Gregory of Nazianzus, Jerome, Athanasius, Augustine, John Chrysostom, and the unknown writer of the Epistle of Barnabas",
       "when": "first to fifth centuries; English translations of 1885 to 1896",
       "what": "Early Christian writings the Layers notes cite, each in the English of the Ante-Nicene and Nicene and Post-Nicene Fathers. Each cite names the writer, the work and its translator.",
       "license": "public-domain",
       "datasets": [],
       "read": {"url": "https://www.newadvent.org/fathers/", "label": "New Advent"},
-      "citation": "The Ante-Nicene Fathers (1885 to 1896) and the Nicene and Post-Nicene Fathers (1888 to 1894), read on New Advent (newadvent.org/fathers), revised and edited there by Kevin Knight.",
-      "layer": ["justin-dialogue", "justin-first-apology", "irenaeus-against-heresies", "barnabas", "first-clement", "gregory-oration-41", "jerome-apology", "athanasius-arians", "augustine-tractates-john", "chrysostom-galatians"]
+      "citation": "The Ante-Nicene Fathers (1885 to 1896) and the Nicene and Post-Nicene Fathers (1888 to 1894), read on New Advent (newadvent.org/fathers), revised and edited there by Kevin Knight, and on the Christian Classics Ethereal Library (ccel.org).",
+      "layer": ["justin-dialogue", "justin-first-apology", "irenaeus-against-heresies", "barnabas", "first-clement", "gregory-oration-41", "jerome-apology", "athanasius-arians", "augustine-tractates-john", "chrysostom-galatians", "cyprian-testimonies", "cyril-catechetical-lectures", "chrysostom-father-if-it-be-possible", "chrysostom-2-timothy", "chrysostom-romans"]
     },
     {
       "id": "edersheim-life",
@@ -796,6 +800,52 @@
       "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc", "label": "the data files (GitHub)"},
       "citation": "STEPBible, TBESG: Translators Brief lexicon of Extended Strongs for Greek, based on the definitions of G. Abbott-Smith. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: October 2026.",
       "cites": ["TBESG, Translators Brief lexicon"]
+    },
+    {
+      "id": "step-morph",
+      "group": "word-books",
+      "plain": "What each grammar tag on a word stands for",
+      "title": "Translators Expansion of Greek and Hebrew Morphology Codes (TEGMC, TEHMC)",
+      "by": "STEPBible.org, based on work at Tyndale House, Cambridge",
+      "when": "kept up to date",
+      "what": "For every grammar tag on a Greek, Hebrew or Aramaic word: the form's parts in words, what the form means and an example. The Word choice notes show its line with each verb.",
+      "license": "cc-by-4.0",
+      "datasets": ["step-morph"],
+      "find": {"url": "https://github.com/STEPBible/STEPBible-Data/tree/1f3423d42400f59f1f30fe08f74e38fcd3bbf7bc/Morphology%20codes", "label": "the data files (GitHub)"},
+      "citation": "STEPBible, TEGMC: Translators Expansion of Greek Morphology Codes, and TEHMC: Translators Expansion of Hebrew Morphology Codes. Data created by www.STEPBible.org based on work at Tyndale House Cambridge (CC BY 4.0). github.com/STEPBible/STEPBible-Data. This copy: November 2026.",
+      "cites": ["STEPBible's expansion of each grammar tag"]
+    },
+    {
+      "id": "robertson-short-grammar",
+      "group": "word-books",
+      "plain": "Greek grammar of the New Testament, 1908",
+      "title": "A Short Grammar of the Greek New Testament",
+      "by": "A. T. Robertson, professor of New Testament interpretation at the Southern Baptist Theological Seminary",
+      "when": "1908 (third edition)",
+      "what": "A grammar of New Testament Greek for students. The Word choice notes quote its own sentences on what a tense, voice or mood conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/shortgrammarofgr00robeuoft",
+        "label": "archive.org, third edition"
+      },
+      "citation": "A. T. Robertson, A Short Grammar of the Greek New Testament, for Students Familiar with the Elements of Greek, third edition (New York: Hodder and Stoughton, George H. Doran Company; copyright 1908), read on archive.org (archive.org/details/shortgrammarofgr00robeuoft)."
+    },
+    {
+      "id": "green-hebrew-grammar",
+      "group": "word-books",
+      "plain": "Hebrew grammar of the Old Testament, 1861",
+      "title": "A Grammar of the Hebrew Language",
+      "by": "William Henry Green, professor in the Theological Seminary at Princeton",
+      "when": "1861 (second edition)",
+      "what": "A full grammar of Biblical Hebrew. The Word choice notes quote its own sentences on what a Hebrew verb form or pattern conveys, each with the page it was read on.",
+      "license": "public-domain",
+      "datasets": [],
+      "read": {
+        "url": "https://archive.org/details/grammarofhebrew00gree",
+        "label": "archive.org, second edition"
+      },
+      "citation": "William Henry Green, A Grammar of the Hebrew Language, second edition, with corrections and copious indexes (New York: John Wiley, 1861), read on archive.org (archive.org/details/grammarofhebrew00gree)."
     },
     {
       "id": "tflsj",
@@ -1118,14 +1168,14 @@
       "group": "scholars",
       "plain": "Articles in an evangelical journal, 1989 to 2023",
       "title": "Themelios",
-      "by": "The Gospel Coalition's journal; articles by Torleif Elgvin, Jey J. Kanagaraj, David L. Baker, Walter Riggans, R. T. France, Matt Champlin, Bruce Reichenbach and David V. Christensen",
+      "by": "The Gospel Coalition's journal; articles by Torleif Elgvin, Jey J. Kanagaraj, David L. Baker, Walter Riggans, R. T. France, Matt Champlin, Bruce Reichenbach, David V. Christensen, G. K. Beale and Anthony T. Selvaggio",
       "when": "articles of 1989 to 2023",
       "what": "An international evangelical journal for students of theology. The app cites the articles named here, each linked.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://www.thegospelcoalition.org/themelios/", "label": "thegospelcoalition.org/themelios"},
       "citation": "Themelios (The Gospel Coalition), thegospelcoalition.org/themelios.",
-      "layer": ["elgvin-cursed-on-the-tree", "kanagaraj-poor-in-the-gospels", "baker-jubilee-and-millennium", "riggans-parousia", "france-matthews-gospel", "champlin-blessing-in-genesis", "reichenbach-soteriology-john", "christensen-lamblike-servant"]
+      "layer": ["elgvin-cursed-on-the-tree", "kanagaraj-poor-in-the-gospels", "baker-jubilee-and-millennium", "riggans-parousia", "france-matthews-gospel", "champlin-blessing-in-genesis", "reichenbach-soteriology-john", "christensen-lamblike-servant", "beale-fighting-the-good-fight", "selvaggio-preaching-advice-hebrews"]
     },
     {
       "id": "jets",
@@ -1187,29 +1237,29 @@
       "id": "leithart",
       "group": "scholars",
       "plain": "Essays, 2011 and 2014",
-      "title": "Essays at the Theopolis Institute",
+      "title": "Essays by Peter J. Leithart",
       "by": "Peter J. Leithart, President of the Theopolis Institute",
       "when": "2011 and 2014",
-      "what": "Short essays by a Reformed theologian on reading the Bible: Firstborn (2011) and What's in a Name? (2014).",
+      "what": "Short essays by a Reformed theologian on reading the Bible: Firstborn (2011), Roe, Host, Glory (2011) and What's in a Name? (2014) at the Theopolis Institute, and Structure and Poetry in Isaiah 24 (2011) in First Things.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://theopolisinstitute.com/", "label": "theopolisinstitute.com"},
-      "citation": "Peter J. Leithart, \"Firstborn\" (2011) and \"What's in a Name?\" (2014), Theopolis Institute, theopolisinstitute.com.",
-      "layer": ["leithart-whats-in-a-name", "leithart-firstborn"]
+      "citation": "Peter J. Leithart, \"Firstborn\" (2011), \"Roe, Host, Glory\" (2011) and \"What's in a Name?\" (2014), Theopolis Institute, theopolisinstitute.com; \"Structure and Poetry in Isaiah 24\" (2011), First Things, firstthings.com.",
+      "layer": ["leithart-whats-in-a-name", "leithart-firstborn", "leithart-roe-host-glory", "leithart-structure-and-poetry-isaiah-24"]
     },
     {
       "id": "keener",
       "group": "scholars",
-      "plain": "Bible background articles, 2016",
-      "title": "Bible Backgrounds",
+      "plain": "Bible background articles and a book chapter",
+      "title": "Writings by Craig S. Keener",
       "by": "Craig S. Keener, New Testament scholar, Asbury Theological Seminary",
-      "when": "2016",
-      "what": "Short articles on the setting of passages in Genesis.",
+      "when": "2012 and 2016",
+      "what": "Short articles on the setting of passages in Genesis (Bible Backgrounds, 2016), and his chapter Paul and Spiritual Warfare in Paul's Missionary Methods (2012), read in an excerpt posted with the publisher's permission.",
       "license": "copyrighted",
       "datasets": [],
       "find": {"url": "https://craigkeener.com/", "label": "craigkeener.com"},
-      "citation": "Craig S. Keener, \"Jacob gets Esau's blessing\" and \"Sleeping with a prostitute part 2\" (2016), Bible Backgrounds, craigkeener.com.",
-      "layer": ["keener-esaus-blessing", "keener-genesis-38"]
+      "citation": "Craig S. Keener, \"Jacob gets Esau's blessing\" and \"Sleeping with a prostitute part 2\" (2016), Bible Backgrounds, craigkeener.com; \"Paul and Spiritual Warfare,\" in Robert L. Plummer and John Mark Terry, eds., Paul's Missionary Methods: In His Time and Ours (IVP Academic, 2012), excerpted at thegospelcoalition.org.",
+      "layer": ["keener-esaus-blessing", "keener-genesis-38", "keener-spiritual-warfare"]
     },
     {
       "id": "bird",
@@ -1297,7 +1347,7 @@
       "citation": "The Gospel Coalition. The Gospel Coalition, Inc., 2007–. https://www.thegospelcoalition.org/.",
       "cites": ["The Gospel Coalition"],
       "onlyWhenCited": true,
-      "layer": ["currid-ruth", "fix-vannoy-1-samuel", "kostenberger-john", "roh-lifted-up", "crowe-walking-on-water", "thornton-ruth-foreshadows-christ"]
+      "layer": ["currid-ruth", "fix-vannoy-1-samuel", "kostenberger-john", "roh-lifted-up", "crowe-walking-on-water", "thornton-ruth-foreshadows-christ", "bolt-luke", "tabb-revelation", "gladd-twice-healed", "carson-equipped-man"]
     },
     {
       "id": "bible-org",
@@ -1342,7 +1392,7 @@
       "citation": "Ligonier Ministries. Ligonier Ministries, Inc., 1971–. https://www.ligonier.org/.",
       "cites": ["Ligonier"],
       "onlyWhenCited": true,
-      "layer": ["thomas-snakes-and-ladders", "inconsolable-father", "risky-proposal", "bilkes-immanuel", "dawson-with-you-always"]
+      "layer": ["thomas-snakes-and-ladders", "inconsolable-father", "risky-proposal", "bilkes-immanuel", "dawson-with-you-always", "sproul-blind-man-peters-confession"]
     },
     {
       "id": "christianity-today",

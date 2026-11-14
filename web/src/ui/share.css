@@ -1,0 +1,109 @@
+/* The share picture's window (ui/ShareDialog.tsx): dark like the picture
+   itself, so the preview reads as it will when shared. */
+.sh-dialog {
+  box-sizing: border-box;
+  width: min(30em, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 14px 18px 18px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: var(--sky);
+  color: var(--sky-ink);
+  border: 1px solid var(--sky-line);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-ui);
+}
+.sh-dialog[open],
+.sh-dialog[data-fallback] {
+  display: flex;
+}
+.sh-dialog::backdrop {
+  background: rgba(6, 10, 22, 0.7);
+}
+.sh-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(6, 10, 22, 0.7);
+}
+.sh-dialog :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.sh-top {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sh-top h2 {
+  margin: 0;
+  font: 600 16px/1.3 var(--font-ui);
+}
+.sh-x {
+  border: 0;
+  background: transparent;
+  color: var(--sky-muted);
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.sh-x:hover {
+  color: var(--sky-ink);
+}
+/* The preview keeps the picture's shape and never runs off the screen. */
+.sh-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, calc(min(56vh, 520px) * var(--sh-ratio)));
+  border-radius: 10px;
+  overflow: hidden;
+  background: #04060e;
+  box-shadow: 0 0 0 1px var(--sky-line);
+}
+.sh-view img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.sh-wait {
+  color: var(--sky-muted);
+  font-size: 13px;
+}
+.sh-sizes button {
+  padding: 6px 16px;
+}
+.sh-about {
+  margin: 0;
+  font-size: 13px;
+  color: var(--sky-muted);
+}
+.sh-act {
+  display: flex;
+  gap: 8px;
+}
+.sh-go {
+  border: 0;
+  border-radius: var(--r-md);
+  padding: 10px 22px;
+  background: var(--lamp);
+  color: #1a1408;
+  font: 600 15px var(--font-ui);
+  cursor: pointer;
+}
+.sh-go:disabled {
+  opacity: 0.55;
+  cursor: progress;
+}

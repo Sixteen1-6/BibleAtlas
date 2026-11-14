@@ -12,7 +12,7 @@ import { useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, type Item, type PartFile, type Run, type Text, SOURCE, WORKS, nameFrom, notesOn, partOf } from './model';
+import { type Data, FINISHED, type Item, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, finisher, fullOf, nameFrom, notesOn, partOf } from './model';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -89,7 +89,15 @@ function Runs({ a, runs, navigate }: { a: Atlas; runs: Run[]; navigate: (v: Vers
   return (
     <>
       {runs.map((r, k) => {
-        if (typeof r === 'string') return r;
+        if (typeof r === 'string') {
+          if (!r.includes(LEFT_OUT)) return r;
+          return r.split(LEFT_OUT).map((part, j) => (
+            <span key={`${k}-${j}`}>
+              {j > 0 && <span class="x-voices-gap">{LEFT_OUT}</span>}
+              {part}
+            </span>
+          ));
+        }
         const [from, to, text] = r;
         return (
           <a
@@ -146,7 +154,7 @@ function Voice({ a, who, text, navigate, focus, father }: { a: Atlas; who: strin
 
 function Note({ a, verse, item, navigate }: { a: Atlas; verse: VerseRef; item: Item; navigate: (v: VerseRef) => void }) {
   const [all, setAll] = useState(false);
-  const [work, from, to, voices] = item;
+  const [work, from, to, voices, left] = item;
   const more = work === 0 && !all ? voices.length - FIRST_FATHERS : 0;
   const shown = more > 0 ? voices.slice(0, FIRST_FATHERS) : voices;
   return (
@@ -160,6 +168,11 @@ function Note({ a, verse, item, navigate }: { a: Atlas; verse: VerseRef; item: I
           Show {more} more of the Fathers
         </button>
       )}
+      {left?.map((l) => (
+        <p key={l} class="x-voices-quiet">
+          {l}
+        </p>
+      ))}
     </div>
   );
 }
@@ -191,9 +204,15 @@ function Elsewhere({ a, verse }: { a: Atlas; verse: VerseRef }) {
 }
 
 export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
-  const file = useJson<PartFile>(a, partOf(data, verse));
+  const partPath = partOf(data, verse);
+  const fullPath = fullOf(data, verse);
+  const part = useJson<PartFile>(a, partPath);
+  const full = useJson<PartFile>(a, fullPath);
   const where = refName(a, verse);
+  const who = finisher(data, verse);
 
+  // Either file may be missing for a verse; null is a failed fetch.
+  const file = !partPath ? full : !fullPath ? part : part === null || full === null ? null : part === undefined || full === undefined ? undefined : { format: 1, items: [...part.items, ...full.items] };
   if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
   const notes = file ? notesOn(file, verse) : [];
   return (
@@ -202,14 +221,15 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       {file === undefined ? (
         <p class="x-voices-p xt-wait">Loading what they wrote…</p>
       ) : (
-        WORKS.map((w, k) => {
+        OLDEST_FIRST.map((k) => {
+          const w = WORKS[k];
           const mine = notes.filter((x) => x[0] === k);
           if (mine.length === 0) return null;
           return (
-            <section key={k} class="x-voices-work" aria-label={w.name}>
-              <h3 class="x-voices-h">{w.name}</h3>
+            <section key={k} class="x-voices-work" aria-label={k === FINISHED && who ? who : w.name}>
+              <h3 class="x-voices-h">{k === FINISHED && who ? who : w.name}</h3>
               <p class="x-voices-book">
-                {w.book}.{' '}
+                {k === FINISHED && who ? `Writing for Matthew Henry’s Exposition of the Old and New Testament, which Henry wrote as far as Acts before his death in 1714` : w.book}.{' '}
                 <button type="button" class="x-voices-about" onClick={() => showSources(w.shelf)}>
                   About this book
                 </button>
@@ -226,7 +246,9 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       <Facts
         rows={[
           ['The Church Fathers', 'On the Gospels only: the early and medieval teachers Aquinas quoted on each passage, under their names. In this copy his few short words joining one quotation to the next are part of the quotation before them.'],
-          ['Matthew Henry', 'Placed by his own headings, such as “Verses 1–9”. A chapter he wrote about as a whole shows with every verse in it.'],
+          ['Matthew Henry’s full commentary', 'Each of his sections shows with every verse it covers, under the title his commentary gives it. The King James verses it prints before each comment, and its prefaces and chapter outlines, are left out. He wrote as far as Acts; from Romans on, the notes are by the ministers who finished his work after he died, under their own names where a printed list names them. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
+          ['Matthew Henry’s Concise Commentary', 'A later shortening of his commentary, placed by its own headings, such as “Verses 1–9”. A chapter it treats as a whole shows with every verse in it.'],
+          ['John Calvin', 'Each note shows with the verse he comments on. On Matthew, Mark and Luke he wrote one Harmony of the three, filed under Matthew: where this copy has no note of his on a passage of Mark or Luke, his notes on the same passage in Matthew show there. The verses the copy prints before his notes, in English and Latin, are left out. Not shown on 1 and 2 Timothy and Titus, which this copy keeps only in part; he wrote no commentary on 2 and 3 John or Revelation, and his Old Testament commentaries are not here yet. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['John Wesley', 'Each note shows with the verse it is on.'],
           ['Verse numbers', 'The notes are placed by the King James Version’s verse numbers, which match the Berean Standard Bible’s almost everywhere.'],
         ]}

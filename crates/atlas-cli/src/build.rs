@@ -411,7 +411,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     write(out, "words.json", serde_json::to_string(&eng.words).unwrap().as_bytes(), &mut files)?;
     write(out, "bsb.txt", english::plain_text(&bsb.text).as_bytes(), &mut files)?;
     for (rel, bytes) in crate::extra_notes::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
-    for (rel, bytes) in crate::extra_voices::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_voices::build(root, &inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_customs::build(&inputs, &vz)? { write(out, &rel, &bytes, &mut files)?; }
     write(out, crate::themes::OUT, &themes.json, &mut files)?;
     for (rel, bytes) in crate::extra_hard_verses::build(root, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
@@ -421,6 +421,7 @@ pub fn run(root: &Path, raw: &Path, out: &Path) -> Result<(), String> {
     for (rel, bytes) in crate::extra_figures::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_structure::build(root, &figure_sources)? { write(out, &rel, &bytes, &mut files)?; }
     for (rel, bytes) in crate::extra_prophecies::build(root, &inputs, &vz, &bsb.text)? { write(out, &rel, &bytes, &mut files)?; }
+    for (rel, bytes) in crate::extra_grammar::build(root, &inputs, &crate::extra_grammar::Sources { vz: &vz, words: &words })? { write(out, &rel, &bytes, &mut files)?; }
     write(out, "layers.json", serde_json::to_string(&layers_json).unwrap().as_bytes(), &mut files)?;
     write(out, crate::layers_index::OUT, serde_json::to_string(&crate::layers_index::build(&layers_json)).unwrap().as_bytes(), &mut files)?;
     let naves = crate::naves::read(&inputs, &vz)?;

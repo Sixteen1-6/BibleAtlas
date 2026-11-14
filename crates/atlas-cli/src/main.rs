@@ -38,6 +38,7 @@ mod extra_figures;
 mod extra_customs;
 mod extra_structure;
 mod extra_prophecies;
+mod extra_grammar;
 mod lxx;
 mod naves;
 mod parse;

@@ -2208,9 +2208,10 @@ mod shelf_tests {
 
     #[test]
     fn a_comment_cited_in_two_notes_is_counted_once() {
-        // Micah 1:10 is cited in two notes of one passage: one comment, found.
+        // Micah 1:10 is cited in two notes of one passage, one comment, and Micah 3:12 in one more: two comments,
+        // of which the 2026-10-20 check read the one on 1:10 and found it.
         let c = &row("ellicott", "Micah")["how"]["count"];
-        assert_eq!((&c["comments"], &c["checked"], &c["found"], &c["chapter"]), (&json!(1), &json!(1), &json!(1), &json!(0)), "{c}");
+        assert_eq!((&c["comments"], &c["checked"], &c["found"], &c["chapter"]), (&json!(2), &json!(1), &json!(1), &json!(0)), "{c}");
         // Song of Solomon 8:6 is cited twice; Leviticus 16:22 three times, 18:21 once and 19:33 once.
         let pulpit = |books: &str| row("pulpit", books)["how"]["count"]["comments"].as_u64().unwrap();
         assert_eq!(pulpit("Song of Solomon"), 1);
