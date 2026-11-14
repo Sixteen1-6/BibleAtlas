@@ -35,10 +35,12 @@
 //!
 //! Output, under `web/public/data/`:
 //! - `extras/patterns.json`: `{format, kinds, rows}`. `kinds[id]` is `{label,
-//!   about}`; each row is `{id, kind, short, r, b}`: `r` the verse ranges the
-//!   line shows under, `b` the books whose files hold the pattern.
+//!   about}`; each row is `{id, kind, short, r, b}`: `r` the verses the line
+//!   shows under (those whose BSB words the panel shows: a detail's lines, the
+//!   verses a key word comes in, a scene's parts), as `[first, last]` runs,
+//!   and `b` the books whose files hold the pattern.
 //! - `extras/patterns/<Book>.json`: `{format, notes}`, every pattern that
-//!   touches the book. A note is `{id, kind, v, end, r, strength, writers,
+//!   touches the book. A note is `{id, kind, v, end, r, at, strength, writers,
 //!   short, about, sides?, key?, parts?, scenes?, evidence, limit?, checked,
 //!   cites}`. A side is `{label, s, e, w}`, `w` its lines as `{v, at, t}` (`at`
 //!   a UTF-16 offset into verse `v`'s BSB text). A key is `{s, e, lang,
@@ -178,6 +180,18 @@ fn mark(c: &Check, v: u32, off: usize, t: &str) -> Value {
     json!({ "v": v, "at": fig::utf16_len(&c.src.text[v as usize][..off]), "t": t })
 }
 
+/// Verses as runs of consecutive verses, `[first, last]`.
+fn runs(vs: &BTreeSet<u32>) -> Vec<[u32; 2]> {
+    let mut out: Vec<[u32; 2]> = Vec::new();
+    for &v in vs {
+        match out.last_mut() {
+            Some(r) if r[1] + 1 == v => r[1] = v,
+            _ => out.push([v, v]),
+        }
+    }
+    out
+}
+
 /// H or G and four digits.
 fn strong_ok(s: &str) -> bool {
     let b = s.as_bytes();
@@ -242,6 +256,8 @@ fn pattern(c: &mut Check, p: &Pattern, ids: &mut BTreeSet<String>) -> Option<(Va
     // pattern names (for its own quotations).
     let mut shown: Vec<(u32, u32, String)> = Vec::new();
     let mut named: Vec<(u32, u32)> = Vec::new();
+    // The verses whose words the panel shows: the line goes under these.
+    let mut marked: BTreeSet<u32> = BTreeSet::new();
     let mut out = json!({});
 
     if coincidence {
@@ -260,6 +276,7 @@ fn pattern(c: &mut Check, p: &Pattern, ids: &mut BTreeSet<String>) -> Option<(Va
             let mut seen = BTreeSet::new();
             for t in &side.words {
                 if let Some((v, off)) = find_in(c, &sat, r, t) {
+                    marked.insert(v);
                     if !seen.insert((v, off)) {
                         c.fail(&sat, format_args!("{t:?} is quoted twice"));
                     }
@@ -336,6 +353,7 @@ fn pattern(c: &mut Check, p: &Pattern, ids: &mut BTreeSet<String>) -> Option<(Va
         // Only the verses where the root comes carry the key word; a form
         // outside them renders some other word and is not marked.
         let root_verses: BTreeSet<u32> = hits.iter().map(|h| h[0]).collect();
+        marked.extend(&root_verses);
         let marks: Vec<Value> = marks.into_iter().filter(|m| root_verses.contains(&m.0)).map(|(v, i, t)| mark(c, v, i, &t)).collect();
         if marks.is_empty() && hits.len() >= KEY_MIN {
             c.fail(&at, "none of the forms is in a verse where the root comes; list the BSB words that render it");
@@ -379,6 +397,7 @@ fn pattern(c: &mut Check, p: &Pattern, ids: &mut BTreeSet<String>) -> Option<(Va
                 let Some(words) = t.words.get(&part.id) else { continue };
                 *uses.entry(part.id.as_str()).or_default() += 1;
                 if let Some((v, off)) = find_in(c, &tat, r, words) {
+                    marked.insert(v);
                     w.insert(part.id.clone(), mark(c, v, off, words));
                 }
             }
@@ -498,6 +517,7 @@ fn pattern(c: &mut Check, p: &Pattern, ids: &mut BTreeSet<String>) -> Option<(Va
     out["v"] = json!(v);
     out["end"] = json!(end);
     out["r"] = json!(named.iter().map(|&(a, z)| [a, z]).collect::<Vec<_>>());
+    out["at"] = json!(runs(&marked));
     out["strength"] = json!(p.strength);
     out["writers"] = json!(writers.len());
     out["short"] = json!(p.short);
@@ -559,7 +579,7 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
     for (x, books) in &notes {
         *counts.entry(x["kind"].as_str().unwrap_or_default().to_string()).or_default() += 1;
         rows.push(json!({
-            "id": x["id"], "kind": x["kind"], "short": x["short"], "r": x["r"],
+            "id": x["id"], "kind": x["kind"], "short": x["short"], "r": x["at"],
             "b": books.iter().map(|&b| BOOKS[b as usize].osis).collect::<Vec<_>>(),
         }));
         for &b in books {
@@ -662,6 +682,11 @@ mod tests {
         assert!(lemma_matches("H1288", "H1288") && lemma_matches("H1288G", "H1288"));
         assert!(!lemma_matches("H12881", "H1288") && !lemma_matches("H1293", "H1288"));
         assert!(strong_ok("G3306") && !strong_ok("G33") && !strong_ok("X3306"));
+    }
+
+    #[test]
+    fn runs_join_neighbours() {
+        assert_eq!(runs(&[3, 4, 5, 9, 11, 12].into_iter().collect()), vec![[3, 5], [9, 9], [11, 12]]);
     }
 
     #[test]
