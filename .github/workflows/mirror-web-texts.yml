@@ -90,11 +90,16 @@ jobs:
           release = updated = ""
           if via == "gutenberg":
               page = open("page.html", encoding="utf-8", errors="replace").read()
-              cells = {html.unescape(re.sub(r"<[^>]+>", "", k)).strip(): html.unescape(re.sub(r"<[^>]+>", " ", v)).split()
-                       for k, v in re.findall(r"<th[^>]*>(.*?)</th>\s*<td[^>]*>(.*?)</td>", page, re.S)}
-              rights = " ".join(cells.get("Copyright Status", [])) or "(not found on the page)"
-              release = " ".join(cells.get("Release Date", []))
-              updated = " ".join(cells.get("Most Recently Updated", []))
+              plain = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", page)).split())
+              def field(label):
+                  m = re.search(re.escape(label) + r"\s+(.+?)(?=\s+(?:Copyright Status|Release Date|Most Recently Updated|Downloads|Language|LoC Class|Subject|Category|EBook-No\.|Title|Author|Credits|Summary|Note|Reading Level)\b|$)", plain)
+                  return m.group(1).strip() if m else ""
+              rights = field("Copyright Status") or "(not found on the page)"
+              release = field("Release Date")
+              updated = field("Most Recently Updated")
+              if not rights.startswith("Public domain in the USA"):
+                  i = plain.find("Copyright")
+                  print(plain[max(0, i - 300):i + 300] if i >= 0 else plain[:1500])
               assert rights.startswith("Public domain in the USA"), f"ebook {book}: copyright status {rights!r}"
           sha = hashlib.sha256(data).hexdigest()
           src_line = (f"Project Gutenberg ebook {book}, {src}, its current file"
