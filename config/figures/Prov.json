@@ -1,6 +1,261 @@
 {
   "notes": [
     {
+      "id": "proverbs-1-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 1:4",
+      "strength": "some interpreters",
+      "short": "Prudence to the simple, knowledge to the young",
+      "about": "The second line says the first again in other words. The simple, easily led to good or evil, answer the young, who have no experience yet; prudence answers knowledge and discretion, the wariness that escapes evil and finds good.",
+      "lines": [
+        {
+          "ref": "Proverbs 1:4",
+          "words": "To impart prudence to the simple",
+          "key": "the simple"
+        },
+        {
+          "ref": "Proverbs 1:4",
+          "words": "and knowledge and discretion to the young,",
+          "key": "the young"
+        }
+      ],
+      "pairs": [
+        [
+          "the simple",
+          "the young"
+        ],
+        [
+          "prudence",
+          "discretion"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) takes the simple as one easily led to good or evil, a sense the parallel line bears out with the young man, one without experience; he treats prudence and discretion alike, as qualities that here mean wariness to escape evil and find good.",
+      "limit": "The note claims only that the two lines answer each other in sense, not that the simple and the young are one and the same group.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 1:4",
+          "quote": "simple--one easily led to good or evil; so the parallel. young man--one inexperienced. subtilty--or prudence ( Pro 3:21 ; Pro 5:21 ). discretion--literally, \"device,\" both qualities, either good or bad, according to their use. Here good, as they imply wariness by which to escape evil and find good.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-1-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 1:6",
+      "strength": "commonly held",
+      "short": "Proverbs and parables, sayings and riddles",
+      "about": "The second line says the first again in other words: proverbs and parables, then the sayings and riddles of the wise. The word rendered parables is an obscure saying that needs interpreting, so it answers the riddles of the second line.",
+      "lines": [
+        {
+          "ref": "Proverbs 1:6",
+          "words": "by understanding the proverbs and parables,",
+          "key": "parables"
+        },
+        {
+          "ref": "Proverbs 1:6",
+          "words": "the sayings and riddles of the wise.",
+          "key": "riddles"
+        }
+      ],
+      "pairs": [
+        [
+          "parables",
+          "riddles"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word rendered parables (melitsah) is an obscure saying that needs interpreting, and the riddles (chidah) are knotted, intricate sayings.",
+        "strong": [
+          "H4426",
+          "H2420"
+        ]
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes) says that rendering the word as interpretation spoils the parallel of the two clauses, and that riddle or enigma better gives its meaning. J. W. Nutt (Ellicott's Commentary) takes it as an obscure thing that needs interpreting, and so answering the dark sayings, which he calls literally knots, intricate sayings.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 1:6",
+          "quote": "The rendering \"interpretation\" spoils the parallelism of the two clauses, and fails to express the Hebrew. In Hab 2:6 , it is rendered \"taunting proverb.\" Here \"riddle\" or \"enigma\" would better express the meaning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 1:6",
+          "quote": "Interpretation. — Or an obscure thing which needs interpretation, so corresponding to “dark sayings.” Dark sayings. — Literally knots, intricate sayings, like Samson’s riddle ( Jdg 14:12 ).",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-1-12-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 1:12",
+      "strength": "some interpreters",
+      "short": "Swallowed like Sheol, gone down into the Pit",
+      "about": "The second line says the first again in other words. The Pit of the second line is another name for Sheol in the first, the deep place of the dead. The sinners boast that they will devour their victims as Sheol does, as suddenly as those who go down into the Pit.",
+      "lines": [
+        {
+          "ref": "Proverbs 1:12",
+          "words": "let us swallow them alive like Sheol,",
+          "key": "Sheol"
+        },
+        {
+          "ref": "Proverbs 1:12",
+          "words": "and whole like those descending into the Pit.",
+          "key": "Pit"
+        }
+      ],
+      "pairs": [
+        [
+          "Sheol",
+          "Pit"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew Sheol (she'ol) and the Pit (bor) are two names here for the depth where the dead go.",
+        "strong": [
+          "H7585",
+          "H0953"
+        ]
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes) reads the two lines as one boast, all-devouring as Sheol and sudden as the going down into the pit, and calls the Pit here a synonym for Sheol, the great depth, the world of the dead.",
+      "limit": "Some render the second line of the upright, who are made like those who go down to the Pit; the note follows the BSB.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 1:12",
+          "quote": "i. e., \"We will be as all-devouring as Sheol. The destruction of those we attack shall be as sudden as that of those who go down quickly into the pit.\" Some render the latter clause, and upright men as those that go down to the pit. \"Pit\" here is a synonym for Sheol, the great cavernous depth, the shadow-world of the dead.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-1-26-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Proverbs 1:26-27",
+      "strength": "some interpreters",
+      "short": "Calamity, terror; then dread, destruction",
+      "about": "The four lines go out and come back in reverse order: calamity, then terror, then dread, then destruction. The first line answers the last, both speaking of their ruin, and the second answers the third, both speaking of the terror that comes on them.",
+      "lines": [
+        {
+          "ref": "Proverbs 1:26",
+          "words": "in turn I will mock your calamity;",
+          "mark": "A",
+          "key": "calamity"
+        },
+        {
+          "ref": "Proverbs 1:26",
+          "words": "I will sneer when terror strikes you,",
+          "mark": "B",
+          "key": "terror"
+        },
+        {
+          "ref": "Proverbs 1:27",
+          "words": "when your dread comes like a storm,",
+          "mark": "B'",
+          "key": "dread"
+        },
+        {
+          "ref": "Proverbs 1:27",
+          "words": "and your destruction like a whirlwind,",
+          "mark": "A'",
+          "key": "destruction"
+        }
+      ],
+      "pairs": [
+        [
+          "terror",
+          "dread"
+        ],
+        [
+          "calamity",
+          "destruction"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the calamity of the first line and the destruction of the last are one word ('ed), and the terror and the dread between them are one word (pachad).",
+        "strong": [
+          "H0343",
+          "H6343"
+        ]
+      },
+      "evidence": "E. W. Bullinger (Figures of Speech Used in the Bible) sets these lines out as an introverted parallel: your destruction, your fear, your fear, your destruction, the first line answering the fourth and the second the third.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 1:26-27",
+          "at": "Introverted Parallelisms, p. 358",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/358/mode/1up",
+          "quote": "a “I also will laugh at your destruction, b I will mock when your fear cometh; b When your fear cometh as desolation, a and your destruction cometh as a whirlwind.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-3-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 3:3",
+      "strength": "commonly held",
+      "short": "Bound around the neck, written on the heart",
+      "about": "The second line takes the first further in. Loving devotion and faithfulness are bound around the neck, where they are seen, and then written on the heart, where they rule from within. They are to be worn outwardly and held inwardly.",
+      "lines": [
+        {
+          "ref": "Proverbs 3:3",
+          "words": "bind them around your neck,",
+          "key": "neck"
+        },
+        {
+          "ref": "Proverbs 3:3",
+          "words": "write them on the tablet of your heart.",
+          "key": "heart"
+        }
+      ],
+      "pairs": [
+        [
+          "bind",
+          "write"
+        ],
+        [
+          "neck",
+          "heart"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) takes binding them on and writing them on the heart together: they are to adorn outwardly and govern the motives inwardly. Adam Clarke likewise: bound about the neck they are kept in view, written on the heart they become the moving principles, felt as well as seen.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 3:3",
+          "quote": "bind . . . write . . . heart--outwardly adorn and inwardly govern motives.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 3:3",
+          "quote": "Bind them about thy neck - Keep them constantly in view. Write them upon the table of thine heart - let them be thy moving principles; feel them as well as see them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-10-2-mirror",
       "kind": "parallelism",
       "form": "mirror",
@@ -483,6 +738,423 @@
       ]
     },
     {
+      "id": "proverbs-3-12-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 3:12",
+      "strength": "some interpreters",
+      "short": "The LORD disciplines as a father does his son",
+      "about": "The second line says the first again as a likeness and explains it: the LORD disciplines the one He loves, as a father disciplines the son he delights in. The word disciplines carries over from the first line, so the correcting stays the chief point, and love goes with it.",
+      "lines": [
+        {
+          "ref": "Proverbs 3:12",
+          "words": "for the LORD disciplines the one He loves,",
+          "key": "the LORD"
+        },
+        {
+          "ref": "Proverbs 3:12",
+          "words": "as does a father the son in whom he delights.",
+          "key": "a father"
+        }
+      ],
+      "pairs": [
+        [
+          "the LORD",
+          "a father"
+        ],
+        [
+          "loves",
+          "delights"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) reads the second line as explaining the first, taking its opening and as explanatory, with the verb of correcting carried forward from the first line; he rejects a reading that makes the line about the father's love, since correction is the chief point and love goes with it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 3:11-12",
+          "quote": "12b is to be interpreted thus ... \"and (that) as a father the son, whom he loves.\" The ו is explanatory ... but translating \"and as a father he holds his son dear,\" ... does not seem a right parallel clause, since the giving of correction is the chief point, and the love only the accompanying consideration ( Pro 13:24 ). ... יוכיח is to be carried forward in the mind from 12a.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-3-16-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Proverbs 3:16",
+      "strength": "some interpreters",
+      "short": "Blessings at both ends, her two hands between",
+      "about": "The verse goes out and comes back in reverse order: a blessing, then her right hand; her left hand, then more blessings. The gifts stand at the two ends, and Wisdom's two hands stand side by side in the middle.",
+      "lines": [
+        {
+          "ref": "Proverbs 3:16",
+          "words": "Long life",
+          "mark": "A"
+        },
+        {
+          "ref": "Proverbs 3:16",
+          "words": "is in her right hand;",
+          "mark": "B",
+          "key": "right hand"
+        },
+        {
+          "ref": "Proverbs 3:16",
+          "words": "in her left hand",
+          "mark": "B'",
+          "key": "left hand"
+        },
+        {
+          "ref": "Proverbs 3:16",
+          "words": "are riches and honor.",
+          "mark": "A'",
+          "key": "riches and honor"
+        }
+      ],
+      "pairs": [
+        [
+          "right hand",
+          "left hand"
+        ],
+        [
+          "Long life",
+          "riches and honor"
+        ]
+      ],
+      "evidence": "E. W. Bullinger (Figures of Speech Used in the Bible) sets this verse out as an introverted parallelism: blessings (length of days), hand (her right hand), hand (her left hand), blessings (riches and honour).",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 3:16",
+          "at": "Introverted Parallelisms, p. 359",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/359/mode/1up",
+          "quote": "a Blessings. “ Length of days. ” b Hand. “Is in her right hand. ” b Hand. “And in her left hand. ” a Blessings. “ Riches and honour. ”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-4-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 4:8",
+      "strength": "some interpreters",
+      "short": "Prize her and rise; embrace her and be honored",
+      "about": "The second line says the first again in other words. To prize wisdom is to embrace her, and to be exalted by her is to be honored: wisdom lifts up those who hold her dear.",
+      "lines": [
+        {
+          "ref": "Proverbs 4:8",
+          "words": "Prize her, and she will exalt you;",
+          "key": "exalt"
+        },
+        {
+          "ref": "Proverbs 4:8",
+          "words": "if you embrace her, she will honor you.",
+          "key": "honor"
+        }
+      ],
+      "pairs": [
+        [
+          "Prize her",
+          "embrace her"
+        ],
+        [
+          "exalt",
+          "honor"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line turns the order round: she will honor you if you embrace her. The deed comes first in the first line and last in the second.",
+        "strong": [
+          "H5549",
+          "H7311",
+          "H3513",
+          "H2263"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) paraphrases the two lines side by side, the second with the deed and its reward set crosswise: hold wisdom high and she will raise you to a high place; she will honour you if you embrace her. Wisdom, he sums up, exalts her admirers and honours her lovers.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 4:8",
+          "quote": "Hold it high, says the author, and so it will reward ... thee with a high place, and (with chiastic transposition of the performance and the consequence) she will honour ... thee if (ἐάν) thou lovingly embracest her. ... Wisdom exalts her admirers, honours her lovers",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-4-14-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 4:14",
+      "strength": "widely agreed",
+      "short": "Do not set foot on it, nor walk on along it",
+      "about": "Both lines speak of one road, the path of the wicked and the way of evildoers, and the second goes a step further than the first. The first forbids setting foot on it; the second forbids walking on along it. Many read it: if you have already stepped onto it, go no farther.",
+      "lines": [
+        {
+          "ref": "Proverbs 4:14",
+          "words": "Do not set foot on the path of the wicked",
+          "key": "set foot"
+        },
+        {
+          "ref": "Proverbs 4:14",
+          "words": "or walk in the way of evildoers.",
+          "key": "walk"
+        }
+      ],
+      "pairs": [
+        [
+          "set foot",
+          "walk"
+        ],
+        [
+          "the path of the wicked",
+          "the way of evildoers"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first verb means to go in (bo) and the second to go straight on (ashar): entering, then going forward.",
+        "strong": [
+          "H0935",
+          "H0833"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the wicked and the evildoers stand in parallelism, and the two verbs are related as entering and going on. Matthew Henry and Joseph Benson read the second line as the further step: do not enter that path, and if you have entered it, do not go on in it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 4:14",
+          "quote": "In Pro 4:14 the godless (vid., on the root-idea of רשׁע under Psa 1:1 ) and the habitually wicked, i.e., the vicious, stand in parallelism; בּוא and אשּׁר are related as entering and going on, ingressus and progressus.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 4:14-15",
+          "quote": "let them not so much as enter into it, no, not to make trial of it ... 2. If at any time we are inveigled into an evil way, we must hasten out of it. \"If, ere thou wast aware, thou didst enter in at the gate, because it was wide, go not on in the way of evil men.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Proverbs 4:14",
+          "quote": "Enter not into the path of the wicked Avoid their practices and company; and go not in the way of evil men Do not proceed further therein. If thou hast unadvisedly entered into it, do not persist in it, but get thee speedily out of it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-4-25-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 4:25",
+      "strength": "some interpreters",
+      "short": "Eyes forward, gaze straight ahead: one rule twice",
+      "about": "The second line says the first again in other words. Both lines bid the eyes look straight ahead, at what lies before you.",
+      "lines": [
+        {
+          "ref": "Proverbs 4:25",
+          "words": "Let your eyes look forward;",
+          "key": "eyes"
+        },
+        {
+          "ref": "Proverbs 4:25",
+          "words": "fix your gaze straight ahead.",
+          "key": "gaze"
+        }
+      ],
+      "pairs": [
+        [
+          "eyes",
+          "gaze"
+        ],
+        [
+          "look forward",
+          "straight ahead"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line speaks of your eyelids, which move with the eye and follow where it looks, and each line has its own word for what lies straight before you (nokach, then neged).",
+        "strong": [
+          "H5869",
+          "H6079",
+          "H5227",
+          "H5048"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the eyelids are named in the second line because of the poetical parallelism, since in their movement they follow the direction of the seeing eye, and that the words for before you in the two lines both mean what lies straight ahead.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 4:25",
+          "quote": "both denote here that which lies straight before us, and presents itself to the eye looking straight out. The naming of the עפעפּים (from עפעף, to flutter, to move tremblingly), which belongs not to the seeing apparatus of the eye but to its protection, is introduced by the poetical parallelism; for the eyelids ... in their movement follow the direction of the seeing eye.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-5-15-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Proverbs 5:15-19",
+      "strength": "widely agreed",
+      "short": "A man's wife pictured as his own cistern and well",
+      "about": "A man is told to drink water from his own cistern and well, and not to let his springs flow in the streets. Verse 18 makes the picture plain: the fountain is set beside “the wife of your youth.” The water stands for his own wife, and for the joy and faithfulness of married love.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Proverbs 5:15",
+        "words": "Drink water from your own cistern, and running water from your own well",
+        "means": "find delight and satisfaction in your own wife alone, as a man drinks from his own cistern"
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says that by figures the well, cistern and fountain stand for the wife, the streams for the children. Delitzsch (Keil and Delitzsch) calls drinking a figure of satisfied married love, the wife called cistern and fountain. E. H. Plumptre (Barnes' Notes): the true wife is as a fountain of refreshment. J. W. Nutt (Ellicott) notes the same figure in Song 4:15.",
+      "limit": "The water pictures a man's own wife and real married love, as the writers cited take it. Older readings of the passage as a picture of wisdom, or of the living water of God's Spirit, are not claimed here.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 5:15",
+          "quote": "By figures, in which well, cistern, and fountain [ Pro 5:15 , Pro 5:18 ] represent the wife, and rivers of waters [ Pro 5:16 ] the children, men are exhorted to constancy and satisfaction in lawful conjugal enjoyments.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 5:15-17",
+          "quote": "One drinks water to quench his thirst; here drinking is a figure of the satisfaction of conjugal love ... So here the wife, who is his by covenant ( Pro 2:17 ), is called \"cistern\" ... The figure of the cistern is here surpassed by that of the fountain, but both refer to the seeking and finding satisfaction ... with the wife",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 5:15",
+          "quote": "The teacher seeks to counteract the evils of mere sensual passion chiefly by setting forth the true blessedness of which it is the counterfeit. The true wife is as a fountain of refreshment, where the weary soul may quench its thirst.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 5:15-20",
+          "quote": "In these verses Solomon urges his disciples to follow after purity in the married life; he pictures in vivid terms the delights which it affords as compared with the pleasures of sin. ... The same figure is employed in Son 4:15 , where a wife is compared to “a fountain of gardens, a well of living waters, and streams from Lebanon.”",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-6-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 6:1",
+      "strength": "widely agreed",
+      "short": "Pledged for your neighbor: one deed said twice",
+      "about": "The second line says the first again in other words. Striking hands sealed the pledge, and the stranger is the neighbor of the first line: another man, for whom the son has made himself answerable.",
+      "lines": [
+        {
+          "ref": "Proverbs 6:1",
+          "words": "if you have put up security for your neighbor,",
+          "key": "your neighbor"
+        },
+        {
+          "ref": "Proverbs 6:1",
+          "words": "if you have struck hands in pledge with a stranger,",
+          "key": "a stranger"
+        }
+      ],
+      "pairs": [
+        [
+          "put up security",
+          "struck hands in pledge"
+        ],
+        [
+          "your neighbor",
+          "a stranger"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says one and the same person is meant in both lines, the stranger being simply another man, so that the two lines perfectly correspond. A. R. Fausset (Jamieson, Fausset and Brown) and J. W. Nutt (Ellicott) both take striking hands as the bargain struck, and the stranger as the friend it was struck for.",
+      "limit": "Some read the stranger instead as the lender to whom the pledge was given, not the man it was given for.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 6:1",
+          "quote": "show that in both lines one and the same person is meant; זר is in the Proverbs equivalent to אחר, each different from the person in the discourse ... but the debtor, then is the ל the dat. commodi, as 1a, and the two lines perfectly correspond.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 6:1",
+          "quote": "stricken . . . hand--bargained (compare Job 17:3 ). with a stranger--that is, for a friend (compare Pro 11:15 ; Pro 17:18 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 6:1",
+          "quote": "Stricken thy hand. — That is, as we should say, “shaken hands on the bargain.” With a stranger. — Or rather, for another, i.e., thy friend.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-6-6-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Proverbs 6:6-11",
+      "strength": "widely agreed",
+      "short": "Poverty comes on the slacker “like a robber”",
+      "about": "The slacker is sent to learn from the ant, which gathers its food in season with no one to drive it. If he keeps on sleeping, poverty will come upon him like a robber, and need like a bandit. It comes on him surely, and he has no defence against it.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Proverbs 6:11",
+        "words": "poverty will come upon you like a robber, and need like a bandit",
+        "means": "want that comes surely on the idle man while he sleeps, and that he cannot withstand"
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes) says the similitude is drawn from two Eastern terrors, the thief and the armed robber, and sloth is more destructive than both. Henry says want will come step by step, as one that travels, and irresistibly, like an armed man. Clarke and J. W. Nutt (Ellicott) explain the two pictures: poverty draws near surely, and the sleeper cannot withstand it.",
+      "limit": "Older renderings call the robber one who travels, and the writers differ on that picture: one who draws steadily nearer, or a thief who comes suddenly or swiftly. Each way, the poverty comes surely.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 6:11",
+          "quote": "The similitude is drawn from the two sources of Eastern terror: the \"traveler,\" i. e., \"the thief in the night,\" coming suddenly to plunder; the \"armed man,\" literally \"the man of the shield,\" the armed robber. The habit of indolence is more fatally destructive than these marauders.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 6:6-11",
+          "quote": "Poverty and want will certainly come upon those that are slothful in their business. ... \"It will come silently and insensibly, will grow upon thee, and come step by step, as one that travels, but will without fail come at last.\" ... \"It will come irresistibly, like an armed man, whom thou canst not oppose nor make thy part good against.\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 6:11",
+          "quote": "So shall thy poverty come as one that travelleth - That is, with slow, but surely approaching steps. Thy want as an armed man - That is, with irresistible fury; and thou art not prepared to oppose it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 6:11",
+          "quote": "As one that travelleth. — The form of the Hebrew is intensive, “one who moves swiftly,” ... While the sluggard sleeps, poverty is coming on apace. AS an armed man. — Against whom the sleeper will be defenceless.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-6-16-building",
       "kind": "parallelism",
       "form": "building",
@@ -546,6 +1218,223 @@
           "quote": "Of the same sort of Parallelism are those passages, frequent in the Poetic Books, where a Definite number is twice put for an Indefinite; this being followed by an enumeration of particulars naturally throws the sentences into a Parallelism, which cannot be of any other than the Synthetic kind. ... Prov. vi. 16-19.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-6-26-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 6:26",
+      "strength": "some interpreters",
+      "short": "Two warnings of loss: your goods, then your life",
+      "about": "The two lines are not set against each other; both warn of what this sin costs a man, and the loss is double. The first line says it brings him down to poverty; the second says the adulteress hunts his very life.",
+      "lines": [
+        {
+          "ref": "Proverbs 6:26",
+          "words": "For the levy of the prostitute is poverty,",
+          "key": "poverty"
+        },
+        {
+          "ref": "Proverbs 6:26",
+          "words": "and the adulteress preys upon your very life.",
+          "key": "your very life"
+        }
+      ],
+      "pairs": [
+        [
+          "the prostitute",
+          "the adulteress"
+        ],
+        [
+          "poverty",
+          "your very life"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line says a man is brought down to a loaf of bread (kikkar lechem), a mark of poverty; the second says she hunts a precious life (nefesh yeqarah).",
+        "strong": [
+          "H3603",
+          "H3899",
+          "H5315",
+          "H3368",
+          "H6679"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) calls the parallelism synonymous, not antithetic: the man who takes this course is doubly threatened with loss, squandering his means to poverty and having his precious soul made a prey.",
+      "limit": "Some, following the Greek translation, set the lines against each other: the prostitute costs a man only a loaf of bread, but the adulteress hunts his life.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 6:26",
+          "quote": "the parallelism is synonymous, not antithetic: he is doubly threatened with loss who enters upon such a course. The adulterer squanders his means ( Pro 29:3 ) to impoverishment (vid., the mention of a loaf of bread in the description of poverty Sa1 2:36 ), and a man's wife (but at the same time seeking converse with another) makes a prey of a precious soul",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-8-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 8:10",
+      "strength": "commonly held",
+      "short": "Instruction, then knowledge: worth more than wealth",
+      "about": "The second line says the first again in other words: knowledge answers instruction, and pure gold answers silver. The second line has no verb of its own, so receive carries over to it: take knowledge, as you take instruction, over the finest wealth.",
+      "lines": [
+        {
+          "ref": "Proverbs 8:10",
+          "words": "Receive my instruction instead of silver,"
+        },
+        {
+          "ref": "Proverbs 8:10",
+          "words": "and knowledge rather than pure gold."
+        }
+      ],
+      "pairs": [
+        [
+          "instruction",
+          "knowledge"
+        ],
+        [
+          "instead of",
+          "rather than"
+        ],
+        [
+          "silver",
+          "pure gold"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line reads, word for word, take my instruction and not silver. The second line has no verb, so take carries over to it, and its comparison shows that the not means rather than.",
+        "strong": [
+          "H3947",
+          "H0408"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch), agreeing with Fleischer, says the second line cannot be a bare statement set parallel to the command before it, so he carries the verb take on into it. Fausset (Jamieson, Fausset and Brown) says not silver means preferred to it, as the comparison in the last clause shows.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 8:10",
+          "quote": "Instead of ולא־כּסף influenced by קחוּ, is ואל־כסף with תּקחוּ to be supplied ... But Fleischer has quite correctly affirmed that this assertatory clause is unsuitably placed as a parallel clause over against the preceding imperative clause ... We therefore ... inasmuch as we carry forward the קחו: et scientiam prae auro lectissimo, which is also according to the accentuation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 8:10",
+          "quote": "not silver--preferable to it, so last clause implies comparison.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-9-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Proverbs 9:1-6",
+      "strength": "widely agreed",
+      "short": "Wisdom prepares a feast and invites the simple",
+      "about": "Wisdom builds her house, prepares her meat and wine, and sends out her maidservants to call the simple to her table. The picture runs on to her call: “Leave your folly behind, and you will live.” Some of the writers set it beside Jesus' parables of a great feast.",
+      "refs": [
+        "Luke 14:16-24",
+        "Matthew 22:1-14"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "Proverbs 9:1",
+        "words": "Wisdom has built her house",
+        "means": "the good things Wisdom offers all who lack judgment, food for mind and heart, pictured as a rich feast she has made ready and calls them to share"
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) calls it an allegorical picture of a present reality rather than a parable, its flesh and wine figures of food for mind and heart. Joseph Benson calls it an allegory that Jesus' parables of the feast illustrate. Matthew Henry says Wisdom's provision is shown under the similitude of a feast. E. H. Plumptre (Barnes' Notes) and Adam Clarke call it a parable.",
+      "limit": "Some of these writers call it a parable. They differ on what the house stands for: heaven or the church in one reading, the world God made in another.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 9:1-3",
+          "quote": "If we had a parable before us, the perf. would have run into the historical ... but it is ... an allegorical picture of the arrangement and carrying out of a present reality. ... Since the figure is allegorical, we may not dispense with the interpretation of the number seven ... Flesh and wine are figures of the nourishment for the mind and the heart which is found with wisdom",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Proverbs 9:1",
+          "quote": "Wisdom here, under a most splendid allegory, is represented ... This house is opposed to the harlot's house, mentioned Pro 7:8 ... especially the parables, Mat 22:1-14, and Luk 14:16-24, which greatly illustrate this allegory of Solomon.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 9:1-12",
+          "quote": "The rich provision which Wisdom has made for the reception of all those that will be her disciples. This is represented under the similitude of a sumptuous feast, whence it is probable, our Saviour borrowed those parables in which he compared the kingdom of heaven to a great supper ... Heaven is the house which Wisdom has built ... The church is Wisdom's house, to which she invites her guests",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 9:1",
+          "quote": "A parable full of beauty, and interesting in its parallelism to the parables of our Lord Mat 22:3-4; Luk 14:16. Seven pillars - The number is chosen as indicating completeness and perfection.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 9",
+          "quote": "she represents herself as the great potentate, who was to rule all that she had constructed, ... had made an abundant provision, and calls all to partake of it. ... let us follow the first part of the parable, where wisdom is represented as laying the plan of the creation; and then ... wisdom ... comes to show us, in this part, that the whole has been constructed on this plan",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-9-13-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Proverbs 9:13-18",
+      "strength": "widely agreed",
+      "short": "Folly as a woman whose guests are in Sheol",
+      "about": "Over against Wisdom's feast, the woman named Folly sits at her door and calls the same simple ones: “Stolen water is sweet.” The picture runs to its end, where her guests are in the depths of Sheol. The writers read her as the pull of sinful pleasure, set against Wisdom.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Proverbs 9:13",
+        "words": "The woman named Folly is loud",
+        "means": "the pull of sinful pleasure, pictured as a loud woman who calls the simple into her house, where her guests find death"
+      },
+      "original": {
+        "note": "In Hebrew she is a woman of folly: Folly herself, given a woman's name.",
+        "strong": [
+          "H0802",
+          "H3687"
+        ]
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes) calls it the picture of the harlot as the representative of the sensual life, set against Wisdom. Franz Delitzsch (Keil and Delitzsch) says the poet brings in another figure, Folly personified and given a woman's name over against Wisdom. Matthew Henry takes the woman to mean carnal pleasure, and her guests in Sheol to be those under the power of sin.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 9:13",
+          "quote": "The picture of the harlot as the representative of the sensual life, the Folly between which and Wisdom the young man has to make his choice",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 9:13-15",
+          "quote": "The poet now brings before us another figure, for he personifies Folly working in opposition to Wisdom, and gives her a feminine name, as the contrast to Wisdom required, and thereby to indicate that the seduction, as the 13th proverbial discourse (chap. 7) has shown, appears especially in the form of degraded womanhood",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 9:13-18",
+          "quote": "Who is the tempter—a foolish woman, Folly herself, in opposition to Wisdom. Carnal sensual pleasure I take to be especially meant by this foolish woman ... Her guests, that are treated with those stolen waters, are not only in the highway to hell and at the brink of it, but they are already in the depths of hell, under the power of sin",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -614,6 +1503,71 @@
       ]
     },
     {
+      "id": "proverbs-10-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 10:6",
+      "strength": "widely agreed",
+      "short": "Blessings on the righteous, violence with the wicked",
+      "about": "The second line answers the first with its opposite: blessings rest on the head of the righteous, but violence goes with the mouth of the wicked. Head answers mouth, and righteous answers wicked.",
+      "lines": [
+        {
+          "ref": "Proverbs 10:6",
+          "words": "Blessings are on the head of the righteous,"
+        },
+        {
+          "ref": "Proverbs 10:6",
+          "words": "but the mouth of the wicked conceals violence."
+        }
+      ],
+      "pairs": [
+        [
+          "Blessings",
+          "violence"
+        ],
+        [
+          "head",
+          "mouth"
+        ],
+        [
+          "righteous",
+          "wicked"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb of the second line means to cover, so it can be read as the mouth of the wicked hiding violence, or as the violence he has done covering his mouth, falling back on him.",
+        "strong": [
+          "H3680"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the verse an antithetic distich and reads violence as covering the mouth of the wicked, which he says keeps the contrast sharp. Fausset (Jamieson, Fausset and Brown) takes blessings as praises and reads the mouth of the wicked as hiding violence, so it has no praises. Adam Clarke sets the shame that covers the wicked against the blessings on the just.",
+      "limit": "Writers differ on the second line: some read it as the mouth of the wicked hiding violence, others as the violence he has done coming back to cover his own mouth.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 10:6",
+          "quote": "The first of these two antithetic distichs is: Blessings (come) on the head of the just; But violence covereth the mouth of the godless. ... If we understand ... the mouth of the wicked covers (hides under a mask) violence ... then we renounce the sharpness of the contrast. On the contrary, it is preserved if we interpret וּפי as object",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 10:6",
+          "quote": "Blessings--literally, \"Praises.\" The last clause is better: \"The mouth of the wicked covereth (or concealeth) violence (or mischievous devices)\" to be executed in due time ( Psa 5:9 ; Psa 10:7 ; Rom 3:14 ), and hence has no praises (compare Pro 10:11 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 10:6",
+          "quote": "Violence covereth the mouth of the wicked - As blessings shall be on the head of the just, so the violence of the wicked shall cover their face with shame and confusion. Their own violent dealings shall be visited upon them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-10-7-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -664,6 +1618,188 @@
       ]
     },
     {
+      "id": "proverbs-11-7-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 11:7",
+      "strength": "widely agreed",
+      "short": "His hope dies with him, even hope in his strength",
+      "about": "The second line adds to the first. When the wicked man dies his hope perishes, and with it goes even the hope he built on his strength, which many read as his wealth and power.",
+      "lines": [
+        {
+          "ref": "Proverbs 11:7",
+          "words": "When the wicked man dies, his hope perishes,"
+        },
+        {
+          "ref": "Proverbs 11:7",
+          "words": "and the hope of his strength vanishes.",
+          "key": "strength"
+        }
+      ],
+      "pairs": [
+        [
+          "perishes",
+          "vanishes"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both lines use one verb, to perish: future in form in the first line and past in the second, which strengthens the thought. The word for strength is plural, fulness of strength.",
+        "strong": [
+          "H0006",
+          "H0202"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) reads strength as fulness of strength and says the two lines complete each other, the second strengthening the first by moving from future to past, a point he credits to Fleischer. Fausset (Jamieson, Fausset and Brown) reads the hope of wealth or power and calls the second line an advance on the first. Joseph Benson says it is added to heighten the first.",
+      "limit": "Where the second line is read as the hope of unjust men, as in some older translations, it only repeats the first.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 11:7",
+          "quote": "we gain the meaning that there is a sudden end to the expectation of those who are in full strength, and build their prospects thereon. The two synonymous lines complete themselves, in so far as אונים gains by אדם רשׁע the associated idea of self-confidence, and the second strengthens the thought of the first by the transition of the expression from the fut. to the preterite (Fl.).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 11:7",
+          "quote": "hope of unjust--better, \"hope of wealth,\" or \"power\" (compare Isa 40:29 , Hebrew). This gives an advance on the sentiment of the first clause. Even hopes of gain die with him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Proverbs 11:7",
+          "quote": "This clause, according to this translation, is a mere repetition of the former: but the word אונים, here rendered unjust men , is generally translated strengths , or powers , as indeed it properly means. Divers, therefore, interpret the clause, The hope of their strengths , that is, which they place in their riches ... perisheth. So this is added by way of aggravation.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-11-13-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 11:13",
+      "strength": "commonly held",
+      "short": "A gossip tells secrets; the trustworthy keep them",
+      "about": "The second line answers the first with its opposite: the gossip reveals a secret, and the trustworthy person keeps a confidence. One carries what he hears from house to house; the other keeps a matter back from the knowledge of others.",
+      "lines": [
+        {
+          "ref": "Proverbs 11:13",
+          "words": "A gossip reveals a secret,"
+        },
+        {
+          "ref": "Proverbs 11:13",
+          "words": "but a trustworthy person keeps a confidence."
+        }
+      ],
+      "pairs": [
+        [
+          "A gossip",
+          "a trustworthy person"
+        ],
+        [
+          "reveals",
+          "keeps"
+        ],
+        [
+          "a secret",
+          "a confidence"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the gossip is one who goes about with talk, and the trustworthy person is one faithful, or firm, in spirit, who conceals a matter.",
+        "strong": [
+          "H1980",
+          "H7400",
+          "H0539",
+          "H7307",
+          "H3680"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the gossip, named from going about, reveals the secret, and that on the contrary the man firm and true in spirit conceals a matter. Matthew Henry sets the faithful man's concealment against the tale-bearer who carries stories from house to house and reveals what he was trusted with.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 11:13",
+          "quote": "It is of such an one that the proverb speaks, that he reveals the secret ... On the contrary, a נאמן־רוּח, firmus (fidus) spiritu, properly one who is established, or reflexively one who proves himself firm and true (vid., at Gen 15:6 ), conceals a matter, keeps it back from the knowledge and power of another.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 11:12-13",
+          "quote": "He that is of a faithful spirit ... conceals every matter which, if divulged, may turn to the prejudice of his neighbour. II. This prudent friendly concealment is here opposed to two very bad vices of the tongue ... A tale-bearer, that carries all the stories he can pick up ... from house to house, to make mischief and sow discord, reveals secrets which he has been entrusted with",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-11-17-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 11:17",
+      "strength": "widely agreed",
+      "short": "The kind help themselves; the cruel harm themselves",
+      "about": "The second line answers the first with its opposite: a kind man benefits himself, but a cruel man brings trouble on himself. Kind answers cruel, and benefit answers trouble: how a man treats others comes back on himself.",
+      "lines": [
+        {
+          "ref": "Proverbs 11:17",
+          "words": "A kind man benefits himself,"
+        },
+        {
+          "ref": "Proverbs 11:17",
+          "words": "but a cruel man brings trouble on himself."
+        }
+      ],
+      "pairs": [
+        [
+          "kind",
+          "cruel"
+        ],
+        [
+          "benefits",
+          "brings trouble"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line says his soul and the second his flesh, two words for the man himself.",
+        "strong": [
+          "H5315",
+          "H7607"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) takes the kind man and the cruel man as the verse's two subjects, says the one does good and the other brings evil on his own flesh, and calls flesh the parallel word to soul. Fausset (Jamieson, Fausset and Brown) says kind is opposed to cruel: the kind benefit themselves, the cruel injure themselves. Matthew Henry says we are friends or enemies to ourselves.",
+      "limit": "Some take his flesh as the cruel man's own family, whom he troubles too; others take it as his own body.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 11:17",
+          "quote": "Thus the \"benevolent man\" and the \"violent man\" will be the two subject conceptions, and as it is said of the benevolent ... that he does good ... so of the violent (unmerciful) ... that he brings evil on his own flesh (lxx αὐτοῦ σῶμα); for שׁארו as a parallel word to נפשׁו (cf. p. 141) signifies not blood-relations ... but it has here, as at Mic 3:2 , its nearest signification",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 11:17",
+          "quote": "merciful--kind to others; opposed to cruel. Such benefit themselves by doing good to others (compare Pro 24:5 ), while the cruel injure themselves as well as others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 11:17",
+          "quote": "We are friends or enemies to ourselves, even in respect of present comfort, according as we are or are not governed by religious principles. 1. A merciful, tender, good humoured man, does good to his own soul, makes and keeps himself easy. ... 2. A cruel, froward, ill-natured man, troubles his own flesh, and so his sin becomes his punishment ... He is vexatious to his nearest relations",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-11-24-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -703,6 +1839,109 @@
           "quote": "Here there is a kind of double Antithesis; one between the two lines themselves; and likewise a subordinate opposition between the two parts of each.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-11-25-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 11:25",
+      "strength": "some interpreters",
+      "short": "The one who refreshes others will be refreshed",
+      "about": "The second line says the first again in other words. The generous soul is the one who refreshes others, and his prospering is his own refreshing: the blessing that goes out from him comes back to him.",
+      "lines": [
+        {
+          "ref": "Proverbs 11:25",
+          "words": "A generous soul will prosper,"
+        },
+        {
+          "ref": "Proverbs 11:25",
+          "words": "and he who refreshes others will himself be refreshed."
+        }
+      ],
+      "pairs": [
+        [
+          "A generous soul",
+          "he who refreshes others"
+        ],
+        [
+          "prosper",
+          "be refreshed"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the generous soul is a soul of blessing, and will prosper is will be made fat; the second line pairs one who waters others with being watered.",
+        "strong": [
+          "H1293",
+          "H1878",
+          "H7301"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the verse a synonymous distich: the soul of blessing is one from whom blessings go out to others, and the blessing comes back to it. He will not take the last word as merely sprinkled, since as the parallel word to made fat it would lack equal force.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 11:25",
+          "quote": "A synonymous distich (vid., p. 7). A soul of blessing is one from whom blessings go out to others ... The blessing which goes out from such a soul comes back again to itself ... for the idea conspergitur, which the Ho. of the Hiph. יורה, Hos 6:3 , expresses, is, as correlate to מרוה, as a parallel word to תדשּׁן, one not of equal force.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-12-20-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 12:20",
+      "strength": "widely agreed",
+      "short": "Plotting evil brings deceit; counsel of peace, joy",
+      "about": "The second line answers the first with its opposite. Those who devise evil are set against the counselors of peace, and deceit against joy: plotting harm works deceit and sorrow, while seeking peace brings joy.",
+      "lines": [
+        {
+          "ref": "Proverbs 12:20",
+          "words": "Deceit is in the hearts of those who devise evil,"
+        },
+        {
+          "ref": "Proverbs 12:20",
+          "words": "but the counselors of peace have joy."
+        }
+      ],
+      "pairs": [
+        [
+          "those who devise evil",
+          "the counselors of peace"
+        ],
+        [
+          "Deceit",
+          "joy"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls joy the parallel word to deceit and those who devise peace the contrast to those who devise evil. Fausset (Jamieson, Fausset and Brown) says the happiness of peacemakers is opposed to the deceitful course. J. W. Nutt (Ellicott's Commentary) says plotters deceive others and themselves, whereas counselors of peace bring joy to others and themselves.",
+      "limit": "The cited writers differ on whose joy it is: the joy the counselors of peace give their neighbors, their own, or both.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 12:20",
+          "quote": "it says, when taken in connection with 20b, where שׂמחה is the parallel word to מרמה, that with the deception he always at the same time prepares for him sorrow. The contrast to חרשׁי רע is יועצי שׁלום ... Thoughts of peace for one's neighbour are always thoughts of procuring joy for him, as thoughts of evil are thoughts of deceit, and thus of procuring sorrow for him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 12:20",
+          "quote": "They design a deceitful course, to which, with all its evils and dangers to others and themselves, the happiness of peace-makers is opposed",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 12:20",
+          "quote": "Those who plot and devise evil against others begin by deceiving them, and end by deceiving themselves also; whereas the “counsellors of peace,” who seek the good of their neighbours, bring joy to them and to themselves also",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -757,6 +1996,602 @@
       ]
     },
     {
+      "id": "proverbs-13-17-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 13:17",
+      "strength": "some interpreters",
+      "short": "A wicked messenger, a faithful envoy",
+      "about": "The second line answers the first with its opposite: a wicked messenger and a faithful envoy, trouble and healing. The unfaithful one falls into harm and his errand fails, while the faithful one does good to others by his faithfulness.",
+      "lines": [
+        {
+          "ref": "Proverbs 13:17",
+          "words": "A wicked messenger falls into trouble,"
+        },
+        {
+          "ref": "Proverbs 13:17",
+          "words": "but a faithful envoy brings healing."
+        }
+      ],
+      "pairs": [
+        [
+          "wicked",
+          "faithful"
+        ],
+        [
+          "messenger",
+          "envoy"
+        ],
+        [
+          "falls into trouble",
+          "brings healing"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the unfaithful messenger falls into evil, so that his errand fails, and that contrasted with him is the faithful one, whose faithfulness benefits others.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 13:17",
+          "quote": "A wicked--or, \"unfaithful\" messenger falleth into mischief--or, \"by mischief,\" or \"evil,\" and so his errand fails. Contrasted is the character of the faithful, whose faithfulness benefits others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-14-18-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 14:18",
+      "strength": "commonly held",
+      "short": "The simple inherit folly; the prudent wear a crown",
+      "about": "The second line answers the first with its opposite: the simple and the prudent, folly and knowledge. Folly comes to the simple as their lot, but the prudent gain knowledge and wear it like a crown.",
+      "lines": [
+        {
+          "ref": "Proverbs 14:18",
+          "words": "The simple inherit folly,",
+          "key": "inherit"
+        },
+        {
+          "ref": "Proverbs 14:18",
+          "words": "but the prudent are crowned with knowledge.",
+          "key": "crowned"
+        }
+      ],
+      "pairs": [
+        [
+          "The simple",
+          "the prudent"
+        ],
+        [
+          "folly",
+          "knowledge"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb for crowned answers the verb for inherit and goes beyond it: what is inherited simply comes to a man, while knowledge worn as a crown is a possession won.",
+        "strong": [
+          "H5157",
+          "H3803"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the verb for crowned the parallel word to inherit and a heightening of it, and says the prudent, on the contrary, gain knowledge as a crown, a possession won and not merely an inheritance. J. W. Nutt (Ellicott's Commentary) sets the simple, who become self-willed, against the prudent, whom knowledge adorns as a crown.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 14:18",
+          "quote": "As a parallel word to נחלוּ, יכתּרוּ ... since in the relation to נחלו one expects an idea surpassing this ... folly is their possession, i.e., their property. The prudent, on the contrary, as Pro 14:15 designates them, have thoughtfully to ponder their step to gain knowledge as a crown ... Knowledge is to them not merely an inheritance, but a possession won",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 14:18",
+          "quote": "As weeds spring up in unoccupied soil, so “simple” ( Pro 1:22 ) persons, whose minds are unoccupied with good, often become self-willed; while the knowledge which the “prudent” gain by looking well to their steps ( Pro 14:15 ) adorns them as a crown.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-14-30-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 14:30",
+      "strength": "widely agreed",
+      "short": "A calm heart gives life; envy rots the bones",
+      "about": "The second line answers the first with its opposite. A heart at rest is life and health to the whole body; envy, set against it, eats into the very bones like a disease working from within. The state of the heart shows in the whole man.",
+      "lines": [
+        {
+          "ref": "Proverbs 14:30",
+          "words": "A tranquil heart is life to the body,"
+        },
+        {
+          "ref": "Proverbs 14:30",
+          "words": "but envy rots the bones."
+        }
+      ],
+      "pairs": [
+        [
+          "A tranquil heart",
+          "envy"
+        ],
+        [
+          "life",
+          "rots"
+        ],
+        [
+          "the body",
+          "the bones"
+        ]
+      ],
+      "evidence": "E. H. Plumptre (Barnes' Notes) says the contrast to the sound heart is envy, eating like a consuming disease into the bones. Fausset (Jamieson, Fausset and Brown) says the sound heart, a source of health, is opposed to the effect of evil passions. Delitzsch (Keil and Delitzsch) says a quiet heart preserves the body's life, while passion, on the contrary, is like disease in the bones.",
+      "limit": "The cited writers take the verse both of bodily health and of the inner, moral life.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 14:30",
+          "quote": "Sound heart - literally, \"heart of health,\" that in which all emotions and appetites are in a healthy equilibrium. The contrast with this is the envy which eats, like a consuming disease, into the very bones and marrow of a man's moral life.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 14:30",
+          "quote": "A sound heart--both literally and figuratively, a source of health; in the latter sense, opposed to the known effect of evil passions on health.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 14:30",
+          "quote": "the body has in such quiet of spirit the best means of preserving the life which furthers the well-being, and co-operates to the calming of all its disquietude; on the contrary, passion, whether it rage or move itself in stillness, is like the disease in the bones ( Pro 12:4 ), which works onward till it breaks asunder the framework of the body",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-14-32-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 14:32",
+      "strength": "commonly held",
+      "short": "The wicked thrown down, the righteous safe in death",
+      "about": "The second line answers the first with its opposite: the wicked man is thrown down, but the righteous man has a refuge even in death. Read against the second line, the first can be taken of what befalls the wicked man in his calamity or in his death.",
+      "lines": [
+        {
+          "ref": "Proverbs 14:32",
+          "words": "The wicked man is thrown down by his own sin,"
+        },
+        {
+          "ref": "Proverbs 14:32",
+          "words": "but the righteous man has a refuge even in death."
+        }
+      ],
+      "pairs": [
+        [
+          "The wicked man",
+          "the righteous man"
+        ],
+        [
+          "is thrown down",
+          "has a refuge"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the parallelism leads him to read the first line as in his misfortune, to match in his death, and that the godless is overthrown, while, on the contrary, the righteous is comforted in God even in death. Matthew Poole takes the first line of the wicked man's death, as gathered from the opposite clause.",
+      "limit": "The Hebrew word the BSB gives as sin can also mean calamity; scholars differ, and one cited writer reads it so to match the second line.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 14:32",
+          "quote": "The parallelism leads us to translate ברעתו, not on account of his wickedness, but with Luther, in conformity with במותו, in his misfortune, i.e., if it befall him. ... The godless in his calamity is overthrown, or he fears in the evils which befall him the intimations of the final ruin; on the contrary, the righteous in his death, even in the midst of extremity, is comforted",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Proverbs 14:32",
+          "quote": "Driven away, to wit, in his death, as is gathered from the opposite clause;",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/proverbs/14.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-15-20-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 15:20",
+      "strength": "commonly held",
+      "short": "A wise son gladdens; a foolish man despises",
+      "about": "The second line answers the first with its opposite: a wise son and a foolish man, joy to a father and contempt for a mother. To despise a mother grieves her deeply, the reverse of making a father glad. The first line is also found in Proverbs 10:1.",
+      "lines": [
+        {
+          "ref": "Proverbs 15:20",
+          "words": "A wise son brings joy to his father,"
+        },
+        {
+          "ref": "Proverbs 15:20",
+          "words": "but a foolish man despises his mother."
+        }
+      ],
+      "pairs": [
+        [
+          "wise",
+          "foolish"
+        ],
+        [
+          "brings joy to",
+          "despises"
+        ],
+        [
+          "father",
+          "mother"
+        ]
+      ],
+      "refs": [
+        "Proverbs 10:1"
+      ],
+      "evidence": "E. H. Plumptre (Barnes' Notes) says to despise a mother is to cause her the deepest grief, and so is fitly contrasted with making a father glad. Delitzsch (Keil and Delitzsch) notes that the first line is that of Proverbs 10:1, and calls dutiful piety wisdom and its contrary exceeding folly.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 15:20",
+          "quote": "To \"despise\" a mother is to cause her the deepest grief, and is therefore not unfitly contrasted with \"making a glad father.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 15:20",
+          "quote": "Line first = Pro 10:1 . ... Piety acting in willing subordination is wisdom, and the contrary exceeding folly.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-15-23-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 15:23",
+      "strength": "some interpreters",
+      "short": "A fitting reply, a timely word",
+      "about": "The second line says the first again in other words. The first line speaks of the reply that fits what was asked and the joy it brings; the second weighs a fitting word more broadly, by its season, as good in itself and welcome.",
+      "lines": [
+        {
+          "ref": "Proverbs 15:23",
+          "words": "A man takes joy in a fitting reply"
+        },
+        {
+          "ref": "Proverbs 15:23",
+          "words": "and how good is a timely word!"
+        }
+      ],
+      "pairs": [
+        [
+          "a fitting reply",
+          "a timely word"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the second line the synonymous parallel of the first: it measures what is fitting not by the question answered but by its season, and he says a word in season is both good in itself and welcome.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 15:23",
+          "quote": "The synonymous parallel line measures that which is appropriate, not to that which is to be answered, but from a general point of view as to its seasonableness ... both ideas lie in it: that such a word is in itself well-conditioned and successful, and also that it is welcome, agreeable, and of beneficial influence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-15-26-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 15:26",
+      "strength": "widely agreed",
+      "short": "Wicked thoughts detested, pure words pleasing",
+      "about": "The second line answers the first with its opposite. What the LORD detests, the thoughts of the wicked, is set against what pleases Him, the words of the pure. Thoughts are paired with words, for words come from the thoughts behind them.",
+      "lines": [
+        {
+          "ref": "Proverbs 15:26",
+          "words": "The LORD detests the thoughts of the wicked,"
+        },
+        {
+          "ref": "Proverbs 15:26",
+          "words": "but the words of the pure are pleasant to Him."
+        }
+      ],
+      "pairs": [
+        [
+          "detests",
+          "pleasant"
+        ],
+        [
+          "thoughts",
+          "words"
+        ],
+        [
+          "wicked",
+          "pure"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch): evil thoughts are an abomination to God, but kind words are pure in His eyes, and the parallel requires pure to answer abomination. Henry: one line speaks of thoughts, the other of words, and they come to one; the wicked's are an abomination, the pure's well-pleasing to God. Poole: the pure's words proceed from their thoughts; pleasant is opposed to abomination.",
+      "limit": "In Hebrew the second line can also be read as kind words are pure to Him; read either way, it is set against the thoughts the LORD detests.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 15:26",
+          "quote": "Thoughts which are of a bad kind and of a bad tendency ... are an abomination to God; but, on the contrary, pure, viz., in His eyes, ... are the אמרי־נעם, words of compassion and of friendship toward men, which are (after 26a) the expression of such thoughts ... also the parallelism requires that טהורים correspond with 'תועבת ה",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 15:26",
+          "quote": "The former part of this verse speaks of thoughts, the latter of words, but they come all to one; for thoughts are words to God, and words are judged of by the thoughts from which they proceed ... The thoughts and words of the wicked ... are an abomination to the Lord ... The thoughts and words of the pure ... are pleasant words and pleasant thoughts, well-pleasing to the holy God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Proverbs 15:26",
+          "quote": "The words of the pure, which discover and proceed from their thoughts, Matthew 15:19 ... Pleasant; acceptable to God, which is opposed to abomination to him",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/proverbs/15.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-15-30-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 15:30",
+      "strength": "commonly held",
+      "short": "Bright eyes cheer the heart; good news, the bones",
+      "about": "The second line says the first again in other words. The light of the eyes answers good news, and cheering the heart answers nourishing the bones. The picture in the first line sheds light on the second.",
+      "lines": [
+        {
+          "ref": "Proverbs 15:30",
+          "words": "The light of the eyes cheers the heart,"
+        },
+        {
+          "ref": "Proverbs 15:30",
+          "words": "and good news nourishes the bones."
+        }
+      ],
+      "pairs": [
+        [
+          "The light of the eyes",
+          "good news"
+        ],
+        [
+          "cheers",
+          "nourishes"
+        ],
+        [
+          "the heart",
+          "the bones"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the verse a synonymous distich: its first line speaks of the bright eyes of others that meet us, its second of a good message. Fausset (Jamieson, Fausset and Brown) says that as what gives light rejoices the heart, so a good report makes fat, and that the first clause illustrates the last.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 15:30",
+          "quote": "30 The light of the eye rejoiceth the heart, And a good message maketh the bones fat. ... the brightness of the eyes of others that meet us. ... That, in line second of this synonymous distich, שׁמוּעה טובה does not mean alloquium humanum (Fl.), nor a good report which one hears of himself, but a good message",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 15:30",
+          "quote": "What gives light rejoiceth the heart, by relieving from anxiety as to our course; so good report--or, \"doctrine\" ( Isa 28:9 ; Isa 53:1 ), maketh . . . fat--or, \"gives prosperity\" ( Pro 3:13-17 ; Pro 9:11 ). The last clause is illustrated by the first.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-15-33-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 15:33",
+      "strength": "some interpreters",
+      "short": "Fear of the LORD to wisdom, humility to honor",
+      "about": "Read with the fear of the LORD as its subject, the two lines are built alike: the fear of the LORD is the schooling that leads to wisdom, and humility is the road that leads to honor. The way up to honor goes through lowliness.",
+      "lines": [
+        {
+          "ref": "Proverbs 15:33",
+          "words": "The fear of the LORD is the instruction of wisdom,"
+        },
+        {
+          "ref": "Proverbs 15:33",
+          "words": "and humility comes before honor."
+        }
+      ],
+      "pairs": [
+        [
+          "The fear of the LORD",
+          "humility"
+        ],
+        [
+          "wisdom",
+          "honor"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) allows the fear of the LORD to be the subject of the first line, and says that read so the parallel lies nearer: the fear of God is the right school of wisdom, and humility the right way to honor. The way to the height, he adds, lies through the depth.",
+      "limit": "In Hebrew the first line can also be read the other way round, with the fear of the LORD as the goal that wisdom's training aims at; the two lines match most closely as the verse is read here.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 15:33",
+          "quote": "the phrase may also be the subject, and by such a rendering Luther's parallelism lies nearer: \"The fear of the Lord is discipline to wisdom;\" the fear of God, viz., continually exercised and tried, is the right school of wisdom, and humility is the right way to honour. ... The way to the height lies through the depth",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-16-1-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 16:1",
+      "strength": "widely agreed",
+      "short": "Man plans in his heart; the reply is the LORD's",
+      "about": "The second line answers the first with its opposite. The plans of the heart belong to man, but the reply of the tongue is from the LORD: a man may weigh and arrange his thoughts, yet the last word is the LORD's.",
+      "lines": [
+        {
+          "ref": "Proverbs 16:1",
+          "words": "The plans of the heart belong to man,"
+        },
+        {
+          "ref": "Proverbs 16:1",
+          "words": "but the reply of the tongue is from the LORD."
+        }
+      ],
+      "pairs": [
+        [
+          "the heart",
+          "the tongue"
+        ],
+        [
+          "man",
+          "the LORD"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch): the reflections of the heart are the business of men, but the answer the tongue finally gives is from God. Clarke: the schemes of the heart are man's, but the answer of the tongue is the Lord's. E. H. Plumptre (Barnes' Notes): thoughts come and go, but well ordered speech is the gift of God. Fausset (Jamieson, Fausset and Brown): man proposes; God disposes.",
+      "limit": "The writers differ on the second line: some take the reply as the fitting words God gives a man to speak, others as God's own answer to what a man plans.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 16:1",
+          "quote": "1 Man's are the counsels of the heart; But the answer of the tongue cometh from Jahve. ... These reflections, seeking at one time in one direction, and at another in another, the solution of the question, the unfolding of the problem, are the business of men; but the answer which finally the tongue gives, ... is from God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 16:1",
+          "quote": "Man proposes his wishes; but God answers as he thinks proper. The former is the free offspring of the heart of man; the latter, the free volition of God. ... it states that the dispositions or schemes of the heart (are) man's; but the answer of the tongue (is) the Lord's.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 16:1",
+          "quote": "Better, The plans of the heart belong to man, but the utterance of the tongue is from Yahweh. Thoughts come and go, as it were, spontaneously; but true, well ordered speech is the gift of God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 16:1",
+          "quote": "in man--or literally, \"to man,\" belonging, or pertaining to him. the answer . . . Lord--The efficient ordering is from God: \"Man proposes; God disposes.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-16-18-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 16:18",
+      "strength": "some interpreters",
+      "short": "Pride before destruction, haughtiness before a fall",
+      "about": "The second line says the first again in other words. A haughty spirit answers pride, and a fall answers destruction.",
+      "lines": [
+        {
+          "ref": "Proverbs 16:18",
+          "words": "Pride goes before destruction,"
+        },
+        {
+          "ref": "Proverbs 16:18",
+          "words": "and a haughty spirit before a fall."
+        }
+      ],
+      "pairs": [
+        [
+          "Pride",
+          "a haughty spirit"
+        ],
+        [
+          "destruction",
+          "a fall"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) takes the destruction of the first line as the breaking of the limbs, the ruin of the person, and says that here being dashed in pieces and being overthrown, the words that end the two lines, correspond.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 16:18",
+          "quote": "18 Pride goeth before destruction, And haughtiness cometh before a fall. ... שׁבר means the fracture of the limbs, destruction of the person. ... Here being dashed in pieces and overthrown correspond.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-16-23-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 16:23",
+      "strength": "some interpreters",
+      "short": "A wise heart teaches the mouth and the lips",
+      "about": "The second line says the first again in other words. The heart of the wise man instructs his mouth, and it adds persuasiveness to his lips: the wisdom held within rises into speech that can teach others.",
+      "lines": [
+        {
+          "ref": "Proverbs 16:23",
+          "words": "The heart of the wise man instructs his mouth"
+        },
+        {
+          "ref": "Proverbs 16:23",
+          "words": "and adds persuasiveness to his lips."
+        }
+      ],
+      "pairs": [
+        [
+          "instructs",
+          "adds persuasiveness"
+        ],
+        [
+          "his mouth",
+          "his lips"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word rendered persuasiveness is the word for learning, so the second line has learning rise to the lips.",
+        "strong": [
+          "H3948"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says wisdom in the heart produces intelligent speech and, as the parallel line expresses it, learning rises to the lips, to be passed on to others, for what is learned and the power to pass it on are measured by the wisdom of the heart that holds it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 16:23",
+          "quote": "Wisdom in the heart produceth intelligent discourse, and, as the parallel member expresses it, learning mounteth up to the lips, i.e., the learning which the man taketh into his lips ( Pro 22:18 ; cf. Psa 16:4 ) to communicate it to others, for the contents of the learning, and the ability to communicate it, are measured by the wisdom of the heart of him who possesses it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-16-33-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -786,6 +2621,530 @@
           "quote": "In the following there is much the same opposition of sentiment, without any contraposition of terms at all: ... The lot is cast into the lap; But the whole determination of it is from Jehovah. ... That is, the event seems to be the work of Chance; but is really the direction of Providence.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-17-11-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 17:11",
+      "strength": "widely agreed",
+      "short": "Rebellion sought, a cruel messenger sent",
+      "about": "The second line completes the first. The first names an evil man's sin, his bent on rebellion; the second names what answers it, a cruel messenger sent against him who will show no mercy.",
+      "lines": [
+        {
+          "ref": "Proverbs 17:11",
+          "words": "An evil man seeks only rebellion;"
+        },
+        {
+          "ref": "Proverbs 17:11",
+          "words": "a cruel messenger will be sent against him."
+        }
+      ],
+      "pairs": [
+        [
+          "rebellion",
+          "a cruel messenger"
+        ]
+      ],
+      "evidence": "Henry: here is the sin of an evil man, and then his punishment, a cruel messenger sent against him. Delitzsch (Keil and Delitzsch): the two clauses stand in an inner relation to each other, the force being that a messenger who offers no pardon is sent out against such a man. Fausset (Jamieson, Fausset and Brown): such men meet just retribution, and the messenger is one to inflict it.",
+      "limit": "The messenger can be read as a king's officer or as a messenger of God's judgment; the writers allow both.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Proverbs 17:11",
+          "quote": "Here is the sin and punishment of an evil man. 1. His sin. He is an evil man indeed that seeks all occasions to rebel against God, and the government God has set over him ... 2. His punishment. Because he will not be reclaimed by mild and gentle methods, a cruel messenger shall be sent against him, some dreadful judgment or other, as a messenger from God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 17:11",
+          "quote": "We have in 11a and 11b, as also e.g., at Pro 26:24 ; Pro 28:1 , two clauses standing in internal reciprocal relation, but syntactically simply co-ordinated; the force lies in this, that a messenger who recognises no mitigating circumstances, and offers no pardon, is sent out against such an one.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 17:11",
+          "quote": "Such meet just retribution ( Kg1 2:25 ). a cruel messenger--one to inflict it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-17-17-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 17:17",
+      "strength": "commonly held",
+      "short": "A friend loves always; in hard times, a brother",
+      "about": "The second line takes the first a step further. A friend loves at all times, and a brother's love is seen above all in adversity. It can also be read of the same friend, who in hard times proves himself as close as a brother.",
+      "lines": [
+        {
+          "ref": "Proverbs 17:17",
+          "words": "A friend loves at all times,"
+        },
+        {
+          "ref": "Proverbs 17:17",
+          "words": "and a brother is born for adversity."
+        }
+      ],
+      "pairs": [
+        [
+          "friend",
+          "brother"
+        ],
+        [
+          "at all times",
+          "adversity"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the second of the parallel clauses adds to the meaning: a brother's love is seen above all in adversity. Delitzsch (Keil and Delitzsch) says the two lines rise one above the other and are not set against each other: the true friend shows himself in the time of need, and the friendship grows close, like that of brothers.",
+      "limit": "Some take the brother to be the friend himself, who in hard times becomes as a brother; others take a brother by birth.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 17:17",
+          "quote": "To the second of these parallel clauses, there is an accession of meaning, that is, that a brother's love is specially seen in adversity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 17:17",
+          "quote": "Brother is more than friend, he stands to one nearer than a friend does ... 17a and 17b are, according to this, related to each other climactically. ... Thus there exists no contrast between 17a and 17b ... but 17b means that the true friend shows himself in the time of need, and that thus the friendship becomes closer, like that between brothers.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-17-20-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 17:20",
+      "strength": "commonly held",
+      "short": "Perverse heart, no good; deceitful tongue, trouble",
+      "about": "The second line goes a step further than the first. A perverse heart finds no good, and a deceitful tongue falls into trouble: the lines move from missing what is good to meeting harm.",
+      "lines": [
+        {
+          "ref": "Proverbs 17:20",
+          "words": "The one with a perverse heart finds no good,"
+        },
+        {
+          "ref": "Proverbs 17:20",
+          "words": "and he whose tongue is deceitful falls into trouble."
+        }
+      ],
+      "pairs": [
+        [
+          "heart",
+          "tongue"
+        ],
+        [
+          "no good",
+          "trouble"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the second clause advances on the first: the ill-natured fail of good, and the fault-finding incur evil. Henry sets no advantage against great disadvantage: framing ill designs gains nothing, and giving ill language does the speaker great harm and pulls trouble on his own head.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Proverbs 17:20",
+          "quote": "The second clause advances on the first. The ill-natured fail of good, and the cavilling and fault-finding incur evil.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 17:20",
+          "quote": "1. Framing ill designs will be of no advantage to us; there is nothing got by them ... 2. Giving ill language will be a great disadvantage to us: He that has a perverse tongue, spiteful and abusive, scurrilous or backbiting, falls into one mischief or other, loses his friends, provokes his enemies, and pulls trouble upon his own head.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-18-4-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 18:4",
+      "strength": "commonly held",
+      "short": "Deep waters, then a bubbling brook of wisdom",
+      "about": "The second line carries on the first instead of setting anything against it. The words of a man's mouth are deep waters, not easily sounded; they are also a fountain of wisdom, a brook that keeps bubbling up fresh.",
+      "lines": [
+        {
+          "ref": "Proverbs 18:4",
+          "words": "The words of a man’s mouth are deep waters;"
+        },
+        {
+          "ref": "Proverbs 18:4",
+          "words": "the fountain of wisdom is a bubbling brook."
+        }
+      ],
+      "pairs": [
+        [
+          "deep waters",
+          "bubbling brook"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the verse is neither antithetic nor synonymous but one statement over two lines: three things are said of a man's words, that they are deep waters, a bubbling brook and a fountain of wisdom. J. W. Nutt (Ellicott) likewise reads all of it of the words: deep waters not easily fathomed, a copious stream, a fountain of wisdom never exhausted.",
+      "limit": "Not all read it so: some take the two lines as a contrast between the dark depths of a man's words and the clear brook of wisdom.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 18:4",
+          "quote": "Three different things are said of the words from a man's mouth: they are deep waters, for their meaning does not lie on the surface ... they are a bubbling brook, which freshly and powerfully gushes forth ... it is a fountain or well of wisdom, from which wisdom flows forth ... We have thus neither an antithetic nor a synonymous ... but an integral distich before us",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 18:4",
+          "quote": "the words of a “man,” properly so called, are as deep waters which cannot be easily fathomed; they are a copious stream, which flows from a never failing source; they are a fountain of wisdom which is never exhausted.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-18-15-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 18:15",
+      "strength": "some interpreters",
+      "short": "The heart acquires knowledge, the ear seeks it out",
+      "about": "The second line says the first again in other words: the discerning and the wise, the heart and the ear. By the mind working within and by what it gathers from without, the wise keep gaining knowledge.",
+      "lines": [
+        {
+          "ref": "Proverbs 18:15",
+          "words": "The heart of the discerning acquires knowledge,"
+        },
+        {
+          "ref": "Proverbs 18:15",
+          "words": "and the ear of the wise seeks it out."
+        }
+      ],
+      "pairs": [
+        [
+          "heart",
+          "ear"
+        ],
+        [
+          "discerning",
+          "wise"
+        ],
+        [
+          "acquires",
+          "seeks"
+        ]
+      ],
+      "evidence": "E. H. Plumptre (Barnes' Notes) takes heart and ear together: the mind working within and the mind gathering from without are, by either channel, ever gaining knowledge.",
+      "limit": "Some read the lines as two steps rather than one thing said twice: the ear seeks knowledge and the heart gains it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 18:15",
+          "quote": "\"Heart\" and \"ear\" - the mind working within, or gathering from without materials for its thought - are, through this channel or that, ever gaining knowledge.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-18-19-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 18:19",
+      "strength": "some interpreters",
+      "short": "A wronged brother: a fortified city, castle bars",
+      "about": "The second line says the first again in other words. A brother who has been wronged is harder to win than a fortified city, and the disputes between those who were once close shut the way like the bars of a castle.",
+      "lines": [
+        {
+          "ref": "Proverbs 18:19",
+          "words": "An offended brother is harder to win than a fortified city,"
+        },
+        {
+          "ref": "Proverbs 18:19",
+          "words": "and disputes are like the bars of a castle."
+        }
+      ],
+      "pairs": [
+        [
+          "offended brother",
+          "disputes"
+        ],
+        [
+          "fortified city",
+          "castle"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the parallelism synonymous. The first line turns on more than, the second on like: like a castle's bars, which shut off the way in. Strife, he says, forms a wall between those who once stood near each other, the thicker the nearer they stood.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 18:19",
+          "quote": "In 19a the force of the substantival clause lies in the מן (more than ...), and in 19b in the כּ ... The parallelism is synonymous ... The point of comparison is not only the weight of the cross-beam ... but also the shutting up of the access. Strife forms a partition wall between such as once stood near each other, and so much thicker the closer they once stood.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-18-24-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 18:24",
+      "strength": "widely agreed",
+      "short": "Many companions may ruin; one friend stays close",
+      "about": "The second line answers the first with its opposite. Many companions can bring a man to ruin, but one true friend, who loves, holds closer than a brother. One such friend is worth more than the many.",
+      "lines": [
+        {
+          "ref": "Proverbs 18:24",
+          "words": "A man of many companions may come to ruin,"
+        },
+        {
+          "ref": "Proverbs 18:24",
+          "words": "but there is a friend who stays closer than a brother."
+        }
+      ],
+      "pairs": [
+        [
+          "many companions",
+          "a friend"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line's word for companions is a general one, while the second line calls the true friend one who loves.",
+        "strong": [
+          "H7453",
+          "H0157"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the antithetical second line calls the true friend by a word for one who loves, against the general word for companions, and that one such friend is better than many. E. H. Plumptre (Barnes' Notes): not the multitude of so-called friends, but the one whose love is stronger than kinship. E. W. Bullinger sets the many friends against the one faithful friend.",
+      "limit": "Some read the opening word as there are, so that the first line says there are companions who bring a man to ruin.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 18:24",
+          "quote": "In contradistinction to רע, which is a general, and, according to the usage of the language (e.g., 17b), a familiar idea, the true friend is called, in the antithetical parallel member, אהב ( Pro 27:6 ); and after Pro 17:17 , דּבק מאח, one who remains true in misfortune. To have such an one is better than to have many of the so-called friends",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 18:24",
+          "quote": "It is not the multitude of so called friends that helps us. They may only embarrass and perplex. What we prize is the one whose love is stronger and purer even than all ties of kindred.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Proverbs 18:24",
+          "at": "Complex Parallelism, Alternate, p. 353",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/353/mode/1up",
+          "quote": "The point and the parallel, therefore, lies in the plural “friends”:  i.e. , or many friends in contrast with the faithfulness of the one “friend”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-19-11-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 19:11",
+      "strength": "some interpreters",
+      "short": "Patience, and the virtue of overlooking an offense",
+      "about": "The second line says the first again in other words. Insight makes a man slow to anger, holding it back long, and it is his honor to pass over an offense, letting it go without revenge.",
+      "lines": [
+        {
+          "ref": "Proverbs 19:11",
+          "words": "A man’s insight gives him patience,"
+        },
+        {
+          "ref": "Proverbs 19:11",
+          "words": "and his virtue is to overlook an offense."
+        }
+      ],
+      "pairs": [
+        [
+          "patience",
+          "overlook an offense"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the second line the synonymous parallel member. In the first, a man's discretion makes his anger long in coming; in the second, it is an honour to him to pass by an offense, letting it go aside and forbearing revenge or punishment.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 19:11",
+          "quote": "the discretion ... of a man extends his anger, i.e., brings it about that it continues long before it breaks out ... In the synonymous parallel member, תפארתּו points to man as such: it is an honour to him to pass by a transgression (particularly that which affects himself), to let it go aside, i.e., to forbear revenge or punishment",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-20-6-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 20:6",
+      "strength": "widely agreed",
+      "short": "Many proclaim devotion, but who proves true?",
+      "about": "The second line answers the first with its opposite. Many speak of their own kindness and loyalty, but one who is truly faithful, and does what he promised, is hard to find. The lines set promise against performance.",
+      "lines": [
+        {
+          "ref": "Proverbs 20:6",
+          "words": "Many a man proclaims his loving devotion,",
+          "key": "proclaims"
+        },
+        {
+          "ref": "Proverbs 20:6",
+          "words": "but who can find a trustworthy man?",
+          "key": "trustworthy"
+        }
+      ],
+      "evidence": "E. H. Plumptre (Barnes' Notes) says the verse contrasts promise and performance: men boast of their liberality, yet the fulfilling of real obligations is looked for in vain. Henry: those who pretend to be kind are easy to find, those who really are, hard. Delitzsch (Keil and Delitzsch): the man who stays true is hard to find, while those who promise and then fail are many.",
+      "limit": "Some read the first line as many a man meeting someone kind to him, not proclaiming his own kindness; the contrast between the lines stands either way.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 20:6",
+          "quote": "Contrast promise and performance. People boast of their liberality, yet we look in vain for the fulfillment of actual obligations.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 20:6",
+          "quote": "It is easy to find those that will pretend to be kind and liberal. ... But it is hard to find those that really are kind and liberal, that have done and will do more than either they speak of or care to hear spoken of",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 20:6",
+          "quote": "so אישׁ אמוּנים is a man who remains true to himself, and maintains fidelity toward others. Such an one it is not easy to find; but patrons who make promises and awaken expectations, finally to leave in the lurch him who depends on them - of such there are many ... love is plentiful; fidelity, rare",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-21-15-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 21:15",
+      "strength": "commonly held",
+      "short": "Justice done: joy to the righteous, terror to others",
+      "about": "The second line answers the first with its opposite. When justice is done, the righteous are glad, and those who work iniquity are filled with dread. What is a pleasure to the one is an alarm to the other.",
+      "lines": [
+        {
+          "ref": "Proverbs 21:15",
+          "words": "Justice executed is a joy to the righteous,"
+        },
+        {
+          "ref": "Proverbs 21:15",
+          "words": "but a terror to the workers of iniquity."
+        }
+      ],
+      "pairs": [
+        [
+          "joy",
+          "terror"
+        ],
+        [
+          "the righteous",
+          "the workers of iniquity"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls terror the contrasted correlate of joy: doing right is a pleasure to the righteous and something that alarms those who work iniquity. Henry: it is a pleasure to good men to see justice done and to practise it, and a terror to wicked men to see the laws put in force.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 21:15",
+          "quote": "מחתה, as contrasted correlate to שׂמחה, can scarcely have the pure objective sense of ruin or destruction. It must mean a revolution in the heart. Right-doing is to the righteous a pleasure (cf. Pro 10:23 ); and for those who have און, and are devoid of moral worth ... right-doing is something which alarms them",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 21:15",
+          "quote": "It is a pleasure and satisfaction to good men both to see justice administered by the government they live under, right taking place and iniquity suppressed, and also to practise it themselves ... It is a terror to wicked men to see the laws put in execution against vice and profaneness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-23-5-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 23:5",
+      "strength": "widely agreed",
+      "short": "Eyes fly to wealth, and wealth flies away",
+      "about": "The look that flies to wealth is answered by wealth that flies away. The eyes chase riches, and the riches escape like an eagle into the sky, so what is chased is lost.",
+      "lines": [
+        {
+          "ref": "Proverbs 23:5",
+          "words": "When you glance at wealth,",
+          "key": "glance"
+        },
+        {
+          "ref": "Proverbs 23:5",
+          "words": "and flies like an eagle to the sky.",
+          "key": "flies"
+        }
+      ],
+      "pairs": [
+        [
+          "glance",
+          "flies"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew, glance is literally make your eyes fly, and flies in the last line is the same verb, so the eager look and the flight of the wealth answer each other.",
+        "strong": [
+          "H5774"
+        ]
+      },
+      "evidence": "Matthew Poole: the wealth's flying away is set against the eyes being set, or in the Hebrew flying, upon it at the start of the verse. Matthew Henry: the more we make our eyes fly upon riches, the more likely they are to fly away from us. Fausset (Jamieson, Fausset and Brown): as the eyes fly after riches, they are not, and their flying away says it fully.",
+      "limit": "The English says glance, so the flight of the eyes shows only in the Hebrew.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "poole",
+          "on": "Proverbs 23:5",
+          "quote": "Their flying away from us is elegantly opposed to our eyes being set, or, as it is in the Hebrew, flying upon them, in the beginning of the verse.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/proverbs/23.htm",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 23:4-5",
+          "quote": "Wilt thou be such a fool as to set thy eyes, to cause thy eyes to fly with eagerness and violence, upon that which is not? ... They make themselves wings, and fly away. The more we cause our eyes to fly upon them the more likely they are to fly away from us.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 23:5",
+          "quote": "As the eyes fly after or seek riches, they are not, that is, either become transitory or unsatisfying; fully expressed by their flying away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -835,6 +3194,414 @@
           "quote": "whatever be the number of lines, the first line shall be parallel with the last; the second with the penultimate; and so throughout, in an order that looks inward ... This may be called the introverted parallelism: My son, if thine heart be wise; My heart also shall rejoice; Yea, my reins shall rejoice; When thy lips speak right things. Prov. xxiii. 15, 16.",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-23-17-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 23:17",
+      "strength": "some interpreters",
+      "short": "Envy not sinners, but keep to the fear of the LORD",
+      "about": "Read with the one verb carried into both lines, the second line answers the first with what the heart should long for instead: not sinners, but the fear of the LORD, and that always.",
+      "lines": [
+        {
+          "ref": "Proverbs 23:17",
+          "words": "Do not let your heart envy sinners,",
+          "key": "sinners"
+        },
+        {
+          "ref": "Proverbs 23:17",
+          "words": "but always continue in the fear of the LORD.",
+          "key": "fear"
+        }
+      ],
+      "pairs": [
+        [
+          "sinners",
+          "the fear of the LORD"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb for envy also means to be zealous for, and it can govern both lines: do not envy sinners, but be zealous for the fear of the LORD.",
+        "strong": [
+          "H7065"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) takes the fear of the LORD, like sinners, as governed by the one verb, envy or be zealous for: envy not sinners, envy much rather the fear of God, and long after it.",
+      "limit": "The second line can also be read as its own command, to continue in the fear of the LORD, as the English here has it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 23:17",
+          "quote": "Thus בּיראת, like בחטּאים, is dependent on אל־תּקנּא ... envy not sinners, envy much rather the fear of God, i.e., let thyself be moved with eager desire after it when its appearance is presented to thee.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-23-20-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 23:20",
+      "strength": "some interpreters",
+      "short": "Wine in one line, meat in the next",
+      "about": "The two lines are built alike and share out two sins between them: drinking too much wine, and gorging on meat. Meat in the second line answers wine in the first. The same two, the glutton and the drunkard, are named together in the law of the stubborn son and in the next verse.",
+      "lines": [
+        {
+          "ref": "Proverbs 23:20",
+          "words": "Do not join those who drink too much wine",
+          "key": "wine"
+        },
+        {
+          "ref": "Proverbs 23:20",
+          "words": "or gorge themselves on meat.",
+          "key": "meat"
+        }
+      ],
+      "pairs": [
+        [
+          "wine",
+          "meat"
+        ],
+        [
+          "drink too much",
+          "gorge themselves"
+        ]
+      ],
+      "refs": [
+        "Proverbs 23:21",
+        "Deuteronomy 21:20"
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch): the two marks of the stubborn son in Deuteronomy 21:20, glutton and drunkard, are shared out between the two lines, and meat in the second line answers wine in the first, so it means the meat they feast on.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 23:19-21",
+          "quote": "The degenerate and perverse son is more clearly described, Deu 21:20 , as זולל וסבא. These two characteristics the poet distributes between 20a and 20b. ... To the יין here added, בּשׂר in the parallel member corresponds, which consequently is not the fleshly body of the gluttons themselves, but the prepared flesh which they consume at their luxurious banquets.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-24-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 24:3",
+      "strength": "commonly held",
+      "short": "Wisdom builds the house; understanding makes it last",
+      "about": "The second line adds to the first. Wisdom builds the house, and understanding sets it firm so that it lasts.",
+      "lines": [
+        {
+          "ref": "Proverbs 24:3",
+          "words": "By wisdom a house is built",
+          "key": "built"
+        },
+        {
+          "ref": "Proverbs 24:3",
+          "words": "and by understanding it is established;",
+          "key": "established"
+        }
+      ],
+      "pairs": [
+        [
+          "wisdom",
+          "understanding"
+        ],
+        [
+          "built",
+          "established"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for established means set up firm so as to last, a step beyond the word for built.",
+        "strong": [
+          "H3559",
+          "H1129"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls established the parallel word to built, and says it adds firmness and lasting to building. Matthew Henry: by wrong means men may build their houses but cannot establish them, while what is honestly gained lasts to their children's children.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 24:3",
+          "quote": "כּונן, as parallel word to בּנה ( Pro 3:19 ; Pro 2:12 ), is related to it as statuere to extruere; the Hithpal (as at Num 21:17 ) means to keep oneself in a state of continuance, to gain perpetuity, to become established.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 24:3",
+          "quote": "(1.) it will build a house and establish it ... Men may by unrighteous practices build their houses, but they cannot establish them, for the foundation is rotten ... whereas what is honestly got will wear like steel and be an inheritance to children's children.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-24-11-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 24:11",
+      "strength": "some interpreters",
+      "short": "Rescue those led to death, hold back the stumbling",
+      "about": "The second line says the first again in other words. Each line is a command with its own object: rescue those led away to death, and hold back those stumbling toward the slaughter. Restrain answers rescue, and slaughter answers death.",
+      "lines": [
+        {
+          "ref": "Proverbs 24:11",
+          "words": "Rescue those being led away to death,",
+          "key": "Rescue"
+        },
+        {
+          "ref": "Proverbs 24:11",
+          "words": "and restrain those stumbling toward the slaughter.",
+          "key": "restrain"
+        }
+      ],
+      "pairs": [
+        [
+          "Rescue",
+          "restrain"
+        ],
+        [
+          "death",
+          "slaughter"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) sets the verse as two parallel lines, deliver those taken to death, and those tottering to destruction, oh stop them, and says the parallelism requires each line to be read as a command with its own object: those carried away to death, and those led forth with tottering steps to destruction.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 24:11",
+          "quote": "11 Deliver them that are taken to death, And them that are tottering to destruction, oh stop them! ... But the parallelism requires us to take together מטים להרג (such as with tottering steps are led forth to destruction) as object along with אם־תחשׂוך, as well as לקחים למּות (such as from their condition are carried away to death, cf. Exo 14:11 ) as object to הצּל",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-24-13-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Proverbs 24:13-14",
+      "strength": "widely agreed",
+      "short": "Honey for the taste, wisdom for the soul",
+      "about": "The son is told to eat honey, for it is good and sweet to the taste. Then the likeness is drawn: “Know therefore that wisdom is sweet to your soul.” What seems a rule of diet is a picture: as honey is to the taste, so wisdom is to the soul, and whoever finds it has a future and a hope.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Proverbs 24:14",
+        "words": "Know therefore that wisdom is sweet to your soul",
+        "means": "as honey is good and sweet to the taste, so wisdom is sweet and wholesome to the soul, and whoever finds it has a future and a hope"
+      },
+      "original": {
+        "note": "In Hebrew verse 14 opens with a word meaning so or thus, which ties wisdom to the honey of verse 13.",
+        "strong": [
+          "H3651"
+        ]
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes): honey is an emblem of wisdom, and verse 14 explains the parable. Adam Clarke: true religion is to the soul as the honeycomb to the mouth. Franz Delitzsch (Keil and Delitzsch): as honey for the body, so wisdom for the soul. A. R. Fausset (JFB): as fine food whets the appetite, wisdom's rewards should stir us to seek it. Matthew Henry: so we should feed on wisdom.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 24:13",
+          "quote": "Honey entered largely into the diet of Hebrew children Isa 7:15, so that it was as natural an emblem for the purest and simplest wisdom, as the \"sincere milk of the word\" was to the New Testament writers. The learner hears what seems to be a rule of diet - then Pro 24:14 the parable is explained.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 24:14",
+          "quote": "So shall the knowledge of wisdom be unto thy soul - True religion, experimental godliness, shall be to thy soul as the honey-comb is to thy mouth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 24:13-14",
+          "quote": "In the כּן of 14a, it is manifest that Pro 24:13 is not spoken for its own sake. ... even as honey has for the body, so wisdom has for the soul, beneficent wholesome effects.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 24:13",
+          "quote": "As delicious food whets the appetite, so should the rewards of wisdom excite us to seek it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 24:13-14",
+          "quote": "We eat honey because it is sweet to the taste, and upon that account we call it good, especially that which runs first from the honey-comb. ... Thus should we feed upon wisdom, and relish the good instructions of it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-24-27-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 24:27",
+      "strength": "widely agreed",
+      "short": "First the field, then the house",
+      "about": "The second line completes the first by putting the two in order. First comes the work in the field that brings in a living; only after that comes the house, which that work will keep up.",
+      "lines": [
+        {
+          "ref": "Proverbs 24:27",
+          "words": "Complete your outdoor work and prepare your field;",
+          "key": "field"
+        },
+        {
+          "ref": "Proverbs 24:27",
+          "words": "after that, you may build your house.",
+          "key": "house"
+        }
+      ],
+      "pairs": [
+        [
+          "field",
+          "house"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch): do fully what the work of the fields requires, and then go on to build up your house, which takes in a home, a wife and a household. J. W. Nutt (Ellicott): first till the ground, then build the house the field's produce will keep up. Matthew Henry: first see to the field, then think of building. Fausset (Jamieson, Fausset and Brown): secure a living, then build.",
+      "limit": "Building a house takes in more than the dwelling: it can mean setting up a household and bringing home a wife. Either way the field comes first.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 24:27",
+          "quote": "do completely and circumspectly what thy calling as a husbandman requires of thee - then mayest thou go to the building and building up of thy house ... to which not only the building and setting in order of a convenient dwelling, but also the bringing home of a housewife and the whole setting up of a household belongs",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 24:27",
+          "quote": "Method in work is here advised; first till the ground, and then build the house which will be maintained by the produce of the field.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Proverbs 24:27",
+          "quote": "First apply thyself to thy work without in the field; let thy ground be put into good order; look after thy husbandry, for it is that by which thou must get; and, when thou hast got well by that, then, and not till then, thou mayest think of rebuilding and beautifying thy house",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 24:27",
+          "quote": "Secure, by diligence, a proper support, and then build; provide necessaries, then comforts",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-24-30-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Proverbs 24:30",
+      "strength": "some interpreters",
+      "short": "A slacker's field, a senseless man's vineyard",
+      "about": "The two lines are built alike and tell of one man and his land. The first gives his field and calls him a slacker; the second adds his vineyard and calls him a man lacking judgment.",
+      "lines": [
+        {
+          "ref": "Proverbs 24:30",
+          "words": "I went past the field of a slacker",
+          "key": "field"
+        },
+        {
+          "ref": "Proverbs 24:30",
+          "words": "and by the vineyard of a man lacking judgment.",
+          "key": "vineyard"
+        }
+      ],
+      "pairs": [
+        [
+          "field",
+          "vineyard"
+        ],
+        [
+          "slacker",
+          "a man lacking judgment"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both lines name the owner as a man, with two different words: a lazy man, and a man lacking heart.",
+        "strong": [
+          "H0376",
+          "H0120"
+        ]
+      },
+      "evidence": "Adam Clarke describes the one owner twice over, as a slothful man and as a man that wanted heart, and his estate in two parts, a sown field of arable ground and a vineyard.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Proverbs 24:30",
+          "quote": "I. The owner is described. 1. He was איש עצל ish atsel, the loitering, sluggish, slothful man. 2. He was אדם חסר לב adam chasar leb, a man that wanted heart; destitute of courage, alacrity, and decision of mind. II. His circumstances. This man had, 1. שדה sadeh, a sowed field, arable ground. ... 2. He had כרם kerem, a vineyard",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-26-9-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Proverbs 26:9",
+      "strength": "widely agreed",
+      "short": "A fool's proverb, like a thorn in a drunkard's hand",
+      "about": "A wise saying in a fool's mouth is likened to a thorn that falls into a drunkard's hand. He cannot handle it safely and may hurt himself or others with it; so a fool misuses a proverb that, rightly used, would teach, and does harm with it. Verse 7 likens a proverb in a fool's mouth to lame legs.",
+      "refs": [
+        "Proverbs 26:7"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Proverbs 26:9",
+        "words": "Like a thorn that falls into the hand of a drunkard",
+        "means": "a proverb in a fool's mouth: he cannot use it rightly, and wounds himself and others with it, as a drunkard does with a thorn"
+      },
+      "evidence": "E. H. Plumptre (Barnes' Notes): as such a weapon may harm the man or others, so may a keen proverb used by one who does not grasp it. A. R. Fausset (Jamieson, Fausset and Brown) finds a proverb as unmanageable to a fool as a thorn to a drunkard. Franz Delitzsch (Keil and Delitzsch) finds the one as dangerous as the other; J. W. Nutt (Ellicott), that fools only harm themselves and others with it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Proverbs 26:9",
+          "quote": "As such a weapon so used may do mischief to the man himself or to others, so may the sharp, keen-edged proverb when used by one who does not understand it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 26:9",
+          "quote": "As vexatious and unmanageable as a thorn in a drunkard's hand is a parable to a fool. He will be as apt to misuse is as to use it rightly.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 26:9",
+          "quote": "if a proverb falls into a fool's mouth, it is as if a thorn entered into the hand of a drunken man; the one is as dangerous as the other, for fools misuse such a proverb, which, rightly used, instructs and improves, only to the wounding and grieving of another",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 26:9",
+          "quote": "Rather, ( As ) a thornbush ( which ) comes into the hand of a drunkard, so ( is ) a parable ( which comes ) into the mouth of fools. They know not how to use it, and only do themselves and others harm by it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -949,6 +3716,114 @@
       ]
     },
     {
+      "id": "proverbs-28-1-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 28:1",
+      "strength": "widely agreed",
+      "short": "The wicked flee, the righteous stand bold",
+      "about": "The second line answers the first with its opposite: the wicked against the righteous, fleeing against standing as bold as a lion. Many read the difference as one of conscience: guilt makes the wicked run when no one pursues, while the righteous are unafraid.",
+      "lines": [
+        {
+          "ref": "Proverbs 28:1",
+          "words": "The wicked flee when no one pursues,"
+        },
+        {
+          "ref": "Proverbs 28:1",
+          "words": "but the righteous are as bold as a lion."
+        }
+      ],
+      "pairs": [
+        [
+          "wicked",
+          "righteous"
+        ],
+        [
+          "flee",
+          "bold"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line opens with the verb for flee and the second closes with a verb for being confident, rendered bold, and the two verbs answer each other.",
+        "strong": [
+          "H5127",
+          "H0982"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the two verbs, flee and be bold, answer each other as the parallel requires: the godless flee from the images of their own consciences when no danger threatens, while the righteous stay bold even when it does. Adam Clarke and Fausset (Jamieson, Fausset and Brown) likewise set the fearful wicked against the truly courageous righteous.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 28:1",
+          "quote": "נסו and יבטח correspond to each other as predicates, in accordance with the parallelism ... the godless flee, pursued by the terrible images that arise in their own wicked consciences, even when no external danger threatens. ... the righteous remains, even where external danger really threatens, bold and courageous, after the manner of a young, vigorous lion",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Proverbs 28:1",
+          "quote": "Every wicked man, however bold he may appear, is full of dreary apprehensions relative to both worlds. But the righteous has true courage, being conscious of his own innocence, and the approbation of his God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Proverbs 28:1",
+          "quote": "A bad conscience makes men timid; the righteous are alone truly bold",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-28-5-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 28:5",
+      "strength": "commonly held",
+      "short": "Evil men miss justice; seekers of the LORD grasp it",
+      "about": "The second line answers the first with its opposite: evil men against those who seek the LORD, not understanding against comprehending fully. Wickedness clouds a man's sense of what is right, while one who seeks the LORD comes to know it.",
+      "lines": [
+        {
+          "ref": "Proverbs 28:5",
+          "words": "Evil men do not understand justice,"
+        },
+        {
+          "ref": "Proverbs 28:5",
+          "words": "but those who seek the LORD comprehend fully."
+        }
+      ],
+      "pairs": [
+        [
+          "Evil men",
+          "those who seek the LORD"
+        ],
+        [
+          "do not understand",
+          "comprehend fully"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the verse an antithetic couplet: one who makes wickedness his element falls into confusion about what is right, while one whose end is the living God gains the knowledge of it. J. W. Nutt (Ellicott) sets the two against each other: God shows Himself to those who fear Him, while the evil shut their eyes to the light until they cannot see.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 28:5",
+          "quote": "A similar antithetic distich: Wicked men understand not what is right; But they who seek Jahve understand all. ... He who makes wickedness his element, falls into the confusion of the moral conception; but he whose end is the one living God, gains from that, in every situation of life, even amid the greatest difficulties, the knowledge of that which is morally right.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Proverbs 28:5",
+          "quote": "For God reveals Himself only to those who fear Him ... they, by following the light they have, are “guided into all truth ” ... the evil, by continually shutting their eyes to the light, at last can not see it, even if they would",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-28-11-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -992,6 +3867,54 @@
       ]
     },
     {
+      "id": "proverbs-29-3-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Proverbs 29:3",
+      "strength": "commonly held",
+      "short": "One brings his father joy, one wastes his wealth",
+      "about": "The second line answers the first with its opposite: a man who loves wisdom against a companion of prostitutes. Read together, each half can fill out the other: the one gladdens his father and adds to his estate, the other squanders his wealth and grieves his father.",
+      "lines": [
+        {
+          "ref": "Proverbs 29:3",
+          "words": "A man who loves wisdom brings joy to his father,"
+        },
+        {
+          "ref": "Proverbs 29:3",
+          "words": "but a companion of prostitutes squanders his wealth."
+        }
+      ],
+      "pairs": [
+        [
+          "loves wisdom",
+          "companion of prostitutes"
+        ],
+        [
+          "brings joy to his father",
+          "squanders his wealth"
+        ]
+      ],
+      "evidence": "Matthew Henry says the two halves, compared together, enlarge each other: the young man who loves wisdom rejoices his parents and increases his estate, and the one who hates wisdom keeps such company and grieves his parents. E. H. Plumptre (Barnes' Notes) says the parallel would lead us to expect that he troubles his father, but the line warns him instead of his own ruin.",
+      "limit": "The second line does not say that the father is grieved; that is drawn from the first. Another reading: the line passes over the father to warn the man himself that he is headed for ruin.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Proverbs 29:3",
+          "quote": "Both the parts of this verse repeat what has been often said, but, on comparing them together, the sense of them will be enlarged from each other. ... Hereby he rejoices his parents ... and increases his estate ... 2. Be it observed, to the reproach of a vicious young man, that he hates wisdom; he keeps company with scandalous women ... he grieves his parents",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Proverbs 29:3",
+          "quote": "The laws of parallelism would lead us to expect \"troubleth his father,\" but that is passed over as a thing about which the profligate would not care, and he is reminded of what comes home to him, that he is on the road to ruin.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "proverbs-29-26-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -1027,6 +3950,60 @@
           "quote": "Where the opposition is chiefly between the single terms the Prince, and Jehovah: but there is an opposition likewise in the general sentiment",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-31-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 31:3",
+      "strength": "commonly held",
+      "short": "One warning against women, said twice",
+      "about": "The second line says the first again in other words. Those who ruin kings are the women of the first line, and giving them your vigor is spending your strength on them. A king is warned not to waste himself on women.",
+      "lines": [
+        {
+          "ref": "Proverbs 31:3",
+          "words": "Do not spend your strength on women"
+        },
+        {
+          "ref": "Proverbs 31:3",
+          "words": "or your vigor on those who ruin kings."
+        }
+      ],
+      "pairs": [
+        [
+          "strength",
+          "vigor"
+        ],
+        [
+          "women",
+          "those who ruin kings"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word rendered vigor is the common word for ways, a man's course of life.",
+        "strong": [
+          "H1870"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) takes those who ruin kings as a name for women, parallel to the women of the first line, and says a warning against wars on other kings would not stand well beside it. Joseph Benson says the second line is the same thing repeated in other words, as these books often do: the immoderate love of women, so destructive to kings.",
+      "limit": "Some read the second line as a warning against wars that destroy other kings; the reading here takes it as naming the women again.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 31:3",
+          "quote": "But the warning against vengeful, rapacious, and covetous propensity to war ... does not stand well as parallel with the warning against giving his bodily and mental strength to women, i.e., expending it on them. ... Thus למחות מלכין will be a name for women, parallel to לנּשׁים.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Proverbs 31:3",
+          "quote": "nor thy ways Thy conversation or course of life; to that which destroyeth kings The same thing repeated in other words, as is very usual in these books; to the immoderate love of women, which is most destructive to kings and kingdoms",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -1099,6 +4076,53 @@
           "quote": "And here he lays down several characters or qualifications of an excellent wife, which are here delivered in alphabetical order, each verse beginning with a several and the succeeding letter of the Hebrew alphabet; which method is used in some, and but in a few places of Scripture, to oblige us to the more diligent consideration and careful remembrance of them",
           "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/proverbs/31.htm",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "proverbs-31-15-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Proverbs 31:15",
+      "strength": "some interpreters",
+      "short": "Food for her household, portions for her maids",
+      "about": "The last two lines answer each other: food for her household, and portions for her maidservants. Because the portions stand beside the food, they can be read as the maids' fixed share of food, which she gives out early while most of the house still sleeps.",
+      "lines": [
+        {
+          "ref": "Proverbs 31:15",
+          "words": "to provide food for her household"
+        },
+        {
+          "ref": "Proverbs 31:15",
+          "words": "and portions for her maidservants."
+        }
+      ],
+      "pairs": [
+        [
+          "food",
+          "portions"
+        ],
+        [
+          "household",
+          "maidservants"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word rendered portions means a fixed, allotted share; it can also mean an appointed task, but set beside food it reads as a share of food.",
+        "strong": [
+          "H2706"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the word for portions can mean the day's appointed work, but the parallel with food points to a fixed portion of food, and that she herself gives out the day's food early, while most of the house is still asleep.",
+      "limit": "Some take the portions as each maidservant's task for the day rather than her share of food.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Proverbs 31:15",
+          "quote": "she herself, early, whilst yet the most are asleep, gives out or prepares the necessary portions of food for the day ... and regarding חק, a portion decreed, vid., at Pro 30:8 . It is true that חק also means the appointed labour (pensum), and thus the day's work (דּבר יום); but the parallelism brings it nearer to explain after Pro 30:8",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

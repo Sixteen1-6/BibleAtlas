@@ -1,6 +1,163 @@
 {
   "notes": [
     {
+      "id": "ecclesiastes-4-1-refrain",
+      "kind": "parallelism",
+      "form": "refrain",
+      "ref": "Ecclesiastes 4:1",
+      "strength": "widely agreed",
+      "short": "Twice the oppressed have “no comforter”",
+      "about": "Twice the verse says the oppressed had no comforter: after their tears, and after the power of their oppressors. Said again, the words stress their lasting misery and how little pity others showed them. The second can also show why: those who might have comforted them feared the oppressors.",
+      "lines": [
+        {
+          "ref": "Ecclesiastes 4:1",
+          "words": "and they had no comforter",
+          "key": "no comforter"
+        },
+        {
+          "ref": "Ecclesiastes 4:1",
+          "words": "and there was no comforter",
+          "key": "no comforter"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the two lines are the same words, ve-ein lahem menachem, and there was to them no comforter.",
+        "strong": [
+          "H5162"
+        ]
+      },
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) says no comforter is said twice to express suffering that goes on with none to comfort. Matthew Poole says it is repeated to show both men's great inhumanity to others in trouble and the utter misery of the oppressed. Matthew Henry reads both: they wept with no comforter, and as the oppressors were powerful, those who should comfort them dared not.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Ecclesiastes 4:1",
+          "quote": "no comforter--twice said to express continued suffering without any to give comfort ( Isa 53:7 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Ecclesiastes 4:1",
+          "quote": "They had no comforter; which is repeated as an argument both of the great inhumanity of men towards others in calamity, and of the extreme misery of oppressed persons.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/ecclesiastes/4.htm",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "henry",
+          "on": "Ecclesiastes 4:1-3",
+          "quote": "They wept and needed comfort, but there was none to do that friendly office: They had no comforter; their oppressors were powerful and threatening, and therefore they had no comforter; those that should have comforted them durst not, for fear of displeasing the oppressors and being made their companions for offering to be their comforters.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ecclesiastes-7-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Ecclesiastes 7:3",
+      "strength": "commonly held",
+      "short": "Sorrow is better, for it does the heart good",
+      "about": "The first line makes a claim, that sorrow is better than laughter, and the second gives the reason: a sad countenance is good for the heart. Grief that shows in the face can lead a person to search his own conscience and resolve to amend his life.",
+      "lines": [
+        {
+          "ref": "Ecclesiastes 7:3",
+          "words": "Sorrow is better than laughter,",
+          "key": "better"
+        },
+        {
+          "ref": "Ecclesiastes 7:3",
+          "words": "for a sad countenance is good for the heart.",
+          "key": "good"
+        }
+      ],
+      "pairs": [
+        [
+          "Sorrow",
+          "a sad countenance"
+        ],
+        [
+          "better",
+          "good"
+        ]
+      ],
+      "evidence": "Adam Clarke says the reason is given at once in the second line: by the sorrow that shows in the face the heart is made better, as men search their own consciences and resolve to amend. Matthew Henry reads the second line as showing that sorrow is also more for our advantage, since by the sadness that appears in the face the heart is often made better.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ecclesiastes 7:3",
+          "quote": "Sorrow is better than laughter - The reason is immediately given; for by the sorrow of the countenance - the grief of heart that shows itself in the countenance: - The heart is made better - In such cases, most men try themselves at the tribunal of their own consciences, and resolve on amendment of life.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ecclesiastes 7:1-6",
+          "quote": "Sorrow is better than laughter, more agreeable to our present state, where we are daily sinning and suffering ourselves, more or less, and daily seeing the sins and sufferings of others. ... It is also more for our advantage; for, by the sadness that appears in the countenance, the heart is often made better.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ecclesiastes-7-7-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Ecclesiastes 7:7",
+      "strength": "commonly held",
+      "short": "Extortion and a bribe: two ways wisdom is lost",
+      "about": "Both lines tell how a wise man is undone. The first says extortion turns him into a fool. The second says a bribe corrupts the heart, that is, his understanding, and so says the same again. Two causes are named, with one result: the wise man loses his wisdom.",
+      "lines": [
+        {
+          "ref": "Ecclesiastes 7:7",
+          "words": "Surely extortion turns a wise man into a fool,",
+          "key": "extortion"
+        },
+        {
+          "ref": "Ecclesiastes 7:7",
+          "words": "and a bribe corrupts the heart.",
+          "key": "a bribe"
+        }
+      ],
+      "pairs": [
+        [
+          "extortion",
+          "a bribe"
+        ],
+        [
+          "turns a wise man into a fool",
+          "corrupts the heart"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the heart (lev) often stands for the understanding, so the second line speaks of the wise man's mind.",
+        "strong": [
+          "H3820"
+        ]
+      },
+      "evidence": "Matthew Poole says the bribe deprives the wise man of his understanding, which is often called the heart, or makes him mad, as the first clause said, so the verse shows two ways a wise man may be made mad. A. R. Fausset (Jamieson, Fausset and Brown) takes the heart as the wisdom the wise may lose, and says this reading suits the parallel lines.",
+      "limit": "The writers differ on how the wise man meets these things: one by suffering oppression and taking bribes, the other by seeing oppression and bribery done by others.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "poole",
+          "on": "Ecclesiastes 7:7",
+          "quote": "deprives him of the use of his understanding, which is oft called the heart, ... or makes him mad, as was said in the former clause. So this verse discovers two ways whereby a wise man may be made mad, by suffering oppression from others, or by receiving bribes to oppress others.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/ecclesiastes/7.htm",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "jfb",
+          "on": "Ecclesiastes 7:7",
+          "quote": "a gift--that is, the sight of bribery in \"places of judgment\" ( Ecc 3:16 ) might cause the wise to lose their wisdom (equivalent to \"heart\"), ( Job 12:6 ; Job 21:6-7 ; Job 24:1 , &c.). This suits the parallelism better than \"a heart of gifts\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "ecclesiastes-9-4-proverb",
       "kind": "figure",
       "form": "proverb",

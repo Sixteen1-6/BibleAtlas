@@ -1,6 +1,49 @@
 {
   "notes": [
     {
+      "id": "numbers-10-33-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Numbers 10:33-34",
+      "strength": "some interpreters",
+      "short": "The ark ahead, the cloud above: one picture",
+      "about": "Two sentences give one picture: the first names only the ark going ahead to find a resting place, the second only the cloud over the people. Read together, they can show the ark leading the way with the cloud of the LORD above it, guiding and sheltering the march.",
+      "lines": [
+        {
+          "ref": "Numbers 10:33",
+          "words": "with the ark of the covenant of the LORD traveling ahead of them for those three days to seek a resting place for them.",
+          "key": "ark"
+        },
+        {
+          "ref": "Numbers 10:34",
+          "words": "And the cloud of the LORD was over them by day when they set out from the camp.",
+          "key": "cloud"
+        }
+      ],
+      "pairs": [
+        [
+          "ark",
+          "cloud"
+        ],
+        [
+          "ahead of them",
+          "over them"
+        ]
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) reads verses 33 and 34 by the laws of poetic parallel lines: one thought, the ark with the cloud above it leading and sheltering the march, is divided into two clauses, the ark alone named in the first and the cloud alone in the second.",
+      "limit": "Writers differ on where the ark went in the march: in front of the whole camp, or in its middle as the one that led the host.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Numbers 10:33-34",
+          "quote": "according to the laws of a poetical parallelism: The one thought that the ark of the covenant, with the cloud soaring above it, led the way and sheltered those who were marching, is divided into two clauses; in Num 10:33 only the ark of the covenant is mentioned as going in front of the Israelites, and in Num 10:34 only the cloud as a shelter over them",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "numbers-13-33-meiosis",
       "kind": "figure",
       "form": "meiosis",
@@ -56,6 +99,105 @@
       ]
     },
     {
+      "id": "numbers-15-35-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Numbers 15:35-36",
+      "strength": "some interpreters",
+      "short": "The LORD's command, then the deed, in reverse order",
+      "about": "The command and the deed mirror each other. The LORD speaking to Moses comes first and last; the sentence of death answers the man's death; and at the centre the whole congregation is to stone him outside the camp, and does so.",
+      "lines": [
+        {
+          "ref": "Numbers 15:35",
+          "words": "And the LORD said to Moses,",
+          "mark": "A",
+          "key": "said"
+        },
+        {
+          "ref": "Numbers 15:35",
+          "words": "The man must surely be put to death.",
+          "mark": "B",
+          "key": "put to death"
+        },
+        {
+          "ref": "Numbers 15:35",
+          "words": "The whole congregation is to stone him outside the camp.",
+          "mark": "C",
+          "key": "stone"
+        },
+        {
+          "ref": "Numbers 15:36",
+          "words": "So the whole congregation took the man outside the camp and stoned him",
+          "mark": "C'",
+          "key": "stoned"
+        },
+        {
+          "ref": "Numbers 15:36",
+          "words": "to death,",
+          "mark": "B'",
+          "key": "death"
+        },
+        {
+          "ref": "Numbers 15:36",
+          "words": "as the LORD had commanded Moses.",
+          "mark": "A'",
+          "key": "commanded"
+        }
+      ],
+      "evidence": "E. W. Bullinger lists these verses among introverted parallel lines: the LORD speaking to Moses answers the closing words on His command to Moses, the sentence of death answers the man's dying, the command to stone him answers the stoning, and the congregation outside the camp stands at the centre.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Numbers 15:35-36",
+          "at": "Introverted Parallelisms, p. 357",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/357/mode/1up",
+          "quote": "a “And the Lord said unto Moses , b The man shall be surely put to death : c they shall stone him with stones , d all the congregation without the camp. d And they brought him forth, all the congregation without the camp , c and stoned him with stones , b and he died ; a as the Lord commanded Moses.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "numbers-18-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Numbers 18:8",
+      "strength": "some interpreters",
+      "short": "Offerings in the priests' charge are their portion",
+      "about": "The second clause explains the first. The offerings Aaron is put in charge of are the ones given to him and his sons as a portion, so the priests were to keep the gifts Israel brought as the share that belonged to them.",
+      "lines": [
+        {
+          "ref": "Numbers 18:8",
+          "words": "Behold, I have put you in charge of My offerings.",
+          "key": "charge"
+        },
+        {
+          "ref": "Numbers 18:8",
+          "words": "As for all the sacred offerings of the Israelites, I have given them to you and your sons as a portion and a permanent statute.",
+          "key": "portion"
+        }
+      ],
+      "pairs": [
+        [
+          "charge",
+          "portion"
+        ]
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the notion of keeping in the first clause is defined in the second, parallel clause as a portion: the priests were to keep all the offerings as the portion that belonged to them.",
+      "limit": "Others take the word rendered portion as anointing: the gifts were the priests' because they had been anointed.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Numbers 18:8",
+          "quote": "The notion of משׁמרת, keeping, as in Exo 12:6 ; Exo 16:23 , Exo 16:32 , is defined in the second parallel clause as משׁחה, a portion (see at Lev 7:35 ). The priests were to keep all the heave-offerings, as the portion which belonged to them",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "numbers-21-27-proverb",
       "kind": "figure",
       "form": "proverb",
@@ -107,6 +249,175 @@
           "quote": "Here is given an extract from an Amorite song exultingly anticipating an extension of their conquests to Arnon. The quotation from the poem of the Amorite bard ends at Num 21:28.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "numbers-23-7-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Numbers 23:7",
+      "strength": "some interpreters",
+      "short": "Balak's one demand, said twice in other words",
+      "about": "The second line says the first again in other words. To denounce is to curse, and Jacob is a poet's name for the nation, the same people as Israel. This is what Balak had sent for Balaam to do.",
+      "lines": [
+        {
+          "ref": "Numbers 23:7",
+          "words": "put a curse on Jacob for me;",
+          "key": "curse"
+        },
+        {
+          "ref": "Numbers 23:7",
+          "words": "come and denounce Israel!",
+          "key": "denounce"
+        }
+      ],
+      "pairs": [
+        [
+          "put a curse on",
+          "denounce"
+        ],
+        [
+          "Jacob",
+          "Israel"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb rendered denounce, za'am, means to be angry; here it is to speak God's wrath, and so the same in sense as curse.",
+        "strong": [
+          "H2194"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the verb rendered denounce, to be angry and so to utter God's wrath, is synonymous with to curse, and that Jacob is a poetic name for the nation, equivalent to Israel.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Numbers 23:7",
+          "quote": "\"Come, curse me Jacob, and come threaten Israel.\" Balak had sent for him for this purpose (see Num 22:11 , Num 22:17 ). ... זעם, to be angry, here to give utterance to the wrath of God, synonymous with נקב or קבב, to curse. Jacob: a poetical name for the nation, equivalent to Israel.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "numbers-23-9-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Numbers 23:9",
+      "strength": "some interpreters",
+      "short": "A people apart, not counted among the nations",
+      "about": "Read with the second line, dwelling apart means being separate from the other nations, not counted as one of them. Israel did not share their lot, because it had a different God to protect it.",
+      "lines": [
+        {
+          "ref": "Numbers 23:9",
+          "words": "Behold, a people dwelling apart,",
+          "key": "apart"
+        },
+        {
+          "ref": "Numbers 23:9",
+          "words": "not reckoning themselves among the nations.",
+          "key": "nations"
+        }
+      ],
+      "pairs": [
+        [
+          "dwelling apart",
+          "not reckoning themselves among the nations"
+        ]
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says that, by the parallel clause, dwelling alone means Israel's separation from the rest of the nations: it did not share their lot, having a different God and protector.",
+      "limit": "Others take dwelling apart as dwelling in safety, undisturbed by other nations.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Numbers 23:8-10",
+          "quote": "Dwelling alone does not denote a quiet and safe retirement ... but, according to the parallel clause, \"it is not reckoned among the nations,\" it expresses the separation of Israel from the rest of the nations. ... i.e., it does not share the lot of the other nations, because it has a different God and protector from the heathen",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "numbers-24-17-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Numbers 24:17",
+      "strength": "widely agreed",
+      "short": "A star, a scepter: one ruler to come, named twice",
+      "about": "The second line says the first again more plainly: the star from Jacob is the scepter from Israel, a ruler still to come. The next two lines pair the same way: crushing Moab is striking down the sons of Sheth, who are read as Moab's own people.",
+      "lines": [
+        {
+          "ref": "Numbers 24:17",
+          "words": "A star will come forth from Jacob,",
+          "key": "star"
+        },
+        {
+          "ref": "Numbers 24:17",
+          "words": "and a scepter will arise from Israel.",
+          "key": "scepter"
+        },
+        {
+          "ref": "Numbers 24:17",
+          "words": "He will crush the skulls of Moab",
+          "key": "Moab"
+        },
+        {
+          "ref": "Numbers 24:17",
+          "words": "and strike down all the sons of Sheth.",
+          "key": "Sheth"
+        }
+      ],
+      "pairs": [
+        [
+          "star",
+          "scepter"
+        ],
+        [
+          "Jacob",
+          "Israel"
+        ],
+        [
+          "crush",
+          "strike down"
+        ],
+        [
+          "Moab",
+          "sons of Sheth"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the rare verb behind strike down, qarqar, is shown to mean destroy by its partner, the verb behind crush.",
+        "strong": [
+          "H6979",
+          "H4272"
+        ]
+      },
+      "evidence": "John Calvin says the scepter means nothing else than the star, the same thing said twice in the Hebrew way, and that, as Seir explains Edom in the next verse, the sons of Sheth are most likely the Moabites. C. F. Keil: the parallel scepter removes any doubt that the star is a ruler, and the parallel verb fixes the sense destroy. C. J. Elliott (Ellicott): the second symbol clears the first.",
+      "limit": "The note does not settle whom the ruler is. Some see a first fulfilment in David's victories over Moab and the full one in Christ.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Numbers 24:17",
+          "quote": "called metaphorically “a Star,” ... for this repetition is common with the Hebrews, by which they particularize the same thing twice over. Assuredly he means nothing else by “the Sceptre,” except what he had indicated by the “Star;” ... Since the form of the two sentences is identical, it is probable that none others than the Moabites are meant by the children of Sheth.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Numbers 24:17",
+          "quote": "If, however, there could be any doubt that the rising star represented the appearance of a glorious ruler or king, it would be entirely removed by the parallel, \"a sceptre arises out of Israel.\" ... the meaning to destroy is fully established by the parallel מחץ ... by which, according to the analogy of Jacob and Israel ( Num 24:17 ), Edom and Seir ( Num 24:18 ), the Moabites are to be understood",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Numbers 24:17",
+          "quote": "If there is any ambiguity in the first symbol it is removed in the second. A star is a fitting image of an illustrious king or ruler, and the mention of the sceptre in the words which follow (comp. Gen 49:10 ) shows that it is so employed in the present instance.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

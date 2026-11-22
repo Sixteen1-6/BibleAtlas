@@ -1,6 +1,59 @@
 {
   "notes": [
     {
+      "id": "1-peter-2-4-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "1 Peter 2:4-8",
+      "strength": "widely agreed",
+      "short": "Living stones built into a spiritual house",
+      "about": "Peter carries one picture through these verses. Christ is the living stone, rejected by men, precious to God. Believers, like living stones, are built on Him into a spiritual house, a temple where they serve as a holy priesthood. To those who do not believe, the same stone is one they stumble over.",
+      "refs": [
+        "Isaiah 28:16",
+        "Psalm 118:22",
+        "Isaiah 8:14"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "1 Peter 2:5",
+        "words": "like living stones, are being built into a spiritual house",
+        "means": "believers joined to Christ and to one another as a temple where God dwells and is worshiped, as He was in the temple of old"
+      },
+      "evidence": "John Calvin says calling believers living stones and a spiritual building sets them beside the ancient temple. Albert Barnes says Peter likens the church to the temple, with its own priesthood and sacrifices. Adam Clarke traces the bold metaphor until the living stones become one grand temple. A. J. Mason (Ellicott) says the language is figurative: the stones rise into a house of God.",
+      "limit": "The writers call it a comparison, a metaphor or a figure; none of them names it an allegory.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Peter 2:5",
+          "quote": "Peter no doubt meant to exhort the faithful to consecrate themselves as a spiritual temple to God ... By calling us living stones and spiritual building, as he had before said that Christ is a living stone, he intimates a comparison between us and the ancient temple; and this serves to amplify divine grace.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Peter 2:5",
+          "quote": "The purpose of the apostle here is to compare the church to a beautiful temple - such as the temple in Jerusalem, and to show that it is complete in all its parts, as that was. ... as in that there was a priesthood, and there were real and acceptable sacrifices offered, so it is in the Christian church.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Peter 2:5",
+          "quote": "The metaphor in this and the following verse is as bold as it is singular ... Now, following the metaphor; these various living stones become one grand temple, in which God is worshipped, and in which he manifests himself as he did in the temple of old. Every stone - son and daughter, being a spiritual sacrificer or priest, they all offer up praise and thanksgiving to God through Christ",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Peter 2:5",
+          "quote": "The epithet is supplied, just as in “ living stone,” to make it abundantly clear that the language is figurative. ... here they are treated collectively (of course, along with the Gentile Christians), as so many stones, incomplete and unmeaning in themselves, by arrangement and cemented union to rise into an ideal house of God.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "1-peter-3-21-type",
       "kind": "figure",
       "form": "type",

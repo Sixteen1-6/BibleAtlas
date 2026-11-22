@@ -233,6 +233,248 @@
       ]
     },
     {
+      "id": "deuteronomy-32-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Deuteronomy 32:8",
+      "strength": "some interpreters",
+      "short": "Two lines, one act: God shares out the nations",
+      "about": "The second line says the first again and makes it plainer. The Most High giving the nations their inheritance and His dividing the sons of man are one act told twice: He shared out the peoples of the earth.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 32:8",
+          "words": "When the Most High gave the nations their inheritance,"
+        },
+        {
+          "ref": "Deuteronomy 32:8",
+          "words": "when He divided the sons of man,"
+        }
+      ],
+      "pairs": [
+        [
+          "the nations",
+          "the sons of man"
+        ],
+        [
+          "gave",
+          "divided"
+        ]
+      ],
+      "evidence": "Calvin says Moses here says one thing twice, the second clause explaining the first: God shared out the nations as an inheritance is shared, and this is repeated more clearly when the sons of Adam are said to be separated. He prefers this to reading the first line as God dividing the earth among the nations, which he does not reject.",
+      "limit": "The first line is read two ways: God giving the nations their lands, or God sharing out the nations themselves, as an inheritance is shared. Read the second way, it comes closer still to the second line.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 32:7",
+          "quote": "In the word בהנחל, behanchel, there is some ambiguity ... for Moses says the same thing twice over, and the second clause is the explanation of the first. He says, therefore, that God distributed the nations, as an inheritance is divided; and then this is more clearly repeated, when he mentions the separation of the sons of Adam.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-11-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Deuteronomy 32:11",
+      "strength": "widely agreed",
+      "short": "The LORD's care pictured by an eagle and its young",
+      "about": "Moses likens the LORD's care for Israel to an eagle that stirs up its nest and hovers over its young; the rest of the verse can be read of the LORD Himself, spreading His wings and carrying them. The picture shows God rousing, guarding and training His people, as an eagle trains its young to fly.",
+      "refs": [
+        "Deuteronomy 32:12",
+        "Exodus 19:4"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Deuteronomy 32:11",
+        "words": "As an eagle stirs up its nest and hovers over its young",
+        "means": "the LORD's loving care for Israel: rousing, guarding and training His people, and bearing them up as an eagle does its young"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says Moses describes the Lord's care under the figure of an eagle teaching its young to fly, the point of comparison being the loving care with which He trained Israel. Matthew Henry calls it a similitude first touched in Exodus 19:4 and here enlarged. John Calvin says God compares Himself to an eagle; Joseph Benson, that God's care over Israel is well shown by it.",
+      "limit": "Some writers read the whole verse as the eagle's acts and verse 12 as the LORD's; one takes the second half of the verse as the LORD's own acts, as it reads here.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 32:11",
+          "quote": "Under the figure of an eagle, which teaches its young to fly ... Moses describes the care with which the Lord came to the relief of His people in their helplessness ... The point of comparison between the conduct of God towards Jacob and the acts of an eagle towards its young, is the loving care with which He trained Israel to independence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Deuteronomy 32:7-14",
+          "quote": "He did that for them which the eagle does for her nest of young ones ... The similitude was touched ... I bore you on eagles' wings; here it is enlarged upon. The eagle is observed to have a strong affection for her young, and to show it ... by educating them and teaching them to fly. ... God did thus by Israel",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 32:10",
+          "quote": "Two similitudes follow, to express God's love, mingled with solicitude more than paternal. ... Secondly, God compares Himself to an eagle, which not only fosters her young ones under her outspread wings, but also indulgently, and with maternal tenderness tempts them to fly.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Deuteronomy 32:11",
+          "quote": "The eagle is observed by naturalists to have a most tender affection to her young, and therefore the care of God over Israel is here well illustrated thereby. By her voice she encourages and stirs them up to fly, hovers over them, bears, and defends them by her strength",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-16-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Deuteronomy 32:16",
+      "strength": "some interpreters",
+      "short": "The “abominations” are the “foreign gods”",
+      "about": "The second line says the first again in other words. Enraging God answers provoking His jealousy, and the abominations answer the foreign gods: the abominations spoken of here are idols.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 32:16",
+          "words": "They provoked His jealousy with foreign gods;"
+        },
+        {
+          "ref": "Deuteronomy 32:16",
+          "words": "they enraged Him with abominations."
+        }
+      ],
+      "pairs": [
+        [
+          "foreign gods",
+          "abominations"
+        ],
+        [
+          "provoked His jealousy",
+          "enraged Him"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line runs in reverse order, “with abominations” first and the verb last, so the words go out and come back: jealousy, foreign gods, abominations, anger.",
+        "strong": [
+          "H8441",
+          "H2114"
+        ]
+      },
+      "evidence": "Bullinger sets the verse out as an introverted parallel, jealousy and anger on the outside and strange gods and abominations within, and says this shows that when abominations are spoken of, idols are meant.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 32:16",
+          "at": "Introverted Parallelisms, p. 357",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/357/mode/1up",
+          "quote": "a “They provoked Him to jealousy b with strange gods: b with abominations a provoked they Him to anger.” This shows that when “abominations” are spoken of, idols are meant.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-21-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Deuteronomy 32:21",
+      "strength": "some interpreters",
+      "short": "Jealousy and anger, “not God” and idols, in turn",
+      "about": "Four parts take turns. Provoking God's jealousy in the first answers enraging Him in the third, and that which is not God in the second answers their worthless idols in the fourth.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 32:21",
+          "words": "They have provoked My jealousy",
+          "mark": "A",
+          "key": "jealousy"
+        },
+        {
+          "ref": "Deuteronomy 32:21",
+          "words": "by that which is not God;",
+          "mark": "B",
+          "key": "God"
+        },
+        {
+          "ref": "Deuteronomy 32:21",
+          "words": "they have enraged Me",
+          "mark": "A'",
+          "key": "enraged"
+        },
+        {
+          "ref": "Deuteronomy 32:21",
+          "words": "with their worthless idols.",
+          "mark": "B'",
+          "key": "idols"
+        }
+      ],
+      "pairs": [
+        [
+          "provoked My jealousy",
+          "enraged Me"
+        ],
+        [
+          "not God",
+          "worthless idols"
+        ]
+      ],
+      "evidence": "Bullinger gives the verse as an alternate parallel: the a lines move God to jealousy and to anger, and the b lines name what they did it with, that which is not God and their vanities.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Deuteronomy 32:21",
+          "at": "Complex Parallelism, Alternate, p. 352",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/352/mode/1up",
+          "quote": "a “They have moved me to jealousy b with that which is not God: a They have provoked me to anger b with their vanities:",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-32-39-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Deuteronomy 32:39",
+      "strength": "some interpreters",
+      "short": "“I am He”, then plainly: “no God besides Me”",
+      "about": "The second line explains the first. “I am He” leaves the word God unsaid, and the next line says it outright: there is no God besides Me. The LORD calls His people to acknowledge Him as the only true God.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 32:39",
+          "words": "See now that I am He;"
+        },
+        {
+          "ref": "Deuteronomy 32:39",
+          "words": "there is no God besides Me."
+        }
+      ],
+      "pairs": [
+        [
+          "He",
+          "God"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line has no word for God; the second line supplies it, elohim.",
+        "strong": [
+          "H0430"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the word God is left out of the first line because the thought already holds it, and because the parallel line that follows states it clearly. He reads the verse as a demand that Israel acknowledge the LORD as the only true God.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 32:39",
+          "quote": "The appeal to their own experience of the worthlessness of idols is followed by a demand that they should acknowledge Jehovah as the only true God. ... The predicate Elohim (vid., Sa2 7:28 ; Isa 37:16 ) is omitted, because it is contained in the thought itself, and moreover is clearly expressed in the parallel clause which follows, \"there is not a God beside Me.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "deuteronomy-32-42-turns",
       "kind": "parallelism",
       "form": "turns",
@@ -287,6 +529,118 @@
           "quote": "Here a and a relate to the arrows, while b and b refer to the sword.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-33-14-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Deuteronomy 33:14",
+      "strength": "some interpreters",
+      "short": "Sun and seasons: one harvest said twice",
+      "about": "The second line says the first again. Both lines speak of the fruits of the earth that the sun and the moon ripen, and the two can hardly be told apart. The word the BSB renders seasons answers the sun in the line before.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 33:14",
+          "words": "with the bountiful harvest from the sun"
+        },
+        {
+          "ref": "Deuteronomy 33:14",
+          "words": "and the abundant yield of the seasons,"
+        }
+      ],
+      "pairs": [
+        [
+          "the sun",
+          "the seasons"
+        ],
+        [
+          "bountiful harvest",
+          "abundant yield"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew “seasons” is yerachim, the plural of a word for a month, the moon's round. Set against the sun, shemesh, in the line before, it can be read as the moon's changing phases rather than months.",
+        "strong": [
+          "H3391",
+          "H8121"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the produce of the sun and the produce of the moons are both the fruits of the earth, ripened by sun and moon, and that the two can hardly be split into crops that ripen once a year and crops that come more often. He takes the plural moons, in parallel with the sun, as the moon's phases, not months.",
+      "limit": "Some take the two lines as two kinds of crop: those that ripen once a year, and those that come up several times a year.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 33:13",
+          "quote": "The \"productions of the sun,\" ... \"the produce of the moons,\" are the fruits of the earth, which are matured by the influence of the sun and moon ... we can hardly so distinguish the one from the other as to understand by the former the fruits which ripen only once a year ... The plural \"moons\" in parallelism with the sun does not mean months ... but the different phases which the moon shows",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "deuteronomy-33-18-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Deuteronomy 33:18",
+      "strength": "widely agreed",
+      "short": "Journeys out and tents at home, side by side",
+      "about": "The two lines are built alike: each calls a tribe to rejoice and names where, Zebulun in his journeys and Issachar in his tents. Together they take in life abroad and at home. Some read the pair as one call to both tribes to rejoice in their labour and in their rest.",
+      "lines": [
+        {
+          "ref": "Deuteronomy 33:18",
+          "words": "Rejoice, Zebulun, in your journeys,",
+          "key": "journeys"
+        },
+        {
+          "ref": "Deuteronomy 33:18",
+          "words": "and Issachar, in your tents.",
+          "key": "tents"
+        }
+      ],
+      "pairs": [
+        [
+          "Zebulun",
+          "Issachar"
+        ],
+        [
+          "journeys",
+          "tents"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line's journeys are a going out (yatsa), answered in the second by the tents (ohel).",
+        "strong": [
+          "H3318",
+          "H0168"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the tents answer the going out, two sides of life, work and rest; the parallelism of the lines gives one to Zebulun and the other to Issachar, the whole applying to both. Adam Clarke: as Zebulun prospers in his sea trade, so Issachar in his tents. John Calvin: the verse compares two unlike tribes, Zebulun glad in its expeditions, Issachar in its rest.",
+      "limit": "The writers differ on whether each line belongs only to its own tribe, Zebulun at sea and Issachar on the land, or whether the pair speaks of both tribes at work and at rest.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 33:18",
+          "quote": "\"At thy tents\" corresponds to \"at thy going out\" ... and describes in its two aspects of work and production, rest and recreation. Although \"going out\" ... is attributed to Zebulun, and \"remaining in tents\" ... to Issachar, ... this is to be attributed to the poetical parallelism of the clauses, and the whole is to be understood as applying to both",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Deuteronomy 33:18",
+          "quote": "And, Issachar, in thy tents - That is, as Zebulun should be prosperous in his shipping and traffic, so should Issachar be in his tents - his agriculture and pasturage.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 33:18",
+          "quote": "He compares two tribes with each other, which, although neighbors in position, were still very dissimilar; for the one being devoted to mercantile pursuits, went forth frequently in various directions; the other took more delight in quietude and repose; and this their great variety of condition is indicated, when he bids Zebulun rejoice in its expeditions, and Issachar in its domestic repose.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

@@ -1,6 +1,182 @@
 {
   "notes": [
     {
+      "id": "genesis-1-26-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Genesis 1:26",
+      "strength": "widely agreed",
+      "short": "“Our image”, said again as “Our likeness”",
+      "about": "The second phrase says the first again in other words and explains it: man is to be made in God’s image, that is, like Him. Read this way, the two words are joined to say one thing with more force, not to name two different things in man.",
+      "lines": [
+        {
+          "ref": "Genesis 1:26",
+          "words": "in Our image,",
+          "key": "image"
+        },
+        {
+          "ref": "Genesis 1:26",
+          "words": "after Our likeness,",
+          "key": "likeness"
+        }
+      ],
+      "pairs": [
+        [
+          "image",
+          "likeness"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the nouns are tselem, “image”, and demut, “likeness”; the small words before them, “in” and “after”, are near in meaning too.",
+        "strong": [
+          "H6754",
+          "H1823"
+        ]
+      },
+      "evidence": "John Calvin denies that the image differs from the likeness: the Hebrews often repeat the same thing in other words, and the second term is added to explain. Keil (Keil and Delitzsch) calls the two words synonymous, joined to add intensity to the thought, and the small words before them interchangeable. James G. Murphy (Barnes' Notes) says likeness, the wider word, is here explanatory of image.",
+      "limit": "One reading finds a shade of difference, image for outward form and likeness for any quality, while still taking likeness to explain image.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Genesis 1:26",
+          "quote": "As for myself, before I define the image of God, I would deny that it differs from his likeness. ... We also know that it was customary with the Hebrews to repeat the same thing in different words. besides, the phrase itself shows that the second term was added for the sake of explanation",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 1:26",
+          "quote": "On the words \"in our image, after our likeness\" modern commentators have correctly observed, that there is no foundation for the distinction drawn by the Greek ... the older Lutheran theologians were correct in stating that the two words are synonymous, and are merely combined to add intensity to the thought ... בּ and כּ are also equally interchangeable",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 1:26",
+          "quote": "\"Image\" is a word taken from sensible things, and denotes likeness in outward form, while the material may be different. \"Likeness\" is a more general term, indicating resemblance in any quality, external or internal. It is here explanatory of image",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "genesis-1-27-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Genesis 1:27",
+      "strength": "widely agreed",
+      "short": "Three lines on the making of man",
+      "about": "The first line gives the whole: God created man in His own image. The second says it again, naming the image as God’s. The third adds that He created them male and female, moving from one, him, to two, them.",
+      "lines": [
+        {
+          "ref": "Genesis 1:27",
+          "words": "So God created man in His own image;"
+        },
+        {
+          "ref": "Genesis 1:27",
+          "words": "in the image of God He created him;"
+        },
+        {
+          "ref": "Genesis 1:27",
+          "words": "male and female He created them."
+        }
+      ],
+      "pairs": [
+        [
+          "His own image",
+          "the image of God"
+        ],
+        [
+          "him",
+          "them"
+        ]
+      ],
+      "evidence": "Keil (Keil and Delitzsch) says the words swell into song here, the creation of man told in three parallel clauses, and marks the change from him to them. John Calvin says the image is named again not in vain, and then male and female are added. James G. Murphy (Barnes' Notes) finds the general fact in the first clause and then two particulars, two stages in man's making.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 1:27",
+          "quote": "In the account of the accomplishment of the divine purpose the words swell into a jubilant song, so that we meet here for the first time with a parallelismus membrorum, the creation of man being celebrated in three parallel clauses. The distinction drawn between ... (in the image of God created He him) and ... (as man and woman created He them) must not be overlooked.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Genesis 1:27",
+          "quote": "The reiterated mention of the image of God is not a vain repetition. For it is a remarkable instance of the Divine goodness which can never be sufficiently proclaimed. ... When he soon afterwards adds, that God created them male and female, he commends to us that conjugal bond by which the society of mankind is cherished.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 1:27",
+          "quote": "We discern here two stages in his creation. The general fact is stated in the first clause of the verse, and then the two particulars. \"In the image of God created he him.\" This is the primary act, in which his relation to his Maker is made prominent. ... \"Male and female created he them.\" This is the second act or step in his formation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "genesis-3-19-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Genesis 3:19",
+      "strength": "some interpreters",
+      "short": "The end, the origin, the origin, the end",
+      "about": "The lines go out and come back in reverse order. The first and last speak of man’s end, his return to the ground and to dust; the two in the middle speak of where he came from: out of it he was taken, and dust he is.",
+      "lines": [
+        {
+          "ref": "Genesis 3:19",
+          "words": "until you return to the ground",
+          "mark": "A",
+          "key": "return"
+        },
+        {
+          "ref": "Genesis 3:19",
+          "words": "because out of it were you taken.",
+          "mark": "B",
+          "key": "taken"
+        },
+        {
+          "ref": "Genesis 3:19",
+          "words": "For dust you are,",
+          "mark": "B'",
+          "key": "dust"
+        },
+        {
+          "ref": "Genesis 3:19",
+          "words": "and to dust you shall return.",
+          "mark": "A'",
+          "key": "return"
+        }
+      ],
+      "pairs": [
+        [
+          "to the ground",
+          "to dust"
+        ],
+        [
+          "taken",
+          "dust you are"
+        ]
+      ],
+      "evidence": "E. W. Bullinger lists the verse first among his introverted parallelisms and marks its four lines end, origin, origin, end.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 3:19",
+          "at": "Introverted Parallelisms, p. 356",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/356/mode/1up",
+          "quote": "a End. “Till thou return unto the ground.” b Origin. “For out of it was thou taken.” b Origin. “For dust thou art.” a End. “And unto dust shalt thou return.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "genesis-6-6-anthropopatheia",
       "kind": "figure",
       "form": "anthropopatheia",
@@ -638,6 +814,81 @@
       ]
     },
     {
+      "id": "genesis-4-23-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Genesis 4:23-24",
+      "strength": "commonly held",
+      "short": "Lamech’s song, each thought said twice",
+      "about": "Lamech’s song runs in three pairs of lines, and each second line says the first again with more force: hear and listen, voice and speech, a man and a young man, wounding and striking. The last pair raises Cain’s sevenfold to Lamech’s seventy-sevenfold.",
+      "lines": [
+        {
+          "ref": "Genesis 4:23",
+          "words": "Adah and Zillah, hear my voice;"
+        },
+        {
+          "ref": "Genesis 4:23",
+          "words": "wives of Lamech, listen to my speech."
+        },
+        {
+          "ref": "Genesis 4:23",
+          "words": "For I have slain a man for wounding me,"
+        },
+        {
+          "ref": "Genesis 4:23",
+          "words": "a young man for striking me."
+        },
+        {
+          "ref": "Genesis 4:24",
+          "words": "If Cain is avenged sevenfold,",
+          "key": "Cain"
+        },
+        {
+          "ref": "Genesis 4:24",
+          "words": "then Lamech seventy-sevenfold.",
+          "key": "Lamech"
+        }
+      ],
+      "pairs": [
+        [
+          "hear",
+          "listen"
+        ],
+        [
+          "voice",
+          "speech"
+        ],
+        [
+          "a man",
+          "young man"
+        ],
+        [
+          "wounding",
+          "striking"
+        ]
+      ],
+      "evidence": "James G. Murphy (Barnes' Notes) says every pair of lines in this short ode is synonymous, the second member repeating the first with emphasis. E. W. Bullinger gives the song as the first example in the Bible of synonymous lines: three pairs whose matching words can be seen at once.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Genesis 4:23-24",
+          "quote": "This short ode has all the characteristics of the most perfect Hebrew poetry. Every pair of lines is a specimen of the Hebrew parallelism or rhythm of sentiment and style. They all belong to the synthetic, synonymous, or cognate parallel, the second member reiterating with emphasis the first.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 4:23-24",
+          "at": "Synonymous or Gradational, p. 350",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/350/mode/1up",
+          "quote": "There are three pairs of lines, and the synonymous words will be at once seen, as we have exhibited them",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "genesis-10-9-proverb",
       "kind": "figure",
       "form": "proverb",
@@ -699,6 +950,107 @@
       ]
     },
     {
+      "id": "genesis-12-2-climbing",
+      "kind": "parallelism",
+      "form": "climbing",
+      "ref": "Genesis 12:2",
+      "strength": "some interpreters",
+      "short": "Four promises that climb to “a blessing”",
+      "about": "The four promises rise as they go: a great nation, then blessing, then a great name, and at the top, that Abram will himself be a blessing. He is not only to receive blessing but to bring it to others, and the next verse unfolds that last promise.",
+      "refs": [
+        "Genesis 12:3"
+      ],
+      "lines": [
+        {
+          "ref": "Genesis 12:2",
+          "words": "I will make you into a great nation,",
+          "key": "nation"
+        },
+        {
+          "ref": "Genesis 12:2",
+          "words": "and I will bless you;",
+          "key": "bless"
+        },
+        {
+          "ref": "Genesis 12:2",
+          "words": "I will make your name great,",
+          "key": "name"
+        },
+        {
+          "ref": "Genesis 12:2",
+          "words": "so that you will be a blessing.",
+          "key": "blessing"
+        }
+      ],
+      "pairs": [
+        [
+          "bless you",
+          "be a blessing"
+        ]
+      ],
+      "evidence": "Keil (Keil and Delitzsch) says the four members are not two parallel pairs but an ascending climax of four elements, the last expanded in verse 3: Abram was not only to receive blessing but to be a blessing, the medium of blessing to others.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 12:1-3",
+          "quote": "The four members of this promise are not to be divided into two parallel members ... but are to be regarded as an ascending climax, expressing four elements of the salvation promised to Abram, the last of which is still further expanded in Gen 12:3 . ... Abram was not only to receive blessing, but to be a blessing ... or the medium of blessing, to others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "genesis-14-19-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Genesis 14:19-20",
+      "strength": "commonly held",
+      "short": "Abram blessed by God, then God blessed",
+      "about": "Melchizedek’s blessing has two parts built the same way. The first blesses Abram by God Most High, the Creator; the second turns and blesses God Most High, who gave Abram the victory. So the blessing goes to Abram from God, and then to God for Abram.",
+      "lines": [
+        {
+          "ref": "Genesis 14:19",
+          "words": "Blessed be Abram by God Most High, Creator of heaven and earth,"
+        },
+        {
+          "ref": "Genesis 14:20",
+          "words": "and blessed be God Most High, who has delivered your enemies into your hand."
+        }
+      ],
+      "pairs": [
+        [
+          "Blessed be Abram",
+          "blessed be God"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the words for “has delivered” and “your enemies” are words mostly found in poetry, which marks the blessing as a poem.",
+        "strong": [
+          "H4042",
+          "H6862"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the form of the blessing is poetic: two parallel members, with words peculiar to poetry for enemies and delivered. Matthew Henry says two things were said: Melchizedek blessed Abram from God, and then blessed God for Abram.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 14:17-20",
+          "quote": "This gratitude he expresses, as a priest of the supreme God, in the words, \"Blessed be Abram of the Most High God, the founder of heaven and earth; and blessed be God, the Most High, who hath delivered thine enemies into thy hand.\" The form of the blessing is poetical, two parallel members with words peculiar to poetry",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Genesis 14:19-20",
+          "quote": "Two things were said by him ... He blessed Abram from God: Blessed be Abram, blessed of the most high God ... He blessed God for Abram ... and blessed be the most high God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "genesis-18-27-meiosis",
       "kind": "figure",
       "form": "meiosis",
@@ -744,6 +1096,64 @@
           "quote": "By these expressions he shows how deeply his soul was humbled in the presence of God. He who has high thoughts of himself must have low thoughts of the dignity of the Divine nature, of the majesty of God, and the sinfulness of sin.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-19-25-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Genesis 19:25",
+      "strength": "some interpreters",
+      "short": "The cities, the plain, their people, its growth",
+      "about": "The four things destroyed take turns: the cities, the plain, the people of the cities, and what grew on the ground of the plain. The first answers the third, and the second the fourth.",
+      "lines": [
+        {
+          "ref": "Genesis 19:25",
+          "words": "these cities",
+          "mark": "A",
+          "key": "cities"
+        },
+        {
+          "ref": "Genesis 19:25",
+          "words": "the entire plain,",
+          "mark": "B",
+          "key": "plain"
+        },
+        {
+          "ref": "Genesis 19:25",
+          "words": "all the inhabitants of the cities",
+          "mark": "A'",
+          "key": "cities"
+        },
+        {
+          "ref": "Genesis 19:25",
+          "words": "everything that grew on the ground.",
+          "mark": "B'",
+          "key": "ground"
+        }
+      ],
+      "pairs": [
+        [
+          "these cities",
+          "the cities"
+        ],
+        [
+          "plain",
+          "ground"
+        ]
+      ],
+      "evidence": "E. W. Bullinger gives the verse as his first example of alternate lines: the cities, the plain, the inhabitants of the cities, the produce of the plain.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Genesis 19:25",
+          "at": "Complex Parallelism, Alternate, p. 352",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/352/mode/1up",
+          "quote": "a “The cities (and He overthrew) b The plain (and all the plain), a The inhabitants of the cities , b The produce of the plain.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -885,6 +1295,93 @@
       }
     },
     {
+      "id": "genesis-27-28-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Genesis 27:28",
+      "strength": "some interpreters",
+      "short": "Dew from heaven, richness from the earth",
+      "about": "Isaac asks for the dew of heaven and then the richness of the earth. In Hebrew the two lines are built the same way, and together they ask for one blessing: a land watered by the dew of heaven, with a fruitful soil.",
+      "lines": [
+        {
+          "ref": "Genesis 27:28",
+          "words": "May God give to you the dew of heaven",
+          "key": "heaven"
+        },
+        {
+          "ref": "Genesis 27:28",
+          "words": "and the richness of the earth",
+          "key": "earth"
+        }
+      ],
+      "pairs": [
+        [
+          "heaven",
+          "earth"
+        ],
+        [
+          "dew",
+          "richness"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both gifts take the same “from”: from the dew of heaven, and from the richness of the earth.",
+        "strong": [
+          "H2919",
+          "H4924"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the Hebrew word for richness carries the same “from” as dew in the line before, as the parallel proves, and reads the two together as a land blessed with the dew of heaven and a fruitful soil.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 27:24",
+          "quote": "\"God (Ha-Elohim, the personal God, not Jehovah, the covenant God) give thee from the dew of heaven, and the fat fields of the earth, and plenty of corn and wine,\" i.e., a land blessed with the dew of heaven and a fruitful soil. ... In משׁמנּי, notwithstanding the absence of the Dagesh from the שׁ, the מ is the prep. מן, as the parallel מטּל proves",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "genesis-49-2-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Genesis 49:2",
+      "strength": "some interpreters",
+      "short": "Jacob, then Israel: one call to listen, said twice",
+      "about": "The second line says the first again in other words: “sons of Jacob” is answered by “your father Israel.” Both names belong to one man and to the people he heads. One reading takes Jacob as the natural name and Israel as the spiritual one.",
+      "lines": [
+        {
+          "ref": "Genesis 49:2",
+          "words": "Come together and listen, O sons of Jacob;",
+          "key": "Jacob"
+        },
+        {
+          "ref": "Genesis 49:2",
+          "words": "listen to your father Israel.",
+          "key": "Israel"
+        }
+      ],
+      "pairs": [
+        [
+          "Jacob",
+          "Israel"
+        ]
+      ],
+      "evidence": "James G. Murphy (Barnes' Notes) calls the verse a specimen of the synthetic or synonymous parallel. He says it shows how Jacob and Israel are the same and yet distinct: both name one man and the race he heads, the one the natural, the other the spiritual.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Genesis 49:1-2",
+          "quote": "\"Hear, ye sons of Jacob; and hearken to Israel your father.\" This is a specimen of the synthetic or synonymous parallel. It affords a good example of the equivalence, and at the same time the distinction, of Jacob and Israel. They both apply to the same person, and to the race of which he is the head. The one refers to the natural, the other to the spiritual.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "genesis-49-10-riddle",
       "kind": "figure",
       "form": "riddle",
@@ -937,6 +1434,116 @@
           "quote": "Shiloh might also be a personal name, and denote not merely the place of rest, but the man, or bearer, of rest. We regard Shiloh, therefore, as a title of the Messiah ... although there may be uncertainty as to the grammatical interpretation of the word, there is perfect agreement as to the fact that the patriarch is here proclaiming the coming of the Messiah.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "genesis-49-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Genesis 49:10",
+      "strength": "commonly held",
+      "short": "The scepter, then the staff: Judah's rule said twice",
+      "about": "The second line says the first again in other words: the scepter is answered by the staff. Both lines say that the right to rule will not pass from Judah, and the match can help show what the second line's word means.",
+      "lines": [
+        {
+          "ref": "Genesis 49:10",
+          "words": "The scepter will not depart from Judah,",
+          "key": "scepter"
+        },
+        {
+          "ref": "Genesis 49:10",
+          "words": "nor the staff from between his feet,",
+          "key": "staff"
+        }
+      ],
+      "pairs": [
+        [
+          "scepter",
+          "staff"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line's word, mechoqeq, can mean a lawgiver or a ruler's staff. Beside “scepter” it can be taken as staff, as the BSB has it; either way the line means the same.",
+        "strong": [
+          "H2710",
+          "H7626"
+        ]
+      },
+      "evidence": "James G. Murphy (Barnes' Notes) keeps the reading lawgiver but says it means precisely the same as judicial staff, and that the parallelism of the clauses is met by their identity of meaning. C. F. Keil (Keil and Delitzsch) takes the word as a ruler's staff, as the parallel words scepter and between his feet require.",
+      "limit": "Some keep the reading lawgiver; others read ruler's staff, as the BSB does.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Genesis 49:10",
+          "quote": "\"Nor the lawgiven from between his feet.\" This is otherwise rendered, \"nor the judicial staff from between his feet;\" ... It is not worth while contending for one against the other, as the meaning of both is precisely the same. ... the synthetic parallelism of the clauses is satisfied by the identity of meaning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 49:9-10",
+          "quote": "\"The sceptre shall not depart from Judah, nor the ruler's staff from between his feet, till Shiloh come and the willing obedience of the nations be to him.\" ... מחקק the determining person or thing, hence a commander, legislator, and a commander's or ruler's staff ( Num 21:18 ); here in the latter sense, as the parallels, \"sceptre\" and \"from between his feet,\" require.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "genesis-49-24-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Genesis 49:24",
+      "strength": "commonly held",
+      "short": "The Mighty One of Jacob, the Rock of Israel",
+      "about": "Two lines name the One who made Joseph's arms strong: the Mighty One of Jacob, then the Shepherd, the Rock of Israel. The second line answers the first, so that both say Joseph's strength came from God.",
+      "lines": [
+        {
+          "ref": "Genesis 49:24",
+          "words": "by the hands of the Mighty One of Jacob,",
+          "key": "Mighty One"
+        },
+        {
+          "ref": "Genesis 49:24",
+          "words": "in the name of the Shepherd, the Rock of Israel,",
+          "key": "Rock"
+        }
+      ],
+      "pairs": [
+        [
+          "Jacob",
+          "Israel"
+        ],
+        [
+          "Mighty One",
+          "Rock"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both lines begin with “from”: from the hands of the Mighty One, and misham, “from there”. The BSB renders the second as “in the name of”.",
+        "strong": [
+          "H3027",
+          "H8033"
+        ]
+      },
+      "evidence": "R. Payne Smith (Ellicott's Commentary) says the words from there answer in the parallelism to from the hands of, so that Joseph's triumph came from God, the Shepherd and Rock of Israel. James G. Murphy (Barnes' Notes) says Joseph's arms drew strength from the God of his fathers, and renders the word from him to bring the two members of the parallel into harmony.",
+      "limit": "Scholars differ on the Hebrew word the BSB renders “in the name of”; read as from there, the line still answers the one before.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Genesis 49:24",
+          "quote": "But “from thence” answers in the parallelism to from the hands of. Fully it would be, from thence where dwells the Shepherd, &c, that is, — Joseph’s triumph came from God, who is the Shepherd (or Ruler) and the Rock of Israel.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 49:23-24",
+          "quote": "his arms are enabled to bend it, because he receives strength from the God of his fathers, \"the Might of Jacob, the Shepherd, the Stone of Israel.\" ... \"From him.\" This seems the free rendering of the word requisite to bring the two members of the parallel into harmony.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

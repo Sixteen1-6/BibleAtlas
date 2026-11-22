@@ -249,6 +249,49 @@
       ]
     },
     {
+      "id": "1-kings-11-30-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "1 Kings 11:30-31",
+      "strength": "widely agreed",
+      "short": "A torn cloak: ten tribes given to Jeroboam",
+      "about": "The prophet Ahijah meets Jeroboam alone in a field and tears his own new cloak into twelve pieces. “Take ten pieces for yourself,” he says, for the LORD will tear the kingdom out of Solomon's hand and give Jeroboam ten tribes, as He had warned Solomon in verse 11.",
+      "refs": [
+        "1 Kings 11:11"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "1 Kings 11:30",
+        "words": "tore it into twelve pieces",
+        "means": "the kingdom torn out of Solomon's hand, with ten of Israel's twelve tribes given to Jeroboam"
+      },
+      "evidence": "George Rawlinson (Barnes' Notes) calls it the first acted parable and traces a link between the sign and the LORD's words to Solomon. Keil (Keil and Delitzsch) says tearing the new garment into twelve pieces symbolized the prophetic word very emphatically and made the promise a completed fact. Matthew Henry calls the rending and the giving of ten pieces the sign that represented the message.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "1 Kings 11:30",
+          "quote": "The first instance of the \"acted parable.\" Generally this mode was adopted upon express divine command (see Jer 13:1-11 ; Eze 3:1-3 ). A connection may be traced between the type selected and the words of the announcement to Solomon ( Kg1 11:11-13 . Compare Sa1 15:26-28 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Kings 11:29-36",
+          "quote": "By the tearing of the new garment into twelve pieces, of which Jeroboam was to take ten for himself, the prophetic announcement was symbolized in a very emphatic manner. This symbolical action made the promise a completed fact.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Kings 11:26-40",
+          "quote": "The sign by which it was represented to him was the rending of a garment into twelve pieces, and giving him ten ... He (that is, the prophet) had clad himself with a new garment, on purpose that he might with it give him a sign.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "1-kings-16-22-mirror",
       "kind": "parallelism",
       "form": "mirror",
@@ -294,6 +337,47 @@
           "quote": "In other cases, again, we do not find the arrangement turning upon two kinds or classes of persons, but upon two individuals … Omri in a. and a.; Tibni in b. and b.",
           "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "1-kings-19-19-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "1 Kings 19:19-20",
+      "strength": "widely agreed",
+      "short": "Elijah's cloak thrown around Elisha: a call",
+      "about": "Elijah finds Elisha plowing with twelve teams of oxen, passes by and throws his cloak around him. Elisha leaves the oxen and runs after him, asking only to kiss his father and mother goodbye. Many read the prophet's cloak laid on him as the sign of his call to follow Elijah as a prophet.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "1 Kings 19:19",
+        "words": "threw his cloak around him",
+        "means": "Elisha's call to follow Elijah and take up a prophet's work, shown by the prophet's own cloak laid on him"
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the prophet's cloak was the sign of his calling, so throwing it to Elisha was a symbol of the call to that office, and Elisha understood the sign. Adam Clarke says Elijah likely threw his mantle on Elisha to signify that call. Matthew Henry calls it a powerful call, the mantle cast on him in token of Elijah's care for him or of his being clothed with Elijah's spirit.",
+      "limit": "The writers differ a little on the sign's sense: a call to a prophet's office, Elijah taking Elisha under his care, or Elisha clothed with Elijah's spirit. No words of Elijah explaining the act are recorded.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Kings 19:19",
+          "quote": "and threw his cloak to him as he passed by. The prophet's cloak was sign of the prophet's vocation so that throwing it to him was a symbol of the call to the prophetic office. ... Elisha understanding the sign, left the oxen standing, ran after Elijah",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Kings 19:19",
+          "quote": "Cast his mantle upon him - Either this was a ceremony used in a call to the prophetic office, or it indicated that he was called to be the servant of the prophet. ... It is likely, therefore, that Elijah threw his mantle on Elisha to signify to him that he was called to the prophetic office.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Kings 19:19-21",
+          "quote": "That it was a powerful call. Elijah did but cast his mantle upon him ... in token of friendship, that he would take him under his care and tuition as he did under his mantle, and to be one with him in the same clothes, or in token of his being clothed with the spirit of Elijah",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -392,6 +476,57 @@
           "quote": "The prophet found a willing assistant, and then, waiting for Ahab, leads the king unconsciously, in the parabolic manner of Nathan ... to pronounce his own doom",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-kings-22-11-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "1 Kings 22:11",
+      "strength": "widely agreed",
+      "short": "Zedekiah's iron horns: a false sign of victory",
+      "about": "Before Ahab and Jehoshaphat, Zedekiah, one of Ahab's prophets, makes iron horns and declares that with these the king will gore the Arameans until they are finished off. He acts out his word as the LORD's prophets did, but his word is false: Micaiah sees all Israel scattered on the hills like sheep.",
+      "refs": [
+        "1 Kings 22:17",
+        "1 Kings 22:23"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "1 Kings 22:11",
+        "words": "made for himself iron horns",
+        "means": "the two kings' power, with which Ahab would thrust down and destroy the Arameans as horns gore; a promise of victory that proved false"
+      },
+      "evidence": "Matthew Henry says Zedekiah copied the true prophets with a sign for his false prophecy, the horns standing for the two kings and their power. Keil (Keil and Delitzsch) calls it a symbolical action applying Moses' blessing of Joseph to Ahab. George Rawlinson (Barnes' Notes) calls it a symbolic action, the horn a symbol of power. Adam Clarke says it copied prophecy by significative actions.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "1 Kings 22:1-14",
+          "quote": "Zedekiah, a leading man among these prophets, in imitation of the true prophets, illustrated his false prophecy with a sign ... He made himself a pair of iron horns, representing the two kings, and their honour and power (both of which were signified by horns, exaltation and force), and with these the Syrians must be pushed.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Kings 22:10-12",
+          "quote": "In order to give greater effect to their announcement, one of them, named Zedekiyah the son of Cnaanah, made himself iron horns ... This symbolical action was an embodiment of the figure used by Moses in the blessing of Joseph ( Deu 33:17 ) ... and was intended to transfer to Ahab in the case before them that splendid promise which applied to the tribe of Ephraim.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Kings 22:11",
+          "quote": "Horns of iron - The horn in Scripture is the favorite symbol of power; and pushing with the horn is a common metaphor for attacking and conquering enemies (see Deu 33:17 ; Compare Psa 44:5 ; Dan 8:4 ). Zedekiah, in employing a symbolic action, was following the example of a former Israelite prophet Kg1 11:30 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "1 Kings 22:11",
+          "quote": "Zedekiah - made him horns of iron - This was in imitation of that sort of prophecy which instructed by significative actions. This was frequent among the prophets of the Lord.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

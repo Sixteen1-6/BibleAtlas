@@ -1,6 +1,105 @@
 {
   "notes": [
     {
+      "id": "job-3-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 3:5",
+      "strength": "some interpreters",
+      "short": "Darkness, a cloud, blackness: one wish, three times",
+      "about": "Each line asks the same thing in other words: let darkness cover the day of Job's birth. Darkness and gloom, a cloud, and the blackness of the day answer one another, and so the word for blackness can be read as whatever darkens a day.",
+      "lines": [
+        {
+          "ref": "Job 3:5",
+          "words": "May darkness and gloom reclaim it,"
+        },
+        {
+          "ref": "Job 3:5",
+          "words": "and a cloud settle over it;"
+        },
+        {
+          "ref": "Job 3:5",
+          "words": "may the blackness of the day overwhelm it."
+        }
+      ],
+      "pairs": [
+        [
+          "darkness and gloom",
+          "a cloud"
+        ],
+        [
+          "a cloud",
+          "the blackness of the day"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for blackness is found only here; it is read from a verb for being black or dark.",
+        "strong": [
+          "H3650"
+        ]
+      },
+      "evidence": "Albert Barnes reads the word for blackness as obscurations, whatever darkens the day, because that sense suits the parallel lines, and sets aside a reading of it as a scorching desert wind, which does not suit them: Job wished all that makes a day gloomy to rest on it. He notes that the noun is found only here, but that its verb is used of being black and dark.",
+      "limit": "Scholars differ on the word for blackness: some take it as scorching heat or as bitterness.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 3:5",
+          "quote": "But this interpretation does not well suit the parallelism. Others, therefore, understand by the word, \"obscurations,\" or whatever darkens the day. ... The noun here is not found elsewhere; but the \"verb\" כמר kâmar is used in the sense of being black and dark ... This meaning suits the parallelism ... Job wished that everything which could render the day gloomy and obscure might rest upon it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-5-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 5:5",
+      "strength": "commonly held",
+      "short": "The hungry eat, the thirsty pant: his goods are gone",
+      "about": "The last line says the first again in other words. The hungry who consume his harvest are answered by the thirsty who pant after his wealth: what the fool gathered is eaten and drunk up by others.",
+      "lines": [
+        {
+          "ref": "Job 5:5",
+          "words": "The hungry consume his harvest,"
+        },
+        {
+          "ref": "Job 5:5",
+          "words": "and the thirsty pant after his wealth."
+        }
+      ],
+      "pairs": [
+        [
+          "The hungry",
+          "the thirsty"
+        ],
+        [
+          "his harvest",
+          "his wealth"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) says the word should be read as the thirsty, since the hungry of the parallel line proves it. Adam Clarke reads it the same way, as set against the hungry of the earlier clause: the hungry eat up the grain and the thirsty drink down the wine and oil.",
+      "limit": "Scholars differ on one Hebrew word in the last line: many read it as the thirsty, as the BSB does, and others as a snare or a schemer.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 5:5",
+          "quote": "the robber--as the Sabeans, who robbed Job. Rather, translate \"the thirsty,\" as the antithesis in the parallelism, \"the hungry,\" proves.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Job 5:5",
+          "quote": "Or, more properly, the thirsty, צמים tsammim, as is plain from their swallowing up or gulping down; opposed to the hungry or half-starved, mentioned in the preceding clause. The hungry shall eat up their grain, and the thirsty shall drink down their wine and oil",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "job-12-2-irony",
       "kind": "figure",
       "form": "irony",
@@ -195,6 +294,2000 @@
           "quote": "as afflictions and troubles recur supports and deliverances shall be graciously repeated, be it ever so often ... After six troubles may come a seventh; after many, look for more; but out of them all will God deliver those that are his",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "job-6-15-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Job 6:15-20",
+      "refs": [
+        "Job 6:21"
+      ],
+      "strength": "widely agreed",
+      "short": "Job's friends fail him like streams that run dry",
+      "about": "Job says his friends have failed him like desert streams, swollen with ice and snow in winter but gone in the summer heat. The caravans of Tema and Sheba come looking for water and are confounded. So his friends, who came to comfort him, have given him no help.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Job 6:15",
+        "words": "my brothers are as faithless as wadis",
+        "means": "Job's friends, who seemed to promise much comfort and gave none, as streams full in winter fail thirsty travelers in summer"
+      },
+      "evidence": "Matthew Henry calls the similitude very elegant: the friends' show is the swollen brook, and Job's hope the thirsty traveler's. Albert Barnes calls the simile exquisitely beautiful, Job's hope for comfort like travelers' hope of water. Franz Delitzsch (Keil and Delitzsch) says Job compares his friends to the swollen wady. Adam Clarke says Job compares them to torrents that soon pass away.",
+      "limit": "These writers read verse 18 of the streams themselves, wandering from their channels until they come to nothing; the BSB reads it of caravans that turn aside from their routes.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Job 6:14-21",
+          "quote": "This disappointment which Job met with he here illustrates by the failing of brooks in summer. 1. The similitude is very elegant ... (1.) Their pretensions are fitly compared to the great show which the brooks make when they are swollen with the waters of a land flood",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Job 6:15",
+          "quote": "I looked for the language of condolence and compassion; for something to cheer my heart, and to uphold me in my trials - as weary and thirsty travelers look for water and are sadly disappointed when they come to the place where they expected to find it, and find the stream dried up. The simile used here is exquisitely beautiful",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 6:18-20",
+          "quote": "Job compares his friends to the wady swollen by ice and snow water, and even to the travelling bands themselves languishing for water. He thirsts for friendly solace, but the seeming comfort which his friends utter is only as the scattered meandering waters in which the mountain brook leaks out.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Job 6:15",
+          "quote": "The approach of Job's friends promised much of sympathy and compassion; his expectations were raised: but their conduct soon convinced him that they were physicians of no value; therefore he compares them to the deceitful torrents that soon pass away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-7-1-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Job 7:1-3",
+      "strength": "widely agreed",
+      "short": "Job longs for rest like a hired man for evening",
+      "about": "Job asks whether man's days on earth are not like a hired hand's. A slave longs for the evening shade and a hireling waits for his wages; so Job is allotted months of futility and nights of misery. The point left unsaid is read as Job longing for death as rest after toil.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Job 7:2",
+        "words": "Like a slave he longs for shade",
+        "means": "Job himself, who longs for death as rest after hard labor, as a worn-out worker longs for evening and his pay"
+      },
+      "evidence": "Matthew Henry calls the comparison plain: as a tired servant wishes for evening, so Job wishes for death; Albert Barnes says so too. Franz Delitzsch (Keil and Delitzsch) says the point is that Job waits for death as rest after hard labor. A. R. Fausset (Jamieson, Fausset and Brown) asks why, if the servant longs for evening, Job may not long for his hard service to close.",
+      "limit": "Two of these writers hear in the hireling's wages Job's hope of a reward after this life; the others speak only of rest from toil.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Job 7:1-6",
+          "quote": "He had as much reason, he thought, to wish for death, as a poor servant or hireling that is tired with his work has to wish for the shadows of the evening, when he shall receive his penny and go to rest ... The comparison is plain, the application is concise and somewhat obscure, but we must supply a word or two, and then it is easy",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Job 7:2",
+          "quote": "The meaning of Job is, that as a servant looked impatiently for the shades of the evening when he would be dismissed from toil, so he longed for death. And as an hireling looketh - That is, he anxiously desires his work to be finished, and expects the reward of his labors. So Job looked to the reward of a life of toil and piety.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 7:1-3",
+          "quote": "The conclusion is intended to be: thus I wait for death as refreshing and rest after hard labour. He goes, however, beyond this next point of comparison, or rather he remains on this side of it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 7:2",
+          "quote": "If the servant longs for the evening when his wages are paid, why may not Job long for the close of his hard service, when he shall enter on his \"reward?\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-8-11-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Job 8:11-13",
+      "strength": "widely agreed",
+      "short": "The godless wither like papyrus without water",
+      "about": "Bildad asks whether papyrus can grow without a marsh, or reeds without water. Without water, they dry up while still green and uncut, quicker than grass. “Such is the destiny of all who forget God”: the godless may flourish for a time, but their hope has no lasting ground and soon perishes.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Job 8:13",
+        "words": "Such is the destiny of all who forget God",
+        "means": "the godless, who flourish for a time on ground that cannot last, then wither suddenly, like papyrus cut off from water"
+      },
+      "evidence": "Henry says the hypocrite's hopes are here compared to a rush or flag, which withers before any other herb. Fausset (Jamieson, Fausset and Brown) gives two points of likeness: lush growth, then sudden ruin. Barnes says those who forget God are like the paper-reed, seeming to flourish with nothing firm; Delitzsch (Keil and Delitzsch), that Bildad likens the false ground of their prosperity to it.",
+      "limit": "These are Bildad's words to Job. The note is on the likeness he draws, not on whether it fit Job's case.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Job 8:8-19",
+          "quote": "He illustrates this truth by some similitudes. 1. The hopes and joys of the hypocrite are here compared to a rush or flag, ... It withers presently, before any other herb ... The hope of hypocrites is a great cheat upon themselves, and, though it may flourish for a while, it will certainly perish at last, and they with it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 8:10",
+          "quote": "Job 8:11-13 embody in poetic and sententious form (probably the fragment of an old poem) the observation of the elders. The double point of comparison between the ungodly and the paper-reed is: 1. the luxuriant prosperity at first; and, 2. the sudden destruction.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Job 8:13",
+          "quote": "They who forget God are like the paper-reed. They seem to flourish, but they have nothing that is firm and substantial. As the paper-reed soon dies, as the flag withers away before any other herb, so it will be with the wicked, though apparently prosperous.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 8:11-15",
+          "quote": "Bildad likens the deceitful ground on which the prosperity of the godless stands to the dry ground on which, only for a time, the papyrus or reed finds water, and grows up rapidly: shooting up quickly, it withers as quickly",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-8-16-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Job 8:16-19",
+      "strength": "widely agreed",
+      "short": "The godless man as a lush plant torn up",
+      "about": "Bildad pictures the godless man as a well-watered plant in the sunshine. Its shoots spread over the garden and its roots wrap around the stones, yet once it is uprooted, its place disowns it: “I never saw you.” He thinks his prosperity secure, but it ends suddenly, and others spring up in his place.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Job 8:16",
+        "words": "He is a well-watered plant in the sunshine",
+        "means": "the godless man in his prosperity: spreading and seemingly secure, yet soon torn up and forgotten"
+      },
+      "evidence": "Henry says the hypocrite is here compared to a flourishing, well-rooted tree that is easily cut down. Barnes calls it a new illustration comparing the hypocrite with a quick-growing plant that withers; Delitzsch (Keil and Delitzsch) says the ungodly man is likened to a creeping plant throughout; Fausset (Jamieson, Fausset and Brown), that as the soil disowns the withered weeds, friends disown him.",
+      "limit": "Writers differ on the kind of plant: a well-rooted tree, a quick-growing plant without depth of root, or a creeper or weeds over stones. These are Bildad's words to Job; the note is on his picture, not on whether it fit Job's case.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Job 8:8-19",
+          "quote": "The hypocrite is here compared to a flourishing and well-rooted tree, which, though it do not wither of itself, yet will easily be cut down and its place know it no more. ... Thus does a wicked man, when he prospers in the world, think himself secure; his wealth is a high wall in his own conceit.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Job 8:16",
+          "quote": "A new illustration is here introduced, and the object is to compare the hypocrite with a vigorous plant that grows up quick and sends its branches afar, but which has no depth of root, and which, when the intense heat of the sun comes upon it, withers away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 8:16-19",
+          "quote": "The subject throughout is not the creeping-plant directly, but the ungodly, who is likened to it. ... As the creeper has stones before it, and by its interwindings, as it were, so rules them that it may call them its own ... so the ungodly regards his fortune as a solid structure, which he has quickly caused to spring up, and which seems to him imperishable.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 8:18",
+          "quote": "The very soil is ashamed of the weeds lying withered on its surface, as though it never had been connected with them. So, when the godless falls from prosperity, his nearest friends disown him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-8-17-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 8:17",
+      "strength": "some interpreters",
+      "short": "Roots round the rock heap, a home among stones",
+      "about": "The second line says the first again in other words: the plant's roots wrap around the rock heap, and it looks for a home among the stones. Read side by side, the heap is a pile of stones, and the wicked man is pictured as a plant growing among rocks.",
+      "lines": [
+        {
+          "ref": "Job 8:17",
+          "words": "His roots wrap around the rock heap;"
+        },
+        {
+          "ref": "Job 8:17",
+          "words": "he looks for a home among the stones."
+        }
+      ],
+      "pairs": [
+        [
+          "the rock heap",
+          "the stones"
+        ]
+      ],
+      "evidence": "Albert Barnes says the word for heap means either a heap of stones or a spring, that the parallelism demands its usual sense here, and that the wicked man is like a plant standing among rocks, rubbish or old ruins, not in fertile soil.",
+      "limit": "Scholars differ on the word for heap: some read it as a spring, and take the verse as the roots of a well-watered plant.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 8:17",
+          "quote": "The word גל gal, rendered \"heap,\" means either (1.) A heap, as a heap of stones ... (2.) A fountain or spring ... The parallelism, if nothing else, demands that the usual signification should be given to it here; and the true sense is, that the prosperous wicked man or the hypocrite is like a plant which stands in the midst of rocks, rubbish, or old ruins",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-9-24-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Job 9:24",
+      "strength": "widely agreed",
+      "short": "Power to the wicked, the judges' faces covered",
+      "about": "The second line sets the judges against the wicked of the first. The earth is given into the hand of the wicked, while the judges, read as the upright who are fit to judge, have their faces covered: kept out of sight, or led away as condemned men.",
+      "lines": [
+        {
+          "ref": "Job 9:24",
+          "words": "The earth is given into the hand of the wicked;"
+        },
+        {
+          "ref": "Job 9:24",
+          "words": "He blindfolds its judges."
+        }
+      ],
+      "pairs": [
+        [
+          "the wicked",
+          "its judges"
+        ]
+      ],
+      "evidence": "Albert Barnes says the parallel lines require the judges to be the righteous, kept in obscurity while the wicked rule the earth. A. R. Fausset (Jamieson, Fausset and Brown) sets the righteous judges against the wicked of the first line and says they are led to execution with faces covered. Matthew Henry: God advances the wicked while the wise and good are buried in obscurity.",
+      "limit": "Scholars differ on the second line: some read it as the judges blinded, so that they judge unjustly, which makes both lines tell of the same wrong.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 9:24",
+          "quote": "The parallelism requires us to understand it as meaning that while the wicked had dominion over the earth, the righteous were in obscurity, or were not advanced to honor and power. The word \"judges,\" therefore, I think, is to be understood of the righteous judges, of those who are qualified to administer justice. Their face is covered. They are kept in concealment.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 9:24",
+          "quote": "Referring to righteous \"judges,\" in antithesis to \"the wicked\" in the parallel first clause, whereas the wicked oppressor often has the earth given into his hand, the righteous judges are led to execution--culprits had their faces covered preparatory to execution",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Job 9:22-24",
+          "quote": "God, in his providence, advances wicked men, while he covers the faces of those who are fit to be judges, who are wise and good, and qualified for government, and buries them alive in obscurity, perhaps suffers them to be run down and condemned, and to have their faces covered as criminals by those wicked ones into whose hand the earth is given.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-9-30-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 9:30",
+      "strength": "some interpreters",
+      "short": "Washed with snow, cleansed with lye",
+      "about": "The second line says the first again in other words: washing with snow is answered by cleansing the hands with lye, each line naming a thing that cleanses. Yet, as the next verse says, God would still plunge him into the pit.",
+      "refs": [
+        "Job 9:31"
+      ],
+      "lines": [
+        {
+          "ref": "Job 9:30",
+          "words": "If I should wash myself with snow"
+        },
+        {
+          "ref": "Job 9:30",
+          "words": "and cleanse my hands with lye,"
+        }
+      ],
+      "pairs": [
+        [
+          "wash myself",
+          "cleanse my hands"
+        ],
+        [
+          "snow",
+          "lye"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) says the second line is better read as naming lye, to answer the first line, which names the cleansing material, snow water.",
+      "limit": "Some versions read the second line as making the hands very clean, without naming lye.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 9:30",
+          "quote": "never so clean--Better, to answer to the parallelism of the first clause which expresses the cleansing material, \"lye:\" the Arabs used alkali mixed with oil, as soap",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-14-7-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Job 14:7-12",
+      "strength": "widely agreed",
+      "short": "Unlike a tree, man is like water that dries up",
+      "about": "Job sets a man beside a tree. A stump that is cut down can sprout again at the scent of water, “But a man dies and is laid low.” Then he likens a man's death to water that disappears from the sea and a river that dries up: so a man lies down and does not rise.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Job 14:11",
+        "words": "As water disappears from the sea",
+        "means": "a man's death: like water dried up from its bed, he passes from this life and does not come back to it"
+      },
+      "evidence": "Barnes says that as the waters vanish and leave the bed dry, so man passes away and leaves nothing; Fausset (Jamieson, Fausset and Brown), that the dry channel answers to the body laid out in death. Delitzsch (Keil and Delitzsch) says this vanishing is set under the figure of water that dries up; Henry, that man will not revive as a tree does, and his life may be compared to a land-flood.",
+      "limit": "Many read the verses as speaking of a return to this life on earth, not as a denial of life to come; verses 13 to 15 go on to hope.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 14:11",
+          "quote": "As the waters evaporate wholly, and leave the bottom wholly dry, so it is with man, who passes entirely away, and leaves nothing. ... As such torrents vanish wholly away, so it was with man. Every vestige disappeared",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 14:11",
+          "quote": "fail--utterly disappeared by drying up. The rugged channel of the once flowing water answers to the outstretched corpse (\"lieth down,\" Job 14:12 ) of the once living man.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 14:10-12",
+          "quote": "How much less favoured is the final lot of man! ... In Job 14:11 . this vanishing away without hope and beyond recovery is contemplated under the figure of running water, or of water that is dried up and never returns again to its channel.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Job 14:7-15",
+          "quote": "A man cut down by death will not revive again, as a tree cut down will. ... so that the life of man may fitly be compared to the waters of a land-flood, which spread far and make a great show, but they are shallow, and when they are cut off from the sea or river, the swelling and overflowing of which was the cause of them, they soon decay and dry up",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-17-14-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 17:14",
+      "strength": "commonly held",
+      "short": "Corruption his father, the worm his mother",
+      "about": "The second line says the first again in other words. Job calls corruption his father, then the worm his mother or his sister: in both lines he names the decay of the grave as his nearest kin, so close does death seem to him.",
+      "lines": [
+        {
+          "ref": "Job 17:14",
+          "words": "and say to corruption, ‘You are my father,’"
+        },
+        {
+          "ref": "Job 17:14",
+          "words": "and to the worm, ‘My mother,’ or ‘My sister,’"
+        }
+      ],
+      "pairs": [
+        [
+          "corruption",
+          "the worm"
+        ],
+        [
+          "father",
+          "My mother"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for worm is feminine, and it is the one called mother and sister; corruption, called father, answers it in the first line.",
+        "strong": [
+          "H7845",
+          "H7415",
+          "H0001",
+          "H0517",
+          "H0269"
+        ]
+      },
+      "evidence": "Albert Barnes takes the first line's word as corruption, which he says fits the other half of the verse and answers the worm better than grave would, and says Job is as near to the worms as a son to his mother. Franz Delitzsch (Keil and Delitzsch) says the feminine worm is addressed as mother and sister, so father has a masculine object, corruption: Job is bound to both by the closest ties.",
+      "limit": "The first line's word can also mean the pit or the grave; here it is read as corruption, as the BSB has it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 17:14",
+          "quote": "This accords, certainly, with the other hemistich, and better constitutes a parallelism with the \"worm\" than the word \"grave\" would. It seems probable that this is the sense here ... My mother - I am so nearly allied to the worms, that the connection may be compared to that between a mother and her son.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 17:13-16",
+          "quote": "To corruption and the worm he already cries, father! and, mother! sister! ... Since the fem. רמּה is used as the object addressed by אמי and אחותי, ... we may assume that the poet will have used a masc. object for אבי; ... Now already conscious of his belonging to corruption and the worm as by the closest ties of relationship",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-18-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 18:3",
+      "strength": "commonly held",
+      "short": "Counted as cattle, counted as stupid",
+      "about": "The second line says the first again in other words. To be regarded as cattle is to be thought stupid: Bildad protests that Job treats his friends as beasts without understanding.",
+      "lines": [
+        {
+          "ref": "Job 18:3",
+          "words": "Why are we regarded as cattle,"
+        },
+        {
+          "ref": "Job 18:3",
+          "words": "as stupid in your sight?"
+        }
+      ],
+      "pairs": [
+        [
+          "cattle",
+          "stupid"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for stupid can be read from a root meaning to stop up: closed of mind, as dull as the cattle of the first line.",
+        "strong": [
+          "H0929",
+          "H2933"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) renders the second line narrow-minded, from a root meaning to stop up, and says this sense fits the parallel with beasts and Job's earlier charges that his friends lacked understanding. A. R. Fausset (Jamieson, Fausset and Brown), in words he credits to Umbreit, takes the word from that root and says it answers the stupidity implied in the first line.",
+      "limit": "Others take the second line's word as unclean or vile; the reading stupid comes from the root meaning to stop up, which answers the cattle of the first line.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 18:1-3",
+          "quote": "Wherefore are we accounted as beasts, And narrow-minded in your eyes? ... treats them, the three who are agreed in opposition to him, as totally void of understanding, and each one of them unwise ... if we suppose a verb טמה in the signification opplere, obturare, ... we gain a sense which corresponds both with previous reproaches of Job and the parallelism",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 18:3",
+          "quote": "vile--rather from a Hebrew root, \"to stop up.\" \"Stubborn,\" answering to the stupidity implied in the parallel first clause [UMBREIT].",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-18-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 18:8",
+      "strength": "some interpreters",
+      "short": "Into a net, into its mesh: caught by his own feet",
+      "about": "The second line says the first again in other words. His own feet lead him into a net, and he wanders into its mesh: the wicked man walks into the snare on his own feet, and it brings him to ruin.",
+      "lines": [
+        {
+          "ref": "Job 18:8",
+          "words": "For his own feet lead him into a net,"
+        },
+        {
+          "ref": "Job 18:8",
+          "words": "and he wanders into its mesh."
+        }
+      ],
+      "pairs": [
+        [
+          "a net",
+          "its mesh"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for mesh means lattice-work or network, a snare that gives way under the one who walks on it.",
+        "strong": [
+          "H7568",
+          "H7639"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the second line says the same thing as the first: by his own feet the man runs into the net, and the lattice-work he wanders on is a snare that will suddenly break in and bring him to ruin.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 18:8-11",
+          "quote": "by his own feet he is hurried into the net, i.e., against his will, and yet with his own feet he runs into destruction. The same thing is said in Job 18:8 ; the way on which he complacently wanders up and down (which the Hithp. signifies here) is שׂבכה, lattice-work, here a snare ... and consequently will suddenly break in and bring him to ruin.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-18-9-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 18:9",
+      "strength": "some interpreters",
+      "short": "A trap, then a snare: he is caught fast",
+      "about": "The second line says the first again in other words. A trap seizes his heel, and a snare grips him: two names for the hunter's device, and one picture of the wicked man caught and held fast.",
+      "lines": [
+        {
+          "ref": "Job 18:9",
+          "words": "A trap seizes his heel;"
+        },
+        {
+          "ref": "Job 18:9",
+          "words": "a snare grips him."
+        }
+      ],
+      "pairs": [
+        [
+          "A trap",
+          "a snare"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line's word for snare has also been rendered robber; read as a noose, it answers the trap of the first line.",
+        "strong": [
+          "H6341",
+          "H6782"
+        ]
+      },
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown), in words he credits to Umbreit, reads the word once given as robber as a noose that holds him fast, answering to the trap in the parallel line.",
+      "limit": "Some older writers keep robber in the second line, the one who comes on the trapped man; read as a noose, the word answers the trap.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 18:9",
+          "quote": "robber--rather answering to \"gin\" in the parallel clause, \"the noose shall hold him fast\" [UMBREIT].",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-20-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 20:8",
+      "strength": "some interpreters",
+      "short": "Gone like a dream, like a vision in the night",
+      "about": "The second line says the first again in other words. He flies away like a dream and is chased away like a vision in the night: both pictures are of what is seen in sleep and gone on waking, and so the wicked man vanishes and is not found.",
+      "lines": [
+        {
+          "ref": "Job 20:8",
+          "words": "He will fly away like a dream, never to be found;"
+        },
+        {
+          "ref": "Job 20:8",
+          "words": "he will be chased away like a vision in the night."
+        }
+      ],
+      "pairs": [
+        [
+          "like a dream",
+          "like a vision in the night"
+        ]
+      ],
+      "evidence": "Albert Barnes says the parallel with the dream of the first line means the vision of the night is what one seems to see in a dream, which vanishes on waking, and not a ghost.",
+      "limit": "Some take the vision of the night as a ghost or apparition; the parallel with the dream points to what is seen in sleep.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 20:8",
+          "quote": "He shall fly away as a dream - As a dream wholly disappears or vanishes. ... As a vision of the night - As when one in a dream seems to see objects which vanish when he awakes. The parallelism requires us to understand this of what appears in a dream, and not of a spectre.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-20-12-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Job 20:12-16",
+      "strength": "widely agreed",
+      "short": "Evil sweet in the mouth turns to venom inside",
+      "about": "Zophar pictures evil as sweet food that the wicked man hides under his tongue and will not let go. In his stomach it sours into the venom of cobras; he must vomit up the wealth he swallowed, and the poison kills him. Sin that is pleasant at first comes to a bitter and deadly end.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Job 20:12",
+        "words": "Though evil is sweet in his mouth",
+        "means": "sin, enjoyed and held onto like a sweet morsel, which in the end turns to poison and destroys the one who loved it"
+      },
+      "evidence": "Clarke says verse 12 and the four after it contain an allegory of a man who takes sweet poison for food. Barnes reads them as sin, pleasant at first but bitter in its results; Delitzsch (Keil and Delitzsch) says the evildoer is likened to an epicure; Henry, that such is sin: it turns to the gall of asps; Fausset (Jamieson, Fausset and Brown), that the charm of sin is like sweet poison.",
+      "limit": "Writers differ on what the sweet morsel stands for most: secret sin, the pleasures of the flesh, or wealth gained by wrong, which verse 15 names. These are Zophar's words to Job; the note is on his picture, not on whether it fit Job's case.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Job 20:12",
+          "quote": "This seems to refer to the secret sins mentioned above. ... This and the four following verses contain an allegory; and the reference is to a man who, instead of taking wholesome food, takes what is poisonous, and is so delighted with it because it is sweet, that he rolls it under his tongue, and will scarcely let it down into his stomach",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Job 20:12",
+          "quote": "Though he has pleasure in committing it, as he has in pleasant food. The sense of this and the following verses is, that though a man may have pleasure in indulgence in sin, and may find happiness of a certain kind in it, yet that the consequences will be bitter - as if the food which he ate should become like gall, and he should cast it up with loathing.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 20:12-16",
+          "quote": "The evil-doer is, in Job 20:12 , likened to an epicure; he keeps hold of wickedness as long as possible, like a delicate morsel that is retained in the mouth ... and seeks to enjoy it to the very last. ... He who sucked in the poison of low desire with a relish, will meet his punishment in that in which he sinned",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Job 20:10-22",
+          "quote": "The forbidden pleasures of sense are said to be sweet in his mouth ... That is the satisfaction which he hides under his tongue, and rolls there, as the most dainty delicate thing that can be. ... Such a thing is sin; it is turned into the gall of asps ... what he sucked so sweetly, and with so much pleasure, will prove to him the poison of asps; so will all unlawful gains be.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 20:12",
+          "quote": "Sin's fascination is like poison sweet to the taste, but at last deadly to the vital organs",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-20-18-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 20:18",
+      "strength": "some interpreters",
+      "short": "Wealth he cannot enjoy, said twice",
+      "about": "Both lines say one thing: the wicked man gains wealth but gets no joy from it. In the first he gives back what he toiled for and may not swallow it down; in the second, the joy his trading wealth should bring is gone. So the verse says again the thought of verse 17.",
+      "refs": [
+        "Job 20:17"
+      ],
+      "lines": [
+        {
+          "ref": "Job 20:18",
+          "words": "He must return the fruit of his labor without consuming it;",
+          "key": "consuming"
+        },
+        {
+          "ref": "Job 20:18",
+          "words": "he cannot enjoy the profits of his trading.",
+          "key": "enjoy"
+        }
+      ],
+      "pairs": [
+        [
+          "the fruit of his labor",
+          "the profits of his trading"
+        ],
+        [
+          "consuming",
+          "enjoy"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the thought of verse 17, that the enjoyment the wicked man looked for will not follow his rise to prosperity, is said again in a twofold form in verse 18: giving back what he laboured for, he may not swallow it down, and the joy his great wealth should have brought departs from him.",
+      "limit": "Some join the words on his trading to the first line, as the measure of what he must give back, rather than to the joy he loses.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 20:17-20",
+          "quote": "This thought, that the enjoyment aimed at and anticipated shall not follow the attainment of this height of prosperity, is reiterated in a twofold form in Job 20:18 ... he has no pleasure in it, he shall or may not altogether swallow it down ... he is not to enjoy, i.e., the rejoicing which might have been expected in connection with the greatness of the wealth he has amassed, departs from him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-21-28-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 21:28",
+      "strength": "widely agreed",
+      "short": "A nobleman’s house and the tents of the wicked",
+      "about": "The two questions say the same thing. The nobleman’s house and the tents where the wicked live are one kind of home, so the nobleman here is a ruler who abuses his power, not a good man. Job repeats what his friends say: that the homes of such men are surely brought down.",
+      "lines": [
+        {
+          "ref": "Job 21:28",
+          "words": "Where now is the nobleman’s house,",
+          "key": "house"
+        },
+        {
+          "ref": "Job 21:28",
+          "words": "and where are the tents in which the wicked dwell?",
+          "key": "tents"
+        }
+      ],
+      "pairs": [
+        [
+          "house",
+          "tents"
+        ],
+        [
+          "nobleman’s",
+          "wicked"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for nobleman first means one who is willing and generous, then one of noble birth or high rank; set beside the wicked in the next line, it names a tyrant.",
+        "strong": [
+          "H5081",
+          "H7563"
+        ]
+      },
+      "evidence": "Albert Barnes says the parallelism and the whole connection require the prince to be a wicked ruler, and traces the word from willing and generous to high rank. A. R. Fausset (Jamieson, Fausset and Brown) says the parallel word wicked requires the bad sense, a tyrant. Franz Delitzsch (Keil and Delitzsch) takes it as a tyrant, parallel to the wicked, and denies an antithesis.",
+      "limit": "Some take the nobleman as a good and generous man, so that the two questions are set against each other.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 21:28",
+          "quote": "That is, you maintain that the house of the wicked man, in a high station, will be certainly over thrown. The parallelism, as well as the whole connection, requires us to understand the word \"prince\" here as referring to a \"wicked\" ruler. The word used (נדיב nâdı̂yb) properly means, one willing ... then, one who is liberal, generous, noble; then, one of noble birth, or of elevated rank",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 21:28",
+          "quote": "prince--The parallel \"wicked\" in the second clause requires this to be taken in a bad sense, tyrant, oppressor",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 21:27-31",
+          "quote": "the noble man (princely) by birth and station, with which the secondary notion of pride and abuse of power, therefore of a despot or tyrant, is easily as here (parall. רשׁעים, comp. עשׁיר, Isa 53:9 , with the same word in the parallel) combined ... It is not admissible to understand the double question as antithetical",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-23-8-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Job 23:8-9",
+      "strength": "widely agreed",
+      "short": "East, west, north and south, Job cannot find God",
+      "about": "Each line is built the same way and names one more way: east, then west, then north, then south, and each time Job cannot find God. Together the four lines say that whichever way he turns, God does not show Himself as judge to hear his case.",
+      "lines": [
+        {
+          "ref": "Job 23:8",
+          "words": "If I go east, He is not there,",
+          "key": "east"
+        },
+        {
+          "ref": "Job 23:8",
+          "words": "and if I go west, I cannot find Him.",
+          "key": "west"
+        },
+        {
+          "ref": "Job 23:9",
+          "words": "When He is at work in the north, I cannot behold Him;",
+          "key": "north"
+        },
+        {
+          "ref": "Job 23:9",
+          "words": "when He turns to the south, I cannot see Him.",
+          "key": "south"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the four ways are named as a man facing east sees them: east is before him, west behind him, north at his left hand and south at his right.",
+        "strong": [
+          "H6924",
+          "H0268",
+          "H8040",
+          "H3225"
+        ]
+      },
+      "evidence": "Albert Barnes says the two verses mean that Job goes in all directions, to every point of the compass, turning from one to the next without finding God. Adam Clarke says the two verses name the four cardinal points as they lie to a man facing east. Joseph Benson says that in both verses Job means that whichever way he turned, he could not find God present as a judge to hear his cause.",
+      "limit": "Job does not deny that God is everywhere; the lines say that God does not show Himself to hear him.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 23:8",
+          "quote": "The meaning of these verses is, I go in all directions, but I cannot find God. ... He looked to all points of the compass where he might rationally expect to find God, but all in vain. ... But I find him not, and, disappointed, I turn to other directions.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Job 23:9",
+          "quote": "In these two verses Job mentions the four cardinal points of the heavens: the East, by the word קדם kedem, which signifies before; the West, by אחור achor, which signifies after, or the back part; the North, by שמאל semol, which signifies the left; and the South, by ימין yamin, which signifies the right. Such is the situation of the world to a man who faces the east",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Job 23:8",
+          "quote": "But Job in both these verses certainly intended nothing more than that, let him turn himself which way he pleased, in no place could he find God present, namely, as a judge to hear and determine his cause, of which he is speaking",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-25-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 25:5",
+      "strength": "commonly held",
+      "short": "Moon and stars alike grow dim before God",
+      "about": "Both lines say one thing: before God even the brightest lights of the night sky lose their glory. The moon does not shine and the stars are not pure in His sight. The next verse draws the lesson for man, who is far less than they.",
+      "refs": [
+        "Job 25:6"
+      ],
+      "lines": [
+        {
+          "ref": "Job 25:5",
+          "words": "If even the moon does not shine,",
+          "key": "moon"
+        },
+        {
+          "ref": "Job 25:5",
+          "words": "and the stars are not pure in His sight,",
+          "key": "stars"
+        }
+      ],
+      "pairs": [
+        [
+          "moon",
+          "stars"
+        ],
+        [
+          "shine",
+          "pure"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb for shine can also mean to pitch a tent; the line beside it, on the stars, points to light.",
+        "strong": [
+          "H0166"
+        ]
+      },
+      "evidence": "Albert Barnes says the parallelism seems to demand the usual sense of the first line, that the moon and the stars fade away before God, rather than the reading that the heavens are no fit tent for Him. Matthew Henry takes the moon and the stars together: in God's sight neither shines nor is pure, outshone by the glory that excels.",
+      "limit": "Some take the first verb as pitching a tent, so that the line says the heavens are no fit dwelling for God.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 25:5",
+          "quote": "Or, behold even the moon shineth not. That is, in comparison with God it is dark and obscure. ... Some have supposed that the meaning here is, that even the moon and the stars of heaven - the bright canopy above - were not fit to furnish a tent or dwelling for God. But the parallelism seems to demand the usual interpretation, as meaning that the moon and stars faded away before God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Job 25:1-6",
+          "quote": "Behold even to the moon, walking in brightness, and the stars, those glorious lamps of heaven ... in God's sight, in comparison with him, they shine not, they are not pure; they have no glory, by reason of the glory which excelleth",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-26-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 26:6",
+      "strength": "some interpreters",
+      "short": "Sheol, then Abaddon: the dead laid bare to God",
+      "about": "The second line says the first again in other words. Sheol, the realm of the dead, is named again as Abaddon, and naked before God becomes no covering. Even the depths of the dead lie open to Him. Psalm 88:11 pairs Abaddon with the grave the same way.",
+      "lines": [
+        {
+          "ref": "Job 26:6",
+          "words": "Sheol is naked before God,",
+          "key": "Sheol"
+        },
+        {
+          "ref": "Job 26:6",
+          "words": "and Abaddon has no covering.",
+          "key": "Abaddon"
+        }
+      ],
+      "pairs": [
+        [
+          "Sheol",
+          "Abaddon"
+        ],
+        [
+          "naked",
+          "no covering"
+        ]
+      ],
+      "refs": [
+        "Psalm 88:11",
+        "Proverbs 15:11"
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says Abaddon alternates with Sheol in this verse, as it alternates with the grave in Psalm 88, and that the verse, like Proverbs 15:11, shows Sheol is present to God, whose knowledge reaches into the depths of the realm of the dead.",
+      "limit": "Some writers take Abaddon as the place of lost souls in particular, and not simply another name for Sheol.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 26:5-7",
+          "quote": "אבדּון alternates with שׁאול, like קבר in Psa 88:12 . ... As Psa 139:8 testifies to the presence of God in Shel, so here Job (comp. Job 38:17 , and especially Pro 15:11 ) that Shel is present to God, that He possesses a knowledge which extends into the depths of the realm of the dead",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-27-16-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Job 27:16-17",
+      "strength": "commonly held",
+      "short": "Silver and clothes, then clothes and silver",
+      "about": "The four lines go out and come back in reverse order. The first heaps up silver and the last has the innocent divide it; the inner two pile up clothing and give it to the righteous to wear. What the wicked man stores up passes to others. Matthew 7:6 has the same reversed order.",
+      "lines": [
+        {
+          "ref": "Job 27:16",
+          "words": "Though he heaps up silver like dust",
+          "mark": "A",
+          "key": "silver"
+        },
+        {
+          "ref": "Job 27:16",
+          "words": "and piles up a wardrobe like clay,",
+          "mark": "B",
+          "key": "wardrobe"
+        },
+        {
+          "ref": "Job 27:17",
+          "words": "what he lays up, the righteous will wear,",
+          "mark": "B'",
+          "key": "wear"
+        },
+        {
+          "ref": "Job 27:17",
+          "words": "and his silver will be divided by the innocent.",
+          "mark": "A'",
+          "key": "silver"
+        }
+      ],
+      "pairs": [
+        [
+          "wardrobe",
+          "wear"
+        ],
+        [
+          "heaps up",
+          "divided"
+        ]
+      ],
+      "refs": [
+        "Matthew 7:6"
+      ],
+      "evidence": "Albert Barnes says these two verses illustrate introverted parallelism, as John Jebb named it, in which the fourth line answers to the first and the third to the second, and he sets out the four lines to show it. A. R. Fausset (Jamieson, Fausset and Brown) also calls it introverted parallelism: of the four clauses, one answers to four and two to three.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 27:17",
+          "quote": "These two verses contain a beautiful illustration of what Dr. Jebb calls the introverted parallelism - where the fourth member answers to the first, and the third to the second: \"Though he heap up silver as the dust, And prepare raiment as the clay, The just shall put it (raiment) on, And the innocent shall divide the silver.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 27:17",
+          "quote": "Introverted parallelism. (See Introduction). Of the four clauses in the two verses, one answers to four, two to three (so Mat 7:6 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-27-21-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 27:21",
+      "strength": "some interpreters",
+      "short": "Carried off by the east wind, swept from his place",
+      "about": "The second line says the first again in other words: the east wind carries him away, and it sweeps him out of his place. Read together, the lines can show the wind as a violent storm that takes him entirely away.",
+      "lines": [
+        {
+          "ref": "Job 27:21",
+          "words": "The east wind carries him away, and he is gone;",
+          "key": "east wind"
+        },
+        {
+          "ref": "Job 27:21",
+          "words": "it sweeps him out of his place.",
+          "key": "sweeps"
+        }
+      ],
+      "pairs": [
+        [
+          "carries him away",
+          "sweeps him out"
+        ]
+      ],
+      "evidence": "Albert Barnes says the man is swept off as by a tempest, that the second line means he is taken entirely away, and that the parallel seems to show the east wind meant here is a violent one, though he allows it may be the burning wind of the desert.",
+      "limit": "The east wind may instead be the burning wind of the desert rather than a storm.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 27:21",
+          "quote": "He is swept off as by the violence of a tempest. ... The parallelism here would seem to imply that the wind referred to was violent, but it is possible that the allusion may be to the burning winds of the desert, so well known in the East, and so frequently described by travelers. ... Hurleth him out of his place - Takes him entirely away, or removes him from the earth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-29-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 29:6",
+      "strength": "commonly held",
+      "short": "Cream where he stepped, oil from the rock",
+      "about": "The second line says the first again in other words: cream where Job stepped, and oil poured out for him from the rock. Read together, they can show the first line is not about bathing his feet but about plenty that flowed to him wherever he walked.",
+      "lines": [
+        {
+          "ref": "Job 29:6",
+          "words": "when my steps were bathed in cream",
+          "key": "cream"
+        },
+        {
+          "ref": "Job 29:6",
+          "words": "and the rock poured out for me streams of oil!",
+          "key": "oil"
+        }
+      ],
+      "pairs": [
+        [
+          "cream",
+          "oil"
+        ],
+        [
+          "bathed",
+          "poured out"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for steps means his tread or going, and the rock pours oil beside him, where the BSB says “for me”, so both lines speak of the ground where he walked.",
+        "strong": [
+          "H1978",
+          "H5978"
+        ]
+      },
+      "evidence": "Albert Barnes says the word for steps means the tread or going, a sense that answers to the other line of the parallel, and that the picture is more probably one of plenty: where Job trod, cream flowed. A. R. Fausset (Jamieson, Fausset and Brown) says the second clause shows a literal washing of the feet is not meant; the rock was beside his path, and milk and oil flowed to him wherever he walked.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 29:6",
+          "quote": "it seems more probable that the image is designed to denote superfluity or abundance; and that where he trod, streams of milk or cream flowed - so abundant was it round him. ... The word rendered \"steps\" הליכם hâlı̂ykam) does not properly denote \"the feet\" but \"the tread, the going, the stepping.\" This sense corresponds with that of the other member of the parallelism.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 29:6",
+          "quote": "Wherever I turned my steps, the richest milk and oil flowed in to me abundantly. Image from pastoral life. When I washed my steps--Literal washing of the feet in milk is not meant, as the second clause shows; Margin, \"with me,\" that is, \"near\" my path, wherever I walked",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-29-12-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 29:12",
+      "strength": "some interpreters",
+      "short": "The poor who cried, the fatherless with no helper",
+      "about": "The second line says the first again in other words: the poor who cried out, and the fatherless who had no helper. Each line names someone in need and his plight, and Job says he rescued them.",
+      "lines": [
+        {
+          "ref": "Job 29:12",
+          "words": "because I rescued the poor who cried out",
+          "key": "poor"
+        },
+        {
+          "ref": "Job 29:12",
+          "words": "and the fatherless who had no helper.",
+          "key": "fatherless"
+        }
+      ],
+      "pairs": [
+        [
+          "the poor",
+          "the fatherless"
+        ],
+        [
+          "cried out",
+          "had no helper"
+        ]
+      ],
+      "evidence": "Albert Barnes says the parallel seems to require that the one who had no one to help him be the fatherless himself, not a third person, and that the Hebrew will bear this reading.",
+      "limit": "The last words can also be read as a third person, anyone who had no helper; this reading joins them to the fatherless, as the BSB does.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 29:12",
+          "quote": "This is the sense in which our translators understood this. But the parallelism seems rather to require that this should be applied to the fatherless who had no one to aid him, and the Hebrew, by understanding the ו (w) conjunctive as meaning \"when,\" will bear this construction.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-30-29-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 30:29",
+      "strength": "widely agreed",
+      "short": "Brother of jackals, companion of ostriches",
+      "about": "The second line says the first again in other words. Brother and companion both mean that Job has become like these creatures, whose mournful cries are heard in lonely, desolate places. His own cries of grief now sound like theirs.",
+      "lines": [
+        {
+          "ref": "Job 30:29",
+          "words": "I have become a brother of jackals,",
+          "key": "brother"
+        },
+        {
+          "ref": "Job 30:29",
+          "words": "a companion of ostriches.",
+          "key": "companion"
+        }
+      ],
+      "pairs": [
+        [
+          "brother",
+          "companion"
+        ],
+        [
+          "jackals",
+          "ostriches"
+        ]
+      ],
+      "evidence": "Albert Barnes says brother denotes likeness, and companion is used in the same sense in the other line. A. R. Fausset (Jamieson, Fausset and Brown) says both creatures utter dismal screams and live in solitudes, so Job is their brother and companion, that is, resembles them. Franz Delitzsch (Keil and Delitzsch) finds one point of comparison in both lines: fellowship in wailing in the desert.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 30:29",
+          "quote": "That is, my loud complaints and cries resemble the doleful screams of wild animals, or of the most frightful monsters. The word \"brother\" is often used in this sense, to denote similarity in any respect. ... The word companion here is used in a sense similar to brother in the other member of the parallelism, to denote resemblance.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 30:29",
+          "quote": "dragons . . . owls--rather, \"jackals,\" \"ostriches,\" both of which utter dismal screams ( Mic 1:8 ); in which respect, as also in their living amidst solitudes (the emblem of desolation), Job is their brother and companion; that is, resembles them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 30:28-31",
+          "quote": "he is become a brother of those תּנּים, jackals (canes aurei), whose dolorous howling produces dejection and shuddering in all who hear it, and a companion of בּנות יענה, whose shrill cry is varied by wailing tones of deep melancholy. ... The point of comparison is ... the fellowship of wailing and howling together with the accompanying idea of the desert in which it is heard",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-31-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 31:5",
+      "strength": "widely agreed",
+      "short": "Falsehood, then deceit: one sin named twice",
+      "about": "The second line says the first again in other words. To walk in falsehood and to rush to deceit name one sin: dealing falsely with others. Job declares that he has been true and honest in his dealings.",
+      "lines": [
+        {
+          "ref": "Job 31:5",
+          "words": "If I have walked in falsehood",
+          "key": "falsehood"
+        },
+        {
+          "ref": "Job 31:5",
+          "words": "or my foot has rushed to deceit,",
+          "key": "deceit"
+        }
+      ],
+      "pairs": [
+        [
+          "falsehood",
+          "deceit"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line's word, shav, means hollowness, as under a mask. Set beside the second line's word for deceit, it means falsehood here.",
+        "strong": [
+          "H7723",
+          "H4820"
+        ]
+      },
+      "evidence": "Albert Barnes says the first line's word means falsehood, as the parallel demands. Franz Delitzsch (Keil and Delitzsch) explains it as hollowness under a mask, that is lying and deceit, and sets it beside the second line's word for deceit. Matthew Poole says it means lying or falsehood, as the next words explain it.",
+      "limit": "Some read the first line's word as the falsehood of idols, the worship of false gods, rather than false dealing with others.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 31:5",
+          "quote": "The word vanity here is equivalent to falsehood, for so the parallelism demands, and so the word (שׁוא shâv') is often used ... The meaning of Job here is, that he had been true and honest.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 31:5-8",
+          "quote": "We have translated שׁוא ... falsehood, for it signifies desolateness and hollowness under a concealing mask, therefore the contradiction between what is without and within, lying and deceit, parall. מרמה, deceit, delusion, imposition.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Job 31:5",
+          "quote": "With vanity, i.e. with lying, or falsehood, or hypocrisy, as this word is oft used ... and as the next words explain it.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/job/31.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "job-31-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 31:10",
+      "strength": "commonly held",
+      "short": "The second line may say plainly what the first veils",
+      "about": "If he has sinned with his neighbor's wife, Job calls the same wrong down on his own marriage. The grinding of the first line can be read as a modest figure for the act the second line names, so that the second line explains the first rather than adding to it.",
+      "refs": [
+        "Job 31:9"
+      ],
+      "lines": [
+        {
+          "ref": "Job 31:10",
+          "words": "then may my own wife grind grain for another,",
+          "key": "grind"
+        },
+        {
+          "ref": "Job 31:10",
+          "words": "and may other men sleep with her.",
+          "key": "sleep"
+        }
+      ],
+      "pairs": [
+        [
+          "grind grain",
+          "sleep with her"
+        ],
+        [
+          "another",
+          "other men"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch), though he calls it hard to decide, holds that the parallel line favors the grinding as a figure for the act, so the halves are synonymous, not progressive. Matthew Poole prefers, over the reading of a slave at the mill, that she be defiled by another man, as the next words expound it, and calls the second line another modest expression of the act.",
+      "limit": "Many take the grinding as a slave's hard toil at the handmill, so that the second line adds a further shame. Those who read it as a figure give it as the likelier reading, not a certain one.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 31:9-12",
+          "quote": "the parallel, as well as Deu 28:30 , favours this rendering of the word in the obscene sense of μύλλειν, molere, in this passage ... It is hard to decide; nevertheless the preponderance of reasons seems to us to be on the side of the traditional tropical rendering, by the side of which Job 31:10 is not attached in progressive, but in synonymous parallelism",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Job 31:10",
+          "quote": "Or rather, 2. Let her be defiled by another man, as the next words expound it ... Let others bow down upon her; another modest expression of a filthy action",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/job/31.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "job-31-15-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 31:15",
+      "strength": "some interpreters",
+      "short": "One Maker formed Job and his servants alike",
+      "about": "The second line asks the first question again in other words: the One who made Job in the womb also made his servants. So master and servant share one origin, God watches over both alike, and they have equal rights.",
+      "refs": [
+        "Job 31:13"
+      ],
+      "lines": [
+        {
+          "ref": "Job 31:15",
+          "words": "Did not He who made me in the womb also make them?"
+        },
+        {
+          "ref": "Job 31:15",
+          "words": "Did not the same One form us in the womb?"
+        }
+      ],
+      "pairs": [
+        [
+          "He who made me",
+          "the same One"
+        ]
+      ],
+      "evidence": "Albert Barnes takes the first line to mean one and the same Creator, and says the Hebrew of the second line will bear another reading, but the parallel rather requires the One to be that same Maker. Either way, he says, they had a common origin and equal rights.",
+      "limit": "The Hebrew of the second line can also be read as fashioned in one womb. Either way, master and servant share one origin.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 31:15",
+          "quote": "Had we not one and the same Creator ... did he not fashion us in one womb? The Hebrew will bear either construction, but the parallelism rather requires that given in the text ... The sentiment is, whichever interpretation be adopted, that they had a common origin; that God would watch over them alike as his children; and that, therefore, they had equal rights.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-31-26-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Job 31:26",
+      "strength": "commonly held",
+      "short": "The sun's radiance, then the moon's splendor",
+      "about": "The two lines are built alike, each naming a light of the sky and how it shines: the sun in its radiance, then the moon moving in splendor. Job speaks of beholding them as objects of worship, as verse 27 goes on to show.",
+      "refs": [
+        "Job 31:27"
+      ],
+      "lines": [
+        {
+          "ref": "Job 31:26",
+          "words": "if I have beheld the sun in its radiance",
+          "key": "the sun"
+        },
+        {
+          "ref": "Job 31:26",
+          "words": "or the moon moving in splendor,",
+          "key": "the moon"
+        }
+      ],
+      "pairs": [
+        [
+          "the sun",
+          "the moon"
+        ],
+        [
+          "in its radiance",
+          "in splendor"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line has or, “light”, which here means the sun, set beside yareach, “moon”, in the second.",
+        "strong": [
+          "H0216",
+          "H3394"
+        ]
+      },
+      "evidence": "Barnes says the Hebrew word for light here means the sun, as the moon stands in the parallel member, and that Job refers to idolatrous worship. Delitzsch (Keil and Delitzsch) also takes light as the sun, and says the moon's majestic course answers to the sun's shooting forth rays, both being what Job saw.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 31:26",
+          "quote": "The Hebrew word (אור 'ôr) properly means light, but that it here means the sun is manifest from the connection, since the moon occurs in the parallel member of the sentence. ... There is no doubt that Job here refers to idolatrous worship",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 31:24-28",
+          "quote": "אור is here, as Job 37:21 and φάος in Homer, the sun as the great light of the earth. ... The two words יקר הלד describe with exceeding beauty the solemn majestic wandering of the moon; יקר is acc. of closer definition, like תמים, Psa 15:2 , and this \"brilliantly rolling on\" is the acc. of the predicate to אראה, corresponding to the כּי יחל, \"that (or how) it shoots forth rays\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-31-38-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Job 31:38-39",
+      "strength": "some interpreters",
+      "short": "Land and tenants frame the furrows and produce",
+      "about": "The four lines turn back on themselves. The first and last go together: the land crying out against Job, and its tenants broken in spirit. The middle two go together too: the weeping furrows and the produce eaten without payment, which can be read of workers unpaid for tilling and for the harvest.",
+      "lines": [
+        {
+          "ref": "Job 31:38",
+          "words": "if my land cries out against me",
+          "mark": "A",
+          "key": "my land"
+        },
+        {
+          "ref": "Job 31:38",
+          "words": "and its furrows weep together,",
+          "mark": "B",
+          "key": "furrows"
+        },
+        {
+          "ref": "Job 31:39",
+          "words": "if I have devoured its produce without payment",
+          "mark": "B'",
+          "key": "produce"
+        },
+        {
+          "ref": "Job 31:39",
+          "words": "or broken the spirit of its tenants,",
+          "mark": "A'",
+          "key": "tenants"
+        }
+      ],
+      "pairs": [
+        [
+          "furrows",
+          "produce"
+        ],
+        [
+          "my land",
+          "tenants"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says that of the four clauses in verses 38 and 39, the first refers to the same subject as the fourth, and the second is joined to the third by introverted parallelism. He takes the furrows as likely pointing to the laborer unpaid for tilling, and the eaten produce to the laborer unpaid for gathering the harvest.",
+      "limit": "The pairing of the middle lines rests on reading both of workers left unpaid; the four lines can also be read together as one charge of wrong done to the land's owners.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 31:38",
+          "quote": "furrows--The specification of these makes it likely, he implies in this, \"If I paid not the laborer for tillage\"; as Job 31:39 , \"If I paid him not for gathering in the fruits.\" Thus of the four clauses in Job 31:38-39 , the first refers to the same subject as the fourth, the second is connected with the third by introverted parallelism.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-32-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 32:8",
+      "strength": "commonly held",
+      "short": "A spirit in man, the breath of the Almighty",
+      "about": "The second line can be read as saying the first again in other words: the spirit in a man is the breath of the Almighty, and it is this that gives understanding. So wisdom is God's gift, not a matter of years, and young Elihu may speak.",
+      "refs": [
+        "Job 32:6"
+      ],
+      "lines": [
+        {
+          "ref": "Job 32:8",
+          "words": "But there is a spirit in a man,",
+          "key": "spirit"
+        },
+        {
+          "ref": "Job 32:8",
+          "words": "the breath of the Almighty, that gives him understanding.",
+          "key": "breath"
+        }
+      ],
+      "pairs": [
+        [
+          "spirit",
+          "breath"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the lines pair ruach, “spirit”, with neshamah, “breath”: the spirit in man is breathed into him by God.",
+        "strong": [
+          "H7307",
+          "H5397"
+        ]
+      },
+      "evidence": "Barnes says the spirit in man is one imparted from the Almighty, as the parallelism seems to require, since it answers to the inspiration of the Almighty in the other half, and that wisdom is God's gift and may be found in a youth. Delitzsch (Keil and Delitzsch) takes the halves not as opposed but as a synonymous or progressive parallelism, man's spirit being breathed into him by God's Spirit.",
+      "limit": "The second line may also be read as carrying the thought further, naming the breath of the Almighty as what gives understanding.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 32:8",
+          "quote": "This evidently refers to a spirit imparted from above; a spirit from the Almighty. The parallelism seems to require this, for it responds to the phrase \"the inspiration of the Almighty\" in the other hemistich. ... He now finds that wisdom is not the attribute of rank or station, but that it is the gift of God, and therefore it may be found in a youth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 32:8-10",
+          "quote": "The two halves of the verse are, on the contrary, a synonymous (\"the spirit, it is in man, viz., that is and acts\") or progressive parallelism ... the spirit of man is the principle of life creatively wrought, and indeed breathed into him, by the Spirit of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-36-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 36:4",
+      "strength": "some interpreters",
+      "short": "Honest words, from one perfect in knowledge",
+      "about": "The second line can be read as saying the first again from another side. Elihu's words are free of falsehood, and the one Job has to deal with is a man of integrity in his views, unlike the friends, who defended God with unsound arguments.",
+      "refs": [
+        "Job 37:16"
+      ],
+      "lines": [
+        {
+          "ref": "Job 36:4",
+          "words": "For truly my words are free of falsehood;",
+          "key": "falsehood"
+        },
+        {
+          "ref": "Job 36:4",
+          "words": "one perfect in knowledge is with you.",
+          "key": "perfect"
+        }
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) renders the second line, as the parallelism requires, of a man of integrity in his views: Elihu means himself, who will not vindicate God by unsound arguments as the friends did.",
+      "limit": "Others read the second line of Elihu's clear understanding rather than his honesty, or of God, who is called perfect in knowledge in Job 37:16.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 36:4",
+          "quote": "I will not \"speak wickedly for God,\" as the friends ( Job 13:4 , Job 13:7-8 ) --that is, vindicate God by unsound arguments. he that is perfect, &c.--Rather, as the parallelism requires, \"a man of integrity in sentiments is with thee\" (is he with whom thou hast to do). Elihu means himself, as opposed to the dishonest reasonings of the friends",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-36-14-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 36:14",
+      "strength": "commonly held",
+      "short": "Dying young, like the shrine prostitutes",
+      "about": "The second line says the first again. They die in their youth, and their life ends as the lives of the male shrine prostitutes end, early and in shame. This is the end of the godless of verse 13, who do not cry for help when God binds them.",
+      "refs": [
+        "Job 36:13"
+      ],
+      "lines": [
+        {
+          "ref": "Job 36:14",
+          "words": "They die in their youth,",
+          "key": "youth"
+        },
+        {
+          "ref": "Job 36:14",
+          "words": "among the male shrine prostitutes.",
+          "key": "shrine prostitutes"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the first line says their soul (nefesh) dies in youth, and the second answers with their life (chayyah) among the shrine prostitutes.",
+        "strong": [
+          "H5315",
+          "H2416"
+        ]
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) reads the second line as their life ended like that of the unclean, early and in dishonor, so that it answers to the first. Delitzsch (Keil and Delitzsch) says the word for life in the second line interchanges with the word for soul in the first, and takes their life as like that of the shrine prostitutes, worn out before their time.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 36:14",
+          "quote": "Rather ( Deu 23:17 ), Their life is (ended) as that of (literally, \"among\") the unclean, prematurely and dishonorably. So the second clause answers to the first.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 36:13-15",
+          "quote": "Thus their soul dieth in the vigour of youth, And their life is like that of the unclean. ... חיּה interchanges with נפשׁ, as Job 33:22 , Job 33:28 ... are the consecrated men, who yielded themselves up, like the women in honour of the deity, to passive, prematurely-enervating incontinence",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-37-11-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 37:11",
+      "strength": "some interpreters",
+      "short": "Two ways God clears away the storm clouds",
+      "about": "The two lines answer each other. In the first God loads the clouds with water until they fall as rain; in the second He scatters the clouds that carry His lightning. Either way the storm passes and the sky is left clear.",
+      "lines": [
+        {
+          "ref": "Job 37:11",
+          "words": "He loads the clouds with moisture;",
+          "key": "loads"
+        },
+        {
+          "ref": "Job 37:11",
+          "words": "He scatters His lightning through them.",
+          "key": "scatters"
+        }
+      ],
+      "pairs": [
+        [
+          "loads",
+          "scatters"
+        ],
+        [
+          "clouds",
+          "them"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first verb means He burdens the clouds, and the second line reads, He scatters the cloud of His light, that is, the cloud of His lightning.",
+        "strong": [
+          "H2959",
+          "H6051",
+          "H0216"
+        ]
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the first verb, God burdening the cloud so that it falls in rain, answers to the parallel verb scatters, a clear sky coming alike from both. The cloud scattered is literally the cloud of His light, that is, of His lightning. A rendering of the first line as brightness driving the clouds away suits the parallel, he says, but the Hebrew hardly allows it.",
+      "limit": "Some render the first line of brightness driving the clouds away; that suits the parallel too, but the Hebrew hardly allows it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 37:11",
+          "quote": "wearieth--burdeneth it, so that it falls in rain; thus \"wearieth\" answers to the parallel \"scattereth\" ... a clear sky resulting alike from both. bright cloud--literally, \"cloud of his light,\" that is, of His lightning. UMBREIT ... translates; \"Brightness drives away the clouds, His light scattereth the thick clouds\"; the parallelism is thus good, but the Hebrew hardly sanctions it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-37-21-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Job 37:21-22",
+      "strength": "some interpreters",
+      "short": "Sun, wind, north, majesty: lines that turn back",
+      "about": "The lines go out and come back in reverse order. No one can gaze at the bright sun, and the wind sweeps the skies clean; then golden splendor comes out of the north, perhaps the quarter of the clearing wind, and awesome majesty surrounds God, answering the sun too bright to look at.",
+      "lines": [
+        {
+          "ref": "Job 37:21",
+          "words": "Now no one can gaze at the sun when it is bright in the skies",
+          "mark": "A",
+          "key": "sun"
+        },
+        {
+          "ref": "Job 37:21",
+          "words": "after the wind has swept them clean.",
+          "mark": "B",
+          "key": "wind"
+        },
+        {
+          "ref": "Job 37:22",
+          "words": "Out of the north He comes in golden splendor;",
+          "mark": "B'",
+          "key": "north"
+        },
+        {
+          "ref": "Job 37:22",
+          "words": "awesome majesty surrounds Him.",
+          "mark": "A'",
+          "key": "majesty"
+        }
+      ],
+      "pairs": [
+        [
+          "wind",
+          "north"
+        ],
+        [
+          "sun",
+          "majesty"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) calls it inverted parallelism: the first clause of verse 22, out of the north, answers to the last clause of verse 21, perhaps because the north wind clears the air, and the second clause of verse 22, the majesty on God, answers to the first clause of verse 21. He prefers golden splendor to the rendering gold.",
+      "limit": "The north may be named because its wind clears the sky, but that is offered only as a perhaps. The word for golden splendor is the word for gold, and some translate it so, of gold found in the north.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 37:22",
+          "quote": "Rather, \"golden splendor.\" MAURER translates \"gold.\" It is found in northern regions. ... the north--Brightness is chiefly associated with it (see on Job 23:9 ). Here, perhaps, because the north wind clears the air ( Pro 25:23 ). Thus this clause answers to the last of Job 37:21 ; as the second of this verse to the first of Job 37:21 . Inverted parallelism.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-38-7-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 38:7",
+      "strength": "commonly held",
+      "short": "Morning stars and sons of God: one choir, twice",
+      "about": "The second line says the first again in other words: the morning stars singing together answer to the sons of God shouting for joy. The sons of God are the angels, and the morning stars are read as the angels or as a picture of them, praising God as He laid the earth's foundations.",
+      "refs": [
+        "Job 38:4"
+      ],
+      "lines": [
+        {
+          "ref": "Job 38:7",
+          "words": "while the morning stars sang together",
+          "key": "morning stars"
+        },
+        {
+          "ref": "Job 38:7",
+          "words": "and all the sons of God shouted for joy?",
+          "key": "sons of God"
+        }
+      ],
+      "pairs": [
+        [
+          "morning stars",
+          "sons of God"
+        ],
+        [
+          "sang together",
+          "shouted for joy"
+        ]
+      ],
+      "evidence": "Albert Barnes says angels are meant by the morning stars, as the phrase sons of God in the other half of the verse demands. Fausset (Jamieson, Fausset and Brown): the stars, said figuratively to sing, are symbols of the angels, and so they answer to the sons of God, the angels, in the parallel.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 38:7",
+          "quote": "There can be little doubt that angelic beings are intended here ... That it refers to the angels, seems to be evident from the connection; and this interpretation is demanded in order to correspond with the phrase \"sons of God\" in the other member of the verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 38:7",
+          "quote": "The stars are figuratively said to sing God's praises, as in Psa 19:1 ; Psa 148:3 . They are symbols of the angels, bearing the same relation to our earth, as angels do to us. Therefore they answer to \"sons of God,\" or angels, in the parallel.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-38-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 38:10",
+      "strength": "some interpreters",
+      "short": "Boundaries, bars and doors: the sea's limits twice",
+      "about": "The second line says the first again. God fixed the sea's boundaries and set in place its bars and doors: both lines tell of the limits He set, which the sea may not pass, as the next verse says: “You may come this far, but no farther.”",
+      "refs": [
+        "Job 38:11"
+      ],
+      "lines": [
+        {
+          "ref": "Job 38:10",
+          "words": "when I fixed its boundaries",
+          "key": "boundaries"
+        },
+        {
+          "ref": "Job 38:10",
+          "words": "and set in place its bars and doors,",
+          "key": "bars"
+        }
+      ],
+      "pairs": [
+        [
+          "boundaries",
+          "bars"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the verb of the first line commonly means to break; here it is read of God measuring out the limits of the sea.",
+        "strong": [
+          "H7665"
+        ]
+      },
+      "evidence": "Albert Barnes says the sense the connection demands is that God measured out or set the limits of the sea, and that taking the line of God breaking up His fixed plans does not accord with the parallelism with the bars and doors. The Hebrew verb, he says, commonly means to break.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 38:10",
+          "quote": "This is undoubtedly the sense which: the connection demands; and the idea in the common version, that God had broken up his fixed plans ... is not in accordance with the parallelism. The Hebrew word (שׁבר shâbar) indeed commonly means \"to break, to break in pieces.\" ... The sense is, that God measured out or determined the limits of the sea.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-38-24-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 38:24",
+      "strength": "widely agreed",
+      "short": "Light and east wind: by what way do they spread?",
+      "about": "The second line asks of the east wind what the first asks of the light: by what way is it spread out over the earth? Light and wind stand together here, as things that come from one quarter and spread in courses no one can trace.",
+      "lines": [
+        {
+          "ref": "Job 38:24",
+          "words": "In which direction is the lightning dispersed,",
+          "key": "lightning"
+        },
+        {
+          "ref": "Job 38:24",
+          "words": "or the east wind scattered over the earth?",
+          "key": "east wind"
+        }
+      ],
+      "pairs": [
+        [
+          "lightning",
+          "east wind"
+        ],
+        [
+          "dispersed",
+          "scattered"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line's word is or, light, which the BSB gives as lightning; it can be read of light in general, such as the morning light spreading from one point over the whole earth.",
+        "strong": [
+          "H0216"
+        ]
+      },
+      "evidence": "Albert Barnes reads the first line of the morning light spreading from one point, and holds that the parallelism demands a second line asking the same of the wind. Delitzsch (Keil and Delitzsch): light and wind stand together, alike untraceable in their courses. Fausset (Jamieson, Fausset and Brown) carries the question by what way into the second line, light and wind both coming from one quarter.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Job 38:24",
+          "quote": "The reference here is to the light of the morning, that seems to come from one point, and to spread itself at once over the whole earth. ... the east wind, like the light, comes from a certain point, and seems to spread abroad over the world; and the question is, whether Job could explain this? This interpretation ... seems to be demanded by the parallelism",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 38:22-27",
+          "quote": "In Job 38:24 it is not, as in Job 38:19 , the place whence light issues, but the mode of the distribution of light over the earth, that is intended; as in Job 38:24 , the laws according to which the east wind flows forth, i.e., spreads over the earth. אור is not lightning ... but light in general: light and wind ... stand together as being alike untraceable in their courses.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Job 38:24",
+          "quote": "is . . . parted--parts, so as to diffuse itself over the whole earth, though seeming to come from one point. ... which scattereth--rather, \"And by what way the east wind (personified) spreads (scattereth) itself.\" The light and east wind are associated together, as both come from one quarter, and often arise together",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-38-28-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 38:28-29",
+      "strength": "some interpreters",
+      "short": "A father for the rain, a mother for the ice",
+      "about": "Each verse asks its question twice. In verse 28 the father of the first line shows that the second asks who begets the dew. In verse 29 the womb of the first line shows that the second asks who bears the frost, as a mother does. Rain and dew have no created father, ice and frost no created mother.",
+      "lines": [
+        {
+          "ref": "Job 38:28",
+          "words": "Does the rain have a father?",
+          "key": "father"
+        },
+        {
+          "ref": "Job 38:28",
+          "words": "Who has begotten the drops of dew?",
+          "key": "begotten"
+        },
+        {
+          "ref": "Job 38:29",
+          "words": "From whose womb does the ice emerge?",
+          "key": "womb"
+        },
+        {
+          "ref": "Job 38:29",
+          "words": "Who gives birth to the frost from heaven,",
+          "key": "gives birth"
+        }
+      ],
+      "pairs": [
+        [
+          "father",
+          "begotten"
+        ],
+        [
+          "womb",
+          "gives birth"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew both verses use the one verb yalad. Beside a father it asks who begets; beside a womb it asks who bears, as a mother does.",
+        "strong": [
+          "H3205"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says rain and dew have no created father, and ice and hoar-frost no created mother, and that the parallel lines in both verses show what the verb asks: in verse 28 after the one who begets, in verse 29 after the one who bears.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Job 38:28",
+          "quote": "Rain and dew have no created father, ice and hoar-frost no created mother. The parallelism in both instances shows that מי הוליד asks after the one who begets, and מי ילדו the one who bears",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "job-41-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Job 41:6",
+      "strength": "commonly held",
+      "short": "Traders barter for him, merchants share him out",
+      "about": "The second line says the first again: can men buy and sell him, or share him out among merchants? The merchants of the second line favour reading the first line as trade, as the BSB renders it, rather than as a feast made of him.",
+      "lines": [
+        {
+          "ref": "Job 41:6",
+          "words": "Will traders barter for him",
+          "key": "traders"
+        },
+        {
+          "ref": "Job 41:6",
+          "words": "or divide him among the merchants?",
+          "key": "merchants"
+        }
+      ],
+      "pairs": [
+        [
+          "traders",
+          "merchants"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the merchants are literally Canaanites, a people known as great traders.",
+        "strong": [
+          "H3669"
+        ]
+      },
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) says the parallel line rather supports reading the first as partners in trade who desire to buy him, and that the merchants are literally Canaanites, who were great merchants. Stanley Leathes (Ellicott's Commentary) renders the first line as bands of fishermen making traffic of him, which he says suits the parallelism better.",
+      "limit": "Older versions read the first line as companions making a banquet of him; some read it as men digging a pit for him.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Job 41:6",
+          "quote": "make a banquet--The parallelism rather supports UMBREIT, \"Do partners (in trade) desire to purchase him?\" So the Hebrew ( Deu 2:6 ). merchants--literally, \"Canaanites,\" who were great merchants",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Job 41:6",
+          "quote": "Shall the companions make a banquet of him? — Or, Shall the bands of fishermen make traffic of him? or, dig a pit for him? — the former suiting the parallelism better.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

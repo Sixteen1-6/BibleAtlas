@@ -98,6 +98,57 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-chronicles-21-12-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "1 Chronicles 21:12",
+      "strength": "some interpreters",
+      "short": "Two judgments told, then told more strongly",
+      "about": "Two of the three judgments are told and then pressed further. Being swept away before enemies goes on to being overtaken by their swords. Three days of the sword of the LORD and plague on the land go on to the angel of the LORD ravaging every part of Israel.",
+      "lines": [
+        {
+          "ref": "1 Chronicles 21:12",
+          "words": "three months of being swept away before your enemies",
+          "key": "swept away"
+        },
+        {
+          "ref": "1 Chronicles 21:12",
+          "words": "and overtaken by their swords,",
+          "key": "overtaken"
+        },
+        {
+          "ref": "1 Chronicles 21:12",
+          "words": "or three days of the sword of the LORD",
+          "key": "sword of the LORD"
+        },
+        {
+          "ref": "1 Chronicles 21:12",
+          "words": "days of plague upon the land,",
+          "key": "plague"
+        },
+        {
+          "ref": "1 Chronicles 21:12",
+          "words": "with the angel of the LORD ravaging every part of Israel.",
+          "key": "angel of the LORD"
+        }
+      ],
+      "refs": [
+        "2 Samuel 24:13"
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says this verse tells the two latter judgments more fully than Second Samuel does: in the second, the parallel clause of the enemies' sword overtaking serves to intensify it, and so also in the third a parallel clause, the angel of the LORD destroying in all Israel, is added to both the sword of the LORD and the plague.",
+      "limit": "Second Samuel 24:13 tells the last two judgments more briefly; the note is about how this verse sets them out.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Chronicles 21:2-14",
+          "quote": "the author of the Chronicle describing the two latter evils more at length than Samuel does ... The second parallel clause, \"the sword of thine enemies to attaining\" (so that it reach thee), serves to intensify. So also in reference to the third evil ... and the parallel clause added to both: \"and the angel of the Lord destroying in the whole domain of Israel.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }

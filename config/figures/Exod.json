@@ -44,6 +44,104 @@
       ]
     },
     {
+      "id": "exodus-6-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Exodus 6:6",
+      "strength": "commonly held",
+      "short": "Out, delivered, redeemed: one rescue said three ways",
+      "about": "Three clauses promise one deliverance: the LORD will bring Israel out from under Egypt's yoke, deliver them from bondage, and redeem them with an outstretched arm. The promise is said over again because rescue looked so unlikely, giving a doubting people assurance upon assurance.",
+      "lines": [
+        {
+          "ref": "Exodus 6:6",
+          "words": "I will bring you out from under the yoke of the Egyptians",
+          "key": "bring you out"
+        },
+        {
+          "ref": "Exodus 6:6",
+          "words": "and deliver you from their bondage.",
+          "key": "deliver"
+        },
+        {
+          "ref": "Exodus 6:6",
+          "words": "I will redeem you with an outstretched arm and with mighty acts of judgment.",
+          "key": "redeem"
+        }
+      ],
+      "pairs": [
+        [
+          "yoke",
+          "bondage"
+        ]
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the deliverance, so unlike all outward appearances, is told in three parallel clauses: bringing them out, saving them from bondage, and redeeming them. Matthew Henry calls verses 6 to 8 line upon line: I will bring you out, I will rid you, I will redeem you, repeated assurances for a people slow to believe.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Exodus 6:1",
+          "quote": "This assurance ... contained three distinct elements: (a) the deliverance of Israel from the bondage of Egypt, which, because so utterly different from all outward appearances, is described in three parallel clauses: bringing them out from under the burdens of the Egyptians; saving them from their bondage; and redeeming them with a stretched-out arm and with great judgments",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Exodus 6:1-9",
+          "quote": "Here is line upon line, to assure them that they should be brought triumphantly out of Egypt ... I will bring you out. I will rid you. I will redeem you. ... Let man take the shame of his unbelief, which needs such repetitions; and let God have the glory of his condescending grace, which gives us such repeated assurances for our satisfaction.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "exodus-9-31-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "Exodus 9:31",
+      "strength": "some interpreters",
+      "short": "Flax, barley, then barley, flax",
+      "about": "The verse names the flax, then the barley, and then turns back: the barley, then the flax. The first half tells that both crops were struck down; the second tells how far each had grown, the barley ripe and the flax in bloom.",
+      "lines": [
+        {
+          "ref": "Exodus 9:31",
+          "words": "Now the flax",
+          "mark": "A",
+          "key": "flax"
+        },
+        {
+          "ref": "Exodus 9:31",
+          "words": "and barley were destroyed,",
+          "mark": "B",
+          "key": "barley"
+        },
+        {
+          "ref": "Exodus 9:31",
+          "words": "since the barley was ripe",
+          "mark": "B'",
+          "key": "barley"
+        },
+        {
+          "ref": "Exodus 9:31",
+          "words": "and the flax was in bloom;",
+          "mark": "A'",
+          "key": "flax"
+        }
+      ],
+      "evidence": "E. W. Bullinger lists the verse under introverted parallelism and sets it out in four parts: the flax, the barley smitten, the barley in the ear, the flax in bloom, the first part answering the fourth and the second the third.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Exodus 9:31",
+          "at": "Introverted Parallelisms, p. 357",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/357/mode/1up",
+          "quote": "a “And the flax b and the barley was smitten: b For the barley was in the ear, a and the flax was bolled.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "exodus-13-2-metonymy",
       "kind": "figure",
       "form": "metonymy",
@@ -266,6 +364,58 @@
           "quote": "“And I will be honoured upon Pharaoh and upon all his power.” ... his power, which is put by Metonymy for his army, which was the expression of his power.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "exodus-15-1-refrain",
+      "kind": "parallelism",
+      "form": "refrain",
+      "ref": "Exodus 15:1-21",
+      "strength": "widely agreed",
+      "short": "The song's first lines come back as Miriam's refrain",
+      "about": "The song opens with its theme: the LORD is highly exalted, for He threw horse and rider into the sea. At its close Miriam sings the same words back to them. Many read the words as a refrain, sung again between the parts of the song.",
+      "lines": [
+        {
+          "ref": "Exodus 15:1",
+          "words": "I will sing to the LORD, for He is highly exalted. The horse and rider He has thrown into the sea."
+        },
+        {
+          "ref": "Exodus 15:21",
+          "words": "Sing to the LORD, for He is highly exalted; the horse and rider He has thrown into the sea."
+        }
+      ],
+      "evidence": "Adam Clarke says the two opening lines became the chorus of the song, as verse 21 shows. C. F. Keil (Keil and Delitzsch) says Miriam and the women repeated the opening theme, though how often cannot be known. George Rawlinson (Ellicott's Commentary) calls verse 1 the refrain, sung by Miriam's choir after each part. John Calvin holds it more probable that the first verse was sung between the parts.",
+      "limit": "The words are written out only twice, at the start and at the close; how often the women sang them is not told.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Exodus 15:1",
+          "quote": "I will sing unto the Lord - Moses begins the song, and in the two first hemistichs states the subject of it; and these two first lines became the grand chorus of the piece, as we may learn from Exo 15:21 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Exodus 15:1-5",
+          "quote": "The introduction, which contains the theme of the song, \"Sing will I to the Lord, for highly exalted is He, horse and his rider He hath thrown into the sea,\" was repeated, when sung, as an anti-strophe by a chorus of women, with Miriam at their head (cf. Exo 15:20 , Exo 15:21 ); whether after every verse, or only at the close of the longer strophes, cannot be determined.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Exodus 15:1",
+          "quote": "First comes the burden, or refrain ( Exo 15:1 ), which was repeated at the close of each sub-division by Miriam and her choir of women ( Exo 15:21 ).",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Exodus 15:20",
+          "quote": "When, therefore, the men had finished their song, the women followed in order. Although it is not certain whether the first verse was intercalary, ... or whether the women repeated alternately what the men had sung. It little matters which opinion you prefer, except that the former is more probable.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -708,6 +858,66 @@
           "quote": "The place was called Massah … because of their tempting the Lord … and Meribah … because of their chiding … Thus, in order to discover the sense of the passage, it is necessary to observe the correspondence of a. and a., and also that of b. and b. Thus an attention to the arrangement of a passage will often help us to discover its sense or purport.",
           "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "exodus-22-28-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Exodus 22:28",
+      "strength": "commonly held",
+      "short": "Some read one command said twice: honor rulers",
+      "about": "Some read the second half as explaining the first. On this reading the word rendered God here means the judges and rulers who act in His name, and the ruler of your people names the same men again. Paul cites this law before the high priest in Acts 23:5.",
+      "refs": [
+        "Acts 23:5",
+        "Psalm 82:6"
+      ],
+      "lines": [
+        {
+          "ref": "Exodus 22:28",
+          "words": "You must not blaspheme God",
+          "key": "God"
+        },
+        {
+          "ref": "Exodus 22:28",
+          "words": "or curse the ruler of your people.",
+          "key": "ruler"
+        }
+      ],
+      "pairs": [
+        [
+          "blaspheme",
+          "curse"
+        ],
+        [
+          "God",
+          "the ruler"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word rendered God is elohim, which Psalm 82:6 also uses of men who judge in God's place.",
+        "strong": [
+          "H0430"
+        ]
+      },
+      "evidence": "John Calvin says that in the usual Hebrew idiom the verse says the same thing twice, so the same persons are called gods and rulers of the people: God's name is given to magistrates as the ministers of His authority. Matthew Poole takes the gods as magistrates and governors, civil or church, since the words that follow explain the former.",
+      "limit": "Many take the word as God Himself, as the BSB does, with the ruler named beside Him as the one who carries out His law. On that reading the two halves give two commands, not one said twice.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Exodus 22:28",
+          "quote": "nor is it to be questioned, that, in the ordinary idiom of the Hebrew language, He repeats the same thing twice over; and consequently that the same persons are called “gods,” and “rulers of the people.” The name of God is, figuratively indeed, but most reasonably, applied to magistrates, upon whom, as the ministers of His authority, He has inscribed a mark of His glory.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Exodus 22:28",
+          "quote": "Gods; not gods falsely so called, as some would have it ... but magistrates and governors, whether civil or ecclesiastical, as it is evident both from Acts 23:3-5 and from the following words, which explain the former, according to the common use of Scripture",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/exodus/22.htm",
+          "retrieved": "2026-11-22"
         }
       ]
     },

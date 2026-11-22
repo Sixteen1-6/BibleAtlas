@@ -808,6 +808,165 @@
       ]
     },
     {
+      "id": "psalm-2-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 2:1",
+      "strength": "some interpreters",
+      "short": "The nations rage, the peoples plot",
+      "about": "The second line says the first again in other words. The peoples can be taken as the nations of the first line, seen in the same uproar, and what they plot will prove vain.",
+      "lines": [
+        {
+          "ref": "Psalm 2:1",
+          "words": "Why do the nations rage",
+          "key": "nations"
+        },
+        {
+          "ref": "Psalm 2:1",
+          "words": "and the peoples plot in vain?",
+          "key": "peoples"
+        }
+      ],
+      "pairs": [
+        [
+          "nations",
+          "peoples"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the two words are goyim and le'ummim, both words for nations or peoples.",
+        "strong": [
+          "H1471",
+          "H3816"
+        ]
+      },
+      "refs": [
+        "Acts 4:25-27"
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) says the word for peoples expresses substantially the same idea as the word for nations and, by the laws of parallelism in Hebrew poetry, refers to the same thing: it is the peoples who are seen in violent agitation.",
+      "limit": "When Acts 4:25-27 applies the verse to the plot against Jesus, it names both the Gentiles and the people of Israel.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 2:1",
+          "quote": "And the people - לאמים Le'umiym. A word expressing substantially the same idea, that of people, or nations, and referring here to the same thing as the word rendered \"heathen\" - according to the laws of Hebrew parallelism in poetry. It is the people here that are seen in violent agitation",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-2-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 2:4",
+      "strength": "some interpreters",
+      "short": "God laughs; the Lord taunts them",
+      "about": "The second line says the first again in other words. The One enthroned in heaven laughs, and the Lord taunts them: both show Him undisturbed by the nations' rage, looking with contempt on their vain attempts.",
+      "lines": [
+        {
+          "ref": "Psalm 2:4",
+          "words": "The One enthroned in heaven laughs;",
+          "key": "laughs"
+        },
+        {
+          "ref": "Psalm 2:4",
+          "words": "the Lord taunts them.",
+          "key": "taunts"
+        }
+      ],
+      "pairs": [
+        [
+          "laughs",
+          "taunts"
+        ]
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) says the second line expresses the same idea in a varied form, as is the custom in parallelism in Hebrew poetry: God smiles at their vain attempts, is not disturbed by them, and looks with contempt on their futile efforts.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 2:4",
+          "quote": "Shall laugh - Will smile at their vain attempts; will not be disturbed or agitated by their efforts; will go calmly on in the execution of his purposes. ... There is included also the idea that he will look with contempt on their vain and futile efforts. The Lord shall have them in derision - The same idea is expressed here in a varied form, as is the custom in parallelism in Hebrew poetry.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-2-9-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 2:9",
+      "strength": "some interpreters",
+      "short": "Break them, shatter them: one judgment said twice",
+      "about": "The second line says the first again in other words: to break them is to shatter them. The picture of pottery adds how easily it is done, for a clay pot is easily broken by an iron scepter.",
+      "lines": [
+        {
+          "ref": "Psalm 2:9",
+          "words": "You will break them with an iron scepter;"
+        },
+        {
+          "ref": "Psalm 2:9",
+          "words": "You will shatter them like pottery."
+        }
+      ],
+      "pairs": [
+        [
+          "break",
+          "shatter"
+        ]
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) says the second line expresses the same idea in another form, but shows more fully the ease with which it would be done, since a potter's vessel is easily broken, above all with a rod of iron.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 2:9",
+          "quote": "Thou shalt dash them in pieces - The same idea is here expressed in another form, but indicating more particularly the ease with which it would be done. ... Like a potter's vessel - A vessel or instrument made by a potter; a vessel made of clay. This is easily broken, and especially with a rod of iron",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-5-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 5:4",
+      "strength": "some interpreters",
+      "short": "No delight in wickedness, no evil as His guest",
+      "about": "The second line says the first again in other words. A God who favored the wicked would take them into His house, as we take in friends we delight in; He takes no delight in wickedness, so no evil may live with Him.",
+      "lines": [
+        {
+          "ref": "Psalm 5:4",
+          "words": "For You are not a God who delights in wickedness;"
+        },
+        {
+          "ref": "Psalm 5:4",
+          "words": "no evil can dwell with You."
+        }
+      ],
+      "pairs": [
+        [
+          "wickedness",
+          "evil"
+        ]
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) says the second line expresses the same idea in another form: if God favored the wicked, it would be as if He took them into His dwelling as His friends.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 5:4",
+          "quote": "Neither shall evil dwell with thee - The same idea is here expressed in another form. If God should show favor to the wicked, it would seem as if he admitted them to his habitation, as we do our friends and those in whom we delight.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-29-1-beginnings",
       "kind": "parallelism",
       "form": "beginnings",
@@ -2161,6 +2320,107 @@
       ]
     },
     {
+      "id": "psalm-7-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 7:5",
+      "strength": "commonly held",
+      "short": "Pursue me, trample me, leave my honor in the dust",
+      "about": "The three lines say one thing three ways: if I am guilty, let my enemy bring me down to death. Read this way, my honor is David himself, his soul and life of the lines before. The lines can also be read as going a step further each time, down to the dust.",
+      "lines": [
+        {
+          "ref": "Psalm 7:5",
+          "words": "then may my enemy pursue me and overtake me;"
+        },
+        {
+          "ref": "Psalm 7:5",
+          "words": "may he trample me to the ground"
+        },
+        {
+          "ref": "Psalm 7:5",
+          "words": "and leave my honor in the dust."
+        }
+      ],
+      "original": {
+        "note": "In Hebrew the three lines name my soul, my life and my honor, or glory; the BSB gives me, me and my honor.",
+        "strong": [
+          "H5315",
+          "H2416",
+          "H3519"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says that by its parallel with my soul and my life, my glory takes the sense of my soul, and that to lay in the dust is to lay in the dust of death. Joseph Benson (Benson's Commentary) reads my honour as the soul or life of the former clause, the same thing said in other words, with a gradation.",
+      "limit": "Others read my honor as David's rank and good name, not his life.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 7:3",
+          "quote": "By its parallelism with נפשׁי and חיּי, כּבודי acquires the signification \"my soul,\" ... a signification which is secured to it by Psa 16:9 ; 30:13; Psa 57:9 ; Psa 108:2 , Gen 49:6 . Man's soul is his doxa ... To lay down in the dust is equivalent to: to lay in the dust of death, Psa 22:16 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 7:5",
+          "quote": "And lay mine honour in the dust Meaning either 1st, that honourable and royal dignity for which he was designed; or, 2d, his reputation and memory: or, rather, 3d, his soul or life, mentioned in the former clause, it being very usual to express the same thing by different words or phrases in one verse: thus we may observe a gradation here.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-8-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 8:4",
+      "strength": "commonly held",
+      "short": "What is man? The question asked twice",
+      "about": "The second line asks the first question again in other words: man becomes the son of man, and being mindful of him becomes caring for him. Both lines marvel that God takes thought for one so weak, with nothing in him to earn such honor.",
+      "lines": [
+        {
+          "ref": "Psalm 8:4",
+          "words": "what is man that You are mindful of him,"
+        },
+        {
+          "ref": "Psalm 8:4",
+          "words": "or the son of man that You care for him?"
+        }
+      ],
+      "pairs": [
+        [
+          "mindful of him",
+          "care for him"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line's word for man, enosh, speaks of man as frail; the second line says son of adam.",
+        "strong": [
+          "H0582",
+          "H1121",
+          "H0120"
+        ]
+      },
+      "evidence": "Albert Barnes (Barnes' Notes) says the son of man line has the same design as the former part of the verse: nothing in man entitled him to such honor. A. R. Fausset (Jamieson, Fausset and Brown) says man here is literally frail man, and son of man only varies the form of speech.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 8:4",
+          "quote": "And the son of man - Any descendant of man - any one of the race. ... The design is the same as in the former part of the verse, to express the idea that there was nothing in man, considered in any respect, that entitled him to this exalted honor.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 8:4",
+          "quote": "man--literally, \"frail man,\" an allusion to his essential infirmity. son of man--only varies the form of speech.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-9-1-acrostic",
       "kind": "figure",
       "form": "acrostic",
@@ -2187,6 +2447,375 @@
           "quote": "the freedom, with which the alphabetical arrangement is handled in Ps 9 and 10 ... the alphabetical arrangement is not fully carried out ... In reality this pair of Psalms shows, that even David was given to acrostic composition. ... The lyric writer regards it as the keys on which he strikes every note, in order to give the fullest expression to his feelings.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-9-17-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 9:17",
+      "strength": "commonly held",
+      "short": "The wicked are the nations who forget God",
+      "about": "The second line says again who goes down to Sheol: the wicked are all the nations who forget God. To forget God sets a nation among the wicked, and both lines share one end.",
+      "lines": [
+        {
+          "ref": "Psalm 9:17",
+          "words": "The wicked will return to Sheol"
+        },
+        {
+          "ref": "Psalm 9:17",
+          "words": "all the nations who forget God."
+        }
+      ],
+      "pairs": [
+        [
+          "The wicked",
+          "the nations"
+        ]
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) reasons from the other line of the pair, the nations that forget God, that the first line speaks of the punishment of the wicked and not of the grave that all must enter. A. R. Fausset (Jamieson, Fausset and Brown) says those who forget God are classed with the depraved and openly profane.",
+      "limit": "Writers differ on Sheol here: some read the place of punishment, others the grave and the world of the dead.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 9:17",
+          "quote": "This interpretation is strengthened by the other member of the parallelism, where it is said, \"and all the nations that forget God;\" since it is no more true that the nations \"that forget God\" will be \"turned into the grave, or the world of departed spirits,\" than it is that the nations that serve and obey him will.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 9:17",
+          "quote": "shall be turned--or, \"shall turn,\" retreating under God's vengeance, and driven by Him to the extreme of destruction, even hell itself. Those who forget God are classed with the depraved and openly profane.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-12-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 12:1",
+      "strength": "commonly held",
+      "short": "The godly are gone, the faithful have vanished",
+      "about": "The second line says the first again in other words: the godly and the faithful are the same people, and both lines mourn that they are gone. To be godly is also to be faithful, true to God and to men.",
+      "lines": [
+        {
+          "ref": "Psalm 12:1",
+          "words": "for the godly are no more;"
+        },
+        {
+          "ref": "Psalm 12:1",
+          "words": "the faithful have vanished from among men."
+        }
+      ],
+      "pairs": [
+        [
+          "godly",
+          "faithful"
+        ],
+        [
+          "are no more",
+          "have vanished"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the godly man, chasid, is one who practises chesed, kindness, toward God and man; the faithful are those who are firm, whose word can be relied on.",
+        "strong": [
+          "H2623",
+          "H0529"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the parallel line shows the faithful are faithful men, set beside the godly man. Matthew Henry (Commentary on the Whole Bible) notes how the two characters, the godly and the faithful, are put together, for godly men are faithful men, true both to God and man.",
+      "limit": "Some read the second line's word as faithfulness itself rather than faithful men.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 12:1",
+          "quote": "It is at once clear from the predicate being placed first in the plur., that אמוּנים in this passage is not an abstractum, as e.g., in Pro 13:17 ; moreover the parallelism is against it, just as in Pro 31:24 . חסיד is the pious man, as one who practises חסד towards God and man. ... is the reliable, faithful, conscientious man, literally one who is firm, i.e., whose word and meaning is firm",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 12:1",
+          "quote": "When the godly man ceases and the faithful fail. Observe how these two characters are here put together, the godly and the faithful. ... Godly men are faithful men, fast men, so they have sometimes been called; their word is as confirming as their oath, as binding as their bond; they make conscience of being true both to God and man.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-13-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 13:4",
+      "strength": "some interpreters",
+      "short": "My enemy's boast, my foes' joy at my fall",
+      "about": "The second line says the first again in other words: my enemy becomes my foes, and his cry of victory becomes their triumph when I fall. Both lines speak of the same enemies, who seemed close to winning.",
+      "lines": [
+        {
+          "ref": "Psalm 13:4",
+          "words": "lest my enemy say, “I have overcome him,”"
+        },
+        {
+          "ref": "Psalm 13:4",
+          "words": "and my foes rejoice when I fall."
+        }
+      ],
+      "pairs": [
+        [
+          "my enemy",
+          "my foes"
+        ]
+      ],
+      "evidence": "Albert Barnes (Barnes' Notes) says the second line refers to the same enemies as the former part of the verse, who seemed almost to have triumphed over him already, and reads both the enemy's boast and the foes' rejoicing as triumph.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 13:4",
+          "quote": "Lest mine enemy say, I have prevailed against him - I have overpowered him; I have conquered him. That is, to triumph over him as having obtained a complete victory. And those that trouble me - Hebrew, \"My adversaries.\" The reference here is the same as in the former member of the verse. It is to the enemies that seemed almost to have triumphed over him already ... \"Rejoice.\" Exult; triumph.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-16-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 16:3",
+      "strength": "commonly held",
+      "short": "The saints named again: “they are the excellence”",
+      "about": "The second line names the people of the first line again: the saints in the land are the excellence, the noble ones. A word used of the great and mighty is given to God's holy people, and in them is all the psalmist's delight.",
+      "lines": [
+        {
+          "ref": "Psalm 16:3",
+          "words": "As for the saints in the land,",
+          "key": "saints"
+        },
+        {
+          "ref": "Psalm 16:3",
+          "words": "they are the excellence",
+          "key": "excellence"
+        }
+      ],
+      "pairs": [
+        [
+          "saints",
+          "excellence"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for the excellence means the great or mighty ones, a word used of nobles; here it is given to the saints.",
+        "strong": [
+          "H0117"
+        ]
+      },
+      "evidence": "Barnes says the word for the excellent means great or mighty, is used of nobles and then of those who excel in piety, and so corresponds with the saints in the line before. Poole says the excellent, the mighty or honourable, are the saints, as the psalmist has just called them.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 16:3",
+          "quote": "And to the excellent - The word used here means properly \"large, great,\" mighty; then it is applied to \"nobles, princes, chiefs;\" and then to those who excel in moral qualities, in piety, and virtue. This is the idea here, and thus it corresponds with the word \"saints\" in the former member of the verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 16:3",
+          "quote": "To the excellent, or, the magnificent, or mighty, or honourable, to wit, the saints, as he now called them",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/16.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "psalm-17-12-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 17:12",
+      "strength": "some interpreters",
+      "short": "A lion, then a young lion: one picture twice",
+      "about": "The second line says the first again with a little change: a lion greedy for prey, then a young lion lurking in ambush. No special weight falls on the change from lion to young lion; both lines picture an enemy watching his prey, ready to spring.",
+      "lines": [
+        {
+          "ref": "Psalm 17:12",
+          "words": "like a lion greedy for prey,",
+          "key": "greedy for prey"
+        },
+        {
+          "ref": "Psalm 17:12",
+          "words": "like a young lion lurking in ambush.",
+          "key": "lurking in ambush"
+        }
+      ],
+      "pairs": [
+        [
+          "a lion",
+          "a young lion"
+        ]
+      ],
+      "evidence": "Barnes says the enemies were like a lion intent on its prey, ready to spring upon it, and that no special weight falls on the lion in one line and the young lion in the other: as Hebrew parallel lines do, both give the same idea with a little change.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 17:12",
+          "quote": "There is no special emphasis to be affixed to the fact that the \"lion\" is alluded to in one member of this verse, and the \"young lion\" in the other. It is in accordance with the custom of parallelism in Hebrew poetry where the same idea, with some little variation, is expressed in both members of the sentence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-18-4-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 18:4-16",
+      "refs": [
+        "Psalm 18:17",
+        "2 Samuel 22:5-17"
+      ],
+      "strength": "widely agreed",
+      "short": "David’s rescue pictured as God coming in a storm",
+      "about": "David pictures his danger as torrents that overwhelm him. When he cries out, the LORD comes down in a storm, with earthquake, thunder and lightning, and draws him out of deep waters. Verse 17 says it plainly: “He rescued me from my powerful enemy.” The same song is in 2 Samuel 22.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 18:16",
+        "words": "He drew me out of deep waters",
+        "means": "God’s rescue of David from foes too mighty for him (verse 17), pictured as a drowning man drawn out of the flood"
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the language thoroughly allegorical and the description ideal: the man nearly overpowered by his foes is shown as one almost drowning. Barnes says the description is taken from the storm, a representation of God’s mighty interposition. Henry reads the shaking earth and hills as men struck with fear, and says David was drawn out of the waters figuratively.",
+      "limit": "The note does not claim that a storm of this kind came in David’s life, nor that none did; the writers read the storm and the flood as pictures of God’s true rescue of David from his enemies.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 18:13-15",
+          "quote": "From the language being here so thoroughly allegorical, it is clear that we were quite correct in interpreting the description as ideal. He, who is nearly overpowered by his foes, is represented as one engulfed in deep waters and almost drowning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 18:7",
+          "quote": "The description which follows here is one of the most sublime that is to be found in any language. It is taken from the fury of the storm and tempest ... All that is needful is to regard this as a representation of the mighty interposition of God; to suppose that his intervention was as direct, as manifest, and as sublime, as if he had thus interposed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 18:1-19",
+          "quote": "When the men of the earth were struck with fear, then the earth might be said to tremble; when the great men of the earth were put into confusion, then the hills moved. ... There were waters deep and many, waters out of which he was to be drawn ... as Moses, who had his name from being drawn out of the water literally, as David was figuratively.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-19-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 19:1",
+      "strength": "some interpreters",
+      "short": "The heavens declare, the skies proclaim",
+      "about": "The second line says the first again and explains it: the skies proclaim God's glory by showing the work of His hands. They bear witness that they did not come together by chance but were made by Him.",
+      "lines": [
+        {
+          "ref": "Psalm 19:1",
+          "words": "The heavens declare the glory of God;"
+        },
+        {
+          "ref": "Psalm 19:1",
+          "words": "the skies proclaim the work of His hands."
+        }
+      ],
+      "pairs": [
+        [
+          "heavens",
+          "skies"
+        ],
+        [
+          "declare",
+          "proclaim"
+        ],
+        [
+          "the glory of God",
+          "the work of His hands"
+        ]
+      ],
+      "evidence": "Calvin says the psalmist repeats one thing twice in this verse, as he often does, and that the second clause only explains the first: the heavens proclaim God's glory by bearing witness that they were not put together by chance but made by the supreme Architect.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalm 19:1-6",
+          "quote": "In the first verse, the Psalmist repeats one thing twice, according to his usual manner. ... The repetition which he makes in the second clause is merely an explanation of the first. David shows how it is that the heavens proclaim to us the glory of God, namely, by openly bearing testimony that they have not been put together by chance, but were wonderfully created by the supreme Architect.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-19-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 19:4",
+      "strength": "commonly held",
+      "short": "Voice to all the earth, words to its ends",
+      "about": "The second line says the first again and shows what it means: their voice has gone out into all the earth, their words to the ends of the world. What goes out from the heavens to every part of the world is their message, their words.",
+      "lines": [
+        {
+          "ref": "Psalm 19:4",
+          "words": "their voice has gone out into all the earth,",
+          "key": "voice"
+        },
+        {
+          "ref": "Psalm 19:4",
+          "words": "their words to the ends of the world.",
+          "key": "words"
+        }
+      ],
+      "pairs": [
+        [
+          "voice",
+          "words"
+        ],
+        [
+          "all the earth",
+          "the ends of the world"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word the BSB gives as voice means a cord or line, which can be taken as a sound or as a measuring line.",
+        "strong": [
+          "H6957"
+        ]
+      },
+      "evidence": "Barnes says the Hebrew word means a cord or line and hence a sound, and that the parallel lines demand that sense, since the term words in the next line answers it. Delitzsch (Keil and Delitzsch) takes it as a measuring line and says the verse goes on to tell what line is meant: that of their heralding, their words reaching to the end of the world.",
+      "limit": "The writers differ on the word given as voice: one takes it as a sound, the other as a measuring line. Both take the words of the next line as answering it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 19:4",
+          "quote": "The word used here - קו qav - means properly a cord, or line ... and hence, a sound. ... That this sense, however, is demanded in the passage seems to be plain, not only from the sense given to it by the ancient versions, but by the parallelism, where the term \"words\" corresponds to it",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 19:4-6",
+          "quote": "The measuring line of the heavens is gone forth into all the earth, i.e., has taken entire possession of the earth. Psa 19:5 tells us what kind of measuring line is intended, viz., that of their heraldship: their words ... reach to the end of the world, they fill it completely, from its extreme boundary inwards.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -2252,6 +2881,51 @@
           "quote": "Of the revealed truth of God, thus characterized by distinct epithets, a particular statement is first made in each case in regard to the truth itself as viewed in that special aspect, and then the effects of that revealed truth on the soul are described corresponding with that truth as so viewed.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-20-1-frame",
+      "kind": "parallelism",
+      "form": "frame",
+      "ref": "Psalm 20:1-9",
+      "strength": "commonly held",
+      "short": "The psalm opens and closes asking the LORD to answer",
+      "about": "The psalm begins and ends with the same prayer, that the LORD answer in the day of need. First the people pray it for the king in the day of trouble; at the close they pray it for themselves, on the day they call. Between stand their wishes for his victory and their trust in the LORD.",
+      "lines": [
+        {
+          "ref": "Psalm 20:1",
+          "words": "May the LORD answer you in the day of trouble;",
+          "key": "answer"
+        },
+        {
+          "ref": "Psalm 20:9",
+          "words": "Answer us on the day we call.",
+          "key": "Answer"
+        }
+      ],
+      "pairs": [
+        [
+          "the day of trouble",
+          "the day we call"
+        ]
+      ],
+      "evidence": "Barnes, at verse 9, says the close of the psalm corresponds with the beginning: it opens with the desire that God would hear in the day of trouble, and closes with an earnest prayer to Him from all the people. Delitzsch (Keil and Delitzsch) says the song is closed as it was opened and is rounded off by going back to its first note.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 20:9",
+          "quote": "Thus the close of the psalm corresponds with the beginning. In the beginning Psa 20:1-4 there is an earnest \"desire\" that God would hear the suppliant in the day of trouble; in the close there is an earnest \"prayer\" to him from all the people",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 20:9",
+          "quote": "The song is closed, as it was opened, by the whole congregation; and is rounded off by recurring to its primary note, praying for the accomplishment of that which is sought and pledged.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -2362,6 +3036,59 @@
           "quote": "First of Parallel Lines Synonymous: that is, which correspond one to another by expressing the same sense in different, but equivalent terms ... O Jehovah, in thy strength the king shall rejoice; And in thy salvation how greatly shall he exult! The desire of his heart thou hast granted unto him; And the request of his lips thou hast not denied. Ps. xxi. 1, 2.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-21-10-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 21:10",
+      "strength": "commonly held",
+      "short": "Their descendants, then their offspring: said twice",
+      "about": "The second line says the first again in other words. Both lines speak of the enemies' children: their descendants and their offspring will be cut off from the earth, from among the sons of men.",
+      "lines": [
+        {
+          "ref": "Psalm 21:10",
+          "words": "You will wipe their descendants from the earth,",
+          "key": "descendants"
+        },
+        {
+          "ref": "Psalm 21:10",
+          "words": "and their offspring from the sons of men.",
+          "key": "offspring"
+        }
+      ],
+      "pairs": [
+        [
+          "their descendants",
+          "their offspring"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line says “their fruit” (peri), a word used of children; the second says “their seed” (zera).",
+        "strong": [
+          "H6529",
+          "H2233"
+        ]
+      },
+      "evidence": "Barnes says the parallel line requires the first line's fruit to mean their offspring, children who are the fruit of the parent, and takes the second line's seed as their posterity. Poole takes the fruit as their seed or children, as the next clause explains it.",
+      "limit": "One of the writers notes that the first line's word could mean the fruit of their labours, but he prefers children.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 21:10",
+          "quote": "Their fruit - Their offspring; their children; their posterity, for so the parallelism demands. The \"fruit\" is that which the tree produces; and hence, the word comes to be applied to children as the production of the parent. ... And their seed - Their posterity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 21:10",
+          "quote": "Their seed or children, as it is explained in the next branch, oft called a man’s fruit",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/21.htm",
+          "retrieved": "2026-11-22"
         }
       ]
     },
@@ -2539,6 +3266,149 @@
       ]
     },
     {
+      "id": "psalm-22-20-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 22:20",
+      "strength": "commonly held",
+      "short": "“My soul”, then “my precious life”: one plea twice",
+      "about": "The second line says the first again in other words. “My precious life” answers “my soul”: both name the one life the sufferer has, which cannot be replaced if it is lost, and both lines ask the LORD to rescue it.",
+      "lines": [
+        {
+          "ref": "Psalm 22:20",
+          "words": "Deliver my soul from the sword,",
+          "key": "my soul"
+        },
+        {
+          "ref": "Psalm 22:20",
+          "words": "my precious life from the power of wild dogs.",
+          "key": "my precious life"
+        }
+      ],
+      "pairs": [
+        [
+          "my soul",
+          "my precious life"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line's word is yechidati, “my only one” (yachid), another name for the soul (nefesh) of the first line.",
+        "strong": [
+          "H3173",
+          "H5315"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the parallel line shows that the second line's word is a name for the soul: the single one, which does not exist twice and cannot be replaced. Barnes takes it, as the most probable reading, as a poetic word for life, most precious, since it then answers the plea to deliver my soul in the first part of the verse.",
+      "limit": "The second line's word can also be read as “my lonely one”, the soul left forsaken and alone, and some read it so here.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 22:19-21",
+          "quote": "יהידה, as the parallel member here and in Psa 35:17 shows, is an epithet of נפשׁ. ... But the parallel נפשׁי, and the analogy of כּבודי (= נפשׁי), stamp it as an universal name for the soul: the single one, i.e., that which does not exist in duplicate, and consequently that which cannot be replaced, when lost.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 22:20",
+          "quote": "Here, according to Gesenius (Lexicon), it is used poetically for life, as being something most dear, or as denoting all that we have, and, therefore, most precious. Compare Job 2:4 . This is the most probable interpretation here, as it would thus correspond with the expression in the first part of the verse, \"deliver my soul.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-23-5-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 23:5",
+      "strength": "widely agreed",
+      "short": "The LORD pictured as a host who spreads a feast",
+      "about": "In verse 5 the picture changes from shepherd to host. The LORD spreads a table for David while his enemies can only look on, anoints his head with oil as an honored guest, and fills his cup until it overflows. It shows His rich and sure care for His own.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 23:5",
+        "words": "You prepare a table before me in the presence of my enemies",
+        "means": "the LORD’s rich care for David, pictured as a host who feasts and honors his guest while his enemies can only look on"
+      },
+      "evidence": "Clarke finds two allegories in the psalm, the second a great feast set out by a most kind and liberal host. Delitzsch (Keil and Delitzsch) says the figure of the shepherd fades and that of the host appears. Barnes says the image is now changed to a feast: God provides for his wants. Fausset (Jamieson, Fausset and Brown) says another figure expresses God’s care, the oil gladness, the cup abundance.",
+      "limit": "The writers differ on what the feast stands for: one says it means outward needs too, such as daily bread, received as a gift from heaven; another, that the blessings are spiritual.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Psalm 23:1",
+          "quote": "There are two allegories in this Psalm which are admirably well adapted to the purpose for which they are produced, and supported both with art and elegance. The first is that of a shepherd; the second, that of a great feast, set out by a host the most kind and the most liberal. As a flock, they have the most excellent pasture; as guests, they have the most nutritive and abundant fare.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 23:4-5",
+          "quote": "After the figure of the shepherd fades away in Psa 23:4 , that of the host appears. His enemies must look quietly on ... without being able to do anything, and see how Jahve provides bountifully for His guest, anoints him with sweet perfumes as at a joyous and magnificent banquet ... and fills his cup to excess. What is meant thereby, is not necessarily only blessings of a spiritual kind.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 23:5",
+          "quote": "The image is now changed, though expressing the general idea which is indicated in the first verse of the psalm, \"I shall not want.\" ... the evidence here is that God had provided a table, or a feast, for him in the very presence of his enemies, and had filled his cup with joy. The word \"table\" here is synonymous with \"feast;\" and the meaning is, \"thou providest for my wants.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 23:5",
+          "quote": "Another figure expresses God's provided care. a table--or, \"food,\" anointing oil--the symbol of gladness, and the overflowing cup--which represents abundance--are prepared for the child of God, who may feast in spite of his enemies ... The closing verse shows that the blessings mentioned are spiritual.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-24-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 24:1",
+      "strength": "some interpreters",
+      "short": "The earth and its fullness, the world and its people",
+      "about": "The second line says the first again in other words. The world, the earth as the home of its people, answers the earth, and all who dwell in it answer its fullness: all of it belongs to the LORD.",
+      "lines": [
+        {
+          "ref": "Psalm 24:1",
+          "words": "The earth is the LORD’s, and the fullness thereof,",
+          "key": "earth"
+        },
+        {
+          "ref": "Psalm 24:1",
+          "words": "the world and all who dwell therein.",
+          "key": "world"
+        }
+      ],
+      "pairs": [
+        [
+          "The earth",
+          "the world"
+        ],
+        [
+          "the fullness thereof",
+          "all who dwell therein"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) takes the fullness as everything and the world as the habitable globe, and says that the world, with those who dwell in it, forms a parallel expression to the first clause.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 24:1",
+          "quote": "fulness--everything. world--the habitable globe, with they that dwell--forming a parallel expression to the first clause.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-25-1-acrostic",
       "kind": "figure",
       "form": "acrostic",
@@ -2666,6 +3536,44 @@
       ]
     },
     {
+      "id": "psalm-28-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 28:5",
+      "strength": "some interpreters",
+      "short": "The LORD's works, then what His hands have done",
+      "about": "The second line says the first again in other words: what His hands have done is the works of the LORD. Those who pay no heed to what He does will be torn down.",
+      "lines": [
+        {
+          "ref": "Psalm 28:5",
+          "words": "Since they show no regard for the works of the LORD",
+          "key": "works"
+        },
+        {
+          "ref": "Psalm 28:5",
+          "words": "or what His hands have done,",
+          "key": "hands"
+        }
+      ],
+      "pairs": [
+        [
+          "the works of the LORD",
+          "what His hands have done"
+        ]
+      ],
+      "evidence": "Barnes takes the works of the Lord as what He does in creation, providence, His laws and His Spirit, and says the sense of the operation of His hands is essentially the same as in the former member of the sentence.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 28:5",
+          "quote": "Because they regard not the works of the Lord - What the Lord does in creation; in his providence; through His commands and laws; and by His Spirit. ... \"Nor the operation of his hands.\" What He is now doing. The sense is essentially the same as in the former member of the sentence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-33-13-turns",
       "kind": "parallelism",
       "form": "turns",
@@ -2776,6 +3684,154 @@
       ]
     },
     {
+      "id": "psalm-35-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 35:1",
+      "strength": "some interpreters",
+      "short": "Contend with them, fight them: one prayer twice",
+      "about": "The second line says the first again in other words. He asks the LORD to contend with those who strive with him, and then to fight those who fight him: both lines ask God to take his side against his foes.",
+      "lines": [
+        {
+          "ref": "Psalm 35:1",
+          "words": "Contend with my opponents, O LORD;",
+          "key": "Contend"
+        },
+        {
+          "ref": "Psalm 35:1",
+          "words": "fight against those who fight against me.",
+          "key": "those who fight against me"
+        }
+      ],
+      "pairs": [
+        [
+          "my opponents",
+          "those who fight against me"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew “contend” and “my opponents” are one word in two forms (riv): the LORD is asked to strive with those who strive with him.",
+        "strong": [
+          "H7378",
+          "H3401"
+        ]
+      },
+      "evidence": "Barnes says the first line's word means to contend or strive, and that the same word comes again in another form for those who strive against him; of the second line he says the same idea substantially occurs as in the former member of the verse.",
+      "limit": "The two lines can also be read as different turns of one prayer, the first for his own defence and the second against his enemies.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 35:1",
+          "quote": "The original word used here - רוב rûb - means to contend, strive, quarrel; ... The same word is used, in another form, in the other member of the sentence - \"with them that strive - יריבי yârı̂ybāy - against me.\" ... Fight against them that fight against me - The same idea substantially occurs here as in the former member of the verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-35-1-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 35:1-3",
+      "strength": "some interpreters",
+      "short": "Prayers for defence and for attack take turns",
+      "about": "The lines take turns. The first and third ask the LORD to defend him: to take up his cause, and to take up shield and buckler and come to his aid. The second and fourth ask Him to strike at his enemies: to fight them, and to draw the spear. Each turn takes the prayer further.",
+      "lines": [
+        {
+          "ref": "Psalm 35:1",
+          "words": "Contend with my opponents, O LORD;",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 35:1",
+          "words": "fight against those who fight against me.",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 35:2",
+          "words": "Take up Your shield and buckler; arise and come to my aid.",
+          "mark": "A'",
+          "key": "shield"
+        },
+        {
+          "ref": "Psalm 35:3",
+          "words": "Draw the spear and javelin against my pursuers;",
+          "mark": "B'",
+          "key": "spear"
+        }
+      ],
+      "evidence": "Bullinger sets out verses 1 to 3, and then 4 to 8, in alternating lines: prayer for himself, which he calls defensive, in the first, third and fifth, and prayer against his enemies, offensive, in the second, fourth and sixth, the meaning developed further each time.",
+      "limit": "The turns go on past these four lines: the plea in verse 3 for his soul is for himself again, and verses 4 to 8 are against his enemies. The first two lines can also be read as one plea said twice.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 35:1-3",
+          "at": "Exergasia, or Working Out, p. 400",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/400/mode/1up",
+          "quote": "In a 1 , a 2 , and a 3 , we have prayer for himself (  Defensive ), and in b 1 , b 2 , and b 3 , prayer against his enemies (  Offensive ). In each case the meaning is further developed.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-35-17-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 35:17",
+      "strength": "commonly held",
+      "short": "Rescue my soul, my precious life, said twice",
+      "about": "The second line says the first again in other words. His precious life is his own soul, and the lions are the enemies whose ravages he fears. He asks God to rescue that life from them.",
+      "lines": [
+        {
+          "ref": "Psalm 35:17",
+          "words": "Rescue my soul from their ravages",
+          "key": "my soul"
+        },
+        {
+          "ref": "Psalm 35:17",
+          "words": "my precious life from these lions",
+          "key": "my precious life"
+        }
+      ],
+      "pairs": [
+        [
+          "my soul",
+          "my precious life"
+        ],
+        [
+          "their ravages",
+          "these lions"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word for my precious life means my only one. It can be read as his one life, dear to him, or as his soul left alone, forsaken by his friends.",
+        "strong": [
+          "H3173"
+        ]
+      },
+      "evidence": "Joseph Benson (Benson's Commentary) says the darling of the second clause is the psalmist's soul or life, the same named in the first, and that his enemies seek like lions to devour him. Albert Barnes (Barnes' Notes) says the darling, in the margin my only one, refers to his own soul or life, the one life he had, and that the lions are his enemies.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "benson",
+          "on": "Psalm 35:17",
+          "quote": "Rescue my soul from their destructions ... my darling from the lions Namely, my soul or life, as it is in the former clause. Hebrew, my only one , for I am left alone, and forsaken by my friends, and have none to trust in but thee: (see on Psa 22:21 ;) and now they seek, like so many rapacious lions, to devour me.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 35:17",
+          "quote": "Rescue my soul from their destructions - My life from the destruction which they are aiming to accomplish. My darling - Margin, \"my only one.\" ... The reference here is to \"his own soul\" or life. ... He had but one soul or life, and that was dear to him, as an only child is dear to its parent. From the lions - Enemies, described as lions",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-37-1-acrostic",
       "kind": "figure",
       "form": "acrostic",
@@ -2864,6 +3920,209 @@
       ]
     },
     {
+      "id": "psalm-44-2-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 44:2",
+      "strength": "commonly held",
+      "short": "Nations driven out, Israel planted, in turns",
+      "about": "The lines can be read as taking turns. The first and third tell what God did to the nations: He drove them out and crushed them. The second and fourth tell what He did for Israel's fathers: He planted them, then sent them out over the land as a vine spreads its branches.",
+      "lines": [
+        {
+          "ref": "Psalm 44:2",
+          "words": "With Your hand You drove out the nations",
+          "mark": "A",
+          "key": "nations"
+        },
+        {
+          "ref": "Psalm 44:2",
+          "words": "and planted our fathers there",
+          "mark": "B",
+          "key": "planted"
+        },
+        {
+          "ref": "Psalm 44:2",
+          "words": "You crushed the peoples",
+          "mark": "A'",
+          "key": "peoples"
+        },
+        {
+          "ref": "Psalm 44:2",
+          "words": "and cast them out",
+          "mark": "B'",
+          "key": "cast them out"
+        }
+      ],
+      "pairs": [
+        [
+          "nations",
+          "peoples"
+        ],
+        [
+          "planted",
+          "cast them out"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the last verb, shalach, means to send out, and can be used of a tree or vine sending out its branches.",
+        "strong": [
+          "H7971"
+        ]
+      },
+      "evidence": "Albert Barnes (Barnes' Notes) says the last verb may mean the sending out of shoots by a vine, and that the parallelism clearly demands this reading, of the Israelites spread over the land. A. R. Fausset (Jamieson, Fausset and Brown) says the parallel construction makes our fathers the object of the last clause, and that heathen and people both mean the nations driven out.",
+      "limit": "The BSB, like some other writers, takes the last line of the peoples, cast out of the land. Read that way, the last two lines both tell of the nations, and the lines do not take turns.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 44:2",
+          "quote": "How thou didst afflict the people - That is, the people of the land of Canaan ... or it may be used to denote the sending out of shoots or branches by a tree or vine ... and then it would refer here to the Israelites, and would mean that God caused them to increase ... spread them over the land, as a vine spreads, Psa 80:8-11 . The parallelism here clearly demands the latter interpretation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 44:2",
+          "quote": "plantedst them--that is, \"our fathers,\" who are also, from the parallel construction of the last clause, to be regarded as the object of \"cast them out,\" which means--literally, \"send\" them out, or, \"extend them.\" Heathen and people denote the nations who were driven out to make room for the Israelites.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-44-14-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Psalm 44:14",
+      "strength": "widely agreed",
+      "short": "Israel made “a byword among the nations”",
+      "about": "The psalmist complains that God has made Israel a byword among the nations. They hold Israel up in their taunts as the example of a people brought low and cast off by God, and the peoples laugh it to scorn.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Psalm 44:14",
+        "words": "a byword among the nations",
+        "means": "Israel’s name, used by the nations as a taunting saying for a people brought to ruin and seemingly abandoned by God"
+      },
+      "original": {
+        "note": "In Hebrew “byword” is mashal, the word also used for a proverb or a parable.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "Barnes says the Hebrew word means a parable or proverb, and that Israel was made a proverb, pointed to as an instance of divine abandonment and an example of calamity, a warning to all. Delitzsch (Keil and Delitzsch) calls it a jesting, taunting proverb that holds Israel up as a nation under chastisement. Clarke says they became a proverb among the people for their misery.",
+      "limit": "The verse does not give the words of the taunt; it says only that Israel itself had become one.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 44:14",
+          "quote": "The word rendered \"by-word\" - משׁל mâshâl - means properly a similitude or parable ... then, a proverb ... The idea here is, that they were made a proverb, or were referred to as a striking instance of the divine abandonment, or as something marked to which the nations might and did refer as an example of calamity, judgment, misfortune, failure; a warning to all.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 44:13-16",
+          "quote": "משׁל is here a jesting, taunting proverb, and one that holds Israel up as an example of a nation undergoing chastisement (vid., Hab 2:6 ). The shaking of the head is, as in Psa 22:8 , a gesture of malicious astonishment.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 44:14",
+          "quote": "We are evidently abandoned by thee, and are become so very miserable in consequence, that we are a proverb among the people: \"See the Hebrews! see their misery and wretchedness! see how low the wrath of God has brought down an offending people!\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-45-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 45:1-17",
+      "refs": [
+        "Hebrews 1:8-9"
+      ],
+      "strength": "commonly held",
+      "short": "A king’s wedding song read as Christ and His bride",
+      "about": "The song praises a king for his grace, his victories and his everlasting throne. Then his bride is called to forget her father’s house, and she is led to him with joy. Read as one picture carried through, the King is Christ and the bride His church. Hebrews 1:8-9 applies verses 6 and 7 to the Son.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 45:10",
+        "words": "Forget your people and your father’s house",
+        "means": "the church, Christ’s bride, called to leave her old home and belong to Him as her King and Lord"
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the song is of allegorical, not literal, import: it describes the union of Christ and His Church, the Church portrayed as a bride invited to forsake her home. Henry calls it a song of the holy love between Christ and His church, in which the beauty of the royal bridegroom represents the excellencies of Christ.",
+      "limit": "Some read the song first as a real king’s wedding, such as Solomon’s, that points ahead to Christ, rather than as an allegory throughout. Either way, Hebrews 1:8-9 applies verses 6 and 7 to the Son.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 45:1",
+          "quote": "Maschil-- ... denotes the didactic character of the Psalm; that it gives instruction, the song being of allegorical, and not literal, import. The union and glories of Christ and his Church are described. ... The Church is portrayed in the purity and loveliness of a royally adorned and attended bride, invited to forsake her home and share the honors of her affianced lord.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 45:1-5",
+          "quote": "It is a song of loves, concerning the holy love that is between Christ and his church. ... It is a marriage-song; and therefore the transcendent excellencies of Christ are represented by the beauty of the royal bridegroom",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-49-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 49:3",
+      "strength": "commonly held",
+      "short": "Mouth and heart, wisdom and understanding",
+      "about": "The second line says the first again from within: the wisdom his mouth will impart is the understanding his heart has pondered. What he is about to teach is weighty, and well thought out before it is spoken.",
+      "lines": [
+        {
+          "ref": "Psalm 49:3",
+          "words": "My mouth will impart wisdom",
+          "key": "mouth"
+        },
+        {
+          "ref": "Psalm 49:3",
+          "words": "and the meditation of my heart will bring understanding",
+          "key": "heart"
+        }
+      ],
+      "pairs": [
+        [
+          "mouth",
+          "heart"
+        ],
+        [
+          "wisdom",
+          "understanding"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) calls understanding the parallel word to wisdom: profound insight, as the wisdom is weighty wisdom. He says the meditation of the heart stands side by side with the speaking of the mouth. Matthew Henry says the teaching is wisdom and understanding, and that what the psalmist spoke was what his heart had pondered.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 49:1-4",
+          "quote": "For his mouth will, or shall, utter הכמות, not: all sorts of wise teachings, but: weighty wisdom. Just in like manner תּבוּנות signifies profound insight or understanding ... The parallel word תּבוּנות in the passage before us ... Side by side with the speaking of the mouth stands חגוּת לב ... the meditation (lxx μελέτη) of the heart, and in accordance therewith the well-thought-out discourse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 49:1-5",
+          "quote": "My mouth shall speak of wisdom; what he had to say, 1. Was true and good. It is wisdom and understanding; it will make those wise and intelligent that receive it and submit to it. ... 2. It was what he had himself well digested. What his mouth spoke was the meditation of his heart",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-49-4-riddle",
       "kind": "figure",
       "form": "riddle",
@@ -2920,6 +4179,199 @@
       ]
     },
     {
+      "id": "psalm-49-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 49:4",
+      "strength": "commonly held",
+      "short": "The proverb he hears is the riddle he sets out",
+      "about": "The second line names again what the first calls a proverb, now as a riddle: a saying deep and hard to grasp. The psalmist first bends his ear to it, then sets it out for others with the harp.",
+      "lines": [
+        {
+          "ref": "Psalm 49:4",
+          "words": "I will incline my ear to a proverb",
+          "key": "proverb"
+        },
+        {
+          "ref": "Psalm 49:4",
+          "words": "I will express my riddle with the harp",
+          "key": "riddle"
+        }
+      ],
+      "pairs": [
+        [
+          "proverb",
+          "riddle"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) says such proverbs are often figurative and obscure, and that this is why the parallel word, dark saying or riddle, is used. Franz Delitzsch (Keil and Delitzsch) says the psalmist inclines his ear to the divine proverb, which in the depth of its contents is an involved riddle, and opens it up.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 49:4",
+          "quote": "parable--In Hebrew and Greek \"parable\" and \"proverb\" are translations of the same word. ... Such forms of speech are often very figurative and also obscure (compare Mat 13:12-15 ). Hence the use of the parallel word-- dark saying--or, \"riddle\" (compare Eze 17:2 ). open--is to explain.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 49:1-4",
+          "quote": "A משׁל, a saying embodying the wisdom of practical life, as God teaches men it, presents itself to his mind demanding to be heard; and to this he inclines his ear ... inasmuch as he opens up, i.e., unravels, the divine Mashal, which in the depth and fulness of its contents is a חידה, i.e., an involved riddle",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-51-5-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 51:5",
+      "strength": "commonly held",
+      "short": "Sinful from birth, and back to conception",
+      "about": "The second line reaches back further than the first: from his birth to the moment his mother conceived him. It can also be read as giving the reason: he was brought forth in iniquity because he was sinful from conception. So he traces his sin to the very start of his life.",
+      "lines": [
+        {
+          "ref": "Psalm 51:5",
+          "words": "Surely I was brought forth in iniquity",
+          "key": "brought forth"
+        },
+        {
+          "ref": "Psalm 51:5",
+          "words": "I was sinful when my mother conceived me",
+          "key": "conceived"
+        }
+      ],
+      "pairs": [
+        [
+          "brought forth",
+          "conceived"
+        ],
+        [
+          "iniquity",
+          "sinful"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says David confesses his inborn sin as the root of his actual sin, and that the confession moves backwards from his birth to his conception, the most remote point of life's beginning. Joseph Benson (Benson's Commentary) says the second words give the reason of the first: conceived in sin, therefore brought forth in iniquity.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 51:5-6",
+          "quote": "David here confesses his hereditary sin as the root of his actual sin. The declaration moves backwards from his birth to conception, it consequently penetrates even to the most remote point of life's beginning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 51:5",
+          "quote": "Behold, I was shapen in iniquity Hebrew, חוללתי, cholaleti, I was born , or brought forth: for it does not appear that the word ever signifies, I was shapen; and then the ensuing words will contain the reason of it; the sense being, because in sin did my mother conceive me, therefore I was brought forth in iniquity; that is, with great propensities and dispositions to sin.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-51-6-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 51:6",
+      "strength": "commonly held",
+      "short": "Truth within, wisdom within, said twice",
+      "about": "The second line answers the first in other words. The inmost being and the inmost place both name the hidden heart, and the truth God desires there is matched by the wisdom He teaches there. Truth and wisdom here can both be read as an upright, godly heart.",
+      "lines": [
+        {
+          "ref": "Psalm 51:6",
+          "words": "Surely You desire truth in the inmost being",
+          "key": "truth"
+        },
+        {
+          "ref": "Psalm 51:6",
+          "words": "You teach me wisdom in the inmost place",
+          "key": "wisdom"
+        }
+      ],
+      "pairs": [
+        [
+          "truth",
+          "wisdom"
+        ],
+        [
+          "inmost being",
+          "inmost place"
+        ]
+      ],
+      "evidence": "Joseph Benson (Benson's Commentary) says the hidden part of the second clause is the heart, called in the former clause the reins or inward parts, and takes the truth as uprightness of heart and the wisdom as true piety. A. R. Fausset (Jamieson, Fausset and Brown) says truth and wisdom are both terms often used for piety.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "benson",
+          "on": "Psalm 51:6",
+          "quote": "truth in the inward parts Uprightness of heart ... And in the hidden part , &c. That is, in the heart, called the hidden man of the heart, 1Pe 3:4 ; and, in the former clause, the reins , or inward parts; thou shalt make me to know wisdom That is, true piety and integrity, called wisdom, Job 28:28 ; Psa 111:10",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 51:6",
+          "quote": "truth . . . and . . .wisdom--are terms often used for piety (compare Job 28:28 ; Psa 119:30 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-54-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 54:1",
+      "strength": "commonly held",
+      "short": "Save me by Your name, by Your might",
+      "about": "The second line says the first again in other words: to be saved by God's name is to be vindicated by His might. God's name can be read as the showing of all He is, with His might one side of it.",
+      "lines": [
+        {
+          "ref": "Psalm 54:1",
+          "words": "Save me, O God, by Your name",
+          "key": "name"
+        },
+        {
+          "ref": "Psalm 54:1",
+          "words": "and vindicate me by Your might!",
+          "key": "might"
+        }
+      ],
+      "pairs": [
+        [
+          "Save",
+          "vindicate"
+        ],
+        [
+          "name",
+          "might"
+        ]
+      ],
+      "evidence": "Joseph Benson (Benson's Commentary) says by Your name means by God's own strength, as the next words explain it. Franz Delitzsch (Keil and Delitzsch) calls name the parallel word to might, and says God's might is one side of His name, which is the showing of His nature.",
+      "limit": "The writers differ on the name: one takes it as God's own strength, or else as His glory; the other takes it as His mercy, with His might one side of His name.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "benson",
+          "on": "Psalm 54:1",
+          "quote": "Save me by thy name That is, by thy own strength, as the next words explain it, because I have no other refuge. Or, for thy name , for thy own glory, which is concerned in my deliverance.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 54:1-3",
+          "quote": "The Name of God is the manifestation of His nature, which has mercy as its central point (for the Name of God is טּוב, v. 8, Ps 52:11), so that בּשׁמך (which is here the parallel word to בּגבוּרתך) is consequently equivalent to בּחסדּך. The obtaining of right for any one ... is attributed to the all-conquering might of God, which is only one side of the divine Name",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-57-7-exclamation",
       "kind": "figure",
       "form": "exclamation",
@@ -2961,6 +4413,222 @@
           "quote": "In this certainty, to express which the music here becomes triumphantly forte, David's heart is confident, cheerful ... and a powerful inward impulse urges him to song and harp.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-65-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 65:1",
+      "strength": "commonly held",
+      "short": "Praise waits for God, and vows are paid to Him",
+      "about": "The second line says the first again in other words. Praise awaits God in Zion, and His people's vows are fulfilled to Him: both lines speak of the thanks His people owe Him for His goodness.",
+      "lines": [
+        {
+          "ref": "Psalm 65:1",
+          "words": "Praise awaits You, O God, in Zion;",
+          "key": "Praise"
+        },
+        {
+          "ref": "Psalm 65:1",
+          "words": "to You our vows will be fulfilled.",
+          "key": "vows"
+        }
+      ],
+      "pairs": [
+        [
+          "Praise",
+          "vows"
+        ],
+        [
+          "awaits",
+          "will be fulfilled"
+        ]
+      ],
+      "evidence": "John Calvin says the first line means thanksgiving is due to the Lord, and the second clause is to the same effect, the people engaging to render due acknowledgement. A. R. Fausset (Jamieson, Fausset and Brown) reads praise as due to God, and says the last clause likewise expresses the duty of paying vows, the two parts of worship rendered in Zion.",
+      "limit": "This note does not claim that praise and vows are one thing: they can be read as two parts of the worship given to God in Zion.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalm 65:1",
+          "quote": "the main thing meant to be conveyed by the Psalmist is, that thanksgiving is due to the Lord for his goodness shown to his Church and people. The second clause of the verse is to the same effect, where he says, unto thee shall the vow be performed; for while he engages on the part of the people to render due acknowledgement",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 65:1",
+          "quote": "Praise is waiting as a servant; it is due to Thee. So the last clause expresses the duty of paying vows. These two parts of acceptable worship, mentioned in Psa 50:14 , are rendered in Zion, where God chiefly displays His mercy and receives homage.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-66-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 66:1-2",
+      "strength": "some interpreters",
+      "short": "The call to praise God, given and then given again",
+      "about": "The second verse says the call of the first again in other words, and more strongly: all the earth is to make a joyful noise to God, then to sing the glory of His name and make His praise glorious.",
+      "lines": [
+        {
+          "ref": "Psalm 66:1",
+          "words": "Make a joyful noise to God, all the earth!",
+          "key": "joyful noise"
+        },
+        {
+          "ref": "Psalm 66:2",
+          "words": "Sing the glory of His name; make His praise glorious.",
+          "key": "Sing"
+        }
+      ],
+      "evidence": "John Calvin says the psalm opens with a general call to all the earth, and that in the second verse the call is repeated with increasing vehemency, to stir up to praise those who might otherwise be slack.",
+      "limit": "This note does not claim that the two halves of verse 2 say the same thing; the second half can be read as asking that His praise be made glorious.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Psalm 66:1",
+          "quote": "The psalm begins with this general declaration, which is afterwards reduced to particulars. He addresses himself to the whole world ... In the second verse the call is repeated with increasing vehemency, to stir up to the praises of God, such as might otherwise be remiss in the service.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-68-20-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 68:20",
+      "strength": "some interpreters",
+      "short": "A God who delivers, a Lord who rescues from death",
+      "about": "The second line says the first again in other words. Our God is a God of deliverance, and the Lord GOD is our rescuer from death: His power to save reaches even those already given over to death.",
+      "lines": [
+        {
+          "ref": "Psalm 68:20",
+          "words": "Our God is a God of deliverance;",
+          "key": "deliverance"
+        },
+        {
+          "ref": "Psalm 68:20",
+          "words": "the Lord GOD is our rescuer from death.",
+          "key": "rescuer"
+        }
+      ],
+      "pairs": [
+        [
+          "deliverance",
+          "rescuer"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the word behind rescuer is escapes, and it answers the word for deliverance in the first line.",
+        "strong": [
+          "H4190",
+          "H8444"
+        ]
+      },
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says to death in the second line corresponds to to us in the first, and calls the Hebrew word for escapes the parallel word to deliverance: God gives His people help in rich abundance, and in His power are means of deliverance even for those already abandoned to death.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 68:19",
+          "quote": "God is to us a God למושׁעות, who grants us help in rich abundance. ... למּות corresponds to the לנוּ; ... תוצאות, the parallel word to מושׁעות, signifies, and it is the most natural meaning, the escapings; ... In Jahve's power are means of deliverance for death, i.e., even for those who are already abandoned to death.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-69-8-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 69:8",
+      "strength": "some interpreters",
+      "short": "A stranger to his brothers, his mother’s sons",
+      "about": "The second line says the first again in other words: his brothers are his mother's sons, and to them he has become a stranger and a foreigner. The shame he bears for God's sake has cut him off from his own family.",
+      "lines": [
+        {
+          "ref": "Psalm 69:8",
+          "words": "I have become a stranger to my brothers",
+          "key": "stranger"
+        },
+        {
+          "ref": "Psalm 69:8",
+          "words": "and a foreigner to my mother’s sons,",
+          "key": "foreigner"
+        }
+      ],
+      "pairs": [
+        [
+          "my brothers",
+          "my mother’s sons"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) says the reproach and shame he bears have totally estranged even his own brothers from him, and gives my mother's sons as the parallel word to my brothers.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 69:1",
+          "quote": "The reproach that he has to bear, and ignominy that has covered his face and made it quite unrecognisable ( Psa 44:16 , cf. Psa 83:17 ), have totally estranged ( Psa 38:12 , cf. Psa 88:9 , Job 19:13-15 ; Jer 12:6 ) from him even his own brethren (אחי, parallel word בּני אמּי, as in Psa 50:20",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-69-11-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Psalm 69:11",
+      "refs": [
+        "Psalm 69:10",
+        "Psalm 69:12"
+      ],
+      "strength": "widely agreed",
+      "short": "In sackcloth, David became a byword to scoffers",
+      "about": "David wept, fasted and wore sackcloth, and for this he became a byword: they made him the common subject of their jokes. Some read it to mean his name was used for anyone thought foolishly devout. Those at the gate mocked him, and drunkards sang of him (verse 12).",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Psalm 69:11",
+        "words": "I was sport to them",
+        "means": "his enemies made him a byword, a common jest and a name to mock, because of his grief before God"
+      },
+      "original": {
+        "note": "In Hebrew “sport” is mashal, a byword or proverb.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "Barnes explains the proverb as a jest, a subject of derision, a by-word: they ridiculed him for his sackcloth. Henry says they laughed at him as a fool for this and made him the common subject of their banter. Poole says they used his name proverbially of anyone they thought vainly and foolishly religious.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 69:11",
+          "quote": "I made sackcloth also my garment - I put on sackcloth. This was often done as expressive of grief and sorrow. ... In the case here referred to, this was an act of religion; an expression of penitence and humiliation. And I became a proverb to them - A jest; a subject of derision; a by-word. They ridiculed me for it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 69:1-12",
+          "quote": "They laughed at him as a fool for mortifying himself thus; and even for this he became a proverb to them; they made him the common subject of their banter.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 69:11",
+          "quote": "A proverb to them; they used my name proverbially of any person whom they thought vainly and foolishly religious.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/69.htm",
+          "retrieved": "2026-11-22"
         }
       ]
     },
@@ -3010,6 +4678,94 @@
           "quote": "Here a. and a. are positive; b. and b., negative. That is, we have prayer for deliverance in a. and a. … and deprecation in b. and b. … Thus a. answers to a., and b. to b.",
           "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-69-21-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 69:21",
+      "strength": "some interpreters",
+      "short": "Gall for his food, vinegar for his thirst",
+      "about": "The two lines answer each other part for part: gall with his food, vinegar for his thirst. Read with the second line, the first can mean that gall was given him as his food.",
+      "lines": [
+        {
+          "ref": "Psalm 69:21",
+          "words": "They poisoned my food with gall",
+          "key": "gall"
+        },
+        {
+          "ref": "Psalm 69:21",
+          "words": "and gave me vinegar to quench my thirst.",
+          "key": "vinegar"
+        }
+      ],
+      "pairs": [
+        [
+          "food",
+          "thirst"
+        ],
+        [
+          "gall",
+          "vinegar"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) takes the word for my thirst in the second line as the parallel word to my food in the first, and so reads the first line as gall given him for food.",
+      "limit": "Scholars differ on the first line: gall mixed into his food, as the BSB has it, or gall given him as his food, which the parallel with the second line can favour.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 69:14",
+          "quote": "Certainly נתן בּ can mean to put something into something, to mix something with it, but the parallel word לצמאי (for my thirst, i.e., for the quenching of it, Neh 9:15 , Neh 9:20 ) favours the supposition that the בּ of בּברוּתי is Beth essentiae, after which Luther renders: \"they give me gall to eat.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-76-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 76:1",
+      "strength": "some interpreters",
+      "short": "God known in Judah, His name great in Israel",
+      "about": "The second line says the first again in other words. God is known in Judah, and His name is great in Israel: His name stands for God Himself, and Israel answers Judah.",
+      "lines": [
+        {
+          "ref": "Psalm 76:1",
+          "words": "God is known in Judah;",
+          "key": "Judah"
+        },
+        {
+          "ref": "Psalm 76:1",
+          "words": "His name is great in Israel.",
+          "key": "Israel"
+        }
+      ],
+      "pairs": [
+        [
+          "God",
+          "His name"
+        ],
+        [
+          "Judah",
+          "Israel"
+        ]
+      ],
+      "evidence": "E. W. Bullinger (Figures of Speech) sets this verse out as an introverted parallel, with In Judah answering In Israel and God known answering His name great, and says it shows how the Name of God stands for God Himself.",
+      "limit": "Set out in another word order (in Judah, God known; His name great, in Israel), the parts run in mirror order; the BSB's order sets them side by side.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 76:1",
+          "at": "Introverted Parallelisms, p. 358",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/358/mode/1up",
+          "quote": "a “In Judah b is God known: b His name is great a In Israel. ” This shows how “the Name” of God stands, and is put for God Himself.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3109,6 +4865,68 @@
       ]
     },
     {
+      "id": "psalm-78-54-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 78:54",
+      "strength": "widely agreed",
+      "short": "His holy land, named again as “the mountain”",
+      "about": "The second line names the first line's holy land again. The mountain His right hand acquired is the land itself: many read it as the hill country of Canaan, a land of mountains and valleys (Deuteronomy 11:11), and some as Zion standing for the whole land.",
+      "lines": [
+        {
+          "ref": "Psalm 78:54",
+          "words": "He brought them to His holy land,"
+        },
+        {
+          "ref": "Psalm 78:54",
+          "words": "to the mountain His right hand had acquired."
+        }
+      ],
+      "pairs": [
+        [
+          "His holy land",
+          "the mountain"
+        ]
+      ],
+      "refs": [
+        "Deuteronomy 11:11",
+        "Exodus 15:17"
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says that, as in Exodus 15 and by the parallelism (though it does not compel it), the mountain is not Zion but the whole Holy Land. Clarke says the land of Canaan is afterwards called the mountain, being a mountainous country. Benson takes the mountain rather as Canaan's mountainous country. Fausset (Jamieson, Fausset and Brown) says Zion stands for the whole land.",
+      "limit": "Some take the mountain to be Mount Zion alone, where the sanctuary later stood, and not the whole land.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 78:49",
+          "quote": "to His holy territory, to the mountain which (זה) His right hand had acquired ... It is not Zion that is meant, but, as in the primary passage Exo 15:16 ., in accordance with the parallelism (although this is not imperative) and the usage of the language, which according to Isa 11:9 ; Isa 57:13 , is incontrovertible, the whole of the Holy Land with its mountains and valleys",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 78:54",
+          "quote": "The border of his sanctuary - קדשו kodsho, \"of his holy place,\" that is, the land of Canaan, called afterwards the mountain which his right hand had purchased; because it was a mountainous country",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 78:54",
+          "quote": "And he brought them to the border of his sanctuary Or, of his holiness , or holy place; that is, the land of Canaan ... Even to this mountain Either the mountain upon which the tabernacle and temple stood; or rather the mountainous country of Canaan, which is called a land of hills and valleys, Deu 11:11 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 78:54",
+          "quote": "border of his sanctuary--or, \"holy border\"--i. e., region of which-- this mountain--(Zion) was, as the seat of civil and religious government, the representative, used for the whole land",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-80-8-allegory",
       "kind": "figure",
       "form": "allegory",
@@ -3162,6 +4980,56 @@
           "quote": "This is a most elegant metaphor, and every where well supported. ... This vine was brought out of Egypt that it might be planted in a better and more favorable soil. The Israelites were brought out of their Egyptian bondage that they might be established in the land of Canaan",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-81-3-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Psalm 81:3",
+      "strength": "commonly held",
+      "short": "The horn at the New Moon, and at the full moon",
+      "about": "The second line completes the first. The first calls for the ram’s horn at the New Moon, and the second names the month’s great day: the full moon, on the day of the Feast, which many read as the Passover.",
+      "lines": [
+        {
+          "ref": "Psalm 81:3",
+          "words": "Sound the ram’s horn at the New Moon,"
+        },
+        {
+          "ref": "Psalm 81:3",
+          "words": "and at the full moon on the day of our Feast."
+        }
+      ],
+      "pairs": [
+        [
+          "New Moon",
+          "full moon"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the full moon is keseh, taken to mean the moon at the full, the time of the Passover.",
+        "strong": [
+          "H3677"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the horn is to begin at the new moon of the Passover month and to sound again as the Passover day opens. Barnes, agreeing with J. A. Alexander, says the first part of the verse names the month in general and the parallel word in the second its particular time, the full moon, which fits the Passover.",
+      "limit": "Writers differ on the first line: the New Moon, when the horn first sounds before it sounds again at the full moon, or the month in general, whose chief day the second line names. Some take the Feast to be Tabernacles rather than the Passover.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 81:1",
+          "quote": "even beginning from the new moon (neomenia) of the Passover month with blowing of shophars, and that this is to be continued at the Feast of the Passover itself. ... The blowing of the shophar is to announce the commencement of the Passover month, and at the commencement of the Passover day which opens the Feast of unleavened bread it is to be renewed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 81:3",
+          "quote": "The corresponding or parallel word, as we shall see, which is rendered in our version, in the time appointed, means full moon; and the probability is, as Professor Alexander suggests, that in the beginning of the verse the month is mentioned in general, and the particular time of the month - the full moon - in the other part of the verse. Thus the language is applicable to the passover.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3330,6 +5198,65 @@
       ]
     },
     {
+      "id": "psalm-92-12-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 92:12-14",
+      "strength": "widely agreed",
+      "short": "The righteous grow “like a palm tree” and a cedar",
+      "about": "The righteous are said to flourish like a palm tree and grow like a cedar in Lebanon. Planted in the house of the LORD, they still bear fruit in old age and stay green. Verse 7 gives the opposite picture: the wicked “sprout like grass,” only to be destroyed.",
+      "refs": [
+        "Psalm 92:7"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 92:12",
+        "words": "will flourish like a palm tree, and grow like a cedar in Lebanon",
+        "means": "the righteous: green and fruitful like the palm, tall, strong and lasting like the cedar"
+      },
+      "evidence": "Bullinger lists these verses among similitudes in word-pictures: the prosperity of the righteous is likened to the palm and the cedar. Barnes calls it the comparison of a righteous man to a green, flourishing tree; Clarke says the righteous are compared to these trees, the wicked to grass. Delitzsch (Keil and Delitzsch) finds points of comparison in abundance; Benson, a fit emblem.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 92:12-14",
+          "at": "Hypotyposis, or Word-Picture, p. 445",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/445/mode/1up",
+          "quote": "Certain similitudes: as when the blessings of Christ’s coming are compared to the rising sun ... or when the prosperity of the wicked is likened to a green bay-tree ... and that of the righteous to the palm and the cedar",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 92:12",
+          "quote": "That is, the beauty, the erectness, the stateliness, the growth of the palm-tree - all this is an emblem of the condition, the prosperity, the happiness of a righteous man. ... This image - the comparison of a righteous man to a flourishing, majestic, green, and beautiful tree - is not uncommon in the Scriptures.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 92:12",
+          "quote": "Very different from the wicked, Psa 92:7 , who are likened to grass. These shall have a short duration; but those shall have a long and useful life. ... The cedar gives us the idea of majesty, stability. durableness, and incorruptibility. To these two trees, for the most obvious reasons, are the righteous compared.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 92:10-12",
+          "quote": "When the prosperity lit. the blossoming of the ungodly comes to an end, the springing up and growth of the righteous only then rightly has its beginning. ... The likening of the righteous to the palm ... offers points of comparison in abundance. Side by side with the palm is the cedar, the prince of the trees of the mountain, and in particular of Mount Lebanon.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 92:12",
+          "quote": "Which is constantly green and flourishing ... and therefore a fit emblem of the flourishing state of a righteous man. ... These then, as well as the palm-trees, compared with the short-lived and withering grass, are a striking illustration of the well-founded, durable, and continually increasing virtue and happiness of the truly righteous",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-103-3-same",
       "kind": "parallelism",
       "form": "same",
@@ -3369,6 +5296,52 @@
           "quote": "Thus the Psalmist: Who forgiveth all thy sin; And healeth all thine infirmities. ... Where the latter line only varies the expression of the former.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla02lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-103-9-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 103:9",
+      "strength": "some interpreters",
+      "short": "Not always accusing, not angry forever",
+      "about": "The second line says the first again in other words. He will not always accuse, and He will not harbor His anger forever: both lines say that His displeasure with His people has an end once His correction has done its work.",
+      "lines": [
+        {
+          "ref": "Psalm 103:9",
+          "words": "He will not always accuse us,"
+        },
+        {
+          "ref": "Psalm 103:9",
+          "words": "nor harbor His anger forever."
+        }
+      ],
+      "pairs": [
+        [
+          "always",
+          "forever"
+        ],
+        [
+          "accuse us",
+          "harbor His anger"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the second line has no word for anger: it says only that He will not keep, natar, forever, and the word anger is rightly supplied.",
+        "strong": [
+          "H5201"
+        ]
+      },
+      "evidence": "Barnes says the second line means the same as the first: He will not always contend with people or show His displeasure, nor cherish hatred once the chastisement has done its work. He adds that the words his anger are supplied by the translators, and not wrongly.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 103:9",
+          "quote": "He will not always contend with people, or manifest his displeasure. ... Neither will he keep his anger for ever - The words \"his anger\" are supplied by the translators, but not improperly. The meaning is the same as in the former member of the sentence. He will not cherish hatred when the object of the chastisement is accomplished.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3418,6 +5391,163 @@
           "quote": "In Stanzas of Four lines sometimes the Parallel lines answer to one another alternately; the first to the third, and the second to the fourth: As the heavens are high above the earth; So high is his goodness over them that fear him: As remote as the east is from the west; So far hath he removed from us our transgressions.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-105-34-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 105:34",
+      "strength": "some interpreters",
+      "short": "Locusts, and “young locusts without number”",
+      "about": "The second line names the locusts of the first again with another word, and adds that they came without number. The two lines tell one plague, the eighth, the locusts of Exodus 10.",
+      "lines": [
+        {
+          "ref": "Psalm 105:34",
+          "words": "He spoke, and the locusts came"
+        },
+        {
+          "ref": "Psalm 105:34",
+          "words": "young locusts without number."
+        }
+      ],
+      "pairs": [
+        [
+          "the locusts",
+          "young locusts"
+        ]
+      ],
+      "refs": [
+        "Exodus 10:1-20"
+      ],
+      "original": {
+        "note": "In Hebrew the first line's word is arbeh, the locust, and the second's is yeleq, which can mean the grasshopper, set beside it as its parallel.",
+        "strong": [
+          "H0697",
+          "H3218"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says verses 34 and 35 tell the eighth plague, the locust of Exodus 10, and that yeleq, which he renders grasshopper, is the parallel word to it here, as another insect's name is in Psalm 78:46.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 105:25",
+          "quote": "The seventh plague is followed by the eighth in Psa 105:34 , Psa 105:35 , viz., the locust (Ex 10:1-20), to which ילק (the grasshopper) is the parallel word here, just as חסיל (the cricket) is in Psa 78:46 . The expression of innumerableness is the same as in Psa 104:25 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-109-14-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 109:14",
+      "strength": "some interpreters",
+      "short": "His fathers’ iniquity, his mother’s sin",
+      "about": "The second line answers the first in other words, most likely to complete the pair: the iniquity of his fathers is answered by the sin of his mother, and being remembered before the LORD by never being blotted out. Together the lines ask that the sin of both his parents stay on record.",
+      "lines": [
+        {
+          "ref": "Psalm 109:14",
+          "words": "May the iniquity of his fathers be remembered before the LORD,"
+        },
+        {
+          "ref": "Psalm 109:14",
+          "words": "and the sin of his mother never be blotted out."
+        }
+      ],
+      "pairs": [
+        [
+          "his fathers",
+          "his mother"
+        ],
+        [
+          "iniquity",
+          "sin"
+        ],
+        [
+          "be remembered",
+          "never be blotted out"
+        ]
+      ],
+      "evidence": "Barnes says the line on the mother's sin was probably added to complete the parallelism, so that the two lines speak of the sin of his father and his mother.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 109:14",
+          "quote": "And let not the sin of his mother be blotted out - This is probably added to complete the parallelism; the sin of his father and his mother.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-110-3-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Psalm 110:3",
+      "strength": "commonly held",
+      "short": "Two halves that answer each other, part by part",
+      "about": "The verse falls in two halves that answer part by part. Your willing people are seen again arrayed in holy splendor, and Your day of battle is answered by the dew of Your youth. In the second half the picture is dew from the womb of the dawn, fresh and full of strength.",
+      "lines": [
+        {
+          "ref": "Psalm 110:3",
+          "words": "Your people shall be willing",
+          "mark": "A"
+        },
+        {
+          "ref": "Psalm 110:3",
+          "words": "on Your day of battle.",
+          "mark": "B"
+        },
+        {
+          "ref": "Psalm 110:3",
+          "words": "Arrayed in holy splendor,",
+          "mark": "A'"
+        },
+        {
+          "ref": "Psalm 110:3",
+          "words": "to You belongs the dew of Your youth.",
+          "mark": "B'"
+        }
+      ],
+      "pairs": [
+        [
+          "Your people",
+          "holy splendor"
+        ],
+        [
+          "Your day of battle",
+          "the dew of Your youth"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first half ends with cheylekha, “Your strength” or army, and the second with yaldutekha, “Your youth”: the two words answer each other.",
+        "strong": [
+          "H2428",
+          "H3208"
+        ]
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the dew of Your youth answers the day of Your power in the first clause, and the beauties of holiness belong to the second clause, answering Your people. Delitzsch (Keil and Delitzsch) says the main break after the word for Your army makes its parallel with Your youth stand out, and he takes the holy attire as worn by the people.",
+      "limit": "Writers differ on the dew of Your youth: the King's own youthful strength, or His host of young men, who come to Him like dew.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 110:3",
+          "quote": "The Messiah, then, as leading His people, is represented as continually in the vigor of youth, refreshed and strengthened by the early dew of God's grace and Spirit. Thus the phrase corresponds as a member of a parallelism with \"the day of thy power\" in the first clause. \"In the beauties of holiness\" belongs to this latter clause, corresponding to \"Thy people\" in the first",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 110:3",
+          "quote": "The punctuation, which makes the principal caesura at חילך with Olewejored, makes the parallelism of חילך and ילדוּתך distinctly prominent. ... The young men are likened to dew which gently descends upon the king out of the womb (uterus) of the morning-red. ... here, however, the people without distinction wear holy festive garments.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3654,6 +5784,57 @@
       ]
     },
     {
+      "id": "psalm-122-7-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 122:7",
+      "strength": "some interpreters",
+      "short": "One wish twice: peace and prosperity for the city",
+      "about": "The second line says the first again in other words: peace, then prosperity; the walls, then the fortresses. The walls are the ramparts around the city and the fortresses its palaces, so read this way the one wish reaches Jerusalem outside and in.",
+      "lines": [
+        {
+          "ref": "Psalm 122:7",
+          "words": "May there be peace within your walls,"
+        },
+        {
+          "ref": "Psalm 122:7",
+          "words": "and prosperity inside your fortresses."
+        }
+      ],
+      "pairs": [
+        [
+          "peace",
+          "prosperity"
+        ],
+        [
+          "within",
+          "inside"
+        ],
+        [
+          "walls",
+          "fortresses"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew peace is shalom and prosperity shalvah, two words alike in sound that echo the name Jerusalem.",
+        "strong": [
+          "H7965",
+          "H7962"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) takes the word for palaces as the parallel word to the word for ramparts, so that the wish goes to the city without and within, and notes that the words for peace and prosperity sound alike in Hebrew and both accord with the name of Jerusalem.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 122:6",
+          "quote": "In Psa 122:7 the alliteration of שׁלום and שׁלוה is again taken up, and both accord with the name of Jerusalem. ... Happiness, cries out the poet to the holy city from afar, be within thy bulwarks, prosperity within thy palaces, i.e., without and within. חיל, ramparts, circumvallation ... and ארמנות as the parallel word, as in Psa 48:14",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-123-1-mirror",
       "kind": "parallelism",
       "form": "mirror",
@@ -3699,6 +5880,154 @@
           "quote": "the first line shall be parallel with the last; the second with the penultimate ... the introverted parallelism ... Unto thee do I lift up mine eyes, O thou that dwellest in the heavens; Behold, as the eyes of servants to the hands of their masters; As the eyes of a maiden to the hand of her mistress: Even so look our eyes to Jehovah our God, until he have mercy upon us. Psalm cxxiii. 1, 2.",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-125-4-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 125:4",
+      "strength": "commonly held",
+      "short": "Those who are good are the upright in heart",
+      "about": "The second line explains the first. Those who are good, for whom the psalmist asks the LORD's goodness, are the upright in heart: people whose hearts are truly right, as God desires, and who are as good as they seem.",
+      "lines": [
+        {
+          "ref": "Psalm 125:4",
+          "words": "Do good, O LORD, to those who are good,"
+        },
+        {
+          "ref": "Psalm 125:4",
+          "words": "and to the upright in heart."
+        }
+      ],
+      "pairs": [
+        [
+          "those who are good",
+          "the upright in heart"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the parallel member of the verse explains who the good are: those uprightly disposed in the bottom of their heart, as God desires. Henry reads the prayer for the good with the second line as its proviso: that they be upright in heart, really as good as they seem, sincere and honest rather than sinless.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 125:4",
+          "quote": "טובים ... are here those who truly believe and rightly act in accordance with the good will of God, ... or, as the parallel member of the verse explains ..., those who in the bottom of their heart are uprightly disposed, as God desires to have it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 125:4",
+          "quote": "Do good, O Lord! unto those that are good. This teaches us to pray for all good people ... Those that are as they should be shall be as they would be, provided they be upright in heart, that they be really as good as they seem to be. ... He does not say, Do good, O Lord! to those that are perfect, that are sinless and spotless, but to those that are sincere and honest.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-127-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 127:1",
+      "strength": "commonly held",
+      "short": "House and city: both in vain without the LORD",
+      "about": "The second half says the first again in another form. Builders labor in vain unless the LORD builds; watchmen guard in vain unless He protects. The house can be read as the family as well as the building, and the city as the whole state: in both, all depends on God.",
+      "lines": [
+        {
+          "ref": "Psalm 127:1",
+          "words": "Unless the LORD builds the house, its builders labor in vain;"
+        },
+        {
+          "ref": "Psalm 127:1",
+          "words": "unless the LORD protects the city, its watchmen stand guard in vain."
+        }
+      ],
+      "pairs": [
+        [
+          "builds",
+          "protects"
+        ],
+        [
+          "the house",
+          "the city"
+        ],
+        [
+          "builders",
+          "watchmen"
+        ],
+        [
+          "labor in vain",
+          "stand guard in vain"
+        ]
+      ],
+      "evidence": "Barnes says the second half repeats the same idea of dependence in another form: the keeping of a city depends wholly on God. Calvin takes the house to take in the whole order of a family, as the city takes in the whole commonwealth, and says all labor in keeping either is to no purpose unless God gives it success.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 127:1",
+          "quote": "Except the Lord keep the city - The same idea of dependence is here repeated in another form. The preservation of a city depends wholly on God, whatever care or precaution may be used.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 127:1",
+          "quote": "By the word house he means not only a building ... but he comprehends the whole domestic order and government of a family, even as a little after by the word city he denotes ... the general state of the whole commonwealth. ... whatever labor, foresight, and skill men may employ in maintaining a family, or in preserving a city, will be to no purpose unless God grant from heaven a prosperous issue",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-129-6-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 129:6-8",
+      "strength": "widely agreed",
+      "short": "Zion's foes wither “like grass on the rooftops”",
+      "about": "Those who hate Zion are pictured as grass on the rooftops. It springs up but withers before it can grow, so no reaper fills his hands with it, and no one passing by gives the harvest blessing. The picture shows them, and all they plan against Zion, coming to nothing.",
+      "refs": [
+        "Psalm 129:5"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 129:6",
+        "words": "like grass on the rooftops",
+        "means": "the enemies of Zion: soon withered, of use to no one, their plans never coming to harvest"
+      },
+      "evidence": "Henry says it is a similitude: the enemies wither as grass on the housetop, and their attempts never ripen. Delitzsch (Keil and Delitzsch) says the poet pursues the figure further: they are grass never garnered in. Barnes calls it a perfect image of feebleness and disappointed hopes; Fausset (Jamieson, Fausset and Brown) says the roof grass sets forth the uselessness and rejection of the wicked.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 129:5-8",
+          "quote": "The confusion imprecated and predicted is illustrated by a similitude; while God's people shall flourish as the loaded palm-tree, or the green and fruitful olive, their enemies shall wither as the grass upon the house-top. ... nor will their attempts against Zion ever ripen or come to any head",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 129:6-8",
+          "quote": "The poet illustrates the fate that overtakes them by means of a picture borrowed from Isaiah and worked up ... The roof-grass withers before it has put forth ears of blossoms, just because it has no deep root ... The poet pursues the figure of the grass of the house-tops still further. ... The enemies of Israel are as grass upon the house-tops, which is not garnered in",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 129:6",
+          "quote": "It has no depth of earth to sustain it; having sprouted, and begun to grow, it soon dies - a perfect image of feebleness and desolation; of hopes begun only to be disappointed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 129:5-8",
+          "quote": "The ill-rooted roof grass, which withers before it grows up and procures for those gathering it no harvest blessing ... sets forth the utter uselessness and the rejection of the wicked.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3834,6 +6163,118 @@
       ]
     },
     {
+      "id": "psalm-141-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 141:3",
+      "strength": "widely agreed",
+      "short": "A guard on the mouth, a watch at the lips’ door",
+      "about": "The second line asks again what the first asks: a guard over the mouth, then a watch at the door of the lips. The lips are the door the mouth's words go out by, so both lines pray to be kept from speaking wrongly.",
+      "lines": [
+        {
+          "ref": "Psalm 141:3",
+          "words": "Set a guard, O LORD, over my mouth;"
+        },
+        {
+          "ref": "Psalm 141:3",
+          "words": "keep watch at the door of my lips."
+        }
+      ],
+      "pairs": [
+        [
+          "Set a guard",
+          "keep watch"
+        ],
+        [
+          "my mouth",
+          "the door of my lips"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew a guard (shomrah) and keep watch (nitsrah) are parallel words; the word for the door (dal), found only here, stands for the usual word for a door.",
+        "strong": [
+          "H8108",
+          "H5341",
+          "H1817"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) reads the verse as a petition for the grace of silence, compares the doors of the mouth in Micah 7:5, and calls the word for keeping watch the parallel word to the word for a guard. Henry: the lips are the door to the words, and grace must keep that door. Poole: the lips are the door of the mouth, whence words come forth.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 141:3",
+          "quote": "The prayer now begins to be particularized, and that in the first instance as a petition fore the grace of silence ... In Psa 141:3 דּל is ἅπ. λεγ. for דּלת; cf. \"doors of the mouth\" in Mic 7:5 ... and also as the parallel word to שׁמרה, which likewise has the appearance of being imperative, נצּרה is explicable as regards its pointing",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 141:3",
+          "quote": "Set a watch, O Lord! before my mouth, and, nature having made my lips to be a door to my words, let grace keep that door, that no word may be suffered to go out which may in any way tend to the dishonour of God or the hurt of others.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 141:3",
+          "quote": "That I may not through mine own infirmity, and the great provocations of mine enemies, break forth into any unadvised speeches, or any expressions of impatience, or distrust, or envy, or malice, &c. ... My lips, which are the door of my mouth whence words come forth.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/141.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "psalm-142-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 142:1",
+      "strength": "commonly held",
+      "short": "Two lines, one cry, each to the LORD",
+      "about": "The second line says the first again: I cry aloud, then I lift my voice for mercy. Both lines lay their weight on the words to the LORD, the One he turns to when all others have forsaken him. Saying it twice shows how earnestly he prayed, and he prays aloud.",
+      "lines": [
+        {
+          "ref": "Psalm 142:1",
+          "words": "I cry aloud to the LORD;"
+        },
+        {
+          "ref": "Psalm 142:1",
+          "words": "I lift my voice to the LORD for mercy."
+        }
+      ],
+      "pairs": [
+        [
+          "cry aloud",
+          "for mercy"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the two verbs are parallel words: one means to cry out, the other to plead for favor.",
+        "strong": [
+          "H2199",
+          "H2603"
+        ]
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) says the stress of the first two lines rests on the words to the LORD, and that crying out has pleading for favor as its parallel word: an urgent prayer, made not only inwardly but with the voice, by one forsaken by all others. Calvin says the repetition shows that David prayed with earnestness.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 142:1",
+          "quote": "The emphasis of the first two lines rests upon אל־ה. Forsaken by all created beings, he confides in Jahve. He turns to Him in pathetic and importunate prayer (זעק, the parallel word being התחנּן, as in Psa 30:9 ), and that not merely inwardly ( Exo 14:15 ), but with his voice",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Psalm 142:1",
+          "quote": "The repetition he makes use of indicates his having prayed with earnestness, so as to be impervious to every assault of temptation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-145-1-acrostic",
       "kind": "figure",
       "form": "acrostic",
@@ -3883,6 +6324,107 @@
           "quote": "This is an alphabetical Psalm; and therefore no great connection of one verse with another is to be expected in it.",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-147-19-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 147:19",
+      "strength": "commonly held",
+      "short": "His word, then His statutes and judgments",
+      "about": "The second line says the first again and opens it out. His word to Jacob is shown in the second line as His statutes and judgments to Israel: the word He declared to His people unfolds in the laws He made known to them.",
+      "lines": [
+        {
+          "ref": "Psalm 147:19",
+          "words": "He declares His word to Jacob,",
+          "key": "His word"
+        },
+        {
+          "ref": "Psalm 147:19",
+          "words": "His statutes and judgments to Israel.",
+          "key": "statutes and judgments"
+        }
+      ],
+      "pairs": [
+        [
+          "His word",
+          "His statutes and judgments"
+        ],
+        [
+          "Jacob",
+          "Israel"
+        ]
+      ],
+      "evidence": "Franz Delitzsch (Keil and Delitzsch) points to the plurals of the verse's parallel member and says the word sent to Israel unfolds itself in statutes and judgments. Matthew Henry reads the lines the same way: God showed His word to Jacob, and by that word He made known to them His statutes and judgments.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 147:12-20",
+          "quote": "The Ker דּבריו, occasioned by the plurals of the parallel member of the verse, gives an unlimited indistinct idea. ... The word, which is the medium of God's cosmical rule, is gone forth as a word of salvation to Israel, and, unfolding itself in statutes and judgments, has raised Israel to a legal state",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 147:12-20",
+          "quote": "They did not find out God's statutes and judgments of themselves, but God showed his word unto Jacob, and by that word he made known to them his statutes and judgments.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "psalm-148-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Psalm 148:1",
+      "strength": "widely agreed",
+      "short": "From the heavens, in the highest places",
+      "about": "The second line says the first again in other words. The heavens of the first line are the highest places of the second, so both lines name the one place where the praise of the LORD is to sound first.",
+      "lines": [
+        {
+          "ref": "Psalm 148:1",
+          "words": "Praise the LORD from the heavens;",
+          "key": "heavens"
+        },
+        {
+          "ref": "Psalm 148:1",
+          "words": "praise Him in the highest places.",
+          "key": "highest places"
+        }
+      ],
+      "pairs": [
+        [
+          "heavens",
+          "highest places"
+        ]
+      ],
+      "evidence": "A. R. Fausset (Jamieson, Fausset and Brown) calls the heavens and the heights synonymous. Franz Delitzsch (Keil and Delitzsch) says the praise is to sound first from the heavens, in the heights of heaven, and lets the parallel phrase settle how the first line is read. Matthew Henry: the heavens are the heights.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 148:1",
+          "quote": "heavens [and] heights--are synonymous.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 148:1-6",
+          "quote": "The place whence, before all others, the praise is to resound is the heavens; it is to resound in the heights, viz., the heights of heaven ( Job 16:19 ; Job 25:2 ; Job 31:2 ). The מן might, it is true, also denote the birth or origin: ye of the heavens, i.e., ye celestial beings (cf. Psa 68:27 ), but the parallel בּמּרומים renders the immediate construction with הללוּ more natural.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 148:1-6",
+          "quote": "In general, to the heavens, to the heights. The heavens are the heights, and therefore we must lift up our souls above the world unto God in the heavens",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

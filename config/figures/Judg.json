@@ -308,6 +308,80 @@
       ]
     },
     {
+      "id": "judges-10-17-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Judges 10:17",
+      "strength": "some interpreters",
+      "short": "Ammon gathers and camps; Israel gathers and camps",
+      "about": "The verse tells of two armies in the same three steps, taking turns: the Ammonites, called to arms, camped in Gilead; the Israelites, assembled, camped at Mizpah. Each part of the first half is answered by the same part in the second.",
+      "lines": [
+        {
+          "ref": "Judges 10:17",
+          "words": "Then the Ammonites",
+          "mark": "A",
+          "key": "Ammonites"
+        },
+        {
+          "ref": "Judges 10:17",
+          "words": "were called to arms",
+          "mark": "B",
+          "key": "called to arms"
+        },
+        {
+          "ref": "Judges 10:17",
+          "words": "and camped in Gilead,",
+          "mark": "C",
+          "key": "Gilead"
+        },
+        {
+          "ref": "Judges 10:17",
+          "words": "and the Israelites",
+          "mark": "A'",
+          "key": "Israelites"
+        },
+        {
+          "ref": "Judges 10:17",
+          "words": "assembled",
+          "mark": "B'",
+          "key": "assembled"
+        },
+        {
+          "ref": "Judges 10:17",
+          "words": "and camped at Mizpah.",
+          "mark": "C'",
+          "key": "Mizpah"
+        }
+      ],
+      "pairs": [
+        [
+          "the Ammonites",
+          "the Israelites"
+        ],
+        [
+          "called to arms",
+          "assembled"
+        ],
+        [
+          "Gilead",
+          "Mizpah"
+        ]
+      ],
+      "evidence": "E. W. Bullinger, under Extended Alternation, sets the verse out in six lines lettered a, b, c and a, b, c again: the children of Ammon and the children of Israel, their gathering together and assembling, and their camps in Gilead and in Mizpeh.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Judges 10:17",
+          "at": "Complex Parallelism, Extended Alternation, p. 356",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/356/mode/1up",
+          "quote": "a “Then the children of Ammon b were gathered together, c and encamped in Gilead. a And the children of Israel b assembled themselves together, c and encamped in Mizpeh.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "judges-14-14-riddle",
       "kind": "figure",
       "form": "riddle",

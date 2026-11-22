@@ -1,6 +1,61 @@
 {
   "notes": [
     {
+      "id": "ephesians-2-20-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ephesians 2:20-22",
+      "strength": "widely agreed",
+      "short": "The church pictured as a temple being built",
+      "about": "Paul carries one picture through three verses: believers are a building set on the foundation of the apostles and prophets, with Christ Jesus as the cornerstone. Fitted together in Him, the building grows into a holy temple, a dwelling place for God in His Spirit.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ephesians 2:21",
+        "words": "the whole building is fitted together and grows into a holy temple in the Lord",
+        "means": "the church, Jews and Gentiles joined in Christ, built up as one temple in which God Himself dwells by His Spirit"
+      },
+      "evidence": "Alfred Barry (Ellicott): in these verses the metaphor of the church as God's building reaches its full perfection. Adam Clarke: Paul applies the metaphor of stones fitted into a temple to Jews and Gentiles made God's dwelling. Albert Barnes: a comparison probably from the temple. John Calvin calls the temple metaphor apt. A. R. Fausset (Jamieson, Fausset and Brown): growth is added to the image.",
+      "limit": "The writers differ on what the foundation of the apostles and prophets is, their teaching or the men themselves. One allows that the great temple at Ephesus may lie behind the picture; another holds that Paul had the temple at Jerusalem in view.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Ephesians 2:20-22",
+          "quote": "In these verses there is a sudden change from a political to a physical metaphor, possibly suggested by the word “household.” The metaphor itself, of the Church as “a building of God” — frequently used in the New Testament — reaches its full perfection in this passage.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ephesians 2:22",
+          "quote": "The apostle now applies the metaphor to the purpose for which he produced it, retaining however some of the figurative expressions. As the stones in a temple are all properly placed so as to form a complete house, and be a habitation for the Deity that is worshipped there, so ye are all, both believing Jews and Gentiles ... to become a habitation of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ephesians 2:20",
+          "quote": "The comparison of the church with a building, is common in the Scriptures: compare the notes at Co1 3:9-10 . The comparison was probably taken from the temple ... Besides, the temple was the sacred place where God dwelt on the earth; and as the church was the place where he delighted now to abide, it became natural to speak of his church as the temple, or the residence of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Ephesians 2:21",
+          "quote": "he conveys the instruction, that all who are fitly framed together in Christ are the temple of the Lord. There is first required a fitting together, that believers may embrace and accommodate themselves to each other by mutual intercourse; otherwise there would not be a building, but a confused mass. ... In both cases the metaphor is just and appropriate.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ephesians 2:21",
+          "quote": "Here an additional thought is added to the image; the Church has the growth of a living organism, not the mere increase of a building.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "ephesians-3-8-meiosis",
       "kind": "figure",
       "form": "meiosis",

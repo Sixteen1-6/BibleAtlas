@@ -60,6 +60,65 @@
       ]
     },
     {
+      "id": "joshua-6-26-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Joshua 6:26",
+      "strength": "widely agreed",
+      "short": "Firstborn at the foundations, youngest at the gates",
+      "about": "The last two lines of the curse are built alike: the first ties the foundations to the firstborn, the second ties the gates to the youngest. Together they reach from the start of the work to its end, and the builder would lose his sons, eldest to last. 1 Kings 16:34 tells how it came true.",
+      "lines": [
+        {
+          "ref": "Joshua 6:26",
+          "words": "at the cost of his firstborn he will lay its foundations;",
+          "key": "firstborn"
+        },
+        {
+          "ref": "Joshua 6:26",
+          "words": "at the cost of his youngest he will set up its gates.",
+          "key": "youngest"
+        }
+      ],
+      "pairs": [
+        [
+          "firstborn",
+          "youngest"
+        ],
+        [
+          "foundations",
+          "gates"
+        ]
+      ],
+      "refs": [
+        "1 Kings 16:34"
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the parallelism is plain in this curse: the last two clauses mean the builder would pay with all his sons, from the firstborn to the youngest. Robert Jamieson (Jamieson, Fausset and Brown): the beginning marked by the eldest son's death, the completion by the last child's. Adam Clarke: he would lose all his children from the foundation to the walls' completion.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Joshua 6:26-27",
+          "quote": "The rhythmical parallelism is unmistakeable in this curse. The two last clauses express the thought that the builder of the town would pay for its restoration by the loss of all his sons, from the first-born to the very youngest.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Joshua 6:26",
+          "quote": "he shall lay the foundation thereof in his first-born, and in his youngest son shall he set up the gates of it--shall become childless--the first beginning being marked by the death of his oldest son, and his only surviving child dying at the time of its completion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Joshua 6:26",
+          "quote": "He shall lay the foundation thereof, etc. - This is a strange execration; but it may rather be considered in the light of a prediction. It seems to intimate that he who should attempt to rebuild this city, should lose all his children in the interim, from laying the foundation to the completion of the walls",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "joshua-7-24-many-ands",
       "kind": "figure",
       "form": "many-ands",
@@ -229,6 +288,140 @@
           "quote": "In a. and b. we have the speech of Joshua; in a. and b., the reply of the Gibeonites. The point now to be established is, that the part of the reply in a. answers to the part of the speech in a.; and the part in b., to the part in b. … The Gibeonites reply to the question in a., and express submission to the sentence in b.",
           "read": "the 1825 printing, in the scan at archive.org/details/akeytobookpsalm00boysgoog",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "joshua-10-24-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Joshua 10:24-25",
+      "strength": "widely agreed",
+      "short": "Feet on the necks of the defeated kings",
+      "about": "At Joshua's word his army commanders put their feet on the necks of five defeated kings. The act was a sign of complete victory, and Joshua gives its meaning at once: the LORD will do the same to all the enemies they fight, so they need not be afraid.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Joshua 10:24",
+        "words": "put your feet on the necks of these kings",
+        "means": "the enemy wholly subdued, and a pledge that the LORD would do the same to every enemy Israel would fight"
+      },
+      "evidence": "Adam Clarke says it was done symbolically, a token of the present victory and of coming triumph over all their enemies, as Joshua explains next. C. F. Keil (Keil and Delitzsch) calls it a symbolical act, a sign of complete subjugation, meant also to spur Israel on. T. E. Espin (Barnes' Notes) calls it a symbol of complete subjugation; Jamieson (Jamieson, Fausset and Brown), a symbolical action.",
+      "limit": "One writer adds that the gesture was a customary sign of subjugation. Here a leader, not a prophet, gives the sign, and his army commanders carry it out.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Joshua 10:24",
+          "quote": "Put your feet upon the necks of these kings - This act was done symbolically, as a token, not only of the present complete victory, but of their approaching triumph over all their adversaries, which is the interpretation given of it by Joshua in the succeeding verse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Joshua 10:22-27",
+          "quote": "The fact that the military leaders set their feet ... upon the necks of the conquered kings, was not a sign of barbarity ... but was a symbolical act, a sign of complete subjugation, which was customary in this sense even in the Eastern empire ... It was also intended in this instance to stimulate the Israelites to further conflict with the Canaanites. This is stated in the words of Joshua",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Joshua 10:24",
+          "quote": "Put your feet upon the necks of these kings - A symbol of complete subjugation",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Joshua 10:24",
+          "quote": "put your feet upon the necks of these kings--not as a barbarous insult, but a symbolical action, expressive of a complete victory",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "joshua-10-41-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Joshua 10:41",
+      "strength": "commonly held",
+      "short": "Kadesh-barnea to Gaza, then Goshen to Gibeon",
+      "about": "The two clauses are built alike, each naming a stretch of land from one place to another. The first marks the bounds of the conquest on the west, from Kadesh-barnea to Gaza; the second marks them on the east, the region of Goshen as far as Gibeon. Read together, they take in both sides of the land.",
+      "lines": [
+        {
+          "ref": "Joshua 10:41",
+          "words": "Joshua conquered the area from Kadesh-barnea to Gaza,",
+          "key": "Gaza"
+        },
+        {
+          "ref": "Joshua 10:41",
+          "words": "and the whole region of Goshen as far as Gibeon.",
+          "key": "Gibeon"
+        }
+      ],
+      "pairs": [
+        [
+          "Kadesh-barnea",
+          "Goshen"
+        ],
+        [
+          "Gaza",
+          "Gibeon"
+        ]
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) says that as the line from Kadesh-barnea to Gaza gives the extent of the conquered land from south to north on the western side, so the parallel clause, Goshen to Gibeon, gives it on the eastern side. T. E. Espin (Barnes' Notes) says the same: the first limits Joshua's conquests on the west, as the other line does on the east.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Joshua 10:40",
+          "quote": "As the line \"from Kadesh-barnea to Gaza\" defines the extent of the conquered country from south to north on the western side, so the parallel clause, \"all the country of Goshen, even unto Gibeon,\" defines the extent from south to north on the eastern side.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Joshua 10:41",
+          "quote": "From Kadesh-barnea unto Gaza - Num 13:26 This limits Joshua's conquests on the west, as the other line, \"all the country of Goshen unto Gibeon,\" does on the east.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "joshua-22-5-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Joshua 22:5",
+      "strength": "some interpreters",
+      "short": "Love Him, and serve Him with all your heart",
+      "about": "The charge names the sum of the law, love for the LORD and holding fast to Him, and then says the same again in other words: serving Him with all the heart and all the soul. Those last words mark the love asked for as sincere, more than outward worship.",
+      "lines": [
+        {
+          "ref": "Joshua 22:5",
+          "words": "to love the LORD your God,",
+          "key": "love"
+        },
+        {
+          "ref": "Joshua 22:5",
+          "words": "to hold fast to Him,",
+          "key": "hold fast"
+        },
+        {
+          "ref": "Joshua 22:5",
+          "words": "and to serve Him with all your heart and with all your soul.",
+          "key": "serve"
+        }
+      ],
+      "evidence": "John Calvin says Joshua touches on the end and sum of the law, love to God and adherence to Him, and then confirms the same thing in other words that mark sincerity: serving the Lord with the whole heart and soul.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Joshua 22:5",
+          "quote": "He touches also on the end and sum of the Law, love to God, and adherence to him, because outward worship would otherwise be of little value. He confirms the same thing by other words, by which sincerity is denoted, namely, serving the Lord with their whole heart and soul.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

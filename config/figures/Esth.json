@@ -1,0 +1,116 @@
+{
+  "notes": [
+    {
+      "id": "esther-8-5-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "Esther 8:5",
+      "strength": "commonly held",
+      "short": "The king's will, then her favor, twice in turn",
+      "about": "Four clauses take turns before Esther makes her request. The first and third ask what pleases the king and seems proper to him. The second and fourth rest on Esther herself, that she has found favor and is pleasing in his sight.",
+      "lines": [
+        {
+          "ref": "Esther 8:5",
+          "words": "If it pleases the king,",
+          "mark": "A",
+          "key": "king"
+        },
+        {
+          "ref": "Esther 8:5",
+          "words": "and if I have found favor in his sight,",
+          "mark": "B",
+          "key": "favor"
+        },
+        {
+          "ref": "Esther 8:5",
+          "words": "and the matter seems proper to the king,",
+          "mark": "A'",
+          "key": "king"
+        },
+        {
+          "ref": "Esther 8:5",
+          "words": "and I am pleasing in his sight,",
+          "mark": "B'",
+          "key": "pleasing"
+        }
+      ],
+      "pairs": [
+        [
+          "pleases",
+          "proper"
+        ],
+        [
+          "favor",
+          "pleasing"
+        ]
+      ],
+      "evidence": "E. W. Bullinger (Figures of Speech), under Alternate parallelism, sets the verse out a b a b, the a lines on the king and the b lines on Esther's personal influence. Matthew Henry gives her words as a pair said and then said again, the second time of the thing itself before the king and of herself who asks it, spoken with deep deference to the king.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Esther 8:5",
+          "at": "Complex Parallelism, Alternate, p. 352",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/352/mode/1up",
+          "quote": "a The king. “If it please the king.” b Esther’s personal influence. “And if I have found favour.” a The king. “And the thing seem right before the king.” b Esther’s personal influence. “And I be pleasing in his eyes.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Esther 8:3-14",
+          "quote": "She expresses it with great submission, and a profound deference to the king and his wisdom and will ... If it please the king and if I have found favour in his sight—and again, \"If the thing itself seem right and reasonable before the king, and if I that ask it be pleasing in his eyes, let the decree be reversed.\"",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "esther-10-3-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Esther 10:3",
+      "strength": "some interpreters",
+      "short": "Seeking good for his people, speaking peace to all",
+      "about": "The two last phrases run in parallel and mean one thing: Mordecai worked for the good of his people. Set beside his people, his countrymen means his whole race, not his own descendants, and the pair shows him doing them good by deed and by word.",
+      "lines": [
+        {
+          "ref": "Esther 10:3",
+          "words": "seeking the good of his people"
+        },
+        {
+          "ref": "Esther 10:3",
+          "words": "speaking peace to all his countrymen."
+        }
+      ],
+      "pairs": [
+        [
+          "seeking the good",
+          "speaking peace"
+        ],
+        [
+          "his people",
+          "all his countrymen"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the last word is zera, seed or offspring; set beside his people, it means not his descendants but his whole race.",
+        "strong": [
+          "H2233",
+          "H5971"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says this closing description of Mordecai has a rhetorical and poetic tinge, that the word for countrymen stands in parallel with his people and means his race, not his descendants, and that the two last phrases together mean Mordecai sought his people's good by word and by deed.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Esther 10:1-3",
+          "quote": "This description of Mordochai's position with respect both to the king and his own people has, as expressive of an exalted frame of mind, a rhetorical and poetic tinge. ... זרעו in parallelism with עמּו is not the descendants of Mordochai, or his people, but his race. ... The meaning of the two last phrases is: Mordochai procured both by word and deed the good and prosperity of his people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    }
+  ]
+}

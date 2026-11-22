@@ -271,6 +271,58 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "2-samuel-22-26-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "2 Samuel 22:26-27",
+      "strength": "some interpreters",
+      "short": "Four lines built alike: God answers each in kind",
+      "about": "Each of the four lines is built the same way: to a kind of man, God shows Himself in kind. The faithful find Him faithful, the blameless blameless, the pure pure, and the crooked find Him shrewd. God deals with each man according to how he deals with God.",
+      "lines": [
+        {
+          "ref": "2 Samuel 22:26",
+          "words": "To the faithful You show Yourself faithful,",
+          "key": "the faithful"
+        },
+        {
+          "ref": "2 Samuel 22:26",
+          "words": "to the blameless You show Yourself blameless;",
+          "key": "the blameless"
+        },
+        {
+          "ref": "2 Samuel 22:27",
+          "words": "to the pure You show Yourself pure,",
+          "key": "the pure"
+        },
+        {
+          "ref": "2 Samuel 22:27",
+          "words": "but to the crooked You show Yourself shrewd.",
+          "key": "the crooked"
+        }
+      ],
+      "original": {
+        "note": "In Hebrew, in each of the first three lines God's verb is formed from the word for the man: chasid and chasad, faithful; tamim and tamam, blameless; and barar, pure, for both.",
+        "strong": [
+          "H2623",
+          "H2616",
+          "H8549",
+          "H8552",
+          "H1305"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the truth that God treats every man according to his conduct toward Him is set out in four parallel clauses, in which God's conduct is told in verbs formed from the words used for the conduct of men toward God.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "2 Samuel 22:25-28",
+          "quote": "The truth that God treats every man in accordance with his conduct towards Him, is expounded in four parallel clauses, in which the conduct of God is expressed in verbs in the Hithpael, formed from the adjectives used to describe the conduct of men towards God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }

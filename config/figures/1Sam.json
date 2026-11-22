@@ -76,6 +76,110 @@
       ]
     },
     {
+      "id": "1-samuel-1-2-mirror",
+      "kind": "parallelism",
+      "form": "mirror",
+      "ref": "1 Samuel 1:2",
+      "strength": "some interpreters",
+      "short": "Hannah, Peninnah, then Peninnah, Hannah",
+      "about": "Hannah is named first, then Peninnah. What follows speaks of Peninnah first and of Hannah last: Peninnah had children, but Hannah had none. The two names go out and come back in reverse order.",
+      "lines": [
+        {
+          "ref": "1 Samuel 1:2",
+          "words": "one named Hannah",
+          "mark": "A",
+          "key": "Hannah"
+        },
+        {
+          "ref": "1 Samuel 1:2",
+          "words": "and the other Peninnah.",
+          "mark": "B",
+          "key": "Peninnah"
+        },
+        {
+          "ref": "1 Samuel 1:2",
+          "words": "And Peninnah had children,",
+          "mark": "B'",
+          "key": "Peninnah"
+        },
+        {
+          "ref": "1 Samuel 1:2",
+          "words": "but Hannah had none.",
+          "mark": "A'",
+          "key": "Hannah"
+        }
+      ],
+      "evidence": "Bullinger lists the verse under Introverted Parallelisms and sets it out in four parts: Hannah in the two he marks a, Peninnah in the two he marks b. In the verse, Hannah's parts come first and last, and Peninnah's between.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 1:2",
+          "at": "Introverted Parallelisms, p. 357",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/357/mode/1up",
+          "quote": "a “The name of the one was Hannah, b and the name of the other was Peninnah: b And Peninnah had children, a but Hannah had no children.”",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-2-1-turns",
+      "kind": "parallelism",
+      "form": "turns",
+      "ref": "1 Samuel 2:1",
+      "strength": "some interpreters",
+      "short": "Heart and mouth, horn and salvation, in turn",
+      "about": "The four lines take turns. The first answers the third: her heart rejoices, and her mouth speaks boldly. The second answers the fourth: her horn, a picture of strength, is exalted in the LORD, and she rejoices in His salvation.",
+      "lines": [
+        {
+          "ref": "1 Samuel 2:1",
+          "words": "My heart rejoices in the LORD",
+          "mark": "A",
+          "key": "heart"
+        },
+        {
+          "ref": "1 Samuel 2:1",
+          "words": "in whom my horn is exalted.",
+          "mark": "B",
+          "key": "horn"
+        },
+        {
+          "ref": "1 Samuel 2:1",
+          "words": "My mouth speaks boldly against my enemies,",
+          "mark": "A'",
+          "key": "mouth"
+        },
+        {
+          "ref": "1 Samuel 2:1",
+          "words": "for I rejoice in Your salvation.",
+          "mark": "B'",
+          "key": "salvation"
+        }
+      ],
+      "pairs": [
+        [
+          "heart",
+          "mouth"
+        ],
+        [
+          "horn",
+          "salvation"
+        ]
+      ],
+      "evidence": "Keil (Keil and Delitzsch) says that of the four members of the verse the first answers to the third and the second to the fourth: the heart rejoices at the lifting up of her horn, and the mouth opens wide to proclaim the salvation. He takes the horn as the symbol of strength, from oxen whose strength is in their horns.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 2:1",
+          "quote": "Of the four members of this verse, the first answers to the third, and the second to the fourth. The heart rejoices at the lifting up of her horn, the mouth opens wide to proclaim the salvation before which the enemies would be dumb. ... The horn is the symbol of strength, and is taken from oxen whose strength is in their horns",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "1-samuel-15-11-anthropopatheia",
       "kind": "figure",
       "form": "anthropopatheia",
@@ -249,6 +353,113 @@
           "quote": "It became a proverb, commonly used in Israel, when they would express their wonder at a bad man's either becoming good, or at least being found in good company, Is Saul among the prophets?",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-15-22-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "1 Samuel 15:22",
+      "strength": "commonly held",
+      "short": "Obedience over sacrifice, said twice",
+      "about": "The second line says the first again in other words. Attentiveness answers obedience, and the fat of rams, the part laid on the altar, answers sacrifice. Neither line calls sacrifice worthless; both rank hearing the LORD above it.",
+      "lines": [
+        {
+          "ref": "1 Samuel 15:22",
+          "words": "Behold, obedience is better than sacrifice,",
+          "key": "obedience"
+        },
+        {
+          "ref": "1 Samuel 15:22",
+          "words": "and attentiveness is better than the fat of rams.",
+          "key": "attentiveness"
+        }
+      ],
+      "pairs": [
+        [
+          "obedience",
+          "attentiveness"
+        ],
+        [
+          "sacrifice",
+          "the fat of rams"
+        ]
+      ],
+      "original": {
+        "note": "In Hebrew the first line says to hear, shama, and the second to give heed, qashav. The fat is chelev, the fat portions laid on the altar.",
+        "strong": [
+          "H8085",
+          "H7181",
+          "H2459"
+        ]
+      },
+      "evidence": "Keil (Keil and Delitzsch) renders the lines hearing is better than slain-offerings, attending better than the fat of rams, and says reading good sacrifice in the first line goes against the parallel, since the second speaks of the fat of rams, the portions laid on the altar. Bullinger marks the verse in four parts: to obey and to hearken as a, sacrifice and the fat of rams as b.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 15:22",
+          "quote": "Behold, hearing (obeying) is better than slain-offerings, attending better than fat of rams. ... Samuel did not reject sacrifices as worthless ... Any contrast between good and bad sacrifices ... is not only foreign to the context, but also opposed to the parallelism. For אילים חלב does not mean fat rams, but the fat of rams; the fat portions taken from the ram, which were placed upon the altar",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "bullinger-fos",
+          "on": "1 Samuel 15:22",
+          "at": "Gnome, Where the words are changed by a reading, p. 793",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/793/mode/1up",
+          "quote": "a “To obey b Is better than sacrifice, a And to hearken b Than the fat of rams.” Here, again, we have obedience and sacrifice set in contrast.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "1-samuel-15-27-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "1 Samuel 15:27-28",
+      "strength": "widely agreed",
+      "short": "Samuel's torn robe, a sign of the torn kingdom",
+      "about": "As Samuel turns to go, Saul grabs the hem of Samuel's robe and it tears. Samuel at once makes the tear a sign: the LORD has torn the kingdom of Israel from Saul that day and given it to a neighbor who is better than he.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "1 Samuel 15:27",
+        "words": "Saul grabbed the hem of his robe, and it tore",
+        "means": "the kingdom torn from Saul by the LORD and given to another, as Samuel says in the next verse"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the tearing of the mantle, an accident, was to serve as a sign of the kingdom torn from Saul. Matthew Henry says Samuel illustrated the sentence by a sign that Saul's rudeness gave occasion for. H. D. M. Spence (Ellicott) says Samuel used the torn robe as a symbol; Jamieson (Jamieson, Fausset and Brown), as a representation of Saul's loss of the throne.",
+      "limit": "The tear was not planned: it happened as Saul tried to hold Samuel back, and it was Samuel who gave it its meaning.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 15:26-29",
+          "quote": "As Saul was about to hold back the prophet by force, that he might obtain from him a revocation of the divine sentence, the tearing of the mantle, which took place accidentally, and evidently without any such intention on the part of Saul, was to serve as a sign of the rending away of the sovereignty from him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 15:24-31",
+          "quote": "He illustrated the sentence by a sign, which Saul himself, by his rudeness, gave occasion for. When Samuel was turning from him he tore his clothes to detain him ... but Samuel put a construction upon this accident which none but a prophet could do. He made it to signify the rending of the kingdom from him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Samuel 15:28",
+          "quote": "The prophet at once looks upon the garment torn by the passionate vehemence of the king, as an omen for the future, and uses the rent vesture as a symbol, to show Saul that thus had the Lord on that day rent the kingdom from him.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Samuel 15:27",
+          "quote": "In an agony of mental excitement, he took hold of the prophet's dress to detain him; the rending of the mantle ... was adroitly pointed to as a significant and mystical representation of his severance from the throne.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

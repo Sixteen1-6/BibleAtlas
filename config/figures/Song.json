@@ -62,6 +62,256 @@
           "retrieved": "2026-11-07"
         }
       ]
+    },
+    {
+      "id": "song-of-solomon-2-1-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Song of Solomon 2:1",
+      "strength": "some interpreters",
+      "short": "A rose of Sharon, a lily of the valley",
+      "about": "The two lines say the same thing in other words: a rose of Sharon, a lily of the valley. The valley in the second line shows that the name Sharon in the first also hints at lowliness, so the one who speaks is pictured as lovely yet lowly.",
+      "lines": [
+        {
+          "ref": "Song of Solomon 2:1",
+          "words": "I am a rose of Sharon,",
+          "key": "Sharon"
+        },
+        {
+          "ref": "Song of Solomon 2:1",
+          "words": "a lily of the valley.",
+          "key": "valley"
+        }
+      ],
+      "pairs": [
+        [
+          "rose",
+          "lily"
+        ],
+        [
+          "Sharon",
+          "valley"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the parallel with the valleys shows that the place name Sharon carries a quiet reference to its meaning of lowliness, and that the bride speaks of herself as lowly though lovely.",
+      "limit": "Writers differ on who speaks here, the bride or the bridegroom, and on which flowers are meant.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Song of Solomon 2:1",
+          "quote": "The bride thus speaks of herself as lowly though lovely ... Septuagint and Vulgate translate it, \"a plain\"; though they err in this, the Hebrew Bible not elsewhere favoring it, yet the parallelism to valleys shows that, in the proper name Sharon, there is here a tacit reference to its meaning of lowliness.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-5-5-building",
+      "kind": "parallelism",
+      "form": "building",
+      "ref": "Song of Solomon 5:5",
+      "strength": "some interpreters",
+      "short": "Hands dripping myrrh, fingers flowing myrrh",
+      "about": "The first line says the hands dripped with myrrh. The second takes it up with the fingers and goes beyond plain myrrh to flowing myrrh, myrrh that flows over and drops out of itself.",
+      "lines": [
+        {
+          "ref": "Song of Solomon 5:5",
+          "words": "My hands dripped with myrrh,",
+          "key": "hands"
+        },
+        {
+          "ref": "Song of Solomon 5:5",
+          "words": "my fingers with flowing myrrh",
+          "key": "flowing"
+        }
+      ],
+      "pairs": [
+        [
+          "hands",
+          "fingers"
+        ],
+        [
+          "dripped with myrrh",
+          "flowing myrrh"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the parallel clause goes beyond the simple myrrh of the first: it names myrrh flowing over, dropping out of itself.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 5:5",
+          "quote": "And my hands dropped with myrrh, And my fingers with liquid myrrh, On the handle of the bolt. ... עבר מור, with which the parallel clause goes beyond the simple mōr, is myrrh flowing over, dropping out of itself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-5-13-same",
+      "kind": "parallelism",
+      "form": "same",
+      "ref": "Song of Solomon 5:13",
+      "strength": "some interpreters",
+      "short": "Beds of spice, towers of perfume",
+      "about": "The second line says the first again in other words. The towers of perfume are raised terraces of sweet plants, answering to the beds of spice: both picture the cheeks as a raised garden bed, full and fragrant.",
+      "lines": [
+        {
+          "ref": "Song of Solomon 5:13",
+          "words": "His cheeks are like beds of spice,",
+          "key": "beds"
+        },
+        {
+          "ref": "Song of Solomon 5:13",
+          "words": "towers of perfume.",
+          "key": "towers"
+        }
+      ],
+      "pairs": [
+        [
+          "beds of spice",
+          "towers of perfume"
+        ]
+      ],
+      "evidence": "Fausset (Jamieson, Fausset and Brown) takes the second phrase as high-raised beds of sweet plants, in parallel with the bed of the first line, and reads the cheeks as full like the raised surface of a garden bed and fragrant.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Song of Solomon 5:13",
+          "quote": "bed--full, like the raised surface of the garden bed; fragrant with ointments, as beds with aromatic plants (literally, \"balsam\"). sweet flowers--rather, \"terraces of aromatic herbs\"--\"high-raised parterres of sweet plants,\" in parallelism to \"bed,\" which comes from a Hebrew root, meaning \"elevation.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-8-9-opposite",
+      "kind": "parallelism",
+      "form": "opposite",
+      "ref": "Song of Solomon 8:9",
+      "strength": "widely agreed",
+      "short": "If a wall, silver; if a door, cedar",
+      "about": "The two halves set opposite cases side by side. A wall stands firm, but a door can be opened. If the little sister holds firm like a wall, she will be adorned with a tower of silver; if she is open like a door, she will be closed in and guarded with cedar.",
+      "lines": [
+        {
+          "ref": "Song of Solomon 8:9",
+          "words": "If she is a wall, we will build a tower of silver upon her.",
+          "key": "wall"
+        },
+        {
+          "ref": "Song of Solomon 8:9",
+          "words": "If she is a door, we will enclose her with panels of cedar.",
+          "key": "door"
+        }
+      ],
+      "pairs": [
+        [
+          "wall",
+          "door"
+        ],
+        [
+          "a tower of silver",
+          "panels of cedar"
+        ]
+      ],
+      "evidence": "Delitzsch (Keil and Delitzsch) says the brothers suppose two cases that stand in contrast: a wall stands firm, while a door can be opened again. T. L. Kingsbury (Barnes' Notes) reads the wall as a sister steadfast in virtue, to be honored, and the door as one open to advances, to be guarded. Poole sets a wall, firm in faith, against a door, which is weaker than a wall.",
+      "limit": "Writers differ on whether the sister is a young girl or the church of the Gentiles, and a few take the two cases as alike rather than opposite.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 8:9",
+          "quote": "They suppose two cases which stand in contrast to each other, and announce their purpose with reference to each case. ... A wall stands firm and withstands every assault if it serves its purpose ... A door, on the contrary, is moveable ... yet it is so formed that it can be opened again.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 8:8",
+          "quote": "\"If she be a wall,\" i. e., stedfast in chastity and virtue, one on whom no light advances can be made, then let us honor and reward her. This fortress-wall shall be crowned as it were with a tower or battlement of silver. But \"if she be a door,\" light-minded and accessible to seduction ... then let us provide against assailants the protection of a cedar bar or panel.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Song of Solomon 8:9",
+          "quote": "If the Gentiles, when they are converted, shall be like a wall, strong and firm in faith, stedfast against all assaults and temptations ... And if she be as a door, which is weaker than a wall, and where the enemy doth or may break in upon her; if she be weak in faith, and sometimes overcome by the tempter",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/songs/8.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-8-9-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Song of Solomon 8:9-10",
+      "strength": "commonly held",
+      "short": "A wall, not a door: the bride stood firm",
+      "about": "Asked what to do for their young sister, the brothers answer in a picture: a wall they will crown with silver, a door they will board up with cedar. The wall is a maiden firm against every advance, the door one open to them. The bride says she is such a wall, and so has won the king's favor.",
+      "refs": [
+        "Song of Solomon 8:8"
+      ],
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Song of Solomon 8:9",
+        "words": "If she is a wall",
+        "means": "a maiden firm in chastity, on whom no advance can be made, who will be honored; the door is one open to seduction, who must be guarded"
+      },
+      "evidence": "T. L. Kingsbury (Barnes' Notes) says the brothers answer in the form of a parable: a wall is a sister steadfast in chastity, a door one open to seduction, and the bride has shown she is such a fortress-wall. Franz Delitzsch (Keil and Delitzsch) says the wall is used as a figure of firmness of character: a maiden closed to seduction is like a wall, one open to it like a door.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 8:8-10",
+          "quote": "The answer is given in the form of a parable: \"If she be a wall,\" i. e., stedfast in chastity and virtue, one on whom no light advances can be made, then let us honor and reward her. ... But \"if she be a door,\" light-minded and accessible to seduction ... She has shown herself to be such a fortress-wall as her brothers have alluded to, and her reward has been the royal favor.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 8:9",
+          "quote": "A wall stands firm and withstands every assault if it serves its purpose (which is here presupposed, where it is used as a figure of firmness of character). A door, on the contrary, is moveable ... A maiden inaccessible to seduction is like a wall, and one accessible to it is like a door.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-8-11-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Song of Solomon 8:11-12",
+      "strength": "commonly held",
+      "short": "Solomon's vineyard, and the bride's own",
+      "about": "The bride tells of Solomon's vineyard at Baal-hamon, leased to tenants who each bring a thousand shekels for its fruit. She sets beside it her own vineyard, herself: the thousand are Solomon's, and two hundred go to its keepers, her brothers. So she asks the king to reward those who guarded her.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Song of Solomon 8:11",
+        "words": "Solomon had a vineyard in Baal-hamon",
+        "means": "the bride's own vineyard, herself, now wholly Solomon's, whose keepers, her brothers who guarded her, should be rewarded as his tenants are"
+      },
+      "evidence": "T. L. Kingsbury (Barnes' Notes) says the bride commends her brothers to the king by another parable: her own vineyard, her beauty and virtue guarded by them, now belongs to Solomon, but the keepers should have their due. Franz Delitzsch (Keil and Delitzsch) says she makes the vineyard at Baal-hamon a parable of her relation to Solomon and to her brothers, the keepers of her innocence.",
+      "limit": "The note does not make the vineyard at Baal-hamon a made-up one: both writers take it as a real vineyard of Solomon's, which the bride makes a likeness of her own case.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 8:11-12",
+          "quote": "She next turns to the king, and commends her brothers to his favorable regard by means of another parable. ... The bride also has a vineyard of her own Sol 1:6 , her beauty and virtue faithfully guarded by these same brothers in time past. This vineyard now belongs to Solomon. ... let the faithful keepers have their meed as well.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 8:11",
+          "quote": "Shulamith also has a vineyard, which she is as free to dispose of as Solomon of his at Baal-hamon. It is the totality of her personal and mental endowments. ... These are her brothers, the true keepers and protectors of her innocence. ... She makes the case of the vineyard in Baal-hamon a parable of her relation to Solomon on the one hand, and of her relation to her brothers on the other.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }
