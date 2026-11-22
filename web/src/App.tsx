@@ -22,6 +22,7 @@ import { Wheel } from './ui/Wheel';
 import { ShareDialog, shareOpen } from './ui/ShareDialog';
 import { WordStudy } from './ui/WordStudy';
 import { retry } from './data/fetch';
+import { GuideButton, GuideHost } from './ui/guide';
 
 /** The English versions on offer: the ESV only where its server runs. */
 const VERSIONS = (ESV_ENABLED ? ['BSB', 'NET', 'ESV'] : ['BSB', 'NET']) as readonly S.Translation[];
@@ -318,6 +319,7 @@ export function App() {
               </button>
             </div>
           )}
+          <GuideButton />
         </div>
       </header>
       {S.mapShown.value === 'hide' || S.panelWide.value ? null : !wheel ? (
@@ -357,6 +359,7 @@ export function App() {
       {S.paletteOpen.value && <Palette a={a} />}
       <AskSheet a={a} />
       {shareOpen.value && <ShareDialog a={a} />}
+      <GuideHost />
     </div>
   );
 }

@@ -64,6 +64,14 @@ function stored<T extends string>(key: string, allowed: readonly T[], fallback: 
   return s;
 }
 
+function storedBefore(key: string): boolean {
+  try {
+    return localStorage.getItem(key) !== null;
+  } catch {
+    return false;
+  }
+}
+
 /** How the arcs are colored. Remembered per browser. */
 export const arcColor = stored<ArcColorMode>('atlas.arcColor', ['spectrum', 'reach', 'genre'], 'spectrum');
 export const view = signal<View>({ scale: 1, offset: 0 });
@@ -71,6 +79,11 @@ export const view = signal<View>({ scale: 1, offset: 0 });
 /** Two translations side by side in the reader, at Study and Deep: the BSB
  *  beside the NET, or beside the ESV while the ESV is read. Remembered per browser. */
 export const sideBySide = stored<'on' | 'off'>('atlas.side', ['on', 'off'], 'off');
+/** The first-visit guide (ui/guide): 'new' until it is finished or skipped. Read
+ *  before `welcome` stores its value, so a returning visitor, whose browser
+ *  already holds that value, is not shown it unasked. */
+export const guide = stored<'new' | 'done'>('atlas.guide', ['new', 'done'], storedBefore('atlas.welcome') ? 'done' : 'new');
+export const guideOpen = signal(false);
 export const welcome = stored<'show' | 'hidden'>('atlas.welcome', ['show', 'hidden'], 'show');
 export const interlinear = signal(false);
 export const showOtherEditions = signal(false);
