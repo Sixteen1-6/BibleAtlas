@@ -76,6 +76,10 @@
 //!   `read` and `retrieved` the edition or site they were read from and the
 //!   date (decision 10), and `at` reads "Work (date), place in it".
 //!   `defined` carries the same credit fields but `on`.
+//!
+//! Places the Bible's own words show with no writer behind them, "seen in
+//! the words", are held to their own rules in `extra_figures/seen.rs`
+//! (`config/figures-seen/`, built to `extras/figures-seen*`).
 
 use crate::layers::{CiteList, Listed};
 use crate::loaded::Loaded;
@@ -87,6 +91,8 @@ use serde_json::{json, Value};
 use std::collections::{BTreeMap, BTreeSet, HashMap};
 use std::fs;
 use std::path::Path;
+
+mod seen;
 
 pub const DIR: &str = "config/figures";
 pub const FORMS: &str = "config/figure-forms.json";
@@ -977,6 +983,13 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
             }
         }
     }
+    // Places seen in the words, less any whose form a cited note has on its verses.
+    let mut cited = BTreeSet::new();
+    for x in books.iter().flatten() {
+        let (v, end) = (x["v"].as_u64().unwrap_or(0) as u32, x["end"].as_u64().unwrap_or(0) as u32);
+        cited.extend((v..=end).map(|i| (i, x["form"].as_str().unwrap_or("").to_string())));
+    }
+    let seen_files = seen::build(root, &mut check, &cited)?;
     if let Some(e) = check.errors.into_iter().next() {
         return Err(e);
     }
@@ -1041,6 +1054,7 @@ pub fn build(root: &Path, src: &Sources) -> Result<Vec<(String, Vec<u8>)>, Strin
         "parts": parts,
     });
     out.push((OUT.to_string(), serde_json::to_vec(&index).map_err(|e| e.to_string())?));
+    out.extend(seen_files);
     Ok(out)
 }
 
@@ -1076,6 +1090,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let psalm_1_6 = d.resolve("Psalm 1:6")?.0;
 
     let mut seen = vec![b'0'; n as usize];
+    let mut cited = BTreeSet::new();
     let (mut notes_ok, mut words_ok, mut spans_ok, mut roots_ok, mut cites_ok) = (true, true, true, true, true);
     let mut known = false;
     let mut count = 0usize;
@@ -1112,6 +1127,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 if let (Some(bit), true) = (bit, end < u64::from(n)) {
                     for i in v..=end {
                         seen[i as usize] |= bit;
+                        cited.insert((i, x["form"].as_str().unwrap_or("").to_string()));
                     }
                 }
                 // Every marked span is the verse's own words at its offset, inside the note.
@@ -1213,7 +1229,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             }
         }
     }
-    Ok(vec![
+    let mut checks = vec![
         (
             has_ok && parts_ok && seen == has,
             format!("the figures index marks exactly the verses its {count} notes sit under, and lists every file"),
@@ -1230,7 +1246,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         (known && count >= 5, format!("Psalm 1:6's opposite lines are marked at the BSB's own words, and {count} figure notes were written (at least 5)")),
         (size < 100_000, format!("extras/figures.json is {size} bytes, expected under 100,000")),
         (largest < 1_500_000, format!("the largest file of figure notes is {largest} bytes, expected under 1,500,000")),
-    ])
+    ];
+    checks.extend(seen::verify(d, &forms, &cited)?);
+    Ok(checks)
 }
 
 /// 3 or more different writers are "widely agreed", 2 "commonly held", 1 "some interpreters".
