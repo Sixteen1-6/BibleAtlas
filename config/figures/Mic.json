@@ -1,6 +1,110 @@
 {
   "notes": [
     {
+      "id": "micah-1-8-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Micah 1:8",
+      "strength": "widely agreed",
+      "short": "Micah walks “barefoot and naked” as a sign",
+      "about": "Micah says he will lament and wail and walk barefoot and naked. This is more than mourning: going stripped like a captive, he shows in his own person the fate coming on his people, as Isaiah did as a sign against Egypt and Cush.",
+      "refs": [
+        "Isaiah 20:2-4"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Micah 1:8",
+        "words": "I will walk barefoot and naked",
+        "means": "the stripping and captivity his people would suffer at the enemy's hands, shown beforehand in the prophet's own person"
+      },
+      "original": {
+        "note": "In Hebrew sholal, here barefoot, is read as stripped or plundered, the word for men despoiled by an enemy, as a prisoner would be.",
+        "strong": [
+          "H7758"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says Micah sets forth in symbolical form, in his own person, the fate awaiting Judah. E. B. Pusey (Barnes' Notes) says the prophet becomes an image of his people, despoiled as by an enemy, representing in act, as Isaiah did, what they would do. Joseph Benson says his going stripped would denote the state the enemy would bring the ten tribes to.",
+      "limit": "The verse tells what Micah says he will do and does not record the act itself, though it is read as an act like Isaiah's. The writers differ on whose fate it shows first, Samaria's or Judah's; some read it as the prophet's own deep mourning only.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Micah 1:8-10",
+          "quote": "It does not mean \"barefooted,\" ... but plundered, spoiled. ... Micah's intention is not only to exhibit publicly his mourning fore the approaching calamity of Judah, but also to set forth in a symbolical form the fate that awaits the Judaeans. And he can only do this by including himself in the nation, and exhibiting the fate of the nation in his own person.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Micah 1:8",
+          "quote": "The prophet becomes in words, probably in acts too, an image of his people, doing as they should do hereafter. ... despoiled also, the proper term of those plundered and stripped by an enemy. He speaks of his doing, what we know that Isaiah did, by God's command, representing in act what his people should thereafter do.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Micah 1:8",
+          "quote": "I will go stripped and naked That is, without an upper garment; or with garments rent and torn. This would fitly denote the naked condition to which the ten tribes were to be reduced by their enemies.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "micah-2-4-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Micah 2:4",
+      "strength": "widely agreed",
+      "short": "Men “take up a proverb against you”",
+      "about": "Those who seized other men's fields will lose their own. In that day men will take up a proverb against them and taunt them with a bitter lament: “We are utterly ruined!” Their downfall becomes the common talk and the mocking song of others.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Micah 2:4",
+        "words": "they will take up a proverb against you",
+        "means": "a mocking saying or song raised over them in their ruin, so that their downfall becomes the talk of others"
+      },
+      "original": {
+        "note": "In Hebrew mashal, here a proverb, is a saying built on a likeness; it can also be a sharp byword or taunt-song against someone.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the foes will raise derisive songs, the word meaning a figurative saying or proverb-song. E. B. Pusey (Barnes' Notes) says the word can mean taunting figured speech, and here it is the dirge which follows. John Calvin says they will become a common proverb to all. Adam Clarke says their sin and punishment will be common talk, with a dirge sung over them.",
+      "limit": "The writers differ on who speaks: some hear the enemies singing the lament in mockery, some hear Israel's own lament beside the enemies' taunt, and some take the proverb as their name becoming a byword everywhere.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Micah 2:3-4",
+          "quote": "Then will the opponents raise derisive songs concerning Israel, and Israel itself will bewail its misery. ... Mâshâl ... signifies a figurative saying, a proverb-song, as in Isa 14:4 ; Hab 2:6 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Micah 2:4",
+          "quote": "The mashal or likeness may, in itself, be any speech in which one thing is likened to another: 1) \"figured speech,\" 2) \"proverb,\" and, since such proverbs were often sharp sayings against others, 3) \"taunting figurative speech.\" ... The parable here must be the same as the doleful lamentation, or dirge, which follows.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Micah 2:4",
+          "quote": "In that day they shall take up a proverb against you; that is, it will not be an ordinary calamity, but the report concerning it will go forth every where so that the Jews will become to all a common proverb. ... proverbial sayings would spread every where respecting the Jews, especially as calamities were usually described in a plaintive song.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Micah 2:4",
+          "quote": "Your wickedness and your punishment shall be subjects of common conversation; and a funeral dirge shall be composed and sung for you as for the dead. The lamentation is that which immediately follows: We be utterly spoiled",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "micah-5-5-numbers",
       "kind": "figure",
       "form": "numbers",
@@ -60,6 +164,105 @@
       ]
     },
     {
+      "id": "micah-5-7-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Micah 5:7",
+      "strength": "widely agreed",
+      "short": "The remnant “like dew from the LORD”",
+      "about": "The remnant of Jacob among many peoples is likened to dew and showers from the LORD on the grass. Dew comes from heaven and does not wait for man: so the remnant's life and the blessing it brings come from God alone. Many read it as the remnant reviving the nations, as dew revives grass.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Micah 5:7",
+        "words": "like dew from the LORD, like showers on the grass",
+        "means": "the remnant among the nations, sent by God alone and owing nothing to man, bringing new life as dew brings life to grass"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says Israel will come on the nations like refreshing dew from God, not waiting on man. A. R. Fausset (Jamieson, Fausset and Brown) says the remnant will quicken them as dew does grass, wholly God's work. E. B. Pusey (Barnes' Notes) has them come as dew, quickening what no human help could reach. John Calvin calls it a fit similitude: God alone keeps His people.",
+      "limit": "One reading turns the picture round: God's people are the grass, kept and made to grow by dew from heaven with no help from men. The lion in verse 8 is a separate picture.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Micah 5:7-9",
+          "quote": "Israel will come upon many nations, like a refreshing dew from Jehovah, which falls plentifully in drops upon the grass, and will produce and promote new and vigorous life among them. ... As the falling of the dew in rain-drops upon the grass does not depend upon the waiting of men, but proceeds from Jehovah; so will the spiritual blessing, ... not depend upon the waiting of the nations",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Micah 5:7",
+          "quote": "Though Israel be but a remnant amidst many nations after her restoration, yet she shall exercise the same blessed influence in quickening them spiritually that the small imperceptible dew exercises in refreshing the grass ... tarrieth not for man--entirely God's work, as independent of human contrivance as the dew and rains that fertilize the soil.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Micah 5:7",
+          "quote": "something to be readily swallowed up by their multitude? No, but \"as a dew from the Lord, as the showers from the grass, which tarrieth not for man, nor waiteth for the sons of men,\" quickening to life that, which, like soon-withered ... grass, no human cultivation, no human help, could reach. ... The dew is, in Holy Scripture, a symbol of divine doctrine.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Micah 5:7",
+          "quote": "to show that the preservation of the Church depends on the mere favor of God, and that there is no need of any earthly aids, he makes use of a most suitable similitude; he says, that the people of God are like a dewy meadow. ... that God will make his people to grow like the grass, which is fed only by celestial dew, without any culture or labor on the part of men",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "micah-5-8-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Micah 5:8",
+      "strength": "widely agreed",
+      "short": "The remnant of Jacob “like a young lion”",
+      "about": "Micah says the remnant of Jacob will be among the nations like a lion among the beasts of the forest, like a young lion among flocks of sheep that no one can rescue. Set beside the gentle dew of verse 7, the picture shows God's people given a strength their enemies cannot resist.",
+      "refs": [
+        "Micah 5:7"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Micah 5:8",
+        "words": "like a young lion among flocks of sheep",
+        "means": "the remnant of Jacob, given by God a strength that fills its enemies with terror, so that none can stand against it"
+      },
+      "evidence": "Calvin calls the lion a similitude: the faithful will be given a power that makes them a terror to their enemies, though not cruel. Keil says the rending lion is a different figure from the dew of verse 7: God's people as a power hostile nations must yield to. Fausset (Jamieson, Fausset and Brown): like a lion in striking terror, not in cruelty. Henry: bold and strong as a lion in God's strength.",
+      "limit": "The writers differ on how it comes true: some take the strength as the power of the gospel over those who oppose it, others as victory over hostile nations as well.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Micah 5:8",
+          "quote": "they shall be like lions, filling their enemies with terror ... Then the reason for this similitude must be observed; it was to show, that the faithful shall be endued with a power so superior to that of their enemies, that they shall be a terror to them. It does not hence follow that they shall be cruel.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Micah 5:7-9",
+          "quote": "the rescued Israel will prove itself a terrible power among the nations, and one to which they will be obliged to succumb. ... The refreshing dew and the rending lion cannot possibly be synonymous figures. ... The people of God shows itself like a lion, trampling and rending the sheep among the nations of the world which oppose its beneficent work.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Micah 5:8",
+          "quote": "In Mic 5:7 Israel's benignant influence on the nations is described; but here her vengeance on the godless hosts who assail her ... Judah will be \"as as lion,\" not in respect to its cruelty, but in its power of striking terror into all opponents.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Micah 5:7-15",
+          "quote": "That they shall be as a lion among the beasts of the forest, that treads down and tears in pieces ... so they shall be bold as a lion in witnessing against the corruptions of the times and places they live in, and strong as a lion, in the strength of God, to resist and overcome their spiritual enemies.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "micah-6-15-building",
       "kind": "parallelism",
       "form": "building",
@@ -93,6 +296,57 @@
           "quote": "Of the Constructive kind is most commonly the Parallelism of Stanzas of Three lines; ... The following are Constructively Parallel: ... Micah, vi. 15",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "micah-7-1-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Micah 7:1",
+      "strength": "widely agreed",
+      "short": "The prophet “like one gathering summer fruit”",
+      "about": "The prophet cries woe: he is like one who comes to gather fruit after the harvest and the vintage, and finds no cluster to eat and no early fig. Verse 2 explains the picture: the godly have perished, and no one upright is left among men.",
+      "refs": [
+        "Micah 7:2"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Micah 7:1",
+        "words": "I am like one gathering summer fruit at the gleaning of the vineyard",
+        "means": "the land and its people in the prophet's day: good and upright men were as hard to find as fruit on the trees after the harvest is over"
+      },
+      "evidence": "Henry says the verse is illustrated by a comparison: a good man was as hard to find as summer fruit after the harvest. Calvin: the land is like an emptied field or vineyard, for good men were scarce. Keil calls the pictures similes, explained in verse 2. Clarke calls it a beautiful allegory: the good man is as seldom met with as the early fig late in the season.",
+      "limit": "The writers differ on who is pictured: some take it as the prophet looking in vain for good men, others as the land or the people, stripped like an orchard after the harvest.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Micah 7:1-6",
+          "quote": "This is illustrated by a comparison ... it was as hard a thing to find a good man as to find any of the summer-fruits (which were the choicest and best, and therefore must carefully be gathered in) when the harvest is over. ... Good men, who used to hang in clusters, are now as the grape-gleanings of the vintage, here and there a berry",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Micah 7:1-2",
+          "quote": "the land, which the Prophet undertakes here to represent and personify, was like to a field, or a garden, or a vineyard, that was empty. ... The Prophet refers here to the scarcity of good men; yea, he says that there were no longer any righteous men living.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Micah 7:1",
+          "quote": "The nation or the church resembles the fruit-gathering and gleaning of the vineyard, namely, in this fact, that the fruit-gathering yields not more early figs, and the gleaning of the vintage yields no more grapes to eat ... The second simile is a still simpler one, and is very easily explained. ... The figure is explained in Mic 7:2 ff.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Micah 7",
+          "quote": "The prophet begins this chapter with lamenting the decay of piety and the growth of ungodliness, using a beautiful allegory to imply (as explained in Mic 7:2 ) that the good man is as seldom to be met with as the early fig of best quality in the advanced season, or the cluster after the vintage",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

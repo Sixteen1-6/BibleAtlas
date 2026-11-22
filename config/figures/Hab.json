@@ -1,6 +1,47 @@
 {
   "notes": [
     {
+      "id": "habakkuk-1-14-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Habakkuk 1:14-17",
+      "strength": "widely agreed",
+      "short": "The conqueror as a fisherman hauling in nations",
+      "about": "The prophet pictures the Chaldean conqueror as a fisherman. Men are like fish with no ruler; he hauls them up with hook and nets, then sacrifices to his net, as if his gear had won the catch. The last verse gives the meaning: will he go on slaying nations without mercy?",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Habakkuk 1:15",
+        "words": "The foe pulls all of them up with a hook",
+        "means": "the Chaldean sweeping nations into captivity; his hook and nets stand for every means by which he subdues and destroys them"
+      },
+      "evidence": "Adam Clarke says the last verse explains the allegory of the net; as fishermen cast again and again, Nebuchadnezzar destroys nation after nation. A. R. Fausset (Jamieson, Fausset and Brown) says the prophet likens men to fish, Nebuchadnezzar to a fisherman. C. F. Keil (Keil and Delitzsch) says it is told in figures from a fisherman's life, hook and nets being all the Chaldeans' means of conquest.",
+      "limit": "One writer notes that the picture gives way to plain speech in the last clause of the last verse.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Habakkuk 1:17",
+          "quote": "Like the fishermen, who throw cast after cast while any fish are to be caught, so Nebuchadnezzar is destroying one nation after another. This last sentence explains the allegory of the net.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Habakkuk 1:14",
+          "quote": "All may fish in the sea with impunity; so the Chaldeans with impunity afflict Thy people, as these have no longer the God of the theocracy, their King, to defend them. ... He compares the world to the sea; men to fishes; Nebuchadnezzar to a fisherman ( Hab 1:15-17 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Habakkuk 1:13-17",
+          "quote": "This strange fact is depicted still further in Hab 1:14-16 in figures taken from the life of a fisherman. The men are like fishes, whom the Chaldaean collects together in his net ... the hook, the net, and the fishing net ... refer to all the means which the Chaldaeans employ in order to subdue and destroy the nations. ... In the last clause the figure passes over into a literal address.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "habakkuk-2-11-prosopopoeia",
       "kind": "figure",
       "form": "prosopopoeia",
@@ -108,6 +149,46 @@
           "quote": "As one vast choir in one terrible varied chant of all those thousand thousand voices, to sing a dirge over him of the judgments of God which his ill-doings to them should bring upon him, a fivefold Woe, woe, woe, woe, woe! ... It is the character of these proverbs to say much in few words, sometimes in one, and more than appears.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "habakkuk-2-15-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Habakkuk 2:15-16",
+      "strength": "widely agreed",
+      "short": "Making the neighbors drunk to see their shame",
+      "about": "In the fourth woe the conqueror is pictured as a host who makes his neighbors drunk to gaze at their shame. It pictures his luring nearby nations into his own greed for conquest, only to bring them down. Then the cup turns, and he must drink from the LORD's right hand and be covered with disgrace.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Habakkuk 2:15",
+        "words": "Woe to him who gives drink to his neighbors",
+        "means": "the Chaldean drawing the nations around him into his own greed for war and plunder, and so bringing them to ruin and shame"
+      },
+      "evidence": "John Calvin calls the passage allegorical, likening the king's endless greed to drunkenness. C. F. Keil (Keil and Delitzsch) calls it an allegory of making nations drink the cup of wrath, pointing to the artifices by which he subdues them. A. R. Fausset (Jamieson, Fausset and Brown) calls it a metaphor: the king lured nearby states into his thirst for war and booty, then shamed them.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Habakkuk 2:15",
+          "quote": "I therefore doubt not but that this whole discourse, in which the Babylonian king is condemned for making drunk his associates or friends, is metaphorical or allegorical. ... He indeed compares the insatiable avarice of that king to intemperance ... Since, then, he had thus blinded many kings, they are said to have been inebriated by him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Habakkuk 2:15-17",
+          "quote": "The description in Hab 2:15 and Hab 2:16 is figurative ... The prostrate condition of the drunken man is a figurative representation of the overthrow of a conquered nation ... This allegory, in which the conquest and subjugation of the nations are represented as making them drink of the cup of wrath ... points to the artifices with which he overpowers them",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Habakkuk 2:15",
+          "quote": "English Version keeps up the metaphor better. It is not enough for thee to be \"drunken\" thyself, unless thou canst lead others into the same state. The thing meant is, that the Chaldean king, with his insatiable desires (a kind of intoxication), allured neighboring states into the same mad thirst for war to obtain booty, and then at last exposed them to loss and shame",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }
