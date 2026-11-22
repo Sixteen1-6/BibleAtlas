@@ -110,6 +110,19 @@ impl Poetry {
         let whole = before != Some(a) && after != Some(z);
         Some(Placed { first: a, last: z, whole })
     }
+
+    /// Whether every word of `text[from..to]` of verse `v` is in one of the
+    /// BSB's poetry lines (none is prose or a psalm's title), where the
+    /// verse's lines are known.
+    pub fn all_poetry(&self, v: u32, text: &str, from: usize, to: usize) -> bool {
+        let Some(line) = self.lines.get(&v) else { return false };
+        let toks = tokens(text);
+        if toks.len() != line.len() {
+            return false;
+        }
+        let mut inside = toks.iter().zip(line).filter(|((s, e), _)| *e > from && *s < to).peekable();
+        inside.peek().is_some() && inside.all(|(_, w)| w.1)
+    }
 }
 
 /// The verse's words, each with its line (`book` in the high bits), if the
@@ -317,6 +330,12 @@ mod tests {
         let place = |s: &str| poetry.place(7, t, at(s), at(s) + s.len());
         assert_eq!(place("Then he said,"), None);
         assert_eq!(place("But You, O LORD,"), Some(Placed { first: 9, last: 9, whole: true }));
+        // Words that take in the prose are placed, but are not all poetry.
+        let all = |s: &str| poetry.all_poetry(7, t, at(s), at(s) + s.len());
+        assert!(all("But You, O LORD,"));
+        assert!(!all("“Come.” But You, O LORD,"));
+        assert!(!all("Then he said,"));
+        assert!(!poetry.all_poetry(8, t, 0, 4));
     }
 
     #[test]
