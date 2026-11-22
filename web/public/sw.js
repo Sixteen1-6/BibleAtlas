@@ -248,7 +248,10 @@ async function cacheFirst(event, cacheName, key) {
   try {
     cache = await caches.open(cacheName);
     const hit = await cache.match(key, { ignoreVary: true });
-    if (hit) return hit;
+    if (hit && !isPage(hit)) return hit;
+    // A web page saved for a data or code file (a network's sign-in page,
+    // kept by an older worker) is not the file: drop it and ask again.
+    if (hit) await cache.delete(key, { ignoreVary: true });
     if (inflight.has(key)) {
       // Another request is saving the same file (the engine and the page both
       // load atlas.bin): wait for it rather than download it twice.
@@ -260,8 +263,15 @@ async function cacheFirst(event, cacheName, key) {
     cache = null; // storage is unavailable: use the network as if there were no worker
   }
   const res = await fetch(event.request);
-  if (cache && res.status === 200 && res.type === 'basic') event.waitUntil(store(cache, cacheName, key, res.clone()));
+  if (cache && res.status === 200 && res.type === 'basic' && !isPage(res)) event.waitUntil(store(cache, cacheName, key, res.clone()));
   return res;
+}
+
+/** A web page, where only data and code files belong. On mobile data or a
+ * VPN, a network can answer any address with its own page; keeping that copy
+ * would break the file until the next data build. */
+function isPage(res) {
+  return (res.headers.get('content-type') || '').includes('text/html');
 }
 
 function store(cache, cacheName, key, res) {
@@ -401,7 +411,7 @@ async function ensure(cacheName, key) {
     return cache.match(key, { ignoreVary: true });
   }
   const res = await fetch(key, { cache: 'force-cache' });
-  if (res.status !== 200 || res.type !== 'basic') return null;
+  if (res.status !== 200 || res.type !== 'basic' || isPage(res)) return null;
   // Save the download itself and hand back the saved copy, so a large file
   // (atlas.bin is 8 MB) is not held twice in memory.
   await store(cache, cacheName, key, res);

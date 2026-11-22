@@ -6,6 +6,7 @@
 // Years are BC negative.
 
 import { type Atlas, DATA_BASE } from './atlas';
+import { fetchRetry } from './fetch';
 
 export interface Cite {
   article: string;
@@ -111,7 +112,7 @@ let cache: Promise<Eras> | null = null;
 /** Fetched once and cached; a failed fetch is tried again on a later chapter. */
 export function loadEras(a: Atlas): Promise<Eras> {
   if (!cache) {
-    const p = fetch(`${DATA_BASE}eras.json?${a.version}`)
+    const p = fetchRetry(`${DATA_BASE}eras.json?${a.version}`)
       .then((r) => {
         if (!r.ok) throw new Error(`eras.json: HTTP ${r.status}`);
         return r.json() as Promise<Eras>;

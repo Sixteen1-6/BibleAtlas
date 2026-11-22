@@ -1,0 +1,231 @@
+/* The first-visit guide (Guide.tsx): the page dimmed except one lit part, and
+   a small card beside it. Only the app's colour variables, so the dark sky and
+   the light paper both follow. Every class starts with gd-. */
+
+dialog.gd {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+  color: var(--ink);
+  z-index: 200;
+}
+dialog.gd::backdrop {
+  background: transparent;
+}
+
+/* The dim: a full veil, or a ring around the lit part whose shadow dims the rest. */
+.gd-veil,
+.gd-hole {
+  position: absolute;
+}
+.gd-veil {
+  inset: 0;
+  background: rgba(3, 5, 12, 0.66);
+}
+.gd-hole {
+  border-radius: 12px;
+  box-shadow:
+    0 0 0 2px var(--lamp),
+    0 0 18px 2px var(--lamp-glow),
+    0 0 0 200vmax rgba(3, 5, 12, 0.66);
+  transition:
+    top 0.32s ease,
+    left 0.32s ease,
+    width 0.32s ease,
+    height 0.32s ease;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------ the card */
+
+.gd-card {
+  position: absolute;
+  width: min(380px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 18px 20px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  transition:
+    top 0.32s ease,
+    left 0.32s ease;
+  animation: gd-in 0.28s ease both;
+}
+.gd-card.gd-measuring {
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+@keyframes gd-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.gd-art {
+  display: block;
+  width: 120px;
+  height: 44px;
+  margin: 0 0 10px;
+}
+.gd-arc,
+.gd-base {
+  fill: none;
+  stroke-linecap: round;
+}
+.gd-arc {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: gd-draw 1.1s ease forwards;
+}
+.gd-arc.a2 {
+  stroke: var(--near);
+  animation-delay: 0.25s;
+}
+.gd-arc.a3 {
+  stroke: var(--same-book);
+  animation-delay: 0.45s;
+}
+.gd-base {
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.gd-dot {
+  fill: var(--accent);
+}
+@keyframes gd-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.gd-count {
+  display: flex;
+  gap: 5px;
+  margin: 0 0 10px;
+}
+.gd-count i {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--line);
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+}
+.gd-count i.past {
+  background: color-mix(in srgb, var(--accent) 45%, var(--line));
+}
+.gd-count i.on {
+  width: 18px;
+  background: var(--accent);
+}
+
+.gd-card h2 {
+  margin: 0 0 6px;
+  font: 600 19px/1.3 var(--font-read);
+  color: var(--ink);
+}
+.gd-card h2:focus {
+  outline: none;
+}
+.gd-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.gd-body {
+  margin: 0 0 16px;
+  font: 15px/1.55 var(--font-ui);
+  color: var(--muted);
+}
+
+.gd-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.gd-gap {
+  flex: 1;
+}
+.gd-foot button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font: 600 14px var(--font-ui);
+  cursor: pointer;
+}
+.gd-skip {
+  padding-left: 0 !important;
+  padding-right: 4px !important;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-weight: 400 !important;
+}
+.gd-skip:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.gd-back {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+.gd-back:hover {
+  background: var(--surface-2);
+}
+.gd-next {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--surface);
+}
+.gd-next:hover {
+  filter: brightness(1.08);
+}
+.gd-foot button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* The "?" in the header: an icon on a wide screen, a labelled row in the "..." menu below. */
+@media (min-width: 1280px) {
+  .guidebtn {
+    color: var(--sky-muted);
+  }
+  .guidebtn:hover {
+    color: var(--sky-ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gd-hole,
+  .gd-card,
+  .gd-count i {
+    transition: none;
+  }
+  .gd-card {
+    animation: none;
+  }
+  .gd-arc {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

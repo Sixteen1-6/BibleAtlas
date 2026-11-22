@@ -12,33 +12,19 @@
 
 import './hard-passages.css';
 import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
 import { type Data, load } from './hard-passages/model';
 import { type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
-let panel: Promise<PanelType> | null = null;
+const loadPanel = lazyCode((): Promise<PanelType> => import('./hard-passages/Panel').then((m) => m.Panel));
 
 function Panel(props: PanelProps<Data>) {
-  const [impl, setImpl] = useState<{ C: PanelType } | null>(null);
-  useEffect(() => {
-    let live = true;
-    if (!panel) {
-      panel = import('./hard-passages/Panel').then((m) => m.Panel);
-      panel.catch(() => (panel = null));
-    }
-    panel.then(
-      (C) => live && setImpl({ C }),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  if (!impl) return <p class="xt-lead xt-wait">…</p>;
-  return <impl.C {...props} />;
+  const code = useCode(loadPanel);
+  const C = code.got;
+  return C ? <C {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({

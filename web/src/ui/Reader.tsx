@@ -284,6 +284,7 @@ export function Reader({ a }: { a: Atlas }) {
                 ) : !liveVerses && poem ? (
                   <PoetryLines text={english} lines={poem} />
                 ) : english || <span class="muted">{liveVerses ? `The ${tr} does not include this verse in its main text.` : OMITTED}</span>}
+                {(xc > 0 || layered.has(v)) && <span class="xcs">
                 {xc > 0 && (
                   <button
                     class="xc"
@@ -310,6 +311,7 @@ export function Reader({ a }: { a: Atlas }) {
                     Layers ›
                   </button>
                 )}
+                </span>}
               </div>
               {other2 !== null && (
                 <div class="en side" onClick={() => S.selectVerse(v)}>

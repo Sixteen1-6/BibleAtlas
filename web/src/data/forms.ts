@@ -2,6 +2,7 @@
 // index like the lexicon (built by crates/atlas-cli/src/family.rs).
 
 import { type Atlas, DATA_BASE } from './atlas';
+import { fetchRetry } from './fetch';
 
 /** How a relative is related to the word studied. */
 export type Relation = 'f' | 'p' | 'c' | 's' | 'a' | 'n';
@@ -24,7 +25,7 @@ export async function getForms(a: Atlas, root: number): Promise<Forms | null> {
   const k = Math.floor(root / a.meta.lexShard);
   let p = shards.get(k);
   if (!p) {
-    p = fetch(`${DATA_BASE}forms/${k}.json?${a.version}`).then((r) => {
+    p = fetchRetry(`${DATA_BASE}forms/${k}.json?${a.version}`).then((r) => {
       if (!r.ok) throw new Error(`forms/${k}.json: HTTP ${r.status}`);
       return r.json() as Promise<(Forms | null)[]>;
     });

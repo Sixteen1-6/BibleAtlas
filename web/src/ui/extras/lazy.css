@@ -1,0 +1,17 @@
+/* "This could not load. Try again": one quiet line in a panel. */
+.xt-again {
+  min-height: 36px;
+  padding: 0 2px;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.xt-again:disabled {
+  color: var(--muted);
+  text-decoration: none;
+  cursor: default;
+}

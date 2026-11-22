@@ -12,36 +12,17 @@
 // reaches the live site. The cards and the panel's code load on first open.
 
 import './hard-verses.css';
-import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
 import { type Data, load } from './hard-verses/model';
 import { type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
-let panel: Promise<{ Panel: ComponentType<PanelProps<Data>> }> | null = null;
-
-function usePanel(): ComponentType<PanelProps<Data>> | null {
-  const [got, setGot] = useState<ComponentType<PanelProps<Data>> | null>(null);
-  useEffect(() => {
-    let live = true;
-    if (!panel) {
-      panel = import('./hard-verses/Panel');
-      panel.catch(() => (panel = null));
-    }
-    panel.then(
-      (m) => live && setGot(() => m.Panel),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  return got;
-}
+const loadPanel = lazyCode(() => import('./hard-verses/Panel').then((m) => m.Panel));
 
 function Panel(props: PanelProps<Data>) {
-  const P = usePanel();
-  return P ? <P {...props} /> : <p class="xt-lead xt-wait">…</p>;
+  const code = useCode(loadPanel);
+  const P = code.got;
+  return P ? <P {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({
