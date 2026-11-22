@@ -4,6 +4,7 @@
 Usage: python3 -I wshow.py NN i [j]      places i..j-1 (0-based) of words-NN.jsonl
        python3 -I wshow.py FILE.jsonl i [j]   places i..j-1 of another list of places
        python3 -I wshow.py verse "Psalm 1:1"   one verse, its poetry lines and its words
+       python3 -I wshow.py find Psalm "endures forever"   every verse of one book holding the words
 
 For each place: the form (label, what it means, Bullinger's definition where the
 forms file has it), the reference, the marked words and whether each is in the
@@ -127,6 +128,23 @@ def main():
             b, c, v1, v2 = p
             for v in range(v1, v2 + 1):
                 show_verse(b, c, v)
+        return
+    if a and a[0] == 'find':
+        # every verse of one book that holds the words (case and punctuation aside)
+        b = alias.get(a[1].lower().replace(' ', ''))
+        if not b:
+            print('?', a[1])
+            return
+        norm = lambda s: re.sub(r'[^\w\s]', '', s.lower()).split()
+        want = ' '.join(norm(' '.join(a[2:])))
+        n = 0
+        for c, ch in enumerate(text(b)['chapters'], 1):
+            for v, t in enumerate(ch, 1):
+                t = t[0] if isinstance(t, list) else t
+                if t and want in ' '.join(norm(t)):
+                    print(f"{b['name']} {c}:{v}  {t}")
+                    n += 1
+        print(n, 'verses')
         return
     if a[0].endswith('.jsonl'):
         nn = os.path.basename(a[0])[:-6]

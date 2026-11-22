@@ -1,8 +1,12 @@
 {
   "notes": [
+    {"id": "numbers-21-2-metonymy-seen", "form": "metonymy", "ref": "Numbers 21:2", "words": ["our hands"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "numbers-21-34-metonymy-seen", "form": "metonymy", "ref": "Numbers 21:34", "words": ["your hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "numbers-23-10-same-seen", "form": "same", "ref": "Numbers 23:10", "words": ["Who can count the dust of Jacob", "or number even a fourth of Israel?"], "methods": ["orig"], "checked": "2026-11-14"},
     {"id": "numbers-23-21-same-seen", "form": "same", "ref": "Numbers 23:21", "words": ["He considers no disaster for Jacob;", "He sees no trouble for Israel."], "methods": ["orig"], "checked": "2026-11-14"},
     {"id": "numbers-23-23-same-seen", "form": "same", "ref": "Numbers 23:23", "words": ["For there is no spell against Jacob", "and no divination against Israel."], "methods": ["orig"], "checked": "2026-11-14"},
-    {"id": "numbers-24-5-same-seen", "form": "same", "ref": "Numbers 24:5", "words": ["How lovely are your tents, O Jacob,", "your dwellings, O Israel!"], "methods": ["orig"], "checked": "2026-11-14"}
+    {"id": "numbers-24-5-metonymy-seen", "form": "metonymy", "ref": "Numbers 24:5", "words": ["Jacob"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "numbers-24-5-same-seen", "form": "same", "ref": "Numbers 24:5", "words": ["How lovely are your tents, O Jacob,", "your dwellings, O Israel!"], "methods": ["orig"], "checked": "2026-11-14"},
+    {"id": "numbers-24-17-hypocatastasis-seen", "form": "hypocatastasis", "ref": "Numbers 24:17", "words": ["A star"], "methods": ["bsb"], "checked": "2026-11-22"}
   ]
 }
