@@ -6,6 +6,8 @@ read date is the last time a checking agent fetched that page, never a guess."""
 import glob, json, os, re, sys
 
 ROOT = '/root/.claude/projects/-home-claude-bibleatlas/8f2fa849-c61c-5244-bf9c-beef3d451f62/subagents/workflows'
+# the session moved folders on 2026-11-14; its later workflows are here
+ROOTS = [ROOT, '/root/.claude/projects/-home-claude/8f2fa849-c61c-5244-bf9c-beef3d451f62/subagents/workflows']
 CACHE = '/tmp/claude-0/-home-claude-bibleatlas/8f2fa849-c61c-5244-bf9c-beef3d451f62/scratchpad/wp/tmp/fetchlog.json'
 FAIL = re.compile(r'^(Request failed|Error|Failed to fetch|Unable to fetch|.*status code (4|5)\d\d)', re.I)
 
@@ -47,7 +49,7 @@ def build():
     except (OSError, ValueError):
         cache = {'files': {}}
     files = cache['files']
-    for p in glob.glob(f'{ROOT}/*/agent-*.jsonl'):
+    for p in [q for r in ROOTS for q in glob.glob(f'{r}/*/agent-*.jsonl')]:
         m = os.path.getmtime(p)
         if p in files and files[p]['m'] == m:
             continue

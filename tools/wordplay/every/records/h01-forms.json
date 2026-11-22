@@ -1,0 +1,37 @@
+{
+ "_comment": [
+  "Forms the catalogue proposes for hand-off 1 that are not yet in config/figure-forms.json; for checking only (figcheck.py --forms). Layers adds them from work/new-forms.json."
+ ],
+ "forms": [
+  {
+   "id": "fable",
+   "kind": "figure",
+   "label": "A fable",
+   "term": "Apologue",
+   "about": "A made-up story, in which trees or beasts may speak, used to teach a lesson.",
+   "defined": {
+    "source": "bullinger-fos",
+    "quote": "A Fictitious Narrative used for Illustration",
+    "at": "Apologue; or, Fable, p. 754",
+    "url": "https://archive.org/details/figuresofspeechu00bull/page/754/mode/1up",
+    "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+    "retrieved": "2026-11-14"
+   }
+  },
+  {
+   "id": "message-acted-out",
+   "kind": "figure",
+   "label": "The message acted out",
+   "term": "Acted signs",
+   "about": "A prophet or leader acts out the message, and the act itself carries it.",
+   "defined": {
+    "source": "calvin",
+    "quote": "It was an usual thing among the prophets to represent those things which they spake by signs; neither did they confirm their prophecies by using signs, through their own motion, but at the commandment of the Spirit",
+    "at": "on Acts 21:10-11, in the note \"10. A certain prophet.\"",
+    "url": "https://biblehub.com/commentaries/calvin/acts/21.htm",
+    "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f), and Bible Hub's page (CCEL's text)",
+    "retrieved": "2026-11-14"
+   }
+  }
+ ]
+}

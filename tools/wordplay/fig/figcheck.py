@@ -458,7 +458,8 @@ class Check:
             if k not in n:
                 self.fail(at, f'{k} is missing')
         allowed = {'id', 'kind', 'form', 'ref', 'strength', 'short', 'about', 'refs', 'lines', 'pairs', 'figure',
-                   'sides', 'defined', 'original', 'evidence', 'limit', 'checked', 'cites'}
+                   'sides', 'defined', 'original', 'evidence', 'limit', 'checked', 'cites',
+                   'n'}  # n: the catalogue candidate's line in its hand-off, a working field dropped when packaged
         for k in n:
             if k not in allowed:
                 self.fail(at, f'unknown field {k!r}')
