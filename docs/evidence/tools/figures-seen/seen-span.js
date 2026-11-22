@@ -1,6 +1,6 @@
 export const meta = {
   name: 'layers-seen-span',
-  description: 'Re-read kept places: parallel lines marking three or more lines, figures of speech, or the said-twice label, each kept, cut, moved to the form that fits, or dropped',
+  description: 'Re-read kept places: parallel lines marking three or more lines, figures of speech, the said-twice label, or refrains, each kept, cut, moved to the form that fits, or dropped',
   phases: [
     { title: 'Read', detail: 'two readers per batch' },
     { title: 'Judge', detail: 'a third reader settles any place they differ on' },
@@ -18,7 +18,7 @@ const SETUP = `You are checking places for Bible Atlas, a Bible study web app. A
 
 The places come from searches. A search's own note is shown, but it may be wrong. Judge from the verse.
 
-To see places, run: python3 -I ${TOOL} ${FILE} <first> <end>   (0-based, end not included). It prints, for each place, the form (its plain label and Bullinger's definition), the reference, the marked words (with a warning if one is not in the verse), the BSB verse, its poetry lines where the BSB sets it as poetry, the verses before and after, and, where the place has Strong's tags, the Hebrew or Greek words with the tagged ones marked. To see any other verse: python3 -I ${TOOL} verse "Psalm 1:1". Do not edit any file and do not use the web.
+To see places, run: python3 -I ${TOOL} ${FILE} <first> <end>   (0-based, end not included). It prints, for each place, the form (its plain label and Bullinger's definition), the reference, the marked words (with a warning if one is not in the verse), the BSB verse, its poetry lines where the BSB sets it as poetry, the verses before and after, and, where the place has Strong's tags, the Hebrew or Greek words with the tagged ones marked. To see any other verse: python3 -I ${TOOL} verse "Psalm 1:1". To list every verse of one book that holds some words: python3 -I ${TOOL} find "Psalm" "endures forever". Do not edit any file and do not use the web.
 
 The live forms (id: label) you may name are: same: Said twice (the second line says the first again in other words); opposite: Said by its opposite (the second line sets the opposite against the first); building: Built on (the second line adds to or completes the first); climbing: Climbing lines (each line takes up words of the one before and goes a step higher); mirror: Mirrored lines (A B B' A'); turns: Alternating lines (A B A' B'); frame: Framed (the same words open and close); refrain: Refrain; beginnings: Like beginnings; metonymy: One thing named for another it goes with (cause for effect, container for contents, a name for the person, the earth for its people); synecdoche: A part for the whole or the whole for a part; anthropopatheia: Human parts or feelings said of God; prosopopoeia: Things spoken of as persons; simile: A likeness with "like" or "as"; metaphor: Said to be the thing it is like; numbers; apostrophe: Turning to speak to someone or something absent; hyperbole: Saying more than is meant, for force; irony; question: A question that is not asking; doubling: The same word twice for force; inflections: The same word in different forms; euphemism: A gentle word for a hard thing; hendiadys: Two words for one thing; paradox; understatement; many-ands: And, and, and; no-ands: Without "and"; contrast: People set side by side; likeness: People alike; acrostic; type; allegory; parable; antithesis: Opposites set together; antimetabole: Words repeated in reverse order; aposiopesis: Breaking off; meiosis: Belittling one thing to magnify another; exclamation; riddle; hypocatastasis: A likeness implied, neither thing named; proverb.
 
@@ -51,7 +51,14 @@ For each place answer one of:
 - "form": the lines plainly stand in another of these relations; give its id in form (building, climbing, turns or opposite).
 - "drop": no plain relation a reader would see without being told. When in doubt between "same" and another form, choose the other form only if it is plain; otherwise drop.`
 
-const RULE = MODE === 'figure' ? FIGURE_RULE : MODE === 'form' ? FORM_RULE : LINES_RULE
+const REFRAIN_RULE = `Each place below marks words as a refrain: words that come back, the same or nearly the same, again and again through one passage or book as its burden ("His loving devotion endures forever" through Psalm 136, "And there was evening, and there was morning" through Genesis 1, "So I will send fire upon ... to consume its citadels" through Amos 1 and 2). A reader sees the marked words lit under "Refrain" with no commentary, so it must be plain from the words themselves: the marked words must come back in other verses of the same book nearly word for word in the BSB (use the find command and name the verses in your reason), and they must be exactly the part of this verse that comes back, not a phrase that opens something different each time while the words that truly come back stand elsewhere, and not a whole verse around the repeated words. Not a refrain: a stock formula that recurs because it is how the text speaks ("declares the LORD", "Thus says the LORD", "the word of the LORD came to me", "Truly I tell you", "he said"); words said only once more right beside them (that is a doubling, or lines said twice); a phrase found once or twice in the book; words whose sense comes back but not their wording.
+
+For each place answer one of:
+- "all": the marked words plainly come back as a refrain and are the part that comes back; keep it as it is.
+- "trim": a refrain is plain in this verse but the marked words are wider than the part that comes back, or are not the part that comes back; give in words the words of this verse that do come back, each an exact piece of the BSB verse copied from the tool output, whole words only. Its tags are dropped with the change.
+- "drop": no words of this verse plainly come back as a refrain. When in doubt, drop.`
+
+const RULE = MODE === 'figure' ? FIGURE_RULE : MODE === 'form' ? FORM_RULE : MODE === 'refrain' ? REFRAIN_RULE : LINES_RULE
 
 const SPAN = {
   type: 'object',
