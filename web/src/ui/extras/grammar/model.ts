@@ -79,10 +79,18 @@ export type Point =
 /** A word's place: [verse, position among the verse's words]. */
 export type At = [VerseRef, number];
 
+/** A Christian writer's own sentence on a form of the verse: [work, word,
+ * terms, words]. The work is numbered as the Christian writers extra numbers
+ * it (ui/extras/voices/model.ts); the word is its place among the verse's
+ * words, or -1 when the sentence quotes none. */
+export type Note = [number, number, number[], string];
+
 /** web/public/data/extras/grammar/<Book>.json */
 export interface BookFile {
   format: 1;
   v: Record<string, Point[]>;
+  /** The writers' sentences, by verse. */
+  notes?: Record<string, Note[]>;
   /** [term, members] */
   chains: [number, At[]][];
   lists: At[][];
