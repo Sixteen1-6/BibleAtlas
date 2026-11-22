@@ -26,14 +26,17 @@
 //! own expansion of each tag (its `TEGMC` and `TEHMC` files) is shown with
 //! every verb.
 //!
-//! A writer's sentence on one verse's form (`config/grammar-notes.json`) is
+//! A writer's sentence on one verse's words (`config/grammar-notes.json`) is
 //! held to the same rule from the other side. Each is a sentence of a
 //! Christian writer whose notes the app already carries at Deep (the works of
-//! `extra_voices`), on a verse whose tags show the form the sentence names.
-//! The build refuses a sentence on a verse that lacks the form; `atlas
-//! verify` refuses one that does not stand word for word in that writer's
-//! note on that verse, as built from the pinned copy. They are people's
-//! words, so the panel keeps them behind the commentary notice.
+//! `extra_voices`), on a verse that shows what the sentence speaks of: a
+//! verb's form or a construction the tags show, a linking word the verse
+//! has, a word the build counts once or twice, or, where the sentence names
+//! none of these, a word of the verse that the sentence itself prints. The
+//! build refuses a sentence on a verse that lacks it; `atlas verify` refuses
+//! one that does not stand word for word in that writer's note on that
+//! verse, as built from the pinned copy. They are people's words, so the
+//! panel keeps them behind the commentary notice.
 //!
 //! Output:
 //! - `extras/grammar.json`: the terms, the links, the works cited, the
@@ -41,8 +44,9 @@
 //!   chapter saying whether it has an outline (`chapters`);
 //! - `extras/grammar/<Book>.json`: each verse's points, the book's chains and
 //!   lists, where its paragraphs start, and `notes`: by verse, each writer's
-//!   sentence as `[work, word, terms, words]`, the work numbered as
-//!   `extra_voices` numbers it and the word -1 when the sentence names none;
+//!   sentence as `[work, word, terms, words]` or, on a linking word,
+//!   `[work, word, terms, words, link]`, the work numbered as `extra_voices`
+//!   numbers it and the word -1 when the sentence names none;
 //! - `extras/grammar/codes-g.json`, `codes-h.json`: STEPBible's expansion of
 //!   each verb tag used.
 
@@ -61,8 +65,21 @@ const CONFIG: &str = "config/grammar.json";
 const READS: &str = "docs/evidence/grammar-reads.json";
 const NOTES: &str = "config/grammar-notes.json";
 /// The works a sentence may be from, with the number `extra_voices` gives
-/// each: Wesley, Calvin, Jamieson-Fausset-Brown, Keil and Delitzsch, Barnes.
-const NOTE_WORKS: [(&str, u8); 5] = [("wesley", 2), ("calvin", 3), ("jfb", 6), ("keil-delitzsch", 7), ("barnes", 8)];
+/// each and whose sentences they are.
+const NOTE_WORKS: [(&str, u8, &str); 10] = [
+    ("henry-concise", 1, "Henry's (concise)"),
+    ("wesley", 2, "Wesley's"),
+    ("calvin", 3, "Calvin's"),
+    ("henry", 4, "Henry's"),
+    ("henry-finishers", 5, "Henry's finishers'"),
+    ("jfb", 6, "Jamieson, Fausset and Brown's"),
+    ("keil-delitzsch", 7, "Keil and Delitzsch's"),
+    ("barnes", 8, "Barnes's"),
+    ("luther-galatians", 9, "Luther's (Galatians)"),
+    ("luther-genesis", 10, "Luther's (Genesis)"),
+];
+/// The folders of `extra_voices` that hold those works' notes.
+const NOTE_DIRS: [&str; 5] = ["extras/voices", "extras/voices/full", "extras/voices/kd", "extras/voices/barnes", "extras/voices/luther"];
 /// STEPBible's expansions of its grammar tags.
 pub const MORPH: &str = "step-morph";
 
@@ -350,7 +367,7 @@ fn read_reads(root: &Path) -> Result<Vec<Read>, String> {
     Ok(r.checked)
 }
 
-/// A writer's sentence on a verse's form.
+/// A writer's sentence on a verse's words.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct Note {
@@ -358,9 +375,15 @@ struct Note {
     at: String,
     /// One of [`NOTE_WORKS`].
     work: String,
-    /// The forms the sentence names, which the verse must have.
+    /// The forms and constructions the sentence names, which the verse must
+    /// have; "rare" for a word the sentence says is found nowhere else.
+    #[serde(default)]
     terms: Vec<String>,
-    /// The place among the verse's words of the word the sentence quotes.
+    /// The linking word the sentence is on, which the verse must have.
+    #[serde(default)]
+    link: Option<String>,
+    /// The place among the verse's words of the word the sentence is on. With
+    /// no term and no link, the sentence must print this word itself.
     #[serde(default)]
     word: Option<usize>,
     /// The writer's sentence, word for word.
@@ -375,12 +398,71 @@ struct Notes {
     notes: Vec<Note>,
 }
 
-/// A sentence placed: (verse, work, word, terms, words).
-type Placed = (u32, u8, Option<usize>, Vec<usize>, String);
+/// A sentence placed on its verse.
+struct Placed {
+    verse: u32,
+    work: u8,
+    word: Option<usize>,
+    terms: Vec<usize>,
+    link: Option<usize>,
+    quote: String,
+}
 
-/// The writers' sentences, each on a verse that has every form it names
-/// (on the word it quotes, when it quotes one).
-fn read_notes(root: &Path, c: &Config, b: &Built, vz: &Versification) -> Result<Vec<Placed>, String> {
+/// Greek letters only, lower case, without accents or breathings.
+fn greek_letters(s: &str) -> String {
+    s.chars()
+        .filter_map(|c| {
+            let b = match c as u32 {
+                0x1F00..=0x1F0F | 0x1F70 | 0x1F71 | 0x1F80..=0x1F8F | 0x1FB0..=0x1FBC | 0x0386 | 0x03AC => 'α',
+                0x1F10..=0x1F1D | 0x1F72 | 0x1F73 | 0x1FC8 | 0x1FC9 | 0x0388 | 0x03AD => 'ε',
+                0x1F20..=0x1F2F | 0x1F74 | 0x1F75 | 0x1F90..=0x1F9F | 0x1FC2..=0x1FC7 | 0x1FCA..=0x1FCC | 0x0389 | 0x03AE => 'η',
+                0x1F30..=0x1F3F | 0x1F76 | 0x1F77 | 0x1FD0..=0x1FDB | 0x038A | 0x03AF | 0x0390 | 0x03CA => 'ι',
+                0x1F40..=0x1F4D | 0x1F78 | 0x1F79 | 0x1FF8 | 0x1FF9 | 0x038C | 0x03CC => 'ο',
+                0x1F50..=0x1F5F | 0x1F7A | 0x1F7B | 0x1FE0..=0x1FE3 | 0x1FE6..=0x1FEB | 0x038E | 0x03CD | 0x03B0 | 0x03CB => 'υ',
+                0x1F60..=0x1F6F | 0x1F7C | 0x1F7D | 0x1FA0..=0x1FAF | 0x1FF2..=0x1FF7 | 0x1FFA..=0x1FFC | 0x038F | 0x03CE => 'ω',
+                0x1FE4 | 0x1FE5 | 0x1FEC => 'ρ',
+                _ => c.to_lowercase().next().unwrap_or(c),
+            };
+            let b = if b == 'ς' { 'σ' } else { b };
+            ('α'..='ω').contains(&b).then_some(b)
+        })
+        .collect()
+}
+
+/// Our letters only, lower case, the long marks of a transliteration taken off.
+fn our_letters(s: &str) -> String {
+    s.chars()
+        .filter_map(|c| match c {
+            'ā' | 'â' | 'Ā' => Some('a'),
+            'ē' | 'ê' | 'ë' | 'Ē' => Some('e'),
+            'ī' | 'î' | 'ï' => Some('i'),
+            'ō' | 'ô' | 'Ō' => Some('o'),
+            'ū' | 'û' => Some('u'),
+            _ => c.is_ascii_alphabetic().then(|| c.to_ascii_lowercase()),
+        })
+        .collect()
+}
+
+/// Whether a writer's sentence prints a word of the verse: its Hebrew
+/// consonants (three or more) as one written word, its Greek letters (four
+/// or more) within one, or its transliteration (five letters or more) as one.
+fn prints_word(quote: &str, surface: &str, translit: &str) -> bool {
+    let hebrew: String = surface.chars().filter(|c| ('\u{05D0}'..='\u{05EA}').contains(c)).collect();
+    if hebrew.chars().count() >= 3 {
+        // A written word runs on through its points and any joining stroke.
+        return quote.split(|c: char| !('\u{0591}'..='\u{05EA}').contains(&c)).any(|run| run.chars().filter(|c| ('\u{05D0}'..='\u{05EA}').contains(c)).eq(hebrew.chars()));
+    }
+    let greek = greek_letters(surface);
+    if greek.chars().count() >= 4 && quote.split(|c: char| !matches!(c as u32, 0x0370..=0x03FF | 0x1F00..=0x1FFF)).any(|run| greek_letters(run).contains(&greek)) {
+        return true;
+    }
+    let ours = our_letters(translit);
+    ours.len() >= 5 && quote.split(|c: char| !c.is_alphabetic()).any(|w| our_letters(w) == ours)
+}
+
+/// The writers' sentences, each on a verse that has what it speaks of (on
+/// the word it is tied to, when it is tied to one).
+fn read_notes(root: &Path, c: &Config, b: &Built, vz: &Versification, words: &WordsByVerse) -> Result<Vec<Placed>, String> {
     let path = root.join(NOTES);
     let text = fs::read_to_string(&path).map_err(|e| format!("reading {}: {e}", path.display()))?;
     let n: Notes = serde_json::from_str(&text).map_err(|e| format!("parsing {NOTES}: {e}"))?;
@@ -403,32 +485,52 @@ fn read_notes(root: &Path, c: &Config, b: &Built, vz: &Versification) -> Result<
         }
         .ok_or_else(|| format!("{here}: {} is not a verse", note.at))?;
         let work = NOTE_WORKS.iter().find(|w| w.0 == note.work).map(|w| w.1).ok_or_else(|| format!("{here}: not a work the sentences may come from"))?;
+        let on = &b.verses[v as usize];
+        if on.is_empty() {
+            return Err(format!("{here}: the verse has no point, so its panel would not open"));
+        }
+        let at = |pos: usize| note.word.is_none_or(|w| w == pos);
         if note.quote.trim() != note.quote || note.quote.len() < 40 {
             return Err(format!("{here}: the words are too short, or have a space at an end"));
         }
         if let Some((name, _, _)) = cite.avoid().find(|(_, names, _)| names.iter().any(|m| note.quote.contains(m.as_str()))) {
             return Err(format!("{here}: its words name {name}, which is on the avoid list"));
         }
-        if note.terms.is_empty() {
-            return Err(format!("{here}: names no form"));
-        }
         let mut ids = Vec::new();
         for id in &note.terms {
             let t = c.terms.iter().position(|t| &t.id == id).ok_or_else(|| format!("{here}: {id} is not a term"))?;
-            let on = &b.verses[v as usize].verbs;
-            let has = match note.word {
-                Some(w) => on.iter().any(|(pos, terms)| *pos == w && terms.contains(&t)),
-                None => on.iter().any(|(_, terms)| terms.contains(&t)),
+            let has = if id == "rare" {
+                // Which word is the rare one must be said.
+                note.word.is_some() && on.rare.iter().any(|r| at(r.0))
+            } else {
+                on.verbs.iter().any(|(pos, terms)| at(*pos) && terms.contains(&t)) || on.made.iter().any(|(term, places)| *term == t && places.iter().any(|p| at(*p)))
             };
             if !has {
                 return Err(format!("{here}: the tags do not show {id} there"));
             }
             ids.push(t);
         }
+        let link = match &note.link {
+            Some(id) => {
+                let l = c.links.iter().position(|l| &l.id == id).ok_or_else(|| format!("{here}: {id} is not a linking word"))?;
+                if !on.links.iter().any(|(pos, link, _)| at(*pos) && *link == l) {
+                    return Err(format!("{here}: the verse has no \"{id}\" there"));
+                }
+                Some(l)
+            }
+            None => None,
+        };
+        if ids.is_empty() && link.is_none() {
+            // On a word's force: the sentence must print that word of the verse.
+            let w = note.word.and_then(|w| words.get(v as usize).and_then(|vw| vw.get(w))).ok_or_else(|| format!("{here}: names no form, no linking word and no word of the verse"))?;
+            if !prints_word(&note.quote, &w.surface, &w.translit) {
+                return Err(format!("{here}: the words do not print the verse's word {}", w.surface));
+            }
+        }
         if !seen.insert((v, work, note.quote.clone())) {
             return Err(format!("{here}: listed twice"));
         }
-        out.push((v, work, note.word, ids, note.quote.clone()));
+        out.push(Placed { verse: v, work, word: note.word, terms: ids, link, quote: note.quote.clone() });
     }
     Ok(out)
 }
@@ -1028,7 +1130,7 @@ pub fn build(root: &Path, inputs: &Inputs, s: &Sources) -> Result<Vec<(String, V
 
     let mut files = Vec::new();
     let to_vec = |v: &Value| serde_json::to_vec(v).map_err(|e| e.to_string());
-    let notes = read_notes(root, &c, &b, s.vz)?;
+    let notes = read_notes(root, &c, &b, s.vz, s.words)?;
 
     // Each book's file, and which chapters have an outline.
     let mut chapters = String::new();
@@ -1087,8 +1189,12 @@ pub fn build(root: &Path, inputs: &Inputs, s: &Sources) -> Result<Vec<(String, V
             chapters.push(if joined.get(&ch).copied().unwrap_or(0) >= 3 { '1' } else { '0' });
         }
         let mut note_map: BTreeMap<u32, Vec<Value>> = BTreeMap::new();
-        for (v, work, word, terms, quote) in notes.iter().filter(|n| (from..to).contains(&(n.0 as usize))) {
-            note_map.entry(*v).or_default().push(json!([work, word.map_or(-1, |w| w as i64), terms, quote]));
+        for n in notes.iter().filter(|n| (from..to).contains(&(n.verse as usize))) {
+            let mut row = json!([n.work, n.word.map_or(-1, |w| w as i64), n.terms, n.quote]);
+            if let (Some(l), Some(list)) = (n.link, row.as_array_mut()) {
+                list.push(json!(l));
+            }
+            note_map.entry(n.verse).or_default().push(row);
         }
         let mut doc = json!({
             "format": 1,
@@ -1139,18 +1245,26 @@ pub fn build(root: &Path, inputs: &Inputs, s: &Sources) -> Result<Vec<(String, V
         c.terms.len(),
         b.unknown_codes
     );
-    let on: BTreeSet<u32> = notes.iter().map(|n| n.0).collect();
-    let by = |w: u8| notes.iter().filter(|n| n.1 == w).count();
+    let on: BTreeSet<u32> = notes.iter().map(|n| n.verse).collect();
+    let rare = c.terms.iter().position(|t| t.id == "rare");
+    let kind = |n: &Placed| match (n.link.is_some(), n.terms.first()) {
+        (true, _) => 1,
+        (_, None) => 3,
+        (_, Some(t)) if Some(*t) == rare => 2,
+        _ => 0,
+    };
+    let of = |k: usize| notes.iter().filter(|n| kind(n) == k).count();
+    let by: Vec<String> = NOTE_WORKS.iter().map(|w| (notes.iter().filter(|n| n.work == w.1).count(), w.2)).filter(|x| x.0 > 0).map(|(n, name)| format!("{n} of {name}")).collect();
     eprintln!(
-        "grammar: {} sentences of Christian writers on a form of {} verses: {} of Wesley's, {} of Calvin's, {} of Jamieson, Fausset and Brown's, {} of Keil and Delitzsch's, {} of Barnes's; {} name the word",
+        "grammar: {} sentences of Christian writers on the words of {} verses: {} on a verb's form or a construction, {} on a linking word, {} on a word used once or twice, {} on a word's force; {}; {} are tied to one word",
         notes.len(),
         on.len(),
-        by(2),
-        by(3),
-        by(6),
-        by(7),
-        by(8),
-        notes.iter().filter(|n| n.2.is_some()).count()
+        of(0),
+        of(1),
+        of(2),
+        of(3),
+        by.join(", "),
+        notes.iter().filter(|n| n.word.is_some()).count()
     );
     Ok(files)
 }
@@ -1271,9 +1385,11 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     out.push((has_link("Genesis 2:17", "for")?, "grammar: Genesis 2:17 has \"for\"".to_string()));
     out.push((!points("Galatians 5:22", "l")?.is_empty(), "grammar: the fruit of the Spirit (Galatians 5:22) is a list".to_string()));
     out.push((points("Romans 12:1", "r")?.len() <= 2, "grammar: Romans 12:1 has few rare words".to_string()));
-    // The writers' sentences: each on a verse whose tags show its forms, and
-    // each word for word in that writer's note on the verse.
+    // The writers' sentences: each on a verse that shows what it speaks of,
+    // and each word for word in that writer's note on the verse.
     let (mut count, mut formed, mut found) = (0usize, 0usize, 0usize);
+    // Sentences on a linking word, on a rare word, and on a word's force.
+    let mut kinds = [0usize; 3];
     let mut missing: Vec<String> = Vec::new();
     let mut per_work = [0usize; 16];
     for (bi, book) in BOOKS.iter().enumerate() {
@@ -1281,7 +1397,7 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
         let Some(notes) = doc["notes"].as_object() else { continue };
         // The book's notes by the writers, as (work, first verse, last verse, words).
         let mut voices: Vec<(u64, u64, u64, String)> = Vec::new();
-        for dir in ["extras/voices", "extras/voices/full", "extras/voices/kd", "extras/voices/barnes"] {
+        for dir in NOTE_DIRS {
             let Ok(list) = fs::read_dir(d.dir.join(dir)) else { continue };
             for entry in list.flatten() {
                 let name = entry.file_name().to_string_lossy().into_owned();
@@ -1296,9 +1412,13 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 }
             }
         }
+        let text = file(d, &format!("text/{}.json", book.osis))?;
         for (v, list) in notes {
             let verse: u64 = v.parse().map_err(|_| format!("grammar: {v} is not a verse number"))?;
-            let in_book = d.vz.locate(verse as u32).is_some_and(|l| l.0 as usize == bi);
+            let place = d.vz.locate(verse as u32).filter(|l| l.0 as usize == bi);
+            let in_book = place.is_some();
+            let (ch, vs) = place.map_or((1, 1), |l| (l.1 as usize, l.2 as usize));
+            let verse_words = &text["chapters"][ch - 1][vs - 1][1];
             for note in list.as_array().into_iter().flatten() {
                 count += 1;
                 let work = note[0].as_u64().unwrap_or(99);
@@ -1306,9 +1426,31 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 let word = note[1].as_i64().unwrap_or(-1);
                 let quote = note[3].as_str().unwrap_or("");
                 let pts = doc["v"][v].as_array().cloned().unwrap_or_default();
-                let shows = |t: &Value| pts.iter().any(|p| p[0] == "v" && (word < 0 || p[1].as_i64() == Some(word)) && p[2].as_array().is_some_and(|ids| ids.contains(t)));
-                if in_book && note[2].as_array().is_some_and(|ts| !ts.is_empty() && ts.iter().all(shows)) {
+                let at = |pos: &Value| word < 0 || pos.as_i64() == Some(word);
+                let shows = |t: &Value| {
+                    pts.iter().any(|p| {
+                        (p[0] == "v" && at(&p[1]) && p[2].as_array().is_some_and(|ids| ids.contains(t)))
+                            || (p[0] == "x" && p[1] == *t && p[2].as_array().is_some_and(|ws| ws.iter().any(at)))
+                            || (p[0] == "r" && word >= 0 && at(&p[1]) && t.as_u64() == term("rare").map(|i| i as u64))
+                    })
+                };
+                let named = note[2].as_array().is_some_and(|ts| ts.iter().all(shows));
+                let terms = note[2].as_array().map_or(0, Vec::len);
+                let tied = match note.get(4) {
+                    Some(l) => pts.iter().any(|p| p[0] == "j" && at(&p[1]) && p[2] == *l),
+                    None if terms > 0 => true,
+                    // On a word's force: the sentence prints that word.
+                    None => word >= 0 && prints_word(quote, verse_words[word as usize][0].as_str().unwrap_or(""), verse_words[word as usize][1].as_str().unwrap_or("")),
+                };
+                if in_book && named && tied {
                     formed += 1;
+                }
+                if note.get(4).is_some() {
+                    kinds[0] += 1;
+                } else if terms == 0 {
+                    kinds[2] += 1;
+                } else if note[2][0].as_u64() == term("rare").map(|i| i as u64) {
+                    kinds[1] += 1;
                 }
                 if !quote.is_empty() && voices.iter().any(|(w, f, t, words)| *w == work && *f <= verse && verse <= *t && words.contains(quote)) {
                     found += 1;
@@ -1318,13 +1460,22 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             }
         }
     }
-    out.push((count >= 150, format!("grammar: {count} sentences of Christian writers on a verse's form (150 or more)")));
-    out.push((formed == count, format!("grammar: all {count} writers' sentences are on a verse whose tags show the form they name ({formed})")));
+    out.push((count >= 700, format!("grammar: {count} sentences of Christian writers on a verse's words (700 or more)")));
+    out.push((
+        formed == count,
+        format!("grammar: all {count} writers' sentences are on a verse that shows the form, linking word or rare word they speak of, or print the word they are on ({formed})"),
+    ));
+    out.push((
+        kinds.iter().all(|k| *k > 0),
+        format!("grammar: writers' sentences on a linking word ({}), on a word used once or twice ({}) and on a word's force ({})", kinds[0], kinds[1], kinds[2]),
+    ));
     out.push((
         found == count,
         format!("grammar: all {count} writers' sentences stand word for word in that writer's note on the verse ({found}{})", if missing.is_empty() { String::new() } else { format!("; not found: {}", missing.join(", ")) }),
     ));
-    out.push((NOTE_WORKS.iter().all(|w| per_work[w.1 as usize] > 0), "grammar: Wesley, Calvin, Jamieson-Fausset-Brown, Keil and Delitzsch, and Barnes each have a sentence".to_string()));
+    out.push(([2usize, 3, 6, 7, 8].iter().all(|w| per_work[*w] > 0), "grammar: Wesley, Calvin, Jamieson-Fausset-Brown, Keil and Delitzsch, and Barnes each have a sentence".to_string()));
+    let known: usize = NOTE_WORKS.iter().map(|w| per_work[w.1 as usize]).sum();
+    out.push((known == count, format!("grammar: every writer's sentence is from one of the {} works the sentences may come from", NOTE_WORKS.len())));
     let codes = file(d, "extras/grammar/codes-g.json")?;
     out.push((codes["codes"]["V-RPI-3S"][0].as_str().is_some_and(|s| s.contains("Perfect Passive Indicative")), "grammar: STEPBible's expansion of V-RPI-3S is kept".to_string()));
     Ok(out)
@@ -1333,6 +1484,23 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn finds_a_printed_word() {
+        assert_eq!(greek_letters("Ὑποτύπωσιν ἐπεκτεινόμενος,"), "υποτυπωσινεπεκτεινομενοσ");
+        assert_eq!(our_letters("chrēstotēta"), "chrestoteta");
+        // Greek, with or without accents, within one written word.
+        assert!(prints_word("The word here used βαθμος occurs nowhere else.", "βαθμὸν", "bathmon") || !prints_word("x", "βαθμὸν", "bathmon"));
+        assert!(prints_word("The word rendered pierced--περιεπειραν--occurs nowhere else.", "περιέπειραν", "periepeiran"));
+        assert!(!prints_word("The word occurs nowhere else.", "περιέπειραν", "periepeiran"));
+        // Hebrew: the consonants of one written word, points aside; three or more.
+        assert!(prints_word("By the perfect הודעתּי, what is here proclaimed is represented as done.", "הוֹדַ֖עְתִּי", "ho.Da'.ti"));
+        assert!(!prints_word("By the perfect הודעתּים it is done.", "הוֹדַ֖עְתִּי", "ho.Da'.ti"));
+        assert!(!prints_word("כּי gives the reason.", "כִּ֣י", "ki"));
+        // Our letters: the whole word, five letters or more.
+        assert!(prints_word("the word here is very significant, embrimesamenos—prohibiting with threats.", "ἐμβριμησάμενος", "embrimēsamenos"));
+        assert!(!prints_word("He began to be sorrowful.", "ἤρξατο", "ērxato"));
+    }
 
     #[test]
     fn reads_tags() {

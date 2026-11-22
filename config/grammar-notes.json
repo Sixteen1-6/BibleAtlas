@@ -1,12 +1,18 @@
 {
  "_comment": [
-  "A Christian writer's own sentence on what a verb form shows in one verse, shown in the Word choice panel at Deep, behind the commentary notice, as that writer's words.",
-  "Every sentence is from a work the app already carries at Deep in the Christian writers panel, built from a pinned public-domain copy: John Wesley's Explanatory Notes (wesley), John Calvin's Commentaries (calvin), Jamieson, Fausset and Brown's Commentary (jfb), Keil and Delitzsch's Biblical Commentary on the Old Testament (keil-delitzsch) and Albert Barnes's Notes on the New Testament (barnes). The writer of a verse's note is the one that panel names for the book.",
-  "Fields: at, the verse as Book.chapter.verse; work; terms, the forms the sentence names (ids of config/grammar.json); word, the place among the verse's Hebrew, Aramaic or Greek words of the word the sentence quotes, when it quotes one; quote, the sentence word for word.",
-  "The build refuses a sentence on a verse whose tags do not show every form in terms (on that word, when word is given), and one that names anyone on the avoid list of config/layer-sources.json. atlas verify refuses a sentence that does not stand word for word in that work's note on that verse as built from the pinned copy. So nothing here can be reworded: to change a sentence, choose other words of the same note.",
-  "How the list was made (2026-11-22): scripts/grammar-notes/mine.py found 748 sentences that name a form the verse has; each was read against five tests (it speaks of a form in this verse; it says what the form shows; it can be followed on its own; it is not about a reading, an emendation or a dispute with other scholars; it does not call the text mistaken), and those that failed any were left out. A sentence that leans on a critic the commentaries argue with was never a candidate."
+  "A Christian writer's own sentence on the words of one verse, shown in the Word choice panel at Deep, behind the commentary notice, as that writer's words: on what a verb form or a construction shows, on what a linking word (therefore, for, but, so that, lest, because, if, just as, behold) joins, on a word the Bible uses only once or twice, or on why a word is used.",
+  "Every sentence is from a work the app already carries at Deep in the Christian writers panel, built from a pinned public-domain copy: Matthew Henry's Commentary (henry), the ministers who finished it from Romans on (henry-finishers) and its concise edition (henry-concise), John Wesley's Explanatory Notes (wesley), John Calvin's Commentaries (calvin), Jamieson, Fausset and Brown's Commentary (jfb), Keil and Delitzsch's Biblical Commentary on the Old Testament (keil-delitzsch), Albert Barnes's Notes on the New Testament (barnes), and Martin Luther on Galatians (luther-galatians) and on Genesis (luther-genesis). The writer of a verse's note is the one that panel names for the book.",
+  "Fields: at, the verse as Book.chapter.verse; work; terms, the forms or constructions the sentence names (ids of config/grammar.json), or rare for a word the sentence says is found nowhere else, or only once more; link, the linking word the sentence is on (a link id of config/grammar.json); word, the place among the verse's Hebrew, Aramaic or Greek words of the word the sentence is on; quote, the sentence word for word. A sentence with no terms and no link is on why its word is used, and must print that word.",
+  "The build refuses a sentence on a verse whose tags do not show every form in terms (on that word, when word is given), whose word at that place is not a linking word of that kind, or is not one the build counts once or twice; one with no terms and no link that does not print the verse's word at that place, in its own letters or in ours; and one that names anyone on the avoid list of config/layer-sources.json. atlas verify refuses a sentence that does not stand word for word in that work's note on that verse as built from the pinned copy. So nothing here can be reworded: to change a sentence, choose other words of the same note.",
+  "How the list was made: scripts/grammar-notes/mine.py finds the sentences that speak of something the verse has. 2026-11-22, first reading: 748 sentences that name a verb form, 225 kept. 2026-11-22, second reading, wider (all ten works; linking words, rare words, constructions and a word's force added): 1,395 more, 550 kept. Each was read against five tests (it speaks of that word or form in this verse; it says what the word or form does there; it can be followed on its own; it is not about a reading, an emendation or a dispute with other scholars; it does not call the text or the BSB's wording mistaken), and those that failed any were left out. A sentence that leans on a critic the commentaries argue with was never a candidate. None of Luther's sentences passed, and none from Henry's concise edition."
  ],
  "notes": [
+  {
+   "at": "Gen.2.23",
+   "work": "keil-delitzsch",
+   "word": 3,
+   "quote": "The words, “this is now (הפּעם lit., this time) bone of my bones,” etc., are expressive of joyous astonishment at the suitable helpmate, whose relation to himself he describes in the words, “she shall be called Woman, for she is taken out of man.”"
+  },
   {
    "at": "Gen.8.3",
    "work": "keil-delitzsch",
@@ -14,6 +20,13 @@
     "h-infinitive-absolute"
    ],
    "quote": "“Then the waters turned (ישׁבוּ i.e., flowed off) from the earth, flowing continuously (the inf. absol. ושׁוב הלוך expresses continuation), and decreased at the end of 150 days.”"
+  },
+  {
+   "at": "Gen.8.21",
+   "work": "jfb",
+   "link": "for",
+   "word": 17,
+   "quote": "for--that is, \"though the imagination is evil\"; instead of inflicting another destructive flood, I shall spare them--to enjoy the blessings of grace, through a Saviour."
   },
   {
    "at": "Gen.11.5",
@@ -34,6 +47,21 @@
    "quote": "הרבּה an inf. absol., generally used adverbially, but here as an adjective, equivalent to “thy very great reward.”"
   },
   {
+   "at": "Gen.15.2",
+   "work": "keil-delitzsch",
+   "word": 11,
+   "quote": "משׁק, synonymous with ממשׁק (Zep 2:9), possession, or the seizure of possession, is chosen on account of its assonance with דּמּשׂק."
+  },
+  {
+   "at": "Gen.16.10",
+   "work": "wesley",
+   "terms": [
+    "h-twice"
+   ],
+   "word": 4,
+   "quote": "I will multiply thy seed exceedingly - Heb. multiplying I will multiply it, that is, multiply it in every age, so as to perpetuate it."
+  },
+  {
    "at": "Gen.31.15",
    "work": "keil-delitzsch",
    "terms": [
@@ -52,6 +80,18 @@
    "quote": "As the perfect is used prophetically, transposing the future to the present as being already accomplished, so the words לקחתּי אשׁר must also be understood prophetically, as denoting that Jacob would wrest the land from the Amorites, not in his own person, but in that of his posterity."
   },
   {
+   "at": "Exod.5.11",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "In Exo 5:11 special emphasis is laid upon אתּם “ye:” “Go, ye yourselves, fetch your straw,” not others for you as heretofore; “for nothing is taken (diminished) from your work.”"
+  },
+  {
+   "at": "Exod.14.11",
+   "work": "keil-delitzsch",
+   "word": 4,
+   "quote": "“Hast thou, because there were no graves at all (אין מבּלי, a double negation to give emphasis) in Egypt, fetched us to die in the desert?”"
+  },
+  {
    "at": "Lev.18.28",
    "work": "keil-delitzsch",
    "terms": [
@@ -59,6 +99,15 @@
    ],
    "word": 7,
    "quote": "The pret. ותּקא (Lev 18:25) and קאה (Lev 18:28) are prophetic (cf. Lev 20:22-23), and the expression is poetical."
+  },
+  {
+   "at": "Num.22.32",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 17,
+   "quote": "ירט, to plunge, sc., into destruction, both here, and also in Job 16:11, the only other passage in which it occurs."
   },
   {
    "at": "Num.23.22",
@@ -88,6 +137,24 @@
    "quote": "The participle אינכם מאמינם, “ye were not believing,” is intended to describe their unbelief as a permanent condition."
   },
   {
+   "at": "Deut.5.3",
+   "work": "keil-delitzsch",
+   "word": 10,
+   "quote": "The separate pronoun (we) is added to the pronominal suffix for the sake of emphasis, just as in Gen 4:26, etc.; and אלּה again is so connected with אנחנוּ, as to include the relative in itself."
+  },
+  {
+   "at": "Deut.9.3",
+   "work": "keil-delitzsch",
+   "word": 5,
+   "quote": "The threefold repetition of הוּא in Deu 9:3 is peculiarly emphatic."
+  },
+  {
+   "at": "Deut.14.1",
+   "work": "keil-delitzsch",
+   "word": 11,
+   "quote": "למת, with reference to, or on account of, a dead person, is more expressive than לנפשׁ (for a soul) in Lev 19:28."
+  },
+  {
    "at": "Deut.15.6",
    "work": "keil-delitzsch",
    "terms": [
@@ -95,6 +162,22 @@
    ],
    "word": 3,
    "quote": "This blessing would not fail, if the Israelites would only hearken to the voice of the Lord; “for Jehovah blesseth thee” (by the perfect בּרכך, the blessing is represented not as a possible and future one only, but as one already bestowed according to the counsel of God, and, so far as the commencement was concerned, already fulfilled), “as He hath spoken” (see at Deu 1:11)."
+  },
+  {
+   "at": "Deut.32.34",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The ἁπ. λεγ. כּמס in this connection signifies to lay up, preserve, conceal, although the etymology is disputed."
+  },
+  {
+   "at": "Deut.32.41",
+   "work": "keil-delitzsch",
+   "link": "if",
+   "word": 0,
+   "quote": "אם, however, is not the particle employed in swearing, which has a negative meaning (vid., Gen 14:23), but is conditional, and introduces the protasis."
   },
   {
    "at": "Deut.33.12",
@@ -106,12 +189,27 @@
    "quote": "The participle expresses the permanence of the relation: is his shelterer."
   },
   {
+   "at": "Josh.5.2",
+   "work": "keil-delitzsch",
+   "word": 15,
+   "quote": "The word שׁנית (a second time) is only added to give emphasis to שׁוּב, or as an explanation of it, and is not to be pressed, either here or in Isa 11:11, as though it denoted the repetition of the same act in every respect, i.e., of an act of circumcision which had once before been performed upon the whole nation."
+  },
+  {
    "at": "Josh.6.11",
    "work": "keil-delitzsch",
    "terms": [
     "h-hiphil"
    ],
    "quote": "The Hiphil has only an active, not a causative, meaning here, as in 2Sa 5:23, etc."
+  },
+  {
+   "at": "Josh.24.19",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The only other place in which the form קנּוא is used for קנּא is Nah 1:2."
   },
   {
    "at": "Judg.4.4",
@@ -132,6 +230,12 @@
    "quote": "נפרד with Kametz is a participle, which is used in the place of the perfect, to indicate that the separation was a permanent one."
   },
   {
+   "at": "Judg.10.4",
+   "work": "keil-delitzsch",
+   "word": 9,
+   "quote": "They had thirty cities (the second עירים in Jdg 10:4 is another form for ערים, from a singular עיר = עיר, a city, and is chosen because of its similarity in sound to עירים, asses)."
+  },
+  {
    "at": "Judg.17.3",
    "work": "keil-delitzsch",
    "terms": [
@@ -141,6 +245,65 @@
    "quote": "The perfect הקדּשׁתּי is not to be taken in the sense of the pluperfect, “I had sanctified it,” but is expressive of an act just performed: I have sanctified it, I declare herewith that I do sanctify it."
   },
   {
+   "at": "1Sam.7.3",
+   "work": "wesley",
+   "link": "if",
+   "word": 7,
+   "quote": "If - If you do indeed what you profess, if you are resolved to go on in that which you seem to have begun."
+  },
+  {
+   "at": "1Sam.13.13",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 13,
+   "quote": "The כּי (for) assigns the reason, and refers to נסכּלתּ (“thou hast done foolishly”), the וגו שׁמרתּ לא being merely added as explanatory."
+  },
+  {
+   "at": "1Sam.20.3",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 23,
+   "quote": "כּי introduces the substance of the oath, as in 1Sa 14:44, etc."
+  },
+  {
+   "at": "1Sam.20.21",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 0,
+   "quote": "“And, behold (הנּה, directing attention to what follows as the main point), I will send the boy (saying), Go, get the arrows."
+  },
+  {
+   "at": "1Sam.21.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 23,
+   "quote": "David also asked Ahimelech whether he had not a sword or a javelin at hand; “for I have neither brought my sword nor my (other) weapons with me, because the affair of the king was pressing,” i.e., very urgent, נחוּץ, ἁπ. λεγ., literally, compressed."
+  },
+  {
+   "at": "2Sam.7.22",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 1,
+   "quote": "By the word “wherefore,” i.e., because Thou hast done this, the praise of the singleness of God is set forth as the result of David’s own experience."
+  },
+  {
+   "at": "2Sam.17.20",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "When Absalom’s servants came and asked for the priest’s sons, the woman said, They have gone over the little water-brook (המּים מיכל, ἁπ. λεγ.), and thus led them wrong, so that they did not find them."
+  },
+  {
+   "at": "2Sam.22.38",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "ואשׁמידם, “I destroy them,” is stronger than ואשּׂיגם, “I reach them” (in the psalm)."
+  },
+  {
    "at": "2Sam.23.2",
    "work": "keil-delitzsch",
    "terms": [
@@ -148,6 +311,31 @@
    ],
    "word": 2,
    "quote": "The preterite דּבּר relates to the divine inspiration which preceded the utterance of the divine saying."
+  },
+  {
+   "at": "1Kgs.1.46",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "The repetition of וגם three times (1Ki 1:46-48) gives emphasis to the words, since every new point which is introduced with וגם raises the thing higher and higher towards absolute certainty."
+  },
+  {
+   "at": "1Kgs.11.2",
+   "work": "keil-delitzsch",
+   "word": 21,
+   "quote": "In the last clause בּהם is used with peculiar emphasis: Solomon clave to these nations, of which God had said such things, to love, i.e., to enter into the relation of love or into the marriage relation, with them."
+  },
+  {
+   "at": "1Kgs.17.1",
+   "work": "keil-delitzsch",
+   "word": 22,
+   "quote": "In דברי לפי there is involved an emphatic antithesis to others, and more especially to the prophets of Baal."
+  },
+  {
+   "at": "2Kgs.1.10",
+   "work": "keil-delitzsch",
+   "link": "if",
+   "word": 6,
+   "quote": "(The expression ואם, and if, shows that Elijah’s words followed immediately upon those of the captain.)"
   },
   {
    "at": "2Kgs.11.15",
@@ -177,6 +365,24 @@
    "quote": "By the partic. מודים, from הודה, confess, praise, the praising of God is characterized as an enduring praise, always rising anew."
   },
   {
+   "at": "2Chr.2.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "רפסדות, “floats,” too, occurs only here instead of דּבבות, 1Ki 5:9, and its etymology is unknown."
+  },
+  {
+   "at": "2Chr.4.21",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "מכלה, which occurs only here, is synonymous with מכלל, perfection."
+  },
+  {
    "at": "2Chr.12.1",
    "work": "keil-delitzsch",
    "terms": [
@@ -202,6 +408,12 @@
    ],
    "word": 11,
    "quote": "The perfect פּרץ is prophetic: Jahve will rend thy work asunder."
+  },
+  {
+   "at": "Ezra.7.21",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "אנה is an emphatic repetition of the pronoun, as in Dan 7:15, and frequently in Hebrew."
   },
   {
    "at": "Neh.1.3",
@@ -230,12 +442,42 @@
    "quote": "The participle נשׁים says: we are those who have lent."
   },
   {
+   "at": "Neh.8.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 11,
+   "quote": "To this thanksgiving the people answered Amen, Amen (comp. 1Ch 16:36), lifting up their hands (ידיהם בּמעל, with lifting up of their hands; the form מעל occurring only here), and worshipping the Lord, bowing down towards the ground."
+  },
+  {
+   "at": "Neh.9.16",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "והם is emphatic, and prefixed to contrast the conduct of the Israelites with the benefits bestowed on them."
+  },
+  {
+   "at": "Esth.1.15",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "כּדת, according to law, legally, is placed first because it is intended emphatically to assert that the proceeding is to be in conformity with the law."
+  },
+  {
    "at": "Esth.1.17",
    "work": "keil-delitzsch",
    "terms": [
     "h-infinitive"
    ],
    "quote": "“For the deed of the queen will come abroad to (על for אל) all women, to bring their husbands into contempt in their eyes (the infin. להבזות stating the result), while they will say,” etc. (the suffix of בּאמרם relates to the women, who will appeal to the disobedience of the queen)."
+  },
+  {
+   "at": "Esth.2.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 26,
+   "quote": "ונתון is the infin. abs., used instead of the verb. fin. to give prominence to the matter: let them appoint."
   },
   {
    "at": "Esth.5.6",
@@ -256,6 +498,58 @@
    "quote": "The participle denotes the long continuance of this reading."
   },
   {
+   "at": "Esth.8.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 21,
+   "quote": "מתיהדים, to confess oneself a Jew, to become a Jew, a denominative formed from יהוּדי, occurs only here."
+  },
+  {
+   "at": "Job.1.8",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 9,
+   "quote": "By כּי Jehovah gives the reason of His inquiry."
+  },
+  {
+   "at": "Job.10.22",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "Still further he calls it (the land) of the shadow of death, and devoid of order (סדרים, ἅπ. λεγ. in the Old Testament, but a common word in the later Hebrew), i.e., where everything is so encompassed by the shadow of death that it seems a chaos, without any visible or distinct outline."
+  },
+  {
+   "at": "Job.12.7",
+   "work": "wesley",
+   "link": "but",
+   "word": 0,
+   "quote": "But - If thou observest the beasts, and their properties and actions, and events, from them thou mayst learn this lesson: that which Zophar had uttered with so much pomp and gravity, chap.11:7,8,9, concerning God's infinite wisdom, saith Job, thou needest not go into heaven or hell to know. but thou mayst learn it even from the beasts."
+  },
+  {
+   "at": "Job.13.4",
+   "work": "keil-delitzsch",
+   "link": "but",
+   "word": 0,
+   "quote": "With ואוּלם (Job 13:4) the antithesis is introduced anew: I will turn to God, you on the contrary (καὶ ὑμεῖς δὲ)."
+  },
+  {
+   "at": "Job.13.10",
+   "work": "keil-delitzsch",
+   "word": 4,
+   "quote": "The addition of בּסּתר (Job 13:10) implies that they conceal their better knowledge by the assumption of an earnest tone and bearing, expressive of the strongest conviction that they are in the right."
+  },
+  {
+   "at": "Job.15.25",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Now he gives the reason of all the fore - mentioned calamities, which was his great wickedness."
+  },
+  {
    "at": "Job.17.5",
    "work": "keil-delitzsch",
    "terms": [
@@ -263,6 +557,48 @@
    ],
    "word": 1,
    "quote": "And it is יגיד, not הגיד, because the perf. would describe the fact as past, while the fut. places us in the midst of this faithless conduct."
+  },
+  {
+   "at": "Job.19.21",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "They are indeed his friends, as the emphatic רעי אתּם affirms; impelled towards him by sympathy they are come, and at least stand by him while all other men flee from him."
+  },
+  {
+   "at": "Job.19.29",
+   "work": "wesley",
+   "link": "so-that",
+   "word": 8,
+   "quote": "That - This admonition I give you, that you may know it in time, and prevent it."
+  },
+  {
+   "at": "Job.20.2",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - For this thy severe sentence."
+  },
+  {
+   "at": "Job.22.21",
+   "work": "jfb",
+   "terms": [
+    "h-imperative"
+   ],
+   "quote": "and be--So thou shalt be: the second imperatively expresses the consequence of obeying the first (Psa 37:27)."
+  },
+  {
+   "at": "Job.28.24",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - He, and he only knows it, because his providence, is infinite and universal, reaching to all places, and times, past, present, and to come; whereas the most knowing men have narrow understandings, and the wisdom, and justice, and beauty of God's works are not fully seen 'till all the parts of them be laid together."
+  },
+  {
+   "at": "Job.28.28",
+   "work": "wesley",
+   "link": "behold",
+   "word": 2,
+   "quote": "Behold - Which expression denotes the great importance of this doctrine, and withal man's backwardness to apprehend it."
   },
   {
    "at": "Job.31.31",
@@ -274,6 +610,48 @@
    "quote": "Instead of אמרוּ, it might also be יאמרוּ (dicebant); the perf., however, better denotes not merely what happens in a general way, but what must come to pass."
   },
   {
+   "at": "Job.34.21",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - God doth not destroy either prince or people unjustly, no nor out of his mere pleasure, but for their sins, which he sees exactly, although they use all possible arts to hide them."
+  },
+  {
+   "at": "Job.36.27",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Having affirmed that God's works are incomprehensibly great and glorious, he now proves it from the most common works of nature and providence."
+  },
+  {
+   "at": "Job.40.23",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 0,
+   "quote": "הן, Job 40:23, pointing to something possible, obtains almost the signification of a conditional particle, as Job 12:14; Job 23:8; Isa 54:15."
+  },
+  {
+   "at": "Job.42.3",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 6,
+   "quote": "With לכן he draws a conclusion from this confession which the chastening word of Jehovah has presented to him: he has rashly pronounced an opinion upon things that lie beyond his power of comprehension, without possessing the necessary capacity of judging and perception."
+  },
+  {
+   "at": "Job.42.3",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 6,
+   "quote": "Therefore - Because my mind was without knowledge."
+  },
+  {
+   "at": "Ps.5.10",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 7,
+   "quote": "The ground of this terrible prayer is set forth by כּי מרוּ בך."
+  },
+  {
    "at": "Ps.7.13",
    "work": "keil-delitzsch",
    "terms": [
@@ -283,6 +661,13 @@
    "quote": "The fut. יפעל denotes the simultaneous charging of the arrows aimed at the sinner, with the fire of His wrath."
   },
   {
+   "at": "Ps.11.2",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 1,
+   "quote": "As הנּה implies, this danger is imminent."
+  },
+  {
    "at": "Ps.13.6",
    "work": "keil-delitzsch",
    "terms": [
@@ -290,6 +675,13 @@
    ],
    "word": 3,
    "quote": "The perfect in Psa 13:6 is to be properly understood thus: the celebration follows the fact that inspires him to song."
+  },
+  {
+   "at": "Ps.14.5",
+   "work": "wesley",
+   "link": "for",
+   "word": 3,
+   "quote": "For - God is on their side, and therefore their enemies have cause to tremble."
   },
   {
    "at": "Ps.17.5",
@@ -308,6 +700,13 @@
    ],
    "word": 0,
    "quote": "The Hiph. הפלה (הפליא, Psa 31:22, cf. Psa 4:4) signifies here to work in an extraordinary and marvellous manner."
+  },
+  {
+   "at": "Ps.18.17",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 4,
+   "quote": "כּי introduces the reason for the interposition of the divine omnipotence, viz., the superior strength of the foe and the weakness of the oppressed one."
   },
   {
    "at": "Ps.20.4",
@@ -337,6 +736,13 @@
    "quote": "יחי optative of חיה, here used of the reviving of the heart, which is as it were dead (1Sa 25:37), to spiritual joy."
   },
   {
+   "at": "Ps.22.28",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - This is added as a reason, why the Gentiles should be converted, because God is not only God and the Lord of the Jews, but also of the Gentiles, and of all nations."
+  },
+  {
    "at": "Ps.23.5",
    "work": "keil-delitzsch",
    "terms": [
@@ -344,6 +750,33 @@
     "h-perfect"
    ],
    "quote": "The future תּערך is followed, according to the customary return to the perfect ground-form, by דּשּׁנתּ, which has, none the less, the signification of a present."
+  },
+  {
+   "at": "Ps.26.3",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - I dare appeal to thee, because thou knowest I have a deep sense of thy loving - kindness, by which I have been led to love and obey thee."
+  },
+  {
+   "at": "Ps.37.23",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "By גּבר is meant man in an emphatic sense (Job 38:3), and in fact in an ethical sense; compare, on the other hand, the expression of the more general saying, “Man proposes, and God disposes,” Pro 16:9; Pro 20:24; Jer 10:23."
+  },
+  {
+   "at": "Ps.37.37",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 4,
+   "quote": "By כּי that to which attention is specially called is introduced."
+  },
+  {
+   "at": "Ps.42.6",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 5,
+   "quote": "therefore--that is, finding no comfort in myself, I turn to Thee, even in this distant \"land of Jordan and the (mountains) Hermon, the country east of Jordan."
   },
   {
    "at": "Ps.44.7",
@@ -355,6 +788,13 @@
    "quote": "This “Thou” in הושׁעתּנוּ is the emphatic word; the preterites describe facts of experience belonging to history."
   },
   {
+   "at": "Ps.45.17",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 6,
+   "quote": "therefore--Because thus glorious, the praise shall be universal and perpetual."
+  },
+  {
    "at": "Ps.50.5",
    "work": "keil-delitzsch",
    "terms": [
@@ -362,6 +802,19 @@
    ],
    "word": 3,
    "quote": "The participle כּרתי here implies the constant continuance of that primary covenant-making."
+  },
+  {
+   "at": "Ps.51.4",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 6,
+   "quote": "This למען must not be weakened by understanding it to refer to the result instead of to the aim or purpose."
+  },
+  {
+   "at": "Ps.55.13",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "The expression is designedly אנושׁ כּערכּי and not אישׁ כערכי; David does not make him feel his kingly eminence, but places himself in the relation to him of man to man, putting him on the same level with himself and treating him as his equal."
   },
   {
    "at": "Ps.55.14",
@@ -408,6 +861,25 @@
    "quote": "The future תּעננוּ confesses, as a present, a fact of experience that still holds good in all times to come."
   },
   {
+   "at": "Ps.79.9",
+   "work": "keil-delitzsch",
+   "word": 12,
+   "quote": "שׁמך is repeated with emphasis at the end of the petition in Psa 79:9, according to the figure epanaphora."
+  },
+  {
+   "at": "Ps.90.3",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "The poet intentionally calls the generation that is dying away אנושׁ, which denotes man from the side of his frailty or perishableness; and the new generation בּני־אדם, with which is combined the idea of entrance upon life."
+  },
+  {
+   "at": "Ps.92.9",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 1,
+   "quote": "הנּה points as it were with the finger to the inevitable end; and the emotional anadiplosis breathes forth a zealous love for the cause of God as if it were his own."
+  },
+  {
    "at": "Ps.107.7",
    "work": "keil-delitzsch",
    "terms": [
@@ -444,6 +916,13 @@
    "quote": "The perfect גּמל states that which is a matter of actual experience, and is corroborated in Psa 116:8 in retrospective perfects."
   },
   {
+   "at": "Ps.118.10",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 5,
+   "quote": "The כּי is that which states the ground or reason, and then becomes directly confirmatory and assuring (Psa 128:2, Psa 128:4), which here, after the “in the name of Jahve” that precedes it, is applied and placed just as in the oath in 1Sa 14:44."
+  },
+  {
    "at": "Ps.118.12",
    "work": "keil-delitzsch",
    "terms": [
@@ -451,6 +930,34 @@
    ],
    "word": 2,
    "quote": "The perfect דּעכוּ (cf. Isa 43:17) describes their destruction, which takes place instantly and unexpectedly."
+  },
+  {
+   "at": "Ps.119.91",
+   "work": "wesley",
+   "link": "for",
+   "word": 3,
+   "quote": "For - All things are subject to thy power and pleasure."
+  },
+  {
+   "at": "Ps.119.127",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - Because the general apostacy of others makes this duty more necessary."
+  },
+  {
+   "at": "Ps.127.3",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 0,
+   "quote": "With הנּה it goes on to refer to a specially striking example in support of the maxim that everything depends upon God’s blessing."
+  },
+  {
+   "at": "Ps.132.12",
+   "work": "keil-delitzsch",
+   "link": "if",
+   "word": 0,
+   "quote": "The hypotheses with אם, as the fulfilment in history shows, were conditions of the continuity of the Davidic succession; not, however - because human unfaithfulness does not annul the faithfulness of God - of the endlessness of the Davidic throne."
   },
   {
    "at": "Ps.139.12",
@@ -471,6 +978,13 @@
    "quote": "The future ירוּמוּ expresses the consequence (cf. Psa 61:8) against which the poet wishes to guard."
   },
   {
+   "at": "Ps.143.3",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "With כּי (Psa 143:3) the poet introduces the ground of his petition for an answer, and more particularly for the forgiveness of his guilt."
+  },
+  {
    "at": "Ps.146.6",
    "work": "keil-delitzsch",
    "terms": [
@@ -480,6 +994,26 @@
    "quote": "With השּׁמר, the only determinate participle, the faithfulness of God to His promises is made especially prominent."
   },
   {
+   "at": "Prov.1.22",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "Intentionally, Wisdom addresses only the פתים, to whom she expects to find soonest access."
+  },
+  {
+   "at": "Prov.2.20",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 0,
+   "quote": "למען (from מען = מענה, tendency, purpose) refers to the intention and object of the protecting wisdom."
+  },
+  {
+   "at": "Prov.2.20",
+   "work": "wesley",
+   "link": "so-that",
+   "word": 0,
+   "quote": "That - This depends upon ver.11, and is mentioned as another happy fruit of wisdom."
+  },
+  {
    "at": "Prov.4.4",
    "work": "keil-delitzsch",
    "terms": [
@@ -487,6 +1021,20 @@
    ],
    "word": 8,
    "quote": "The imper. וחיה is, as Pro 7:2; Gen 20:7, more than ותחיה; the teacher seeks, along with the means, at the same time their object: Observe my commandments, and so become a partaker of life!"
+  },
+  {
+   "at": "Prov.4.17",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The second כּי introduces the reason of their bodily welfare being conditioned by evil-doing."
+  },
+  {
+   "at": "Prov.4.23",
+   "work": "wesley",
+   "link": "for",
+   "word": 4,
+   "quote": "For - From thence proceed all the actions, as of the natural, so of the spiritual life, which lead to eternal life."
   },
   {
    "at": "Prov.11.14",
@@ -507,6 +1055,21 @@
    "quote": "The preterite, as Pro 11:2, Pro 11:8, etc., places the general true proposition as a separate historic principle derived from experience."
   },
   {
+   "at": "Prov.14.3",
+   "work": "henry",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "In the mouth there is pride, proud boasting, proud censuring, proud scorning, proud commanding and giving law; this is the rod, or branch, of pride; the word is used only here and Isa. xi. 1."
+  },
+  {
+   "at": "Prov.17.14",
+   "work": "keil-delitzsch",
+   "word": 6,
+   "quote": "Then follows the warning to let go such strife (הריב, with the article used in the more elevated style, not without emphasis), to break from it, to separate it from oneself ere it reach a dangerous height."
+  },
+  {
    "at": "Prov.19.15",
    "work": "keil-delitzsch",
    "terms": [
@@ -522,6 +1085,13 @@
     "h-imperfect"
    ],
    "quote": "The fut. תּבין clothes the admonition in the form of a wish or counsel; the infin. intens. בּין makes it urgent: consider well him whom thou hast before thee, viz., that he is not thine equal, but one higher, who can destroy thee as well as be useful to thee."
+  },
+  {
+   "at": "Prov.27.24",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - What thou dost now possess, will not last always."
   },
   {
    "at": "Prov.28.1",
@@ -558,6 +1128,90 @@
    "quote": "The perf., as a fundamental verbal form, is here the expression of the abstract present: she plants a vineyard, for she purchases vines from the profit of her industry (Isa 7:23, cf. Pro 5:2)."
   },
   {
+   "at": "Eccl.2.16",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Their memory, though it may flourish for a season, yet will in a little time be worn out; as we see it, most of the wise men of former ages, whose very names, together with all their monuments, are utterly lost."
+  },
+  {
+   "at": "Eccl.3.19",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - They are subject to the same diseases, pains, and calamities."
+  },
+  {
+   "at": "Eccl.3.22",
+   "work": "wesley",
+   "link": "for",
+   "word": 8,
+   "quote": "For - When once he is dead he shall never return to see into whose hands his estate falls."
+  },
+  {
+   "at": "Eccl.5.7",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - There is a great deal of folly, as in multitude of dreams, which for the most part are vain and insignificant, so also in many words, in making many vows whereby a man is exposed to many snares and temptations."
+  },
+  {
+   "at": "Eccl.6.8",
+   "work": "jfb",
+   "link": "for",
+   "word": 0,
+   "quote": "The \"for\" means (in contrast to the insatiability of the miser), For what else is the advantage which the wise man hath above the fool?\""
+  },
+  {
+   "at": "Eccl.6.12",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - And as no man can be happy with these things while he lives, so he can have no content in leaving them to others, because he knows not either who shall possess them, or how the future owners will use or abuse them."
+  },
+  {
+   "at": "Eccl.7.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 9,
+   "quote": "For - This question shews thy folly in contending with thy Lord and governor, in opposing thy shallow wit to his unsearchable wisdom."
+  },
+  {
+   "at": "Eccl.8.11",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 8,
+   "quote": "Therefore - God's forbearance makes them presumptuous and secure."
+  },
+  {
+   "at": "Eccl.9.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 7,
+   "quote": "For - Thou canst neither design nor act any thing there tending to thy own comfort or advantage."
+  },
+  {
+   "at": "Eccl.11.2",
+   "work": "wesley",
+   "link": "for",
+   "word": 5,
+   "quote": "For - Great calamities may come whereby thou mayest be brought to poverty, and so disabled from doing good."
+  },
+  {
+   "at": "Eccl.12.14",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - All men must give an account to God of all their works, and this alone will enable them to do that with joy."
+  },
+  {
+   "at": "Song.1.3",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 7,
+   "quote": "therefore--because of the manifestation of God's character in Christ (1Jo 4:9, 19)."
+  },
+  {
    "at": "Song.2.17",
    "work": "keil-delitzsch",
    "terms": [
@@ -567,6 +1221,12 @@
    "quote": "With the perf., עד שׁ (cf. אם עד, Gen 24:33) signifies, till something is done; with the fut., till something will be done."
   },
   {
+   "at": "Song.8.9",
+   "work": "keil-delitzsch",
+   "word": 8,
+   "quote": "A door, on the contrary, is moveable; and though it be for the present closed (דלת is intentionally used, and not פּתח, vid., Gen 19:6), yet it is so formed that it can be opened again."
+  },
+  {
    "at": "Isa.1.11",
    "work": "keil-delitzsch",
    "terms": [
@@ -574,6 +1234,12 @@
    ],
    "word": 4,
    "quote": "The prophet intentionally uses the word יאמר, not אמר: this was the incessant appeal of God in relation to the spiritless, formal worship offered by the hypocritical, ceremonial righteousness of Israel (the future denoting continuous actions, which is ever at the same time both present and future)."
+  },
+  {
+   "at": "Isa.1.21",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "איכה, and but rarely איך, which is an abbreviated form, is expressive of complaint and amazement."
   },
   {
    "at": "Isa.3.8",
@@ -601,6 +1267,172 @@
    "quote": "It was certainly a coming judgment, not one already past; for the verbs after “therefore” (‛al - cên), like those after the three previous lâcēn, are all prophetic preterites."
   },
   {
+   "at": "Isa.6.7",
+   "work": "wesley",
+   "link": "behold",
+   "word": 4,
+   "quote": "Lo - This is a sign that I have pardoned and purged the uncleanness of thy lips."
+  },
+  {
+   "at": "Isa.6.10",
+   "work": "wesley",
+   "link": "lest",
+   "word": 8,
+   "quote": "Lest - That they may not be able, as before they were not willing to see."
+  },
+  {
+   "at": "Isa.7.9",
+   "work": "wesley",
+   "link": "if",
+   "word": 7,
+   "quote": "If - If you do not believe this, but seek to the Assyrians for succour, ye shall be consumed thereby."
+  },
+  {
+   "at": "Isa.7.14",
+   "work": "jfb",
+   "link": "behold",
+   "word": 6,
+   "quote": "Behold--arresting attention to the extraordinary prophecy."
+  },
+  {
+   "at": "Isa.7.14",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Because you despise me, and the sign which I now offer to you, God of his own free grace will send you a more honourable messenger, and give you a nobler sign."
+  },
+  {
+   "at": "Isa.8.7",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "therefore--for the reason given in Is 8:6, the Assyrian flood, which is first to overflood Syria and Samaria, shall rise high enough to reach rebel Judah also (Is 8:8)."
+  },
+  {
+   "at": "Isa.9.1",
+   "work": "jfb",
+   "link": "for",
+   "word": 0,
+   "quote": "The \"for\" refers, not to the words immediately preceding, but to the consolations in Is 8:9, 10, 17, 18."
+  },
+  {
+   "at": "Isa.9.6",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Having spoken of the glorious light, and joy, and victory of God's people, he now proceeds to shew the ground of it."
+  },
+  {
+   "at": "Isa.10.24",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - This is an inference, not from the words immediately foregoing, but from the whole prophecy."
+  },
+  {
+   "at": "Isa.15.4",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 8,
+   "quote": "therefore--because of the sudden overthrow of their cities."
+  },
+  {
+   "at": "Isa.17.1",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 2,
+   "quote": "“Behold,” etc.: hinnēh followed by a participle indicates here, as it does everywhere else, something very near at hand."
+  },
+  {
+   "at": "Isa.17.2",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "We meet here again with a significant play upon the sound in the expression ‛ârē ‛Aro‛ēr (cities of Aroer): the name of Aroer was ominous, and what its name indicated would happen to the cities in its circuit. ערער means “to lay bare,” to pull down (Jer 51:58); and ערער, ערירי signifies a stark-naked condition, a state of desolation and solitude."
+  },
+  {
+   "at": "Isa.23.13",
+   "work": "wesley",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold - Thou Tyrians, cast your eyes upon the Chaldeans or Babylonians; who tho' now flourishing, grow far more glorious and potent, even the glory of kingdoms, yet shall certainly be brought to utter ruin."
+  },
+  {
+   "at": "Isa.25.1",
+   "work": "keil-delitzsch",
+   "word": 11,
+   "quote": "It is a common custom with Isaiah to place derivatives of the same word side by side, for the purpose of giving the greatest possible emphasis to the idea (Isa 3:1; Isa 16:6). אמוּנה indicates a quality, אמן in actual fact."
+  },
+  {
+   "at": "Isa.25.4",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - For thou hast defended thy poor and helpless people."
+  },
+  {
+   "at": "Isa.26.9",
+   "work": "wesley",
+   "link": "for",
+   "word": 7,
+   "quote": "For - And good reason it is that we should thus desire and seek thee in the way of thy judgments, because this is the very design of thy judgments, that men should thereby be awakened to learn and return to their duty; and this is a common effect, that those who have been careless in prosperity, are made wiser and better by afflictions."
+  },
+  {
+   "at": "Isa.27.9",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "With the word “therefore” (lâcēn) a conclusion is drawn from the expression “by measure.”"
+  },
+  {
+   "at": "Isa.27.11",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 13,
+   "quote": "Therefore - Thus he overthrows their conceit that God would never destroy the work of his own hands."
+  },
+  {
+   "at": "Isa.28.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - They must be taught like little children, because of their great dullness."
+  },
+  {
+   "at": "Isa.28.13",
+   "work": "wesley",
+   "link": "so-that",
+   "word": 16,
+   "quote": "That - This will be the event, or consequence of their sin: they will fall backward, which is the worst, and most dangerous way of falling; and so be broken to pieces."
+  },
+  {
+   "at": "Isa.28.16",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Because your refuges are so vain, and deceitful; therefore I will direct you to a surer refuge, which God hath laid in Zion."
+  },
+  {
+   "at": "Isa.28.20",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - For those lying refuges, to which you trust, will not be able to give you that protection, which you expect from them; no more than a man can stretch himself upon a bed that is too short for him."
+  },
+  {
+   "at": "Isa.28.22",
+   "work": "wesley",
+   "link": "lest",
+   "word": 3,
+   "quote": "Lest - Lest thereby you make the judgments of God sure and unavoidable."
+  },
+  {
+   "at": "Isa.28.22",
+   "work": "wesley",
+   "link": "for",
+   "word": 6,
+   "quote": "For - God hath assured me, that he will utterly destroy the people of Israel."
+  },
+  {
    "at": "Isa.31.1",
    "work": "keil-delitzsch",
    "terms": [
@@ -618,12 +1450,81 @@
    "quote": "The fut. consec. ויּבא is used to indicate the inevitable consequence of their despising Him who is also wise."
   },
   {
+   "at": "Isa.31.4",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Although you have done evil in sending to Egypt for help, yet the Lord himself will, of his own grace, give you that help which you do not deserve."
+  },
+  {
+   "at": "Isa.34.8",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - This is the time which God hath fixed, to avenge the cause of his persecuted people."
+  },
+  {
+   "at": "Isa.38.18",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The v. is introduced with “for” (kı̄), inasmuch as the gracious act of God is accounted for on the ground that He wished to be still further glorified by His servant whom He delivered."
+  },
+  {
+   "at": "Isa.40.9",
+   "work": "wesley",
+   "link": "behold",
+   "word": 18,
+   "quote": "Behold - Take notice of this wonderful work, and glorious appearance of your God."
+  },
+  {
    "at": "Isa.40.22",
    "work": "keil-delitzsch",
    "terms": [
     "h-participle"
    ],
    "quote": "The participle brings to view the actions and circumstances of all times."
+  },
+  {
+   "at": "Isa.42.1",
+   "work": "wesley",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold - The prophet having given one eminent instance of God's certain fore - knowledge, in the deliverance of the Jews by Cyrus, now adds another more eminent example of it, by foretelling the coming of the Messiah."
+  },
+  {
+   "at": "Isa.43.22",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "The personal pronoun אתי, in the place of the suffix, is written first of all for the sake of emphasis, as if the meaning were, “Israel could exert itself to call upon other gods, but not upon Jehovah.”"
+  },
+  {
+   "at": "Isa.43.22",
+   "work": "wesley",
+   "link": "for",
+   "word": 4,
+   "quote": "For - God called to the Gentiles to be his people, because the Jews forsook him."
+  },
+  {
+   "at": "Isa.44.9",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 13,
+   "quote": "למען implies that the will of the sinner in his sin has also destruction for its object; and this is not something added to the sin, but growing out of it."
+  },
+  {
+   "at": "Isa.44.22",
+   "work": "jfb",
+   "link": "for",
+   "word": 7,
+   "quote": "for--The antecedent redemption is the ground of, and motive to, repentance."
+  },
+  {
+   "at": "Isa.45.6",
+   "work": "wesley",
+   "link": "so-that",
+   "word": 0,
+   "quote": "That - That all nations may know it by my foretelling these things so long before, and by the wonderful success that I shall give thee, and by my over - ruling thine heart and counsels, to the deliverance of my people."
   },
   {
    "at": "Isa.51.2",
@@ -633,6 +1534,34 @@
    ],
    "word": 9,
    "quote": "The perfect קראתיו relates the single call of divine grace, which removed Abraham from the midst of idolaters into the fellowship of Jehovah."
+  },
+  {
+   "at": "Isa.52.13",
+   "work": "jfb",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold--awakening attention to the striking picture of Messiah that follows (compare Joh 19:5, 14)."
+  },
+  {
+   "at": "Isa.52.13",
+   "work": "wesley",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold - This is the beginning of a new prophecy, which is continued from hence to the end of the next chapter."
+  },
+  {
+   "at": "Isa.52.15",
+   "work": "wesley",
+   "link": "for",
+   "word": 8,
+   "quote": "For - They shall hear from his mouth many excellent doctrines, which will be new and strange to them."
+  },
+  {
+   "at": "Isa.57.16",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 7,
+   "quote": "כּי introduces the reason for the self-limitation of the divine wrath, just as in Psa 78:38-39 (cf., Psa 103:14): if God should put no restraint upon His wrath, the consequence would be the entire destruction of human life, which was His creative work at first."
   },
   {
    "at": "Isa.59.9",
@@ -661,6 +1590,41 @@
    "quote": "Of the two perfects in Isa 60:10, הכּיתיך points to the more remote past; רחמתּיך to the nearer past, stretching forward into the present (cf., Isa 54:8)."
   },
   {
+   "at": "Isa.65.6",
+   "work": "wesley",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold - They may think I take no notice of these things; but I will as certainly remember them, as princes or great men that record things in writing which they would not forget."
+  },
+  {
+   "at": "Isa.65.16",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 15,
+   "quote": "The explanatory kı̄ (for) is emphatically repeated in וכי, as in Gen 33:11 and 1Sa 19:4 (compare Job 38:20)."
+  },
+  {
+   "at": "Jer.2.28",
+   "work": "wesley",
+   "link": "for",
+   "word": 10,
+   "quote": "For - Thou hast enough of them, imitating the Heathens, who had, according to Varro, above thirty thousand deities."
+  },
+  {
+   "at": "Jer.4.3",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The exhortation to a reformation of life is attached by כּי, as being the ground of it, to the preceding exhortation to return."
+  },
+  {
+   "at": "Jer.5.5",
+   "work": "wesley",
+   "link": "but",
+   "word": 13,
+   "quote": "But - These are more refractory than the other; no law of God is able to hold them."
+  },
+  {
    "at": "Jer.5.6",
    "work": "keil-delitzsch",
    "terms": [
@@ -668,6 +1632,25 @@
     "h-imperfect"
    ],
    "quote": "The change from the perf. הכּם to the imperf. ישׁדדם and יטּרף tells against the future construction, showing as it does that the verbs are used aoristically of chastisements which have partly already taken place, which may be partly yet to come."
+  },
+  {
+   "at": "Jer.5.8",
+   "work": "keil-delitzsch",
+   "word": 3,
+   "quote": "The participle is not to be joined with \"horses\" as a second qualifying word, but to be taken with היוּ, the periphrastic form being chosen to indicate the enduring chronic character of the roaming."
+  },
+  {
+   "at": "Jer.5.13",
+   "work": "keil-delitzsch",
+   "word": 4,
+   "quote": "אין, \"there is none,\" is stronger than לא, meaning: they speak out of their own hearts."
+  },
+  {
+   "at": "Jer.6.10",
+   "work": "keil-delitzsch",
+   "link": "behold",
+   "word": 11,
+   "quote": "The second clause, introduced by הנּה, adduces the reason of their not being able to hear."
   },
   {
    "at": "Jer.6.15",
@@ -687,6 +1670,20 @@
    "quote": "The query before the infin. absoll. is the expression of wonder and indignation; and the infinitives are used with special emphasis for the verb. fin.: How? to steal, kill, etc., is your practice, and then ye come...."
   },
   {
+   "at": "Jer.7.22",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - God doth not condemn these offerings, save only comparatively in respect of obedience, not so much these, as obeying his commands."
+  },
+  {
+   "at": "Jer.12.5",
+   "work": "wesley",
+   "link": "if",
+   "word": 0,
+   "quote": "If - If thou art not able to encounter lesser dangers, how wilt thou be able to overcome greater?"
+  },
+  {
    "at": "Jer.13.16",
    "work": "keil-delitzsch",
    "terms": [
@@ -694,6 +1691,39 @@
    ],
    "word": 5,
    "quote": "The Hiph. יחשׁך is not used intransitively, either here or in Psa 139:12, but transitively: before He brings or makes darkness; cf. Amo 8:9."
+  },
+  {
+   "at": "Jer.16.21",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Because all the mercy I have shewed them, will not learn them to know my might, I will once for all make them to understand it, by the dreadful strokes of my vengeance."
+  },
+  {
+   "at": "Jer.18.11",
+   "work": "keil-delitzsch",
+   "word": 15,
+   "quote": "יצר, from in sense of prepare (cf. Isa 22:11; Isa 37:26), is chosen with special reference to the potter (יוצר)."
+  },
+  {
+   "at": "Jer.18.18",
+   "work": "wesley",
+   "link": "for",
+   "word": 6,
+   "quote": "For - We have the church on our side; the regular priests and the prophets, they know God's mind as well as he."
+  },
+  {
+   "at": "Jer.20.8",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The two cases of כּי are co-ordinate; the two clauses give two reasons for everybody mocking at him."
+  },
+  {
+   "at": "Jer.23.4",
+   "work": "keil-delitzsch",
+   "word": 10,
+   "quote": "לא יפּקדוּ is chosen with a view to לא פקדתּם אתם (Jer 23:2): because the shepherds did not take charge of the sheep, therefore the sheep are scattered and lost."
   },
   {
    "at": "Jer.23.17",
@@ -705,6 +1735,34 @@
    "quote": "The infin. abs. אמור after the verb. fin. intimates the duration or repetition of the thing."
   },
   {
+   "at": "Jer.23.30",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "לכן does not connect with Jer 23:29, but with the main idea of the previous verses, the conduct of the false prophets there exposed."
+  },
+  {
+   "at": "Jer.23.36",
+   "work": "wesley",
+   "link": "for",
+   "word": 5,
+   "quote": "For - These false and irreverent speeches which are in every man's mouth, shall be burdensome to them, shall bring down vengeance upon them."
+  },
+  {
+   "at": "Jer.23.38",
+   "work": "wesley",
+   "link": "because",
+   "word": 8,
+   "quote": "Because - Because you go on in your scoffing."
+  },
+  {
+   "at": "Jer.27.10",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 5,
+   "quote": "למען shows, as frequently, that the inevitable consequence of these persons’ proceedings is designed by them."
+  },
+  {
    "at": "Jer.27.12",
    "work": "keil-delitzsch",
    "terms": [
@@ -714,6 +1772,42 @@
    "quote": "The imperative וחיוּ intimates the consequence of the preceding command."
   },
   {
+   "at": "Jer.28.15",
+   "work": "keil-delitzsch",
+   "word": 10,
+   "quote": "The verb משׁלּחך is chosen for the sake of the play on לא שׁלחך."
+  },
+  {
+   "at": "Jer.30.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 12,
+   "quote": "The perfect דּבּרתּי is thus not a preterite, but only expresses that the address of God to the prophet precedes the writing down of the words he received."
+  },
+  {
+   "at": "Jer.30.12",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - They had sinned to that degree that God had resolved they should go into captivity."
+  },
+  {
+   "at": "Jer.31.6",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "Jer 31:6 is attached to the foregoing by כּי, which introduces the reason of what has been stated."
+  },
+  {
+   "at": "Jer.31.20",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 15,
+   "quote": "\"Therefore,\" i.e., because he is a son to whom Jahveh shows the fulness of His paternal love, all His kindly feelings towards him are now excited, and He desires to show compassion on him."
+  },
+  {
    "at": "Jer.32.24",
    "work": "keil-delitzsch",
    "terms": [
@@ -721,6 +1815,19 @@
    ],
    "word": 6,
    "quote": "The ramparts of the besieging enemy have come to the city (בּוא with acc.), to take it, and the city is given (נתּנה, prophetic perfect) into the hands of the Chaldeans."
+  },
+  {
+   "at": "Jer.32.33",
+   "work": "keil-delitzsch",
+   "word": 5,
+   "quote": "The inf. abs. ולמּד stands with special emphasis instead of the finite tense: though they were taught from early morn, yet they were inattentive still."
+  },
+  {
+   "at": "Jer.33.4",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "With Jer 33:4 begins the statement concerning the great and incomprehensible things which the Lord will make known to His people; it is introduced by כּי, which marks the ground or reason - so far as the mere statement of these things gives reason for the promise of them."
   },
   {
    "at": "Jer.38.23",
@@ -741,6 +1848,26 @@
    "quote": "The perfects כּשׁלוּ ונפלוּ are prophetic; the stumbling and falling are as certain as if they had already happened."
   },
   {
+   "at": "Jer.48.11",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 16,
+   "quote": "Therefore - And this is the reason why they retain their old sins, pride, presumption, and luxury."
+  },
+  {
+   "at": "Jer.48.26",
+   "work": "keil-delitzsch",
+   "word": 11,
+   "quote": "In the last clause of Jer 48:26, the emphasis lies on גּם הוּא: \"he also (Moab, like Israel before) shall become a laughing-stock.\""
+  },
+  {
+   "at": "Jer.51.52",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - For this profanation of my holy place, I will be revenged not only upon their idols, but upon the worshippers of them, and cause a groaning of wounded men over all the country of the Chaldeans."
+  },
+  {
    "at": "Jer.51.56",
    "work": "keil-delitzsch",
    "terms": [
@@ -759,6 +1886,90 @@
    "quote": "עולל is passive (Poal): \"which is done to me.\""
   },
   {
+   "at": "Lam.4.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "\"The skin sticks to the bones,\" so emaciated are they; cf. Psa 102:4; Job 19:20. צפד, ἅπ. λεγ., to adhere firmly."
+  },
+  {
+   "at": "Ezek.1.20",
+   "work": "wesley",
+   "link": "for",
+   "word": 13,
+   "quote": "For - An undiscerned, yet divine, mighty, wise, and ever - living power, spirit, and being, actuated all, and governed all."
+  },
+  {
+   "at": "Ezek.1.21",
+   "work": "wesley",
+   "link": "for",
+   "word": 10,
+   "quote": "For - The same wisdom, power, and holiness of God, the same will and counsel of his, that guides and governs the angels, does by them order and dispose all the motions of the creatures in this lower world."
+  },
+  {
+   "at": "Ezek.5.8",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "In Eze 5:8 the announcement of the punishment, interrupted by the repeated mention of the cause, is again resumed with the words 'לכן כּה וגו."
+  },
+  {
+   "at": "Ezek.7.19",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 20,
+   "quote": "The clause 'כּי assigns the reason for that which forms the leading thought of the verse, namely, the throwing away of the silver and gold as filth"
+  },
+  {
+   "at": "Ezek.11.15",
+   "work": "keil-delitzsch",
+   "word": 9,
+   "quote": "The words “and the whole of the house of Israel” are a second predicate to “thy brethren,” and affirm that the brethren, for whom Ezekiel can and is to intercede, form the whole of the house of Israel, the term “whole” being rendered more emphatic by the repetition of כּל in כּלּה."
+  },
+  {
+   "at": "Ezek.11.16",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The two לכן are co-ordinate, and introduce the antithesis to the disparaging sentence pronounced by the inhabitants of Jerusalem upon those who have been carried into exile."
+  },
+  {
+   "at": "Ezek.11.17",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The two לכן are co-ordinate, and introduce the antithesis to the disparaging sentence pronounced by the inhabitants of Jerusalem upon those who have been carried into exile."
+  },
+  {
+   "at": "Ezek.12.19",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 19,
+   "quote": "למען indicates not the intention, “in order that,” but the motive, “because.”"
+  },
+  {
+   "at": "Ezek.12.24",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The reason for this is given in Eze 12:24 and Eze 12:25, in two co-ordinate sentences, both of which are introduced with כּי."
+  },
+  {
+   "at": "Ezek.12.25",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The reason for this is given in Eze 12:24 and Eze 12:25, in two co-ordinate sentences, both of which are introduced with כּי."
+  },
+  {
+   "at": "Ezek.14.13",
+   "work": "keil-delitzsch",
+   "word": 2,
+   "quote": "ארץ in Eze 14:13 is intentionally left indefinite, that the thought may be expressed in the most general manner."
+  },
+  {
    "at": "Ezek.14.21",
    "work": "keil-delitzsch",
    "terms": [
@@ -766,6 +1977,13 @@
    ],
    "word": 15,
    "quote": "The perfect שׁלּחתּי is used, and not the imperfect, as in Eze 14:13, because God has actually resolved upon sending it, and does not merely mention it as a possible case."
+  },
+  {
+   "at": "Ezek.14.21",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "By כּי in Eze 14:21 the application of the general rule to Jerusalem is made in the form of a reason."
   },
   {
    "at": "Ezek.15.2",
@@ -777,6 +1995,13 @@
    "quote": "The preterite היה (which was; not, “is”) may be explained from the idea that the vine had been fetched from the forest in order that its wood might be used."
   },
   {
+   "at": "Ezek.15.8",
+   "work": "wesley",
+   "link": "because",
+   "word": 4,
+   "quote": "Because - They have been so perpetually trespassing, that it seems a continued act."
+  },
+  {
    "at": "Ezek.16.43",
    "work": "keil-delitzsch",
    "terms": [
@@ -784,6 +2009,12 @@
    ],
    "word": 16,
    "quote": "By the perfect נתתּי, on the contrary, the punishment is exhibited as a completed fact, and further reasons are then assigned in vindication of the justice of the divine procedure, which we find in Eze 16:44."
+  },
+  {
+   "at": "Ezek.16.56",
+   "work": "keil-delitzsch",
+   "word": 7,
+   "quote": "The plural גּאוניך is more emphatic than the singular."
   },
   {
    "at": "Ezek.16.58",
@@ -795,12 +2026,60 @@
    "quote": "The perfect נשׂאתים indicates that the certainty of the punishment is just as great as if it had already commenced."
   },
   {
+   "at": "Ezek.18.9",
+   "work": "henry",
+   "terms": [
+    "h-twice"
+   ],
+   "word": 8,
+   "quote": "This is a just man, and living he shall live; he shall certainly live, shall have life and shall have it more abundantly, shall live truly, live comfortably, live eternally."
+  },
+  {
+   "at": "Ezek.20.40",
+   "work": "keil-delitzsch",
+   "word": 14,
+   "quote": "In the expression “all Israel,” which is rendered more emphatic by the addition of כּלּה, there is an allusion to the eventual termination of the severance of the people of God (compare Eze 37:22)."
+  },
+  {
+   "at": "Ezek.21.13",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect",
+    "h-pual"
+   ],
+   "word": 1,
+   "quote": "בּחן, perfect Pual, is used impersonally: the trial is made."
+  },
+  {
    "at": "Ezek.21.19",
    "work": "keil-delitzsch",
    "terms": [
     "h-piel"
    ],
    "quote": "בּרא signifies in the Piel to cut away (Jos 17:15, Jos 17:18), to dig or hew (Eze 23:47), here to engrave written characters in hard material."
+  },
+  {
+   "at": "Ezek.24.6",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The reason for commencing with לכן, therefore, may be found in the fact that in the parable contained in Eze 24:3., or more correctly in the blockade of Jerusalem, which furnished the occasion for the parable, the judgment about to burst upon Jerusalem is plainly indicated."
+  },
+  {
+   "at": "Ezek.28.14",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 3,
+   "quote": "הסּוכך is not an abstract noun, either here or in Nah 2:6, but a participle; and this predicate points back to Exo 25:20, “the cherubim covered (סוככים) the capporeth with their wings,” and is to be explained accordingly."
+  },
+  {
+   "at": "Ezek.29.13",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The turning of the period of Egypt’s punishment is connected by כּי, which refers to the time indicated, viz., “forty years.”"
   },
   {
    "at": "Ezek.30.21",
@@ -810,6 +2089,38 @@
    ],
    "word": 7,
    "quote": "The perfect שׁברתּי in Eze 30:21 is not a prophetic utterance of the certainty of the future, but a pure preterite."
+  },
+  {
+   "at": "Ezek.30.22",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The fact that the further judgment which is to fall upon Pharaoh is introduced with לכן (therefore) here (Eze 30:22), notwithstanding the fact that it has not been preceded by any enumeration of the guilt which occasioned it, may be accounted for on the ground that the causal לכן forms a link with the concluding clause of Eze 30:21 : the arm shall not be healed, so as to be able to grasp or hold the sword."
+  },
+  {
+   "at": "Ezek.34.5",
+   "work": "keil-delitzsch",
+   "word": 8,
+   "quote": "ותּפוּצינה is repeated with emphasis at the close of Eze 34:5; and the thought is still further expanded in Eze 34:6."
+  },
+  {
+   "at": "Ezek.34.26",
+   "work": "keil-delitzsch",
+   "word": 4,
+   "quote": "בּרכה, a blessing, is stronger than “blessed” (cf. Gen 12:2)."
+  },
+  {
+   "at": "Ezek.35.2",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "This expression is probably chosen for the play upon the words דּם and אדם."
+  },
+  {
+   "at": "Ezek.36.9",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "With the כּי in Eze 36:9 the carrying out of the blessing promised is appended in the form of a reason assigned for the general promise."
   },
   {
    "at": "Ezek.36.17",
@@ -856,6 +2167,19 @@
    "quote": "Daniel accordingly interprets מנא thus: God has numbered (מנה for מנא, perf. act.) thy kingdom, i.e., its duration or its days, והשׁלמהּ, and has finished it, i.e., its duration is so counted out that it is full, that it now comes to an end."
   },
   {
+   "at": "Dan.7.25",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "לצד means, properly, against or at the side of, and is more expressive than על."
+  },
+  {
+   "at": "Dan.10.21",
+   "work": "keil-delitzsch",
+   "link": "but",
+   "word": 0,
+   "quote": "This verse is antithetically connected with the preceding by אבּל, but yet."
+  },
+  {
    "at": "Dan.11.16",
    "work": "keil-delitzsch",
    "terms": [
@@ -874,12 +2198,48 @@
    "quote": "The perf. נעשׂתה does not stand for the imperf. because it is decreed, but in its proper meaning, according to which it represents the matter as finished, settled."
   },
   {
+   "at": "Hos.1.2",
+   "work": "keil-delitzsch",
+   "word": 11,
+   "quote": "“Take to thyself:” i.e., marry (a wife). אשׁת זנוּנים is stronger than זונה."
+  },
+  {
+   "at": "Hos.2.14",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "As the \"therefore\" (Ho 2:9) expresses Israel's punishment as the consequence of Israel's guilt, so \"therefore\" here, as in Ho 2:6, expresses, that when that punishment has effected its designed end, the hedging up her way with thorns so that she returns to God, her first love, the consequence in God's wondrous grace is, He \"speaks comfortably\" (literally, \"speaks to her heart\"; compare Jud 19:8; Ru 2:13)."
+  },
+  {
+   "at": "Hos.3.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 7,
+   "quote": "By the participles אהבת and מנאפת, the love of the companion and the adultery of the wife are supposed to be continued and contemporaneous with the love which the prophet is to manifest towards the woman."
+  },
+  {
+   "at": "Hos.3.4",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 0,
+   "quote": "The explanation of the figure is introduced with כּי, because it contains the ground of the symbolical action."
+  },
+  {
    "at": "Hos.4.2",
    "work": "keil-delitzsch",
    "terms": [
     "h-perfect"
    ],
    "quote": "The perfects, pârâtsū and nâgâ‛ū, are not preterites, but express a completed act, reaching from the past into the present."
+  },
+  {
+   "at": "Hos.4.4",
+   "work": "keil-delitzsch",
+   "link": "but",
+   "word": 0,
+   "quote": "אך is to be explained from the tacit antithesis, that with much depravity there would be much to punish; but this would be useless."
   },
   {
    "at": "Hos.5.9",
@@ -897,6 +2257,27 @@
     "h-participle"
    ],
    "quote": "By the participles ‛âshūq and râtsūts, the calamity is represented as a lasting condition, which the prophet saw in the spirit as having already begun."
+  },
+  {
+   "at": "Hos.6.5",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - Because I would do for you whatever might be done."
+  },
+  {
+   "at": "Hos.6.6",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - I so hewed and slew them, because they did not what I most of all required; they were full of sacrifices, but either to idols, or else in formality and pride."
+  },
+  {
+   "at": "Hos.8.4",
+   "work": "keil-delitzsch",
+   "link": "so-that",
+   "word": 12,
+   "quote": "למען describes the consequence of this conduct, which, though not designed, was nevertheless inevitable, as if it had been distinctly intended."
   },
   {
    "at": "Hos.9.6",
@@ -935,6 +2316,70 @@
    "quote": "The punishment has already begun, and will still continue; we have therefore from אשׁוּר onwards imperfects or futures."
   },
   {
+   "at": "Hos.14.8",
+   "work": "keil-delitzsch",
+   "word": 5,
+   "quote": "To this there is appended a notice of what God has done and will do for Israel, to which greater prominence is given by the emphatic אני: I, I hearken (‛ânı̄thı̄ a prophetic perfect), and look upon him."
+  },
+  {
+   "at": "Amos.2.9",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "The repeated ואנכי is used with peculiar emphasis, and serves to bring out the contrast between the conduct of the Israelites towards the Lord, and the fidelity of the Lord towards Israel."
+  },
+  {
+   "at": "Amos.3.2",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 7,
+   "quote": "Therefore - Because you have all these obligations and abused all these mercies."
+  },
+  {
+   "at": "Amos.3.11",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Because of all the violence and rapine with other crying sins."
+  },
+  {
+   "at": "Amos.4.2",
+   "work": "keil-delitzsch",
+   "link": "for",
+   "word": 4,
+   "quote": "כּי (for) before הנּה introduces the oath."
+  },
+  {
+   "at": "Amos.5.16",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - The prophet foreseeing their obstinacy, proceeds to denounce judgment against them."
+  },
+  {
+   "at": "Amos.5.21",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "The combination of the words שׂנאתי מאסתּי expresses in the strongest terms the dislike of God to the feasts of those who were at enmity with Him."
+  },
+  {
+   "at": "Mic.2.12",
+   "work": "keil-delitzsch",
+   "word": 1,
+   "quote": "The emphasis lies upon the assembling, and hence אאסף and אקבּץ are strengthened by infinitive absolutes."
+  },
+  {
+   "at": "Mic.6.10",
+   "work": "keil-delitzsch",
+   "word": 0,
+   "quote": "In the question in Mic 6:10 the emphasis is laid upon the עוד, which stands for that very reason before the interrogative particle, as in Gen 19:12, the only other place in which this occurs."
+  },
+  {
+   "at": "Mic.6.16",
+   "work": "keil-delitzsch",
+   "word": 9,
+   "quote": "By למען the punishment is represented as intentionally brought about by the sinners themselves, to give prominence to the daring with which men lived on in godlessness and unrighteousness."
+  },
+  {
    "at": "Mic.7.4",
    "work": "keil-delitzsch",
    "terms": [
@@ -953,6 +2398,13 @@
    "quote": "ירעוּ, which follows, is not future, but optative, corresponding to the imperative רעה."
   },
   {
+   "at": "Hab.1.4",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - Because the wicked go on with impunity."
+  },
+  {
    "at": "Hab.1.5",
    "work": "keil-delitzsch",
    "terms": [
@@ -960,6 +2412,29 @@
    ],
    "word": 7,
    "quote": "The participle פּעל denotes that which is immediately at hand, and is used absolutely, without a pronoun."
+  },
+  {
+   "at": "Hab.1.17",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--seeing that they attribute all their successes to themselves, and not to Thee."
+  },
+  {
+   "at": "Hab.2.3",
+   "work": "jfb",
+   "link": "for",
+   "word": 0,
+   "quote": "for--assigning the cause why it ought to be committed to writing: because its fulfilment belongs to the future."
+  },
+  {
+   "at": "Hab.2.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "rare"
+   ],
+   "word": 18,
+   "quote": "The ἁπ. λεγ. עבטיט is probably chosen on account of the resemblance in sound to מכבּיד, whilst it also covers an enigma or double entendre."
   },
   {
    "at": "Hab.3.3",
@@ -980,6 +2455,20 @@
    "quote": "This he sees in the form of a theophany, which is fulfilled before his mental eye; hence יבוא does not describe what is future, as being absolutely so, but is something progressively unfolding itself from the present onwards, which we should express by the present tense."
   },
   {
+   "at": "Zeph.2.4",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - It is time to seek God; for your neighbours, as well as you, shall be destroyed."
+  },
+  {
+   "at": "Zeph.3.8",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Since you will not be amended."
+  },
+  {
    "at": "Zeph.3.11",
    "work": "keil-delitzsch",
    "terms": [
@@ -998,6 +2487,27 @@
    "quote": "The perfect שׁבתּי is not purely prophetic, but describes the event as having already commenced, and as still continuing."
   },
   {
+   "at": "Zech.3.8",
+   "work": "jfb",
+   "link": "behold",
+   "word": 14,
+   "quote": "behold--marking the greatness of what follows."
+  },
+  {
+   "at": "Zech.3.9",
+   "work": "wesley",
+   "link": "behold",
+   "word": 1,
+   "quote": "Behold - Behold (pointing to a particular stone) that stone which I have laid in the sight of Joshua."
+  },
+  {
+   "at": "Zech.4.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 0,
+   "quote": "For - Tho' they undervalued the meanness of the second temple, yet when finished, they shall rejoice in it."
+  },
+  {
    "at": "Zech.9.8",
    "work": "keil-delitzsch",
    "terms": [
@@ -1005,6 +2515,13 @@
    ],
    "word": 12,
    "quote": "‛Attâh (now) refers to the ideal present of the prophecy, really to the time when God interposes with His help; and the perfect ראיתי is prophetic."
+  },
+  {
+   "at": "Zech.10.2",
+   "work": "keil-delitzsch",
+   "link": "therefore",
+   "word": 13,
+   "quote": "“Therefore,” i.e., because Israel had trusted in teraphim and soothsayers, it would have to wander into exile."
   },
   {
    "at": "Zech.10.8",
@@ -1043,12 +2560,62 @@
    "quote": "my beloved Son, in whom I am well pleased--The verb is put in the aorist to express absolute complacency, once and for ever felt towards Him."
   },
   {
+   "at": "Matt.6.13",
+   "work": "jfb",
+   "link": "but",
+   "word": 6,
+   "quote": "The \"but\" connecting the two petitions is an insufficient reason for regarding them as one, though enough to show that the one thought naturally follows close upon the other."
+  },
+  {
+   "at": "Matt.10.16",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 1,
+   "quote": "Behold, I send you forth--The \"I\" here is emphatic, holding up Himself as the Fountain of the Gospel ministry, as He is also the Great Burden of it."
+  },
+  {
+   "at": "Matt.13.43",
+   "work": "calvin",
+   "word": 0,
+   "quote": "The adverb then (τότε) is emphatic; for it contains an implied contrast between their present state and the ultimate restoration, by the expectation of which Christ animates those who believe in him."
+  },
+  {
+   "at": "Matt.20.1",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For the kingdom of heaven, etc. The word \"for\" shows that this chapter should have been connected with the preceding."
+  },
+  {
+   "at": "Matt.26.37",
+   "work": "henry",
+   "word": 10,
+   "quote": "The words here used are very emphatical; he began lupeisthai kai ademunein—to be sorrowful, and in a consternation."
+  },
+  {
    "at": "Matt.27.63",
    "work": "jfb",
    "terms": [
     "g-present"
    ],
    "quote": "I will rise again--\"I rise,\" in the present tense, thus reporting not only the fact that this prediction of His had reached their ears, but that they understood Him to look forward confidently to its occurring on the very day named."
+  },
+  {
+   "at": "Mark.1.43",
+   "work": "henry",
+   "word": 1,
+   "quote": "When Christ had cured him, he strictly charged him; the word here is very significant, embrimesamenos—graviter interminatus—prohibiting with threats."
+  },
+  {
+   "at": "Mark.6.53",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "and drew to the shore--a nautical phrase, nowhere else used in the New Testament."
   },
   {
    "at": "Mark.9.31",
@@ -1060,6 +2627,12 @@
    "quote": "The Son of man is delivered--The use of the present tense expresses how near at hand He would have them to consider it."
   },
   {
+   "at": "Mark.14.33",
+   "work": "henry",
+   "word": 14,
+   "quote": "There he was in a tremendous agitation (v. 33); He began to be sore amazed—ekthambeisthai, a word not used in Matthew, but very significant; it bespeaks something like that horror of great darkness, which fell upon Abraham (Gen. xv. 12), or, rather, something much worse, and more frightful."
+  },
+  {
    "at": "Luke.1.19",
    "work": "calvin",
    "terms": [
@@ -1067,6 +2640,13 @@
    ],
    "word": 10,
    "quote": "The Greek participle, παρεστηκὼς, (standing,) is in the past tense, but everybody knows that the past tense of such verbs is often taken for the present, and particularly when a continued act is expressed."
+  },
+  {
+   "at": "Luke.2.35",
+   "work": "calvin",
+   "link": "so-that",
+   "word": 8,
+   "quote": "The particle that, ὅπως ἄν, in this passage, does not strictly denote a cause, but merely a consequence."
   },
   {
    "at": "Luke.7.47",
@@ -1077,6 +2657,28 @@
    "quote": "The verb, which is in the present tense, must, no doubt, be resolved into a preterite."
   },
   {
+   "at": "Luke.16.25",
+   "work": "calvin",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 24,
+   "quote": "The pronoun thy is emphatic, as if Abraham had said: Thou wast created for an immortal life, and the Law of God raised time on high to the contemplation of the heavenly life; but thou, forgetting so exalted a condition, didst choose to resemble a sow or a dog, and thou therefore receivest a reward which befits brutal pleasures."
+  },
+  {
+   "at": "Luke.22.27",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - This he proves by his own example."
+  },
+  {
+   "at": "John.1.14",
+   "work": "calvin",
+   "word": 6,
+   "quote": "For the word which he employs (ἐσκήνωσεν) is taken from tabernacles He means nothing else than that Christ discharged on the earth the office which had been appointed to him; or, that he did not merely appear for a single moment, but that he conversed among men until he completed the course of his office."
+  },
+  {
    "at": "John.1.15",
    "work": "calvin",
    "terms": [
@@ -1084,6 +2686,12 @@
    ],
    "word": 1,
    "quote": "By using the verb testifieth (μαρτυρεῖ) in the present tense, he denotes a continued act, and certainly this doctrine must be continually in force, as if the voice of John were continually resounding in the ears of men."
+  },
+  {
+   "at": "John.1.16",
+   "work": "henry",
+   "word": 9,
+   "quote": "Our receivings by Christ are all summed up in this one word, grace; we have received kai charin—even grace, so great a gift, so rich, so invaluable; we have received no less than grace; this is a gift to be spoken of with an emphasis."
   },
   {
    "at": "John.1.29",
@@ -1112,6 +2720,15 @@
    "quote": "The present tense — is not condemned — is here used instead of the future tense — shall not be condemned — according to the custom of the Hebrew language; for he means that believers are safe from the fear of condemnation."
   },
   {
+   "at": "John.3.18",
+   "work": "calvin",
+   "terms": [
+    "g-perfect"
+   ],
+   "word": 11,
+   "quote": "The past tense of the verb, is condemned already, (ἤδη κέκριται,) was used by him emphatically, (ἐμφατικῶς,) to express more strongly that all unbelievers are utterly ruined."
+  },
+  {
    "at": "John.3.34",
    "work": "calvin",
    "terms": [
@@ -1126,6 +2743,29 @@
     "g-present"
    ],
    "quote": "He uses the present tense instead of the future; but the meaning is, that the repeal of the Law is already at hand, so far as relates to the Temple, and Priesthood, and other outward ceremonies."
+  },
+  {
+   "at": "John.5.21",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - He declares which are those greater works, raising the dead, and judging the world."
+  },
+  {
+   "at": "John.6.37",
+   "work": "jfb",
+   "terms": [
+    "g-never"
+   ],
+   "word": 14,
+   "quote": "\"In no wise\" is an emphatic negative, to meet the fears of the timid (as in Re 21:27, to meet the presumption of the hardened)."
+  },
+  {
+   "at": "John.7.27",
+   "work": "barnes",
+   "link": "but",
+   "word": 0,
+   "quote": "But. They proceeded to state a reason why they supposed that he could not be the Messiah, whatever the rulers might think."
   },
   {
    "at": "John.7.34",
@@ -1168,6 +2808,15 @@
    "quote": "The purpose was so sure, and the fact that they would believe on him so certain, that he could use the present tense as if they were already his own."
   },
   {
+   "at": "John.11.2",
+   "work": "calvin",
+   "terms": [
+    "g-aorist",
+    "g-imperfect"
+   ],
+   "quote": "The past tense employed by the Evangelist, who anointed, must be referred, not to the time of the occurrence which he is now relating, but to the time when he wrote; as if he had said, “It was this Mary who afterwards poured on the head of Christ the ointment, on account of which a murmuring arose among the disciples,” (Matthew 26:7.)"
+  },
+  {
    "at": "John.12.26",
    "work": "calvin",
    "terms": [
@@ -1185,6 +2834,19 @@
    "quote": "Under the term the Law they embrace also the Prophets, and the present tense — remaineth — -is used, agreeably to the Hebrew idiom, instead of the future tense, will remain"
   },
   {
+   "at": "John.17.23",
+   "work": "calvin",
+   "link": "just-as",
+   "word": 24,
+   "quote": "By these words he intended to point out the cause and origin of the love; for the particle as, means because, and the words, AS thou hast loved me, mean, Because thou hast loved me; for to Christ alone belongs the title of Well-beloved, (Matthew 3:17; 17:5.)"
+  },
+  {
+   "at": "John.21.15",
+   "work": "henry",
+   "word": 22,
+   "quote": "In answer to which Peter uses another word, more emphatic, Philo se—I love thee dearly."
+  },
+  {
    "at": "Acts.1.2",
    "work": "barnes",
    "terms": [
@@ -1192,6 +2854,121 @@
    ],
    "word": 3,
    "quote": "The single word which is translated \"had given commandments\" is a participle, and means simply having commanded."
+  },
+  {
+   "at": "Acts.1.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 11,
+   "quote": "The word here rendered infallible proofs, does not occur elsewhere in the New Testament."
+  },
+  {
+   "at": "Acts.2.37",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word translated were pricked, κατενυγησαν, is not used elsewhere in the New Testament. It properly denotes to pierce or penetrate with a needle, lancet, or sharp instrument; and then to pierce with grief, or acute pain of any kind."
+  },
+  {
+   "at": "Acts.3.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 25,
+   "quote": "This word is not used elsewhere in the New Testament. It denotes integrity of parts, freedom from any defect; and it here means that the cure was perfect and entire, or that he was completely restored to the use of his limbs."
+  },
+  {
+   "at": "Acts.3.19",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore. Because of your sin in putting Jesus to death; and because he is the Messiah, and God through him is willing to show mercy to the chief of sinners."
+  },
+  {
+   "at": "Acts.3.21",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The noun rendered restitution--αποκαταστασεως--does not elsewhere occur in the New Testament."
+  },
+  {
+   "at": "Acts.4.20",
+   "work": "barnes",
+   "link": "for",
+   "word": 2,
+   "quote": "For, etc. This is given as a reason why they should obey God rather than man."
+  },
+  {
+   "at": "Acts.5.15",
+   "work": "barnes",
+   "link": "so-that",
+   "word": 0,
+   "quote": "So that. This should be connected with Acts 5:12."
+  },
+  {
+   "at": "Acts.5.39",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 11,
+   "quote": "The word occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Acts.9.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "The word translated scales is used nowhere else in the New Testament. It means, properly, the small crust or layer which composes a part of the covering of a fish, and also any thin layer or leaf exfoliated or separated; as scales of iron, bone, or a piece of bark, etc.--Webster."
+  },
+  {
+   "at": "Acts.9.36",
+   "work": "henry",
+   "word": 20,
+   "quote": "She was full of alms—deeds, hon epoiei—which she made; there is an emphasis upon her doing them, because what her hand found to do of this kind she did with all her might, and persevered in."
+  },
+  {
+   "at": "Acts.12.20",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The Greek word--θυμομαχων --does not occur elsewhere in the New Testament. It means to meditate war; to purpose war in the mind; or here probably, to be enraged or angry at them."
+  },
+  {
+   "at": "Acts.12.23",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 16,
+   "quote": "The word used here is not elsewhere found in the New Testament."
+  },
+  {
+   "at": "Acts.14.20",
+   "work": "barnes",
+   "link": "but",
+   "word": 1,
+   "quote": "But. Notwithstanding the supposition that he was dead."
+  },
+  {
+   "at": "Acts.15.24",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 10,
+   "quote": "The word here used occurs nowhere else in the New Testament, (ανασκευαζοντες.) It properly means to collect together the vessels used in a house--the household furniture--for the purpose of removing it."
   },
   {
    "at": "Acts.16.10",
@@ -1203,6 +2980,212 @@
    "quote": "The termination of the participle which is here used is active; and though it have divers significations, I do not doubt but that Luke’s meaning is, that Paul and the rest, after that they had conferred [compared] this vision with the former oracles, were fully persuaded that the Lord had called them into Macedonia."
   },
   {
+   "at": "Acts.17.12",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 2,
+   "quote": "Therefore. As the result of their examination."
+  },
+  {
+   "at": "Acts.18.14",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 20,
+   "quote": "The word used here occurs nowhere else in the New Testament. It denotes, properly, an act committed by him who is skilled, facile, or an adept in iniquity--an act of a veteran offender."
+  },
+  {
+   "at": "Acts.19.27",
+   "work": "jfb",
+   "link": "but",
+   "word": 2,
+   "quote": "but, &c.--that is, \"that indeed is a small matter; but there is something far worse.\""
+  },
+  {
+   "at": "Acts.20.22",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 4,
+   "quote": "And now, behold, I--\"I\" is emphatic here."
+  },
+  {
+   "at": "Acts.20.27",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This verse contains a reason for what had been said in the previous verse."
+  },
+  {
+   "at": "Acts.24.14",
+   "work": "calvin",
+   "word": 11,
+   "quote": "For, because he had not simply affirmed that he worshipped God, but did add this word ουτως, or so: he doth now set down how he worshippeth God."
+  },
+  {
+   "at": "Acts.26.3",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 12,
+   "quote": "Wherefore. On this account; because you are acquainted with those customs."
+  },
+  {
+   "at": "Acts.27.14",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "Interpreters have been much perplexed about the meaning of this word, which occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Rom.1.17",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This word implies that he is now about to give a reason for that which he had just said, a reason why he was not ashamed of the gospel of Christ."
+  },
+  {
+   "at": "Rom.1.18",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This word denotes that the apostle is about to give a reason for what he had just said."
+  },
+  {
+   "at": "Rom.1.18",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - There is no other way of obtaining life and salvation."
+  },
+  {
+   "at": "Rom.1.24",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. That is, because they were unwilling to retain him in their knowledge, and chose to worship idols."
+  },
+  {
+   "at": "Rom.1.24",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - One punishment of sin is from the very nature of it, as Rom 1:27; another, as here, is from vindictive justice."
+  },
+  {
+   "at": "Rom.2.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The word therefore, I suppose, refers not to any particular word in the previous chapter, or to any particular verse, but to the general considerations which were suggested by a view of the whole case."
+  },
+  {
+   "at": "Rom.2.1",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - The apostle now makes a transition from the gentiles to the Jews, till, at Rom 2:6, he comprises both."
+  },
+  {
+   "at": "Rom.2.4",
+   "work": "barnes",
+   "word": 13,
+   "quote": "The word used here-- αγνοων--means not merely to be ignorant of, but it denotes such a degree of inattention as to result in ignorance."
+  },
+  {
+   "at": "Rom.2.6",
+   "work": "barnes",
+   "word": 3,
+   "quote": "It is to be observed here, that the apostle does not say that men will be rewarded for their deeds, (comp. Lk 17:10,) but according to (κατα) their deeds."
+  },
+  {
+   "at": "Rom.2.11",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This particle is used here to confirm what is said before, particularly that this punishment should be experienced by the Jew as well as the Gentile."
+  },
+  {
+   "at": "Rom.2.12",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This is used to give a reason for what he had just said, or to show on what principles God would treat man so as not to be a respecter of persons."
+  },
+  {
+   "at": "Rom.3.19",
+   "work": "barnes",
+   "link": "so-that",
+   "word": 12,
+   "quote": "I regard, therefore, the word \"that\" here --ινα--as referring, not particularly to the argument from the law of the Jews, but to the whole previous train of argument, embracing both Jews and Gentiles."
+  },
+  {
+   "at": "Rom.3.19",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 17,
+   "quote": "This word, rendered guilty, is not elsewhere used in the New Testament, nor is it found in the Septuagint."
+  },
+  {
+   "at": "Rom.3.25",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 19,
+   "quote": "The word here used (παρεσιν) occurs nowhere else in the New Testament, nor in the Septuagint. It means passing by, as not noticing; and hence forgiving."
+  },
+  {
+   "at": "Rom.4.17",
+   "work": "barnes",
+   "terms": [
+    "g-aorist",
+    "g-perfect"
+   ],
+   "quote": "The argument of the apostle is founded, in part, on the fact that the past tense is used---I have made thee--and that God spoke of a thing as already done, which he had promised or purposed to do."
+  },
+  {
+   "at": "Rom.5.10",
+   "work": "wesley",
+   "link": "if",
+   "word": 0,
+   "quote": "If - As sure as; so the word frequently signifies; particularly in this and the eighth chapter."
+  },
+  {
+   "at": "Rom.5.19",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For, etc. This verse is not a mere repetition of the former, but it is an explanation."
+  },
+  {
+   "at": "Rom.5.20",
+   "work": "barnes",
+   "link": "so-that",
+   "word": 3,
+   "quote": "That sin, etc. The word \"that\"--(ινα)--in this place, does not mean that it was the design of giving the law that sin might abound or be increased, but that such was in fact the effect."
+  },
+  {
+   "at": "Rom.5.20",
+   "work": "barnes",
+   "link": "but",
+   "word": 8,
+   "quote": "But. What is said in this verse and the following seems designed to meet the Jew, who might pretend that the law of Moses was intended to meet the evils of sin introduced by Adam, and therefore that the scheme defended by the apostle was unnecessary."
+  },
+  {
+   "at": "Rom.5.21",
+   "work": "calvin",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "And he says, that it has reigned, in the past tense; not that it has ceased to reign in those who are born only of flesh, and he thus distinguishes between Adam and Christ, and assigns to each his own time."
+  },
+  {
    "at": "Rom.6.5",
    "work": "jfb",
    "terms": [
@@ -1212,12 +3195,89 @@
    "quote": "The future tense is used of participation in His resurrection, because this is but partially realized in the present state."
   },
   {
+   "at": "Rom.6.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word here used (συμφυτοι) does not elsewhere occur in the New Testament. It properly means, sown or planted at the same time; that which sprouts or springs up together; and is applied to plants and trees that are planted at the same time, and that sprout and grow together."
+  },
+  {
+   "at": "Rom.6.5",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - Surely these two must go together; so that if we are indeed made conformable to his death, we shall also know the power of his resurrection."
+  },
+  {
+   "at": "Rom.7.13",
+   "work": "barnes",
+   "word": 23,
+   "quote": "In the original this is a very strong expression, and is one of those used by Paul to express strong emphasis, or intensity, καθυπερβολην."
+  },
+  {
    "at": "Rom.7.14",
    "work": "barnes",
    "terms": [
     "g-present"
    ],
    "quote": "The present tense shows that he is describing himself as he was at the time of writing."
+  },
+  {
+   "at": "Rom.7.22",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The word used here (συνηδομαι) occurs nowhere else in the New Testament. It properly means, to rejoice with any one; and expresses not only approbation of the understanding, as the expression, \"I consent unto the law,\" in Rom 7:16, but, more than that, it denotes sensible pleasure in the heart."
+  },
+  {
+   "at": "Rom.8.7",
+   "work": "barnes",
+   "link": "because",
+   "word": 0,
+   "quote": "Because. This is given as a reason for what is said in Rom 8:6."
+  },
+  {
+   "at": "Rom.8.19",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "This word occurs only here and in Php 1:20, \"According to my earnest expectation and my hope,\" etc. It properly denotes a state of earnest desire to see any object when the head is thrust forward; an intense anxiety; an ardent wish; and is thus well employed to denote the intense interest with which a Christian looks to his future inheritance."
+  },
+  {
+   "at": "Rom.8.21",
+   "work": "barnes",
+   "link": "because",
+   "word": 0,
+   "quote": "Because. This is the ground of his hope, and this sustains him now."
+  },
+  {
+   "at": "Rom.8.26",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 21,
+   "quote": "The word here used--(υπερεντυγχανει)----occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Rom.8.37",
+   "work": "barnes",
+   "link": "but",
+   "word": 0,
+   "quote": "But. Notwithstanding our severe pressures and trials."
+  },
+  {
+   "at": "Rom.9.6",
+   "work": "wesley",
+   "link": "for",
+   "word": 10,
+   "quote": "For - Here he enters upon the proof of it."
   },
   {
    "at": "Rom.9.20",
@@ -1229,6 +3289,87 @@
    "quote": "But, O man! who art thou? etc. As it is a participle in Greek, we may read what follows in the present tense, who disputest, or contendest, or strivest in opposition to God; for it is expressed in Greek according to this meaning, — “Who art thou who enterest into a dispute with God?”"
   },
   {
+   "at": "Rom.10.20",
+   "work": "barnes",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The phrase, \"I was found,\" in the past tense here, is in the present in the Hebrew, intimating that the time would come when God would say this of himself; that is, that the time would come when the Gentiles would be brought to the knowledge of the true God."
+  },
+  {
+   "at": "Rom.12.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore. As the effect or result of the argument or doctrine."
+  },
+  {
+   "at": "Rom.12.3",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "The word \"for\" shows that the apostle is about to introduce some additional considerations to enforce what he had just said; or to show how we may evince a mind that is not con- formed to the world."
+  },
+  {
+   "at": "Rom.12.4",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. This word here denotes a further illustration or proof of what he had just before said."
+  },
+  {
+   "at": "Rom.12.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "This word (αναλογιαν) is nowhere else used in the New Testament."
+  },
+  {
+   "at": "Rom.12.20",
+   "work": "henry-finishers",
+   "word": 6,
+   "quote": "Then, when he has need of thy help, and thou hast an opportunity of starving him and trampling upon him, then feed him (psomize auton, a significant word)—\"feed him abundantly, nay, feed him carefully and indulgently:\" frustulatim pasce—feed him with small pieces, \"feed him, as we do children and sick people, with much tenderness."
+  },
+  {
+   "at": "Rom.13.1",
+   "work": "barnes",
+   "link": "for",
+   "word": 6,
+   "quote": "For. The apostle gives a reason why Christians should be subject; and that reason is, that magistrates have received their appointment from God."
+  },
+  {
+   "at": "Rom.13.3",
+   "work": "calvin",
+   "link": "for",
+   "word": 1,
+   "quote": "For princes, etc. He now commends to us obedience to princes on the ground of utility; for the causative γὰρ, for, is to be referred to the first proposition, and not to the last verse."
+  },
+  {
+   "at": "Rom.13.10",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 8,
+   "quote": "Therefore, etc. Because love does no harm to another, it is therefore the fulfilling of the law: implying that all that the law requires is to love others."
+  },
+  {
+   "at": "Rom.15.7",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of all the considerations, tending to produce unity and love, which have been presented."
+  },
+  {
+   "at": "Rom.15.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 10,
+   "quote": "The word used here occurs nowhere else in the New Testament."
+  },
+  {
    "at": "1Cor.1.7",
    "work": "calvin",
    "terms": [
@@ -1236,6 +3377,93 @@
    ],
    "word": 7,
    "quote": "The participle waiting I understand in this sense, “In the meantime while you are waiting.”"
+  },
+  {
+   "at": "1Cor.1.7",
+   "work": "barnes",
+   "link": "so-that",
+   "word": 0,
+   "quote": "So that. God has so abundantly endowed you with his favours."
+  },
+  {
+   "at": "1Cor.3.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "This word occurs nowhere else in the New Testament. It properly denotes a tilled or cultivated field; and the idea is, that the church at Corinth was the field on which God had bestowed the labour of tillage, or culture, to produce fruit."
+  },
+  {
+   "at": "1Cor.3.11",
+   "work": "jfb",
+   "link": "for",
+   "word": 1,
+   "quote": "For--my warning (\"take heed,\" &c. 1Co 3:10) is as to the superstructure (\"buildeth thereupon\"), not as to the foundation: \"For other foundation can no man lay, than that which has (already) been laid (by God) Jesus Christ,\" the person, not the mere abstract doctrine about Him, though the latter also is included; Jesus, God-Saviour; Christ, Messiah or Anointed."
+  },
+  {
+   "at": "1Cor.3.21",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore, etc. Paul here proceeds to apply the principles which he had stated above."
+  },
+  {
+   "at": "1Cor.4.5",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore. In view of the danger of being deceived in your judgment, and the impossibility of certainly knowing the failings of the heart."
+  },
+  {
+   "at": "1Cor.4.5",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore--as the Lord is the sole Decider or Dijudicator."
+  },
+  {
+   "at": "1Cor.4.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The word translated \"ye are full,\" κεκορεσμενοι occurs only here, and in Acts 27:38, \"And when they had eaten enough.\" It is usually applied to a feast, and denotes those who are satiated or satisfied."
+  },
+  {
+   "at": "1Cor.4.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 11,
+   "quote": "The word occurs nowhere else in the New Testament. It denotes the certainty of death; or the fact of being destined to death; and implies that such were their continued conflicts, trials, persecutions, that it was morally certain that they would terminate in their death, and only when they died, as the last gladiators on the stage were destined to contend until they should die."
+  },
+  {
+   "at": "1Cor.4.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word filth περικαθαρματα occurs nowhere else in the New Testament. It properly denotes filth, or that which is collected by sweeping a house; or that which is collected and cast away by purifying or cleansing anything: hence any vile, worthless, and contemptible object."
+  },
+  {
+   "at": "1Cor.4.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "This word περιψημα occurs nowhere else in the New Testament. It does not differ materially from the word rendered filth."
+  },
+  {
+   "at": "1Cor.4.16",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Wherefore. Since I am your spiritual father."
   },
   {
    "at": "1Cor.6.3",
@@ -1256,12 +3484,117 @@
    "quote": "ye are washed--The Greek middle voice expresses, \"Ye have had yourselves washed.\""
   },
   {
+   "at": "1Cor.6.18",
+   "work": "barnes",
+   "word": 0,
+   "quote": "There is force and emphasis in the word flee, φευγετε."
+  },
+  {
+   "at": "1Cor.7.26",
+   "work": "barnes",
+   "word": 13,
+   "quote": "The emphasis here is on the word so, (ουτως;) that is, it is best for a man to conduct [himself] in the following manner; the word so referring to the advice which follows."
+  },
+  {
+   "at": "1Cor.7.37",
+   "work": "barnes",
+   "link": "but",
+   "word": 1,
+   "quote": "But. The apostle in this verse states some instances where it would not be proper to give a daughter in marriage; and the verse is a kind of summing up of all that he had said on the subject."
+  },
+  {
+   "at": "1Cor.8.7",
+   "work": "barnes",
+   "link": "but",
+   "word": 0,
+   "quote": "But. In the previous verses Paul had stated the argument of the Corinthians--that they all knew that an idol was nothing; that they worshipped but one God; and that there could be no danger of their falling into idolatry, even should they partake of the meat offered in sacrifice to idols."
+  },
+  {
+   "at": "1Cor.8.13",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. As the conclusion of the whole matter."
+  },
+  {
    "at": "1Cor.9.7",
    "work": "calvin",
    "terms": [
     "g-present"
    ],
    "quote": "It is the present tense that is used as meaning — is accustomed to go a warfare."
+  },
+  {
+   "at": "1Cor.9.22",
+   "work": "calvin",
+   "link": "so-that",
+   "word": 14,
+   "quote": "We must observe, also, the word that he makes use of in the concluding clause; for he shows for what purpose he endeavors to gain all — with a view to their salvation."
+  },
+  {
+   "at": "1Cor.10.5",
+   "work": "jfb",
+   "link": "for",
+   "word": 10,
+   "quote": "for--the event showed, they had not pleased God."
+  },
+  {
+   "at": "1Cor.10.12",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. As the result of all these admonitions."
+  },
+  {
+   "at": "1Cor.10.14",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of the dangers and temptations that beset you; in view of your own feebleness, and the perils to which you would be exposed in the idol temples, etc."
+  },
+  {
+   "at": "1Cor.11.20",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--Resuming the thread of discourse from 1Co 11:18."
+  },
+  {
+   "at": "1Cor.11.20",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - That is, in consequence of those schisms."
+  },
+  {
+   "at": "1Cor.11.23",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For, etc. In order most effectually to check the evils which existed, and to bring them to a proper mode of observing the Lord's Supper, the apostle proceeds to state distinctly and particularly its design."
+  },
+  {
+   "at": "1Cor.12.3",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Since the heathen idols cannot speak themselves, much less give spiritual gifts to others, these must necessarily be among Christians only."
+  },
+  {
+   "at": "1Cor.12.28",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 21,
+   "quote": "The word occurs nowhere else in the New Testament, though the word κυβερνητης (governor) occurs in Acts 27:11, rendered \"master,\" and in Rev 18:17, rendered \"ship-master.\" It is not easy to determine what particular office or function is here intended."
+  },
+  {
+   "at": "1Cor.15.9",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "For. A reason for the appellation which he had given to himself in 1Cor 15:8."
   },
   {
    "at": "1Cor.15.11",
@@ -1273,6 +3606,126 @@
    "quote": "For the verb κηρύσσομεν (we preach) is in the present tense — intimating a continued act, or perseverance in teaching."
   },
   {
+   "at": "1Cor.15.12",
+   "work": "jfb",
+   "link": "if",
+   "word": 0,
+   "quote": "if--Seeing that it is an admitted fact that Christ is announced by us eye-witnesses as having risen from the dead, how is it that some of you deny that which is a necessary consequence of Christ's resurrection, namely, the general resurrection?"
+  },
+  {
+   "at": "1Cor.16.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "2Cor.2.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word here rendered confirm, (κυρωσαι) occurs in the New Testament only here and in Gal 3:15. It means, to give authority, to establish as valid, to confirm; and here means that they should give strong expressions and assurances of their love to him; that they should pursue such a course as would leave no room for doubt in regard to it."
+  },
+  {
+   "at": "2Cor.2.10",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "for your sakes forgave I it--He uses the past tense, as of a thing already determined on; as in 1Co 5:3, \"I have judged already\"; or, as speaking generally of forgiveness granted, or to be granted."
+  },
+  {
+   "at": "2Cor.2.14",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word which is here rendered triumph (θριαμβευοντι), from θριαμβευω occurs in no other place in the New Testament, except in Col 2:15. It is there rendered \"triumphing over them in it,\" that is, triumphing over the principalities and powers which he had spoiled, or plundered; and it there means that Christ led them in triumph after the manner of a conqueror."
+  },
+  {
+   "at": "2Cor.2.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word here used (καπηλευοντες) occurs nowhere else in the New Testament, and does not occur in the Septuagint. The word is derived from καπηλος, which signifies, properly, a huckster, or a retailer of wine; a petty chapman; who buys up articles for the purpose of selling them again. it also means sometimes a vintner, or an innkeeper."
+  },
+  {
+   "at": "2Cor.3.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "The word κατοπτριζω occurs nowhere else in the New Testament. It properly means, to look in a mirror; to behold as in a mirror."
+  },
+  {
+   "at": "2Cor.4.5",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - The fault is not in us, neither in the doctrine they hear from us."
+  },
+  {
+   "at": "2Cor.4.16",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Because of this grace, we faint not."
+  },
+  {
+   "at": "2Cor.4.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The Greek word here used (παραυτικα) occurs nowhere else in the New Testament. It is an adverb, from αυτικααυτος, and means, properly, at this very instant, immediately."
+  },
+  {
+   "at": "2Cor.5.1",
+   "work": "barnes",
+   "link": "for",
+   "word": 1,
+   "quote": "THIS chapter is closely connected with the former; and indeed has been improperly separated from it, as is manifest from the word \"For\" (γαρ) with which it commences."
+  },
+  {
+   "at": "2Cor.5.1",
+   "work": "jfb",
+   "link": "if",
+   "word": 3,
+   "quote": "if--For all shall not die; many shall be \"changed\" without \"dissolution\" (1Co 15:51-53)."
+  },
+  {
+   "at": "2Cor.5.13",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 2,
+   "quote": "The contrast is between the single act implied by the past tense, \"If we have ever been beside ourselves,\" and the habitual state implied by the present, \"Or whether we be sober,\" that is, of sound mind."
+  },
+  {
+   "at": "2Cor.5.17",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The word \"therefore\" (ωστε) here implies, that the reason why Paul infers that any one is a new creature who is in Christ is that which is stated in the previous verse; to wit, the change of views in regard to the Redeemer to which he there refers, and which was so great as to constitute a change like a new creation."
+  },
+  {
+   "at": "2Cor.5.17",
+   "work": "wesley",
+   "link": "behold",
+   "word": 10,
+   "quote": "Behold - The present, visible, undeniable change!"
+  },
+  {
    "at": "2Cor.5.19",
    "work": "jfb",
    "terms": [
@@ -1282,12 +3735,108 @@
    "quote": "The compound of \"was\" and the participle \"reconciling,\" instead of the imperfect (Greek), may also imply the continuous purpose of God, from before the foundation of the world, to reconcile man to Himself, whose fall was foreseen."
   },
   {
+   "at": "2Cor.6.9",
+   "work": "jfb",
+   "link": "behold",
+   "word": 7,
+   "quote": "\"Behold\" calls attention to the fact as something beyond all expectation."
+  },
+  {
+   "at": "2Cor.6.17",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. Since you are a peculiar people."
+  },
+  {
+   "at": "2Cor.7.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 10,
+   "quote": "The noun here used (μολυσμου) occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "2Cor.7.4",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 13,
+   "quote": "The word here used occurs nowhere else in the New Testament, except in Rom 5:20. It is not found in the classic writers; and is a word which Paul evidently compounded, (from υπερ and περισσευω,) and means to superabound over, to superabound greatly or exceedingly."
+  },
+  {
+   "at": "2Cor.9.15",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "It occurs nowhere else in the New Testament. The idea is, that no words can properly express the greatness of the gift thus bestowed on man."
+  },
+  {
+   "at": "2Cor.11.2",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - The cause of his seeming folly is expressed in this and the following verse; the cause why they should bear with him, 2Cor 11:4."
+  },
+  {
+   "at": "2Cor.11.21",
+   "work": "barnes",
+   "link": "but",
+   "word": 9,
+   "quote": "But. The sense is, If any one is disposed to boast, I am ready for him."
+  },
+  {
+   "at": "2Cor.11.29",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 9,
+   "quote": "I burn not--The \"I\" in the Greek is emphatic, which it is not in the former clause, \"I am not weak.\""
+  },
+  {
+   "at": "2Cor.12.9",
+   "work": "jfb",
+   "link": "for",
+   "word": 9,
+   "quote": "The \"for\" implies, thy \"strengthlessness\" (the same Greek as is translated \"weakness\"; and in 2Co 12:10, \"infirmities\") is the very element in which My \"power\" (which moves coincident with \"My grace\") exhibits itself more perfectly."
+  },
+  {
+   "at": "2Cor.12.16",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 2,
+   "quote": "I did not burden you--The \"I\" in the Greek is emphatic."
+  },
+  {
    "at": "Gal.1.6",
    "work": "calvin",
    "terms": [
     "g-present"
    ],
    "quote": "By using the present tense, (“ye are removed”) he appears to say that they were only in the act of failing."
+  },
+  {
+   "at": "Gal.1.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - He adds the reason why he speaks so confidently."
+  },
+  {
+   "at": "Gal.1.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "It occurs nowhere else in the New Testament; and properly means, to ascertain by personal inquiry and examination, and then to narrate, as an historian was accustomed to do, whence our word history."
   },
   {
    "at": "Gal.2.4",
@@ -1317,6 +3866,27 @@
    "quote": "It was customary with the Greeks to give to their participles the signification of nouns, which, every person must see, is applicable to this passage."
   },
   {
+   "at": "Gal.2.19",
+   "work": "jfb",
+   "link": "for",
+   "word": 1,
+   "quote": "For--But I am not a \"transgressor\" by forsaking the law."
+  },
+  {
+   "at": "Gal.2.19",
+   "work": "jfb",
+   "link": "for",
+   "word": 1,
+   "quote": "\"For,\" &c. Proving his indignant denial of the consequence that \"Christ is the minister of sin\" (Ga 2:17), and of the premises from which it would follow."
+  },
+  {
+   "at": "Gal.2.21",
+   "work": "jfb",
+   "link": "for",
+   "word": 7,
+   "quote": "for--justifying the strong expression \"frustrate,\" or \"make void.\""
+  },
+  {
    "at": "Gal.4.6",
    "work": "calvin",
    "terms": [
@@ -1324,6 +3894,46 @@
    ],
    "word": 16,
    "quote": "This participle, I think, is used in order to express greater boldness."
+  },
+  {
+   "at": "Gal.4.24",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word does not occur elsewhere in the New Testament, nor is it found in the Septuagint, though it occurs often in the classic writers."
+  },
+  {
+   "at": "Gal.5.10",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 0,
+   "quote": "Greek, \"I (emphatical: 'I on my part') have confidence in the Lord with regard to you (2Th 3:4), that ye will be none otherwise minded\" (than what by this Epistle I desire you to be, Php 3:15)."
+  },
+  {
+   "at": "Gal.6.1",
+   "work": "calvin",
+   "link": "if",
+   "word": 1,
+   "quote": "The particle if also, (ἐὰν καὶ,) implies that not only the weak who have been tempted, but those who have yielded to temptation, shall receive forbearance."
+  },
+  {
+   "at": "Gal.6.9",
+   "work": "calvin",
+   "word": 2,
+   "quote": "Well-doing (καλὸν) does not simply mean doing our duty, but the performance of acts of kindness, and has a reference to men."
+  },
+  {
+   "at": "Gal.6.11",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The Greek is translated \"how great\" in He 7:4, the only other passage where it occurs in the New Testament."
   },
   {
    "at": "Gal.6.16",
@@ -1335,6 +3945,22 @@
    "quote": "The future tense of the verb, (ὅσοι στοιχήσουσιν,) as many as shall walk, is intended to express perseverance."
   },
   {
+   "at": "Eph.1.4",
+   "work": "barnes",
+   "link": "just-as",
+   "word": 0,
+   "quote": "The phrase \"according as\" καθως--implies that these blessings were in conformity with that eternal plan, and have flowed to us as the expression of that plan."
+  },
+  {
+   "at": "Eph.2.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 12,
+   "quote": "The word here used--προετοιμαζω--occurs in the New Testament nowhere else, except in Rom 9:23, where it is rendered, \"had afore prepared.\" It involves the idea of a previous determination, or an arrangement beforehand for securing a certain result."
+  },
+  {
    "at": "Eph.2.20",
    "work": "jfb",
    "terms": [
@@ -1343,12 +3969,81 @@
    "quote": "Translate as Greek, \"Built up upon,\" &c. (participle; having been built up upon; omit, therefore, \"and are\")."
   },
   {
+   "at": "Eph.4.17",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--resuming the exhortation which he had begun with, \"I therefore beseech you that ye walk worthy,\" &c. (Ep 4:1)."
+  },
+  {
+   "at": "Eph.4.23",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The word here used--ανανεοω--does not occur elsewhere in the New Testament; but it has the same meaning as the word used in 2Cor 4:16, and Col 3:10. It means to make new, and is descriptive of the work of regeneration."
+  },
+  {
    "at": "Eph.4.24",
    "work": "jfb",
    "terms": [
     "g-aorist"
    ],
    "quote": "after God, &c.--Translate, \"Which hath been created (once for all: so the Greek aorist means: in Christ, Ep 2:10; so that in each believer it has not to be created again, but to be put on) after (the image of) God\" (Ge 1:27; Col 3:10; 1Pe 1:15), &c."
+  },
+  {
+   "at": "Eph.4.25",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Seeing ye are thus created anew, walk accordingly, in every particular."
+  },
+  {
+   "at": "Eph.4.32",
+   "work": "jfb",
+   "link": "just-as",
+   "word": 8,
+   "quote": "even as--God hath shown Himself \"kind, tender-hearted, and forgiving to you\"; it is but just that you in turn shall be so to your fellow men, who have not erred against you in the degree that you have erred against God (Mt 18:33)."
+  },
+  {
+   "at": "Eph.5.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 1,
+   "quote": "The word \"therefore\"--ουν--connects this with the previous chapter, where he had been exhorting them to kindness, and to a spirit of forgiveness, and he here entreats them to imitate God, who was always kind and ready to forgive."
+  },
+  {
+   "at": "Eph.5.1",
+   "work": "henry-finishers",
+   "link": "therefore",
+   "word": 1,
+   "quote": "The apostle had been insisting on this in the former chapter, and particularly in the last verses of it, to which the particle therefore refers, and connects what he had said there with what is contained in these verses, thus: \"Because God, for Christ's sake, has forgiven you, therefore be you followers of God, or imitators of him;\" for so the word signifies."
+  },
+  {
+   "at": "Eph.5.1",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--seeing that \"God in Christ forgave you\" (Ep 4:32)."
+  },
+  {
+   "at": "Eph.5.4",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "This word--μωρολογια--does not occur elsewhere in the New Testament. It means that kind of talk which is insipid, senseless, stupid, foolish; which is not fitted to instruct, edify, profit--the idle chit-chat which is so common in the world."
+  },
+  {
+   "at": "Eph.5.4",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "jesting--Greek, \"eutrapelia\"; found nowhere else in the New Testament: implying strictly that versatility which turns about and adapts itself, without regard to principle, to the shifting circumstances of the moment, and to the varying moods of those with whom it may deal."
   },
   {
    "at": "Eph.5.6",
@@ -1368,6 +4063,134 @@
    "quote": "The Greek participle καθαρίσας, is in the past tense, as if he had said, “After having washed.”"
   },
   {
+   "at": "Phil.1.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "The word here used--ειλικρινης nowhere else in the New Testament, except in 2Pet 3:1, where it is rendered pure."
+  },
+  {
+   "at": "Phil.1.20",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "Ro 8:19 is the only other place in the New Testament that the word occurs."
+  },
+  {
+   "at": "Phil.1.23",
+   "work": "barnes",
+   "word": 15,
+   "quote": "The Greek phrase here πολλωμαλλονκρεισσον--is very emphatic, and the apostle seems to labour for language which will fully convey his idea."
+  },
+  {
+   "at": "Phil.2.1",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 2,
+   "quote": "The \"therefore\" implies that he is here expanding on the exhortation (Php 1:27), \"In one Spirit, with one mind (soul).\""
+  },
+  {
+   "at": "Phil.2.2",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 12,
+   "quote": "The word used here does not occur elsewhere in the New Testament. It means a union of soul; or an acting together as if but one soul actuated them."
+  },
+  {
+   "at": "Phil.2.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here used --κενοδοζια kenodoxia, occurs nowhere else in the New Testament, though the adjective--κενοδοξος kenedoxos, occurs once in Gall 5:26."
+  },
+  {
+   "at": "Phil.2.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word rendered robbery αρπαγμος-- is found nowhere else in the New Testament, though the verb from which it is derived frequently occurs, Mt 11:12, 13:19, Jn 6:15, 10:12,28,29, Acts 8:39, 23:10, 2Cor 12:2,4; 1Thes 4:17, Jude 1:23, Rev 12:5."
+  },
+  {
+   "at": "Phil.2.9",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. As a reward of this humiliation and these sufferings."
+  },
+  {
+   "at": "Phil.2.9",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Because of his voluntary humiliation and obedience."
+  },
+  {
+   "at": "Phil.2.12",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Having proposed Christ's example, he exhorts them to secure the salvation which Christ has purchased."
+  },
+  {
+   "at": "Phil.2.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "In the New Testament it is found only in this place, and in 2Ti 4:6, where it is rendered, \"I am ready to be offered.\""
+  },
+  {
+   "at": "Phil.3.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 24,
+   "quote": "The word here used--σκυβαλον--occurs nowhere else in the New Testament. It means, properly, dregs, refuse; what is thrown away as worthless; chaff, offal, or the refuse of a table or of slaughtered animals; and then filth of any kind."
+  },
+  {
+   "at": "Phil.3.11",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The Greek word occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Phil.3.13",
+   "work": "henry-finishers",
+   "word": 15,
+   "quote": "So he reaches forth, epekteinomenos—stretched himself forward, bearing towards his point: it is expressive of a vehement concern."
+  },
+  {
+   "at": "Phil.3.20",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word here used πολιτευμα --is found nowhere else in the New Testament. It properly means, any public measure, administration of the state, the manner in which the affairs of a state are administered; and then the state itself, the community, commonwealth, those who are bound under the same laws, and associated in the same society."
+  },
+  {
+   "at": "Phil.4.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The word therefore ωστε has undoubted reference to the remarks made there; and the meaning is, that in view of the fact that there were many professed Christians who were not sincere-- that the \"citizenship\" of all true Christians was in heaven, and that Christians looked for the coming of the Lord Jesus, who would make them like to himself, the apostle exhorts them to stand fast ill the Lord."
+  },
+  {
    "at": "Col.2.6",
    "work": "jfb",
    "terms": [
@@ -1377,12 +4200,46 @@
    "quote": "\"As therefore ye received (once for all; the aorist tense; from Epaphras) Jesus the Christ as your Lord (compare 1Co 12:3; 2Co 4:5; Php 3:8), so walk in Him.\""
   },
   {
+   "at": "Col.2.7",
+   "work": "jfb",
+   "terms": [
+    "g-aorist",
+    "g-perfect"
+   ],
+   "quote": "\"Rooted\" is in the past tense, implying their first conversion and vital grafting \"in Him.\""
+  },
+  {
+   "at": "Col.2.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "This word also is found nowhere else in the New Testament, though the adjective bodily-- σωματικος --occurs twice: Lk 3:22, \"in a bodily shape;\" and 1Timm 4:8, \"for bodily exercise profiteth little.\""
+  },
+  {
    "at": "Col.2.12",
    "work": "jfb",
    "terms": [
     "g-participle"
    ],
    "quote": "The past participle is here coincident in time with the preceding verb, \"ye were (Greek) circumcised.\""
+  },
+  {
+   "at": "Col.2.16",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--because ye are complete in Christ, and God in Him has dispensed with all subordinate means as essential to acceptance with Him."
+  },
+  {
+   "at": "Col.2.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word here used καταβραβευω occurs nowhere else in the New Testament. It is a word which was employed with reference to the distribution of prizes at the Grecian games, and means, to give the prize against any one, to deprive of the palm."
   },
   {
    "at": "Col.3.3",
@@ -1394,12 +4251,104 @@
    "quote": "The Greek aorist tense implies, \"For ye have died once for all\" (Col 2:12; Ro 6:4-7)."
   },
   {
+   "at": "Col.3.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 10,
+   "quote": "The word here used μομφη occurs nowhere else in the New Testament. It means, fault found, blame, censure; and here denotes occasion of complaint."
+  },
+  {
+   "at": "1Thess.2.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here rendered \"flattering\"--κολακεια--occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "1Thess.2.16",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The past tense implies that the fullest visitation of wrath was already begun."
+  },
+  {
+   "at": "1Thess.2.19",
+   "work": "calvin",
+   "link": "for",
+   "word": 1,
+   "quote": "The causal particle γάρ, (for,) which occurs almost immediately afterwards, is employed here not in its strict sense, by way of affirmation—”assuredly you are.”"
+  },
+  {
+   "at": "1Thess.3.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word rendered moved (σαινω) occurs nowhere else in the New Testament. It properly means to wag, to move to and fro, as of dogs which wag their tails in fondness, (Hom."
+  },
+  {
+   "at": "1Thess.3.4",
+   "work": "jfb",
+   "link": "just-as",
+   "word": 11,
+   "quote": "even as--\"even (exactly) as it both came to pass and ye know\"; ye know both that it came to pass, and that we foretold it (compare Joh 13:19)."
+  },
+  {
+   "at": "1Thess.3.8",
+   "work": "jfb",
+   "link": "if",
+   "word": 3,
+   "quote": "if--implying that the vivid joy which the missionaries \"now\" feel, will continue if the Thessalonians continue steadfast."
+  },
+  {
+   "at": "1Thess.4.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 12,
+   "quote": "The word here rendered \"taught of God\" θεοδιδακτοι occurs nowhere else in the New Testament. It is correctly translated, and must refer here to some direct teaching of God on their own hearts, for Paul speaks of their being so taught by him as to need no special precepts in the case."
+  },
+  {
    "at": "1Thess.4.15",
    "work": "calvin",
    "terms": [
     "g-present"
    ],
    "quote": "When, however, he says, we that are alive, he makes use of the present tense instead of the future, in accordance with the Hebrew idiom."
+  },
+  {
+   "at": "1Thess.4.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here used (κελευσμα) does not elsewhere occur in the New Testament. It properly means a cry of excitement, or of urging on; an outcry, clamour, or shout, as of sailors at the oar, Luc."
+  },
+  {
+   "at": "1Thess.4.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "The word archangel occurs nowhere else in the New Testament, except in Jude 1:9, where it is applied to Michael. It properly means a chief angel; one who is first, or who is over others αρχων."
+  },
+  {
+   "at": "1Thess.5.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word here rendered sudden, occurs nowhere else in the New Testament, except in Lk 21:34, \"Lest that day come upon you unawares.\""
   },
   {
    "at": "1Thess.5.27",
@@ -1411,6 +4360,30 @@
    "quote": "The Greek aorist tense implies a single act done at a particular time."
   },
   {
+   "at": "2Thess.1.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The word rendered \"manifest token,\" (ενδειγμα,) occurs nowhere else in the New Testament. It means an indication, token, proof, anything that shows, or points out, how a thing is, or is to be, (from ενδεικνυμι, to show, to point out.)"
+  },
+  {
+   "at": "2Thess.2.1",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The Greek noun is nowhere else found except in He 10:25, said of the assembling together of believers for congregational worship."
+  },
+  {
+   "at": "2Thess.2.3",
+   "work": "barnes",
+   "word": 17,
+   "quote": "The use of the article here-- οανθρωπος --\"the man of sin,\" is also emphatic, as in the reference to \"the falling away,\" and shows that there is allusion to one of whom they had before heard, and whose character was well known; who would be the wicked one by way of eminence."
+  },
+  {
    "at": "2Thess.2.7",
    "work": "calvin",
    "terms": [
@@ -1418,6 +4391,13 @@
    ],
    "word": 9,
    "quote": "While he makes both statements in reference to one person — that he will hold supremacy for a time, and that he will shortly be taken out of the way, I have no doubt that he refers to Antichrist; and the participle withholding must be explained in the future tense."
+  },
+  {
+   "at": "2Thess.2.15",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore. In view of the fact that you are thus chosen from eternity, and that you are to be raised up to such honour and glory."
   },
   {
    "at": "2Thess.3.10",
@@ -1428,6 +4408,15 @@
    "quote": "commanded--Greek imperfect, \"We were commanding\"; we kept charge of you."
   },
   {
+   "at": "1Tim.1.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 13,
+   "quote": "The Greek word here used is not found in the classic writers, and does not elsewhere occur in the New Testament except in 1Timm 6:3 of this epistle, where it is rendered `teach otherwise.'"
+  },
+  {
    "at": "1Tim.1.9",
    "work": "barnes",
    "terms": [
@@ -1435,6 +4424,102 @@
    ],
    "word": 0,
    "quote": "The apostle does not refer particularly to himself as knowing or conceding this, for then he would have used the plural form of the participle, (see the Greek;) but he means that any one, who had just views of the law, would see that that which he proceeds to specify was its real purpose."
+  },
+  {
+   "at": "1Tim.1.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word here used ανδραποδιστης occurs nowhere else in the New Testament. It properly means one who steals another for the purpose of making him a slave--a kidnapper."
+  },
+  {
+   "at": "1Tim.1.13",
+   "work": "jfb",
+   "link": "because",
+   "word": 10,
+   "quote": "The \"because,\" &c., does not imply that ignorance was a sufficient reason for mercy being bestowed; but shows how it was possible that such a sinner could obtain mercy."
+  },
+  {
+   "at": "1Tim.1.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 15,
+   "quote": "This word occurs nowhere else in the New Testament, except in 2Ti 1:13, where it is rendered form. It properly means a form, sketch, or imperfect delineation."
+  },
+  {
+   "at": "1Tim.1.16",
+   "work": "jfb",
+   "link": "but",
+   "word": 0,
+   "quote": "Howbeit--Greek, \"But\"; contrasting his own conscious sinfulness with God's gracious visitation of him in mercy."
+  },
+  {
+   "at": "1Tim.2.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The noun used occurs only in this place and in 1Timm 4:5, of this epistle."
+  },
+  {
+   "at": "1Tim.2.1",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--taking up again the general subject of the Epistle in continuation (2Ti 2:1)."
+  },
+  {
+   "at": "1Tim.2.5",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - The fourth verse is proved by the fifth; the first, by the fourth."
+  },
+  {
+   "at": "1Tim.2.8",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - This particle connects the eighth with the first verse."
+  },
+  {
+   "at": "1Tim.3.2",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 1,
+   "quote": "Therefore - That he may be capable of it."
+  },
+  {
+   "at": "1Tim.3.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The Greek work (παροινος) occurs in the New Testament only here and in Tit 1:7. It means, properly, by wine; i.e., spoken of what takes place by or over wine, as revelry, drinking songs, etc. Then it denotes, as it does here, one who sits by wine; that is, who is in the habit of drinking it."
+  },
+  {
+   "at": "1Tim.3.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The Greek word, which occurs nowhere else in the New Testament, means, properly, that which is newly planted."
+  },
+  {
+   "at": "1Tim.3.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word here used --διλογος does not occur elsewhere in the New Testament. It means, properly, uttering the same thing twice, (from δις and λεγω,) and then deceitful, or speaking one thing and meaning another."
   },
   {
    "at": "1Tim.3.13",
@@ -1447,12 +4532,87 @@
    "quote": "Then the past aorist participle, \"they that used the office of deacon well,\" implies that the present verb, \"are acquiring to themselves boldness,\" is the result of the completed action of using the diaconate well."
   },
   {
+   "at": "1Tim.3.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word here used βαθμος occurs nowhere else in the New Testament. It means, properly, a step, as of a stair; and the fair meaning is that of going up higher, or taking an additional step of dignity, honour, or standing."
+  },
+  {
+   "at": "1Tim.3.15",
+   "work": "jfb",
+   "link": "so-that",
+   "word": 3,
+   "quote": "that--that is, I write (1Ti 3:14) \"that thou mayest know,\" &c."
+  },
+  {
    "at": "1Tim.5.5",
    "work": "jfb",
    "terms": [
     "g-perfect"
    ],
    "quote": "trusteth in God--perfect tense in Greek, \"hath rested, and doth rest her hope in God.\""
+  },
+  {
+   "at": "1Tim.5.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The Greek word σπαταλαω occurs nowhere else in the New Testament, except in Jas 5:5: \"Ye have lived in pleasure on the earth.\" It properly means to live in luxury, voluptuously; to indulge freely in eating and drinking; to yield to the indulgence of the appetites."
+  },
+  {
+   "at": "1Tim.5.11",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The Greek word here used, καταστρηνιαζω, occurs nowhere else in the New Testament. The word στρηνιαω --however, is used twice, and is in both cases translated lived deliciously, Rev 18:7,9."
+  },
+  {
+   "at": "1Tim.6.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 17,
+   "quote": "The word rendered \"pierced themselves through\"--περιεπειραν--occurs nowhere else in the New Testament, and is a word whose force and emphasis cannot be well expressed in a translation. It is from πειρω, and is made more emphatic by the addition of the preposition περι."
+  },
+  {
+   "at": "2Tim.1.5",
+   "work": "jfb",
+   "terms": [
+    "g-aorist",
+    "g-perfect"
+   ],
+   "quote": "The past tense implies they were now dead."
+  },
+  {
+   "at": "2Tim.1.8",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--seeing that God hath given us such a spirit, not that of fear."
+  },
+  {
+   "at": "2Tim.1.13",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The Greek for \"form\" is translated \"pattern\" in 1Ti 1:16, the only other passage where it occurs."
+  },
+  {
+   "at": "2Tim.2.4",
+   "work": "wesley",
+   "link": "so-that",
+   "word": 7,
+   "quote": "That - Minding war only, he may please his captain."
   },
   {
    "at": "2Tim.2.8",
@@ -1474,12 +4634,216 @@
    "quote": "For--\"For\" the fact is so that, \"if we be dead with Him (the Greek aorist tense implies a state once for all entered into in past times at the moment of regeneration, Ro 6:3, 4, 8; Col 2:12), we shall also live with Him.\""
   },
   {
+   "at": "2Tim.2.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "This word-- γαγγραινα occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "2Tim.2.24",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word rendered gentle, does not occur elsewhere in the New Testament. It means that the Christian minister is to be meek and mild towards all, not disputatious and quarrelsome."
+  },
+  {
+   "at": "2Tim.2.26",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The word which is rendered recover in the text and awake in the margin ανανηψωσιν occurs nowhere else in the New Testament. It properly means, to become sober again, as from inebriation; to awake from a deep sleep; and then, to come to a right mind, as one does who is aroused from a state of inebriety, or from sleep."
+  },
+  {
+   "at": "2Tim.3.2",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word here used φιλαυτος--does not elsewhere occur in the New Testament. It means a lover of one's self, selfish."
+  },
+  {
+   "at": "2Tim.3.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The Greek word used here-- ανημερος does not elsewhere occur in the New Testament. It means ungentle, harsh, severe, and is the opposite of gentleness and mildness."
+  },
+  {
+   "at": "2Tim.3.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 10,
+   "quote": "The word here used--επανορθωσις--occurs nowhere else in the New Testament. It means properly, a setting to rights, reparation, restoration, (from επανορθοω, to right up again, to restore;) and here means, the leading to a correction or amendment of life--a reformation."
+  },
+  {
+   "at": "2Tim.4.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 16,
+   "quote": "The word rendered heap επισωρευω--does not occur elsewhere in the New Testament. It means to heap up upon, to accumulate; and here to multiply."
+  },
+  {
+   "at": "2Tim.4.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 18,
+   "quote": "The word rendered itching--κνηθω--also occurs only in this place in the New Testament. It means to rub, to scratch; and then to tickle, and here to feel an itching for something pleasing or gratifying."
+  },
+  {
+   "at": "2Tim.4.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The single Greek word rendered \"I am ready to be offered\"--σπενδομαι--occurs nowhere else in the New Testament, except in Php 2:17, where it is translated, \"if I be offered.\""
+  },
+  {
+   "at": "2Tim.4.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The Greek word used, (φελονης variously written, φαιλονηςφελονης, and φελωνης,) occurs nowhere else in the New Testament. It is supposed to be used for a similar Greek word, (φαινολης,) to denote a cloak, or great-coat, with a hood, used chiefly on journeys, or in the army: Latin, penula."
+  },
+  {
+   "at": "2Tim.4.13",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 15,
+   "quote": "The word here used, (μεμβρανος, whence our word membrane,) occurs only in this place in the New Testament, and means skin, membrane, or parchment."
+  },
+  {
+   "at": "Titus.1.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "The word rendered, \"set in order\"-- επιδιορθωση-- occurs nowhere else in the New Testament. It means, properly, to make straight upon, and then to put further to rights, to arrange further."
+  },
+  {
+   "at": "Titus.1.11",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word here rendered stopped επιστομιζειν--occurs nowhere else in the New Testament. It means, properly, to check, or curb, as with a bridle; to restrain, or bridle in; and then, to put to silence."
+  },
+  {
+   "at": "Titus.1.16",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word here used-- βδελυκτοι--occurs nowhere else in the New Testament. It means that which is detestable, or to be held in abhorrence."
+  },
+  {
    "at": "Titus.2.12",
    "work": "jfb",
    "terms": [
     "g-aorist"
    ],
    "quote": "The Greek aorist expresses \"denying once for all.\""
+  },
+  {
+   "at": "Titus.2.14",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 15,
+   "quote": "The word here used (περιουσιος) occurs nowhere else in the New Testament. It means, properly, having abundance; and then one's own, what is special, or peculiar, (Rob."
+  },
+  {
+   "at": "Titus.3.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 18,
+   "quote": "The word rendered regeneration (παλιγγενεσια, palingenesia) occurs in the New Testament only here and in Mt 19:28,--\"in the regeneration when the Son of man,\" etc. It means, properly, a new-birth, reproduction, or renewal. It would properly be applied to one who should be begotten again in this sense, that a new life was commenced in him in some way corresponding to his being made to live at first."
+  },
+  {
+   "at": "Titus.3.5",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 20,
+   "quote": "The word rendered renewing (ανακαινωσις--anakainosis) occurs only here and in Rom 12:2, where it is also rendered renewing."
+  },
+  {
+   "at": "Titus.3.5",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 18,
+   "quote": "\"Regeneration\" occurs only once more in New Testament, Mt 19:28, that is, the new birth of the heaven and earth at Christ's second coming to renew all material things, the human body included, when the creature, now travailing in labor-throes to the birth, shall be delivered from the bondage of corruption into the glorious liberty of the children of God."
+  },
+  {
+   "at": "Titus.3.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The Greek word here used (αιρετικος-- haireticos) occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Phlm.1.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "This word occurs nowhere else in the New Testament, except in Rom 5:13, where it is rendered imputed."
+  },
+  {
+   "at": "Heb.1.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word rendered brightness απαυγασμα --occurs nowhere else in the New Testament. It means, properly, reflected splendour, or the light which emanates from a luminous body."
+  },
+  {
+   "at": "Heb.1.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word here used χαρακτηρ likewise occurs nowhere else in the New Testament. It is that from which our word character is derived."
+  },
+  {
+   "at": "Heb.1.3",
+   "work": "calvin",
+   "word": 2,
+   "quote": "The word ἀπαύγασμα means here nothing else but visible light or refulgence, such as our eyes can bear; and χαρακτὴρ is the vivid form of a hidden substance."
   },
   {
    "at": "Heb.1.14",
@@ -1491,6 +4855,29 @@
    "quote": "sent forth--present participle: \"being sent forth\" continually, as their regular service in all ages."
   },
   {
+   "at": "Heb.2.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 9,
+   "quote": "The word here used παραρρεω --occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Heb.2.9",
+   "work": "jfb",
+   "link": "so-that",
+   "word": 18,
+   "quote": "The \"that,\" &c., is connected with \"crowned with glory,\" &c., thus: His exaltation after sufferings is the perfecting or consummation of His work (He 2:10) for us: without it His death would have been ineffectual; with it, and from it, flows the result that His tasting of death is available for (in behalf of, for the good of) every man."
+  },
+  {
+   "at": "Heb.2.11",
+   "work": "wesley",
+   "link": "for",
+   "word": 2,
+   "quote": "For - They are nearly related to each other."
+  },
+  {
    "at": "Heb.2.16",
    "work": "jfb",
    "terms": [
@@ -1499,12 +4886,77 @@
    "quote": "took not on him, &c.--rather, \"It is not angels that He is helping (the present tense implies duration); but it is the seed of Abraham that He is helping.\""
   },
   {
+   "at": "Heb.3.7",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of the fact that the Author of the Christian dispensation has a rank far superior to that of Moses."
+  },
+  {
+   "at": "Heb.3.7",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Seeing he is faithful, be not ye unfaithful."
+  },
+  {
+   "at": "Heb.3.14",
+   "work": "wesley",
+   "link": "if",
+   "word": 5,
+   "quote": "If - But not else; and a supposition made by the Holy Ghost is equal to the, strongest assertion."
+  },
+  {
+   "at": "Heb.3.16",
+   "work": "jfb",
+   "link": "for",
+   "word": 1,
+   "quote": "The \"For\" implies, Ye need to take heed against unbelief: for, was it not because of unbelief that all our fathers were excluded (Eze 2:3)?"
+  },
+  {
+   "at": "Heb.4.1",
+   "work": "calvin",
+   "link": "therefore",
+   "word": 1,
+   "quote": "The illative therefore, or then means that by the fall of others we are taught humility and watchfulness according to what Paul also says, “These through unbelief have fallen; be not thou then high ­ minded, but fear.”"
+  },
+  {
+   "at": "Heb.4.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "It is a different word from σαββατον --the Sabbath; and it occurs nowhere else in the New Testament, and is not found in the Septuagint. It properly means, a keeping Sabbath-- from σαββατιζω to keep Sabbath."
+  },
+  {
+   "at": "Heb.4.9",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "therefore--because God \"speaks of another day\" (see on He 4:8)."
+  },
+  {
+   "at": "Heb.4.9",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Therefore - Since he still speaks of another day, there must remain a farther, even an eternal, rest for the people of God."
+  },
+  {
    "at": "Heb.4.10",
    "work": "jfb",
    "terms": [
     "g-aorist"
    ],
    "quote": "hath ceased--The Greek aorist is used of indefinite time, \"is wont to cease,\" or rather, \"rest\": rests."
+  },
+  {
+   "at": "Heb.4.11",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--Seeing such a promise is before us, which we may, like them, fall short of through unbelief."
   },
   {
    "at": "Heb.4.13",
@@ -1525,6 +4977,26 @@
    "quote": "The participle, δυνάμενος is more forcible than in our common tongue, qui possit, “who can,” for it expresses aptness or fitness."
   },
   {
+   "at": "Heb.6.6",
+   "work": "barnes",
+   "word": 6,
+   "quote": "The intensity and aggravation of such a crime perhaps the apostle meant to indicate by the intensive or emphatic ανα in the ανασταυρουντας."
+  },
+  {
+   "at": "Heb.6.10",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - Ye give plain proof of your faith and love, which the righteous God will surely reward."
+  },
+  {
+   "at": "Heb.6.13",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - Ye have abundant encouragement, seeing no stronger promise could be made than that great promise which God made to Abraham, and in him to us."
+  },
+  {
    "at": "Heb.7.6",
    "work": "jfb",
    "terms": [
@@ -1533,12 +5005,42 @@
    "quote": "The perfect tense implies that the significance of the fact endures to the present time."
   },
   {
+   "at": "Heb.7.12",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - One of these cannot be changed without the other."
+  },
+  {
    "at": "Heb.7.13",
    "work": "jfb",
    "terms": [
     "g-perfect"
    ],
    "quote": "pertaineth--Greek, \"hath partaken of\" (the perfect tense implies the continuance still of His manhood)."
+  },
+  {
+   "at": "Heb.7.22",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word surety εγγυος-- occurs nowhere else in the New Testament, nor is it found in the Septuagint. It properly means, a bondsman; one who pledges his name, property, or influence, that a certain thing shall be done."
+  },
+  {
+   "at": "Heb.8.8",
+   "work": "barnes",
+   "link": "behold",
+   "word": 4,
+   "quote": "Behold. This particle is designed to call attention to what was about to be said as important, or as having some special claim to notice."
+  },
+  {
+   "at": "Heb.9.13",
+   "work": "jfb",
+   "link": "if",
+   "word": 0,
+   "quote": "if--as we know is the case; so the Greek indicative means."
   },
   {
    "at": "Heb.9.16",
@@ -1557,6 +5059,47 @@
    ],
    "word": 7,
    "quote": "Plainly, the death is supposed to be past (aorist, \"made\"); and the fact of the death is brought (Greek) before court to give effect to the will."
+  },
+  {
+   "at": "Heb.10.5",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. This word shows that the apostle means to sustain what he had said by a reference to the Old Testament itself."
+  },
+  {
+   "at": "Heb.10.5",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore--seeing that a nobler than animal sacrifices was needed to \"take away sins.\""
+  },
+  {
+   "at": "Heb.10.20",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word which is here rendered new --προσφατον-- occurs nowhere else in the New Testament. It properly means slain, or killed thereto; i.e. newly killed, just dead; and then fresh, recent."
+  },
+  {
+   "at": "Heb.10.25",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The Greek word (the noun) is used nowhere else in the New Testament, except in 2Thes 2:1, where it is rendered gathering together."
+  },
+  {
+   "at": "Heb.10.26",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 0,
+   "quote": "The word rendered \"wilfully\"--εκουσιως -- occurs nowhere else in the New Testament, except in 1Pet 5:2, where it is rendered willingly--\" taking the oversight thereof [of the church] not by constraint, but willingly\". It properly means, willingly, voluntarily, of our own accord, and applies to cases where no constraint is used."
   },
   {
    "at": "Heb.10.32",
@@ -1601,12 +5144,148 @@
    "quote": "must believe--once for all: Greek aorist tense."
   },
   {
+   "at": "Heb.11.11",
+   "work": "barnes",
+   "word": 2,
+   "quote": "The word \"herself\" here--αυτη--implies that there was something remarkable in the fact that she should manifest this faith."
+  },
+  {
+   "at": "Heb.12.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of what has been said in the previous chapter."
+  },
+  {
+   "at": "Heb.12.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The word which is here rendered \"easily beset\" --ευπεριστατον--euperistaton--does not elsewhere occur in the New Testament. It properly means, \"standing well around;\" and hence denotes that which is near, or at hand, or readily occurring."
+  },
+  {
+   "at": "Heb.12.6",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - All springs from love; therefore neither despise nor faint."
+  },
+  {
+   "at": "Heb.12.12",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of the facts which have been now stated --that afflictions are sent from God, and are evidences of his paternal watchfulness."
+  },
+  {
+   "at": "Heb.12.12",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 0,
+   "quote": "The \"wherefore\" is resumed from He 12:1."
+  },
+  {
+   "at": "Heb.12.18",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - A strong reason this why they ought the more to regard the whole exhortation drawn from the priesthood of Christ: because both salvation and vengeance are now nearer at hand."
+  },
+  {
+   "at": "Heb.13.7",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The word here rendered the end--εκβασις --occurs only here and in 1Cor 10:13, where it is rendered \"a way of escape.\" It properly means, a going out, an egress, and is hence spoken of as a going out from life, or as an exit from the world-- death."
+  },
+  {
+   "at": "Heb.13.11",
+   "work": "wesley",
+   "link": "for",
+   "word": 1,
+   "quote": "For - According to their own law, the sin - offerings were wholly consumed, and no Jew ever ate thereof."
+  },
+  {
+   "at": "Jas.1.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The word here used (διψυχος) occurs only here and in Jas 4:8. It means, properly, one who has two souls; then one who is wavering or inconstant."
+  },
+  {
+   "at": "Jas.1.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 19,
+   "quote": "The word which is here rendered variableness (παραλλαγη) occurs nowhere else in the New Testament. It means change, alteration, vicissitude, and would properly be applied to the changes observed in astronomy."
+  },
+  {
+   "at": "Jas.1.21",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore. In view of the fact that God has begotten us for his own service; in view of the fact that excited feeling tends only to wrong, let us lay aside all that is evil, and submit ourselves wholly to the influence of truth."
+  },
+  {
+   "at": "Jas.1.21",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word here rendered filthiness, occurs nowhere else in the New Testament. It means properly filth; and then is applied to evil conduct considered as disgusting or offensive."
+  },
+  {
+   "at": "Jas.2.19",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The word here used (φρισσω) occurs nowhere else in the New Testament. It means, properly, to be rough, uneven, jaggy, sc., with bristling hair; to bristle, to stand on end, as the hair does in a fright; and then to shudder or quake with fear, etc. Here the meaning is, that there was much more in the case referred to than mere speculative faith."
+  },
+  {
+   "at": "Jas.3.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 17,
+   "quote": "The word here used (αδιακριτος) occurs nowhere else in the New Testament. It means, properly, not to be distinguished."
+  },
+  {
+   "at": "Jas.5.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The word rendered is cankered, (κατιωται) does not occur elsewhere in the New Testament."
+  },
+  {
    "at": "Jas.5.6",
    "work": "jfb",
    "terms": [
     "g-aorist"
    ],
    "quote": "Ye have condemned ... the just--The Greek aorist expresses, \"Ye are accustomed to condemn ... the just.\""
+  },
+  {
+   "at": "Jas.5.11",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 1,
+   "quote": "The word rendered \"we count them happy,\" (μακαριζομεν,) occurs only here and in Lk 1:48, where it is rendered \"shall call me blessed.\" The word μακαριος, (blessed, or happy,) however, occurs often."
   },
   {
    "at": "1Pet.1.4",
@@ -1616,6 +5295,15 @@
    ],
    "word": 7,
    "quote": "reserved--kept up (Col 1:5, \"laid up for you in heaven,\" 2Ti 4:8); Greek perfect, expressing a fixed and abiding state, \"which has been and is reserved.\""
+  },
+  {
+   "at": "1Pet.1.4",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "This word occurs nowhere else in the New Testament, though the word αμαραντινος (amarantine) occurs in @1Pe 5:4, applied to a crown or garland. The word is properly applied to that which does not fade or wither, in contradistinction from a flower that fades."
   },
   {
    "at": "1Pet.1.7",
@@ -1636,6 +5324,15 @@
    "quote": "The participle is indeed in the past tense, but it may be rendered as a gerund, “By purifying, etc.” The meaning is, that their souls would not be capable of receiving grace until they were purified, and by this our uncleanness is proved."
   },
   {
+   "at": "1Pet.1.23",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word here rendered seed--σπορα--occurs nowhere else in the New Testament."
+  },
+  {
    "at": "1Pet.1.24",
    "work": "jfb",
    "terms": [
@@ -1653,6 +5350,29 @@
    "quote": "laying aside--once for all: so the Greek aorist expresses as a garment put off."
   },
   {
+   "at": "1Pet.2.1",
+   "work": "barnes",
+   "link": "therefore",
+   "word": 1,
+   "quote": "The word wherefore (ουν) refers to the reasonings in the first chapter."
+  },
+  {
+   "at": "1Pet.2.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 13,
+   "quote": "This word (καταλαλια) occurs only here and in 2Cor 12:20, where it is rendered backbitings. It would include all unkind or slanderous speaking against others."
+  },
+  {
+   "at": "1Pet.2.1",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "The \"therefore\" resumes the exhortation begun in 1Pe 1:22."
+  },
+  {
    "at": "1Pet.2.4",
    "work": "jfb",
    "terms": [
@@ -1661,12 +5381,28 @@
    "quote": "coming--drawing near (same Greek as here, He 10:22) by faith continually; present tense: not having come once for all at conversion."
   },
   {
+   "at": "1Pet.2.6",
+   "work": "jfb",
+   "link": "behold",
+   "word": 5,
+   "quote": "Behold--calling attention to the glorious announcement of His eternal counsel."
+  },
+  {
    "at": "1Pet.2.17",
    "work": "jfb",
    "terms": [
     "g-present"
    ],
    "quote": "The second is in the present tense, implying, Habitually and continually honor the king."
+  },
+  {
+   "at": "1Pet.2.17",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 3,
+   "quote": "The word here used occurs only in this place and in 1Pet 5:9, where it is rendered brethren. The idea expressed here occurs often in the New Testament."
   },
   {
    "at": "1Pet.2.18",
@@ -1678,12 +5414,97 @@
    "quote": "be subject--Greek, \"being subject\": the participle expresses a particular instance of the general exhortation to good conduct, 1Pe 2:11, 12, of which the first particular precept is given 1Pe 2:13, \"Submit yourselves to every ordinance of man for the Lord's sake.\""
   },
   {
+   "at": "1Pet.2.21",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 12,
+   "quote": "The word rendered example (υπογραμμον) occurs nowhere else in the New Testament. It means properly a writing copy, such as is set for children; or an outline or sketch for a painter to fill up; and then, in general, an example, a pattern for imitation."
+  },
+  {
+   "at": "1Pet.2.25",
+   "work": "jfb",
+   "link": "for",
+   "word": 1,
+   "quote": "For--Assigning their natural need of healing (1Pe 2:24)."
+  },
+  {
+   "at": "1Pet.3.2",
+   "work": "barnes",
+   "word": 4,
+   "quote": "The word chaste here (αγνην) refers to purity of conduct in all respects, and not merely to chastity properly so called."
+  },
+  {
+   "at": "1Pet.3.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 16,
+   "quote": "The word rendered amazement (πτοησις) does not elsewhere occur in the New Testament. It means terror, trepidation, fear; and the literal translation of the Greek is, \"not fearing any fear.\""
+  },
+  {
+   "at": "1Pet.3.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word here used (ομοφρων) does not elsewhere occur in the New Testament. It means, of the same mind; like-minded; and the object is to secure harmony in their views and feelings."
+  },
+  {
+   "at": "1Pet.3.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The Greek word (φιλαδελφος) does not elsewhere occur in the New Testament. It means loving one's brethren; that is, loving each other as Christian brethren.--Rob."
+  },
+  {
+   "at": "1Pet.3.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word here used (ευσπλαγχνος) occurs nowhere else in the New Testament, except in Eph 4:32, where it is rendered tender-hearted."
+  },
+  {
    "at": "1Pet.3.18",
    "work": "jfb",
    "terms": [
     "g-participle"
    ],
    "quote": "The Greek participle expresses the reason of His preaching, \"inasmuch as they were sometime disobedient\" (compare 1Pe 4:6)."
+  },
+  {
+   "at": "1Pet.4.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 17,
+   "quote": "The word here used (οινοφλυγια) occurs nowhere else in the New Testament. It properly means overflowing of wine, (οινος), wine, and φλυω, to overflow; then wine-drinking; drunkenness."
+  },
+  {
+   "at": "1Pet.4.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 19,
+   "quote": "The word here used (ποτος) occurs nowhere else in the New Testament. It means properly drinking; an act of drinking; then a drinking bout; drinking together."
+  },
+  {
+   "at": "1Pet.5.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "This word occurs nowhere else in the New Testament. It means that he was a co-presbyter with them; and he makes this one of the grounds of his exhortation to them."
   },
   {
    "at": "1Pet.5.7",
@@ -1704,12 +5525,69 @@
    "quote": "He intimates that no place is to be given in this case to sloth, and that we ought to obey God calling us, not slowly or carelessly, but that there is need of alacrity; as though he had said, “Put forth every effort, and make your exertions manifest to all.” — For this is what the participle he uses imports."
   },
   {
+   "at": "2Pet.1.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word used here, which does not occur elsewhere in the New Testament, (μυωπαζω,) means to shut the eyes; i.e., to contract the eyelids, to blink, to twinkle, as one who cannot see clearly, and hence to be near-sighted. The meaning here is, that he is like one who has an indistinct vision; one who can see only the objects that are near him, but who has no correct apprehension of objects that are more remote."
+  },
+  {
+   "at": "2Pet.1.10",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Considering the miserable state of these apostates."
+  },
+  {
+   "at": "2Pet.1.12",
+   "work": "wesley",
+   "link": "therefore",
+   "word": 0,
+   "quote": "Wherefore - Since everlasting destruction attends your sloth, everlasting glory your diligence, I will not neglect always to remind you of these things - Therefore he wrote another, so soon after the former, epistle."
+  },
+  {
    "at": "2Pet.1.17",
    "work": "jfb",
    "terms": [
     "g-aorist"
    ],
    "quote": "I am--Greek aorist, past time, \"My good pleasure rested from eternity.\""
+  },
+  {
+   "at": "2Pet.1.20",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 8,
+   "quote": "The word rendered interpretation (επιλυσις) occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "2Pet.2.4",
+   "work": "jfb",
+   "link": "if",
+   "word": 0,
+   "quote": "if--The apodosis or consequent member of the sentence is not expressed, but is virtually contained in 2Pe 2:9."
+  },
+  {
+   "at": "2Pet.2.4",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 11,
+   "quote": "hell--Greek, \"Tartarus\": nowhere else in New Testament or the Septuagint: equivalent to the usual Greek, \"Gehenna.\""
+  },
+  {
+   "at": "2Pet.2.6",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here rendered \"turning into ashes,\" (τεφρωσας,) occurs nowhere else in the New Testament. It is from τεφρα, (ashes,) and means to reduce to ashes, and then to consume or destroy."
   },
   {
    "at": "2Pet.2.9",
@@ -1720,6 +5598,22 @@
    ],
    "word": 11,
    "quote": "The participle κολαζομένους, though in the present tense, is yet to be thus explained, that they are reserved or kept to be punished, or, that they may be punished."
+  },
+  {
+   "at": "2Pet.2.12",
+   "work": "jfb",
+   "link": "but",
+   "word": 1,
+   "quote": "But--In contrast to the \"angels,\" 2Pe 2:11."
+  },
+  {
+   "at": "2Pet.3.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "Comp. 2Pet 3:12, seq. The word rendered pure, ειλικρινης occurs only here and in Php 1:10, where it is rendered sincere. The word properly refers to that which may be judged of in sunshine; then it means clear, manifest; and then sincere, pure--as that in which there is no obscurity."
   },
   {
    "at": "2Pet.3.11",
@@ -1736,6 +5630,13 @@
     "g-participle"
    ],
    "quote": "Looking for and hasting unto, or, waiting for by hastening; so I render the words, though they are two participles; for what we had before separately he gathers now into one sentence, that is, that we ought hastily to wait."
+  },
+  {
+   "at": "2Pet.3.13",
+   "work": "jfb",
+   "link": "but",
+   "word": 1,
+   "quote": "Nevertheless--\"But\": in contrast to the destructive effects of the day of God stand its constructive effects."
   },
   {
    "at": "2Pet.3.15",
@@ -1761,6 +5662,24 @@
     "g-present"
    ],
    "quote": "He is speaking not of justification through His blood once for all, but of the present sanctification (\"cleanseth\" is present tense) which the believer, walking in the light and having fellowship with God and the saints, enjoys as His privilege."
+  },
+  {
+   "at": "1John.2.2",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The word rendered propitiation (ιλασμος) occurs nowhere else in the New Testament, except in 1Jn 4:10 of this epistle; though words of the same derivation, and having the same essential meaning, frequently, occur."
+  },
+  {
+   "at": "1John.2.2",
+   "work": "jfb",
+   "terms": [
+    "rare"
+   ],
+   "word": 2,
+   "quote": "The only other place in the New Testament where Greek \"propitiation\" occurs, is 1Jo 4:10; it answers in the Septuagint to Hebrew, \"caphar,\" to effect an atonement or reconciliation with God; and in Eze 44:29, to the sin offering."
   },
   {
    "at": "1John.2.3",
@@ -1802,6 +5721,13 @@
     "g-perfect"
    ],
    "quote": "whosoever sinneth hath not seen him--Greek perfect, \"has not seen, and does not see Him.\""
+  },
+  {
+   "at": "1John.4.1",
+   "work": "jfb",
+   "link": "because",
+   "word": 14,
+   "quote": "because, &c.--the reason why we must \"try,\" or test the spirits."
   },
   {
    "at": "1John.4.8",
@@ -1900,6 +5826,31 @@
    "quote": "I think the Greek present participle implies both the first and the second advent of Christ."
   },
   {
+   "at": "3John.1.8",
+   "work": "jfb",
+   "link": "therefore",
+   "word": 1,
+   "quote": "therefore--as they take nothing from the Gentiles or heathen."
+  },
+  {
+   "at": "3John.1.9",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 6,
+   "quote": "The single word rendered \"who loveth to have the pre-eminence,\" (φιλοπρωτευων,) occurs nowhere else in the New Testament. It means simply, who loves to be first--meaning that he loved to be at the head of all things, to rule, to lord it over others."
+  },
+  {
+   "at": "3John.1.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 12,
+   "quote": "The word prate, (φλυαρεω,) occurring nowhere else in the New Testament, means to\" overflow with talk,\" (Gr. φλυω, Lat. fluo, flow;) to talk much without weight, or to little purpose; to be loquacious; to trifle; or, to use an expression common among us, and which accords well with the Greek, to run on in talk, without connexion or sense."
+  },
+  {
    "at": "Jude.1.1",
    "work": "jfb",
    "terms": [
@@ -1919,6 +5870,106 @@
    "quote": "it was needful for me--rather, \"I felt it necessary to write (now at once; so the Greek aorist means; the present infinitive 'to write,' which precedes, expresses merely the general fact of writing) exhorting you.\""
   },
   {
+   "at": "Jude.1.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 16,
+   "quote": "The word here rendered earnestly contend--επαγωνιζεσθαι--is one of those words used by the sacred writers which have allusion to the Grecian games. 1Cor 9:24, seq. This word does not elsewhere occur in the New Testament. It means to contend upon--i. e. for or about anything; and would be applicable to the earnest effort put forth in those games to obtain the prize."
+  },
+  {
+   "at": "Jude.1.8",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The word occurs nowhere else in the New Testament, except in Acts 2:17, where it is applied to visions in dreams."
+  },
+  {
+   "at": "Jude.1.9",
+   "work": "wesley",
+   "terms": [
+    "rare"
+   ],
+   "word": 4,
+   "quote": "The archangel - This word occurs but once more in the sacred writings, 1Thess 4:16."
+  },
+  {
+   "at": "Jude.1.12",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 18,
+   "quote": "The word rendered withereth (φθινοπωρινα) occurs nowhere else in the New Testament."
+  },
+  {
+   "at": "Jude.1.14",
+   "work": "calvin",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The past tense, after the manner of the prophets, is used for the future."
+  },
+  {
+   "at": "Jude.1.14",
+   "work": "wesley",
+   "link": "behold",
+   "word": 9,
+   "quote": "Behold - As if it were already done, the Lord cometh!"
+  },
+  {
+   "at": "Jude.1.24",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word used (απταιστους) occurs nowhere else in the New Testament. It means properly, not stumbling, as of a horse; then without falling into sin, blameless."
+  },
+  {
+   "at": "Rev.1.2",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "Where we would say \"testifies,\" the ancients in epistolary communications use the past tense."
+  },
+  {
+   "at": "Rev.1.7",
+   "work": "wesley",
+   "link": "behold",
+   "word": 0,
+   "quote": "Behold - In this and the next verse is the proposition, and the summary of the whole book."
+  },
+  {
+   "at": "Rev.1.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here rendered Lord's--κυριακη-- occurs only in this place and in 1Cor 11:20, where it is applied to the Lord's Supper."
+  },
+  {
+   "at": "Rev.1.15",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 5,
+   "quote": "The word here used--χαλκολιβανω-- occurs in the New Testament only here and in Rev 2:18."
+  },
+  {
+   "at": "Rev.2.10",
+   "work": "wesley",
+   "link": "behold",
+   "word": 5,
+   "quote": "Behold - This intimates the nearness of the affliction."
+  },
+  {
    "at": "Rev.2.22",
    "work": "jfb",
    "terms": [
@@ -1926,6 +5977,15 @@
    ],
    "word": 16,
    "quote": "except they repent--Greek aorist, \"repent\" at once; shall have repented by the time limited in My purpose."
+  },
+  {
+   "at": "Rev.2.23",
+   "work": "jfb",
+   "terms": [
+    "g-pronoun"
+   ],
+   "word": 13,
+   "quote": "I am he--the \"I\" is strongly emphatical: \"that it is I am He who,\" &c."
   },
   {
    "at": "Rev.3.3",
@@ -1952,6 +6012,15 @@
    "quote": "The Greek verbs are in the aorist tense: \"Thou didst keep ... didst not deny My name\": alluding to some particular occasion when her faithfulness was put to the test."
   },
   {
+   "at": "Rev.3.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 25,
+   "quote": "The word eye-salve-- κολλουριον--occurs nowhere else in the New Testament. It is a diminutive from κολλυρα--collyra--a coarse bread or cake, and means properly a small cake or cracknel."
+  },
+  {
    "at": "Rev.3.19",
    "work": "jfb",
    "terms": [
@@ -1961,12 +6030,87 @@
    "quote": "repent--Greek aorist: of an act to be once for all done, and done at once."
   },
   {
+   "at": "Rev.8.1",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 13,
+   "quote": "The word here used--ημιωριον--does not occur elsewhere in the New Testament. It is correctly rendered half an hour; and as the day was divided into twelve parts from the rising to the setting of the sun, the time designated would not vary much from half an hour with us."
+  },
+  {
    "at": "Rev.12.4",
    "work": "jfb",
    "terms": [
     "g-present"
    ],
    "quote": "drew--Greek, present tense, \"draweth,\" \"drags down.\""
+  },
+  {
+   "at": "Rev.13.18",
+   "work": "jfb",
+   "link": "for",
+   "word": 14,
+   "quote": "for--The \"for\" implies the possibility of our calculating or counting the beast's number."
+  },
+  {
+   "at": "Rev.16.10",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 20,
+   "quote": "The word rendered gnawed does not occur elsewhere in the New Testament, nor is the expression elsewhere used in the Bible; but its meaning is plain--it indicates deep anguish."
+  },
+  {
+   "at": "Rev.17.17",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "hath put--the prophetical past tense for the future."
+  },
+  {
+   "at": "Rev.18.3",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 30,
+   "quote": "The word rendered delicacies--στρηνους--occurs nowhere else in the New Testament. It properly means rudeness, insolence, pride; and hence revel, riot, luxury."
+  },
+  {
+   "at": "Rev.18.12",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 20,
+   "quote": "The word here used--θυινον--occurs nowhere else in the New Testament. It denotes an evergreen African tree, from which statues and costly vessels were made."
+  },
+  {
+   "at": "Rev.19.13",
+   "work": "barnes",
+   "word": 11,
+   "quote": "The name Logos, as applicable to the Son of God, and expressive of his nature, is found in the New Testament only in the writings of John, and is used by him to denote the higher or Divine nature of the Saviour."
+  },
+  {
+   "at": "Rev.21.11",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 7,
+   "quote": "The word here rendered light--φωστηρ--occurs nowhere else in the New Testament except in Php 2:15. It means, properly, a light, a light-giver, and, in profane writers, means commonly a window."
+  },
+  {
+   "at": "Rev.21.18",
+   "work": "barnes",
+   "terms": [
+    "rare"
+   ],
+   "word": 14,
+   "quote": "The word rendered glass in this place-- υαλος--occurs in the New Testament only here and in Rev 21:21."
   }
  ]
 }
