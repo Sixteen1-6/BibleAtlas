@@ -1,5 +1,7 @@
 # Scripture check: Albert Barnes
 
+**Made final (2026-11-22).** Shubhanshu made every passage this file lists as left out final ("yes make them all final"). Each now shows "[passage left out]" with the line "A passage is left out here because it calls a word of Scripture a mistake.", or, for one that denies what Scripture says of its writer, "A passage is left out here because it denies what Scripture says of its writer." The config entries record this in `decided`. What follows tells how each was found and judged, as written before that decision; the "until a decision on it is made" line it names is no longer shown.
+
 What was checked, how, and what was decided, for `config/voices/barnes-nt.json` (decision 23, rules 3 to 5 and 7). The notes are from Albert Barnes's *Notes, Explanatory and Practical, on the New Testament* (1832 to 1852), as CrossWire's Barnes module 1.1 keeps them; the module names no source and no printing, and its John 3:16 note differs from the 1858 printing of the Gospels in ways that suggest a later one (docs/local-work/2026-10-20/voices/voices-research-results.json). So the book line reads "in a printing after 1858 that this copy does not name" (decision 23, rule 7).
 
 ## What is not shown at all
