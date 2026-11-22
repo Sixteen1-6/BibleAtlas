@@ -33,7 +33,7 @@ interface Arc {
 
 function arcsOf(n: Note): Arc[] {
   const out: Arc[] = [];
-  if (n.kind === 'foil') {
+  if (n.sides) {
     const [p, q] = n.sides ?? [];
     if (p?.r.length && q?.r.length && p.r[0][0] !== q.r[0][0]) out.push({ from: p.r[0][0], to: q.r[0][0], ember: true });
     return out;
@@ -88,7 +88,7 @@ function paint(canvas: HTMLCanvasElement, map: HTMLElement, xs: Float32Array, no
     // The faint outline of the whole passage (or each side's verses), below
     // the figures' bars.
     const y = base + 16 + i * 4;
-    ctx.strokeStyle = n.kind === 'foil' ? 'rgba(255, 179, 107, 0.35)' : OUTLINE;
+    ctx.strokeStyle = n.sides ? 'rgba(255, 179, 107, 0.35)' : OUTLINE;
     ctx.lineWidth = 3;
     ctx.setLineDash([]);
     for (const [s, e] of n.r) {
