@@ -1,0 +1,14 @@
+The brief given, word for word apart from its paths and one line on which tools not to use, to the separate writer of `sets/blind-doctors17-60.json` on 2026-11-22. The writer was told not to read the repository, so it had never seen the new answer's example messages. It returned only the two counts; its messages were first read after the main and branch runs.
+
+> You are writing a blind test set of messages for a Bible app's question box. Do not read any file in the repository and do not read anything in the working folders except the one output path below; the point is that you have never seen the app's own example messages.
+>
+> The app has just added one prepared answer for this question: "When a life is saved, is it God's doing or the doctors' skill?" (someone asking whether a recovery, rescue or survival should be credited to God, to the doctors, nurses, paramedics or medicine, or to both).
+>
+> Write 60 realistic messages that real people might type into a question box, as they would really type them: varied length (4 words to 4 sentences), varied spelling and punctuation, lower case and proper case, some typos, some non-native English, many countries and ages, many settings (ICU, ER, ambulance, cancer, transplant, stroke, premature baby, snakebite, drowning, sepsis, malaria, a vaccine, a surgery, a hunting or farm accident, a skeptic friend, a doctor or nurse or paramedic or pharmacist speaking, a child asking, a pastor, a student's essay question).
+>
+> - 30 "here" messages: each truly asks the question above in its own way (who gets the credit, God or the doctors; was it God or medicine; can it be both; should I thank God or the surgeon; does saying God did it insult the doctors; etc.). Do not copy this sentence: "To what extent should the saving of human life be attributed to divine intervention rather than medical expertise?" and do not reuse the wording "When a life is saved, is it God's doing or the doctors' skill?".
+> - 30 "near" messages: each is close in words or setting but asks something else, so a good app should NOT give the answer above. Spread them over: why God did not heal or save someone who died despite every treatment (8), whether using doctors or medicine shows a lack of faith (5), how to thank God after good medical news (4), fear before surgery or a scan (4), whether miracle healings happen today (3), caring for a sick or dying relative, burnout as a nurse, or survivor's guilt (6). Give each near message a short "asks" note saying what it really asks.
+>
+> Quoting the Bible is optional; if a message quotes it, use King James wording only. Do not name any Bible translation other than the KJV. No message may mention suicide or self-harm.
+>
+> Write the result as JSON in exactly this shape: {"here": ["message", ...], "near": [{"q": "message", "asks": "what it asks"}, ...]}. Then check with python3 that the file parses and has 30 and 30 entries, all distinct. Reply with only the two counts.
