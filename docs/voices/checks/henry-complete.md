@@ -1,5 +1,7 @@
 # Scripture check: Matthew Henry, the complete commentary
 
+**Made final (2026-11-22).** Shubhanshu made every passage this file lists as left out final ("yes make them all final"). Each now shows "[passage left out]" with the line "A passage is left out here because it calls a word of Scripture a mistake.", or, for one that denies what Scripture says of its writer, "A passage is left out here because it denies what Scripture says of its writer." The config entries record this in `decided`. What follows tells how each was found and judged, as written before that decision; the "until a decision on it is made" line it names is no longer shown.
+
 What was checked, how, and what was decided, for `config/voices/henry-complete.json` (decision 23, rules 3 to 5). The notes are Henry's own from Genesis to Acts, and from Romans to Revelation those of the ministers who finished his Exposition after his death in 1714.
 
 ## Method
