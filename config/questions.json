@@ -39835,6 +39835,30 @@
         {"ref": "Prov 20:29"},
         {"ref": "Col 3:23", "words": "Whatever you do, work at it with your whole being, for the Lord and not for men"}
       ]
+    },
+    {
+      "id": "god-or-doctors-saved-a-life",
+      "group": "God",
+      "question": "When a life is saved, is it God's doing or the doctors' skill?",
+      "also": ["is saving a life divine intervention or medical expertise", "should i thank god or the doctors", "divine intervention or medical expertise", "giving god credit for a medical recovery", "if the doctors saved her why thank god", "is my recovery from god or from the treatment", "who gets the credit, god or the doctors", "do i owe my life to god or the doctors", "giving god the glory when the doctors did the work", "the surgery worked, was that god or the surgeon", "does god get the credit when medicine saves a life", "how much of my recovery was god and how much medicine", "the surgeon saved him but people credit god"],
+      "signals": ["divine intervention", "medical expertise", "credit the doctors", "thank the doctors", "thank the surgeon", "owe the doctors", "medical skill", "patients thank god", "credit the surgeon", "credit the medicine", "thank the paramedics", "doctors skill"],
+      "topics": [
+        {"subject": "PHYSICIAN", "only": ["General scriptures concerning", "Proverbs about"]},
+        {"subject": "DISEASE", "only": ["Healing of, from God", "Physicians employed for", "Poultices"]},
+        {"subject": "LIFE", "only": ["FROM GOD"]},
+        {"subject": "GIFTS FROM GOD", "only": ["UNCLASSIFIED SCRIPTURES RELATING TO BOTH TEMPORAL AND SPIRITUAL"]},
+        {"subject": "GOD", "only": ["PRESERVER"]}
+      ],
+      "chain": [
+        {"ref": "Deut 32:39", "words": "I bring death and I give life; I wound and I heal, and there is no one who can deliver from My hand."},
+        {"ref": "2 Kgs 20:5", "words": "I have heard your prayer; I have seen your tears. I will surely heal you."},
+        {"ref": "2 Kgs 20:7"},
+        {"ref": "Isa 38:16", "words": "You have restored me to health and have let me live."},
+        {"ref": "Luke 5:31", "words": "It is not the healthy who need a doctor, but the sick."},
+        {"ref": "2 Chr 16:12", "words": "Yet even in his illness he did not seek the LORD, but only the physicians."},
+        {"ref": "Prov 21:31"},
+        {"ref": "Jas 1:17", "words": "Every good and perfect gift is from above, coming down from the Father of the heavenly lights"}
+      ]
     }
   ]
 }
