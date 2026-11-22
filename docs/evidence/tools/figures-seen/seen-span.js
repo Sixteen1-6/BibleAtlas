@@ -1,6 +1,6 @@
 export const meta = {
   name: 'layers-seen-span',
-  description: 'Re-read kept places: parallel lines marking three or more lines, figures of speech, the said-twice label, or refrains, each kept, cut, moved to the form that fits, or dropped',
+  description: 'Re-read kept places: parallel lines marking three or more lines, figures of speech, the said-twice label, refrains, or lines that begin alike, each kept, cut, moved to the form that fits, or dropped',
   phases: [
     { title: 'Read', detail: 'two readers per batch' },
     { title: 'Judge', detail: 'a third reader settles any place they differ on' },
@@ -58,7 +58,14 @@ For each place answer one of:
 - "trim": a refrain is plain in this verse but the marked words are wider than the part that comes back, or are not the part that comes back; give in words the words of this verse that do come back, each an exact piece of the BSB verse copied from the tool output, whole words only. Its tags are dropped with the change.
 - "drop": no words of this verse plainly come back as a refrain. When in doubt, drop.`
 
-const RULE = MODE === 'figure' ? FIGURE_RULE : MODE === 'form' ? FORM_RULE : MODE === 'refrain' ? REFRAIN_RULE : LINES_RULE
+const BEGIN_RULE = `Each place below marks lines, or parts of lines, as "Lines that begin alike" (anaphora): line after line begins with the same word or words, to add weight. A reader sees the marked words lit under that label with no commentary, so it must be plain from the marked words themselves. Two or more marked entries inside this place's verses must begin with the same word or words, and every marked entry must begin with them. The shared beginning must be a word or phrase that carries weight ("Blessed are", "Woe to", "How long", "against all", "Who will", "from the tribe of"), not only a joining or common word such as "and", "for", "but", "the", "that", "I" or "you". Where the repeated beginning runs through several verses ("Blessed are" through Matthew 5:3-11, "I looked" through Jeremiah 4:23-26) and this place's verses hold only one line that begins with it, the place cannot show the figure: drop it. A marked line that does not begin with the shared words (as "for they will be shown mercy" after "Blessed are the merciful") does not belong.
+
+For each place answer one of:
+- "all": every marked entry begins with the same word or words, two or more entries, plainly; keep it as it is (set strip_original if its tags are wrong).
+- "trim": two or more entries in this place's verses plainly begin alike, but some marked entries do not; give in words only the entries that do, each an exact piece of the BSB verse copied from the tool output, whole words only, each one of the BSB's lines or the start of one, two or more. Its tags are dropped with the cut.
+- "drop": fewer than two entries in this place's verses begin alike, or the shared beginning is only a joining or common word. When in doubt, drop.`
+
+const RULE = MODE === 'beginnings' ? BEGIN_RULE : MODE === 'figure' ? FIGURE_RULE : MODE === 'form' ? FORM_RULE : MODE === 'refrain' ? REFRAIN_RULE : LINES_RULE
 
 const SPAN = {
   type: 'object',
