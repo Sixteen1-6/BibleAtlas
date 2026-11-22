@@ -106,9 +106,11 @@ def local_source(c):
 
 
 def web_source(c):
-    u = (c.get('found') or '').strip()
-    if not u.startswith('http'):
+    # the page named in found (writers sometimes write "WebFetch of <url>" or add a note after it)
+    m = re.search(r'https?://[^\s)]+', c.get('found') or '')
+    if not m:
         return None
+    u = m.group(0).rstrip('.,;')
     day = fetched(u)
     if not day:
         return None
