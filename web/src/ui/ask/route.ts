@@ -16,6 +16,7 @@ import { loadJson } from '../extras/data';
 import { type AskIndex, type Question, exactQuestion } from './ask';
 import { citedVerses, namedChapters } from './books';
 import { likelihood, meanings, usesModel } from './meaning';
+import { QUOTE, quotedVerses } from './quote';
 import { isAsking, terms } from './words';
 
 /** The everyday words that point to each question ("layoffs", "chemo"), in
@@ -131,8 +132,12 @@ export const OPEN = { said: 0.75, covers: 0.5, score: 0.6, margin: 0.08 };
  * 545 never-seen messages, nine in ten of its opens at this level were the
  * very answer people needed, and most others the one beside it. (0.35 before
  * the word-meaning model: with two kinds of evidence to agree, its scores
- * run lower and its opens are surer.) Without the model, as before. */
-export const MEANT = { model: 0.25, words: 0.35 };
+ * run lower and its opens are surer.) Without the model, as before. 0.30
+ * since gathering grew surer (round 16): on the 282 of 4,887 judged seen
+ * messages where 0.25 opened and 0.30 gathers, 202 rather than 193 were
+ * answered, with 340 off verses rather than 354 (0.20 and 0.15 did worse,
+ * 0.35 fewer answers). */
+export const MEANT = { model: 0.3, words: 0.35 };
 
 /** A question the router picks by its words opens only if the meaning
  * matcher finds it at least this likely meant: "did Jesus have a beard"
@@ -159,12 +164,15 @@ function holds(q: Question, vs: number[]): boolean {
 /** The prepared question that plainly answers `text`, or null. With the atlas,
  * a question that cites a verse ("my wife swears proverbs 16:31 says ...")
  * opens only an answer that holds it: its numbers are not words ("31" is not
- * Proverbs 31), and gathering shows the verse first. */
+ * Proverbs 31), and gathering shows the verse first. So does a question that
+ * quotes one ("god is not the author of confusion but babel ..."), once the
+ * BSB's plain text has loaded. */
 export function route(ix: AskIndex, text: string, a?: Atlas): Question | null {
   // Asked as one of its ways, word for word.
   const exact = exactQuestion(ix, text);
   if (exact) return exact;
-  const cited = a ? citedVerses(a, text) : [];
+  const named = a ? citedVerses(a, text) : [];
+  const cited = a && !named.length && QUOTE.route ? quotedVerses(a, text) : named;
   const chapters = a && NAMED.chapter && !cited.length ? namedChapters(a, text) : [];
   const fits = (q: Question) =>
     cited.length ? holds(q, cited) : !chapters.length || chapters.some(([from, to]) => q.r.some(([s, e]) => s < to && e >= from));
