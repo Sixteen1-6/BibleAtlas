@@ -1,0 +1,106 @@
+{
+  "format": 1,
+  "about": "The Catena Aurea's quotations left out, and notes on who some of its names are. The founder's decisions of 2026-10-21 (docs/FOUNDER-DECISIONS.md, the shortlist's answer 5 and decision 23, items 2 and 9): hide Origen, Didymus and the Arian writer of the unfinished work on Matthew with a visible line where each stood; hide Clement of Alexandria's one quotation; keep Eusebius with a note; keep Victor of Antioch in Mark; label Josephus a witness. Each rule's count is what it finds in the pinned copy, and the build fails if that changes. Sources were read on 2026-11-22; their words are in docs/voices/checks/catena-aurea.md.",
+  "hide": [
+    { "name": "Origen", "books": [], "reason": "origen", "count": 638 },
+    { "name": "Didymus", "books": [], "reason": "didymus", "count": 9 },
+    { "name": "Clement of Alexandria", "books": [], "reason": "clement", "count": 1 },
+    {
+      "name": "Pseudo-Chrysostom",
+      "books": ["Matthew"],
+      "chapters": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+      "chapters_why": "The unfinished work on Matthew has no homilies on chapters 26 to 28; the quotations there are from sermons once credited to Chrysostom (Hom. de Cruce, Hom. in Pass., Hom. de Resur.) and stay.",
+      "untagged": true,
+      "reason": "arian-matthew",
+      "count": 426
+    },
+    { "name": "Pseudo-Chrysostom", "books": ["Luke"], "tag": "Op. imp", "reason": "arian-matthew", "count": 1 }
+  ],
+  "reasons": {
+    "origen": {
+      "from": "Origen",
+      "why": "The anathemas of the Second Council of Constantinople, in 553, name Origen and his writings.",
+      "src": {
+        "label": "the council's eleventh anathema",
+        "url": "https://www.newadvent.org/fathers/3812.htm",
+        "quote": ["If anyone does not anathematize Arius, Eunomius, Macedonius, Apollinaris, Nestorius, Eutyches and Origen, as well as their impious writings..."],
+        "read": "2026-11-22"
+      }
+    },
+    "didymus": {
+      "from": "Didymus the Blind",
+      "why": "Didymus wrote a work defending the teaching of Origen's First Principles.",
+      "src": {
+        "label": "the Catholic Encyclopedia, Origen and Origenism",
+        "url": "https://www.newadvent.org/cathen/11306b.htm",
+        "quote": ["Didymus the Blind composed a work to explain and justify the teaching of the \"De principiis\""],
+        "read": "2026-11-22"
+      }
+    },
+    "clement": {
+      "from": "Clement of Alexandria",
+      "why": "The Gelasian Decree lists Clement of Alexandria's works among the books the Church does not receive.",
+      "src": {
+        "label": "the Gelasian Decree",
+        "url": "https://www.tertullian.org/decretum_eng.htm",
+        "quote": ["The remaining writings which have been compiled or been recognised by heretics or schismatics the Catholic and Apostolic Roman Church does not in any way receive", "LIKEWISE A LIST OF APOCRYPHAL BOOKS", "the works of the other Clement, of Alexandria | apocrypha"],
+        "read": "2026-11-22"
+      }
+    },
+    "arian-matthew": {
+      "from": "the unfinished work on Matthew",
+      "why": "The unfinished work on Matthew was once thought to be Chrysostom's; it was written by a follower of Arius in the first half of the 400s.",
+      "src": {
+        "label": "the Catholic Encyclopedia, St. John Chrysostom",
+        "url": "https://www.newadvent.org/cathen/08452b.htm",
+        "quote": ["The most important spurious work in Latin is the \"Opus imperfectum\", written by an Arian in the first half of the fifth century"],
+        "read": "2026-11-22"
+      }
+    }
+  },
+  "who": [
+    { "name": "Gloss", "books": [], "note": "notes written in the margins of medieval Bibles" },
+    { "name": "Greek Expositor", "books": [], "note": "a Greek writer Aquinas does not name" },
+    {
+      "name": "Pseudo-Chrysostom",
+      "books": ["Mark"],
+      "note": "in Mark mostly Victor of Antioch, an early commentator on Mark, as the copy's references name him",
+      "src": {
+        "label": "the Catholic Encyclopedia, Gospel of Mark",
+        "url": "https://www.newadvent.org/cathen/09674b.htm",
+        "quote": ["It seems most likely also that Victor of Antioch, the first commentator of the Second Gospel, regarded xvi, 8, as the conclusion."],
+        "read": "2026-11-22"
+      }
+    },
+    { "name": "Pseudo-Chrysostom", "books": [], "note": "a writer once thought to be Chrysostom" },
+    { "name": "Pseudo-Jerome", "books": [], "note": "a writer once thought to be Jerome" },
+    { "name": "Pseudo-Augustine", "books": [], "note": "a writer once thought to be Augustine" },
+    { "name": "Pseudo-Athanasius", "books": [], "note": "a writer once thought to be Athanasius" },
+    {
+      "name": "Eusebius",
+      "books": [],
+      "note": "bishop of Caesarea and church historian (born about 260, died before 341), whom Arius named on his side before the Council of Nicaea; he then signed its creed",
+      "src": {
+        "label": "the Catholic Encyclopedia, Eusebius of Caesarea; Theodoret, Church History 1.4; Socrates, Church History 1.8",
+        "url": "https://www.newadvent.org/cathen/05617b.htm",
+        "quote": [
+          "Eusebius Pamphili, Bishop of Cæsarea in Palestine, the \"Father of Church History\"; b. about 260; d. before 341.",
+          "https://www.newadvent.org/fathers/27021.htm, Arius to Eusebius of Nicomedia: \"Eusebius, your brother bishop of Cæsarea, Theodotus, Paulinus, Athanasius, Gregorius, Aetius, and all the bishops of the East, have been condemned...\"",
+          "https://www.newadvent.org/fathers/26011.htm, Socrates on Eusebius at Nicaea: \"at length acquiesced in it, and subscribed it with all the rest.\""
+        ],
+        "read": "2026-11-22"
+      }
+    },
+    {
+      "name": "Josephus",
+      "books": [],
+      "note": "the Jewish historian of the first century, quoted by Aquinas as a witness; not a Christian writer",
+      "src": {
+        "label": "Smith's Bible Dictionary, the entry on Matthew, in the copy the app ships (smith_bibledict.xml)",
+        "url": "https://github.com/neuu-org/bible-dictionary-dataset/blob/b8e82aa7ca847f4d97fb432cd965e398a111333c/data/00_raw/ccel/xml/smith_bibledict.xml",
+        "quote": ["The Jewish historian Josephus furnishes an illustration of the fate of the Hebrew original of Matthew.", "Josephus himself informs us that he, wrote his great work \"The History of the Jewish Wars,\" originally in Hebrew"],
+        "read": "2026-11-22"
+      }
+    }
+  ]
+}

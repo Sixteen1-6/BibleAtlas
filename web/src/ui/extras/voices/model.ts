@@ -22,6 +22,14 @@ export interface IndexFile {
   finished?: [number, string][];
   /** For a work whose books have different writers: [work, writer, book indexes]. */
   writers?: [number, string, number[]][];
+  /** Who some of the Fathers' names are: [name, note, book indexes], the
+   * note for some books first; no books means every book. */
+  who?: [string, string, number[]][];
+  /** Passages of the Fathers whose quotations are all left out: [first
+   * verse, last verse, the line saying so, why]. */
+  gone?: [number, number, string, string[]][];
+  /** Why the Fathers' quotations are left out: [why, source, source's address]. */
+  why?: [string, string, string][];
 }
 
 /** Words, or [from, to, words] naming verses. */
@@ -34,8 +42,10 @@ export type Text = string | Run[];
  * notes on 2 Kings 18:17-37" where Henry sends the reader to another passage,
  * or "Calvin's notes on Matthew 3:13-17, in his Harmony of the Gospels", else
  * "". `left`, when there, says why a passage of the note is left out; the
- * note shows "[passage left out]" where it was. */
-export type Item = [number, number, number, [string, Text][], string[]?];
+ * note shows "[passage left out]" where it was. Among the Fathers, a voice
+ * with no name (null) is a line saying quotations are left out there, and
+ * `left` says why. */
+export type Item = [number, number, number, [string | null, Text][], string[]?];
 
 /** What stands in a note where a passage is left out. */
 export const LEFT_OUT = '[passage left out]';
@@ -167,13 +177,39 @@ export interface Data {
   finished: Map<number, string>;
   /** Who wrote each book of a work by several writers, by `${work}.${book}`. */
   writers: Map<string, string>;
+  who: [string, string, number[]][];
+  gone: [number, number, string, string[]][];
+  /** Each reason's source, by its sentence. */
+  why: Map<string, [string, string]>;
 }
 
 export async function load(a: Atlas): Promise<Data> {
   const file = await loadJson<IndexFile>(a, 'extras/voices.json');
   const writers = new Map<string, string>();
   for (const [w, name, books] of file.writers ?? []) for (const b of books) writers.set(`${w}.${b}`, name);
-  return { a, has: file.has, more: file.more ?? '', parts: file.parts, finished: new Map(file.finished ?? []), writers };
+  return {
+    a,
+    has: file.has,
+    more: file.more ?? '',
+    parts: file.parts,
+    finished: new Map(file.finished ?? []),
+    writers,
+    who: file.who ?? [],
+    gone: file.gone ?? [],
+    why: new Map((file.why ?? []).map(([w, label, url]) => [w, [label, url]])),
+  };
+}
+
+/** Who a Father's name stands for on a verse, where the name alone could mislead. */
+export function whoIs(d: Data, name: string, verse: VerseRef): string | null {
+  const book = locate(d.a, verse).book;
+  return d.who.find(([n, , books]) => n === name && (books.length === 0 || books.includes(book)))?.[1] ?? null;
+}
+
+/** The line for a passage of the Fathers whose quotations are all left out, if the verse is in one. */
+export function goneOn(d: Data, verse: VerseRef): [string, string[]] | null {
+  const g = d.gone.find(([from, to]) => from <= verse && verse <= to);
+  return g ? [g[2], g[3]] : null;
 }
 
 /** The works by when they were written: the Fathers, Luther, Calvin, Henry's full
