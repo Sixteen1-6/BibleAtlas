@@ -38,7 +38,7 @@ for i, row in enumerate(rows):
             x['original'] = r['original']
         why = A.check(x, forms)
         if why:
-            why = f'build would refuse: {why}'
+            why = A.refused(why)
     if why:
         refused.append({'i0': i, 'id': row['id'], 'ref': row['ref'], 'form': row['form'], 'why': why})
     else:
