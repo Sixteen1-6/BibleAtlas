@@ -5,7 +5,9 @@ Usage: python3 -I srecheck.py NN EVIDENCE.json REPO LOGDIR
 
 The build's checks grew after a review (2026-11-22): an entry is checked where
 the display marks it, its first place in each verse that holds it, and must
-start and end with whole words and overlap no other entry. An entry that lies
+start and end with whole words and overlap no other entry; and a tag may be
+listed once (a root named twice, for two words of that root, is named once,
+since the display lights every word with the root). An entry that lies
 wholly inside another ("Aha" inside "Aha, aha") marks nothing the other does
 not, so it is taken out, and the place reads as it did. Any place the build
 would then refuse is dropped, with the reason in the evidence record and the
@@ -37,11 +39,16 @@ if __name__ == '__main__':
     books = {}
     for _id, (osis, x) in notes.items():
         books.setdefault(osis, {})[_id] = x
-    unnest, drops = 0, []
+    unnest, twice, drops = 0, 0, []
     for p in ev['places']:
         if not p['kept'] or p['kept'] not in notes:
             continue
         osis, x = notes[p['kept']]
+        # a root named twice is named once: the display lights every word with it either way
+        if x.get('original') and len(set(x['original'])) != len(x['original']):
+            x['original'] = list(dict.fromkeys(x['original']))
+            p['changed'] = sorted(set(p.get('changed', [])) | {'original'})
+            twice += 1
         words = A.tidy(x['ref'], x['words'])
         if words != x['words']:
             x['words'] = words
@@ -58,7 +65,7 @@ if __name__ == '__main__':
         p.pop('changed', None)
     for osis, ns in books.items():
         P.write_book(cdir, osis, list(ns.values()))
-    for k, x in (('overlapping entries joined', unnest), ('refused on the later checks', len(drops))):
+    for k, x in (('overlapping entries joined', unnest), ('tags named twice named once', twice), ('refused on the later checks', len(drops))):
         if x:
             ev['counts'][k] = ev['counts'].get(k, 0) + x
     NOTE = ('Then, after a review of the build checks, every kept place was checked again as the build now checks it: overlapping entries '
@@ -72,4 +79,4 @@ if __name__ == '__main__':
     with open(f'{logdir}/words-{nn}-drops.jsonl', 'a', encoding='utf-8') as f:
         for d in drops:
             f.write(json.dumps(d, ensure_ascii=False) + '\n')
-    print(f'{unnest} places had overlapping entries joined; {len(drops)} refused; kept now {ev["counts"]["kept"]}')
+    print(f'{unnest} places had overlapping entries joined; {twice} had a tag named twice; {len(drops)} refused; kept now {ev["counts"]["kept"]}')
