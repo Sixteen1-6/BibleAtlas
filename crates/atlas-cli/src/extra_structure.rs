@@ -1,7 +1,9 @@
 //! Structures across verses and chapters, shown from Deep: bookends (a passage
 //! that opens and closes with the same words), refrains, two threads taking
-//! turns, mirrors laid out A B B' A', and foils, two people set side by side
-//! across chapters or books. Written in `config/structures.json` and checked
+//! turns, mirrors laid out A B B' A', foils, two people set side by side
+//! across chapters or books, one story set inside another (A B A'), and
+//! echoes, where a later place or time answers an earlier one (two sides, as a
+//! foil's, and they may be books apart). Written in `config/structures.json` and checked
 //! here before anything is written:
 //!
 //! 1. every reference resolves in the BSB; a structure's own passage is in one
@@ -56,7 +58,7 @@ use std::path::Path;
 pub const CONFIG: &str = "config/structures.json";
 const OUT: &str = "extras/structure.json";
 const PARTS: &str = "extras/structure";
-const KINDS: [&str; 5] = ["inclusio", "refrain", "alternation", "chiasm", "foil"];
+const KINDS: [&str; 7] = ["inclusio", "refrain", "alternation", "chiasm", "foil", "insert", "echo"];
 /// The line under the verse: kept short enough to fit about 70 characters
 /// with "and 1 more".
 const SHORT_MAX: usize = 60;
@@ -162,6 +164,7 @@ fn marks_ok(kind: &str, marks: &[&str]) -> Result<(), &'static str> {
                 && (0..marks.len()).all(|i| marks[i] == marks[i % k])
         }
         "chiasm" => marks.len() >= 4 && fig::mirror_ok(marks),
+        "insert" => marks == ["A", "B", "A'"],
         _ => false,
     };
     if ok {
@@ -171,6 +174,7 @@ fn marks_ok(kind: &str, marks: &[&str]) -> Result<(), &'static str> {
         "inclusio" => "bookends are two members, A and A'",
         "refrain" => "a refrain's members are all marked R",
         "alternation" => "turns are at least four members, A B A B (or A B C A B C), each letter in its own place",
+        "insert" => "one story inside another is three members: A, the story set inside it B, then A' where A goes on",
         _ => "a mirror is at least four members nesting as A B B' A', with at most one centre",
     })
 }
@@ -204,7 +208,8 @@ fn structure(c: &mut Check, s: &Structure, ids: &mut BTreeSet<String>) -> Option
     if !fig::date_ok(&s.checked) {
         c.fail(&at, format_args!("checked {:?} must be a date, as 2026-10-21", s.checked));
     }
-    let foil = s.kind == "foil";
+    // An echo has a foil's shape: two sides, here two places or times.
+    let foil = s.kind == "foil" || s.kind == "echo";
     let mut named: Vec<(u32, u32)> = Vec::new();
     let mut ranges: Vec<(u32, u32)> = Vec::new();
     let mut out_members = Vec::new();
@@ -212,10 +217,10 @@ fn structure(c: &mut Check, s: &Structure, ids: &mut BTreeSet<String>) -> Option
 
     if foil {
         if s.reference.is_some() || !s.members.is_empty() {
-            c.fail(&at, "a foil has two sides, not a passage or members");
+            c.fail(&at, "a foil or an echo has two sides, not a passage or members");
         }
         if s.sides.len() != 2 {
-            c.fail(&at, "a foil sets exactly two sides side by side");
+            c.fail(&at, "a foil or an echo sets exactly two sides side by side");
         }
         for (i, side) in s.sides.iter().enumerate() {
             let sat = format!("{at}, sides[{i}]");
@@ -252,7 +257,7 @@ fn structure(c: &mut Check, s: &Structure, ids: &mut BTreeSet<String>) -> Option
         }
     } else {
         if !s.sides.is_empty() {
-            c.fail(&at, "only a foil has sides");
+            c.fail(&at, "only a foil or an echo has sides");
         }
         let Some(r) = s.reference.as_deref() else {
             c.fail(&at, "a structure names its whole passage in ref");
@@ -530,6 +535,9 @@ mod tests {
         assert!(marks_ok("chiasm", &["A", "B", "X", "B'", "A'"]).is_ok());
         assert!(marks_ok("chiasm", &["A", "B", "A'", "B'"]).is_err());
         assert!(marks_ok("chiasm", &["a", "a'"]).is_err());
+        assert!(marks_ok("insert", &["A", "B", "A'"]).is_ok());
+        assert!(marks_ok("insert", &["A", "A'"]).is_err());
+        assert!(marks_ok("insert", &["A", "B", "B'", "A'"]).is_err());
     }
 
     #[test]

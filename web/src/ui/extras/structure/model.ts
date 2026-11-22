@@ -14,7 +14,7 @@ import type { VerseRef } from '../types';
 
 export const SOURCE = 'From the Christian writers named in each note. Bible text: the BSB.';
 
-export type Kind = 'inclusio' | 'refrain' | 'alternation' | 'chiasm' | 'foil';
+export type Kind = 'inclusio' | 'refrain' | 'alternation' | 'chiasm' | 'foil' | 'insert' | 'echo';
 
 export interface KindInfo {
   label: string;
