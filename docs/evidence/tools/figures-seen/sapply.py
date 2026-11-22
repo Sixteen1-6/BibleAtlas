@@ -205,6 +205,8 @@ def check(r, forms):
                     a, bb = used[i], used[j]
                     if a[0] == bb[0] and a[1] <= bb[2] and bb[1] <= a[2]:
                         return 'two marked lines are in one line of the BSB'
+    if len(set(r.get('original') or [])) != len(r.get('original') or []):
+        return 'a tag is listed twice'
     for t in r.get('original') or []:
         if not tag_ok(t):
             return f'tag {t} is not a Strong\'s tag'
@@ -298,6 +300,8 @@ def main():
             original = []
         if original and overlit(row['ref'], original):
             original = []
+        # a root named twice (two words of the same root) is named once: the display lights both
+        original = list(dict.fromkeys(original))
         # a search sometimes cut a span just after a comma or a question mark
         words = [re.sub(r'^[\s,.;:!?—–\-”’)\]]+', '', w) for w in words]
         words = tidy(row['ref'], words)
