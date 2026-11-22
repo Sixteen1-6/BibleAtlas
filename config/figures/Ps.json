@@ -2957,53 +2957,6 @@
       ]
     },
     {
-      "id": "psalm-44-14-proverb",
-      "kind": "figure",
-      "form": "proverb",
-      "ref": "Psalm 44:14",
-      "strength": "widely agreed",
-      "short": "Israel made “a byword among the nations”",
-      "about": "The psalmist complains that God has made Israel a byword among the nations. They hold Israel up in their taunts as the example of a people brought low and cast off by God, and the peoples laugh it to scorn.",
-      "figure": {
-        "name": "Proverb",
-        "ref": "Psalm 44:14",
-        "words": "a byword among the nations",
-        "means": "Israel’s name, used by the nations as a taunting saying for a people brought to ruin and seemingly abandoned by God"
-      },
-      "original": {
-        "note": "In Hebrew “byword” is mashal, the word also used for a proverb or a parable.",
-        "strong": [
-          "H4912"
-        ]
-      },
-      "evidence": "Barnes says the Hebrew word means a parable or proverb, and that Israel was made a proverb, pointed to as an instance of divine abandonment and an example of calamity, a warning to all. Delitzsch (Keil and Delitzsch) calls it a jesting, taunting proverb that holds Israel up as a nation under chastisement. Clarke says they became a proverb among the people for their misery.",
-      "limit": "The verse does not give the words of the taunt; it says only that Israel itself had become one.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "barnes",
-          "on": "Psalm 44:14",
-          "quote": "The word rendered \"by-word\" - משׁל mâshâl - means properly a similitude or parable ... then, a proverb ... The idea here is, that they were made a proverb, or were referred to as a striking instance of the divine abandonment, or as something marked to which the nations might and did refer as an example of calamity, judgment, misfortune, failure; a warning to all.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "keil-delitzsch",
-          "on": "Psalm 44:13-16",
-          "quote": "משׁל is here a jesting, taunting proverb, and one that holds Israel up as an example of a nation undergoing chastisement (vid., Hab 2:6 ). The shaking of the head is, as in Psa 22:8 , a gesture of malicious astonishment.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "clarke",
-          "on": "Psalm 44:14",
-          "quote": "We are evidently abandoned by thee, and are become so very miserable in consequence, that we are a proverb among the people: \"See the Hebrews! see their misery and wretchedness! see how low the wrath of God has brought down an offending people!\"",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
       "id": "psalm-45-1-allegory",
       "kind": "figure",
       "form": "allegory",
@@ -3021,8 +2974,7 @@
         "means": "the church, Christ’s bride, called to leave her old home and belong to Him as her King and Lord"
       },
       "evidence": "Fausset (Jamieson, Fausset and Brown) says the song is of allegorical, not literal, import: it describes the union of Christ and His Church, the Church portrayed as a bride invited to forsake her home. Henry calls it a song of the holy love between Christ and His church, in which the beauty of the royal bridegroom represents the excellencies of Christ.",
-      "limit": "Some read the song first as a real king’s wedding, such as Solomon’s, that points ahead to Christ, rather than as an allegory throughout. Either way, Hebrews 1:8-9 applies verses 6 and 7 to the Son.",
-      "checked": "2026-11-14",
+      "checked": "2026-11-22",
       "cites": [
         {
           "source": "jfb",
@@ -3152,7 +3104,7 @@
       ],
       "strength": "widely agreed",
       "short": "In sackcloth, David became a byword to scoffers",
-      "about": "David wept, fasted and wore sackcloth, and for this he became a byword: they made him the common subject of their jokes. Some read it to mean his name was used for anyone thought foolishly devout. Those at the gate mocked him, and drunkards sang of him (verse 12).",
+      "about": "David wept, fasted and wore sackcloth, and for this he became a byword: they made him the common subject of their jokes. His name may even have been used for anyone thought foolishly devout. Those at the gate mocked him, and drunkards sang of him (verse 12).",
       "figure": {
         "name": "Proverb",
         "ref": "Psalm 69:11",
@@ -3166,7 +3118,7 @@
         ]
       },
       "evidence": "Barnes explains the proverb as a jest, a subject of derision, a by-word: they ridiculed him for his sackcloth. Henry says they laughed at him as a fool for this and made him the common subject of their banter. Poole says they used his name proverbially of anyone they thought vainly and foolishly religious.",
-      "checked": "2026-11-14",
+      "checked": "2026-11-22",
       "cites": [
         {
           "source": "barnes",
@@ -3189,7 +3141,8 @@
           "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/69.htm",
           "retrieved": "2026-11-22"
         }
-      ]
+      ],
+      "limit": "The verse does not give the words of the byword; it says only that David himself had become one."
     },
     {
       "id": "psalm-69-14-turns",

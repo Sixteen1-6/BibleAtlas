@@ -10,15 +10,15 @@
       "about": "Paul says he could not speak to the Corinthians as spiritual, but as infants in Christ. He calls the first, simplest teaching milk, and the deeper truths solid food, which they were not ready for. And they are still not ready, though by now they should have grown up.",
       "figure": {
         "name": "Metaphor",
-        "ref": "1 Corinthians 3:2",
-        "words": "I gave you milk, not solid food",
-        "means": "milk is the simplest first truths of the gospel, fit for those still infants in Christ; solid food is the deeper truths, for those grown in faith"
+        "ref": "1 Corinthians 3:1",
+        "words": "infants in Christ",
+        "means": "the Corinthians, so little versed in the things of God that they could take only the first and simplest truths, as infants take only milk"
       },
       "refs": [
         "Hebrews 5:12"
       ],
       "evidence": "Barnes says Paul continues the metaphor drawn from feeding infants: milk is the simple first doctrines, meat the deeper ones, as in Hebrews 5. T. Teignmouth Shore (Ellicott) says the word infant suggests the two images of milk and meat, for the simpler truths and the higher wisdom. Benson says milk alludes to the proper food of babes, and meat means the higher truths.",
-      "checked": "2026-11-14",
+      "checked": "2026-11-22",
       "cites": [
         {
           "source": "barnes",
@@ -36,7 +36,7 @@
         },
         {
           "source": "benson",
-          "on": "1 Corinthians 3:1",
+          "on": "1 Corinthians 3:1-2",
           "quote": "even mere babes in Christ; as little acquainted with, and experienced in, the things of God, as babes are with respect to the things of the world. ... alluding to milk being the proper food of babes: not with meat The higher truths of Christianity; such as are more difficult to be understood, received, and practised",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-14"
@@ -105,9 +105,9 @@
         "words": "I laid a foundation as an expert builder",
         "means": "Paul's work in first preaching Christ at Corinth, the one foundation on which later teachers must build"
       },
-      "evidence": "John Calvin calls the master builder a most apt similitude: Paul laid the foundation and others must build to match it. Albert Barnes says Paul carries forward the metaphor of the building. T. Teignmouth Shore (Ellicott) sees lasting and passing work set side by side; Simon Browne (Henry's commentary) and Joseph Benson read the materials as true and false teaching.",
+      "evidence": "Calvin calls the master builder a most apt similitude: Paul laid the foundation, others must build to match it. Barnes says Paul carries on the building metaphor. T. Teignmouth Shore (Ellicott) sees lasting and passing work contrasted. Simon Browne (Henry's commentary) reads the materials as pure gospel truths and departures from Christ's mind; Joseph Benson, the costly ones as true doctrines.",
       "limit": "The writers differ on what the fire is, and on how closely each material stands for a kind of teaching.",
-      "checked": "2026-11-14",
+      "checked": "2026-11-22",
       "cites": [
         {
           "source": "calvin",
@@ -466,58 +466,6 @@
       ]
     },
     {
-      "id": "1-corinthians-9-7-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 9:7",
-      "strength": "widely agreed",
-      "short": "Soldier, vineyard, flock: three pictures from life",
-      "about": "Paul asks three questions from everyday life. No soldier serves at his own expense, no one plants a vineyard without eating its fruit, no one tends a flock without its milk. Each pictures the minister of the gospel, who may rightly be supported by the church he serves.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 9:7",
-        "words": "Who serves as a soldier at his own expense? Who plants a vineyard and does not eat of its fruit? Who tends a flock and does not drink of its milk?",
-        "means": "the minister of the gospel, who like a soldier, a vine planter and a shepherd may rightly live from the work he does"
-      },
-      "evidence": "John Calvin finds three comparisons from common life, showing Paul might live at the church's expense. Albert Barnes counts three illustrations, the ministry compared to warfare and the minister to a soldier. A. R. Fausset (Jamieson, Fausset and Brown) says the minister is spiritually a soldier, a vinedresser and a shepherd; T. Teignmouth Shore (Ellicott), three illustrations from life.",
-      "limit": "Paul argues for the right here; in verses 12 and 15 he says he did not use it.",
-      "refs": [
-        "1 Corinthians 9:12",
-        "1 Corinthians 9:15"
-      ],
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 9:7",
-          "quote": "Now, by three comparisons, and these, too, taken from common life, he makes it out that it was allowable for him to live, if he chose, at the public expense of the Church, to show that he assumes nothing to himself but what human nature itself teaches us is reasonable. ... As natural equity points out this as reasonable, who will be so unjust as to refuse sustenance to the pastors of the Church?",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 9:7",
-          "quote": "In this verse (7th) the right is enforced by the nature of the case, and by three illustrations. The first is, the right of a soldier or warrior to his wages. The Christian ministry is compared to a warfare, and the Christian minister to a soldier ... The church is often compared to a flock",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "jfb",
-          "on": "1 Corinthians 9:7",
-          "quote": "The minister is spiritually a soldier ... a vine-dresser ... and a shepherd",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 9:7",
-          "quote": "Three illustrations from human life and business show that the principle which has been adopted in the Christian Church is not exceptional. A soldier receives his pay; the planter of a vineyard eats the fruit of it; and the owner of a flock is supported by selling the milk.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
       "id": "1-corinthians-9-17-meiosis",
       "kind": "figure",
       "form": "meiosis",
@@ -620,38 +568,38 @@
       "about": "Paul points to the athletes at the games, who keep strict training for a crown that soon withers. If they deny themselves that much for a perishable crown, believers should deny themselves far more for one that never perishes. Paul then applies it to himself, as runner and as boxer.",
       "figure": {
         "name": "Simile",
-        "ref": "1 Corinthians 9:25",
-        "words": "Everyone who competes in the games trains with strict discipline",
-        "means": "the believer, who should deny himself far more, since he strives for a crown that will never perish"
+        "ref": "1 Corinthians 9:26",
+        "words": "I do not fight like I am beating the air",
+        "means": "Paul's own fight, in earnest with all his might, not blows thrown at the air, as he strives for the crown that never perishes"
       },
-      "evidence": "Calvin calls it a comparison from the athletes, argued from the less to the greater: if they prize a fading crown of leaves, how much more a crown of immortality. Simon Browne (Matthew Henry's commentary) says Paul compares himself to the racers and combatants of the games; T. Teignmouth Shore (Ellicott) sets out the same argument; Barnes says Paul illustrates the duty of self-denial by the games.",
+      "evidence": "Calvin finds a comparison from pugilists, from the less to the greater; in verse 26 Paul takes in both similitudes, like a skillful wrestler not missing his aim. Simon Browne (Henry's commentary) says Christians must not fight as those that beat the air; T. Teignmouth Shore (Ellicott), that Paul does not strike wildly and so beat the air; Barnes, that Paul illustrates self-denial by the games.",
       "limit": "The runners of verse 24 begin the same picture; this note takes it up from the athletes' training in verse 25.",
-      "checked": "2026-11-14",
+      "checked": "2026-11-22",
       "cites": [
         {
           "source": "calvin",
-          "on": "1 Corinthians 9:25",
-          "quote": "This second thing he now sets before them by a comparison taken from pugilists ... Now he argues from the less to the greater, that it is an unseemly thing if we grudge to give up our right ... But if they value so highly a crown of leaves that quickly fades, what value ought we to set upon a crown of immortality?",
+          "on": "1 Corinthians 9:25-26",
+          "quote": "This second thing he now sets before them by a comparison taken from pugilists ... Now he argues from the less to the greater ... But if they value so highly a crown of leaves that quickly fades, what value ought we to set upon a crown of immortality? ... Now he takes in both the similitudes that he had employed. ... like a skillful wrestler, I am anxious that I may not miss my aim.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-14"
         },
         {
           "source": "henry",
           "on": "1 Corinthians 9:24-27",
-          "quote": "Upon this head he compares himself to the racers and combatants in the Isthmian games ... The fighters and wrestlers in your exercises are kept to strict diet and discipline; nay, they keep themselves to it. ... And should not Christians much more abridge themselves of their liberty, for so glorious an end as winning the race, and obtaining the prize set before them?",
+          "quote": "Upon this head he compares himself to the racers and combatants in the Isthmian games ... The fighters and wrestlers in your exercises are kept to strict diet and discipline ... And should not Christians much more abridge themselves of their liberty ... They must fight, not as those that beat the air, but must strive against their enemies with all their might.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-14"
         },
         {
           "source": "ellicott",
-          "on": "1 Corinthians 9:25",
-          "quote": "There are two striking points of contrast between the earthly race and the spiritual course. ... If, then — such is St. Paul’s argument — men show such extraordinary devotion and self-sacrifice for a reward which is merely perishable, and which each has only a chance of gaining, what should not be the devotion and self-sacrifice of those for all of whom an imperishable reward is certain!",
+          "on": "1 Corinthians 9:25-26",
+          "quote": "men show such extraordinary devotion and self-sacrifice for a reward which is merely perishable ... what should not be the devotion and self-sacrifice of those for all of whom an imperishable reward is certain! ... The illustration is changed from running to boxing ... he strikes him, and does not wildly and impotently strike at him, and so only beat the air.",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-14"
         },
         {
           "source": "barnes",
-          "on": "1 Corinthians 9:24",
+          "on": "1 Corinthians 9:24-27",
           "quote": "Paul illustrates the general sentiment on which he had been dwelling - the duty of practicing self-denial for the salvation of others - by a reference to the well known games ... If they had done it, for objects so comparatively unimportant as the attainment of an \"earthly\" garland, assuredly it was proper for him to do it to obtain a crown which should never fade away.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-14"
@@ -687,181 +635,6 @@
           "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... a “For the man b is not of the woman; b but the woman a of the man. c Neither was the man created d for the woman, d but the woman c for the man. ”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-12-12-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 12:12-26",
-      "strength": "widely agreed",
-      "short": "The church is like one body with many parts",
-      "about": "Paul pictures the human body: one body of many parts, each one needed, none able to say to another “I do not need you.” So it is with Christ's people. The likeness teaches unity with variety: each believer has his own gift, given to help the others, and all are to care for one another.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 12:12",
-        "words": "The body is a unit, though it is composed of many parts",
-        "means": "the church, the body of Christ: many believers with different gifts, joined in one and needing one another"
-      },
-      "refs": [
-        "1 Corinthians 12:27"
-      ],
-      "evidence": "Barnes calls it a beautiful similitude from the mutual dependence of the parts of the body; Clarke says Christ and the church are set out under the similitude of the human body. Calvin says Paul draws a similitude from the body so that believers help one another with their gifts. Simon Browne (Matthew Henry's commentary) and Fausset (Jamieson, Fausset and Brown) state the same likeness.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 12:12",
-          "quote": "This sentiment he now illustrates 1Co. 12:12-27 by a beautiful similitude taken from the mutual dependence of the various parts of the human body. The human body is one, and yet is composed of various members and parts that all unite harmoniously in one whole.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "clarke",
-          "on": "1 Corinthians 12",
-          "quote": "Christ is the Head, and the Church his members; and this is pointed out under the similitude of the human body, Co1 12:12 , Co1 12:13 . The relation which the members of the body have to each other; and how necessary their mutual support, Co1 12:14-26 .",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "henry",
-          "on": "1 Corinthians 12:12-26",
-          "quote": "The apostle here makes out the truth of what was above asserted, and puts the gifted men among the Corinthians in mind of their duty, by comparing the church of Christ to a human body. ... All the members of the body are, in some respect, useful and necessary to each other ... Nor is there a member of the body of Christ but may and ought to be useful to his fellow-members",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 12:12",
-          "quote": "He now derives a similitude from the human body ... Here, however, he exhorts believers to cleave to each other in a mutual distribution of gifts, as they were not conferred upon them by God that every one should enjoy his own separately, but that one should help another.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "jfb",
-          "on": "1 Corinthians 12:12",
-          "quote": "As the many members of the body compose an organic whole and none can be dispensed with as needless, so those variously gifted by the Spirit, compose a spiritual organic whole, the body of Christ, into which all are baptized by the one Spirit.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-13-11-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 13:11",
-      "strength": "widely agreed",
-      "short": "Our knowledge now is a child's beside heaven's",
-      "about": "Paul recalls how as a child he talked, thought and reasoned like a child, and set those ways aside when he became a man. The likeness shows that what we know in this life is like a child's knowledge beside what we will know in the life to come, when the partial passes away.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 13:11",
-        "words": "When I was a child, I talked like a child",
-        "means": "this life, in which our knowledge is partial and childlike, set beside the full knowledge of the life to come"
-      },
-      "refs": [
-        "1 Corinthians 13:10",
-        "1 Corinthians 13:12"
-      ],
-      "original": {
-        "note": "In Paul's Greek the word for child, nēpios, properly means a baby or infant; here, one just beginning to talk.",
-        "strong": [
-          "G3516"
-        ]
-      },
-      "evidence": "Calvin says Paul illustrates what he had said by a similitude: what suits childhood is done away at maturity. Barnes says our knowledge now, beside heaven's, is like an infant's beside a man's. Clarke and Simon Browne (Matthew Henry's commentary) set this life as childhood and the next as manhood, and T. Teignmouth Shore (Ellicott) calls the two analogous.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 13:11",
-          "quote": "When I was a child He illustrates what he had said, by a similitude. For there are many things that are suitable to children, which are afterwards done away on arriving at maturity. ... That perfection, therefore, which will be in a manner a maturity of spiritual age, will put an end to education and its accompaniments.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 13:11",
-          "quote": "The idea here is, that the knowledge which we now have, compared with that which we shall have in heaven, is like that which is possessed in infancy compared with that we have in manhood ... The word \"child\" here (νήπιος nēpios) denotes properly a baby, an infant, though without any definable limitation of age. ... when his speech was scarcely intelligible - when he first began to articulate.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "clarke",
-          "on": "1 Corinthians 13:11",
-          "quote": "This future state of blessedness is as far beyond the utmost perfection that can be attained in this world, as our adult state of Christianity is above our state of natural infancy, in which we understand only as children understand; speak only a few broken articulate words, and reason only as children reason",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "henry",
-          "on": "1 Corinthians 13:8-13",
-          "quote": "The present state is a state of childhood, the future that of manhood ... Such is the difference between earth and heaven. What narrow views, what confused and indistinct notions of things, have children, in comparison of grown men!",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 13:11",
-          "quote": "The natural childhood and manhood of this life are analogous to the spiritual childhood of this life and the spiritual manhood of the life to come.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-14-7-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 14:7-8",
-      "strength": "widely agreed",
-      "short": "Flute, harp and trumpet: sounds must be clear",
-      "about": "Paul points to the flute and harp, whose tune no one can tell unless the notes are distinct, and to a trumpet whose muffled call leaves soldiers unready for battle. Speech in the church that the hearers cannot understand is just as useless to them.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 14:7",
-        "words": "Even in the case of lifeless instruments, such as the flute or harp",
-        "means": "speaking in tongues no one understands: like notes with no clear tune, it tells the hearers nothing and builds no one up"
-      },
-      "evidence": "Calvin says Paul brings forward similitudes from musical instruments; Simon Browne (Matthew Henry's commentary) says he illustrates it by the pipe, the harp and the trumpet. Clarke says the speaker who does not interpret is like such sounds; Barnes, that the trumpet is an illustration and unknown tongues just as useless; T. Teignmouth Shore (Ellicott) says the point is illustrated from them.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 14:7",
-          "quote": "He brings forward similitudes, first from musical instruments, and then afterwards from the nature of things generally ... A man cannot give life to a harp or flute, but he makes it give forth a sound that is regulated in such a manner, that it can be distinguished. How absurd then it is, that even men, endowed with intelligence, should utter a confused, indistinguishable sound!",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "henry",
-          "on": "1 Corinthians 14:6-14",
-          "quote": "He illustrates this by several allusions. 1. To a pipe and a harp playing always in one tone. ... Unintelligible language is like piping or harping without distinction of sounds ... 2. To a trumpet giving an uncertain sound ... To talk in an unknown language in a Christian assembly is altogether as vain and to no purpose as for a trumpet to give no certain sound in the field or day of battle.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "clarke",
-          "on": "1 Corinthians 14:7",
-          "quote": "I may, as if he had said, illustrate this farther by referring to a pipe or harp; if these were to utter mere sounds without order, harmony, or melody ... surely no person could discern a tune in such sounds ... even so is the person who speaks in an unknown tongue, but does not interpret.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 14:8",
-          "quote": "An uncertain sound was one in which none of these things were indicated, or in which it could not be determined what was required. ... The apostle selects a single instance of what was indicated by the trumpet, as an illustration of what he meant. The idea is, that foreign tongues spoken in their assembly would be just as useless in regard to their duty, their comfort, and edification",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 14:7",
-          "quote": "The pipe and harp were the best-known instruments, and the principle just laid down of the inutility of sounds unless they be distinctive is illustrated by reference to them.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -909,163 +682,6 @@
           "quote": "He was highly favoured of God, but he always endeavoured to keep up a mean opinion of himself, and to express it. ... The least, because the last of them; called latest to the office ... the more he laboured, and the more good he did, the more humble he was in his opinion of himself, and the more disposed to own and magnify the favour of God towards him",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-15-36-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 15:36-38",
-      "strength": "widely agreed",
-      "short": "A seed must die before it comes to life",
-      "about": "Asked how the dead are raised, Paul points to the seed: what is sown does not come to life unless it dies, and God gives it a body as He has designed. The likeness shows that death does not rule out rising again, and that the raised body will be changed, yet still its own.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 15:36",
-        "words": "What you sow does not come to life unless it dies",
-        "means": "the body that dies and is raised by God's power, changed and glorious, yet still its own"
-      },
-      "refs": [
-        "1 Corinthians 15:35",
-        "1 Corinthians 15:42-44"
-      ],
-      "evidence": "Calvin calls it a comparison: bodies rise from decay as seed does, and God gives them another condition. Clarke says the question of verse 35 is answered first by a similitude; Barnes, by an analogy. Simon Browne (Matthew Henry's commentary) says the power that brings dead grain to life each year can raise the dead; T. Teignmouth Shore (Ellicott) speaks of the analogies in nature.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 15:37",
-          "quote": "This comparison consists of two parts — first, that it is not to be wondered that bodies rise from rottenness, inasmuch as the same thing takes place as to seed; and secondly, that it is not at variance with reason, that our bodies should be restored in another condition, since, from bare grain, God brings forth so many ears of corn",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "clarke",
-          "on": "1 Corinthians 15:35",
-          "quote": "The second part of the apostle's discourse begins at this verse. What shall be the nature of the resurrection body? 1. The question is stated, Co1 15:35 . 2. It is answered: first, by a similitude, Co1 15:36-38",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 15:36",
-          "quote": "The meaning is, that it was foolish to make this objection, when the same difficulty existed in an undeniable fact which fell under daily observation. ... The idea is, that there is an analogy, and that the main objection in the one case would lie equally well against the acknowledged and indisputable fact in the other.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "henry",
-          "on": "1 Corinthians 15:35-50",
-          "quote": "To the former the apostle replies by telling them this was to be brought about by divine power, that very power which they had all observed to do something very like it, year after year, in the death and revival of the corn ... And why should any be so foolish as to imagine that the man once dead cannot be made to live again, by the same power which every year brings the dead grain to life?",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 15:36",
-          "quote": "The Apostle now proceeds to show, by the analogies in Nature, how a resurrection of a body is possible, how substantial identity may be preserved under variation of form. ... We have in these verses three illustrations of the preservation of identity under change of form: — (1) Seeds growing into flowers and fruit",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-15-39-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 15:39",
-      "strength": "widely agreed",
-      "short": "Many kinds of flesh, yet all of it flesh",
-      "about": "Paul notes that men, animals, birds and fish each have their own kind of flesh: all of it flesh, yet not alike. The comparison shows that God can give the raised body another form, fit for the life to come, while it is still a body.",
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 15:39",
-        "words": "Not all flesh is the same",
-        "means": "the raised body: still a body, but of a new kind that God gives, fit for the life to come"
-      },
-      "evidence": "Calvin calls it another comparison leading to the same end: the variety within each kind is a prelude of the resurrection. Fausset (Jamieson, Fausset and Brown) says it illustrates how the new body differs from its earthly seed yet stays a body. Simon Browne (Matthew Henry's commentary) and T. Teignmouth Shore (Ellicott) say the God who made flesh so varied can give it a new form.",
-      "limit": "The heavenly and earthly bodies of verses 40 and 41 are a further comparison, not part of this note.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 15:39",
-          "quote": "Here we have another comparison leading to the same conclusion, though there are some that explain it otherwise. ... The sum is this — that whatever diversity we see in any particular kind is a sort of prelude of the resurrection, because God clearly shows, that it is no difficult thing with him to renew our bodies by changing the present condition of things.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "jfb",
-          "on": "1 Corinthians 15:39",
-          "quote": "Illustrations of the suitability of bodies, however various, to their species ... As the kinds of flesh, however widely differing from one another, do not cease to be flesh, so the kinds of bodies, however differing from one another, are still bodies. All this is to illustrate the difference of the new celestial body from its terrestrial seed, while retaining a substantial identity.",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "henry",
-          "on": "1 Corinthians 15:35-50",
-          "quote": "He proceeds hence to observe that there is a great deal of variety among others bodies, as there is among plants: as, (1.) In bodies of flesh: All flesh is not the same ... All this carries an intimation along with it that it must be as easy to divine power to raise the dead, and recover their mouldered bodies, as out of the same materials to form so many different kinds of flesh and plants",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 15:39",
-          "quote": "God gives this a vast variety of form in man, in beast, in fish. The same divine prescience which gives to all flesh here the form suited to its condition and surroundings can give hereafter another form to it suitable to the new conditions and surroundings in which it will then be placed.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
-        }
-      ]
-    },
-    {
-      "id": "1-corinthians-15-40-simile",
-      "kind": "figure",
-      "form": "simile",
-      "ref": "1 Corinthians 15:40-41",
-      "strength": "widely agreed",
-      "short": "Sun, moon and stars picture the raised body",
-      "about": "Paul points to what God has made. Heavenly bodies differ from earthly ones, and sun, moon and stars each have their own splendor. Then he says, “So will it be with the resurrection of the dead.” The God who made such variety can give the raised body a greater glory than the buried one.",
-      "refs": [
-        "1 Corinthians 15:42"
-      ],
-      "figure": {
-        "name": "Simile",
-        "ref": "1 Corinthians 15:41",
-        "words": "The sun has one degree of splendor, the moon another, and the stars another",
-        "means": "the differing glories God gave the sun, moon and stars, which show He can give the raised body a greater glory than the body that is buried"
-      },
-      "evidence": "Calvin says Paul draws a comparison: sun and moon share one substance yet differ in excellence, so our body may put on a more excellent quality. Fausset (Jamieson, Fausset and Brown) calls it an analogy and a simile. Barnes likens the raised bodies to the differing splendor of sun, moon and stars. T. Teignmouth Shore (Ellicott) counts it among the passage’s three analogies.",
-      "limit": "The writers differ on whether the stars’ differing splendor also hints that the raised saints will differ in glory. One holds that it does; two say that is not Paul’s point here, though one of these grants that it is true.",
-      "checked": "2026-11-14",
-      "cites": [
-        {
-          "source": "calvin",
-          "on": "1 Corinthians 15:41",
-          "quote": "the saints will have different degrees of honor and glory. This, indeed, is perfectly true ... but it has nothing to do with Paul’s object. ... He removes, then, every idea of absurdity, by instituting this comparison: The substance of the sun and moon is the same, but there is a great difference between them in point of dignity and excellence.",
-          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "jfb",
-          "on": "1 Corinthians 15:41",
-          "quote": "The analogy is not to prove different degrees of glory among the blessed (whether this may be, or not, indirectly hinted at), but this: As the various fountains of light ... differ ... so there is nothing unreasonable in the doctrine that our present bodies differ from our resurrection bodies, though still continuing bodies. Compare the same simile",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "barnes",
-          "on": "1 Corinthians 15:41",
-          "quote": "the bodies of the saints in heaven shall differ from those on earth, but that they shall differ among themselves, in a sense somewhat like the difference of the splendor of the sun, the moon, and the different stars. ... The argument is, since we see so great differences in fact in the works of God, why should we doubt that he is able to make the human body different from what it is now",
-          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
-          "retrieved": "2026-11-14"
-        },
-        {
-          "source": "ellicott",
-          "on": "1 Corinthians 15:40",
-          "quote": "It is better, perhaps, to regard it as a general statement of what is expanded in 1Co 15:41 . The force of the three analogies introduced in this whole argument is that identity of matter is preserved amid variety of form ... Between the earthly things and the heavenly things, such as the sun, moon, and stars, there is an identity of substance, but an infinite variety of form and of glory.",
-          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
-          "retrieved": "2026-11-14"
         }
       ]
     }
