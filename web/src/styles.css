@@ -1000,6 +1000,10 @@ p .godeeper {
   vertical-align: 2px;
   white-space: nowrap;
 }
+/* A verse's two buttons stay together on one line. */
+.verse .xcs {
+  white-space: nowrap;
+}
 .verse .xc:hover,
 .verse.sel .xc {
   color: var(--accent);
