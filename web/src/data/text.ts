@@ -2,6 +2,7 @@
 
 import type { VerseAlign } from './align';
 import { type Atlas, DATA_BASE, locate } from './atlas';
+import { fetchRetry } from './fetch';
 
 /** [surface, transliteration, contextual English, root index (-1 if none), grammar code, flags, note?] */
 export type WordRow = [string, string, string, number, string, number, WordNote?];
@@ -34,7 +35,7 @@ export function loadBook(a: Atlas, book: number): Promise<BookText> {
   let p = cache.get(book);
   if (!p) {
     const osis = a.books[book].osis;
-    p = fetch(`${DATA_BASE}text/${osis}.json?${a.version}`).then((r) => {
+    p = fetchRetry(`${DATA_BASE}text/${osis}.json?${a.version}`).then((r) => {
       if (!r.ok) throw new Error(`text/${osis}.json: HTTP ${r.status}`);
       return r.json() as Promise<BookText>;
     });

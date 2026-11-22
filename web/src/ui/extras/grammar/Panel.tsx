@@ -18,12 +18,13 @@ import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, chapterRange, label, locate } from '../../../data/atlas';
 import { FLAG, type VerseRow, type WordRow, loadBook } from '../../../data/text';
 import { Commentary, CommentaryFoot } from '../../commentary/Gate';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Lead, Passage, SourceNote, Unsure, openWord, refName, showSources, usePassage } from '../kit';
 import { openExtra } from '../open';
 import type { ChapterPanelProps, PanelProps, VerseRef } from '../types';
 import { type IndexFile as VoicesIndex, WORKS } from '../voices/model';
 import { type At, type BookFile, type CodesFile, type Data, type Note, type Point, SOURCE, type Term, bookFile, day, verbCode } from './model';
+import { NotLoaded } from '../lazy';
 
 const WAIT = <p class="xt-lead xt-wait">…</p>;
 
@@ -192,6 +193,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
     (w === FINISHERS ? voices?.finished?.find((x) => x[0] === loc.book)?.[1] : voices?.writers?.find((x) => x[0] === w && x[2].includes(loc.book))?.[1]) ?? null;
   const [lo, hi] = reach(book, pts, verse);
   const rows = usePassage(a, lo, hi);
+  if (book === null || codes === null) return <NotLoaded again={retryFailed} />;
   if (!book || !rows) return WAIT;
   if (!pts.length) return null;
 
@@ -400,6 +402,7 @@ function useChapter(a: Atlas, book: number, chapter: number): VerseRow[] | null 
 export function ChapterPanel({ a, data, chapter, navigate }: ChapterPanelProps<Data>) {
   const book = useJson<BookFile>(a, bookFile(a, chapter.book));
   const rows = useChapter(a, chapter.book, chapter.chapter);
+  if (book === null) return <NotLoaded again={retryFailed} />;
   if (!book || !rows) return WAIT;
   const [from, to] = chapterRange(a, chapter.book, chapter.chapter);
   const starts = new Set(book.starts);

@@ -2,7 +2,7 @@
 // hover and selection.
 
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { useSignalEffect } from '@preact/signals';
+import { useSignal, useSignalEffect } from '@preact/signals';
 import { type Atlas, label, linkCount, linked, shortName } from '../data/atlas';
 import { passageAt, passages } from '../data/layers';
 import { forgetRead, readChapters } from '../data/reading';
@@ -97,6 +97,11 @@ export function AtlasMap({ a }: { a: Atlas }) {
   const strip = useRef<HTMLCanvasElement>(null);
   const field = useRef<ArcField | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // Each start of the map gets a fresh canvas: a phone that lost the WebGL
+  // context and will not give it back gets a new one (gl/arcs.ts).
+  const [gen, setGen] = useState(0);
+  const started = useSignal(0);
+  const restarts = useRef(0);
   const { w, h } = useSize(wrap);
   const xs = useMemo(() => verseX(a), [a]);
   const view = S.view.value;
@@ -105,20 +110,26 @@ export function AtlasMap({ a }: { a: Atlas }) {
   // --- WebGL setup -------------------------------------------------------
   useEffect(() => {
     if (!canvas.current) return;
+    // A few fresh starts by themselves; after that, the reader's "Try again".
+    const again = () => restarts.current++ < 3 && setGen((g) => g + 1);
     try {
-      const f = new ArcField(canvas.current, edgeInstances(a, xs));
+      const f = new ArcField(canvas.current, edgeInstances(a, xs), () => again() || setError('The map stopped drawing.'));
       f.setOptions({ minVotes: S.minVotes.value, colorMode: S.arcColor.value });
       f.resize();
       f.setView(S.view.value);
       field.current = f;
+      setError(null);
+      started.value++;
       return () => {
         if (field.current === f) field.current = null;
         f.dispose();
       };
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
+      const t = setTimeout(again, 1500);
+      return () => clearTimeout(t);
     }
-  }, [a, xs]);
+  }, [a, xs, gen]);
 
   // The overlay slot other panels draw over the map in.
   useEffect(() => {
@@ -143,6 +154,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
 
   // --- Focus: what is drawn bright --------------------------------------------
   useSignalEffect(() => {
+    void started.value; // a new field needs its focus too
     const f = field.current;
     if (!f) return;
     const hv = S.hovered.value;
@@ -665,7 +677,7 @@ export function AtlasMap({ a }: { a: Atlas }) {
 
   return (
     <div class="map" ref={wrap} tabIndex={0} aria-label="Cross-reference map. Arrow keys move the selection, plus and minus zoom, 0 resets." onKeyDown={onKey}>
-      <canvas class="arcs" ref={canvas} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp} onPointerLeave={onLeave} onDblClick={() => setView({ scale: 1, offset: 0 })} />
+      <canvas key={gen} class="arcs" ref={canvas} onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} onPointerCancel={onPointerUp} onPointerLeave={onLeave} onDblClick={() => setView({ scale: 1, offset: 0 })} />
       <svg class="overlay" width={w} height={h} aria-hidden="true">
         {bookBands}
         {readLayer}
@@ -743,9 +755,21 @@ export function AtlasMap({ a }: { a: Atlas }) {
         </div>
       )}
       {error && (
-        <div class="tip" style="left:12px;top:44px">
+        <div class="tip" style="left:12px;top:44px;pointer-events:auto" role="alert">
           <b>The map could not start</b>
           <p>{error}</p>
+          <button
+            type="button"
+            class="godeeper"
+            style="margin-top:6px"
+            onClick={() => {
+              restarts.current = 0;
+              setError(null);
+              setGen((g) => g + 1);
+            }}
+          >
+            Try again
+          </button>
         </div>
       )}
     </div>

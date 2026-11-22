@@ -8,11 +8,12 @@ import '../voices.css';
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Atlas } from '../../../data/atlas';
 import { CommentaryFoot } from '../../commentary/Gate';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
 import { type Data, FINISHED, goneOn, whoIs, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, barnesOf, fullOf, kdOf, lutherOf, nameFrom, notesOn, partOf, writerOf } from './model';
+import { NotLoaded } from '../lazy';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
@@ -253,7 +254,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
     [lutherPath, luther],
   ].filter(([path]) => path).map(([, f]) => f as PartFile | null | undefined);
   const file = got.some((f) => f === null) ? null : got.some((f) => f === undefined) ? undefined : { format: 1, items: got.flatMap((f) => (f ? f.items : [])) };
-  if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
+  if (file === null) return <NotLoaded again={retryFailed} what="What they wrote" />;
   const notes = file ? notesOn(file, verse) : [];
   return (
     <>

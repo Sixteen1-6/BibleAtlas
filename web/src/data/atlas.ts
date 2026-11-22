@@ -5,6 +5,7 @@
 // the fetched ArrayBuffer with no parsing and no copying.
 
 import type { Relation } from './forms';
+import { fetchRetry } from './fetch';
 
 export interface BookMeta {
   osis: string;
@@ -191,7 +192,7 @@ export function readContainer(buf: ArrayBuffer): Map<string, ArrayBufferView> {
 }
 
 async function getJson<T>(url: string): Promise<T> {
-  const r = await fetch(url);
+  const r = await fetchRetry(url);
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
   return r.json() as Promise<T>;
 }
@@ -204,7 +205,7 @@ export async function loadAtlas(onProgress?: (msg: string) => void): Promise<Atl
   const v = `v=${meta.buildId}`;
   onProgress?.('Loading 344,000 cross-references');
   const [bin, lemmas, englishWords, themes] = await Promise.all([
-    fetch(`${DATA_BASE}atlas.bin?${v}`).then((r) => {
+    fetchRetry(`${DATA_BASE}atlas.bin?${v}`).then((r) => {
       if (!r.ok) throw new Error(`atlas.bin: HTTP ${r.status}`);
       return r.arrayBuffer();
     }),

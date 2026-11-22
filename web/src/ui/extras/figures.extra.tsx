@@ -17,56 +17,18 @@
 // loads the first time a reader opens it.
 
 import './figures.css';
-import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
 import { startMapArcs } from './figures/MapArcs';
 import { type Data, SOURCE, lineAt, load, notesAt } from './figures/model';
 import { type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
-let panel: Promise<{ Panel: ComponentType<PanelProps<Data>> }> | null = null;
-
-function loadPanel() {
-  if (!panel) {
-    panel = import('./figures/Panel');
-    panel.catch(() => (panel = null));
-  }
-  return panel;
-}
+const loadPanel = lazyCode(() => import('./figures/Panel').then((m) => m.Panel));
 
 function Panel(props: PanelProps<Data>) {
-  const [got, setGot] = useState<ComponentType<PanelProps<Data>> | null>(null);
-  const [failed, setFailed] = useState(false);
-  const [tries, setTries] = useState(0);
-  useEffect(() => {
-    let live = true;
-    loadPanel().then(
-      (p) => live && setGot(() => p.Panel),
-      () => live && setFailed(true),
-    );
-    return () => {
-      live = false;
-    };
-  }, [tries]);
-  const P = got;
-  if (P) return <P {...props} />;
-  if (failed)
-    return (
-      <p class="xt-lead">
-        This could not load.{' '}
-        <button
-          type="button"
-          class="x-figures-more"
-          onClick={() => {
-            setFailed(false);
-            setTries(tries + 1);
-          }}
-        >
-          Try again
-        </button>
-      </p>
-    );
-  return <p class="xt-lead xt-wait">…</p>;
+  const code = useCode(loadPanel);
+  const P = code.got;
+  return P ? <P {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({

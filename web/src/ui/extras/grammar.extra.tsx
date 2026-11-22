@@ -23,50 +23,29 @@
 
 import './grammar.css';
 import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { readerHere } from './first-move';
 import { type Data, hasOutline, lineAt, load } from './grammar/model';
 import { type ChapterPanelProps, type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
 interface Panels {
   Panel: ComponentType<PanelProps<Data>>;
   ChapterPanel: ComponentType<ChapterPanelProps<Data>>;
 }
 
-let panels: Promise<Panels> | null = null;
-
 /** The panels' code, fetched the first time a reader opens one. */
-function loadPanels(): Promise<Panels> {
-  if (!panels) {
-    panels = import('./grammar/Panel');
-    panels.catch(() => (panels = null));
-  }
-  return panels;
-}
-
-function usePanels(): Panels | null {
-  const [got, setGot] = useState<Panels | null>(null);
-  useEffect(() => {
-    let live = true;
-    loadPanels().then(
-      (p) => live && setGot(p),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  return got;
-}
+const loadPanels = lazyCode((): Promise<Panels> => import('./grammar/Panel'));
 
 function Panel(props: PanelProps<Data>) {
-  const p = usePanels();
-  return p ? <p.Panel {...props} /> : <p class="xt-lead xt-wait">…</p>;
+  const code = useCode(loadPanels);
+  const p = code.got;
+  return p ? <p.Panel {...props} /> : <Waiting code={code} />;
 }
 
 function ChapterPanel(props: ChapterPanelProps<Data>) {
-  const p = usePanels();
-  return p ? <p.ChapterPanel {...props} /> : <p class="xt-lead xt-wait">…</p>;
+  const code = useCode(loadPanels);
+  const p = code.got;
+  return p ? <p.ChapterPanel {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({

@@ -5,6 +5,7 @@
 
 import { type Atlas, DATA_BASE } from './atlas';
 import type { Segment } from './lex';
+import { fetchRetry } from './fetch';
 
 /** Roots per world/<k>.json shard and entries per world/ubs/<n>.json shard (world.rs). */
 const ROOT_SHARD = 500;
@@ -60,7 +61,7 @@ export const HANDBOOK_TITLE: Record<Handbook, string> = {
 function cached<T>(cache: Map<string, Promise<T>>, a: Atlas, path: string): Promise<T> {
   let p = cache.get(path);
   if (!p) {
-    p = fetch(`${DATA_BASE}${path}?${a.version}`).then((r) => {
+    p = fetchRetry(`${DATA_BASE}${path}?${a.version}`).then((r) => {
       if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
       return r.json() as Promise<T>;
     });

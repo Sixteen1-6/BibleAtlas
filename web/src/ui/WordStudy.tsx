@@ -16,6 +16,7 @@ import { atLeast } from '../depth';
 import * as S from '../state';
 import { Distribution, Provenance, RootChip, useVerseRow } from './common';
 import { GoDeeper } from './Depth';
+import { retry } from '../data/fetch';
 
 type WordWorldType = ComponentType<ComponentProps<typeof import('./WordWorld').WordWorld>>;
 let wordWorld: Promise<WordWorldType> | null = null;
@@ -23,7 +24,7 @@ let wordWorld: Promise<WordWorldType> | null = null;
 /** "Outside the Bible" and its data code, fetched with the first word study. */
 function loadWordWorld(): Promise<WordWorldType> {
   if (!wordWorld) {
-    wordWorld = import('./WordWorld').then((m) => m.WordWorld);
+    wordWorld = retry(() => import('./WordWorld')).then((m) => m.WordWorld);
     wordWorld.catch(() => (wordWorld = null));
   }
   return wordWorld;
