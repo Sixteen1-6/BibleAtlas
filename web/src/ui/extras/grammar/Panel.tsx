@@ -5,7 +5,9 @@
 // tag with STEPBible's own expansion of it. What a form means is shown only
 // in a grammarian's own words, with the page it was read on, and those words
 // wait behind the commentary notice: they are people's words, where the
-// forms are the text's own.
+// forms are the text's own. So does a Christian writer's sentence on what a
+// form shows in this one verse (config/grammar-notes.json): his words, under
+// his name and his work, with the way to his whole note.
 //
 // A chapter's panel is its outline: paragraph by paragraph, the linking
 // words, chains and lists, each a link to its verse.
@@ -17,8 +19,10 @@ import { FLAG, type VerseRow, type WordRow, loadBook } from '../../../data/text'
 import { Commentary, CommentaryFoot } from '../../commentary/Gate';
 import { retryFailed, useJson } from '../data';
 import { Lead, Passage, SourceNote, Unsure, openWord, refName, showSources, usePassage } from '../kit';
+import { openExtra } from '../open';
 import type { ChapterPanelProps, PanelProps, VerseRef } from '../types';
-import { type At, type BookFile, type CodesFile, type Data, type Point, SOURCE, type Term, bookFile, day, verbCode } from './model';
+import { type IndexFile as VoicesIndex, WORKS } from '../voices/model';
+import { type At, type BookFile, type CodesFile, type Data, type Note, type Point, SOURCE, type Term, bookFile, day, verbCode } from './model';
 import { NotLoaded } from '../lazy';
 
 const WAIT = <p class="xt-lead xt-wait">…</p>;
@@ -119,6 +123,36 @@ function SaysCard({ data, term }: { data: Data; term: Term }) {
   );
 }
 
+/** A Christian writer's sentence on a form of this verse: the word and the
+ * form it speaks of, his words, then who he is and the work, as the
+ * Christian writers panel names them, and the way to his whole note. */
+function NoteCard({ a, data, note, verse, by, find }: { a: Atlas; data: Data; note: Note; verse: VerseRef; by: string | null; find: (at: At) => WordRow | undefined }) {
+  const [w, pos, terms, words] = note;
+  const work = WORKS[w];
+  if (!work) return null;
+  return (
+    <div class="x-grammar-term x-grammar-on">
+      <div class="x-grammar-onhead">
+        {pos >= 0 && <Word a={a} at={[verse, pos]} w={find([verse, pos])} />}
+        <h4>{names(data, terms)}</h4>
+      </div>
+      <figure class="x-grammar-says">
+        <blockquote>“{words}”</blockquote>
+        <figcaption>
+          From {by ?? work.name}’s note on this passage. {work.book}.{' '}
+          <button type="button" class="x-grammar-shelf" onClick={(e) => openExtra('voices', 'verse', verse, e.currentTarget)}>
+            Read the whole note
+          </button>
+          {' · '}
+          <button type="button" class="x-grammar-shelf" onClick={() => showSources(work.shelf)}>
+            Where it was read
+          </button>
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
 function names(data: Data, ids: number[]): string {
   return ids.map((i) => data.terms[i]?.name ?? '').filter(Boolean).join(' · ');
 }
@@ -146,6 +180,10 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const book = useJson<BookFile>(a, bookFile(a, loc.book));
   const codes = useJson<CodesFile>(a, `extras/grammar/codes-${old ? 'h' : 'g'}.json`);
   const pts = book?.v[String(verse)] ?? [];
+  const notes = book?.notes?.[String(verse)] ?? [];
+  // Who wrote a work's notes on this book, where the work has several writers.
+  const voices = useJson<VoicesIndex>(a, notes.length ? 'extras/voices.json' : null);
+  const by = (w: number): string | null => voices?.writers?.find((x) => x[0] === w && x[2].includes(loc.book))?.[1] ?? null;
   const [lo, hi] = reach(book, pts, verse);
   const rows = usePassage(a, lo, hi);
   if (book === null || codes === null) return <NotLoaded again={retryFailed} />;
@@ -301,10 +339,22 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       {shown.map((i) => (
         <TermCard key={i} term={data.terms[i]} where={where} />
       ))}
-      {said.length > 0 && (
+      {said.length + notes.length > 0 && (
         <>
           <h3>What these forms convey</h3>
-          <Commentary line="A grammarian’s own sentences on these forms, each with the page it was read on." button="Show the grammarian’s words">
+          <Commentary
+            line={
+              notes.length
+                ? 'A Christian writer’s own words on this verse’s forms, and a grammarian’s on what such forms convey.'
+                : 'A grammarian’s own sentences on these forms, each with the page it was read on.'
+            }
+            button={notes.length ? 'Show their words' : 'Show the grammarian’s words'}
+          >
+            {notes.length > 0 && <h4 class="x-grammar-sub">On this verse</h4>}
+            {notes.map((n, i) => (
+              <NoteCard key={`n${i}`} a={a} data={data} note={n} verse={verse} by={by(n[0])} find={find} />
+            ))}
+            {notes.length > 0 && said.length > 0 && <h4 class="x-grammar-sub">On these forms in general</h4>}
             {said.map((i) => (
               <SaysCard key={i} data={data} term={data.terms[i]} />
             ))}
