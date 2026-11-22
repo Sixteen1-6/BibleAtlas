@@ -1,5 +1,7 @@
 # Scripture check: Martin Luther
 
+**Made final (2026-11-22).** Shubhanshu made every passage this file lists as left out final ("yes make them all final"). Each now shows "[passage left out]" with the line "A passage is left out here because it calls a word of Scripture a mistake.", or, for one that denies what Scripture says of its writer, "A passage is left out here because it denies what Scripture says of its writer." The config entries record this in `decided`. What follows tells how each was found and judged, as written before that decision; the "until a decision on it is made" line it names is no longer shown.
+
 What was checked, how, and what was decided, for `config/voices/luther.json` (decision 23, rules 3 to 5 and 8). The notes are Martin Luther's *Commentary on the Epistle to the Galatians* (lectures of 1531, printed 1535) in Theodore Graebner's abridged modern English (Grand Rapids: Zondervan, 1939), and his *Lectures on Genesis* (1535 to 1545), chapters 1 to 9, in John Nicholas Lenker's *Luther on the Creation* (Minneapolis, 1904, based on Henry Cole's translation) and *Luther on Sin and the Flood* (Minneapolis, 1910). They are copied from Project Gutenberg's current files of ebooks 1549, 48193 and 27978, mirrored unchanged on the branches `mirror/pg-1549`, `mirror/pg-48193` and `mirror/pg-27978` on 2026-11-14 by `.github/workflows/mirror-web-texts.yml`. Galatians is labelled abridged everywhere it is named (decision 23, rule 8). Luther's harsh words about the pope, the papists, the sects and the rabbis are shown word for word (decision 1).
 
 ## What is not shown at all
@@ -25,7 +27,7 @@ The notes as the reader keeps them were scanned with the Barnes scan's patterns 
 
 ## Left out
 
-One passage, on Genesis 4:8 (`luther-genesis-4-8`), proposed for Shubhanshu to make final: "Our translation adds that Cain said: "Let us go out doors." But this is one of the comments of the rabbins, whose relative claim to credit I have fully shown on a previous occasion." The BSB prints Cain's words "Let us go out to the field", with the footnote "SP, LXX, Syriac, and Vulgate; Hebrew Then Cain spoke to his brother Abel". Luther calls those words an addition of the translation and the rabbis' invention, so the passage is a claim against what the BSB prints. The note shows "[passage left out]" there, with the line "A passage is left out here until a decision on it is made." The rest of the paragraph, on Lyra and Eben Ezra, stays.
+One passage, on Genesis 4:8 (`luther-genesis-4-8`), made final by Shubhanshu on 2026-11-22: "Our translation adds that Cain said: "Let us go out doors." But this is one of the comments of the rabbins, whose relative claim to credit I have fully shown on a previous occasion." The BSB prints Cain's words "Let us go out to the field", with the footnote "SP, LXX, Syriac, and Vulgate; Hebrew Then Cain spoke to his brother Abel". Luther calls those words an addition of the translation and the rabbis' invention, so the passage is a claim against what the BSB prints. The note shows "[passage left out]" there, with the line "A passage is left out here until a decision on it is made." The rest of the paragraph, on Lyra and Eben Ezra, stays.
 
 ## Kept, where it was close
 

@@ -1,5 +1,7 @@
 # Scripture check: Jamieson, Fausset and Brown
 
+**Made final (2026-11-22).** Shubhanshu made every passage this file lists as left out final ("yes make them all final"). Each now shows "[passage left out]" with the line "A passage is left out here because it calls a word of Scripture a mistake.", or, for one that denies what Scripture says of its writer, "A passage is left out here because it denies what Scripture says of its writer." The config entries record this in `decided`. What follows tells how each was found and judged, as written before that decision; the "until a decision on it is made" line it names is no longer shown.
+
 What was checked, how, and what was decided, for `config/voices/jfb.json` (decision 23, rules 3 to 5). The notes are from Robert Jamieson, A. R. Fausset and David Brown's *A Commentary, Critical and Explanatory, on the Whole Bible* (1871), as CrossWire's JFB module 3.0 keeps it. Jamieson wrote Genesis to Esther, Fausset Job to Malachi and 1 Corinthians to Revelation, and Brown Matthew to Romans (docs/evidence/credits-2026-10-21.json).
 
 ## Method

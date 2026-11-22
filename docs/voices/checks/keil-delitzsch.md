@@ -1,5 +1,7 @@
 # Scripture check: Keil and Delitzsch
 
+**Made final (2026-11-22).** Shubhanshu made every passage this file lists as left out final ("yes make them all final"). Each now shows "[passage left out]" with the line "A passage is left out here because it calls a word of Scripture a mistake.", or, for one that denies what Scripture says of its writer, "A passage is left out here because it denies what Scripture says of its writer." The config entries record this in `decided`. What follows tells how each was found and judged, as written before that decision; the "until a decision on it is made" line it names is no longer shown.
+
 What was checked, how, and what was decided, for `config/voices/keil-delitzsch.json` (decision 23, rules 3 to 6). The notes are from C. F. Keil and Franz Delitzsch's *Biblical Commentary on the Old Testament* (written in German 1861 to 1875, in English from T. and T. Clark 1864 to 1878), as CrossWire's KD module 2.0 keeps the Wikisource text. Delitzsch wrote Job, Psalms, Proverbs, the Song of Songs, Ecclesiastes and Isaiah, and Keil every other book (docs/evidence/credits-2026-10-21.json, the `kd-` records).
 
 ## What is not shown at all
