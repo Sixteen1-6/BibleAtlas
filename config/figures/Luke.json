@@ -382,6 +382,419 @@
       ]
     },
     {
+      "id": "luke-5-31-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Luke 5:31",
+      "refs": [
+        "Luke 5:30",
+        "Luke 5:32"
+      ],
+      "strength": "some interpreters",
+      "short": "Likely a common saying: the sick need a doctor",
+      "about": "When the Pharisees complain that His disciples eat with tax collectors and sinners, Jesus answers with what may be a common saying: a doctor is for the sick, not the healthy. The next verse applies it: He came to call sinners to repentance.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Luke 5:31",
+        "words": "It is not the healthy who need a doctor, but the sick",
+        "means": "a doctor is for the sick; so Jesus, the doctor of souls, came for sinners who own their need of Him"
+      },
+      "evidence": "Adam Clarke, on the same words in Matthew, to which his note on Luke sends the reader, calls them a common proverb that none could misunderstand or misapply, and says Jesus presents Himself as the Physician of souls, whose healing all need.",
+      "limit": "The text does not mark the words as a proverb or say whether they were already in common use.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Matthew 9:12",
+          "quote": "A common proverb, which none could either misunderstand or misapply. ... Jesus Christ represents himself here as the sovereign Physician of souls. 2. That all stand in need of his healing power. 3. That men must acknowledge their spiritual maladies, and the need they have of his mercy, in order to be healed by him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-5-34-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Luke 5:34-35",
+      "strength": "widely agreed",
+      "short": "Jesus pictures Himself as the bridegroom",
+      "about": "Asked why His disciples eat and drink while others fast, Jesus answers with a picture of a wedding. The guests do not fast while the bridegroom is with them; when he is taken from them, they will fast. The picture implies Himself as the bridegroom and His disciples as the guests.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Luke 5:34",
+        "words": "the guests of the bridegroom",
+        "means": "Jesus is the bridegroom and His disciples the guests; while He is with them it is a time of joy, and when He is taken from them they will fast"
+      },
+      "original": {
+        "note": "In Luke's Greek the guests are the sons of the bridechamber, a Hebrew way of naming the guests at a wedding.",
+        "strong": [
+          "G5207",
+          "G3567"
+        ]
+      },
+      "evidence": "Matthew Henry says the disciples were then as the children of the bride-chamber, and the bridegroom taken away is Christ leaving them. John Calvin, on Matthew, says Jesus compares Himself to the bridegroom, and that children of the bridegroom is a Hebrew phrase for wedding guests. Albert Barnes, on Matthew: the first of Christ's three illustrations is from a marriage, Jesus with His disciples.",
+      "limit": "The text does not name the bridegroom; the writers take Him to be Jesus, as the picture implies.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 5:27-39",
+          "quote": "Now they were as the children of the bride-chamber, when the bridegroom is with them, when they have plenty and joy, and every day is a festival. ... When Christ shall leave them with their hearts full of sorrow, their hands full of work, and the world full of enmity and rage against them, then shall they fast",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 9:15",
+          "quote": "Christ apologizes for his disciples on the score of the season, alleging that God was still pleased to indulge them in joyous feelings, as if they were present at a marriage: for he compares himself to the bridegroom, who enlivens his friends by his presence. ... The children of the bridegroom, or of the nuptial bed, is a Hebrew phrase, which denotes the guests at a marriage.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 9:14",
+          "quote": "Christ, in reply to them, used three illustrations ... The first is taken from a marriage. ... I am with my disciples. It is with them a time of joy. It is not fit that they should use the tokens of grief, and fast now. When I am taken away, it will then be proper that they should fast.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-5-36-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 5:36",
+      "strength": "widely agreed",
+      "short": "A parable: a new patch on an old garment",
+      "about": "Told that His disciples do not fast as others do, Jesus also tells a parable: no one tears a patch from a new garment to sew on an old one, for the new is torn and the patch does not match the old. Many read it of strict duties such as fasting, laid too soon on those not yet ready to bear them.",
+      "refs": [
+        "Luke 5:33-35"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 5:36",
+        "words": "No one tears a piece of cloth from a new garment and sews it on an old one",
+        "means": "strict duties such as fasting, laid too soon on those not yet ready for them, which would harm them rather than help"
+      },
+      "evidence": "Calvin calls the patch and the wineskins two comparisons, of weak disciples and a discipline too strict for them. Augustine, in the Catena Aurea of Thomas Aquinas: before the Spirit came the disciples were as old garments. Albert Barnes: making them fast then would be like a new patch on an old garment. Plumptre (Ellicott's Commentary): fasting is the new patch that does not agree with the old.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 9:16",
+          "quote": "He supports the preceding statement by two comparisons, one of which is taken from garments, and the other from vessels of wine ... The comparison is beautifully adapted to the matter in hand, if we explain it as referring to the weak and tender disciples of Christ, and to a discipline more strict than they were able to bear.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 5:33-39",
+          "at": "Augustine, Questions on the Gospels ii. 18",
+          "url": "https://www.ecatholic2000.com/catena/untitled-66.shtml",
+          "quote": "The gift of the Holy Spirit being received, there is a kind of fast, which is of joy, which they who are already renewed to a spiritual life most seasonably celebrate. Before they receive this gift, He says they are as old garments, to which a new piece of cloth is most unsuitably sewed on, i. e. any part of the doctrine which relates to the soberness of the new life",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 5:39",
+          "quote": "At the proper time all the sterner duties of religion will be properly regarded; but \"at present,\" to teach them to fast when they see \"no occasion\" for it - when they are full of joy at the presence of their Master - would be like putting a piece of new cloth on an old garment ... It would be ill-timed, inappropriate, and incongruous.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 9:16",
+          "quote": "The meaning of the parable in its direct application lies very near the surface. ... The old garment is the common life of sinful men, such as Matthew and his guests; the new garment is the life of holiness, the religious life in its completeness; fasting, as one element of that life, is the patch of new cloth which agrees not with the old",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-5-37-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 5:37-39",
+      "strength": "widely agreed",
+      "short": "A second picture: new wine bursts old wineskins",
+      "about": "Jesus adds a second picture: new wine poured into old wineskins bursts them, so new wine goes into new skins. Luke alone adds that no one who has drunk old wine wants the new. Many read it of strict duties laid too soon on disciples not yet ready; one takes the new wine as the gospel's freer life.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 5:37",
+        "words": "no one pours new wine into old wineskins",
+        "means": "what is new cannot be forced into what is not ready for it; many read it of strict duties laid too soon on disciples not yet ready"
+      },
+      "evidence": "Calvin (Harmony of the Gospels) calls the patch and the wineskins two comparisons, the old skins being weak disciples. Augustine, in the Catena Aurea of Thomas Aquinas: the apostles are likened to old skins until renewed by the Spirit. Albert Barnes calls verse 39 a proverb: making them fast now is like new wine in old skins. Plumptre (Ellicott's Commentary): new wine is the gospel's freer life.",
+      "limit": "The writers differ on verse 39: one takes the old wine as the milder way the disciples had come to know, another as the old religion of the Law, which made men slow to take up the new.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 9:16",
+          "quote": "He supports the preceding statement by two comparisons, one of which is taken from garments, and the other from vessels of wine ... when Christ compares his disciples to old bottles and torn garments, he does not mean that they were wasted by long use, but that they were weak and wanted strength.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 5:33-39",
+          "at": "Augustine, Questions on the Gospels ii. 18",
+          "url": "https://www.ecatholic2000.com/catena/untitled-66.shtml",
+          "quote": "But the Apostles are compared to old skins, who are more easily burst with new wine, i. e. with spiritual precepts, than contain them. ... But they were new skins at that time, when after the ascension of the Lord they received the Holy Spirit, when from desire of His consolation they were renewed by prayer and hope.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 5:39",
+          "quote": "The meaning of this proverb in this place seems to be this: You Pharisees wish to draw my disciples to the \"austere\" and \"rigid\" duties of the ceremonial law - to fasting and painful rites; but they have come under a milder system. ... to teach them to fast when they see \"no occasion\" for it ... would be like ... new wine into old bottles",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 5:39",
+          "quote": "The interpretation of the imagery is not far to seek. The old wine is the principle — in spiritual things, the religion — that animated the man’s former life. In relation to those immediately addressed, it represented the motive-power of the Law in its rigid and Pharisaic form. The new wine, as in the Notes on the previous parables, is the freer, nobler, life-power of the gospel.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-6-39-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 6:39",
+      "strength": "widely agreed",
+      "short": "A parable: “Can a blind man lead a blind man?”",
+      "about": "Jesus tells a parable as a question: can a blind man lead a blind man, and will they not both fall into a pit? One who cannot see the truth is no guide for others, and he and those he leads come to ruin together. After His call not to judge (verse 37), it can also warn one who judges others.",
+      "refs": [
+        "Luke 6:37"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 6:39",
+        "words": "Can a blind man lead a blind man?",
+        "means": "one who cannot see the truth himself cannot guide others to it, and teacher and taught fall into ruin together"
+      },
+      "original": {
+        "note": "In Luke's Greek the word for parable, parabolē, is wide enough to take in a short saying that holds a likeness, as this one does.",
+        "strong": [
+          "G3850"
+        ]
+      },
+      "evidence": "Adam Clarke says it seems to have been a general proverb: a man cannot teach what he does not understand. Plumptre (Ellicott's Commentary) says Luke uses parable in its wider sense of a proverbial saying holding a likeness, applied here to one who judges another. Cyril of Alexandria, in the Catena Aurea of Thomas Aquinas, calls it a needful parable for the disciples, the world's future teachers.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Luke 6:39",
+          "quote": "This appears to have been a general proverb, and to signify that a man cannot teach what he does not understand. ... A man who is not illuminated from above is utterly incapable of judging concerning spiritual things, and wholly unfit to be a guide to others. ... run the risk of falling into the ditch of perdition himself, together with the unhappy objects of his religious instruction",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 6:39",
+          "quote": "giving an example of the wider sense of the word “parable,” as applicable to any proverbial saying that involved a similitude. ... Here its application is clear enough. The man who judges and condemns another is as the blind leader of the blind.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 6:39-42",
+          "at": "Cyril of Alexandria, Catena Aurea on Luke 6:39-42",
+          "url": "https://www.ecatholic2000.com/catena/untitled-67.shtml",
+          "quote": "The Lord added to what had gone before a very necessary parable, as it is said, And he spake a parable to them, for His disciples were the future teachers of the world, and it therefore became them to know the way of a virtuous life, having their minds illuminated as it were by a divine brightness, that they should not be blind leaders of the blind.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-6-41-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 6:41-42",
+      "strength": "commonly held",
+      "short": "A speck in a brother's eye, a beam in your own",
+      "about": "Jesus goes on with another picture: a man looks at the speck in his brother's eye but does not notice the beam in his own. The speck is a small fault and the beam a great sin. He must first take the beam out of his own eye, and then he will see clearly to help his brother.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 6:41",
+        "words": "the speck in your brother’s eye, but fail to notice the beam in your own eye",
+        "means": "a brother's small fault, and the far greater sin a man fails to see in himself, which he must deal with first"
+      },
+      "evidence": "Theophylact, in the Catena Aurea of Thomas Aquinas, calls it another parable drawn from the same figure, the speck being a slight fault and the beam a great sin. Matthew Henry says it is absurd to spy small faults in others, like a speck in the eye, while not perceiving a beam in one's own, and that we must begin with ourselves.",
+      "limit": "Luke gives the word parable at verse 39. One writer calls the speck and the beam a further parable; the other gives the likeness without that name.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 6:39-42",
+          "at": "Theophylact, Catena Aurea on Luke 6:39-42",
+          "url": "https://www.ecatholic2000.com/catena/untitled-67.shtml",
+          "quote": "But the Lord introduces another parable taken from the same figure, as follows, But why seest thou the mote (that is, the slight fault) which is in thy brother’s eye, but the beam which is in thine own eye (that is, thy great sin) thou regardest not?",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 6:37-49",
+          "quote": "It is very absurd for any to pretend to be so quick-sighted as to spy small faults in others, like a mote in the eye, when they are themselves so perfectly past feeling as not to perceive a beam in their own eye. ... To help to pull the mote out of our brother's eye is a good work, but then we must qualify ourselves for it by beginning with ourselves",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-6-43-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 6:43-45",
+      "strength": "widely agreed",
+      "short": "A good tree and a bad tree, known by their fruit",
+      "about": "Jesus says no good tree bears bad fruit, nor a bad tree good fruit: each tree is known by its own fruit, and figs are not picked from thornbushes. So what a man does shows what he is, and verse 45 traces it to the good or evil stored up in his heart, from which the mouth speaks.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 6:43",
+        "words": "No good tree bears bad fruit",
+        "means": "what a person does and says shows what he is within, as its fruit shows the kind of tree"
+      },
+      "evidence": "Calvin takes it as a general rule that every man is to be judged by his fruits, as a tree is known by its fruit. Cyril of Alexandria, in the Catena Aurea of Thomas Aquinas, says good and bad men are known by their works as a tree by its fruits. Plumptre (Ellicott's Commentary) names the likeness of the tree and its fruit, and reads the good heart's fruit as kindness, not harsh judgment.",
+      "limit": "Luke gives the word parable at verse 39, and the writers call this a likeness. One takes verse 45, the treasure of the heart, as a further figure for the same truth.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 6:43",
+          "quote": "This statement, as related by Luke, appears to be a general instruction given by Christ, that by the fruits our opinion of every man ought to be formed, in the same manner as a tree is known by its fruit",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 6:43-45",
+          "at": "Cyril of Alexandria, Catena Aurea on Luke 6:43-45",
+          "url": "https://www.ecatholic2000.com/catena/untitled-67.shtml",
+          "quote": "But having shewn that the good and the bad man may be discerned by their works as a tree by its fruits, he now sets forth the same thing by another figure, saying, A good man out of the good treasure of his heart bringeth forth that which is good",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 6:45",
+          "quote": "follow on a reproduction of the similitude of the tree and its fruit. The sequence of thought in that passage helps us to trace a like sequence here. Out of the “good treasure of his heart” the good man would bring forth, not harsh or hasty judgment, but kindness, gentleness, compassion",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-6-47-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 6:47-49",
+      "strength": "widely agreed",
+      "short": "Two builders: on the rock, or with no foundation",
+      "about": "Jesus asks why they call Him Lord but do not do what He says, then shows what the one who obeys is like: a man who dug deep and laid his foundation on the rock, so the torrent could not shake his house. The one who hears and does not obey built with no foundation, and his house fell.",
+      "refs": [
+        "Luke 6:46"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 6:48",
+        "words": "He is like a man building a house",
+        "means": "one who hears Christ's words and does them stands firm when trial comes; one who only hears them falls, and his ruin is great"
+      },
+      "evidence": "Matthew Henry calls it a similitude: those who hear His sayings and do them are like a house built on a rock, founding their hope on Christ. Plumptre (Ellicott's Commentary) calls it the parable, the deep digging being a work that goes deep into the life. Cyril of Alexandria, in the Catena Aurea of Thomas Aquinas, says it shows the gain of keeping the commandments and the loss of disobeying.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 6:37-49",
+          "quote": "This he illustrates by a similitude ... which shows, (1.) That those only make sure work for their souls and eternity ... who do not only come to Christ as his scholars, and hear his sayings but do them ... They are like a house built on a rock. These are they that take pains in religion, as they do,—that dig deep, that found their hope upon Christ, who is the Rock of ages",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 6:47-49",
+          "quote": "Here again the all but verbal reproduction of the parable shows the impression which its repetition had left on the minds of men. … St. Luke alone reports that the wise man “digged deep” … It is not a passing emotion of assurance, a momentary act of faith, but involves a process that goes deep through the surface strata of the life, till it finds a foundation in a purified and strengthened will",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 6:46-49",
+          "at": "Cyril of Alexandria, Catena Aurea on Luke 6:46-49",
+          "url": "https://www.ecatholic2000.com/catena/untitled-67.shtml",
+          "quote": "But the advantage which arises from the keeping of the commandments, or the loss from disobedience, he shews as follows; Whosoever cometh to me, and heareth my sayings, he is like to a man who built his house upon a rock, &c.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-7-31-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 7:31-32",
+      "strength": "widely agreed",
+      "short": "Children in the market: a generation never pleased",
+      "about": "Jesus likens the men of His generation to children in the marketplace: some played the flute and sang a dirge, but the others would neither dance nor weep. Verses 33-34 apply it: they found fault with John, who neither ate bread nor drank wine, and with Jesus, who came eating and drinking.",
+      "refs": [
+        "Luke 7:33-34"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 7:32",
+        "words": "They are like children sitting in the marketplace",
+        "means": "the men of that generation, who found fault with John and with Jesus alike and would be pleased by neither"
+      },
+      "evidence": "John Calvin: Jesus employs a comparison probably taken from children's games, charging the scribes with repelling His grace. E. H. Plumptre (Ellicott): our Lord likens that evil generation to such children. David Brown (Jamieson, Fausset and Brown) sets out the likeness to children who join neither game. Joseph Benson: like children at play, no way could be found to please them.",
+      "limit": "The writers differ on which children stand for that generation: two take it to be those who will not join in, one those who call to the others and complain.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 7:31",
+          "quote": "He does not include all the men of his age, but speaks particularly of the scribes and their followers. He charges them with this reproach, that while the Lord endeavored, by various methods, to draw them to himself, they repelled his grace with incorrigible obstinacy. He employs a comparison, which was probably taken from a common amusement of children",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 11:16",
+          "quote": "The comparison is drawn from one of the common amusements of the children of an Eastern city. ... To such a company our Lord likens the evil generation in which He and the Baptist lived. They were loud in their complaints of the Baptist because he would not share their self-indulgent mirth; they were bitter against Jesus",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 7:31",
+          "quote": "As cross, capricious children, invited by their playmates to join them in their amusements, will play with them neither at weddings nor funerals (juvenile imitations of the joyous and mournful scenes of life), so that generation rejected both John and his Master",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 7:29-35",
+          "quote": "Now, to show these Pharisees and lawyers the perverseness of their disposition, in resisting the evidence of John's mission, and the gracious design of God in calling them to repentance by his ministry, he told them they were like children at play, who never do what their companions desire them, but are so froward and perverse that no contrivance can be found to please them.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-7-32-mirror",
       "kind": "parallelism",
       "form": "mirror",
@@ -496,6 +909,115 @@
       ]
     },
     {
+      "id": "luke-8-5-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 8:5-8",
+      "strength": "widely agreed",
+      "short": "The sower: one seed, four kinds of ground",
+      "about": "Jesus tells of a farmer whose seed falls along the path, on rocky ground, among thorns and on good soil, and only the good soil bears a crop. He explains it in verses 11-15: “The seed is the word of God,” and the four grounds are four kinds of hearers.",
+      "refs": [
+        "Luke 8:4",
+        "Luke 8:11-15"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 8:5",
+        "words": "A farmer went out to sow his seed",
+        "means": "the word of God sown in many hearers, which bears fruit only in hearts that receive it and hold it fast"
+      },
+      "evidence": "Matthew Henry: the heart is soil to the seed of God's word, and the crop answers to the soil. John Calvin: the seed of doctrine, sown far and wide, is not fruitful everywhere. E. H. Plumptre (Ellicott), on Matthew's telling, to which he refers: the seed's four ends picture the kinds of hearers. Theophylact, in the Catena Aurea of Thomas Aquinas: the word falls in different ways on the hearers.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 8:4-21",
+          "quote": "Now from the parable itself, and the explication of it, observe, (1.) The heart of man is as soil to the seed of God's word; it is capable of receiving it, and bringing forth the fruits of it; but, unless that seed be sown in it, it will bring forth nothing valuable. ... (2.) The success of the seeding is very much according to the nature and temper of the soil",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:2",
+          "quote": "The design of the parable was to inform them, that the seed of doctrine, which is scattered far and wide, is not everywhere productive; because it does not always find a fertile and well cultivated soil.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 13:19",
+          "quote": "The classes of hearers who had gathered round Him were represented, roughly and generally, by the four issues of the seed scattered by the sower, and all preachers of the truth, from that day to this, have felt that their own experience has presented analogous phenomena.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 8:4-15",
+          "at": "Theophylact, Catena Aurea on Luke 8:4-15",
+          "url": "https://www.ecatholic2000.com/catena/untitled-69.shtml",
+          "quote": "He said not that the sower threw some on the way side, but that it fell by the way side. For he who sows teaches the right word, but the word falls in different ways upon the hearers",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-8-16-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 8:16",
+      "strength": "widely agreed",
+      "short": "A lamp is lit to give light, not to be hidden",
+      "about": "Right after explaining the sower, Jesus says no one lights a lamp only to cover it with a jar or put it under a bed; he sets it on a stand so that those who enter can see. Many read the lamp as the light of His word, given not to be hidden but to shine for others.",
+      "refs": [
+        "Luke 8:17-18",
+        "Luke 11:33"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 8:16",
+        "words": "No one lights a lamp and covers it with a jar or puts it under a bed",
+        "means": "the light of His word given to the disciples, meant to be held out to others and not kept hidden"
+      },
+      "evidence": "Matthew Henry: those given the gift must pass it on, as lighted candles. Albert Barnes: His parables were meant to throw light on the truth, which the disciples were to impart. Eusebius, in the Catena Aurea of Thomas Aquinas: the secrets of the kingdom, told in parables, are like a lamp lit to give light. Adam Clarke: His preaching was meant to enlighten, His parables to make the truth plain.",
+      "limit": "One writer takes the lamp to be those who have received the word; the others, the word itself. Luke gives the saying again in 11:33.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 8:4-21",
+          "quote": "Those that have received the gift must minister the same. Ministers that have the dispensing of the gospel committed to them, people that have profited by the word and are thereby qualified to profit others, must look upon themselves as lighted candles ... for a candle must not be covered with a vessel nor put under a bed",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Mark 4:21",
+          "quote": "A candle is not lit up to be put immediately under a measure or a bed, where it can give no light. Its design is to give light. So my preaching by parables is not designed to obscure the truth, but to throw light on it. You should understand those parables, and, understanding them, should impart the truth to others also, as a candle throws its beams upon a dark world.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 8:16-18",
+          "at": "Eusebius, Catena Aurea on Luke 8:16-18",
+          "url": "https://www.ecatholic2000.com/catena/untitled-69.shtml",
+          "quote": "As if He said, As a lantern is lighted that it should give light, not that it should be covered under a bushel or a bed, so also the secrets of the kingdom of heaven when uttered in parables, although hid from those who are strangers to the faith, will not however to all men appear obscure.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Mark 4:21",
+          "quote": "The design of my preaching is to enlighten men; my parables not being designed to hide the truth, but to make it more manifest.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-9-62-allegory",
       "kind": "figure",
       "form": "allegory",
@@ -553,6 +1075,305 @@
       ]
     },
     {
+      "id": "luke-10-30-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 10:30-35",
+      "strength": "widely agreed",
+      "short": "The good Samaritan: who proved a neighbor?",
+      "about": "Asked “And who is my neighbor?”, Jesus tells of a man left half dead by robbers. A priest and a Levite pass by on the other side, but a Samaritan, from a people the Jews hated, binds his wounds and pays for his care. Jesus ends: “Go and do likewise.”",
+      "refs": [
+        "Luke 10:29",
+        "Luke 10:36-37"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 10:30",
+        "words": "A man was going down from Jerusalem to Jericho",
+        "means": "our neighbor is anyone in need, even a stranger or an enemy, and we are to show him mercy as the Samaritan did"
+      },
+      "evidence": "John Calvin: the comparison forces the lawyer to own that the greatest stranger is our neighbor. Albert Barnes calls it a beautiful parable that teaches us to do good to all, even to our enemies. E. H. Plumptre (Ellicott): its main lesson is that a shared human nature is ground enough for kindness. Joseph Benson: Jesus corrected the lawyer's narrow view of who is a neighbor by a parable.",
+      "limit": "Many have also seen Christ pictured in the Samaritan; one writer cited here allows that as a further thought, another rejects it. The note keeps to the lesson all of them state.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 10:30",
+          "quote": "which the comparison brought forward forces him to confess. The general truth conveyed is, that the greatest stranger is our neighbor, because God has bound all men together, for the purpose of assisting each other. ... To prove this, Christ compares a Samaritan to a priest and a Levite. It is well known what deadly hatred the Jews bore to the Samaritans",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 10:37",
+          "quote": "Go, and do thou likewise - Show the same kindness to \"all\" - to friend and foe ... from this inimitably beautiful parable we may learn: ... 3. That religion requires us to do good to \"all\" people, however \"accidentally\" we may become acquainted with their calamities. 4. That we should do good to our enemies.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 10:37",
+          "quote": "Fellowship in the same human nature, and any kind of even passing contact, were enough to constitute a ground for neighbourly kindness. ... Nothing should lead us away from recognising this as the main lesson of the parable.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 10:29-30",
+          "quote": "It seems, being strongly tinctured with the prejudices of his nation, he reckoned none brethren but Israelites; or neighbours , but proselytes ... He convinced him of his mistake by a parable, an ancient, agreeable, and inoffensive method of conveying instruction, very fit to be used in teaching persons who are greatly prejudiced against the truth.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-11-5-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 11:5-8",
+      "strength": "widely agreed",
+      "short": "A friend at midnight: keep on asking",
+      "about": "Jesus tells of a man who goes to a friend at midnight to borrow bread for a guest. The friend is in bed and will not get up for friendship's sake, but he gives all that is needed “because of the man’s persistence.” Jesus applies it: “Ask, and it will be given to you.”",
+      "refs": [
+        "Luke 11:9-10"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 11:5",
+        "words": "Suppose one of you goes to his friend at midnight",
+        "means": "prayer that perseveres and does not give up: if persistence wins bread from an unwilling friend, much more will God answer those who keep on asking"
+      },
+      "evidence": "Matthew Henry says Jesus speaks it to teach that men ought always to pray and not lose heart. Albert Barnes: all that applies to God in it is that it is right to persevere in prayer. John Calvin calls it a comparison: believers should not be discouraged by delay. David Brown (Jamieson, Fausset and Brown): if persistence wins over a churlish man, how much more will prayer prevail with God.",
+      "limit": "The friend in bed is not a picture of God as unwilling to help: one writer says only the call to persevere applies to God, and another that God, unlike men, is pleased to be asked.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 11:1-13",
+          "quote": "He speaks this parable with the same intent that he speaks that in ... That men ought always to pray, and not to faint. Not that God can be wrought upon by importunity; we cannot be troublesome to him, nor by being so change his counsels. We prevail with men by importunity because they are displeased with it, but with God because he is pleased with it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 11:5",
+          "quote": "This is \"not\" to be applied to God, as if it were troublesome to him to be sought unto, or as if \"he\" would ever reply to a sinner in that manner. All that is to be applied to God in this parable is simply that it is proper to \"persevere\" in prayer.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 11:5",
+          "quote": "Luke adds this comparison, which is not mentioned by Matthew. The general instruction conveyed by it is this: Believers ought not to be discouraged, if they do not immediately obtain their desires, or if they find them difficult to be obtained: for if, among men, importunity of asking extorts what a person would not willingly do, we have no reason to doubt that God will listen to us",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 11:8",
+          "quote": "The sense is obvious: If the churlish and self-indulgent--deaf both to friendship and necessity--can after a positive refusal, be won over, by sheer persistency, to do all that is needed, how much more may the same determined perseverance in prayer be expected to prevail with Him",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-11-17-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 11:17-18",
+      "strength": "commonly held",
+      "short": "A divided kingdom answers the charge of Beelzebul",
+      "about": "Some say Jesus drives out demons by Beelzebul. He answers with a likeness: a kingdom divided against itself is laid waste, and a divided house falls. Verse 18 turns it on Satan: “how can his kingdom stand?” Mark says that in this answer Jesus “began to speak to them in parables.”",
+      "refs": [
+        "Mark 3:23"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 11:17",
+        "words": "Every kingdom divided against itself will be laid waste",
+        "means": "Satan's kingdom, which could not stand if he fought against himself; so the charge that Jesus drives out demons by Satan's power falls"
+      },
+      "evidence": "Adam Clarke, summing up Mark 3, says that when the scribes put His miracles down to Beelzebub, Jesus vindicates Himself by a parable in Mark 3:23-27. Chrysostom, in the Catena Aurea of Thomas Aquinas, says He answers them from things of every day: a divided house, city or kingdom falls, so if He cast out devils by a devil, their power would perish.",
+      "limit": "The saying is a short likeness, not a story. It is called a parable here because Mark names this answer so (Mark 3:23).",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Mark 3",
+          "quote": "The multitudes throng him, and the scribes attribute his miracles to Beelzebub, Mar 3:20-22 . He vindicates himself by a parable, Mar 3:23-27 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 11:17-18",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-72.shtml",
+          "quote": "He did not answer them from the Scriptures ... but he answers them from things of every day occurrence. For a house and a city if it be divided is quickly scattered to nothing; and likewise a kingdom, than which nothing is stronger. ... If then, says He, I cast out devils by means of a devil, there is dissension among them, and their power perishes.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "luke-11-21-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 11:21-22",
+      "strength": "widely agreed",
+      "short": "A stronger man overpowers the armed strong man",
+      "about": "A strong man, fully armed, keeps his house and goods secure, until someone stronger attacks and overpowers him, takes away the armor he trusted in, and divides his plunder. The strong man is Satan, and the stronger one is Christ, whose driving out of demons shows that He has overcome him.",
+      "refs": [
+        "Matthew 12:29"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 11:21",
+        "words": "When a strong man, fully armed, guards his house",
+        "means": "Satan holding men in his power, until Christ, who is stronger, overcomes him and takes from him those he held captive"
+      },
+      "evidence": "Brown (Jamieson, Fausset and Brown) counts this and the unclean spirit as two parables, the stronger one being Christ, who dislodges Satan. E. H. Plumptre (Ellicott) says the parable appears here in its fuller form and the strong man is Satan. John Calvin calls it a parable: Satan must be overcome by force. Albert Barnes calls it an illustration proving Christ had subdued Satan.",
+      "limit": "Matthew and Mark tell of binding the strong man; Luke tells of a stronger man who attacks and overpowers him. The writers take them as one saying.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Luke 11:22",
+          "quote": "a stronger than he--Christ: Glorious title, in relation to Satan! ... The parable that immediately follows ( Luk 11:24-26 ) is just the reverse of this. (See on Mat 12:43-45 .) In the one case, Satan is dislodged by Christ, and so finds, in all future assaults, the house preoccupied ... This explains the important saying that comes in between the two parables ( Luk 11:23 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 12:29",
+          "quote": "The parable implied in the question appears in a fuller form in Luk 11:21-22 . Here it will be enough to note that the “strong man” is Satan. ... the “binding of the strong man” is the check given to the tyranny of Satan by emancipating the possessed sufferers from their thraldom; the “spoiling of the house” implies the final victory over him.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 12:29",
+          "quote": "He maintains that a strong and powerful tyrant cannot be deprived of his dominion, till he is stripped of his armor; for if he is not met by a force superior to his own, he will never yield of his own accord. ... it is in vain for men to expect deliverance, till Satan has been subdued by a violent struggle. ... We now see the reason why Christ introduced this parable.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 12:29",
+          "quote": "The Saviour makes use of a new illustration to confute the Pharisees, drawn from breaking into a house. ... So I, says he, have taken this \"property - this possessed person\" - from the dominion of Satan. It is clear proof that I have subdued \"Satan himself,\" the \"strong\" being that had him in possession.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-11-24-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 11:24-26",
+      "strength": "widely agreed",
+      "short": "An unclean spirit returns with seven worse",
+      "about": "An unclean spirit leaves a man and finds no rest. It returns to find the house swept clean and put in order, then brings seven spirits more wicked than itself, and the man ends worse than at first. Many read it of those freed for a time who do not receive Christ, so that the evil comes back worse.",
+      "refs": [
+        "Matthew 12:43-45"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 11:24",
+        "words": "When an unclean spirit comes out of a man",
+        "means": "those freed for a time who do not receive Christ: the evil returns worse; read of that generation of Israel and of all who despise the grace offered"
+      },
+      "evidence": "Brown (Jamieson, Fausset and Brown) calls it a parable, the reverse of the strong man: Satan goes out and returns to a house empty of any rival. John Calvin calls it a parable on those who despise grace and let the devil back in. Albert Barnes calls it an illustration, and Joseph Benson a parable, of the Jews growing worse. E. H. Plumptre (Ellicott) calls it a parable whose application Luke omits.",
+      "limit": "Luke does not give the closing words in Matthew that apply the story to that generation. The note does not claim that the spirit's going and coming is only a story.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Luke 11:22",
+          "quote": "The parable that immediately follows ( Luk 11:24-26 ) is just the reverse of this. (See on Mat 12:43-45 .) In the one case, Satan is dislodged by Christ, and so finds, in all future assaults, the house preoccupied; in the other, he merely goes out and comes in again, finding the house \"EMPTY\" ( Mat 12:44 ) of any rival, and all ready to welcome him back.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 12:43",
+          "quote": "He speaks of scribes and hypocrites of a similar character, who, despising the grace of God, enter into a conspiracy with the devil. ... he points out, in a general manner, the condemnation that awaits those who, despising the grace offered to them, again open the door to the devil. ... before we come to treat the substance of the parable.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 12:43",
+          "quote": "The \"general sentiment\" which our Saviour here teaches is much more easily understood than the illustration which he uses. The Jews had asked a sign from heaven ... though for a time they should profess to believe and apparently reform, yet such was the obstinacy of their unbelief and wickedness, that they would soon return to their former course. and become worse and worse.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 12:43",
+          "quote": "to show how dreadful the state of the Jewish people would be, if they continued to reject him and his gospel, our Lord introduces a parable ... He compares their condition to that of a man, who, after having had an evil spirit expelled out of him, is again ... taken possession of by that spirit, with seven others still more wicked, and is thereby brought into a worse condition than ever.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 11:24-26",
+          "quote": "When the unclean spirit is gone out of a man. — See Notes on Mat 12:43-45 . Here the only variations are (1) the omission of the house being “empty,” and (2) of the application of the parable to “this wicked generation.”",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-11-34-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Luke 11:34-36",
+      "strength": "widely agreed",
+      "short": "“Your eye is the lamp of your body”",
+      "about": "Jesus says the eye is the lamp of the body: good eyes fill the whole body with light, and bad ones leave it full of darkness. He warns, “Be careful, then, that the light within you is not darkness.” Many read the eye as the mind, which lights the whole life when it is sound.",
+      "refs": [
+        "Matthew 6:22-23"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "Luke 11:34",
+        "words": "Your eye is the lamp of your body",
+        "means": "the mind, which guides the whole life as the eye guides the body: sound and fixed on the right object it lights the life; corrupted, it leaves all dark"
+      },
+      "evidence": "Chrysostom, in the Catena Aurea of Thomas Aquinas, calls it a parable of the bodily members: what the eye is to the body, the understanding is to the soul. John Calvin says Christ employs a comparison: as the eye guides the members, so reason is given to guide the affections. Albert Barnes says Jesus illustrates by the eye that the eye of faith must be fixed on heaven.",
+      "limit": "The writers take the eye as the mind but word it differently: the understanding, reason, or the eye of faith fixed on heaven.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 6:22-23",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-13.shtml",
+          "quote": "He transfers it to a sensible instance, saying, The light of thy body is thy eye. As though He had said, If you do not know what is meant by the loss of the understanding, learn a parable of the bodily members; for what the eye is to the body, that the understanding is to the soul.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 6:22",
+          "quote": "When Christ calls the eye the light of the body, he employs a comparison which means, that neither the hands, nor the feet, nor the belly, serves to direct men in walking, but that the eye alone is a sufficient guide to the rest of the members. ... We must now apply this comparison to the mind. ... Now, God has given reason to guide them, and to act the part of a lantern in showing them the way.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 6:22",
+          "quote": "The sentiment stated in the preceding verses - the duty of fixing the affections on heavenly things - Jesus proceeds to illustrate by a reference to the \"eye.\" ... So all that is needful to direct the soul and the conduct is, that the eye of faith be fixed on heaven; that the affections be there.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-12-16-parable",
       "kind": "figure",
       "form": "parable",
@@ -604,6 +1425,247 @@
       ]
     },
     {
+      "id": "luke-12-35-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 12:35-38",
+      "strength": "widely agreed",
+      "short": "Servants wait, lamps burning, for their master",
+      "about": "Jesus tells His disciples to be dressed for service with lamps burning, like servants waiting for their master to return from a wedding banquet, ready to open when he knocks. The master who finds them watching will serve them. Peter calls it “this parable.” It bids Christ's servants be ready.",
+      "refs": [
+        "Luke 12:41"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 12:36",
+        "words": "like servants waiting for their master to return from the wedding banquet",
+        "means": "Christ's servants, who are to stay ready for their Lord, gone away and promised to return, since He may come at any hour"
+      },
+      "evidence": "John Calvin says Jesus uses another parable, likening Himself to a householder at a marriage feast whose servants wait for his return, so we must be ready to receive Him. Matthew Henry calls it a figurative parable: all Christians must watch for Christ's coming as His servants. Bede, in the Catena Aurea of Thomas Aquinas, says it taught that He would come suddenly and they must be ready.",
+      "limit": "The note covers verses 35 to 38. The homeowner and the thief in verse 39 is a second likeness that follows.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 12:36",
+          "quote": "He uses another parable ... for he compares himself to a householder who, while he is joining in the festivities of the marriage feast ... wishes his servants to conduct themselves with modesty and sobriety at home ... and diligently waiting for his return. ... as he has promised that he will return to us, we ought to hold ourselves prepared, at every moment, to receive him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 12:41",
+          "quote": "Now Peter desires Christ to explain himself, and to direct the arrow of the foregoing parable to the mark he intended. He calls it a parable, because it was not only figurative, but weighty, solid, and instructive. ... If what Christ had said before did not so peculiarly concern them, but in common with other Christians, who must all watch and pray for Christ's coming, as his servants",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 12:41-46",
+          "at": "Bede, Commentary on Luke",
+          "url": "https://www.ecatholic2000.com/catena/untitled-73.shtml",
+          "quote": "Our Lord had taught two things in the preceding parable unto all, even that He would come suddenly, and that they ought to be ready and waiting for Him.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-12-39-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 12:39",
+      "strength": "commonly held",
+      "short": "If the homeowner had known the thief's hour",
+      "about": "Jesus adds a second likeness: if the homeowner had known at what hour the thief was coming, he would not have let his house be broken into. Verse 40 applies it: “You also must be ready, because the Son of Man will come at an hour you do not expect.”",
+      "refs": [
+        "Luke 12:40",
+        "Luke 12:41",
+        "Matthew 24:43-44"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 12:39",
+        "words": "If the homeowner had known at what hour the thief was coming",
+        "means": "the coming of the Son of Man, sudden and unannounced like a thief's, so that His people must keep watch at all times"
+      },
+      "evidence": "John Calvin calls it another similitude, urging the disciples to keep diligent watch, since Christ's coming will be sudden and unexpected, like a robber's. Theophylact, in the Catena Aurea of Thomas Aquinas, says the Lord's coming is compared to the thief as suddenly at hand, and sets aside the reading that takes the thief for the devil.",
+      "limit": "The thief stands for the suddenness of the coming, not for its character.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 24:44",
+          "quote": "Another similitude is now employed by Christ, in exhorting his disciples to keep diligent watch; for if any person shall hear that robbers are prowling in the night, fear and suspicion will not allow him to sleep. Since, therefore, we are informed that Christ’s coming will be sudden and unexpected, like that of a robber, and since we are expressly forewarned that we must always watch",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 12:35-40",
+          "at": "Theophylact, Commentary on Luke",
+          "url": "https://www.ecatholic2000.com/catena/untitled-73.shtml",
+          "quote": "Some understand this thief to be the devil, the house, the soul, the goodman of the house, man. This interpretation, however, does not seem to agree with what follows. For the Lord’s coming is compared to the thief as suddenly at hand, according to the word of the Apostle, The day of the Lord so cometh as a thief in the night.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-12-42-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 12:42-46",
+      "strength": "widely agreed",
+      "short": "A manager is tested by his master's return",
+      "about": "Peter asks whom Jesus means, and Jesus answers with a story of a manager set over his master's servants. Found faithful at the master's return, he is put over all; if he abuses the others while his master delays, he is cut to pieces. Many read it as a warning to those set over Christ's people.",
+      "refs": [
+        "Luke 12:41",
+        "Luke 12:47-48",
+        "Matthew 24:45-51"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 12:42",
+        "words": "Who then is the faithful and wise manager, whom the master puts in charge of his servants",
+        "means": "Christ's servants, above all those set over His people, who must serve faithfully and stay ready for His return at an hour no one expects"
+      },
+      "evidence": "John Calvin says Peter's question led to a new parable asking special care of the servants set over others. Albert Barnes calls it in fact a parable, the faithful servant being a faithful Christian or teacher of religion. Matthew Henry applies it to all Christians, most of all to ministers. Joseph Benson: it fitly shows the heavier sin of ministers and teachers, best placed to know Christ's will.",
+      "limit": "Three of the writers comment on the same story as it is told in Matthew 24:45-51. They apply it to every believer, but most of all to those who lead and teach the church.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 24:45",
+          "quote": "This passage is more distinctly explained by Luke, who inserts Peter’s question, which gave rise to a new parable. ... so now he demands extraordinary care from the principal servants, who had been appointed over others for the purpose of pointing out, by their example, the path of sobriety, watchfulness, and strict temperance.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 24:45",
+          "quote": "This passage is, in fact, \"a parable,\" though it is not expressly so called. The design is to show that his disciples should act as if they were each moment expecting his return. ... By the conduct of a faithful and wise servant Jesus intends to denote a faithful Christian, a servant of God, or a teacher of religion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 24:32-51",
+          "quote": "Now this parable, with which the chapter closes, is applicable to all Christians, who are in profession and obligation God's servants; but it seems especially intended as a warning to ministers; for the servant spoken of is a steward.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 12:47-48",
+          "quote": "Lest the consideration of the strictness of the account, and the greatness of the punishment, described in the parable, might terrify men of honest dispositions ... In this respect, how fitly does the parable describe the aggravations of the sin of the ministers and teachers of religion, who have such singular advantages for knowing Christ's will.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-12-58-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 12:58-59",
+      "strength": "widely agreed",
+      "short": "Make peace with your adversary before the judge",
+      "about": "Jesus pictures a man on his way to court: he should settle with his adversary on the road, or the judge will hand him to the officer and prison until the last penny is paid. Many read it of the sinner, who must make peace with God now, before he comes to judgment.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 12:58",
+        "words": "Make every effort to reconcile with your adversary while you are on your way to the magistrate",
+        "means": "the sinner's need to make peace with God while life lasts, before he stands before the Judge, when it will be too late"
+      },
+      "evidence": "E. H. Plumptre (Ellicott's Commentary) takes the words plainly and as a parable: the adversary is the accusing Law, the judge the Judge of all the earth. Matthew Henry: do in our souls' affairs as we would in a lawsuit, for by sin we have made God our adversary. Joseph Benson says Christ illustrates the evils that befall obstinate sinners by the punishment of a man who will not make amends.",
+      "limit": "The writers differ on whom the adversary stands for: God Himself, or the Law that accuses. Two writers keep the plain sense too, as wise advice to settle a quarrel before it reaches court.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Luke 12:58",
+          "quote": "The answer to the question is found in accepting, as before, both the literal meaning and that of which it becomes a parable, with, perhaps, a greater stress than before on the spiritual aspect of the words. ... The “adversary” is the Law that accuses them ( Joh 5:45 ); the judge is none other than the Judge of all the earth",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 12:54-59",
+          "quote": "We reckon it our wisdom in our temporal affairs to compound with those with whom we cannot contend ... 2. Let us do thus in the affairs of our souls. We have by sin made God our adversary, have provoked his displeasure against us ... Christ, to whom all judgment is committed, is the magistrate before whom we are hastening to appear",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 12:58-59",
+          "quote": "The evils which befall obstinate sinners, he here illustrates by the punishment which, in ordinary cases, is inflicted upon the man who obstinately refuses to make compensation for the injuries he has done ... If you persist to be regardless of the proposals of God's mercy while the day of life and grace continues, nothing is to be expected from the tribunal of his justice but a severe sentence",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-13-6-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 13:6-9",
+      "strength": "widely agreed",
+      "short": "A barren fig tree is spared for one more year",
+      "about": "After warning “unless you repent, you too will all perish,” Jesus tells of a fig tree that bears no fruit for three years. The owner says to cut it down, but the keeper asks for one more year of care. Many read the owner as God and the tree as Israel, given time to repent.",
+      "refs": [
+        "Luke 13:1-5"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 13:6",
+        "words": "A man had a fig tree that was planted in his vineyard",
+        "means": "God's patience with Israel, and with all in His church who bear no fruit: He waits for repentance, but a tree that stays barren will at last be cut down"
+      },
+      "evidence": "Matthew Henry says it enforces the warning to repent, first for the Jews, then for all in the visible church. John Calvin: many who deserve to be cut off are borne with for a time, and gain nothing if they persist. Adam Clarke and Albert Barnes take the owner as God and the tree or vineyard as the Jews. Brown (Jamieson, Fausset and Brown) takes the fig tree as Israel and all in the visible church.",
+      "limit": "The writers differ on the keeper of the vineyard: Christ interceding, God's ministers, or Christ with God's other messengers. They do not agree on what the three years stand for.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 13:6-9",
+          "quote": "This parable is intended to enforce that word of warning immediately going before ... This parable primarily refers to the nation and people of the Jews. ... Yet it has, without doubt, a further reference, and is designed for the awakening of all that enjoy the means of grace, and the privileges of the visible church",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 13:6",
+          "quote": "He spoke also this parable. The substance of it is, that many are endured for a time who deserve to be cut off; but that they gain nothing by the delay, if they persist in their obstinacy.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 13:6",
+          "quote": "Many meanings are given to this parable, and divines may abound in them; the sense which our Lord designed to convey by it appears to be the following: - 1. A person, τις, God Almighty. 2. Had a fig tree, the Jewish Church. 3. Planted in his vineyard - established in the land of Judea. ... 5. The vine-dresser - the Lord Jesus",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 13:7",
+          "quote": "This parable is to be taken in connection with what goes before, and with our Saviour's calling the Jewish nation to repentance. It was spoken to illustrate the dealings of God with them, and their own wickedness under all his kindness ... 1. God, by the man who owned the vineyard. 2. The vineyard as the Jewish people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 13:6",
+          "quote": "fig tree--Israel, as the visible witness of God in the world, but generally all within the pale of the visible Church of God; a familiar figure (compare Isa 5:1-7 ; Joh 15:1-8 , &c.). ... came and sought fruit--a heart turned to God; the fruits of righteousness",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-13-9-aposiopesis",
       "kind": "figure",
       "form": "aposiopesis",
@@ -637,6 +1699,337 @@
           "quote": "The word well is not in the original, but the expression is abrupt: If it bear fruit!—supply it how you please, so as to express how wonderfully well-pleased both the owner and dresser will be.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-13-18-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 13:18-19",
+      "strength": "widely agreed",
+      "short": "A mustard seed grows into a tree",
+      "about": "Jesus asks what the kingdom of God is like, and answers: a mustard seed tossed into a garden grows into a tree, and birds nest in its branches. Many read it of the gospel and the kingdom growing to spread through the world; one writer stresses how small it is at first.",
+      "refs": [
+        "Matthew 13:31-32"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 13:19",
+        "words": "It is like a mustard seed that a man tossed into his garden",
+        "means": "the kingdom of God and its gospel, growing until it spreads through the world"
+      },
+      "evidence": "Matthew Henry says the gospel's progress is foretold in two parables: the kingdom begins as small as a mustard seed but grows great. Joseph Benson says the two parables show the gospel spreading quickly through the world in spite of all opposition. Brown (Jamieson, Fausset and Brown) says the mustard seed seems to point chiefly to the kingdom's outward growth.",
+      "limit": "Jesus gives the same likeness in Matthew 13:31-32. The note does not say whom the birds stand for.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 13:18-22",
+          "quote": "Here is, I. The gospel's progress foretold in two parables, which we had before ... it is like a grain of mustard-seed, a little thing, takes up but little room, makes but a little figure, and promises but little; yet, when sown in soil proper to receive it, it waxes a great tree ... though its beginning was small its latter end should greatly increase",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 13:18",
+          "quote": "The parable of \"the Leaven\" sets forth, perhaps, rather the inward growth of the kingdom, while \"the Mustard Seed\" seems to point chiefly to the outward.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 13:18-21",
+          "quote": "For he delivered a second time the parables of the grain of mustard-seed, and of the leaven, to show the efficacious operation of the gospel upon the minds of men, and its speedy propagation through the world in spite of all opposition.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-13-20-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 13:20-21",
+      "strength": "widely agreed",
+      "short": "Leaven works through all the flour",
+      "about": "Jesus likens the kingdom of God to leaven that a woman mixes into three measures of flour, until all of it is leavened. Many read it of the gospel working from within, in hearts and in the world, until it changes the whole; one writer adds that it works silently, without force.",
+      "refs": [
+        "Luke 12:1"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 13:21",
+        "words": "It is like leaven that a woman took and mixed into three measures of flour",
+        "means": "the gospel at work from within, spreading through hearts and through the world until the whole is changed"
+      },
+      "evidence": "Matthew Henry says the kingdom works like leaven, silently and without force, as Christ's doctrine spreads through mankind. Brown (Jamieson, Fausset and Brown) sees in it the kingdom's inward growth, the gospel's all-penetrating power that will yet mould all peoples. Joseph Benson says the two parables show the gospel working with power on the minds of men.",
+      "limit": "Elsewhere in Luke leaven pictures hypocrisy (Luke 12:1); these writers take it here as the gospel at work. One writer warns against pressing the woman and the three measures for a meaning.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 13:18-22",
+          "quote": "The gospel's progress foretold in two parables ... though it shall work like leaven, silently and insensibly, and without any force or violence ... A little leaven leaveneth the whole lump; so the doctrine of Christ will strangely diffuse its relish into the world of mankind",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 13:18-21",
+          "quote": "The parable of \"the Leaven\" sets forth, perhaps, rather the inward growth of the kingdom ... It yields more real satisfaction to see in this brief parable just the all-penetrating and assimilating quality of the Gospel, by virtue of which it will yet mould all institutions and tribes of men",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 13:18-21",
+          "quote": "For he delivered a second time the parables of the grain of mustard-seed, and of the leaven, to show the efficacious operation of the gospel upon the minds of men, and its speedy propagation through the world in spite of all opposition.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-13-24-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 13:24-27",
+      "strength": "commonly held",
+      "short": "The master of the house shuts the door",
+      "about": "Asked whether only a few will be saved, Jesus urges His hearers to enter through the narrow door while they can. He pictures the end of that time as a master of the house who gets up and shuts the door: those left outside knock and plead, but he answers that he does not know where they are from.",
+      "refs": [
+        "Luke 13:23"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 13:25",
+        "words": "After the master of the house gets up and shuts the door",
+        "means": "the time to enter God's kingdom coming to an end, after which those who let it pass by will knock and plead in vain"
+      },
+      "evidence": "John Calvin: Christ uses the comparison of a master of a house who shuts the door, for God will at last rise in judgment and shut out those who now claim a place in His family; the door is open while the Lord invites us. Albert Barnes: the figure is taken from a householder who keeps his doors open at the proper time, then shuts them; so a time comes when it is too late to enter heaven.",
+      "limit": "The writers place the shutting of the door at the judgment or at death; the note does not decide between them.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 13:25",
+          "quote": "God will at length arise in judgment, and shut out from his kingdom those who now lay claim to a place in his family. He employs the comparison of the master of a house ... rises and shuts the door ... By these words he warns us, that we must avail ourselves of the opportunity, while it is offered: for so long as the Lord invites us to himself, the door is, as it were, open",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 13:25",
+          "quote": "The figure here used is taken from the conduct of a housekeeper, who is willing to see his friends, and who at the proper time keeps his doors open. But there is a proper time for closing them, when he will not see his guests. ... So there is a proper time to seek an entrance into heaven; but there will be a time when it will be too late. At death the time will have passed by",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-8-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 14:8-11",
+      "strength": "widely agreed",
+      "short": "Take the last place, and be called up higher",
+      "about": "Seeing the guests choose the places of honor, Jesus tells them a parable. A guest who takes the best seat at a wedding banquet may be moved down in shame; one who takes the last place may be called up higher. Verse 11 gives the point: “everyone who exalts himself will be humbled.”",
+      "refs": [
+        "Luke 14:7"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 14:8",
+        "words": "When you are invited to a wedding banquet, do not sit in the place of honor",
+        "means": "humility before God, not mere good manners: whoever exalts himself will be humbled, and whoever humbles himself will be exalted (verse 11)"
+      },
+      "evidence": "John Calvin: Christ mocks their ambition by an apt parable, a comparison from men showing what we ought to be inwardly before God. Brown (Jamieson, Fausset and Brown): a parable, teaching something deeper than good manners. Adam Clarke: He teaches humility by a parable. Bede, in the Catena Aurea of Thomas Aquinas, follows Luke in calling it a parable: the Lord brings low whoever exalts himself.",
+      "limit": "It is a short piece of counsel more than a story, but Luke himself calls it a parable (verse 7).",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 14:7",
+          "quote": "This ambition of theirs Christ exposes to ridicule by an appropriate parable. ... It must be observed, that Christ is not now speaking of outward and civil modesty; for we often see that the haughtiest men excel in this respect, and civilly, as the phrase is, profess great modesty. But by a comparison taken from men, he describes what we ought to be inwardly before God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 14:7",
+          "quote": "a parable--showing that His design was not so much to inculcate mere politeness or good manners, as underneath this to teach something deeper ( Luk 14:11 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 14:7-11",
+          "quote": "He inculcates humility by a parable, Luk 14:7-11 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 14:7-11",
+          "at": "Bede, in the Catena Aurea on Luke 14:7-11",
+          "url": "https://www.ecatholic2000.com/catena/untitled-75.shtml",
+          "quote": "But as the Evangelist calls this admonition a parable, we must briefly examine what is its mystical meaning. ... But whoever exalteth himself because of his merits, the Lord shall bring low, and him who humbleth himself on account of his mercies, shall He exalt.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-16-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 14:16-24",
+      "strength": "widely agreed",
+      "short": "The great banquet the invited guests refused",
+      "about": "When a guest speaks of the feast in God's kingdom, Jesus tells of a man whose guests all make excuses, so he fills his house with the poor and crippled, then with people from the highways. Many read the host as God, the first guests chiefly as the Jews, and those from the highways as the Gentiles.",
+      "refs": [
+        "Luke 14:15"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 14:16",
+        "words": "A certain man prepared a great banquet and invited many guests",
+        "means": "God's feast of salvation in the gospel: those first invited, chiefly the Jews, make excuses, and the poor, the outcasts and the Gentiles are brought in"
+      },
+      "evidence": "Albert Barnes says the host represents God, the supper His provision for salvation, and the invitation His offer, above all to the Jews. Matthew Henry says Christ shows by a parable that the Jews would reject it and the Gentiles share it. Brown (Jamieson, Fausset and Brown) says it looks ahead to the kingdom reaching the whole world. Plumptre (Ellicott) says the giver of the feast is God.",
+      "limit": "The note covers Luke's telling; the like parable of a wedding feast in Matthew 22:1-14 is not treated here.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Luke 14:16",
+          "quote": "There is little difficulty in understanding this parable. The man who made the supper is, without doubt, designed to represent God; the supper, the provisions which he has made for the salvation of people; and the invitation, the offers which he made to people, particularly to the Jews, of salvation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 14:15-24",
+          "quote": "You Jews, who think to have the monopoly of it, will generally reject it, and the Gentiles will be the greatest sharers in it. ... This he shows by a parable, for, if he had spoken it plainly, the Pharisees would not have borne it. ... This refers to the calling of the Gentiles, to whom the apostles were to turn when the Jews refused the offer, and with them the church was filled.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 14:23",
+          "quote": "highways and hedges--outside the city altogether; historically, the heathen, sunk in the lowest depths of spiritual wretchedness ... Thus, this parable prophetically contemplates the extension of the kingdom of God to the whole world; and spiritually, directs the Gospel invitations to be carried to the lowest strata, and be brought in contact with the outermost circles, of human society.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 14:16",
+          "quote": "Here, as with so many of His parables, it is suggested by the occasion. Afterwards, as in Mat 22:1-13 , it is reproduced in an altered and expanded form. Here, as there, the giver of the feast is God. And bade many. — The sequel determines the primary application of the word to the Jewish people.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-28-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 14:28-30",
+      "strength": "widely agreed",
+      "short": "Count the cost before you build the tower",
+      "about": "To the crowds traveling with Him, Jesus pictures a man who wants to build a tower. He first sits down to count the cost, for if he lays the foundation and cannot finish, all who see it will mock him. Verse 33 applies it: “any one of you who does not give up everything he has cannot be My disciple.”",
+      "refs": [
+        "Luke 14:33"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 14:28",
+        "words": "Which of you, wishing to build a tower, does not first sit down and count the cost",
+        "means": "the cost of following Christ, to be weighed before one begins, since it is better not to begin than to begin and not finish"
+      },
+      "evidence": "Adam Clarke says the parable shows the folly of taking up discipleship without weighing its difficulties. Matthew Henry calls the tower the first of two similitudes: we must count the expense of our religion. John Calvin says the comparisons teach us to weigh beforehand what the gospel demands. Brown (Jamieson, Fausset and Brown) draws from it: better not begin than begin and not finish.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Luke 14:28",
+          "quote": "This parable represents the absurdity of those who undertook to be disciples of Christ, without considering what difficulties they were to meet with, and what strength they had to enable them to go through with the undertaking.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 14:25-35",
+          "quote": "Our Saviour here illustrates the necessity of it by two similitudes, the former showing that we must consider the expenses of our religion, the latter that we must consider the perils of it. (1.) When we take upon us a profession of religion we are like a man that undertakes to build a tower, and therefore must consider the expense of it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 14:28",
+          "quote": "We must consider beforehand what the profession of the gospel demands. ... Now the comparisons are exceedingly adapted to this object. Building is a tedious and vexatious matter, and one that gives little satisfaction on account of the expense. ... But a far more valuable reward awaits those who are the builders of the temple of God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 14:28",
+          "quote": "Common sense teaches men not to begin any costly work without first seeing that they have wherewithal to finish. And he who does otherwise exposes himself to general ridicule. ... In this simple sense of the parable ... two things are taught: (1) Better not begin ( Rev 3:15 ), than begin and not finish.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-14-31-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 14:31-32",
+      "strength": "widely agreed",
+      "short": "A king weighs his army before going to war",
+      "about": "Jesus adds a second picture: a king with ten thousand men, facing one who comes with twenty thousand, first sits down to weigh his chances; if he cannot win, he asks for terms of peace while the other is still far off. Verse 33 applies both pictures to the cost of being His disciple.",
+      "refs": [
+        "Luke 14:33"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 14:31",
+        "words": "what king on his way to war with another king will not first sit down and consider",
+        "means": "the conflict that following Christ brings, to be weighed beforehand, so that a disciple is ready to give up everything he has (verse 33)"
+      },
+      "evidence": "Matthew Henry: a disciple is like a man going to war and must weigh the hazard; he also reads it as a call to make peace with God. John Calvin: parables are not pressed in every point; we must be prepared. Brown (Jamieson, Fausset and Brown): a disciple must not despise his enemy's strength. Albert Barnes: details are not to be pressed; a follower of Jesus should weigh all the consequences.",
+      "limit": "Two writers warn against pressing every detail, such as the terms of peace. One also allows a second reading, in which the sinner at war with God should make peace with Him in time.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 14:25-35",
+          "quote": "(2.) When we undertake to be Christ's disciples we are like a man that goes to war, and therefore must consider the hazard of it, and the difficulties that are to be encountered ... This parable is another way applicable, and may be taken as designed to teach us to begin speedily to be religious ... Those that persist in sin make war against God ... it is our interest to make peace with him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 14:28",
+          "quote": "If a king find himself unable to endure the burden of a war, he prevents an ignominious defeat by seeking peace with his adversary. ... It would be idle to treat parables as applying in every minute point to the matter in hand. But our Lord simply means that we ought to be so well prepared, as not to be taken by surprise for want of a proper defense, or basely to turn our backs",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 14:28",
+          "quote": "Nor will any wise potentate enter on a war with any hostile power without first seeing to it that, despite formidable odds (two to one), he be able to stand his ground ... Even so, says our Lord, \"in the warfare you will each have to wage as My disciples, despise not your enemy's strength ... or else not begin at all, and make the best you can in such awful circumstances.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 14:32",
+          "quote": "These expressions are not to be improperly pressed in order to obtain from them a spiritual signification. The general scope of the parable is to be learned from the connection, and may be thus expressed: 1. Every man who becomes a follower of Jesus should calmly and deliberately look at all the consequences of such an act and be prepared to meet them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -751,6 +2144,64 @@
       ]
     },
     {
+      "id": "luke-15-11-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 15:11-32",
+      "strength": "widely agreed",
+      "short": "The lost son: a father runs to welcome him home",
+      "about": "Jesus tells of a younger son who wastes his share in a distant country and comes home, where his father runs to meet him; the older son refuses to join the feast. Many read the father as God, who welcomes sinners who repent, and the older son as those who grumbled that Jesus welcomed sinners.",
+      "refs": [
+        "Luke 15:1-2"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 15:11",
+        "words": "There was a man who had two sons",
+        "means": "the father is God, ready to pardon and coming to meet sinners who return to Him; the older son, those who murmur at His mercy to them"
+      },
+      "evidence": "John Calvin: the kind father pictures God, who comes to meet the returning sinner; the second part, those who murmur at His mercy. Matthew Henry: God is ready to receive great sinners who repent; the elder son is the Pharisees. Albert Barnes: it was right to rejoice over repenting sinners. Adam Clarke: it defends His receiving outcasts. E. H. Plumptre (Ellicott): the elder son is the Pharisees.",
+      "limit": "Some writers also read the two sons more widely, as the Gentiles and the Jews. The note gives the reading that the setting in verses 1 and 2 points to.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 15:11",
+          "quote": "This parable is nothing else than a confirmation of the preceding doctrine. In the first part is shown how readily God is disposed to pardon our sins, and in the second part ... is shown the great malignity and obstinacy of those who murmur at his compassion. ... To the kind father ... he compares God, who is not satisfied with pardoning those who pray to him, but even advances to meet them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 15:11-32",
+          "quote": "We have here the parable of the prodigal son, the scope of which is the same with those before, to show how pleasing to God the conversion of sinners is, of great sinners, and how ready he is to receive and entertain such, upon their repentance ... this latter represents the publicans and sinners ... and the Gentiles ... The former represents the Jews in general, and particularly the Pharisees",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 15:11",
+          "quote": "Jesus, to illustrate still farther the sentiment which he had uttered, and to show that it was proper to rejoice over repenting sinners, proceeds to show it by a most beautiful and instructive parable. ... This he shows by the feelings of a \"father\" rejoicing over the \"return\" of an ungrateful and dissipated son.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 15:32",
+          "quote": "This, as well as the two preceding parables, was designed to vindicate the conduct of our blessed Lord in receiving tax-gatherers and heathens; and as the Jews, to whom it was addressed, could not but approve of the conduct of this benevolent father, and reprobate that of his elder son, so they could not but justify the conduct of Christ towards those outcasts of men",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 15:11",
+          "quote": "In the immediate application of the parable, the father is the great Father of the souls of men; the elder son represents the respectably religious Pharisees; the younger stands for the class of publicans and sinners. ... On a wider scale, but with a less close parallelism, the elder son may stand for Israel according to the flesh; the younger for the whole heathen world.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-15-21-aposiopesis",
       "kind": "figure",
       "form": "aposiopesis",
@@ -795,6 +2246,111 @@
           "quote": "He was going on in his submission, but one word we find in his purpose to say ... which we do not find that he did say ... and that was, Make me as one of thy hired servants. We cannot think that he forgot it, much less that he changed his mind ... but his father interrupted him, prevented his saying it",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-16-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 16:1-8",
+      "strength": "widely agreed",
+      "short": "A shrewd manager prepares for the day of account",
+      "about": "A rich man's manager, told to turn in his account, cuts what his master's debtors owe so that they will welcome him into their homes. The master commends his shrewdness. Many read it of goods that are God's, held in trust by all, to be used kindly for others before the account is due.",
+      "refs": [
+        "Luke 16:9"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 16:1",
+        "words": "There was a rich man whose manager was accused of wasting his possessions",
+        "means": "anyone entrusted with goods that are God's, who should use them wisely and kindly toward others before giving account to Him"
+      },
+      "evidence": "John Calvin: we are to deal kindly and generously with others, as God's gifts are entrusted to us until we give account. Albert Barnes: the rich man is God; it warns against the love of money, for we cannot serve God and mammon. Matthew Henry: all are stewards of what is God's. Augustine, in the Catena Aurea of Thomas Aquinas: if a deceitful steward was praised, how much more those who obey God.",
+      "limit": "The master commends him for acting shrewdly, not for his dishonesty. Writers differ on whom the manager first pictured, and the note does not press each detail of the story.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 16:1",
+          "quote": "The leading object of this parable is, to show that we ought to deal kindly and generously with our neighbors; that, when we come to the judgment seat of God, we may reap the fruit of our liberality. ... as all the blessings which God confers upon us are committed by Him to our administration, our Lord now lays down a method of procedure",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 16:1",
+          "quote": "He related this parable, therefore, to show them \"the danger of the love of money;\" ... We are to keep in view the great moral truth taught in it, that we cannot serve God and mammon ... By the \"rich man,\" here, is doubtless represented God. By the \"steward,\" those who are his professed followers",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 16:1-18",
+          "quote": "The parable itself, in which all the children of men are represented as stewards of what they have in this world, and we are but stewards. Whatever we have, the property of it is God's; we have only the use of it, and that according to the direction of our great Lord, and for his honour.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 16:8-13",
+          "at": "Augustine, Questions on the Gospels ii. 34",
+          "url": "https://www.ecatholic2000.com/catena/untitled-77.shtml",
+          "quote": "On the other hand this parable is spoken, that we should understand that if the steward who acted deceitfully, could be praised by his lord, how much more they please God who do their works according to His commandment.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-16-19-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 16:19-31",
+      "strength": "widely agreed",
+      "short": "The rich man and Lazarus: a warning beyond death",
+      "about": "Jesus tells of a rich man who lived in splendor while the beggar Lazarus lay at his gate. After death Lazarus is comforted at Abraham's side and the rich man is in agony, with a great chasm between them. Many read it as a parable warning those who live for wealth and pleasure and ignore the poor.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 16:19",
+        "words": "there was a rich man dressed in purple and fine linen",
+        "means": "those who live for riches and pleasure and do not relieve the poor, and what awaits them in the world to come"
+      },
+      "evidence": "Albert Barnes: most likely a parable, to show the Pharisees they might be lost for all their boasted righteousness. Joseph Benson: an awakening parable that unveils the rewards and punishments of eternity. E. H. Plumptre (Ellicott): it teaches what comes of the friendship money buys. Cyril of Alexandria, in the Catena Aurea of Thomas Aquinas: a parable warning the rich who do not relieve the poor.",
+      "limit": "One writer, who calls it a parable, says it matters little whether it is a parable or a real history, since its truths are equally clear either way.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Luke 16:19",
+          "quote": "The probability is that this narrative is to be considered as a parable, referring not to any particular case which \"had\" actually happened, but teaching that such cases \"might\" happen. ... The design of the parable was to impress all these truths more vividly on the mind, and to show the Pharisees that, with all their boasted righteousness ... they might be lost.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Luke 16:19",
+          "quote": "set before them the consequences thereof in a most awakening parable, in which he unveils before their sight the rewards and punishments of the eternal world. ... It matters not much, however, to us, in the application of it, whether it be a parable or a real history, since the important truths contained in it are equally clear and equally certain, in whichever light it be considered.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Luke 16:19",
+          "quote": "On the one side, among those who listened to our Lord, were the Pharisees, living in the love of money and of the enjoyments which money purchased ... They are now taught, and the disciples are taught also, what comes of the other friendship that men for the most part secure with money. It is clear that the section of Pharisees for whom the parable was specially designed",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 16:19-21",
+          "at": "Cyril of Alexandria, Catena Aurea on Luke 16:19-21",
+          "url": "https://www.ecatholic2000.com/catena/untitled-77.shtml",
+          "quote": "This discourse concerning the rich man and Lazarus was written after the manner of a comparison in a parable, to declare that they who abound in earthly riches, unless they will relieve the necessities of the poor, shall meet with a heavy condemnation.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -844,6 +2400,50 @@
           "quote": "The rich man in a. and a.; Lazarus in b. and b.",
           "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "luke-17-7-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 17:7-10",
+      "strength": "widely agreed",
+      "short": "The servant who has only done his duty",
+      "about": "Jesus asks who would seat a servant as soon as he comes in from the field, instead of having him serve the meal first, or thank him for doing as he was told. So His disciples, when they have done all they were commanded, are to say, “We are unworthy servants; we have only done our duty.”",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 17:7",
+        "words": "Which of you whose servant comes in from plowing or shepherding in the field",
+        "means": "God's servants, who owe Him all their service, so that what they do lays Him under no debt to them and leaves no room for pride"
+      },
+      "evidence": "John Calvin: the object of this parable is that God owns all we are and do, so our zeal lays Him under no obligation by merit. Albert Barnes: a parable on the rewards the disciples expected, which come at God's pleasure and not as merit. Theophylact, in the Catena Aurea of Thomas Aquinas: a fit example, warning the apostles not to boast of their virtues.",
+      "limit": "The story speaks of what a servant can claim, not of what God may freely give: one writer adds that the disciples would still be rewarded, at the proper time.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Luke 17:7",
+          "quote": "The object of this parable is to show that God claims all that belongs to us as his property, and possesses an entire control over our persons and services; and, therefore, that all the zeal that may be manifested by us in discharging our duty does not lay him under obligation to us by any sort of merit; for, as we are his property, so he on his part can owe us nothing.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Luke 17:7",
+          "quote": "This parable appears to have been spoken with reference to the rewards which the disciples were expecting in the kingdom of the Messiah. ... 1. That they should be rewarded as a servant would be provided for ... 3. That this reward was not to be expected as a matter of \"merit,\" but would be given at the good pleasure of God, for they were but unprofitable servants.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 17:7-10",
+          "at": "Theophylact, Catena Aurea on Luke 17:7-10",
+          "url": "https://www.ecatholic2000.com/catena/untitled-78.shtml",
+          "quote": "Because faith makes its possessor a keeper of God’s commandments, and adorns him with wonderful works; it would seem from thence that a man might thereby fall into the sin of pride. Our Lord therefore forewarned His Apostles by a fit example, not to boast themselves in their virtues",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -903,6 +2503,104 @@
       ]
     },
     {
+      "id": "luke-18-10-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 18:10-14",
+      "strength": "widely agreed",
+      "short": "The Pharisee and the tax collector at prayer",
+      "about": "Luke gives the point first: Jesus told it to some who “trusted in their own righteousness and viewed others with contempt.” A Pharisee thanks God he is not like other men; a tax collector beats his breast and asks for mercy. It is the tax collector, not the Pharisee, who goes home justified.",
+      "refs": [
+        "Luke 18:9"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 18:10",
+        "words": "Two men went up to the temple to pray",
+        "means": "the proud, who trust in their own righteousness and are not accepted, and the humble sinner who asks for mercy and is accepted by God"
+      },
+      "evidence": "Matthew Henry: it shows the folly of those who trust in their own righteousness; it holds no likeness, but describes the proud and the humble before God. Adam Clarke: it answers how a sinner is justified. Augustine, in the Catena Aurea of Thomas Aquinas: a parable for humility and against pride.",
+      "limit": "One writer notes that, though it is called a parable, it pictures nothing else: the two men themselves show the proud and the humble at prayer.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 18:9-14",
+          "quote": "Now Christ by this parable would show such their folly, and that thereby they shut themselves out from acceptance with God. This is called a parable, though there be nothing of similitude in it; but it is rather a description of the different temper and language of those that proudly justify themselves, and those that humbly condemn themselves; and their different standing before God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 18:9-14",
+          "quote": "How shall I be justified? is a most important question, which the parable of the Pharisee and the publican most distinctly answers. A deep consciousness of sin, humiliation of heart, and taking refuge by faith in the great atonement, is the way, and the only way.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Luke 18:9-14",
+          "at": "Augustine, Sermon 115",
+          "url": "https://www.ecatholic2000.com/catena/untitled-79.shtml",
+          "quote": "Since faith is not a gift of the proud but of the humble, our Lord proceeds to add a parable concerning humility and against pride.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-19-12-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 19:12-27",
+      "strength": "widely agreed",
+      "short": "The ten minas: a king goes away and will return",
+      "about": "Jesus told it because “they thought the kingdom of God would appear imminently.” A nobleman goes to a distant country to claim his kingship, leaves ten servants a mina each to trade with, and on his return judges the servants and the subjects who rejected him. Many read the nobleman as Christ.",
+      "refs": [
+        "Luke 19:11"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 19:12",
+        "words": "A man of noble birth went to a distant country to lay claim to his kingship and then return",
+        "means": "Christ, who must go away to receive His kingdom before it appears, leaving His servants work to do until He returns and calls them to account"
+      },
+      "evidence": "Albert Barnes: it was told to correct the notion that the kingdom would come at once; He would first go away. John Calvin: Christ is like the nobleman, and His reign was not yet set up. Adam Clarke: the citizens are the Jews who would reject Him, the servants His disciples, rewarded as they use His gifts. David Brown (Jamieson, Fausset and Brown): the return is His second coming.",
+      "limit": "Writers differ on whether the parable of the talents in Matthew 25 is this same parable or a different one, and the note does not decide.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Luke 19:11",
+          "quote": "To \"correct that notion\" seems to have been the main design of this parable. To do that, he tells them of a man who had a right to the kingdom, yet who, \"before\" taking possession of it, went into another kingdom to receive a confirmation of his title, thus intimating that \"he\" would also go away \"before\" he would completely set up his kingdom",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Luke 19:12",
+          "quote": "This point is common to both, that Christ resembles a nobleman, who, undertaking a long journey for the sake of obtaining a kingdom, has entrusted his money to the management of his servants, and so on. ... In both parts Christ intended to show, that the disciples were greatly mistaken in supposing that his royal authority was already established",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Luke 19:12",
+          "quote": "In the following parable there are two distinct morals intended ... By the behavior of the citizens ... we are taught that the Jews, who were the people of Christ, would reject him ... the disciples of Christ, who are his servants; and who made a good improvement of the favors granted them by the Gospel, should be rewarded in proportion to the improvement made under the means of grace.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 19:12",
+          "quote": "PARABLE OF THE POUNDS. (Luke 19:11-27) a far country--said to put down the notion that He was just on His way to set up His kingdom, and to inaugurate it by His personal presence. ... to return--at His second coming.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "luke-19-42-aposiopesis",
       "kind": "figure",
       "form": "aposiopesis",
@@ -956,6 +2654,90 @@
           "quote": "The manner of speaking is abrupt: If thou hadst known! ... How happy had it been for thee! Or, \"If thou hadst known, thou wouldest have wept for thyself, and I should have no occasion to weep for thee, but should have rejoiced rather.\"",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "luke-20-9-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 20:9-16",
+      "strength": "widely agreed",
+      "short": "The tenants kill the vineyard owner's beloved son",
+      "about": "Jesus tells of a man who rents out his vineyard. The tenants beat the servants he sends for his share, then kill his beloved son. The owner will destroy them and give the vineyard to others. Many read the servants as the prophets and the son as Christ; the rulers saw it was aimed at them.",
+      "refs": [
+        "Luke 20:17-19"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 20:9",
+        "words": "A man planted a vineyard, rented it out to some tenants",
+        "means": "the rulers of God's people, who mistreated the prophets God sent for His due and would kill His Son, and so would lose their place"
+      },
+      "evidence": "Matthew Henry: Christ spoke it against those who would not own His authority; by persecuting the prophets and at last Christ, the nation provoked God to take away its privileges. John Calvin: the rulers defraud God of His right, as long ago with the prophets, and now are ready to slay His Son. David Brown (Jamieson, Fausset and Brown): the tenants are the people's ordinary spiritual guides.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Luke 20:9-19",
+          "quote": "Christ spoke this parable against those who were resolved not to own his authority, though the evidence of it was ever so full and convincing ... The scope of it is to show that the Jewish nation, by persecuting the prophets, and at length Christ himself, had provoked God to take away from them all their church privileges, and to abandon them to ruin.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 21:33",
+          "quote": "The substance of this parable is, that it is no new thing, if the priests and the other rulers of the Church wickedly endeavor to defraud God of his right; for long ago they practiced the same kind of robbery towards the prophets, and now they are ready to slay his Son; but they will not go unpunished, for God will arise to defend his right.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Luke 20:9",
+          "quote": "In Mat 21:33 additional points are given, taken literally from Isa 5:2, to fix down the application and sustain it by Old Testament authority. husbandmen--the ordinary spiritual guides of the people, under whose care and culture the fruits of righteousness might be yielded. went, &c.--leaving it to the laws of the spiritual husbandry during the whole length of the Jewish economy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "luke-21-29-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Luke 21:29-31",
+      "strength": "widely agreed",
+      "short": "Budding trees show that summer is near",
+      "about": "Jesus points to the fig tree and all the trees: when they sprout leaves, anyone can see that summer is near. “So also, when you see these things happening, know that the kingdom of God is near.” The signs He has just foretold can be read as surely as the leaves.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Luke 21:29",
+        "words": "Look at the fig tree and all the trees",
+        "means": "the signs Jesus has just foretold, which show that the kingdom of God is near as surely as new leaves show that summer is coming"
+      },
+      "evidence": "Adam Clarke: Jesus illustrated all the facts He had foretold by the simile of a fig tree. Matthew Henry: the disciples might judge the signs of the times as surely as the approach of summer by the budding trees. John Calvin calls it a similitude but takes it as more than a sign that Christ's coming is near: the frail state of the Church is no sign that it is dying.",
+      "limit": "One writer takes it further: as trees look weaker in spring just before new growth, so the weakness of the Church under trial is no sign that it is dying.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Luke 21:29",
+          "quote": "He spake to them a parable - Illustrated all these predicted facts by the simile of a fig tree.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Luke 21:29-38",
+          "quote": "Christ appoints his disciples to observe the signs of the times, which they might judge by, if they had an eye to the foregoing directions, with as much certainty and assurance as they could judge of the approach of summer by the budding forth of the trees ... As in the kingdom of nature there is a chain of causes, so in the kingdom of providence there is a consequence of one event upon another.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 24:32",
+          "quote": "Now learn a similitude from the fig-tree. I do not suppose the meaning of this to be merely that ... there will be as evident a sign that the coming of Christ is nigh, as that by which we know with certainty that the summer is at hand ... but, in my opinion, Christ expresses something else. ... the weak and frail condition of the Church ought not to lead us to conclude that it is dying",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

@@ -112,6 +112,53 @@
       ]
     },
     {
+      "id": "galatians-3-24-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Galatians 3:24-25",
+      "strength": "widely agreed",
+      "short": "The law pictured as a child’s guardian",
+      "about": "Paul pictures the law as a guardian: the household slave who watched over a boy and took him to school. Its charge was only for the years of childhood, and it led to Christ, that we might be justified by faith. Now that faith has come, believers are no longer under it.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Galatians 3:24",
+        "words": "the law became our guardian",
+        "means": "the law of Moses, which held God's people under its strict charge for a set time and pointed them to Christ"
+      },
+      "original": {
+        "note": "In Paul's Greek “guardian” is paidagōgos, the slave who had charge of a boy and took him to school and back; the English word pedagogue comes from it.",
+        "strong": [
+          "G3807"
+        ]
+      },
+      "evidence": "John Calvin calls it Paul's second comparison: a schoolmaster serves only for childhood, and the law's authority was for a set age. Adam Clarke calls it a beautiful metaphor: the pedagogue was the servant who took children to school, as the law directed us to Christ. W. Sanday (Ellicott) explains the pedagogue slave, from whose name the English word comes, and calls it a metaphor.",
+      "limit": "One writer warns against pressing the metaphor so far as to make Christ the schoolmaster to whom the guardian brings the child.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Galatians 3:24",
+          "quote": "This is the second comparison ... A schoolmaster is not appointed for the whole life, but only for childhood ... The comparison applies in both respects to the law, for its authority was limited to a particular age, and its whole object was to prepare its scholars in such a manner, that, when its elementary instructions were closed, they might make progress worthy of manhood.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Galatians 3:24",
+          "quote": "The παιδαγωγος, pedagogue, is not the schoolmaster, but the servant who had the care of the children to lead them to and bring them back from school ... Thus the law did not teach us the living, saving knowledge; but, by its rites and ceremonies, and especially by its sacrifices, it directed us to Christ, that we might be justified by faith. This is a beautiful metaphor",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Galatians 3:24",
+          "quote": "The Greek word is that from which is derived the English “pedagogue.” Originally it meant the slave who was placed in charge of a child, and whose duty it was to conduct it to school. ... They may be retained, provided that the metaphor is not pressed to the extent of supposing that Christ represents the schoolmaster proper to whom the child is led by the pedagogue slave.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "galatians-4-24-allegory",
       "kind": "figure",
       "form": "allegory",
@@ -173,6 +220,50 @@
       ]
     },
     {
+      "id": "galatians-5-9-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Galatians 5:9",
+      "strength": "widely agreed",
+      "short": "A common saying: a little leaven spreads",
+      "about": "Paul warns the Galatians with a saying he also uses in 1 Corinthians 5:6: a little leaven works through the whole batch of dough. What seems small will not stay small. The writers read the leaven as a few false teachers, a few who have fallen away, or a little false doctrine.",
+      "refs": [
+        "1 Corinthians 5:6"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "ref": "Galatians 5:9",
+        "words": "A little leaven works through the whole batch of dough",
+        "means": "a little evil let in, such as a few false teachers, a few who fall away, or a little false doctrine, which soon spreads through the whole"
+      },
+      "evidence": "Albert Barnes calls it evidently a proverbial expression and reads the leaven as a few false teachers whose teaching spread through the churches. Adam Clarke calls it a proverbial expression, aptly applied to the least tincture of false doctrine, which soon perverts the whole man. W. Sanday (Ellicott) calls it a proverb: the malcontents may be few, but they will soon ruin the whole church.",
+      "limit": "The writers differ on what the leaven stands for. One takes it as a few who have fallen away rather than a little bad doctrine; another applies the saying to each person who receives a little false doctrine, which soon influences his whole conduct and perverts him.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Galatians 5:9",
+          "quote": "This is evidently a proverbial expression; see it explained in the notes at Co1 5:6 . ... the apostle means to say, that the influence which had brought this change about was at first small and unimportant; that there might have been but a few teachers of that kind ... but that the doctrines thus infused into the churches, had spread like leaven, until the whole mass had become affected.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Galatians 5:9",
+          "quote": "A proverbial expression, see Co1 5:6 , very aptly applied to those who receive the smallest tincture of false doctrine, relative to the things essential to salvation, which soon influences the whole conduct, so that the man becomes totally perverted.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Galatians 5:9",
+          "quote": "The proverb is true which says that a little leaven leavens the whole mass of dough. And so, in your case, the malcontents may be few, but they will soon ruin the whole Church. It seems decidedly more in accordance with the context to take the “little leaven” as referring rather to a few seceders than to a little bad doctrine.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "galatians-5-17-antimetabole",
       "kind": "figure",
       "form": "antimetabole",
@@ -198,6 +289,58 @@
           "quote": "This figure repeats the word or words in a reverse order, for the purpose of opposing one thing to another, or of contrasting two or more things. ... a “ The flesh lusteth b against the spirit, b and the spirit a against the flesh. ”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "galatians-6-7-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Galatians 6:7-8",
+      "strength": "widely agreed",
+      "short": "“Whatever a man sows, he will reap”",
+      "about": "Paul pictures a life as sowing and its end as harvest. What a man does is the seed, and he will reap a crop of the same kind: from sowing to please the flesh, destruction; from sowing to please the Spirit, eternal life.",
+      "refs": [
+        "Galatians 6:6",
+        "2 Corinthians 9:6"
+      ],
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Galatians 6:7",
+        "words": "Whatever a man sows, he will reap in return",
+        "means": "what a person does in this life is seed, and the harvest to come answers to it, ruin or eternal life"
+      },
+      "evidence": "John Calvin: Paul answers what holds back giving with a comparison drawn from seed-time, the same metaphor as in 2 Corinthians. Albert Barnes: the figure is from farming; every grain yields its own kind, and so do our works. W. Sanday (Ellicott): the seed is a man's actions, sown in the field of the flesh or of the Spirit. Adam Clarke: to sow is a man's life here, to reap his lot hereafter.",
+      "limit": "Several of the writers tie the saying first to giving to those who teach the word (verse 6), then widen it to all a person does.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Galatians 6:7",
+          "quote": "Our liberality is restrained by the supposition, that whatever passes into the hands of another is lost to ourselves ... Paul meets these views by a comparison drawn from seed-time, which, he tells us, is a fit representation of acts of beneficence. On this subject we had occasion to speak, in expounding the Second Epistle to the Corinthians, where the same metaphor was employed.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Galatians 6:7",
+          "quote": "This figure is taken from agriculture. A man who sows wheat, shall reap wheat; he who sows barley, shall reap barley; he who sows cockle, shall reap cockle. Every kind of grain will produce grain like itself. So it is in regard to our works. He who is liberal, shall be dealt with liberally; he who is righteous, shall be rewarded; he who is a sinner, shall reap according to his deeds.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Galatians 6:8",
+          "quote": "The seed sown is a man’s actions here on earth. If the object of those actions is merely self-indulgence, they are, as it were, sown in a field the owner of which is the flesh ... where all the actions are like seed deposited in the field of which the owner and lord is the Spirit, that same Spirit will reward them in the world to come with the gift of everlasting life.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Galatians 6:8",
+          "quote": "In like manner, he that sows to the flesh - who indulges his sensual and animal appetites, shall have corruption as the crop ... To sow, here, means transacting the concerns of a man's natural life. To reap, signifies his enjoyment or punishment in another world.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

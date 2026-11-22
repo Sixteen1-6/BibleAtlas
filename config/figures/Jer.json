@@ -1,6 +1,177 @@
 {
   "notes": [
     {
+      "id": "jeremiah-8-20-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 8:20",
+      "strength": "widely agreed",
+      "short": "A saying: “The harvest has passed”",
+      "about": "The people cry out: “The harvest has passed, the summer has ended, but we have not been saved.” The words are read as a common saying of hope that failed: season after season went by, and the rescue they looked for never came.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 8:20",
+        "words": "The harvest has passed, the summer has ended",
+        "means": "one hope of rescue after another has gone by with the seasons, and no rescue has come"
+      },
+      "evidence": "Adam Clarke says the words seem to have been a proverb: deliverance was looked for one year, then the next, and none came. A. R. Fausset (Jamieson, Fausset and Brown) calls them proverbial: one season of hope after another passed with no deliverance. E. H. Plumptre (Ellicott) says the whole saying had probably become proverbial for the deepest misery.",
+      "limit": "The writers differ on what the seasons stand for: the years of a siege, a year of famine, or one hope after another. Two of them hold the words only likely to be a proverb.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Jeremiah 8:20",
+          "quote": "This seems to have been a proverb: \"We expected deliverance the first year - none came. We hoped for it the second year - we are disappointed; we are not saved - no deliverance is come.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 8:20",
+          "quote": "Proverbial. Meaning: One season of hope after another has passed, but the looked-for deliverance never came, and now all hope is gone.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 8:20",
+          "quote": "They are as men in a year of famine — “The harvest is past,” and there has been no crop for men to reap. ... All has failed alike. The whole formula had probably become proverbial for extremest misery.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-11-19-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 11:19",
+      "strength": "widely agreed",
+      "short": "A saying: “Destroy the tree with its fruit”",
+      "about": "Jeremiah learns of a plot against his life and quotes the plotters' words: “Let us destroy the tree with its fruit.” The next words say plainly what the saying means: “let us cut him off from the land of the living.” Many read the tree as the prophet and the fruit as his message.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 11:19",
+        "words": "Let us destroy the tree with its fruit",
+        "means": "kill Jeremiah outright, and with him put an end to the message he brought"
+      },
+      "evidence": "Matthew Henry calls it a proverbial expression: destroy the prophet and his prophecy, or perhaps the man and his family. C. F. Keil (Keil and Delitzsch) calls it figurative or proverbial, put plainly in the next clause. A. R. Fausset (Jamieson, Fausset and Brown): proverbial, the man the tree, his teaching the fruit. E. H. Plumptre (Ellicott): proverbial for ending the man and his work.",
+      "limit": "One of the writers allows that the fruit may be the prophet's family, though he prefers his message.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Jeremiah 11:18-23",
+          "quote": "They said concerning Jeremiah, Let us destroy the tree with the fruit thereof—a proverbial expression, meaning, \"Let us utterly destroy him root and branch. Let us destroy both the father and the family\" (as, when Naboth was put to death for treason, his sons were put to death with him), or rather \"both the prophet and the prophecy; let us kill the one and defeat the other.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 11:19",
+          "quote": "In like manner Jeremiah had no suspicion that his countrymen were harbouring evil designs against him. ... The saying is a figurative or proverbial one: we will destroy the tree ... The proverbial saying is given in plain words in the next clause. We will cut him (i.e., the prophet) off, etc.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 11:19",
+          "quote": "Proverbial, to express the destruction of cause and effect together. The man is the tree; his teaching, the fruit. Let us destroy the prophet and his prophecies; namely, those threatening destruction to the nation, which offended them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 11:19",
+          "quote": "Literally, the tree with its bread, here taken for its “fruit.” ... The phrase would seem to be proverbial for total destruction, not of the man only, but of his work.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-12-5-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 12:5",
+      "strength": "widely agreed",
+      "short": "Racing men on foot, then horses",
+      "about": "The LORD answers Jeremiah's complaint with two sayings. If men on foot have worn him out, how can he compete with horses? If he stumbles in a peaceful land, how will he do in the thickets of the Jordan? The trials he has met are small beside those still to come.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 12:5",
+        "words": "If you have raced with men on foot and they have worn you out, how can you compete with horses?",
+        "means": "if lesser trials have worn him out, how will he bear the far greater ones still to come"
+      },
+      "evidence": "R. Payne Smith (Barnes' Notes) says the LORD rebukes Jeremiah's impatience by two proverbial sayings: greater trials of faith are in store. Adam Clarke calls the words proverbial: if small evils make him complain, what of great ones? A. R. Fausset (Jamieson, Fausset and Brown) calls it a proverbial phrase, the men of Anathoth the men on foot and those of Jerusalem the horsemen.",
+      "limit": "The writers differ on who the men on foot and the horses stand for, such as the men of Anathoth and of Jerusalem, or lesser and greater enemies, and on whether the Jordan's thickets point to its floods or to its lions.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Jeremiah 12:5",
+          "quote": "Yahweh rebukes Jeremiah's impatience, showing him by two proverbial sayings, that there were still greater trials of faith in store for him. Prosperous wickedness is after all a mere ordinary trial, a mere \"running with the footmen;\" he will have to exert far greater powers of endurance.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 12:5",
+          "quote": "If the smallest evils to which thou art exposed cause thee to make so many bitter complaints, how wilt thou feel when, in the course of thy prophetic ministry, thou shalt be exposed to much greater, from enemies much more powerful? ... But still the words are proverbial, and the above is their meaning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 12:5",
+          "quote": "horses--that is, horsemen: the argument a fortiori. A proverbial phrase. The injuries done thee by the men of Anathoth (\"the footmen\") are small compared with those which the men of Jerusalem (\"the horsemen\") are about to inflict on thee.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-13-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 13:1-11",
+      "strength": "widely agreed",
+      "short": "A ruined loincloth acts out Judah's fate",
+      "about": "The LORD tells Jeremiah to buy a linen loincloth and wear it, then hide it in a crevice of the rocks at Perath. Many days later he digs it up, ruined. Verses 9 to 11 explain the act: the LORD made His people cling to Him like a loincloth, and now He will ruin their pride.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 13:4",
+        "words": "hide it there in a crevice of the rocks",
+        "means": "Judah sent away into exile, where its pride would be ruined as the hidden loincloth was"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) calls it a symbolical action really carried out, the loincloth an emblem of Israel, its decay by the Euphrates the ruin of the people. Matthew Henry calls it a sign, sees no difficulty in two journeys, and ties the Euphrates to Babylon, the place of bondage. E. H. Plumptre (Ellicott) says placing the girdle by the Euphrates stood for the seventy years of exile.",
+      "limit": "The writers cited weigh whether the two long journeys to Perath were really made, and see no reason to doubt it; they take Perath as the Euphrates.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 13:1-11",
+          "quote": "With regard to the symbolical action imposed on the prophet and performed by him ... pointing as it does to a literal and real carrying out of God's command ... the girdle is the emblem of Israel ... the mouldering of the girdle in the earth by the Euphrates signifies not the moral but the physical decay of the covenant people",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 13:1-11",
+          "quote": "A sign, the marring of a girdle, which the prophet had worn for some time, by hiding it in a hole of a rock near the river Euphrates. It was usual with the prophets to teach by signs ... I see no inconvenience in supposing the prophet to have made two journeys thither ... Euphrates being the river of Babylon, which was to be the place of their bondage, was a material circumstance in this sign.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 13:6",
+          "quote": "Here again the interval is undefined, but it must have been long enough (we may conjecture, perhaps, seventy days) to be an adequate symbol of the seventy years’ exile which the act of placing the girdle by Euphrates represented.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "jeremiah-22-29-doubling",
       "kind": "figure",
       "form": "doubling",
@@ -164,6 +335,54 @@
       ]
     },
     {
+      "id": "jeremiah-16-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 16:1-9",
+      "strength": "widely agreed",
+      "short": "Jeremiah's life as a sign: no wife, no mourning",
+      "about": "The LORD forbids Jeremiah to marry and have children, to go into a house where there is a funeral meal, or to sit down at a feast. His own life carries the message: children born in the land will die unmourned, mourning itself will cease, and the voices of bride and bridegroom will be silenced.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 16:2",
+        "words": "You must not marry or have sons or daughters in this place",
+        "means": "the coming disaster will be so great that marriage and children, and even mourning and feasting, will give way to it"
+      },
+      "evidence": "Henry says the prophet is here for a sign to the people, forbearing marriage, mourning and mirth in the prospect of sad times. Payne Smith (Barnes' Notes) calls the ban on marriage a sign that the calamity would override all ordinary duties. Keil (Keil and Delitzsch) says he adapts his actions to convey his message. Calvin finds the ban full of meaning, and his single life perhaps a living sign.",
+      "limit": "One writer says the command came in a vision and leaves open whether Jeremiah stayed unmarried, though he thinks it probable that he did, so that his single life was itself a sign.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Jeremiah 16:1",
+          "quote": "The prophet is here for a sign to the people. They would not regard what he said; let it be tried whether they will regard what he does. ... Others go on in their usual course, but he, in the prospect of these sad times, is forbidden and therefore forbears marriage, mourning for the dead, and mirth.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Jeremiah 16:2",
+          "quote": "As marriage was obligatory upon the Jews, the prohibition of it to Jeremiah was a sign that the impending calamity was so great as to override all ordinary duties.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 16:1",
+          "quote": "He is both to abstain from the customary usages of mourning for the dead, and to keep away from mirthful feasts, in order to give the people to understand that, by reason of the multitude of the dead, customary mourning will have to be given up, and that all opportunity for merry-making will disappear ... Adapting thus his actions to help to convey his message",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 16:2",
+          "quote": "But the prohibition to marry was full of meaning; it was to shew that the people were wholly given up to destruction. ... he received this command in a vision; and though he might not have been unmarried, he might still have proclaimed this prophecy ... his celibacy might have been intended to be, as it were, a living representation, in order to produce an effect on the Jews.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "jeremiah-17-5-turns",
       "kind": "parallelism",
       "form": "turns",
@@ -213,6 +432,100 @@
       ]
     },
     {
+      "id": "jeremiah-17-11-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 17:11",
+      "strength": "commonly held",
+      "short": "A saying: the partridge hatching eggs not its own",
+      "about": "The verse sets the man who makes a fortune unjustly beside a partridge hatching eggs it did not lay. It is read as a common saying of the day: as the young hatched from another bird's eggs leave her, his riches desert him in the middle of his days, and in the end he is the fool.",
+      "refs": [
+        "Jeremiah 17:10"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 17:11",
+        "words": "Like a partridge hatching eggs it did not lay is the man who makes a fortune unjustly",
+        "means": "riches gained unjustly leave the man who gained them, as the young hatched from eggs not her own leave the bird"
+      },
+      "evidence": "Keil (Keil and Delitzsch) calls it a common saying joined to verse 10: the proverb likens the man who gains riches by wrong to a partridge hatching eggs it did not lay, whose young forsake her. E. H. Plumptre (Ellicott's Commentary) says a popular belief about the bird made it a parable of the covetous man, whose riches fly away.",
+      "limit": "The verse does not call itself a saying: it is read as one in common use, built on a belief of the day about the bird and applied to the man who gains riches unjustly.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 17:10-11",
+          "quote": "With this is joined the common saying as to the partridge, Jer 17:11 . ... The proverb ran: He that gains riches, and that by wrong, i.e., in an unjust, dishonourable manner, is like a partridge which hatches eggs it has not laid. ... The point of the comparison, that the young hatched out of another bird's eggs forsake the mother, is brought out in the application of the proverb.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 17:11",
+          "quote": "The words point to a popular belief among the Jews that the partridge steals the eggs of other birds and adds them to her own, with the result that when the eggs are hatched the broods desert her ... It thus became a parable of the covetous man, whose avarice leads him to pile up riches which are not rightly his, and which after a while “make to themselves wings” and are seen no more.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-19-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 19:1-13",
+      "strength": "widely agreed",
+      "short": "Jeremiah shatters a clay jar before the elders",
+      "about": "The LORD sends Jeremiah to buy a clay jar, take elders and priests to the Valley of Ben-hinnom, and proclaim disaster for their idolatry. Then he is to shatter the jar before them. The act shows what the LORD will do: He will shatter the nation and the city like a jar that can never be repaired.",
+      "refs": [
+        "Jeremiah 18:4"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 19:10",
+        "words": "you are to shatter the jar in the presence of the men who accompany you",
+        "means": "the LORD will break the nation and the city past mending, as a fired clay jar once shattered can never be made whole"
+      },
+      "evidence": "Henry calls the breaking of the bottle a visible sign, its hearers made its spectators. Calvin: a sign that sealed the prophecy by a visible act. Fausset (Jamieson, Fausset and Brown): a symbolical action, explained in verse 11. Payne Smith (Barnes' Notes) sets this symbol against the clay of 18:4: clay can be reshaped, a broken jar cannot. Clarke: a symbolical representation of the city's ruin.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Jeremiah 19:10",
+          "quote": "By a visible sign. The prophet was to take along with him an earthen bottle ... and, when he had delivered his message, he was to break the bottle to pieces ... and the same that were auditors of the sermon must be spectators of the sign.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 19:10",
+          "quote": "There was not only importance in the sign, that they might thence learn the doom of the city and of the whole land, but it was also a solemn sealing of the prophecy; and on this account he was commanded to break the vessel, even that he might show, by a visible act, the near approach of God’s vengeance, of which the Jews had no apprehension.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 19:10",
+          "quote": "break . . . bottle--a symbolical action, explained in Jer 19:11 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Jeremiah 19:11",
+          "quote": "In this lies the distinction between this symbol and that of Jer 18:4 . The plastic clay can be shaped and re-shaped until the potter forms with it the vessel he had predetermined: the broken bottle is of no further use, but its fragments are cast away forever upon the heaps of rubbish deposited in Tophet.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 19:11",
+          "quote": "Even so will I break this people and this city - The breaking of the bottle was the symbolical representation of the destruction of the city and of the state.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "jeremiah-23-28-proverb",
       "kind": "figure",
       "form": "proverb",
@@ -243,6 +556,234 @@
           "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “What is the chaff (Heb., straw) to the wheat?”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-23-33-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 23:33-38",
+      "strength": "commonly held",
+      "short": "A byword: “the burden of the LORD”",
+      "about": "The prophets called a message from God a burden. The people, and even prophets and priests, made the word a byword, asking, “What is the burden of the LORD?” in scorn of His threats. The LORD forbids it: they are to ask what He has answered or spoken, for each man's word becomes the burden.",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 23:33",
+        "words": "the burden of the LORD",
+        "means": "a mocking catchword, said in hatred and scorn, that called the LORD's word a burden"
+      },
+      "original": {
+        "note": "In Hebrew the word for burden is also the word for a solemn message from God, a prophecy.",
+        "strong": [
+          "H4853"
+        ]
+      },
+      "evidence": "Calvin says that in their hatred they called God's word a burden and used it as a proverbial saying, in the ways and streets. Henry says the scoffers took the prophets' word and made a jest and a byword of it, so that it would no longer make people serious.",
+      "limit": "The verses do not call the phrase a byword: it is read as one because scoffers had made the prophets' solemn word a common jest. The prophets themselves had used the word seriously.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Jeremiah 23:33",
+          "quote": "Now, a burden means a prophecy, which terrifies the despisers of God by threatening them with vengeance. As, then, their minds were exasperated, they called through hatred the word of God a burden, and used it as a proverbial saying, “It is a burden, a burden.” ... It was surely a most shameful thing, that the word of God should be thus called in disdain and contempt, in the ways and streets",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 23:33",
+          "quote": "This was the word that gave great offence to God, that, whenever they spoke of the word of the Lord, they called it, in scorn and derision, the burden of the Lord. ... Now the profane scoffers took this word, and made a jest and a byword of it; they made people merry with it, that so, when the prophets used it, they might not make people serious with it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-25-15-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 25:15-29",
+      "strength": "widely agreed",
+      "short": "The cup of the LORD's wrath handed to the nations",
+      "about": "The LORD tells Jeremiah to take the cup of the wine of His wrath and make the nations drink from it, Jerusalem and Judah first. They will stagger because of the sword He will send among them (verse 16). Many read the act as done in vision, or by Jeremiah declaring the judgment, not with a real cup.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 25:17",
+        "words": "I took the cup from the LORD’s hand and made all the nations drink from it",
+        "means": "the judgment God would bring on Judah first and then on the nations, His punishment for their sins"
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the whole action is emblematical of a real work of God on kings and peoples, carried out when Jeremiah announced it. Clarke says the cup is symbolical and means Jeremiah declared that the nations would fall under the Chaldeans as God's punishment. Plumptre (Ellicott) and Fausset (Jamieson, Fausset and Brown) say the act took place in vision.",
+      "limit": "The writers hold that no real cup was handed round. Some read the act as seen in vision; others say Jeremiah carried it out by proclaiming the judgment.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 25:17",
+          "quote": "As the wrath of God is no essence that may be drunk by the bodily act, so manifestly the cup is no material cup, and the drinking of it no act of the outer, physical reality. The whole action is accordingly only emblematical of a real work of God wrought on kings and peoples, and is performed by Jeremiah when he announces what he is commanded.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 25:17",
+          "quote": "This cup of God's wrath is merely symbolical, and simply means that the prophet should declare to all these people that they shall fall under the Chaldean yoke, and that this is a punishment inflicted on them by God for their iniquities.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Jeremiah 25:17",
+          "quote": "The words describe the act of the prophet as in the ecstasy of vision. One by one the nations are made to drink of that cup of the wrath of Jehovah of which His own country was to have the first and fullest draught.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 25:15",
+          "quote": "wine cup--Compare Jer 13:12-13 , as to this image, to express stupefying judgments ... The wine cup was not literally given by Jeremiah to the representatives of the different nations; but only in symbolical vision.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-27-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 27:1-22",
+      "strength": "widely agreed",
+      "short": "Jeremiah wears a yoke: serve Babylon and live",
+      "about": "The LORD tells Jeremiah to make a yoke and wear it, and to send word to the kings of Edom, Moab, Ammon, Tyre and Sidon. The yoke shows that the nations must serve Nebuchadnezzar. To Zedekiah he says, “Put your necks under the yoke of the king of Babylon; serve him and his people, and live!”",
+      "refs": [
+        "Jeremiah 28:10"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 27:2",
+        "words": "Make for yourself a yoke out of leather straps and put it on your neck",
+        "means": "the yoke of Babylon that Judah and the nations around it must bear, serving Nebuchadnezzar"
+      },
+      "evidence": "Keil (Keil and Delitzsch) calls the yoke a plain emblem of the Babylonian yoke the nations are to bear, and says Jeremiah really wore it (28:10). Clarke calls it a symbolical action, showing that the kings named would come under the Chaldeans. Henry calls it a sign and a prophetic representation of those lands brought under the king of Babylon.",
+      "limit": "Some of the writers add that Jeremiah also made yokes for the five kings and gave them to their envoys; the BSB says only that he was to send the kings word through the envoys.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 27:2-11",
+          "quote": "The yoke Jeremiah is to make and lay on his neck is a plain emblem of the Babylonian yoke the nations are to bear. ... That Jeremiah really put such a yoke on his neck and wore it, we see from Jer 28:10 , Jer 28:12 , where a false prophet breaks it for him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 27:2",
+          "quote": "Make thee bonds and yokes - Probably yokes with straps, by which they were attached to the neck. This was a symbolical action, to show that the several kings mentioned below should be brought under the dominion of the Chaldeans.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 27:1-11",
+          "quote": "Jeremiah is to prepare a sign of the general reduction of all these countries into subjection to the king of Babylon ... Into these the prophet must put his own neck to make them taken notice of as a prophetic representation; for every one would enquire, What is the meaning of Jeremiah's yokes?",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-28-10-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 28:10-14",
+      "strength": "widely agreed",
+      "short": "Hananiah breaks the yoke; God answers with iron",
+      "about": "The prophet Hananiah takes the yoke off Jeremiah's neck and breaks it, saying that in this way the LORD will break Nebuchadnezzar's yoke within two years. The LORD answers that Hananiah has broken a yoke of wood but fashioned a yoke of iron: the nations will serve Babylon.",
+      "refs": [
+        "Jeremiah 27:2",
+        "Jeremiah 28:15"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 28:10",
+        "words": "took the yoke off the neck of Jeremiah the prophet and broke it",
+        "means": "a counter-sign meant to promise the people that Babylon's yoke would soon be broken; the LORD turns it into a yoke of iron"
+      },
+      "evidence": "Clarke says Hananiah tried by this symbolical act to persuade the people; Henry, that he broke it to give a sign, as Jeremiah had given of his; R. Payne Smith (Barnes' Notes), that the crowd would see a symbol of deliverance in it. Calvin says by that representation he made them expect deliverance in two years. Keil (Keil and Delitzsch) says the LORD's answer shows Babylon's yoke is iron.",
+      "limit": "Hananiah's sign was false: the LORD had not sent him (verse 15), and the broken yoke of wood only led to a yoke of iron.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Jeremiah 28:10",
+          "quote": "Then Hananiah - took the yoke - and brake it - He endeavored by this symbolical act to persuade them of the truth of his prediction.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 28:10-17",
+          "quote": "he took the yoke from off his neck which he carried as a memorial of what he had prophesied concerning the enslaving of the nations to Nebuchadnezzar, and he broke it, that he might give a sign of the accomplishment of this prophecy, as Jeremiah had given of his, and might seem to have conquered him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Jeremiah 28:10",
+          "quote": "The multitude would see in Hananiah's act a symbol of deliverance.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 28:10",
+          "quote": "laying sacrilegious hands on that visible symbol, by which it had pleased God to testify that the Prophet’s message was true. ... he not only took away that sign, but by breaking the bands he attracted the attention of men, and by such a representation made them to believe that there would be in two years a deliverance.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 28:12",
+          "quote": "he gives the deeper meaning of that occurrence. By breaking Jeremiah's wooden yoke, Hananiah has only signified that the yoke Nebuchadnezzar lays on the nations will not be so easily broken as a wooden one, but is of iron, i.e., not to be broken.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-29-22-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Jeremiah 29:22",
+      "strength": "some interpreters",
+      "short": "A curse the exiles would use: like Zedekiah and Ahab",
+      "about": "Ahab son of Kolaiah and Zedekiah son of Maaseiah prophesied lies to the exiles (verse 21). The king of Babylon would put them to death in the fire, and the exiles would curse with their fate: “May the LORD make you like Zedekiah and Ahab.” Their death can be read as passing into a common saying.",
+      "refs": [
+        "Jeremiah 29:21"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "ref": "Jeremiah 29:22",
+        "words": "May the LORD make you like Zedekiah and Ahab",
+        "means": "a set curse wishing on someone the death by fire of the two lying prophets"
+      },
+      "original": {
+        "note": "In Hebrew the word for curse, qelalah, sounds like qalah, roasted, which may be why the saying took hold.",
+        "strong": [
+          "H7045",
+          "H7033"
+        ]
+      },
+      "evidence": "R. Payne Smith (Barnes' Notes) says the death of these men passed into a proverb, probably because of a play on words: they are made a curse (qelalah) because Nebuchadnezzar roasted (qalah) them, and one of them was the son of Kolaiah.",
+      "limit": "The verse itself calls the words a curse that all the exiles in Babylon would use; it does not call them a proverb.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Jeremiah 29:22",
+          "quote": "A curse - There is a play here of words. which probably was the cause why the death of these men passed into a proverb. One of them was named ben-Kolaiah; and they are to be made a curse (קללה qelâlâh), because Nebuchadnezzar had roasted (קלה qâlâh) them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -304,6 +845,196 @@
           "quote": "the proverb among the exiles' children born in Babylon, to express that they suffered the evil consequences of their fathers' sins rather than of their own",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-32-6-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 32:6-15",
+      "strength": "widely agreed",
+      "short": "Jeremiah buys a field while Jerusalem is besieged",
+      "about": "While Babylon's army besieges Jerusalem and Jeremiah is held in the courtyard of the guard, the LORD has him buy his cousin Hanamel's field at Anathoth, with deeds signed before witnesses and kept in a clay jar. The act shows that “Houses, fields, and vineyards will again be bought in this land.”",
+      "refs": [
+        "Jeremiah 32:2"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 32:9",
+        "words": "So I bought the field in Anathoth from my cousin Hanamel",
+        "means": "the people would return from exile and own land in Judah again, so a purchase made in faith of that was safe"
+      },
+      "evidence": "Clarke says the whole was designed as a symbolical act, showing there would be a return from Babylon and each family would re-enter its lands. Calvin speaks of the external symbol showing that the Jews would return to their land. Henry says the bargain was made to signify that the land would be possessed again; Keil (Keil and Delitzsch), that the purchase meant Judah would return to its land.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Jeremiah 32:8",
+          "quote": "This was the word of the Lord - It was by his appointment that I was to make this purchase. The whole was designed as a symbolical act, to show the people that there would be a return from Babylon, that each family should re-enter on its former possessions, and that a man might safely purchase on the certainty of this event.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 32:6",
+          "quote": "The whole of this passage ought to be read together, for the Prophet at large explains how and by what symbol this prophecy had been confirmed. ... Let us now come to the external symbol. The Prophet was commanded to buy a field of his uncle’s son. ... But in this way God intended to shew, that after the Jews had for a time been deprived of the possession of the land, they would again return to it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 32:1-15",
+          "quote": "What was the design of having this bargain made. It was to signify that though Jerusalem was now besieged, and the whole country was likely to be laid waste, yet the time should come when houses, and fields, and vineyards should be again possessed in this land",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 32:10-15",
+          "quote": "There is also implied the intimation, that the present desolation of the land and the transportation of its inhabitants will only last during their time; and then the population of Judah will return, and enter again on the possession of their land. The purchase of the field on the part of Jeremiah had this meaning; and for the sake of this meaning it was announced to him by God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-35-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 35:1-19",
+      "strength": "commonly held",
+      "short": "Wine set before the Rechabites, who will not drink",
+      "about": "God sends Jeremiah to bring the Rechabites into the temple and set wine before them. They refuse, since their forefather Jonadab forbade it. God then sets their faithfulness to a man against Judah: “But I have spoken to you again and again, and you have not obeyed Me!”",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 35:5",
+        "words": "I set pitchers full of wine and some cups before the men of the house of the Rechabites",
+        "means": "a test whose answer shamed Judah: the Rechabites kept a dead man's command, while God's own people would not obey God"
+      },
+      "evidence": "Matthew Henry says the trial of the Rechabites' constancy was meant as a sign, which God then applies to the Jews, so that they may see it and be ashamed. Calvin says the wine offered to the Rechabites was a visible sign to shame the people, who would not obey God while the Rechabites obeyed their father, a mortal man long dead.",
+      "limit": "Verses 18 and 19 add God's promise to the Rechabites themselves. The note keeps to the sign set before Judah.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Jeremiah 35:12-19",
+          "quote": "The trial of the Rechabites' constancy was intended but for a sign; now here we have the application of it. I. The Rechabites' observance of their father's charge to them is made use of as an aggravation of the disobedience of the Jews to God. Let them see it and be ashamed.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Jeremiah 35:1",
+          "quote": "a visible sign, in order to make them ashamed. ... the Prophet was expressly commanded to call together the Rechabites, and to offer wine to them, in order that the obstinacy of the people might appear more disgraceful, as they could not be induced to render obedience to God, while the Rechabites were so obedient to their father, a mortal man, and who had been dead for nearly three centuries.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-43-8-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 43:8-13",
+      "strength": "widely agreed",
+      "short": "Stones hidden at Pharaoh's door for Babylon's throne",
+      "about": "At Tahpanhes in Egypt, where the Jews had fled, God tells Jeremiah to bury large stones at the entrance to Pharaoh's palace while the Jews watch. Then God explains the act: “I will set his throne over these stones that I have embedded.” The king of Babylon would come and strike down Egypt.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 43:9",
+        "words": "bury them in the clay of the brick pavement at the entrance to Pharaoh’s palace",
+        "means": "the ground for Nebuchadnezzar's throne: Babylon's king would conquer Egypt, and his rule would rise on the fall of Pharaoh's"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the prophecy rests on a symbolical action: the stones are the base of Nebuchadnezzar's throne, firm against Pharaoh's crumbling clay. A. R. Fausset (Jamieson, Fausset and Brown) calls it a visible symbol that his throne would rise on Pharaoh's downfall. Matthew Henry says it is foretold by a sign; Adam Clarke, by a type.",
+      "limit": "Where the BSB has a brick pavement, most of the writers read a brick kiln, with clay or mortar beside it. Either way, the act means what God says in verse 10.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 43:8-13",
+          "quote": "This prophecy is introduced by a symbolical action, on which it is based. ... The stones must thus form the basis for the throne ... Pharaoh's dominion is like crumbling clay, the material of bricks; the throne which Nebuchadnezzar shall set up opposite the clay-building of the Pharaohs rests on large stones, - his rule will be powerful and permanent.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 43:9",
+          "quote": "stones--to be laid as the foundation beneath Nebuchadnezzar's throne ( Jer 43:10 ). ... Of the same materials as that of which Pharaoh's house was built, the substructure of Nebuchadnezzar's throne should be constructed. By a visible symbol implying that the throne of the latter shall be raised on the downfall of the former.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 43:8-13",
+          "quote": "This is foretold by a sign. Jeremiah must take great stones, such as are used for foundations, and lay them in the clay of the furnace, or brick-kiln, which is in the open way, or beside the way that leads to Pharaoh's house ... The foundation of Egypt's desolation was laid in those brick-kilns, in that clay.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 43:8-13",
+          "quote": "Jeremiah, by a type, foretells the conquest of Egypt by Nebuchadnezzar, Jer 43:8-13 . This mode of conveying instruction by actions was very expressive, and frequently practiced by the prophets.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "jeremiah-51-59-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Jeremiah 51:59-64",
+      "refs": [
+        "Revelation 18:21"
+      ],
+      "strength": "widely agreed",
+      "short": "A scroll tied to a stone and sunk in the Euphrates",
+      "about": "Jeremiah writes the disaster coming on Babylon in a scroll and sends it with Seraiah. In Babylon he is to read it, tie a stone to it, throw it into the Euphrates and say, “In the same way Babylon will sink and never rise again.” Revelation 18:21 pictures Babylon's fall by a like act.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Jeremiah 51:63",
+        "words": "tie a stone to it and cast it into the Euphrates",
+        "means": "Babylon sinking under God's judgment, never to rise again, as verse 64 says"
+      },
+      "evidence": "R. Payne Smith (Barnes' Notes) calls the sinking a symbolic act, the stone signifying the city's sure and swift ruin. C. F. Keil (Keil and Delitzsch): a symbolic action showing that Babylon would not rise again. A. R. Fausset (Jamieson, Fausset and Brown): a symbol of Babylon's fate. Matthew Henry: a confirming sign. Adam Clarke: the emblem of its ruin.",
+      "limit": "The scroll was not sunk to be rid of it, two writers stress, but to picture the prophecy coming true.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Jeremiah 51:62-64",
+          "quote": "Jer 51:62-64 The sinking of the scroll was not for the purpose of destroying it, but was a symbolic act (compare the marginal reference); and the binding of a stone to it signified the certainty of the hasty ruin of the city.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Jeremiah 51:59-64",
+          "quote": "This was to be done, not for the purpose of destroying the book (which certainly took place, but was not the object for which it was sunk), but in order to symbolize the fulfilment of the prophecy against Babylon. ... thus indicating by symbol that Babylon would not rise again.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Jeremiah 51:59",
+          "quote": "Though he was to throw it into the Euphrates, a symbol of Babylon's fate, no doubt he retained the substance in memory, so as to be able orally to communicate it to his countrymen. ... fourth year--so that Jeremiah's prediction of Babylon's downfall was thus solemnly written and sealed by a symbolical action, six whole years before the capture of Jerusalem by the Babylonians.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Jeremiah 51:59-64",
+          "quote": "He must then tie a stone to the book and throw it into the midst of the river Euphrates, as a confirming sign of the things contained in it ... In the sign it was the stone that sunk the book, which otherwise would have swum. But in the thing signified it was rather the book that sunk the stone; it was the divine sentence passed upon Babylon in this prophecy that sunk that city",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Jeremiah 51:64",
+          "quote": "Thus shall Babylon sink, etc. - This is the emblem of its overthrow and irretrievable ruin. See Rev 18:21 , where we find that this is an emblem of the total ruin of mystical Babylon.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

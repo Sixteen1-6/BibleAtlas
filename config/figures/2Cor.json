@@ -1,6 +1,116 @@
 {
   "notes": [
     {
+      "id": "2-corinthians-3-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "2 Corinthians 3:2-3",
+      "strength": "widely agreed",
+      "short": "The believers pictured as a letter from Christ",
+      "about": "Paul asks if he needs letters of recommendation, as some people do. The believers at Corinth are his letter, a letter from Christ, written with the Spirit instead of ink, on human hearts instead of tablets of stone. He carries the picture through: Christ is the writer, and Paul wrote it out.",
+      "refs": [
+        "2 Corinthians 3:1"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "2 Corinthians 3:3",
+        "words": "you are a letter from Christ",
+        "means": "the believers at Corinth, whose faith is Christ’s own work through Paul’s preaching, and so the proof that Christ sent him"
+      },
+      "evidence": "Bullinger lists the verses under Allegory. Calvin says Paul pursues the metaphor, making Christ the author and himself the instrument. Barnes says Paul continues and varies the image. Clarke sets out the parts of the figure: Christ dictates, the apostle writes, hearts take the writing, the Spirit makes the marks. E. H. Plumptre (Ellicott): the metaphor shifts, and Christ is the real writer.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 3:2-3",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "For other examples, see Joh 4:35 ... 2Co 3:2-3 ; 2Co 5:1 , etc.; 10:3-5; 11:2.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 3:3",
+          "quote": "Pursuing the metaphor, he says that the Epistle of which he speaks was written by Christ, inasmuch as the faith of the Corinthians was his work. He says that it was ministered by him, as if meaning by this, that he had been in the place of ink and pen. In fine, he makes Christ the author and himself the instrument",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 3:3",
+          "quote": "That which Christ has sent to be our testimonial. He has given this letter of recommendation. ... Christ, in writing this epistle, so to speak, has used our aid; or employed us as amanuenses (copyists). Written not with ink - Paul continues and varies the image in regard to this \"epistle,\" so that he may make the testimony borne to his fidelity and success more striking and emphatic.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Corinthians 3:3",
+          "quote": "Ye are the writing, but Christ used me as the pen; Christ dictated, and I wrote ... See the parts of this figurative speech: 1. Jesus Christ dictates. 2. The apostle writes. 3. The hearts of the Corinthians are the substance on which the writing is made. And, 4. The Holy Spirit produces that influence by which the traces are made, and the mark becomes evident.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 3:3",
+          "quote": "The metaphor appears to shift its ground from the subjective to the objective. It is not only as written in his heart, but as seen and known by others, that they (the Corinthians) are as a letter of commendation. They are as a letter which Christ had written as with the finger of God. ... He had been, that is, as the amanuensis of that letter, but Christ was the real writer.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-3-13-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "2 Corinthians 3:13-18",
+      "strength": "widely agreed",
+      "short": "Moses’ veil, carried from his face to the heart",
+      "about": "Paul takes the veil Moses put over his face and carries it through the passage. The same veil remains when the old covenant is read; it lies over the heart, and is taken away whenever anyone turns to the Lord. Believers, with unveiled faces, reflect the Lord’s glory and are changed into His image.",
+      "refs": [
+        "Exodus 34:33-35"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "2 Corinthians 3:14",
+        "words": "the same veil remains at the reading of the old covenant",
+        "means": "the dullness that keeps hearers of the old covenant from seeing its true end, a veil taken away only in Christ"
+      },
+      "evidence": "E. H. Plumptre (Ellicott) says the figure changes as it goes: the veil is no longer on the lawgiver’s face but on the hearers’ hearts, hiding the Law’s true meaning. Fausset (Jamieson, Fausset and Brown) says Paul passes from the fact to the truth it symbolized. Barnes says a veil lies over the Old Testament as over Moses’ face; Calvin, that the veil was an emblem of the people’s dullness.",
+      "limit": "The note does not claim that Moses himself meant the veil as a sign; Paul draws the lesson from the history.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 3:14",
+          "quote": "The figure is passing through a kind of dissolving change. There is still a veil between the hearers of the Law and its true meaning; but the veil is no longer on the face of the law-giver, but on their hearts ... It is, the Apostle says, because the veil of prejudice and tradition hinders them from seeing the truth that the Jews of his own time still think of the Law as permanent",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Corinthians 3:13",
+          "quote": "Paul here ( Co2 3:13 ) passes from the literal fact to the truth symbolized by it, the blindness of Jews and Judaizers to the ultimate end of the law: stating that Moses put on the veil that they might not look steadfastly at (Christ, Rom 10:4 ) the end of that (law) which (like Moses' glory) is done away. Not that Moses had this purpose",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 3:14",
+          "quote": "A veil seems to be thrown over the Old Testament when they read it, as there was over the face of Moses ... In the manifestation, or appearance of Jesus the Messiah, the veil is removed. ... and as the face of Moses could have been distinctly seen if the veil on his face had been removed, so it is in regard to the true meaning of the Old Testament by the coming of the Messiah.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 3:14",
+          "quote": "By this he means, that that dulness of vision was not for a single hour merely, but prefigured what the condition of the nation would be in time to come. “That veil with which Moses covered his face, when publishing the law, was the emblem of a stupidity, that would come upon that people ... God has shown long ago under the type of the veil, that it would be so.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "2-corinthians-9-6-opposite",
       "kind": "parallelism",
       "form": "opposite",
@@ -206,6 +316,110 @@
       ]
     },
     {
+      "id": "2-corinthians-5-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "2 Corinthians 5:1-4",
+      "strength": "widely agreed",
+      "short": "The body as a tent, and a house from God",
+      "about": "Paul pictures the body as a tent that will be taken down, and sets against it a building from God, an eternal house in heaven. Then the picture turns to clothing: in this tent we groan, longing to be clothed, not unclothed, so that what is mortal may be swallowed up by life.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "2 Corinthians 5:1",
+        "words": "the earthly tent we live in is dismantled",
+        "means": "the death of the mortal body, a frail dwelling lived in for a short time and then taken down"
+      },
+      "evidence": "Bullinger lists 2 Corinthians 5:1 onward under Allegory. Calvin calls the tent a metaphor for the body, a frail hut for a few days. Barnes says Paul changes the metaphor from a dwelling to a garment. Fausset (Jamieson, Fausset and Brown) says Paul the tentmaker takes the image from his trade. E. H. Plumptre (Ellicott) says the tent shows how brief the dwelling is.",
+      "limit": "The writers differ on what the house from God is: the raised body, or the soul’s blessed state after death, completed at the resurrection. The note does not decide between them.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 5:1",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "For other examples, see Joh 4:35 ... 2Co 5:1 , etc.; 10:3-5; 11:2.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 5:1",
+          "quote": "For as tabernacles are constructed, for a temporary purpose, of slight materials ... so the mortal body is given to men as a frail hut, to be inhabited by them for a few days. The same metaphor is made use of, also, by Peter ... the blessed condition of the soul after death is the commencement of this building, and the glory of the final resurrection is the consummation of it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 5:2",
+          "quote": "There is evidently here a change of the metaphor which gives an apparent harshness to the construction. One idea of the apostle is, that the body here, and the spiritual body hereafter, is a house or a dwelling. Here he speaks of it as a garment which may be put on or laid off and of himself as earnestly desiring to put on the immortal clothing or vestment which was in heaven.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Corinthians 5:1",
+          "quote": "\"House\" expresses more permanency than belongs to the body; therefore the qualification, \"of the tabernacle\" (implying that it is shifting, not stationary), is added ... Paul, as a tent-maker, uses an image taken from his trade ( Act 18:3 ). ... A solid building, not a temporary tabernacle or tent.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 5:1",
+          "quote": "Better, be broken up, as more in harmony with the image of the tent. ... A new train of imagery begins to rise in his mind ... The modification introduced by the idea of the “tent” emphasises the transitory character of the habitation. “What if the tent be broken up?” He, the true inward man, who dwells in the tent will find a more permanent, an eternal, home in heaven",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-9-6-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "2 Corinthians 9:6",
+      "strength": "widely agreed",
+      "short": "A common saying: sow sparingly, reap sparingly",
+      "about": "Urging the Corinthians to give, Paul sets before them a saying from the farm: whoever sows sparingly will also reap sparingly. Giving is like sowing. What is given may seem lost, like seed in the ground, but in time it brings a harvest in proportion to it. Verse 10 speaks again of seed and harvest.",
+      "refs": [
+        "2 Corinthians 9:10"
+      ],
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "2 Corinthians 9:6",
+        "words": "Whoever sows sparingly will also reap sparingly",
+        "means": "giving to those in need: what is given seems lost, like seed in the ground, but it is returned in proportion to what was given"
+      },
+      "evidence": "Bullinger lists the verses among proverbs which appear for the first time in Scripture and have since passed into general use. Barnes says the words have all the appearance of a proverb, and that it is in giving as in farming: money given is like seed committed to the earth, and returns with increase. Clarke calls it a plain maxim, with almsgiving pictured as seed sown that bears a crop.",
+      "limit": "Paul does not quote the words as a known saying. One of the writers judges they were already a proverb; another lists them among proverbs that first appear in Scripture.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 9:6-7",
+          "at": "Parœmiœ which appear for the first time in Scripture, p. 765",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/765/mode/1up",
+          "quote": "See other examples of such Proverbs in Pro 11:27 ... 1Co 10:12 ; 1Co 15:33 . 2Co 9:6-7 . 2Th 3:10 . Tit 1:15",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 9:6",
+          "quote": "This expression has all the appearance of a proverb, and doubtless is such. ... Paul here says that it is in giving as it is in agriculture. A man that sows little must expect to reap little. ... So it is in giving. Money given in alms ... is money bestowed in a way similar to the act of committing seed to the earth. It will be returned again in some way with an abundant increase.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Corinthians 9:6",
+          "quote": "This is a plain maxim: no man can expect to reap but in proportion as he has sowed. And here almsgiving is represented as a seed sown, which shall bring forth a crop. If the sowing be liberal, and the seed good, the crop shall be so too.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "2-corinthians-9-10-turns",
       "kind": "parallelism",
       "form": "turns",
@@ -251,6 +465,62 @@
           "quote": "The beauty of that alternate quatrain it is scarcely necessary to indicate to any attentive reader. There is a fine ascending gradation in the terms of it: … in the parallel line, it is advanced upon by the two verbs … of the second line, we have, in the fourth line",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "2-corinthians-10-3-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "2 Corinthians 10:3-5",
+      "strength": "widely agreed",
+      "short": "Paul’s work pictured as a war on strongholds",
+      "about": "Paul pictures his work as a war. Though he lives in the flesh, he does not fight by the flesh; his weapons have divine power to tear down strongholds. Arguments raised against the knowledge of God are torn down, and every thought is taken captive, as prisoners are taken in war, to obey Christ.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "2 Corinthians 10:4",
+        "words": "The weapons of our warfare are not the weapons of the world",
+        "means": "the spiritual means God gives His servants, such as true teaching made mighty by His Spirit, set against all that is raised up against Him"
+      },
+      "evidence": "Bullinger lists the verses under Allegory. Calvin says Paul compares the ministry of the gospel to a warfare, a most apt similitude, with spiritual weapons. Clarke says Paul often uses the metaphor of a warfare for a minister’s life. Barnes says the figure is taken from military conquest. E. H. Plumptre (Ellicott) says the soldier’s word grows into an elaborate figure.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "2 Corinthians 10:3-5",
+          "at": "Allegory, or Continued Metaphor and Hypocatastasis, p. 750",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/750/mode/1up",
+          "quote": "For other examples, see Joh 4:35 ... 2Co 5:1 , etc.; 10:3-5; 11:2.",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Corinthians 10:4",
+          "quote": "The warfare, accordingly, is spiritual. ... In comparing the ministry of the gospel to a warfare, he uses a most apt similitude. ... At the same time, if you would have a full enumeration of spiritual weapons, doctrine must be conjoined with zeal, and a good conscience with the efficacy of the Spirit, and with other necessary graces.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "2 Corinthians 10:4",
+          "quote": "The apostle often uses the metaphor of a warfare to represent the life and trials of a Christian minister. ... Our doctrines are true and pure, they come from God and lead to him, and he accompanies them with his mighty power to the hearts of those who hear them; and the strong holds - the apparently solid and cogent reasoning of the philosophers, we, by these doctrines, pull down",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "2 Corinthians 10:5",
+          "quote": "The figure here is evidently taken from military conquests. The idea is, that all the strongholds of paganism, and pride, and sin would be demolished; and that when this was done, like throwing down the walls of a city or making a breach, all the plans and purposes of the soul ... would be subdued or led in triumph by the gospel, like the inhabitants of a captured city.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "2 Corinthians 10:3",
+          "quote": "We do not war after the flesh. — Strictly, we are not carrying on our campaign. ... As so often in St. Paul’s style, the word — especially any word like this, connected with the soldier’s life — becomes the germ of an elaborate figurative imagery, almost of a parable.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

@@ -735,6 +735,63 @@
       ]
     },
     {
+      "id": "matthew-6-22-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Matthew 6:22-23",
+      "strength": "widely agreed",
+      "short": "The eye, the body's lamp, pictures the inner light",
+      "about": "Jesus draws a likeness from the body: the eye is its lamp, and a good eye fills the whole body with light, while a bad one leaves it dark. As the eye guides the body, so the mind's inner eye guides the whole life; and if that light is darkness, “how great is that darkness!”",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Matthew 6:22",
+        "words": "The eye is the lamp of the body",
+        "means": "the mind's inner eye, which guides the whole life as the eye guides the body: clear and set on God, it fills life with light; darkened, it leaves all dark"
+      },
+      "original": {
+        "note": "In Matthew's Greek the good eye is haplous, single or clear: an eye that does not look two ways.",
+        "strong": [
+          "G0573"
+        ]
+      },
+      "evidence": "Chrysostom, in Thomas Aquinas' Catena Aurea, calls it a parable of the bodily members: what the eye is to the body, the understanding is to the soul. John Calvin: a comparison, to be applied to the mind. Albert Barnes: an illustration of fixing the affections on heaven. David Brown (Jamieson, Fausset and Brown): as a sound eye gives light, so does a single purpose to please God.",
+      "limit": "The writers differ on what the inner eye is: the understanding, the reason that guides the affections, the eye of faith set on heaven, or a single aim to please God.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 6:22-23",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-13.shtml",
+          "quote": "He transfers it to a sensible instance, saying, The light of thy body is thy eye. As though He had said, If you do not know what is meant by the loss of the understanding, learn a parable of the bodily members; for what the eye is to the body, that the understanding is to the soul.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 6:22",
+          "quote": "When Christ calls the eye the light of the body, he employs a comparison which means, that neither the hands, nor the feet, nor the belly, serves to direct men in walking, but that the eye alone is a sufficient guide to the rest of the members. ... We must now apply this comparison to the mind.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 6:22",
+          "quote": "The sentiment stated in the preceding verses - the duty of fixing the affections on heavenly things - Jesus proceeds to illustrate by a reference to the \"eye.\" ... So all that is needful to direct the soul and the conduct is, that the eye of faith be fixed on heaven; that the affections be there.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 6:22",
+          "quote": "single--simple, clear. ... not looking two ways. Here, as also in classical Greek, it is used figuratively to denote the simplicity of the mind's eye, singleness of purpose ... As with the bodily vision, the man who looks with a good, sound eye, walks in light ... so a simple and persistent purpose to serve and please God in everything will make the whole character consistent and bright.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-6-24-mirror",
       "kind": "parallelism",
       "form": "mirror",
@@ -1003,6 +1060,108 @@
       ]
     },
     {
+      "id": "matthew-7-16-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Matthew 7:16-20",
+      "strength": "widely agreed",
+      "short": "A tree is known by its fruit",
+      "about": "Warning against false prophets, Jesus draws a likeness from plants: grapes are not gathered from thornbushes, nor figs from thistles, and a good tree bears good fruit while a bad tree bears bad. As a tree is known by its fruit, so a man is known by his works.",
+      "refs": [
+        "Matthew 7:15"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "Matthew 7:17",
+        "words": "every good tree bears good fruit, but a bad tree bears bad fruit",
+        "means": "a person's heart and the works that come from it: a good heart bears a good life, a corrupt one bad works, and by these false prophets are known"
+      },
+      "evidence": "Matthew Henry speaks of the illustration of this comparison, the fruit showing the tree: corrupt hearts are like thorns, good works like grapes and figs. Albert Barnes says a tree is judged by its fruit, and so religion by conduct. Adam Clarke: the good tree means a good heart, the good fruit a holy life. Augustine, in the Catena Aurea of Thomas Aquinas: the tree is the man, the fruit his works.",
+      "limit": "Most of the writers take the fruit as a man's life and works; one adds the fruit of a prophet's teaching, what it leads those who embrace it into.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 7:15-20",
+          "quote": "The illustration of this comparison, of the fruit's being the discovery of the tree. ... Corrupt, vicious, unsanctified hearts are like thorns and thistles, which came in with sin, are worthless, vexing, and for the fire at last. ... Good works are good fruit, like grapes and figs, pleasing to God and profitable to men.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 7:16",
+          "quote": "People do not judge of a tree by its leaves, or bark, or flowers, but by the fruit which it bears. ... So of pretensions to religion. The profession may be fair; but the \"conduct\" - the fruit - is to determine the nature of the principles.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 7:17",
+          "quote": "As the thorn can only produce thorns, not grapes; and the thistle, not figs, but prickles; so an unregenerate heart will produce fruits of degeneracy. ... Let us remember, that as the good tree means a good heart, and the good fruit, a holy life, and that every heart is naturally vicious; so there is none but God who can pluck up the vicious tree, create a good heart",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 7:15-20",
+          "at": "Augustine, Sermon on the Mount ii. 25",
+          "url": "https://www.ecatholic2000.com/catena/untitled-14.shtml",
+          "quote": "The tree is the soul, that is, the man himself; the fruit is the man’s works. An evil man therefore cannot work good works, nor a good man evil works. Therefore if an evil man would work good things, let him first become good.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-7-24-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 7:24-27",
+      "strength": "widely agreed",
+      "short": "Two builders: one on the rock, one on sand",
+      "about": "Jesus closes the Sermon on the Mount with two builders. One builds on the rock, and his house stands through rain, torrents and wind; the other builds on sand, and his house falls. The first is the one who hears His words and acts on them; the second hears them and does not.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 7:24",
+        "words": "is like a wise man who built his house on the rock",
+        "means": "the one who hears Jesus' words and does them, who stands firm when trials come; the one who only hears has no foundation and falls"
+      },
+      "evidence": "Matthew Henry shows the two sorts of hearers under the comparison of two builders, and calls it a parable. Albert Barnes calls it a beautiful comparison, its storms affliction and persecution. John Calvin: Christ compares an empty profession of the Gospel to a building with no foundation. E. H. Plumptre (Ellicott) reads the house as an outward religious life, the rock as repentance and obedience.",
+      "limit": "The writers differ on what the rock is, obedience to Christ's words or Christ Himself, and on whether the storms are the trials of this life or also death and judgment.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 7:21-29",
+          "quote": "These two sorts of hearers are here represented ... under the comparison of two builders; one was wise, and built upon a rock, and his building stood in a storm; the other foolish, and built upon the sand, and his building fell. ... The general scope of this parable teaches us that the only way to make sure work for our souls and eternity is, to hear and do the sayings of the Lord Jesus",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 7:24",
+          "quote": "Jesus closes the sermon on the mount by a beautiful comparison, illustrating the benefit of attending to his words. It was not sufficient to \"hear\" them; they must be \"obeyed.\" He compares the man who should hear and obey him to a man who built his house on a rock. ... So tempests, and storms of affliction and persecution, beat around the soul.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 7:24",
+          "quote": "Christ shows, by a beautiful comparison, where the main difference lies. He represents two houses, one of which was built without a foundation, while the other was well-founded. ... Christ therefore compares a vain and empty profession of the Gospel to a beautiful, but not solid, building, which, however elevated, is exposed every moment to downfall, because it wants a foundation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 7:24",
+          "quote": "Interpreting the parable in the connection in which our Lord has placed it, it is clear that the house is the general fabric of an outwardly religious life. “The rock” can be nothing else than the firm foundation of repentance and obedience, the assent of the will and affections as well as of the lips.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-9-12-proverb",
       "kind": "figure",
       "form": "proverb",
@@ -1192,6 +1351,111 @@
           "quote": "Parœmiœ which appear for the first time in Scripture; but, which, owing to their fulness of meaning and their wide application, have since passed into general use as proverbial sayings ... “The workman is worthy of his meat.” So Luk 10:7. 1Co 9:7, etc.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-11-16-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 11:16-17",
+      "strength": "widely agreed",
+      "short": "Children in the marketplaces who will not play",
+      "about": "Jesus likens this generation to children in the marketplaces calling to their playmates: “We played the flute for you, and you did not dance; we sang a dirge, and you did not mourn.” As in the children's game, neither John's austere life nor the Son of Man's eating and drinking won them.",
+      "refs": [
+        "Matthew 11:18-19"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 11:16",
+        "words": "They are like children sitting in the marketplaces",
+        "means": "a generation that answered neither John's stern call nor Christ's glad one, and found fault with both"
+      },
+      "evidence": "Matthew Henry: our Lord sets this forth in a parable, a similitude from children at play; neither John's ministry nor Christ's moved that generation. Albert Barnes: like children whom nothing pleased. E. H. Plumptre (Ellicott): a comparison from children's games, the generation being the children who call. Chrysostom, in Thomas Aquinas' Catena Aurea: the flute is Christ's life, the dirge John's.",
+      "limit": "The writers differ on who calls and who will not answer. Most take the sullen playmates for the generation; one takes the callers for the generation, angry that John and Jesus would not join their game.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 11:16-24",
+          "quote": "This our Lord Jesus here sets forth in a parable ... The similitude is taken from some common custom among the Jewish children at their play, who ... imitated the fashions of grown people at their marriages and funerals, rejoicing and lamenting; but being all a jest, it made no impression; no more did the ministry either of John the Baptist or of Christ upon that generation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 11:16-19",
+          "quote": "Christ proceeds to reprove the inconsistency and fickleness of that age of people. He says they were like children - nothing pleased them. He refers here to the \"plays\" or \"sports\" of children. ... So, said Christ, is this generation of people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 11:16",
+          "quote": "The comparison is drawn from one of the common amusements of the children ... To such a company our Lord likens the evil generation in which He and the Baptist lived. They were loud in their complaints of the Baptist because he would not share their self-indulgent mirth; they were bitter against Jesus because He would not live according to the rules of their hypocritical austerity.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 11:16-19",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-18.shtml",
+          "quote": "We have played music to you, and ye have not danced; that is, I have shewed you an unrestricted life, and ye are not convinced; We have mourned unto you, and ye have not lamented; that is, John lived a hard life, and ye heeded him not.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-12-29-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 12:29",
+      "strength": "widely agreed",
+      "short": "Tying up the strong man to plunder his house",
+      "about": "Charged with driving out demons by the prince of demons, Jesus asks how anyone can enter a strong man's house and carry off his goods without first tying him up. His driving out of demons shows that He has overcome Satan, not joined him.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 12:29",
+        "words": "how can anyone enter a strong man’s house and steal his possessions",
+        "means": "Satan and those he holds captive: Christ frees them, which He could not do unless He had first overcome Satan"
+      },
+      "evidence": "John Calvin says a strong tyrant yields only to a stronger force, and that Christ brought in this parable to show the scribes hostile to God's kingdom. Albert Barnes calls it a new illustration: the freed sufferer proves Satan bound. E. H. Plumptre (Ellicott) makes the strong man Satan. Rabanus Maurus, in the Catena Aurea, says this plain parable shows He frees men by His divine might.",
+      "limit": "One writer leaves open whether the house is the world at large or each soul that Satan holds.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 12:29",
+          "quote": "He maintains that a strong and powerful tyrant cannot be deprived of his dominion, till he is stripped of his armor; for if he is not met by a force superior to his own, he will never yield of his own accord. ... We now see the reason why Christ introduced this parable. It was to show, that the scribes were hostile to the kingdom of God, the beginnings of which they maliciously resisted.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 12:29",
+          "quote": "The Saviour makes use of a new illustration to confute the Pharisees, drawn from breaking into a house. ... If he had taken his goods, it would therefore be sufficient proof that he had bound the man. So I, says he, have taken this \"property - this possessed person\" - from the dominion of Satan. It is clear proof that I have subdued \"Satan himself,\" the \"strong\" being that had him in possession.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 12:29",
+          "quote": "The parable implied in the question appears in a fuller form in Luk 11:21-22 . Here it will be enough to note that the “strong man” is Satan. The “house” is the region which is subject to him — i.e., either the world at large, or the spirits of individual men",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea-rabanus",
+          "on": "Matthew 12:29",
+          "at": "Rabanus, Catena Aurea on Matthew 12:29",
+          "url": "https://www.ecatholic2000.com/catena/untitled-19.shtml",
+          "quote": "Therefore He has spoiled his house, in that them whom He foresaw should be His own, He set free from the snares of the Devil, and has joined to the Church. ... By this plain parable therefore He shews that He does not join in a deceitful working with the dæmons as they falsely accused Him, but by the might of His divinity He frees men from the dæmons.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -1454,6 +1718,211 @@
       ]
     },
     {
+      "id": "matthew-13-31-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:31-32",
+      "strength": "widely agreed",
+      "short": "The smallest of seeds becomes a tree",
+      "about": "Jesus likens the kingdom to a mustard seed that a man plants in his field. It is the smallest of seeds, yet it grows into the largest of garden plants and becomes a tree where the birds nest. The kingdom begins small and grows great.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:31",
+        "words": "The kingdom of heaven is like a mustard seed that a man planted in his field",
+        "means": "the gospel and the kingdom of God: weak and small at its beginning, it grows until it spreads through the world, as grace also grows in the heart"
+      },
+      "evidence": "Matthew Henry says it shows the gospel's small beginnings and great increase, in the church and in the heart. John Calvin says Christ encourages His disciples not to stumble at the Gospel's mean beginnings. Albert Barnes calls seed and plant an apt illustration of the church's progress. David Brown (Jamieson, Fausset and Brown) names its subject: the kingdom's growth from the smallest beginnings.",
+      "limit": "Two of the writers apply it both to the church in the world and to grace growing in one heart.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:31-32",
+          "quote": "The scope of this parable is to show, that the beginnings of the gospel would be small, but that its latter end would greatly increase. In this way the gospel church, the kingdom of God among us, would be set up in the world; in this way the work of grace in the heart, the kingdom of God within us, would be carried on in particular persons.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:31-33",
+          "quote": "By these parables Christ encourages his disciples not to be offended and turn back on account of the mean beginnings of the Gospel. ... The kingdom of God is compared to a grain of mustard, which is the smallest among the seeds, but grows to such a height that it becomes a shrub, in which the birds build their nests.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:31",
+          "quote": "It means here either piety in a renewed heart or the church. In either case the commencement is small. ... In the church there were few at first ... yet soon it was to spread through the world. ... The seeds of this tree were remarkably small, so that they, with the great size of the plant, were an apt illustration of the progress of the church and of the nature of faith",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:31-33",
+          "quote": "Third and Fourth Parables or Second Pair: THE MUSTARD SEED and THE LEAVEN ( Mat 13:31-33 ). The subject of both these parables, as of the first pair, is the same, but under a slight diversity of aspect, namely-- THE GROWTH OF THE KINGDOM FROM THE SMALLEST BEGINNINGS TO ULTIMATE UNIVERSALITY.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-33-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:33",
+      "strength": "widely agreed",
+      "short": "A little leaven works through all the flour",
+      "about": "Jesus likens the kingdom to leaven that a woman mixes into three measures of flour until all of it is leavened. Hidden in the dough, the leaven works through the whole, as the gospel works from within, in hearts and through the world.",
+      "refs": [
+        "Matthew 16:6"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:33",
+        "words": "The kingdom of heaven is like leaven that a woman took and mixed into three measures of flour",
+        "means": "the gospel, working silently and steadily from within until it reaches the whole soul and all the nations"
+      },
+      "evidence": "Matthew Henry says the gospel would prevail by degrees, silently, working like leaven in hearts. John Calvin says the kingdom is likened to leaven, small yet spreading through much meal. Albert Barnes says it shows how the gospel spreads: secret, silent, steady. David Brown (Jamieson, Fausset and Brown) sees the Gospel's all-penetrating quality and, perhaps, the kingdom's inward growth.",
+      "limit": "Elsewhere leaven can stand for corruption, as in Matthew 16:6; the writers cited take it here in a good sense.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:33",
+          "quote": "The scope of this is much the same with that of the foregoing parable, to show that the gospel should prevail and be successful by degrees, but silently and insensibly; the preaching of the gospel is like leaven, and works like leaven in the hearts of those who receive it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:31-33",
+          "quote": "It is likewise compared to leaven, which, though it may be small in amount, spreads its influence in such a manner, as to impart its bitterness to a large quantity of meal. ... The word leaven is sometimes taken in a bad sense, as when Christ warns them to beware of the leaven of the Pharisees and of the Sadducees, ... But here the term must be understood simply as applying to the present subject.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:33",
+          "quote": "The other parable declared the \"fact\" that the gospel would greatly spread ... This states the \"way\" or \"mode\" in which it would be done. It is secret, silent, steady; pervading all the faculties of the soul and all the kingdoms of the world, as leaven, or yeast, though hidden in the flour, ... works silently until all the mass is brought under its influence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:33",
+          "quote": "This parable, while it teaches the same general truth as the foregoing one, holds forth, perhaps, rather the inward growth of the kingdom ... It yields more real satisfaction to see in this brief parable just the all-penetrating and assimilating quality of the Gospel, by virtue of which it will yet mould all institutions and tribes of men",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-44-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:44",
+      "strength": "widely agreed",
+      "short": "Treasure in a field, worth selling all to buy",
+      "about": "Jesus likens the kingdom to treasure hidden in a field. A man finds it, hides it again, and in his joy sells all he has to buy that field. The kingdom is worth more than all a person owns, and worth giving up all for, with joy.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:44",
+        "words": "The kingdom of heaven is like treasure hidden in a field",
+        "means": "the kingdom and the gospel, worth more than the whole world, to be gladly preferred to everything that would keep a person from it"
+      },
+      "evidence": "Matthew Henry says this parable and the next show the kingdom of great value, and makes Christ the treasure, hid in the gospel. John Calvin says it teaches believers to prefer the kingdom to the whole world. Albert Barnes puts its point in the man's earnestness: the gospel is worth more. David Brown (Jamieson, Fausset and Brown) names its subject: the priceless value of the kingdom's blessings.",
+      "limit": "One writer makes Christ Himself the treasure, hidden in the gospel as in a field. Another adds that the parable does not approve the man's hiding his find from the field's owner; its point is his earnestness to gain it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:44-52",
+          "quote": "Hitherto he had compared the kingdom of heaven to small things, because its beginning was small; but, lest any should thence take occasion to think meanly of it, in this parable and the next he represents it as of great value in itself ... it is here likened to a treasure hid in the field ... Jesus Christ is the true Treasure ... The gospel is the field in which this treasure is hid",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:44-46",
+          "quote": "The first two of these parables are intended to instruct believers to prefer the Kingdom of heaven to the whole world, and therefore to deny themselves and all the desires of the flesh, that nothing may prevent them from obtaining so valuable a possession. ... There is the highest appropriateness in comparing it to a treasure",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:44",
+          "quote": "It would be his duty to inform the owner of the field of the discovery. ... But Christ does not intend to vindicate his conduct. ... The point of the parable lies in his \"earnestness,\" his anxiety, his care, and his actually obtaining it. The gospel is more valuable than such a treasure",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:44-46",
+          "quote": "Fifth and Sixth Parables or Third Pair: THE HIDDEN TREASURE and THE PEARL OF GREAT PRICE ( Mat 13:44-46 ). The subject of this last pair, as of the two former, is the same, but also under a slight diversity of aspect: namely-- THE PRICELESS VALUE OF THE BLESSINGS OF THE KINGDOM.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-45-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:45-46",
+      "refs": [
+        "Matthew 13:44"
+      ],
+      "strength": "widely agreed",
+      "short": "A merchant sells all he has for one fine pearl",
+      "about": "Jesus likens the kingdom to a merchant searching for fine pearls who, on finding one of great worth, sells all he has to buy it. It follows the hidden treasure and teaches the same: the kingdom is worth more than all else, and worth giving up all to have. Here, though, the man is seeking.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:45",
+        "words": "the kingdom of heaven is like a merchant in search of fine pearls",
+        "means": "the kingdom, Christ in the gospel, worth more than all else, so that whoever truly finds it will part with everything to have it"
+      },
+      "evidence": "Matthew Henry says it is to the same purport as the treasure, with Christ the pearl for whom all must be parted with. Albert Barnes and John Calvin say it teaches what the treasure does: the gospel, or the kingdom, is worth more than all. Brown (Jamieson, Fausset and Brown) and E. H. Plumptre (Ellicott's Commentary) add that here the kingdom is sought, not come upon unlooked for.",
+      "limit": "The writers name the pearl in slightly different ways: Christ Himself, the gospel, or the heavenly life it gives.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:44-52",
+          "quote": "We have four short parables in these verses. ... That of the pearl of price ... which is to the same purport with the former, of the treasure. ... Jesus Christ is a Pearl of great price, a Jewel of inestimable value ... Those who would have a saving interest in Christ, must be willing to part with all for him, leave all to follow him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:45",
+          "quote": "So, says the Saviour, people seeking for happiness and finding the gospel - the pearl of great price - should be willing to sacrifice all other things for this. ... The meaning of this parable is nearly the same as the other. It is designed to represent the gospel as of more value than all other things, and to impress on us the duty of sacrificing all that we possess in order to obtain it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:44-46",
+          "quote": "The first two of these parables are intended to instruct believers to prefer the Kingdom of heaven to the whole world ... The same instruction is conveyed by the other parable. One pearl, though it be small, is so highly valued, that a skillful merchant does not hesitate to sell houses and lands in order to purchase it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 13:44-46",
+          "quote": "Fifth and Sixth Parables or Third Pair: THE HIDDEN TREASURE and THE PEARL OF GREAT PRICE ... The subject of this last pair, as of the two former, is the same, but also under a slight diversity of aspect: namely-- THE PRICELESS VALUE OF THE BLESSINGS OF THE KINGDOM. And while the one parable represents the Kingdom as \"found without seeking,\" the other holds forth the Kingdom as \"sought and found.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 13:45",
+          "quote": "The parable in its spiritual bearing, has, of course, much that is common with the preceding. But there is this marked and suggestive difference. The “search” is presupposed, The man has been seeking the “goodly pearls” ... Then he is led to the higher knowledge of communion with the life of Christ, and for that is content to resign all that he had before prized most highly.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-13-47-parable",
       "kind": "figure",
       "form": "parable",
@@ -1507,6 +1976,57 @@
           "quote": "what he formerly taught is confirmed by another parable, that the Church of God, so long as it exists in the world, is a mixture of the good with the bad ... he warns us, that it is not enough ... to be gathered into the fold, unless we are his true and chosen sheep. ... The preaching of the Gospel is justly compared to a net sunk beneath the water",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-13-52-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 13:52",
+      "refs": [
+        "Matthew 13:51"
+      ],
+      "strength": "widely agreed",
+      "short": "A homeowner brings out new treasures and old",
+      "about": "When the disciples say they have understood, Jesus likens every scribe taught in the kingdom to a homeowner who brings out of his storeroom new things and old. What they have learned is not to lie hidden: like a householder's store, it is to be brought out to serve others as each need arises.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 13:52",
+        "words": "is like a homeowner who brings out of his storeroom new treasures as well as old",
+        "means": "the teacher well taught in the kingdom, who keeps a store of truth, old and new, and gives out of it what each hearer needs"
+      },
+      "evidence": "Matthew Henry calls it the parable of the good householder, which rivets all the rest, and Albert Barnes another parable; Joseph Benson calls it a similitude. With John Calvin, who says Jesus likens teachers to householders with a store laid up for others, they read it as the taught disciple bringing out his store of truth for the good of his hearers.",
+      "limit": "The writers differ on the new and the old. Two take them as truth from the Old Testament and the New; one thinks that forced and takes them as teaching varied to fit each hearer.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 13:44-52",
+          "quote": "Here is the parable of the good householder, which is intended to rivet all the rest. ... He compares them to a good householder, who brings forth out of his treasure things new and old ... What should be a minister's furniture, a treasure of things new and old. ... truths new and old, out of the Old Testament and out of the new ... laying up is in order to laying out, for the benefit of others.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 13:51-52",
+          "quote": "He enjoined on them their duty to make a proper use of this knowledge by speaking another parable. ... They should bring it forth in due time, like a householder bringing out of his treasury ... what had been laid up there ... The truth, new or old, which you have gained, keep it not laid up and hid, but bring it forth, in due season and on proper occasions, to benefit others.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 13:51-52",
+          "quote": "By this similitude our Lord showed his disciples the use they were to make of the knowledge they had acquired, whether from the old revelation ... or from the new one of which Jesus was the author and dispenser. ... just so every able minister of the gospel, out of the stores of his knowledge, must bring forth instructions suitable to the necessities of his hearers.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 13:51-52",
+          "quote": "He says that teachers are like householders, who ... have a store laid up for the nourishment of others ... Many of the ancient expositors understand by things new and old the Law and the Gospel; but this appears to me to be forced. I understand them simply to mean a varied and manifold distribution, wisely and properly adapted to the capacity of every individual.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -2048,6 +2568,112 @@
       ]
     },
     {
+      "id": "matthew-18-2-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Matthew 18:2-4",
+      "strength": "widely agreed",
+      "short": "A little child set among the disciples",
+      "about": "The disciples ask who is the greatest in the kingdom of heaven. Before He answers in words, Jesus calls a little child to stand among them. Then He explains the sign: “whoever humbles himself like this little child is the greatest in the kingdom of heaven.”",
+      "refs": [
+        "Matthew 18:1"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Matthew 18:2",
+        "words": "Jesus invited a little child to stand among them",
+        "means": "humility: they must become lowly like a child, who seeks no rank above others, for that is true greatness in His kingdom"
+      },
+      "evidence": "Matthew Henry says Christ taught them humility first by a sign, as the prophets of old taught by signs. John Calvin says He held up the child before their eyes as an emblem of humility. Joseph Benson calls it teaching by a symbolical action, after the manner of the prophets, to show what His disciples ought to be.",
+      "limit": "The likeness lies in humility, as Jesus explains it in verse 4. It does not make children a pattern in every way.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 18:1-6",
+          "quote": "Christ here teacheth them to be humble, 1. By a sign ... He called a little child to him, and set him in the midst of them. Christ often taught by signs or sensible representations (comparisons to the eye), as the prophets of old. ... He set him in the midst of them; not that they might play with him, but that they might learn by him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 18:2",
+          "quote": "As we are more powerfully affected by appearances presented to the eyes, he holds up to them a little child as an emblem of humility. ... as children know nothing about being preferred to each other, or about contending for the highest rank, Christ desires that their example should banish from the minds of his followers those eager longings after distinction",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 18:2",
+          "quote": "set him in the midst of them That they might consider him attentively, and learn ... what the temper and dispositions of his disciples ought to be ... This method of instruction was agreeable to the manner of the eastern doctors and prophets, who, in teaching, impressed the minds of their disciples by symbolical actions, as well as by words.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-18-12-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 18:12-13",
+      "strength": "widely agreed",
+      "short": "One sheep strays, and the owner searches for it",
+      "about": "Jesus warns against looking down on these little ones, then asks what a man does when one of his hundred sheep goes astray: he leaves the ninety-nine to search for it, and rejoices to find it. Verse 14 applies it: “your Father in heaven is not willing that any of these little ones should perish.”",
+      "refs": [
+        "Matthew 18:10",
+        "Matthew 18:14"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 18:12",
+        "words": "If a man has a hundred sheep and one of them goes astray",
+        "means": "God the Father, who seeks His straying little ones and rejoices to find them, so that none of them is to be despised or lost"
+      },
+      "evidence": "Albert Barnes: a parable on why Christians must not be despised, for God seeks and rejoices over one restored. John Calvin: we must bear with Christ's straying sheep and bring them back. David Brown (JFB): it shows how loath He is to lose one. Matthew Henry: a comparison of the Father's care for them. Chrysostom (Thomas Aquinas' Catena Aurea): a parable of the Father seeking men's salvation.",
+      "limit": "Luke 15:4-7 tells a like story to answer those who grumbled that Jesus welcomed sinners; here it is told about the little ones. The note does not say whom the ninety-nine stand for.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Matthew 18:12",
+          "quote": "To show still further the reason why we should not despise Christians, he introduced a parable showing the joy felt when a thing lost is found. A shepherd rejoices over the recovery of one of his flock that had wandered more than over all that remained; so God rejoices that man is restored: so he seeks his salvation, and wills that not one thus found should perish.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 18:12",
+          "quote": "Luke carries the occasion of this parable still farther back ... according to Matthew the comparison proceeds farther, and teaches us not only that we ought to treat with kindness the disciples of Christ, but that we ought to bear with their imperfections, and endeavor, when they wander, to bring them back to the road.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 18:12",
+          "quote": "This is another of those pregnant sayings which our Lord uttered more than once. See on the delightful parable of the lost sheep in Luk 15:4-7 . Only the object there is to show what the good Shepherd will do, when even one of His sheep is lost, to find it; here the object is to show, when found, how reluctant He is to lose it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 18:7-14",
+          "quote": "The tender regard which our heavenly Father has to these little ones ... This is illustrated by a comparison ... The owner that had lost one sheep out of a hundred, does not slight it, but diligently enquires after it, is greatly pleased when he has found it ... Note, God is graciously concerned, not only for his flock in general, but for every lamb, or sheep, that belongs to it.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 18:10-14",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-25.shtml",
+          "quote": "And to this reasoning He adds a parable, in which He sets forth the Father as seeking the salvation of men, and saying, What think you, If a man have a hundred sheep.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-18-14-meiosis",
       "kind": "figure",
       "form": "meiosis",
@@ -2158,6 +2784,168 @@
       ]
     },
     {
+      "id": "matthew-20-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 20:1-15",
+      "strength": "widely agreed",
+      "short": "Workers hired late are paid the same as the first",
+      "about": "Jesus tells of a landowner who hires workers from early morning to the eleventh hour and pays each a denarius. Those hired first grumble; he answers that he does them no wrong and may be generous with what is his. Verse 16 gives the point: “So the last will be first, and the first will be last.”",
+      "refs": [
+        "Matthew 19:30",
+        "Matthew 20:16"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 20:1",
+        "words": "the kingdom of heaven is like a landowner who went out early in the morning to hire workers for his vineyard",
+        "means": "God, who calls workers into His service at different times and gives as He freely wills, wronging no one, so that the last may stand equal with the first"
+      },
+      "evidence": "Matthew Henry: the parable explains the saying that the first shall be last; God is the great Householder, debtor to no man. John Calvin: it confirms that saying, for those called first may not boast; the Lord may make the last their equals. Albert Barnes: it illustrates that saying, and concerns rewards. David Brown (JFB): the vineyard is the rearing of souls, the workers Christ's servants.",
+      "limit": "The writers differ on how far to take it. Some read those hired first as the Jews and the late ones as the Gentiles; others hold that it teaches only that God gives as He wills, so that those called first may not boast.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 20:1-16",
+          "quote": "This parable of the labourers in the vineyard is intended ... to represent to us ... that many that are first shall be last, and the last, first ... the parable may be applied more generally, and shows us, 1. That God is debtor to no man ... God is the great Householder, whose we are, and whom we serve",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 20:1",
+          "quote": "As this parable is nothing else than a confirmation of the preceding sentence, the last shall be first ... He only declares that those who were first in point of time have no right to boast or to insult others; because the Lord, whenever he pleases, may call those whom he appeared for a time to disregard, and may make them equal, or even superior, to the first.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 20:1",
+          "quote": "The parable was spoken expressly to illustrate the sentiment in the last verse of that chapter: \"Many that are first shall be last, and the last shall be first.\" ... It has reference to rewards ... \"Rewards shall be bestowed in my kingdom, or on my followers, in the same manner as they were by a certain householder - in such a way that the last shall be equal to the first, and the first last.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 20:1",
+          "quote": "PARABLE OF THE LABORERS IN THE VINEYARD. ... The figure of a vineyard, to represent the rearing of souls for heaven ... and the care and pains which God takes in that whole matter, is familiar to every reader of the Bible. ... The \"laborers,\" as in Mat 9:38 , are first, the official servants of the Church, but after them and along with them all the servants of Christ",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-21-18-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Matthew 21:18-19",
+      "strength": "widely agreed",
+      "short": "A fig tree with leaves but no fruit withers",
+      "about": "Hungry on the road, Jesus goes up to a fig tree in leaf but finds no fruit on it. He says, “May you never bear fruit again!” and at once the tree withers. The act is a sign of judgment on a show of leaves without fruit, which many apply to the nation that was then rejecting Him.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Matthew 21:19",
+        "words": "May you never bear fruit again!",
+        "means": "judgment on those who make a show of religion but bear no fruit: hypocrites, and the people of that day who rejected Him"
+      },
+      "evidence": "John Calvin: Jesus meant the tree as an outward sign of the end awaiting hypocrites. Matthew Henry: the miracle pictures hypocrites in general and the Jewish nation in particular. E. H. Plumptre (Ellicott): the sentence on the tree was a symbol of the doom coming on the unbelieving. Joseph Benson calls the act emblematical. Hilary (Thomas Aquinas' Catena Aurea) calls it a type of His judgments.",
+      "limit": "The note is on the act itself. The verses after it (21:20-22) draw from it a lesson on faith and prayer. It does not take up why the tree had no fruit.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 21:18",
+          "quote": "I am the more inclined to this conjecture, because hunger gave him an opportunity of performing a miracle and of teaching his disciples. ... He intended, however, to present in this tree an outward sign of the end which awaits hypocrites, and at the same time to expose the emptiness and folly of their ostentation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 21:18-22",
+          "quote": "The miracle had its significance, as well as others of his miracles. ... This cursing of the barren fig-tree, represents the state of hypocrites in general ... Christ looks for the power of religion from those that make profession of it ... It represents the state of the nation and people of the Jews in particular; they were a fig-tree planted in Christ's way, as a church.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 21:19",
+          "quote": "The Jews, in their show of the “leaves” of outward devotion, in the absence of the “fruits” of righteousness, were as that barren tree. ... The sentence which He now passed on the tree, and its immediate fulfilment, were symbols of the sentence and the doom which were about to fall on the unrepentant and unbelieving people.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 21:19",
+          "quote": "This, like many other of our Lord's actions, was emblematical. It signified that the curse of God would thus wither and destroy the Jewish nation, which he had before compared to a barren fig-tree; Luk 13:6-9 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 21:17-22",
+          "at": "Hilary, Commentary on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-28.shtml",
+          "quote": "But now when He would exhibit a type of His judgments on the rebellious, He represents the future by the destruction of a tree; Let no fruit grow on thee henceforward for ever.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-21-28-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 21:28-31",
+      "strength": "widely agreed",
+      "short": "Two sons: a no that obeys, and a yes that does not",
+      "about": "Jesus asks the leaders to judge a story. One son refuses to work in the vineyard but later goes; the other says “I will, sir,” but does not go. They answer that the first did his father's will, and Jesus tells them the tax collectors and prostitutes are entering the kingdom of God before them.",
+      "refs": [
+        "Matthew 21:32",
+        "Matthew 21:45"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 21:28",
+        "words": "There was a man who had two sons",
+        "means": "sinners such as the tax collectors, who first refused God but repented at John's preaching, and the leaders, who professed to obey God but did not"
+      },
+      "evidence": "Matthew Henry says the parable shows some prove better than they promise, others promise better than they prove. John Calvin says Christ unmasks the scribes and priests as hypocrites, like a son who promises obedience and deceives his father. Adam Clarke calls the sons an emblem of sinners and the self-righteous. Albert Barnes says they represent publicans and sinners, and scribes and Pharisees.",
+      "limit": "The note keeps to the story and its verdict. Verse 32 adds the reason: the tax collectors and prostitutes believed John, and the leaders did not. Verse 45 counts this story among His parables.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 21:28-32",
+          "quote": "In these verses we have the parable of the two sons sent to work in the vineyard ... I. The parable itself, which represents two sorts of persons; some that prove better than they promise, represented by the first of those sons; others that promise better than they prove represented by the second.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 21:28",
+          "quote": "This conclusion shows what is the object of the parable, when Christ prefers to the scribes and priests those who were generally accounted infamous and held in detestation; for he unmasks those hypocrites ... Christ tells them that it is quite as if a son were, in words, to promise obedience to his father, but afterwards to deceive him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 21:28",
+          "quote": "Under the emblem of these two sons, one of whom was a libertine, disobedient, and insolent, but who afterwards thought on his ways, and returned to his duty; and the second, a hypocrite, who promised all, and did nothing; our Lord points out, on the one hand, the tax-gatherers and sinners of all descriptions ... and, on the other hand, the scribes, Pharisees, and self-righteous people",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 21:28",
+          "quote": "By those two sons our Lord intends to represent the conduct of the Jews, and that of the publicans and sinners. ... To work in the vineyard here represents the work which God requires man to do. ... This represented the conduct of the scribes and Pharisees - \"professing\" to obey God, observing the external rites of religion, but opposed really to the kingdom of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-21-33-parable",
       "kind": "figure",
       "form": "parable",
@@ -2219,6 +3007,58 @@
       ]
     },
     {
+      "id": "matthew-22-2-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 22:2-13",
+      "strength": "widely agreed",
+      "short": "A king's wedding feast, refused by those invited",
+      "about": "Jesus tells of a king who gives a wedding banquet for his son. Those invited refuse, and some kill his servants, so the king destroys them and fills the hall with guests from the streets. One guest without wedding clothes is thrown out. Verse 14 closes it: “For many are called, but few are chosen.”",
+      "refs": [
+        "Matthew 22:1",
+        "Matthew 22:14"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 22:2",
+        "words": "The kingdom of heaven is like a king who prepared a wedding banquet for his son",
+        "means": "God's gospel feast for His Son: those first invited, the Jews, refused it, and others were called in their place"
+      },
+      "evidence": "Matthew Henry: the parable of the wedding feast, where the King is God and the feast the gospel offered for His Son. Albert Barnes: it refers to the Jews' rejection of the gospel and the calling of the Gentiles. Adam Clarke reads the King as God, His Son as Jesus, the feast as the gospel and the first guests as the Jews. John Calvin: it reproaches the Jews, who despised the table God spread.",
+      "limit": "The parable's main drift is claimed, not a meaning for every detail. The note does not settle whether the wedding clothes stand for faith or for a holy life.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 22:1-14",
+          "quote": "We have here the parable of the guests invited to the wedding-feast. ... this parable represents the gospel offer ... Gospel preparations are here represented by a feast which a king made at the marriage of his son; such is the kingdom of heaven ... The King is God, a great King, King of kings.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 22:2",
+          "quote": "This parable refers, undoubtedly, to the rejection of the Jews and to the calling of the Gentiles. The gospel, with all its privileges, was offered to the Jewish people; but through their wickedness and pride they rejected it, and all its blessings were offered to the Gentiles and accepted. This is the general truth.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 22:2",
+          "quote": "From this parable it appears plain, 1. That the King means the great God. 2. His Son, the Lord Jesus. ... 4. The Marriage Feast, the economy of the Gospel, during which men are invited to partake of the blessings purchased by, and consequent on, the incarnation and death of our blessed Lord. 5. By those who Had Been bidden, or invited, Mat 22:3 , are meant the Jews in general",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 22:2",
+          "quote": "Christ now brings it as a reproach against the Jews, that ... when God kindly and gently invited them, they rejected his grace with disdain. ... the main points of the parable. God bestowed on the Jews distinguished honor, by providing for them, as it were, a hospitable table; but they despised the honor which had been conferred upon them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "matthew-22-3-meiosis",
       "kind": "figure",
       "form": "meiosis",
@@ -2250,6 +3090,111 @@
           "quote": "The Greek is:- οὐκ ἤθελον ἐλθεῖν (ouk eethelon elthein), they did not wish to come, this is enhancing, by Meiosis, the fact that they not only absolutely refused, but in doing so they acted only on the wish of their heart.",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-23-25-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Matthew 23:25-26",
+      "strength": "widely agreed",
+      "short": "A cup washed outside but filthy within",
+      "about": "Jesus pictures the Pharisees washing the outside of a cup and dish while the inside stays full of greed and self-indulgence. The cup pictures them: a clean outward show before men, with hearts left unclean. So He bids them first clean the inside, and the outside will be clean as well.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Matthew 23:25",
+        "words": "You clean the outside of the cup and dish",
+        "means": "their care to keep a clean outward life before men, while their hearts were left full of sin"
+      },
+      "refs": [
+        "Luke 11:39-41"
+      ],
+      "evidence": "Henry counts it the first of two similitudes: they are compared to a vessel washed outside but dirty within. Calvin says Christ uses a figure, the outside of the dish standing for outward show. Barnes says the allusion taught that the heart must be cleansed first. Chrysostom, in the Catena Aurea of Thomas Aquinas, takes the outside for the body and the inside for the soul.",
+      "limit": "No word of likeness is used: the cup is the picture, and the heart it stands for is left implied. Some of the writers also take the cups as real ones, filled with what greed had gained.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 23:13-33",
+          "quote": "This is illustrated by two similitudes. 1. They are compared to a vessel that is clean washed on the outside, but all dirt within, ... Now what a foolish thing would it be for a man to wash only the outside of a cup, which is to be looked at, and to leave the inside dirty, which is to be used; so they do who only avoid scandalous sins, that would spoil their reputation with men",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 23:25",
+          "quote": "Our Lord follows out the same statement, and employs a figure for reproaching the scribes with being eagerly bent on this single object of making a brilliant appearance before men. For by the outer part of the dish he metaphorically expresses the outward appearance ... That the expression is metaphorical is evident from the second clause, in which the uncleanness within is condemned",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 23:26",
+          "quote": "Let them be filled with the fruits of honest industry, and then the outside and the inside will be really \"clean.\" By this allusion to the cup and platter he taught them that it was necessary to cleanse the heart first, that the external conduct might be really pure and holy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 23:25-26",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-30.shtml",
+          "quote": "But here, discoursing of things clean and unclean, He does not add this, but distinguishes and shews that external purity of necessity follows internal; the outside of the cup and platter signifying the body, the inside the soul.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-23-27-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Matthew 23:27-28",
+      "strength": "widely agreed",
+      "short": "Like whitewashed tombs, fair outside, dead within",
+      "about": "Jesus says the scribes and Pharisees are like whitewashed tombs, fair to look at but full of dead men’s bones within. Then He applies it: “on the outside you appear to be righteous, but on the inside you are full of hypocrisy and wickedness.”",
+      "figure": {
+        "name": "Simile",
+        "ref": "Matthew 23:27",
+        "words": "You are like whitewashed tombs",
+        "means": "a fair outward show of righteousness hiding hearts full of hypocrisy and sin, as a bright tomb hides decay"
+      },
+      "refs": [
+        "Luke 11:44"
+      ],
+      "evidence": "Henry: they are compared to whited tombs, fair without and foul within, their righteousness only for show. Calvin calls it a metaphor in which Christ compares them to splendid tombs that hold rotting bodies. Barnes says their hearts are fitly pictured by the decay in a whitened tomb. Brown (Jamieson, Fausset and Brown) calls it a figure of a grave, a fair show over hearts full of corruption.",
+      "limit": "The writers differ on why tombs were whitened: to mark them, so that no one would touch one and be made unclean, or to adorn them. Luke 11:44 gives a different picture, of graves that are not seen.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 23:13-33",
+          "quote": "They are compared to whited sepulchres, ... They were fair without, like sepulchres, which appear beautiful outward. ... Now the righteousness of the scribes and Pharisees was like the ornaments of a grave, or the dressing up of a dead body, only for show. ... They were foul within, like sepulchres, full of dead men's bones, and all uncleanness",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 23:27",
+          "quote": "This is a different metaphor, but the meaning is the same; for he compares them to sepulchers, which the men of the world ambitiously construct with great beauty and splendor. As a painting or engraving on sepulchers draws the eyes of men upon them, while inwardly they contain stinking carcasses; so Christ says that hypocrites deceive by their outward appearance",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 23:27",
+          "quote": "Thus \"whited,\" they appeared beautiful; but within they contained the bones and corrupting bodies of the dead. So the Pharisees. Their outward conduct appeared well, but their hearts were full of hypocrisy, envy, pride, lust, and malice - suitably represented by the corruption within a whited tomb.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 23:27",
+          "quote": "What a powerful way of conveying the charge, that with all their fair show their hearts were full of corruption! ... In Luk 11:44 our Lord gives another turn to this figure of a grave",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -2298,6 +3243,342 @@
           "quote": "What the enigmatic proverb (if indeed it be enigmatic) means, is that wherever life is gone, wherever a church or nation is decaying and putrescent, there to the end of time will God’s ministers of vengeance, the vultures that do their work of destruction ... assuredly be found.",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "matthew-24-32-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 24:32-33",
+      "strength": "widely agreed",
+      "short": "Budding fig leaves: a sign that summer is near",
+      "about": "Jesus points to the fig tree: when its branches turn tender and put out leaves, everyone knows that summer is near. In the same way, when His disciples see all the things He has foretold, they are to know that “He is near, right at the door.”",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 24:32",
+        "words": "learn this lesson from the fig tree",
+        "means": "the signs He has foretold: when they are seen, what He spoke of is near, as surely as new leaves show that summer is near"
+      },
+      "refs": [
+        "Luke 21:29-31",
+        "Mark 13:28-29"
+      ],
+      "original": {
+        "note": "In Matthew’s Greek the word the BSB renders lesson is parabolē, the word for a parable: here an illustration, or comparison, drawn from the tree.",
+        "strong": [
+          "G3850"
+        ]
+      },
+      "evidence": "Henry says the parable is only that budding leaves foretell summer; he likens the signs of the times to the earth’s. Clarke: the signs given are as sure a proof of the coming ruin of the Jewish state as budding trees are of summer. Barnes says the word means an illustration or comparison. Plumptre (Ellicott): as surely as green leaves show summer, the signs foretell the coming of the Son of Man.",
+      "limit": "The writers differ on what the signs show to be near: the fall of Jerusalem and the end of the Jewish state, the coming of the Son of Man, or the kingdom of God.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 24:32-51",
+          "quote": "The parable of the fig-tree is no more than this, that its budding and blossoming are a presage of summer; for as the stork in the heaven, so the trees of the field, know their appointed time. ... The signs of the times are compared with the prognostics of the face of the sky ... so here with those of the face of the earth; when that is renewed, we foresee that summer is coming",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Matthew 24:32",
+          "quote": "Learn a parable of the fig-tree - That is, These signs which I have given you will be as infallible a proof of the approaching ruin of the Jewish state as the budding of the trees is a proof of the coming summer.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 24:32",
+          "quote": "Now learn a parable - See the notes at Mat 13:3 . The word here means, rather, \"an illustration\" make a \"comparison,\" or judge of this as you do respecting a fig-tree.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 24:32",
+          "quote": "And what our Lord teaches is that as surely as the fresh green foliage of the fig tree is a sign of summer, so shall the signs of which He speaks portend the coming of the Son of Man.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-24-43-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 24:43",
+      "strength": "widely agreed",
+      "short": "A homeowner who would have watched for the thief",
+      "about": "Jesus pictures a homeowner: had he known in which watch of the night the thief would come, he would have stayed awake and kept his house from being broken into. He draws the lesson at once: “you also must be ready, because the Son of Man will come at an hour you do not expect.”",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 24:43",
+        "words": "If the homeowner had known in which watch of the night the thief was coming",
+        "means": "the coming of the Son of Man, as sudden and unannounced as a thief’s, which calls His people to be ready at all times"
+      },
+      "refs": [
+        "Matthew 24:44",
+        "Luke 12:39-40"
+      ],
+      "evidence": "Calvin calls it another similitude: one who hears robbers are about cannot sleep, and Christ will come as suddenly as a robber, so we must always watch. Henry calls it a particular instance, the house being our own souls. Barnes: a man would be ready for a robber, and Christ will come as suddenly. Jerome, in the Catena Aurea of Thomas Aquinas, says the instance shows why the day is kept secret.",
+      "limit": "The likeness lies in the suddenness of His coming, without warning, not in any likeness of Christ to a thief.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 24:44",
+          "quote": "Another similitude is now employed by Christ, in exhorting his disciples to keep diligent watch; for if any person shall hear that robbers are prowling in the night, fear and suspicion will not allow him to sleep. Since, therefore, we are informed that Christ’s coming will be sudden and unexpected, like that of a robber, and since we are expressly forewarned that we must always watch",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14",
+          "url": "https://biblehub.com/commentaries/calvin/luke/12.htm"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 24:32-51",
+          "quote": "This he shows in a particular instance, ... Now, though we know not just when our Lord will come, yet, knowing that he will come, and come quickly, and without any other warning than what he hath given in his word, it concerns us to watch always. Note, First, We have every one of us a house to keep, which lies exposed, in which all we are worth is laid up: that house is our own souls",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 24:43",
+          "quote": "If a man knew the hour, or \"about the hour,\" when a robber would come, he would be ready for him. So you know not the exact hour, but you know it is near, when the Son of man will come. He will come suddenly, as a thief comes, without giving previous warning",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 24:42-44",
+          "at": "Jerome, Commentary on Matthew, book 4",
+          "url": "https://www.ecatholic2000.com/catena/untitled-31.shtml",
+          "quote": "And by the instance of the master of the household, He teaches more plainly why He keeps secret the day of the consummation.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-24-45-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 24:45-51",
+      "strength": "widely agreed",
+      "short": "The faithful servant and the wicked one",
+      "about": "Jesus pictures a servant put in charge of his master’s household. He is blessed if his master returns to find him at work. If he thinks his master will be long away and beats his fellow servants, he is caught unready and punished. It calls Christ’s servants, above all church leaders, to be faithful.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 24:45",
+        "words": "Who then is the faithful and wise servant",
+        "means": "Christ’s servants, and above all those set over His church, who must be found faithful at their work whenever He returns"
+      },
+      "refs": [
+        "Luke 12:42-46"
+      ],
+      "evidence": "Barnes says the passage is in fact a parable, teaching disciples to live as if expecting His return each moment. Henry calls it a parable for all Christians, above all a warning to ministers. Calvin calls it a parable in which Christ asks special care of the servants set over others. Chrysostom, in the Catena Aurea of Thomas Aquinas, fits the parable to rulers as well.",
+      "limit": "The writers apply it to every Christian and above all to those who lead the church; one fits it also to rulers.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Matthew 24:45",
+          "quote": "This passage is, in fact, \"a parable,\" though it is not expressly so called. The design is to show that his disciples should act as if they were each moment expecting his return. ... By the conduct of a faithful and wise servant Jesus intends to denote a faithful Christian, a servant of God, or a teacher of religion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 24:32-51",
+          "quote": "This is represented by the different state of good and bad servants, when their lord comes to reckon with them. ... Now this parable, with which the chapter closes, is applicable to all Christians, who are in profession and obligation God's servants; but it seems especially intended as a warning to ministers; for the servant spoken of is a steward.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 24:45",
+          "quote": "This passage is more distinctly explained by Luke, who inserts Peter’s question, which gave rise to a new parable. ... As Christ had formerly exhorted the whole family in general to watch for his coming, so now he demands extraordinary care from the principal servants, who had been appointed over others",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14",
+          "url": "https://biblehub.com/commentaries/calvin/luke/12.htm"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Matthew 24:45-51",
+          "at": "Chrysostom, Homilies on Matthew",
+          "url": "https://www.ecatholic2000.com/catena/untitled-31.shtml",
+          "quote": "This parable may be also fitted to the case of secular rulers; for each ought to employ the things he has to the common benefit, and not to the hurt of his fellow-servants, nor to his own ruin; whether it be wisdom or dominion, or whatever else he has.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-25-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 25:1-12",
+      "strength": "widely agreed",
+      "short": "Ten virgins, five ready and five not",
+      "about": "Jesus likens the kingdom at His coming to ten virgins who wait with lamps for the bridegroom. The five wise take extra oil; the five foolish do not. When he comes, those who are ready go in with him to the wedding banquet, and the door is shut. He applies it: “Therefore keep watch.”",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 25:1",
+        "words": "the kingdom of heaven will be like ten virgins who took their lamps and went out to meet the bridegroom",
+        "means": "Christ’s coming as the Bridegroom: all who profess His name wait for Him, but only those truly ready when He comes go in with Him"
+      },
+      "refs": [
+        "Matthew 25:13"
+      ],
+      "evidence": "Henry calls it a similitude: the Bridegroom is Christ, the virgins those who profess His name, the wise sincere and the foolish hypocrites. Brown (Jamieson, Fausset and Brown) says it shows the watchful, expectant faith of believers. Calvin: one must persevere to the end. Plumptre (Ellicott) reads the oil as grace, the gift of the Holy Spirit. Barnes sees Christ’s coming pictured as a marriage.",
+      "limit": "The writers agree on its call to be ready for His coming; only some of them give a meaning to details such as the lamps and the oil.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 25:1-13",
+          "quote": "The administration of Christ's government, towards the ready and the unready in the great day, may be illustrated by this similitude; ... Now in this parable, 1. The Bridegroom is our Lord Jesus Christ; ... 2. The virgins are the professors of religion, members of the church ... Sincere Christians are the wise virgins, and hypocrites the foolish ones",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 25:1",
+          "quote": "PARABLE OF THE TEN VIRGINS. ... This supplies a key to the parable, whose object is, in the main, the same as that of the last parable--to illustrate the vigilant and expectant attitude of faith",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 25:1",
+          "quote": "The parable is borrowed from the ordinary custom of life ... Christ had no other object in view than to lessen the uneasiness which they might be apt to feel in consequence of the delay of his coming. ... But the general instruction of the parable consists in this, that it is not enough to have been once ready and prepared for the discharge of duty, if we do not persevere to the end.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 25:3",
+          "quote": "In the interpretation of the parable, the lamp or torch is obviously the outward life of holiness by which the disciple of Christ lets his light shine before men ( Mat 5:16 ), and the “oil” is the divine grace, or more definitely, the gift of the Holy Spirit, without which the torch first burns dimly and then expires.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 25:1",
+          "quote": "The meaning is, \"When the Son of man returns to judgment, it will be as it was in the case of ten virgins in a marriage ceremony.\" The coming of Christ to receive his people to himself is often represented under the similitude of a marriage",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-25-14-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Matthew 25:14-30",
+      "strength": "widely agreed",
+      "short": "Servants trusted with talents give account",
+      "about": "A man going on a journey entrusts his money to his servants, each by his ability. Two put it to work and double it; the third hides his in the ground. On his return the master rewards the faithful two and casts out the lazy one. Many read the master as Christ, who will call His servants to account.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Matthew 25:14",
+        "words": "it is just like a man going on a journey, who called his servants and entrusted them with his possessions",
+        "means": "Christ, who goes away and entrusts His servants with His gifts, and at His return calls each to account for how he used them"
+      },
+      "original": {
+        "note": "In Matthew's Greek a talent is a sum of money, not a gift or skill. The later use of the word for a person's gifts grew out of this parable.",
+        "strong": [
+          "G5007"
+        ]
+      },
+      "evidence": "Matthew Henry calls it the parable of the talents, with Christ as the Master and Christians as the servants. Albert Barnes says it shows how He will deal with people at His return. David Brown (Jamieson, Fausset and Brown) reads the goods as all their gifts. Joseph Benson says it urges diligence until the Lord comes. E. H. Plumptre (Ellicott) takes the talents as opportunities.",
+      "limit": "The writers differ on what the talents stand for: some take them as gifts and abilities of every kind, while one takes them less as natural gifts than as opportunities, such as possessions and offices.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 25:14-30",
+          "quote": "We have here the parable of the talents committed to three servants; this implies that we are in a state of work and business ... In this parable, 1. The Master is Christ, who is the absolute Owner and Proprietor of all persons and things, and in a special manner of his church; into his hands all things are delivered. 2. The servants are Christians, his own servants, so they are called",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 25:14",
+          "quote": "The \"parable of the talents\" was spoken still further to illustrate the manner in which he would deal with people at his return to judgment. ... The design of the parable is to teach that those who improve their talents or faculties in the cause of religion ... shall be proportionally rewarded; but they who neglect their talents ... will be punished.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Matthew 25:14",
+          "quote": "PARABLE OF THE TALENTS. ... Christ's \"servants\" here mean all who, by their Christian profession, stand in the relation to Him of entire subjection. His \"goods\" mean all their gifts and endowments, whether original or acquired, natural or spiritual.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 25:14",
+          "quote": "our Saviour immediately subjoins another parable, wherein he represents to us the different characters of a faithful and slothful servant, and the difference of their future acceptation. Like the former, the present parable is intended to stir us up to a zealous preparation for the coming of our Lord, by diligence in the discharge of our duty",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 25:15",
+          "quote": "The languages of modern Europe bear witness, in their use of the word, to the impression which the parable has made. ... it tends to obscure the true meaning of the parable. Here there is an “ability” presupposed in each case, prior to the distribution of the talents, and ... the latter stand here less for natural gifts than for external opportunities — for possessions, offices",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "matthew-25-32-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Matthew 25:32-33",
+      "strength": "widely agreed",
+      "short": "As a shepherd parts the sheep from the goats",
+      "about": "Jesus says that when He comes in glory the nations will be gathered before Him, and He will separate them as a shepherd separates the sheep from the goats, the sheep on His right and the goats on His left. The good and the wicked, who now live mixed together, will then be parted.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Matthew 25:32",
+        "words": "as a shepherd separates the sheep from the goats",
+        "means": "the King parting the righteous from the wicked at His coming; those who now live mixed together in one flock will then be set apart"
+      },
+      "evidence": "John Calvin calls it a comparison: the wicked now live mixed with the good in God's flock until that day. Matthew Henry counts the parting of the sheep and goats among the passage's parabolical parts and calls Christ the great Shepherd. Joseph Benson takes the sheep as the righteous and the goats as the wicked. E. H. Plumptre (Ellicott) sees the shepherd parting them in judgment.",
+      "limit": "The note claims only the likeness of the shepherd. One of the writers says plainly that the scene as a whole is a picture of the last judgment rather than a parable.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Matthew 25:32",
+          "quote": "When our Lord says that the separation of the sheep from the goats is delayed till that day, he means that the wicked are now mixed with the good and holy, so that they live together in the same flock of God. The comparison appears to be borrowed from ... where the Lord complains of the fierceness of the goats, which attack with their horns the poor sheep",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Matthew 25:31-46",
+          "quote": "There are some passages in it that are parabolical; as the separating between the sheep and the goats ... it is rather to be called a draught or delineation of the final judgment, than a parable ... This is compared to a shepherd's dividing between the sheep and the goats ... Jesus Christ is the great Shepherd ... will shortly distinguish between those that are his, and those that are not",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 25:32-33",
+          "quote": "with as much ease as a shepherd divideth his sheep, which belong to his flock, from the goats, which may be mingled with them, and places them in distinct companies. And he shall set the sheep The righteous, whom he will own as such, and who are termed sheep on account of their innocence, meekness, and usefulness; ... And the goats That is, the wicked",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Matthew 25:32",
+          "quote": "Elsewhere the shepherd’s work is the symbol of protective, self-sacrificing love ... Here we are reminded that even the shepherd has at times to execute the sentence of judgment which involves separation. The “right” hand and the “left” are used ... as indicating respectively good and evil, acceptance and rejection.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

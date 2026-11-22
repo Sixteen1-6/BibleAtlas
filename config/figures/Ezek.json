@@ -1,6 +1,242 @@
 {
   "notes": [
     {
+      "id": "ezekiel-3-24-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 3:24-27",
+      "strength": "some interpreters",
+      "short": "Ezekiel shut in his house, a sign of closed ears",
+      "about": "God tells Ezekiel to shut himself inside his house, and says he will be tied with ropes and kept silent until God opens his mouth. One reading takes his being shut in, and the ropes, as signs of how his own people would close their ears and keep him from speaking God's message.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 3:24",
+        "words": "shut yourself inside your house",
+        "means": "how his own people would shut their ears and, as far as they could, keep him from giving the Lord's message"
+      },
+      "evidence": "G. Currey (Barnes' Notes) says the shutting up, and the bands, which he takes figuratively, were signs of how Ezekiel's countrymen would close their ears and hinder him from giving the Lord's message, and that a series of symbolic actions foretelling Jerusalem's judgment begins with this verse.",
+      "limit": "This reading is one writer's. He takes the ropes as a figure of his countrymen hindering him from giving the Lord's message, not as cords truly tied on Ezekiel.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Ezekiel 3:24",
+          "quote": "This \"shutting up,\" however, and the \"bands\" ( Eze 3:25 , used figuratively) were signs of the manner in which Ezekiel's countrymen would close their ears, hindering him as far as in them lay from delivering the message of the Lord. With this verse commences a series of symbolic actions enjoined to the prophet in order to foretell the coming judgments of Jerusalem Ezek. 4; 5.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-4-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 4:1-3",
+      "strength": "widely agreed",
+      "short": "Jerusalem drawn on a brick and put under siege",
+      "about": "God has Ezekiel draw Jerusalem on a brick, build siege works around it and set an iron plate between himself and the city. Verse 3 names the act: “This will be a sign to the house of Israel.” It foretold the siege the Chaldean army would soon lay to Jerusalem.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 4:1",
+        "words": "take a brick, place it before you, and draw on it the city of Jerusalem",
+        "means": "Jerusalem under siege: the Chaldean army would soon surround the city, as the prophet's model showed"
+      },
+      "evidence": "Calvin: God signifies by an outward symbol what the prophet is to utter, the siege the Chaldeans would soon lay. Matthew Henry: signs of the siege of Jerusalem that amounted to a prediction, a sign to exiles who saw it. Adam Clarke: an emblematical representation of what would take place. G. Currey (Barnes' Notes): a vivid picture of the event it foretold, perhaps only told to the people.",
+      "limit": "The note keeps to verses 1 to 3; lying on his side and the rationed bread follow as further signs. Writers differ on whether the signs were acted before the people or seen in a vision and described to them.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Ezekiel 4:1-3",
+          "quote": "Here God begins to speak more openly by means of his servant, and not to speak only, but to signify by an outward symbol what he wishes to be uttered by his mouth. ... God orders the Prophet to erect towers, then to pitch a camp, and to prepare whatever belongs to the siege of a city, because very soon afterwards the Chaldeans would arrive",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 4:1-8",
+          "quote": "The prophet is here ordered to represent to himself and others by signs which would be proper and powerful to strike the fancy and to affect the mind, the siege of Jerusalem; and this amounted to a prediction. ... This is intended to be a sign to the house of Israel ... both to those in Babylon, who were eye-witnesses of what the prophet did",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 4:3",
+          "quote": "The Chaldeans threw such a wall round Jerusalem, to prevent the besieged from receiving any succours, and from escaping from the city. This shall be a sign to the house of Israel - This shall be an emblematical representation of what shall actually take place.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 4:3",
+          "quote": "A sign to the house of Israel - This \"sign\" was not necessarily acted before the people, but may simply have been described to them as a vivid representation of the event which it foretold.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-5-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 5:1-4",
+      "strength": "widely agreed",
+      "short": "Shaved hair, split in three: Jerusalem's fate",
+      "about": "God tells Ezekiel to shave his head and beard with a sword, weigh the hair and split it in three: a third burned, a third struck with the sword, a third scattered to the wind, a few strands kept. The hair stands for Jerusalem's people, and verse 12 says how each third will fall.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 5:1",
+        "words": "shave your head and beard",
+        "means": "Jerusalem's people cut off by God's judgment: a third by plague and famine, a third by the sword, a third scattered among the nations"
+      },
+      "refs": [
+        "Ezekiel 5:12"
+      ],
+      "evidence": "Matthew Henry says the prophet is himself the sign of Jerusalem's utter ruin. Adam Clarke calls it a new emblem: the prophet stands for the nation, his hair for the people, the razor for the Chaldeans. Joseph Benson calls it an emblematical representation of what would befall Jerusalem. F. Gardiner (Ellicott): the sword is taken for its symbolism, a priest's shaving betokening judgment.",
+      "limit": "Writers differ on whether Ezekiel did all of this before the exiles, or some of it, such as burning a third of the hair inside the city, only in word.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Ezekiel 5:1-4",
+          "quote": "We have here the sign by which the utter destruction of Jerusalem is set forth; and here, as before, the prophet is himself the sign, that the people might see how much he affected himself with, and interested himself in, the case of Jerusalem ... Ezekiel must not cut off that hair only which was superfluous, but cut it all off, denoting the full end that God would make of Jerusalem.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 5:1",
+          "quote": "Here is a new emblem produced, in order to mark out the coming evils. 1. The prophet represents the Jewish nation. 2. His hair, the people. 3. The razor, the Chaldeans. 4. The cutting the beard and hair, the calamities, sorrows, and disgrace coming upon the people. ... 3. And the remaining third part he was to scatter in the wind, to point out those who should be driven into captivity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 5:1",
+          "quote": "What the prophet is here commanded to do was by way of another emblematical representation of what was to happen to the inhabitants of Judea and Jerusalem. The hair signified the Jewish people; shaving the hair with a razor, the divine vengeance; the weighing of the hair in the balances, the divine equity",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 5:1",
+          "quote": "The thought is plainly that the prophet is to take a sword, on account of its symbolism, and use it instead of a razor. ... The symbolism was the more marked because Ezekiel was a priest, and the priests were expressly forbidden in the law to shave either the head or the beard ( Lev 21:5 ). The shaving, therefore, of a priest’s head and beard with a sword betokened a most desolating judgment.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-6-11-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 6:11",
+      "strength": "widely agreed",
+      "short": "Clap, stomp and cry “Alas!”: God's anger shown",
+      "about": "God tells Ezekiel to clap his hands, stomp his feet and cry “Alas!” over the wicked abominations of the house of Israel. The gestures put before the people God's anger at their sin and the ruin coming on them by sword, famine and plague.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 6:11",
+        "words": "Clap your hands, stomp your feet",
+        "means": "God's fixed anger at Israel's abominations, and the ruin coming by sword, famine and plague"
+      },
+      "evidence": "John Calvin says God adds a sign, since words moved them little; the gesture confirms His word. A. R. Fausset (Jamieson, Fausset and Brown) calls them gestures in token of how God will strike them. C. F. Keil (Keil and Delitzsch): they make known the LORD's displeasure. F. Gardiner (Ellicott): they show God's fixed purpose. Adam Clarke counts them among the prophet's typical acts.",
+      "limit": "Writers differ on how much the gestures voice anger at the people's sin and how much dread of their coming ruin; several hold both.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Ezekiel 6:11",
+          "quote": "Since, then, words moved them but little, God adds a sign, according to his custom in obstinate cases. He orders the Prophet, by clapping of hands, and by extending his legs and feet, to show that the land was cursed. ... God wishes by this gesture that his word should be confirmed, not for the Prophets sake, but for the sake of the obstinacy of those who were deaf to all words",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 6:11",
+          "quote": "Gesticulations vividly setting before the hearers the greatness of the calamity about to be inflicted. In indignation at the abominations of Israel extend thine hand towards Judea, as if about to \"strike,\" and \"stamp,\" shaking off the dust with thy foot, in token of how God shall \"stretch out His hand upon them,\" and tread them down",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 6:11-14",
+          "quote": "Through clapping of the hands and stamping of the feet - the gestures which indicate violent excitement - the prophet is to make known to the displeasure of Jehovah at the horrible idolatry of the people, and thereby make manifest that the penal judgment is well deserved.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 6:11",
+          "quote": "To clap the hands and stamp the feet ... is a gesture of strong emotion or earnestness of purpose. The prophet is here directed to use it as indicating God’s unchangeable determination united to a sense of grievous wrong.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 6:11",
+          "quote": "Show the utmost marks of thy astonishment and indignation, and dread of the evils that are coming upon them. ... To be consistent, they should copy the prophet in his other typical actions as well as these ... Now all these things, because they were typical and commanded, were proper in the prophet",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-7-23-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 7:23",
+      "strength": "widely agreed",
+      "short": "“Forge the chain”: a sign of the coming captivity",
+      "about": "God tells Ezekiel to forge a chain, for the land is full of bloodshed and the city of violence. The chain is a sign of the captivity to come, when the guilty people would be led away in bonds. One writer also reads it as the chain of a prisoner brought to God's judgment.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 7:23",
+        "words": "Forge the chain",
+        "means": "the captivity coming on the land's guilty people, led away bound to Babylon"
+      },
+      "evidence": "Adam Clarke calls the chain a type of the captivity. A. R. Fausset (Jamieson, Fausset and Brown) calls it a symbol of the captivity. Joseph Benson: it foreshows the captivity. F. Gardiner (Ellicott) calls it a symbolic act, here done in word. Matthew Henry says it signified the siege, the captives' slavery, or their being bound over to God's judgment.",
+      "limit": "One writer holds the chain was only spoken of here, not truly forged. Another reads it first as a prisoner's chain at God's judgment, and also as the siege or the captives' slavery.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 7",
+          "quote": "the prophet is directed to make a chain, as a type of that captivity, in which both king and people should be led in bonds to Babylon, Eze 7:23-27 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 7:23",
+          "quote": "chain--symbol of the captivity (compare Jer 27:2 ). As they enchained the land with violence, so shall they be chained themselves. It was customary to lead away captives in a row with a chain passed from the neck of one to the other.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 7:23",
+          "quote": "Make a chain To foreshow the approaching captivity, when both king and people should be carried in chains to Babylon.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 7:23",
+          "quote": "In the midst of this plain prophecy the strong tendency of the prophet’s mind still runs to the symbolic act; but this can be thought of here only as done in word. The chain is to bind captive the guilty people.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 7:23-27",
+          "quote": "Make a chain, in which to drag the criminal to the bar, and set him before the tribunal of divine justice; let him stand in fetters (as a notorious malefactor), stand pinioned to receive his doom. ... The chain signified the siege of Jerusalem, or the slavery of those that were carried into captivity, or that they were all bound over to the righteous judgment of God, reserved in chains.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "ezekiel-9-8-exclamation",
       "kind": "figure",
       "form": "exclamation",
@@ -46,6 +282,329 @@
           "quote": "Now it is a city of the dead, and he is left standing alone in the midst of the dead. He falls upon his face in consternation, and pleads that “the residue of Israel” may not be utterly destroyed.",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-11-3-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Ezekiel 11:3-11",
+      "strength": "widely agreed",
+      "short": "“The city is the cooking pot”: a boast turned back",
+      "about": "Jerusalem's leaders call the city the cooking pot and themselves the meat: its walls will keep them safe, as a pot keeps the meat from the fire. God turns the picture back on them: the slain are the meat, and “The city will not be a pot for you, nor will you be the meat within it.”",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Ezekiel 11:3",
+        "words": "The city is the cooking pot, and we are the meat",
+        "means": "the leaders' boast that Jerusalem's walls will keep them safe from the enemy, as a pot keeps the meat in it from the fire"
+      },
+      "evidence": "F. Gardiner (Ellicott) says the princes compared the city to a caldron whose strong walls would shield the people from attack, a figure God turns against them. G. Currey (Barnes' Notes) calls it the image of the caldron: they are safe within the walls, as flesh in a caldron is unburned. Matthew Henry takes it as a proverbial expression of the same safety, as God's answer shows.",
+      "limit": "Some writers add that the leaders were also mocking an earlier prophet's word; the note claims only their boast of safety and God's answer to it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 11:3",
+          "quote": "The princes further confirmed the people in their fancied security by comparing the city to a caldron, the strong walls of which should protect the flesh within it, i.e., the people, from the fire of all hostile attack. In the prophecy of Eze 24:6 this figure is taken up, and a very different application given to it; it is also turned against them immediately in Eze 11:7 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 11:3",
+          "quote": "These false counselors promised to their countrymen a sure and permanent abode in the city which God had doomed to destruction. ... The same idea is expressed by the image of the \"caldron:\" whatever devastation may rage around the city, we are safe within its walls, as flesh within a caldron is unburned by the surrounding fire",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 11:1-13",
+          "quote": "This seems to be a proverbial expression, signifying no more than this, \"We are as safe in this city as flesh in a boiling pot; the walls of the city shall be to us as walls of brass, and shall receive no more damage from the besiegers about it than the cauldron does from the fire under it. ... This appears to be the meaning of it, by the answer God gives to it",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-12-3-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 12:3-7",
+      "strength": "widely agreed",
+      "short": "Ezekiel packs for exile: a sign of the captivity",
+      "about": "At God's word, and as the people watch, Ezekiel brings out an exile's bags by day, digs through the wall at evening and carries his things out at dusk on his shoulder. God has made him a sign: “Just as it happened here, so will it be done to them”; they will go into exile.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 12:3",
+        "words": "pack your bags for exile",
+        "means": "the king and people of Jerusalem going into exile, the king slipping out at dusk through the wall"
+      },
+      "refs": [
+        "Ezekiel 12:11",
+        "Ezekiel 12:12"
+      ],
+      "evidence": "C. F. Keil (Keil and Delitzsch) calls it a sign done to the letter, to set the coming judgment before the people. Matthew Henry says the prophet is directed by signs and actions to show Zedekiah's captivity. Adam Clarke: he foretells it by action instead of words. G. Currey (Barnes' Notes) calls it a real act and a sign. F. Gardiner (Ellicott): a symbolical action of going into captivity.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 12:1-7",
+          "quote": "Symbol of the Emigration ... the prophet was to depict before its eyes, by means of the sign that followed, the judgment which was approaching; in the hope, as is added in Eze 12:3 , that they might possibly observe and lay the sign to heart. ... In Eze 12:7 , the execution of the command, which evidently took place in the strictness of the letter, is fully described.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 12:1-16",
+          "quote": "In these verses the prophet is directed, I. By what signs and actions to express the approaching captivity of Zedekiah king of Judah ... he must first give them a sign of it, must speak it to their eyes first and then to their ears",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 12",
+          "quote": "In the beginning of this chapter he foretells the approaching captivity of Judah by action instead of words, Eze 12:1-7 . He predicts particularly the flight, capture, captivity, and sufferings of Zedekiah and his followers, Eze 12:8-16",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 12:3",
+          "quote": "The \"removing\" was to be of the kind that accompanied exile. The whole account of this transaction marks it as a real act. The prophet was to be \"a sign\" to his countrymen",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 12:3",
+          "quote": "The symbolical action was that of one preparing to leave his home to go into captivity. The prophet is to make his preparations during the day, and to carry forth his stuff ( Eze 12:7 ), but not himself to go forth until even ( Eze 12:4 ).",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-12-17-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 12:17-20",
+      "strength": "widely agreed",
+      "short": "Bread eaten trembling: the siege's fear acted out",
+      "about": "God tells Ezekiel to eat his bread with trembling and drink his water with quivering and anxiety. Then he is to say that Jerusalem's people will eat and drink in dread, for their land will be stripped bare. His fearful meal acts out the terror of the coming siege.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 12:18",
+        "words": "eat your bread with trembling",
+        "means": "the terror and distress in which Jerusalem's people would eat and drink during the siege"
+      },
+      "evidence": "Matthew Henry says the prophet is again made a sign, expressing Jerusalem's plight in the siege. C. F. Keil (Keil and Delitzsch) calls it a sign of the conquest's terrors, shown by gesture. A. R. Fausset (Jamieson, Fausset and Brown) calls it a symbolical representation. G. Currey (Barnes' Notes) and F. Gardiner (Ellicott) call it a sign of a siege's terror. Adam Clarke: thus signifying the siege.",
+      "limit": "Writers differ on whether the meal also pictures scarce food, or only the fear with which food is eaten.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Ezekiel 12:17-20",
+          "quote": "Here again the prophet is made a sign to them of the desolations that were coming on Judah and Jerusalem. 1. He must himself eat and drink in care and fear, especially when he was in company ... and drink his water with trembling and with carefulness, that he might express the calamitous condition of those that should be in Jerusalem during the siege",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 12:17-20",
+          "quote": "Sign Depicting the Terrors and Consequences of the Conquest of Jerusalem ... The carrying out of this sign is not mentioned; not that there is any doubt as to its having been done, but that it is simply taken for granted. The trouble and trembling could only be expressed by means of gesture.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 12:18",
+          "quote": "Symbolical representation of the famine and fear with which they should eat their scanty morsel, in their exile, and especially at the siege.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 12:18",
+          "quote": "Here the sign is the exhibition of such terror as the danger of a siege creates.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 12:18",
+          "quote": "This is another symbolical action, the meaning of which is immediately explained. The prophet is to eat and drink as men in the terror and distress of a siege.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 12:18",
+          "quote": "Assume the manner of a person who is every moment afraid of his life, who has nothing but a morsel of bread to eat, and a little water to drink. Thus signifying the siege, and the straits to which they should be reduced.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-12-22-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Ezekiel 12:22-23",
+      "strength": "widely agreed",
+      "short": "A scoffing saying: “every vision fails”",
+      "about": "People in Israel had a saying: “The days go by, and every vision fails.” The judgment the prophets foretold was slow to come, so they said it would never come. God answers that He will put an end to the saying, for “The days are at hand when every vision will be fulfilled.”",
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "Ezekiel 12:22",
+        "words": "The days go by, and every vision fails",
+        "means": "the judgment the prophets warned of is so long in coming that it will never come at all"
+      },
+      "original": {
+        "note": "In Hebrew the word for proverb is mashal, a saying current among the people and repeated as if true.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "Matthew Henry: the saying had become proverbial; since the destruction had not come yet, they said it never would. A. R. Fausset (Jamieson, Fausset and Brown): an unbelieving scoff made a proverb by repetition. C. F. Keil (Keil and Delitzsch): a saying current among the people; Joseph Benson: a scoffers' saying become proverbial; F. Gardiner (Ellicott): a proverb current in the land.",
+      "limit": "Verse 27 records a second saying, that the vision is for the distant future; the note keeps to the proverb of verses 22 and 23.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Ezekiel 12:21-28",
+          "quote": "One saying they had, which had become proverbial in the land of Israel ... They said, \"The days are prolonged; the judgments have not come when they were expected to come, but seem to be still put off de die in diem—from day to day, and therefore we may conclude that every vision fails ... that because the destruction has not come yet it will never come",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 12:22",
+          "quote": "proverb--The infidel scoff, that the threatened judgment was so long in coming, it would not come at all, had by frequent repetition come to be a \"proverb\" with them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 12:21-25",
+          "quote": "Mâshâl, a proverb, saying current among the people, and constantly repeated as a truth. \"The days become long,\" etc., i.e., the time is lengthening out, and yet the prophecy is not being fulfilled. ... God will put an end to these sayings, by causing a very speedy fulfilment of the prophecy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 12:22-25",
+          "quote": "Son of man, what is that proverb? The saying become proverbial. The days are prolonged, and every vision faileth Words of the same import with those that occur Eze 12:27 , and Eze 11:3 . Both of them the words of scoffers, who turned the grace of God into wantonness, and took encouragement from his patience and long-suffering, to despise his threatenings, as if they would never be fulfilled.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 12:22",
+          "quote": "In the land of Israel, is not here simply equivalent to the “in Israel” of Eze 12:23 , but refers to a proverb current among those who had not yet been carried into captivity, and who fancied that they should not be.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-13-10-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Ezekiel 13:10-12",
+      "strength": "commonly held",
+      "short": "A coming taunt: “Where is the whitewash?”",
+      "about": "The false prophets say “Peace” when there is no peace, like men whitewashing a flimsy wall. God says rain, hail and wind will bring the wall down. Then the question “Where is the whitewash with which you covered it?” will become a common taunt, showing up their empty words for all to see.",
+      "figure": {
+        "name": "Proverb",
+        "part": "Appear for the first time in Scripture",
+        "ref": "Ezekiel 13:12",
+        "words": "Where is the whitewash with which you covered it?",
+        "means": "the false prophets' promises of peace will be shown up as folly when the judgment falls, and men will mock them for it"
+      },
+      "original": {
+        "note": "In Hebrew the verse is a question that expects a yes: will it not be said to you?",
+        "strong": [
+          "H3808",
+          "H0559"
+        ]
+      },
+      "evidence": "John Calvin says a common proverb would arise when the wall fell: their folly and vanity would be laid bare, so that the proverb would be current everywhere. A. R. Fausset (Jamieson, Fausset and Brown) says their vanity and folly would be so plain that it would pass into a proverb, where is the daubing. Both render the words, shall it not be said.",
+      "limit": "The saying is foretold here, not quoted as already in use.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Ezekiel 13:12",
+          "quote": "He confirms the last sentence, namely, that the false prophets would be a laughing-stock to all when their prophecies and divinations came to nothing ... Now the Prophet teaches that a common proverb would arise when the wall fell; for by saying, shall it not be said to them, he signifies that their folly and vanity would be completely exposed, so that this proverb should be everywhere current",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 13:12",
+          "quote": "shall it not be said--Your vanity and folly shall be so manifested that it shall pass into a proverb, \"Where is the daubing?\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-15-2-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Ezekiel 15:2-5",
+      "strength": "widely agreed",
+      "short": "The useless wood of the vine",
+      "about": "God asks what vine wood is good for. Nothing can be made of it, not even a peg; it is fuel, and charred it is worth still less. Verse 6 applies it: “so I will give up the people of Jerusalem.” Many read it so: a vine is prized for its fruit, and without fruit His people were worth nothing.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Ezekiel 15:2",
+        "words": "how does the wood of the vine surpass any other branch among the trees in the forest",
+        "means": "Jerusalem's people, who had no worth above other nations but what God gave, and having failed to bear fruit were fit only for judgment"
+      },
+      "refs": [
+        "Ezekiel 15:6"
+      ],
+      "evidence": "Adam Clarke calls it a parable to humble the Jews' pride: they had nothing but what they received. C. F. Keil (Keil and Delitzsch): like vine wood, Israel has no superiority and is given to the fire. Matthew Henry calls it a similitude applied to Jerusalem, now unprofitable; Joseph Benson, a parable showing the nation not worth saving; F. Gardiner (Ellicott), a simile showing Israel worthless.",
+      "limit": "Some read the burned ends and charred middle as judgments Israel had already suffered; the note keeps to the main likeness.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 15:6",
+          "quote": "The design of this parable is to abate the pride of the Jews; to show them that, in their best estate, they had nothing but what they had received, and therefore deserved nothing; and now, having fallen from all righteousness, they can have no expectation of any thing but judgment unmixed with mercy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 15:1-8",
+          "quote": "In the application of the parable, the only thing to which prominence is given, is the fact that God will deal with the inhabitants of Jerusalem in the same manner as with the vine-wood ... As this possesses no superiority to other wood, but, on the contrary, is utterly useless, so Israel has no superiority to other nations, but is even worse than they, and therefore is given up to the fire.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 15:1-8",
+          "quote": "But, if it be not fruitful, it is good for nothing ... Observe, I. How this similitude is expressed here. ... II. How this similitude is applied to Jerusalem. 1. That holy city had become unprofitable and good for nothing.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 15:2-5",
+          "quote": "Just so, the parable implies, it was of no use or consequence to save the Jewish nation from destruction, were it possible to do it, which had so little answered the design of God, in making them his people, and had been of so little use in promoting his glory among the surrounding nations.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 15",
+          "quote": "This short chapter contains a single simile and its application, designed to show that Israel, having failed to fulfil the purpose for which they had been chosen, were worthless, and could have no other end than destruction.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -194,6 +753,408 @@
       ]
     },
     {
+      "id": "ezekiel-17-22-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 17:22-24",
+      "strength": "widely agreed",
+      "short": "God plants a tender sprig from the cedar",
+      "about": "After the eagles, God carries the same picture into a promise. He will take a tender sprig from the top of the cedar and plant it on the mountain heights of Israel, where it becomes a majestic cedar that birds of every kind shelter under. The sprig is read as the Messiah from David's royal line.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 17:22",
+        "words": "I will pluck a tender sprig from its topmost shoots",
+        "means": "the Messiah, from David's royal house, whom God Himself raises up from a lowly start to a great and lasting kingdom"
+      },
+      "refs": [
+        "Ezekiel 17:3"
+      ],
+      "evidence": "John Calvin: God pursues the allegory, planting a bough as the cedar's top was torn off; it refers to Christ. C. F. Keil (Keil and Delitzsch): the promise takes its form from the parable; the cedar is David's house, the shoot the Messiah. Matthew Henry: the tree metaphor is carried into the promise, met in part in Zerubbabel, fully in the Messiah. Adam Clarke: a metaphor of the Messiah's kingdom.",
+      "limit": "Some see a first fulfilment when the exiles returned under a prince of David's line, and the full one in the kingdom of Christ; others hold the sprig is the Messiah alone.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Ezekiel 17:22",
+          "quote": "Thus this prophecy without doubt refers to Christ ... God pursues the allegory which we saw: for as he said that the top was torn off, or that the highest branch was plucked from the cedar of Lebanon, so he now says, that he would take from the top of the cedar, and after he had plucked or wrenched off a bough, and planted it, such would be the increase",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 17:22-24",
+          "quote": "The announcement of this fulfilment takes its form from the preceding parable. ... The cedar, which it designated by the epithet râmâh, as rising above the other trees, is the royal house of David, and the tender shoot which Jehovah breaks off and plants is not the Messianic kingdom or sovereignty, so that Zerubbabel could be included, but the Messiah Himself",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 17:22-24",
+          "quote": "The metaphor of a tree, which was made us of in the threatening, is here presented in the promise ... This promise had its accomplishment in part when Zerubbabel, a branch of the house of David, was raised up to head the Jews in their return out of captivity ... but it was to have its full accomplishment in the kingdom of the Messiah, who was a root out of a dry ground",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 17",
+          "quote": "In the remaining verses the prophet, by a beautiful metaphor, makes an easy and natural transition to the Messiah, and predicts the security, increasing prosperity, and ultimate universality of his kingdom, Eze 17:22-24 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-18-2-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Ezekiel 18:2-3",
+      "refs": [
+        "Ezekiel 18:4",
+        "Jeremiah 31:29"
+      ],
+      "strength": "widely agreed",
+      "short": "“The fathers have eaten sour grapes”: a proverb",
+      "about": "The people quoted a proverb: “The fathers have eaten sour grapes, and the teeth of the children are set on edge.” By it they claimed to suffer for their fathers’ sins, not their own. The LORD swears they will quote it no more: “The soul who sins is the one who will die.”",
+      "figure": {
+        "name": "Proverb",
+        "part": "Quoted as being already in use as such",
+        "ref": "Ezekiel 18:2",
+        "words": "The fathers have eaten sour grapes, and the teeth of the children are set on edge",
+        "means": "the fathers sinned and the children bear the punishment, as the people said to put the blame for their judgment on others"
+      },
+      "evidence": "Keil (Keil and Delitzsch) explains it: the sour grapes are the fathers’ sins, the teeth set on edge the children’s suffering, an error condemned in Jeremiah 31:29-30 too. Henry calls it an evil proverb in common use; F. Gardiner (Ellicott) and G. Currey (Barnes’ Notes), a common saying that put the blame on others. A. R. Fausset (Jamieson, Fausset and Brown) and Clarke call it a proverb.",
+      "limit": "The same proverb is quoted in Jeremiah 31:29. Some writers also call it a parable.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 18:1-4",
+          "quote": "The meaning of the proverb is self-evident. The sour grapes which the fathers eat are the sins which they commit; the setting of the children's teeth on edge is the consequence thereof, i.e., the suffering which the children have to endure. The same proverb is quoted in Jer 31:29-30 , and there also it is condemned as an error.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 18:1-9",
+          "quote": "Here is, I. An evil proverb commonly used by the Jews in their captivity. ... we are punished for the sins of our ancestors, which is as great an absurdity in the divine regimen as if the children should have their teeth set on edge, or stupefied, by the fathers' eating sour grapes ... It is here put into a proverb, and that proverb used, commonly used",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 18:2",
+          "quote": "Proverb shows that it was a common saying, a way in which the people habitually sought to shirk the responsibility for their guilt. The same proverb is quoted in Jer 31:29 , and condemned in the same way.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 18:2",
+          "quote": "The saying was general among the people both in Palestine and in exile; and expressed the excuse wherewith they ascribed their miserable condition to anyone's fault but their own",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 18:2",
+          "quote": "THE PARABLE OF THE SOUR GRAPES REPROVED. ... Their unbelieving calumnies on God's justice had become so common as to have assumed a proverbial form. ... It is a universal mark of corrupt nature to lay the blame, which belongs to ourselves, on others and to arraign the justice of God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 18:2",
+          "quote": "We have seen this proverb already, Jer 31:29 , etc., and have considered its general meaning. ... It refers simply to these questions: How far can the moral evil of the parent be extended to his offspring? And, Are the faults and evil propensities of the parents, not only transferred to the children, but punished in them?",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-19-2-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Ezekiel 19:2-9",
+      "refs": [
+        "Ezekiel 19:1"
+      ],
+      "strength": "widely agreed",
+      "short": "A lioness and her cubs: Judah’s kings led captive",
+      "about": "Ezekiel’s lament tells of a lioness who rears her cubs among lions. One grows into a young lion that devours men; he is trapped and led with hooks to Egypt. A second is caged and brought to the king of Babylon. Many read the lioness as the nation, grown fierce, and her young lions as its kings.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Ezekiel 19:2",
+        "words": "What was your mother? A lioness among the lions!",
+        "means": "the nation the kings came from, grown fierce like the nations around; her cubs are its kings, carried off to Egypt and to Babylon"
+      },
+      "evidence": "Clarke calls the chapter two parables: the lioness is Jerusalem, the young lions Jehoahaz and Jehoiakim. Calvin says the prophet uses a likeness drawn from lions, the lioness being the nation. Henry: Judah is compared to a lioness, its kings to her whelps, the first Jehoahaz. Keil (Keil and Delitzsch): the mother is the nation, the lion’s ferocity the likeness; the kings, Jehoahaz and Jehoiachin.",
+      "limit": "Writers differ on details: some take the lioness as Jerusalem, others as the whole nation, and the second young lion as Jehoiakim or as Jehoiachin. All take the first as Jehoahaz, taken to Egypt.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 19",
+          "quote": "This chapter contains two beautiful examples of the parabolic kind of writing; the one lamenting the sad catastrophe of Jehoahaz and Jehoiakim, Eze 19:1-9 ... In the first parable, the lioness is Jerusalem. The first of the young lions is Jehoahaz, deposed by the king of Egypt; and the second lion is Jehoiakim, whose rebellion drew on himself the vengeance of the king of Babylon.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Ezekiel 19:1",
+          "quote": "Here the Prophet, under the image of a lion, informs us that whatever evils happened to the Israelites could not be imputed to others. ... But he uses, as I have said, a simile taken from lions. He calls the nation itself a lioness: for when he treats of the mother of the people, we know that the offspring is considered. He says, therefore, that the people was full of insolence.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 19:1-9",
+          "quote": "He must compare the kingdom of Judah to a lioness, so wretchedly degenerated was it from what it had been formerly, when it sat as a queen among the nations ... He must compare the kings of Judah to lions' whelps ... Here is lamented, (1.) The sin and fall of Jehoahaz, one of the whelps of this lioness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 19:1-9",
+          "quote": "two of whom are so clearly pointed out in Eze 19:4 and Eze 19:9 , that there is no mistaking Jehoahaz and Jehoiachin. ... the mother ( Eze 19:2 ) is the national community, the theocracy, out of which the kings were born ... It is not so much the strength and courage of the lion as its wildness and ferocity that are the points of resemblance in the passage before us.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-19-10-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Ezekiel 19:10-14",
+      "strength": "widely agreed",
+      "short": "A fruitful vine torn up and planted in the desert",
+      "about": "The lament’s second picture: the mother is a fruitful vine by the water, with strong branches fit for a ruler’s scepter. It is uprooted in fury, dried by the east wind and planted in a dry land, and fire from its own branch devours its fruit. The vine is the nation, its branches its rulers.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Ezekiel 19:10",
+        "words": "Your mother was like a vine in your vineyard",
+        "means": "the nation, once flourishing, whose strong branches are its rulers; uprooted and planted in the wilderness, it is the people carried into exile"
+      },
+      "evidence": "Clarke calls it the chapter’s second parable, the vine the Jewish nation, doomed to captivity. Henry says the city is shown by another likeness, a vine whose branches are the princes. Joseph Benson: another likeness, the nation compared to a vine, the fire Zedekiah’s broken oath. Keil (Keil and Delitzsch): Israel resembled a vine; its shoots are kings, its transplanting the exile.",
+      "limit": "Some writers take the vine as Jerusalem, others as the whole nation. Several take the branch from which the fire goes out as the last king, Zedekiah, whose rebellion brought on the ruin.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 19",
+          "quote": "This chapter contains two beautiful examples of the parabolic kind of writing; ... In the second parable the vine is the Jewish nation, which long prospered, its land being fertile, its princes powerful, and its people flourishing; but the judgments of God, in consequence of their guilt, had now destroyed a great part of the people, and doomed the rest to captivity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 19:10-14",
+          "quote": "Jerusalem, the mother-city, is here represented by another similitude; she is a vine, and the princes are her branches. ... Jerusalem is as a vine; the Jewish nation is so ... 2. This vine is now quite destroyed. Nebuchadnezzar, being highly provoked by Zedekiah's treachery, plucked it up in fury",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 19:10-14",
+          "quote": "Here another similitude is made use of, and the Jewish nation is compared, as it frequently is in other places, to a vine. ... And now she is planted in the wilderness A great part of her people are carried captive ... And fire is gone out of a rod of her branches This is spoken of Zedekiah's breaking his oath of fidelity to the king of Babylon",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 19:10-14",
+          "quote": "Israel resembled a vine planted by the water. ... This vine sent out strong shoots for rulers' sceptres; that is to say, it brought forth powerful kings ... The uprooting ends in the transplanting of the vine into a waste, dry, unwatered land, - in other words, in the transplanting of the people, Israel, into exile.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-20-46-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Ezekiel 20:46-48",
+      "refs": [
+        "Ezekiel 20:49",
+        "Ezekiel 21:2",
+        "Ezekiel 21:3"
+      ],
+      "strength": "widely agreed",
+      "short": "A fire in the forest: the parable God then explains",
+      "about": "God has Ezekiel prophesy against the forest of the Negev: He will kindle a fire to devour every tree, green and dry, and it will not be quenched. The people say, “Is he not just telling parables?” Then the message comes plainly: the LORD’s sword is drawn against Jerusalem and the land of Israel.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Ezekiel 20:47",
+        "words": "I am about to ignite in you a fire",
+        "means": "the judgment the LORD will bring on Judah, the forest being its people and the green and dry trees the righteous and the wicked"
+      },
+      "evidence": "Keil (Keil and Delitzsch) calls the words parabolic: the forest is the people, the green and dry trees the righteous and the ungodly, the fire war, explained in 21:1-7. Henry calls it a parable, its forest Judah and Jerusalem. F. Gardiner (Ellicott): a parable whose forest is the nation. A. R. Fausset (Jamieson, Fausset and Brown) calls it a parabolic form of prophecy, put plainly in chapter 21.",
+      "limit": "Writers differ on whether the fire stands for war alone or for every kind of judgment, such as famine, pestilence and captivity too.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 20:45-49",
+          "quote": "The forest is a figure signifying the population, or the mass of people. Individual men are trees. The green tree is a figurative representation of the righteous man, and the dry tree of the ungodly ... The fire which Jehovah kindles is the fire of war. ... he has uttered these parabolic words in the hearing of the people ... and the simile is first of all interpreted in Eze 21:1-7",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 20:45-49",
+          "quote": "when the people complained that this was a parable which they understood not. In this parable, 1. It is a forest that is prophesied against, the forest of the south field, Judah and Jerusalem. ... All those judgments which wasted and consumed both the city and the country-sword, famine, pestilence, and captivity, are signified by this fire.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 20:46",
+          "quote": "The parable of Eze 20:45-48 forms what might be called the text of the discourse in Ezekiel 21 . ... the figure is developed in the following verses, to make the forest the nation, and its trees the people which compose it.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 20:49",
+          "quote": "Ezekiel complains that by this parabolic form of prophecy he only makes himself and it a jest to his countrymen. God therefore in Eze. 21:1-32 permits him to express the same prophecy more plainly.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-21-6-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 21:6-7",
+      "strength": "widely agreed",
+      "short": "Ezekiel groans before their eyes at news to come",
+      "about": "God tells Ezekiel to groan before the people with a broken heart and bitter grief. When they ask why, he is to say it is because of the news that is coming, at which every heart will melt and every knee turn to water. His groaning shows them beforehand the dismay the judgment will bring.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 21:6",
+        "words": "Groan before their eyes with a broken heart and bitter grief",
+        "means": "the grief and weakness that will seize the people when the news of the coming sword reaches them"
+      },
+      "evidence": "G. Currey (Barnes’ Notes) says the people were to see the prophet sighing as a sign of the sorrow and weakness to come; Clarke, that the prophet was a sign to them. Henry calls his public sighing a sermon to their eyes, as his message was to their ears. Keil (Keil and Delitzsch) says he groans before them to depict the terrors of the judgment.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Ezekiel 21:6",
+          "quote": "The prophet was directed to let the people see him sighing and prostrate, as a sign of the sorrow and weakness about to come upon the people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 21:7",
+          "quote": "The prophet was a sign unto them. His sighing and mourning showed them how they should act.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 21:1-7",
+          "quote": "The prophet is ordered, by expressions of his own grief and concern for these calamities that were coming on, to try to make impressions of the like upon the people. ... and this publicly, in the sight of those to whom he delivered the foregoing message, that this might be a sermon to their eyes as that was to their ears",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 21:1-7",
+          "quote": "In order to depict the terrors of this judgment before the eyes of the people, the prophet is commanded to groan before their eyes in the most painful way possible ( Eze 21:6 .). ... The reference is to the report of the sword of the Lord, - that is to say, of the approach of the Chaldeans to destroy Jerusalem and the kingdom of Judah.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-21-19-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 21:19-23",
+      "strength": "commonly held",
+      "short": "Two roads and a signpost for Babylon's sword",
+      "about": "God tells Ezekiel to mark out two roads from one land, with a signpost where they part: one to Rabbah of the Ammonites, one to Jerusalem. The sign pictures what Babylon's king will do: halt at the fork to seek omens, and the portent in his right hand points to Jerusalem.",
+      "refs": [
+        "Ezekiel 4:1"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 21:19",
+        "words": "mark out two roads for the sword of the king of Babylon to take",
+        "means": "the king of Babylon on the march, halting at the fork to seek omens, and led by them against Jerusalem first"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the prediction is shown to the eye by a sign: Ezekiel sketches a road from Babylon that divides, one way to Rabbah of Ammon, the other to Jerusalem. Joseph Benson says verse 21 explains the symbolical action of the two verses before it, showing what Babylon's king would do at the fork of the road.",
+      "limit": "The text does not say what Ezekiel drew the roads on; it may have been a brick or tile, as in Ezekiel 4:1.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 21:18-22",
+          "quote": "This prediction is exhibited to the eye by means of a sign. The prophet is to make two ways, i.e., to prepare a sketch representing a road leading from a country, viz., Babylon, and dividing at a certain spot into two roads, one of which leads to Rabbath-Ammon, the capital of the kingdom of the Ammonites, the other to Judah, into Jerusalem.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 21:21",
+          "quote": "And he explains the symbolical action spoken of in the two foregoing verses; he shows that it was designed to represent what the king of Babylon would do when he was on his march, and came to the place where the road was divided; that he would use divination to determine which of the roads he should take.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-23-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 23:2-49",
+      "strength": "widely agreed",
+      "short": "Samaria and Jerusalem as two unfaithful sisters",
+      "about": "Ezekiel tells of two sisters who play the harlot from their youth in Egypt, then with Assyria and Babylon, and are punished by their own lovers. God names them: Oholah is Samaria and Oholibah is Jerusalem. The story pictures the two kingdoms turning from God to idols and to foreign powers.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 23:2",
+        "words": "there were two women, daughters of the same mother",
+        "means": "Samaria and Jerusalem, the two kingdoms of Israel and Judah; their harlotry is their idolatry and their trust in heathen powers"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the sisters Samaria and Jerusalem are set out in the form of an allegory. Matthew Henry calls it a parable of two kingdoms, Israel and Judah, whose harlotry is idolatry and courting foreign alliances. A. R. Fausset (Jamieson, Fausset and Brown) says their sin is portrayed parabolically; F. Gardiner (Ellicott's Commentary) calls it an extended allegory.",
+      "limit": "The picture is close to the one in Ezekiel 16, but here the whole story is built on a comparison of Samaria and Jerusalem, and Jerusalem's guilt is shown as the greater.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 23",
+          "quote": "Samaria and Jerusalem, as the capitals and representatives of the two kingdoms of Israel and Judah, are two sisters, who have practised whoredom from the days of Egypt onwards ( Eze 23:2-4 ). ... But this is done in the form of an allegory, which closely resembles in its general features the allegorical description in Ezekiel 16",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 23:1-10",
+          "quote": "The sinners that are here to be exposed are two women, two kingdoms, sister-kingdoms, Israel and Judah ... In this parable Samaria and the kingdom of Israel shall bear the name of Aholah ... she admired their idols and worshipped them, admired the pomp of their courts and their military strength and courted alliances with them upon any terms",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 23:2",
+          "quote": "ISRAEL'S AND JUDAH'S SIN AND PUNISHMENT ARE PARABOLICALLY PORTRAYED UNDER THE NAMES AHOLAH AND AHOLIBAH. ... Israel and Judah, one nation by birth from the same ancestress, Sarah.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 23",
+          "quote": "This chapter closes the series of prophecies beginning with Ezekiel 20 , and consists of an extended allegory. Its object, quite in connection with Ezekiel 21, 22 , is to set forth the sinfulness of Judah. The allegory is much like that of Ezekiel 16 , but differs from it ... by using as a basis here a comparison between the northern and southern kingdoms.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "ezekiel-24-3-parable",
       "kind": "figure",
       "form": "parable",
@@ -255,6 +1216,339 @@
           "quote": "So far from the city proving an iron, caldron-like defense from the fire, it shall be as a caldron set on the fire, and the people as so many pieces of meat subjected to boiling heat.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-24-15-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 24:15-27",
+      "strength": "widely agreed",
+      "short": "Ezekiel's wife dies, and he is told not to mourn",
+      "about": "God takes Ezekiel's wife and forbids him to mourn her. When the people ask what this means, he tells them God will desecrate His sanctuary, the desire of their eyes, and they too will not mourn but waste away in their sins. So Ezekiel will be a sign for them, as the passage itself says.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 24:16",
+        "words": "you must not mourn or weep or let your tears flow",
+        "means": "the fall of Jerusalem and the loss of the temple, dearest of all to the people, a grief too deep for the usual mourning"
+      },
+      "evidence": "Matthew Henry calls it a sign: God would take their dearest, as Ezekiel's wife was taken, and deny them the ease of weeping. C. F. Keil (Keil and Delitzsch): his act was symbolical of their conduct when Jerusalem fell. G. Currey (Barnes' Notes): her death signified the loss of all they held dear, past usual mourning. A. R. Fausset (Jamieson, Fausset and Brown): a sign in his person of their fate.",
+      "limit": "Verses 25 to 27 add that Ezekiel will stay mute until a fugitive brings word of the city's fall; then he will speak again.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Ezekiel 24:15-27",
+          "quote": "here he assures them that they should not have the ease of weeping for it. Observe here, I. The sign by which this was represented to them, and it was a sign that cost the prophet very dear ... Let them know that as Ezekiel's wife was taken from him by a stroke so would God take from them all that which was dearest to them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 24",
+          "quote": "God then foretold to him the death of his own wife, and commanded him to show no sign of mourning on account of it. His wife died the following evening, and he did as he was commanded. When he was asked by the people the reason of this, he explained to them, that what he was doing was symbolical of the way in which they were to act when Jerusalem fell",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Ezekiel 24:16",
+          "quote": "The death of Ezekiel's wife took place in the evening of the same day that he delivered the foregoing prophecy. This event was to signify to the people that the Lord would take from them all that was most dear to them; and - owing to the extraordinary nature of the times - quiet lamentation for the dead, according to the usual forms of mourning, would be impossible.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 24:24",
+          "quote": "sign--a typical representative in his own person of what was to befall them ( Isa 20:3 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-27-3-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 27:3-36",
+      "strength": "widely agreed",
+      "short": "Tyre pictured as a splendid ship that is wrecked",
+      "about": "The lament pictures Tyre, the city at the gateway to the sea, as a splendid ship: planks from Senir, a mast of Lebanon cedar, a sail of Egyptian linen, rowers from Sidon and Arvad. Then the east wind shatters it in the heart of the sea, and the sailors on shore mourn its fall.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 27:5",
+        "words": "They took a cedar from Lebanon to make a mast for you",
+        "means": "Tyre itself, built up in splendor from the best of many lands; the ship's wreck in the east wind is the city's fall"
+      },
+      "evidence": "Adam Clarke says the prophet paints the city's glory under the allegory of a beautiful ship. C. F. Keil (Keil and Delitzsch): Tyre is depicted allegorically as a ship, its ruin as a shipwreck by the east wind. A. R. Fausset (Jamieson, Fausset and Brown): a ship well built and manned, at last wrecked. F. Gardiner (Ellicott's Commentary): a prolonged figure of a ship that is wrecked and sinks.",
+      "limit": "From verse 9 or 10 to verse 25 the ship gives way to plain words on Tyre's soldiers and trade; the picture returns with the wreck in verse 26.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 27:4",
+          "quote": "Thy builders have perfected thy beauty - Under the allegory of a beautiful ship, the prophet, here and in the following verses, paints the glory of this ancient city.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 27:1-11",
+          "quote": "In the description which follows of this beauty and glory, from Eze 27:4 onwards, Tyre is depicted allegorically as a beautiful ship, splendidly built and equipped throughout, and its destruction is afterwards represented as a shipwreck occasioned by the east wind ( Eze 27:26 .). ... It is not till Eze 27:9 that the allegory falls into the background.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 27:4",
+          "quote": "Tyre, in consonance with her seagirt position, separated by a strait of half a mile from the mainland, is described as a ship built of the best material, and manned with the best mariners and skilful pilots, but at last wrecked in tempestuous seas ( Eze 27:26 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 27",
+          "quote": "The description is carried out under the figure of a well-built ship, thoroughly manned and equipped, sailing everywhere, engaged in lucrative commerce; but at last, brought into rough seas and storm, she is wrecked, and sinks. This prolonged figure is generally well sustained",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-29-3-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 29:3-5",
+      "strength": "widely agreed",
+      "short": "Pharaoh as a Nile monster hauled out on hooks",
+      "about": "God speaks to Pharaoh as a great monster lying among the Nile's streams, boasting that the river is his. God will put hooks in its jaws, haul it out with the fish clinging to its scales, and leave it in the desert as food for beasts and birds. Many read the fish as his people.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 29:3",
+        "words": "O great monster who lies among his rivers",
+        "means": "Pharaoh, proud and secure as lord of Egypt, as the crocodile lies in the Nile as though lord of the river; God will haul him out with hooks"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the crocodile, Egypt's symbol, is here given to Pharaoh, who thought himself lord of Egypt as it seems lord of the Nile; the fish are Egypt's people. F. Gardiner (Ellicott's Commentary): the crocodile stands for Egypt's royal power and the fish its people. Joseph Benson: God carries the metaphor on in the hooks; the fish are his own people pressing him.",
+      "limit": "The writers call it a figure or a metaphor carried through these verses rather than naming it an allegory. They differ on whether the clinging fish show the people sharing his ruin or turning against him.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 29:1-12",
+          "quote": "the crocodile, the standing symbol of Egypt in the prophets ... which is here transferred to Pharaoh ... As the crocodile lies quietly in the waters of the Nile, as though he were lord of the river; so did Pharaoh regard himself as the omnipotent lord of Egypt. ... The fishes which hang upon the scales of the monster, and are drawn along with it out of the Nile, are the inhabitants of Egypt",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 29:4",
+          "quote": "Hooks in thy jaws. — An allusion to the ancient way of taking and destroying the crocodile, otherwise invulnerable to their arms. ... As the crocodile, the lord of the Nile, represents the royal power of Egypt, so the fish represent the people dependent upon him. Pharaoh is not to fall alone, but shall drag his people with him into a common ruin.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 29:4",
+          "quote": "The king of Egypt being spoken of as a great fish, or a crocodile, God here, in pursuance of the same metaphor, tells him that he will put hooks in his jaws ... I will cause the fish of thy rivers to stick unto thy scales I will cause even thy own people to press thee hard, and to be a torment to thee.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-31-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 31:2-18",
+      "strength": "widely agreed",
+      "short": "Assyria the great cedar, held up to Pharaoh",
+      "about": "Asked who can compare with Pharaoh's greatness, God points to Assyria pictured as a towering cedar, watered by the deep and envied by the trees of Eden, then cut down for its pride. The closing words turn the picture on Egypt: “This is Pharaoh and all his multitude.”",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 31:3",
+        "words": "Look at Assyria, a cedar in Lebanon",
+        "means": "Assyria in its greatness, cut down by God for its pride; its fall is set before Pharaoh as a picture of his own"
+      },
+      "evidence": "Adam Clarke: Pharaoh is shown the fall of Nineveh's king under the image of a felled cedar, a picture of his own fate. C. F. Keil (Keil and Delitzsch): Asshur is a glorious cedar, its felling a figure of its overthrow. A. R. Fausset (Jamieson, Fausset and Brown): a parabolic picture of Assyria applied to Egypt. F. Gardiner (Ellicott's Commentary): a parable on Assyria, brought to bear on Egypt.",
+      "limit": "Only the opening and the last verse speak of Egypt. Assyria's fall had already taken place when Ezekiel spoke; Egypt's was still to come.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 31",
+          "quote": "The prophet describes to Pharaoh the fall of the king of Nineveh, ... under the image of a fair cedar of Lebanon, once exceedingly tall, flourishing, and majestic, but now cut down and withered, with its broken branches strewed around, vv. 1-17. He then concludes with bringing the matter home to the king of Egypt, by telling him that this was a picture of his approaching fate",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 31:1-9",
+          "quote": "The inquiry, whom does Pharaoh with his tumult resemble in his greatness, is followed in the place of a reply by a description of Asshur as a glorious cedar ( Eze 31:3-9 ). ... Under the figure of the felling of a cedar there is depicted the overthrow of a king or monarchy, which has already taken place.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 31:18",
+          "quote": "Application of the parabolic description of Assyria to the parallel case of Egypt. ... The lesson on a gigantic scale of Eden-like privileges abused to pride and sin by the Assyrian, as in the case of the first man in Eden, ending in ruin, was to be repeated in Egypt's case.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 31",
+          "quote": "It is a further prophecy against Egypt, but so couched in the form of a parable that it all relates to Assyria, except the opening ( Eze 31:1-2 ) and close ( Eze 31:18 ), which bring it to bear upon Egypt. ... The form of parable whereby a kingdom is represented as a tree has already appeared in Ezekiel 17 , and is also used in Daniel 4 .",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-33-2-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Ezekiel 33:2-6",
+      "refs": [
+        "Ezekiel 33:7",
+        "Ezekiel 3:16-21"
+      ],
+      "strength": "widely agreed",
+      "short": "A watchman's duty pictures Ezekiel's own",
+      "about": "God gives Ezekiel a case from daily life. A land sets a watchman, and he sees the sword coming. If he blows the horn and a man ignores it, that man's blood is on his own head; if he keeps silent, God holds the watchman to account. In verse 7 God applies it: Ezekiel is Israel's watchman.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Ezekiel 33:2",
+        "words": "Suppose I bring the sword against a land",
+        "means": "Ezekiel, whom God set as Israel's watchman: if he warns of judgment, the hearers answer for themselves; if he keeps silent, God holds him to account"
+      },
+      "evidence": "Keil (Keil and Delitzsch): verses 2 to 6 bring in Ezekiel's duty by an example from life: as a land's watchman must warn of the enemy, so must Ezekiel. A. R. Fausset (Jamieson, Fausset and Brown): the earthly watchman's duties come first, then their application to the spiritual one. Joseph Benson: the case illustrates the prophet's duty. Matthew Henry: the office is laid down, then applied to him.",
+      "limit": "The passage does not call itself a parable; the writers call it an example from life or an illustration. Ezekiel 3:16-21 gives the same charge without the story.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 33:1-9",
+          "quote": "The repetition of the duty binding upon the prophet ... is introduced, however, in Eze 33:2-6 , by an example taken from life ... As it is the duty of the appointed watchman of a land to announce to the people the approach of the enemy ... so Ezekiel also, as the watchman of Israel appointed by God, not only is bound to warn the people of the approaching judgment",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 33:2",
+          "quote": "Eze 33:1-9 exhibit Ezekiel's office as a spiritual watchman; so in Eze 3:16-21 ; only here the duties of the earthly watchman (compare Sa2 18:24-25 ; Kg2 9:17 ) are detailed first, and then the application is made to the spiritual watchman's duty",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 33:1-9",
+          "quote": "In these verses we have, I. The office of a watchman laid down, the trust reposed in him, the charge given him, and the conditions adjusted between him and those that employ him ... II. The application of this to the prophet ... He is a watchman to the house of Israel. ... His business as a watchman is to give warning to sinners of their misery and danger by reason of sin.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Ezekiel 33:7",
+          "quote": "The Lord here applies the preceding account of the watchman's office to the prophet, and shows that his duty is illustrated thereby. As if he had said, If a watchman, appointed by his fellow-citizens, is so highly guilty, if he do not give warning to the city, and shall receive such punishment from my hands; what must not thou expect, who art appointed by me to give warning to thy countrymen",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-34-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Ezekiel 34:2-31",
+      "strength": "widely agreed",
+      "short": "Rulers as shepherds, the people as God's flock",
+      "about": "The chapter speaks of shepherds and sheep. Israel's shepherds feed themselves and let the flock scatter; the LORD will seek His sheep, judge between them, and set over them one shepherd, His servant David. At the end the picture is opened: “You are My flock, the sheep of My pasture, My people.”",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Ezekiel 34:2",
+        "words": "Woe to the shepherds of Israel",
+        "means": "the shepherds are Israel's rulers, who served themselves; the flock is God's people, scattered into exile for want of true care"
+      },
+      "evidence": "Clarke says that under the allegory of a flock men are meant, and under the shepherd the Messiah. Matthew Henry: the blessings are told figuratively, verse 31 the key: the sheep are men. Keil (Keil and Delitzsch): the shepherds are the rulers, the flock's scattering Israel's exile. F. Gardiner (Ellicott): the chapter's figurative language points to God's communion with His people.",
+      "limit": "The note keeps to the main picture. Many read the one shepherd, My servant David, as the Messiah.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Ezekiel 34:31",
+          "quote": "And ye my flock - That is, under the allegory of a flock of sheep, I point out men; under that of a pasture, my Church, and under that of a shepherd, the Messiah, through whom I am become your God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 34:17-31",
+          "quote": "These are here set forth figuratively, as the blessings of the flock. But we have a key to it ... Those that belong to this flock, though they are spoken of as sheep, are really men, men that have the Lord for their God, and are in covenant with him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 34:1-10",
+          "quote": "the woe had relation chiefly to the former shepherds or rulers of the nation. ... This took place when Israel was carried away into exile, where it became a prey to the heathen nations. ... For although the dispersion of the flock actually consisted in the carrying away of the people into heathen lands, the actual meaning of the figure is kept in the background here",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Ezekiel 34:31",
+          "quote": "The chapter closes with the strongest and tenderest assurance that the object of its figurative language is to point out the renewed and close communion which is to come about between God and His people. They are to be His flock, and He is to be their God. ... the vast and infinite distance between them is not left out of view ... they are men; He is God.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "ezekiel-37-15-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Ezekiel 37:15-28",
+      "strength": "widely agreed",
+      "short": "Two sticks joined in one hand: one nation again",
+      "about": "God tells Ezekiel to write Judah's name on one stick and Joseph's, for the northern tribes, on another, and to join them into one stick in his hand. When the people ask what it means, he is to tell them that God will make the two kingdoms one nation in their land, under one king, His servant David.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Ezekiel 37:17",
+        "words": "join them together into one stick",
+        "means": "Israel and Judah, split into two kingdoms, made one nation again in their own land under one king, as verses 19 to 22 explain"
+      },
+      "evidence": "Keil (Keil and Delitzsch) says the prophet is to represent by a sign, a symbolical action, the reunion of the divided tribes into one people. Clarke calls it a symbolical action whose two sticks represent the kingdoms of Israel and Judah. A. R. Fausset (Jamieson, Fausset and Brown) calls the joining of the rods a prophecy in action. Matthew Henry says the coming union is illustrated by a sign.",
+      "limit": "The note keeps to the sign and the meaning God gives it. Some writers read the king, My servant David, as the Messiah.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Ezekiel 37:15-28",
+          "quote": "This word of God directs the prophet to represent by a sign the reunion of the tribes of Israel, which have been divided into two kingdoms ( Eze 37:15-17 ), and to explain this sign to the people ( Eze 37:18-21 ) ... What is new in this word of God is the express prediction embodied in a symbolical action, of the reunion of the divided tribes of Israel into one single people of God",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Ezekiel 37:16",
+          "quote": "The two sticks mentioned in this symbolical transaction represented, as the text declares the two kingdoms of Israel and Judah ... the prophet is ordered to take the two sticks ... to write on them the distinguishing names of the divided kingdoms, and then ... to unite them both before the people. He did so, and on their inquiry, showed them the full meaning of this symbolical action.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Ezekiel 37:16",
+          "quote": "The union of the two rods was a prophecy in action of the brotherly union which is to reunite the ten tribes and Judah. As their severance under Jeroboam was fraught with the greatest evil to the covenant-people, so the first result of both being joined by the spirit of life to God is that they become joined to one another under the one covenant King, Messiah-David.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Ezekiel 37:15-28",
+          "quote": "It is here promised that Ephraim and Judah shall be happily united in brotherly love and mutual serviceableness ... This is here illustrated by a sign. The prophet was to take two sticks, and write upon one, For Judah ... upon the other, For Joseph, including the rest of the tribes ... The meaning was that Judah and Israel should become one in the hand of God",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

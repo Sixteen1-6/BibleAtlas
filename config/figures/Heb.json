@@ -1,6 +1,153 @@
 {
   "notes": [
     {
+      "id": "hebrews-3-3-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Hebrews 3:3-6",
+      "strength": "widely agreed",
+      "short": "A builder has more honor than the house",
+      "about": "Hebrews sets Jesus above Moses with a likeness: the builder of a house has more honor than the house itself. Moses served faithfully in God's house as a servant; Christ is over it as the Son. The house is God's people: “we are His house” (verse 6).",
+      "figure": {
+        "name": "Simile",
+        "ref": "Hebrews 3:3",
+        "words": "just as the builder of a house has greater honor than the house itself",
+        "means": "Jesus' greater glory than Moses, who served within God's house, His people, as the builder of a house is honored above the house"
+      },
+      "evidence": "Albert Barnes says a house's maker deserves more respect than the house. John Calvin says calling the Church God's house is a well-known metaphor; Moses was a member of it, Christ the builder is above it. Adam Clarke says the house is the Church, built by Christ; A. R. Fausset (Jamieson, Fausset and Brown), a spiritual house of which Moses is a part; W. F. Moulton (Ellicott) reads a comparison.",
+      "limit": "One writer notes that verse 3 does not call Jesus the builder: it likens His relation to the Builder of the house, God, to Moses' relation to the house. The others take Christ as the builder.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Hebrews 3:3",
+          "quote": "The idea here is, either that he who is the maker of a house - the architect - is worthy of more respect than the house itself ... It seems to me that the former is the meaning ... Christ is really the head of the family over which Moses presided, and has claims, therefore, to higher honor as such.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Hebrews 3:3",
+          "quote": "Moses so ruled the Church, that he was still a part and member of it; but Christ being the builder, is superior to the whole building, — Moses while ruling others, was ruled also himself, as he was a servant; but Christ being a Son possesses supreme power. ... It is a frequent and well­known metaphor used in Scripture to call the Church the house of God.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hebrews 3:3",
+          "quote": "There can be no doubt that a man who builds a house for his own accommodation is more honorable than the house itself; but the house here intended is the Church of God. This Church, here called a house or family, is built by Christ; he is the Head, Governor, Soul and Life of it; he must therefore be greater than Moses, who was only a member and officer in that Church",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hebrews 3:3",
+          "quote": "the building meant is not a literal, but a spiritual house ... Thus, as Christ the Founder and Establisher (in Old Testament as well as the New Testament) is greater than the house so established, including the servants, He is greater also than Moses, who was but a \"servant.\" Moses, as a servant, is a portion of the house, and less than the house",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Hebrews 3:3",
+          "quote": "That is, in proportion as : the glory attained by Jesus exceeds the glory of Moses, as the honour due to the builder of the house exceeds that possessed by the house itself. It is not said that Jesus is the Builder; but the relation in which He stands to the Builder of the house is compared with that of Moses to the house.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hebrews-5-12-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Hebrews 5:12-14",
+      "strength": "widely agreed",
+      "short": "Milk for infants, solid food for the mature",
+      "about": "Hebrews pictures teaching as food. Readers who ought by now to be teachers still need milk, like infants; solid food is for the mature, trained to tell good from evil. Milk stands for the first principles, solid food for deeper teaching. 1 Corinthians 3:2 uses the same picture.",
+      "refs": [
+        "1 Corinthians 3:2"
+      ],
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Hebrews 5:12",
+        "words": "You need milk, not solid food!",
+        "means": "the first and simplest teachings of God's word, fit for beginners, set against the deeper teaching that the mature can take in"
+      },
+      "evidence": "John Calvin says Paul uses the same metaphor with the Corinthians: milk means an elementary doctrine for the ignorant, and those who cannot receive more are called children by way of reproach. Adam Clarke calls milk a metaphor for the first principles of religion, those who know them being adults fit for solid food. Albert Barnes says the readers were like little children, in spiritual infancy.",
+      "limit": "The note does not call milk poor teaching. One writer says both milk and solid food are sound doctrine, the one for beginners and the other for the well taught.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 5:12",
+          "quote": "Such as have need of milk. Paul uses the same metaphor ... and he reproaches the Corinthians with the same fault with what is mentioned here ... Milk then means an elementary doctrine suitable to the ignorant. ... They then who are so tender that they cannot receive the higher doctrine, are by way of reproach called children.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hebrews 5:12",
+          "quote": "Such as have need of milk - Milk is a metaphor by which many authors, both sacred and profane, express the first principles of religion and science; and they apply sucking to learning ... On the contrary, those who had well learned all the first principles of religion and science, and knew how to apply them, were considered as adults who were capable of receiving στερεα τροφη, solid food",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hebrews 5:12",
+          "quote": "Have need of milk - Like little children. You can bear only the most simple nourishment. The meaning is, that they were incapable of receiving the higher doctrines of the gospel as much as little children are incapable of digesting solid food. They were in fact in a state of spiritual infancy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hebrews-6-7-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Hebrews 6:7-8",
+      "strength": "widely agreed",
+      "short": "Land that bears a crop, or only thorns",
+      "about": "Hebrews gives the picture and leaves the meaning implied. Land that drinks in the rain and bears a useful crop is blessed by God; land that bears only thorns and thistles is worthless and will be burned. Those who receive much from God and bear fruit are blessed; those who bear none face judgment.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Hebrews 6:7",
+        "words": "land that drinks in the rain often falling on it",
+        "means": "people who receive God's word and grace again and again, blessed when they bear its fruit, and rejected when they bear only thorns"
+      },
+      "evidence": "John Calvin calls it a most fitting similitude: land that drinks the rain and bears a crop answers to those who receive the Gospel and bring forth fruit. Albert Barnes calls it a comparison: the apostle says it is like the earth. Adam Clarke reads it as if the apostle said we act as men do in tilling their fields; A. R. Fausset (Jamieson, Fausset and Brown) says the heart of man is the earth.",
+      "limit": "The note does not settle whom the thorny land stands for. One writer reads it as those who show themselves reprobate; others as those who fall away after receiving much, and two also see Jerusalem, burned a few years later.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 6:7",
+          "quote": "This is a similitude most appropriate to excite a desire to make progress in due time ... The earth, he says, which by sucking in the rain immediately produces a blade suitable to the seed sown, at length by God’s blessing produces a ripe crop; so they who receive the seed of the Gospel into their hearts and bring forth genuine shoots, will always make progress until they produce ripe fruit.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hebrews 6:7",
+          "quote": "The design of the apostle by this comparison is apparent. It is to show the consequences of not making a proper use of all the privileges which Christians have ... He says, it is like the earth. If that absorbs the rain, and produces an abundant harvest, it receives the divine blessing. If not, it is cursed, or is worthless.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hebrews 6:7",
+          "quote": "In giving up such apostates as utterly incurable, we act as men do in cultivating their fields; for as the ground, which drinketh in the rain by which the providence of God waters it, brings forth fruit to compensate the toil of the tiller, and continues to be cultivated, God granting his blessing to the labors of the husbandman",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hebrews 6:7",
+          "quote": "Answering to those who have enjoyed the privilege of Christian experiences, being in some sense renewed by the Holy Ghost; true alike of those who persevere and those who \"fall away.\" ... The heart of man is the earth; man is the dresser; herbs are brought forth meet, not for the dresser, by whom, but for God, the owner of the soil, for whom it is dressed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "hebrews-8-5-type",
       "kind": "figure",
       "form": "type",
@@ -384,6 +531,132 @@
           "quote": "understanding the figure to be the representation which the whole scene gave to Abraham of Christ in His death (typified by Isaac's offering in intention, and the ram's actual substitution answering to Christ's vicarious death), and in His resurrection … he received him back as a type of the resurrection in Christ.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hebrews-12-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Hebrews 12:1-3",
+      "strength": "widely agreed",
+      "short": "The life of faith pictured as a race",
+      "about": "Hebrews carries one picture through three verses: the life of faith is a race. The faithful of chapter 11 surround the runners like a great crowd; they throw off every encumbrance and the sin that entangles, run with endurance, fix their eyes on Jesus, and are not to grow weary and lose heart.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Hebrews 12:1",
+        "words": "let us run with endurance the race set out for us",
+        "means": "the Christian life, run to the end with endurance, every hindrance thrown off and the eyes fixed on Jesus"
+      },
+      "evidence": "John Calvin says the writer refers to the likeness of a race, with many witnesses around and the Son of God as umpire, where growing weary would be disgraceful. Adam Clarke sees an allusion to the Olympic games: as runners threw aside all hindrances, so must Christians. Albert Barnes calls it a figurative picture from the games; A. R. Fausset (Jamieson, Fausset and Brown), an image from a race.",
+      "limit": "The note does not claim that the faithful of old now watch us. One writer says only that we should act as if they were in sight; others take them chiefly as witnesses whose lives testify to faith and to God's faithfulness.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 12:1",
+          "quote": "As he refers to the likeness of a race, he bids us to be lightly equipped ... that we are engaged in a contest, even in a race the most celebrated, that many witnesses stand around us, that the Son of God is the umpire who invites and exhorts us to secure the prize, and that therefore it would be most disgraceful for us to grow weary or inactive in the midst of our course.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hebrews 12:1",
+          "quote": "Here is another allusion to the Olympic games ... As those who ran in the Olympic races would throw aside every thing that might impede them in their course; so Christians, professing to go to heaven, must throw aside every thing that might hinder them in their Christian race.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hebrews 12:1",
+          "quote": "There is allusion here, doubtless, to the ancient games. ... In like manner, the apostle represents Christians as encompassed with the multitude of worthies to whom he had referred in the previous chapter. ... It is a figurative representation, such as is common, and means that we ought to act as if they were in sight, and cheered us on.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hebrews 12:1",
+          "quote": "The image is from a \"race,\" ... The \"witnesses\" answer to the spectators pressing round ... As corporeal unwieldiness was, through a disciplinary diet, laid aside by candidates for the prize in racing; so carnal and worldly lusts, and all, whether from without or within, that would impede the heavenly runner, are the spiritual weight to be laid aside.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hebrews-12-7-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Hebrews 12:7-10",
+      "strength": "widely agreed",
+      "short": "Disciplined by God as sons by a father",
+      "about": "Hebrews sets God's discipline beside a father's. Every true son is disciplined by his father, and we respected our earthly fathers. How much more should we submit to the Father of our spirits, whose discipline is for our good, so that we may share His holiness.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Hebrews 12:7",
+        "words": "God is treating you as sons. For what son is not disciplined by his father?",
+        "means": "God's discipline of His children, which like a good father's shows they are true sons, and is better than any earthly father's"
+      },
+      "evidence": "John Calvin calls it a comparison of several parts: if we honored the fathers of our flesh, much more is due to God, our spiritual Father. Albert Barnes says that as we have such care from an earthly parent, we may expect it from God; Adam Clarke, that as parents stop correcting when we obey, so will God; A. R. Fausset (Jamieson, Fausset and Brown), that God's chastening is the better.",
+      "limit": "The writers read verse 10 differently: most set the few days of earthly fathers' discipline against God's, which looks to eternal life; one takes it that God's discipline, like theirs, lasts only a short time.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 12:9",
+          "quote": "This comparison has several parts: the first is, that if we showed so much reverence to the fathers from whom we have descended according to the flesh, as to submit to their discipline, much more honor is due to God who is our spiritual Father; another is, that the discipline which fathers use as to their children is only useful for the present life, but that God looks farther",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hebrews 12:7",
+          "quote": "For what son is he whom the father chasteneth not - That is, he evinces toward his son the care which shows that he sustains the relation of a father. ... And as we receive such attention from an earthly parent, we ought to expect to receive similar notice from our Father in heaven.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hebrews 12:10",
+          "quote": "The chastisement of our earthly parents lasted only a short time; that of our heavenly Father will also be but a short time, if we submit: and as our parents ceased to correct when we learned obedience; so will our heavenly Father when the end for which he sent the chastisement is accomplished.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hebrews 12:10",
+          "quote": "Showing wherein the chastisement of our heavenly Father is preferable to that of earthly fathers. ... The two defects of human education are: (1) the prevalence in it of a view to the interests of our short earthly term of days; (2) the absence in parents of the unerring wisdom of our heavenly Father.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hebrews-13-11-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Hebrews 13:11-13",
+      "strength": "some interpreters",
+      "short": "Going out to Jesus “outside the camp”",
+      "about": "The bodies of the sin offerings were burned outside the camp, and Jesus too suffered outside the city gate. The writer carries the picture on to his readers: let us go to Him outside the camp. This calls them to leave the old rites of the tabernacle and follow Christ, bearing the disgrace He bore.",
+      "refs": [
+        "Leviticus 16:27"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "Hebrews 13:13",
+        "words": "let us go to Him outside the camp",
+        "means": "leaving the old worship of the tabernacle to follow Christ, and going after Him through reproach and trouble"
+      },
+      "evidence": "Calvin calls the picture before verse 13 an allegory or mystical similitude, and says verse 13 joins to it a duty for every Christian: to leave the tabernacle and follow Christ, going after Him through exile, reproach and every kind of trouble.",
+      "limit": "The note does not claim that the law of the sin offering was only a picture: the writer draws his lesson from a real law of sacrifice (Leviticus 16:27) and from Christ's real suffering outside the gate.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hebrews 13:13",
+          "quote": "That the preceding allegory or mystical similitude might not be frigid and lifeless, he connects with it an important duty required of all Christians. ... for while he invites us to leave the tabernacle and to follow Christ, he reminds us that a far different thing is required of us ... for we must go after him through exiles, flights, reproaches, and all kinds of afflictions.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

@@ -466,6 +466,50 @@
       ]
     },
     {
+      "id": "john-4-10-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "John 4:10-14",
+      "strength": "widely agreed",
+      "short": "Well water and the living water Jesus gives",
+      "about": "Jesus asks a Samaritan woman for a drink, then offers her living water. She thinks of the deep well, but He carries the picture on: well water leaves one thirsty again, while His water becomes “a fount of water springing up to eternal life.” Many read the water as the Spirit and His grace.",
+      "refs": [
+        "John 7:37-39"
+      ],
+      "figure": {
+        "name": "Allegory",
+        "ref": "John 4:10",
+        "words": "He would have given you living water",
+        "means": "the Spirit and His grace, which Christ gives and which satisfy the soul for ever, as the water of the well cannot"
+      },
+      "evidence": "Matthew Henry: by this living water is meant the Spirit, a similitude under which the Old Testament promised the Messiah's blessings, and Christ shows it far better than Jacob's well. John Calvin: the name water is applied to the Spirit, a metaphor frequent in Scripture, taking in the whole grace of renewal. Adam Clarke: our Lord means the Holy Spirit, of whom water is an apt emblem.",
+      "limit": "Some read the water as the teaching of the gospel. One of these writers grants that the name fits it, but takes in the whole grace of renewal by the Spirit.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 4:4-26",
+          "quote": "By this living water is meant the Spirit, who is not like the water in the bottom of the well ... but like living or running water, which was much more valuable. ... Under this similitude the blessings of the Messiah had been promised in the Old Testament ... Christ answers this cavil, and makes it out that the living water he had to give was far better than that of Jacob's well",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "John 4:10",
+          "quote": "Living water. Though the name Water is borrowed from the present occurrence, and applied to the Spirit, yet this metaphor is very frequent in Scripture, and rests on the best grounds. ... There are some who explain this as referring to the doctrine of the Gospel, to which I own that this appellation is fully applicable; but I think that Christ includes here the whole grace of our renewal",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "John 4:10",
+          "quote": "what our Lord means by it is evidently the Holy Spirit ... As water quenches the thirst, refreshes and invigorates the body, purifies things defiled, and renders the earth fruitful, so it is an apt emblem of the gift of the Holy Ghost, which so satisfies the souls that receive it that they thirst no more for earthly good",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "john-4-37-proverb",
       "kind": "figure",
       "form": "proverb",
@@ -648,6 +692,46 @@
       ]
     },
     {
+      "id": "john-6-27-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "John 6:27-58",
+      "strength": "widely agreed",
+      "short": "Jesus, the bread from heaven that gives life",
+      "about": "After He feeds the five thousand, Jesus tells the crowd to work for food that endures. He carries the picture through: the true bread from heaven, “I am the bread of life,” the living bread, His flesh and blood. Many read eating as receiving Him by faith: “Whoever comes to Me will never hunger.”",
+      "figure": {
+        "name": "Allegory",
+        "ref": "John 6:35",
+        "words": "I am the bread of life",
+        "means": "Christ Himself, who gives and feeds the soul's life; those who come to Him and believe in Him receive it and never hunger"
+      },
+      "evidence": "Matthew Henry: to believe is to eat this bread, and in verses 51 to 58 Christ still carries on the metaphor of food in a figurative discourse. John Calvin: Christ presents His sermon in a metaphorical dress and calls all that nourishes faith food. Adam Clarke: as a man must eat bread to be nourished, so he must receive the grace and Spirit of Christ.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 6:28-59",
+          "quote": "Christ, having thus spoken of himself as the bread of life ... comes more particularly to show what of himself is this bread, namely, his flesh, and that to believe is to eat of that ... where he still prosecutes the metaphor of food. ... This is certainly a parable or figurative discourse, wherein the actings of the soul ... are represented by bodily actions about things sensible",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "John 6:27",
+          "quote": "He employs metaphors adapted to the circumstances in which his sermon was delivered. ... Christ presents his sermon in a metaphorical dress, and gives the name of food to everything that belongs to newness of life. ... as faith is the life of the soul, all that nourishes and promotes faith is compared to food",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "John 6:53",
+          "quote": "Unless ye be made partakers of the blessings about to be purchased by my blood, passion, and violent death, ye cannot be saved. As a man must eat bread and flesh, in order to be nourished by them, so a man must receive the grace and Spirit of Christ, in order to his salvation.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "john-6-32-type",
       "kind": "figure",
       "form": "type",
@@ -790,6 +874,57 @@
       ]
     },
     {
+      "id": "john-13-4-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "John 13:4-10",
+      "strength": "widely agreed",
+      "short": "Jesus washes His disciples’ feet",
+      "about": "Jesus rises from supper, wraps a towel around His waist and washes His disciples’ feet, the work of a servant. When Peter refuses, Jesus says, “Unless I wash you, you have no part with Me.” The act teaches humble service to one another (verses 14 and 15) and points to the cleansing He gives.",
+      "refs": [
+        "John 13:14-15"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "John 13:5",
+        "words": "began to wash the disciples’ feet",
+        "means": "the lowly, loving service His followers owe one another, and the cleansing from sin that only He can give"
+      },
+      "evidence": "Henry calls it an instructive sign, meant to teach humble condescension, and says Christ washed their feet to signify spiritual washing. Barnes calls it a symbolical action teaching humility. Clarke says the act was emblematical of something spiritual, which concerned Peter’s salvation. David Brown (Jamieson, Fausset and Brown) speaks of the symbolical instruction it was meant to convey.",
+      "limit": "The writers weigh its two lessons differently: some stress humble service, others the cleansing it pictures.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "John 13:1-17",
+          "quote": "Christ washed his disciples' feet that he might signify to them spiritual washing, and the cleansing of the soul from the pollutions of sin. ... it is an instructive sign, but not sacramental, as the eucharist. ... three things our Master hereby designed to teach us:—[1.] A humble condescension.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "John 13:7",
+          "quote": "Though he saw the action of Jesus, yet he did not fully understand the design of it. It was a symbolical action, inculcating a lesson of humility, and intended to teach it to them in such a manner that it would be impossible for them ever to forget it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "John 13:8",
+          "quote": "this act of his was emblematical of something spiritual; of something that concerned the salvation of Peter; and without which washing he could neither be an apostle or be finally saved; therefore our Lord said, If I wash thee not, thou hast no part with me.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "John 13:10",
+          "quote": "Of the two cleansings, the one points to that which takes place at the commencement of the Christian life ... Our Lord, while graciously insisting on washing Peter's feet, refuses to extend the cleansing farther, that the symbolical instruction intended to be conveyed might not be marred.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "john-15-1-allegory",
       "kind": "figure",
       "form": "allegory",
@@ -869,6 +1004,57 @@
           "quote": "When Christ says, If they have kept my sayings, they will keep yours, he means, They will keep yours, and regard yours, no more than they have regarded and kept mine.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "john-20-22-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "John 20:22",
+      "strength": "widely agreed",
+      "short": "Jesus breathes on them: “Receive the Holy Spirit”",
+      "about": "On the evening He rose, Jesus breathes on His disciples and says, “Receive the Holy Spirit.” The breath is an outward sign of the Spirit He gives them, coming from Him, for the work He is sending them to do. It can recall God breathing the breath of life into man (Genesis 2:7).",
+      "refs": [
+        "Genesis 2:7"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "John 20:22",
+        "words": "He breathed on them",
+        "means": "the Spirit coming from Christ Himself upon the disciples, giving them life and power for the work He sends them to do"
+      },
+      "evidence": "Barnes says prophets used significant acts to show their message; this breathing showed the influence to come on them and its source, a pledge of the Spirit. Brown (Jamieson, Fausset and Brown) calls it a symbolical conveyance of the Spirit; Calvin, the outward symbol that the Spirit proceeds from Christ. Henry: a sign of the life they would receive, recalling the breath of life at creation.",
+      "limit": "Some writers take it as a first gift and pledge of the fuller outpouring at Pentecost; the note claims only that the breath was a sign of the Spirit given by Christ.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "John 20:22",
+          "quote": "It was customary for the prophets to use some significant act to represent the nature of their message. See Jer. 13; Jer. 18, etc. In this case the act of breathing was used to represent the nature of the influence that would come upon them, and the source of that influence. ... His breathing on them was a certain sign or pledge that they would be endowed with the influences of the Holy Spirit.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "John 20:22",
+          "quote": "he breathed on them--a symbolical conveyance to them of the Spirit. and saith, Receive ye the Holy Ghost--an earnest and first-fruits of the more copious Pentecostal effusion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "John 20:22",
+          "quote": "Though he continues to be the only Shepherd of his Church, he must necessarily display the power of his Spirit in the ministers whose agency he employs; and this also he testified by the outward symbol, when he breathed on the Apostles; for this would not be applicable, if the Spirit did not proceed from him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "John 20:22",
+          "quote": "The sign he used to assure them of, and affect them with, the gift he was now about to bestow upon them: He breathed on them ... to signify to them the spiritual life and power which they should receive from him for all the services that lay before them. ... Christ here seems to refer to the creation of man at first, by the breathing of the breath of life into him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

@@ -277,6 +277,102 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "amos-5-19-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Amos 5:19",
+      "strength": "widely agreed",
+      "short": "Fleeing a lion, only to meet a bear",
+      "about": "Some in Israel long for the Day of the LORD. Amos tells them what it will be like: a man flees a lion only to meet a bear, or reaches home, leans on the wall and is bitten by a snake. Escape from one danger leads into the next; for those who will not turn, no place is safe.",
+      "refs": [
+        "Amos 5:18"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Amos 5:19",
+        "words": "like a man who flees from a lion, only to encounter a bear",
+        "means": "the Day of the LORD for the unrepentant: escaping one judgment only to fall into another, with no safety even at home"
+      },
+      "evidence": "C. F. Keil says Amos explains the day by a figure taken from life: whoever escapes one danger falls into a second, and then a third. John Calvin says it will be with them as with one who flees a lion and meets a bear, for the Lord has many ways to punish. Matthew Henry says those not reformed by God's judgments are pursued by them; escape one, and another stands ready.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Amos 5:18-20",
+          "quote": "He explains this in Amo 5:19 by a figure taken from life. To those who wish the day of Jehovah to come, the same thing will happen as to a man who, when fleeing from a lion, meets a bear, etc. The meaning is perfectly clear: whoever would escape one danger, falls into a second; and whoever escapes this, falls into a third, and perishes therein.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Amos 5:19",
+          "quote": "for the same thing will happen to you, as when one flees away from a lion and meets with a bear, as when one escapes from a bear, and betakes himself to his own house, and there a serpent finds him ... Thus the Lord has in readiness various and many ways, by which he can punish you.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Amos 5:16-20",
+          "quote": "It is as if a man did flee from a lion and a bear met him ... or as if a man, to escape all dangers abroad, went into the house for security, and leaned his hand on the wall to rest himself, and there a serpent bit him. Note, Those who are not reformed by the judgments of God will be pursued by them; and, if they escape one, another stands ready to seize them",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "amos-9-9-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Amos 9:9",
+      "strength": "widely agreed",
+      "short": "Israel shaken “as grain is sifted in a sieve”",
+      "about": "God will shake Israel among all the nations as grain is shaken in a sieve. The scattering is a sifting: chaff and dirt fall away, but not one solid grain reaches the ground. God would scatter His people to cleanse them, yet lose none who are truly His.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Amos 9:9",
+        "words": "as grain is sifted in a sieve",
+        "means": "Israel scattered among the nations, which sift out the wicked like chaff while God keeps every true grain"
+      },
+      "original": {
+        "note": "In Hebrew tseror, here a pebble, is usually a bundle; by its root it means something firm and compact, read here as solid grain set apart from loose chaff.",
+        "strong": [
+          "H6872"
+        ]
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the nations are such a sieve, purifying Israel of its ungodly members, the solid grain kept from the chaff. E. B. Pusey (Barnes' Notes) calls the whole earth one vast sieve in God's hands. A. R. Fausset (Jamieson, Fausset and Brown) makes the chaff the wicked and the grains the godly. John Calvin calls it a similitude: corn is shaken to be cleansed.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Amos 9:8-10",
+          "quote": "The Lord will shake Israel among the nations, as corn is shaken in a sieve; ... Such a sieve are the nations of the world, through which Israel is purified from its chaff, i.e., from its ungodly members. Tserōr, generally a bundle; here, according to its etymology, that which is compact or firm, i.e., solid grain as distinguished from loose chaff.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Amos 9:9",
+          "quote": "The whole earth is, as it were, one vast sieve in the Hands of God, in which Israel is shaken from one end to the other. There has been one ceaseless tossing to and fro, as the grain in the sieve is tossed from side to side, and rests nowhere, until all is sifted. ... God, in all these centuries, has had an eye on each soul of His people in their dispersion throughout all lands.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Amos 9:9",
+          "quote": "I will cause the Israelites to be tossed about through all nations as corn is shaken about in a sieve, in such a way, however, that while the chaff and dust (the wicked) fall through (perish), all the solid grains (the godly elect) remain (are preserved)",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Amos 9:9",
+          "quote": "The Israelites might have complained that they were too severely treated; but God by this similitude obviates this calumny, “They are indeed scattered in their exile, yet they remain in a sieve; I will shake them, he says, among the nations: but not otherwise than corn when shaken in a sieve: and it is allowed by the consent of all that corn ought to be cleansed.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }

@@ -101,6 +101,144 @@
       ]
     },
     {
+      "id": "mark-2-19-hypocatastasis",
+      "kind": "figure",
+      "form": "hypocatastasis",
+      "ref": "Mark 2:19-20",
+      "strength": "widely agreed",
+      "short": "Wedding guests do not fast while the groom is there",
+      "about": "Asked why His disciples do not fast, Jesus answers with a picture from a wedding. The guests do not fast while the bridegroom is with them; when He is taken from them, they will fast. He does not say who the bridegroom is, but the picture points to Himself, with His disciples as the guests.",
+      "figure": {
+        "name": "Hypocatastasis",
+        "ref": "Mark 2:19",
+        "words": "the guests of the bridegroom",
+        "means": "Jesus is the bridegroom and His disciples the guests: they rejoice while He is with them, and will fast when He is taken from them"
+      },
+      "evidence": "Matthew Henry says Christ and His disciples were as newly married, with the bridegroom still with them; once He was taken away it would be time to fast. Theophylact (Thomas Aquinas' Catena Aurea) says He calls Himself a bridegroom and the Apostles are the bridegroom's sons. Alexander Maclaren notes that He calls Himself the bridegroom, claiming the Church as His bride.",
+      "limit": "Some of the writers go further and find in the name Christ's love for His Church as His bride; the note claims only the picture of the bridegroom and his guests.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 2:18-28",
+          "quote": "That these were easy days with them, and fasting was not so seasonable now as it would be hereafter ... Christ and his disciples were but newly married, the bridegroom was yet with them, the nuptials were yet in the celebrating ... when the bridegroom should be removed from them to the far country, about his business, then would be a proper time to sit as a widow, in solitude and fasting.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 2:18-22",
+          "at": "Theophylact, Catena Aurea on Mark 2:18-22",
+          "url": "https://www.ecatholic2000.com/catena/untitled-42.shtml",
+          "quote": "He also calls Himself a bridegroom, not only as betrothing to Himself virgin minds, but because the time of His first coming is not a time of sorrow, nor of sadness to believers ... But the sons of the nuptials or of the Bridegroom are the Apostles",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "maclaren",
+          "on": "Mark 2:13-22",
+          "quote": "First, note that He calls Himself the ‘bridegroom’ ... The name tells us that Jesus claimed the psalms of the ‘bride-groom’ as prophecies of Himself, and claimed the Church that was to be as His bride. It speaks tenderly of His love and of our possible blessedness.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/maclaren/mark/2.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "mark-2-21-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 2:21",
+      "strength": "widely agreed",
+      "short": "A new patch on an old garment makes a worse tear",
+      "about": "Jesus pictures a patch of unshrunk cloth sewn on an old garment: the new piece pulls away and the tear is made worse. Luke, telling the same scene, says “He also told them a parable”. The writers take it to show that the new cannot be forced onto the old without harm.",
+      "refs": [
+        "Luke 5:36"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 2:21",
+        "words": "No one sews a patch of unshrunk cloth on an old garment",
+        "means": "that the new cannot be joined to the old without harm: strict fasting laid on new, weak disciples, or a new spirit forced into old forms"
+      },
+      "evidence": "Matthew Henry says that pressing frequent fasts on the new disciples would be as ill as sewing new cloth on threadbare cloth. Theophylact (Thomas Aquinas' Catena Aurea) says the disciples are likened to old garments, too weak for the heavy command of fasting. Alexander Maclaren calls the patch and the wineskins two similes, condensed parables, of old forms that cannot hold a new spirit.",
+      "limit": "The writers agree on the picture but differ on what it stands for: two take the old garment as disciples still too weak for strict fasting, and one as old forms that cannot hold the new spirit at work in the disciples.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 2:18-28",
+          "quote": "That these were early days with them, and they were not so able for the severe exercises of religion as hereafter they would be. ... To put them upon such frequent fasting at first, would be a discouragement to them, and perhaps drive them off from following Christ; it would be of as ill consequence as putting new wine into old casks, or sewing new cloth to that which is worn thin and threadbare",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 2:18-22",
+          "at": "Theophylact, Catena Aurea on Mark 2:18-22",
+          "url": "https://www.ecatholic2000.com/catena/untitled-42.shtml",
+          "quote": "Or else the disciples are likened to old garments on account of the infirmity of their minds, on which it was not fitting to impose the heavy command of fasting.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "maclaren",
+          "on": "Mark 2:13-22",
+          "quote": "Jesus adds two similes, which are condensed parables ... a new spirit is beginning to work in them ... The essential point in both the similes of the raw cloth stitched on to the old, and of the new wine poured into stiff old skins, is the necessary incongruity between old forms and new tendencies.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/maclaren/mark/2.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "mark-2-22-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 2:22",
+      "strength": "widely agreed",
+      "short": "New wine bursts old wineskins",
+      "about": "Jesus pictures new wine poured into old wineskins: the wine bursts the skins, and both are ruined, so new wine is poured into new wineskins. In Luke it comes with the patch, after the words “He also told them a parable”. The writers take it to show that the new needs a fitting vessel.",
+      "refs": [
+        "Luke 5:36-38"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 2:22",
+        "words": "no one pours new wine into old wineskins",
+        "means": "that what is new needs a fitting vessel: strict rules laid on disciples not yet ready for them, or a new spirit forced into old forms"
+      },
+      "evidence": "Matthew Henry says that pressing frequent fasts on the new disciples would be as ill as putting new wine into old casks. Bede (Thomas Aquinas' Catena Aurea) says He compares His disciples to old wineskins, renewed after the ascension and then filled with the Spirit. Alexander Maclaren calls the patch and the wineskins two similes, condensed parables, of old forms that cannot hold a new spirit.",
+      "limit": "The writers agree on the picture but differ on what it stands for: disciples not yet able to bear strict fasting or spiritual precepts, or old forms that cannot hold the new spirit at work in the disciples.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 2:18-28",
+          "quote": "That these were early days with them, and they were not so able for the severe exercises of religion as hereafter they would be. ... To put them upon such frequent fasting at first, would be a discouragement to them, and perhaps drive them off from following Christ; it would be of as ill consequence as putting new wine into old casks, or sewing new cloth to that which is worn thin and threadbare",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 2:18-22",
+          "at": "Bede, Catena Aurea on Mark 2:18-22",
+          "url": "https://www.ecatholic2000.com/catena/untitled-42.shtml",
+          "quote": "For He compares His disciples to old bottles, who would burst at spiritual precepts, rather than be held in restraint by them. But they will be new bottles, when after the ascension of the Lord, they are renewed by desiring His consolation, and then new wine will come to the new bottles, that is, the fervour of the Holy Ghost will fill the hearts of spiritual men.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "maclaren",
+          "on": "Mark 2:13-22",
+          "quote": "Jesus adds two similes, which are condensed parables ... a new spirit is beginning to work in them ... The essential point in both the similes of the raw cloth stitched on to the old, and of the new wine poured into stiff old skins, is the necessary incongruity between old forms and new tendencies.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/maclaren/mark/2.htm",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
       "id": "mark-2-27-antimetabole",
       "kind": "figure",
       "form": "antimetabole",
@@ -126,6 +264,394 @@
           "quote": "a “The sabbath b was made for man, b and not man for a the sabbath.”",
           "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "mark-3-23-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 3:23-26",
+      "strength": "commonly held",
+      "short": "A kingdom or house divided cannot stand",
+      "about": "Charged with driving out demons by the prince of demons, Jesus answers “in parables”: a kingdom or a house divided against itself cannot stand. So if Satan drove out Satan, he would be fighting himself, and his end would have come. The likeness shows the charge cannot be true.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 3:24",
+        "words": "If a kingdom is divided against itself, it cannot stand",
+        "means": "Satan's own rule: if he drove out his own demons he would be at war with himself, and his kingdom would fall, so Jesus does not drive them out by Satan"
+      },
+      "evidence": "Adam Clarke says He vindicates Himself by a parable here. Victor of Antioch, given as Pseudo-Chrysostom in Thomas Aquinas' Catena Aurea, says Jesus shows the charge impossible and confirms His proof by an example: a kingdom divided by civil war must be laid waste, and so would Satan's.",
+      "limit": "The note covers the divided kingdom and house of verses 24-26. The strong man bound in verse 27 is a further picture and is not part of it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Mark 3:23-27",
+          "quote": "He vindicates himself by a parable, Mar 3:23-27",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 3:23-30",
+          "at": "Pseudo-Chrysostom (Victor of Antioch), Catena Aurea on Mark 3:23-30",
+          "url": "https://www.ecatholic2000.com/catena/untitled-43.shtml",
+          "quote": "our Lord shews that what they said was impossible, confirming His proof by an example. ... A kingdom divided against itself by civil war must be desolated, which is exemplified both in a house and in a city. Wherefore also if Satan’s kingdom be divided against itself, so that Satan expels Satan from men, the desolation of the kingdom of the devils is at hand.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-3-27-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 3:27",
+      "strength": "commonly held",
+      "short": "No one robs a strong man without tying him first",
+      "about": "When scribes say Jesus drives out demons by the prince of demons, He answers them in parables (verse 23). No one can plunder a strong man’s house without first tying him up. It can be read of the devil, whom Jesus must first overpower to set free the people he held.",
+      "refs": [
+        "Mark 3:22-23"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 3:27",
+        "words": "no one can enter a strong man’s house to steal his possessions unless he first ties up the strong man",
+        "means": "the devil, whom Jesus first overpowers so that He can set free the people the devil held; so He is the devil's enemy, not his ally"
+      },
+      "evidence": "Adam Clarke heads verses 23-27 as a parable by which Jesus clears Himself of the scribes' charge. Theophylact, in the Catena Aurea of Thomas Aquinas, explains it: the devil is the strong man and his goods are the people he holds, whom Christ frees only because He first conquers him, as the devils' enemy.",
+      "limit": "Verse 23 calls the whole answer parables, and one writer heads verses 23-27 as one parable; this note keeps to the strong man of verse 27.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Mark 3:20-27",
+          "quote": "the scribes attribute his miracles to Beelzebub, Mar 3:20-22 . He vindicates himself by a parable, Mar 3:23-27 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 3:23-30",
+          "at": "Theophylact, in the Catena Aurea on Mark 3:23-30",
+          "url": "https://www.ecatholic2000.com/catena/untitled-43.shtml",
+          "quote": "The meaning of the example is this: The devil is the strong man; his goods are the men into whom he is received; unless therefore a man first conquers the devil, how can he deprive him of his goods, that is, of the men whom he has possessed? So also I who spoil his goods, that is, free men from suffering by his possession, first spoil the devils and vanquish them, and am their enemy.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-4-3-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 4:3-9",
+      "strength": "widely agreed",
+      "short": "A farmer's seed falls on four kinds of ground",
+      "about": "Jesus tells of a farmer whose seed falls along the path, on rocky ground, among thorns and on good soil, which alone bears a crop. He explains it in verses 14-20: “The farmer sows the word,” and the soils are its hearers, fruitful only in those who “hear the word, receive it”.",
+      "refs": [
+        "Mark 4:13-20"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 4:3",
+        "words": "A farmer went out to sow his seed",
+        "means": "the word of God, sown among hearers whose hearts receive it in different ways, so that only some bear fruit"
+      },
+      "evidence": "Matthew Henry reads the parable of the sower as the word given to all, sown by Christ and then by His ministers, and fruitless where hearts are not prepared for it. Brown (Jamieson, Fausset and Brown): every scatterer of the word is a sower, and its effect depends on the hearer's heart. Theophylact, in the Catena Aurea of Thomas Aquinas: the seed is the word of God, the sower Christ.",
+      "limit": "Jesus names the seed, the word, but not the sower. The writers take the sower as Christ, as Christ and then His ministers, or as anyone who sows the word.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 4:1-20",
+          "quote": "he gives them the interpretation of the parable of the sower, as we had it before in Matthew. ... the word of God is dispensed to all promiscuously ... Christ was awhile sowing himself, when he went about teaching and preaching; now he sends his ministers, and sows by their hand. ... because their hearts are not duly disposed and prepared to receive it; the fault is in themselves, not in the word",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Mark 4:14",
+          "quote": "But who is \"the sower?\" This is not expressed here because if \"the word of God\" be the seed, every scatterer of that precious seed must be regarded as a sower. ... the great general lesson held forth in this parable of the sower is, that however faithful the preacher, and how pure soever his message, the effect of the preaching of the word depends upon the state of the hearer's heart.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 4:1-20",
+          "at": "Theophylact, in the Catena Aurea on Mark 4:1-20",
+          "url": "https://www.ecatholic2000.com/catena/untitled-44.shtml",
+          "quote": "the first parable that He proposes is concerning the seed, which is the word of God ... Now the Sower is Christ.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-4-21-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 4:21-22",
+      "strength": "widely agreed",
+      "short": "A lamp is lit to be set on a stand, not hidden",
+      "about": "Just after explaining the sower, Jesus asks whether anyone brings in a lamp to hide it under a basket or a bed. A lamp is lit to give light. It is read of what He teaches His disciples: not meant to stay hidden, but to be brought to light and passed on to others.",
+      "refs": [
+        "Matthew 5:15"
+      ],
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 4:21",
+        "words": "Does anyone bring in a lamp to put it under a basket or under a bed?",
+        "means": "the truth Jesus gives His hearers, not to be kept hidden but to be shown and shared, as a lamp is set where it gives light"
+      },
+      "evidence": "Matthew Henry counts it among the parables and figurative expressions here: the apostles received the gospel for the good of others. Albert Barnes says that as a lamp is lit to give light, so His parables were to throw light on the truth, which the disciples should impart. Bede, in the Catena Aurea of Thomas Aquinas, calls it a figure of preaching the word.",
+      "limit": "A short likeness, not a full story. The writers apply it to Jesus' own teaching, or to the disciples' preaching of it. A like saying comes in another setting in Matthew 5:15.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 4:21-34",
+          "quote": "The lessons which our Saviour designs to teach us here by parables and figurative expressions are these ... Is a candle brought to be put under a bushel, or under a bed? No, but that it may be set on a candlestick. The apostles were ordained, to receive the gospel, not for themselves only, but for the good of others, to communicate it to them.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Mark 4:21",
+          "quote": "A candle is not lit up to be put immediately under a measure or a bed, where it can give no light. Its design is to give light. So my preaching by parables is not designed to obscure the truth, but to throw light on it. You should understand those parables, and, understanding them, should impart the truth to others also, as a candle throws its beams upon a dark world.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 4:21-25",
+          "at": "Bede, Commentary on Mark, book 1, in the Catena Aurea on Mark 4:21-25",
+          "url": "https://www.ecatholic2000.com/catena/untitled-44.shtml",
+          "quote": "He therefore who hides the word of God under the love of this transitory life, and of carnal allurements, covers his candle with a bushel or a bed. But he puts his light on a candlestick, who employs his body in the ministry of the word of God; therefore under these words He typically teaches them a figure of preaching.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-4-26-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 4:26-29",
+      "strength": "widely agreed",
+      "short": "Seed grows by itself while the sower sleeps",
+      "about": "Jesus likens the kingdom of God to a man who scatters seed: while he sleeps and wakes, it sprouts and grows, “though he knows not how,” stage by stage until the harvest. Found only in Mark, it pictures the word sown in the heart and in the world, growing unseen until it bears full fruit.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 4:26",
+        "words": "The kingdom of God is like a man who scatters seed on the ground",
+        "means": "the word of the kingdom sown in hearts and in the world, which grows unseen and by stages until the harvest"
+      },
+      "evidence": "Matthew Henry says the good seed of the gospel, sown in the world and in the heart, grows by degrees without noise. Brown (Jamieson, Fausset and Brown) says the parable teaches the unseen growth of the word sown in the heart. Albert Barnes says the gospel, or religion in the soul, may be compared to it. E. H. Plumptre (Ellicott) reads it of the kingdom's growth in the world and in each heart.",
+      "limit": "The likeness lies in the seed's hidden, steady growth. The note does not press each detail, such as the man's sleeping and rising.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 4:21-34",
+          "quote": "The lessons which our Saviour designs to teach us here by parables and figurative expressions are these ... The good seed of the gospel sown in the world, and sown in the heart, doth by degrees produce wonderful effects, but without noise ... Thus we know not how the Spirit by the word makes a change in the heart",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Mark 4:26-29",
+          "quote": "This beautiful parable is peculiar to Mark. Its design is to teach the Imperceptible Growth of the word sown in the heart, from its earliest stage of development to the ripest fruits of practical righteousness.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Mark 4:26",
+          "quote": "So is the kingdom of God - The gospel, or religion in the soul, may be compared to this. See the notes at Mat 3:2 . This parable is recorded only by Mark.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Mark 4:26",
+          "quote": "What follows has the special interest of being the only parable peculiar to St. Mark ... Like many other parables, it finds an interpretation in the analogous phenomena of the growth of the Kingdom (1) in the world at large, (2) in the heart of each individual.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-4-30-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 4:30-32",
+      "strength": "some interpreters",
+      "short": "The smallest seed grows into the largest plant",
+      "about": "Jesus asks, “With what parable shall we present it?” and likens the kingdom of God to a mustard seed, the smallest of seeds, which grows into the largest of garden plants with birds nesting in its shade. It pictures the kingdom, small in its beginnings but great at last.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 4:31",
+        "words": "It is like a mustard seed",
+        "means": "the kingdom of God, very small at first but spreading to the farthest nations, and the work of grace, small in its beginnings but great at last"
+      },
+      "evidence": "Matthew Henry says Christ considered how to illustrate it with an apt similitude: the work of grace is small in its beginnings but comes to be great at last, and the gospel kingdom, very small at first, shall spread to the remotest nations of the earth.",
+      "limit": "The note does not say whom the birds stand for.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 4:21-34",
+          "quote": "The work of grace is small in its beginnings, but comes to be great and considerable at last ... Christ speaks as one considering ... how to illustrate it with an apt similitude ... That the beginnings of the gospel kingdom would be very small, like that which is one of the least of all seeds ... The gospel kingdom in the world, shall increase and spread to the remotest nations of the earth",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-7-15-riddle",
+      "kind": "figure",
+      "form": "riddle",
+      "ref": "Mark 7:15",
+      "strength": "commonly held",
+      "short": "Not what goes in, but what comes out, defiles",
+      "about": "Jesus tells the crowd that nothing entering a man from outside can defile him, only what comes out of him. Mark calls the saying a parable (verse 17): its meaning was hidden from the disciples until Jesus explained that what defiles comes from the heart (verses 18-23).",
+      "refs": [
+        "Mark 7:17-23"
+      ],
+      "figure": {
+        "name": "Riddle",
+        "ref": "Mark 7:15",
+        "words": "Nothing that enters a man from the outside can defile him",
+        "means": "that food cannot make a person unclean before God; the sin that comes out of the heart does"
+      },
+      "evidence": "Albert Barnes says the parable here is the obscure and difficult saying of verse 15, which the disciples could not understand: that a man is not defiled by external things. Matthew Henry says that to the disciples it was a parable, and that we are defiled not by the meat we eat but by the corruption that breaks out of our hearts.",
+      "limit": "Mark calls it a parable, but it is a short saying, not a story. Its meaning was dark to the disciples, who could not see how a man was not defiled by what goes into him.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Mark 7:17",
+          "quote": "The parable - The \"obscure\" and difficult remarks which he had made in Mar 7:15 . The word \"parable,\" here, means \"obscure\" and \"difficult saying.\" They could not understand it. They had probably imbibed many of the popular notions of the Pharisees, and they could not understand why a man was not defiled by external things.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Mark 7:1-23",
+          "quote": "Not by the meat we eat, though it be eaten with unwashen hands; that is but from without, and goes through a man. But, (2.) It is by the breaking out of the corruption that is in our hearts ... They asked him, when they had him by himself, concerning the parable ... for to them, it seems, it was a parable.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-11-12-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Mark 11:12-14",
+      "refs": [
+        "Mark 11:20-21"
+      ],
+      "strength": "widely agreed",
+      "short": "Jesus curses a fig tree with leaves but no fruit",
+      "about": "Hungry, Jesus finds a fig tree in leaf but with no fruit, and says no one will ever eat of it again. The next morning it has withered from its roots. The act is read as a sign of judgment on those who show leaves but bear no fruit, and first on the nation of that day.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Mark 11:14",
+        "words": "May no one ever eat of your fruit again",
+        "means": "the curse on the fruitless tree pictures the judgment coming on a people who showed leaves but bore no fruit for God"
+      },
+      "evidence": "Adam Clarke says the tree is the Jewish nation and the curse its sentence, given to show the disciples the wrath to come. Matthew Henry calls the act a type and figure of the doom on the Jewish church. John Calvin, on Matthew's account, says Jesus meant the tree as an outward sign of the end awaiting hypocrites. Joseph Benson, also on Matthew, calls the act emblematical of the curse on the nation.",
+      "limit": "The text does not call the act a sign. Three of these writers apply it to the Jewish nation of that day and one to hypocrites in general. Two say plainly that the curse was not anger at the tree.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Mark 11:13",
+          "quote": "Therefore, 1. The tree is properly the Jewish nation. 2. Christ's curse the sentence of destruction which had now gone out against it ... His cursing the fig tree was not occasioned by any resentment at being disappointed at not finding fruit on it, but to point out unto his disciples the wrath which was coming upon a people who had now nearly filled up the measure of their iniquity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Mark 11:12-26",
+          "quote": "Christ was willing to make an example of it, not to the trees, but to the men, of that generation ... This was intended to be a type and figure of the doom passed upon the Jewish church, to which he came, seeking fruit, but found none",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 21:18",
+          "quote": "Certainly it was not the fury of passion that led him to curse the tree ... He intended, however, to present in this tree an outward sign of the end which awaits hypocrites, and at the same time to expose the emptiness and folly of their ostentation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Matthew 21:19",
+          "quote": "This, like many other of our Lord's actions, was emblematical. It signified that the curse of God would thus wither and destroy the Jewish nation, which he had before compared to a barren fig-tree",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "mark-12-1-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 12:1-9",
+      "refs": [
+        "Mark 12:12"
+      ],
+      "strength": "widely agreed",
+      "short": "Tenants kill the vineyard owner's beloved son",
+      "about": "Jesus tells of tenants who beat and kill the owner's servants, then kill his beloved son to take the inheritance. The owner will come and kill them and give the vineyard to others. Verse 12 says the leaders knew He spoke it against them. Many read the servants as the prophets and the son as Jesus.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 12:1",
+        "words": "A man planted a vineyard",
+        "means": "God's people and their leaders, who mistreated the prophets He sent and would kill His Son; verse 12 says the leaders knew He meant them"
+      },
+      "evidence": "Matthew Henry: Jesus begins in parables to show how He would lay aside the Jewish church, which abused the prophets and then Him. John Calvin, on Matthew: the rulers robbed God with the prophets and would slay His Son. Albert Barnes, on Matthew: the vineyard is the Jewish people, the servants the prophets, the Son Jesus Christ. Theophylact (Thomas Aquinas' Catena Aurea) makes the Son Christ.",
+      "limit": "Not every detail is pressed: the note claims the parable's main drift, which the hearers saw, not a meaning for each wall, vat or tower.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Mark 12:1-12",
+          "quote": "Christ had formerly in parables showed how he designed to set up the gospel church; now he begins in parables to show how he would lay aside the Jewish church ... The Old-Testament prophets were persecuted even by those that went under the name of the Old-Testament church. ... It was no wonder if those who abused the prophets, abused Christ himself.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Matthew 21:33",
+          "quote": "Mark says that Christ began to speak by parables ... The substance of this parable is, that it is no new thing, if the priests and the other rulers of the Church wickedly endeavor to defraud God of his right; for long ago they practiced the same kind of robbery towards the prophets, and now they are ready to slay his Son",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Matthew 21:33-37",
+          "quote": "The parable of the vineyard - This is also recorded in Mar 12:1-12 ; Luk 20:9-19 . ... This vineyard denotes, doubtless, the Jewish people, or Jerusalem. ... Sent his servants - These, doubtless, represent the prophets sent to the Jewish people. ... This beautifully and most tenderly exhibits the love of God in sending his only Son, Jesus Christ, into the world to die for people.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 12:1-12",
+          "at": "Theophylact, Catena Aurea on Mark 12:1-12",
+          "url": "https://www.ecatholic2000.com/catena/untitled-52.shtml",
+          "quote": "The Lord of the vineyard then is the Father of the Son who was slain, and the Son Himself is He who was slain, who will destroy those husbandmen, by giving them up to the Romans, and who will give the people to other husbandmen, that is, to the Apostles.",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -174,6 +700,60 @@
           "quote": "In a. and a., truth; in b. and b., independence. … In St. Matthew the clauses are placed in what, according to our notions of arrangement, we should call their natural order. But God's ways are not always our ways.",
           "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "mark-13-34-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Mark 13:34-36",
+      "refs": [
+        "Mark 13:37"
+      ],
+      "strength": "widely agreed",
+      "short": "The master who left his doorkeeper to keep watch",
+      "about": "Jesus tells of a man who goes on a journey, gives each servant his task, and tells the doorkeeper to keep watch. No one knows when the master will return, so they must not be found sleeping. Many read the master as Christ gone up to heaven, who will come again without notice.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Mark 13:34",
+        "words": "It is like a man going on a journey",
+        "means": "Christ, gone up to heaven, has given each of His servants a task and charged them to watch for His return"
+      },
+      "evidence": "Adam Clarke calls it a parable: Christ ascended is the man gone from home, believers His family, the porter His ministers. Matthew Henry says Jesus illustrates the call to watch by a parable. Albert Barnes says the Saviour represents Himself as going away, leaving His household, the church. Gregory the Great (Thomas Aquinas' Catena Aurea) calls it a parable, the porter the pastors.",
+      "limit": "Two writers take the doorkeeper as the church's ministers, yet both say the call to watch is for every believer, as verse 37 says.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Mark 13:36",
+          "quote": "Our Lord shows us in this parable: 1. That himself, ascended to heaven, is the man gone from home. 2. That believers collectively are his family. ... 4. That the porter represents the ministers of his Gospel ... therefore they should be always watchful and faithful. And, 8. That this is a duty incumbent on every soul of man, What I say unto you, I say unto All, Watch!",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Mark 13:28-37",
+          "quote": "This he illustrates, in the close, by a parable. 1. Our Master is gone away, and left us something in trust, in charge, which we must give account of ... Thus our Lord Jesus, when he ascended on high, left something for all his servants to do, expecting they should all do him service in his absence, and be ready to receive him at his return.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Mark 13:34",
+          "quote": "Our Saviour here represents himself as going away, leaving his household the church, assigning to the apostles and all his servants their duty, and leaving it uncertain when he would return.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "catena-aurea",
+          "work": "catena-aurea",
+          "on": "Mark 13:32-37",
+          "at": "Gregory the Great, Homilies on the Gospels 9, in the Catena Aurea on Mark 13:32-37",
+          "url": "https://www.ecatholic2000.com/catena/untitled-53.shtml",
+          "quote": "He has also ordered the porter to watch, because He commanded the order of pastors to have a care over the Church committed to them. Not only, however, those of us who rule over Churches, but all are required to watch the doors of their hearts ... Wherefore concluding this parable He adds, Watch ye therefore",
+          "read": "Newman's Oxford translation, in the copy at github.com/AlvaroBalbin/catena (commit efe1bd0)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

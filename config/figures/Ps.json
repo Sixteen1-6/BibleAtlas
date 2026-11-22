@@ -2191,6 +2191,51 @@
       ]
     },
     {
+      "id": "psalm-18-4-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 18:4-16",
+      "refs": [
+        "Psalm 18:17",
+        "2 Samuel 22:5-17"
+      ],
+      "strength": "widely agreed",
+      "short": "David’s rescue pictured as God coming in a storm",
+      "about": "David pictures his danger as torrents that overwhelm him. When he cries out, the LORD comes down in a storm, with earthquake, thunder and lightning, and draws him out of deep waters. Verse 17 says it plainly: “He rescued me from my powerful enemy.” The same song is in 2 Samuel 22.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 18:16",
+        "words": "He drew me out of deep waters",
+        "means": "God’s rescue of David from foes too mighty for him (verse 17), pictured as a drowning man drawn out of the flood"
+      },
+      "evidence": "Delitzsch (Keil and Delitzsch) calls the language thoroughly allegorical and the description ideal: the man nearly overpowered by his foes is shown as one almost drowning. Barnes says the description is taken from the storm, a representation of God’s mighty interposition. Henry reads the shaking earth and hills as men struck with fear, and says David was drawn out of the waters figuratively.",
+      "limit": "The note does not claim that a storm of this kind came in David’s life, nor that none did; the writers read the storm and the flood as pictures of God’s true rescue of David from his enemies.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 18:13-15",
+          "quote": "From the language being here so thoroughly allegorical, it is clear that we were quite correct in interpreting the description as ideal. He, who is nearly overpowered by his foes, is represented as one engulfed in deep waters and almost drowning.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 18:7",
+          "quote": "The description which follows here is one of the most sublime that is to be found in any language. It is taken from the fury of the storm and tempest ... All that is needful is to regard this as a representation of the mighty interposition of God; to suppose that his intervention was as direct, as manifest, and as sublime, as if he had thus interposed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 18:1-19",
+          "quote": "When the men of the earth were struck with fear, then the earth might be said to tremble; when the great men of the earth were put into confusion, then the hills moved. ... There were waters deep and many, waters out of which he was to be drawn ... as Moses, who had his name from being drawn out of the water literally, as David was figuratively.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-19-7-building",
       "kind": "parallelism",
       "form": "building",
@@ -2539,6 +2584,54 @@
       ]
     },
     {
+      "id": "psalm-23-5-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 23:5",
+      "strength": "widely agreed",
+      "short": "The LORD pictured as a host who spreads a feast",
+      "about": "In verse 5 the picture changes from shepherd to host. The LORD spreads a table for David while his enemies can only look on, anoints his head with oil as an honored guest, and fills his cup until it overflows. It shows His rich and sure care for His own.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 23:5",
+        "words": "You prepare a table before me in the presence of my enemies",
+        "means": "the LORD’s rich care for David, pictured as a host who feasts and honors his guest while his enemies can only look on"
+      },
+      "evidence": "Clarke finds two allegories in the psalm, the second a great feast set out by a most kind and liberal host. Delitzsch (Keil and Delitzsch) says the figure of the shepherd fades and that of the host appears. Barnes says the image is now changed to a feast: God provides for his wants. Fausset (Jamieson, Fausset and Brown) says another figure expresses God’s care, the oil gladness, the cup abundance.",
+      "limit": "The writers differ on what the feast stands for: one says it means outward needs too, such as daily bread, received as a gift from heaven; another, that the blessings are spiritual.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Psalm 23:1",
+          "quote": "There are two allegories in this Psalm which are admirably well adapted to the purpose for which they are produced, and supported both with art and elegance. The first is that of a shepherd; the second, that of a great feast, set out by a host the most kind and the most liberal. As a flock, they have the most excellent pasture; as guests, they have the most nutritive and abundant fare.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 23:4-5",
+          "quote": "After the figure of the shepherd fades away in Psa 23:4 , that of the host appears. His enemies must look quietly on ... without being able to do anything, and see how Jahve provides bountifully for His guest, anoints him with sweet perfumes as at a joyous and magnificent banquet ... and fills his cup to excess. What is meant thereby, is not necessarily only blessings of a spiritual kind.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 23:5",
+          "quote": "The image is now changed, though expressing the general idea which is indicated in the first verse of the psalm, \"I shall not want.\" ... the evidence here is that God had provided a table, or a feast, for him in the very presence of his enemies, and had filled his cup with joy. The word \"table\" here is synonymous with \"feast;\" and the meaning is, \"thou providest for my wants.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 23:5",
+          "quote": "Another figure expresses God's provided care. a table--or, \"food,\" anointing oil--the symbol of gladness, and the overflowing cup--which represents abundance--are prepared for the child of God, who may feast in spite of his enemies ... The closing verse shows that the blessings mentioned are spiritual.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-25-1-acrostic",
       "kind": "figure",
       "form": "acrostic",
@@ -2864,6 +2957,42 @@
       ]
     },
     {
+      "id": "psalm-45-1-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Psalm 45:1-17",
+      "refs": [
+        "Hebrews 1:8-9"
+      ],
+      "strength": "commonly held",
+      "short": "A king’s wedding song read as Christ and His bride",
+      "about": "The song praises a king for his grace, his victories and his everlasting throne. Then his bride is called to forget her father’s house, and she is led to him with joy. Read as one picture carried through, the King is Christ and the bride His church. Hebrews 1:8-9 applies verses 6 and 7 to the Son.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Psalm 45:10",
+        "words": "Forget your people and your father’s house",
+        "means": "the church, Christ’s bride, called to leave her old home and belong to Him as her King and Lord"
+      },
+      "evidence": "Fausset (Jamieson, Fausset and Brown) says the song is of allegorical, not literal, import: it describes the union of Christ and His Church, the Church portrayed as a bride invited to forsake her home. Henry calls it a song of the holy love between Christ and His church, in which the beauty of the royal bridegroom represents the excellencies of Christ.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 45:1",
+          "quote": "Maschil-- ... denotes the didactic character of the Psalm; that it gives instruction, the song being of allegorical, and not literal, import. The union and glories of Christ and his Church are described. ... The Church is portrayed in the purity and loveliness of a royally adorned and attended bride, invited to forsake her home and share the honors of her affianced lord.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 45:1-5",
+          "quote": "It is a song of loves, concerning the holy love that is between Christ and his church. ... It is a marriage-song; and therefore the transcendent excellencies of Christ are represented by the beauty of the royal bridegroom",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "psalm-49-4-riddle",
       "kind": "figure",
       "form": "riddle",
@@ -2963,6 +3092,57 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "psalm-69-11-proverb",
+      "kind": "figure",
+      "form": "proverb",
+      "ref": "Psalm 69:11",
+      "refs": [
+        "Psalm 69:10",
+        "Psalm 69:12"
+      ],
+      "strength": "widely agreed",
+      "short": "In sackcloth, David became a byword to scoffers",
+      "about": "David wept, fasted and wore sackcloth, and for this he became a byword: they made him the common subject of their jokes. His name may even have been used for anyone thought foolishly devout. Those at the gate mocked him, and drunkards sang of him (verse 12).",
+      "figure": {
+        "name": "Proverb",
+        "ref": "Psalm 69:11",
+        "words": "I was sport to them",
+        "means": "his enemies made him a byword, a common jest and a name to mock, because of his grief before God"
+      },
+      "original": {
+        "note": "In Hebrew “sport” is mashal, a byword or proverb.",
+        "strong": [
+          "H4912"
+        ]
+      },
+      "evidence": "Barnes explains the proverb as a jest, a subject of derision, a by-word: they ridiculed him for his sackcloth. Henry says they laughed at him as a fool for this and made him the common subject of their banter. Poole says they used his name proverbially of anyone they thought vainly and foolishly religious.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Psalm 69:11",
+          "quote": "I made sackcloth also my garment - I put on sackcloth. This was often done as expressive of grief and sorrow. ... In the case here referred to, this was an act of religion; an expression of penitence and humiliation. And I became a proverb to them - A jest; a subject of derision; a by-word. They ridiculed me for it.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Psalm 69:1-12",
+          "quote": "They laughed at him as a fool for mortifying himself thus; and even for this he became a proverb to them; they made him the common subject of their banter.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "poole",
+          "on": "Psalm 69:11",
+          "quote": "A proverb to them; they used my name proverbially of any person whom they thought vainly and foolishly religious.",
+          "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/poole/psalms/69.htm",
+          "retrieved": "2026-11-22"
+        }
+      ],
+      "limit": "The verse does not give the words of the byword; it says only that David himself had become one."
     },
     {
       "id": "psalm-69-14-turns",
@@ -3326,6 +3506,65 @@
           "quote": "To God's seeming rejection of his Anointed in v. 38 corresponds the shame which he casts upon him in v. 45 ... In ver. 39 and 44, his throne and crown are represented as having been profaned and cast down to the earth. In ver. 40 and 43, his defences fail him, and in ver. 41 and 42, his neighbours and enemies triumph over him.",
           "read": "the 1854 printing, in the scan at archive.org/details/symmetricalstruc00forbiala",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "psalm-92-12-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 92:12-14",
+      "strength": "widely agreed",
+      "short": "The righteous grow “like a palm tree” and a cedar",
+      "about": "The righteous are said to flourish like a palm tree and grow like a cedar in Lebanon. Planted in the house of the LORD, they still bear fruit in old age and stay green. Verse 7 gives the opposite picture: the wicked “sprout like grass,” only to be destroyed.",
+      "refs": [
+        "Psalm 92:7"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 92:12",
+        "words": "will flourish like a palm tree, and grow like a cedar in Lebanon",
+        "means": "the righteous: green and fruitful like the palm, tall, strong and lasting like the cedar"
+      },
+      "evidence": "Bullinger lists these verses among similitudes in word-pictures: the prosperity of the righteous is likened to the palm and the cedar. Barnes calls it the comparison of a righteous man to a green, flourishing tree; Clarke says the righteous are compared to these trees, the wicked to grass. Delitzsch (Keil and Delitzsch) finds points of comparison in abundance; Benson, a fit emblem.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "bullinger-fos",
+          "on": "Psalm 92:12-14",
+          "at": "Hypotyposis, or Word-Picture, p. 445",
+          "url": "https://archive.org/details/figuresofspeechu00bull/page/445/mode/1up",
+          "quote": "Certain similitudes: as when the blessings of Christ’s coming are compared to the rising sun ... or when the prosperity of the wicked is likened to a green bay-tree ... and that of the righteous to the palm and the cedar",
+          "read": "the UniqueBible.app module of the 1898 text, at github.com/darrelwright/UniqueBible_Books (commit 4017a67)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 92:12",
+          "quote": "That is, the beauty, the erectness, the stateliness, the growth of the palm-tree - all this is an emblem of the condition, the prosperity, the happiness of a righteous man. ... This image - the comparison of a righteous man to a flourishing, majestic, green, and beautiful tree - is not uncommon in the Scriptures.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 92:12",
+          "quote": "Very different from the wicked, Psa 92:7 , who are likened to grass. These shall have a short duration; but those shall have a long and useful life. ... The cedar gives us the idea of majesty, stability. durableness, and incorruptibility. To these two trees, for the most obvious reasons, are the righteous compared.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 92:10-12",
+          "quote": "When the prosperity lit. the blossoming of the ungodly comes to an end, the springing up and growth of the righteous only then rightly has its beginning. ... The likening of the righteous to the palm ... offers points of comparison in abundance. Side by side with the palm is the cedar, the prince of the trees of the mountain, and in particular of Mount Lebanon.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Psalm 92:12",
+          "quote": "Which is constantly green and flourishing ... and therefore a fit emblem of the flourishing state of a righteous man. ... These then, as well as the palm-trees, compared with the short-lived and withering grass, are a striking illustration of the well-founded, durable, and continually increasing virtue and happiness of the truly righteous",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -3699,6 +3938,56 @@
           "quote": "the first line shall be parallel with the last; the second with the penultimate ... the introverted parallelism ... Unto thee do I lift up mine eyes, O thou that dwellest in the heavens; Behold, as the eyes of servants to the hands of their masters; As the eyes of a maiden to the hand of her mistress: Even so look our eyes to Jehovah our God, until he have mercy upon us. Psalm cxxiii. 1, 2.",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "psalm-129-6-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Psalm 129:6-8",
+      "strength": "widely agreed",
+      "short": "Zion's foes wither “like grass on the rooftops”",
+      "about": "Those who hate Zion are pictured as grass on the rooftops. It springs up but withers before it can grow, so no reaper fills his hands with it, and no one passing by gives the harvest blessing. The picture shows them, and all they plan against Zion, coming to nothing.",
+      "refs": [
+        "Psalm 129:5"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Psalm 129:6",
+        "words": "like grass on the rooftops",
+        "means": "the enemies of Zion: soon withered, of use to no one, their plans never coming to harvest"
+      },
+      "evidence": "Henry says it is a similitude: the enemies wither as grass on the housetop, and their attempts never ripen. Delitzsch (Keil and Delitzsch) says the poet pursues the figure further: they are grass never garnered in. Barnes calls it a perfect image of feebleness and disappointed hopes; Fausset (Jamieson, Fausset and Brown) says the roof grass sets forth the uselessness and rejection of the wicked.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Psalm 129:5-8",
+          "quote": "The confusion imprecated and predicted is illustrated by a similitude; while God's people shall flourish as the loaded palm-tree, or the green and fruitful olive, their enemies shall wither as the grass upon the house-top. ... nor will their attempts against Zion ever ripen or come to any head",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 129:6-8",
+          "quote": "The poet illustrates the fate that overtakes them by means of a picture borrowed from Isaiah and worked up ... The roof-grass withers before it has put forth ears of blossoms, just because it has no deep root ... The poet pursues the figure of the grass of the house-tops still further. ... The enemies of Israel are as grass upon the house-tops, which is not garnered in",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Psalm 129:6",
+          "quote": "It has no depth of earth to sustain it; having sprouted, and begun to grow, it soon dies - a perfect image of feebleness and desolation; of hopes begun only to be disappointed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Psalm 129:5-8",
+          "quote": "The ill-rooted roof grass, which withers before it grows up and procures for those gathering it no harvest blessing ... sets forth the utter uselessness and the rejection of the wicked.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

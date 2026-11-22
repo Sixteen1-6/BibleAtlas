@@ -1,6 +1,91 @@
 {
   "notes": [
     {
+      "id": "revelation-3-20-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Revelation 3:20",
+      "strength": "widely agreed",
+      "short": "Christ stands at the door and knocks",
+      "about": "Christ pictures Himself at a door. He knocks and calls, and whoever hears His voice and opens, He will come in and dine with him. The picture shows Christ seeking to be received, waiting rather than forcing the door, and promising close fellowship to all who let Him in.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Revelation 3:20",
+        "words": "I stand at the door and knock",
+        "means": "Christ seeking entrance to the heart by His word and Spirit, and offering His friendship and fellowship to all who receive Him"
+      },
+      "evidence": "Albert Barnes: Christ is shown under the image of knocking at the door; supping is an image of friendship. William Tong (Matthew Henry's Commentary): the door is the heart, the call His word, the knock His Spirit. To Adam Clarke the knock is judgments and mercies, to A. R. Fausset (Jamieson, Fausset and Brown) His providences; to both the voice is His word and Spirit; He will not force the door.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Revelation 3:20",
+          "quote": "Both of these things are implied here by the language used by the Saviour when he approaches man as represented under the image of knocking at the door: that he desires to be admitted to our friendship; and that he recognizes our freedom in the matter. ... I will come in to him, and will sup with him, and he with me - This is an image denoting intimacy and friendship.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Revelation 3:14-22",
+          "quote": "Christ is graciously pleased by his word and Spirit to come to the door of the heart of sinners; he draws near to them in a way of mercy, ready to make them a kind visit. ... He uses all proper means to awaken sinners, and to cause them to open to him: he calls by his word, he knocks by the impulses of his Spirit upon their conscience. ... Those who open to him shall enjoy his presence",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Revelation 3:20",
+          "quote": "Christ stands - waits long, at the door of the sinner's heart; he knocks - uses judgments, mercies, reproofs, exhortations, etc., to induce sinners to repent and turn to him; he lifts up his voice - calls loudly by his word, ministers, and Spirit. ... This must be his own act, receiving power for this purpose from his offended Lord, who will not break open the door; he will make no forcible entry.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Revelation 3:20",
+          "quote": "He appeals to the sinner not only with His hand (His providences) knocking, but with His voice (His word read or heard; or rather, His Spirit inwardly applying to man's spirit the lessons to be drawn from His providence and His word). ... Christ knocks, but does not break open the door ... He draws, not drags.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "revelation-10-8-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Revelation 10:8-10",
+      "strength": "commonly held",
+      "short": "John takes the small scroll and eats it",
+      "about": "In the vision John is told to take the small scroll from the angel and eat it, and he does. The act is a sign: he is to take the message wholly into himself and master it, as food is eaten and digested. Ezekiel was given a scroll to eat in the same way. Then John is told, “You must prophesy again.”",
+      "refs": [
+        "Ezekiel 3:1-3",
+        "Revelation 10:11"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Revelation 10:10",
+        "words": "took the small scroll from the angel’s hand and ate it",
+        "means": "John taking the book’s message wholly into himself and mastering it, as food is eaten and digested"
+      },
+      "evidence": "Albert Barnes (Barnes' Notes) calls John's going to the angel and taking and eating the book symbolic action, and says he was to receive its contents into his mind and apply them, as we do food, for spiritual nourishment. W. Boyd Carpenter (Ellicott's Commentary) says Ezekiel's passage is probably its basis and calls the eating a symbol of completely mastering and digesting the book's contents.",
+      "limit": "The note does not settle what the bitterness stands for, or what the small scroll holds; readings differ.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Revelation 10:9",
+          "quote": "And I went unto the angel - This is symbolic action ... it is not necessary to suppose that there was a literal act of going to him, and taking the book from his hand and eating it. ... The meaning here, then, is plain. He was to possess himself of the contents of the book; to receive it into his mind; to apply it, as we do food, for spiritual nourishment",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Revelation 10:8-9",
+          "quote": "The passage in Ezekiel is probably the basis of the present passage, and the chapter in which it occurs gives us the meaning of the symbol: the eating of the roll, or the words of the roll, is the complete mastering of the contents of the book — the digesting, as we say, its meaning, till the principles and truths are thoroughly familiar and loved.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "revelation-13-18-riddle",
       "kind": "figure",
       "form": "riddle",
@@ -34,6 +119,50 @@
           "quote": "We have here the number of the beast, given in such a manner as shows the infinite wisdom of God, and will sufficiently exercise all the wisdom and accuracy of men: The number is the number of a man, computed after the usual manner among men, and it is 666.",
           "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "revelation-18-21-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Revelation 18:21",
+      "strength": "widely agreed",
+      "short": "An angel hurls a millstone-sized stone into the sea",
+      "about": "A mighty angel throws a stone the size of a great millstone into the sea, saying Babylon will be cast down so. The act shows her fall: as the stone sinks under the waters and is gone, she is ruined past recovery. It recalls the stone sunk in the Euphrates: “Babylon will sink and never rise again.”",
+      "refs": [
+        "Jeremiah 51:63-64"
+      ],
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Revelation 18:21",
+        "words": "picked up a stone the size of a great millstone and cast it into the sea",
+        "means": "Babylon’s utter ruin: thrown down with violence, she sinks past recovery, as the stone sinks out of sight in the sea"
+      },
+      "evidence": "Albert Barnes (Barnes' Notes) calls the throw an emblem of the city's utter ruin, as complete as the stone's covering by the waters. W. Boyd Carpenter (Ellicott's Commentary) calls it a symbol drawn from Jeremiah and says the sinking mass signified a fall past recovery. William Tong (Matthew Henry's Commentary) calls it a remarkable token that her ruin could not be undone.",
+      "limit": "The note does not say which city or power Babylon stands for, where readers differ.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Revelation 18:21",
+          "quote": "And cast it into the sea - As an emblem of the utter ruin of the city; an indication that the city would be as completely destroyed as that stone was covered by the waters.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Revelation 18:21",
+          "quote": "The taking up of the stone and casting it into the waters is a symbol drawn from Jeremiah ( Jeremiah 51 ). ... The great dead mass, sinking helplessly by the law of its own weight, signified a fall past recovery.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Revelation 18:9-24",
+          "quote": "Because it was an irrecoverable ruin. This enemy should never molest them any more, and of this they were assured by a remarkable token ... An angel from heaven took up a stone like a great millstone, and cast it into the sea",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

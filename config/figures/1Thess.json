@@ -70,6 +70,57 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "1-thessalonians-5-2-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "1 Thessalonians 5:2-4",
+      "strength": "widely agreed",
+      "short": "The Day comes “like a thief in the night”",
+      "about": "Paul says the Day of the Lord will come like a thief in the night: suddenly and without warning, on those who feel safe. Then he turns the picture: believers are not in the darkness, so that day should not overtake them like a thief. Jesus used the same picture in Matthew 24:43.",
+      "figure": {
+        "name": "Simile",
+        "ref": "1 Thessalonians 5:2",
+        "words": "like a thief in the night",
+        "means": "the Lord's coming in judgment, sudden and unlooked for, taking by surprise those who are careless and unready"
+      },
+      "refs": [
+        "Matthew 24:43"
+      ],
+      "evidence": "Calvin calls it a similitude: the day will come suddenly on unbelievers and take them by surprise, as though asleep. Barnes says the point of the comparison is that it comes without warning, as a robber breaks into a house. Fausset (Jamieson, Fausset and Brown) says the apostles take the image from their Lord's parable; Mason (Ellicott) calls it a simile often used in the apostles' teaching.",
+      "limit": "In verse 4 two of the oldest manuscripts read thieves rather than thief, and scholars differ on the reading.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Thessalonians 5:3",
+          "quote": "Here we have an explanation of the similitude, the day of the Lord will be like a thief in the night. Why so? because it will come suddenly to unbelievers, when not looked for, so that it will take them by surprise, as though they were asleep.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Thessalonians 5:2",
+          "quote": "As a thief in the night - Suddenly and unexpectedly, as a robber breaks into a dwelling. A thief comes without giving any warning, or any indications of his approach. ... In this way the Lord Jesus will return to judgment ... If this be not the point of the comparison in expressions like this, what is it?",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Thessalonians 5:2",
+          "quote": "as a thief in the night--The apostles in this image follow the parable of their Lord, expressing how the Lord's coming shall take men by surprise ( Mat 24:43 ; Pe2 3:10 ). ... The thief not only gives no notice of his approach but takes all precaution to prevent the household knowing of it. So the Lord ( Rev 16:15 ).",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Thessalonians 5:2",
+          "quote": "As a thief in the night — i.e. unexpectedly ( Mat 24:43 ), and under cover of darkness. The frequency of the simile (see references) throws light on the words “know perfectly,” making it apparent that it was the ordinary formula in which the doctrine was universally taught by the Apostles.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }

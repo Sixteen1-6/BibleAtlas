@@ -233,6 +233,58 @@
       ]
     },
     {
+      "id": "deuteronomy-32-11-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Deuteronomy 32:11",
+      "strength": "widely agreed",
+      "short": "The LORD's care pictured by an eagle and its young",
+      "about": "Moses likens the LORD's care for Israel to an eagle that stirs up its nest and hovers over its young; the rest of the verse can be read of the LORD Himself, spreading His wings and carrying them. The picture shows God rousing, guarding and training His people, as an eagle trains its young to fly.",
+      "refs": [
+        "Deuteronomy 32:12",
+        "Exodus 19:4"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "Deuteronomy 32:11",
+        "words": "As an eagle stirs up its nest and hovers over its young",
+        "means": "the LORD's loving care for Israel: rousing, guarding and training His people, and bearing them up as an eagle does its young"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says Moses describes the Lord's care under the figure of an eagle teaching its young to fly, the point of comparison being the loving care with which He trained Israel. Matthew Henry calls it a similitude first touched in Exodus 19:4 and here enlarged. John Calvin says God compares Himself to an eagle; Joseph Benson, that God's care over Israel is well shown by it.",
+      "limit": "Some writers read the whole verse as the eagle's acts and verse 12 as the LORD's; one takes the second half of the verse as the LORD's own acts, as it reads here.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Deuteronomy 32:11",
+          "quote": "Under the figure of an eagle, which teaches its young to fly ... Moses describes the care with which the Lord came to the relief of His people in their helplessness ... The point of comparison between the conduct of God towards Jacob and the acts of an eagle towards its young, is the loving care with which He trained Israel to independence.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Deuteronomy 32:7-14",
+          "quote": "He did that for them which the eagle does for her nest of young ones ... The similitude was touched ... I bore you on eagles' wings; here it is enlarged upon. The eagle is observed to have a strong affection for her young, and to show it ... by educating them and teaching them to fly. ... God did thus by Israel",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Deuteronomy 32:10-11",
+          "quote": "Two similitudes follow, to express God's love, mingled with solicitude more than paternal. ... Secondly, God compares Himself to an eagle, which not only fosters her young ones under her outspread wings, but also indulgently, and with maternal tenderness tempts them to fly.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Deuteronomy 32:11",
+          "quote": "The eagle is observed by naturalists to have a most tender affection to her young, and therefore the care of God over Israel is here well illustrated thereby. By her voice she encourages and stirs them up to fly, hovers over them, bears, and defends them by her strength",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "deuteronomy-32-42-turns",
       "kind": "parallelism",
       "form": "turns",

@@ -584,6 +584,47 @@
       ]
     },
     {
+      "id": "romans-6-16-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Romans 6:16-22",
+      "strength": "widely agreed",
+      "short": "Slaves to the one you obey: sin or God",
+      "about": "Paul draws a picture from daily life: a slave belongs to the master he obeys. Once slaves to sin, which ends in death, his readers are now free and slaves to God, which leads to holiness and eternal life. Speaking in human terms, he bids them serve righteousness as wholly as they once served sin.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Romans 6:18",
+        "words": "have become slaves to righteousness",
+        "means": "belonging wholly to God and His righteousness, as a slave belongs to the master he obeys, where once they were wholly given to sin"
+      },
+      "evidence": "Barnes: Paul draws an illustration from common life, the well-known relation of master and slave: once wholly given to sin, they should now be wholly given to God. Clarke says Paul uses metaphors and figures from their trades and situation in life, showing how enslaved by sin they had been. Sanday (Ellicott) calls this service a plain human figure, suited to their weak grasp of spiritual things.",
+      "limit": "The wages of sin in verse 23 is a different picture and is not part of this note.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Romans 6:19",
+          "quote": "I draw an illustration from common life, in order to make myself better understood. ... I use an illustration drawn from common affairs, from the well-known relations of master and slave ... Before conversion they were wholly given to sin; after conversion they should be wholly given to God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Romans 6:19",
+          "quote": "I make use of metaphors and figures connected with well-known natural things; with your trades and situation in life; because of your inexperience in heavenly things ... These different expressions show how deeply immersed in and enslaved by sin these Gentiles were before their conversion to Christianity.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 6:15-23",
+          "quote": "To yield to sin is to be the servant or slave of sin with its consequence — death. On the other hand, obedience and righteousness go together. Happily you have escaped from sin, and taken service with righteousness. Service, I say, using a plain human figure to suit your imperfect and carnal apprehension of spiritual things.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "romans-7-24-exclamation",
       "kind": "figure",
       "form": "exclamation",
@@ -903,6 +944,104 @@
           "quote": "The first line proposes the subject: … Riches, wisdom, and knowledge, are then, in a fine epanodos, enlarged upon in the inverted order; first, knowledge … secondly, wisdom … thirdly, riches",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "romans-12-4-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Romans 12:4-5",
+      "strength": "widely agreed",
+      "short": "Like one body with many members",
+      "about": "Paul compares the church to a human body. A body is one, yet it has many members, and each has its own work. So believers, though many, are one body in Christ, and each belongs to the others. The likeness calls each to serve with his own gift, without pride, for the good of all.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Romans 12:4",
+        "words": "Just as each of us has one body with many members",
+        "means": "the church: believers, many yet one in Christ, each with a different work and all needing one another"
+      },
+      "refs": [
+        "1 Corinthians 12:12"
+      ],
+      "evidence": "Barnes calls it a beautiful comparison from the human body: so the church is one body of many members. Calvin says by this similitude Paul shows each must consider what suits his nature, capacity and calling. Brown (Jamieson, Fausset and Brown) finds in Christ's body the same diversity in unity as in the natural body. Benson says Paul illustrates his advice by a comparison from the body.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Romans 12:4",
+          "quote": "To show this, he introduces a beautiful comparison drawn from the human body. There are various members in the human frame; all useful and honorable in their proper place; and all designed to promote the order, and beauty, and harmony of the whole. So the church is one body, consisting of many members, and each is suited to be useful and comely in its proper place.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 12:4",
+          "quote": "As then the case is with the human body, so it ought to be with the society of the faithful. By applying this similitude he proves how necessary it is for each to consider what is suitable to his own nature, capacity, and vocation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Romans 12:4",
+          "quote": "The same diversity and yet unity obtains in the body of Christ, whereof all believers are the several members, as in the natural body.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Romans 12:4",
+          "quote": "For as we have many members The apostle proceeds to illustrate his advice by a comparison taken from the members of the human body. All members have not the same office But different members are appointed to different purposes. So we Several believers, having different gifts and offices; are one body All make up one body under Christ the head",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "romans-13-11-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Romans 13:11-14",
+      "strength": "widely agreed",
+      "short": "Wake up: the night is ending and day is near",
+      "about": "Paul pictures the present time as a night nearly over, with day about to dawn. He carries the picture through: wake from sleep, lay aside the deeds of darkness, put on the armor of light, behave decently as in the daytime, and be clothed with the Lord Jesus Christ. Each step calls for a holy life.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Romans 13:12",
+        "words": "The night is nearly over; the day has drawn near",
+        "means": "the present dark time is passing and the full light of salvation is near, so believers must live as people who belong to the day"
+      },
+      "evidence": "Clarke says a fine metaphor runs through the last four verses, kept up in every expression to putting on the Lord Jesus. Calvin says the words are metaphorical: night is ignorance of God, light the revelation of divine truth, the armor of light holy actions. Barnes calls the call to awake at dawn a beautiful figure. W. Sanday (Ellicott) says the time of the Messiah's absence is compared to night.",
+      "limit": "Writers differ on what the night and the day stand for: the darkness of heathen life and the light of the gospel, this present life and the life to come, or Christ's absence and His return. One notes that the day means the coming life in verse 12 but the present light of Christ in verse 13.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Romans 13:11-14",
+          "quote": "In these four last verses there is a fine metaphor, and it is continued and well sustained in every expression. 1. The apostle considers the state of the Gentiles under the notion of night, a time of darkness and a time of evil practices. ... and says, still following his metaphor, Put on the Lord Jesus Christ - receive his doctrine, copy his example",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Romans 13:11",
+          "quote": "As, however, the words are metaphorical, it may be useful to consider their meaning: Ignorance of God is what he calls night ... By light he means the revelation of divine truth, by which Christ the sun of righteousness arises on us. ... The armor of light represents good, and temperate, and holy actions, such as are suitable to the day",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Romans 13:11",
+          "quote": "This is a beautiful figure. The dawn of day, the approaching light of the morning, is the time to arouse from slumber. In the darkness of night, people sleep. So says the apostle. The world has been sunk in the \"night\" of paganism and sin. ... But now the morning light of the gospel dawns.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Romans 13:12",
+          "quote": "The time during which the Messiah is absent from His people is compared to night. ... the metaphor of night and day should suggest that of “armour.” The warfare in which the Christian is engaged is between the powers of light and of darkness.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

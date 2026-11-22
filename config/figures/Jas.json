@@ -1,6 +1,50 @@
 {
   "notes": [
     {
+      "id": "james-1-10-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "James 1:10-11",
+      "strength": "widely agreed",
+      "short": "The rich man fades “like a flower of the field”",
+      "about": "James tells the rich man to exult in his low position, for he will pass away like a flower of the field. The scorching sun withers the plant and its beauty is lost. So riches and worldly splendor pass quickly and give no ground for pride. Isaiah 40:6-8 uses the same picture.",
+      "refs": [
+        "Isaiah 40:6-8"
+      ],
+      "figure": {
+        "name": "Simile",
+        "ref": "James 1:10",
+        "words": "he will pass away like a flower of the field",
+        "means": "riches and worldly splendor, which pass away as quickly as a wild flower withers in the heat"
+      },
+      "evidence": "Barnes says the comparison of worldly splendor with the fading flower of the field is common in Scripture, and that James probably had Isaiah 40:6-8 in mind. Calvin says the meaning is that glorying in riches is foolish, since they pass away in a moment. Clarke says all outward glory is only as the flower of the field, and like it will wither and perish.",
+      "limit": "The writers differ on Isaiah 40:6-8: one thinks James probably had it in mind; another allows an allusion but not a quotation, since Isaiah speaks of the whole man and James of the pomp of riches.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "James 1:10",
+          "quote": "Because as the flower of the grass he shall pass away - That is, since it is a fact that he will thus pass away, he should rejoice that he is reminded of it. ... The comparison of worldly splendor with the fading flower of the field, is one that is common in Scripture. It is probable that James had his eye on the passage in Isa 40:6-8",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "James 1:10",
+          "quote": "As the flower of the grass. Were any one to say that James alludes to the words of Isaiah, I would not much object; but I cannot allow that he quotes the testimony of the Prophet ... but here what is spoken of is the pomp of wealth or of riches. And the meaning is, that glorying in riches is foolish and preposterous, because they pass away in a moment.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "James 1:10",
+          "quote": "let him rejoice in this, because all outward glory is only as the flower of the field, and, like that, will wither and perish.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "james-1-15-prosopopoeia",
       "kind": "figure",
       "form": "prosopopoeia",
@@ -59,6 +103,53 @@
           "quote": "The guilty union is committed by the will embracing the temptress. \"Lust,\" the harlot, then, \"brings forth sin,\" namely, of that kind to which the temptation inclines.",
           "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "james-1-23-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "James 1:23-25",
+      "strength": "widely agreed",
+      "short": "Like a man who forgets his face in a mirror",
+      "about": "One who hears the word but does not do it is like a man who looks at his face in a mirror, goes away, and at once forgets what he looks like. God's word shows us what we are, but a passing glance soon fades. The one who looks intently into the perfect law and keeps doing it will be blessed.",
+      "figure": {
+        "name": "Simile",
+        "ref": "James 1:23",
+        "words": "is like a man who looks at his face in a mirror",
+        "means": "the hearer who sees himself in God's word for a moment but, not doing it, soon forgets what it showed him"
+      },
+      "evidence": "Calvin calls it a striking comparison: teaching only heard, not taken into the heart, soon vanishes. Barnes says the ground of the comparison is plain: the word of God is like a mirror held up before us. Clarke calls it a simple, expressive metaphor, God's doctrines being such a mirror. Fausset (Jamieson, Fausset and Brown) says the hearer sees his moral face in God's Word as in a mirror.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "James 1:23",
+          "quote": "Heavenly doctrine is indeed a mirror in which God presents himself to our view ... But here he speaks of the external glance of the eye, not of the vivid and efficacious meditation which penetrates into the heart. It is a striking comparison, by which he briefly intimates, that a doctrine merely heard and not received inwardly into the heart avails nothing, because it soon vanishes away.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "James 1:23",
+          "quote": "For if any be ... - The ground of the comparison in these verses is obvious. The apostle refers to what all persons experience, the fact that we do not retain a distinct impression of ourselves after we have looked in a mirror. ... So when we hear the word of God. It is like a mirror held up before us. ... But we turn away immediately, and forget it all.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "James 1:23",
+          "quote": "Beholding his natural face in a glass - This metaphor is very simple, but very expressive. ... The doctrines of God, faithfully preached, are such a mirror; he who hears cannot help discovering his own character, and being affected with his own deformity; he sorrows, and purposes amendment; but when the preaching is over, the mirror is removed",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "James 1:23",
+          "quote": "As a man may behold his natural face in a mirror, so the hearer may perceive his moral visage in God's Word. This faithful portraiture of man's soul in Scripture, is the strongest proof of the truth of the latter.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }

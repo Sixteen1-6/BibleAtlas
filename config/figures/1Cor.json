@@ -1,6 +1,152 @@
 {
   "notes": [
     {
+      "id": "1-corinthians-3-1-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "1 Corinthians 3:1-2",
+      "strength": "widely agreed",
+      "short": "Milk for infants: the first and simplest teaching",
+      "about": "Paul says he could not speak to the Corinthians as spiritual, but as infants in Christ. He calls the first, simplest teaching milk, and the deeper truths solid food, which they were not ready for. And they are still not ready, though by now they should have grown up.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "1 Corinthians 3:1",
+        "words": "infants in Christ",
+        "means": "the Corinthians, so little versed in the things of God that they could take only the first and simplest truths, as infants take only milk"
+      },
+      "refs": [
+        "Hebrews 5:12"
+      ],
+      "evidence": "Barnes says Paul continues the metaphor drawn from feeding infants: milk is the simple first doctrines, meat the deeper ones, as in Hebrews 5. T. Teignmouth Shore (Ellicott) says the word infant suggests the two images of milk and meat, for the simpler truths and the higher wisdom. Benson says milk alludes to the proper food of babes, and meat means the higher truths.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 3:2",
+          "quote": "Paul here continues the metaphor, which is derived from the custom of feeding infants with the lightest food. Milk here evidently denotes the more simple and elementary doctrines of Christianity - the doctrines of the new birth, of repentance, faith, etc. The same figure occurs in Heb 5:11-14 ... \"Meat\" here denotes the more sublime and mysterious doctrines of religion.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Corinthians 3:2",
+          "quote": "The use of the word “infant” naturally suggests these two images for the higher wisdom and for the simpler truths of the gospel respectively. ... He does not blame them for having been “babes” at the outset, but he does in the following passage blame them for not having yet grown up out of infancy.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "1 Corinthians 3:1-2",
+          "quote": "even mere babes in Christ; as little acquainted with, and experienced in, the things of God, as babes are with respect to the things of the world. ... alluding to milk being the proper food of babes: not with meat The higher truths of Christianity; such as are more difficult to be understood, received, and practised",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-3-6-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "1 Corinthians 3:6-9",
+      "strength": "widely agreed",
+      "short": "Paul planted, Apollos watered, God made it grow",
+      "about": "Paul carries a farming picture through four verses: he planted the seed, Apollos watered it, but God made it grow. The picture shows that the workers serve together in God's field, and that the growth comes from God alone.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "1 Corinthians 3:6",
+        "words": "I planted the seed and Apollos watered it",
+        "means": "Paul's first preaching, which founded the church at Corinth, and Apollos's later teaching, both made fruitful by God alone"
+      },
+      "evidence": "John Calvin says Paul shows the nature of the ministry by a similitude: the word is seed and ministers are like husbandmen. Albert Barnes says Paul compares founding the church to planting, a figure from farming. T. Teignmouth Shore (Ellicott) calls it an image borrowed from farming; Simon Browne (Henry's commentary) calls it a metaphor: they only plant and water; God's blessing gives the fruit.",
+      "limit": "In verse 9 the picture of a field gives way to a building, which verses 10 to 15 carry on.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 3:6",
+          "quote": "He unfolds more clearly the nature of that ministry by a similitude, in which the nature of the word and the use of preaching are most appropriately depicted. ... the word of the Lord is seed that is in its own nature fruitful: ministers are as it were husbandmen, that plough and sow. ... but as for making their labor actually productive, that is a miracle of divine grace",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 3:6",
+          "quote": "The apostle here compares the establishment of the church at Corinth to the planting of a vine, a tree, or of grain. The figure is taken from agriculture, and the meaning is obvious. Paul established the church. ... The sense here is, that Paul had labored in establishing the church at Corinth; but that subsequently Apollos had labored to increase it, and to build it, up.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 3:5-10",
+          "quote": "they only plant and water you, but it is the divine blessing on his own husbandry that alone can make it yield fruit. You are not our husbandry, but God's. ... He had employed the former metaphor before, and now he goes on to the other of a building",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Corinthians 3:6",
+          "quote": "By an image borrowed from the processes of agriculture the Apostle explains the relation in which his teaching stood to that of Apollos — and how all the results were from God. This indication of St. Paul having been the founder, and Apollos the subsequent instructor, of the Corinthian Church",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-3-10-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "1 Corinthians 3:10-15",
+      "strength": "widely agreed",
+      "short": "Paul laid the foundation “as an expert builder”",
+      "about": "Paul carries a building picture through six verses. He laid the one foundation, Jesus Christ, and others build on it. Gold, silver and precious stones picture work that lasts, which many read as true teaching; wood, hay and straw, work that will not. Fire will prove the quality of each man's work.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "1 Corinthians 3:10",
+        "words": "I laid a foundation as an expert builder",
+        "means": "Paul's work in first preaching Christ at Corinth, the one foundation on which later teachers must build"
+      },
+      "evidence": "Calvin calls the master builder a most apt similitude: Paul laid the foundation, others must build to match it. Barnes says Paul carries on the building metaphor. T. Teignmouth Shore (Ellicott) sees lasting and passing work contrasted. Simon Browne (Henry's commentary) reads the materials as pure gospel truths and departures from Christ's mind; Joseph Benson, the costly ones as true doctrines.",
+      "limit": "The writers differ on what the fire is, and on how closely each material stands for a kind of teaching.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 3:10",
+          "quote": "As a wise master-builder It is a most apt similitude ... he declares that he had been the first master-builder of God among them in laying the foundation, and that he had with wisdom executed that department of duty, and that it remained that others should go forward in the same manner, regulating the superstructure in conformity with the rule of the foundation.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 3:12",
+          "quote": "Paul carries forward the metaphor in this and the following verses with respect to the building. ... Gold is the emblem of that which is valuable and precious, and may be the emblem of that truth and holiness which shall bear the trial of the great Day. ... By this is meant: (1) Errors and false doctrines, such as will not be found to be true on the Day of Judgment",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 3:11-15",
+          "quote": "Some build upon this foundation gold, silver, and precious stones ... namely, those who receive and propagate the pure truths of the gospel ... Others build wood, hay, and stubble, on this foundation; that is, though they adhere to the foundation, they depart from the mind of Christ in many particulars ... The expression carries in it a plain allusion to the refiner's art",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Corinthians 3:12",
+          "quote": "Many ingenious attempts have been made to apply the imagery of this passage in detail to various doctrines or Christian virtues, but it seems best to regard it as broadly and in outline bringing before the reader the two great ideas of permanent and ephemeral work, and the striking contrast between them. The truth brought forward is primarily, if not exclusively, for teachers.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "1 Corinthians 3:12",
+          "quote": "gold, silver, precious stones The most valuable materials in nature, the most solid, durable, and precious, and which can bear the fire. And here they stand for true, firm, and important doctrines ... wood, hay, and stubble; materials flimsy, unsubstantial, worthless, if compared with the former, and which cannot bear the fire.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "1-corinthians-4-8-irony",
       "kind": "figure",
       "form": "irony",
@@ -361,6 +507,102 @@
           "quote": "This is here used instead of gratuitously, whence I have a reward makes an oxymoron; ... Paul often, when speaking of his own affairs, uses increase and diminution ... not unlike a catachresis, and suitable to express his self-abnegation.",
           "read": "Bible Hub's transcription, at https://biblehub.com/commentaries/bengel/1_corinthians/9.htm",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-9-24-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "1 Corinthians 9:24",
+      "strength": "widely agreed",
+      "short": "A race: “Run in such a way as to take the prize”",
+      "about": "Paul draws a likeness from the races at the games, where all the runners run but only one receives the prize. The Christian is to run in the same way: with all his effort, and on to the end, so as to take the prize.",
+      "figure": {
+        "name": "Simile",
+        "ref": "1 Corinthians 9:24",
+        "words": "Run in such a way as to take the prize",
+        "means": "the Christian life, to be run with a runner's full effort and kept up to the end, so as to win the prize"
+      },
+      "evidence": "John Calvin says Paul borrows a similitude from the race-course: our life is like a race, to be run until death. Albert Barnes says Paul draws on the games near Corinth, one of the most beautiful and bold illustrations. A. R. Fausset (Jamieson, Fausset and Brown) finds in them an image of Christian earnestness; Simon Browne (Henry's commentary) says Paul compares himself to the racers.",
+      "limit": "The likeness lies in the running, not in the one prize: in the games one runner wins, but in the Christian race all who run well may win.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 9:24",
+          "quote": "Now he borrows a similitude from the race-course. For as in that case many descend into the arena, but he alone is crowned who has first reached the goal, so there is no reason why any one should feel satisfied with himself on the ground of his having once entered upon the race prescribed in the gospel, unless he persevere in it until death. ... For our life is like a race-course.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 9:24",
+          "quote": "In the remainder of this chapter, Paul illustrates the general sentiment on which he had been dwelling - the duty of practicing self-denial for the salvation of others - by a reference to the well known games which were celebrated near Corinth. ... This is one of the most beautiful, appropriate, vigorous, and bold illustrations that can anywhere be found",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Corinthians 9:24",
+          "quote": "These periodical games were to the Greeks rather a passion than a mere amusement: hence their suitableness as an image of Christian earnestness. ... The \"so\" expresses, Run with such perseverance in the heavenly course, as \"all\" the runners exhibit in the earthly \"race\" just spoken of: to the end that ye may attain the prize.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 9:24-27",
+          "quote": "Upon this head he compares himself to the racers and combatants in the Isthmian games, an allusion well known to the Corinthians, because they were celebrated in their neighbourhood ... It is quite otherwise in the Christian race than in your races; only one wins the prize in them. You may all run so as to obtain.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "1-corinthians-9-25-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "1 Corinthians 9:25-27",
+      "strength": "widely agreed",
+      "short": "Athletes train hard for a crown that fades",
+      "about": "Paul points to the athletes at the games, who keep strict training for a crown that soon withers. If they deny themselves that much for a perishable crown, believers should deny themselves far more for one that never perishes. Paul then applies it to himself, as runner and as boxer.",
+      "figure": {
+        "name": "Simile",
+        "ref": "1 Corinthians 9:26",
+        "words": "I do not fight like I am beating the air",
+        "means": "Paul's own fight, in earnest with all his might, not blows thrown at the air, as he strives for the crown that never perishes"
+      },
+      "evidence": "Calvin finds a comparison from pugilists, from the less to the greater; in verse 26 Paul takes in both similitudes, like a skillful wrestler not missing his aim. Simon Browne (Henry's commentary) says Christians must not fight as those that beat the air; T. Teignmouth Shore (Ellicott), that Paul does not strike wildly and so beat the air; Barnes, that Paul illustrates self-denial by the games.",
+      "limit": "The runners of verse 24 begin the same picture; this note takes it up from the athletes' training in verse 25.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "1 Corinthians 9:25-26",
+          "quote": "This second thing he now sets before them by a comparison taken from pugilists ... Now he argues from the less to the greater ... But if they value so highly a crown of leaves that quickly fades, what value ought we to set upon a crown of immortality? ... Now he takes in both the similitudes that he had employed. ... like a skillful wrestler, I am anxious that I may not miss my aim.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Corinthians 9:24-27",
+          "quote": "Upon this head he compares himself to the racers and combatants in the Isthmian games ... The fighters and wrestlers in your exercises are kept to strict diet and discipline ... And should not Christians much more abridge themselves of their liberty ... They must fight, not as those that beat the air, but must strive against their enemies with all their might.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Corinthians 9:25-26",
+          "quote": "men show such extraordinary devotion and self-sacrifice for a reward which is merely perishable ... what should not be the devotion and self-sacrifice of those for all of whom an imperishable reward is certain! ... The illustration is changed from running to boxing ... he strikes him, and does not wildly and impotently strike at him, and so only beat the air.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "1 Corinthians 9:24-27",
+          "quote": "Paul illustrates the general sentiment on which he had been dwelling - the duty of practicing self-denial for the salvation of others - by a reference to the well known games ... If they had done it, for objects so comparatively unimportant as the attainment of an \"earthly\" garland, assuredly it was proper for him to do it to obtain a crown which should never fade away.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     },

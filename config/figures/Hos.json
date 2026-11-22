@@ -1,6 +1,95 @@
 {
   "notes": [
     {
+      "id": "hosea-1-2-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Hosea 1:2-9",
+      "strength": "widely agreed",
+      "short": "Hosea's marriage acts out Israel's unfaithfulness",
+      "about": "The LORD tells Hosea to marry a prostitute, because the land has been unfaithful to Him. Hosea marries Gomer, and at the LORD's word he names her three children Jezreel, Lo-ruhamah and Lo-ammi. The marriage shows Israel its sin, and the names tell what is coming on the nation.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Hosea 1:3",
+        "words": "So Hosea went and married Gomer daughter of Diblaim",
+        "means": "Israel, unfaithful to the LORD as a wife who goes after other men; the children's names carry His word to the nation"
+      },
+      "evidence": "E. B. Pusey (Barnes' Notes) says God commanded Hosea to do this thing to shadow out Israel's foulness and God's mercy. Matthew Henry says the prophet shows them their sin as in a looking-glass, and their ruin in the names given to the children. Joseph Benson says the names God gave the children show which parts of the nation they stood for.",
+      "limit": "One writer leaves open whether the marriage was carried out or only seen in a vision or told as a parable. The note follows verse 3, which tells it as done.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Hosea 1:2",
+          "quote": "And the Lord said unto Hosea - For this thing was to be done by Hosea alone, because God had commanded it, not by others of their own mind. ... This is the reason why God commands Hosea to do this thing, in order to shadow out their foulness and God's mercy.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Hosea 1:2-7",
+          "quote": "The prophet must, as it were in a looking-glass, show them their sin, and show it to be exceedingly sinful, exceedingly hateful. ... He married a woman of ill fame, Gomer the daughter of Diblaim ... The prophet must, as it were through a perspective glass, show them their ruin; and this he does in the names given to the children born of this adulteress",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Hosea 1:4",
+          "quote": "The names, it must be observed, imposed upon the woman's children by God's direction, sufficiently declare what particular parts of the Jewish nation were severally represented by them.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hosea-2-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Hosea 2:2-23",
+      "strength": "widely agreed",
+      "short": "Israel pictured as the LORD's unfaithful wife",
+      "about": "God speaks of Israel as His unfaithful wife, who runs after lovers she thinks gave her bread, wool and oil, though He gave them. He will strip her and hedge in her way; then He will allure her to the wilderness and betroth her to Himself forever.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Hosea 2:2",
+        "words": "for she is not My wife, and I am not her husband",
+        "means": "Israel, bound to the LORD as a wife to her husband, who has gone after idols as after lovers"
+      },
+      "evidence": "E. B. Pusey (Barnes' Notes) says God speaks of His union with His people under the terms of husband and wife. C. F. Keil (Keil and Delitzsch) calls the distinction of mother and children figurative drapery, her adultery being Israel's idolatry. John Calvin says God uses the similitude of a marriage. Matthew Henry reads her whoredom as a breach of her marriage covenant with God.",
+      "limit": "Writers read the mother as the nation and her children as its people one by one. The picture turns at verse 14 from judgment to a new betrothal.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Hosea 2:2",
+          "quote": "For she is not My wife - God speaketh of the spiritual union between Himself and His people whom He had chosen, under the terms of the closest human oneness, of husband and wife. She was no longer united to Him by faith and love, nor would He any longer own her.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 2:2",
+          "quote": "The Lord Himself will set bounds to her adulterous conduct, i.e., to the idolatry of the Israelites. ... Jehovah is the speaker, and the command to get rid of the whoredom is addressed to the Israelites, who are represented as the children of the adulterous wife. The distinction between mother and children forms part of the figurative drapery of the thought",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Hosea 2:2",
+          "quote": "He speaks here in the person of God: and God, as it has been stated, uses the similitude of a marriage. ... For by the name, “mother”, are the people here called; it is transferred to the whole body of the people, or the race of Abraham. God had espoused that people to himself, and wished them to be like a wife to him.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Hosea 2:1-5",
+          "quote": "They must, in God's name, charge her with the violation of the marriage-covenant between her and God. ... that by her spiritual whoredom she has forfeited all the honour and comfort of her relation to God, and provoked him to give her a bill of divorce.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "hosea-2-21-climbing",
       "kind": "parallelism",
       "form": "climbing",
@@ -158,6 +247,57 @@
       ]
     },
     {
+      "id": "hosea-3-1-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "Hosea 3:1-3",
+      "strength": "widely agreed",
+      "short": "Hosea buys back his unfaithful wife",
+      "about": "The LORD tells Hosea to love his wife again, though she is an adulteress, as He loves Israel though they turn to other gods. Hosea buys her for silver and barley and tells her to live with him many days. Verses 4 and 5 explain: Israel will live many days without king or sacrifice, then return.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "Hosea 3:2",
+        "words": "So I bought her for fifteen shekels of silver",
+        "means": "the LORD's love that wins back unfaithful Israel, who must wait many days before she returns to Him"
+      },
+      "refs": [
+        "Hosea 3:4-5"
+      ],
+      "evidence": "E. B. Pusey (Barnes' Notes) says the prophet was to frame his life to depict Israel's ingratitude and God's abiding love. Adam Clarke says the woman pictures the Jews in exile, by the prophet's symbolical actions. A. R. Fausset (Jamieson, Fausset and Brown) says the purchase and long wait symbolize Israel long without her old rites. Joseph Benson reads it as an emblem of God's love for Israel.",
+      "limit": "Writers differ on whether the woman is Gomer or another, and on which time the many days point to. The note keeps to what verses 4 and 5 say.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Hosea 3:1",
+          "quote": "He is now bidden to buy her back, with the price and allowance of food, as of a worthless slave, and so to keep her apart ... The prophet is directed to frame his life, so as to depict at once the ingratitude of Israel or the sinful soul, and the abiding, persevering, love of God.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hosea 3:1",
+          "quote": "The woman mentioned here represents one who was a lawful wife joining herself to a paramour; then divorced by her husband; afterwards repenting, and desirous to be joined to her spouse ... This was the state and disposition of the Jews under the Babylonish captivity. ... These things are pointed out by the symbolical actions of the prophet.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hosea 3:1-5",
+          "quote": "ISRAEL'S CONDITION IN THEIR PRESENT DISPERSION, SUBSEQUENT TO THEIR RETURN FROM BABYLON, SYMBOLIZED. ... He purchases her from her paramour, stipulating she should wait for a long period before she should be restored to her conjugal rights. So Israel is to live for a long period without her ancient rites of religion, and yet be free from idolatry",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "benson",
+          "on": "Hosea 3:1",
+          "quote": "The expression, according to the love of the Lord , &c., means, Let this be an emblem of my love to the children of Israel; or, By this I intend to let Israel know how I have loved them, and what returns they have made for my love.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "hosea-6-4-same",
       "kind": "parallelism",
       "form": "same",
@@ -189,6 +329,102 @@
           "quote": "Parallels are also sometimes formed by a repetition of part of the first sentence: ... What shall I do unto thee, O Ephraim! What shall I do unto thee, O Judah! ... Hosea, vi. 4.",
           "read": "the 1795 printing, in the scan at archive.org/details/isaiahnewtransla01lowt",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "hosea-7-4-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Hosea 7:4-7",
+      "strength": "widely agreed",
+      "short": "Hearts hot as a baker's oven",
+      "about": "Hosea likens the people to an oven a baker has heated and left burning while the dough rises. They prepare their heart like an oven while they lie in wait: their anger smolders all night and blazes in the morning. Hot as an oven, they devour their rulers, and all their kings fall.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Hosea 7:4",
+        "words": "like an oven heated by a baker",
+        "means": "the people burning with lust and wicked plans, held in until their time comes and then breaking out"
+      },
+      "evidence": "E. B. Pusey (Barnes' Notes) says Hosea likens their lust-inflamed hearts to a heated oven. C. F. Keil (Keil and Delitzsch) says the nation resembles a furnace a baker heats, the thought carried on in verses 6 and 7. John Calvin says this similitude shows their own mad desire for evil. A. R. Fausset (Jamieson, Fausset and Brown) says verse 6 follows out the image, their heart being the oven.",
+      "limit": "Writers differ on whom the baker stands for: the passion of idolatry within them, the ringleader of a plot, or the tempter. The note keeps to the oven itself.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Hosea 7:4",
+          "quote": "He likens their hearts, inflamed with lawless lusts, to the heat of \"an oven\" which \"the baker\" had already \"heated.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 7:4-7",
+          "quote": "In this passionate career the nation resembles a furnace which a baker heats in the evening, and leaves burning all night while the dough is leavening, and then causes to turn with a still brighter flame in the morning, when the dough is ready for baking. ... In Hos 7:6 , Hos 7:7 , the thought of the fourth verse is carried out still further.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "Hosea 7:4",
+          "quote": "He afterwards compares them to a furnace or an oven ... The Prophet by this similitude shows more clearly, that the people were not corrupted by some outward impulse, but by their own inclination and propensity of mind; yea, by a mad and furious desire of acting wickedly.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hosea 7:6",
+          "quote": "like an oven--following out the image in Hos 7:4 . ... Their heart is the oven, their baker the ringleader of the plot.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "hosea-8-7-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Hosea 8:7",
+      "strength": "widely agreed",
+      "short": "Sowing the wind, reaping the whirlwind",
+      "about": "Israel's worship and plans are pictured as sowing the wind, and what comes up is a whirlwind. The picture runs on through the harvest: no standing grain, sprouts that yield no flour, and foreigners swallowing whatever does grow. Their labor will bring them only ruin.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Hosea 8:7",
+        "words": "For they sow the wind, and they shall reap the whirlwind",
+        "means": "Israel's empty worship and efforts, which bring back not a harvest but ruin"
+      },
+      "evidence": "John Calvin calls it an appropriate metaphor: to sow the wind is to put on an empty show of worship. Adam Clarke calls it a bold metaphor: who sows unrighteousness reaps judgment. C. F. Keil (Keil and Delitzsch) says the wind pictures human exertions and the tempest destruction, the figure carried further. Matthew Henry says the similitude shows their disappointment in idols and their ruin.",
+      "limit": "Writers differ on what the wind stands for: an empty show of worship, labor spent on idols, or vain human efforts.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hosea 8:7",
+          "quote": "The Prophet here shows by another figure how unprofitably the Israelites exercised themselves in their perverted worship ... It is an appropriate metaphor; for they shall receive a harvest suitable to the sowing. ... To sow the wind is nothing else than to put on some appearance to dazzle the eyes of the simple, and by craft and guise of words to cover their own impiety.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Hosea 8:7",
+          "quote": "As the husbandman reaps the same kind of grain which he has sown, but in far greater abundance, thirty, sixty, or one hundred fold; so he who sows the wind shall have a whirlwind to reap. The vental seed shall be multiplied into a tempest so they who sow the seed of unrighteousness shall reap a harvest of judgment. This is a fine, bold, and energetic metaphor.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 8:7",
+          "quote": "With this figure, which is so frequently and so variously used ... the threat is accounted for by a general thought taken from life. ... Out of the wind comes tempest. Wind is a figurative representation of human exertions; the tempest, of destruction. ... In the second hemistich the figure is carried out still further.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Hosea 8:1-7",
+          "quote": "Their disappointment in their idols is illustrated ... by a similitude which intimates both that and the destruction which God brought upon them for their idolatry. ... They got no good to themselves by worshipping idols: They have sown the wind. ... it is like sowing the wind, which can yield no increase",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -247,6 +483,68 @@
           "quote": "The prophet here speaks as one greatly agitated, and at a loss what to say upon what he had just heard",
           "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
           "retrieved": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "hosea-10-11-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Hosea 10:11-13",
+      "strength": "widely agreed",
+      "short": "The trained heifer: a farm picture of Israel's ways",
+      "about": "Ephraim is pictured as a trained heifer that loves the easy work of threshing, now to be yoked to plow. The picture runs on: they are told to sow righteousness and break up unplowed ground, but they have plowed wickedness and reaped injustice. Each farm task stands for their life before God.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Hosea 10:11",
+        "words": "Ephraim is a well-trained heifer that loves to thresh",
+        "means": "Israel, used to easy, well-fed service and now to be yoked to hard labor; the sowing, plowing and reaping that follow stand for their deeds"
+      },
+      "original": {
+        "note": "In Hebrew “break up your unplowed ground” says one root twice, nir: to plow land never yet tilled, a call to begin a wholly new life.",
+        "strong": [
+          "H5214",
+          "H5215"
+        ]
+      },
+      "evidence": "Adam Clarke calls verses 12 to 15 a beautiful allegory drawn from the metaphors before it. E. B. Pusey (Barnes' Notes) says the metaphor of these three verses pictures in farm work what God trained His people to do. C. F. Keil says verses 12 and 13 are clothed in like figures; A. R. Fausset, that verse 12 goes on with verse 11's image; Matthew Henry, that the duties are put in the farmer's words.",
+      "limit": "One writer begins the allegory at verse 12 and runs it to the end of the chapter, saying the pictures just before it led into it.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "clarke",
+          "on": "Hosea 10",
+          "quote": "Upon which the prophet, in a beautiful allegory suggested by the preceding metaphors, exhorts them to repentance; and warns them of the dreadful consequences of their evil courses, if obstinately persisted in, Hos 10:12-15 .",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hosea 10:11",
+          "quote": "The object of the metaphor in these three verses seems to be, to picture, under operations of husbandry, what God willed and trained His people to do, how they took as much pains in evil, as He willed them to do for good. ... The image of the heifer has been dropped. He had spoken of them as farmers; as such he addresses them.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 10:12-13",
+          "quote": "The call to repentance and reformation of life is then appended in Hos 10:12 , Hos 10:13 , clothed in similar figures. ... Sowing and reaping are figures used to denote their spiritual and moral conduct. ... Nı̄r nı̄r, both here and in Jer 4:3 to plough virgin soil ... We have an advance in this figure: they are to give up all their previous course of conduct",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hosea 10:12",
+          "quote": "Continuation of the image in Hos 10:11 ( Pro 11:18 ). Act righteously and ye shall reap the reward ... break . . . fallow ground--Remove your superstitions and vices, and be renewed.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "Hosea 10:9-15",
+          "quote": "See how nice, and tender, and delicate, Ephraim is; he is as a heifer that is taught to tread out the corn, and loves that work ... the duties are expressed in language borrowed from the husbandman's calling. ... They have ploughed wickedness (that is, they have done the drudgery of sin), and they have reaped iniquity",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
         }
       ]
     },
@@ -324,6 +622,54 @@
           "quote": "There are stanzas so constructed, that, whatever be the number of lines, the first line shall be parallel with the last; the second with the penultimate; … This may be called the introverted parallelism … From the hand of hell I will redeem them; From death I will reclaim them: Death! I will be thy pestilence; Hell! I will be thy burning plague. Hosea, xiii. 14. See Bishop Horsley.",
           "read": "the 1820 printing, in the scan at archive.org/details/sacredliterature00jebb",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "hosea-14-5-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "Hosea 14:5-8",
+      "strength": "widely agreed",
+      "short": "Like the dew, the lily, the cedar: Israel renewed",
+      "about": "God promises a returning Israel, “I will be like the dew to Israel.” Then likeness follows likeness: Israel will blossom like the lily, take root like Lebanon's cedars, be fair like the olive tree and blossom like the vine. Last, the LORD is like a flourishing cypress, from whom their fruit comes.",
+      "figure": {
+        "name": "Simile",
+        "ref": "Hosea 14:5",
+        "words": "I will be like the dew to Israel",
+        "means": "the LORD's favour restored, refreshing a dried-up people so that they blossom, take root, spread and bear fruit"
+      },
+      "evidence": "John Calvin says the prophet gathers many similitudes to press home that God's love is the fountain of all blessing. E. B. Pusey (Barnes' Notes) says no one image could show God's manifold grace, so the prophet adds image to image. C. F. Keil traces Israel likened to the lily and the tree, and God to a green cypress. A. R. Fausset says one plant cannot show all the graces of God's people.",
+      "limit": "One writer notes that in verse 7 the likeness takes a turn: Israel itself becomes the tree in whose shade its people flourish.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Hosea 14:6",
+          "quote": "The Prophet accumulates similitudes, that he might more fully confirm the people. ... Since then it is so difficult to impress this truth fully on the hearts of men, that the love of God is the fountain of all blessings, the Prophet has collected together a number of similitudes to confirm what he teaches.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Hosea 14:5",
+          "quote": "No one image can exhibit the manifold grace of God in those who are His own, or the fruits of that grace. So the prophet adds one image to another, each supplying a distinct likeness of a distinct grace or excellence. The \"lily\" is the emblem of the beauty and purity of the soul in grace; the \"cedar\" of Lebanon, of its strength and deep-rootedness, its immovableness and uprightness",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Hosea 14:4-8",
+          "quote": "Jehovah will be to Israel a refreshing, enlivening dew (cf. Isa 26:19 ), through which it will blossom splendidly ... The comparison of the growth and flourishing of Israel to the lily and to a tree ... passes imperceptibly into the idea that Israel is itself the tree beneath whose shade the members of the nation flourish ... God compares Himself to a cypress becoming green",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Hosea 14:6",
+          "quote": "One plant is not enough to express the graces of God's elect people. The lily depicts its lovely growth; but as it wants duration and firmness, the deeply rooted cedars of Lebanon are added; these, however, are fruitless, therefore the fruitful, peace-bearing, fragrant, ever green olive is added.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
         }
       ]
     }
