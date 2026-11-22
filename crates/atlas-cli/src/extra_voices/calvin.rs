@@ -52,6 +52,11 @@ const CONFIG: &str = "config/voices/calvin-commentaries.json";
 pub(super) const LEFT_OUT: &str = "[passage left out]";
 /// The line under a note for a passage left out until the founder decides on it.
 pub(super) const UNDECIDED: &str = "A passage is left out here until a decision on it is made.";
+/// The lines of passages the founder made final, by reason.
+const FINAL: [(&str, &str); 2] = [
+    ("calls-text-wrong", "A passage is left out here because it calls a word of Scripture a mistake."),
+    ("denies-author", "A passage is left out here because it denies what Scripture says of its writer."),
+];
 
 const MATTHEW: u8 = 39;
 const JUDE: u8 = 64;
@@ -105,7 +110,10 @@ pub(super) struct Exclusion {
     #[allow(dead_code)]
     why: String,
     line: String,
+    /// Found by a Scripture check and in force, waiting on the founder.
     proposed: Option<String>,
+    /// Made final by the founder: who, when and in what words.
+    decided: Option<String>,
 }
 
 /// What the Calvin reader did, for the build's report.
@@ -425,8 +433,16 @@ pub(super) fn exclude(config: &str, writer: &str, list: &[Exclusion], vz: &Versi
         if x.reason != "calls-text-wrong" && x.reason != "denies-author" {
             return Err(format!("{at}: reason must be calls-text-wrong or denies-author"));
         }
+        if x.proposed.is_some() == x.decided.is_some() {
+            return Err(format!("{at}: an entry is either proposed or decided"));
+        }
         if x.proposed.is_some() && x.line != UNDECIDED {
             return Err(format!("{at}: a proposed entry's line is \"{UNDECIDED}\""));
+        }
+        if let Some(&(_, line)) = FINAL.iter().find(|(r, _)| *r == x.reason).filter(|_| x.decided.is_some()) {
+            if x.line != line {
+                return Err(format!("{at}: a decided entry's line is \"{line}\""));
+            }
         }
         if x.line.contains('\u{2014}') || x.words.split_whitespace().count() < 5 {
             return Err(format!("{at}: words need five or more words, and the line no em dash"));
