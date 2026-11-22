@@ -29,6 +29,7 @@ if '--forms' in argv:
     forms_path = argv[i + 1]
     del argv[i:i + 2]
 NN, repo, out = argv[0], argv[1], argv[2]
+fc.add_forms(f'{repo}/config/figure-forms.json')  # the forms already on the branch the notes go into
 if forms_path:
     fc.add_forms(forms_path)
 TODAY = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
