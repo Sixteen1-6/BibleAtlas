@@ -1,6 +1,40 @@
 {
   "notes": [
     {
+      "id": "joel-2-2-allegory",
+      "kind": "figure",
+      "form": "allegory",
+      "ref": "Joel 2:2-11",
+      "strength": "commonly held",
+      "short": "The LORD's great army: an allegory, some read",
+      "about": "Joel pictures the Day of the LORD coming with a vast army that sweeps the land. They look like horses, charge like mighty men, scale walls and enter houses like thieves, and the LORD calls them His army. Some read it as an allegory: the locust swarm pictures God's judgments, or invading armies.",
+      "figure": {
+        "name": "Allegory",
+        "ref": "Joel 2:2",
+        "words": "a great and strong army appears",
+        "means": "as some read it, the locust host standing for God's judgments or for invading armies: terrible, not to be resisted, reaching everywhere"
+      },
+      "evidence": "E. B. Pusey (Barnes' Notes) says the imagery is taken from locusts, and the allegory is so complete that warriors, horses and war are in part meant; its object is the order and course of God's judgments. A. R. Fausset (Jamieson, Fausset and Brown) takes the locusts as only symbols of human foes, first the Assyrian host and at last the final antichristian league.",
+      "limit": "Scholars differ. Others take these verses as a plague of real locusts, likened to an army, and not as an allegory. Those who read an allegory differ on what it pictures: God's judgments in general, or Assyria and later foes.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Joel 2:2",
+          "quote": "The imagery throughout these verses is taken from the flight and inroad of locusts. The allegory is so complete, that the prophet compares them to those things which are, in part, intended under them, warriors, horses and instruments of war ... The object of the allegory is to describe the order and course of the divine judgments; how they are terrific, irresistible, universal, overwhelming",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Joel 2:2",
+          "quote": "understanding, however, that the locusts are only the symbols of human foes. The immense Assyrian host of invaders under Sennacherib (compare Isa 37:36 ) destroyed by God ( Joe 2:18 , Joe 2:20-21 ), may be the primary objects of the prophecy; but ultimately the last antichristian confederacy, destroyed by special divine interposition, is meant",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "joel-2-7-same",
       "kind": "parallelism",
       "form": "same",

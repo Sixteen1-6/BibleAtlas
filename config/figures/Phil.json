@@ -237,6 +237,69 @@
           "retrieved": "2026-11-01"
         }
       ]
+    },
+    {
+      "id": "philippians-3-12-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Philippians 3:12-14",
+      "strength": "widely agreed",
+      "short": "Paul's life pictured as a race to the prize",
+      "about": "Paul speaks of his Christian life as a race. As a runner does, he does not look back at the ground already covered, but strains toward what is ahead and presses on to the goal, to win the prize of God's heavenly calling in Christ Jesus. He uses the same picture in 1 Corinthians 9:24.",
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Philippians 3:14",
+        "words": "I press on toward the goal to win the prize",
+        "means": "the Christian life run as a race, pressed on to the end without looking back, until the prize of the heavenly calling is won"
+      },
+      "refs": [
+        "1 Corinthians 9:24"
+      ],
+      "original": {
+        "note": "In Paul's Greek the word for straining toward, epekteinomenos, pictures a runner stretching forward to the goal, as with outstretched arms.",
+        "strong": [
+          "G1901"
+        ]
+      },
+      "evidence": "Calvin says Paul compares our life to a race-course, the participle picturing a runner with outstretched arms. Barnes finds an allusion to the Grecian races, the runner never looking behind; Fausset (Jamieson, Fausset and Brown), the image of a race course throughout; Barry (Ellicott), the metaphor of the race, Paul stretching out like an eager runner; Clarke, a continued allusion to the games.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "calvin",
+          "on": "Philippians 3:13",
+          "quote": "Now, he compares our life to a race-course, the limits of which God has marked out to us for running in. ... These three things Paul comprehends in one similitude. ... he runs forward to it, as it were, with outstretched arms. For a metaphor of this nature is implied in the participle which he employs.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "barnes",
+          "on": "Philippians 3:13",
+          "quote": "There is an allusion here undoubtedly to the Grecian races. One running to secure the prize would not stop to look behind him to see how much ground he had run over ... He would keep his eye steadily on the prize, and strain every nerve that he might obtain it. ... So the apostle says it was with him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "Philippians 3:12",
+          "quote": "either were already perfect--\"or am already perfected,\" that is, crowned with the garland of victory, my course completed, and perfection absolutely reached. The image is that of a race course throughout.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "Philippians 3:12",
+          "quote": "The metaphor throughout is of the race, in which he, like an eager runner, stretches out continually to “grasp” the prize.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "clarke",
+          "on": "Philippians 3:12",
+          "quote": "For I have not yet received the prize; I am not glorified, for I have not finished my course; and I have a conflict still to maintain, and the issue will prove whether I should be crowned. From the beginning of the 11th to the end of the 17th verse there is one continued allusion to the contests at the Olympic games; exercises with which, and their laws, the Philippians were well acquainted.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }

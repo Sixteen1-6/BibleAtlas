@@ -253,6 +253,54 @@
       ]
     },
     {
+      "id": "1-samuel-15-27-message-acted-out",
+      "kind": "figure",
+      "form": "message-acted-out",
+      "ref": "1 Samuel 15:27-28",
+      "strength": "widely agreed",
+      "short": "Samuel's torn robe, a sign of the torn kingdom",
+      "about": "As Samuel turns to go, Saul grabs the hem of Samuel's robe and it tears. Samuel at once makes the tear a sign: the LORD has torn the kingdom of Israel from Saul that day and given it to a neighbor who is better than he.",
+      "figure": {
+        "name": "Acted sign",
+        "ref": "1 Samuel 15:27",
+        "words": "Saul grabbed the hem of his robe, and it tore",
+        "means": "the kingdom torn from Saul by the LORD and given to another, as Samuel says in the next verse"
+      },
+      "evidence": "C. F. Keil (Keil and Delitzsch) says the tearing of the mantle, an accident, was to serve as a sign of the kingdom torn from Saul. Matthew Henry says Samuel illustrated the sentence by a sign that Saul's rudeness gave occasion for. H. D. M. Spence (Ellicott) says Samuel used the torn robe as a symbol; Jamieson (Jamieson, Fausset and Brown), as a representation of Saul's loss of the throne.",
+      "limit": "The tear was not planned: it happened as Saul tried to hold Samuel back, and it was Samuel who gave it its meaning.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "1 Samuel 15:26-29",
+          "quote": "As Saul was about to hold back the prophet by force, that he might obtain from him a revocation of the divine sentence, the tearing of the mantle, which took place accidentally, and evidently without any such intention on the part of Saul, was to serve as a sign of the rending away of the sovereignty from him.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "henry",
+          "on": "1 Samuel 15:24-31",
+          "quote": "He illustrated the sentence by a sign, which Saul himself, by his rudeness, gave occasion for. When Samuel was turning from him he tore his clothes to detain him ... but Samuel put a construction upon this accident which none but a prophet could do. He made it to signify the rending of the kingdom from him",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "ellicott",
+          "on": "1 Samuel 15:28",
+          "quote": "The prophet at once looks upon the garment torn by the passionate vehemence of the king, as an omen for the future, and uses the rent vesture as a symbol, to show Saul that thus had the Lord on that day rent the kingdom from him.",
+          "read": "StudyLight's transcription, in the MyBible module at github.com/batanus/bible-resources (commit 14a8b1a)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "1 Samuel 15:27",
+          "quote": "In an agony of mental excitement, he took hold of the prophet's dress to detain him; the rending of the mantle ... was adroitly pointed to as a significant and mystical representation of his severance from the throne.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "1-samuel-24-13-proverb",
       "kind": "figure",
       "form": "proverb",

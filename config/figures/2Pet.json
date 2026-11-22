@@ -1,6 +1,47 @@
 {
   "notes": [
     {
+      "id": "2-peter-1-19-simile",
+      "kind": "figure",
+      "form": "simile",
+      "ref": "2 Peter 1:19",
+      "strength": "widely agreed",
+      "short": "The prophets' word is like a lamp in the dark",
+      "about": "Peter likens the word of the prophets to a lamp shining in a dark place. His readers do well to heed it, for it is the light to walk by in the dark until the day dawns and the morning star rises in their hearts.",
+      "figure": {
+        "name": "Simile",
+        "ref": "2 Peter 1:19",
+        "words": "as to a lamp shining in a dark place",
+        "means": "the word of the prophets, the light God gives His people to keep the right way in the dark, until the brighter light of the day to come"
+      },
+      "evidence": "Albert Barnes says the prophecies are like a lamp in a dark room or on a road at night, dim beside the day of Christ's coming. John Calvin says the comparison shows that we are without light and that the Lord lights a torch to guide us, until we see face to face. A. R. Fausset (Jamieson, Fausset and Brown) says the word is a lamp to us still, until the day bursts forth at Christ's second coming.",
+      "limit": "The writers differ on the day: two take it as Christ's coming again, one as the day we see face to face in heaven. One says the lamp shows how dim prophecy is beside that day; another says the lamp is not meant to show the light is small.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "2 Peter 1:19",
+          "quote": "That is, the prophecies resemble a candle, lamp, or torch, in a dark room, or in an obscure road at night. ... until the brighter light which shall be shed on all things by the glory of the second advent of the Saviour ... The point of comparison is between the necessary obscurity of prophecy, and the clearness of events when they actually occur",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "calvin",
+          "on": "2 Peter 1:19",
+          "quote": "the day, I consider will then shine on us when we shall see face to face ... But he does not use the comparison, light, or lamp, to intimate that the light is small and sparing, but to make these two things to correspond,--that we are without light ... and that the Lord brings a remedy for this evil, when he lights a torch to guide us in the midst of darkness.",
+          "read": "Let's Church's copy, at github.com/LetsChurch/lets.church (commit 71f6f0f)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "jfb",
+          "on": "2 Peter 1:19",
+          "quote": "The word was the \"lamp (Greek for 'light') heeded\" by Old Testament believers, until a gleam of the \"day dawn\" was given at Christ's first coming, and especially in His Transfiguration. So the word is a lamp to us still, until \"the day\" burst forth fully at the second coming of \"the Sun of righteousness.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
       "id": "2-peter-2-19-antithesis",
       "kind": "figure",
       "form": "antithesis",

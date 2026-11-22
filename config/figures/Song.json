@@ -62,6 +62,76 @@
           "retrieved": "2026-11-07"
         }
       ]
+    },
+    {
+      "id": "song-of-solomon-8-9-metaphor",
+      "kind": "figure",
+      "form": "metaphor",
+      "ref": "Song of Solomon 8:9-10",
+      "strength": "commonly held",
+      "short": "A wall, not a door: the bride stood firm",
+      "about": "Asked what to do for their young sister, the brothers answer in a picture: a wall they will crown with silver, a door they will board up with cedar. The wall is a maiden firm against every advance, the door one open to them. The bride says she is such a wall, and so has won the king's favor.",
+      "refs": [
+        "Song of Solomon 8:8"
+      ],
+      "figure": {
+        "name": "Metaphor",
+        "ref": "Song of Solomon 8:9",
+        "words": "If she is a wall",
+        "means": "a maiden firm in chastity, on whom no advance can be made, who will be honored; the door is one open to seduction, who must be guarded"
+      },
+      "evidence": "T. L. Kingsbury (Barnes' Notes) says the brothers answer in the form of a parable: a wall is a sister steadfast in chastity, a door one open to seduction, and the bride has shown she is such a fortress-wall. Franz Delitzsch (Keil and Delitzsch) says the wall is used as a figure of firmness of character: a maiden closed to seduction is like a wall, one open to it like a door.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 8:8-10",
+          "quote": "The answer is given in the form of a parable: \"If she be a wall,\" i. e., stedfast in chastity and virtue, one on whom no light advances can be made, then let us honor and reward her. ... But \"if she be a door,\" light-minded and accessible to seduction ... She has shown herself to be such a fortress-wall as her brothers have alluded to, and her reward has been the royal favor.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 8:9",
+          "quote": "A wall stands firm and withstands every assault if it serves its purpose (which is here presupposed, where it is used as a figure of firmness of character). A door, on the contrary, is moveable ... A maiden inaccessible to seduction is like a wall, and one accessible to it is like a door.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "song-of-solomon-8-11-parable",
+      "kind": "figure",
+      "form": "parable",
+      "ref": "Song of Solomon 8:11-12",
+      "strength": "commonly held",
+      "short": "Solomon's vineyard, and the bride's own",
+      "about": "The bride tells of Solomon's vineyard at Baal-hamon, leased to tenants who each bring a thousand shekels for its fruit. She sets beside it her own vineyard, herself: the thousand are Solomon's, and two hundred go to its keepers, her brothers. So she asks the king to reward those who guarded her.",
+      "figure": {
+        "name": "Parable",
+        "ref": "Song of Solomon 8:11",
+        "words": "Solomon had a vineyard in Baal-hamon",
+        "means": "the bride's own vineyard, herself, now wholly Solomon's, whose keepers, her brothers who guarded her, should be rewarded as his tenants are"
+      },
+      "evidence": "T. L. Kingsbury (Barnes' Notes) says the bride commends her brothers to the king by another parable: her own vineyard, her beauty and virtue guarded by them, now belongs to Solomon, but the keepers should have their due. Franz Delitzsch (Keil and Delitzsch) says she makes the vineyard at Baal-hamon a parable of her relation to Solomon and to her brothers, the keepers of her innocence.",
+      "limit": "The note does not make the vineyard at Baal-hamon a made-up one: both writers take it as a real vineyard of Solomon's, which the bride makes a likeness of her own case.",
+      "checked": "2026-11-14",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Song of Solomon 8:11-12",
+          "quote": "She next turns to the king, and commends her brothers to his favorable regard by means of another parable. ... The bride also has a vineyard of her own Sol 1:6 , her beauty and virtue faithfully guarded by these same brothers in time past. This vineyard now belongs to Solomon. ... let the faithful keepers have their meed as well.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Song of Solomon 8:11",
+          "quote": "Shulamith also has a vineyard, which she is as free to dispose of as Solomon of his at Baal-hamon. It is the totality of her personal and mental endowments. ... These are her brothers, the true keepers and protectors of her innocence. ... She makes the case of the vineyard in Baal-hamon a parable of her relation to Solomon on the one hand, and of her relation to her brothers on the other.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-14"
+        }
+      ]
     }
   ]
 }
