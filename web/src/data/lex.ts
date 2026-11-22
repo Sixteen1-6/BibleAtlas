@@ -3,6 +3,7 @@
 // they are rendered with text nodes only, never as HTML.
 
 import { type Atlas, DATA_BASE } from './atlas';
+import { fetchRetry } from './fetch';
 
 export type Segment = [string, number, number];
 export interface LexEntry {
@@ -23,7 +24,7 @@ export async function getLex(a: Atlas, root: number): Promise<LexEntry | null> {
   const k = Math.floor(root / a.meta.lexShard);
   let p = shards.get(k);
   if (!p) {
-    p = fetch(`${DATA_BASE}lex/${k}.json?${a.version}`).then((r) => {
+    p = fetchRetry(`${DATA_BASE}lex/${k}.json?${a.version}`).then((r) => {
       if (!r.ok) throw new Error(`lex/${k}.json: HTTP ${r.status}`);
       return r.json() as Promise<(LexEntry | null)[]>;
     });

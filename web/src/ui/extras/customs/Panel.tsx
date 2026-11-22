@@ -8,11 +8,12 @@
 import { useState } from 'preact/hooks';
 import type { Atlas } from '../../../data/atlas';
 import { CommentaryFoot } from '../../commentary/Gate';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, verseHash } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
 import { type BookFile, type Data, type Entry, type Run, SOURCE, filesFor } from './model';
+import { NotLoaded } from '../lazy';
 
 /** About this many characters of a long entry show before "Read all". */
 const FOLD = 600;
@@ -101,7 +102,7 @@ function Item({ a, e, navigate }: { a: Atlas; e: Entry; navigate: (v: VerseRef) 
 
 export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const file = useJson<BookFile>(a, filesFor(data, verse)[0] ?? null);
-  if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
+  if (file === null) return <NotLoaded again={retryFailed} what="These notes" />;
   if (file === undefined) return <p class="xt-lead xt-wait">…</p>;
   const list = file.entries.filter((e) => e.at.some(([f, t]) => f <= verse && verse <= t));
   return (

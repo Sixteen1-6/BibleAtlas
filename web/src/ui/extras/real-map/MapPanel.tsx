@@ -13,7 +13,7 @@ import '../real-map.css';
 import type { ComponentChildren } from 'preact';
 import { useMemo, useState } from 'preact/hooks';
 import { type Atlas, chapterName, chapterRange, locate } from '../../../data/atlas';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Facts, Lead, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
@@ -21,6 +21,7 @@ import { MapCanvas } from './MapCanvas';
 import type { BaseFile, Data, EventsFile, Mention, PeopleFile, PlacesFile, ShapesFile, Site } from './model';
 import { coords, inHundred, info, latOf, lonOf, proposals, readingLine, spread, sureLine, tieWords } from './places';
 import { type Marker, type Shade, projX, projY, shadePath } from './view';
+import { NotLoaded } from '../lazy';
 
 /** People shown before "all N people". */
 const PEOPLE_SHOWN = 8;
@@ -244,6 +245,7 @@ export function MapPanel({ a, data, verse, navigate }: PanelProps<Data>) {
     return [...proposals(places!, p).map((s) => at(lonOf(s), latOf(s))), ...box];
   }, [places, sel, shapes, paths]);
 
+  if (places === null || base === null) return <NotLoaded again={retryFailed} what="The map" />;
   if (!places || !base) return <p class="xt-lead xt-wait">…</p>;
 
   // The chosen place shows its proposed sites anyway; the switch is for the others.

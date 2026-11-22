@@ -12,11 +12,11 @@
 
 import './customs.css';
 import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { type Data, SOURCE, load } from './customs/model';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
 const LEAD = 'In Bible times';
 /** The line stays under this many characters. */
@@ -24,30 +24,13 @@ const MAX = 64;
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
-let panel: Promise<PanelType> | null = null;
-
 /** The panel's code, fetched the first time a reader opens it. */
-function loadPanel(): Promise<PanelType> {
-  if (!panel) {
-    panel = import('./customs/Panel').then((m) => m.Panel);
-    panel.catch(() => (panel = null));
-  }
-  return panel;
-}
+const loadPanel = lazyCode((): Promise<PanelType> => import('./customs/Panel').then((m) => m.Panel));
 
 function Panel(props: PanelProps<Data>) {
-  const [impl, setImpl] = useState<{ C: PanelType } | null>(null);
-  useEffect(() => {
-    let live = true;
-    loadPanel().then(
-      (C) => live && setImpl({ C }),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  return impl ? <impl.C {...props} /> : <p class="xt-lead xt-wait">…</p>;
+  const code = useCode(loadPanel);
+  const C = code.got;
+  return C ? <C {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({

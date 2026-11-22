@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from 'preact/hooks';
 import { type Atlas, DATA_BASE } from './atlas';
+import { fetchRetry } from './fetch';
 
 export type License = 'public-domain' | 'cc-by-4.0' | 'cc-by-sa-4.0' | 'mit' | 'copyrighted';
 
@@ -145,7 +146,7 @@ const files = new Map<string, Promise<unknown>>();
 function json<T>(a: Atlas, file: string): Promise<T> {
   let p = files.get(file) as Promise<T> | undefined;
   if (!p) {
-    p = fetch(`${DATA_BASE}${file}?${a.version}`).then((r) => {
+    p = fetchRetry(`${DATA_BASE}${file}?${a.version}`).then((r) => {
       if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
       return r.json() as Promise<T>;
     });
