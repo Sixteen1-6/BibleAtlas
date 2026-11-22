@@ -12,24 +12,13 @@ import { retryFailed, useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, showSources, verseHash } from '../kit';
 import type { PanelProps, VerseRef } from '../types';
 import { elsewhere } from './links';
-import { type Data, FINISHED, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, barnesOf, fullOf, kdOf, lutherOf, nameFrom, notesOn, partOf, writerOf } from './model';
+import { type Data, FINISHED, goneOn, whoIs, type Item, JFB, KD, LEFT_OUT, OLDEST_FIRST, type PartFile, type Run, type Text, SOURCE, WORKS, barnesOf, fullOf, kdOf, lutherOf, nameFrom, notesOn, partOf, writerOf } from './model';
 import { NotLoaded } from '../lazy';
 
 /** About this many characters of a long note show before "Read all". */
 const FOLD = 600;
 /** The Fathers shown on a passage before "Show more". */
 const FIRST_FATHERS = 4;
-
-/** Who some of the Catena's names are, where the name alone could mislead. */
-const WHO: Record<string, string> = {
-  Gloss: 'notes written in the margins of medieval Bibles',
-  'Greek Expositor': 'a Greek writer Aquinas does not name',
-  'Pseudo-Chrysostom': 'a writer once thought to be Chrysostom',
-  'Pseudo-Jerome': 'a writer once thought to be Jerome',
-  'Pseudo-Augustine': 'a writer once thought to be Augustine',
-  'Pseudo-Athanasius': 'a writer once thought to be Athanasius',
-  Josephus: 'the Jewish historian of the first century',
-};
 
 /** A note's words as paragraphs of runs. */
 function paragraphs(text: Text): Run[][] {
@@ -120,7 +109,7 @@ function Runs({ a, runs, navigate }: { a: Atlas; runs: Run[]; navigate: (v: Vers
   );
 }
 
-function Voice({ a, who, text, navigate, focus, father }: { a: Atlas; who: string; text: Text; navigate: (v: VerseRef) => void; focus?: boolean; father: boolean }) {
+function Voice({ a, who, note, text, navigate, focus, father }: { a: Atlas; who: string; note?: string | null; text: Text; navigate: (v: VerseRef) => void; focus?: boolean; father: boolean }) {
   const [open, setOpen] = useState(false);
   const here = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -134,7 +123,7 @@ function Voice({ a, who, text, navigate, focus, father }: { a: Atlas; who: strin
       {who && (
         <p class="x-voices-who">
           {who}
-          {WHO[who] && <span class="x-voices-cite">, {WHO[who]}</span>}
+          {note && <span class="x-voices-cite">, {note}</span>}
           {cite && <span class="x-voices-cite"> {cite}</span>}
         </p>
       )}
@@ -153,27 +142,66 @@ function Voice({ a, who, text, navigate, focus, father }: { a: Atlas; who: strin
   );
 }
 
-function Note({ a, verse, item, navigate }: { a: Atlas; verse: VerseRef; item: Item; navigate: (v: VerseRef) => void }) {
+/** Why some of the Fathers' quotations are left out, each with its source. */
+function Whys({ data, whys }: { data: Data; whys: string[] }) {
+  return (
+    <>
+      {whys.map((l) => {
+        const src = data.why.get(l);
+        return (
+          <p key={l} class="x-voices-quiet">
+            {l}
+            {src && (
+              <>
+                {' '}
+                <a href={src[1]} target="_blank" rel="noopener noreferrer">
+                  Source: {src[0]}
+                </a>
+              </>
+            )}
+          </p>
+        );
+      })}
+    </>
+  );
+}
+
+function Note({ a, data, verse, item, navigate }: { a: Atlas; data: Data; verse: VerseRef; item: Item; navigate: (v: VerseRef) => void }) {
   const [all, setAll] = useState(false);
   const [work, from, to, voices, left] = item;
-  const more = work === 0 && !all ? voices.length - FIRST_FATHERS : 0;
-  const shown = more > 0 ? voices.slice(0, FIRST_FATHERS) : voices;
+  const father = work === 0;
+  // The first four Fathers shown, not counting the lines for quotations left out.
+  let cut = voices.length;
+  for (let i = 0, named = 0; i < voices.length; i++) {
+    if (voices[i][0] !== null && ++named > FIRST_FATHERS) {
+      cut = i;
+      break;
+    }
+  }
+  const more = father && !all ? voices.slice(cut).filter(([who]) => who !== null).length : 0;
+  const shown = more > 0 ? voices.slice(0, cut) : voices;
   return (
     <div class="x-voices-note">
       {(from !== verse || to !== verse) && <p class="x-voices-on">On {nameFrom(a, verse, from, to)}</p>}
-      {shown.map(([who, text], k) => (
-        <Voice key={k} a={a} who={who} text={text} navigate={navigate} focus={all && k === FIRST_FATHERS} father={work === 0} />
-      ))}
+      {shown.map(([who, text], k) =>
+        who === null ? (
+          <p key={k} class="x-voices-quiet">
+            {typeof text === 'string' ? text : ''}
+          </p>
+        ) : (
+          <Voice key={k} a={a} who={who} note={father ? whoIs(data, who, verse) : null} text={text} navigate={navigate} focus={all && k === cut} father={father} />
+        ),
+      )}
       {more > 0 && (
         <button type="button" class="x-voices-more" onClick={() => setAll(true)}>
           Show {more} more of the Fathers
         </button>
       )}
-      {left?.map((l) => (
+      {left && (father ? <Whys data={data} whys={left} /> : left.map((l) => (
         <p key={l} class="x-voices-quiet">
           {l}
         </p>
-      ))}
+      )))}
     </div>
   );
 }
@@ -237,6 +265,16 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
         OLDEST_FIRST.map((k) => {
           const w = WORKS[k];
           const mine = notes.filter((x) => x[0] === k);
+          const gone = k === 0 && mine.length === 0 ? goneOn(data, verse) : null;
+          if (gone) {
+            return (
+              <section key={k} class="x-voices-work" aria-label={w.name}>
+                <h3 class="x-voices-h">{w.name}</h3>
+                <p class="x-voices-quiet">{gone[0]}</p>
+                <Whys data={data} whys={gone[1]} />
+              </section>
+            );
+          }
           if (mine.length === 0) return null;
           const who = writerOf(data, k, verse);
           const book = !who
@@ -258,7 +296,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
                 </button>
               </p>
               {mine.map((item) => (
-                <Note key={`${item[1]}-${item[2]}`} a={a} verse={verse} item={item} navigate={navigate} />
+                <Note key={`${item[1]}-${item[2]}`} a={a} data={data} verse={verse} item={item} navigate={navigate} />
               ))}
             </section>
           );
@@ -268,7 +306,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       <h3 class="x-voices-h">How these are chosen</h3>
       <Facts
         rows={[
-          ['The Church Fathers', 'On the Gospels only: the early and medieval teachers Aquinas quoted on each passage, under their names. In this copy his few short words joining one quotation to the next are part of the quotation before them.'],
+          ['The Church Fathers', 'On the Gospels only: the early and medieval teachers Aquinas quoted on each passage, under their names. In this copy his few short words joining one quotation to the next are part of the quotation before them. Quotations from Origen, Didymus the Blind, Clement of Alexandria and the unfinished work on Matthew are left out, and a line says where each stood and why.'],
           ['Martin Luther', 'On Galatians and on Genesis 1 to 9: each note shows with the verses his heading names, and opens with that heading and the words of Scripture it prints, as the translator gives them. Several headings in a row on one verse show as one note. Galatians is Theodore Graebner’s abridged version, which his preface says was condensed to about half, with no mark where words are left out. On Genesis 1:1 to 4:7 each note is named by its part of the book; from 4:8 on, by its section and the translator’s paragraph numbers. The translators’ prefaces, and the outlines before each section of the second Genesis volume, are left out. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Matthew Henry’s full commentary', 'Each of his sections shows with every verse it covers, under the title his commentary gives it. The King James verses it prints before each comment, and its prefaces and chapter outlines, are left out. He wrote as far as Acts; from Romans on, the notes are by the ministers who finished his work after he died, under their own names where a printed list names them. A passage that says a word of Scripture is a mistake is left out, and marked where it was.'],
           ['Matthew Henry’s Concise Commentary', 'A later shortening of his commentary, placed by its own headings, such as “Verses 1–9”. A chapter it treats as a whole shows with every verse in it.'],
