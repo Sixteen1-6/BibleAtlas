@@ -127,8 +127,14 @@ def tidy(ref, words):
             return words
 
 
+def refused(why):
+    """The reason a place is dropped on a check: the build's own, or the label rule the
+    build does not hold (a "And, and, and" place must say "and" twice)."""
+    return why if why.startswith('the label') else f'build would refuse: {why}'
+
+
 def check(r, forms):
-    """Why the build would refuse this place, or None."""
+    """Why the build would refuse this place (or its label does not fit), or None."""
     f = forms.get(r['form'])
     if not f:
         return f'form {r["form"]} is not live'
@@ -205,6 +211,8 @@ def check(r, forms):
                     a, bb = used[i], used[j]
                     if a[0] == bb[0] and a[1] <= bb[2] and bb[1] <= a[2]:
                         return 'two marked lines are in one line of the BSB'
+    if r['form'] == 'many-ands' and sum(len(re.findall(r'\band\b', w, re.I)) for w in r['words']) < 2:
+        return 'the label "And, and, and" does not fit: its words do not say "and" twice or more'
     if len(set(r.get('original') or [])) != len(r.get('original') or []):
         return 'a tag is listed twice'
     for t in r.get('original') or []:
@@ -313,7 +321,7 @@ def main():
         if why is None:
             why = check(r, forms)
             if why:
-                why = f'build would refuse: {why}'
+                why = refused(why)
         if why is None and r['id'] in already:
             why = f'same form already on this verse ({r["id"]})'
         if why:
