@@ -65,6 +65,7 @@
 //!   a chapter. They load when the panel opens.
 
 mod calvin;
+mod fathers;
 mod henry_full;
 mod jfb;
 mod barnes;
@@ -699,7 +700,14 @@ fn item_json(item: &Item) -> Value {
         item.to,
         item.voices
             .iter()
-            .map(|(who, runs)| json!([who, text_json(runs)]))
+            .map(|(who, runs)| {
+                // A Father's quotations left out are a line with no name.
+                if item.work == FATHERS_W && who.is_empty() {
+                    json!([null, text_json(runs)])
+                } else {
+                    json!([who, text_json(runs)])
+                }
+            })
             .collect::<Vec<_>>()
     ]);
     if !item.left.is_empty() {
@@ -816,13 +824,18 @@ fn gospel_line(p: &str, first: u16, last: u16) -> bool {
             .is_ok_and(|n| n >= first && n <= last + 3)
 }
 
+/// A passage of the Fathers whose quotations are all left out: its first and
+/// last verse, and the line and reasons the index gives for it.
+type Gone = (u32, u32, String, Vec<String>);
+
 fn catena(
     inputs: &Inputs,
     vz: &Versification,
     kjv: &[String],
+    hide: &fathers::Config,
     items: &mut [Vec<Item>],
     report: &mut Report,
-) -> Result<(), String> {
+) -> Result<Vec<Gone>, String> {
     // Every passage first: footnote marks are told from words by the whole Catena's words.
     let mut records: Vec<(u8, Value)> = Vec::new();
     for (key, book) in GOSPELS {
@@ -860,8 +873,10 @@ fn catena(
     }
 
     let mut passages: Vec<Item> = Vec::new();
+    let mut hidden = vec![0usize; hide.rules()];
     for (book, r) in &records {
         let book = *book;
+        let gospel = GOSPELS.iter().find(|g| g.1 == book).map_or("", |g| g.0);
         let keys: Vec<(u16, u16)> = r["commented_verse_keys"]
             .as_array()
             .into_iter()
@@ -890,12 +905,19 @@ fn catena(
             continue;
         };
         let mut voices = Vec::new();
+        // Quotations left out since the last one shown, and all in the passage, by reason.
+        let (mut waiting, mut reasons): (Vec<String>, Vec<String>) = (Vec::new(), Vec::new());
         for s in r["segments"].as_array().into_iter().flatten() {
             let who = s["father"].as_str().unwrap_or("").trim();
             let who = NAME_FIXES
                 .iter()
                 .find(|(x, _)| *x == who)
                 .map_or(who, |&(_, y)| y);
+            if let Some(why) = hide.hidden(who, gospel, c, s["text"].as_str().unwrap_or(""), &mut hidden) {
+                waiting.push(why.to_string());
+                reasons.push(why.to_string());
+                continue;
+            }
             let said = paragraphs(&unmark(s["text"].as_str().unwrap_or(""), &vocab, report));
             let kept: Vec<&str> = said
                 .split("\n\n")
@@ -908,21 +930,39 @@ fn catena(
             let said = kept.join("\n\n");
             let said = said.trim_start_matches([',', '.', ';', ':']).trim_start();
             if !who.is_empty() && !said.is_empty() {
+                if !waiting.is_empty() {
+                    voices.push((String::new(), vec![Run::Text(hide.line(&std::mem::take(&mut waiting)))]));
+                }
                 voices.push((who.to_string(), vec![Run::Text(said.to_string())]));
             }
         }
-        if voices.is_empty() || to < from {
+        if to < from {
             report.unplaced += 1;
             continue;
+        }
+        if voices.is_empty() {
+            if reasons.is_empty() {
+                report.unplaced += 1;
+                continue;
+            }
+            // Every quotation left out: kept for now, so the passage before
+            // does not run on over these verses, and taken out below.
+            passages.push(Item { work: FATHERS_W, from, to, voices, left: reasons });
+            continue;
+        }
+        if !waiting.is_empty() {
+            voices.push((String::new(), vec![Run::Text(hide.line(&waiting))]));
         }
         passages.push(Item {
             work: FATHERS_W,
             from,
             to,
             voices,
-            left: Vec::new(),
+            left: hide.whys(&reasons),
         });
     }
+    hide.check(&hidden)?;
+    eprintln!("voices: {} of the Fathers' quotations left out, as config/voices/catena-aurea.json says", hidden.iter().sum::<usize>());
     // Aquinas comments on every verse: a passage runs on to the next one in its chapter.
     passages.sort_by_key(|x| x.from);
     let chapter = |i: u32| vz.locate(i).map(|(b, c, _)| (b, c));
@@ -934,11 +974,16 @@ fn catena(
             item.to = next - 1;
         }
     }
+    let mut gone = Vec::new();
     for item in passages {
+        if item.voices.is_empty() {
+            gone.push((item.from, item.to, hide.gone(&item.left), hide.whys(&item.left)));
+            continue;
+        }
         let (b, _, _) = vz.locate(item.from).ok_or("a passage outside the Bible")?;
         items[b as usize].push(item);
     }
-    Ok(())
+    Ok(gone)
 }
 
 /// The entries of a Let's Church commentary file, after checking its license.
@@ -1153,7 +1198,8 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
         .map(str::to_string)
         .collect();
     let mut books: Vec<Vec<Item>> = (0..BOOKS.len()).map(|_| Vec::new()).collect();
-    catena(inputs, vz, &kjv, &mut books, &mut report)?;
+    let hide = fathers::config(root)?;
+    let gone = catena(inputs, vz, &kjv, &hide, &mut books, &mut report)?;
     henry(inputs, vz, &mut books, &mut report)?;
     wesley(inputs, vz, &kjv, &mut books, &mut report)?;
     let calvin = calvin::calvin(root, inputs, vz, &kjv, &mut books, &mut report)?;
@@ -1278,6 +1324,9 @@ pub fn build(root: &std::path::Path, inputs: &Inputs, vz: &Versification) -> Res
             .map(|(w, bs)| json!([jfb::JFB_W, w, bs]))
             .chain(kd::writers(root)?.into_iter().map(|(w, bs)| json!([kd::KD_W, w, bs])))
             .collect::<Vec<_>>(),
+        "who": hide.who_json()?,
+        "gone": gone.iter().map(|(f, t, line, whys)| json!([f, t, line, whys])).collect::<Vec<_>>(),
+        "why": hide.sources(),
     });
     out.push((
         OUT.to_string(),
@@ -1352,6 +1401,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
     let mut counts = [0usize; 11];
     // Notes with a passage left out, and whether each says why.
     let (mut gaps, mut gaps_ok) = (0usize, true);
+    // The Fathers' lines saying quotations are left out.
+    let mut fathers_left = 0usize;
     let (mut items_ok, mut links_ok, mut clean) = (true, true, true);
     let mut largest = 0u64;
     // (work, first verse, last verse, who, words) of every note, for the known cases below.
@@ -1434,7 +1485,9 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                 let voices = item[3].as_array().cloned().unwrap_or_default();
                 let mut ok = fits && !voices.is_empty();
                 let left: Vec<&str> = item[4].as_array().into_iter().flatten().filter_map(Value::as_str).collect();
-                let gap = voices.iter().any(|v| plain(&v[1]).contains(calvin::LEFT_OUT));
+                // The Fathers mark quotations left out by a line with no name.
+                let gap = voices.iter().any(|v| plain(&v[1]).contains(calvin::LEFT_OUT) || (w == FATHERS_W as u64 && v[0].is_null()));
+                fathers_left += voices.iter().filter(|v| w == FATHERS_W as u64 && v[0].is_null()).count();
                 gaps += usize::from(gap);
                 gaps_ok &= gap == !left.is_empty() && left.iter().all(|l| !l.is_empty()) && item.as_array().map_or(0, Vec::len) == 4 + usize::from(gap);
                 thin += usize::from(
@@ -1462,7 +1515,8 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
                         || (w == u64::from(HENRY_W) && who.starts_with("Henry's notes on "))
                         || (w == u64::from(calvin::CALVIN_W) && who.starts_with("Calvin's notes on Matthew ") && who.ends_with(", in his Harmony of the Gospels"))
                         || full;
-                    ok &= !words.trim().is_empty() && (named || who.is_empty()) && (w != FATHERS_W as u64 || !who.is_empty());
+                    let quiet = w == FATHERS_W as u64 && v[0].is_null() && words.contains(" left out here") && words.contains("quotation");
+                    ok &= !words.trim().is_empty() && (named || who.is_empty()) && (w != FATHERS_W as u64 || !who.is_empty() || quiet);
                     clean &= !words.contains("{{")
                         && !words.contains("}}")
                         && !words.contains("#(")
@@ -1536,6 +1590,44 @@ pub fn verify(d: &Loaded) -> Result<Vec<(bool, String)>, String> {
             note(FATHERS_W, "John 1:1", "Chrysostom", "While all the other Evangelists begin with the Incarnation")?,
             "Chrysostom's words on John 1:1 are under John 1:1".to_string(),
         ),
+        {
+            // The Catena's quotations left out (config/voices/catena-aurea.json).
+            let shown = |who: &str, book: Option<u8>| {
+                notes
+                    .iter()
+                    .filter(|(w, a, _, x, _)| *w == FATHERS_W && x == who && book.is_none_or(|b| d.vz.locate(*a).is_some_and(|l| l.0 == b)))
+                    .count()
+            };
+            let (m2313, _) = d.resolve("Matthew 23:13")?;
+            let gone: Vec<&Value> = index["gone"].as_array().into_iter().flatten().collect();
+            let gone_ok = gone.len() == 1
+                && gone.iter().all(|g| {
+                    g[0].as_u64().is_some_and(|f| f as u32 <= m2313)
+                        && g[1].as_u64().is_some_and(|t| t as u32 >= m2313)
+                        && g[2].as_str() == Some("The Church Fathers' quotations on this passage are left out: two from Origen and one from the unfinished work on Matthew.")
+                        && g[3].as_array().is_some_and(|w| w.len() == 2)
+                })
+                && !note(FATHERS_W, "Matthew 23:13", "", "")?;
+            let whys: Vec<&str> = index["why"].as_array().into_iter().flatten().filter_map(|w| w[0].as_str()).collect();
+            let who_ok = ["Eusebius", "Josephus", "Pseudo-Chrysostom"]
+                .iter()
+                .all(|n| index["who"].as_array().into_iter().flatten().any(|w| w[0].as_str() == Some(n)));
+            (
+                ["Origen", "Didymus", "Clement of Alexandria", "Clement of Alexendria"].iter().all(|n| shown(n, None) == 0)
+                    && shown("Pseudo-Chrysostom", Some(39)) == 13
+                    && shown("Pseudo-Chrysostom", Some(40)) == 109
+                    && shown("Pseudo-Chrysostom", Some(41)) == 11
+                    && shown("Eusebius", None) == 82
+                    && fathers_left > 500
+                    && gone_ok
+                    && whys.len() == 4
+                    && who_ok
+                    && note(FATHERS_W, "Matthew 5:3", "", "")?,
+                format!(
+                    "the Fathers show no quotation from Origen, Didymus or Clement of Alexandria, and none from the unfinished work on Matthew; {fathers_left} quiet lines say where they stood; Matthew 23:13 has only its line; \"Pseudo-Chrysostom\" shows 13 times in Matthew, 109 in Mark and 11 in Luke, Eusebius 82 times"
+                ),
+            )
+        },
         (
             note(FATHERS_W, "Matthew 17:27", "", "")? && note(FATHERS_W, "John 11:57", "", "")?,
             "the Fathers' passages that end Matthew 17 and John 11 reach the chapters' last verses".to_string(),
