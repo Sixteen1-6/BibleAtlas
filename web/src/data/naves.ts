@@ -8,6 +8,7 @@
 // Study for a verse no theme reaches. Nave's never becomes a theme.
 
 import { type Atlas, DATA_BASE, type Loc, locate } from './atlas';
+import { fetchRetry } from './fetch';
 
 /** [Ask topic number (in ask/index.json), title, verse count]. */
 export type NavesTopic = [number, string, number];
@@ -36,7 +37,7 @@ function loadBook(a: Atlas, book: number): Promise<NavesBook> {
   let p = cache.get(book);
   if (!p) {
     const osis = a.books[book].osis;
-    p = fetch(`${DATA_BASE}naves/${osis}.json?${a.version}`)
+    p = fetchRetry(`${DATA_BASE}naves/${osis}.json?${a.version}`)
       .then((r) => {
         if (!r.ok) throw new Error(`naves/${osis}.json: HTTP ${r.status}`);
         return r.json() as Promise<NavesBook>;

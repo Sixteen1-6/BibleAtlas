@@ -11,11 +11,12 @@ import { type Atlas } from '../../../data/atlas';
 import { GoDeeper } from '../../Depth';
 import { CommentaryFoot } from '../../commentary/Gate';
 import { CitedSource } from '../../Sources';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Lead, Passage, SideBySide, SourceNote, Unsure, refName } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
 import { CARDS_FILE, type Card, type CardsFile, type Data, type Span } from './model';
+import { NotLoaded } from '../lazy';
 
 const REPO = 'https://github.com/Sixteen1-6/BibleAtlas';
 /** Passages shown side by side under the answer, at most. */
@@ -121,7 +122,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const file = useJson<CardsFile>(a, CARDS_FILE);
   const mine = data.at.get(verse) ?? [];
   if (file === undefined) return <p class="xt-lead xt-wait">…</p>;
-  if (file === null) return <p class="xt-lead">Sorry, this could not be shown right now.</p>;
+  if (file === null) return <NotLoaded again={retryFailed} />;
   const cards = mine.map((i) => file.cards[i]).filter((c): c is Card => !!c);
   return (
     <>

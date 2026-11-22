@@ -15,6 +15,7 @@ import './commentary.css';
 import type { ComponentChildren, ComponentType } from 'preact';
 import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { accepted, askNotice, notice, noticeDone, noticeOpener, reviewNotice } from './state';
+import { retry } from '../../data/fetch';
 
 /** The attributes of a control that asks for the notice. */
 export const ASKS = { 'aria-haspopup': 'dialog', 'data-cn-ask': '' } as const;
@@ -85,7 +86,7 @@ let code: Promise<NoticeType> | null = null;
 /** The notice's code, fetched the first time it is asked for. */
 function loadNotice(): Promise<NoticeType> {
   if (!code) {
-    code = import('./Notice').then((m) => m.Notice);
+    code = retry(() => import('./Notice')).then((m) => m.Notice);
     code.catch(() => (code = null));
   }
   return code;

@@ -9,10 +9,10 @@
 // crates/atlas-cli/src/extra_real_map.rs.
 
 import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { loadJson } from './data';
 import { type Data, type IndexFile, decodeIndex, placesLine } from './real-map/model';
 import { type PanelProps, defineExtra } from './types';
+import { Waiting, lazyCode, useCode } from './lazy';
 
 type PanelType = ComponentType<PanelProps<Data>>;
 
@@ -44,31 +44,13 @@ function readerHere(): Promise<void> {
   return touched;
 }
 
-let panel: Promise<PanelType> | null = null;
-
 /** The panel's code, fetched the first time a reader opens it. */
-function loadPanel(): Promise<PanelType> {
-  if (!panel) {
-    panel = import('./real-map/MapPanel').then((m) => m.MapPanel);
-    panel.catch(() => (panel = null));
-  }
-  return panel;
-}
+const loadPanel = lazyCode((): Promise<PanelType> => import('./real-map/MapPanel').then((m) => m.MapPanel));
 
 function Panel(props: PanelProps<Data>) {
-  const [impl, setImpl] = useState<{ C: PanelType } | null>(null);
-  useEffect(() => {
-    let live = true;
-    loadPanel().then(
-      (C) => live && setImpl({ C }),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  if (!impl) return <p class="xt-lead xt-wait">…</p>;
-  return <impl.C {...props} />;
+  const code = useCode(loadPanel);
+  const C = code.got;
+  return C ? <C {...props} /> : <Waiting code={code} />;
 }
 
 export default defineExtra<Data>({
