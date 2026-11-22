@@ -28,6 +28,10 @@
 // Sturdiness: AtlasMap disposes its field when it unmounts or makes a new
 // one; any field whose canvas has left the page is also freed when the next
 // one is made, and a lost context is rebuilt when the browser restores it.
+// Phones lose the context often (the app goes to the background, the GPU is
+// short of memory) and do not always give it back: a context still lost after
+// RESTORE_MS is asked back once, and one still lost after that calls the
+// field's `stuck` callback, so AtlasMap can start again on a fresh canvas.
 // For tests the canvas carries data-drawn (the instances issued by the last
 // full accumulate), data-anim ("1" while anything moves) and data-focus
 // (what is lit: hover, path, verse or group, with " waiting" while a verse
@@ -50,6 +54,8 @@ const BUCKET_MIN = [30, 8, 1, -Infinity];
 /** The page's first map draws its sky slowly; a map that comes back (from the Wheel) is quick. */
 const REVEAL_FIRST = 2.0;
 const REVEAL_AGAIN = 0.6;
+/** How long a lost context may stay lost before it is asked back, and again before the map starts afresh (ms). */
+const RESTORE_MS = 2500;
 /** Width of the reveal's soft front, as a fraction of the canvas width. */
 const REVEAL_EDGE = 0.06;
 const HOVER_FADE = 0.2;
@@ -632,10 +638,16 @@ export class ArcField {
   /** Per kind, the last set that played its entrance (a set coming back only fades in). */
   private played = new Map<Kind, string>();
   private lastSelected: number | null = null;
+  /** Fetched while the context is live: a lost context hands out no extensions. */
+  private loser: WEBGL_lose_context | null = null;
+  private lostTimer: ReturnType<typeof setTimeout> | null = null;
+  private lostSteps = 0;
 
   constructor(
     private canvas: HTMLCanvasElement,
     instances: Float32Array,
+    /** Called once when the context is lost and the browser will not give it back. */
+    private stuck: (() => void) | null = null,
   ) {
     // A field that was never disposed (an error mid-mount, say) is freed here
     // once its canvas has left the page, and one on this same canvas gives
@@ -645,15 +657,21 @@ export class ArcField {
       else if (f.attached && !f.canvas.isConnected) f.teardown(true);
     }
     const gl = canvas.getContext('webgl2', { antialias: true, premultipliedAlpha: false, alpha: false });
-    if (!gl) throw new Error('This browser does not support WebGL2.');
+    if (!gl) throw new Error('The browser could not start the map’s graphics (WebGL2) just now.');
     this.gl = gl;
     const sorted = sortForDrawing(instances);
     this.data = sorted.data;
     this.ends = sorted.ends;
     this.attached = canvas.isConnected;
-    if (!gl.isContextLost()) this.build();
+    this.loser = gl.getExtension('WEBGL_lose_context');
     canvas.addEventListener('webglcontextlost', this.onLost);
     canvas.addEventListener('webglcontextrestored', this.onRestored);
+    if (!gl.isContextLost()) this.build();
+    else {
+      // Born lost (the GPU is busy recovering): wait for it as for a loss.
+      this.lost = true;
+      this.watchLost();
+    }
     if (this.animated()) this.reveal = { duration: firstField ? REVEAL_FIRST : REVEAL_AGAIN, start: null, front: 0, drawn: [] };
     firstField = false;
     fields.add(this);
@@ -1237,15 +1255,54 @@ export class ArcField {
     this.lost = true;
     sleep(this.tick);
     this.mark('anim', '0');
+    this.lostSteps = 0;
+    this.watchLost();
   };
+
+  /** While the context stays lost and the page is in view: after RESTORE_MS
+   *  ask for it back, and after that much again give up on this canvas. A
+   *  hidden page waits, since browsers restore only what is shown. */
+  private watchLost(): void {
+    if (this.lostTimer) clearTimeout(this.lostTimer);
+    this.lostTimer = setTimeout(() => {
+      this.lostTimer = null;
+      if (this.disposed || !this.lost) return;
+      if (typeof document !== 'undefined' && document.visibilityState === 'hidden') {
+        const shown = () => {
+          document.removeEventListener('visibilitychange', shown);
+          if (!this.disposed && this.lost) this.watchLost();
+        };
+        document.addEventListener('visibilitychange', shown);
+        return;
+      }
+      if (this.lostSteps++ === 0 && this.loser) {
+        try {
+          this.loser.restoreContext();
+        } catch {
+          // Only a context lost through the extension can be asked back.
+        }
+        this.watchLost();
+        return;
+      }
+      const stuck = this.stuck;
+      this.stuck = null;
+      stuck?.();
+    }, RESTORE_MS);
+  }
 
   private onRestored = (): void => {
     if (this.disposed) return;
     this.lost = false;
+    if (this.lostTimer) clearTimeout(this.lostTimer);
+    this.lostTimer = null;
     try {
       this.build();
     } catch (err) {
       console.error(err);
+      // A context that came back unable to draw: start again on a new canvas.
+      const stuck = this.stuck;
+      this.stuck = null;
+      stuck?.();
       return;
     }
     // The visitor has seen this sky already: bring it straight back.
@@ -1259,6 +1316,9 @@ export class ArcField {
     if (this.disposed) return;
     this.disposed = true;
     fields.delete(this);
+    if (this.lostTimer) clearTimeout(this.lostTimer);
+    this.lostTimer = null;
+    this.stuck = null;
     sleep(this.tick);
     this.canvas.removeEventListener('webglcontextlost', this.onLost);
     this.canvas.removeEventListener('webglcontextrestored', this.onRestored);

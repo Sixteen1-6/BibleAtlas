@@ -4,13 +4,14 @@
 
 import { type Atlas, DATA_BASE } from './atlas';
 import type { Extra } from './search';
+import { fetchRetry } from './fetch';
 
 let cache: Promise<string[]> | null = null;
 let ready: string[] | null = null;
 
 export function loadPlainText(a: Atlas): Promise<string[]> {
   if (!cache) {
-    cache = fetch(`${DATA_BASE}bsb.txt?${a.version}`)
+    cache = fetchRetry(`${DATA_BASE}bsb.txt?${a.version}`)
       .then((r) => {
         if (!r.ok) throw new Error(`bsb.txt: HTTP ${r.status}`);
         return r.text();

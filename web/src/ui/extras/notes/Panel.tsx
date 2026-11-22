@@ -8,11 +8,12 @@ import '../notes.css';
 import type { ComponentChildren } from 'preact';
 import { locate } from '../../../data/atlas';
 import { CommentaryFoot } from '../../commentary/Gate';
-import { useJson } from '../data';
+import { retryFailed, useJson } from '../data';
 import { Facts, Lead, SourceNote, refName, verseHash } from '../kit';
 import { levelAtLeast } from '../level';
 import type { PanelProps, VerseRef } from '../types';
 import { type Block, type BookFile, type Data, type Hit, type Run, SOURCE, hits, nameFrom } from './model';
+import { NotLoaded } from '../lazy';
 
 function Runs({ runs, a, navigate }: { runs: Run[]; a: PanelProps<Data>['a']; navigate: (v: VerseRef) => void }) {
   return (
@@ -98,7 +99,7 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
     </details>
   ));
 
-  if (file === null) return <p class="xt-lead">Sorry, these notes could not be shown right now.</p>;
+  if (file === null) return <NotLoaded again={retryFailed} what="These notes" />;
   const ids = [...h.own, ...h.wide].map((x) => file?.notes[x.i]?.id).filter(Boolean);
   return (
     <>
