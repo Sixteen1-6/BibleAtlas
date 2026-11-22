@@ -5,9 +5,10 @@
 // tag with STEPBible's own expansion of it. What a form means is shown only
 // in a grammarian's own words, with the page it was read on, and those words
 // wait behind the commentary notice: they are people's words, where the
-// forms are the text's own. So does a Christian writer's sentence on what a
-// form shows in this one verse (config/grammar-notes.json): his words, under
-// his name and his work, with the way to his whole note.
+// forms are the text's own. So does a Christian writer's sentence on this
+// one verse (config/grammar-notes.json), on what a form shows, what a linking
+// word joins, a word found nowhere else, or why a word is used: his words,
+// under his name and his work, with the way to his whole note.
 //
 // A chapter's panel is its outline: paragraph by paragraph, the linking
 // words, chains and lists, each a link to its verse.
@@ -123,23 +124,25 @@ function SaysCard({ data, term }: { data: Data; term: Term }) {
   );
 }
 
-/** A Christian writer's sentence on a form of this verse: the word and the
- * form it speaks of, his words, then who he is and the work, as the
+/** A Christian writer's sentence on this verse: the word and the form or
+ * linking word it speaks of, his words, then who he is and the work, as the
  * Christian writers panel names them, and the way to his whole note. */
 function NoteCard({ a, data, note, verse, by, find }: { a: Atlas; data: Data; note: Note; verse: VerseRef; by: string | null; find: (at: At) => WordRow | undefined }) {
-  const [w, pos, terms, words] = note;
+  const [w, pos, terms, words, link] = note;
   const work = WORKS[w];
   if (!work) return null;
+  const linked = link === undefined ? undefined : data.links[link];
+  const head = linked ? `Linking word: ${linked.name.toLowerCase()}` : names(data, terms) || 'Why this word';
   return (
     <div class="x-grammar-term x-grammar-on">
       <div class="x-grammar-onhead">
         {pos >= 0 && <Word a={a} at={[verse, pos]} w={find([verse, pos])} />}
-        <h4>{names(data, terms)}</h4>
+        <h4>{head}</h4>
       </div>
       <figure class="x-grammar-says">
         <blockquote>“{words}”</blockquote>
         <figcaption>
-          From {by ?? work.name}’s note on this passage. {work.book}.{' '}
+          {by || w !== FINISHERS ? `From ${by ?? work.short}’s note on this passage.` : `From the note of ${work.short} on this passage.`} {work.book}.{' '}
           <button type="button" class="x-grammar-shelf" onClick={(e) => openExtra('voices', 'verse', verse, e.currentTarget)}>
             Read the whole note
           </button>
@@ -152,6 +155,9 @@ function NoteCard({ a, data, note, verse, by, find }: { a: Atlas; data: Data; no
     </div>
   );
 }
+
+/** The ministers who finished Henry's commentary, as the Christian writers extra numbers the work. */
+const FINISHERS = 5;
 
 function names(data: Data, ids: number[]): string {
   return ids.map((i) => data.terms[i]?.name ?? '').filter(Boolean).join(' · ');
@@ -183,7 +189,8 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
   const notes = book?.notes?.[String(verse)] ?? [];
   // Who wrote a work's notes on this book, where the work has several writers.
   const voices = useJson<VoicesIndex>(a, notes.length ? 'extras/voices.json' : null);
-  const by = (w: number): string | null => voices?.writers?.find((x) => x[0] === w && x[2].includes(loc.book))?.[1] ?? null;
+  const by = (w: number): string | null =>
+    (w === FINISHERS ? voices?.finished?.find((x) => x[0] === loc.book)?.[1] : voices?.writers?.find((x) => x[0] === w && x[2].includes(loc.book))?.[1]) ?? null;
   const [lo, hi] = reach(book, pts, verse);
   const rows = usePassage(a, lo, hi);
   if (book === null || codes === null) return <NotLoaded again={retryFailed} />;
@@ -341,11 +348,13 @@ export function Panel({ a, data, verse, navigate }: PanelProps<Data>) {
       ))}
       {said.length + notes.length > 0 && (
         <>
-          <h3>What these forms convey</h3>
+          <h3>{notes.length ? 'What these words and forms convey' : 'What these forms convey'}</h3>
           <Commentary
             line={
               notes.length
-                ? 'A Christian writer’s own words on this verse’s forms, and a grammarian’s on what such forms convey.'
+                ? said.length
+                  ? 'A Christian writer’s own words on this verse’s wording, and a grammarian’s on what such forms convey.'
+                  : 'A Christian writer’s own words on this verse’s wording, from his note on the passage.'
                 : 'A grammarian’s own sentences on these forms, each with the page it was read on.'
             }
             button={notes.length ? 'Show their words' : 'Show the grammarian’s words'}
