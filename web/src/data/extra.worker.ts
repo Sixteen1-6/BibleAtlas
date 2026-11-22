@@ -3,6 +3,7 @@
 // long enough to stall typing.
 
 import { buildExtra } from './search';
+import { fetchRetry } from './fetch';
 
 interface Req {
   names: string[];
@@ -15,7 +16,7 @@ self.onmessage = async (e: MessageEvent<Req>) => {
   try {
     const [base, ...lines] = await Promise.all(
       [e.data.baseUrl, ...e.data.urls].map(async (u) => {
-        const r = await fetch(u);
+        const r = await fetchRetry(u);
         if (!r.ok) throw new Error(`${u}: HTTP ${r.status}`);
         const ls = (await r.text()).split('\n');
         if (ls[ls.length - 1] === '') ls.pop();

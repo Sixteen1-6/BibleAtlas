@@ -17,17 +17,15 @@
 // who has finished the commentary notice, else when the panel opens. Built by crates/atlas-cli/src/extra_voices.rs.
 
 import type { ComponentType } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 import { accepted } from '../commentary/state';
 import { loadJson } from './data';
 import { readerHere } from './first-move';
 import { refName } from './kit';
 import { type PanelProps, defineExtra } from './types';
 import { type Data, SOURCE, barnesOf, fullOf, kdOf, load, lutherOf, partOf, worksOn, writersLine } from './voices/model';
+import { Waiting, lazyCode, useCode } from './lazy';
 
 type PanelType = ComponentType<PanelProps<Data>>;
-
-let panel: Promise<PanelType> | null = null;
 
 /** Once the line shows under a verse, and the reader has finished the
  * commentary notice, fetch that verse's notes and the panel's code ahead, so
@@ -39,28 +37,12 @@ function warm(d: Data, verse: number): void {
 }
 
 /** The panel's code, fetched the first time a reader opens it. */
-function loadPanel(): Promise<PanelType> {
-  if (!panel) {
-    panel = import('./voices/Panel').then((m) => m.Panel);
-    panel.catch(() => (panel = null));
-  }
-  return panel;
-}
+const loadPanel = lazyCode((): Promise<PanelType> => import('./voices/Panel').then((m) => m.Panel));
 
 function Panel(props: PanelProps<Data>) {
-  const [impl, setImpl] = useState<{ C: PanelType } | null>(null);
-  useEffect(() => {
-    let live = true;
-    loadPanel().then(
-      (C) => live && setImpl({ C }),
-      () => {},
-    );
-    return () => {
-      live = false;
-    };
-  }, []);
-  if (!impl) return <p class="xt-lead xt-wait">Loading what they wrote…</p>;
-  return <impl.C {...props} />;
+  const code = useCode(loadPanel);
+  const C = code.got;
+  return C ? <C {...props} /> : <Waiting code={code} text="Loading what they wrote…" />;
 }
 
 export default defineExtra<Data>({

@@ -3,6 +3,7 @@
 
 /// <reference lib="webworker" />
 import wasmUrl from './atlas.wasm?url';
+import { fetchRetry } from '../data/fetch';
 
 interface Exports {
   memory: WebAssembly.Memory;
@@ -53,7 +54,7 @@ const ERRORS: Record<number, string> = { [-1]: 'engine not loaded', [-2]: 'atlas
 /** Fetch a file, failing with its name and status instead of reading an error page.
  *  (The return type is inferred: `Response` below is this module's message type.) */
 async function get(url: string, name: string) {
-  const r = await fetch(url);
+  const r = await fetchRetry(url);
   if (!r.ok) throw new Error(`${name}: HTTP ${r.status}`);
   return r;
 }

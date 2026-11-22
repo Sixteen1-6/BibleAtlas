@@ -6,6 +6,7 @@
 
 import { signal } from '@preact/signals';
 import { type Atlas, DATA_BASE } from './atlas';
+import { fetchRetry } from './fetch';
 
 export type Strength = 'widely agreed' | 'commonly held' | 'some interpreters';
 
@@ -116,7 +117,7 @@ export const notes = signal<Map<string, Passage> | null>(null);
 let notesLoad: Promise<Map<string, Passage>> | null = null;
 
 async function fetchJson<T>(a: Atlas, file: string): Promise<T> {
-  const r = await fetch(`${DATA_BASE}${file}?${a.version}`);
+  const r = await fetchRetry(`${DATA_BASE}${file}?${a.version}`);
   if (!r.ok) throw new Error(`${file}: HTTP ${r.status}`);
   return (await r.json()) as T;
 }

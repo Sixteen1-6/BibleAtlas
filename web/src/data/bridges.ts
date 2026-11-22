@@ -6,6 +6,7 @@
 
 import { type Atlas, DATA_BASE } from './atlas';
 import { type VerseRow, rootsOf } from './text';
+import { fetchRetry } from './fetch';
 
 /** lxx.json: the Hebrew roots of `greek[i]` are `hebrew[offsets[i]..offsets[i + 1]]`. */
 interface LxxFile {
@@ -31,7 +32,7 @@ let ready: { version: string; table: BridgeTable } | null = null;
 export function loadBridges(a: Atlas): Promise<BridgeTable> {
   if (loading?.version !== a.version) {
     const version = a.version;
-    const table = fetch(`${DATA_BASE}lxx.json?${version}`)
+    const table = fetchRetry(`${DATA_BASE}lxx.json?${version}`)
       .then((r) => {
         if (!r.ok) throw new Error(`lxx.json: HTTP ${r.status}`);
         return r.json() as Promise<LxxFile>;
