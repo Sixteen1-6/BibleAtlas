@@ -2,7 +2,7 @@
 
 **Keep this current:** section 0 must be rewritten whenever `main` changes, and the PR that changes `main` should update it.
 
-Written 2026-10-20. Section 0 was last checked on 2026-11-22 at 20:15 UTC, against `main` at `d637f82` (the merge of #80, 13 more structures at Deep). The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
+Written 2026-10-20. Section 0 was last checked on 2026-11-22 at 19:40 UTC, against `main` at `d637f82` (the merge of #80, 13 more structures at Deep). The file is meant to let a new person, or a new AI session, take over Bible Atlas without a conversation. It covers:
 
 - what the product is and what is live;
 - who can do what (section 1, "Access");
