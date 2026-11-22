@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """The span re-read of kept parallel-lines places that mark three or more lines.
 
-Usage: python3 -I sspan.py make NN EVIDENCE.json CONFIGDIR OUT.jsonl [lines|figure]
-       python3 -I sspan.py apply NN RESULT.json SPAN.jsonl EVIDENCE.json REPO LOGDIR [lines|figure]
+Usage: python3 -I sspan.py make NN EVIDENCE.json CONFIGDIR OUT.jsonl [lines|figure|form|refrain]
+       python3 -I sspan.py apply NN RESULT.json SPAN.jsonl EVIDENCE.json REPO LOGDIR [lines|figure|form|refrain]
 
 make lists the places of words-NN that the evidence record kept, as they now
 stand in CONFIGDIR: in "lines" mode (the default) those whose form is same,
 opposite, building or climbing and which mark three or more lines, in "figure"
 mode every place of a figure or contrast form (the words that carry it), in
 "form" mode every place marked "same" (said twice), whose label is checked
-against its lines. apply takes the layers-seen-span result: "all" keeps a
+against its lines, in "refrain" mode every refrain, whose words are looked up
+where they come back in the book. apply takes the layers-seen-span result: "all" keeps a
 place, "trim" keeps only the lines given (checked as the build checks them,
 and without the place's Strong's tags, which were chosen for the lines as they stood),
 "form" moves it to the form given (its id follows the form; checked as the build
@@ -62,7 +63,7 @@ def make(nn, evp, cdir, out, mode='lines'):
             x = notes[p['kept']][1]
             kind = A_FORMS[x['form']]['kind']
             if (mode == 'lines' and x['form'] in LINES and len(x['words']) >= 3) or (mode == 'figure' and kind in ('figure', 'contrast')) \
-                    or (mode == 'form' and x['form'] == 'same'):
+                    or (mode == 'form' and x['form'] == 'same') or (mode == 'refrain' and x['form'] == 'refrain'):
                 f.write(json.dumps(x, ensure_ascii=False) + '\n')
                 n += 1
     print(n, 'places to re-read')
@@ -72,7 +73,7 @@ A_FORMS = A.W.forms
 
 
 def apply(nn, resp, spanp, evp, repo, logdir, mode='lines'):
-    tag = {'lines': 'span', 'figure': 'words', 'form': 'label'}[mode]
+    tag = {'lines': 'span', 'figure': 'words', 'form': 'label', 'refrain': 'refrain'}[mode]
     cdir = f'{repo}/config/figures-seen'
     forms = {f['id']: f for f in json.load(open(f'{repo}/config/figure-forms.json', encoding='utf-8'))['forms']}
     res = json.load(open(resp, encoding='utf-8'))
@@ -160,7 +161,8 @@ def apply(nn, resp, spanp, evp, repo, logdir, mode='lines'):
     ev['counts']['dropped'] = sum(1 for p in ev['places'] if not p['kept'])
     note = {'lines': 'Then every kept place that marks three or more poetry lines as said twice, opposite, building or climbing was read again by two readers, a third settling any difference: each kept all its lines, kept only the lines that stand in the relation, or was dropped ("span").',
             'figure': 'Then kept figures of speech were read again by two readers, a third settling any difference ("words re-read" counts them: those a sample showed at risk, such as wide spans, or those found only in the Hebrew or Greek that carry no tags): each kept as it was, cut to the words that carry the figure, or dropped ("words").',
-            'form': 'Then every kept place marked as said twice was read again by two readers, a third settling any difference: each kept, moved to the form its lines plainly show (a judge\'s form only where a reader proposed it), or dropped ("label").'}[mode]
+            'form': 'Then every kept place marked as said twice was read again by two readers, a third settling any difference: each kept, moved to the form its lines plainly show (a judge\'s form only where a reader proposed it), or dropped ("label").',
+            'refrain': 'Then every kept refrain was read again by two readers, a third settling any difference, each looking up the other verses of the book where its words come back: each kept, cut to the words of the verse that come back, or dropped ("refrain").'}[mode]
     if note not in ev['_comment']:
         # in the order the re-reads were done, before the last check's sample
         last = next((k for k, c in enumerate(ev['_comment']) if c.startswith('Last, a sample')), len(ev['_comment']))
