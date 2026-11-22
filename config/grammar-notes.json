@@ -1,0 +1,1972 @@
+{
+ "_comment": [
+  "A Christian writer's own sentence on what a verb form shows in one verse, shown in the Word choice panel at Deep, behind the commentary notice, as that writer's words.",
+  "Every sentence is from a work the app already carries at Deep in the Christian writers panel, built from a pinned public-domain copy: John Wesley's Explanatory Notes (wesley), John Calvin's Commentaries (calvin), Jamieson, Fausset and Brown's Commentary (jfb), Keil and Delitzsch's Biblical Commentary on the Old Testament (keil-delitzsch) and Albert Barnes's Notes on the New Testament (barnes). The writer of a verse's note is the one that panel names for the book.",
+  "Fields: at, the verse as Book.chapter.verse; work; terms, the forms the sentence names (ids of config/grammar.json); word, the place among the verse's Hebrew, Aramaic or Greek words of the word the sentence quotes, when it quotes one; quote, the sentence word for word.",
+  "The build refuses a sentence on a verse whose tags do not show every form in terms (on that word, when word is given), and one that names anyone on the avoid list of config/layer-sources.json. atlas verify refuses a sentence that does not stand word for word in that work's note on that verse as built from the pinned copy. So nothing here can be reworded: to change a sentence, choose other words of the same note.",
+  "How the list was made (2026-11-22): scripts/grammar-notes/mine.py found 748 sentences that name a form the verse has; each was read against five tests (it speaks of a form in this verse; it says what the form shows; it can be followed on its own; it is not about a reading, an emendation or a dispute with other scholars; it does not call the text mistaken), and those that failed any were left out. A sentence that leans on a critic the commentaries argue with was never a candidate."
+ ],
+ "notes": [
+  {
+   "at": "Gen.8.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "quote": "“Then the waters turned (ישׁבוּ i.e., flowed off) from the earth, flowing continuously (the inf. absol. ושׁוב הלוך expresses continuation), and decreased at the end of 150 days.”"
+  },
+  {
+   "at": "Gen.11.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 8,
+   "quote": "“Jehovah came down to see the city and the tower, which the children of men had built” (the perfect בּנוּ refers to the building as one finished up to a certain point)."
+  },
+  {
+   "at": "Gen.15.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 17,
+   "quote": "הרבּה an inf. absol., generally used adverbially, but here as an adjective, equivalent to “thy very great reward.”"
+  },
+  {
+   "at": "Gen.31.15",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 8,
+   "quote": "The inf. abs. אכול after the finite verb expresses the continuation of the act, and is intensified by גם “yes, even.”"
+  },
+  {
+   "at": "Gen.48.22",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 8,
+   "quote": "As the perfect is used prophetically, transposing the future to the present as being already accomplished, so the words לקחתּי אשׁר must also be understood prophetically, as denoting that Jacob would wrest the land from the Amorites, not in his own person, but in that of his posterity."
+  },
+  {
+   "at": "Lev.18.28",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "The pret. ותּקא (Lev 18:25) and קאה (Lev 18:28) are prophetic (cf. Lev 20:22-23), and the expression is poetical."
+  },
+  {
+   "at": "Num.23.22",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 1,
+   "quote": "The participle מוציאם is not used for the preterite, but designates the leading out as still going on, and lasting till the introduction into Canaan."
+  },
+  {
+   "at": "Num.25.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 0,
+   "quote": "The inf. abs. צרור, instead of the imperative, as in Exo 20:8, etc. על־דּברף, in consideration of Peor, and indeed, or especially, in consideration of Cozbi."
+  },
+  {
+   "at": "Deut.1.32",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 3,
+   "quote": "The participle אינכם מאמינם, “ye were not believing,” is intended to describe their unbelief as a permanent condition."
+  },
+  {
+   "at": "Deut.15.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 3,
+   "quote": "This blessing would not fail, if the Israelites would only hearken to the voice of the Lord; “for Jehovah blesseth thee” (by the perfect בּרכך, the blessing is represented not as a possible and future one only, but as one already bestowed according to the counsel of God, and, so far as the commencement was concerned, already fulfilled), “as He hath spoken” (see at Deu 1:11)."
+  },
+  {
+   "at": "Deut.33.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 7,
+   "quote": "The participle expresses the permanence of the relation: is his shelterer."
+  },
+  {
+   "at": "Josh.6.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-hiphil"
+   ],
+   "quote": "The Hiphil has only an active, not a causative, meaning here, as in 2Sa 5:23, etc."
+  },
+  {
+   "at": "Judg.4.4",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 6,
+   "quote": "This gift qualified her to judge the nation (the participle שׁפטה expresses the permanence of the act of judging), i.e., first of all to settle such disputes among the people themselves as the lower courts were unable to decide, and which ought therefore, according to Deu 17:8, to be referred to the supreme judge of the whole nation."
+  },
+  {
+   "at": "Judg.4.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 2,
+   "quote": "נפרד with Kametz is a participle, which is used in the place of the perfect, to indicate that the separation was a permanent one."
+  },
+  {
+   "at": "Judg.17.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 9,
+   "quote": "The perfect הקדּשׁתּי is not to be taken in the sense of the pluperfect, “I had sanctified it,” but is expressive of an act just performed: I have sanctified it, I declare herewith that I do sanctify it."
+  },
+  {
+   "at": "2Sam.23.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 2,
+   "quote": "The preterite דּבּר relates to the divine inspiration which preceded the utterance of the divine saying."
+  },
+  {
+   "at": "2Kgs.11.15",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 17,
+   "quote": "Jehoiada then commanded the captains החיל פּקדי, those placed over the army, i.e., the armed men of the Levites, to lead out Athaliah between the ranks, and to slay every one who followed her, i.e., who took her part (המת, inf. abs. instead of imperative); for, as is added supplementarily in explanation of this command, the priest had (previously) said: “Let her not be slain in the house of Jehovah.”"
+  },
+  {
+   "at": "1Chr.22.9",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 2,
+   "quote": "The participle נולד after הנּה has the signification of the future, shall be born; cf. 1Ki 13:2."
+  },
+  {
+   "at": "1Chr.29.13",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 2,
+   "quote": "By the partic. מודים, from הודה, confess, praise, the praising of God is characterized as an enduring praise, always rising anew."
+  },
+  {
+   "at": "2Chr.12.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive"
+   ],
+   "word": 1,
+   "quote": "The infinitive כּהכין, “at the time of the establishing,” with an indefinite subject, may be expressed in English by the passive: when Rehoboam’s royal power was established."
+  },
+  {
+   "at": "2Chr.18.34",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-hiphil"
+   ],
+   "word": 7,
+   "quote": "Finally, in 2Ch 18:34, מעמיד היה, he was holding his position, i.e., he held himself standing upright, the Hiph. is more expressive than the Hoph. מעמד (1Ki 22:35), since it expresses more definitely the fact that he held himself upright by his own strength."
+  },
+  {
+   "at": "2Chr.20.37",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 11,
+   "quote": "The perfect פּרץ is prophetic: Jahve will rend thy work asunder."
+  },
+  {
+   "at": "Neh.1.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-pual"
+   ],
+   "word": 14,
+   "quote": "מפרצת, Pual (the intensive form), broken down, does not necessarily mean that the whole wall was destroyed, but only portions, as appears from the subsequent description of the building of the wall, Neh 3."
+  },
+  {
+   "at": "Neh.5.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "quote": "The use of the participle denotes the continuance of the transaction, and is not to be rendered, We must mortgage our fields to procure corn; but, We have been obliged to mortgage them, and we desire to receive corn for our hunger, because of the dearth."
+  },
+  {
+   "at": "Neh.5.10",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 4,
+   "quote": "The participle נשׁים says: we are those who have lent."
+  },
+  {
+   "at": "Esth.1.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive"
+   ],
+   "quote": "“For the deed of the queen will come abroad to (על for אל) all women, to bring their husbands into contempt in their eyes (the infin. להבזות stating the result), while they will say,” etc. (the suffix of בּאמרם relates to the women, who will appeal to the disobedience of the queen)."
+  },
+  {
+   "at": "Esth.5.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-jussive"
+   ],
+   "word": 14,
+   "quote": "ותעשׂ, an abbreviated form of the imperfect תּעשׂה, is optative or jussive: and it shall be done."
+  },
+  {
+   "at": "Esth.6.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 13,
+   "quote": "The participle denotes the long continuance of this reading."
+  },
+  {
+   "at": "Job.17.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 1,
+   "quote": "And it is יגיד, not הגיד, because the perf. would describe the fact as past, while the fut. places us in the midst of this faithless conduct."
+  },
+  {
+   "at": "Job.31.31",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 2,
+   "quote": "Instead of אמרוּ, it might also be יאמרוּ (dicebant); the perf., however, better denotes not merely what happens in a general way, but what must come to pass."
+  },
+  {
+   "at": "Ps.7.13",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 6,
+   "quote": "The fut. יפעל denotes the simultaneous charging of the arrows aimed at the sinner, with the fire of His wrath."
+  },
+  {
+   "at": "Ps.13.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 3,
+   "quote": "The perfect in Psa 13:6 is to be properly understood thus: the celebration follows the fact that inspires him to song."
+  },
+  {
+   "at": "Ps.17.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 0,
+   "quote": "The confession concerning himself is still continued in Psa 17:5, for the inf. absol. תּמך, if taken as imperative would express a prayer for constancy, that is alien to the circumstances described."
+  },
+  {
+   "at": "Ps.17.7",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-hiphil"
+   ],
+   "word": 0,
+   "quote": "The Hiph. הפלה (הפליא, Psa 31:22, cf. Psa 4:4) signifies here to work in an extraordinary and marvellous manner."
+  },
+  {
+   "at": "Ps.20.4",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 5,
+   "quote": "The futures in Psa 20:2, standing five times at the head of the climactic members of the parallelism, are optatives."
+  },
+  {
+   "at": "Ps.20.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 5,
+   "quote": "The futures in Psa 20:2, standing five times at the head of the climactic members of the parallelism, are optatives."
+  },
+  {
+   "at": "Ps.22.26",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-jussive"
+   ],
+   "word": 6,
+   "quote": "יחי optative of חיה, here used of the reviving of the heart, which is as it were dead (1Sa 25:37), to spiritual joy."
+  },
+  {
+   "at": "Ps.23.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect",
+    "h-perfect"
+   ],
+   "quote": "The future תּערך is followed, according to the customary return to the perfect ground-form, by דּשּׁנתּ, which has, none the less, the signification of a present."
+  },
+  {
+   "at": "Ps.44.7",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 1,
+   "quote": "This “Thou” in הושׁעתּנוּ is the emphatic word; the preterites describe facts of experience belonging to history."
+  },
+  {
+   "at": "Ps.50.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 3,
+   "quote": "The participle כּרתי here implies the constant continuance of that primary covenant-making."
+  },
+  {
+   "at": "Ps.55.14",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "quote": "Psa 55:14 is not to be rendered: and thou art, etc., but: and thou (who dost act thus) wast, etc.; for it is only because the principal clause has a retrospective meaning that the futures נמתּיק and נהלּך describe what was a custom in the past."
+  },
+  {
+   "at": "Ps.55.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-then"
+   ],
+   "word": 5,
+   "quote": "The fut. consec. ויּשׁמע connects the hearing (answer) with the prayer as its inevitable result."
+  },
+  {
+   "at": "Ps.60.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 3,
+   "quote": "All the preterites as far as השׁקיתנוּ (Psa 60:5) glance back plaintively at that which has been suffered."
+  },
+  {
+   "at": "Ps.61.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive"
+   ],
+   "word": 4,
+   "quote": "לשׁלּמי is the infinitive of the aim or purpose."
+  },
+  {
+   "at": "Ps.65.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 2,
+   "quote": "The future תּעננוּ confesses, as a present, a fact of experience that still holds good in all times to come."
+  },
+  {
+   "at": "Ps.107.7",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-then"
+   ],
+   "word": 0,
+   "quote": "Their cry for help, as the imperfect יצּילם implies, was accompanied by their deliverance, the fact of which is expressed by the following fut. consec. ויּדריכם."
+  },
+  {
+   "at": "Ps.116.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 8,
+   "quote": "The futures אמצא and אקרא, by virtue of the connection, refer to the contemporaneous past."
+  },
+  {
+   "at": "Ps.116.4",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 2,
+   "quote": "The futures אמצא and אקרא, by virtue of the connection, refer to the contemporaneous past."
+  },
+  {
+   "at": "Ps.116.7",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 5,
+   "quote": "The perfect גּמל states that which is a matter of actual experience, and is corroborated in Psa 116:8 in retrospective perfects."
+  },
+  {
+   "at": "Ps.118.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 2,
+   "quote": "The perfect דּעכוּ (cf. Isa 43:17) describes their destruction, which takes place instantly and unexpectedly."
+  },
+  {
+   "at": "Ps.139.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-hiphil"
+   ],
+   "word": 7,
+   "quote": "In the word יאיר, too, the Hiphil signification is not lost: the night would give out light from itself, as if it were the day; for the distinction of day and night has no conditioning influence upon God, who is above and superior to all created things (der Uebercreatürliche), who is light in Himself."
+  },
+  {
+   "at": "Ps.140.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 8,
+   "quote": "The future ירוּמוּ expresses the consequence (cf. Psa 61:8) against which the poet wishes to guard."
+  },
+  {
+   "at": "Ps.146.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 9,
+   "quote": "With השּׁמר, the only determinate participle, the faithfulness of God to His promises is made especially prominent."
+  },
+  {
+   "at": "Prov.4.4",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperative"
+   ],
+   "word": 8,
+   "quote": "The imper. וחיה is, as Pro 7:2; Gen 20:7, more than ותחיה; the teacher seeks, along with the means, at the same time their object: Observe my commandments, and so become a partaker of life!"
+  },
+  {
+   "at": "Prov.11.14",
+   "work": "jfb",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 6,
+   "quote": "counsellors--literally, \"one giving counsel\"; the participle used as a collective."
+  },
+  {
+   "at": "Prov.12.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 0,
+   "quote": "The preterite, as Pro 11:2, Pro 11:8, etc., places the general true proposition as a separate historic principle derived from experience."
+  },
+  {
+   "at": "Prov.19.15",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "quote": "In 15b the fut. denotes that which will certainly happen, the inevitable."
+  },
+  {
+   "at": "Prov.23.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive",
+    "h-imperfect"
+   ],
+   "quote": "The fut. תּבין clothes the admonition in the form of a wish or counsel; the infin. intens. בּין makes it urgent: consider well him whom thou hast before thee, viz., that he is not thine equal, but one higher, who can destroy thee as well as be useful to thee."
+  },
+  {
+   "at": "Prov.28.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 0,
+   "quote": "The perf. נסו denotes that which is uncaused, and yet follows: the godless flee, pursued by the terrible images that arise in their own wicked consciences, even when no external danger threatens."
+  },
+  {
+   "at": "Prov.28.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 6,
+   "quote": "The fut. יבטח denotes that which continually happens: the righteous remains, even where external danger really threatens, bold and courageous, after the manner of a young, vigorous lion, because feeling himself strong in God, and assured of his safety through Him."
+  },
+  {
+   "at": "Prov.31.15",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-then"
+   ],
+   "quote": "The fut. consec. express, if not a logical sequence of connection, yet a close inner binding together of the separate features of the character here described."
+  },
+  {
+   "at": "Prov.31.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "The perf., as a fundamental verbal form, is here the expression of the abstract present: she plants a vineyard, for she purchases vines from the profit of her industry (Isa 7:23, cf. Pro 5:2)."
+  },
+  {
+   "at": "Song.2.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 1,
+   "quote": "With the perf., עד שׁ (cf. אם עד, Gen 24:33) signifies, till something is done; with the fut., till something will be done."
+  },
+  {
+   "at": "Isa.1.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 4,
+   "quote": "The prophet intentionally uses the word יאמר, not אמר: this was the incessant appeal of God in relation to the spiritless, formal worship offered by the hypocritical, ceremonial righteousness of Israel (the future denoting continuous actions, which is ever at the same time both present and future)."
+  },
+  {
+   "at": "Isa.3.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "The two preterites Câs'lah and nâphal express the general fact, which occasioned such scenes of misery as the one just described."
+  },
+  {
+   "at": "Isa.5.13",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 1,
+   "quote": "As the word “therefore” (lâcēn, as in Isa 1:24) introduces the threat of punishment, gâlâh (go into captivity) is a prophetic preterite."
+  },
+  {
+   "at": "Isa.5.25",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "It was certainly a coming judgment, not one already past; for the verbs after “therefore” (‛al - cên), like those after the three previous lâcēn, are all prophetic preterites."
+  },
+  {
+   "at": "Isa.31.1",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "The perfects, שׁעוּ לא and דרשׁוּ לא, are used without any definite time, to denote that which was always wanting in them."
+  },
+  {
+   "at": "Isa.31.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-then"
+   ],
+   "word": 3,
+   "quote": "The fut. consec. ויּבא is used to indicate the inevitable consequence of their despising Him who is also wise."
+  },
+  {
+   "at": "Isa.40.22",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "quote": "The participle brings to view the actions and circumstances of all times."
+  },
+  {
+   "at": "Isa.51.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 9,
+   "quote": "The perfect קראתיו relates the single call of divine grace, which removed Abraham from the midst of idolaters into the fellowship of Jehovah."
+  },
+  {
+   "at": "Isa.59.9",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 6,
+   "quote": "The perfect רחקה denotes a state of things reaching from the past into the present; the future תשּׂיגנוּ a state of things continuing unchangeable in the present."
+  },
+  {
+   "at": "Isa.59.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-then"
+   ],
+   "word": 8,
+   "quote": "What the fut. consec. affirms from ותּושׁע onwards, is not something to come, but something past, as distinguished form the coming events announced from Isa 59:18 onwards."
+  },
+  {
+   "at": "Isa.60.10",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "Of the two perfects in Isa 60:10, הכּיתיך points to the more remote past; רחמתּיך to the nearer past, stretching forward into the present (cf., Isa 54:8)."
+  },
+  {
+   "at": "Jer.5.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect",
+    "h-imperfect"
+   ],
+   "quote": "The change from the perf. הכּם to the imperf. ישׁדדם and יטּרף tells against the future construction, showing as it does that the verbs are used aoristically of chastisements which have partly already taken place, which may be partly yet to come."
+  },
+  {
+   "at": "Jer.6.15",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "The perf. is prophetic, representing the matter as being equally certain as if it had been already realized."
+  },
+  {
+   "at": "Jer.7.9",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive",
+    "h-infinitive-absolute"
+   ],
+   "quote": "The query before the infin. absoll. is the expression of wonder and indignation; and the infinitives are used with special emphasis for the verb. fin.: How? to steal, kill, etc., is your practice, and then ye come...."
+  },
+  {
+   "at": "Jer.13.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-hiphil"
+   ],
+   "word": 5,
+   "quote": "The Hiph. יחשׁך is not used intransitively, either here or in Psa 139:12, but transitively: before He brings or makes darkness; cf. Amo 8:9."
+  },
+  {
+   "at": "Jer.23.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-infinitive-absolute"
+   ],
+   "word": 1,
+   "quote": "The infin. abs. אמור after the verb. fin. intimates the duration or repetition of the thing."
+  },
+  {
+   "at": "Jer.27.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperative"
+   ],
+   "word": 18,
+   "quote": "The imperative וחיוּ intimates the consequence of the preceding command."
+  },
+  {
+   "at": "Jer.32.24",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 6,
+   "quote": "The ramparts of the besieging enemy have come to the city (בּוא with acc.), to take it, and the city is given (נתּנה, prophetic perfect) into the hands of the Chaldeans."
+  },
+  {
+   "at": "Jer.38.23",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 5,
+   "quote": "מוצאים, the participle, is used instead of the finite tense to express the notion of indefinite personality: \"they bring them out.\""
+  },
+  {
+   "at": "Jer.46.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 11,
+   "quote": "The perfects כּשׁלוּ ונפלוּ are prophetic; the stumbling and falling are as certain as if they had already happened."
+  },
+  {
+   "at": "Jer.51.56",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-piel"
+   ],
+   "word": 8,
+   "quote": "The Piel חתּתה has here an intransitive sense, \"to break or shiver into pieces,\" like פּתּח, Isa 48:8; Isa 60:11."
+  },
+  {
+   "at": "Lam.1.12",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-pual"
+   ],
+   "word": 12,
+   "quote": "עולל is passive (Poal): \"which is done to me.\""
+  },
+  {
+   "at": "Ezek.14.21",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 15,
+   "quote": "The perfect שׁלּחתּי is used, and not the imperfect, as in Eze 14:13, because God has actually resolved upon sending it, and does not merely mention it as a possible case."
+  },
+  {
+   "at": "Ezek.15.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 10,
+   "quote": "The preterite היה (which was; not, “is”) may be explained from the idea that the vine had been fetched from the forest in order that its wood might be used."
+  },
+  {
+   "at": "Ezek.16.43",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 16,
+   "quote": "By the perfect נתתּי, on the contrary, the punishment is exhibited as a completed fact, and further reasons are then assigned in vindication of the justice of the divine procedure, which we find in Eze 16:44."
+  },
+  {
+   "at": "Ezek.16.58",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 5,
+   "quote": "The perfect נשׂאתים indicates that the certainty of the punishment is just as great as if it had already commenced."
+  },
+  {
+   "at": "Ezek.21.19",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-piel"
+   ],
+   "quote": "בּרא signifies in the Piel to cut away (Jos 17:15, Jos 17:18), to dig or hew (Eze 23:47), here to engrave written characters in hard material."
+  },
+  {
+   "at": "Ezek.30.21",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "The perfect שׁברתּי in Eze 30:21 is not a prophetic utterance of the certainty of the future, but a pure preterite."
+  },
+  {
+   "at": "Ezek.36.17",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 4,
+   "quote": "In Eze 36:17, ויטמּאוּ is the continuation of the participle ישׁבים; and the participle is expressive of the condition in the past, as we may see from the words 'ואשׁפּך וגו."
+  },
+  {
+   "at": "Dan.2.13",
+   "work": "keil-delitzsch",
+   "terms": [
+    "a-participle"
+   ],
+   "word": 3,
+   "quote": "While it is manifest that the decree was not carried fully out, it is yet clearer from what follows that the participle מתקטּלין does not stand for the preterite, but has the meaning: the work of putting to death was begun."
+  },
+  {
+   "at": "Dan.4.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "a-perfect"
+   ],
+   "word": 0,
+   "quote": "The perf. רבה and תּקיף express not its condition, but its increasing greatness and strength."
+  },
+  {
+   "at": "Dan.4.31",
+   "work": "keil-delitzsch",
+   "terms": [
+    "a-perfect"
+   ],
+   "word": 13,
+   "quote": "The perf. עדּת denotes the matter as finished."
+  },
+  {
+   "at": "Dan.5.26",
+   "work": "keil-delitzsch",
+   "terms": [
+    "a-perfect"
+   ],
+   "quote": "Daniel accordingly interprets מנא thus: God has numbered (מנה for מנא, perf. act.) thy kingdom, i.e., its duration or its days, והשׁלמהּ, and has finished it, i.e., its duration is so counted out that it is full, that it now comes to an end."
+  },
+  {
+   "at": "Dan.11.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-jussive"
+   ],
+   "word": 0,
+   "quote": "With ויעשׂ the jussive appears instead of the future - cf. וישׂם, יתּן (Dan 11:17), ישׁב (Dan 11:18 and Dan 11:19) - to show that the further actions and undertakings of the king of the north are carried on under the divine decree."
+  },
+  {
+   "at": "Dan.11.36",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 19,
+   "quote": "The perf. נעשׂתה does not stand for the imperf. because it is decreed, but in its proper meaning, according to which it represents the matter as finished, settled."
+  },
+  {
+   "at": "Hos.4.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "quote": "The perfects, pârâtsū and nâgâ‛ū, are not preterites, but express a completed act, reaching from the past into the present."
+  },
+  {
+   "at": "Hos.5.9",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "By the perfect הודעתּי, what is here proclaimed is represented as a completed event, which will not be altered."
+  },
+  {
+   "at": "Hos.5.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "quote": "By the participles ‛âshūq and râtsūts, the calamity is represented as a lasting condition, which the prophet saw in the spirit as having already begun."
+  },
+  {
+   "at": "Hos.9.6",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 2,
+   "quote": "The perfect הלכוּ (Exo 34:6) may be explained from the fact, that the prophet saw in spirit the people already banished from the land of the Lord."
+  },
+  {
+   "at": "Hos.10.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 6,
+   "quote": "עברתּי על, a prophetic perfect: I come over the neck, used in a hostile sense, and answering to our “rushing in upon a person.”"
+  },
+  {
+   "at": "Hos.12.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 5,
+   "quote": "The perfect היוּ is used for the certain future."
+  },
+  {
+   "at": "Hos.13.7",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 7,
+   "quote": "The punishment has already begun, and will still continue; we have therefore from אשׁוּר onwards imperfects or futures."
+  },
+  {
+   "at": "Mic.7.4",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "The perfect בּאה is prophetic of the future, which is as certain as if it were already there."
+  },
+  {
+   "at": "Mic.7.14",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperative",
+    "h-imperfect"
+   ],
+   "quote": "ירעוּ, which follows, is not future, but optative, corresponding to the imperative רעה."
+  },
+  {
+   "at": "Hab.1.5",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-participle"
+   ],
+   "word": 7,
+   "quote": "The participle פּעל denotes that which is immediately at hand, and is used absolutely, without a pronoun."
+  },
+  {
+   "at": "Hab.3.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 2,
+   "quote": "As Moses depicts the appearance of the Lord at Sinai as a light shining from Seir and Paran, so does Habakkuk also make the Holy One appears thence in His glory; but apart from other differences, he changes the preterite בּא (Jehovah came from Sinai) into the future יבוא, He will come, or comes, to indicate at the very outset that he is about to describe not a past, but a future revelation of the glory of the Lord."
+  },
+  {
+   "at": "Hab.3.3",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-imperfect"
+   ],
+   "word": 2,
+   "quote": "This he sees in the form of a theophany, which is fulfilled before his mental eye; hence יבוא does not describe what is future, as being absolutely so, but is something progressively unfolding itself from the present onwards, which we should express by the present tense."
+  },
+  {
+   "at": "Zeph.3.11",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "The perfect אשׁר פּשׁעתּ does indeed point to the sins of former times; not to the recollection of them, however, but to the commission of them."
+  },
+  {
+   "at": "Zech.1.16",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 4,
+   "quote": "The perfect שׁבתּי is not purely prophetic, but describes the event as having already commenced, and as still continuing."
+  },
+  {
+   "at": "Zech.9.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 12,
+   "quote": "‛Attâh (now) refers to the ideal present of the prophecy, really to the time when God interposes with His help; and the perfect ראיתי is prophetic."
+  },
+  {
+   "at": "Zech.10.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 4,
+   "quote": "The perfect פּדיתים is prophetic, like רחמתּים in Zec 10:6."
+  },
+  {
+   "at": "Zech.10.8",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 7,
+   "quote": "The perfect כּמו רבוּ points to the increase which Israel experienced in the olden time under the oppression of Egypt (Exo 1:7, Exo 1:12)."
+  },
+  {
+   "at": "Mal.2.2",
+   "work": "keil-delitzsch",
+   "terms": [
+    "h-perfect"
+   ],
+   "word": 22,
+   "quote": "וגם ארותיה is not a simple, emphatic repetition, but ארותי is a perfect, which affirms that the curse has already taken effect."
+  },
+  {
+   "at": "Matt.3.17",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 16,
+   "quote": "my beloved Son, in whom I am well pleased--The verb is put in the aorist to express absolute complacency, once and for ever felt towards Him."
+  },
+  {
+   "at": "Matt.27.63",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "I will rise again--\"I rise,\" in the present tense, thus reporting not only the fact that this prediction of His had reached their ears, but that they understood Him to look forward confidently to its occurring on the very day named."
+  },
+  {
+   "at": "Mark.9.31",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "word": 13,
+   "quote": "The Son of man is delivered--The use of the present tense expresses how near at hand He would have them to consider it."
+  },
+  {
+   "at": "Luke.1.19",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 10,
+   "quote": "The Greek participle, παρεστηκὼς, (standing,) is in the past tense, but everybody knows that the past tense of such verbs is often taken for the present, and particularly when a continued act is expressed."
+  },
+  {
+   "at": "Luke.7.47",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The verb, which is in the present tense, must, no doubt, be resolved into a preterite."
+  },
+  {
+   "at": "John.1.15",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "word": 1,
+   "quote": "By using the verb testifieth (μαρτυρεῖ) in the present tense, he denotes a continued act, and certainly this doctrine must be continually in force, as if the voice of John were continually resounding in the ears of men."
+  },
+  {
+   "at": "John.1.29",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "word": 18,
+   "quote": "Nor do I dislike the remark of Chrysostom, that the verb in the present tense — ὁ αἴρων, who taketh away, denotes a continued act; for the satisfaction which Christ once made is always in full vigor."
+  },
+  {
+   "at": "John.2.19",
+   "work": "barnes",
+   "terms": [
+    "g-imperative"
+   ],
+   "word": 6,
+   "quote": "The word destroy, used here in the imperative, has rather the force of the future."
+  },
+  {
+   "at": "John.3.18",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The present tense — is not condemned — is here used instead of the future tense — shall not be condemned — according to the custom of the Hebrew language; for he means that believers are safe from the fear of condemnation."
+  },
+  {
+   "at": "John.3.34",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The verb in the present tense — giveth — denotes, as it were, a continued act; for though Christ was all at once endued with the Spirit in the highest perfection, yet, as he continually flows, as it were, from a source, and is widely diffused, there is no impropriety in saying that Christ now receives him from the Father."
+  },
+  {
+   "at": "John.4.21",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "He uses the present tense instead of the future; but the meaning is, that the repeal of the Law is already at hand, so far as relates to the Temple, and Priesthood, and other outward ceremonies."
+  },
+  {
+   "at": "John.7.34",
+   "work": "barnes",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "This whole clause is to be understood as future, though the words \"am\" and \"cannot\" are both in the present tense."
+  },
+  {
+   "at": "John.7.34",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "In these words, where I am, you cannot come, he employs the present tense instead of the future, where I shall be, you shall not be able to come"
+  },
+  {
+   "at": "John.8.58",
+   "work": "barnes",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The expression I am, though in the present tense, is clearly designed to refer to a past time."
+  },
+  {
+   "at": "John.8.58",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "Nor do I disapprove of the opinion of Chrysostom, that the present tense of the verb is emphatic; for he does not say, I was, but I am; by which he denotes a condition uniformly the same from the beginning to the end."
+  },
+  {
+   "at": "John.10.16",
+   "work": "barnes",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The purpose was so sure, and the fact that they would believe on him so certain, that he could use the present tense as if they were already his own."
+  },
+  {
+   "at": "John.12.26",
+   "work": "calvin",
+   "terms": [
+    "g-future"
+   ],
+   "word": 16,
+   "quote": "The future tense, shall be, (ἔσται) is put for let him be, according to the custom of the Hebrew language."
+  },
+  {
+   "at": "John.12.34",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "Under the term the Law they embrace also the Prophets, and the present tense — remaineth — -is used, agreeably to the Hebrew idiom, instead of the future tense, will remain"
+  },
+  {
+   "at": "Acts.1.2",
+   "work": "barnes",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 3,
+   "quote": "The single word which is translated \"had given commandments\" is a participle, and means simply having commanded."
+  },
+  {
+   "at": "Acts.16.10",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 11,
+   "quote": "The termination of the participle which is here used is active; and though it have divers significations, I do not doubt but that Luke’s meaning is, that Paul and the rest, after that they had conferred [compared] this vision with the former oracles, were fully persuaded that the Lord had called them into Macedonia."
+  },
+  {
+   "at": "Rom.6.5",
+   "work": "jfb",
+   "terms": [
+    "g-future"
+   ],
+   "word": 13,
+   "quote": "The future tense is used of participation in His resurrection, because this is but partially realized in the present state."
+  },
+  {
+   "at": "Rom.7.14",
+   "work": "barnes",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The present tense shows that he is describing himself as he was at the time of writing."
+  },
+  {
+   "at": "Rom.9.20",
+   "work": "calvin",
+   "terms": [
+    "g-participle",
+    "g-present"
+   ],
+   "quote": "But, O man! who art thou? etc. As it is a participle in Greek, we may read what follows in the present tense, who disputest, or contendest, or strivest in opposition to God; for it is expressed in Greek according to this meaning, — “Who art thou who enterest into a dispute with God?”"
+  },
+  {
+   "at": "1Cor.1.7",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 7,
+   "quote": "The participle waiting I understand in this sense, “In the meantime while you are waiting.”"
+  },
+  {
+   "at": "1Cor.6.3",
+   "work": "calvin",
+   "terms": [
+    "g-future"
+   ],
+   "word": 4,
+   "quote": "As, however, Paul speaks here in the future tense, as referring to the last day, and as his words convey the idea of an actual judgment, (as the common expression is,) it were preferable, in my opinion, to understand him as speaking of apostate angels."
+  },
+  {
+   "at": "1Cor.6.11",
+   "work": "jfb",
+   "terms": [
+    "g-middle"
+   ],
+   "word": 5,
+   "quote": "ye are washed--The Greek middle voice expresses, \"Ye have had yourselves washed.\""
+  },
+  {
+   "at": "1Cor.9.7",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "It is the present tense that is used as meaning — is accustomed to go a warfare."
+  },
+  {
+   "at": "1Cor.15.11",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "word": 6,
+   "quote": "For the verb κηρύσσομεν (we preach) is in the present tense — intimating a continued act, or perseverance in teaching."
+  },
+  {
+   "at": "2Cor.5.19",
+   "work": "jfb",
+   "terms": [
+    "g-imperfect",
+    "g-participle"
+   ],
+   "quote": "The compound of \"was\" and the participle \"reconciling,\" instead of the imperfect (Greek), may also imply the continuous purpose of God, from before the foundation of the world, to reconcile man to Himself, whose fall was foreseen."
+  },
+  {
+   "at": "Gal.1.6",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "By using the present tense, (“ye are removed”) he appears to say that they were only in the act of failing."
+  },
+  {
+   "at": "Gal.2.4",
+   "work": "jfb",
+   "terms": [
+    "g-future"
+   ],
+   "word": 18,
+   "quote": "bring us into bondage--The Greek future implies the certainty and continuance of the bondage as the result."
+  },
+  {
+   "at": "Gal.2.11",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 11,
+   "quote": "The Greek participle, κατεγνωσμένος, signifies Blamed, so that the words run, “because he was blamed;” but I have no doubt whatever, that the word was intended to express, “one who deserves just blame.”"
+  },
+  {
+   "at": "Gal.2.11",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 11,
+   "quote": "It was customary with the Greeks to give to their participles the signification of nouns, which, every person must see, is applicable to this passage."
+  },
+  {
+   "at": "Gal.4.6",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 16,
+   "quote": "This participle, I think, is used in order to express greater boldness."
+  },
+  {
+   "at": "Gal.6.16",
+   "work": "calvin",
+   "terms": [
+    "g-future"
+   ],
+   "word": 5,
+   "quote": "The future tense of the verb, (ὅσοι στοιχήσουσιν,) as many as shall walk, is intended to express perseverance."
+  },
+  {
+   "at": "Eph.2.20",
+   "work": "jfb",
+   "terms": [
+    "g-participle"
+   ],
+   "quote": "Translate as Greek, \"Built up upon,\" &c. (participle; having been built up upon; omit, therefore, \"and are\")."
+  },
+  {
+   "at": "Eph.4.24",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "after God, &c.--Translate, \"Which hath been created (once for all: so the Greek aorist means: in Christ, Ep 2:10; so that in each believer it has not to be created again, but to be put on) after (the image of) God\" (Ge 1:27; Col 3:10; 1Pe 1:15), &c."
+  },
+  {
+   "at": "Eph.5.6",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "If we consider the present tense to be here used, agreeably to the Hebrew idiom, for the future, these words are a threatening of the last judgment."
+  },
+  {
+   "at": "Eph.5.26",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 3,
+   "quote": "The Greek participle καθαρίσας, is in the past tense, as if he had said, “After having washed.”"
+  },
+  {
+   "at": "Col.2.6",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 2,
+   "quote": "\"As therefore ye received (once for all; the aorist tense; from Epaphras) Jesus the Christ as your Lord (compare 1Co 12:3; 2Co 4:5; Php 3:8), so walk in Him.\""
+  },
+  {
+   "at": "Col.2.12",
+   "work": "jfb",
+   "terms": [
+    "g-participle"
+   ],
+   "quote": "The past participle is here coincident in time with the preceding verb, \"ye were (Greek) circumcised.\""
+  },
+  {
+   "at": "Col.3.3",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 0,
+   "quote": "The Greek aorist tense implies, \"For ye have died once for all\" (Col 2:12; Ro 6:4-7)."
+  },
+  {
+   "at": "1Thess.4.15",
+   "work": "calvin",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "When, however, he says, we that are alive, he makes use of the present tense instead of the future, in accordance with the Hebrew idiom."
+  },
+  {
+   "at": "1Thess.5.27",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 4,
+   "quote": "The Greek aorist tense implies a single act done at a particular time."
+  },
+  {
+   "at": "2Thess.2.7",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 9,
+   "quote": "While he makes both statements in reference to one person — that he will hold supremacy for a time, and that he will shortly be taken out of the way, I have no doubt that he refers to Antichrist; and the participle withholding must be explained in the future tense."
+  },
+  {
+   "at": "2Thess.3.10",
+   "work": "jfb",
+   "terms": [
+    "g-imperfect"
+   ],
+   "quote": "commanded--Greek imperfect, \"We were commanding\"; we kept charge of you."
+  },
+  {
+   "at": "1Tim.1.9",
+   "work": "barnes",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 0,
+   "quote": "The apostle does not refer particularly to himself as knowing or conceding this, for then he would have used the plural form of the participle, (see the Greek;) but he means that any one, who had just views of the law, would see that that which he proceeds to specify was its real purpose."
+  },
+  {
+   "at": "1Tim.3.13",
+   "work": "jfb",
+   "terms": [
+    "g-aorist",
+    "g-participle"
+   ],
+   "word": 3,
+   "quote": "Then the past aorist participle, \"they that used the office of deacon well,\" implies that the present verb, \"are acquiring to themselves boldness,\" is the result of the completed action of using the diaconate well."
+  },
+  {
+   "at": "1Tim.5.5",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "trusteth in God--perfect tense in Greek, \"hath rested, and doth rest her hope in God.\""
+  },
+  {
+   "at": "2Tim.2.8",
+   "work": "jfb",
+   "terms": [
+    "g-participle",
+    "g-perfect"
+   ],
+   "word": 3,
+   "quote": "The Greek perfect passive participle, implies a permanent character acquired by Jesus as the risen Saviour, and our permanent interest in Him as such."
+  },
+  {
+   "at": "2Tim.2.11",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 5,
+   "quote": "For--\"For\" the fact is so that, \"if we be dead with Him (the Greek aorist tense implies a state once for all entered into in past times at the moment of regeneration, Ro 6:3, 4, 8; Col 2:12), we shall also live with Him.\""
+  },
+  {
+   "at": "Titus.2.12",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The Greek aorist expresses \"denying once for all.\""
+  },
+  {
+   "at": "Heb.1.14",
+   "work": "jfb",
+   "terms": [
+    "g-participle",
+    "g-present"
+   ],
+   "quote": "sent forth--present participle: \"being sent forth\" continually, as their regular service in all ages."
+  },
+  {
+   "at": "Heb.2.16",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "took not on him, &c.--rather, \"It is not angels that He is helping (the present tense implies duration); but it is the seed of Abraham that He is helping.\""
+  },
+  {
+   "at": "Heb.4.10",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "hath ceased--The Greek aorist is used of indefinite time, \"is wont to cease,\" or rather, \"rest\": rests."
+  },
+  {
+   "at": "Heb.4.13",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "word": 11,
+   "quote": "The Greek perfect tense implies that this is our continuous state in relation to God."
+  },
+  {
+   "at": "Heb.5.2",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 1,
+   "quote": "The participle, δυνάμενος is more forcible than in our common tongue, qui possit, “who can,” for it expresses aptness or fitness."
+  },
+  {
+   "at": "Heb.7.6",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "The perfect tense implies that the significance of the fact endures to the present time."
+  },
+  {
+   "at": "Heb.7.13",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "pertaineth--Greek, \"hath partaken of\" (the perfect tense implies the continuance still of His manhood)."
+  },
+  {
+   "at": "Heb.9.16",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 7,
+   "quote": "But the expression is not \"there must be the death of both parties making the covenant,\" but singular, \"of Him who made (aorist, past time; not 'of Him making') the testament.\""
+  },
+  {
+   "at": "Heb.9.16",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 7,
+   "quote": "Plainly, the death is supposed to be past (aorist, \"made\"); and the fact of the death is brought (Greek) before court to give effect to the will."
+  },
+  {
+   "at": "Heb.10.32",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "word": 0,
+   "quote": "call to remembrance--habitually: so the present tense means."
+  },
+  {
+   "at": "Heb.10.38",
+   "work": "calvin",
+   "terms": [
+    "g-future"
+   ],
+   "word": 6,
+   "quote": "And the future tense of the verb live, betokens the perpetuity of this life."
+  },
+  {
+   "at": "Heb.11.5",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "had this testimony--namely of Scripture; the Greek perfect implies that this testimony continues still: \"he has been testified of.\""
+  },
+  {
+   "at": "Heb.11.6",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "to please--Translate, as Alford does, the Greek aorist, \"It is impossible to please God at all\" (Ro 8:8)."
+  },
+  {
+   "at": "Heb.11.6",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "must believe--once for all: Greek aorist tense."
+  },
+  {
+   "at": "Jas.5.6",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "Ye have condemned ... the just--The Greek aorist expresses, \"Ye are accustomed to condemn ... the just.\""
+  },
+  {
+   "at": "1Pet.1.4",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "word": 7,
+   "quote": "reserved--kept up (Col 1:5, \"laid up for you in heaven,\" 2Ti 4:8); Greek perfect, expressing a fixed and abiding state, \"which has been and is reserved.\""
+  },
+  {
+   "at": "1Pet.1.7",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 14,
+   "quote": "That your faith so proved \"may be found (aorist; once for all, as the result of its being proved on the judgment-day) unto (eventuating in) praise,\" &c., namely, the praise to be bestowed by the Judge."
+  },
+  {
+   "at": "1Pet.1.22",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 3,
+   "quote": "The participle is indeed in the past tense, but it may be rendered as a gerund, “By purifying, etc.” The meaning is, that their souls would not be capable of receiving grace until they were purified, and by this our uncleanness is proved."
+  },
+  {
+   "at": "1Pet.1.24",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "withereth--Greek, aorist: literally, \"withered,\" that is, is withered as a thing of the past."
+  },
+  {
+   "at": "1Pet.2.1",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 0,
+   "quote": "laying aside--once for all: so the Greek aorist expresses as a garment put off."
+  },
+  {
+   "at": "1Pet.2.4",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "coming--drawing near (same Greek as here, He 10:22) by faith continually; present tense: not having come once for all at conversion."
+  },
+  {
+   "at": "1Pet.2.17",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "The second is in the present tense, implying, Habitually and continually honor the king."
+  },
+  {
+   "at": "1Pet.2.18",
+   "work": "jfb",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 2,
+   "quote": "be subject--Greek, \"being subject\": the participle expresses a particular instance of the general exhortation to good conduct, 1Pe 2:11, 12, of which the first particular precept is given 1Pe 2:13, \"Submit yourselves to every ordinance of man for the Lord's sake.\""
+  },
+  {
+   "at": "1Pet.3.18",
+   "work": "jfb",
+   "terms": [
+    "g-participle"
+   ],
+   "quote": "The Greek participle expresses the reason of His preaching, \"inasmuch as they were sometime disobedient\" (compare 1Pe 4:6)."
+  },
+  {
+   "at": "1Pet.5.7",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 4,
+   "quote": "Casting--once for all: so the Greek aorist."
+  },
+  {
+   "at": "2Pet.1.5",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 6,
+   "quote": "He intimates that no place is to be given in this case to sloth, and that we ought to obey God calling us, not slowly or carelessly, but that there is need of alacrity; as though he had said, “Put forth every effort, and make your exertions manifest to all.” — For this is what the participle he uses imports."
+  },
+  {
+   "at": "2Pet.1.17",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "I am--Greek aorist, past time, \"My good pleasure rested from eternity.\""
+  },
+  {
+   "at": "2Pet.2.9",
+   "work": "calvin",
+   "terms": [
+    "g-participle",
+    "g-present"
+   ],
+   "word": 11,
+   "quote": "The participle κολαζομένους, though in the present tense, is yet to be thus explained, that they are reserved or kept to be punished, or, that they may be punished."
+  },
+  {
+   "at": "2Pet.3.11",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "shall be--Greek, \"are being (in God's appointment, soon to be fulfilled) dissolved\"; the present tense implying the certainty as though it were actually present."
+  },
+  {
+   "at": "2Pet.3.12",
+   "work": "calvin",
+   "terms": [
+    "g-participle"
+   ],
+   "quote": "Looking for and hasting unto, or, waiting for by hastening; so I render the words, though they are two participles; for what we had before separately he gathers now into one sentence, that is, that we ought hastily to wait."
+  },
+  {
+   "at": "2Pet.3.15",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "hath written--Greek aorist, \"wrote,\" as a thing wholly past: Paul was by this time either dead, or had ceased to minister to them."
+  },
+  {
+   "at": "1John.1.1",
+   "work": "jfb",
+   "terms": [
+    "g-aorist",
+    "g-perfect"
+   ],
+   "quote": "\"Have heard ... have seen\" (perfect tenses), as a possession still abiding with us; but in Greek (not as English Version \"have,\" but simply) \"looked upon\" (not perfect tense, as of a continuing thing, but aorist, past time) while Christ the incarnate Word was still with us."
+  },
+  {
+   "at": "1John.1.7",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "He is speaking not of justification through His blood once for all, but of the present sanctification (\"cleanseth\" is present tense) which the believer, walking in the light and having fellowship with God and the saints, enjoys as His privilege."
+  },
+  {
+   "at": "1John.2.3",
+   "work": "jfb",
+   "terms": [
+    "g-perfect",
+    "g-present"
+   ],
+   "quote": "\"It is herein,\" and herein only, that we know (present tense) that we have knowledge of (perfect tense, once-for-all obtained and continuing knowledge of) Him\" (1Jo 2:4, 13, 14)."
+  },
+  {
+   "at": "1John.2.13",
+   "work": "barnes",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "If he fixed his attention on the fact that he was actually writing, and on the reasons why he wrote, he would express himself in the present tense-- I write; if on the previous purpose, or the reasons which induced him to write at all, he would use the past tense--I have written for such and such reasons."
+  },
+  {
+   "at": "1John.3.2",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "doth not yet appear--Greek, \"it hath not yet ('at any time,' Greek aorist) been visibly manifested what we shall be\"--what further glory we shall attain by virtue of this our sonship."
+  },
+  {
+   "at": "1John.3.5",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "Additional proof of the incompatibility of sin and sonship; the very object of Christ's manifestation in the flesh was to take away (by one act, and entirely, aorist) all sins, as the scapegoat did typically."
+  },
+  {
+   "at": "1John.3.6",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "whosoever sinneth hath not seen him--Greek perfect, \"has not seen, and does not see Him.\""
+  },
+  {
+   "at": "1John.4.8",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 4,
+   "quote": "knoweth not--Greek aorist: not only knoweth not now, but never knew, has not once for all known God."
+  },
+  {
+   "at": "1John.4.10",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The Greek aorist expresses, Not that we did any act of love at any time to God, but that He did the act of love to us in sending Christ."
+  },
+  {
+   "at": "1John.4.14",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "sent--Greek, \"hath sent\": not an entirely past fact (aorist), but one of which the effects continue (perfect tense)."
+  },
+  {
+   "at": "1John.4.15",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 2,
+   "quote": "shall confess--once for all: so the Greek aorist means."
+  },
+  {
+   "at": "1John.4.19",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 6,
+   "quote": "Translate, We (emphatical: WE on our part) love (in general: love alike Him, and the brethren, and our fellow men), because He (emphatical: answering to \"we\"; because it was He who) first loved us in sending His Son (Greek aorist of a definite act at a point of time)."
+  },
+  {
+   "at": "1John.5.4",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 16,
+   "quote": "this is the victory that overcometh--Greek aorist, \"... that hath (already) overcome the world\": the victory (where faith is) hereby is implied as having been already obtained (1Jo 2:13; 4:4)."
+  },
+  {
+   "at": "1John.5.7",
+   "work": "wesley",
+   "terms": [
+    "g-participle"
+   ],
+   "word": 4,
+   "quote": "The participle is put for the noun witnesses, to intimate that the act of testifying, and the effect of it, are continually present."
+  },
+  {
+   "at": "1John.5.11",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 8,
+   "quote": "hath given--Greek, aorist: \"gave\" once for all."
+  },
+  {
+   "at": "1John.5.16",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "If any ... see--on any particular occasion; Greek aorist."
+  },
+  {
+   "at": "1John.5.18",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 12,
+   "quote": "he that is begotten--Greek aorist, \"has been (once for all in past time) begotten of God\"; in the beginning of the verse it is perfect."
+  },
+  {
+   "at": "2John.1.7",
+   "work": "jfb",
+   "terms": [
+    "g-participle",
+    "g-present"
+   ],
+   "quote": "I think the Greek present participle implies both the first and the second advent of Christ."
+  },
+  {
+   "at": "Jude.1.1",
+   "work": "jfb",
+   "terms": [
+    "g-participle",
+    "g-perfect"
+   ],
+   "quote": "\"Kept continually (so the Greek perfect participle means) by God the Father for Jesus Christ,\" against the day of His coming."
+  },
+  {
+   "at": "Jude.1.3",
+   "work": "jfb",
+   "terms": [
+    "g-aorist",
+    "g-infinitive",
+    "g-present"
+   ],
+   "quote": "it was needful for me--rather, \"I felt it necessary to write (now at once; so the Greek aorist means; the present infinitive 'to write,' which precedes, expresses merely the general fact of writing) exhorting you.\""
+  },
+  {
+   "at": "Rev.2.22",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 16,
+   "quote": "except they repent--Greek aorist, \"repent\" at once; shall have repented by the time limited in My purpose."
+  },
+  {
+   "at": "Rev.3.3",
+   "work": "jfb",
+   "terms": [
+    "g-perfect"
+   ],
+   "quote": "The Greek is not aorist (as in Re 2:4, as to Ephesus, \"Thou didst leave thy first love\"), but \"thou hast received\" (perfect), and still hast the permanent deposit of doctrine committed to thee."
+  },
+  {
+   "at": "Rev.3.3",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "heard--Greek aorist, \"didst hear,\" namely, when the Gospel doctrine was committed to thee."
+  },
+  {
+   "at": "Rev.3.8",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "quote": "The Greek verbs are in the aorist tense: \"Thou didst keep ... didst not deny My name\": alluding to some particular occasion when her faithfulness was put to the test."
+  },
+  {
+   "at": "Rev.3.19",
+   "work": "jfb",
+   "terms": [
+    "g-aorist"
+   ],
+   "word": 10,
+   "quote": "repent--Greek aorist: of an act to be once for all done, and done at once."
+  },
+  {
+   "at": "Rev.12.4",
+   "work": "jfb",
+   "terms": [
+    "g-present"
+   ],
+   "quote": "drew--Greek, present tense, \"draweth,\" \"drags down.\""
+  }
+ ]
+}
