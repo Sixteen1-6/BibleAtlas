@@ -1,0 +1,64 @@
+/* Seen in the words. Every class starts with x-seen-. It shares the figures'
+   violet (--x-figures-*), since these are figures too; the marked words carry
+   a solid underline as well as a tint, so the meaning never rests on colour. */
+
+.xt-line[data-x='seen'] .xt-words::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border: 1.5px solid var(--x-figures-ink);
+  border-radius: 50%;
+  vertical-align: 1px;
+}
+
+.x-seen-intro {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.x-seen-verses {
+  margin: 4px 0 10px;
+}
+.x-seen-verse {
+  margin: 0 0 6px;
+}
+.x-seen-ref {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: 600 11px var(--font-ui);
+  color: var(--muted);
+  cursor: pointer;
+}
+.x-seen-ref:hover {
+  color: var(--x-figures-ink);
+}
+.x-seen-text,
+.x-seen-lines {
+  margin: 2px 0 0;
+  font-family: var(--font-read);
+  font-size: 16px;
+  line-height: 1.75;
+}
+.x-seen-lines {
+  padding: 0;
+  list-style: none;
+}
+.x-seen-lines li {
+  padding-left: 12px;
+  border-left: 2px solid var(--x-figures-ink);
+}
+.x-seen-lines li + li {
+  margin-top: 2px;
+}
+.x-seen-mark {
+  padding: 0 1px;
+  border-radius: 3px;
+  background: var(--x-figures-tint);
+  color: inherit;
+  text-decoration: underline var(--x-figures-ink) 2px;
+  text-underline-offset: 4px;
+}

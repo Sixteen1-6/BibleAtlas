@@ -29,6 +29,16 @@
       "id": "foil",
       "label": "Set side by side",
       "about": "Two people, often chapters or books apart, are set side by side, and each shows up the other."
+    },
+    {
+      "id": "insert",
+      "label": "One story inside another",
+      "about": "One account breaks off, another is told inside it, and then the first goes on, so each sheds light on the other."
+    },
+    {
+      "id": "echo",
+      "label": "The end answers the beginning",
+      "about": "A later place or time answers an earlier one, often books apart, so the reader sees the first again in the last."
     }
   ],
   "structures": [
@@ -1606,6 +1616,348 @@
           "quote": "an introverted parallelism: the last member here answering to the first, and the third to the second … e. and e. are hortatory, f. and f. didactic. … In e. and e. the Apostle exhorts the Thessalonians to the performance of various duties, and in f. and f. he instructs them on two points upon which it was necessary that they should be rightly informed.",
           "read": "the 1824 printing, in the scan at archive.org/details/tactica-sacra",
           "retrieved": "2026-11-07"
+        }
+      ]
+    },
+    {
+      "id": "genesis-account-headings",
+      "kind": "refrain",
+      "ref": "Genesis 2:4-37:2",
+      "strength": "commonly held",
+      "short": "Genesis turns each new part on one heading",
+      "about": "Again and again a new part of Genesis opens with the same words, This is the account of, and the book moves on from one family to the next.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Genesis 2:4",
+          "words": "This is the account of the heavens and the earth",
+          "tie": "This is the"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 5:1",
+          "words": "This is the book of the generations of Adam"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 6:9",
+          "words": "This is the account of Noah"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 10:1",
+          "words": "This is the account of Noah’s sons Shem, Ham, and Japheth"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 11:10",
+          "words": "This is the account of Shem"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 11:27",
+          "words": "This is the account of Terah"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 25:12",
+          "words": "This is the account of Abraham’s son Ishmael"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 25:19",
+          "words": "This is the account of Abraham’s son Isaac"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 36:1",
+          "words": "This is the account of Esau (that is, Edom)"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 36:9",
+          "words": "This is the account of Esau, the father of the Edomites"
+        },
+        {
+          "mark": "R",
+          "ref": "Genesis 37:2",
+          "words": "This is the account of Jacob"
+        }
+      ],
+      "evidence": "Keil: the heading of Terah belongs to the whole account of Abram that follows, as the headings of Ishmael and Isaac do. Murphy: the customary phrase marks the start of a new part.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 11:27",
+          "quote": "The heading, \"These are the generations of Terah,\" belongs not merely to Gen 11:27-32, but to the whole of the following account of Abram, since it corresponds to \"the generations\" of Ishmael and of Isaac in Gen 25:12 and Gen 25:19.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "barnes",
+          "on": "Genesis 11:27",
+          "quote": "This passage forms the commencement of the sixth document, as is indicated by the customary phrase, \"These are the generations.\"",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "psalms-book-doxologies",
+      "kind": "refrain",
+      "ref": "Psalm 41:13-106:48",
+      "strength": "widely agreed",
+      "short": "Each book of the Psalms ends in a blessing",
+      "about": "The first four books of the Psalms each close on the same blessing of the LORD, so the reader can hear where one book ends and the next begins.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Psalm 41:13",
+          "words": "Blessed be the LORD, the God of Israel, from everlasting to everlasting. Amen and Amen.",
+          "tie": "Blessed be the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 72:18",
+          "words": "Blessed be the LORD God, the God of Israel"
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 89:52",
+          "words": "Blessed be the LORD forever! Amen and amen."
+        },
+        {
+          "mark": "R",
+          "ref": "Psalm 106:48",
+          "words": "Blessed be the LORD, the God of Israel, from everlasting to everlasting."
+        }
+      ],
+      "evidence": "Fausset: with this doxology the first book closes. Delitzsch: the closing blessing of the Second Book, fuller than that of the First. Clarke: here ends the first of the five books of the Psalms.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Psalm 41:13",
+          "quote": "With this doxology the first book closes.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Psalm 72:18",
+          "quote": "Closing Beracha of the Second Book of the Psalter. It is more full-toned than that of the First Book",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "clarke",
+          "on": "Psalm 41:13",
+          "quote": "Thus ends what the Hebrews call the first book of Psalms; for the reader will recollect that this book is divided by the Jews into five books, the first of which ends with this Psalm.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "judges-did-evil",
+      "kind": "refrain",
+      "ref": "Judges 2:11-13:1",
+      "strength": "some interpreters",
+      "short": "Judges comes back again and again to one sin",
+      "about": "Each new turn of the book of Judges begins with the same words, that the Israelites did evil in the sight of the LORD, and each time trouble follows.",
+      "members": [
+        {
+          "mark": "R",
+          "ref": "Judges 2:11",
+          "words": "And the Israelites did evil in the sight of the LORD",
+          "tie": "did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 3:7",
+          "words": "So the Israelites did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 3:12",
+          "words": "Once again the Israelites did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 4:1",
+          "words": "the Israelites again did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 6:1",
+          "words": "Again the Israelites did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 10:6",
+          "words": "And again the Israelites did evil in the sight of the LORD"
+        },
+        {
+          "mark": "R",
+          "ref": "Judges 13:1",
+          "words": "Again the Israelites did evil in the sight of the LORD"
+        }
+      ],
+      "evidence": "Hervey, in Barnes' Notes: the phrase comes seven times in Judges, for the seven turnings away and the seven servitudes, and its return marks one writer and one book.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Judges 2:11",
+          "quote": "It occurs seven times in Judges, as descriptive of the seven apostasies of Israel, which drew down upon them the seven servitudes under (1) Chushan-Rishathaim, (2) Eglon, (3) Jabin, (4) Midian, (5) the tyranny of Abimelech, (6) the Ammonites, (7) the Philistines. The recurrence of the phrase marks the hand of one author and of one book.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "eden-and-new-jerusalem",
+      "kind": "echo",
+      "strength": "widely agreed",
+      "short": "The garden at the start, the city at the end",
+      "about": "The Bible opens with a garden and the tree of life, and it ends with a city where the tree of life stands again.",
+      "sides": [
+        {
+          "who": "Eden",
+          "label": "The first garden",
+          "refs": [
+            "Genesis 2:8-9"
+          ],
+          "words": [
+            "the LORD God planted a garden in Eden",
+            "in the middle of the garden were the tree of life"
+          ]
+        },
+        {
+          "who": "the new Jerusalem",
+          "label": "The holy city",
+          "refs": [
+            "Revelation 21:2",
+            "Revelation 22:1-2"
+          ],
+          "words": [
+            "the holy city, the new Jerusalem",
+            "On either side of the river stood a tree of life"
+          ]
+        }
+      ],
+      "evidence": "Fausset: as in the beginning Adam and Eve were in Paradise, so at the close the second Adam appears with his Bride. Barnes: the new Paradise stands in contrast with the one where Adam was placed. Tong, in Matthew Henry's commentary: another paradise restored by the second Adam. Clarke: the tree of life alludes to Genesis 2:9.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "jfb",
+          "on": "Revelation 22:1-5",
+          "quote": "How striking it is that, as in the beginning we found Adam and Eve, his bride, in innocence m Paradise, then tempted by the serpent, and driven from the tree of life",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "barnes",
+          "on": "Revelation 22:2",
+          "quote": "this new Paradise stands in strong contrast with that in which Adam was placed at his creation, where there seems to have been a single tree that was designated as the tree of life, Gen 3:22-23.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "henry",
+          "on": "Revelation 22:1-5",
+          "quote": "The heavenly state which was before described as a city, and called the new Jerusalem, is here described as a paradise, alluding to the earthly paradise which was lost by the sin of the first Adam; here is another paradise restored by the second Adam.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "clarke",
+          "on": "Revelation 22:2",
+          "quote": "The tree of life - An allusion to Gen 2:9.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "judah-inside-joseph",
+      "kind": "insert",
+      "ref": "Genesis 37:36-39:1",
+      "strength": "commonly held",
+      "short": "Judah's story set inside Joseph's",
+      "about": "Joseph is sold to Potiphar, then the account turns to Judah and Tamar, and then it goes back to Joseph in Potiphar's house.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Genesis 37:36",
+          "words": "the Midianites sold Joseph in Egypt to Potiphar",
+          "tie": "Potiphar"
+        },
+        {
+          "mark": "B",
+          "ref": "Genesis 38:1",
+          "words": "About that time, Judah left his brothers"
+        },
+        {
+          "mark": "A'",
+          "ref": "Genesis 39:1",
+          "words": "an Egyptian named Potiphar"
+        }
+      ],
+      "evidence": "Murphy: the account is an episode in the history of Joseph. Keil: the sale to Potiphar is repeated to take up the thread of the account again.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "barnes",
+          "on": "Genesis 38:1",
+          "quote": "This strange narrative is an episode in the history of Joseph; but an integral part of the \"generations\" of Jacob.",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        },
+        {
+          "source": "keil-delitzsch",
+          "on": "Genesis 39:1",
+          "quote": "Potiphar had bought him of the Ishmaelites, as is repeated in Gen 39:1 for the purpose of resuming the thread of the narrative",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "jairus-and-the-woman",
+      "kind": "insert",
+      "ref": "Matthew 9:18-25",
+      "strength": "some interpreters",
+      "short": "A healing on the way to Jairus's house",
+      "about": "A ruler asks Jesus to come to his dead daughter, a woman is healed on the way, and then Jesus raises the girl.",
+      "members": [
+        {
+          "mark": "A",
+          "ref": "Matthew 9:18",
+          "words": "My daughter has just died",
+          "tie": "daughter"
+        },
+        {
+          "mark": "B",
+          "ref": "Matthew 9:20",
+          "words": "a woman who had suffered from bleeding for twelve years"
+        },
+        {
+          "mark": "A'",
+          "ref": "Matthew 9:22",
+          "words": "Take courage, daughter"
+        }
+      ],
+      "evidence": "Henry: two accounts put together, the curing of the woman set in, as a parenthesis, in the middle of the raising of Jairus's daughter.",
+      "checked": "2026-11-22",
+      "cites": [
+        {
+          "source": "henry",
+          "on": "Matthew 9:18-26",
+          "quote": "We have here two passages of history put together; that of the raising of Jairus's daughter to life, and that of the curing of the woman that had the bloody issue, as he was going to Jairus's house, which is introduced in a parenthesis, in the midst of the other",
+          "read": "sacred-texts.com's transcription, in the copy at github.com/jonnyg23/mahabrain (commit b00aa50)",
+          "retrieved": "2026-11-22"
         }
       ]
     }
