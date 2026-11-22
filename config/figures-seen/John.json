@@ -4,6 +4,8 @@
     {"id": "john-1-29-metonymy-seen", "form": "metonymy", "ref": "John 1:29", "words": ["the world"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-1-46-question-seen", "form": "question", "ref": "John 1:46", "words": ["“Can anything good come from Nazareth?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-2-4-question-seen", "form": "question", "ref": "John 2:4", "words": ["why does this concern us?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-2-16-exclamation-seen", "form": "exclamation", "ref": "John 2:16", "words": ["How dare you turn My Father’s house into a marketplace!"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-2-19-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 2:19", "words": ["this temple"], "methods": ["list"], "checked": "2026-11-22"},
     {"id": "john-2-23-metonymy-seen", "form": "metonymy", "ref": "John 2:23", "words": ["His name"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-3-3-doubling-seen", "form": "doubling", "ref": "John 3:3", "words": ["Truly, truly"], "original": ["G0281"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "john-3-5-doubling-seen", "form": "doubling", "ref": "John 3:5", "words": ["Truly, truly"], "original": ["G0281"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
@@ -12,6 +14,8 @@
     {"id": "john-3-12-question-seen", "form": "question", "ref": "John 3:12", "words": ["how will you believe if I tell you about heavenly things?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-3-18-metonymy-seen", "form": "metonymy", "ref": "John 3:18", "words": ["the name"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-4-12-question-seen", "form": "question", "ref": "John 4:12", "words": ["Are You greater than our father Jacob, who gave us this well and drank from it himself, as did his sons and his livestock?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-4-32-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 4:32", "words": ["food"], "methods": ["list"], "checked": "2026-11-22"},
+    {"id": "john-4-35-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 4:35", "words": ["ripe for harvest"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-4-35-question-seen", "form": "question", "ref": "John 4:35", "words": ["Do you not say, ‘There are still four months until the harvest’?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-4-42-metonymy-seen", "form": "metonymy", "ref": "John 4:42", "words": ["the world"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-5-19-doubling-seen", "form": "doubling", "ref": "John 5:19", "words": ["Truly, truly"], "original": ["G0281"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
@@ -57,8 +61,10 @@
     {"id": "john-11-20-contrast-seen", "form": "contrast", "ref": "John 11:20", "words": ["Martha heard that Jesus was coming, she went out to meet Him; but Mary stayed at home"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-11-37-question-seen", "form": "question", "ref": "John 11:37", "words": ["“Could not this man who opened the eyes of the blind also have kept Lazarus from dying?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-11-40-question-seen", "form": "question", "ref": "John 11:40", "words": ["“Did I not tell you that if you believed, you would see the glory of God?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-12-13-exclamation-seen", "form": "exclamation", "ref": "John 12:13", "words": ["Hosanna"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-12-19-metonymy-seen", "form": "metonymy", "ref": "John 12:19", "words": ["the whole world"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-12-24-doubling-seen", "form": "doubling", "ref": "John 12:24", "words": ["Truly, truly"], "original": ["G0281"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
+    {"id": "john-12-24-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 12:24", "words": ["a kernel of wheat falls to the ground and dies", "it bears much fruit"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-12-40-many-ands-seen", "form": "many-ands", "ref": "John 12:40", "words": ["see with their eyes, and understand with their hearts, and turn, and I would heal them"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-12-47-metonymy-seen", "form": "metonymy", "ref": "John 12:47", "words": ["the world"], "methods": ["bsb"], "checked": "2026-11-14"},
     {"id": "john-13-3-metonymy-seen", "form": "metonymy", "ref": "John 13:3", "words": ["His hands"], "methods": ["bsb"], "checked": "2026-11-14"},
@@ -95,6 +101,9 @@
     {"id": "john-19-6-doubling-seen", "form": "doubling", "ref": "John 19:6", "words": ["Crucify Him! Crucify Him"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "john-19-10-question-seen", "form": "question", "ref": "John 19:10", "words": ["Do You not know that I have authority to release You and authority to crucify You?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-19-15-doubling-seen", "form": "doubling", "ref": "John 19:15", "words": ["Away with Him! Away with Him"], "original": ["G0142"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
+    {"id": "john-21-15-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 21:15", "words": ["Feed My lambs"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-21-16-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 21:16", "words": ["Shepherd My sheep"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "john-21-17-hypocatastasis-seen", "form": "hypocatastasis", "ref": "John 21:17", "words": ["Feed My sheep"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "john-21-18-doubling-seen", "form": "doubling", "ref": "John 21:18", "words": ["Truly, truly"], "original": ["G0281"], "methods": ["bsb", "orig"], "checked": "2026-11-22"}
   ]
 }
