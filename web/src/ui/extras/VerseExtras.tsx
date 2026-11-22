@@ -1,6 +1,9 @@
 // The one shared slot for extras in the reader:
-// - VerseExtras: under the selected verse, one quiet line per extra that has
-//   something to say about it (two, and "and N more" when more apply).
+// - VerseExtras: under the selected verse, a calm block: the verse's strongest
+//   links in the Bible as whole lines (at most two, plus "People ask"), then
+//   everything else as short named buttons in two rows, "The words" and
+//   "From writers". Every extra that has something to say keeps its place;
+//   each button carries its full line as its label and opens the same panel.
 // - ChapterExtras: the same under the chapter heading, for extras that have a
 //   chapter line. It also hosts the open panel, because it is always mounted.
 // Nothing at all shows while data loads, when it fails, or when no extra applies.
@@ -24,7 +27,7 @@ import { Shell } from './Sheet';
 import { peek, peeks, places, unpeek } from './peek';
 import type { ChapterRef, NoteLine, VerseLink, VerseRef } from './types';
 
-/** Lines shown before "and N more". */
+/** Chapter lines shown before "and N more". */
 const SHOWN = 2;
 
 /** Extras whose notes appear at the reader's current level. */
@@ -179,6 +182,106 @@ function Notes({ a, items, kind, at, name }: { a: Atlas; items: Item[]; kind: 'v
   );
 }
 
+/** Whole lines kept under the selected verse, before the named buttons. */
+const LEAD = 2;
+
+/** The rows of named buttons under the selected verse. An extra not named
+ * here goes to "From writers" when it shows commentary, else to "The words". */
+type Group = 'bible' | 'words' | 'writers';
+const GROUP: Record<string, Group> = {
+  quotes: 'bible',
+  prophecies: 'bible',
+  parallels: 'bible',
+  themes: 'bible',
+  tours: 'bible',
+  'real-map': 'bible',
+  people: 'bible',
+  ask: 'bible',
+  wordplay: 'words',
+  aramaic: 'words',
+  grammar: 'words',
+  peshitta: 'words',
+  figures: 'words',
+  structure: 'words',
+  seen: 'words',
+  patterns: 'words',
+  'hard-verses': 'writers',
+  'hard-passages': 'writers',
+  notes: 'writers',
+  dictionary: 'writers',
+  customs: 'writers',
+  voices: 'writers',
+};
+const GROUP_NAME: Record<Group, string> = { bible: 'In the Bible', words: 'The words', writers: 'From writers' };
+
+/** Short button names; anything else uses its extra's title. */
+const SHORT: Record<string, string> = {
+  quotes: 'Quotations',
+  prophecies: 'Prophecy',
+  parallels: 'Parallels',
+  tours: 'Guided tour',
+  'real-map': 'Places',
+  aramaic: 'Aramaic',
+  peshitta: 'Syriac',
+  'hard-verses': 'Often asked',
+  dictionary: 'Old dictionaries',
+  customs: 'Bible times',
+};
+
+function groupOf(x: AnyExtra): Group {
+  return GROUP[x.id] ?? (x.commentary === true ? 'writers' : 'words');
+}
+
+/** One named button: the extra's short name, with its full line as its title. */
+function Chip({ a, item, at, isOpen }: { a: Atlas; item: Item; at: VerseRef; isOpen: boolean }) {
+  const { x, line } = item;
+  const btn = useRef<HTMLButtonElement>(null);
+  const parts = typeof line === 'string' ? [line] : line;
+  const words = plain(a, parts);
+  const open = () => (isCommentary(x, 'verse') && !accepted.peek() ? void askNotice().then((ok) => ok && openExtra(x.id, 'verse', at, btn.current)) : openExtra(x.id, 'verse', at, btn.current));
+  const asks = isCommentary(x, 'verse') && !accepted.value ? '' : undefined;
+  const name = x.id === 'notes' && /^A study note/.test(words) ? 'Study note' : (SHORT[x.id] ?? x.title);
+  return (
+    <button ref={btn} type="button" class={`xt-chip${isOpen ? ' xt-on' : ''}`} data-x={x.id} data-cn-ask={asks} onClick={open} title={words} aria-haspopup="dialog" aria-expanded={isOpen}>
+      {name}
+    </button>
+  );
+}
+
+/** The block under the selected verse: a few whole lines, then rows of names. */
+function VerseNotes({ a, items, at }: { a: Atlas; items: Item[]; at: VerseRef }) {
+  const o = openPanel.value;
+  const isOpen = (x: AnyExtra) => !!o && o.id === x.id && o.kind === 'verse';
+  // "People ask" is how the reader reaches Ask the Bible, so it always keeps its line.
+  const bible = items.filter((it) => groupOf(it.x) === 'bible');
+  const lead = [...bible.filter((it) => it.x.id !== 'ask').slice(0, LEAD), ...bible.filter((it) => it.x.id === 'ask')];
+  const rows: [Group, Item[]][] = (['bible', 'words', 'writers'] as const).map((g) => [g, items.filter((it) => groupOf(it.x) === g && !lead.includes(it))]);
+  const named = rows.filter(([, its]) => its.length);
+  return (
+    <div class="xt-notes xt-verse" role="group" aria-label={`More about ${label(a, at)}`}>
+      {lead.map((it) => (
+        <Line key={it.x.id} a={a} item={it} kind="verse" at={at} isOpen={isOpen(it.x)} />
+      ))}
+      {named.length > 0 && (
+        <div class={`xt-groups${lead.length ? '' : ' xt-alone'}`}>
+          {named.map(([g, its]) => (
+            <div class="xt-group" key={g} role="group" aria-label={GROUP_NAME[g]}>
+              <span class="xt-gname" aria-hidden="true">
+                {GROUP_NAME[g]}
+              </span>
+              <span class="xt-chips">
+                {its.map((it) => (
+                  <Chip key={it.x.id} a={a} item={it} at={at} isOpen={isOpen(it.x)} />
+                ))}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** The quiet block under the selected verse. Renders nothing when no extra applies. */
 export function VerseExtras({ a, verse }: { a: Atlas; verse: VerseRef }) {
   const xs = visibleExtras();
@@ -191,7 +294,7 @@ export function VerseExtras({ a, verse }: { a: Atlas; verse: VerseRef }) {
     if (line) items.push({ x, line });
   }
   if (!items.length) return null;
-  return <Notes key={verse} a={a} items={items} kind="verse" at={verse} name={label(a, verse)} />;
+  return <VerseNotes key={verse} a={a} items={items} at={verse} />;
 }
 
 /** The quiet block under the chapter heading, plus the host for open panels. */

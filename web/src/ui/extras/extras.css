@@ -93,6 +93,70 @@ button.xt-chev {
   }
 }
 
+/* Under the selected verse: rows of short named buttons, each row with a
+   small name of its own ("The words", "From writers"). */
+.xt-groups {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: baseline;
+  gap: 8px 12px;
+  margin-top: 8px;
+}
+.xt-groups.xt-alone {
+  margin-top: 4px;
+}
+.xt-group {
+  display: contents;
+}
+.xt-gname {
+  font: 600 10.5px var(--font-ui);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.xt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.xt-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font: 12.5px/1.35 var(--font-ui);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 0.12s,
+    color 0.12s;
+}
+.xt-chip:hover,
+.xt-chip.xt-on {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.xt-chip:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+@media (pointer: coarse) {
+  .xt-chip {
+    padding: 6px 12px;
+  }
+}
+/* A narrow reader: the rows' names take less room. */
+@container reader (max-width: 440px) {
+  .xt-groups {
+    column-gap: 10px;
+  }
+  .xt-gname {
+    white-space: normal;
+    max-width: 5.5em;
+  }
+}
+
 /* ------------------------------------------------------------ the panel */
 
 .xt-scrim {
