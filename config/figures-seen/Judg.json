@@ -27,6 +27,7 @@
     {"id": "judges-6-14-metonymy-seen", "form": "metonymy", "ref": "Judges 6:14", "words": ["the hand of Midian"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-6-14-question-seen", "form": "question", "ref": "Judges 6:14", "words": ["Am I not sending you?"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "judges-6-15-question-seen", "form": "question", "ref": "Judges 6:15", "words": ["how can I save Israel?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-6-22-exclamation-seen", "form": "exclamation", "ref": "Judges 6:22", "words": ["Oh no"], "original": ["H0162"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "judges-7-2-metonymy-seen", "form": "metonymy", "ref": "Judges 7:2", "words": ["their hands", "My own hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-7-7-metonymy-seen", "form": "metonymy", "ref": "Judges 7:7", "words": ["your hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-7-9-metonymy-seen", "form": "metonymy", "ref": "Judges 7:9", "words": ["your hand"], "methods": ["bsb"], "checked": "2026-11-22"},
@@ -52,6 +53,7 @@
     {"id": "judges-11-26-question-seen", "form": "question", "ref": "Judges 11:26", "words": ["Why did you not take them back during that time?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-11-30-metonymy-seen", "form": "metonymy", "ref": "Judges 11:30", "words": ["my hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-11-32-metonymy-seen", "form": "metonymy", "ref": "Judges 11:32", "words": ["his hand"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-11-35-exclamation-seen", "form": "exclamation", "ref": "Judges 11:35", "words": ["No"], "original": ["H0162"], "methods": ["orig"], "checked": "2026-11-22"},
     {"id": "judges-11-39-euphemism-seen", "form": "euphemism", "ref": "Judges 11:39", "words": ["had relations with"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-12-2-metonymy-seen", "form": "metonymy", "ref": "Judges 12:2", "words": ["their hands"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-12-3-metonymy-seen", "form": "metonymy", "ref": "Judges 12:3", "words": ["my hand"], "methods": ["bsb"], "checked": "2026-11-22"},
@@ -61,6 +63,7 @@
     {"id": "judges-14-3-question-seen", "form": "question", "ref": "Judges 14:3", "words": ["“Can’t you find a young woman among your relatives or among any of our people?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-14-15-question-seen", "form": "question", "ref": "Judges 14:15", "words": ["Did you invite us here to rob us?"], "methods": ["orig"], "checked": "2026-11-22"},
     {"id": "judges-14-16-question-seen", "form": "question", "ref": "Judges 14:16", "words": ["why should I explain it to you?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-14-18-question-seen", "form": "question", "ref": "Judges 14:18", "words": ["What is sweeter than honey?", "what is stronger than a lion?"], "methods": ["bsb", "list"], "checked": "2026-11-22"},
     {"id": "judges-15-2-question-seen", "form": "question", "ref": "Judges 15:2", "words": ["Is not her younger sister more beautiful than she?"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "judges-15-11-question-seen", "form": "question", "ref": "Judges 15:11", "words": ["Do you not realize that the Philistines rule over us?"], "methods": ["bsb", "orig"], "checked": "2026-11-22"},
     {"id": "judges-15-18-metonymy-seen", "form": "metonymy", "ref": "Judges 15:18", "words": ["the hands of the uncircumcised"], "methods": ["bsb"], "checked": "2026-11-22"},
@@ -68,13 +71,17 @@
     {"id": "judges-16-15-question-seen", "form": "question", "ref": "Judges 16:15", "words": ["How can you say, ‘I love you,’” she asked, “when your heart is not with me?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-16-23-metonymy-seen", "form": "metonymy", "ref": "Judges 16:23", "words": ["our hands"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-16-24-metonymy-seen", "form": "metonymy", "ref": "Judges 16:24", "words": ["our hands"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-17-6-refrain-seen", "form": "refrain", "ref": "Judges 17:6", "words": ["there was no king in Israel"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-18-1-refrain-seen", "form": "refrain", "ref": "Judges 18:1", "words": ["there was no king in Israel"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-18-9-question-seen", "form": "question", "ref": "Judges 18:9", "words": ["Why would you fail to act?"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-18-10-metonymy-seen", "form": "metonymy", "ref": "Judges 18:10", "words": ["your hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-18-24-question-seen", "form": "question", "ref": "Judges 18:24", "words": ["How can you say to me, ‘What is the matter with you?"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-19-1-refrain-seen", "form": "refrain", "ref": "Judges 19:1", "words": ["there was no king in Israel"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-19-22-euphemism-seen", "form": "euphemism", "ref": "Judges 19:22", "words": ["have relations with"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-20-28-metonymy-seen", "form": "metonymy", "ref": "Judges 20:28", "words": ["your hand"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-20-37-metonymy-seen", "form": "metonymy", "ref": "Judges 20:37", "words": ["the whole city"], "methods": ["bsb"], "checked": "2026-11-22"},
     {"id": "judges-21-11-euphemism-seen", "form": "euphemism", "ref": "Judges 21:11", "words": ["had relations with"], "methods": ["bsb"], "checked": "2026-11-22"},
-    {"id": "judges-21-12-euphemism-seen", "form": "euphemism", "ref": "Judges 21:12", "words": ["had relations with"], "methods": ["bsb"], "checked": "2026-11-22"}
+    {"id": "judges-21-12-euphemism-seen", "form": "euphemism", "ref": "Judges 21:12", "words": ["had relations with"], "methods": ["bsb"], "checked": "2026-11-22"},
+    {"id": "judges-21-25-refrain-seen", "form": "refrain", "ref": "Judges 21:25", "words": ["there was no king in Israel"], "methods": ["bsb"], "checked": "2026-11-22"}
   ]
 }

@@ -68,7 +68,7 @@ for j in mop['judged']:
     if why is None:
         why = A.check(r, forms)
         if why:
-            why = f'build would refuse: {why}'
+            why = A.refused(why)
     if why is None and r['id'] in notes:
         why = f'same form already on this verse ({r["id"]})'
     rec = {'i': i, 'id': row['id'], 'kept': None, 'how': 'read a third time'}

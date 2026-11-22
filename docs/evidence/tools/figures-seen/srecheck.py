@@ -7,7 +7,9 @@ The build's checks grew after a review (2026-11-22): an entry is checked where
 the display marks it, its first place in each verse that holds it, and must
 start and end with whole words and overlap no other entry; and a tag may be
 listed once (a root named twice, for two words of that root, is named once,
-since the display lights every word with the root). An entry that lies
+since the display lights every word with the root). A list marked "And, and,
+and" must say "and" twice or more in its marked words (a run of "or" or "nor"
+does not show that label). An entry that lies
 wholly inside another ("Aha" inside "Aha, aha") marks nothing the other does
 not, so it is taken out, and the place reads as it did. Any place the build
 would then refuse is dropped, with the reason in the evidence record and the
@@ -57,7 +59,7 @@ if __name__ == '__main__':
         why = A.check(x, forms)
         if why is None:
             continue
-        why = f'build would refuse: {why}'
+        why = A.refused(why)
         del books[osis][x['id']]
         drops.append({'i': p['i'], 'id': p['id'], 'ref': x['ref'], 'form': x['form'], 'why': why, 'reasons': []})
         p['kept'] = None
