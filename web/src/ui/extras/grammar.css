@@ -144,6 +144,21 @@ button.x-grammar-word:focus-visible {
   font-size: 14px;
   color: var(--ink);
 }
+.xt-body .x-grammar-sub {
+  margin: 10px 0 6px;
+  font: 600 12px var(--font-ui);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.x-grammar-onhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.xt-body .x-grammar-onhead h4 {
+  margin: 0;
+}
 .x-grammar-says {
   margin: 8px 0 6px;
   padding-left: 10px;
